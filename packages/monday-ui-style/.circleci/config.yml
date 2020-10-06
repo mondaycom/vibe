@@ -1,0 +1,101 @@
+version: 2.1
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10.16.3
+
+filter_master_branch: &filter_master_branch
+  filters:
+    branches:
+      only:
+        - master
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install modules
+          command: npm install
+      - run:
+          name: Build package
+          command: npm run build
+      # - run:
+      #     name: Run tests
+      #     command: npm test
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  deploy_minor:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Bump version
+          command: npm run auto:bump-minor
+      - run:
+          name: Publish package
+          command: npm publish
+
+  deploy_major:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Bump version
+          command: npm run auto:bump-major
+      - run:
+          name: Publish package
+          command: npm publish
+
+workflows:
+  version: 2
+  deploy_non_braking_changes_minor:
+    jobs:
+      - begin_deploy:
+          type: approval
+          <<: *filter_master_branch
+      - build:
+          requires:
+            - begin_deploy
+      - deploy_minor:
+          requires:
+            - build
+          <<: *filter_master_branch
+
+  deploy_braking_changes:
+    jobs:
+      - begin_deploy_breaking_changes:
+          type: approval
+          <<: *filter_master_branch
+      - second_begin_deploy:
+          type: approval
+          requires:
+            - begin_deploy_breaking_changes
+          <<: *filter_master_branch
+      - build:
+          requires:
+            - second_begin_deploy
+      - deploy_major:
+          requires:
+            - build
+          <<: *filter_master_branch
