@@ -1,7 +1,7 @@
 {
-  "name": "@mondaydotcomorg/monday-style",
-  "version": "3.18.1",
-  "description": "",
+  "name": "monday-ui-react-core",
+  "version": "0.0.1",
+  "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
     "auto:bump-patch": "node scripts/autobump_patch.js",
@@ -19,10 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DaPulse/monday-style.git"
+    "url": "git+https://github.com/DaPulse/monday-ui-react-core.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "src/",
     "dist/",
@@ -30,11 +30,11 @@
     "THEME_README.md"
   ],
   "bugs": {
-    "url": "https://github.com/DaPulse/monday-style/issues"
+    "url": "https://github.com/DaPulse/monday-ui-react-core/issues"
   },
-  "homepage": "https://github.com/DaPulse/monday-style#readme",
+  "homepage": "https://github.com/DaPulse/monday-ui-react-core#readme",
   "dependencies": {
-    "@mondaydotcomorg/monday-ui-foundations": "^1.3.0",
+    "monday-ui-style": "^0.0.1",
     "@popperjs/core": "^2.4.3",
     "classnames": "^2.2.6",
     "lodash": "^4.17.19",

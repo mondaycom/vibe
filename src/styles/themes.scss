@@ -1,6 +1,6 @@
 @import "../constants/colors.json";
 @import "./global-css-settings.scss";
-@import "~@mondaydotcomorg/monday-ui-foundations/dist/index.min.css";
+@import "~monday-ui-style/dist/index.min.css";
 
 $theme: (
   "primary-color": $basic_blue,
