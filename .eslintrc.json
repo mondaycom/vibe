@@ -1,0 +1,39 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "mocha": true
+  },
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "plugin:prettier/recommended", "plugin:react-hooks/recommended"],
+  "plugins": ["only-warn", "import", "react", "jsx-a11y", "json", "markdown", "mocha", "react-hooks"],
+  "rules": {
+    "global-require": "off",
+    "no-unused-expressions": "off",
+    "no-console": "off",
+    "consistent-return": "off",
+    "no-use-before-define": "off",
+    "one-var": "off",
+    "default-case": "off",
+    "func-names": "off",
+    "react/sort-comp": "off",
+    "prefer-destructuring": "off",
+    "class-methods-use-this": "off",
+    "radix": "off",
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-underscore-dangle": "off",
+    "import/prefer-default-export": "off",
+    "no-plusplus": "off",
+    "react/react-in-jsx-scope": 0,
+    "react/no-did-update-set-state": "off",
+    "arrow-body-style": "off",
+    "react/no-danger": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/alt-text": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react/jsx-boolean-value": "off"
+  }
+}

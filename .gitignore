@@ -1,0 +1,6 @@
+node_modules
+.vscode
+.idea
+npm-debug.log
+/storybook-static
+dist
