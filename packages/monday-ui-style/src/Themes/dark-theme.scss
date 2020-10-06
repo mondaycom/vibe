@@ -1,0 +1,46 @@
+.dark-app-theme {
+  // primary coloring
+  --primary-color: #339dff;
+  --primary-on-secondary-color: #43adff;
+  --primary-hover-color: #578edb;
+  --primary-hover-on-secondary-color: #72a0e1;
+  --primary-selected-color: #4b4e69;
+  --primary-selected-on-secondary-color: #4b4e69;
+  --primary-text-color: var(--color-ui_grey);
+  --primary-text-on-secondary-color: var(--color-ui_grey);
+  --primary-background-color: #1c1f3b;
+  --primary-background-color-rgb: 28, 31, 59;
+  --primary-background-hover-color: #4b4e69;
+  --primary-background-hover-on-secondary-color: #4b4e69;
+
+  // borders
+  --ui-border-color: #797e93;
+  --ui-border-on-secondary-color: #797e93;
+  --layout-border-color: #393b53;
+  --layout-border-on-secondary-color: #393b53;
+
+  --placeholder-color: var(--color-jaco_gray);
+  --placeholder-on-secondary-color: var(--color-jaco_gray);
+  --icon-color: var(--color-wolf_gray);
+  --icon-on-secondary-color: var(--color-wolf_gray);
+
+  // disabled
+  --disabled-background-color: #4b4e69;
+  --disabled-background-on-secondary-color: #4b4e69;
+  --disabled-text-color: rgba(197, 199, 208, 0.75);
+  --disabled-text-on-secondary-color: rgba(197, 199, 208, 0.75);
+
+  --dark-background-color: #393b53;
+  --dark-background-on-secondary-color: #4b4e69;
+  --modal-background-color: #1c1f3b;
+  --secondary-background-color: #393b53;
+  //deprecated - use secondary-background-color
+  --dialog-background-color: #393b53;
+
+  --label-background-color: #404b69;
+  --label-background-on-secondary-color: #404b69;
+  --secondary-text-color: var(--color-jaco_gray);
+  --secondary-text-on-secondary-color: var(--color-jaco_gray);
+  --link-color: #6191c9;
+  --link-on-secondary-color: #7aa3d2;
+}
