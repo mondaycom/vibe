@@ -1,6 +1,6 @@
 {
-  "name": "@mondaydotcomorg/monday-ui-foundations",
-  "version": "1.0.8",
+  "name": "monday-ui-style",
+  "version": "0.0.1",
   "description": "Monday UI CSS Foundations",
   "main": "dist/index.css",
   "scripts": {
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DaPulse/monday-ui-foundations.git"
+    "url": "git+https://github.com/DaPulse/monday-ui-style.git"
   },
   "keywords": [
     "CSS",
     "THEMES"
   ],
-  "author": "Monday.com",
-  "license": "ISC",
+  "author": "monday.com",
+  "license": "MIT",
   "files": [
     "src/",
     "dist/"
