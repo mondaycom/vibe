@@ -1,0 +1,94 @@
+@import "./colors";
+
+// Links
+$link-color: $brand-primary !default;
+$link-decoration: none !default;
+$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+
+// Fonts
+$font-family-base: "Roboto" !default;
+
+// Pixel value used to responsively scale all typography. Applied to the `<html>` element.
+$font-size-root: 15px !default;
+
+$font-size-base: 0.875rem !default;
+$font-size-lg: 0.875rem !default;
+$font-size-sm: 0.875rem !default;
+$font-size-xs: 0.75rem !default;
+
+$font-weight-normal: 300 !default;
+$font-weight-bold: 500 !default;
+
+$font-weight-base: $font-weight-normal !default;
+$line-height-base: 1.5 !default;
+
+$rounded-radius: 15rem;
+
+$line-height-lg: (4 / 3) !default;
+$line-height-sm: 1.5 !default;
+
+$border-radius: 0.1333rem !default;
+$border-radius-lg: 0.1333rem !default;
+$border-radius-sm: 0.1333rem !default;
+
+$transition-base: all 0.2s ease-in-out !default;
+
+// Buttons
+$btn-padding-x: 2rem !default;
+$btn-padding-y: 0.641rem !default;
+
+$btn-padding-x-sm: 1.5rem !default;
+$btn-padding-y-sm: 0.391rem !default;
+
+$btn-padding-x-lg: 2.5rem !default;
+$btn-padding-y-lg: 0.891rem !default;
+
+$btn-loader-size-base: 0.677rem !default;
+$btn-loader-size-lg: 0.9rem !default;
+$btn-loader-size-sm: 0.575rem !default;
+
+$btn-line-height: 1.25 !default;
+$btn-font-weight: $font-weight-normal !default;
+
+$btn-primary-color: $snow_white !default;
+$btn-primary-bg: $brand-primary !default;
+$btn-primary-border: $btn-primary-bg !default;
+
+$btn-secondary-color: $brand-primary !default;
+$btn-secondary-bg: transparent !default;
+$btn-secondary-border: transparent !default; //TODO : @eladams: fix it(this is a color).
+
+$btn-shareable-color: $snow_white !default;
+$btn-shareable-bg: $brand-shareable !default;
+$btn-shareable-border: $btn-shareable-bg !default;
+
+$btn-private-color: $snow_white !default;
+$btn-private-bg: $brand-private !default;
+$btn-private-border: $btn-private-bg !default;
+
+$btn-alert-color: $snow_white !default;
+$btn-alert-bg: $brand-alert !default;
+$btn-alert-border: $btn-alert-bg !default;
+
+$btn-positive-color: $snow_white !default;
+$btn-success-bg: $brand-success !default;
+$btn-success-border: $btn-success-bg !default;
+
+$btn-blackish-color: $snow_white !default;
+$btn-blackish-bg: $blackish !default;
+$btn-blackish-border: $blackish !default;
+
+$btn-link-disabled-color: $dark_marble !default;
+
+$btn-block-spacing-y: 0.5rem !default;
+$btn-toolbar-margin: 0.5rem !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius: $rounded-radius !default;
+$btn-border-radius-lg: $rounded-radius !default;
+$btn-border-radius-sm: $rounded-radius !default;
+
+$btn-transition: padding-left 0.35s cubic-bezier(0.19, 1, 0.22, 1),
+  padding-right 0.35s cubic-bezier(0.19, 1, 0.22, 1), color 0.1s ease-in-out,
+  background-color 0.1s ease-in-out, border-color 0.1s ease-in-out !default;

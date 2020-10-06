@@ -1,0 +1,20 @@
+.tooltip-reference-container {
+  background-color: var(--color-ui_grey);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease-in;
+  &:hover {
+    background-color: var(--color-wolf_gray);
+  }
+  .tooltip-reference-dot {
+    background-color: var(--color-mud_black);
+    width: 6px;
+    height: 6px;
+    margin: 0 2px;
+    border-radius: 50%;
+  }
+}

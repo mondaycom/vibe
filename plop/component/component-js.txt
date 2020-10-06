@@ -1,0 +1,16 @@
+import React from "react";
+import cx from "classnames";
+import "./{{properCase componentName}}.scss";
+
+const {{properCase componentName}} = ({
+    componentClassName = '',
+    text = ''
+}) => {
+  return (
+    <div className={cx("{{dashCase componentName}}--wrapper", componentClassName)}>
+        {text}
+    </div>
+  );
+};
+
+export default {{properCase componentName}};

@@ -1,0 +1,201 @@
+import { Meta, Story, Props, Preview } from "@storybook/addon-docs/blocks";
+import { DialogStory } from "./StoryComponents/DialogStory.jsx"
+import ReferenceComponent from "./StoryComponents/Reference";
+import StoryDialogContent from "./StoryComponents//StoryDialogContent";
+import Dialog from "../Dialog";
+import Tooltip from "../../Tooltip/Tooltip";
+import {
+  StoryStateRow,
+  StoryStateColumn,
+  ComponentStateDescription,
+  FlexLayout,
+  Divider
+} from "../../storybook-helpers";
+
+
+<Meta title="Components/Dialog" />
+
+<Preview>
+  <Story name="Dialog">
+  <div>
+        <div style={{"margin": "100px 0", "height": "150px", "display": "flex", "justifyContent": "center"}}>
+            <FlexLayout spaceBetween>
+              <div>
+              <Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"top-start"}
+                startingEdge="bottom"
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                <ReferenceComponent title="Click Me - Top"  edge="start"/>
+              </Dialog>
+              <ComponentStateDescription title="start" />
+              </div>
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"top"}
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                    <ReferenceComponent title="Click Me - Top" edge="center" />
+              </Dialog>
+              <ComponentStateDescription title="center" />
+              </div>
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"top-end"}
+                startingEdge="top"
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                    <ReferenceComponent title="Click Me - Top" edge="end"/>
+              </Dialog>
+              <ComponentStateDescription title="end" />
+              </div>
+            </FlexLayout>
+        </div>
+        <Divider />
+        <div style={{"marginBottom": "100px", "height": "350px", "display": "flex", "justifyContent": "center"}}>
+            <FlexLayout spaceBetween direction="column">
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"right-start"}
+                startingEdge="bottom"
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                <ReferenceComponent title="Click Me - Right"  edge="start"/>
+              </Dialog>
+              <ComponentStateDescription title="start" />
+              </div>
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"right"}
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                    <ReferenceComponent title="Click Me - Right" edge="center" />
+              </Dialog>
+              <ComponentStateDescription title="center" />
+              </div>
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"right-end"}
+                startingEdge="top"
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                    <ReferenceComponent title="Click Me - Right" edge="end"/>
+              </Dialog>
+              <ComponentStateDescription title="end" />
+              </div>
+            </FlexLayout>
+        </div>
+        <Divider />
+        <div style={{"marginBottom": "100px", "height": "350px", "display": "flex", "justifyContent": "center"}}>
+            <FlexLayout spaceBetween direction="column">
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"left-start"}
+                startingEdge="bottom"
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                <ReferenceComponent title="Click Me - Left"  edge="start"/>
+              </Dialog>
+              <ComponentStateDescription title="start" />
+              </div>
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"left"}
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                    <ReferenceComponent title="Click Me - Left" edge="center" />
+              </Dialog>
+              <ComponentStateDescription title="center" />
+              </div>
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"left-end"}
+                startingEdge="top"
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                    <ReferenceComponent title="Click Me - Left" edge="end"/>
+              </Dialog>
+              <ComponentStateDescription title="end" />
+              </div>
+            </FlexLayout>
+        </div>
+        <Divider />
+        <div style={{"marginBottom": "100px", "height": "150px", "display": "flex", "justifyContent": "center"}}>
+            <FlexLayout spaceBetween >
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"bottom-start"}
+                startingEdge="bottom"
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                <ReferenceComponent title="Click Me - Bottom"  edge="start"/>
+              </Dialog></div>
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"bottom"}
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                    <ReferenceComponent title="Click Me - Bottom" edge="center" />
+              </Dialog></div>
+              <div><Dialog
+                animationType="expand"
+                moveBy={{main: 10, secondary: 0}}
+                hideTrigger={["clickoutside"]}
+                showTrigger={[ "mousedown"]}
+                position={"bottom-end"}
+                startingEdge="top"
+                shouldShowOnMount
+                content={() => <StoryDialogContent />}
+              >
+                    <ReferenceComponent title="Click Me - Bottom" edge="end"/>
+              </Dialog></div>
+            </FlexLayout>
+        </div>
+        </div>
+    </Story>
+</Preview>

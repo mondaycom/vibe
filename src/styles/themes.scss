@@ -1,0 +1,84 @@
+@import "../constants/colors.json";
+@import "./global-css-settings.scss";
+@import "~@mondaydotcomorg/monday-ui-foundations/dist/index.min.css";
+
+$theme: (
+  "primary-color": $basic_blue,
+  "primary-text-on-primary": $snow_white,
+  "primary-hover-color": $dark_blue,
+  "primary-selected-color": $higlight,
+  "positive-color": $success,
+  "negative-color": $error,
+  "negative-color-hover": #b63546,
+  "negative-color-selected": #b63546,
+  "private-color": $private,
+  "positive-color-hover": #00a25b,
+  "primary-color-selected": #00a25b,
+  "share-color": $purple,
+  "ui-border-color": $ui_grey,
+  "layout-border-color": $ui_grey,
+  "placeholder-color": $asphalt,
+  "icon-color": $asphalt,
+  "disabled-background-color": $ui_grey,
+  "disabled-text-color": $asphalt,
+  "link-color": $link_color,
+  "primary-text-color": $mud_black,
+  "icon-color-hover": $wolf_gray,
+  "main-nav-background-color": $surface,
+  "primary-background-color": $snow_white,
+  "primary-background-hover-color": $wolf_gray,
+  "dark-color": $mud_black,
+  "secondary-text-color": $mud_black,
+  "text-color-on-primary": $snow_white
+);
+
+$theme-var: (
+  "primary-color": var(--primary-color),
+  "primary-text-on-primary": var(--primary-text-on-primary),
+  "primary-hover-color": var(--primary-hover-color),
+  "primary-selected-color": var(--primary-selected-color),
+  "positive-color": var(--positive-color),
+  "positive-color-hover": var(--positive-color-hover),
+  "positive-color-selected": var(--positive-color-selected),
+  "negative-color": var(--negative-color),
+  "negative-color-hover": var(--negative-color-hover),
+  "negative-color-selected": var(--negative-color-selected),
+  "private-color": var(--private-color),
+  "share-color": var(--share-color),
+  "ui-border-color": var(--ui-border-color),
+  "layout-border-color": var(--color-ui_grey),
+  "placeholder-color": var(--layout-border-color),
+  "icon-color": var(--icon-color),
+  "disabled-background-color": var(--disabled-background-color),
+  "disabled-text-color": var(--disabled-text-color),
+  "link-color": var(--link-color),
+  "primary-text-color": var(--primary-text-color),
+  "icon-color-hover": var(--color-wolf_gray),
+  "primary-background-color": var(--primary-background-color),
+  "primary-background-hover-color": var(--primary-background-hover-color),
+  "dark-color": var(--color-mud_black),
+  "secondary-text-color": var(--secondary-text-color),
+  "text-color-on-primary": var(--text-color-on-primary)
+);
+
+@mixin theme-prop(
+  $property: color,
+  $color-variable: primary-text-color,
+  $important: false
+) {
+  @if $important {
+    #{$property}: theme-value-default($color-variable) !important;
+    #{$property}: theme-value-var($color-variable) !important;
+  } @else {
+    #{$property}: theme-value-default($color-variable);
+    #{$property}: theme-value-var($color-variable);
+  }
+}
+
+@function theme-value-default($color-variable: primary-text-color) {
+  @return map-get($theme, $color-variable);
+}
+
+@function theme-value-var($color-variable: primary-text-color) {
+  @return map-get($theme-var, $color-variable);
+}

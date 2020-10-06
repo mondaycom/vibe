@@ -1,0 +1,15 @@
+.dialog-reference-component {
+  height: 40px;
+  width: auto;
+  background-color: var(--color-basic_blue);
+  color: var(--color-snow_white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  .title {
+    font-size: 18px;
+  }
+}

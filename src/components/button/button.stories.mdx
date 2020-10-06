@@ -1,0 +1,241 @@
+import { Meta, Story, Props, Preview } from "@storybook/addon-docs/blocks";
+import Button from "./button";
+import CustomIconButton from "./custom-icon-button"
+import { StoryStateRow, StoryStateColumn } from "../storybook-helpers";
+import { action } from '@storybook/addon-actions';
+import { text, boolean, number, select } from "@storybook/addon-knobs";
+
+# Button
+
+<Props of={Button} />
+
+# Sandbox
+ use in canvas mode to dynamically change properties
+
+<Story name="Sandbox">
+    <Button
+      onClick={action('clicked')}
+      color={select('Color', ["primary", "secondary", "alert", "success", "blackish","private","shareable"], "primary")}
+      outline={boolean("Outline", false)}
+      block={boolean("Block", false)}
+      active={boolean("Active", false)}
+      disabled={boolean("Disabled", false)}
+      loading={boolean("Loading", false)}
+      icon={select('Icon', ["", "fa fa-star"], "")}
+      rightIcon={boolean("rightIcon", false)}
+      success={boolean("Success", false)}
+      successText={text("Success Text", "Success!!")}
+      successIcon={select('Success Icon', ["", "fa fa-check"], "")}
+      size={select('Size', ["sm", "md", "lg"], "md")}
+    >
+      Button
+    </Button>
+</Story>
+
+# Types
+
+<Preview>
+  <Story name="Types">
+    <StoryStateRow>
+      <StoryStateColumn title="Fill button" description={`High emphasis.\nContained buttons have more emphasis, as they use use a color fill and shadow.`}>
+          <Button color="primary">
+              Button
+          </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Outlined Button" description={`Medium emphasis.\nOutlined buttons are used for more emphasis than text buttons due to the stroke.`}>
+          <Button outline={true}>
+              Button
+          </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Text button" description={`Low emphasis.\nOutlined buttons are used for more emphasis than text buttons due to the stroke.`}>
+          <Button  color="secondary">
+              Button
+          </Button>
+      </StoryStateColumn>
+    </StoryStateRow>
+  </Story>
+</Preview>
+
+# Sizes
+
+<Preview>
+  <Story name="Sizes">
+    <StoryStateRow>
+      <StoryStateColumn title="Large" description={`Call for action\nMarketing banners\nImportant updates.`}>
+          <Button size="lg">
+              Button
+          </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Medium" description="Regular actions">
+          <Button >
+              Button
+          </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Small" description={`Small actions\nPost, perly , copy, readmore.`}>
+          <Button  size="sm">
+              Button
+          </Button>
+      </StoryStateColumn>
+    </StoryStateRow>
+  </Story>
+</Preview>
+
+# States
+
+<Preview>
+  <Story name="States">
+    <div>
+      <StoryStateRow>
+        <StoryStateColumn title="Regular">
+            <Button>
+              Button
+            </Button>
+        </StoryStateColumn>
+        <StoryStateColumn title="Hover" description="-30% dark">
+            <Button active={true}>
+                Button
+            </Button>
+        </StoryStateColumn>
+        <StoryStateColumn title="Active" description="20% smaller (width)">
+            <Button active={true}>
+                Button
+            </Button>
+        </StoryStateColumn>
+        <StoryStateColumn title="Disabled" description={`fill: Riverstone\ntext: Wolf`}>
+            <Button disabled={true}>
+                Button
+            </Button>
+        </StoryStateColumn>
+      </StoryStateRow>
+      <StoryStateRow>
+        <StoryStateColumn>
+            <Button outline={true} description="Stroke: Primary blue">
+              Button
+            </Button>
+        </StoryStateColumn>
+        <StoryStateColumn  description="Fill: Highlight blue">
+            <Button outline={true} active={true}>
+                Button
+            </Button>
+        </StoryStateColumn>
+        <StoryStateColumn description="20% smaller (width)">
+            <Button outline={true} active={true}>
+                Button
+            </Button>
+        </StoryStateColumn>
+        <StoryStateColumn>
+            <Button outline={true} disabled={true}>
+                Button
+            </Button>
+        </StoryStateColumn>
+      </StoryStateRow>
+      <StoryStateRow>
+        <StoryStateColumn>
+            <Button color="secondary" description="Stroke: Primary blue">
+              Button
+            </Button>
+        </StoryStateColumn>
+        <StoryStateColumn  >
+            <Button color="secondary" active={true}>
+                Button
+            </Button>
+        </StoryStateColumn>
+        <StoryStateColumn >
+            <Button color="secondary" active={true}>
+                Button
+            </Button>
+        </StoryStateColumn>
+        <StoryStateColumn >
+            <Button color="secondary" disabled={true}>
+                Button
+            </Button>
+        </StoryStateColumn>
+      </StoryStateRow>
+    </div>
+  </Story>
+</Preview>
+
+# Variations
+
+<Preview>
+  <Story name="Variations">
+    <StoryStateRow>
+      <StoryStateColumn title="Negative">
+        <Button color="alert">
+          Button
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Positive">
+        <Button color="success">
+          Button
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Private">
+        <Button color="private">
+          Button
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Shareable">
+        <Button color="shareable">
+          Button
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Custom">
+        <Button color="blackish">
+          Button
+        </Button>
+      </StoryStateColumn>
+    </StoryStateRow>
+  </Story>
+</Preview>
+
+# Indications
+
+<Preview>
+  <Story name="Indications">
+    <StoryStateRow>
+      <StoryStateColumn title="Regular">
+        <Button>
+          Copy
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Clicked">
+        <Button successText="Copied!" success />
+      </StoryStateColumn>
+      <StoryStateColumn title="With icon">
+        <Button successIcon="fa fa-check" success />
+      </StoryStateColumn>
+    </StoryStateRow>
+  </Story>
+</Preview>
+
+# Loading
+
+<Preview>
+  <Story name="Loading">
+    <StoryStateRow>
+      <StoryStateColumn title="Static loader">
+        <Button loading style={{paddingRight: '32px',paddingLeft: '32px'}} />
+      </StoryStateColumn>
+      <StoryStateColumn title="Dynamic loader">
+        <Button loading />
+      </StoryStateColumn>
+    </StoryStateRow>
+  </Story>
+</Preview>
+
+# With customized icon
+
+<Preview>
+  <Story name="Customized icon">
+    <StoryStateRow>
+      <StoryStateColumn title="With customized icon">
+        <CustomIconButton />
+      </StoryStateColumn>
+    </StoryStateRow>
+  </Story>
+</Preview>
+
+
+
+<Meta title="|Components/Button" component={Button} />

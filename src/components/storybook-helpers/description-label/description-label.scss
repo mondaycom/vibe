@@ -1,0 +1,9 @@
+@import "../../../styles/variables.scss";
+
+.description-label{
+  color: var(--secondary-text-color);
+  font-family: $font-family-base;
+  font-weight: $btn-font-weight;
+  padding: 8px;
+  white-space: pre-line;
+}

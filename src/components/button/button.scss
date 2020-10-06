@@ -1,0 +1,413 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins/main.scss";
+@import "../../styles/mixins/buttons.scss";
+
+//
+// Base styles
+//
+
+.ds-btn {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  font-family: $font-family-base;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+
+  .ds-i {
+    margin-right: $font-size-base/3;
+
+    &.right {
+      margin-left: $font-size-base/3;
+    }
+  }
+  @include button-size(
+    $btn-padding-y,
+    $btn-padding-x,
+    $font-size-base,
+    $btn-border-radius,
+    $btn-loader-size-base
+  );
+  @include transition($btn-transition);
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      @include tab-focus();
+    }
+  }
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &.focus {
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.ds-btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+//
+// Primary button specific disabled handling
+//
+
+.ds-btn-primary {
+  @include button-variant(
+    $btn-primary-color,
+    $btn-primary-bg,
+    $btn-primary-border
+  );
+}
+
+//
+// Color Coding
+//
+
+.ds-btn-secondary {
+  font-weight: $font-weight-normal;
+  color: $btn-secondary-color;
+  border-radius: 0;
+  outline: none;
+
+  &,
+  &:active,
+  &.active,
+  &:disabled {
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+  }
+  &,
+  &:focus,
+  &:active {
+    border-color: transparent;
+    outline: none;
+  }
+
+  &:active,
+  &.active {
+    color: $blackish;
+    &:focus,
+    &.focus {
+      outline: none;
+    }
+  }
+  &:hover {
+    color: $blackish;
+    border-color: transparent;
+    outline: none;
+  }
+  @include hover-focus {
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+  }
+  &:disabled {
+    @include hover-focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
+      outline: none;
+    }
+  }
+}
+
+.ds-btn-shareable {
+  @include button-variant(
+    $btn-shareable-color,
+    $btn-shareable-bg,
+    $btn-shareable-border
+  );
+}
+
+.ds-btn-private {
+  @include button-variant(
+    $btn-private-color,
+    $btn-private-bg,
+    $btn-private-border
+  );
+}
+
+.ds-btn-alert {
+  @include button-variant($btn-alert-color, $btn-alert-bg, $btn-alert-border);
+}
+
+.ds-btn-success {
+  @include button-variant($btn-primary-color, $brand-success, $brand-success);
+}
+
+.ds-btn-blackish {
+  @include button-variant(
+    $btn-blackish-color,
+    $btn-blackish-bg,
+    $btn-blackish-border
+  );
+}
+
+// Remove all backgrounds
+.ds-btn-outline-primary {
+  @include button-outline-variant($btn-primary-bg);
+}
+
+.ds-btn-outline-secondary {
+  @include button-outline-variant($btn-secondary-bg);
+}
+
+.ds-btn-outline-shareable {
+  @include button-outline-variant($btn-shareable-bg);
+}
+
+.ds-btn-outline-private {
+  @include button-outline-variant($btn-private-bg);
+}
+
+.ds-btn-outline-alert {
+  @include button-outline-variant($btn-alert-bg);
+}
+
+.ds-btn-outline-success {
+  @include button-outline-variant($btn-success-bg);
+}
+
+.ds-btn-outline-blackish {
+  @include button-outline-variant($btn-blackish-bg);
+}
+
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.ds-btn-link {
+  font-weight: $font-weight-normal;
+  color: $link-color;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &.active,
+  &:disabled {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  &,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:hover {
+    border-color: transparent;
+  }
+  @include hover-focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
+  }
+  &:disabled {
+    @include hover-focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+//
+// Button Sizes
+//
+
+.icon-component-container {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.ds-btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size(
+    $btn-padding-y-lg,
+    $btn-padding-x-lg,
+    $font-size-lg,
+    $btn-border-radius-lg,
+    $btn-loader-size-lg
+  );
+}
+.ds-btn-sm {
+  // line-height: ensure proper height of button next to small input
+  @include button-size(
+    $btn-padding-y-sm,
+    $btn-padding-x-sm,
+    $font-size-sm,
+    $btn-border-radius-sm,
+    $btn-loader-size-sm
+  );
+}
+
+//
+// Block button
+//
+
+.ds-btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.ds-btn-block + .ds-btn-block {
+  margin-top: $btn-block-spacing-y;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.ds-btn-block {
+    width: 100%;
+  }
+}
+
+//
+// Button in success mode
+//
+
+.ds-btn-success-mode {
+  cursor: default;
+  background-color: $brand-success;
+  border-color: $brand-success;
+  color: $btn-primary-color;
+  outline: none;
+
+  &:hover {
+    outline: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: none;
+  }
+
+  &:active,
+  &.active {
+    outline: none;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      outline: none;
+    }
+  }
+}
+
+// loading
+
+.ds-btn-primary-loading {
+  @include button-loading-variant(
+    $btn-primary-color,
+    $btn-primary-bg,
+    $btn-primary-border
+  );
+}
+
+.ds-btn-secondary-loading {
+  @include button-loading-variant(
+    $btn-secondary-color,
+    $btn-secondary-bg,
+    $btn-secondary-border
+  );
+}
+
+.ds-btn-shareable-loading {
+  @include button-loading-variant(
+    $btn-shareable-color,
+    $btn-shareable-bg,
+    $btn-shareable-border
+  );
+}
+
+.ds-btn-private-loading {
+  @include button-loading-variant(
+    $btn-private-color,
+    $btn-private-bg,
+    $btn-private-border
+  );
+}
+
+.ds-btn-alert-loading {
+  @include button-loading-variant(
+    $btn-alert-color,
+    $btn-alert-bg,
+    $btn-alert-border
+  );
+}
+
+.ds-btn-success-loading {
+  @include button-loading-variant(
+    $btn-positive-color,
+    $btn-success-bg,
+    $btn-success-border
+  );
+}
+
+.ds-btn-blackish-loading {
+  @include button-loading-variant(
+    $btn-blackish-color,
+    $btn-blackish-bg,
+    $btn-blackish-border
+  );
+}
+
+// ouline + loading
+
+.ds-btn-outline-primary-loading {
+  @include button-outline-loading-variant($btn-primary-bg);
+}
+
+.ds-btn-outline-secondary-loading {
+  @include button-outline-loading-variant($btn-secondary-bg);
+}
+
+.ds-btn-outline-shareable-loading {
+  @include button-outline-loading-variant($btn-shareable-bg);
+}
+
+.ds-btn-outline-private-loading {
+  @include button-outline-loading-variant($btn-private-bg);
+}
+
+.ds-btn-outline-alert-loading {
+  @include button-outline-loading-variant($btn-alert-bg);
+}
+
+.ds-btn-outline-success-loading {
+  @include button-outline-loading-variant($btn-success-bg);
+}
+
+.ds-btn-outline-blackish-loading {
+  @include button-outline-loading-variant($btn-blackish-bg);
+}
+
+.ds-text-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}

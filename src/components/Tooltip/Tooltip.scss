@@ -1,0 +1,112 @@
+@import "../../styles/variables.scss";
+@import "../../styles/colors.scss";
+
+$tooltip-z-index: 9999999999999999;
+
+$white-theme-bg-color: #fff;
+$white-theme-font-color: #333;
+$white-theme-border: 1px solid #f1f1f1;
+
+$surface-theme-bg-color: #5b607a;
+$surface-theme-font-color: #fff;
+$surface-theme-box-shadow: $box-shadow-small;
+
+$arrow-size: 12px;
+$arrow-size-md: 16px;
+
+.monday-style-tooltip {
+  position: relative;
+  display: inline-block;
+  border-radius: $border-radius-small;
+  padding: $spacing-small $spacing-medium;
+  box-shadow: $box-shadow-small;
+  @include font-input();
+  max-width: 320px;
+  word-break: break-word;
+
+  &.padding-size-md {
+    border-radius: $border-radius-medium;
+    padding: $spacing-medium;
+    @include font-input();
+  }
+
+  a.tooltip-white-link {
+    color: #fff;
+  }
+}
+
+.monday-style-tooltip-dark,
+.monday-style-arrow-dark {
+  @include theme-prop(background-color, dark-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.monday-style-tooltip-white,
+.monday-style-arrow-white {
+  background-color: $white-theme-bg-color;
+  color: $white-theme-font-color;
+  box-shadow: $box-shadow-medium;
+  border: $white-theme-border;
+}
+
+.monday-style-tooltip-primary,
+.monday-style-arrow-primary {
+  @include theme-prop(background-color, primary-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.monday-style-tooltip-success,
+.monday-style-arrow-success {
+  @include theme-prop(background-color, positive-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.monday-style-tooltip-surface,
+.monday-style-arrow-surface {
+  background-color: $surface-theme-bg-color;
+  color: $surface-theme-font-color;
+}
+
+.monday-style-tooltip-private,
+.monday-style-arrow-private {
+  @include theme-prop(background-color, private-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.monday-style-tooltip-share,
+.monday-style-arrow-share {
+  @include theme-prop(background-color, share-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.monday-style-tooltip-error,
+.monday-style-arrow-error {
+  @include theme-prop(background-color, negative-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.monday-style-arrow {
+  width: $arrow-size;
+  height: $arrow-size;
+  position: absolute;
+  border-radius: 2px 0 2px 0;
+}
+
+.monday-style-tooltip-arrow {
+  &[data-placement*="bottom"] {
+    top: 0;
+  }
+  &[data-placement*="top"] {
+    bottom: 0;
+  }
+  &[data-placement*="left"] {
+    right: 0;
+  }
+  &[data-placement*="right"] {
+    left: 0;
+  }
+}
+
+.monday-style-dialog-content-component {
+  padding: 6px;
+}

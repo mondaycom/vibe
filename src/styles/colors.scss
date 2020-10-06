@@ -1,0 +1,11 @@
+@import "../constants/colors.json";
+@import "./themes.scss";
+@import "./typography.scss";
+
+$brand-primary: $basic_blue !default;
+$brand-shareable: $purple !default;
+$brand-private: $bazooka !default;
+$brand-alert: $error !default;
+$brand-success: $success !default;
+
+

@@ -1,0 +1,21 @@
+@import "../../styles/colors.scss";
+
+.global-settings-general-component {
+  .global-settings-child-container {
+  }
+  .global-settings-list {
+    .global-settings-list-header {
+      @include font-paragraph-bold();
+      color: var(--primary-text-color);
+    }
+    .global-settings-list-item {
+      @include font-input();
+      color: var(--secondary-text-color);
+    }
+  }
+  .global-settings-general-component-value {
+    margin-top: $spacing-medium;
+    @include font-input();
+    color: var(--secondary-text-color);
+  }
+}

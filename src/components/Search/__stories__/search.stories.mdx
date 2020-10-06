@@ -1,0 +1,70 @@
+import { Meta, Story, Props, Preview } from "@storybook/addon-docs/blocks";
+import Search from "../Search";
+import SearchStoryLine from "./SearchStoryLine"
+import {
+  StoryStateRow,
+  StoryStateColumn,
+  ComponentStateDescription,
+  FlexLayout,
+  Divider
+} from "../../storybook-helpers";
+import { action } from "@storybook/addon-actions";
+import { text, boolean, number, select } from "@storybook/addon-knobs";
+import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
+
+# Search
+
+<Meta title="Components/Search" component={Search}/>
+
+<Story name="Sandbox">
+    <div style={{"width": "35%", "margin": "0 auto"}}>
+        <Search
+            inputAriaLabel={text("inputAriaLabel","Search for content")}
+            autoFocus={boolean("autoFocus", true)}
+            placeholder={text("placeholder", "default placeholder")}
+            debounceRate={number("debounceRate", 0)}
+            onChange={action("onChange", (value) => console.log(value))}
+            value={text("value", "")}
+            iconName={text("Font Awesome icon name", "fa-search")}
+            secondaryIconName="fa-close"
+            validation={select("validation", {None: null, Error: {status: "error"}, Success: {status: "success"}})}
+            id="Knobs"
+            clearOnIconClick={boolean("clearOnIconClick", true)}
+            disabled={boolean("disabled", false)}
+            size={select("size", {s: "s", md: "md", l: "l" })}
+        />
+    </div>
+</Story>
+
+<Story name="Search">
+    <StoryWrapper>
+        <Divider />
+        <div className="story-title">Sizes</div>
+        <FlexLayout>
+            <SearchStoryLine title="Small - 32px" size="s" />
+        </FlexLayout>
+        <FlexLayout>
+            <SearchStoryLine title="Medium - 40px" size="md" />
+        </FlexLayout>
+        <FlexLayout>
+            <SearchStoryLine title="Large - 48 px" size="l" />
+        </FlexLayout>
+        <Divider />
+        <div className="story-title">States</div>
+        <FlexLayout>
+            <SearchStoryLine title="Empty" />
+        </FlexLayout>
+        <FlexLayout>
+            <SearchStoryLine title="Hover" className="input-component__input--hover" />
+        </FlexLayout>
+        <FlexLayout>
+            <SearchStoryLine title="Filled" value="Search Value" />
+        </FlexLayout>
+        <FlexLayout>
+            <SearchStoryLine title="Focused" className="input-component__input--active" />
+        </FlexLayout>
+        <FlexLayout>
+            <SearchStoryLine title="Disabled" disabled />
+        </FlexLayout>
+    </StoryWrapper>
+</Story>
