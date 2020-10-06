@@ -1,0 +1,38 @@
+{
+  "name": "@mondaydotcomorg/monday-ui-foundations",
+  "version": "1.0.8",
+  "description": "Monday UI CSS Foundations",
+  "main": "dist/index.css",
+  "scripts": {
+    "auto:bump-patch": "node scripts/autobump_patch.js",
+    "auto:bump-minor": "node scripts/autobump_minor.js",
+    "auto:bump-major": "node scripts/autobump_major.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile-styles": "node-sass --output-style expanded --precision 6 ./src/index.scss dist/index.css",
+    "css-minify": "cleancss --level 1 --format breaksWith=lf --output dist/index.min.css dist/index.css",
+    "build": "npm run compile-styles && npm run css-minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaPulse/monday-ui-foundations.git"
+  },
+  "keywords": [
+    "CSS",
+    "THEMES"
+  ],
+  "author": "Monday.com",
+  "license": "ISC",
+  "files": [
+    "src/",
+    "dist/"
+  ],
+  "bugs": {
+    "url": "https://github.com/DaPulse/monday-ui-foundations/issues"
+  },
+  "homepage": "https://github.com/DaPulse/monday-ui-foundations#readme",
+  "devDependencies": {
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.14.1",
+    "prettier": "^2.0.5"
+  }
+}

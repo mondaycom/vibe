@@ -1,0 +1,59 @@
+:root,
+.light-app-theme,
+.default-app-theme {
+  // primary coloring
+  --primary-color: var(--color-basic_blue);
+  --primary-on-secondary-color: var(--color-basic_blue);
+  --primary-hover-color: var(--color-dark_blue);
+  --primary-hover-on-secondary-color: var(--color-dark_blue);
+  --primary-selected-color: var(--color-highlight_blue);
+  --primary-selected-on-secondary-color: var(--color-highlight_blue);
+  --primary-text-color: var(--color-mud_black);
+  --primary-text-on-secondary-color: var(--color-mud_black);
+  --text-color-on-primary: var(--color-snow_white);
+  --primary-background-color: var(--color-snow_white);
+  --primary-background-color-rgb: 255, 255, 255;
+  --primary-background-hover-color: var(--color-ui_grey);
+  --primary-background-hover-on-secondary-color: var(--color-ui_grey);
+
+  // states
+  --positive-color: var(--color-success);
+  --positive-color-hover: var(--color-success-hover);
+  --positive-color-selected: var(--color-success-highlight);
+  --negative-color: var(--color-error);
+  --negative-color-hover: var(--color-error-hover);
+  --negative-color-selected: var(--color-error-highlight);
+  --private-color: var(--color-private);
+  --shareable-color: var(--color-purple);
+
+  // borders
+  --ui-border-color: var(--color-wolf_gray);
+  --ui-border-on-secondary-color: var(--color-wolf_gray);
+  --layout-border-color: var(--color-ui_grey);
+  --layout-border-on-secondary-color: var(--color-ui_grey);
+
+  --placeholder-color: var(--color-asphalt);
+  --placeholder-on-secondary-color: var(--color-asphalt);
+  --icon-color: var(--color-asphalt);
+  --icon-on-secondary-color: var(--color-asphalt);
+
+  // disabled
+  --disabled-background-color: var(--color-ui_grey);
+  --disabled-background-on-secondary-color: var(--color-ui_grey);
+  --disabled-text-color: rgba(103, 104, 121, 0.75);
+  --disabled-text-on-secondary-color: rgba(103, 104, 121, 0.75);
+
+  --dark-background-color: var(--color-riverstone_gray);
+  --dark-background-on-secondary-color: var(--color-riverstone_gray);
+  --modal-background-color: var(--color-snow_white);
+  --secondary-background-color: var(--color-snow_white);
+  //deprecated - use secondary-background-color
+  --dialog-background-color: var(--color-snow_white);
+
+  --label-background-color: var(--color-highlight_blue);
+  --label-background-on-secondary-color: var(--color-highlight_blue);
+  --secondary-text-color: var(--color-asphalt);
+  --secondary-text-on-secondary-color: var(--color-asphalt);
+  --link-color: var(--color-link_color);
+  --link-on-secondary-color: var(--color-link_color);
+}
