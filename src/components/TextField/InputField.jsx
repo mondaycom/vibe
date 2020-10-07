@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React, { useRef, useEffect, useMemo, useCallback } from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import "./InputField.scss";
@@ -16,34 +17,34 @@ const NOOP = () => {};
 
 const EMPTY_OBJECT = { primary: "", secondary: "", label: "" };
 const InputField = ({
-  className = "",
-  placeholder = "",
-  autoComplete = "off",
-  value = undefined,
-  onChange = NOOP,
-  onBLur = NOOP,
-  onFocus = NOOP,
-  onKeyDown = NOOP,
-  debounceRate = 0,
-  autoFocus = false,
-  disabled = false,
-  setRef = NOOP,
-  iconName = "",
-  secondaryIconName = "",
-  id = "input",
-  title = "",
-  size = "s",
-  validation = null,
-  wrapperClassName = "",
-  onIconClick = NOOP,
-  clearOnIconClick = false,
-  labelIconName = "",
-  showCharCount = false,
-  inputAriaLabel = "",
-  iconsNames = EMPTY_OBJECT,
-  type = TEXT_TYPES.TEXT,
+  className,
+  placeholder,
+  autoComplete,
+  value,
+  onChange,
+  onBlur,
+  onFocus,
+  onKeyDown,
+  debounceRate,
+  autoFocus,
+  disabled,
+  setRef,
+  iconName,
+  secondaryIconName,
+  id,
+  title,
+  size,
+  validation,
+  wrapperClassName,
+  onIconClick,
+  clearOnIconClick,
+  labelIconName,
+  showCharCount,
+  inputAriaLabel,
+  iconsNames,
+  type,
   maxLength,
-  trim = false
+  trim
 }) => {
   const inputRef = useRef(null);
   const { inputValue, onEventChanged, clearValue } = useDebounceEvent({
@@ -136,7 +137,7 @@ const InputField = ({
             autoFocus={autoFocus}
             type={type}
             id={id}
-            onBlur={onBLur}
+            onBlur={onBlur}
             onFocus={onFocus}
             onKeyDown={onKeyDown}
             aria-label={inputAriaLabel || placeholder}
@@ -197,10 +198,91 @@ const InputField = ({
     </div>
   );
 };
+
+InputField.propTypes = {
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  /* See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
+  autoComplete: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
+  onFocus: PropTypes.func,
+  onKeyDown: PropTypes.func,
+  debounceRate: PropTypes.number,
+  autoFocus: PropTypes.bool,
+  disabled: PropTypes.bool,
+  setRef: PropTypes.func,
+  iconName: PropTypes.string,
+  secondaryIconName: PropTypes.string,
+  id: PropTypes.string,
+  title: PropTypes.string,
+  /* TEXT_FIELD_SIZE is exposed on the component itself */
+  size: PropTypes.oneOf([
+    TEXT_FIELD_SIZE.SMALL,
+    TEXT_FIELD_SIZE.MEDIUM,
+    TEXT_FIELD_SIZE.LARGE
+  ]),
+  validation: PropTypes.shape({
+    status: PropTypes.oneOf(["error", "success"]),
+    /* Don't provide status for plain assistant text */
+    text: PropTypes.string
+  }),
+  wrapperClassName: PropTypes.string,
+  onIconClick: PropTypes.func,
+  clearOnIconClick: PropTypes.bool,
+  labelIconName: PropTypes.string,
+  showCharCount: PropTypes.bool,
+  inputAriaLabel: PropTypes.string,
+  /*  Icon names labels for a11y */
+  iconsNames: PropTypes.shape({
+    layout: PropTypes.string,
+    primary: PropTypes.string,
+    secondary: PropTypes.string
+  }),
+  /* TEXT_TYPES is exposed on the component itself */
+  type: PropTypes.oneOf([TEXT_TYPES.TEXT, TEXT_TYPES.PASSWORD]),
+  maxLength: PropTypes.number,
+  trim: PropTypes.bool
+};
+
+InputField.defaultProps = {
+  className: "",
+  placeholder: "",
+  autoComplete: "off",
+  value: undefined,
+  onChange: NOOP,
+  onBlur: NOOP,
+  onFocus: NOOP,
+  onKeyDown: NOOP,
+  debounceRate: 0,
+  autoFocus: false,
+  disabled: false,
+  setRef: NOOP,
+  iconName: "",
+  secondaryIconName: "",
+  id: "input",
+  title: "",
+  size: "s",
+  validation: null,
+  wrapperClassName: "",
+  onIconClick: NOOP,
+  clearOnIconClick: false,
+  labelIconName: "",
+  showCharCount: false,
+  inputAriaLabel: "",
+
+  iconsNames: EMPTY_OBJECT,
+  type: TEXT_TYPES.TEXT,
+  maxLength: null,
+  trim: false
+};
+
 export const ARIA_LABELS = {
   CHAR: "Input char count",
   VALIDATION_TEXT: "Additional helper text"
 };
+
 InputField.sizes = TEXT_FIELD_SIZE;
 InputField.feedbacks = FEEDBACK_STATES;
 InputField.types = TEXT_TYPES;

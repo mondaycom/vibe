@@ -3,7 +3,7 @@ const publishedComponents = {
   SearchComponent: "/src/components/Search/Search.jsx",
   TextField: "/src/components/TextField/InputField.jsx",
   Tooltip: "/src/components/Tooltip/Tooltip.jsx",
-  Button_WIP: "/src/components/Button-WIP/Button.jsx",
+  Button_WIP: "/src/components/Button/Button.jsx",
   Loader: "/src/components/Loader/Loader.jsx",
   FormattedNumber: "/src/components/FormattedNumber/FormattedNumber.jsx",
   useKeyEvent: "/src/hooks/useKeyEvent.js",

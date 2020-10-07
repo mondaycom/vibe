@@ -1,10 +1,10 @@
-@import "../../styles/variables.scss";
+@import "../../styles/typography.scss";
 
 .formatted-number-component {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  font-family: $font-family-base;
+  font-family: $primary-font;
   width: 100%;
 
   &__number {

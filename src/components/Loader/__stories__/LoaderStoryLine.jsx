@@ -1,15 +1,13 @@
 import React from "react";
 import ComponentStateDescription from "../../storybook-helpers/component-state-description/ComponentStateDescription";
-import Loader from "../Loader";
+import "./LoaderStoryLine.scss";
 
-const LoaderStoryLine = ({ title, className = "", size = "md" }) => {
+const LoaderStoryLine = ({ title, children }) => {
   return (
     <>
       <ComponentStateDescription title={title} />
       <div className="width-35">
-        <div style={{ height: "40px", width: "40px" }}>
-          <Loader className={className} size={size} />
-        </div>
+        <div style={{ height: "40px", width: "40px" }}>{children}</div>
       </div>
     </>
   );

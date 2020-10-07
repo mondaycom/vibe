@@ -1,4 +1,4 @@
-@import "../../styles/colors.scss";
+@import "../../styles/themes.scss";
 
 {{dashCase componentName}}--wrapper {
 
