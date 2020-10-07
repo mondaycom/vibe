@@ -1,6 +1,5 @@
-import React from 'react'
-import {ComponentStateDescription, FlexLayout} from "../../storybook-helpers";
-
+import React from "react";
+import { ComponentStateDescription, FlexLayout } from "../../storybook-helpers";
 
 const TextFieldStoryBookLine = ({ title, children }) => {
   return (
@@ -10,6 +9,5 @@ const TextFieldStoryBookLine = ({ title, children }) => {
     </FlexLayout>
   );
 };
-TextFieldStoryBookLine.propTypes = {};
-TextFieldStoryBookLine.defaultProps = {};
+
 export default TextFieldStoryBookLine;

@@ -41,7 +41,7 @@
 
     .linear-progress-bar__secondary--animate,
     .linear-progress-bar--animate {
-      transition: width 0.1s ease-out
+      transition: width 0.1s $expand-animation-timing
     }
 
     .linear-progress-bar {

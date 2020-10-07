@@ -19,7 +19,7 @@ export const Sizes = () => {
         </LoaderStoryLine>
       </FlexLayout>
       <FlexLayout spaceBetween>
-        <LoaderStoryLine title="Large - 48 px">
+        <LoaderStoryLine title="Large - 48px">
           <Loader svgClassName="loader-size-lg" />
         </LoaderStoryLine>
       </FlexLayout>

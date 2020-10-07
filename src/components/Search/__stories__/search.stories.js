@@ -26,7 +26,7 @@ export const Sandbox = () => {
           id="Knobs"
           clearOnIconClick={boolean("clearOnIconClick", true)}
           disabled={boolean("disabled", false)}
-          size={select("size", { s: "s", md: "md", l: "l" })}
+          size={select("size", { ...Object.values(Search.sizes) })}
         />
       </div>
     </>
@@ -37,7 +37,7 @@ export const Sizes = () => {
   return (
     <>
       <FlexLayout>
-        <SearchStoryLine title="Small - 32px" size="s">
+        <SearchStoryLine title="Small - 32px">
           <Search
             className=""
             inputAriaLabel="Search for content"
@@ -45,14 +45,14 @@ export const Sizes = () => {
             secondaryIconName="fa-close"
             id="size_1"
             placeholder="Placeholder text goes here"
-            size="s"
+            size={Search.sizes.SMALL}
             disabled={false}
             value=""
           />
         </SearchStoryLine>
       </FlexLayout>
       <FlexLayout>
-        <SearchStoryLine title="Medium - 40px" size="md">
+        <SearchStoryLine title="Medium - 40px">
           <Search
             className=""
             inputAriaLabel="Search for content"
@@ -60,14 +60,14 @@ export const Sizes = () => {
             secondaryIconName="fa-close"
             id="size_2"
             placeholder="Placeholder text goes here"
-            size="md"
+            size={Search.sizes.MEDIUM}
             disabled={false}
             value=""
           />
         </SearchStoryLine>
       </FlexLayout>
       <FlexLayout>
-        <SearchStoryLine title="Large - 48 px" size="l">
+        <SearchStoryLine title="Large - 48px">
           <Search
             className=""
             inputAriaLabel="Search for content"
@@ -75,7 +75,7 @@ export const Sizes = () => {
             secondaryIconName="fa-close"
             id="size_3"
             placeholder="Placeholder text goes here"
-            size="l"
+            size={Search.sizes.LARGE}
             disabled={false}
             value=""
           />
@@ -97,7 +97,7 @@ export const States = () => {
             secondaryIconName="fa-close"
             id="states_1"
             placeholder="Placeholder text goes here"
-            size="md"
+            size={Search.sizes.MEDIUM}
             disabled={false}
             value=""
           />
@@ -112,7 +112,7 @@ export const States = () => {
             secondaryIconName="fa-close"
             id="states_1"
             placeholder="Placeholder text goes here"
-            size="md"
+            size={Search.sizes.MEDIUM}
             disabled={false}
             value=""
           />
@@ -126,7 +126,7 @@ export const States = () => {
             secondaryIconName="fa-close"
             id="states_1"
             placeholder="Placeholder text goes here"
-            size="md"
+            size={Search.sizes.MEDIUM}
             disabled={false}
             value="Search Value"
           />
@@ -141,7 +141,7 @@ export const States = () => {
             secondaryIconName="fa-close"
             id="states_1"
             placeholder="Placeholder text goes here"
-            size="md"
+            size={Search.sizes.MEDIUM}
             disabled={false}
             value=""
           />
@@ -156,7 +156,7 @@ export const States = () => {
             secondaryIconName="fa-close"
             id="states_1"
             placeholder="Placeholder text goes here"
-            size="md"
+            size={Search.sizes.MEDIUM}
             disabled
             value=""
           />
