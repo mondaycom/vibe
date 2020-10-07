@@ -41,6 +41,7 @@ const LinearProgressBar = ({
   }, [value, min, max, multi, multiValues]);
 
   const renderMultiBars = useMemo(() => {
+    if (!multi) return null;
     return (
       <>
         {[...multiValues].reverse().map(({ value: baseValue, color }, i) => (
