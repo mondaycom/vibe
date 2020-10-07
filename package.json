@@ -59,6 +59,7 @@
     "@storybook/preset-scss": "^1.0.2",
     "@storybook/react": "^5.3.19",
     "@storybook/source-loader": "^5.3.19",
+    "@storybook/storybook-deployer": "^2.8.7",
     "@storybook/theming": "^5.3.19",
     "@stryker-mutator/core": "^2.5.0",
     "@testing-library/react": "^9.4.1",
