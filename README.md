@@ -1,5 +1,5 @@
 # Monday UI React Core
->[monday.com](monday.com) React components library - [Storybook](https://style.monday.com)
+>[monday.com](https://www.monday.com) React components library - [Storybook](https://style.monday.com)
 
 ## Installation
 Install the component library
