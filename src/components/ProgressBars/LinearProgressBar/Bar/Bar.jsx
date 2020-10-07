@@ -11,29 +11,25 @@ const Bar = ({ value, baseClass, barStyle, animated, min, max, color }) => {
   }, [barStyle, animated, animated]);
 
   const valuePercentage = useMemo(() => {
-    if (value == null) return 0;
+    if (value === null || value === undefined) return 0;
     return calculatePercentage(value, min, max);
   }, [value, min, max]);
 
-  const renderProgressBar = useMemo(() => {
-    if (!value) return null;
+  if (!value) return null;
 
-    return (
-      <div
-        role={"progressbar"}
-        aria-valuenow={valuePercentage}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        className={classNames}
-        style={{
-          width: `${valuePercentage}%`,
-          ...(color && { backgroundColor: color })
-        }}
-      />
-    );
-  }, [valuePercentage, classNames]);
-
-  return renderProgressBar;
+  return (
+    <div
+      role={"progressbar"}
+      aria-valuenow={valuePercentage}
+      aria-valuemin={0}
+      aria-valuemax={100}
+      className={classNames}
+      style={{
+        width: `${valuePercentage}%`,
+        ...(color && { backgroundColor: color })
+      }}
+    />
+  );
 };
 
 export default Bar;

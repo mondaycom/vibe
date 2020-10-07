@@ -1,6 +1,6 @@
 import React from "react";
 import LinearProgressBar from "../LinearProgressBar";
-import colors from "../../../constants/colors.json";
+import colors from "../../../../constants/colors.json";
 import { boolean, number, select, color } from "@storybook/addon-knobs";
 import "./linearProgressBar.stories.scss";
 

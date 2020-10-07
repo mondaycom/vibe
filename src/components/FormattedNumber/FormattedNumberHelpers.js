@@ -1,5 +1,5 @@
 export const validateValue = value => {
-  const isNullOrUndefined = value == null;
+  const isNullOrUndefined = value === null || value === undefined;
   const isEmptyStringWithSpaces =
     typeof value === "string" && !value.replace(" ", "").length;
   return isNullOrUndefined || isNaN(value) || isEmptyStringWithSpaces;

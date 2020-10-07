@@ -1,6 +1,6 @@
-@import "../../styles/global-css-settings.scss";
-@import "../../styles/themes.scss";
-@import "../../styles/variables.scss";
+@import "../../../styles/global-css-settings";
+@import "../../../styles/themes";
+@import "../../../styles/variables";
 
 .linear-progress-bar--wrapper {
   display: flex;
@@ -27,7 +27,7 @@
   .linear-progress-bar__container {
     position: relative;
     width: 100%;
-    background-color: #f5f6f8;
+    background-color: $riverstone_gray;
     border-radius: $border-radius-small;
 
     .linear-progress-bar__secondary,
@@ -40,7 +40,7 @@
 
     .linear-progress-bar__secondary--animate,
     .linear-progress-bar--animate {
-      transition: width 250ms ease-out
+      transition: width 0.1s ease-out
     }
 
     .linear-progress-bar {

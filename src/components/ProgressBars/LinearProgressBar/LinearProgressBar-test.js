@@ -1,9 +1,9 @@
 import React from "react";
-import { expect, sinon } from "../../test/test-helpers";
+import { expect, sinon } from "../../../test/test-helpers";
 import LinearProgressBar from "./LinearProgressBar";
 import { render, cleanup, act, screen } from "@testing-library/react";
 
-describe("LinearProgressBar Tests", () => {
+describe("ProgressBars Tests", () => {
   let component;
 
   beforeEach(() => {

@@ -8,6 +8,7 @@ import {
 } from "./LinearProgressBarConstants";
 import { calculatePercentage } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
+import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import "./LinearProgressBar.scss";
 
 const LinearProgressBar = ({
@@ -32,24 +33,39 @@ const LinearProgressBar = ({
     if (multi) {
       const firstValue =
         multiValues && multiValues.length && multiValues[0].value;
-      if (firstValue == null) return 0;
+      if (firstValue === null || firstValue == undefined) return 0;
       return calculatePercentage(firstValue, min, max);
     }
-    if (value == null) return 0;
+    if (value === null || value === undefined) return 0;
     return calculatePercentage(value, min, max);
   }, [value, min, max, multi, multiValues]);
 
-  const renderPercentage = useMemo(() => {
-    if (valuePercentage == null || !indicateProgress) return null;
+  const renderMultiBars = useMemo(() => {
     return (
-      <label
-        htmlFor={"linear-progress-bar"}
-        className={`${baseClassName}__label`}
-      >
-        {`${valuePercentage.toFixed()}%`}
-      </label>
+      <>
+        {[...multiValues].reverse().map(({ value: baseValue, color }, i) => (
+          <Bar
+            barStyle={"none"}
+            value={baseValue}
+            animated={animated}
+            baseClass={baseClassName}
+            color={color}
+            min={min}
+            max={max}
+            key={`${baseClassName}_${color}_${i}`}
+          />
+        ))}
+      </>
     );
-  }, [indicateProgress, valuePercentage]);
+  }, [min, max, animated, multiValues, multi]);
+
+  const renderPercentage = indicateProgress ? (
+    <PercentageLabel
+      forElement={"linear-progress-bar"}
+      className={`${baseClassName}__label`}
+      value={valuePercentage}
+    />
+  ) : null;
 
   const renderBaseBars = !multi ? (
     <>
@@ -72,29 +88,6 @@ const LinearProgressBar = ({
       />
     </>
   ) : null;
-
-  const renderMultiBars = multi
-    ? useMemo(() => {
-        return (
-          <>
-            {[...multiValues]
-              .reverse()
-              .map(({ value: baseValue, color }, i) => (
-                <Bar
-                  barStyle={"none"}
-                  value={baseValue}
-                  animated={animated}
-                  baseClass={baseClassName}
-                  color={color}
-                  min={min}
-                  max={max}
-                  key={`${baseClassName}_${color}_${i}`}
-                />
-              ))}
-          </>
-        );
-      }, [min, max, animated, multiValues, multi])
-    : null;
 
   return (
     <div className={wrapperClassName}>
