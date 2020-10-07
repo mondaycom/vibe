@@ -46,3 +46,9 @@ We welcome every contributor, please read the [contribution guidelines](CONTRIBU
 ## Themes
 We support theming from the library to the component level using css variables - for more info on theming please read the THEME_README.md file
 
+## Release
+Perform the following steps to **release** a **new version**:
+* bump the version in `package.json`
+* merge into `origin/master`
+* [release](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository) the new version in the [monday-ui-react-core
+](https://github.com/DaPulse/monday-ui-react-core)
