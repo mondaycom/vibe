@@ -257,17 +257,6 @@ export const ButtonsWithIcons = () => (
         Left Icon
       </Button>
     </StoryStateColumn>
-    <StoryStateColumn title="Both Icons">
-      <Button
-        size={Button.sizes.LARGE}
-        kind={Button.kinds.PRIMARY}
-        color={Button.colors.PRIMARY}
-        leftIcon="fa fa-check"
-        rightIcon="fa fa-check"
-      >
-        Both Icon
-      </Button>
-    </StoryStateColumn>
     <StoryStateColumn title="Right Icon">
       <Button
         size={Button.sizes.LARGE}
@@ -435,6 +424,6 @@ export const Loading = () => (
 );
 
 export default {
-  title: "Components (WIP)/Button",
+  title: "Components/Button",
   component: Button
 };

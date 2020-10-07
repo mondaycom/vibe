@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Loader.scss";
 
 const Loader = ({ svgClassName }) => {
@@ -19,6 +20,14 @@ const Loader = ({ svgClassName }) => {
       </svg>
     </div>
   );
+};
+
+Loader.propTypes = {
+  svgClassName: PropTypes.string
+};
+
+Loader.defaultProps = {
+  svgClassName: ""
 };
 
 export default Loader;

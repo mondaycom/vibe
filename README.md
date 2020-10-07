@@ -1,16 +1,15 @@
 # Monday UI React Core
->[monday.com](monday.com) React components library - [Storybook](style.monday.beer)
+>[monday.com](https://www.monday.com) React components library - [Storybook](https://style.monday.com)
 
 ## Installation
 Install the component library
 ```
-$ npm install @mondaydotcomorg/monday-ui-react-core
+$ npm install monday-ui-react-core
 ```
 
 ## Usage
-You can either ` import { Button } from "@mondaydotcomorg/monday-ui-react-core";`
-
-or you might want to import directly the component ` import Button from "@mondaydotcomorg/monday-ui-react-core/dist/Button";`   
+You can either ` import { Button } from "monday-ui-react-core";`
+or you might want to import directly the component ` import Button from "monday-ui-react-core/dist/Button";`   
 
 ## Storybook
 We are using storybook in order to develop the components independently from any consumer.
@@ -44,7 +43,7 @@ npm start
 We welcome every contributor, please read the [contribution guidelines](CONTRIBUTING.md) before submitting a PR 
 
 ## Themes
-We support theming from the library to the component level using css variables - for more info on theming please read the THEME_README.md file
+We support theming from the library to the component level using css variables - for more info on theming please read the [theme guidelines](THEME_README.md) file
 
 ## Release
 Perform the following steps to **release** a **new version**:

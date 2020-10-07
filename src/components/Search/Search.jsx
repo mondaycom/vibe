@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Search.scss";
 import InputField from "../TextField/InputField";
+import { SIZES, TYPES } from "./SearchConstats";
 
 const NOOP = () => {};
 
@@ -41,8 +42,7 @@ export const SearchComponent = ({
   id,
   validation,
   inputAriaLabel,
-  iconNames,
-  inputType
+  iconNames
 }) => {
   return (
     <InputField
@@ -70,10 +70,13 @@ export const SearchComponent = ({
       validation={validation}
       inputAriaLabel={inputAriaLabel}
       iconsNames={iconNames}
-      type={inputType}
+      type="search"
     />
   );
 };
+
+SearchComponent.sizes = SIZES;
+SearchComponent.types = TYPES;
 
 SearchComponent.propTypes = {
   secondaryIconName: PropTypes.string,
@@ -90,8 +93,10 @@ SearchComponent.propTypes = {
   wrapperClassName: PropTypes.string,
   setRef: PropTypes.func,
   autoComplete: PropTypes.bool,
-  size: PropTypes.oneOf(["s", "md", "l"]),
-  type: PropTypes.oneOf(["square", "round", "underline"]),
+  /* SIZES is exposed on the component itself */
+  size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE]),
+  /* TYPES is exposed on the component itself */
+  type: PropTypes.oneOf([TYPES.SQUARE, TYPES.SQUARE, TYPES.UNDERLINE]),
   className: PropTypes.string,
   id: PropTypes.string,
   validation: PropTypes.shape({
@@ -99,12 +104,12 @@ SearchComponent.propTypes = {
     text: PropTypes.string
   }),
   inputAriaLabel: PropTypes.string,
+  /*  Icon names labels for a11y */
   iconNames: PropTypes.shape({
     layout: PropTypes.string,
     primary: PropTypes.string,
     secondary: PropTypes.string
-  }),
-  inputType: PropTypes.string
+  })
 };
 
 SearchComponent.defaultProps = {
@@ -122,14 +127,13 @@ SearchComponent.defaultProps = {
   wrapperClassName: "",
   setRef: NOOP,
   autoComplete: "off",
-  size: "md",
-  type: "square",
+  size: SIZES.MEDIUM,
+  type: TYPES.SQUARE,
   className: "",
   id: "search",
   validation: null,
   inputAriaLabel: "",
-  iconNames: ICON_NAMES,
-  inputType: "search"
+  iconNames: ICON_NAMES
 };
 
 export default SearchComponent;
