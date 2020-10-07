@@ -1,7 +1,7 @@
 import React from "react";
+import { render, cleanup } from "@testing-library/react";
 import { expect } from "../../test/test-helpers";
 import FormattedNumber from "./FormattedNumber";
-import { render, cleanup } from "@testing-library/react";
 
 describe("FormattedNumber Tests", () => {
   beforeEach(() => cleanup());
@@ -9,26 +9,24 @@ describe("FormattedNumber Tests", () => {
 
   describe("emptyPlaceHolder", () => {
     it("no props where provided", () => {
-      const { getByText } = render(<FormattedNumber id={"test"} />);
+      const { getByText } = render(<FormattedNumber id="test" />);
       expect(getByText("N/A")).to.be.ok;
     });
 
     it("invalid value - empty string", () => {
-      const { getByText } = render(<FormattedNumber id={"test"} value={" "} />);
+      const { getByText } = render(<FormattedNumber id="test" value={" "} />);
       expect(getByText("N/A")).to.be.ok;
     });
 
     it("invalid value - mixed content", () => {
-      const { getByText } = render(
-        <FormattedNumber id={"test"} value={"a1s2d"} />
-      );
+      const { getByText } = render(<FormattedNumber id="test" value="a1s2d" />);
       expect(getByText("N/A")).to.be.ok;
     });
 
     it("invalid value - mixed content", () => {
       const emptyPlaceHolderText = "Test";
       const { getByText } = render(
-        <FormattedNumber id={"test"} emptyPlaceHolder={emptyPlaceHolderText} />
+        <FormattedNumber id="test" emptyPlaceHolder={emptyPlaceHolderText} />
       );
       expect(getByText(emptyPlaceHolderText)).to.be.ok;
     });
@@ -42,7 +40,7 @@ describe("FormattedNumber Tests", () => {
     it("should format small number without sign", () => {
       const expectedText = "98";
       const { getByText } = render(
-        <FormattedNumber id={"test"} value={smallNumber} />
+        <FormattedNumber id="test" value={smallNumber} />
       );
       expect(getByText(expectedText)).to.be.ok;
     });
@@ -50,7 +48,7 @@ describe("FormattedNumber Tests", () => {
     it("should format large number with sign", () => {
       const expectedText = "987.6543M";
       const { getByText } = render(
-        <FormattedNumber id={"test"} value={largeNumber} decimalPrecision={4} />
+        <FormattedNumber id="test" value={largeNumber} decimalPrecision={4} />
       );
       expect(getByText(expectedText)).to.be.ok;
     });
@@ -58,7 +56,7 @@ describe("FormattedNumber Tests", () => {
     it("should format large number without sign", () => {
       const expectedText = "987,654,321";
       const { getByText } = render(
-        <FormattedNumber id={"test"} value={largeNumber} compact={false} />
+        <FormattedNumber id="test" value={largeNumber} compact={false} />
       );
       expect(getByText(expectedText)).to.be.ok;
     });
@@ -67,7 +65,7 @@ describe("FormattedNumber Tests", () => {
       const expectedText = "987,654,321.123";
       const { getByText } = render(
         <FormattedNumber
-          id={"test"}
+          id="test"
           value={decimalNumber}
           compact={false}
           decimalPrecision={3}
@@ -80,7 +78,7 @@ describe("FormattedNumber Tests", () => {
       const expectedText = "987,654,321";
       const { getByText } = render(
         <FormattedNumber
-          id={"test"}
+          id="test"
           value={decimalNumber}
           compact={false}
           decimalPrecision={-10}
@@ -93,7 +91,7 @@ describe("FormattedNumber Tests", () => {
       const expectedText = "987,654,321.123456";
       const { getByText } = render(
         <FormattedNumber
-          id={"test"}
+          id="test"
           value={decimalNumber}
           compact={false}
           decimalPrecision={50}
@@ -109,7 +107,7 @@ describe("FormattedNumber Tests", () => {
     it("should use handle unsupported local", () => {
       const badLocal = "bad";
       const { container, getByText } = render(
-        <FormattedNumber id={"test"} value={value} local={badLocal} />
+        <FormattedNumber id="test" value={value} local={badLocal} />
       );
       expect(container).is.ok;
       expect(getByText("456")).to.be.ok;
@@ -122,9 +120,9 @@ describe("FormattedNumber Tests", () => {
     const suffix = "suf";
 
     it("should render predix and suffix in the correct order if provided", () => {
-      const { getByText, container } = render(
+      const { container } = render(
         <FormattedNumber
-          id={"test"}
+          id="test"
           value={value}
           prefix={prefix}
           suffix={suffix}
@@ -138,9 +136,9 @@ describe("FormattedNumber Tests", () => {
     });
 
     it("should render rtl", () => {
-      const { getByText, container } = render(
+      const { container } = render(
         <FormattedNumber
-          id={"test"}
+          id="test"
           value={value}
           prefix={prefix}
           suffix={suffix}
