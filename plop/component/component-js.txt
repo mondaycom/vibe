@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import cx from "classnames";
 import "./{{properCase componentName}}.scss";
 
@@ -12,5 +13,8 @@ const {{properCase componentName}} = ({
     </div>
   );
 };
+
+{{properCase componentName}}.defaultProps = {};
+{{properCase componentName}}.propTypes = {};
 
 export default {{properCase componentName}};
