@@ -6,6 +6,8 @@ const publishedComponents = {
   Button_WIP: "/src/components/Button/Button.jsx",
   Loader: "/src/components/Loader/Loader.jsx",
   FormattedNumber: "/src/components/FormattedNumber/FormattedNumber.jsx",
+  LinearProgressBar:
+    "/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   useKeyEvent: "/src/hooks/useKeyEvent.js",
   useEventListener: "/src/hooks/useEventListener.js",
   useDebounceEvent: "/src/hooks/useDebounceEvent.js",
