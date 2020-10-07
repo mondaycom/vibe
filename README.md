@@ -4,12 +4,11 @@
 ## Installation
 Install the component library
 ```
-$ npm install @mondaydotcomorg/monday-ui-react-core
+$ npm install monday-ui-react-core
 ```
 
 ## Usage
 You can either ` import { Button } from "monday-ui-react-core";`
-
 or you might want to import directly the component ` import Button from "monday-ui-react-core/dist/Button";`   
 
 ## Storybook
