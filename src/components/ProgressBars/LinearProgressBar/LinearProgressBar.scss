@@ -1,14 +1,15 @@
 @import "../../../styles/global-css-settings";
 @import "../../../styles/themes";
-@import "../../../styles/variables";
+@import "../../../styles/typography";
 
 .linear-progress-bar--wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  font-family: $font-family-base;
-  font-size: $font-size-xs;
+  font-family: $primary-font;
+  font-size: $font-size-input;
+  @include theme-prop(color, secondary-text-color);
 
   .linear-progress-bar__label {
     padding-left: $spacing-xs;
@@ -27,7 +28,7 @@
   .linear-progress-bar__container {
     position: relative;
     width: 100%;
-    background-color: $riverstone_gray;
+    @include theme-prop(background-color, ui-border-color);
     border-radius: $border-radius-small;
 
     .linear-progress-bar__secondary,

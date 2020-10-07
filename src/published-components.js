@@ -1,9 +1,8 @@
 const publishedComponents = {
-  button: "/src/components/button/button.jsx",
   SearchComponent: "/src/components/Search/Search.jsx",
   TextField: "/src/components/TextField/InputField.jsx",
   Tooltip: "/src/components/Tooltip/Tooltip.jsx",
-  Button_WIP: "/src/components/Button/Button.jsx",
+  Button: "/src/components/Button/Button.jsx",
   Loader: "/src/components/Loader/Loader.jsx",
   FormattedNumber: "/src/components/FormattedNumber/FormattedNumber.jsx",
   LinearProgressBar:
