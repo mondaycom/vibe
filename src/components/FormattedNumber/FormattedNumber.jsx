@@ -9,7 +9,7 @@ import {
 import { customPropTypes, validateValue } from "./FormattedNumberHelpers";
 import "./FormattedNumber.scss";
 
-const { MAX_PRECISION, MIN_PRECISION, DEFAULT_LOCAL } = formatNumberConsts;
+const { MAX_PRECISION, MIN_PRECISION } = formatNumberConsts;
 
 const FormattedNumber = ({
   value,
@@ -64,7 +64,7 @@ const FormattedNumber = ({
 };
 
 FormattedNumber.formatNumber = formatNumber;
-FormattedNumber.localFallBack = DEFAULT_LOCAL;
+FormattedNumber.localFallBack = formatNumberConsts.DEFAULT_LOCAL;
 
 const { range } = customPropTypes;
 
@@ -111,7 +111,7 @@ FormattedNumber.defaultProps = {
   emptyPlaceHolder: "N/A",
   decimalPrecision: 2,
   compact: true,
-  local: DEFAULT_LOCAL,
+  local: FormattedNumber.localFallBack,
   rtl: false
 };
 

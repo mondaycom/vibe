@@ -6,3 +6,4 @@ export { default as Dialog } from "./Dialog/Dialog";
 export { default as Tooltip } from "./Tooltip/Tooltip";
 export { default as Button_WIP } from "./Button-WIP/Button";
 export { default as FormattedNumber } from "./FormattedNumber/FormattedNumber";
+export { default as LinearProgressBar } from "./LinearProgressBar/LinearProgressBar";
