@@ -1,7 +1,7 @@
 import React from "react";
-import { expect, sinon } from "../../../test/test-helpers";
-import LinearProgressBar from "./LinearProgressBar";
 import { render, cleanup, act, screen } from "@testing-library/react";
+import { expect } from "../../../test/test-helpers";
+import LinearProgressBar from "./LinearProgressBar";
 
 describe("ProgressBars Tests", () => {
   let component;
@@ -76,7 +76,7 @@ describe("ProgressBars Tests", () => {
       const value = 13;
       for (let i = 0; i < 2; i++) {
         act(() => {
-          component = rerender(
+          rerender(
             <LinearProgressBar
               value={value + i}
               max={100}

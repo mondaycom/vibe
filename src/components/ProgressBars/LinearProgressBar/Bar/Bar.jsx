@@ -4,11 +4,10 @@ import { calculatePercentage } from "../LinearProgressBarHelpers";
 
 const Bar = ({ value, baseClass, barStyle, animated, min, max, color }) => {
   const classNames = useMemo(() => {
-    const classNames = cx(baseClass, `${baseClass}--${barStyle}`, {
+    return cx(baseClass, `${baseClass}--${barStyle}`, {
       [`${baseClass}--animate`]: animated
     });
-    return classNames;
-  }, [barStyle, animated, animated]);
+  }, [barStyle, animated, baseClass]);
 
   const valuePercentage = useMemo(() => {
     if (value === null || value === undefined) return 0;

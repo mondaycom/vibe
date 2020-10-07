@@ -112,7 +112,8 @@ FormattedNumber.defaultProps = {
   decimalPrecision: 2,
   compact: true,
   local: FormattedNumber.localFallBack,
-  rtl: false
+  rtl: false,
+  className: ""
 };
 
 export default FormattedNumber;
