@@ -8,9 +8,14 @@
     "auto:bump-minor": "node scripts/autobump_minor.js",
     "auto:bump-major": "node scripts/autobump_major.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build-icons": "svg2react-icon --keep-colors src/Icons dist/Icons",
     "compile-styles": "node-sass --output-style expanded --precision 6 ./src/index.scss dist/index.css",
     "css-minify": "cleancss --level 1 --format breaksWith=lf --output dist/index.min.css dist/index.css",
-    "build": "npm run compile-styles && npm run css-minify"
+    "build": "npm run build-icons && npm run compile-styles && npm run css-minify"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "prop-types": "^15.7.2"
   },
   "repository": {
     "type": "git",
@@ -33,6 +38,7 @@
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
     "node-sass": "^4.14.1",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "svg2react-icon": "^3.1.174"
   }
 }
