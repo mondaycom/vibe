@@ -17,10 +17,8 @@ jobs:
       - name: Build & Deploy Storybook to GitHub pages
         run: |
           npm install
-          npm run deploy-storybook
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
-      - run: |
+          npm run build-storybook -- -o static_storybook
+          cd static_storybook
           echo "style.monday.com" > ./CNAME
           git init
           git config user.name "GH Pages Bot"
@@ -29,3 +27,5 @@ jobs:
           git add .
           git commit -m "Deploy Storybook [ci-skip]"
           git push --force --quiet git@github.com:DaPulse/monday-ui-react-core.git master:gh-pages
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
