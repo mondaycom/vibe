@@ -28,7 +28,7 @@
   .linear-progress-bar__container {
     position: relative;
     width: 100%;
-    @include theme-prop(background-color, ui-border-color);
+    @include theme-prop(background-color, layout-border-color);
     border-radius: $border-radius-small;
 
     .linear-progress-bar__secondary,
@@ -37,14 +37,11 @@
       height: 100%;
       position: absolute;
       border-radius: $border-radius-small;
-    }
 
-    .linear-progress-bar__secondary--animate,
-    .linear-progress-bar--animate {
-      transition: width 0.1s $expand-animation-timing
-    }
+      &--animate {
+        transition: width 0.1s $expand-animation-timing
+      }
 
-    .linear-progress-bar {
       &--primary {
         @include theme-prop(background-color, primary-color);
       }
@@ -63,20 +60,10 @@
     }
 
     .linear-progress-bar__secondary {
-      &--primary {
-        @include theme-prop(background-color, primary-selected-color);
-      }
-
-      &--secondary {
-        @include theme-prop(background-color, primary-background-hover-color);
-      }
+      opacity: 0.5;
 
       &--positive {
-        @include theme-prop(background-color, positive-color-selected);
-      }
-
-      &--negative {
-        @include theme-prop(background-color, negative-color-selected);
+        opacity: 0.3;
       }
     }
   }

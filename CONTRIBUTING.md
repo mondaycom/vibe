@@ -32,8 +32,8 @@ Every component should support theming, you can find more information about it [
 All the guidelines about testing your new component or changes to the existing one you can find [here](TESTING_README.md)
 
 ### Linting
-TBD
+We are using [Prettier](https://prettier.io/) with the default community guidelines. Please, make sure that you are formatting your code with prettier.
 
-### Components API guidelines
-TBD
 
+### Commits
+We are using [Semantic commits](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716) convention for creating Pull Requests and commits messages inside of the Pull Request.

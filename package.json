@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DaPulse/monday-ui-react-core.git"
+    "url": "git+https://github.com/mondaycom/monday-ui-react-core.git"
   },
   "author": "",
   "license": "MIT",
@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/mondaycom/monday-ui-react-core/issues"
   },
-  "homepage": "https://github.com/DaPulse/monday-ui-react-core#readme",
+  "homepage": "https://github.com/mondaycom/monday-ui-react-core#readme",
   "dependencies": {
     "monday-ui-style": "^0.0.1",
     "@popperjs/core": "^2.4.3",
