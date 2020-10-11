@@ -2,6 +2,11 @@
 
 .icon_component {
   position: relative;
+
+  &:before {
+    text-decoration: none !important;
+  }
+
   &:focus {
     outline: none;
     -webkit-text-stroke-width: 1px;

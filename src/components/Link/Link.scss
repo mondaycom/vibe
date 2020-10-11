@@ -1,5 +1,22 @@
 @import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/global-css-settings.scss";
 
-link--wrapper {
-
+.monday-style-link {
+  display: flex;
+  align-items: center;
+  @include theme-prop(color, link-color);
+  @include font-link();
+  text-decoration: none;
+  &--text {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &--icon-start {
+    margin-right: $spacing-small;
+  }
+  &--icon-end {
+    margin-left: $spacing-small;
+  }
 }

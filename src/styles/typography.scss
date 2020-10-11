@@ -82,8 +82,8 @@ $font-size-header: 32px;
   font-family: $primary-font;
   font-size: $font-size-paragraph;
   font-weight: $font-weight-light;
-  text-decoration: underline;
   line-height: 24px;
+  text-decoration: none;
   @include theme-prop(color, link-color);
 }
 
