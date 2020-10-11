@@ -1,22 +1,27 @@
 import React from "react";
+import { text, select } from "@storybook/addon-knobs";
 import Link from "../Link";
-import { StoryStateRow, StoryStateColumn, ComponentStateDescription, FlexLayout, Divider } from "../../storybook-helpers";
-import { action } from '@storybook/addon-actions';
-import { text, boolean, number, select } from "@storybook/addon-knobs";
-import DarkThemeContainer from "../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
-import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
-
 
 export const Sandbox = () => (
-    <div>
-        <Link
-            id="Knobs"
-            text={text("Text", "Test knob value")}
-        />
-    </div>
+  <div className="width-35">
+    <Link
+      id="Knobs"
+      href={text("href", "https://www.monday.com")}
+      text={text("text", "Read More")}
+      iconName="fa fa-star"
+      iconPosition={select(
+        "Icon Position",
+        {
+          Start: Link.position.START,
+          End: Link.position.END
+        },
+        Link.position.START
+      )}
+    />
+  </div>
 );
 
 export default {
-    title: "Components/Link",
-    component: Link
+  title: "Components/Link",
+  component: Link
 };
