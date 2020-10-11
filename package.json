@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DaPulse/monday-ui-react-core.git"
+    "url": "git+https://github.com/mondaycom/monday-ui-react-core.git"
   },
   "author": "",
   "license": "MIT",
@@ -30,9 +30,9 @@
     "THEME_README.md"
   ],
   "bugs": {
-    "url": "https://github.com/DaPulse/monday-ui-react-core/issues"
+    "url": "https://github.com/mondaycom/monday-ui-react-core/issues"
   },
-  "homepage": "https://github.com/DaPulse/monday-ui-react-core#readme",
+  "homepage": "https://github.com/mondaycom/monday-ui-react-core#readme",
   "dependencies": {
     "monday-ui-style": "^0.0.1",
     "@popperjs/core": "^2.4.3",
