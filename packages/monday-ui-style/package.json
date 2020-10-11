@@ -27,9 +27,9 @@
     "dist/"
   ],
   "bugs": {
-    "url": "https://github.com/DaPulse/monday-ui-foundations/issues"
+    "url": "https://github.com/mondaycom/monday-ui-style/issues"
   },
-  "homepage": "https://github.com/DaPulse/monday-ui-foundations#readme",
+  "homepage": "https://github.com/mondaycom/monday-ui-style#readme",
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
     "node-sass": "^4.14.1",
