@@ -1,0 +1,29 @@
+
+name: Publish Storybook
+
+on:
+  release:
+    types: [created]
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Build & Deploy Storybook to GitHub pages
+        run: npm run deploy-storybook
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - run: |
+          echo "style.monday.com" > ./CNAME
+          git init
+          git config user.name "GH Pages Bot"
+          git config user.email "hello@ghbot.com"
+          git config commit.gpgsign false
+          git add .
+          git commit -m "Deploy Storybook [ci-skip]"
+          git push --force --quiet git@github.com:DaPulse/monday-ui-react-core.git master:gh-pages
