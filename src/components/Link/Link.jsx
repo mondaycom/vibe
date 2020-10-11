@@ -15,12 +15,14 @@ const Link = ({
   target,
   ariaLabelDescription,
   iconName,
-  iconPosition
+  iconPosition,
+  id
 }) => {
   const isStart = iconPosition === ICON_POSITION.START;
 
   return (
     <a
+      id={id}
       href={href}
       rel={rel}
       onClick={onClick}
@@ -64,7 +66,8 @@ Link.propTypes = {
   ]),
   ariaLabelDescription: PropTypes.string,
   iconName: PropTypes.string,
-  iconPosition: PropTypes.oneOf([ICON_POSITION.START, ICON_POSITION.END])
+  iconPosition: PropTypes.oneOf([ICON_POSITION.START, ICON_POSITION.END]),
+  id: PropTypes.string
 };
 
 Link.defaultProps = {
@@ -76,7 +79,8 @@ Link.defaultProps = {
   target: LINK_TARGET.NEW_WINDOW,
   ariaLabelDescription: "",
   iconName: "",
-  iconPosition: ICON_POSITION.START
+  iconPosition: ICON_POSITION.START,
+  id: ""
 };
 
 export default Link;

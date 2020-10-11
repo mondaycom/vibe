@@ -8,7 +8,7 @@ export default class DescriptionLabel extends PureComponent {
     if (!children) {
       return null;
     }
-    return <span className={classNames("description-label")}>{children}</span>;
+    return <div className={classNames("description-label")}>{children}</div>;
   }
 }
 DescriptionLabel.defaultProps = {};

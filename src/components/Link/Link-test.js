@@ -4,6 +4,7 @@ import { expect, sinon } from "../../test/test-helpers";
 import Link from "./Link";
 
 describe("<Link />", () => {
+  const ariaLabel = "Read more about the interesting article";
   const text = "Read More";
   const href = "https://www.monday.com";
   let onClickStub;
@@ -52,11 +53,51 @@ describe("<Link />", () => {
   });
 
   it("should apply aria label correctly", () => {
-    const ariaLabel = "Read more about the intresting article";
     const { getByLabelText } = render(
       <Link text={text} ariaLabelDescription={ariaLabel} />
     );
     const element = getByLabelText(ariaLabel);
     expect(element).to.be.ok;
+  });
+
+  describe("Icons", () => {
+    it("Should present the icon", () => {
+      const { container } = render(
+        <Link ariaLabelDescription={ariaLabel} iconName="icon-name" />
+      );
+      const element = container.querySelector(".icon_component");
+      expect(element).to.be.ok;
+    });
+
+    it("Icon should be before of the text", () => {
+      const { container } = render(
+        <Link
+          text={text}
+          ariaLabelDescription={ariaLabel}
+          iconName="icon-name"
+        />
+      );
+      const textElement = container.querySelector(".monday-style-link--text");
+      const iconElement = container.querySelector(".icon_component");
+      const textBox = textElement.getBoundingClientRect();
+      const iconBox = iconElement.getBoundingClientRect();
+      expect(textBox.left > iconBox.left).to.equal(true);
+    });
+
+    it("Icon should be after of the text", () => {
+      const { container } = render(
+        <Link
+          text={text}
+          ariaLabelDescription={ariaLabel}
+          iconName="icon-name"
+          iconPosition={Link.position.END}
+        />
+      );
+      const textElement = container.querySelector(".monday-style-link--text");
+      const iconElement = container.querySelector(".icon_component");
+      const textBox = textElement.getBoundingClientRect();
+      const iconBox = iconElement.getBoundingClientRect();
+      expect(textBox.left < iconBox.left).to.equal(true);
+    });
   });
 });
