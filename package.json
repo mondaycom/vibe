@@ -30,7 +30,7 @@
     "THEME_README.md"
   ],
   "bugs": {
-    "url": "https://github.com/DaPulse/monday-ui-react-core/issues"
+    "url": "https://github.com/mondaycom/monday-ui-react-core/issues"
   },
   "homepage": "https://github.com/DaPulse/monday-ui-react-core#readme",
   "dependencies": {
