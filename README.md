@@ -2,17 +2,24 @@
 This package includes all of the styling foundations of monday.com
 Theme definition, colors, shadows, dimensions, icons, etc.
 
+Although we are using React this library will try to stay framework agnostic, we are exposing here the foundations of our design system so they could be used regardless the framework/environment you are using. 
+
 ## Installation
 ```
 npm install monday-ui-style
 ```
 
 ## Usage
-We are building the icons using [Wix's svg2react-icon](https://github.com/wix/svg2react-icon) npm package it is generating a React component for each icon
-``` javascript
-import { IconName } from "monday-ui-style/dist/Icons"
-import IconName from "monday-ui-style/dist/Icons/IconName"
+__Styles__: Import the css file in order to have the css variables exposed on the root level
+``` scss
+@import "~monday-ui-style/dist/index.min.css";
 ```
+
+__Icons__: We expose each icon's SVG from the dist files so you could use them in your app.
+``` javascript
+import IconName from "monday-ui-style/src/Icons/IconName.svg";
+```
+
 
 ## Adding a new icon
 When adding a new icon please make sure of the following
