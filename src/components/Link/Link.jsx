@@ -30,24 +30,18 @@ const Link = ({
       className={cx("monday-style-link", componentClassName)}
       aria-label={ariaLabelDescription}
     >
-      {isStart && (
-        <Icon
-          className="monday-style-link--icon-start"
-          clickable={false}
-          iconName={iconName}
-        />
-      )}
+      {getIcon(isStart, iconName, "monday-style-link--icon-start")}
       <span className="monday-style-link--text">{text}</span>
-      {!isStart && (
-        <Icon
-          className="monday-style-link--icon-end"
-          clickable={false}
-          iconName={iconName}
-        />
-      )}
+      {getIcon(!isStart, iconName, "monday-style-link--icon-end")}
     </a>
   );
 };
+
+function getIcon(shouldShow, iconName, className) {
+  if (!shouldShow) return;
+
+  return <Icon className={className} clickable={false} iconName={iconName} />;
+}
 
 Link.target = LINK_TARGET;
 Link.position = ICON_POSITION;
