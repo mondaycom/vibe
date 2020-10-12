@@ -6,3 +6,5 @@ export { default as Tooltip } from "./Tooltip/Tooltip";
 export { default as Button } from "./Button/Button";
 export { default as FormattedNumber } from "./FormattedNumber/FormattedNumber";
 export { default as LinearProgressBar } from "./ProgressBars/LinearProgressBar/LinearProgressBar";
+
+export { default as Link } from "./Link/Link";
