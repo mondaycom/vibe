@@ -1,15 +1,18 @@
 export const iconsMetaData = [
   {
     name: "Group",
+    file: "Group.svg",
     description: "Adding a group to a board",
   },
   {
     name: "Close",
-    description: "Close icons for inputs",
+    file: "Close.svg",
+    description: "Close",
   },
   {
-    name: "SearchThin",
+    name: "Search Thin",
+    file: "SearchThin.svg",
     description:
-      "Magnifier icons - for search inputs and general search icon buttons",
+      "Search Items",
   },
 ];
