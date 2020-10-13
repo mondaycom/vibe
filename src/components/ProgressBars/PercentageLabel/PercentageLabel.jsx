@@ -1,17 +1,13 @@
-import React, { useMemo } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 const PercentageLabel = ({ forElement, value, className }) => {
-  const renderPercentageLabel = useMemo(() => {
-    if (value === null || value === undefined) return null;
-    return (
-      <label htmlFor={forElement} className={className}>
-        {`${value.toFixed()}%`}
-      </label>
-    );
-  }, [forElement, value]);
-
-  return renderPercentageLabel;
+  if (value === null || value === undefined) return null;
+  return (
+    <label htmlFor={forElement} className={className}>
+      {`${value.toFixed()}%`}
+    </label>
+  );
 };
 
 PercentageLabel.propTypes = {
@@ -27,6 +23,12 @@ PercentageLabel.propTypes = {
    * Custom class name to style the component
    */
   className: PropTypes.string
+};
+
+PercentageLabel.defaultProps = {
+  className: "",
+  value: 0,
+  forElement: ""
 };
 
 export default PercentageLabel;
