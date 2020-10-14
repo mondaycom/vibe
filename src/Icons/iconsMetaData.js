@@ -12,7 +12,11 @@ export const iconsMetaData = [
   {
     name: "Search Thin",
     file: "SearchThin.svg",
-    description:
-      "Search Items",
+    description: "Search Items",
+  },
+  {
+    name: "Question",
+    file: "Question.svg",
+    description: "Add a question",
   },
 ];
