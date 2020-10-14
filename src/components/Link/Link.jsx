@@ -14,7 +14,7 @@ const Link = ({
   onClick,
   target,
   ariaLabelDescription,
-  iconName,
+  icon,
   iconPosition,
   id
 }) => {
@@ -30,17 +30,17 @@ const Link = ({
       className={cx("monday-style-link", componentClassName)}
       aria-label={ariaLabelDescription}
     >
-      {getIcon(isStart, iconName, "monday-style-link--icon-start")}
+      {getIcon(isStart, icon, "monday-style-link--icon-start")}
       <span className="monday-style-link--text">{text}</span>
-      {getIcon(!isStart, iconName, "monday-style-link--icon-end")}
+      {getIcon(!isStart, icon, "monday-style-link--icon-end")}
     </a>
   );
 };
 
-function getIcon(shouldShow, iconName, className) {
+function getIcon(shouldShow, icon, className) {
   if (!shouldShow) return;
 
-  return <Icon className={className} clickable={false} iconName={iconName} />;
+  return <Icon className={className} clickable={false} icon={icon} />;
 }
 
 Link.target = LINK_TARGET;
@@ -59,7 +59,7 @@ Link.propTypes = {
     LINK_TARGET.TOP
   ]),
   ariaLabelDescription: PropTypes.string,
-  iconName: PropTypes.string,
+  icon: PropTypes.string,
   iconPosition: PropTypes.oneOf([ICON_POSITION.START, ICON_POSITION.END]),
   id: PropTypes.string
 };
@@ -72,7 +72,7 @@ Link.defaultProps = {
   onClick: NOOP,
   target: LINK_TARGET.NEW_WINDOW,
   ariaLabelDescription: "",
-  iconName: "",
+  icon: "",
   iconPosition: ICON_POSITION.START,
   id: ""
 };

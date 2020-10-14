@@ -224,7 +224,7 @@
           transform: rotate(0) scale(1);
         }
       }
-      &.input-component__icon--container-has-icon:hover {
+      &.input-component__icon--container-has-icon:hover, &.input-component__icon--container-has-icon:focus-within {
         @include theme-prop(background-color, primary-background-hover-color);
       }
       .input-component__icon {

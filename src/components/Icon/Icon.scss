@@ -8,14 +8,10 @@
   }
 
   &:focus {
-    outline: 1px solid;
-    @include theme-prop(outline-color, primary-color);
-    &:hover {
-      outline: 0;
-    }
+    outline: none;
   }
+
   &--clickable {
     cursor: pointer;
-    transition: outline-color 0.1s linear;
   }
 }

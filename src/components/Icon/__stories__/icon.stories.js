@@ -1,5 +1,4 @@
 import React from "react";
-import { text, number, select, boolean } from "@storybook/addon-knobs";
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
 import Icon from "../Icon";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
@@ -20,7 +19,7 @@ export const Icons = () => {
   );
 };
 
-function IconComponent({ name, description, Component }) {
+function IconComponent({ name, Component }) {
   return (
     <FlexLayout centerize>
       <DescriptionLabel>{name}</DescriptionLabel>

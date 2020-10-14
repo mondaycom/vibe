@@ -150,7 +150,7 @@ const Button = ({
         {successIcon ? (
           <Icon
             clickable={false}
-            iconName={successIcon}
+            icon={successIcon}
             className={cx({ "monday-style-button--left-icon": !!successText })}
           />
         ) : null}
@@ -164,7 +164,7 @@ const Button = ({
       {leftIcon ? (
         <Icon
           clickable={false}
-          iconName={leftIcon}
+          icon={leftIcon}
           className={cx({ "monday-style-button--left-icon": !!children })}
         />
       ) : null}
@@ -172,7 +172,7 @@ const Button = ({
       {rightIcon ? (
         <Icon
           clickable={false}
-          iconName={rightIcon}
+          icon={rightIcon}
           className={cx({ "monday-style-button--right-icon": !!children })}
         />
       ) : null}

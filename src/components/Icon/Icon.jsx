@@ -10,14 +10,7 @@ import FontIcon from "./FontIcon/FontIcon";
 
 const NOOP = () => {};
 
-const Icon = ({
-  onClick,
-  className,
-  iconName,
-  clickable,
-  iconLabel,
-  iconType
-}) => {
+const Icon = ({ onClick, className, icon, clickable, iconLabel, iconType }) => {
   const iconRef = useRef(null);
 
   const onEnterCallback = useCallback(
@@ -64,13 +57,14 @@ const Icon = ({
     },
     [onClick]
   );
+  const tabindex = clickable ? 0 : -1;
 
-  if (!iconName) {
+  if (!icon) {
     return null;
   }
-  const tabindex = clickable ? 0 : -1;
+
   if (iconType === ICON_TYPES.SVG) {
-    const IconComponent = iconName;
+    const IconComponent = icon;
     return (
       <span tabIndex={tabindex} className={computedClassName} ref={iconRef}>
         <IconComponent size={20} onClick={onClick} />
@@ -78,15 +72,14 @@ const Icon = ({
     );
   }
 
-  const iconNameString = typeof iconName === "function" ? "" : iconName;
   return (
     <FontIcon
-      className={cx(iconNameString, computedClassName)}
+      className={cx(computedClassName)}
       onClick={onClickCallback}
       ref={iconRef}
       iconLabel={iconLabel}
       tabIndex={tabindex}
-      clickable={clickable}
+      icon={icon}
     />
   );
 };
@@ -96,7 +89,7 @@ Icon.type = ICON_TYPES;
 Icon.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
-  iconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   clickable: PropTypes.bool,
   iconLabel: PropTypes.string,
   iconType: PropTypes.oneOf([ICON_TYPES.SVG, ICON_TYPES.ICON_FONT])
@@ -105,7 +98,7 @@ Icon.propTypes = {
 Icon.defaultProps = {
   onClick: NOOP,
   className: "",
-  iconName: "",
+  icon: "",
   clickable: true,
   iconLabel: "",
   iconType: ICON_TYPES.SVG
