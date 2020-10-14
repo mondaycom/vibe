@@ -8,16 +8,14 @@
   }
 
   &:focus {
-    outline: none;
-    -webkit-text-stroke-width: 1px;
-    @include theme-prop(-webkit-text-stroke-color, primary-color);
+    outline: 1px solid;
+    @include theme-prop(outline-color, primary-color);
     &:hover {
-      -webkit-text-stroke-width: 0;
-      -webkit-text-stroke-color: transparent;
+      outline: 0;
     }
   }
-  &.icon_component--clickable {
+  &--clickable {
     cursor: pointer;
-    transition: -webkit-text-stroke-color 0.1s linear;
+    transition: outline-color 0.1s linear;
   }
 }

@@ -1,10 +1,12 @@
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+import cx from "classnames";
 import "./Icon.scss";
 import useKeyEvent from "../../hooks/useKeyEvent";
 import useEventListener from "../../hooks/useEventListener";
 import { keyCodes } from "../../constants/KeyCodes";
+import { ICON_TYPES } from "./IconConstants";
+import FontIcon from "./FontIcon/FontIcon";
 
 const NOOP = () => {};
 
@@ -12,8 +14,9 @@ const Icon = ({
   onClick,
   className,
   iconName,
-  clickable = true,
-  iconLabel = ""
+  clickable,
+  iconLabel,
+  iconType
 }) => {
   const iconRef = useRef(null);
 
@@ -31,6 +34,12 @@ const Icon = ({
   const onMouseDown = useCallback(event => {
     event.preventDefault();
   }, []);
+
+  const computedClassName = useMemo(() => {
+    return cx("icon_component", className, {
+      "icon_component--clickable": clickable
+    });
+  }, [clickable, className]);
 
   useEventListener({
     eventName: "mousedown",
@@ -59,35 +68,47 @@ const Icon = ({
   if (!iconName) {
     return null;
   }
-  const iconNameString = typeof iconName === "function" ? "" : iconName;
   const tabindex = clickable ? 0 : -1;
+  if (iconType === ICON_TYPES.SVG) {
+    const IconComponent = iconName;
+    return (
+      <span tabIndex={tabindex} className={computedClassName} ref={iconRef}>
+        <IconComponent size={20} onClick={onClick} />
+      </span>
+    );
+  }
+
+  const iconNameString = typeof iconName === "function" ? "" : iconName;
   return (
-    <span
-      className={classNames("icon_component", iconNameString, className, "fa", {
-        "icon_component--clickable": clickable
-      })}
+    <FontIcon
+      className={cx(iconNameString, computedClassName)}
       onClick={onClickCallback}
       ref={iconRef}
-      aria-label={iconLabel}
+      iconLabel={iconLabel}
       tabIndex={tabindex}
-    >
-      {typeof iconName === "function" && iconName()}
-    </span>
+      clickable={clickable}
+    />
   );
 };
+
+Icon.type = ICON_TYPES;
 
 Icon.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
-  // eslint-disable-next-line react/forbid-prop-types
-  iconName: PropTypes.any,
-  clickable: PropTypes.bool
+  iconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  clickable: PropTypes.bool,
+  iconLabel: PropTypes.string,
+  iconType: PropTypes.oneOf([ICON_TYPES.SVG, ICON_TYPES.ICON_FONT])
 };
 
 Icon.defaultProps = {
   onClick: NOOP,
   className: "",
   iconName: "",
-  clickable: true
+  clickable: true,
+  iconLabel: "",
+  iconType: ICON_TYPES.SVG
 };
+
 export default Icon;

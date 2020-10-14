@@ -15,7 +15,8 @@
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "link-local": "npm link && npm start",
-    "plop": "plop"
+    "plop": "plop",
+    "build-react-icons": "svg2react-icon --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons"
   },
   "repository": {
     "type": "git",
@@ -34,11 +35,12 @@
   },
   "homepage": "https://github.com/mondaycom/monday-ui-react-core#readme",
   "dependencies": {
-    "monday-ui-style": "^0.0.1",
     "@popperjs/core": "^2.4.3",
     "classnames": "^2.2.6",
     "lodash": "^4.17.19",
+    "monday-ui-style": "0.0.7",
     "prop-types": "^15.7.2",
+    "react-inlinesvg": "^2.1.1",
     "react-popper": "^2.2.3",
     "react-transition-group": "^4.4.1"
   },
@@ -118,6 +120,7 @@
     "sinon-chai": "^3.5.0",
     "storybook-addon-themes": "^5.4.1",
     "style-loader": "^1.0.0",
+    "svg2react-icon": "^3.1.174",
     "terser-webpack-plugin": "^4.1.0",
     "vue": "^2.6.11",
     "webpack": "^4.43.0",
