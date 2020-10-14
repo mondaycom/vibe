@@ -26,6 +26,11 @@ jobs:
           git config commit.gpgsign false
           git add .
           git commit -m "Deploy Storybook [ci-skip]"
-          git push --force --quiet git@github.com:DaPulse/monday-ui-react-core.git master:gh-pages
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Push to Storybook's branch
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${secrets.GIT_TOKEN}}
+          branch: "master:gh-pages"
+          force: true
