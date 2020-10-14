@@ -16,7 +16,7 @@ export const iconsMetaData = [
   },
   {
     name: "Question",
-    file: "Question.svh",
+    file: "Question.svg",
     description: "Add a question",
   },
 ];
