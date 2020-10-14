@@ -14,23 +14,19 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Build & Deploy Storybook to GitHub pages
+      - name: Build & deploy Storybook to GitHub Pages
         run: |
           npm install
           npm run build-storybook -- -o static_storybook
           cd static_storybook
           echo "style.monday.com" > ./CNAME
-          git init
-          git config user.name "GH Pages Bot"
-          git config user.email "hello@ghbot.com"
-          git config commit.gpgsign false
-          git add .
-          git commit -m "Deploy Storybook [ci-skip]"
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - name: Push to Storybook's branch
-        uses: ad-m/github-push-action@v0.6.0
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
         with:
-          github_token: ${secrets.GIT_TOKEN}}
-          branch: "master:gh-pages"
-          force: true
+          target_branch: "gh-pages"
+          build_dir: public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
