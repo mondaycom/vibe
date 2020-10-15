@@ -2,6 +2,34 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "MyWeek",
+      file: "",
+      description: "My Week",
+      tags: "Calendar, Week, My"
+  },
+
+  {
+      name: "MenuVertical",
+      file: "",
+      description: "Vertical Menu Dots",
+      tags: "Dots, Menu, Vertical, 3 Dots"
+  },
+
+  {
+      name: "Menu",
+      file: "",
+      description: "Menu Icon ",
+      tags: "3 Dots, Dots, Menu"
+  },
+
+  {
+      name: "InviteUsers",
+      file: "",
+      description: "Invite Users",
+      tags: "Users, Invite, Invitation"
+  },
+
+  {
       name: "NavigationArrowLeft",
       file: "",
       description: "Navigation, Arrow, Left",
