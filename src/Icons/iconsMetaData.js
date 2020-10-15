@@ -2,6 +2,41 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Close",
+      file: "",
+      description: "Close",
+      tags: "Close, X"
+  },
+
+  {
+      name: "ChevronUP",
+      file: "",
+      description: "Chevron Up Arrow",
+      tags: "Chevron, Arrow, Up"
+  },
+
+  {
+      name: "ChevronRight",
+      file: "",
+      description: "Chevron Right Arrow",
+      tags: "Chevron, Arrow, Right"
+  },
+
+  {
+      name: "ChevronDown",
+      file: "",
+      description: "Chevron Down Arrow",
+      tags: "Chevron, Arrow, Down"
+  },
+
+  {
+      name: "CevronLeft",
+      file: "",
+      description: "Cevron Arrow",
+      tags: "Cevron, Arrow, Left"
+  },
+
+  {
       name: "Inbox",
       file: "",
       description: "Inbox",
