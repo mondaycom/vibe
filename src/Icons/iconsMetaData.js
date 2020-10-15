@@ -19,4 +19,6 @@ export const iconsMetaData = [
     file: "Question.svg",
     description: "Add a question",
   },
+  // DO NOT REMOVE THIS FOLLOWING LINE!
+  // plop_marker:icon_metadata
 ];
