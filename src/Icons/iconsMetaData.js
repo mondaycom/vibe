@@ -5,7 +5,7 @@ export const iconsMetaData = [
       name: "Bolt",
       file: "Bolt.svg",
       description: "Bolt",
-      tags: "Bolt, Lightninig, Quick"
+      tags: "Bolt, Lightning, Quick"
   },
 
   {
@@ -67,8 +67,8 @@ export const iconsMetaData = [
   {
       name: "ChevronLeft",
       file: "ChevronLeft.svg",
-      description: "Cevron Arrow",
-      tags: "Cevron, Arrow, Left"
+      description: "Chevron Arrow",
+      tags: "Chevron, Arrow, Left"
   },
 
   {
@@ -173,7 +173,7 @@ export const iconsMetaData = [
       name: "Workspaces",
       file: "Workspaces.svg",
       description: "Workspaces Icon",
-      tags: ""
+      tags: "Workspaces"
   },
 
 ];
