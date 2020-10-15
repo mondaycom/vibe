@@ -2,6 +2,27 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Inbox",
+      file: "",
+      description: "Inbox",
+      tags: "Inbox, Incoming, Mail"
+  },
+
+  {
+      name: "Favorites",
+      file: "",
+      description: "Favorites",
+      tags: "Favorites, Star, Bookmark"
+  },
+
+  {
+      name: "CloseSmall",
+      file: "",
+      description: "Close Icon",
+      tags: "Close, X, No"
+  },
+
+  {
       name: "MyWeek",
       file: "",
       description: "My Week",
