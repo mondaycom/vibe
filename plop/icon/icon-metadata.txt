@@ -1,7 +1,7 @@
 $1
   {
       name: "{{iconName}}",
-      file: "{{status}}",
+      file: "{{fileName}}",
       description: "{{description}}",
       tags: "{{tags}}"
   },
