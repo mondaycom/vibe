@@ -1,0 +1,7 @@
+$1
+  {
+      name: "{{iconName}}",
+      file: "{{fileName}}",
+      description: "{{description}}",
+      tags: "{{tags}}"
+  },
