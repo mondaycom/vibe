@@ -21,7 +21,7 @@ $arrow-size-md: 16px;
   padding: $spacing-small $spacing-medium;
   box-shadow: $box-shadow-small;
   @include font-input();
-  max-width: 320px;
+  max-width: 50vw;
   word-break: break-word;
 
   &.padding-size-md {

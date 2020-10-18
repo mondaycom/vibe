@@ -40,7 +40,15 @@ const Link = ({
 function getIcon(shouldShow, icon, className) {
   if (!shouldShow) return;
 
-  return <Icon className={className} clickable={false} icon={icon} />;
+  console.log('icon:', icon); 
+  return (
+    <Icon
+      className={className}
+      clickable={false}
+      icon={icon}
+      iconType={Icon.type.ICON_FONT}
+    />
+  );
 }
 
 Link.target = LINK_TARGET;

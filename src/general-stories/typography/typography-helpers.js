@@ -72,20 +72,11 @@ export const typographyList = [
   {
     name: "Link",
     className: "link",
-    weight: 300,
+    weight: 400,
     size: "16px",
     lineheight: "24px",
     spacing: 0,
     comments: "Links"
   },
 
-  {
-    name: "Secondary Action",
-    className: "secondary-action",
-    weight: 300,
-    size: "16px",
-    lineheight: "24px",
-    spacing: 0,
-    comments: "Secondary actions like cancel, back, see more etc."
-  }
 ];

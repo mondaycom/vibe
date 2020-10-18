@@ -149,6 +149,7 @@ const Button = ({
       <button {...buttonProps}>
         {successIcon ? (
           <Icon
+            iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={successIcon}
             className={cx({ "monday-style-button--left-icon": !!successText })}
@@ -164,6 +165,7 @@ const Button = ({
     <button {...buttonProps}>
       {leftIcon ? (
         <Icon
+          iconType={Icon.type.ICON_FONT}
           clickable={false}
           icon={leftIcon}
           className={cx({ "monday-style-button--left-icon": !!children })}
@@ -173,6 +175,7 @@ const Button = ({
       {children}
       {rightIcon ? (
         <Icon
+            iconType={Icon.type.ICON_FONT}
           clickable={false}
           icon={rightIcon}
           className={cx({ "monday-style-button--right-icon": !!children })}

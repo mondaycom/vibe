@@ -12,7 +12,7 @@ export const Sandbox = () => (
       id="Knobs"
       href={text("href", "https://www.monday.com")}
       text={text("text", "Read More")}
-      iconName="fa fa-star"
+      icon="fa fa-star"
       iconPosition={select(
         "Icon Position",
         {
@@ -40,7 +40,7 @@ export const States = () => {
             text="Read more"
             iconPosition={Link.position.START}
             href="https://www.monday.com"
-            iconName="fa fa-info"
+            icon="fa fa-info"
             ariaLabelDescription="Read more about monday,con"
           />
         </StoryLine>
@@ -52,7 +52,7 @@ export const States = () => {
             text="Read more"
             iconPosition={Link.position.END}
             href="https://www.monday.com"
-            iconName="fa fa-link"
+            icon="fa fa-link"
             ariaLabelDescription="Read more about monday,con"
           />
         </StoryLine>
@@ -63,7 +63,7 @@ export const States = () => {
             id="just-icon"
             href="https://www.monday.com"
             iconPosition={Link.position.START}
-            iconName="fa fa-star"
+            icon="fa fa-star"
             ariaLabelDescription="Read more about monday,con"
           />
         </StoryLine>
@@ -82,7 +82,7 @@ export const RTLSupport = () => {
             text="קרא עוד"
             iconPosition={Link.position.START}
             href="https://www.monday.com"
-            iconName="fa fa-info"
+            icon="fa fa-info"
             ariaLabelDescription="Read more about monday,con"
           />
         </StoryLine>
@@ -94,7 +94,7 @@ export const RTLSupport = () => {
             text="اقرأ أكثر"
             iconPosition={Link.position.END}
             href="https://www.monday.com"
-            iconName="fa fa-link"
+            icon="fa fa-link"
             ariaLabelDescription="Read more about monday,con"
           />
         </StoryLine>
