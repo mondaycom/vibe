@@ -7,6 +7,8 @@ const publishedComponents = {
   Tooltip: "/src/components/Tooltip/Tooltip.jsx",
   Button: "/src/components/Button/Button.jsx",
   Loader: "/src/components/Loader/Loader.jsx",
+  Icon: "/src/components/Icon/Icon.jsx",
+  CustomSvgIcon: "/src/components/Icon/CustomSvgIcon.jsx",
   FormattedNumber: "/src/components/FormattedNumber/FormattedNumber.jsx",
   LinearProgressBar:
     "/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
@@ -32,8 +34,6 @@ function exposeIcons(dirPath) {
   const filesObject = {};
   const files = fs.readdirSync(directoryPath);
   files.forEach(function(file) {
-    // Do whatever you want to do with the file
-    console.log(file);
     filesObject[`/icons/${file.split(".")[0]}`] = `${iconsPath}/${file}`;
   });
   return filesObject;

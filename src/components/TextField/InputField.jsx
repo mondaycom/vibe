@@ -157,6 +157,7 @@ const InputField = ({
               id={id}
               iconLabel={iconsNames.primary}
               iconType={Icon.type.ICON_FONT}
+              ignoreFocusStyle
             />
           </div>
           <div
@@ -173,6 +174,7 @@ const InputField = ({
               id={id}
               iconLabel={iconsNames.secondary}
               iconType={Icon.type.ICON_FONT}
+              ignoreFocusStyle
             />
           </div>
         </div>

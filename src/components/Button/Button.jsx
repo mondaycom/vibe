@@ -152,6 +152,7 @@ const Button = ({
             clickable={false}
             icon={successIcon}
             className={cx({ "monday-style-button--left-icon": !!successText })}
+            ignoreFocusStyle
           />
         ) : null}
         {successText}
@@ -166,6 +167,7 @@ const Button = ({
           clickable={false}
           icon={leftIcon}
           className={cx({ "monday-style-button--left-icon": !!children })}
+          ignoreFocusStyle
         />
       ) : null}
       {children}
@@ -174,6 +176,7 @@ const Button = ({
           clickable={false}
           icon={rightIcon}
           className={cx({ "monday-style-button--right-icon": !!children })}
+          ignoreFocusStyle
         />
       ) : null}
     </button>

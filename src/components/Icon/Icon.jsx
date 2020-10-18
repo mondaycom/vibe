@@ -1,63 +1,34 @@
-import React, { useCallback, useMemo, useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import "./Icon.scss";
-import useKeyEvent from "../../hooks/useKeyEvent";
-import useEventListener from "../../hooks/useEventListener";
-import { keyCodes } from "../../constants/KeyCodes";
 import { ICON_TYPES } from "./IconConstants";
 import FontIcon from "./FontIcon/FontIcon";
+import useIconProps from "./hooks/useIconProps";
 
 const NOOP = () => {};
 
-const Icon = ({ onClick, className, icon, clickable, iconLabel, iconType }) => {
-  const iconRef = useRef(null);
-
-  const onEnterCallback = useCallback(
-    event => {
-      const isActive = document.activeElement === iconRef.current;
-      if (!isActive) {
-        return;
-      }
-      onClick(event);
-    },
-    [iconRef, onClick]
-  );
-
-  const onMouseDown = useCallback(event => {
-    event.preventDefault();
-  }, []);
-
-  const computedClassName = useMemo(() => {
-    return cx("icon_component", className, {
-      "icon_component--clickable": clickable
-    });
-  }, [clickable, className]);
-
-  useEventListener({
-    eventName: "mousedown",
-    callback: onMouseDown,
-    ref: iconRef
+const Icon = ({
+  onClick,
+  className,
+  icon,
+  clickable,
+  iconLabel,
+  iconType,
+  iconSize,
+  ignoreFocusStyle
+}) => {
+  const {
+    tabindex,
+    onClickCallback,
+    computedClassName,
+    iconRef
+  } = useIconProps({
+    onClick,
+    clickable,
+    className,
+    ignoreFocusStyle
   });
-
-  useKeyEvent({
-    keys: [keyCodes.ENTER, keyCodes.SPACE],
-    ref: iconRef,
-    callback: onEnterCallback,
-    ignoreDocumentFallback: true,
-    capture: true,
-    stopPropagation: true,
-    preventDefault: true
-  });
-
-  const onClickCallback = useCallback(
-    event => {
-      const callback = onClick || NOOP;
-      callback(event);
-    },
-    [onClick]
-  );
-  const tabindex = clickable ? 0 : -1;
 
   if (!icon) {
     return null;
@@ -66,9 +37,13 @@ const Icon = ({ onClick, className, icon, clickable, iconLabel, iconType }) => {
   if (iconType === ICON_TYPES.SVG) {
     const IconComponent = icon;
     return (
-      <span tabIndex={tabindex} className={computedClassName} ref={iconRef}>
-        <IconComponent size={20} onClick={onClick} />
-      </span>
+      <IconComponent
+        size={iconSize}
+        onClick={onClick}
+        tabIndex={tabindex}
+        className={computedClassName}
+        ref={iconRef}
+      />
     );
   }
 
@@ -87,12 +62,20 @@ const Icon = ({ onClick, className, icon, clickable, iconLabel, iconType }) => {
 Icon.type = ICON_TYPES;
 
 Icon.propTypes = {
+  /* onClick function */
   onClick: PropTypes.func,
   className: PropTypes.string,
+  /* we support two types of icons - SVG and FONT (classname) so this prop is either the name of the icon or the component */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  /* is in used for tabIndex */
   clickable: PropTypes.bool,
+  /* for aria-label support */
   iconLabel: PropTypes.string,
-  iconType: PropTypes.oneOf([ICON_TYPES.SVG, ICON_TYPES.ICON_FONT])
+  /* the type of the component 0 svg, font or custom svg (using react-inlinesvg) */
+  iconType: PropTypes.oneOf([ICON_TYPES.SVG, ICON_TYPES.ICON_FONT]),
+  /* size for font icon */
+  iconSize: PropTypes.number,
+  ignoreFocusStyle: PropTypes.bool
 };
 
 Icon.defaultProps = {
@@ -101,7 +84,9 @@ Icon.defaultProps = {
   icon: "",
   clickable: true,
   iconLabel: "",
-  iconType: ICON_TYPES.SVG
+  iconType: ICON_TYPES.SVG,
+  iconSize: 16,
+  ignoreFocusStyle: false
 };
 
 export default Icon;

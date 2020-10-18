@@ -6,11 +6,11 @@
   &:before {
     text-decoration: none !important;
   }
-
-  &:focus {
-    outline: none;
+  &--no-focus-style {
+    &:focus {
+      outline: none;
+    }
   }
-
   &--clickable {
     cursor: pointer;
   }

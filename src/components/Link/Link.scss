@@ -9,8 +9,11 @@
   @include font-link();
   text-decoration: none;
   writing-mode: horizontal-tb;
-  &--text {
-    &:hover {
+  &:focus-visible {
+    @include theme-prop(outline-color, link-color);
+  }
+  &:hover {
+    .monday-style-link--text {
       text-decoration: underline;
     }
   }
