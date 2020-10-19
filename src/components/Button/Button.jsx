@@ -149,9 +149,11 @@ const Button = ({
       <button {...buttonProps}>
         {successIcon ? (
           <Icon
+            iconType={Icon.type.ICON_FONT}
             clickable={false}
-            iconName={successIcon}
+            icon={successIcon}
             className={cx({ "monday-style-button--left-icon": !!successText })}
+            ignoreFocusStyle
           />
         ) : null}
         {successText}
@@ -163,17 +165,21 @@ const Button = ({
     <button {...buttonProps}>
       {leftIcon ? (
         <Icon
+          iconType={Icon.type.ICON_FONT}
           clickable={false}
-          iconName={leftIcon}
+          icon={leftIcon}
           className={cx({ "monday-style-button--left-icon": !!children })}
+          ignoreFocusStyle
         />
       ) : null}
       {children}
       {rightIcon ? (
         <Icon
+            iconType={Icon.type.ICON_FONT}
           clickable={false}
-          iconName={rightIcon}
+          icon={rightIcon}
           className={cx({ "monday-style-button--right-icon": !!children })}
+          ignoreFocusStyle
         />
       ) : null}
     </button>
@@ -241,7 +247,6 @@ Button.defaultProps = {
 
 Button.sizes = BUTTON_SIZES;
 Button.colors = BUTTON_COLORS;
-Button.kind = BUTTON_TYPES;
 Button.kinds = BUTTON_TYPES;
 Button.inputTags = BUTTON_INPUT_TYPE;
 

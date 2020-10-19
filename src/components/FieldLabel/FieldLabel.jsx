@@ -23,6 +23,7 @@ const FieldLabel = ({
         id={labelFor}
         clickable={false}
         iconLabel={iconLabel}
+        iconType={Icon.type.ICON_FONT}
       />
       <label
         htmlFor={labelFor}

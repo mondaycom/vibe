@@ -8,3 +8,4 @@ export { default as FormattedNumber } from "./FormattedNumber/FormattedNumber";
 export { default as LinearProgressBar } from "./ProgressBars/LinearProgressBar/LinearProgressBar";
 
 export { default as Link } from "./Link/Link";
+export { default as CustomSvgIcon } from "./Icon/CustomSvgIcon";

@@ -26,16 +26,16 @@ const validatePrecision = precision => {
 };
 
 export const formatNumberConsts = Object.freeze({
-  MIN_PRECISION: MIN_PRECISION,
-  MAX_PRECISION: MAX_PRECISION,
-  DEFAULT_LOCAL: DEFAULT_LOCAL
+  MIN_PRECISION,
+  MAX_PRECISION,
+  DEFAULT_LOCAL
 });
 
 export const formatNumber = (
   value,
   { local = DEFAULT_LOCAL, isCompact = true, precision = 2 } = {}
 ) => {
-  if (value == undefined) return;
+  if (value === undefined || value === null) return;
   const isLocalSupported = validateLocalSupported(local);
   const normalizedPrecision = validatePrecision(precision);
   const selectedLocal = isLocalSupported ? local : DEFAULT_LOCAL;

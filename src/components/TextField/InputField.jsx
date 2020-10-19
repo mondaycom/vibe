@@ -113,7 +113,7 @@ const InputField = ({
       <div className="input-component__label--wrapper">
         <FieldLabel
           labelText={title}
-          iconName={labelIconName}
+          icon={labelIconName}
           iconLabel={iconsNames.layout}
           labelFor={id}
         />
@@ -150,12 +150,14 @@ const InputField = ({
             })}
           >
             <Icon
-              iconName={iconName}
+              icon={iconName}
               onClick={onIconClickCallback}
               className={classNames("input-component__icon")}
               clickable={isPrimary && iconClickable}
               id={id}
               iconLabel={iconsNames.primary}
+              iconType={Icon.type.ICON_FONT}
+              ignoreFocusStyle
             />
           </div>
           <div
@@ -165,12 +167,14 @@ const InputField = ({
             })}
           >
             <Icon
-              iconName={secondaryIconName}
+              icon={secondaryIconName}
               onClick={onIconClickCallback}
               className={classNames("input-component__icon")}
               clickable={isSecondary && iconClickable}
               id={id}
               iconLabel={iconsNames.secondary}
+              iconType={Icon.type.ICON_FONT}
+              ignoreFocusStyle
             />
           </div>
         </div>

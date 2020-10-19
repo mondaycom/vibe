@@ -6,18 +6,12 @@
   &:before {
     text-decoration: none !important;
   }
-
-  &:focus {
-    outline: none;
-    -webkit-text-stroke-width: 1px;
-    @include theme-prop(-webkit-text-stroke-color, primary-color);
-    &:hover {
-      -webkit-text-stroke-width: 0;
-      -webkit-text-stroke-color: transparent;
+  &--no-focus-style {
+    &:focus {
+      outline: none;
     }
   }
-  &.icon_component--clickable {
+  &--clickable {
     cursor: pointer;
-    transition: -webkit-text-stroke-color 0.1s linear;
   }
 }

@@ -14,7 +14,11 @@ const {{properCase componentName}} = ({
   );
 };
 
-{{properCase componentName}}.defaultProps = {};
-{{properCase componentName}}.propTypes = {};
+{{properCase componentName}}.defaultProps = {
+    componentClassName: PropTypes.string,
+};
+{{properCase componentName}}.propTypes = {
+    componentClassName: ""
+};
 
 export default {{properCase componentName}};

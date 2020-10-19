@@ -12,9 +12,7 @@ export default class ColorItem extends PureComponent {
         <div
           className={classNames("color-rect", { "half-size": halfSize })}
           style={style}
-        >
-          <span className="color-code-name">{`$${codeName}`}</span>
-        </div>
+        />
         <span className="color-name">{name}</span>
         <span className="color-value">{value}</span>
         <span className="theme-name">{themeColor}</span>

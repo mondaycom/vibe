@@ -33,7 +33,7 @@ const LinearProgressBar = ({
     if (multi) {
       const firstValue =
         multiValues && multiValues.length && multiValues[0].value;
-      if (firstValue === null || firstValue == undefined) return 0;
+      if (firstValue === null || firstValue === undefined) return 0;
       return calculatePercentage(firstValue, min, max);
     }
     if (value === null || value === undefined) return 0;
@@ -46,13 +46,14 @@ const LinearProgressBar = ({
       <>
         {[...multiValues].reverse().map(({ value: baseValue, color }, i) => (
           <Bar
-            barStyle={"none"}
+            barStyle="none"
             value={baseValue}
             animated={animated}
             baseClass={baseClassName}
             color={color}
             min={min}
             max={max}
+            /* eslint-disable-next-line react/no-array-index-key */
             key={`${baseClassName}_${color}_${i}`}
           />
         ))}
@@ -62,7 +63,7 @@ const LinearProgressBar = ({
 
   const renderPercentage = indicateProgress ? (
     <PercentageLabel
-      forElement={"linear-progress-bar"}
+      forElement="linear-progress-bar"
       className={`${baseClassName}__label`}
       value={valuePercentage}
     />
@@ -72,7 +73,7 @@ const LinearProgressBar = ({
     <>
       <Bar
         barStyle={barStyle}
-        id={"linear-progress-bar"}
+        id="linear-progress-bar"
         value={valueSecondary}
         animated={animated}
         baseClass={`${baseClassName}__secondary`}
@@ -168,6 +169,12 @@ LinearProgressBar.propTypes = {
 
 LinearProgressBar.defaultProps = {
   barStyle: PROGRESS_BAR_STYLES.PRIMARY,
+  size: PROGRESS_BAR_SIZES.SMALL,
+  className: "",
+  multi: false,
+  indicateProgress: false,
+  valueSecondary: 0,
+  value: 0,
   min: 0,
   max: 100,
   animated: true,

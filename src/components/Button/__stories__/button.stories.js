@@ -2,141 +2,167 @@ import React, { useCallback, useState } from "react";
 import Button from "../Button";
 import StoryStateColumn from "../../storybook-helpers/story-state-column/story-state-column";
 import StoryStateRow from "../../storybook-helpers/story-states-row/story-states-row";
+import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
 
 export const DefaultStory = () => (
   <Button marginLeft marginRight>
     Button
   </Button>
 );
-export const Sizes = () => (
-  <StoryStateRow>
-    <StoryStateColumn title="Primary Small Button">
-      <Button size={Button.sizes.SMALL}>Small</Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Primary Medium Button">
-      <Button size={Button.sizes.MEDIUM}>Medium</Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Primary Large Button">
-      <Button size={Button.sizes.LARGE}>Large</Button>
-    </StoryStateColumn>
-  </StoryStateRow>
-);
-
-export const Disabled = () => (
-  <StoryStateRow>
-    <StoryStateColumn title="Primary Small Button Disabled">
-      <Button disabled size={Button.sizes.SMALL}>
-        Small
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Primary Medium Button Disabled">
-      <Button disabled size={Button.sizes.MEDIUM}>
-        Medium
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Primary Large Button Disabled">
-      <Button disabled size={Button.sizes.LARGE}>
-        Large
-      </Button>
-    </StoryStateColumn>
-  </StoryStateRow>
+export const PrimaryButton = () => (
+  <section>
+    <StoryStateRow>
+      <StoryStateColumn
+        title="Small"
+        description="Small actions
+Post, perly , copy, readmore."
+      >
+        <Button size={Button.sizes.SMALL}>Small</Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Medium" description="Regular actions">
+        <Button size={Button.sizes.MEDIUM}>Medium</Button>
+      </StoryStateColumn>
+      <StoryStateColumn
+        title="Large"
+        description="Call for action
+Marketing banners
+Important updates."
+      >
+        <Button size={Button.sizes.LARGE}>Large</Button>
+      </StoryStateColumn>
+    </StoryStateRow>
+    <DescriptionLabel>Disabled</DescriptionLabel>
+    <StoryStateRow>
+      <StoryStateColumn>
+        <Button disabled size={Button.sizes.SMALL}>
+          Small
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn>
+        <Button disabled size={Button.sizes.MEDIUM}>
+          Medium
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn>
+        <Button disabled size={Button.sizes.LARGE}>
+          Large
+        </Button>
+      </StoryStateColumn>
+    </StoryStateRow>
+  </section>
 );
 
 export const SecondaryButton = () => (
-  <StoryStateRow>
-    <StoryStateColumn title="Secondary Small Button">
-      <Button size={Button.sizes.SMALL} kind={Button.kinds.SECONDARY}>
-        Small
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Secondary Medium Button">
-      <Button size={Button.sizes.MEDIUM} kind={Button.kinds.SECONDARY}>
-        Medium
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Secondary Large Button">
-      <Button size={Button.sizes.LARGE} kind={Button.kinds.SECONDARY}>
-        Large
-      </Button>
-    </StoryStateColumn>
-  </StoryStateRow>
-);
-
-export const DisabledSecondaryButton = () => (
-  <StoryStateRow>
-    <StoryStateColumn title="Secondary Small Button Disabled">
-      <Button disabled size={Button.sizes.SMALL} kind={Button.kinds.SECONDARY}>
-        Small
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Secondary Medium Button Disabled">
-      <Button disabled size={Button.sizes.MEDIUM} kind={Button.kinds.SECONDARY}>
-        Medium
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Secondary Large Button Disabled">
-      <Button disabled size={Button.sizes.LARGE} kind={Button.kinds.SECONDARY}>
-        Large
-      </Button>
-    </StoryStateColumn>
-  </StoryStateRow>
+  <section>
+    <StoryStateRow>
+      <StoryStateColumn title="Small">
+        <Button size={Button.sizes.SMALL} kind={Button.kinds.SECONDARY}>
+          Small
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Medium">
+        <Button size={Button.sizes.MEDIUM} kind={Button.kinds.SECONDARY}>
+          Medium
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Large">
+        <Button size={Button.sizes.LARGE} kind={Button.kinds.SECONDARY}>
+          Large
+        </Button>
+      </StoryStateColumn>
+    </StoryStateRow>
+    <DescriptionLabel>Disabled</DescriptionLabel>
+    <StoryStateRow>
+      <StoryStateColumn>
+        <Button
+          disabled
+          size={Button.sizes.SMALL}
+          kind={Button.kinds.SECONDARY}
+        >
+          Small
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn>
+        <Button
+          disabled
+          size={Button.sizes.MEDIUM}
+          kind={Button.kinds.SECONDARY}
+        >
+          Medium
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn>
+        <Button
+          disabled
+          size={Button.sizes.LARGE}
+          kind={Button.kinds.SECONDARY}
+        >
+          Large
+        </Button>
+      </StoryStateColumn>
+    </StoryStateRow>
+  </section>
 );
 
 export const TertiaryButton = () => (
-  <StoryStateRow>
-    <StoryStateColumn title="Tertiary Small Button">
-      <Button size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY}>
-        Small
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Tertiary Medium Button">
-      <Button size={Button.sizes.MEDIUM} kind={Button.kinds.TERTIARY}>
-        Medium
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Tertiary Large Button">
-      <Button size={Button.sizes.LARGE} kind={Button.kinds.TERTIARY}>
-        Large
-      </Button>
-    </StoryStateColumn>
-  </StoryStateRow>
-);
-
-export const TertiaryButtonDisabled = () => (
-  <StoryStateRow>
-    <StoryStateColumn title="Tertiary Small Button">
-      <Button size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY} disabled>
-        Small
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Tertiary Medium Button">
-      <Button size={Button.sizes.MEDIUM} kind={Button.kinds.TERTIARY} disabled>
-        Medium
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Tertiary Large Button">
-      <Button size={Button.sizes.LARGE} kind={Button.kinds.TERTIARY} disabled>
-        Large
-      </Button>
-    </StoryStateColumn>
-  </StoryStateRow>
+  <section>
+    <StoryStateRow>
+      <StoryStateColumn title="Small">
+        <Button size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY}>
+          Small
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Medium">
+        <Button size={Button.sizes.MEDIUM} kind={Button.kinds.TERTIARY}>
+          Medium
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn title="Large">
+        <Button size={Button.sizes.LARGE} kind={Button.kinds.TERTIARY}>
+          Large
+        </Button>
+      </StoryStateColumn>
+    </StoryStateRow>
+    <DescriptionLabel>Disabled</DescriptionLabel>
+    <StoryStateRow>
+      <StoryStateColumn>
+        <Button size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY} disabled>
+          Small
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn>
+        <Button
+          size={Button.sizes.MEDIUM}
+          kind={Button.kinds.TERTIARY}
+          disabled
+        >
+          Medium
+        </Button>
+      </StoryStateColumn>
+      <StoryStateColumn>
+        <Button size={Button.sizes.LARGE} kind={Button.kinds.TERTIARY} disabled>
+          Large
+        </Button>
+      </StoryStateColumn>
+    </StoryStateRow>
+  </section>
 );
 
 export const ActiveState = () => (
   <StoryStateRow>
     <StoryStateColumn title="Active Primary">
       <Button active size={Button.sizes.LARGE} kind={Button.kinds.PRIMARY}>
-        Positive Primary
+        Active Primary
       </Button>
     </StoryStateColumn>
     <StoryStateColumn title="Active Secondary">
       <Button active size={Button.sizes.LARGE} kind={Button.kinds.SECONDARY}>
-        Positive Secondary
+        Active Secondary
       </Button>
     </StoryStateColumn>
     <StoryStateColumn title="Active Tertiary">
       <Button active size={Button.sizes.LARGE} kind={Button.kinds.TERTIARY}>
-        Positive Tertiary
+        Active Tertiary
       </Button>
     </StoryStateColumn>
   </StoryStateRow>
@@ -144,7 +170,7 @@ export const ActiveState = () => (
 
 export const PositiveButtons = () => (
   <StoryStateRow>
-    <StoryStateColumn title="Positive Primary">
+    <StoryStateColumn title="Primary">
       <Button
         size={Button.sizes.LARGE}
         kind={Button.kinds.PRIMARY}
@@ -153,7 +179,7 @@ export const PositiveButtons = () => (
         Positive Primary
       </Button>
     </StoryStateColumn>
-    <StoryStateColumn title="Positive Secondary">
+    <StoryStateColumn title="Secondary">
       <Button
         size={Button.sizes.LARGE}
         kind={Button.kinds.SECONDARY}
@@ -162,7 +188,7 @@ export const PositiveButtons = () => (
         Positive Secondary
       </Button>
     </StoryStateColumn>
-    <StoryStateColumn title="Positive Tertiary">
+    <StoryStateColumn title="Tertiary">
       <Button
         size={Button.sizes.LARGE}
         kind={Button.kinds.TERTIARY}
@@ -176,7 +202,7 @@ export const PositiveButtons = () => (
 
 export const NegativeButtons = () => (
   <StoryStateRow>
-    <StoryStateColumn title="Negative Primary">
+    <StoryStateColumn title="Primary">
       <Button
         size={Button.sizes.LARGE}
         kind={Button.kinds.PRIMARY}
@@ -185,7 +211,7 @@ export const NegativeButtons = () => (
         Negative Primary
       </Button>
     </StoryStateColumn>
-    <StoryStateColumn title="Negative Secondary">
+    <StoryStateColumn title="Secondary">
       <Button
         size={Button.sizes.LARGE}
         kind={Button.kinds.SECONDARY}
@@ -194,7 +220,7 @@ export const NegativeButtons = () => (
         Negative Secondary
       </Button>
     </StoryStateColumn>
-    <StoryStateColumn title="Negative Tertiary">
+    <StoryStateColumn title="Tertiary">
       <Button
         size={Button.sizes.LARGE}
         kind={Button.kinds.TERTIARY}
@@ -278,41 +304,6 @@ export const ButtonsWithIcons = () => (
   </StoryStateRow>
 );
 
-export const IconSizes = () => (
-  <StoryStateRow>
-    <StoryStateColumn title="Icon Large">
-      <Button
-        size={Button.sizes.LARGE}
-        kind={Button.kinds.PRIMARY}
-        color={Button.colors.PRIMARY}
-        leftIcon="fa fa-check"
-      >
-        Left Icon
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Icon Medium">
-      <Button
-        size={Button.sizes.MEDIUM}
-        kind={Button.kinds.PRIMARY}
-        color={Button.colors.PRIMARY}
-        leftIcon="fa fa-check"
-      >
-        Left Icon
-      </Button>
-    </StoryStateColumn>
-    <StoryStateColumn title="Icon Small">
-      <Button
-        size={Button.sizes.SMALL}
-        kind={Button.kinds.PRIMARY}
-        color={Button.colors.PRIMARY}
-        leftIcon="fa fa-check"
-      >
-        Left Icon
-      </Button>
-    </StoryStateColumn>
-  </StoryStateRow>
-);
-
 export const SuccessText = () => (
   <StoryStateRow>
     <StoryStateColumn title="Success Text">
@@ -349,31 +340,6 @@ export const SuccessText = () => (
   </StoryStateRow>
 );
 
-function renderIcon() {
-  return (
-    <span className="intro-banner-vdo-play-btn greenBg">
-      <span className="ripple greenBg" />
-      <span className="ripple greenBg" />
-      <span className="ripple greenBg" />
-    </span>
-  );
-}
-
-export const Custom = () => (
-  <StoryStateRow>
-    <StoryStateColumn title="Left Icon Large">
-      <Button
-        loading
-        size={Button.sizes.MEDIUM}
-        kind={Button.kinds.SECONDARY}
-        leftIcon={renderIcon}
-      >
-        Loading
-      </Button>
-    </StoryStateColumn>
-  </StoryStateRow>
-);
-
 const LoadingButtonWrapper = ({ size, kind }) => {
   const [loading, setLoading] = useState(false);
   const onClick = useCallback(() => {
@@ -385,15 +351,18 @@ const LoadingButtonWrapper = ({ size, kind }) => {
   }, [setLoading]);
   return (
     <div>
+      <Button loading={true} size={size} kind={kind} onClick={onClick}>
+        click here
+      </Button>
+      <br />
+      <br />
       <Button loading={loading} size={size} kind={kind} onClick={onClick}>
         click here
       </Button>
       <br />
-      <br /> <Button onClick={resetLoading}>Reset loading</Button>
       <br />
-      <br />
-      <Button loading={true} size={size} kind={kind} onClick={onClick}>
-        click here
+      <Button onClick={resetLoading} kind={Button.kinds.TERTIARY} size={Button.sizes.SMALL}>
+        Reset loading
       </Button>
       <br />
     </div>
@@ -404,20 +373,20 @@ export const Loading = () => (
   <StoryStateRow>
     <StoryStateColumn title="Left Icon Large">
       <LoadingButtonWrapper
-        size={Button.sizes.LARGE}
+        size={Button.sizes.MEDIUM}
         kind={Button.kinds.PRIMARY}
       />
     </StoryStateColumn>
     <StoryStateColumn title="Left Icon Medium">
       <LoadingButtonWrapper
         size={Button.sizes.MEDIUM}
-        kind={Button.kinds.PRIMARY}
+        kind={Button.kinds.SECONDARY}
       />
     </StoryStateColumn>
     <StoryStateColumn title="Left Icon Small">
       <LoadingButtonWrapper
-        size={Button.sizes.SMALL}
-        kind={Button.kinds.PRIMARY}
+        size={Button.sizes.MEDIUM}
+        kind={Button.kinds.TERTIARY}
       />
     </StoryStateColumn>
   </StoryStateRow>

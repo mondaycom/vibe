@@ -44,10 +44,6 @@
   @include font-link();
 }
 
-.secondary-action {
-  @include font-action-secondary();
-}
-
 .caption {
   @include font-caption();
 }

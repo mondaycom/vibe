@@ -34,14 +34,6 @@ const FormattedNumber = ({
     return <span className={`${baseClassName}__prefix`}>{prefix}</span>;
   }, [prefix]);
 
-  const renderEmptyPlaceHolder = useMemo(() => {
-    return (
-      <span className={`${baseClassName}__place-holder`}>
-        {emptyPlaceHolder}
-      </span>
-    );
-  }, [emptyPlaceHolder]);
-
   const calculatedValue = useMemo(() => {
     return formatNumber(value, {
       local,
@@ -51,7 +43,11 @@ const FormattedNumber = ({
   }, [value, decimalPrecision, local, compact]);
 
   if (validateValue(value)) {
-    return renderEmptyPlaceHolder;
+    return (
+      <span className={`${baseClassName}__place-holder`}>
+        {emptyPlaceHolder}
+      </span>
+    );
   }
 
   return (

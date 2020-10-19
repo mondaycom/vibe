@@ -287,17 +287,10 @@ export default class Dialog extends PureComponent {
                   state.styles.arrow.transform = `${state.styles.arrow.transform} rotate(45deg)`;
                   return state;
                 }
-              },
-              {
-                name: "preventOverflow",
-                options: {
-                  altAxis: true,
-                  padding: 10
-                }
               }
             ]}
           >
-            {({ placement, style, ref, arrowProps }) => {
+            {({ placement, style, ref, arrowProps, ...props }) => {
               if (!this.isShown() && placement) {
                 return null;
               }

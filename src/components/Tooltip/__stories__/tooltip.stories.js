@@ -1,10 +1,9 @@
-import TooltipComponent from "../Tooltip";
+import Tooltip from "../Tooltip";
 import TooltipReference from "./TooltipReference";
-import TooltipContent from "./TooltipContent";
 import TooltipLineWrapper from "./TooltipLineWrapper";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import "./tooltip-story.scss";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
+import { boolean, number, select } from "@storybook/addon-knobs";
 
 import {
   StoryStateRow,
@@ -24,12 +23,7 @@ export const Sandbox = () => (
         flex: "1 1 auto"
       }}
     >
-      <TooltipComponent
-        arrowPosition={select(
-          "Arrow Position",
-          { center: "center", begin: "begin", end: "end" },
-          "center"
-        )}
+      <Tooltip
         moveBy={{ main: 10, secondary: 0 }}
         theme={select(
           "Theme",
@@ -38,19 +32,15 @@ export const Sandbox = () => (
             Success: "success",
             Error: "error",
             Share: "share",
-            Private: "private"
+            Private: "private",
+            Surface: "surface"
           },
           "dark"
         )}
         position={select(
           "Tooltip Position",
           { Top: "center", Bottom: "bottom", Right: "right", Left: "left" },
-          "bottom"
-        )}
-        justify={select(
-          "Justify Tip",
-          { Center: "center", Bottom: "bottom", Top: "top" },
-          "center"
+          "top"
         )}
         hideDelay={number("Hide Delay", 0)}
         showDelay={number("Show Delay", 300)}
@@ -62,13 +52,13 @@ export const Sandbox = () => (
         containerSelector="body"
       >
         <TooltipReference />
-      </TooltipComponent>
+      </Tooltip>
       <span style={{ marginLeft: "8px" }}>Hover on me!</span>
     </div>
   </StoryStateRow>
 );
 
-export const Tooltip = () => (
+export const Main = () => (
   <StoryWrapper>
     <div style={{ marginBottom: "100px", height: "90px" }}>
       <Divider />
@@ -108,29 +98,29 @@ export const ImmediateTooltips = () => (
   <div>
     <StoryStateRow>
       <StoryStateColumn centerize title="Immediate show when another is shown">
-        <TooltipComponent
+        <Tooltip
           showDelay={number("Show Delay", 300)}
           content={`I'm a tooltip`}
           containerSelector="body"
           immediateShowDelay={0}
         >
           <TooltipReference />
-        </TooltipComponent>
-        <TooltipComponent
+        </Tooltip>
+        <Tooltip
           showDelay={number("Show Delay", 300)}
           content={`I'm a tooltip`}
           containerSelector="body"
           immediateShowDelay={0}
         >
           <TooltipReference />
-        </TooltipComponent>
-        <TooltipComponent
+        </Tooltip>
+        <Tooltip
           showDelay={number("Show Delay", 300)}
           content={`I'm ignoring immediate show`}
           containerSelector="body"
         >
           <TooltipReference />
-        </TooltipComponent>
+        </Tooltip>
       </StoryStateColumn>
     </StoryStateRow>
     <StoryStateRow>
@@ -144,5 +134,5 @@ export const ImmediateTooltips = () => (
 
 export default {
   title: "Components/Tooltip",
-  component: TooltipComponent
+  component: Tooltip
 };

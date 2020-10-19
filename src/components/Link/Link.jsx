@@ -14,7 +14,7 @@ const Link = ({
   onClick,
   target,
   ariaLabelDescription,
-  iconName,
+  icon,
   iconPosition,
   id
 }) => {
@@ -30,24 +30,26 @@ const Link = ({
       className={cx("monday-style-link", componentClassName)}
       aria-label={ariaLabelDescription}
     >
-      {isStart && (
-        <Icon
-          className="monday-style-link--icon-start"
-          clickable={false}
-          iconName={iconName}
-        />
-      )}
+      {getIcon(isStart, icon, "monday-style-link--icon-start")}
       <span className="monday-style-link--text">{text}</span>
-      {!isStart && (
-        <Icon
-          className="monday-style-link--icon-end"
-          clickable={false}
-          iconName={iconName}
-        />
-      )}
+      {getIcon(!isStart, icon, "monday-style-link--icon-end")}
     </a>
   );
 };
+
+function getIcon(shouldShow, icon, className) {
+  if (!shouldShow) return;
+
+  console.log('icon:', icon); 
+  return (
+    <Icon
+      className={className}
+      clickable={false}
+      icon={icon}
+      iconType={Icon.type.ICON_FONT}
+    />
+  );
+}
 
 Link.target = LINK_TARGET;
 Link.position = ICON_POSITION;
@@ -65,7 +67,7 @@ Link.propTypes = {
     LINK_TARGET.TOP
   ]),
   ariaLabelDescription: PropTypes.string,
-  iconName: PropTypes.string,
+  icon: PropTypes.string,
   iconPosition: PropTypes.oneOf([ICON_POSITION.START, ICON_POSITION.END]),
   id: PropTypes.string
 };
@@ -78,7 +80,7 @@ Link.defaultProps = {
   onClick: NOOP,
   target: LINK_TARGET.NEW_WINDOW,
   ariaLabelDescription: "",
-  iconName: "",
+  icon: "",
   iconPosition: ICON_POSITION.START,
   id: ""
 };

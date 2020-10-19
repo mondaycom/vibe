@@ -26,6 +26,6 @@ export const Sandbox = () => (
 );
 
 export default {
-  title: "Components/FormattedNumber",
+  title: "Others/FormattedNumber",
   component: FormattedNumber
 };
