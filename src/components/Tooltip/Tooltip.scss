@@ -75,7 +75,7 @@ $arrow-size-md: 16px;
 
 .monday-style-tooltip-share,
 .monday-style-arrow-share {
-  @include theme-prop(background-color, share-color);
+  @include theme-prop(background-color, shareable-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
