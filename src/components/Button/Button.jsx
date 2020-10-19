@@ -247,7 +247,6 @@ Button.defaultProps = {
 
 Button.sizes = BUTTON_SIZES;
 Button.colors = BUTTON_COLORS;
-Button.kind = BUTTON_TYPES;
 Button.kinds = BUTTON_TYPES;
 Button.inputTags = BUTTON_INPUT_TYPE;
 
