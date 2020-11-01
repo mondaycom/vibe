@@ -92,7 +92,7 @@ SearchComponent.propTypes = {
   onFocus: PropTypes.func,
   wrapperClassName: PropTypes.string,
   setRef: PropTypes.func,
-  autoComplete: PropTypes.bool,
+  autoComplete: PropTypes.string,
   /* SIZES is exposed on the component itself */
   size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE]),
   /* TYPES is exposed on the component itself */
