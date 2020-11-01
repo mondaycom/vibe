@@ -263,6 +263,33 @@ describe("InputField Tests", () => {
       expect(input.type).to.equal(InputField.types.PASSWORD);
     });
   });
+  describe("autocomplete", () => {
+    it("should add autocomplete attr and set it to on", () => {
+      const { container } = render(
+        <InputField
+          placeholder={defaultPlaceHolder}
+          onChange={onChangeStub}
+          id="test"
+          autoComplete="on"
+        />
+      );
+      const element = container.querySelector('[autocomplete="on"]');
+      expect(element).to.be.ok;
+    });
+
+    it("should add autocomplete attr and set it to off", () => {
+      const { container } = render(
+        <InputField
+          placeholder={defaultPlaceHolder}
+          onChange={onChangeStub}
+          id="test"
+          autoComplete="off"
+        />
+      );
+      const element = container.querySelector('[autocomplete="off"]');
+      expect(element).to.be.ok;
+    });
+  });
 
   it("should trim the value if trim is true", () => {
     const { rerender } = inputComponent;
