@@ -40,7 +40,8 @@ const Button = ({
   id,
   marginRight,
   marginLeft,
-  type
+  type,
+  onMouseDown
 }) => {
   const buttonRef = useRef(null);
 
@@ -83,6 +84,20 @@ const Button = ({
     [onClick, disabled, loading, success]
   );
 
+  const onMouseDownClicked = useCallback(
+      event => {
+        if (disabled || loading || success) {
+          event.preventDefault();
+          return;
+        }
+
+        if (onMouseDown) {
+          onMouseDown(event);
+        }
+      },
+      [onMouseDown, disabled, loading, success]
+  );
+
   const classNames = useMemo(() => {
     const calculatedColor = success ? BUTTON_COLORS.POSITIVE : color;
     return cx(
@@ -120,7 +135,8 @@ const Button = ({
       onMouseUp,
       style,
       onClick: onButtonClicked,
-      id
+      id,
+      onMouseDown: onMouseDownClicked
     };
   }, [
     disabled,
@@ -131,7 +147,8 @@ const Button = ({
     style,
     onButtonClicked,
     id,
-    type
+    type,
+    onMouseDownClicked
   ]);
 
   if (loading) {
@@ -175,7 +192,7 @@ const Button = ({
       {children}
       {rightIcon ? (
         <Icon
-            iconType={Icon.type.ICON_FONT}
+          iconType={Icon.type.ICON_FONT}
           clickable={false}
           icon={rightIcon}
           className={cx({ "monday-style-button--right-icon": !!children })}
@@ -193,6 +210,7 @@ Button.propTypes = {
     BUTTON_TYPES.TERTIARY
   ]),
   onClick: PropTypes.func,
+  onMouseDown: PropTypes.func,
   name: PropTypes.string,
   size: PropTypes.oneOf([
     BUTTON_SIZES.SMALL,
@@ -227,6 +245,7 @@ Button.propTypes = {
 Button.defaultProps = {
   kind: BUTTON_TYPES.PRIMARY,
   onClick: NOOP,
+  onMouseDown: NOOP,
   name: "",
   size: BUTTON_SIZES.MEDIUM,
   color: BUTTON_COLORS.PRIMARY,

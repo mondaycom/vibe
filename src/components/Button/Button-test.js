@@ -5,13 +5,15 @@ import Button from "./Button";
 
 describe("<Buttoon />", () => {
   let clickActionStub;
+  let onMouseDownStub;
   let buttonComponent;
   let text = "Click Me!";
   let className = "test-class";
   beforeEach(() => {
     clickActionStub = sinon.stub();
+    onMouseDownStub = sinon.stub();
     buttonComponent = render(
-      <Button className={className} onClick={clickActionStub}>
+      <Button className={className} onClick={clickActionStub} onMouseDown={onMouseDownStub}>
         {text}
       </Button>
     );
@@ -73,6 +75,13 @@ describe("<Buttoon />", () => {
       });
     });
   });
+  describe("mouse down", () => {
+    it("should call the click callback when clicked", () => {
+      const { container } = buttonComponent;
+      fireEvent.mouseDown(container.firstChild);
+      expect(onMouseDownStub).to.be.calledOnce;
+    });
+  })
   describe("adding classnames", () => {
     it("should should add class name when provided", () => {
       const { container } = buttonComponent;
