@@ -63,7 +63,7 @@ describe("<Link />", () => {
   describe("Icons", () => {
     it("Should present the icon", () => {
       const { container } = render(
-        <Link ariaLabelDescription={ariaLabel} iconName="icon-name" />
+        <Link ariaLabelDescription={ariaLabel} icon="icon-name" />
       );
       const element = container.querySelector(".icon_component");
       expect(element).to.be.ok;
@@ -74,7 +74,7 @@ describe("<Link />", () => {
         <Link
           text={text}
           ariaLabelDescription={ariaLabel}
-          iconName="icon-name"
+          icon="icon-name"
         />
       );
       const textElement = container.querySelector(".monday-style-link--text");
@@ -89,7 +89,7 @@ describe("<Link />", () => {
         <Link
           text={text}
           ariaLabelDescription={ariaLabel}
-          iconName="icon-name"
+          icon="icon-name"
           iconPosition={Link.position.END}
         />
       );
