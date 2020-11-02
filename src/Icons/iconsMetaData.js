@@ -2,178 +2,138 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "Bolt",
-      file: "Bolt.svg",
-      description: "Bolt",
-      tags: "Bolt, Lightning, Quick"
+    name: "Add",
+    file: "Add.svg",
+    description: "Add",
+    tags: "Add, Plus",
   },
 
   {
-      name: "ArrowUP",
-      file: "ArrowUP.svg",
-      description: "Arrow up",
-      tags: "Arrow, Up"
+    name: "AddSmall",
+    file: "AddSmall.svg",
+    description: "Add Small",
+    tags: "Add, Plus",
   },
 
   {
-      name: "ArrowRight",
-      file: "ArrowRight.svg",
-      description: "Arrow Right",
-      tags: "Arrow, Right"
+    name: "Check",
+    file: "Check.svg",
+    description: "Check",
+    tags: "Check, Done, V",
   },
 
   {
-      name: "ArrowLeft",
-      file: "ArrowLeft.svg",
-      description: "Arrow Left",
-      tags: "Arrow, Left"
+    name: "Close",
+    file: "Close.svg",
+    description: "Close",
+    tags: "Close, X, Cancel",
   },
 
   {
-      name: "ArrowDown",
-      file: "ArrowDown.svg",
-      description: "Arrow Down",
-      tags: "Arrow, Down"
+    name: "CloseSmall",
+    file: "CloseSmall.svg",
+    description: "Close Small",
+    tags: "Close, X, Cancel",
   },
 
   {
-      name: "Close",
-      file: "Close.svg",
-      description: "Close",
-      tags: "Close, X"
+    name: "DoubleCheck",
+    file: "DoubleCheck.svg",
+    description: "Double Check",
+    tags: "Check, Done, Seen, Double",
   },
 
   {
-      name: "ChevronUP",
-      file: "ChevronUP.svg",
-      description: "Chevron Up Arrow",
-      tags: "Chevron, Arrow, Up"
+    name: "Drag",
+    file: "Drag.svg",
+    description: "Drag",
+    tags: "Drag, Move",
   },
 
   {
-      name: "ChevronRight",
-      file: "ChevronRight.svg",
-      description: "Chevron Right Arrow",
-      tags: "Chevron, Arrow, Right"
+    name: "DropdownChevronDown",
+    file: "DropdownChevronDown.svg",
+    description: "Chevron Down Arrow",
+    tags: "Chevron, Arrow, Down",
   },
 
   {
-      name: "ChevronDown",
-      file: "ChevronDown.svg",
-      description: "Chevron Down Arrow",
-      tags: "Chevron, Arrow, Down"
+    name: "DropdownChevronLeft",
+    file: "DropdownChevronLeft.svg",
+    description: "Chevron Left Arrow",
+    tags: "Chevron, Arrow, Left",
   },
 
   {
-      name: "ChevronLeft",
-      file: "ChevronLeft.svg",
-      description: "Chevron Arrow",
-      tags: "Chevron, Arrow, Left"
+    name: "DropdownChevronRight",
+    file: "DropdownChevronRight.svg",
+    description: "Chevron Right Arrow",
+    tags: "Chevron, Arrow, Right",
   },
 
   {
-      name: "Inbox",
-      file: "Inbox.svg",
-      description: "Inbox",
-      tags: "Inbox, Incoming, Mail"
+    name: "DropdownChevronUp",
+    file: "DropdownChevronUp.svg",
+    description: "Chevron Up Arrow",
+    tags: "Chevron, Arrow, Up",
   },
 
   {
-      name: "Favorites",
-      file: "Favorites.svg",
-      description: "Favorites",
-      tags: "Favorites, Star, Bookmark"
+    name: "Menu",
+    file: "Menu.svg",
+    description: "Menu",
+    tags: "Menu, 3 Dots, Dots",
   },
 
   {
-      name: "CloseSmall",
-      file: "CloseSmall.svg",
-      description: "Close Icon",
-      tags: "Close, X, No"
+    name: "MoveArrowDown",
+    file: "MoveArrowDown.svg",
+    description: "Move Arrow Down",
+    tags: "Move, Arrow, Down",
   },
 
   {
-      name: "MyWeek",
-      file: "MyWeek.svg",
-      description: "My Week",
-      tags: "Calendar, Week, My"
+    name: "MoveArrowLeft",
+    file: "MoveArrowLeft.svg",
+    description: "Move Arrow Left",
+    tags: "Move, Arrow, Left",
+  },
+  {
+    name: "MoveArrowRight",
+    file: "MoveArrowRight.svg",
+    description: "Move Arrow Right",
+    tags: "Move, Arrow, Right",
+  },
+  {
+    name: "MoveArrowUp",
+    file: "MoveArrowUp.svg",
+    description: "Move Arrow Up",
+    tags: "Move, Arrow, Up",
   },
 
   {
-      name: "MenuVertical",
-      file: "MenuVertical.svg",
-      description: "Vertical Menu Dots",
-      tags: "Dots, Menu, Vertical, 3 Dots"
+    name: "NavigationChevronDown",
+    file: "NavigationChevronDown.svg",
+    description: "Navigation Chevron Down",
+    tags: "Navigation, Arrow, Down",
   },
 
   {
-      name: "Menu",
-      file: "Menu.svg",
-      description: "Menu Icon ",
-      tags: "3 Dots, Dots, Menu"
+    name: "NavigationChevronLeft",
+    file: "NavigationChevronLeft.svg",
+    description: "Navigation Chevron Left",
+    tags: "Navigation, Arrow, Left",
   },
-
   {
-      name: "InviteUsers",
-      file: "InviteUsers.svg",
-      description: "Invite Users",
-      tags: "Users, Invite, Invitation"
+    name: "NavigationChevronRight",
+    file: "NavigationChevronRight.svg",
+    description: "Navigation Chevron Right",
+    tags: "Navigation, Arrow, Right",
   },
-
   {
-      name: "NavigationArrowLeft",
-      file: "NavigationArrowLeft.svg",
-      description: "Navigation, Arrow, Left",
-      tags: "Navigation, Arrow, Left"
+    name: "NavigationChevronUp",
+    file: "NavigationChevronUp.svg",
+    description: "Navigation Chevron Up",
+    tags: "Navigation, Arrow, Up",
   },
-
-  {
-      name: "NavigationArrowRight",
-      file: "NavigationArrowRight.svg",
-      description: "Navigation Arrow Right",
-      tags: "Navigation, Arrow, Right"
-  },
-
-  {
-      name: "NavigationArrowDown",
-      file: "NavigationArrowDown.svg",
-      description: "Navigation Arrow Down",
-      tags: "Navigation, Arrow, Down"
-  },
-
-  {
-      name: "NavigationArrowUp",
-      file: "NavigationArrowUp.svg",
-      description: "Navigation Arrow",
-      tags: "Navigation, Arrow, Up"
-  },
-
-  {
-      name: "Notification",
-      file: "Notification.svg",
-      description: "Bell for notifications",
-      tags: "Notifications, Reminders, Bell"
-  },
-
-  {
-      name: "Search",
-      file: "Search.svg",
-      description: "Magnifier Glass",
-      tags: "Search, Find, Zoom"
-  },
-
-  {
-      name: "Talk",
-      file: "Talk.svg",
-      description: "Talk Bubble",
-      tags: "Chat, Bubble, Talk, Post, Comment"
-  },
-
-  {
-      name: "Workspaces",
-      file: "Workspaces.svg",
-      description: "Workspaces Icon",
-      tags: "Workspaces"
-  },
-
 ];
