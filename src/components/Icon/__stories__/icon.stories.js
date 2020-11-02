@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
 import Icon from "../Icon";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
 import FlexLayout from "../../storybook-helpers/flex-layout/flex-layout";
 import * as AllIcons from "../Icons";
 import "./IconStory.scss";
-import Bolt from "../Icons/components/Bolt";
+import DoubleCheck from "../Icons/components/DoubleCheck";
 import CustomSvgIcon from "../CustomSvgIcon";
 import Link from "../../Link/Link";
+import SearchComponent from "../../Search/Search";
+import Search from "../../Search/Search";
 
 export const Icons = () => {
   return (
     <>
       <FlexLayout className="main-icon-story">
-        <div className="single-icon-wrapper" style={{ color: "var(--primary-color)" }}>
+        <div
+          className="single-icon-wrapper"
+          style={{ color: "var(--positive-color)" }}
+        >
           <Icon
             iconType={Icon.type.SVG}
-            icon={Bolt}
+            icon={DoubleCheck}
             iconLabel="my bolt svg icon"
             clickable
             iconSize={16}
@@ -60,6 +65,8 @@ export const Icons = () => {
 };
 
 export const IconsList = () => {
+  const [filterData, setFilterData] = useState("");
+
   return (
     <section className="icons-story">
       <div className="icon-story-description">
@@ -67,16 +74,42 @@ export const IconsList = () => {
         <code>dist/icons</code> folder. Just import the icon by it's name as
         shown in the list below
         <br />
-        <code>import Bolt from "monday-ui-react-core/dist/icons/Bolt";</code>
+        <code>
+          import DoubleCheck from "monday-ui-react-core/dist/icons/DoubleCheck";
+        </code>
         <br />
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            margin: "16px 0"
+          }}
+        >
+          <SearchComponent
+            value={filterData}
+            onChange={setFilterData}
+            iconName="fa-search"
+            secondaryIconName="fa-close"
+            id="icons_search"
+            placeholder="Search for icons"
+            wrapperClassName="icon-story-search-component"
+          />
+        </div>
       </div>
       <div
         style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
       >
-        {iconsMetaData.map(icon => {
+        {iconsMetaData.reduce((acc, icon) => {
+          if (
+            !icon.description.toLowerCase().includes(filterData.toLowerCase())
+          ) {
+            return acc;
+          }
           const Component = AllIcons[icon.file.split(".")[0]];
-          return <IconComponent {...icon} Component={Component} />;
-        })}
+          acc.push(<IconComponent {...icon} Component={Component} />);
+          return acc;
+        }, [])}
       </div>
     </section>
   );
