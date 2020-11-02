@@ -1,3 +1,4 @@
+const BASIC = "basic";
 export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
@@ -6,6 +7,7 @@ export const iconsMetaData = [
     file: "Add.svg",
     description: "Add",
     tags: "Add, Plus",
+    category: [BASIC]
   },
 
   {
@@ -13,6 +15,7 @@ export const iconsMetaData = [
     file: "AddSmall.svg",
     description: "Add Small",
     tags: "Add, Plus",
+    category: [BASIC]
   },
 
   {
@@ -20,6 +23,7 @@ export const iconsMetaData = [
     file: "Check.svg",
     description: "Check",
     tags: "Check, Done, V",
+    category: [BASIC]
   },
 
   {
@@ -27,6 +31,7 @@ export const iconsMetaData = [
     file: "Close.svg",
     description: "Close",
     tags: "Close, X, Cancel",
+    category: [BASIC]
   },
 
   {
@@ -34,6 +39,7 @@ export const iconsMetaData = [
     file: "CloseSmall.svg",
     description: "Close Small",
     tags: "Close, X, Cancel",
+    category: [BASIC]
   },
 
   {
@@ -41,6 +47,7 @@ export const iconsMetaData = [
     file: "DoubleCheck.svg",
     description: "Double Check",
     tags: "Check, Done, Seen, Double",
+    category: [BASIC]
   },
 
   {
@@ -48,6 +55,7 @@ export const iconsMetaData = [
     file: "Drag.svg",
     description: "Drag",
     tags: "Drag, Move",
+    category: [BASIC]
   },
 
   {
@@ -55,6 +63,7 @@ export const iconsMetaData = [
     file: "DropdownChevronDown.svg",
     description: "Chevron Down Arrow",
     tags: "Chevron, Arrow, Down",
+    category: [BASIC]
   },
 
   {
@@ -62,6 +71,7 @@ export const iconsMetaData = [
     file: "DropdownChevronLeft.svg",
     description: "Chevron Left Arrow",
     tags: "Chevron, Arrow, Left",
+    category: [BASIC]
   },
 
   {
@@ -69,6 +79,7 @@ export const iconsMetaData = [
     file: "DropdownChevronRight.svg",
     description: "Chevron Right Arrow",
     tags: "Chevron, Arrow, Right",
+    category: [BASIC]
   },
 
   {
@@ -76,6 +87,7 @@ export const iconsMetaData = [
     file: "DropdownChevronUp.svg",
     description: "Chevron Up Arrow",
     tags: "Chevron, Arrow, Up",
+    category: [BASIC]
   },
 
   {
@@ -83,6 +95,7 @@ export const iconsMetaData = [
     file: "Menu.svg",
     description: "Menu",
     tags: "Menu, 3 Dots, Dots",
+    category: [BASIC]
   },
 
   {
@@ -90,6 +103,7 @@ export const iconsMetaData = [
     file: "MoveArrowDown.svg",
     description: "Move Arrow Down",
     tags: "Move, Arrow, Down",
+    category: [BASIC]
   },
 
   {
@@ -97,18 +111,21 @@ export const iconsMetaData = [
     file: "MoveArrowLeft.svg",
     description: "Move Arrow Left",
     tags: "Move, Arrow, Left",
+    category: [BASIC]
   },
   {
     name: "MoveArrowRight",
     file: "MoveArrowRight.svg",
     description: "Move Arrow Right",
     tags: "Move, Arrow, Right",
+    category: [BASIC]
   },
   {
     name: "MoveArrowUp",
     file: "MoveArrowUp.svg",
     description: "Move Arrow Up",
     tags: "Move, Arrow, Up",
+    category: [BASIC]
   },
 
   {
@@ -116,6 +133,7 @@ export const iconsMetaData = [
     file: "NavigationChevronDown.svg",
     description: "Navigation Chevron Down",
     tags: "Navigation, Arrow, Down",
+    category: [BASIC]
   },
 
   {
@@ -123,17 +141,20 @@ export const iconsMetaData = [
     file: "NavigationChevronLeft.svg",
     description: "Navigation Chevron Left",
     tags: "Navigation, Arrow, Left",
+    category: [BASIC]
   },
   {
     name: "NavigationChevronRight",
     file: "NavigationChevronRight.svg",
     description: "Navigation Chevron Right",
     tags: "Navigation, Arrow, Right",
+    category: [BASIC]
   },
   {
     name: "NavigationChevronUp",
     file: "NavigationChevronUp.svg",
     description: "Navigation Chevron Up",
     tags: "Navigation, Arrow, Up",
+    category: [BASIC]
   },
 ];
