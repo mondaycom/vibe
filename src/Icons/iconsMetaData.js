@@ -158,6 +158,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Health",
+    file: "Health.svg",
+    description: "Health",
+    tags: "Health, Status, Heart",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Item",
     file: "Item.svg",
     description: "Item",
@@ -170,6 +178,14 @@ export const iconsMetaData = [
     file: "Locked.svg",
     description: "Locked",
     tags: "Lock, Locked, Closed, Private",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Mention",
+    file: "Mention.svg",
+    description: "Mention",
+    tags: "Mention, Tag",
     category: [PLATFORM],
   },
 
@@ -240,6 +256,15 @@ export const iconsMetaData = [
     tags: "Navigation, Arrow, Up",
     category: [BASIC],
   },
+
+  {
+    name: "Notifications",
+    file: "Notifications.svg",
+    description: "Notifications",
+    tags: "Notifications, Bell",
+    category: [PLATFORM],
+  },
+
   {
     name: "Print",
     file: "Print.svg",
