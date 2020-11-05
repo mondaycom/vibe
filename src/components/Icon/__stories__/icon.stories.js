@@ -5,11 +5,10 @@ import DescriptionLabel from "../../storybook-helpers/description-label/descript
 import FlexLayout from "../../storybook-helpers/flex-layout/flex-layout";
 import * as AllIcons from "../Icons";
 import "./IconStory.scss";
-import DoubleCheck from "../Icons/components/DoubleCheck";
+import Bolt from "../Icons/components/Bolt";
 import CustomSvgIcon from "../CustomSvgIcon";
 import Link from "../../Link/Link";
 import SearchComponent from "../../Search/Search";
-import Search from "../../Search/Search";
 
 export const Icons = () => {
   return (
@@ -17,11 +16,11 @@ export const Icons = () => {
       <FlexLayout className="main-icon-story">
         <div
           className="single-icon-wrapper"
-          style={{ color: "var(--positive-color)" }}
+          style={{ color: "var(--primary-color)" }}
         >
           <Icon
             iconType={Icon.type.SVG}
-            icon={DoubleCheck}
+            icon={Bolt}
             iconLabel="my bolt svg icon"
             clickable
             iconSize={16}
@@ -102,7 +101,7 @@ export const IconsList = () => {
       >
         {iconsMetaData.reduce((acc, icon) => {
           if (
-            !icon.description.toLowerCase().includes(filterData.toLowerCase())
+            !icon.tags.toLowerCase().includes(filterData.toLowerCase())
           ) {
             return acc;
           }
@@ -118,8 +117,8 @@ export const IconsList = () => {
 function IconComponent({ name, Component }) {
   return (
     <FlexLayout className="icon-story-component">
-      <div style={{ width: "16px", height: "16px" }}>
-        <Component size={14} />
+      <div style={{ width: "26px", height: "26px" }}>
+        <Component size={26} />
       </div>
       <DescriptionLabel className="icon-story-name">{name}</DescriptionLabel>
     </FlexLayout>
