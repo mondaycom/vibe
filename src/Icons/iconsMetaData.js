@@ -1,5 +1,6 @@
-const BASIC = "basic";
-const PLATFORM = "platform"
+const BASIC = "Basic";
+const PLATFORM = "Platform"
+const VIEW = "View"
 export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
@@ -17,6 +18,21 @@ export const iconsMetaData = [
     description: "Add Small",
     tags: "Add, Plus",
     category: [BASIC]
+  },
+
+  {
+    name: "Calendar",
+    file: "Calendar.svg",
+    description: "Calendar",
+    tags: "Calendar, Date, Week, Day",
+    category: [VIEW]
+  },
+  {
+    name: "Chart",
+    file: "Chart.svg",
+    description: "Chart",
+    tags: "Chart, Graph, Pie",
+    category: [VIEW]
   },
 
   {
@@ -181,5 +197,12 @@ export const iconsMetaData = [
     description: "Navigation Chevron Up",
     tags: "Navigation, Arrow, Up",
     category: [BASIC]
+  },
+  {
+    name: "Table",
+    file: "Table.svg",
+    description: "Table",
+    tags: "Table, Grid",
+    category: [VIEW]
   },
 ];
