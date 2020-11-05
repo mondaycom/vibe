@@ -1,6 +1,6 @@
 const BASIC = "Basic";
-const PLATFORM = "Platform"
-const VIEW = "View"
+const PLATFORM = "Platform";
+const VIEW = "View";
 export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
@@ -9,7 +9,7 @@ export const iconsMetaData = [
     file: "Add.svg",
     description: "Add",
     tags: "Add, Plus",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -17,7 +17,7 @@ export const iconsMetaData = [
     file: "AddSmall.svg",
     description: "Add Small",
     tags: "Add, Plus",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -25,14 +25,14 @@ export const iconsMetaData = [
     file: "Calendar.svg",
     description: "Calendar",
     tags: "Calendar, Date, Week, Day",
-    category: [VIEW]
+    category: [VIEW],
   },
   {
     name: "Chart",
     file: "Chart.svg",
     description: "Chart",
     tags: "Chart, Graph, Pie",
-    category: [VIEW]
+    category: [VIEW],
   },
 
   {
@@ -40,7 +40,7 @@ export const iconsMetaData = [
     file: "Check.svg",
     description: "Check",
     tags: "Check, Done, V",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -48,7 +48,7 @@ export const iconsMetaData = [
     file: "Close.svg",
     description: "Close",
     tags: "Close, X, Cancel",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -56,7 +56,7 @@ export const iconsMetaData = [
     file: "CloseSmall.svg",
     description: "Close Small",
     tags: "Close, X, Cancel",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -64,7 +64,7 @@ export const iconsMetaData = [
     file: "Column.svg",
     description: "Column",
     tags: "Column, Board",
-    category: [PLATFORM]
+    category: [PLATFORM],
   },
 
   {
@@ -72,7 +72,7 @@ export const iconsMetaData = [
     file: "DoubleCheck.svg",
     description: "Double Check",
     tags: "Check, Done, Seen, Double",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -80,7 +80,7 @@ export const iconsMetaData = [
     file: "Drag.svg",
     description: "Drag",
     tags: "Drag, Move",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -88,7 +88,7 @@ export const iconsMetaData = [
     file: "DropdownChevronDown.svg",
     description: "Chevron Down Arrow",
     tags: "Chevron, Arrow, Down",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -96,7 +96,7 @@ export const iconsMetaData = [
     file: "DropdownChevronLeft.svg",
     description: "Chevron Left Arrow",
     tags: "Chevron, Arrow, Left",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -104,7 +104,7 @@ export const iconsMetaData = [
     file: "DropdownChevronRight.svg",
     description: "Chevron Right Arrow",
     tags: "Chevron, Arrow, Right",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -112,7 +112,7 @@ export const iconsMetaData = [
     file: "DropdownChevronUp.svg",
     description: "Chevron Up Arrow",
     tags: "Chevron, Arrow, Up",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -120,7 +120,7 @@ export const iconsMetaData = [
     file: "Group.svg",
     description: "Group",
     tags: "Group, Board",
-    category: [PLATFORM]
+    category: [PLATFORM],
   },
 
   {
@@ -128,7 +128,15 @@ export const iconsMetaData = [
     file: "Item.svg",
     description: "Item",
     tags: "Item, Board",
-    category: [PLATFORM]
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Locked",
+    file: "Locked.svg",
+    description: "Locked",
+    tags: "Lock, Locked, Closed",
+    category: [PLATFORM],
   },
 
   {
@@ -136,7 +144,7 @@ export const iconsMetaData = [
     file: "Menu.svg",
     description: "Menu",
     tags: "Menu, 3 Dots, Dots",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -144,7 +152,7 @@ export const iconsMetaData = [
     file: "MoveArrowDown.svg",
     description: "Move Arrow Down",
     tags: "Move, Arrow, Down",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -152,21 +160,21 @@ export const iconsMetaData = [
     file: "MoveArrowLeft.svg",
     description: "Move Arrow Left",
     tags: "Move, Arrow, Left",
-    category: [BASIC]
+    category: [BASIC],
   },
   {
     name: "MoveArrowRight",
     file: "MoveArrowRight.svg",
     description: "Move Arrow Right",
     tags: "Move, Arrow, Right",
-    category: [BASIC]
+    category: [BASIC],
   },
   {
     name: "MoveArrowUp",
     file: "MoveArrowUp.svg",
     description: "Move Arrow Up",
     tags: "Move, Arrow, Up",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -174,7 +182,7 @@ export const iconsMetaData = [
     file: "NavigationChevronDown.svg",
     description: "Navigation Chevron Down",
     tags: "Navigation, Arrow, Down",
-    category: [BASIC]
+    category: [BASIC],
   },
 
   {
@@ -182,27 +190,42 @@ export const iconsMetaData = [
     file: "NavigationChevronLeft.svg",
     description: "Navigation Chevron Left",
     tags: "Navigation, Arrow, Left",
-    category: [BASIC]
+    category: [BASIC],
   },
   {
     name: "NavigationChevronRight",
     file: "NavigationChevronRight.svg",
     description: "Navigation Chevron Right",
     tags: "Navigation, Arrow, Right",
-    category: [BASIC]
+    category: [BASIC],
   },
   {
     name: "NavigationChevronUp",
     file: "NavigationChevronUp.svg",
     description: "Navigation Chevron Up",
     tags: "Navigation, Arrow, Up",
-    category: [BASIC]
+    category: [BASIC],
+  },
+  {
+    name: "Print",
+    file: "Print.svg",
+    description: "Print",
+    tags: "Print, Printer",
+    category: [PLATFORM],
   },
   {
     name: "Table",
     file: "Table.svg",
     description: "Table",
     tags: "Table, Grid",
-    category: [VIEW]
+    category: [VIEW],
+  },
+
+  {
+    name: "Upgrade",
+    file: "Upgrade.svg",
+    description: "Upgrade",
+    tags: "Upgrade, Stars",
+    category: [PLATFORM],
   },
 ];
