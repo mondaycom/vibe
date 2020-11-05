@@ -16,7 +16,7 @@ export const Icons = () => {
       <FlexLayout className="main-icon-story">
         <div
           className="single-icon-wrapper"
-          style={{ color: "var(--positive-color)" }}
+          style={{ color: "var(--primary-color)" }}
         >
           <Icon
             iconType={Icon.type.SVG}
