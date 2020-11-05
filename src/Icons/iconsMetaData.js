@@ -19,6 +19,13 @@ export const iconsMetaData = [
     tags: "Add, Plus",
     category: [BASIC],
   },
+  {
+    name: "Bookmark",
+    file: "Bookmark.svg",
+    description: "Bookmark",
+    tags: "Bookmark, Add, Favorite, Mark",
+    category: [PLATFORM],
+  },
 
   {
     name: "Calendar",
@@ -129,6 +136,13 @@ export const iconsMetaData = [
     category: [PLATFORM],
   },
   {
+    name: "Enter",
+    file: "Enter.svg",
+    description: "Enter",
+    tags: "Enter, Keyboard, Key",
+    category: [PLATFORM],
+  },
+  {
     name: "Fullscreen",
     file: "Fullscreen.svg",
     description: "Fullscreen",
@@ -155,7 +169,7 @@ export const iconsMetaData = [
     name: "Locked",
     file: "Locked.svg",
     description: "Locked",
-    tags: "Lock, Locked, Closed",
+    tags: "Lock, Locked, Closed, Private",
     category: [PLATFORM],
   },
 
