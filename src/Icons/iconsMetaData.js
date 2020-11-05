@@ -114,7 +114,27 @@ export const iconsMetaData = [
     tags: "Chevron, Arrow, Up",
     category: [BASIC],
   },
-
+  {
+    name: "Duplicate",
+    file: "Duplicate.svg",
+    description: "Duplicate",
+    tags: "Duplicate, Copy",
+    category: [PLATFORM],
+  },
+  {
+    name: "Embed",
+    file: "Embed.svg",
+    description: "Embed",
+    tags: "Embed, Code",
+    category: [PLATFORM],
+  },
+  {
+    name: "Fullscreen",
+    file: "Fullscreen.svg",
+    description: "Fullscreen",
+    tags: "Fullscreen, Expand",
+    category: [PLATFORM],
+  },
   {
     name: "Group",
     file: "Group.svg",
