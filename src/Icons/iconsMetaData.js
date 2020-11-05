@@ -1,4 +1,5 @@
 const BASIC = "basic";
+const PLATFORM = "platform"
 export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
@@ -40,6 +41,14 @@ export const iconsMetaData = [
     description: "Close Small",
     tags: "Close, X, Cancel",
     category: [BASIC]
+  },
+
+  {
+    name: "Column",
+    file: "Column.svg",
+    description: "Column",
+    tags: "Column, Board",
+    category: [PLATFORM]
   },
 
   {
@@ -88,6 +97,22 @@ export const iconsMetaData = [
     description: "Chevron Up Arrow",
     tags: "Chevron, Arrow, Up",
     category: [BASIC]
+  },
+
+  {
+    name: "Group",
+    file: "Group.svg",
+    description: "Group",
+    tags: "Group, Board",
+    category: [PLATFORM]
+  },
+
+  {
+    name: "Item",
+    file: "Item.svg",
+    description: "Item",
+    tags: "Item, Board",
+    category: [PLATFORM]
   },
 
   {
