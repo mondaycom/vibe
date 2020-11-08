@@ -41,7 +41,8 @@ const Button = ({
   marginRight,
   marginLeft,
   type,
-  onMouseDown
+  onMouseDown,
+  ariaLabel
 }) => {
   const buttonRef = useRef(null);
 
@@ -85,17 +86,17 @@ const Button = ({
   );
 
   const onMouseDownClicked = useCallback(
-      event => {
-        if (disabled || loading || success) {
-          event.preventDefault();
-          return;
-        }
+    event => {
+      if (disabled || loading || success) {
+        event.preventDefault();
+        return;
+      }
 
-        if (onMouseDown) {
-          onMouseDown(event);
-        }
-      },
-      [onMouseDown, disabled, loading, success]
+      if (onMouseDown) {
+        onMouseDown(event);
+      }
+    },
+    [onMouseDown, disabled, loading, success]
   );
 
   const classNames = useMemo(() => {
@@ -136,7 +137,8 @@ const Button = ({
       style,
       onClick: onButtonClicked,
       id,
-      onMouseDown: onMouseDownClicked
+      onMouseDown: onMouseDownClicked,
+      "aria-label": ariaLabel
     };
   }, [
     disabled,
@@ -148,7 +150,8 @@ const Button = ({
     onButtonClicked,
     id,
     type,
-    onMouseDownClicked
+    onMouseDownClicked,
+    ariaLabel
   ]);
 
   if (loading) {
@@ -231,6 +234,7 @@ Button.propTypes = {
   successText: PropTypes.string,
   success: PropTypes.bool,
   loading: PropTypes.bool,
+  // eslint-disable-next-line react/forbid-prop-types
   style: PropTypes.object,
   active: PropTypes.bool,
   id: PropTypes.string,
@@ -240,7 +244,8 @@ Button.propTypes = {
     BUTTON_INPUT_TYPE.BUTTON,
     BUTTON_INPUT_TYPE.SUBMIT,
     BUTTON_INPUT_TYPE.RESET
-  ])
+  ]),
+  ariaLabel: PropTypes.string
 };
 Button.defaultProps = {
   kind: BUTTON_TYPES.PRIMARY,
@@ -261,7 +266,8 @@ Button.defaultProps = {
   id: "",
   marginRight: false,
   marginLeft: false,
-  type: BUTTON_INPUT_TYPE.BUTTON
+  type: BUTTON_INPUT_TYPE.BUTTON,
+  ariaLabel: ""
 };
 
 Button.sizes = BUTTON_SIZES;

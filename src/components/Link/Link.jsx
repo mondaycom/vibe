@@ -39,8 +39,6 @@ const Link = ({
 
 function getIcon(shouldShow, icon, className) {
   if (!shouldShow) return;
-
-  console.log('icon:', icon); 
   return (
     <Icon
       className={className}

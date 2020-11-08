@@ -7,13 +7,17 @@ describe("<Buttoon />", () => {
   let clickActionStub;
   let onMouseDownStub;
   let buttonComponent;
-  let text = "Click Me!";
-  let className = "test-class";
+  const text = "Click Me!";
+  const className = "test-class";
   beforeEach(() => {
     clickActionStub = sinon.stub();
     onMouseDownStub = sinon.stub();
     buttonComponent = render(
-      <Button className={className} onClick={clickActionStub} onMouseDown={onMouseDownStub}>
+      <Button
+        className={className}
+        onClick={clickActionStub}
+        onMouseDown={onMouseDownStub}
+      >
         {text}
       </Button>
     );
@@ -81,12 +85,29 @@ describe("<Buttoon />", () => {
       fireEvent.mouseDown(container.firstChild);
       expect(onMouseDownStub).to.be.calledOnce;
     });
-  })
+  });
   describe("adding classnames", () => {
     it("should should add class name when provided", () => {
       const { container } = buttonComponent;
       const classNameQuery = container.querySelector(`.${className}`);
       expect(classNameQuery).to.be.ok;
+    });
+  });
+  describe("aria-label", () => {
+    it("should add the aria label", () => {
+      const ariaLabel = "Icon Name";
+      const { getByLabelText } = render(
+        <Button
+          ariaLabel={ariaLabel}
+          className={className}
+          onClick={clickActionStub}
+          onMouseDown={onMouseDownStub}
+        >
+          {text}
+        </Button>
+      );
+      const buttonElement = getByLabelText(ariaLabel);
+      expect(buttonElement).to.be.ok;
     });
   });
   describe("sizes", () => {
