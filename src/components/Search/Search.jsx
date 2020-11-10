@@ -22,7 +22,7 @@ const ICON_NAMES = {
   secondary: "Clear Search"
 };
 
-export const Search = ({
+const Search = ({
   secondaryIconName,
   iconName,
   onChange,

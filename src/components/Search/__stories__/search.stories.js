@@ -1,9 +1,10 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 import { text, boolean, number, select } from "@storybook/addon-knobs";
-import Search from "../Search";
 import SearchStoryLine from "./SearchStoryLine";
+
 import { FlexLayout } from "../../storybook-helpers";
+import Search from "../Search";
 
 export const Sandbox = () => {
   return (
