@@ -245,7 +245,11 @@ TextField.propTypes = {
     secondary: PropTypes.string
   }),
   /* TEXT_TYPES is exposed on the component itself */
-  type: PropTypes.oneOf([TEXT_TYPES.TEXT, TEXT_TYPES.PASSWORD, TEXT_TYPES.SEARCH]),
+  type: PropTypes.oneOf([
+    TEXT_TYPES.TEXT,
+    TEXT_TYPES.PASSWORD,
+    TEXT_TYPES.SEARCH
+  ]),
   maxLength: PropTypes.number,
   trim: PropTypes.bool
 };
