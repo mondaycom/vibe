@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Search.scss";
-import InputField from "../TextField/InputField";
+import TextField from "../TextField/TextField";
 import { SIZES, TYPES } from "./SearchConstats";
 
 const NOOP = () => {};
@@ -21,7 +21,7 @@ const ICON_NAMES = {
   secondary: "Clear Search"
 };
 
-export const SearchComponent = ({
+export const Search = ({
   secondaryIconName,
   iconName,
   onChange,
@@ -45,7 +45,7 @@ export const SearchComponent = ({
   iconNames
 }) => {
   return (
-    <InputField
+    <TextField
       id={id}
       iconName={iconName}
       value={value}
@@ -75,10 +75,10 @@ export const SearchComponent = ({
   );
 };
 
-SearchComponent.sizes = SIZES;
-SearchComponent.types = TYPES;
+Search.sizes = SIZES;
+Search.types = TYPES;
 
-SearchComponent.propTypes = {
+Search.propTypes = {
   secondaryIconName: PropTypes.string,
   iconName: PropTypes.string,
   onChange: PropTypes.func,
@@ -112,7 +112,7 @@ SearchComponent.propTypes = {
   })
 };
 
-SearchComponent.defaultProps = {
+Search.defaultProps = {
   secondaryIconName: "icon-dapulse-close",
   iconName: "icon-v2-search",
   onChange: NOOP,
@@ -136,4 +136,4 @@ SearchComponent.defaultProps = {
   iconNames: ICON_NAMES
 };
 
-export default SearchComponent;
+export default Search;

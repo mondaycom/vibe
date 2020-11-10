@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
-import "./InputField.scss";
+import "./TextField.scss";
 import Icon from "../Icon/Icon";
 import {
   FEEDBACK_CLASSES,
@@ -16,7 +16,7 @@ import { TEXT_FIELD_SIZE, TEXT_TYPES } from "./TextFieldConstants";
 const NOOP = () => {};
 
 const EMPTY_OBJECT = { primary: "", secondary: "", label: "" };
-const InputField = ({
+const TextField = ({
   className,
   placeholder,
   autoComplete,
@@ -203,7 +203,7 @@ const InputField = ({
   );
 };
 
-InputField.propTypes = {
+TextField.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
   /* See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
@@ -250,7 +250,7 @@ InputField.propTypes = {
   trim: PropTypes.bool
 };
 
-InputField.defaultProps = {
+TextField.defaultProps = {
   className: "",
   placeholder: "",
   autoComplete: "off",
@@ -287,7 +287,7 @@ export const ARIA_LABELS = {
   VALIDATION_TEXT: "Additional helper text"
 };
 
-InputField.sizes = TEXT_FIELD_SIZE;
-InputField.feedbacks = FEEDBACK_STATES;
-InputField.types = TEXT_TYPES;
-export default InputField;
+TextField.sizes = TEXT_FIELD_SIZE;
+TextField.feedbacks = FEEDBACK_STATES;
+TextField.types = TEXT_TYPES;
+export default TextField;
