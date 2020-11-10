@@ -137,7 +137,4 @@ Search.defaultProps = {
   iconNames: ICON_NAMES
 };
 
-Search.sizes = SIZES;
-Search.types = TYPES;
-
 export default Search;
