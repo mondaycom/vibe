@@ -6,5 +6,6 @@ export const TEXT_FIELD_SIZE = {
 
 export const TEXT_TYPES = {
   TEXT: "text",
-  PASSWORD: "password"
+  PASSWORD: "password",
+  SEARCH: "search"
 };
