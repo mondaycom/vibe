@@ -1,7 +1,7 @@
 import React from "react";
+import { text, boolean, number, select } from "@storybook/addon-knobs";
 import TextField from "../TextField";
 import { ComponentStateDescription, FlexLayout } from "../../storybook-helpers";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import TextFieldStoryBookLine from "./TextFieldStoryBookLine";
 

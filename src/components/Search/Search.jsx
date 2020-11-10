@@ -16,6 +16,7 @@ const TYPE_CLASSES = {
 function getType(type) {
   return TYPE_CLASSES[type] || "";
 }
+
 const ICON_NAMES = {
   primary: "Search",
   secondary: "Clear Search"
@@ -135,5 +136,8 @@ Search.defaultProps = {
   inputAriaLabel: "",
   iconNames: ICON_NAMES
 };
+
+Search.sizes = SIZES;
+Search.types = TYPES;
 
 export default Search;

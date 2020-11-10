@@ -290,4 +290,5 @@ export const ARIA_LABELS = {
 TextField.sizes = TEXT_FIELD_SIZE;
 TextField.feedbacks = FEEDBACK_STATES;
 TextField.types = TEXT_TYPES;
+
 export default TextField;
