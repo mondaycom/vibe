@@ -138,7 +138,8 @@ const Button = ({
       onClick: onButtonClicked,
       id,
       onMouseDown: onMouseDownClicked,
-      "aria-label": ariaLabel
+      "aria-label": ariaLabel,
+      "aria-busy": loading
     };
   }, [
     disabled,
@@ -151,7 +152,8 @@ const Button = ({
     id,
     type,
     onMouseDownClicked,
-    ariaLabel
+    ariaLabel,
+    loading
   ]);
 
   if (loading) {

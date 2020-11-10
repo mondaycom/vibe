@@ -93,7 +93,7 @@ describe("<Buttoon />", () => {
       expect(classNameQuery).to.be.ok;
     });
   });
-  describe("aria-label", () => {
+  describe("a11y", () => {
     it("should add the aria label", () => {
       const ariaLabel = "Icon Name";
       const { getByLabelText } = render(
