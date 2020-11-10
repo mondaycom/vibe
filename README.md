@@ -11,6 +11,9 @@ $ npm install monday-ui-react-core
 You can either ` import { Button } from "monday-ui-react-core";`
 or you might want to import directly the component ` import Button from "monday-ui-react-core/dist/Button";`   
 
+You also need to import Main CSS file to your project
+`import "monday-ui-react-core/dist/main.css"`
+
 ## Storybook
 We are using storybook in order to develop the components independently from any consumer.
 run this to build & run the storybook locally:
