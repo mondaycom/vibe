@@ -1,6 +1,6 @@
 import React from "react";
 import { sinon, expect } from "../../test/test-helpers";
-import InputField, { ARIA_LABELS } from "./InputField";
+import TextField, { ARIA_LABELS } from "./TextField";
 import {
   render,
   fireEvent,
@@ -9,7 +9,7 @@ import {
   act
 } from "@testing-library/react";
 
-describe("InputField Tests", () => {
+describe("TextField Tests", () => {
   let inputComponent;
   let onChangeStub;
   let defaultPlaceHolder = "Place Holder Text";
@@ -20,7 +20,7 @@ describe("InputField Tests", () => {
     clock = sinon.useFakeTimers();
     act(() => {
       inputComponent = render(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
@@ -60,7 +60,7 @@ describe("InputField Tests", () => {
     const { rerender } = inputComponent;
     act(() => {
       inputComponent = rerender(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
@@ -83,7 +83,7 @@ describe("InputField Tests", () => {
     const debounceTime = 200;
     act(() => {
       inputComponent = rerender(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
@@ -105,7 +105,7 @@ describe("InputField Tests", () => {
     const { rerender } = inputComponent;
     act(() => {
       inputComponent = rerender(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
@@ -122,7 +122,7 @@ describe("InputField Tests", () => {
     const title = "Title";
     act(() => {
       rerender(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
@@ -140,7 +140,7 @@ describe("InputField Tests", () => {
     const title = "My Awesome Title";
     act(() => {
       rerender(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
@@ -157,7 +157,7 @@ describe("InputField Tests", () => {
     const { rerender, queryByLabelText } = inputComponent;
     act(() => {
       rerender(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
@@ -175,7 +175,7 @@ describe("InputField Tests", () => {
     const { rerender, queryByLabelText } = inputComponent;
     act(() => {
       rerender(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
@@ -193,7 +193,7 @@ describe("InputField Tests", () => {
       const value = "hello";
       act(() => {
         rerender(
-          <InputField
+          <TextField
             placeholder={defaultPlaceHolder}
             onChange={onChangeStub}
             id="char-count-test"
@@ -212,7 +212,7 @@ describe("InputField Tests", () => {
       let value = "hello";
       act(() => {
         rerender(
-          <InputField
+          <TextField
             placeholder={defaultPlaceHolder}
             onChange={onChangeStub}
             id="char-count-test"
@@ -244,29 +244,29 @@ describe("InputField Tests", () => {
   describe("types", () => {
     it("default type should be text", () => {
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
-      expect(input.type).to.equal(InputField.types.TEXT);
+      expect(input.type).to.equal(TextField.types.TEXT);
     });
 
     it("type should be password", () => {
       const { rerender } = inputComponent;
       act(() => {
         inputComponent = rerender(
-          <InputField
+          <TextField
             placeholder={defaultPlaceHolder}
             onChange={onChangeStub}
             id="test"
-            type={InputField.types.PASSWORD}
+            type={TextField.types.PASSWORD}
           />
         );
       });
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
-      expect(input.type).to.equal(InputField.types.PASSWORD);
+      expect(input.type).to.equal(TextField.types.PASSWORD);
     });
   });
   describe("autocomplete", () => {
     it("should add autocomplete attr and set it to on", () => {
       const { container } = render(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
@@ -279,7 +279,7 @@ describe("InputField Tests", () => {
 
     it("should add autocomplete attr and set it to off", () => {
       const { container } = render(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
@@ -295,7 +295,7 @@ describe("InputField Tests", () => {
     const { rerender } = inputComponent;
     act(() => {
       inputComponent = rerender(
-        <InputField
+        <TextField
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"

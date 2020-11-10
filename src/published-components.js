@@ -2,8 +2,9 @@ const path = require("path");
 const fs = require("fs");
 
 const publishedComponents = {
-  SearchComponent: "/src/components/Search/Search.jsx",
-  TextField: "/src/components/TextField/InputField.jsx",
+  SearchComponent: "/src/components/Search/Search.jsx", // TODO: remove when bumping to version 1.0.0
+  Search: "/src/components/Search/Search.jsx",
+  TextField: "/src/components/TextField/TextField.jsx",
   Tooltip: "/src/components/Tooltip/Tooltip.jsx",
   Button: "/src/components/Button/Button.jsx",
   Loader: "/src/components/Loader/Loader.jsx",

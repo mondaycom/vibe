@@ -1,19 +1,14 @@
 import React from "react";
-import { Story } from "@storybook/addon-docs/blocks";
-import InputField from "../InputField";
-import {
-  ComponentStateDescription,
-  FlexLayout,
-  Divider
-} from "../../storybook-helpers";
 import { text, boolean, number, select } from "@storybook/addon-knobs";
+import TextField from "../TextField";
+import { ComponentStateDescription, FlexLayout } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import TextFieldStoryBookLine from "./TextFieldStoryBookLine";
 
 export const Sandbox = () => {
   return (
     <div style={{ width: "35%", margin: "0 auto" }}>
-      <InputField
+      <TextField
         autoFocus={boolean("Autofocus", true)}
         placeholder={text("Placeholder", "default placeholder")}
         debounceRate={number("Debounce Rate (see console log)", 0)}
@@ -46,13 +41,13 @@ export const Sizes = () => {
   return (
     <StoryWrapper>
       <TextFieldStoryBookLine title="Small - 32px">
-        <InputField id="_1" placeholder="Placeholder text" />
+        <TextField id="_1" placeholder="Placeholder text" />
       </TextFieldStoryBookLine>
       <TextFieldStoryBookLine title="Medium - 40px">
-        <InputField id="_2" placeholder="Placeholder text" size="md" />
+        <TextField id="_2" placeholder="Placeholder text" size="md" />
       </TextFieldStoryBookLine>
       <TextFieldStoryBookLine title="Large - 48px">
-        <InputField id="_3" placeholder="Placeholder text" size="l" />
+        <TextField id="_3" placeholder="Placeholder text" size="l" />
       </TextFieldStoryBookLine>
     </StoryWrapper>
   );
@@ -64,7 +59,7 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="Disabled" />
         <div className="width-35">
-          <InputField
+          <TextField
             id="_5"
             disabled
             placeholder="Placeholder text"
@@ -75,7 +70,7 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="With Icon" />
         <div className="width-35">
-          <InputField
+          <TextField
             id="_4"
             iconName="fa-star"
             placeholder="Placeholder text"
@@ -87,7 +82,7 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="Active/Focus" />
         <div className="width-35">
-          <InputField
+          <TextField
             id="_6"
             autoFocus
             placeholder="Placeholder text"
@@ -98,7 +93,7 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="All Good" />
         <div style={{ width: "35%", marginRight: "5%" }}>
-          <InputField
+          <TextField
             id="_7"
             iconName="fa-check"
             validation={{ status: "success" }}
@@ -107,7 +102,7 @@ export const States = () => {
           />
         </div>
         <div className="width-35">
-          <InputField
+          <TextField
             showCharCount
             id="_7"
             iconName="fa-check"
@@ -120,7 +115,7 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="Error" />
         <div style={{ width: "35%", marginRight: "5%" }}>
-          <InputField
+          <TextField
             id="_8"
             iconName="fa-exclamation-circle"
             validation={{ status: "error" }}
@@ -129,7 +124,7 @@ export const States = () => {
           />
         </div>
         <div className="width-35">
-          <InputField
+          <TextField
             id="_8"
             showCharCount
             iconName="fa-exclamation-circle"
@@ -142,7 +137,7 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="With FieldLabel" />
         <div className="width-35">
-          <InputField
+          <TextField
             id="_9"
             title="Title"
             placeholder="Placeholder text"
@@ -153,7 +148,7 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="With FieldLabel and Icon" />
         <div style={{ width: "35%", marginRight: "5%" }}>
-          <InputField
+          <TextField
             id="_10"
             title="Title"
             labelIconName="fa-envelope"
@@ -162,7 +157,7 @@ export const States = () => {
           />
         </div>
         <div className="width-35">
-          <InputField
+          <TextField
             id="_10"
             title="Title"
             labelIconName="fa-envelope"
@@ -178,5 +173,5 @@ export const States = () => {
 
 export default {
   title: "Components/Text Field",
-  component: InputField
+  component: TextField
 };
