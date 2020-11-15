@@ -19,6 +19,7 @@ export {default as Column} from './components/Column';
 export {default as Dashboard} from './components/Dashboard';
 export {default as Delete} from './components/Delete';
 export {default as DoubleCheck} from './components/DoubleCheck';
+export {default as Download} from './components/Download';
 export {default as Drag} from './components/Drag';
 export {default as DropdownChevronDown} from './components/DropdownChevronDown';
 export {default as DropdownChevronLeft} from './components/DropdownChevronLeft';
