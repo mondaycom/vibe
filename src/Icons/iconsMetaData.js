@@ -155,6 +155,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Download",
+    file: "Download.svg",
+    description: "Download icon",
+    tags: "download, incoming, import",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Drag",
     file: "Drag.svg",
     description: "Drag",
