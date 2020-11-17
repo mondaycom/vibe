@@ -113,7 +113,8 @@ export default class Tooltip extends React.PureComponent {
       children,
       getContainer,
       theme,
-      paddingSize
+      paddingSize,
+      tip
     } = this.props;
 
     if (!children) {
@@ -127,7 +128,7 @@ export default class Tooltip extends React.PureComponent {
     const dialogProps = {
       ...this.props,
       startingEdge: justify,
-      tooltip: true,
+      tooltip: tip,
       content,
       getContainer: getContainer || this.getContainer,
       moveBy,
@@ -153,5 +154,6 @@ Tooltip.defaultProps = {
   animationType: "expand",
   withoutDialog: false,
   containerSelector: "#tooltips-container",
-  immediateShowDelay: null
+  immediateShowDelay: null,
+  tip: true
 };
