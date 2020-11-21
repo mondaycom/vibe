@@ -36,16 +36,17 @@ module.exports = plop => {
       },
       {
         type: "append",
-        path: "/components/index.js",
+        path: "src/components/index.js",
         template:
           'export { default as {{properCase componentName}} } from "./{{properCase componentName}}/{{properCase componentName}}";'
       },
       {
-        type: "modify",
+        type: "append",
         path: "src/published-components.js",
         pattern: /(\/\/ plop_marker:published-components)/g,
-        templateFile: "plop/component/component-published-component.txt"
-      },
+        template:
+          '\t{{properCase componentName}}: "/src/components/{{properCase componentName}}.jsx",'
+      }
     ]
   });
 };
