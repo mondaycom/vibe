@@ -31,7 +31,7 @@ module.exports = plop => {
       {
         type: "add",
         path:
-          "src/components/{{properCase componentName}}/_tests__/{{camelCase componentName}}.test.js",
+          "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}.test.js",
         templateFile: "plop/component/component-stories-js.txt"
       },
       {
