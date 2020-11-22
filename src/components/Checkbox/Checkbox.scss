@@ -1,0 +1,55 @@
+@import "../../styles/global-css-settings";
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+$checkbox-size: 16px;
+
+.monday-style-checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  input {
+    visibility: hidden;
+    position: absolute;
+  }
+
+  &__input {
+    cursor: pointer;
+    visibility: visible;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: $checkbox-size;
+    width: $checkbox-size;
+    border: 1px solid var(--ui-border-color);
+    border-radius: $border-radius-extra-small;
+
+    &:hover {
+      border-color: var(--color-mud_black);
+    }
+
+    &--selected {
+      background-color: var(--primary-color);
+      border-color: transparent;
+
+      &:hover {
+        background-color: var(--primary-hover-color);
+        border-color: transparent;
+      }
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    height: 85%;
+    color: var(--text-color-on-primary);
+  }
+
+  &__label {
+    @include font-input();
+    cursor: pointer;
+    margin-inline-start: $spacing-small;
+  }
+}
+
