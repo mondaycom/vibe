@@ -1,0 +1,1 @@
+    {{properCase componentName}}: "/src/components/{{properCase componentName}}.jsx",

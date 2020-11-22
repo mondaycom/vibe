@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Loader.scss";
 
-const Loader = ({ svgClassName }) => {
+function Loader({ svgClassName }) {
   return (
     <div className="monday-loader-component">
       <svg
@@ -20,7 +20,7 @@ const Loader = ({ svgClassName }) => {
       </svg>
     </div>
   );
-};
+}
 
 Loader.propTypes = {
   svgClassName: PropTypes.string

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with custom class name 1`] = `
+<div
+  className="monday-loader-component"
+>
+  <svg
+    className="circle-loader-spinner dummy-class-name"
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="circle-loader-spinner-path"
+      cx="25"
+      cy="25"
+      fill="none"
+      r="20"
+      strokeWidth="5"
+    />
+  </svg>
+</div>
+`;
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  className="monday-loader-component"
+>
+  <svg
+    className="circle-loader-spinner "
+    viewBox="0 0 50 50"
+  >
+    <circle
+      className="circle-loader-spinner-path"
+      cx="25"
+      cy="25"
+      fill="none"
+      r="20"
+      strokeWidth="5"
+    />
+  </svg>
+</div>
+`;

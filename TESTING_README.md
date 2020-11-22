@@ -2,16 +2,25 @@
 
 As this library is the base of all monday's ui and future open source library, its components should be very well tested. In order to do so we've chosen the following test stack. 
 
+We are using two approaches when regarding testing the first is the standard jest stack:
+1. Jest as of our test runner and framework
+2. [React testing library](https://testing-library.com/docs/react-testing-library/intro) as our components testing library
+
+The second approach is for special use cases which require a browser (positing, observer callbacks ...)
  1. Karna as our test runner
  2. Mocha as our framework library
  3. Sinon as our mocks/stubs library
- 4. [React testing library](https://testing-library.com/docs/react-testing-library/intro) as our components testing frame work
+ 4. [React testing library](https://testing-library.com/docs/react-testing-library/intro) as our components testing library
 
 ## React testing library
 This library forces us to test according to user behaviour and not implementation details (state keys for example) for example the library allows you to target elements according to text, aria labels, placeholders text and more. This approach ensure us that we test the component in the right way and allows us easier refactoring when needed.
 
 #### Test File
-The file should end with `-test.js` and be in the same folder as the component.
+#### Jest
+Use our plop which automatically generates the proper folder structure, each file should end with .test.js
+
+#### Karma
+The file should end with `-test.js` and should be located in a `__tests__` folder.
 
 ### React testing 101
 #### Mounting components

@@ -2,6 +2,8 @@ const path = require("path");
 const fs = require("fs");
 
 const publishedComponents = {
+  // Don't remove next line
+  // plop_marker:published-components
   SearchComponent: "/src/components/Search/Search.jsx", // TODO: remove when bumping to version 1.0.0
   Search: "/src/components/Search/Search.jsx",
   TextField: "/src/components/TextField/TextField.jsx",
