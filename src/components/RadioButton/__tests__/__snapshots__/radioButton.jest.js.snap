@@ -5,9 +5,10 @@ exports[`RadioButton Tests Snapshot Tests renders correctly 1`] = `
   className="radio-button-component dummy-class-name"
 >
   <span
-    className="radio-button-component__radio-input"
+    className="radio-button-component__radio-input-container"
   >
     <input
+      className="radio-button-component__radio-input-container__radio-input"
       defaultChecked={false}
       disabled={false}
       name="radios"
@@ -15,7 +16,7 @@ exports[`RadioButton Tests Snapshot Tests renders correctly 1`] = `
       value="option1"
     />
     <span
-      className="radio-button-component__radio-input__radio-control"
+      className="radio-button-component__radio-input-container__radio-control"
     />
   </span>
   <span
@@ -31,9 +32,10 @@ exports[`RadioButton Tests Snapshot Tests renders correctly with empty props 1`]
   className="radio-button-component"
 >
   <span
-    className="radio-button-component__radio-input"
+    className="radio-button-component__radio-input-container"
   >
     <input
+      className="radio-button-component__radio-input-container__radio-input"
       defaultChecked={false}
       disabled={false}
       name=""
@@ -41,7 +43,7 @@ exports[`RadioButton Tests Snapshot Tests renders correctly with empty props 1`]
       value=""
     />
     <span
-      className="radio-button-component__radio-input__radio-control"
+      className="radio-button-component__radio-input-container__radio-control"
     />
   </span>
   <span

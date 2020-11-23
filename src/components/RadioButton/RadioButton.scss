@@ -7,12 +7,12 @@
   grid-gap: 0.5em;
   cursor: pointer;
 
-  &__radio-input {
+  &__radio-input-container {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    input {
+    &__radio-input {
       opacity: 0;
       width: 0;
       height: 0;
@@ -27,7 +27,7 @@
       border: 0.1em solid;
       @include theme-prop(border-color, ui-border-color);
       border-radius: 50%;
-      transition: border-color 100ms ease-in-out;
+      transition: border-width 100ms $expand-animation-timing;
     }
 
     input:checked + &__radio-control {
@@ -36,6 +36,7 @@
       animation-timing-function: $expand-animation-timing;
       animation-fill-mode: forwards;
       @include theme-prop(border-color, primary-color);
+      border-width: 0.3em;
     }
 
     input:disabled + &__radio-control {
@@ -57,16 +58,25 @@
     @include theme-prop(color, primary-text-color);
   }
 
-  &:hover &__radio-input input:enabled:checked + &__radio-input__radio-control,
-  &:focus-within
-    &__radio-input
+  &:hover
+    &__radio-input-container
     input:enabled:checked
-    + &__radio-input__radio-control {
+    + &__radio-input-container__radio-control,
+  &:focus-within
+    &__radio-input-container
+    input:enabled:checked
+    + &__radio-input-container__radio-control {
     @include theme-prop(border-color, primary-hover-color);
   }
 
-  &:hover &__radio-input input:enabled + &__radio-input__radio-control,
-  &:focus-within &__radio-input input:enabled + &__radio-input__radio-control {
+  &:hover
+    &__radio-input-container
+    input:enabled
+    + &__radio-input-container__radio-control,
+  &:focus-within
+    &__radio-input-container
+    input:enabled
+    + &__radio-input-container__radio-control {
     @include theme-prop(border-color, primary-text-color);
   }
 }
@@ -79,11 +89,9 @@
   50% {
     height: 0.8em;
     width: 0.8em;
-    border-width: 0.15em;
   }
   100% {
     height: 1em;
     width: 1em;
-    border-width: 0.3em;
   }
 }
