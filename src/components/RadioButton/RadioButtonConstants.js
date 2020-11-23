@@ -1,1 +1,1 @@
-export const baseClassName = "radio-button-component";
+export const baseClassName = "monday-style-radio-button-component";

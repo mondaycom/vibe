@@ -13,7 +13,7 @@ const RadioButton = ({
   defaultChecked,
 }) => {
   return (
-    <label className={cx(baseClassName, componentClassName)}>
+    <label className={cx(baseClassName, componentClassName, { disabled })}>
       <span className={`${baseClassName}__radio-input-container`}>
         <input
           className={`${baseClassName}__radio-input-container__radio-input`}

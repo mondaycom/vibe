@@ -1,7 +1,7 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 
-.radio-button-component {
+.monday-style-radio-button-component {
   display: grid;
   grid-template-columns: 1.5em auto;
   grid-gap: 0.5em;
@@ -58,11 +58,11 @@
     @include theme-prop(color, primary-text-color);
   }
 
+  &.disabled {
+    cursor: not-allowed;
+  }
+
   &:hover
-    &__radio-input-container
-    input:enabled:checked
-    + &__radio-input-container__radio-control,
-  &:focus-within
     &__radio-input-container
     input:enabled:checked
     + &__radio-input-container__radio-control {
@@ -71,11 +71,11 @@
 
   &:hover
     &__radio-input-container
-    input:enabled
+    input:enabled:not(:checked)
     + &__radio-input-container__radio-control,
   &:focus-within
     &__radio-input-container
-    input:enabled
+    input:enabled:not(:checked)
     + &__radio-input-container__radio-control {
     @include theme-prop(border-color, primary-text-color);
   }
