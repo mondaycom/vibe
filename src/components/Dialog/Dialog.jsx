@@ -174,7 +174,6 @@ export default class Dialog extends PureComponent {
   }
 
   onKeyDown(event) {
-    debugger
     if (event.key === "Enter") {
       this.handleEvent("enter", event.target);
     }
