@@ -21,15 +21,12 @@ import { isInsideClass } from "../../utils/dom-utils";
 // Constants
 const DIALOG_MOVE_BY = { main: 8 };
 const DIALOG_POSITION = "bottom-start";
-const DIALOG_SHOW_TRIGGER = "click";
-const DIALOG_HIDE_TRIGGER = ["clickoutside", "click"];
+const DEFAULT_DIALOG_SHOW_TRIGGER = "click";
+const DEFAULT_DIALOG_HIDE_TRIGGER = ["clickoutside", "click"];
 const SECONDARY_BUTTON_WRAPPER_CLASSNAME =
   "monday-style-split-button__secondary-button-wrapper";
 const EMPTY_ARR = [];
 
-/* TODO:
-    1. Add shouldCloseOnClickOnContent prop   
-*/
 const SplitButton = ({
   marginLeft,
   marginRight,
@@ -46,6 +43,7 @@ const SplitButton = ({
   onSecondaryDialogDidShow,
   onSecondaryDialogDidHide,
   disabled,
+  shouldCloseOnClickInsideDialog,
   ...buttonProps
 }) => {
   // State //
@@ -124,9 +122,15 @@ const SplitButton = ({
   );
 
   const dialogShowTrigger = useMemo(
-    () => (disabled ? EMPTY_ARR : DIALOG_SHOW_TRIGGER),
+    () => (disabled ? EMPTY_ARR : DEFAULT_DIALOG_SHOW_TRIGGER),
     [disabled]
   );
+
+  const dialogHideTrigger = useMemo(() => {
+    if (shouldCloseOnClickInsideDialog)
+      return [...DEFAULT_DIALOG_HIDE_TRIGGER, "onContentClick"];
+    return DEFAULT_DIALOG_HIDE_TRIGGER;
+  }, [shouldCloseOnClickInsideDialog]);
 
   return (
     <div className={classNames} ref={ref} role="button">
@@ -159,7 +163,7 @@ const SplitButton = ({
             onDialogDidShow={showDialog}
             onDialogDidHide={hideDialog}
             showTrigger={dialogShowTrigger}
-            hideTrigger={DIALOG_HIDE_TRIGGER}
+            hideTrigger={dialogHideTrigger}
           >
             <Button
               {...buttonProps}
