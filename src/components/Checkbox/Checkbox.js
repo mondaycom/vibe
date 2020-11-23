@@ -15,11 +15,12 @@ const Checkbox = ({
   isDisabled = false
 }) => {
   const checkboxRef = useRef();
-  const inputClassNames = [`${BASE_CLASS_NAME}__input`];
-  if (isSelected) inputClassNames.push(`${BASE_CLASS_NAME}__input--selected`);
-  return ([
-    <div className={cx(`${BASE_CLASS_NAME}`, componentClassName)}>
+  const inputClassNames = [`${BASE_CLASS_NAME}__checkbox`];
+  if (isSelected) inputClassNames.push(`${BASE_CLASS_NAME}__checkbox--selected`);
+  return (
+    <label className={cx(BASE_CLASS_NAME, componentClassName)}>
       <input
+        className={`${BASE_CLASS_NAME}__input`}
         type="checkbox"
         ref={checkboxRef}
         onChange={onChange}
@@ -27,8 +28,7 @@ const Checkbox = ({
         disabled={isDisabled}
         aria-label={label}
       />
-      <div className={cx(...inputClassNames)} onClick={onChange}>
-        <div className={`${BASE_CLASS_NAME}__input-x`}></div>
+      <div className={cx(...inputClassNames)}>
         {isSelected ? (
           <Icon
             className={`${BASE_CLASS_NAME}__icon`}
@@ -43,11 +43,11 @@ const Checkbox = ({
           undefined
         )}
       </div>
-      <span className={`${BASE_CLASS_NAME}__label`} onClick={onChange}>
-          {label}
+      <span className={`${BASE_CLASS_NAME}__label`}>
+        {label}
       </span>
-    </div>
-  ]);
+    </label>
+  );
 };
 
 Checkbox.defaultProps = {

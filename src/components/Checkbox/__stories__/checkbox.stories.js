@@ -39,24 +39,24 @@ export const OnChange = () => {
 };
 
 export const RTLSupport = () => (
-    <div>
-        <div style={{"direction": "rtl"}}>
-            <Checkbox
-                id="RTLKnobs"
-                label={text("label", "text")}
-                isSelected={boolean("isSelected", true)}
-                isDisabled={boolean("isDisabled", false)}
-            />
-        </div>
-        <div style={{"direction": "ltr"}}>
-            <Checkbox
-                id="LTRKnobs"
-                label={text("label", "text")}
-                isSelected={boolean("isSelected", true)}
-                isDisabled={boolean("isDisabled", false)}
-            />
-        </div>
+  <div>
+    <div style={{ direction: "rtl" }}>
+      <Checkbox
+        id="RTLKnobs"
+        label={text("label", "text")}
+        isSelected={boolean("isSelected", true)}
+        isDisabled={boolean("isDisabled", false)}
+      />
     </div>
+    <div style={{ direction: "ltr" }}>
+      <Checkbox
+        id="LTRKnobs"
+        label={text("label", "text")}
+        isSelected={boolean("isSelected", true)}
+        isDisabled={boolean("isDisabled", false)}
+      />
+    </div>
+  </div>
 );
 
 export default {
