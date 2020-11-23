@@ -1,0 +1,89 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.radio-button-component {
+  display: grid;
+  grid-template-columns: 1.5em auto;
+  grid-gap: 0.5em;
+  cursor: pointer;
+
+  &__radio-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    &__radio-control {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1em;
+      height: 1em;
+      border: 0.1em solid;
+      @include theme-prop(border-color, ui-border-color);
+      border-radius: 50%;
+      transition: border-color 100ms ease-in-out;
+    }
+
+    input:checked + &__radio-control {
+      animation-name: radio-checked-animation;
+      animation-duration: 100ms;
+      animation-timing-function: $expand-animation-timing;
+      animation-fill-mode: forwards;
+      @include theme-prop(border-color, primary-color);
+    }
+
+    input:disabled + &__radio-control {
+      border: 0.5em solid;
+      @include theme-prop(border-color, disabled-background-color);
+      border-radius: 50%;
+    }
+
+    input:checked:disabled + &__radio-control {
+      border: 0.3em solid;
+      @include theme-prop(border-color, disabled-background-color);
+      @include theme-prop(background-color, secondary-text-color);
+    }
+  }
+
+  &__radio-label {
+    line-height: 1;
+    font-weight: 400;
+    @include theme-prop(color, primary-text-color);
+  }
+
+  &:hover &__radio-input input:enabled:checked + &__radio-input__radio-control,
+  &:focus-within
+    &__radio-input
+    input:enabled:checked
+    + &__radio-input__radio-control {
+    @include theme-prop(border-color, primary-hover-color);
+  }
+
+  &:hover &__radio-input input:enabled + &__radio-input__radio-control,
+  &:focus-within &__radio-input input:enabled + &__radio-input__radio-control {
+    @include theme-prop(border-color, primary-text-color);
+  }
+}
+
+@keyframes radio-checked-animation {
+  0% {
+    height: 1em;
+    width: 1em;
+  }
+  50% {
+    height: 0.8em;
+    width: 0.8em;
+    border-width: 0.15em;
+  }
+  100% {
+    height: 1em;
+    width: 1em;
+    border-width: 0.3em;
+  }
+}
