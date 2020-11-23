@@ -264,9 +264,8 @@ export const Playground = () => (
         Object.values(SplitButton.kinds),
         SplitButton.kinds.PRIMARY
       )}
-      open={boolean("Open", false)}
+      disabled={boolean("Disabled", false)}
       secondaryDialogContent={<StoryDialogContent />}
-      onSecondaryDialogDidHide={() => console.log("hide")}
     >
       Split Button
     </SplitButton>

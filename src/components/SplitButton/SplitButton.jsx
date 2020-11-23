@@ -58,10 +58,17 @@ const SplitButton = ({
   const setHovered = useCallback(() => setIsHover(true), [setIsHover]);
   const setNotHovered = useCallback(() => setIsHover(false), [setIsHover]);
 
+  const shouldSetActive = useCallback(
+    e => {
+      if (disabled) return false;
+      return !isInsideClass(e.target, SECONDARY_BUTTON_WRAPPER_CLASSNAME);
+    },
+    [disabled]
+  );
+
   const setActive = useCallback(
     e => {
-      if (disabled) return;
-      if (isInsideClass(e.target, SECONDARY_BUTTON_WRAPPER_CLASSNAME)) return;
+      if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
     [setIsActive, disabled]
@@ -69,8 +76,7 @@ const SplitButton = ({
   const setNotActive = useCallback(() => setIsActive(false), [setIsActive]);
   const setActiveOnEnter = useCallback(
     e => {
-      if (disabled) return;
-      if (isInsideClass(e.target, SECONDARY_BUTTON_WRAPPER_CLASSNAME)) return;
+      if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
     [setIsActive, disabled]
