@@ -245,7 +245,7 @@ export const SplitButtonsWithIcons = () => (
   </StoryStateRow>
 );
 
-export const Playground = () => (
+export const Sandbox = () => (
   <div>
     <SplitButton
       id="Knobs"

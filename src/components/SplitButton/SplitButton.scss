@@ -70,12 +70,11 @@
         &--color {
           &-primary {
             &.monday-style-split-button--split-content-open {
-              .monday-style-split-button__secondary-button {
-                &:not(:hover) {
+              .monday-style-split-button__secondary-button,
+              .monday-style-split-button__secondary-button:hover {
                   @include theme-prop(color, primary-color);
                   @include theme-prop(border-color, primary-color);
                   @include theme-prop(background-color, primary-selected-color);
-                }
               }
             }
           }
@@ -104,11 +103,10 @@
             }
             
             &.monday-style-split-button--split-content-open {
-              .monday-style-split-button__secondary-button {
-                &:not(:hover) {
-                  @include theme-prop(color, primary-color);
-                  @include theme-prop(background-color, primary-selected-color);
-                }
+              .monday-style-split-button__secondary-button, 
+              .monday-style-split-button__secondary-button:hover {
+                @include theme-prop(color, primary-color);
+                @include theme-prop(background-color, primary-selected-color);
               }
             }
 

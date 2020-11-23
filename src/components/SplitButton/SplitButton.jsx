@@ -195,7 +195,6 @@ const SplitButton = ({
           </Dialog>
         </div>
       )}
-      {}
     </div>
   );
 };
