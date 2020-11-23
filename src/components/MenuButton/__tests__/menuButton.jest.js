@@ -1,22 +1,81 @@
 import React from "react";
+import renderer from "react-test-renderer";
+import { render, fireEvent, screen, act } from "@testing-library/react";
 import MenuButton from "../MenuButton";
-import { StoryStateRow, StoryStateColumn, ComponentStateDescription, FlexLayout, Divider } from "../../storybook-helpers";
-import { action } from '@storybook/addon-actions';
-import { text, boolean, number, select } from "@storybook/addon-knobs";
-import DarkThemeContainer from "../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
-import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
+import Bolt from "../../Icon/Icons/components/Bolt";
 
+jest.useFakeTimers();
 
-export const Sandbox = () => (
-    <div>
-        <MenuButton
-            id="Knobs"
-            text={text("Text", "Test knob value")}
-        />
-    </div>
-);
+it("renders correctly with empty props", () => {
+  const tree = renderer
+    .create(
+      <MenuButton>
+        <div>Menu</div>
+      </MenuButton>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
 
-export default {
-    title: "Components/MenuButton",
-    component: MenuButton
-};
+it("renders correctly with size Large", () => {
+  const tree = renderer
+    .create(
+      <MenuButton size={MenuButton.sizes.LARGE}>
+        <div>Menu</div>
+      </MenuButton>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders correctly with Bolt Icon", () => {
+  const tree = renderer
+    .create(
+      <MenuButton icon={Bolt}>
+        <div>Menu</div>
+      </MenuButton>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders correctly with Bolt Icon", () => {
+  const tree = renderer
+    .create(
+      <MenuButton componentClassName="dummy-class-name">
+        <div>Menu</div>
+      </MenuButton>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders correctly with open state", () => {
+  const tree = renderer
+    .create(
+      <MenuButton open>
+        <div>Menu</div>
+      </MenuButton>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+describe("Click", () => {
+  it("should show menu", async () => {
+    const { getByLabelText } = render(
+      <MenuButton open ariaLabel="Menu Button">
+        <div>Menu</div>
+      </MenuButton>
+    );
+    const button = getByLabelText("Menu Button");
+    act(() => {
+      fireEvent.click(button);
+      jest.advanceTimersByTime(1000);
+    });
+    const menu = await screen.findByText("Menu");
+    expect(menu).toBeTruthy();
+  });
+});
+
+describe;

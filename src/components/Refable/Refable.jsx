@@ -11,10 +11,9 @@ export const Refable = React.forwardRef(({ children, ...rest }, ref) => {
         </span>
       );
     }
-
     return React.cloneElement(child, {
-      ...child.props,
       ...rest,
+      ...child.props,
       onClick: getChainedFunction("onClick", child.props, rest),
       onBlur: getChainedFunction("onBlur", child.props, rest),
       onMouseEnter: getChainedFunction("onMouseEnter", child.props, rest),

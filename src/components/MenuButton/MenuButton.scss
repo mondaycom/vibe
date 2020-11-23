@@ -12,6 +12,8 @@
   cursor: pointer;
   padding: 0;
   @include theme-prop(color, primary-text-color);
+
+  &:focus,
   &:hover {
     @include theme-prop(background-color, primary-background-hover-color);
   }
@@ -19,6 +21,10 @@
   &--open {
     @include theme-prop(background-color, primary-selected-color);
     @include theme-prop(color, primary-color);
+    &:focus {
+      @include theme-prop(background-color, primary-selected-color);
+
+    }
     &:hover {
       @include theme-prop(background-color, primary-selected-color);
     }

@@ -34,6 +34,7 @@ export default class Dialog extends PureComponent {
     this.onDialogLeave = this.onDialogLeave.bind(this);
     this.getContainer = this.getContainer.bind(this);
     this.onContentClick = this.onContentClick.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
 
     // Timeouts
     this.hideTimeout = null;
@@ -172,6 +173,13 @@ export default class Dialog extends PureComponent {
     this.handleEvent("click", e.target);
   }
 
+  onKeyDown(event) {
+    debugger
+    if (event.key === "Enter") {
+      this.handleEvent("enter", event.target);
+    }
+  }
+
   onMouseDown(e) {
     if (e.button) return;
     this.handleEvent("mousedown", e.target);
@@ -246,13 +254,18 @@ export default class Dialog extends PureComponent {
                 className={referenceWrapperClassName}
                 ref={ref}
                 onBlur={chainOnPropsAndInstance("onBlur", this, this.props)}
-                onClick={chainOnPropsAndInstance("onClick", this, this.props)}
-                onFocus={chainOnPropsAndInstance("onFocus", this, this.props)}
-                onClickOutside={chainOnPropsAndInstance(
-                  "onClickOutside",
+                onKeyDown={chainOnPropsAndInstance(
+                  "onKeyDown",
                   this,
                   this.props
                 )}
+                onClick={chainOnPropsAndInstance("onClick", this, this.props)}
+                onFocus={chainOnPropsAndInstance("onFocus", this, this.props)}
+                // onClickOutside={chainOnPropsAndInstance(
+                //   "onClickOutside",
+                //   this,
+                //   this.props
+                // )}
                 onMouseDown={chainOnPropsAndInstance(
                   "onMouseDown",
                   this,
