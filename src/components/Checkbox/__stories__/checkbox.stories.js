@@ -17,8 +17,8 @@ export const Sandbox = () => (
     <Checkbox
       id="Knobs"
       label={text("label", "text")}
-      isSelected={boolean("isSelected", true)}
-      isDisabled={boolean("isDisabled", false)}
+      checked={boolean("checked", true)}
+      disabled={boolean("disabled", false)}
     />
   </div>
 );
@@ -30,8 +30,8 @@ export const OnChange = () => {
       <Checkbox
         id="Knobs"
         label={text("label", "text")}
-        isSelected={selected}
-        isDisabled={boolean("isDisabled", false)}
+        checked={selected}
+        disabled={boolean("isDisabled", false)}
         onChange={() => setsSelected(!selected)}
       />
     </div>
@@ -44,16 +44,16 @@ export const RTLSupport = () => (
       <Checkbox
         id="RTLKnobs"
         label={text("label", "text")}
-        isSelected={boolean("isSelected", true)}
-        isDisabled={boolean("isDisabled", false)}
+        checked={boolean("checked", true)}
+        disabled={boolean("disabled", false)}
       />
     </div>
     <div style={{ direction: "ltr" }}>
       <Checkbox
         id="LTRKnobs"
         label={text("label", "text")}
-        isSelected={boolean("isSelected", true)}
-        isDisabled={boolean("isDisabled", false)}
+        checked={boolean("checked", true)}
+        disabled={boolean("disabled", false)}
       />
     </div>
   </div>

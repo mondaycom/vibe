@@ -11,12 +11,11 @@ const Checkbox = ({
   componentClassName = "",
   label = "",
   onChange = () => {},
-  isSelected,
-  isDisabled = false
+  checked = true,
+  disabled = false
 }) => {
   const checkboxRef = useRef();
   const inputClassNames = [`${BASE_CLASS_NAME}__checkbox`];
-  if (isSelected) inputClassNames.push(`${BASE_CLASS_NAME}__checkbox--selected`);
   return (
     <label className={cx(BASE_CLASS_NAME, componentClassName)}>
       <input
@@ -24,12 +23,12 @@ const Checkbox = ({
         type="checkbox"
         ref={checkboxRef}
         onChange={onChange}
-        checked={isSelected}
-        disabled={isDisabled}
+        checked={checked}
+        disabled={disabled}
         aria-label={label}
       />
       <div className={cx(...inputClassNames)}>
-        {isSelected ? (
+        {checked ? (
           <Icon
             className={`${BASE_CLASS_NAME}__icon`}
             iconType={Icon.type.SVG}
