@@ -3,6 +3,7 @@
 export {default as Activity} from './components/Activity';
 export {default as Add} from './components/Add';
 export {default as AddSmall} from './components/AddSmall';
+export {default as Alert} from './components/Alert';
 export {default as Announcement} from './components/Announcement';
 export {default as Archive} from './components/Archive';
 export {default as Attach} from './components/Attach';
