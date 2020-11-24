@@ -26,12 +26,7 @@ import "./SplitButton.scss";
 const DIALOG_MOVE_BY = { main: 8 };
 const DIALOG_POSITION = "bottom-start";
 const DEFAULT_DIALOG_SHOW_TRIGGER = "click";
-const DEFAULT_DIALOG_HIDE_TRIGGER = [
-  "clickoutside",
-  "click",
-  "onContentClick",
-  "esckey"
-];
+const DEFAULT_DIALOG_HIDE_TRIGGER = ["clickoutside", "click", "esckey"];
 const SECONDARY_BUTTON_WRAPPER_CLASSNAME =
   "monday-style-split-button__secondary-button-wrapper";
 const EMPTY_ARR = [];

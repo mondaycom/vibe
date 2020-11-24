@@ -265,6 +265,10 @@ export const Sandbox = () => (
         SplitButton.kinds.PRIMARY
       )}
       disabled={boolean("Disabled", false)}
+      shouldCloseOnClickInsideDialog={boolean(
+        "Should close dialog on click inside content",
+        false
+      )}
       secondaryDialogContent={<StoryDialogContent />}
     >
       Split Button
