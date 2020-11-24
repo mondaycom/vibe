@@ -28,6 +28,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Alert",
+    file: "Alert.svg",
+    description: "Alert",
+    tags: "Alert, Warning, Danger",
+    category: [BASIC],
+  },
+
+  {
     name: "Announcement",
     file: "Announcement.svg",
     description: "Announcement",
