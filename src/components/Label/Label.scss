@@ -36,10 +36,10 @@
           }
           &-dark {
             @include theme-prop(color, text-color-on-inverted);
-            @include theme-prop(background-color, iverted-color-background);
+            @include theme-prop(background-color, inverted-color-background);
             svg {
               path {
-                @include theme-prop(fill, iverted-color-background);
+                @include theme-prop(fill, inverted-color-background);
               }
             }
           }
@@ -82,10 +82,10 @@
             }
           }
           &-dark {
-            @include theme-prop(color, iverted-color-background);
+            @include theme-prop(color, inverted-color-background);
             svg {
               path {
-                @include theme-prop(fill, iverted-color-background);
+                @include theme-prop(fill, inverted-color-background);
               }
             }
           }
