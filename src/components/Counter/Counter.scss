@@ -59,16 +59,18 @@
 
   &--kind {
     &-fill {
-      @include theme-prop(color, text-color-on-primary);
       &.monday-style-counter {
         &--color {
           &-primary {
+            @include theme-prop(color, text-color-on-primary);
             @include theme-prop(background-color, primary-color);
           }
           &-dark {
-            @include theme-prop(background-color, primary-text-color);
+            @include theme-prop(color, text-color-on-inverted);
+            @include theme-prop(background-color, iverted-color-background);
           }
           &-negative {
+            @include theme-prop(color, text-color-on-primary);
             @include theme-prop(background-color, negative-color);
           }
         }
@@ -83,7 +85,7 @@
             @include theme-prop(color, primary-color);
           }
           &-dark {
-            @include theme-prop(color, primary-text-color);
+            @include theme-prop(color, iverted-color-background);
           }
           &-negative {
             @include theme-prop(color, negative-color);
