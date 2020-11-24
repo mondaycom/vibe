@@ -29,24 +29,17 @@ $checkbox-size: 16px;
 
             &:after {
               background-color: var(--primary-hover-color);
+            }
+          }
+
+          &--loaded {
+            &:after {
               left: 0;
               content: ' ';
               position: absolute;
               height: $checkbox-size;
               animation: draw-check 200ms;
               z-index: 2;
-
-              @keyframes draw-check {
-                0% {
-                  left: 0;
-                  right: 0;
-                  width: 100%;
-                }
-                100% {
-                  left: 100%;
-                  width: 0;
-                }
-              }
             }
           }
         }
@@ -109,5 +102,17 @@ $checkbox-size: 16px;
     cursor: pointer;
     margin-inline-start: $spacing-small;
     color: var(--primary-text-color);
+  }
+}
+
+@keyframes draw-check {
+  0% {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 0;
   }
 }
