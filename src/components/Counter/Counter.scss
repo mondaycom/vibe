@@ -7,11 +7,11 @@
   border-radius: 30px;
   overflow: hidden;
   transform-origin: center;
-  
+
   &--with-animation {
-    animation: circle-pop 250ms;  
+    animation: circle-pop 250ms;
   }
-  
+
   &--size {
     &-sm {
       @include font-caption();
@@ -67,7 +67,7 @@
           }
           &-dark {
             @include theme-prop(color, text-color-on-inverted);
-            @include theme-prop(background-color, iverted-color-background);
+            @include theme-prop(background-color, inverted-color-background);
           }
           &-negative {
             @include theme-prop(color, text-color-on-primary);
@@ -85,7 +85,7 @@
             @include theme-prop(color, primary-color);
           }
           &-dark {
-            @include theme-prop(color, iverted-color-background);
+            @include theme-prop(color, inverted-color-background);
           }
           &-negative {
             @include theme-prop(color, negative-color);
