@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
@@ -26,8 +26,6 @@ export const Checkbox = ({
     overrideDefaultChecked = false;
   }
 
-  const isChecked = overrideDefaultChecked == undefined ? checked : overrideDefaultChecked;
-
   // will replaced with useFirstRender hook
   const [isFirstRender, setIsFirstRender] = useState(true);
 
@@ -35,7 +33,8 @@ export const Checkbox = ({
     if (isFirstRender) setIsFirstRender(false);
   }, [isFirstRender]);
 
-  if (!isFirstRender) checkboxClassNames.push(`${BASE_CLASS_NAME}__checkbox--loaded`);
+  if (!isFirstRender)
+    checkboxClassNames.push(`${BASE_CLASS_NAME}__checkbox--loaded`);
 
   return (
     <label className={cx(BASE_CLASS_NAME, componentClassName)}>
@@ -51,19 +50,15 @@ export const Checkbox = ({
         checked={checked}
       />
       <div className={cx(...checkboxClassNames)}>
-        {isChecked ? (
-          <Icon
-            className={`${BASE_CLASS_NAME}__icon`}
-            iconType={Icon.type.SVG}
-            icon={Check}
-            iconLabel="checkbox"
-            ignoreFocusStyle
-            clickable
-            iconSize={11}
-          />
-        ) : (
-          undefined
-        )}
+        <Icon
+          className={`${BASE_CLASS_NAME}__icon`}
+          iconType={Icon.type.SVG}
+          icon={Check}
+          iconLabel="checkbox"
+          ignoreFocusStyle
+          clickable
+          iconSize={11}
+        />
       </div>
       <span className={`${BASE_CLASS_NAME}__label`}>{label}</span>
     </label>
@@ -75,7 +70,7 @@ Checkbox.propTypes = {
   label: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
-  disabled: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 Checkbox.defaultProps = {

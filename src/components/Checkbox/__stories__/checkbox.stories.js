@@ -36,48 +36,46 @@ export const OnChange = () => {
 };
 
 export const States = () => {
-    return (
-        <StoryWrapper>
-            <RadioButtonStoryLine title="Regular">
-            <Checkbox title="Regular">
-                <RadioButton
-                    value="1"
-                    text="Option"
-                    name="regular"
-                    componentClassName="monday-style-regular"
-                    disabled={false}
-                />
-            </Checkbox>
-            </RadioButtonStoryLine>
-            <RadioButtonStoryLine title="Selected">
-                <Checkbox
-                    value="1"
-                    label="Option"
-                    name="selected"
-                    defaultChecked={true}
-                    disabled={false}
-                    componentClassName="monday-style-selected"
-                />
-            </RadioButtonStoryLine>
-            <RadioButtonStoryLine title="Disabled">
-                <Checkbox
-                    value="1"
-                    label="Option"
-                    name="disabledRadio"
-                    disabled={true}
-                />
-            </RadioButtonStoryLine>
-            <RadioButtonStoryLine title="Disabled selected">
-                <Checkbox
-                    value="1"
-                    text="Option"
-                    name="disabledSelected"
-                    disabled={true}
-                    defaultChecked={true}
-                />
-            </RadioButtonStoryLine>
-        </StoryWrapper>
-    );
+  return (
+    <StoryWrapper>
+      <StoryStateRow componentDescription="Regular">
+        <Checkbox
+          value="1"
+          label="Option"
+          name="regular"
+          componentClassName="monday-style-regular"
+          disabled={false}
+        />
+      </StoryStateRow>
+      <StoryStateRow componentDescription="Selected">
+        <Checkbox
+          value="1"
+          label="Option"
+          name="selected"
+          defaultChecked={true}
+          disabled={false}
+          componentClassName="monday-style-selected"
+        />
+      </StoryStateRow>
+      <StoryStateRow componentDescription="Disabled">
+        <Checkbox
+          value="1"
+          label="Option"
+          name="disabledRadio"
+          disabled={true}
+        />
+      </StoryStateRow>
+      <StoryStateRow componentDescription="Disabled selected">
+        <Checkbox
+          value="1"
+          text="Option"
+          name="disabledSelected"
+          disabled={true}
+          defaultChecked={true}
+        />
+      </StoryStateRow>
+    </StoryWrapper>
+  );
 };
 
 export const RTLSupport = () => (
