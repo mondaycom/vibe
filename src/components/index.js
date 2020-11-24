@@ -11,3 +11,5 @@ export { default as LinearProgressBar } from "./ProgressBars/LinearProgressBar/L
 export { default as Link } from "./Link/Link";
 export { default as CustomSvgIcon } from "./Icon/CustomSvgIcon";
 export { default as RadioButton } from "./RadioButton/RadioButton";
+
+export { default as MenuButton } from "./MenuButton/MenuButton";

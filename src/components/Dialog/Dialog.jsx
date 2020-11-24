@@ -33,6 +33,8 @@ export default class Dialog extends PureComponent {
     this.onDialogEnter = this.onDialogEnter.bind(this);
     this.onDialogLeave = this.onDialogLeave.bind(this);
     this.getContainer = this.getContainer.bind(this);
+    this.onContentClick = this.onContentClick.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
 
     // Timeouts
     this.hideTimeout = null;
@@ -94,7 +96,6 @@ export default class Dialog extends PureComponent {
 
   hideDialog() {
     const { hideDelay, instantShowAndHide } = this.props;
-
     if (instantShowAndHide) {
       this.onHideDialog();
       this.setState({ isOpen: false });
@@ -172,6 +173,12 @@ export default class Dialog extends PureComponent {
     this.handleEvent("click", e.target);
   }
 
+  onKeyDown(event) {
+    if (event.key === "Enter") {
+      this.handleEvent("enter", event.target);
+    }
+  }
+
   onMouseDown(e) {
     if (e.button) return;
     this.handleEvent("mousedown", e.target);
@@ -190,7 +197,9 @@ export default class Dialog extends PureComponent {
   }
 
   onClickOutside(e) {
+    const { onClickOutside } = this.props;
     this.handleEvent("clickoutside", e.target);
+    onClickOutside(e);
   }
 
   onDialogEnter() {
@@ -201,6 +210,12 @@ export default class Dialog extends PureComponent {
   onDialogLeave() {
     const { showOnDialogEnter } = this.props;
     if (showOnDialogEnter) this.hideDialogIfNeeded();
+  }
+
+  onContentClick(e) {
+    const { onContentClick } = this.props;
+    this.handleEvent("onContentClick", e.target);
+    onContentClick();
   }
 
   render() {
@@ -215,7 +230,9 @@ export default class Dialog extends PureComponent {
       showDelay,
       moveBy,
       tooltip,
-      tooltipClassName
+      tooltipClassName,
+      referenceWrapperClassName,
+      zIndex
     } = this.props;
     const { preventAnimation } = this.state;
 
@@ -233,8 +250,14 @@ export default class Dialog extends PureComponent {
           {({ ref }) => {
             return (
               <Refable
+                className={referenceWrapperClassName}
                 ref={ref}
                 onBlur={chainOnPropsAndInstance("onBlur", this, this.props)}
+                onKeyDown={chainOnPropsAndInstance(
+                  "onKeyDown",
+                  this,
+                  this.props
+                )}
                 onClick={chainOnPropsAndInstance("onClick", this, this.props)}
                 onFocus={chainOnPropsAndInstance("onFocus", this, this.props)}
                 onMouseDown={chainOnPropsAndInstance(
@@ -266,6 +289,15 @@ export default class Dialog extends PureComponent {
                 name: "offset",
                 options: {
                   offset: [moveBy.secondary, moveBy.main]
+                }
+              },
+              {
+                name: "zIndex",
+                enabled: true,
+                phase: "write",
+                fn({ state }) {
+                  state.styles.popper.zIndex = zIndex;
+                  return state;
                 }
               },
               {
@@ -309,6 +341,7 @@ export default class Dialog extends PureComponent {
                   showDelay={showDelay}
                   styleObject={style}
                   ref={ref}
+                  onClick={this.onContentClick}
                 >
                   {contentRendered}
                   {tooltip && (
@@ -334,6 +367,7 @@ export default class Dialog extends PureComponent {
 }
 
 Dialog.defaultProps = {
+  referenceWrapperClassName: "",
   position: "top",
   startingEdge: "",
   moveBy: { main: 0, secondary: 0 },
@@ -359,7 +393,12 @@ Dialog.defaultProps = {
   tooltip: false,
   tooltipClassName: "",
   onEsc: NOOP,
-  onDialogDidShow: NOOP
+  onDialogDidShow: NOOP,
+  onDialogDidHide: NOOP,
+  onClickOutside: NOOP,
+  onContentClick: NOOP,
+  closeOnClickInside: false,
+  zIndex: 999999
 };
 
 function chainOnPropsAndInstance(name, instance, props) {
