@@ -1,6 +1,53 @@
 import React from "react";
 import Label from "../Label";
 import { select, text } from "@storybook/addon-knobs";
+import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
+
+export const Fill = () => (
+  <section>
+    <StoryStateRow>
+      <StoryStateColumn title="Primary">
+        <Label text="New" />
+      </StoryStateColumn>
+      <StoryStateColumn title="Dark">
+        <Label text="New" color={Label.colors.DARK} />
+      </StoryStateColumn>
+      <StoryStateColumn title="Positive">
+        <Label text="New" color={Label.colors.POSITIVE} />
+      </StoryStateColumn>
+      <StoryStateColumn title="Negative">
+        <Label text="New" color={Label.colors.NEGATIVE} />
+      </StoryStateColumn>
+    </StoryStateRow>
+  </section>
+);
+
+export const Line = () => (
+  <section>
+    <StoryStateRow>
+      <StoryStateColumn title="Primary">
+        <Label text="New" kind={Label.kinds.LINE} />
+      </StoryStateColumn>
+      <StoryStateColumn title="Dark">
+        <Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} />
+      </StoryStateColumn>
+      <StoryStateColumn title="Positive">
+        <Label
+          text="New"
+          color={Label.colors.POSITIVE}
+          kind={Label.kinds.LINE}
+        />
+      </StoryStateColumn>
+      <StoryStateColumn title="Negative">
+        <Label
+          text="New"
+          color={Label.colors.NEGATIVE}
+          kind={Label.kinds.LINE}
+        />
+      </StoryStateColumn>
+    </StoryStateRow>
+  </section>
+);
 
 export const Sandbox = () => (
   <div>
