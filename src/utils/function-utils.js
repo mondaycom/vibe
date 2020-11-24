@@ -6,7 +6,6 @@ export function chainFunctions(funcs, allowBreak = false) {
     for (const func of funcs) {
       try {
         const result = func && func(args);
-
         if (result === false && allowBreak) {
           return;
         }

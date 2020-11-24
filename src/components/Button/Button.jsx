@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-props-no-spreading,react/button-has-type */
-import React, { useCallback, useMemo, useRef } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useResizeObserver from "../../hooks/useResizeObserver";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Button.scss";
 import {
   BUTTON_COLORS,
@@ -20,209 +21,218 @@ const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 const MIN_BUTTON_HEIGHT_PX = isIE11 ? 32 : 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
-const Button = ({
-  className,
-  children,
-  kind,
-  onClick,
-  name,
-  size,
-  color,
-  disabled,
-  rightIcon,
-  leftIcon,
-  success,
-  successText,
-  successIcon,
-  style,
-  loading,
-  active,
-  id,
-  marginRight,
-  marginLeft,
-  type,
-  onMouseDown,
-  ariaLabel,
-  rightFlat,
-  leftFlat,
-  preventClickAnimation,
-  noSidePadding,
-  onFocus,
-  onBlur
-}) => {
-  const buttonRef = useRef(null);
-
-  const updateCssVariables = useMemo(() => {
-    const callback = ({ borderBoxSize }) => {
-      const { blockSize, inlineSize } = borderBoxSize;
-      const width = Math.max(inlineSize, MIN_BUTTON_HEIGHT_PX);
-      const height = Math.max(blockSize, MIN_BUTTON_HEIGHT_PX);
-      buttonRef.current.style.setProperty("--element-width", `${width}px`);
-      buttonRef.current.style.setProperty("--element-height", `${height}px`);
-    };
-    return callback;
-  }, [buttonRef]);
-
-  useResizeObserver({
-    ref: buttonRef,
-    callback: updateCssVariables,
-    debounceTime: UPDATE_CSS_VARIABLES_DEBOUNCE
-  });
-
-  const onMouseUp = useCallback(() => {
-    const button = buttonRef.current;
-    if (!button) {
-      return;
-    }
-    button.blur();
-  }, [buttonRef]);
-
-  const onButtonClicked = useCallback(
-    event => {
-      if (disabled || loading || success) {
-        event.preventDefault();
-        return;
-      }
-
-      if (onClick) {
-        onClick(event);
-      }
-    },
-    [onClick, disabled, loading, success]
-  );
-
-  const onMouseDownClicked = useCallback(
-    event => {
-      if (disabled || loading || success) {
-        event.preventDefault();
-        return;
-      }
-
-      if (onMouseDown) {
-        onMouseDown(event);
-      }
-    },
-    [onMouseDown, disabled, loading, success]
-  );
-
-  const classNames = useMemo(() => {
-    const calculatedColor = success ? BUTTON_COLORS.POSITIVE : color;
-    return cx(
+const Button = forwardRef(
+  (
+    {
       className,
-      "monday-style-button",
-      `monday-style-button--size-${size}`,
-      `monday-style-button--kind-${kind}`,
-      `monday-style-button--color-${calculatedColor}`,
-      {
-        "monday-style-button--loading": loading,
-        [`monday-style-button--color-${calculatedColor}-active`]: active,
-        "monday-style-button--margin-right": marginRight,
-        "monday-style-button--margin-left": marginLeft,
-        "monday-style-button--right-flat": rightFlat,
-        "monday-style-button--left-flat": leftFlat,
-        "monday-style-button--prevent-click-animation": preventClickAnimation,
-        "monday-style-button--no-side-padding": noSidePadding
-      }
-    );
-  }, [
-    size,
-    kind,
-    color,
-    className,
-    success,
-    loading,
-    active,
-    marginRight,
-    marginLeft,
-    noSidePadding,
-    preventClickAnimation
-  ]);
-
-  const buttonProps = useMemo(() => {
-    return {
+      children,
+      kind,
+      onClick,
+      name,
+      size,
+      color,
       disabled,
-      ref: buttonRef,
+      rightIcon,
+      leftIcon,
+      success,
+      successText,
+      successIcon,
+      style,
+      loading,
+      active,
+      id,
+      marginRight,
+      marginLeft,
       type,
-      className: classNames,
+      onMouseDown,
+      ariaLabel,
+      rightFlat,
+      leftFlat,
+      preventClickAnimation,
+      noSidePadding,
+      onFocus,
+      onBlur
+    },
+    ref
+  ) => {
+    const buttonRef = useRef(null);
+
+    const updateCssVariables = useMemo(() => {
+      const callback = ({ borderBoxSize }) => {
+        const { blockSize, inlineSize } = borderBoxSize;
+        const width = Math.max(inlineSize, MIN_BUTTON_HEIGHT_PX);
+        const height = Math.max(blockSize, MIN_BUTTON_HEIGHT_PX);
+        buttonRef.current.style.setProperty("--element-width", `${width}px`);
+        buttonRef.current.style.setProperty("--element-height", `${height}px`);
+      };
+      return callback;
+    }, [buttonRef]);
+
+    useResizeObserver({
+      ref: buttonRef,
+      callback: updateCssVariables,
+      debounceTime: UPDATE_CSS_VARIABLES_DEBOUNCE
+    });
+
+    const onMouseUp = useCallback(() => {
+      const button = buttonRef.current;
+      if (!button) {
+        return;
+      }
+      button.blur();
+    }, [buttonRef]);
+
+    const onButtonClicked = useCallback(
+      event => {
+        if (disabled || loading || success) {
+          event.preventDefault();
+          return;
+        }
+
+        if (onClick) {
+          onClick(event);
+        }
+      },
+      [onClick, disabled, loading, success]
+    );
+
+    const onMouseDownClicked = useCallback(
+      event => {
+        if (disabled || loading || success) {
+          event.preventDefault();
+          return;
+        }
+
+        if (onMouseDown) {
+          onMouseDown(event);
+        }
+      },
+      [onMouseDown, disabled, loading, success]
+    );
+
+    const classNames = useMemo(() => {
+      const calculatedColor = success ? BUTTON_COLORS.POSITIVE : color;
+      return cx(
+        className,
+        "monday-style-button",
+        `monday-style-button--size-${size}`,
+        `monday-style-button--kind-${kind}`,
+        `monday-style-button--color-${calculatedColor}`,
+        {
+          "monday-style-button--loading": loading,
+          [`monday-style-button--color-${calculatedColor}-active`]: active,
+          "monday-style-button--margin-right": marginRight,
+          "monday-style-button--margin-left": marginLeft,
+          "monday-style-button--right-flat": rightFlat,
+          "monday-style-button--left-flat": leftFlat,
+          "monday-style-button--prevent-click-animation": preventClickAnimation,
+          "monday-style-button--no-side-padding": noSidePadding
+        }
+      );
+    }, [
+      size,
+      kind,
+      color,
+      className,
+      success,
+      loading,
+      active,
+      marginRight,
+      marginLeft,
+      noSidePadding,
+      preventClickAnimation
+    ]);
+
+    const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
+
+    const buttonProps = useMemo(() => {
+      return {
+        disabled,
+        ref: mergedRef,
+        type,
+        className: classNames,
+        name,
+        onMouseUp,
+        style,
+        onClick: onButtonClicked,
+        id,
+        onFocus,
+        onBlur,
+        onMouseDown: onMouseDownClicked,
+        "aria-label": ariaLabel,
+        "aria-busy": loading
+      };
+    }, [
+      disabled,
+      buttonRef,
+      classNames,
       name,
       onMouseUp,
       style,
-      onClick: onButtonClicked,
+      onButtonClicked,
       id,
+      type,
+      onMouseDownClicked,
+      ariaLabel,
+      loading,
       onFocus,
-      onBlur,
-      onMouseDown: onMouseDownClicked,
-      "aria-label": ariaLabel,
-      "aria-busy": loading
-    };
-  }, [
-    disabled,
-    buttonRef,
-    classNames,
-    name,
-    onMouseUp,
-    style,
-    onButtonClicked,
-    id,
-    type,
-    onMouseDownClicked,
-    ariaLabel,
-    loading,
-    onFocus,
-    onBlur
-  ]);
+      onBlur
+    ]);
 
-  if (loading) {
+    if (loading) {
+      return (
+        <button {...buttonProps}>
+          <span className="monday-style-button__loader">
+            <Loader svgClassName="monday-style-button-loader-svg" />
+          </span>
+        </button>
+      );
+    }
+
+    if (success) {
+      return (
+        <button {...buttonProps}>
+          {successIcon ? (
+            <Icon
+              iconType={Icon.type.ICON_FONT}
+              clickable={false}
+              icon={successIcon}
+              className={cx({
+                "monday-style-button--left-icon": !!successText
+              })}
+              ignoreFocusStyle
+            />
+          ) : null}
+          {successText}
+        </button>
+      );
+    }
+
     return (
       <button {...buttonProps}>
-        <span className="monday-style-button__loader">
-          <Loader svgClassName="monday-style-button-loader-svg" />
-        </span>
-      </button>
-    );
-  }
-
-  if (success) {
-    return (
-      <button {...buttonProps}>
-        {successIcon ? (
+        {leftIcon ? (
           <Icon
             iconType={Icon.type.ICON_FONT}
             clickable={false}
-            icon={successIcon}
-            className={cx({ "monday-style-button--left-icon": !!successText })}
+            icon={leftIcon}
+            className={cx({ "monday-style-button--left-icon": !!children })}
             ignoreFocusStyle
           />
         ) : null}
-        {successText}
+        {children}
+        {rightIcon ? (
+          <Icon
+            iconType={Icon.type.ICON_FONT}
+            clickable={false}
+            icon={rightIcon}
+            className={cx({ "monday-style-button--right-icon": !!children })}
+            ignoreFocusStyle
+          />
+        ) : null}
       </button>
     );
   }
-
-  return (
-    <button {...buttonProps}>
-      {leftIcon ? (
-        <Icon
-          iconType={Icon.type.ICON_FONT}
-          clickable={false}
-          icon={leftIcon}
-          className={cx({ "monday-style-button--left-icon": !!children })}
-          ignoreFocusStyle
-        />
-      ) : null}
-      {children}
-      {rightIcon ? (
-        <Icon
-          iconType={Icon.type.ICON_FONT}
-          clickable={false}
-          icon={rightIcon}
-          className={cx({ "monday-style-button--right-icon": !!children })}
-          ignoreFocusStyle
-        />
-      ) : null}
-    </button>
-  );
-};
+);
 
 Button.propTypes = {
   kind: PropTypes.oneOf([
