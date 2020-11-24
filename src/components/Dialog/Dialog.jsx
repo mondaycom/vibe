@@ -260,11 +260,6 @@ export default class Dialog extends PureComponent {
                 )}
                 onClick={chainOnPropsAndInstance("onClick", this, this.props)}
                 onFocus={chainOnPropsAndInstance("onFocus", this, this.props)}
-                // onClickOutside={chainOnPropsAndInstance(
-                //   "onClickOutside",
-                //   this,
-                //   this.props
-                // )}
                 onMouseDown={chainOnPropsAndInstance(
                   "onMouseDown",
                   this,
