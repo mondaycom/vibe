@@ -15,3 +15,4 @@ export { default as RadioButton } from "./RadioButton/RadioButton";
 export { default as MenuButton } from "./MenuButton/MenuButton";
 export { default as SplitButton } from "./SplitButton/SplitButton";
 export { default as Counter } from "./Counter/Counter";
+export { default as Label } from "./Label/Label";
