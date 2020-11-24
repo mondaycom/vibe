@@ -61,7 +61,7 @@ export default class Dialog extends PureComponent {
 
     if (instantShowAndHide) {
       this.onShowDialog(options);
-      this.setState({ isxx: true, preventAnimation });
+      this.setState({ isOpen: true, preventAnimation });
       this.showTimeout = null;
     } else {
       this.showTimeout = setTimeout(() => {
