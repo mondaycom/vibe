@@ -3,8 +3,15 @@ import React, { useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 
+// Constants import
+import { keyCodes } from "../../constants/KeyCodes";
+
 // Utils import
 import { NOOP } from "../../utils/function-utils";
+import { isInsideClass } from "../../utils/dom-utils";
+
+// Hooks import
+import useKeyEvent from "../../hooks/useKeyEvent";
 
 // Components import
 import Button from "../Button/Button";
@@ -14,15 +21,17 @@ import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 
 // SCSS import
 import "./SplitButton.scss";
-import useKeyEvent from "../../hooks/useKeyEvent";
-import { keyCodes } from "../../constants/KeyCodes";
-import { isInsideClass } from "../../utils/dom-utils";
 
 // Constants
 const DIALOG_MOVE_BY = { main: 8 };
 const DIALOG_POSITION = "bottom-start";
 const DEFAULT_DIALOG_SHOW_TRIGGER = "click";
-const DEFAULT_DIALOG_HIDE_TRIGGER = ["clickoutside", "click"];
+const DEFAULT_DIALOG_HIDE_TRIGGER = [
+  "clickoutside",
+  "click",
+  "onContentClick",
+  "esckey"
+];
 const SECONDARY_BUTTON_WRAPPER_CLASSNAME =
   "monday-style-split-button__secondary-button-wrapper";
 const EMPTY_ARR = [];
@@ -170,6 +179,7 @@ const SplitButton = ({
             onDialogDidHide={hideDialog}
             showTrigger={dialogShowTrigger}
             hideTrigger={dialogHideTrigger}
+            animationType="expand"
           >
             <Button
               {...buttonProps}
