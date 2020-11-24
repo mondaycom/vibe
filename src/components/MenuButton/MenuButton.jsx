@@ -4,7 +4,6 @@ import cx from "classnames";
 import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
 import "./MenuButton.scss";
-import useKeyEvent from "../../hooks/useKeyEvent";
 
 function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
@@ -13,7 +12,7 @@ function BEMClass(className) {
 const MenuButton = ({
   componentClassName,
   children,
-  icon,
+  component,
   size,
   open,
   zIndex,
@@ -24,7 +23,7 @@ const MenuButton = ({
     setIsOpen(!isOpen);
   }, [isOpen, setIsOpen]);
 
-  const Icon = icon;
+  const Icon = component;
   const iconSize = size - 4;
 
   return (
@@ -33,7 +32,7 @@ const MenuButton = ({
       animationType="expand"
       content={children}
       showTrigger={["click", "enter"]}
-      hideTrigger={["click", "clickoutside", "onContentClick"]}
+      hideTrigger={["click", "clickoutside", "onContentClick", "esckey"]}
       onDialogDidShow={onMenuChangeCallback}
       onDialogDidHide={onMenuChangeCallback}
       referenceWrapperClassName={BEMClass("reference-icon")}
@@ -72,9 +71,9 @@ MenuButton.sizes = MenuButtonSizes;
 MenuButton.propTypes = {
   componentClassName: PropTypes.string,
   /**
-   * Receives icon type component (SVG)
+   * Receives React Component
    */
-  icon: PropTypes.func,
+  component: PropTypes.func,
   size: PropTypes.oneOf([
     MenuButtonSizes.XXS,
     MenuButtonSizes.XS,
@@ -88,7 +87,7 @@ MenuButton.propTypes = {
 };
 MenuButton.defaultProps = {
   componentClassName: "",
-  icon: Menu,
+  component: Menu,
   size: MenuButtonSizes.SMALL,
   open: false,
   zIndex: 100,

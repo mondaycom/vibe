@@ -31,7 +31,7 @@ it("renders correctly with size Large", () => {
 it("renders correctly with Bolt Icon", () => {
   const tree = renderer
     .create(
-      <MenuButton icon={Bolt}>
+      <MenuButton component={Bolt}>
         <div>Menu</div>
       </MenuButton>
     )
@@ -64,7 +64,7 @@ it("renders correctly with open state", () => {
 describe("Click", () => {
   it("should show menu", async () => {
     const { getByLabelText } = render(
-      <MenuButton open ariaLabel="Menu Button">
+      <MenuButton ariaLabel="Menu Button">
         <div>Menu</div>
       </MenuButton>
     );
@@ -77,5 +77,3 @@ describe("Click", () => {
     expect(menu).toBeTruthy();
   });
 });
-
-describe;

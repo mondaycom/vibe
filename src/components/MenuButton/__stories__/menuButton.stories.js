@@ -27,7 +27,7 @@ export const Sandbox = () => (
 export const DifferentIcon = () => (
   <div>
     <MenuButton
-      icon={DropdownChevronDown}
+      component={DropdownChevronDown}
       ariaLabel={"chevron menu icon menu button"}
     >
       <StoryDialogContent />
