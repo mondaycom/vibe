@@ -4,6 +4,7 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  AttentionBox: "/src/components/AttentionBox/AttentionBox.jsx",
   Label: "/src/components/Label/Label.jsx",
   MenuButton: "/src/components/MenuButton/MenuButton.jsx",
   RadioButton: "/src/components/RadioButton/RadioButton.jsx",
@@ -24,7 +25,7 @@ const publishedComponents = {
   useEventListener: "/src/hooks/useEventListener.js",
   useDebounceEvent: "/src/hooks/useDebounceEvent.js",
   useClickOutside: "/src/hooks/useClickOutside.js",
-  useResizeObserver: "/src/hooks/useResizeObserver.js"
+  useResizeObserver: "/src/hooks/useResizeObserver.js",
 };
 
 function getPublishedComponents(dirPath = "") {
@@ -48,5 +49,5 @@ function exposeIcons(dirPath) {
 }
 
 module.exports = {
-  getPublishedComponents
+  getPublishedComponents,
 };

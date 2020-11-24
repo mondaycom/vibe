@@ -11,8 +11,8 @@ export { default as LinearProgressBar } from "./ProgressBars/LinearProgressBar/L
 export { default as Link } from "./Link/Link";
 export { default as CustomSvgIcon } from "./Icon/CustomSvgIcon";
 export { default as RadioButton } from "./RadioButton/RadioButton";
-
 export { default as MenuButton } from "./MenuButton/MenuButton";
 export { default as SplitButton } from "./SplitButton/SplitButton";
 export { default as Counter } from "./Counter/Counter";
+export { default as AttentionBox } from "./AttentionBox/AttentionBox";
 export { default as Label } from "./Label/Label";
