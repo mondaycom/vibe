@@ -18,10 +18,8 @@ $checkbox-size: 16px;
     &:checked {
       & + .monday-style-checkbox {
         &__checkbox {
-          position: relative;
           background-color: var(--primary-color);
           border-color: transparent;
-          overflow: hidden;
 
           &:hover {
             background-color: var(--primary-hover-color);
@@ -35,10 +33,10 @@ $checkbox-size: 16px;
           &:after {
             content: ' ';
             background-color: var(--primary-color);
-            position: absolute;
             height: $checkbox-size;
-            animation: draw-check 200ms;
-            z-index: 2;
+            transform: scaleX(0);
+            transition: transform 200ms;
+            transform-origin: right;
             left: 0;
           }
         }
@@ -83,6 +81,19 @@ $checkbox-size: 16px;
     border: 1px solid var(--ui-border-color);
     border-radius: $border-radius-extra-small;
     transition: transform 50ms cubic-bezier(0, 0, 0.35, 1);
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+      content: ' ';
+      background-color: transparent;
+      position: absolute;
+      height: $checkbox-size;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
 
     &:hover {
       border-color: var(--color-mud_black);
@@ -112,6 +123,6 @@ $checkbox-size: 16px;
   }
   100% {
     left: 100%;
-    width: 0;
+    //width: 0;
   }
 }

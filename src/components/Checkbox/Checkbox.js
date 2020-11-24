@@ -1,10 +1,9 @@
-import React, {useEffect, useRef} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import "./Checkbox.scss";
-import {useToggle} from "../../hooks/useToggle";
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
@@ -28,6 +27,15 @@ export const Checkbox = ({
   }
 
   const isChecked = overrideDefaultChecked == undefined ? checked : overrideDefaultChecked;
+
+  // will replaced with useFirstRender hook
+  const [isFirstRender, setIsFirstRender] = useState(true);
+
+  useEffect(() => {
+    if (isFirstRender) setIsFirstRender(false);
+  }, [isFirstRender]);
+
+  if (!isFirstRender) checkboxClassNames.push(`${BASE_CLASS_NAME}__checkbox--loaded`);
 
   return (
     <label className={cx(BASE_CLASS_NAME, componentClassName)}>

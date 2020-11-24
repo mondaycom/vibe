@@ -12,6 +12,8 @@ import {
 import { renderCheckboxes } from "./checkbox.stories.renderCheckboxes";
 import DarkThemeContainer from "../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
+import RadioButtonStoryLine from "../../RadioButton/__stories__/RadioButtonStoryLine";
+import RadioButton from "../../RadioButton/RadioButton";
 
 export const Sandbox = () => {
   const checkboxesCount = number("Checkboxes Count", 5);
@@ -34,8 +36,48 @@ export const OnChange = () => {
 };
 
 export const States = () => {
-  const checkboxesCount = number("Checkboxes Count", 5);
-  return renderCheckboxes(checkboxesCount, { includeKnobs: true });
+    return (
+        <StoryWrapper>
+            <RadioButtonStoryLine title="Regular">
+            <Checkbox title="Regular">
+                <RadioButton
+                    value="1"
+                    text="Option"
+                    name="regular"
+                    componentClassName="monday-style-regular"
+                    disabled={false}
+                />
+            </Checkbox>
+            </RadioButtonStoryLine>
+            <RadioButtonStoryLine title="Selected">
+                <Checkbox
+                    value="1"
+                    label="Option"
+                    name="selected"
+                    defaultChecked={true}
+                    disabled={false}
+                    componentClassName="monday-style-selected"
+                />
+            </RadioButtonStoryLine>
+            <RadioButtonStoryLine title="Disabled">
+                <Checkbox
+                    value="1"
+                    label="Option"
+                    name="disabledRadio"
+                    disabled={true}
+                />
+            </RadioButtonStoryLine>
+            <RadioButtonStoryLine title="Disabled selected">
+                <Checkbox
+                    value="1"
+                    text="Option"
+                    name="disabledSelected"
+                    disabled={true}
+                    defaultChecked={true}
+                />
+            </RadioButtonStoryLine>
+        </StoryWrapper>
+    );
 };
 
 export const RTLSupport = () => (
