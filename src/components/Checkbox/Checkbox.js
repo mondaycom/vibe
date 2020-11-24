@@ -14,7 +14,9 @@ export const Checkbox = ({
   onChange,
   checked,
   disabled,
-  defaultChecked
+  defaultChecked,
+  value,
+  name
 }) => {
   const checkboxClassNames = [`${BASE_CLASS_NAME}__checkbox`];
   let isFirstRender = useRef(true);
@@ -27,6 +29,8 @@ export const Checkbox = ({
     <label className={cx(BASE_CLASS_NAME, componentClassName)}>
       <input
         className={`${BASE_CLASS_NAME}__input`}
+        value={value}
+        name={name}
         type="checkbox"
         onChange={onChange}
         defaultChecked={defaultChecked}
@@ -40,7 +44,7 @@ export const Checkbox = ({
             className={`${BASE_CLASS_NAME}__icon`}
             iconType={Icon.type.SVG}
             icon={Check}
-            iconLabel="StatefulCheckbox"
+            iconLabel="checkbox"
             ignoreFocusStyle
             clickable
             iconSize={11}
@@ -54,7 +58,7 @@ export const Checkbox = ({
   );
 };
 
-Checkbox.defaultProps = {
+Checkbox.propTypes = {
   componentClassName: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
@@ -63,11 +67,11 @@ Checkbox.defaultProps = {
   defaultChecked: PropTypes.bool
 };
 
-Checkbox.propTypes = {
+Checkbox.defaultProps = {
   componentClassName: "",
   label: "",
   onChange: () => {},
-  checked: true,
+  checked: false,
   disabled: false
 };
 

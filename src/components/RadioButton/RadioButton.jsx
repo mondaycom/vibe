@@ -38,7 +38,7 @@ RadioButton.defaultProps = {
   value: "",
   name: "",
   disabled: false,
-  defaultChecked: false,
+  defaultChecked: false
 };
 RadioButton.propTypes = {
   componentClassName: PropTypes.string,
@@ -46,7 +46,7 @@ RadioButton.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
   disabled: PropTypes.bool,
-  defaultChecked: PropTypes.bool,
+  defaultChecked: PropTypes.bool
 };
 
 export default RadioButton;

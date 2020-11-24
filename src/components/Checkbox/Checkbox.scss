@@ -32,15 +32,14 @@ $checkbox-size: 16px;
             }
           }
 
-          &--loaded {
-            &:after {
-              left: 0;
-              content: ' ';
-              position: absolute;
-              height: $checkbox-size;
-              animation: draw-check 200ms;
-              z-index: 2;
-            }
+          &:after {
+            content: ' ';
+            background-color: var(--primary-color);
+            position: absolute;
+            height: $checkbox-size;
+            animation: draw-check 200ms;
+            z-index: 2;
+            left: 0;
           }
         }
       }
@@ -52,7 +51,7 @@ $checkbox-size: 16px;
     }
     &:disabled {
       & + .monday-style-checkbox {
-        &__checkbox {
+        &__checkbox, &__checkbox:hover{
           background-color: var(--disabled-background-color);
 
           .monday-style-checkbox__icon {

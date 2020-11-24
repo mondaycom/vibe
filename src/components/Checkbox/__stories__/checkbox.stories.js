@@ -18,6 +18,10 @@ export const Sandbox = () => {
   return renderCheckboxes(checkboxesCount, { includeKnobs: true });
 };
 
+export const empty = () => {
+    return <Checkbox/>
+};
+
 export const OnChange = () => {
   const [selected, setsSelected] = useState(true);
   return (
