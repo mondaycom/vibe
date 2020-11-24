@@ -45,7 +45,13 @@ const Button = forwardRef(
       marginLeft,
       type,
       onMouseDown,
-      ariaLabel
+      ariaLabel,
+      rightFlat,
+      leftFlat,
+      preventClickAnimation,
+      noSidePadding,
+      onFocus,
+      onBlur
     },
     ref
   ) => {
@@ -116,7 +122,11 @@ const Button = forwardRef(
           "monday-style-button--loading": loading,
           [`monday-style-button--color-${calculatedColor}-active`]: active,
           "monday-style-button--margin-right": marginRight,
-          "monday-style-button--margin-left": marginLeft
+          "monday-style-button--margin-left": marginLeft,
+          "monday-style-button--right-flat": rightFlat,
+          "monday-style-button--left-flat": leftFlat,
+          "monday-style-button--prevent-click-animation": preventClickAnimation,
+          "monday-style-button--no-side-padding": noSidePadding
         }
       );
     }, [
@@ -128,7 +138,9 @@ const Button = forwardRef(
       loading,
       active,
       marginRight,
-      marginLeft
+      marginLeft,
+      noSidePadding,
+      preventClickAnimation
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
@@ -144,6 +156,8 @@ const Button = forwardRef(
         style,
         onClick: onButtonClicked,
         id,
+        onFocus,
+        onBlur,
         onMouseDown: onMouseDownClicked,
         "aria-label": ariaLabel,
         "aria-busy": loading
@@ -160,7 +174,9 @@ const Button = forwardRef(
       type,
       onMouseDownClicked,
       ariaLabel,
-      loading
+      loading,
+      onFocus,
+      onBlur
     ]);
 
     if (loading) {
@@ -257,8 +273,15 @@ Button.propTypes = {
     BUTTON_INPUT_TYPE.SUBMIT,
     BUTTON_INPUT_TYPE.RESET
   ]),
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  rightFlat: PropTypes.bool,
+  leftFlat: PropTypes.bool,
+  preventClickAnimation: PropTypes.bool,
+  noSidePadding: PropTypes.bool,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func
 };
+
 Button.defaultProps = {
   kind: BUTTON_TYPES.PRIMARY,
   onClick: NOOP,
@@ -279,7 +302,13 @@ Button.defaultProps = {
   marginRight: false,
   marginLeft: false,
   type: BUTTON_INPUT_TYPE.BUTTON,
-  ariaLabel: ""
+  ariaLabel: "",
+  rightFlat: false,
+  leftFlat: false,
+  preventClickAnimation: false,
+  noSidePadding: false,
+  onFocus: NOOP,
+  onBlur: NOOP
 };
 
 Button.sizes = BUTTON_SIZES;
