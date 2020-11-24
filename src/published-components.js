@@ -4,7 +4,7 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
-  Label: "/src/components/Label.jsx",
+  Label: "/src/components/Label/Label.jsx",
   MenuButton: "/src/components/MenuButton/MenuButton.jsx",
   RadioButton: "/src/components/RadioButton/RadioButton.jsx",
   SplitButton: "/src/components/SplitButton/SplitButton.jsx",
