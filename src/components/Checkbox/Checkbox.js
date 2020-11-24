@@ -19,11 +19,15 @@ export const Checkbox = ({
   name
 }) => {
   const checkboxClassNames = [`${BASE_CLASS_NAME}__checkbox`];
-  let isFirstRender = useRef(true);
+  let overrideDefaultChecked = defaultChecked;
 
-  if (!isFirstRender) {
-    checkboxClassNames.push(`${BASE_CLASS_NAME}__checkbox--loaded`);
+  // if component did not receive default checked and checked therfore  choose default checked as
+  // default behavior (handle isChecked logic inside input) and set default value
+  if (overrideDefaultChecked == undefined && checked == undefined) {
+    overrideDefaultChecked = false;
   }
+
+  const isChecked = overrideDefaultChecked == undefined ? checked : overrideDefaultChecked;
 
   return (
     <label className={cx(BASE_CLASS_NAME, componentClassName)}>
@@ -33,13 +37,13 @@ export const Checkbox = ({
         name={name}
         type="checkbox"
         onChange={onChange}
-        defaultChecked={defaultChecked}
+        defaultChecked={overrideDefaultChecked}
         disabled={disabled}
         aria-label={label}
         checked={checked}
       />
       <div className={cx(...checkboxClassNames)}>
-        {checked ? (
+        {isChecked ? (
           <Icon
             className={`${BASE_CLASS_NAME}__icon`}
             iconType={Icon.type.SVG}
@@ -64,14 +68,12 @@ Checkbox.propTypes = {
   onChange: PropTypes.func,
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
-  defaultChecked: PropTypes.bool
 };
 
 Checkbox.defaultProps = {
   componentClassName: "",
   label: "",
   onChange: () => {},
-  checked: false,
   disabled: false
 };
 

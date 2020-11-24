@@ -83,12 +83,12 @@ describe("Checkbox Tests", () => {
       expect(option3.checked).toBeFalsy();
     });
 
-    it("should select 2nd option", () => {
+    it("should default select 1st option and should select 2nd option", () => {
       const option1 = screen.getByLabelText(option1Text);
       const option2 = screen.getByLabelText(option2Text);
       const option3 = screen.getByLabelText(option3Text);
       fireEvent.click(option2);
-      expect(option1.checked).toBeFalsy();
+      expect(option1.checked).toBeTruthy();
       expect(option2.checked).toBeTruthy();
       expect(option3.checked).toBeFalsy();
     });
