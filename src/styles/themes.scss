@@ -30,7 +30,7 @@ $theme: (
   "dark-color": $mud_black,
   "secondary-text-color": $mud_black,
   "text-color-on-primary": $snow_white,
-  "verted-color-background": $mud_black,
+  "inverted-color-background": $mud_black,
   "text-color-on-inverted": $snow_white,
 );
 
@@ -62,8 +62,8 @@ $theme-var: (
   "dark-background-color": var(--dark-background-color),
   "secondary-text-color": var(--secondary-text-color),
   "text-color-on-primary": var(--text-color-on-primary),
-  "iverted-color-background": var(--color-mud_black),
-  "text-color-on-inverted": var(--color-snow_white),
+  "inverted-color-background": var(--inverted-color-background),
+  "text-color-on-inverted": var(--text-color-on-inverted),
 );
 
 @mixin theme-prop(

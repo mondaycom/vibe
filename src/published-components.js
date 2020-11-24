@@ -5,6 +5,7 @@ const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
   AttentionBox: "/src/components/AttentionBox/AttentionBox.jsx",
+  Label: "/src/components/Label/Label.jsx",
   MenuButton: "/src/components/MenuButton/MenuButton.jsx",
   RadioButton: "/src/components/RadioButton/RadioButton.jsx",
   SplitButton: "/src/components/SplitButton/SplitButton.jsx",
