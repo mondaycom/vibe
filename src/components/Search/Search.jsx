@@ -1,8 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Search.scss";
 import TextField from "../TextField/TextField";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import { SIZES, TYPES } from "./SearchConstats";
 
 const NOOP = () => {};
@@ -22,59 +23,66 @@ const ICON_NAMES = {
   secondary: "Clear Search"
 };
 
-const Search = ({
-  secondaryIconName,
-  iconName,
-  onChange,
-  autoFocus,
-  underline,
-  value,
-  placeholder,
-  disabled,
-  debounceRate,
-  onBlur,
-  onFocus,
-  wrapperClassName,
-  setRef,
-  autoComplete,
-  size,
-  type,
-  className,
-  id,
-  validation,
-  inputAriaLabel,
-  iconNames
-}) => {
-  return (
-    <TextField
-      id={id}
-      iconName={iconName}
-      value={value}
-      onChange={onChange}
-      autoFocus={autoFocus}
-      underline={underline}
-      placeholder={placeholder}
-      disabled={disabled}
-      debounceRate={debounceRate}
-      className={classNames(className, "search_component", getType(type))}
-      secondaryIconName={secondaryIconName}
-      wrapperClassName={classNames(
-        wrapperClassName,
-        "search_component_wrapper"
-      )}
-      onBlur={onBlur}
-      onFocus={onFocus}
-      setRef={setRef}
-      autoComplete={autoComplete}
-      size={size}
-      clearOnIconClick
-      validation={validation}
-      inputAriaLabel={inputAriaLabel}
-      iconsNames={iconNames}
-      type="search"
-    />
-  );
-};
+const Search = forwardRef(
+  (
+    {
+      secondaryIconName,
+      iconName,
+      onChange,
+      autoFocus,
+      underline,
+      value,
+      placeholder,
+      disabled,
+      debounceRate,
+      onBlur,
+      onFocus,
+      wrapperClassName,
+      setRef,
+      autoComplete,
+      size,
+      type,
+      className,
+      id,
+      validation,
+      inputAriaLabel,
+      iconNames
+    },
+    ref
+  ) => {
+    const mergedRef = useMergeRefs({ refs: [ref, setRef] });
+
+    return (
+      <TextField
+        id={id}
+        iconName={iconName}
+        value={value}
+        onChange={onChange}
+        autoFocus={autoFocus}
+        underline={underline}
+        placeholder={placeholder}
+        disabled={disabled}
+        debounceRate={debounceRate}
+        className={classNames(className, "search_component", getType(type))}
+        secondaryIconName={secondaryIconName}
+        wrapperClassName={classNames(
+          wrapperClassName,
+          "search_component_wrapper"
+        )}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        ref={mergedRef}
+        autoComplete={autoComplete}
+        size={size}
+        clearOnIconClick
+        validation={validation}
+        inputAriaLabel={inputAriaLabel}
+        iconsNames={iconNames}
+        type="search"
+      />
+    );
+  }
+);
 
 Search.sizes = SIZES;
 Search.types = TYPES;

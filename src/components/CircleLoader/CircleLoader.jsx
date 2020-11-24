@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import MoonLoader from "react-spinners/MoonLoader";
 
 import "./CircleLoader.scss";
@@ -9,8 +9,8 @@ const SIZES = {
   lg: 30
 };
 
-const CircleLoader = ({ size }) => {
-  return <MoonLoader size={SIZES[size]} color="inherit" />;
-};
+const CircleLoader = forwardRef(({ size }, ref) => {
+  return <MoonLoader ref={ref} size={SIZES[size]} color="inherit" />;
+});
 
 export default CircleLoader;

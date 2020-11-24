@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import {
@@ -11,7 +11,7 @@ import Bar from "./Bar/Bar";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import "./LinearProgressBar.scss";
 
-const LinearProgressBar = ({
+const LinearProgressBar = forwardRef(({
   min,
   max,
   value,
@@ -23,7 +23,7 @@ const LinearProgressBar = ({
   indicateProgress,
   multi,
   multiValues
-}) => {
+}, ref) => {
   const wrapperClassName = useMemo(() => {
     const base = `${baseClassName}--wrapper`;
     return cx(base, { [`${base}__${size}`]: size }, className);
@@ -92,7 +92,7 @@ const LinearProgressBar = ({
   ) : null;
 
   return (
-    <div className={wrapperClassName}>
+    <div className={wrapperClassName} ref={ref}>
       <div className={`${baseClassName}__container`}>
         {renderBaseBars}
         {renderMultiBars}

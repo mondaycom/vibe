@@ -1,63 +1,71 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import "./Icon.scss";
 import { ICON_TYPES } from "./IconConstants";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
+import useMergeRefs from "../../hooks/useMergeRefs";
 
 const NOOP = () => {};
 
-const Icon = ({
-  onClick,
-  className,
-  icon,
-  clickable,
-  iconLabel,
-  iconType,
-  iconSize,
-  ignoreFocusStyle
-}) => {
-  const {
-    tabindex,
-    onClickCallback,
-    computedClassName,
-    iconRef
-  } = useIconProps({
-    onClick,
-    clickable,
-    className,
-    ignoreFocusStyle
-  });
+const Icon = forwardRef(
+  (
+    {
+      onClick,
+      className,
+      icon,
+      clickable,
+      iconLabel,
+      iconType,
+      iconSize,
+      ignoreFocusStyle
+    },
+    ref
+  ) => {
+    const {
+      tabindex,
+      onClickCallback,
+      computedClassName,
+      iconRef
+    } = useIconProps({
+      onClick,
+      clickable,
+      className,
+      ignoreFocusStyle
+    });
 
-  if (!icon) {
-    return null;
-  }
+    const mergedRef = useMergeRefs({ refs: [ref, iconRef] });
 
-  if (iconType === ICON_TYPES.SVG) {
-    const IconComponent = icon;
+    if (!icon) {
+      return null;
+    }
+
+    if (iconType === ICON_TYPES.SVG) {
+      const IconComponent = icon;
+      return (
+        <IconComponent
+          size={iconSize}
+          onClick={onClick}
+          tabIndex={tabindex}
+          className={computedClassName}
+          ref={mergedRef}
+        />
+      );
+    }
+
     return (
-      <IconComponent
-        size={iconSize}
-        onClick={onClick}
+      <FontIcon
+        className={cx(computedClassName)}
+        onClick={onClickCallback}
+        ref={mergedRef}
+        iconLabel={iconLabel}
         tabIndex={tabindex}
-        className={computedClassName}
-        ref={iconRef}
+        icon={icon}
       />
     );
   }
-
-  return (
-    <FontIcon
-      className={cx(computedClassName)}
-      onClick={onClickCallback}
-      ref={iconRef}
-      iconLabel={iconLabel}
-      tabIndex={tabindex}
-      icon={icon}
-    />
-  );
-};
+);
 
 Icon.type = ICON_TYPES;
 
