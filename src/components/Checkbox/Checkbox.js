@@ -7,7 +7,7 @@ import "./Checkbox.scss";
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
-const Checkbox = ({
+export const Checkbox = ({
   componentClassName = "",
   label = "",
   onChange = () => {},
@@ -42,19 +42,24 @@ const Checkbox = ({
           undefined
         )}
       </div>
-      <span className={`${BASE_CLASS_NAME}__label`}>
-        {label}
-      </span>
+      <span className={`${BASE_CLASS_NAME}__label`}>{label}</span>
     </label>
   );
 };
 
 Checkbox.defaultProps = {
   componentClassName: PropTypes.string,
-  selected: PropTypes.bool
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 Checkbox.propTypes = {
-  componentClassName: ""
+  componentClassName: "",
+  label: "",
+  onChange: () => {},
+  checked: true,
+  disabled: false
 };
 
 export default Checkbox;

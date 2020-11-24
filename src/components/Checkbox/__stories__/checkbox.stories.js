@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { action } from "@storybook/addon-actions";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
+import { text, boolean, number } from "@storybook/addon-knobs";
 import Checkbox from "../Checkbox";
 import {
   StoryStateRow,
@@ -9,19 +9,14 @@ import {
   FlexLayout,
   Divider
 } from "../../storybook-helpers";
+import { renderCheckboxes } from "./checkbox.stories.renderCheckboxes";
 import DarkThemeContainer from "../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 
-export const Sandbox = () => (
-  <div>
-    <Checkbox
-      id="Knobs"
-      label={text("label", "text")}
-      checked={boolean("checked", true)}
-      disabled={boolean("disabled", false)}
-    />
-  </div>
-);
+export const Sandbox = () => {
+  const checkboxesCount = number("Checkboxes Count", 5);
+  return renderCheckboxes(checkboxesCount, { includeKnobs: true });
+};
 
 export const OnChange = () => {
   const [selected, setsSelected] = useState(true);
@@ -36,6 +31,11 @@ export const OnChange = () => {
       />
     </div>
   );
+};
+
+export const States = () => {
+  const checkboxesCount = number("Checkboxes Count", 5);
+  return renderCheckboxes(checkboxesCount, { includeKnobs: true });
 };
 
 export const RTLSupport = () => (

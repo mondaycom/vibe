@@ -8,7 +8,7 @@ $checkbox-size: 16px;
   position: relative;
   display: flex;
   align-items: center;
-  width: min-content;
+  width: fit-content;
   height: min-content;
 
   .monday-style-checkbox__input {
@@ -29,30 +29,31 @@ $checkbox-size: 16px;
 
             &:after {
               background-color: var(--primary-hover-color);
-            }
-          }
+              left: 0;
+              content: ' ';
+              position: absolute;
+              height: $checkbox-size;
+              animation: draw-check 200ms;
+              z-index: 2;
 
-          &:after {
-            content: ' ';
-            background-color: var(--primary-color);
-            position: absolute;
-            height: $checkbox-size;
-            animation: draw-check 200ms;
-            z-index: 2;
-            left: 0;
-
-            @keyframes draw-check {
-              0% {
-                left: 0;
-                right: 0;
-                width: 100%;
-              }
-              100% {
-                left: 100%;
-                width: 0;
+              @keyframes draw-check {
+                0% {
+                  left: 0;
+                  right: 0;
+                  width: 100%;
+                }
+                100% {
+                  left: 100%;
+                  width: 0;
+                }
               }
             }
           }
+        }
+      }
+      &:disabled + .monday-style-checkbox {
+        &__checkbox:after {
+          background-color: var(--disabled-background-color);
         }
       }
     }
@@ -107,5 +108,6 @@ $checkbox-size: 16px;
     @include font-input();
     cursor: pointer;
     margin-inline-start: $spacing-small;
+    color: var(--primary-text-color);
   }
 }
