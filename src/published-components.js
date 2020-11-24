@@ -6,7 +6,7 @@ const publishedComponents = {
   // plop_marker:published-components
   MenuButton: "/src/components/MenuButton/MenuButton.jsx",
   RadioButton: "/src/components/RadioButton/RadioButton.jsx",
-	Counter: "/src/components/Counter.jsx",
+  Counter: "/src/components/Counter.jsx",
   SearchComponent: "/src/components/Search/Search.jsx", // TODO: remove when bumping to version 1.0.0
   Search: "/src/components/Search/Search.jsx",
   TextField: "/src/components/TextField/TextField.jsx",
@@ -22,7 +22,7 @@ const publishedComponents = {
   useEventListener: "/src/hooks/useEventListener.js",
   useDebounceEvent: "/src/hooks/useDebounceEvent.js",
   useClickOutside: "/src/hooks/useClickOutside.js",
-  useResizeObserver: "/src/hooks/useResizeObserver.js",
+  useResizeObserver: "/src/hooks/useResizeObserver.js"
 };
 
 function getPublishedComponents(dirPath = "") {
@@ -46,5 +46,5 @@ function exposeIcons(dirPath) {
 }
 
 module.exports = {
-  getPublishedComponents,
+  getPublishedComponents
 };
