@@ -37,8 +37,8 @@ $arrow-size-md: 16px;
 
 .monday-style-tooltip-dark,
 .monday-style-arrow-dark {
-  @include theme-prop(background-color, dark-color);
-  @include theme-prop(color, text-color-on-primary);
+  @include theme-prop(background-color, inverted-color-background);
+  @include theme-prop(color, text-color-on-inverted);
 }
 
 .monday-style-tooltip-white,
