@@ -8,6 +8,12 @@ const publishedComponents = {
   Divider: "/src/components/Divider.jsx",
   MenuItem: "/src/components/Menu/MenuItem.jsx",
   Menu: "/src/components/Menu/Menu.jsx",
+  AttentionBox: "/src/components/AttentionBox/AttentionBox.jsx",
+  Label: "/src/components/Label/Label.jsx",
+  MenuButton: "/src/components/MenuButton/MenuButton.jsx",
+  RadioButton: "/src/components/RadioButton/RadioButton.jsx",
+  SplitButton: "/src/components/SplitButton/SplitButton.jsx",
+  Counter: "/src/components/Counter/Counter.jsx",
   SearchComponent: "/src/components/Search/Search.jsx", // TODO: remove when bumping to version 1.0.0
   Search: "/src/components/Search/Search.jsx",
   TextField: "/src/components/TextField/TextField.jsx",

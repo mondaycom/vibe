@@ -126,6 +126,6 @@ function IconComponent({ name, Component }) {
 }
 
 export default {
-  title: "Components/Icon",
+  title: "Components|Icon",
   component: Icon
 };

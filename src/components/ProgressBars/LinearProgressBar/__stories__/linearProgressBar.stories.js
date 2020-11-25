@@ -60,6 +60,6 @@ export const multiProgressBars = () => {
 };
 
 export default {
-  title: "Components/LinearProgressBar",
+  title: "Components|Progress Bars/LinearProgressBar",
   component: LinearProgressBar
 };

@@ -232,43 +232,81 @@ export const NegativeButtons = () => (
   </StoryStateRow>
 );
 export const OnColorButtons = () => (
-  <div
-    style={{
-      backgroundColor: "var(--primary-color)",
-      borderRadius: "4px",
-      color: "var(--primary-color)"
-    }}
-  >
-    <StoryStateRow>
-      <StoryStateColumn>
-        <Button
-          size={Button.sizes.LARGE}
-          kind={Button.kinds.PRIMARY}
-          color={Button.colors.ON_PRIMARY_COLOR}
-        >
-          On Primary Primary
-        </Button>
-      </StoryStateColumn>
-      <StoryStateColumn>
-        <Button
-          size={Button.sizes.LARGE}
-          kind={Button.kinds.SECONDARY}
-          color={Button.colors.ON_PRIMARY_COLOR}
-        >
-          On Primary Secondary
-        </Button>
-      </StoryStateColumn>
-      <StoryStateColumn>
-        <Button
-          size={Button.sizes.LARGE}
-          kind={Button.kinds.TERTIARY}
-          color={Button.colors.ON_PRIMARY_COLOR}
-        >
-          On Primary Tertiary
-        </Button>
-      </StoryStateColumn>
-    </StoryStateRow>
-  </div>
+  <>
+    <div
+      style={{
+        backgroundColor: "var(--color-blackish)",
+        borderRadius: "4px"
+      }}
+    >
+      <StoryStateRow>
+        <StoryStateColumn>
+          <Button
+            size={Button.sizes.LARGE}
+            kind={Button.kinds.PRIMARY}
+            color={Button.colors.ON_PRIMARY_COLOR}
+          >
+            On Primary Primary
+          </Button>
+        </StoryStateColumn>
+        <StoryStateColumn>
+          <Button
+            size={Button.sizes.LARGE}
+            kind={Button.kinds.SECONDARY}
+            color={Button.colors.ON_PRIMARY_COLOR}
+          >
+            On Primary Secondary
+          </Button>
+        </StoryStateColumn>
+        <StoryStateColumn>
+          <Button
+            size={Button.sizes.LARGE}
+            kind={Button.kinds.TERTIARY}
+            color={Button.colors.ON_PRIMARY_COLOR}
+          >
+            On Primary Tertiary
+          </Button>
+        </StoryStateColumn>
+      </StoryStateRow>
+    </div>
+    <div
+      style={{
+        backgroundColor: "var(--color-dark-pink)",
+        borderRadius: "4px",
+        marginTop: "16px"
+      }}
+    >
+      <StoryStateRow>
+        <StoryStateColumn>
+          <Button
+            size={Button.sizes.LARGE}
+            kind={Button.kinds.PRIMARY}
+            color={Button.colors.ON_PRIMARY_COLOR}
+          >
+            On Primary Primary
+          </Button>
+        </StoryStateColumn>
+        <StoryStateColumn>
+          <Button
+            size={Button.sizes.LARGE}
+            kind={Button.kinds.SECONDARY}
+            color={Button.colors.ON_PRIMARY_COLOR}
+          >
+            On Primary Secondary
+          </Button>
+        </StoryStateColumn>
+        <StoryStateColumn>
+          <Button
+            size={Button.sizes.LARGE}
+            kind={Button.kinds.TERTIARY}
+            color={Button.colors.ON_PRIMARY_COLOR}
+          >
+            On Primary Tertiary
+          </Button>
+        </StoryStateColumn>
+      </StoryStateRow>
+    </div>
+  </>
 );
 
 export const ButtonsWithIcons = () => (
@@ -361,7 +399,11 @@ const LoadingButtonWrapper = ({ size, kind }) => {
       </Button>
       <br />
       <br />
-      <Button onClick={resetLoading} kind={Button.kinds.TERTIARY} size={Button.sizes.SMALL}>
+      <Button
+        onClick={resetLoading}
+        kind={Button.kinds.TERTIARY}
+        size={Button.sizes.SMALL}
+      >
         Reset loading
       </Button>
       <br />
@@ -393,6 +435,6 @@ export const Loading = () => (
 );
 
 export default {
-  title: "Components/Button",
+  title: "Components|Button",
   component: Button
 };

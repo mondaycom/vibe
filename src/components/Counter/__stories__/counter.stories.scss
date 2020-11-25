@@ -1,0 +1,17 @@
+@import "../../../styles/themes.scss";
+
+.storybook-counter-sandbox-tag {
+  position: relative;
+  display: inline-flex;
+  margin: 16px;
+  padding: 8px;
+  @include theme-prop(background-color, primary-color);
+  @include theme-prop(color, text-color-on-primary);
+  border-radius: 100%;
+  .counter-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(25%, -25%);
+  }
+}

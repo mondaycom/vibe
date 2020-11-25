@@ -23,6 +23,7 @@ export const DialogContent = React.forwardRef(
       onMouseEnter = NOOP,
       onMouseLeave = NOOP,
       onClickOutside = NOOP,
+      onClick = NOOP,
       showDelay,
       styleObject = EMPTY_OBJECT
     },
@@ -51,6 +52,7 @@ export const DialogContent = React.forwardRef(
         )}
         ref={forwardRef}
         style={styleObject}
+        onClickCapture={onClick}
       >
         <CSSTransition
           {...transitionOptions}
