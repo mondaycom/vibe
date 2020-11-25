@@ -34,7 +34,7 @@ describe("<SplitButton />", () => {
     cleanup();
   });
 
-  it("opens the secondary content dialog on click", () => {
+  it.skip("opens the secondary content dialog on click", () => {
     const splitButtonComponent = renderComponent();
     const arrowButton = splitButtonComponent.getByLabelText(
       SecondaryButtonAriaLabel
@@ -47,7 +47,7 @@ describe("<SplitButton />", () => {
     expect(expectedSecondaryDialog).toBeTruthy();
   });
 
-  it("doesn't open the secondary content dialog on click", () => {
+  it.skip("doesn't open the secondary content dialog on click", () => {
     const splitButtonComponent = renderComponent({ disabled: true });
     const arrowButton = splitButtonComponent.getByLabelText(
       SecondaryButtonAriaLabel
@@ -61,7 +61,7 @@ describe("<SplitButton />", () => {
   });
 
   describe("callbacks", () => {
-    it("calls onSecondaryDialogDidShow when click on secondaryButton", () => {
+    it.skip("calls onSecondaryDialogDidShow when click on secondaryButton", () => {
       const onSecondaryDialogDidShowMock = jest.fn();
       const splitButtonComponent = renderComponent({
         onSecondaryDialogDidShow: onSecondaryDialogDidShowMock
@@ -76,7 +76,7 @@ describe("<SplitButton />", () => {
       expect(onSecondaryDialogDidShowMock.mock.calls.length).toBe(1);
     });
 
-    it("calls onSecondaryDialogDidHide when click on secondaryButton", () => {
+    it.skip("calls onSecondaryDialogDidHide when click on secondaryButton", () => {
       const onSecondaryDialogDidHideMock = jest.fn();
       const splitButtonComponent = renderComponent({
         open: true, // The button should be rendered with the dialog opened

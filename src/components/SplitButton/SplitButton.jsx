@@ -48,6 +48,8 @@ const SplitButton = ({
   onSecondaryDialogDidHide,
   disabled,
   shouldCloseOnClickInsideDialog,
+  zIndex,
+  secondaryDialogClassName,
   ...buttonProps
 }) => {
   // State //
@@ -167,6 +169,8 @@ const SplitButton = ({
         <div className={SECONDARY_BUTTON_WRAPPER_CLASSNAME}>
           <Dialog
             // open={isDialogOpen}
+            wrapperClassName={secondaryDialogClassName}
+            zIndex={zIndex}
             content={secondaryDialogContent}
             position="bottom-start"
             startingEdge="bottom"
@@ -208,7 +212,9 @@ const SplitButton = ({
 SplitButton.defaultProps = {
   ...Button.defaultProps,
   onSecondaryDialogDidShow: NOOP,
-  onSecondaryDialogDidHide: NOOP
+  onSecondaryDialogDidHide: NOOP,
+  zIndex: 10000000,
+  secondaryDialogClassName: ""
 };
 
 SplitButton.propTypes = {
@@ -218,7 +224,9 @@ SplitButton.propTypes = {
     PropTypes.object
   ]).isRequired,
   onSecondaryDialogDidShow: PropTypes.func,
-  onSecondaryDialogDidHide: PropTypes.func
+  onSecondaryDialogDidHide: PropTypes.func,
+  zIndex: PropTypes.number,
+  secondaryDialogClassName: PropTypes.string
 };
 
 SplitButton.sizes = Button.sizes;

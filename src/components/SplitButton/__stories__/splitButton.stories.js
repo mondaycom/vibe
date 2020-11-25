@@ -16,6 +16,7 @@ Post, perly , copy, readmore."
         <SplitButton
           size={SplitButton.sizes.SMALL}
           secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogClassName="dialog-class-name"
         >
           Small
         </SplitButton>
