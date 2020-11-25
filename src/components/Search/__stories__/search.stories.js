@@ -168,6 +168,6 @@ export const States = () => {
 };
 
 export default {
-  title: "Components/Search",
+  title: "Components|Search",
   component: Search
 };

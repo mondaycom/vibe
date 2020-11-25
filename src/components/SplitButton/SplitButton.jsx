@@ -23,7 +23,7 @@ import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 import "./SplitButton.scss";
 
 // Constants
-const DIALOG_MOVE_BY = { main: 8 };
+const DIALOG_MOVE_BY = { main: 8, secondary: 0 };
 const DIALOG_POSITION = "bottom-start";
 const DEFAULT_DIALOG_SHOW_TRIGGER = "click";
 const DEFAULT_DIALOG_HIDE_TRIGGER = ["clickoutside", "click", "esckey"];
@@ -166,15 +166,16 @@ const SplitButton = ({
       {shouldRenderSplitContent && (
         <div className={SECONDARY_BUTTON_WRAPPER_CLASSNAME}>
           <Dialog
-            open={isDialogOpen}
+            // open={isDialogOpen}
             content={secondaryDialogContent}
-            position={DIALOG_POSITION}
+            position="bottom-start"
+            startingEdge="bottom"
+            animationType="expand"
             moveBy={DIALOG_MOVE_BY}
             onDialogDidShow={showDialog}
             onDialogDidHide={hideDialog}
             showTrigger={dialogShowTrigger}
             hideTrigger={dialogHideTrigger}
-            animationType="expand"
           >
             <Button
               {...buttonProps}
@@ -189,7 +190,7 @@ const SplitButton = ({
               onFocus={setHovered}
               onBlur={setNotHovered}
               disabled={disabled}
-              ariaLabel="secondary button"
+              ariaLabel="additional actions"
               aria-haspopup="true"
               aria-expanded={isDialogOpen}
             >

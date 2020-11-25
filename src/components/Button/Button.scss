@@ -25,12 +25,12 @@
   &--margin-left {
     margin-left: $spacing-small;
   }
-  
+
   &--right-flat {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
-  
+
   &--left-flat {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -94,7 +94,7 @@
       min-height: 48px;
     }
   }
-  
+
   &--kind {
     &-primary {
       @include theme-prop(color, text-color-on-primary);
@@ -126,12 +126,11 @@
           }
           &-on-primary-color {
             @include theme-prop(background-color, text-color-on-primary);
-            color: inherit;
             &-active,
             &:hover,
             &:focus {
               background-color: #e6e9ef;
-              background-color: var(--color-ui_grey);
+              backdrop-filter: brightness(85%);
             }
           }
         }
@@ -200,7 +199,7 @@
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, primary-hover-color);
+              backdrop-filter: brightness(85%);
             }
           }
         }
@@ -252,7 +251,7 @@
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, primary-hover-color);
+              backdrop-filter: brightness(85%);
             }
           }
         }
@@ -267,7 +266,7 @@
       }
     }
   }
-  
+
   &--no-side-padding {
     padding-right: 0;
     padding-left: 0;

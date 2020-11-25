@@ -277,6 +277,6 @@ export const Sandbox = () => (
 );
 
 export default {
-  title: "Components/SplitButton",
+  title: "Components|SplitButton",
   component: SplitButton
 };

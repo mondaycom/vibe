@@ -12,7 +12,7 @@ const AttentionBox = ({
   icon,
   iconType,
   title,
-  text,
+  text
 }) => {
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
@@ -32,6 +32,7 @@ const AttentionBox = ({
             `${classNameWithType}__title-container__icon`
           )}
           ignoreFocusStyle
+          iconSize={24}
         />
         <span
           className={cx(
@@ -51,18 +52,20 @@ const AttentionBox = ({
   );
 };
 
+AttentionBox.types = ATTENTION_BOX_TYPES;
+
 AttentionBox.propTypes = {
   componentClassName: PropTypes.string,
   type: PropTypes.oneOf([
     ATTENTION_BOX_TYPES.PRIMARY,
     ATTENTION_BOX_TYPES.SUCCESS,
     ATTENTION_BOX_TYPES.DANGER,
-    ATTENTION_BOX_TYPES.DARK,
+    ATTENTION_BOX_TYPES.DARK
   ]),
   iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.string
 };
 
 AttentionBox.defaultProps = {
@@ -71,7 +74,7 @@ AttentionBox.defaultProps = {
   icon: AlertIcon,
   iconType: Icon.type.SVG,
   title: "",
-  text: "",
+  text: ""
 };
 
 export default AttentionBox;

@@ -72,6 +72,6 @@ const renderAttentionBox = (type) => {
 };
 
 export default {
-  title: "Components/AttentionBox",
+  title: "Components|AttentionBox",
   component: AttentionBox,
 };

@@ -78,6 +78,6 @@ export const Sizes = () => (
 );
 
 export default {
-  title: "Components/MenuButton",
+  title: "Components|MenuButton",
   component: MenuButton
 };

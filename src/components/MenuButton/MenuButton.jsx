@@ -9,6 +9,8 @@ function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
 }
 
+const showTrigger = ["click", "enter"];
+
 const MenuButton = ({
   componentClassName,
   children,
@@ -24,6 +26,7 @@ const MenuButton = ({
     setIsOpen(!isOpen);
   }, [isOpen, setIsOpen]);
 
+
   const hideTrigger = useMemo(() => {
     const triggers = ["click", "clickoutside", "esckey"];
     if (closeDialogOnContentClick) {
@@ -38,9 +41,10 @@ const MenuButton = ({
   return (
     <Dialog
       position="bottom-start"
-      animationType="opacity-slide"
+      startingEdge="bottom"
+      animationType="expand"
       content={children}
-      showTrigger={["click", "enter"]}
+      showTrigger={showTrigger}
       hideTrigger={hideTrigger}
       onDialogDidShow={onMenuChangeCallback}
       onDialogDidHide={onMenuChangeCallback}

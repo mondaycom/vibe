@@ -198,6 +198,6 @@ export const NotificationCounter = () => (
 );
 
 export default {
-  title: "Components/Counter",
+  title: "Components|Counter",
   component: Counter
 };

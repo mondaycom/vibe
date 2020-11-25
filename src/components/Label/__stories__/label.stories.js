@@ -61,6 +61,6 @@ export const Sandbox = () => (
 );
 
 export default {
-  title: "Components/Label",
+  title: "Components|Label",
   component: Label
 };

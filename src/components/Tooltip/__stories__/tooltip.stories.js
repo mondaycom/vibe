@@ -133,6 +133,6 @@ export const ImmediateTooltips = () => (
 );
 
 export default {
-  title: "Components/Tooltip",
+  title: "Components|Tooltip",
   component: Tooltip
 };

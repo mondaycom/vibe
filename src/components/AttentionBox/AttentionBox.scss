@@ -7,9 +7,10 @@
   font-size: $font-size-input;
   width: fit-content;
   height: fit-content;
-
+  @include theme-prop(color, dark-color);
   &--type {
     &-primary {
+      @include theme-prop(color, primary-text-color);
       @include theme-prop(background-color, primary-selected-color);
 
       &__title-container {
@@ -40,7 +41,8 @@
     }
 
     &-dark {
-      @include theme-prop(background-color, dark-background-color);
+      @include theme-prop(background-color, dark-background-on-secondary-color);
+      @include theme-prop(color, primary-text-color);
 
       &__title-container {
         &__icon {
@@ -56,8 +58,8 @@
     margin-bottom: $spacing-medium;
 
     &__icon {
-      height: 1em;
-      width: 1em;
+      height: 24px;
+      width: 24px;
       margin-right: $spacing-small;
     }
 
