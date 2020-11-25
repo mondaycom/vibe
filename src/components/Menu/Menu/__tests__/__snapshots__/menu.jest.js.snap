@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshots renders correctly with children 1`] = `
+<div
+  aria-label="Menu"
+  className="monday-style-menu dummy-class-name monday-style-menu--medium"
+  onBlur={[Function]}
+  tabIndex={0}
+>
+  <div
+    className="monday-style-menu-title"
+  >
+    <div
+      className="monday-style-menu-title__divider"
+    />
+    <div
+      className="monday-style-menu-title__caption monday-style-menu-title__caption--bottom"
+    >
+      my title
+    </div>
+  </div>
+  <div
+    className="monday-style-menu-item"
+    onClick={[Function]}
+  >
+    <div
+      className="monday-style-menu-item__title"
+    >
+      item 1
+    </div>
+  </div>
+  <div
+    className="monday-style-divider monday-style-divider--horizontal"
+  />
+  <div
+    className="monday-style-menu-item"
+    onClick={[Function]}
+  >
+    <div
+      className="monday-style-menu-item__title"
+    >
+      item 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snapshots renders correctly with custom class name 1`] = `
+<div
+  aria-label="Menu"
+  className="monday-style-menu dummy-class-name monday-style-menu--medium"
+  onBlur={[Function]}
+  tabIndex={0}
+/>
+`;
+
+exports[`Snapshots renders correctly with empty props 1`] = `
+<div
+  aria-label="Menu"
+  className="monday-style-menu monday-style-menu--medium"
+  onBlur={[Function]}
+  tabIndex={0}
+/>
+`;

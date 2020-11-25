@@ -1,0 +1,16 @@
+@import "../../../styles/themes.scss";
+@import "../../../styles/typography.scss";
+
+.monday-style-menu {
+  &.monday-style-menu--small {
+    width: 200px;
+  }
+
+  &.monday-style-menu--medium {
+    width: 220px;
+  }
+
+  &.monday-style-menu--large {
+    width: 240px;
+  }
+}

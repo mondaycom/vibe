@@ -9,6 +9,7 @@ $font-size-paragraph: 16px;
 $font-size-subtitle: 18px;
 $font-size-secondary: 24px;
 $font-size-header: 32px;
+$font-size-default: 14px;
 
 @mixin font-main {
   -webkit-font-smoothing: antialiased;
@@ -95,4 +96,13 @@ $font-size-header: 32px;
   font-weight: $font-weight-normal;
   @include theme-prop(color, secondary-text-color);
   line-height: 18px;
+}
+
+@mixin font-default {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: $primary-font;
+  font-size: $font-size-input;
+  font-weight: $font-weight-normal;
+  line-height: 22px;
 }

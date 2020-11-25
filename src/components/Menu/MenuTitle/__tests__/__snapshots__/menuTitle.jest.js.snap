@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with caption 1`] = `
+<div
+  className="monday-style-menu-title"
+>
+  <div
+    className="monday-style-menu-title__divider"
+  />
+  <div
+    className="monday-style-menu-title__caption monday-style-menu-title__caption--bottom"
+  >
+    my title
+  </div>
+</div>
+`;
+
+exports[`renders correctly with custom class name 1`] = `
+<div
+  className="monday-style-menu-title dummy-class-name"
+>
+  <div
+    className="monday-style-menu-title__divider"
+  />
+</div>
+`;
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  className="monday-style-menu-title"
+>
+  <div
+    className="monday-style-menu-title__divider"
+  />
+</div>
+`;
