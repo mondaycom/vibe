@@ -75,7 +75,11 @@ Menu.defaultProps = {
 };
 Menu.propTypes = {
   classname: PropTypes.string,
-  size: PropTypes.string,
+  size: PropTypes.oneOf([
+    MENU_SIZES.SMALL,
+    MENU_SIZES.MEDIUM,
+    MENU_SIZES.LARGE,
+  ]),
   tabIndex: PropTypes.number,
   ariaLabel: PropTypes.string,
 };

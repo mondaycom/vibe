@@ -102,8 +102,8 @@ const MenuItem = ({
   return (
     <div
       className={cx("monday-style-menu-item", classname, {
-        disabled,
-        focused: isActive,
+        "monday-style-menu-item--disabled": disabled,
+        "monday-style-menu-item--focused": isActive,
       })}
       ref={ref}
       onClick={onClickCallback}
@@ -116,9 +116,9 @@ const MenuItem = ({
 
 MenuItem.defaultProps = {
   classname: "",
+  title: "",
   icon: "",
   iconType: undefined,
-  title: "",
   disabled: false,
   onClick: undefined,
   activeItemIndex: -1,
@@ -127,9 +127,9 @@ MenuItem.defaultProps = {
 };
 MenuItem.propTypes = {
   classname: PropTypes.string,
+  title: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
-  title: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
   activeItemIndex: PropTypes.number,

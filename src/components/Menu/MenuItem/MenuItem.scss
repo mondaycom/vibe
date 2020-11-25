@@ -18,7 +18,7 @@
     }
   }
 
-  &.disabled {
+  &.monday-style-menu-item--disabled {
     @include theme-prop(color, disabled-text-color);
 
     .monday-style-menu-item__icon {
@@ -26,8 +26,8 @@
     }
   }
 
-  &:not(.disabled) {
-    &.focused {
+  &:not(.monday-style-menu-item--disabled) {
+    &.monday-style-menu-item--focused {
       @include theme-prop(background-color, primary-background-hover-color);
       border-radius: $border-radius-small;
     }

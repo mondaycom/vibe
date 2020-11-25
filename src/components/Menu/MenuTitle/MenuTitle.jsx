@@ -55,7 +55,11 @@ MenuTitle.defaultProps = {
 MenuTitle.propTypes = {
   classname: PropTypes.string,
   caption: PropTypes.string,
-  captionPosition: PropTypes.string,
+  captionPosition: PropTypes.oneOf([
+    CAPTION_POSITIONS.BOTTOM,
+    CAPTION_POSITIONS.TOP,
+    CAPTION_POSITIONS.CENTER,
+  ]),
 };
 
 export default MenuTitle;
