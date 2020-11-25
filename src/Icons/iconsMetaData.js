@@ -562,6 +562,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Remove",
+    file: "Remove.svg",
+    description: "Remove",
+    tags: "Remove, Line, Minus",
+    category: [BASIC],
+  },
+
+  {
     name: "Replay",
     file: "Replay.svg",
     description: "Replay",
