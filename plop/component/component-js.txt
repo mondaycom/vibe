@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import "./{{properCase componentName}}.scss";
 
-const {{properCase componentName}} = ({
-    componentClassName = '',
-    text = ''
-}) => {
-  return (
+const {{properCase componentName}} = forwardRef(({
+    className
+}), ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+
+    return (
     <div className={cx("{{dashCase componentName}}--wrapper", componentClassName)}>
         {text}
     </div>
@@ -15,10 +18,10 @@ const {{properCase componentName}} = ({
 };
 
 {{properCase componentName}}.defaultProps = {
-    componentClassName: PropTypes.string,
+    className: PropTypes.string,
 };
 {{properCase componentName}}.propTypes = {
-    componentClassName: ""
+    className: ""
 };
 
 export default {{properCase componentName}};
