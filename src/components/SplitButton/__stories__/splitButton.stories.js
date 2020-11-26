@@ -4,9 +4,16 @@ import SplitButton from "../SplitButton";
 import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
 import StoryDialogContent from "../../Dialog/__stories__/StoryComponents/StoryDialogContent";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
+import { Info } from "../../Icon/Icons";
+import AttentionBox from "../../AttentionBox/AttentionBox";
 
 export const PrimaryButton = () => (
   <section>
+    <AttentionBox
+      title="Split Button extends Button prop types"
+      icon={Info}
+      text="This component extends the button prop types - size and kind will be applied to both buttons, main and secondary other will be applied to the main button"
+    />
     <StoryStateRow>
       <StoryStateColumn
         title="Small"

@@ -14,7 +14,7 @@ import { isInsideClass } from "../../utils/dom-utils";
 import useKeyEvent from "../../hooks/useKeyEvent";
 
 // Components import
-import Button from "../Button/Button";
+import Button, { BUTTON_PROP_TYPES } from "../Button/Button";
 import Dialog from "../Dialog/Dialog";
 import useEventListener from "../../hooks/useEventListener";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
@@ -30,6 +30,7 @@ const DEFAULT_DIALOG_HIDE_TRIGGER = ["clickoutside", "click", "esckey"];
 const SECONDARY_BUTTON_WRAPPER_CLASSNAME =
   "monday-style-split-button__secondary-button-wrapper";
 const EMPTY_ARR = [];
+export const SECONDARY_BUTTON_ARIA_LABEL = "additional actions";
 
 const SplitButton = ({
   marginLeft,
@@ -172,7 +173,7 @@ const SplitButton = ({
             wrapperClassName={secondaryDialogClassName}
             zIndex={zIndex}
             content={secondaryDialogContent}
-            position="bottom-start"
+            position={DIALOG_POSITION}
             startingEdge="bottom"
             animationType="expand"
             moveBy={DIALOG_MOVE_BY}
@@ -194,7 +195,7 @@ const SplitButton = ({
               onFocus={setHovered}
               onBlur={setNotHovered}
               disabled={disabled}
-              ariaLabel="additional actions"
+              ariaLabel={SECONDARY_BUTTON_ARIA_LABEL}
               aria-haspopup="true"
               aria-expanded={isDialogOpen}
             >

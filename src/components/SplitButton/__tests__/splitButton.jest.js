@@ -7,7 +7,7 @@ import {
   act
 } from "@testing-library/react";
 import renderer from "react-test-renderer";
-import SplitButton from "../SplitButton";
+import SplitButton, { SECONDARY_BUTTON_ARIA_LABEL } from "../SplitButton";
 
 jest.useFakeTimers();
 
@@ -15,7 +15,7 @@ const text = "Click Me!";
 const className = "test-class";
 const secondaryContentText = "Test secondary dialog content";
 const secondaryContent = <div>{secondaryContentText}</div>;
-const SecondaryButtonAriaLabel = "secondary button";
+const ArrowButtonLabel = SECONDARY_BUTTON_ARIA_LABEL;
 
 const renderComponent = ({ ...props } = {}) => {
   return render(
@@ -30,30 +30,26 @@ const renderComponent = ({ ...props } = {}) => {
 };
 
 describe("<SplitButton />", () => {
-  afterEach(() => {
-    cleanup();
-  });
+  afterEach(cleanup);
 
-  it.skip("opens the secondary content dialog on click", () => {
+  it("opens the secondary content dialog on click", async () => {
     const splitButtonComponent = renderComponent();
-    const arrowButton = splitButtonComponent.getByLabelText(
-      SecondaryButtonAriaLabel
-    );
+    const arrowButton = splitButtonComponent.getByLabelText(ArrowButtonLabel);
     act(() => {
-      fireEvent.click(arrowButton);
+      fireEvent.click(arrowButton.parentElement);
       jest.advanceTimersByTime(1000);
     });
-    const expectedSecondaryDialog = screen.getByText(secondaryContentText);
+    const expectedSecondaryDialog = await screen.findByText(
+      secondaryContentText
+    );
     expect(expectedSecondaryDialog).toBeTruthy();
   });
 
-  it.skip("doesn't open the secondary content dialog on click", () => {
+  it("doesn't open the secondary content dialog on click", () => {
     const splitButtonComponent = renderComponent({ disabled: true });
-    const arrowButton = splitButtonComponent.getByLabelText(
-      SecondaryButtonAriaLabel
-    );
+    const arrowButton = splitButtonComponent.getByLabelText(ArrowButtonLabel);
     act(() => {
-      fireEvent.click(arrowButton);
+      fireEvent.click(arrowButton.parentElement);
       jest.advanceTimersByTime(1000);
     });
     const expectedSecondaryDialog = screen.queryByText(secondaryContentText);
@@ -61,38 +57,33 @@ describe("<SplitButton />", () => {
   });
 
   describe("callbacks", () => {
-    it.skip("calls onSecondaryDialogDidShow when click on secondaryButton", () => {
-      const onSecondaryDialogDidShowMock = jest.fn();
+    it("calls onSecondaryDialogDidShow when click on secondaryButton", () => {
+      const onSecondaryDialogDidShow = jest.fn();
       const splitButtonComponent = renderComponent({
-        onSecondaryDialogDidShow: onSecondaryDialogDidShowMock
+        onSecondaryDialogDidShow
       });
-      const arrowButton = splitButtonComponent.getByLabelText(
-        SecondaryButtonAriaLabel
-      );
+      const arrowButton = splitButtonComponent.getByLabelText(ArrowButtonLabel);
+
       act(() => {
         fireEvent.click(arrowButton);
+        jest.advanceTimersByTime(1000);
       });
-      jest.advanceTimersByTime(1000);
-      expect(onSecondaryDialogDidShowMock.mock.calls.length).toBe(1);
+      expect(onSecondaryDialogDidShow.mock.calls.length).toBe(1);
     });
 
-    it.skip("calls onSecondaryDialogDidHide when click on secondaryButton", () => {
+    it("calls onSecondaryDialogDidHide when click on secondaryButton", () => {
       const onSecondaryDialogDidHideMock = jest.fn();
       const splitButtonComponent = renderComponent({
-        open: true, // The button should be rendered with the dialog opened
         onSecondaryDialogDidHide: onSecondaryDialogDidHideMock
       });
-      const arrowButton = splitButtonComponent.getByLabelText(
-        SecondaryButtonAriaLabel
-      );
-      jest.advanceTimersByTime(1000);
+      const arrowButton = splitButtonComponent.getByLabelText(ArrowButtonLabel);
+
       act(() => {
         fireEvent.click(arrowButton);
-        jest.advanceTimersByTime(50000000);
+        jest.advanceTimersByTime(1000);
         fireEvent.click(arrowButton);
-        jest.advanceTimersByTime(50000000);
+        jest.advanceTimersByTime(1000);
       });
-      screen.debug();
       expect(onSecondaryDialogDidHideMock.mock.calls.length).toBe(1);
     });
   });

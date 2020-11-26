@@ -45,11 +45,10 @@ const Icon = forwardRef(
       const IconComponent = icon;
       return (
         <IconComponent
-          size={iconSize}
+          size={iconSize.toString()}
           onClick={onClick}
           tabIndex={tabindex}
           className={computedClassName}
-          ref={mergedRef}
         />
       );
     }
@@ -82,7 +81,7 @@ Icon.propTypes = {
   /* the type of the component 0 svg, font or custom svg (using react-inlinesvg) */
   iconType: PropTypes.oneOf([ICON_TYPES.SVG, ICON_TYPES.ICON_FONT]),
   /* size for font icon */
-  iconSize: PropTypes.number,
+  iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   ignoreFocusStyle: PropTypes.bool
 };
 

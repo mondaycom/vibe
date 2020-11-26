@@ -26,9 +26,8 @@ const MenuButton = ({
     setIsOpen(!isOpen);
   }, [isOpen, setIsOpen]);
 
-
   const hideTrigger = useMemo(() => {
-    const triggers = ["click", "clickoutside", "esckey"];
+    const triggers = ["clickoutside", "esckey"];
     if (closeDialogOnContentClick) {
       triggers.push("onContentClick");
     }

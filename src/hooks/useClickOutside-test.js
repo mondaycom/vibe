@@ -25,14 +25,14 @@ describe("useClickOutside", () => {
   describe("mouseDown", () => {
     it("should call the callback when click outside the element", () => {
       act(() => {
-        fireEvent.mouseDown(document.body);
+        fireEvent.click(document.body);
       });
       return expect(callbackStub).to.be.calledOnce;
     });
 
     it("should not call the callback when clicking the element", () => {
       act(() => {
-        fireEvent.mouseDown(element);
+        fireEvent.click(element);
       });
       return expect(callbackStub).to.not.be.called;
     });
@@ -41,14 +41,14 @@ describe("useClickOutside", () => {
   describe("touchStart", () => {
     it("should call the callback when click outside the element", () => {
       act(() => {
-        fireEvent.touchStart(document.body);
+        fireEvent.touchEnd(document.body);
       });
       return expect(callbackStub).to.be.calledOnce;
     });
 
     it("should not call the callback when clicking the element", () => {
       act(() => {
-        fireEvent.touchStart(element);
+        fireEvent.touchEnd(element);
       });
       return expect(callbackStub).to.not.be.called;
     });

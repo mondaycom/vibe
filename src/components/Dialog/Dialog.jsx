@@ -196,10 +196,10 @@ export default class Dialog extends PureComponent {
     this.handleEvent("esckey", e.target);
   }
 
-  onClickOutside(e) {
+  onClickOutside(event) {
     const { onClickOutside } = this.props;
-    this.handleEvent("clickoutside", e.target);
-    onClickOutside(e);
+    this.handleEvent("clickoutside", event.target);
+    onClickOutside(event);
   }
 
   onDialogEnter() {
