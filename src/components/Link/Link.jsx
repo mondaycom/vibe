@@ -65,14 +65,14 @@ Link.propTypes = {
   rel: PropTypes.string,
   onClick: PropTypes.func,
   target: PropTypes.oneOf([
-    LINK_TARGET.NEW_WINDOW,
-    LINK_TARGET.PARENT,
-    LINK_TARGET.SELF,
-    LINK_TARGET.TOP
+    Link.target.NEW_WINDOW,
+    Link.target.PARENT,
+    Link.target.SELF,
+    Link.target.TOP
   ]),
   ariaLabelDescription: PropTypes.string,
   icon: PropTypes.string,
-  iconPosition: PropTypes.oneOf([ICON_POSITION.START, ICON_POSITION.END]),
+  iconPosition: PropTypes.oneOf([Link.position.START, Link.position.END]),
   id: PropTypes.string
 };
 
@@ -82,10 +82,10 @@ Link.defaultProps = {
   text: "",
   rel: "noreferrer",
   onClick: NOOP,
-  target: LINK_TARGET.NEW_WINDOW,
+  target: Link.target.NEW_WINDOW,
   ariaLabelDescription: "",
   icon: "",
-  iconPosition: ICON_POSITION.START,
+  iconPosition: Link.position.START,
   id: ""
 };
 

@@ -172,6 +172,6 @@ export const States = () => {
 };
 
 export default {
-  title: "Components/Text Field",
+  title: "Components|Text Field",
   component: TextField
 };

@@ -1,0 +1,71 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.monday-style-attention-box-component {
+  padding: $spacing-large;
+  border-radius: $border-radius-medium;
+  font-size: $font-size-input;
+  width: fit-content;
+  height: fit-content;
+  @include theme-prop(color, dark-color);
+  &--type {
+    &-primary {
+      @include theme-prop(color, primary-text-color);
+      @include theme-prop(background-color, primary-selected-color);
+
+      &__title-container {
+        &__icon {
+          @include theme-prop(color, primary-color);
+        }
+      }
+    }
+
+    &-danger {
+      @include theme-prop(background-color, negative-color-selected);
+
+      &__title-container {
+        &__icon {
+          @include theme-prop(color, negative-color);
+        }
+      }
+    }
+
+    &-success {
+      @include theme-prop(background-color, positive-color-selected);
+
+      &__title-container {
+        &__icon {
+          @include theme-prop(color, positive-color);
+        }
+      }
+    }
+
+    &-dark {
+      @include theme-prop(background-color, dark-background-on-secondary-color);
+      @include theme-prop(color, primary-text-color);
+
+      &__title-container {
+        &__icon {
+          @include theme-prop(color, primary-text-color);
+        }
+      }
+    }
+  }
+
+  &__title-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: $spacing-medium;
+
+    &__icon {
+      height: 24px;
+      width: 24px;
+      margin-right: $spacing-small;
+    }
+
+    &__title {
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+}

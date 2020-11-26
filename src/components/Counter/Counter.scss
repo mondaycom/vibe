@@ -1,0 +1,115 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.monday-style-counter {
+  display: inline-flex;
+  justify-content: center;
+  border-radius: 30px;
+  overflow: hidden;
+  transform-origin: center;
+
+  &--with-animation {
+    animation: circle-pop 250ms;
+  }
+
+  &--size {
+    &-sm {
+      @include font-caption();
+      min-width: 18px;
+      line-height: 18px;
+      padding: 0 $spacing-xs-small;
+    }
+
+    &-lg {
+      @include font-input();
+      line-height: 24px;
+      min-width: 24px;
+      padding: 0 $spacing-small;
+    }
+  }
+
+  &--fade {
+    /* New number enters */
+    &-enter {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    &-enter-active {
+      position: relative;
+      opacity: 1;
+      transition: transform 150ms cubic-bezier(0, 0, 0.35, 1), opacity 70ms;
+      transform: translateY(0);
+    }
+
+    /* Old number exits */
+    &-exit {
+      position: relative;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &-exit-active {
+      position: relative;
+      opacity: 0;
+      transform: translateY(-15px);
+      transition: transform 150ms cubic-bezier(0, 0, 0.35, 1), opacity 70ms;
+    }
+  }
+
+  &--kind {
+    &-fill {
+      &.monday-style-counter {
+        &--color {
+          &-primary {
+            @include theme-prop(color, text-color-on-primary);
+            @include theme-prop(background-color, primary-color);
+          }
+          &-dark {
+            @include theme-prop(color, text-color-on-inverted);
+            @include theme-prop(background-color, inverted-color-background);
+          }
+          &-negative {
+            @include theme-prop(color, text-color-on-primary);
+            @include theme-prop(background-color, negative-color);
+          }
+        }
+      }
+    }
+
+    &-line {
+      border: 1px solid currentColor;
+      &.monday-style-counter {
+        &--color {
+          &-primary {
+            @include theme-prop(color, primary-color);
+          }
+          &-dark {
+            @include theme-prop(color, inverted-color-background);
+          }
+          &-negative {
+            @include theme-prop(color, negative-color);
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes circle-pop {
+    0% {
+      transform: scale(1);
+    }
+
+    33% {
+      transform: scale(1.1);
+    }
+
+    66% {
+      transform: scale(0.97);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+}

@@ -1,13 +1,7 @@
 import React from "react";
 import MenuButton from "../MenuButton";
-import {
-  StoryStateRow,
-  StoryStateColumn,
-  ComponentStateDescription,
-  FlexLayout,
-  Divider
-} from "../../storybook-helpers";
-import { select } from "@storybook/addon-knobs";
+import { ComponentStateDescription, FlexLayout } from "../../storybook-helpers";
+import { select, boolean } from "@storybook/addon-knobs";
 import StoryDialogContent from "../../Dialog/__stories__/StoryComponents/StoryDialogContent";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import "./menuButton.style.scss";
@@ -17,6 +11,10 @@ export const Sandbox = () => (
     <MenuButton
       id="Knobs"
       size={select("Size", MenuButton.sizes, MenuButton.sizes.MEDIUM)}
+      closeDialogOnContentClick={boolean(
+        "Close Dialog On Content Click",
+        false
+      )}
       ariaLabel={"Default menu icon"}
     >
       <StoryDialogContent />
@@ -80,6 +78,6 @@ export const Sizes = () => (
 );
 
 export default {
-  title: "Components/MenuButton",
+  title: "Components|MenuButton",
   component: MenuButton
 };

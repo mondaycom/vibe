@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Dialog from "../Dialog/Dialog";
@@ -9,6 +9,8 @@ function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
 }
 
+const showTrigger = ["click", "enter"];
+
 const MenuButton = ({
   componentClassName,
   children,
@@ -16,23 +18,34 @@ const MenuButton = ({
   size,
   open,
   zIndex,
-  ariaLabel
+  ariaLabel,
+  closeDialogOnContentClick
 }) => {
   const [isOpen, setIsOpen] = useState(open);
   const onMenuChangeCallback = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen, setIsOpen]);
 
+
+  const hideTrigger = useMemo(() => {
+    const triggers = ["click", "clickoutside", "esckey"];
+    if (closeDialogOnContentClick) {
+      triggers.push("onContentClick");
+    }
+    return triggers;
+  }, [closeDialogOnContentClick]);
+
   const Icon = component;
   const iconSize = size - 4;
 
   return (
     <Dialog
-      position="bottom"
+      position="bottom-start"
+      startingEdge="bottom"
       animationType="expand"
       content={children}
-      showTrigger={["click", "enter"]}
-      hideTrigger={["click", "clickoutside", "onContentClick", "esckey"]}
+      showTrigger={showTrigger}
+      hideTrigger={hideTrigger}
       onDialogDidShow={onMenuChangeCallback}
       onDialogDidHide={onMenuChangeCallback}
       referenceWrapperClassName={BEMClass("reference-icon")}
@@ -83,7 +96,8 @@ MenuButton.propTypes = {
   ]),
   open: PropTypes.bool,
   zIndex: PropTypes.number,
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  closeDialogOnContentClick: PropTypes.bool
 };
 MenuButton.defaultProps = {
   componentClassName: "",
@@ -91,7 +105,8 @@ MenuButton.defaultProps = {
   size: MenuButtonSizes.SMALL,
   open: false,
   zIndex: 100,
-  ariaLabel: "Menu Button"
+  ariaLabel: "Menu Button",
+  closeDialogOnContentClick: false
 };
 
 export default MenuButton;
