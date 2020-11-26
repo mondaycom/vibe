@@ -1,11 +1,5 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, {
-  forwardRef,
-  useRef,
-  useEffect,
-  useMemo,
-  useCallback
-} from "react";
+import React, { forwardRef, useRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
