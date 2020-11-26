@@ -72,6 +72,7 @@ Menu.defaultProps = {
   size: MENU_SIZES.MEDIUM,
   tabIndex: 0,
   ariaLabel: "Menu",
+  children: []
 };
 Menu.propTypes = {
   classname: PropTypes.string,

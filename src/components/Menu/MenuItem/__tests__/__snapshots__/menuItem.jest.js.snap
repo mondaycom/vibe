@@ -2,7 +2,7 @@
 
 exports[`Snapshots renders correctly when disabled 1`] = `
 <div
-  className="monday-style-menu-item disabled"
+  className="monday-style-menu-item monday-style-menu-item--disabled"
   onClick={[Function]}
 >
   <div

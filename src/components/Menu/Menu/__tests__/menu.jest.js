@@ -1,12 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  act,
-} from "@testing-library/react";
+import { cleanup, fireEvent, render } from "@testing-library/react";
+import { act } from "@testing-library/react-hooks";
 import Menu from "../Menu";
 import MenuItem from "../../MenuItem/MenuItem";
 import MenuTitle from "../../MenuTitle/MenuTitle";
@@ -79,37 +74,33 @@ describe("<Menu />", () => {
     expect(menuItem2OnClickMock.mock.calls.length).toBe(0);
   });
 
-  // it("calls onClick only for the selected menu item when using the enter", () => {
-  //   const menuComponent = renderComponent();
-  //   const menuElement = menuComponent.getByLabelText("menu");
-  //   const menuItem = menuComponent.getByText(menuItem1Name);
+  it("calls onClick only for the selected menu item when using the enter", () => {
+    const menuComponent = renderComponent();
+    const menuItem = menuComponent.getByText(menuItem1Name);
 
-  //   act(() => {
-  //     fireEvent.focus(menuComponent.container);
-  //     fireEvent.mouseOver(menuItem);
-  //     jest.advanceTimersByTime(1000);
-  //     fireEvent.keyDown(menuItem, { key: "Enter", keyCode: 13 });
-  //   });
+    act(() => {
+      fireEvent.mouseOver(menuItem);
+      jest.advanceTimersByTime(1000);
+      fireEvent.keyUp(menuItem, { key: "Enter" });
+    });
 
-  //   jest.advanceTimersByTime(1000);
-  //   expect(menuItem1OnClickMock.mock.calls.length).toBe(1);
-  //   expect(menuItem2OnClickMock.mock.calls.length).toBe(0);
-  // });
+    jest.advanceTimersByTime(1000);
+    expect(menuItem1OnClickMock.mock.calls.length).toBe(1);
+    expect(menuItem2OnClickMock.mock.calls.length).toBe(0);
+  });
 
-  // it("calls onClick only for the selected menu item when using keyboard", () => {
-  //   const menuComponent = renderComponent();
-  //   const menuElement = menuComponent.getByLabelText("menu");
+  it("calls onClick only for the selected menu item when using keyboard", () => {
+    const menuComponent = renderComponent();
+    const menuElement = menuComponent.getByLabelText("menu");
 
-  //   act(() => {
-  //     fireEvent.focus(menuElement);
-  //     jest.advanceTimersByTime(1000);
-  //     fireEvent.keyDown(menuElement, { key: "ArrowDown" });
-  //     jest.advanceTimersByTime(1000);
-  //     fireEvent.keyDown(menuElement, { key: "Enter" });
-  //   });
+    act(() => {
+      fireEvent.keyUp(menuElement, { key: "ArrowDown" });
+      jest.advanceTimersByTime(1000);
+      fireEvent.keyUp(menuElement, { key: "Enter" });
+    });
 
-  //   jest.advanceTimersByTime(1000);
-  //   expect(menuItem1OnClickMock.mock.calls.length).toBe(1);
-  //   expect(menuItem2OnClickMock.mock.calls.length).toBe(0);
-  // });
+    jest.advanceTimersByTime(1000);
+    expect(menuItem1OnClickMock.mock.calls.length).toBe(1);
+    expect(menuItem2OnClickMock.mock.calls.length).toBe(0);
+  });
 });
