@@ -32,7 +32,7 @@ const AttentionBox = ({
             `${classNameWithType}__title-container__icon`
           )}
           ignoreFocusStyle
-          iconSize={"24"}
+          iconSize="24"
         />
         <span
           className={cx(

@@ -324,7 +324,7 @@ export default class Dialog extends PureComponent {
               }
             ]}
           >
-            {({ placement, style, ref, arrowProps, ...props }) => {
+            {({ placement, style, ref, arrowProps }) => {
               if (!this.isShown() && placement) {
                 return null;
               }

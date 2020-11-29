@@ -157,7 +157,9 @@ const Button = forwardRef(
       marginRight,
       marginLeft,
       noSidePadding,
-      preventClickAnimation
+      preventClickAnimation,
+      leftFlat,
+      rightFlat
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
@@ -193,7 +195,8 @@ const Button = forwardRef(
       ariaLabel,
       loading,
       onFocus,
-      onBlur
+      onBlur,
+      mergedRef
     ]);
 
     if (loading) {

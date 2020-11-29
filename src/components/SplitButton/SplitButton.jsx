@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 // Libraries import
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
@@ -14,7 +15,7 @@ import { isInsideClass } from "../../utils/dom-utils";
 import useKeyEvent from "../../hooks/useKeyEvent";
 
 // Components import
-import Button, { BUTTON_PROP_TYPES } from "../Button/Button";
+import Button from "../Button/Button";
 import Dialog from "../Dialog/Dialog";
 import useEventListener from "../../hooks/useEventListener";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
@@ -86,7 +87,7 @@ const SplitButton = ({
       if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
-    [setIsActive, disabled]
+    [setIsActive, shouldSetActive]
   );
   const setNotActive = useCallback(() => setIsActive(false), [setIsActive]);
   const setActiveOnEnter = useCallback(
@@ -94,7 +95,7 @@ const SplitButton = ({
       if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
-    [setIsActive, disabled]
+    [setIsActive, shouldSetActive]
   );
 
   const showDialog = useCallback(() => {
