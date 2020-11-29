@@ -20,7 +20,8 @@ const MenuButton = ({
   open,
   zIndex,
   ariaLabel,
-  closeDialogOnContentClick
+  closeDialogOnContentClick,
+  dialogClassName
 }) => {
   const [isOpen, setIsOpen] = useState(open);
   const onMenuChangeCallback = useCallback(() => {
@@ -51,6 +52,7 @@ const MenuButton = ({
 
   return (
     <Dialog
+      wrapperClassName={dialogClassName}
       position="bottom-start"
       startingEdge="bottom"
       animationType="expand"
@@ -108,16 +110,21 @@ MenuButton.propTypes = {
   open: PropTypes.bool,
   zIndex: PropTypes.number,
   ariaLabel: PropTypes.string,
-  closeDialogOnContentClick: PropTypes.bool
+  closeDialogOnContentClick: PropTypes.bool,
+  /*
+    Class name to provide the element which wraps the popover/modal/dialog
+   */
+  dialogClassName: PropTypes.string
 };
 MenuButton.defaultProps = {
   componentClassName: "",
   component: Menu,
   size: MenuButtonSizes.SMALL,
   open: false,
-  zIndex: 100,
+  zIndex: null,
   ariaLabel: "Menu Button",
-  closeDialogOnContentClick: false
+  closeDialogOnContentClick: false,
+  dialogClassName: ""
 };
 
 export default MenuButton;

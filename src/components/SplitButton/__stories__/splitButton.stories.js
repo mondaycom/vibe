@@ -262,7 +262,7 @@ export const SplitButtonsWithIcons = () => (
 );
 
 export const Sandbox = () => (
-  <div>
+  <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
     <SplitButton
       id="Knobs"
       size={select(
@@ -280,6 +280,11 @@ export const Sandbox = () => (
         Object.values(SplitButton.kinds),
         SplitButton.kinds.PRIMARY
       )}
+      secondaryDialogPosition={select("Seconday Dialog Alignment", {
+        BOTTOM_START: SplitButton.secondaryPositions.BOTTOM_START,
+        BOTTOM_MIDDLE: SplitButton.secondaryPositions.BOTTOM_MIDDLE,
+        BOTTOM_END: SplitButton.secondaryPositions.BOTTOM_END
+      })}
       disabled={boolean("Disabled", false)}
       shouldCloseOnClickInsideDialog={boolean(
         "Should close dialog on click inside content",
