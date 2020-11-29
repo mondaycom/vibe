@@ -16,3 +16,5 @@ export { default as SplitButton } from "./SplitButton/SplitButton";
 export { default as Counter } from "./Counter/Counter";
 export { default as AttentionBox } from "./AttentionBox/AttentionBox";
 export { default as Label } from "./Label/Label";
+
+export { default as DialogContentContainer } from "./DialogContentContainer/DialogContentContainer";

@@ -21,6 +21,7 @@ import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 
 // SCSS import
 import "./SplitButton.scss";
+import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 
 // Constants
 const DIALOG_MOVE_BY = { main: 8, secondary: 0 };
@@ -145,6 +146,21 @@ const SplitButton = ({
     return DEFAULT_DIALOG_HIDE_TRIGGER;
   }, [shouldCloseOnClickInsideDialog]);
 
+  const actionsContent = useCallback(() => {
+    const content =
+      typeof secondaryDialogContent === "function"
+        ? secondaryDialogContent()
+        : secondaryDialogContent;
+    return (
+      <DialogContentContainer
+        type={DialogContentContainer.types.POPOVER}
+        size={DialogContentContainer.sizes.MEDIUM}
+      >
+        {content}
+      </DialogContentContainer>
+    );
+  }, [secondaryDialogContent]);
+
   return (
     <div className={classNames} ref={ref} role="button">
       <Button
@@ -172,7 +188,7 @@ const SplitButton = ({
             // open={isDialogOpen}
             wrapperClassName={secondaryDialogClassName}
             zIndex={zIndex}
-            content={secondaryDialogContent}
+            content={actionsContent}
             position={DIALOG_POSITION}
             startingEdge="bottom"
             animationType="expand"

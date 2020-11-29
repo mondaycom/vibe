@@ -19,7 +19,7 @@ $arrow-size-md: 16px;
   display: inline-block;
   border-radius: $border-radius-small;
   padding: $spacing-small $spacing-medium;
-  box-shadow: $box-shadow-small;
+  @include box-shadow-medium();
   @include font-input();
   max-width: 50vw;
   word-break: break-word;

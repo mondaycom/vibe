@@ -4,6 +4,7 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+	DialogContentContainer: "/src/components/DialogContentContainer.jsx",
   AttentionBox: "/src/components/AttentionBox/AttentionBox.jsx",
   Label: "/src/components/Label/Label.jsx",
   MenuButton: "/src/components/MenuButton/MenuButton.jsx",

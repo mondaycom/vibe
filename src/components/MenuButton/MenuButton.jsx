@@ -4,6 +4,7 @@ import cx from "classnames";
 import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
 import "./MenuButton.scss";
+import { DialogContentContainer } from "../index";
 
 function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
@@ -34,6 +35,17 @@ const MenuButton = ({
     return triggers;
   }, [closeDialogOnContentClick]);
 
+  const content = useMemo(() => {
+    return (
+      <DialogContentContainer
+        size={DialogContentContainer.sizes.MEDIUM}
+        type={DialogContentContainer.types.POPOVER}
+      >
+        {children}
+      </DialogContentContainer>
+    );
+  }, [children]);
+
   const Icon = component;
   const iconSize = size - 4;
 
@@ -42,7 +54,7 @@ const MenuButton = ({
       position="bottom-start"
       startingEdge="bottom"
       animationType="expand"
-      content={children}
+      content={content}
       showTrigger={showTrigger}
       hideTrigger={hideTrigger}
       onDialogDidShow={onMenuChangeCallback}

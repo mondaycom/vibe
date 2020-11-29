@@ -33,7 +33,9 @@ $theme: (
   "text-color-on-primary": $snow_white,
   "inverted-color-background": $mud_black,
   "text-color-on-inverted": $snow_white,
-  "dark-background-on-secondary-color": $riverstone_gray
+  "dark-background-on-secondary-color": $riverstone_gray,
+  "dialog-background-color": $snow_white,
+  "modal-background-color": $snow_white
 );
 
 $theme-var: (
@@ -67,7 +69,9 @@ $theme-var: (
   "inverted-color-background": var(--inverted-color-background),
   "text-color-on-inverted": var(--text-color-on-inverted),
   "dark-background-on-secondary-color":
-    var(--dark-background-on-secondary-color)
+    var(--dark-background-on-secondary-color),
+  "dialog-background-color": var(--dialog-background-color),
+  "modal-background-color": var(--modal-background-color)
 );
 
 @mixin theme-prop(
