@@ -296,7 +296,9 @@ export default class Dialog extends PureComponent {
                 enabled: true,
                 phase: "write",
                 fn({ state }) {
-                  state.styles.popper.zIndex = zIndex;
+                  if (zIndex) {
+                    state.styles.popper.zIndex = zIndex;
+                  }
                   return state;
                 }
               },
@@ -398,7 +400,7 @@ Dialog.defaultProps = {
   onClickOutside: NOOP,
   onContentClick: NOOP,
   closeOnClickInside: false,
-  zIndex: 999999
+  zIndex: null
 };
 
 function chainOnPropsAndInstance(name, instance, props) {
