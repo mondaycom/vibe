@@ -11,7 +11,7 @@ import {
 } from "../../storybook-helpers";
 import { renderCheckboxes } from "./checkbox.stories.renderCheckboxes";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
-
+import "./checkbox.stories.scss";
 
 export const Sandbox = () => {
   const checkboxesCount = number("Checkboxes Count", 5);
@@ -21,16 +21,16 @@ export const Sandbox = () => {
 export const States = () => {
   return (
     <StoryWrapper>
-      <StoryStateRow componentDescription="Regular">
-        <Checkbox
-          value="1"
-          label="Option"
-          name="regular"
-          componentClassName="monday-style-regular"
-          disabled={false}
-        />
+      <StoryStateRow
+        componentDescription="Regular"
+        componentClassName="monday-story-checkbox__state"
+      >
+        <Checkbox value="1" label="Option" name="regular" disabled={false} />
       </StoryStateRow>
-      <StoryStateRow componentDescription="Selected">
+      <StoryStateRow
+        componentDescription="Selected"
+        componentClassName="monday-story-checkbox__state"
+      >
         <Checkbox
           value="1"
           label="Option"
@@ -40,7 +40,49 @@ export const States = () => {
           componentClassName="monday-style-selected"
         />
       </StoryStateRow>
-      <StoryStateRow componentDescription="Disabled">
+      <StoryStateRow
+        componentDescription="Hover"
+        componentClassName="monday-story-checkbox__state monday-story-checkbox--hover"
+      >
+        <Checkbox
+          value="1"
+          label="Option"
+          name="selected"
+          disabled={false}
+          componentClassName="monday-style-selected"
+        />
+      </StoryStateRow>
+      <StoryStateRow
+        componentDescription="Hover selected"
+        componentClassName="monday-story-checkbox__state monday-story-checkbox--selected-hover"
+      >
+        <Checkbox
+          value="1"
+          label="Option"
+          name="selected"
+          defaultChecked={true}
+          disabled={false}
+          componentClassName="monday-style-selected"
+        />
+      </StoryStateRow>
+      <StoryStateRow
+        componentDescription="Selected"
+        componentClassName="monday-story-checkbox__state"
+      >
+        <Checkbox
+          value="1"
+          label="Option"
+          name="selected"
+          defaultChecked={true}
+          disabled={false}
+          componentClassName="monday-style-selected"
+        />
+      </StoryStateRow>
+
+      <StoryStateRow
+        componentDescription="Disabled"
+        componentClassName="monday-story-checkbox__state"
+      >
         <Checkbox
           value="1"
           label="Option"
@@ -48,7 +90,10 @@ export const States = () => {
           disabled={true}
         />
       </StoryStateRow>
-      <StoryStateRow componentDescription="Disabled selected">
+      <StoryStateRow
+        componentDescription="Disabled selected"
+        componentClassName="monday-story-checkbox__state"
+      >
         <Checkbox
           value="1"
           label="Option"
@@ -62,55 +107,74 @@ export const States = () => {
 };
 
 export const OnChange = () => {
-    const [selected, setsSelected] = useState(true);
-    return (
-        <div>
-            <Checkbox
-                id="Knobs"
-                label={text("label", "text")}
-                checked={selected}
-                disabled={boolean("isDisabled", false)}
-                onChange={() => setsSelected(!selected)}
-            />
-        </div>
-    );
+  const [selected, setsSelected] = useState(true);
+  return (
+    <div>
+      <Checkbox
+        id="Knobs"
+        label={text("label", "text")}
+        checked={selected}
+        disabled={boolean("isDisabled", false)}
+        onChange={() => setsSelected(!selected)}
+      />
+    </div>
+  );
 };
 
 export const check = () => (
-    <section className="checkboxes-section">
-        <h3>Option #1: Use fieldsets to group options</h3>
-        <fieldset>
-            <legend>Who is your favorite 19th century scientist</legend>
-            <div className="checkbox column">
-                <Checkbox id="bell" name="scientist" value="bell" label="Alexander Graham Bell"/>
-                <Checkbox id="bell" name="scientist" value="curry" label="Marie Curie"/>
-                <Checkbox id="bell" name="scientist" value="nobel" label="Alfred Nobel"/>
-            </div>
-        </fieldset>
-    </section>
+  <section className="checkboxes-section">
+    <h3>Option #1: Use fieldsets to group options</h3>
+    <fieldset>
+      <legend>Who is your favorite 19th century scientist</legend>
+      <div className="checkbox column">
+        <Checkbox
+          id="bell"
+          name="scientist"
+          value="bell"
+          label="Alexander Graham Bell"
+        />
+        <Checkbox
+          id="bell"
+          name="scientist"
+          value="curry"
+          label="Marie Curie"
+        />
+        <Checkbox
+          id="bell"
+          name="scientist"
+          value="nobel"
+          label="Alfred Nobel"
+        />
+        />
+      </div>
+    </fieldset>
+  </section>
 );
 
-
-export const RTLSupport = () => (
-  <div>
-    <div style={{ direction: "rtl" }}>
-      <Checkbox
-        id="RTLKnobs"
-        label={text("label", "text")}
-        checked={boolean("checked", true)}
-        disabled={boolean("disabled", false)}
-      />
-    </div>
-    <div style={{ direction: "ltr" }}>
-      <Checkbox
-        id="LTRKnobs"
-        label={text("label", "text")}
-        checked={boolean("checked", true)}
-        disabled={boolean("disabled", false)}
-      />
-    </div>
+export const RTLSupport = () => [
+  <div
+    className="monday-story-checkbox__directions-wrapper"
+    style={{ direction: "rtl" }}
+  >
+    >
+    <Checkbox
+      id="RTLKnobs"
+      label={text("LTR label", "טקסט בעברית")}
+      disabled={boolean("disabled", false)}
+    />
+  </div>,
+  <div
+    className="monday-story-checkbox__directions-wrapper"
+    style={{ direction: "ltr" }}
+  >
+    >
+    <Checkbox
+      id="LTRKnobs"
+      label={text("RTL label", "English text")}
+      disabled={boolean("disabled", false)}
+    />
   </div>
-);
+];
 
 export default {
   title: "Components/Checkbox",

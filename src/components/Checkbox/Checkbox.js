@@ -33,9 +33,6 @@ export const Checkbox = ({
     if (isFirstRender) setIsFirstRender(false);
   }, [isFirstRender]);
 
-  if (!isFirstRender)
-    checkboxClassNames.push(`${BASE_CLASS_NAME}__checkbox--loaded`);
-
   return (
     <label className={cx(BASE_CLASS_NAME, componentClassName)}>
       <input
