@@ -10,29 +10,12 @@ import {
   Divider
 } from "../../storybook-helpers";
 import { renderCheckboxes } from "./checkbox.stories.renderCheckboxes";
-import DarkThemeContainer from "../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
-import RadioButtonStoryLine from "../../RadioButton/__stories__/RadioButtonStoryLine";
-import RadioButton from "../../RadioButton/RadioButton";
+
 
 export const Sandbox = () => {
   const checkboxesCount = number("Checkboxes Count", 5);
   return renderCheckboxes(checkboxesCount, { includeKnobs: true });
-};
-
-export const OnChange = () => {
-  const [selected, setsSelected] = useState(true);
-  return (
-    <div>
-      <Checkbox
-        id="Knobs"
-        label={text("label", "text")}
-        checked={selected}
-        disabled={boolean("isDisabled", false)}
-        onChange={() => setsSelected(!selected)}
-      />
-    </div>
-  );
 };
 
 export const States = () => {
@@ -68,7 +51,7 @@ export const States = () => {
       <StoryStateRow componentDescription="Disabled selected">
         <Checkbox
           value="1"
-          text="Option"
+          label="Option"
           name="disabledSelected"
           disabled={true}
           defaultChecked={true}
@@ -77,6 +60,36 @@ export const States = () => {
     </StoryWrapper>
   );
 };
+
+export const OnChange = () => {
+    const [selected, setsSelected] = useState(true);
+    return (
+        <div>
+            <Checkbox
+                id="Knobs"
+                label={text("label", "text")}
+                checked={selected}
+                disabled={boolean("isDisabled", false)}
+                onChange={() => setsSelected(!selected)}
+            />
+        </div>
+    );
+};
+
+export const check = () => (
+    <section className="checkboxes-section">
+        <h3>Option #1: Use fieldsets to group options</h3>
+        <fieldset>
+            <legend>Who is your favorite 19th century scientist</legend>
+            <div className="checkbox column">
+                <Checkbox id="bell" name="scientist" value="bell" label="Alexander Graham Bell"/>
+                <Checkbox id="bell" name="scientist" value="curry" label="Marie Curie"/>
+                <Checkbox id="bell" name="scientist" value="nobel" label="Alfred Nobel"/>
+            </div>
+        </fieldset>
+    </section>
+);
+
 
 export const RTLSupport = () => (
   <div>

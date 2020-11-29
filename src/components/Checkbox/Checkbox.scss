@@ -4,6 +4,15 @@
 
 $checkbox-size: 16px;
 
+@mixin hover-selected {
+  background-color: var(--primary-hover-color);
+  border-color: transparent;
+}
+
+@mixin hover-unselected {
+  border-color: var(--color-mud_black);
+}
+
 .monday-style-checkbox {
   position: relative;
   display: flex;
@@ -12,9 +21,20 @@ $checkbox-size: 16px;
   height: min-content;
 
   .monday-style-checkbox__input {
-    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    height: 0;
     position: absolute;
 
+    &:focus {
+      & + .monday-style-checkbox__checkbox {
+        @include hover-unselected;
+      }
+
+      &:checked + .monday-style-checkbox__checkbox{
+        @include hover-selected;
+      }
+    }
     &:checked {
       & + .monday-style-checkbox {
 
@@ -23,8 +43,7 @@ $checkbox-size: 16px;
           border-color: transparent;
 
           &:hover {
-            background-color: var(--primary-hover-color);
-            border-color: transparent;
+            @include hover-selected;
 
             &:after {
               background-color: var(--primary-hover-color);
@@ -102,8 +121,7 @@ $checkbox-size: 16px;
     }
 
     &:hover {
-      border-color: var(--color-mud_black);
-
+      @include hover-unselected;
     }
   }
 
