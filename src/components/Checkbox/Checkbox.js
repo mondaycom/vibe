@@ -20,7 +20,7 @@ export const Checkbox = ({
   const checkboxClassNames = [`${BASE_CLASS_NAME}__checkbox`];
   let overrideDefaultChecked = defaultChecked;
 
-  // if component did not receive default checked and checked therfore  choose default checked as
+  // If component did not receive default checked and checked props, choose default checked as
   // default behavior (handle isChecked logic inside input) and set default value
   if (overrideDefaultChecked == undefined && checked == undefined) {
     overrideDefaultChecked = false;
