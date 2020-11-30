@@ -20,16 +20,16 @@ export const Sandbox = () => {
 
 export const States = () => {
   return (
-    <StoryWrapper>
+    <StoryWrapper componentClassName="monday-style-story-checkbox__state-wrapper">
       <StoryStateRow
         componentDescription="Regular"
-        componentClassName="monday-story-checkbox__state"
+        componentClassName="monday-style-story-checkbox__state"
       >
         <Checkbox value="1" label="Option" name="regular" disabled={false} />
       </StoryStateRow>
       <StoryStateRow
         componentDescription="Selected"
-        componentClassName="monday-story-checkbox__state"
+        componentClassName="monday-style-story-checkbox__state"
       >
         <Checkbox
           value="1"
@@ -42,19 +42,19 @@ export const States = () => {
       </StoryStateRow>
       <StoryStateRow
         componentDescription="Hover"
-        componentClassName="monday-story-checkbox__state monday-story-checkbox--hover"
+        componentClassName="monday-style-story-checkbox__state monday-style-story-checkbox__state--hover"
       >
         <Checkbox
           value="1"
           label="Option"
           name="selected"
           disabled={false}
-          componentClassName="monday-style-selected"
+          componentClassName="monday-style-story-selected"
         />
       </StoryStateRow>
       <StoryStateRow
         componentDescription="Hover selected"
-        componentClassName="monday-story-checkbox__state monday-story-checkbox--selected-hover"
+        componentClassName="monday-style-story-checkbox__state monday-style-story-checkbox__state--selected-hover"
       >
         <Checkbox
           value="1"
@@ -67,7 +67,7 @@ export const States = () => {
       </StoryStateRow>
       <StoryStateRow
         componentDescription="Selected"
-        componentClassName="monday-story-checkbox__state"
+        componentClassName="monday-style-story-checkbox__state"
       >
         <Checkbox
           value="1"
@@ -81,7 +81,7 @@ export const States = () => {
 
       <StoryStateRow
         componentDescription="Disabled"
-        componentClassName="monday-story-checkbox__state"
+        componentClassName="monday-style-story-checkbox__state"
       >
         <Checkbox
           value="1"
@@ -92,7 +92,7 @@ export const States = () => {
       </StoryStateRow>
       <StoryStateRow
         componentDescription="Disabled selected"
-        componentClassName="monday-story-checkbox__state"
+        componentClassName="monday-style-story-checkbox__state"
       >
         <Checkbox
           value="1"
@@ -109,7 +109,7 @@ export const States = () => {
 export const OnChange = () => {
   const [selected, setsSelected] = useState(true);
   return (
-    <div>
+    <StoryWrapper>
       <Checkbox
         id="Knobs"
         label={text("label", "text")}
@@ -120,13 +120,13 @@ export const OnChange = () => {
           setsSelected(!selected);
         }}
       />
-    </div>
+    </StoryWrapper>
   );
 };
 
 export const RTLSupport = () => [
   <div
-    className="monday-story-checkbox__directions-wrapper"
+    className="monday-style-story-checkbox__directions-wrapper"
     style={{ direction: "rtl" }}
   >
     <Checkbox
@@ -136,7 +136,7 @@ export const RTLSupport = () => [
     />
   </div>,
   <div
-    className="monday-story-checkbox__directions-wrapper"
+    className="monday-style-story-checkbox__directions-wrapper"
     style={{ direction: "ltr" }}
   >
     <Checkbox

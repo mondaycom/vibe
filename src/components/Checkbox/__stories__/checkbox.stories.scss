@@ -1,22 +1,14 @@
 @import "../Checkbox.scss";
 
-.monday-style-story-wrapper {
-  .monday-story-checkbox {
-    &--hover .monday-style-checkbox__checkbox {
-      @include hover-unselected;
-    }
+.monday-style-story-checkbox {
+  &__directions-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 12px;
+  }
 
-    &--selected-hover .monday-style-checkbox__input:checked + .monday-style-checkbox__checkbox {
-      @include hover-selected;
-    }
-
-    &__directions-wrapper {
-      display: flex;
-      justify-content: center;
-      margin: 12px;
-    }
-
-    &__state {
+  &__state-wrapper {
+    .monday-style-story-checkbox__state {
       position: relative;
 
       &:after {
@@ -26,6 +18,15 @@
         height: 100%;
         opacity: 0;
       }
+
+      &--hover .monday-style-checkbox__checkbox {
+        @include hover-unselected;
+      }
+
+      &--selected-hover .monday-style-checkbox__input:checked + .monday-style-checkbox__checkbox {
+        @include hover-selected;
+      }
+
     }
   }
 }
