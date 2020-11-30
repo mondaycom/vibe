@@ -36,8 +36,11 @@ $checkbox-size: 16px;
       }
     }
     &:checked {
-      & + .monday-style-checkbox {
+      &:focus + .monday-style-checkbox__checkbox:after {
+        background-color: var(--primary-hover-color);
+      }
 
+      & + .monday-style-checkbox {
         &__checkbox {
           background-color: var(--primary-color);
           border-color: transparent;

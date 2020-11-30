@@ -115,48 +115,20 @@ export const OnChange = () => {
         label={text("label", "text")}
         checked={selected}
         disabled={boolean("isDisabled", false)}
-        onChange={() => setsSelected(!selected)}
+        onChange={e => {
+          action("onChange")(e);
+          setsSelected(!selected);
+        }}
       />
     </div>
   );
 };
-
-export const check = () => (
-  <section className="checkboxes-section">
-    <h3>Option #1: Use fieldsets to group options</h3>
-    <fieldset>
-      <legend>Who is your favorite 19th century scientist</legend>
-      <div className="checkbox column">
-        <Checkbox
-          id="bell"
-          name="scientist"
-          value="bell"
-          label="Alexander Graham Bell"
-        />
-        <Checkbox
-          id="bell"
-          name="scientist"
-          value="curry"
-          label="Marie Curie"
-        />
-        <Checkbox
-          id="bell"
-          name="scientist"
-          value="nobel"
-          label="Alfred Nobel"
-        />
-        />
-      </div>
-    </fieldset>
-  </section>
-);
 
 export const RTLSupport = () => [
   <div
     className="monday-story-checkbox__directions-wrapper"
     style={{ direction: "rtl" }}
   >
-    >
     <Checkbox
       id="RTLKnobs"
       label={text("LTR label", "טקסט בעברית")}
@@ -167,7 +139,6 @@ export const RTLSupport = () => [
     className="monday-story-checkbox__directions-wrapper"
     style={{ direction: "ltr" }}
   >
-    >
     <Checkbox
       id="LTRKnobs"
       label={text("RTL label", "English text")}
@@ -178,5 +149,6 @@ export const RTLSupport = () => [
 
 export default {
   title: "Components/Checkbox",
-  component: Checkbox
+  component: Checkbox,
+  argTypes: { onClick: { action: "onChange" } }
 };
