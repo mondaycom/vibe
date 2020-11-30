@@ -14,7 +14,7 @@ import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper
 import "./checkbox.stories.scss";
 
 export const Sandbox = () => {
-  const checkedCount = number("Checkboxes (checked prop) Count", 1);
+  const checkedCount = number("Checkboxes (checked prop) Count", 5);
 
   const checkedComps = renderCheckboxes(
     checkedCount,
