@@ -26,13 +26,6 @@ export const Checkbox = ({
     overrideDefaultChecked = false;
   }
 
-  // will replaced with useFirstRender hook
-  const [isFirstRender, setIsFirstRender] = useState(true);
-
-  useEffect(() => {
-    if (isFirstRender) setIsFirstRender(false);
-  }, [isFirstRender]);
-
   return (
     <label className={cx(BASE_CLASS_NAME, componentClassName)}>
       <input
