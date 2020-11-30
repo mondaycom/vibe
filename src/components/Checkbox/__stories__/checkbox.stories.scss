@@ -4,7 +4,7 @@
   &__directions-wrapper {
     display: flex;
     justify-content: center;
-    margin: 12px;
+    margin: 10px;
   }
 
   &__state-wrapper {
@@ -28,5 +28,10 @@
       }
 
     }
+  }
+
+  &__sandbox-wrapper {
+    margin: 15px;
+    width: 70%;
   }
 }
