@@ -19,7 +19,7 @@ $arrow-size-md: 16px;
   display: inline-block;
   border-radius: $border-radius-small;
   padding: $spacing-small $spacing-medium;
-  box-shadow: $box-shadow-small;
+  @include box-shadow-medium();
   @include font-input();
   max-width: 50vw;
   word-break: break-word;
@@ -37,8 +37,8 @@ $arrow-size-md: 16px;
 
 .monday-style-tooltip-dark,
 .monday-style-arrow-dark {
-  @include theme-prop(background-color, dark-color);
-  @include theme-prop(color, text-color-on-primary);
+  @include theme-prop(background-color, inverted-color-background);
+  @include theme-prop(color, text-color-on-inverted);
 }
 
 .monday-style-tooltip-white,

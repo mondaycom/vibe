@@ -1,10 +1,17 @@
 import React from "react";
+import { select, boolean } from "@storybook/addon-knobs";
 import MenuButton from "../MenuButton";
 import { ComponentStateDescription, FlexLayout } from "../../storybook-helpers";
-import { select, boolean } from "@storybook/addon-knobs";
-import StoryDialogContent from "../../Dialog/__stories__/StoryComponents/StoryDialogContent";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import "./menuButton.style.scss";
+
+function MenuButtonContent() {
+  return (
+    <div className="menu-button-content-story">
+      I can be whatever i want to be!
+    </div>
+  );
+}
 
 export const Sandbox = () => (
   <div>
@@ -17,7 +24,7 @@ export const Sandbox = () => (
       )}
       ariaLabel={"Default menu icon"}
     >
-      <StoryDialogContent />
+      <MenuButtonContent />
     </MenuButton>
   </div>
 );
@@ -28,7 +35,7 @@ export const DifferentIcon = () => (
       component={DropdownChevronDown}
       ariaLabel={"chevron menu icon menu button"}
     >
-      <StoryDialogContent />
+      <MenuButtonContent />
     </MenuButton>
   </div>
 );
@@ -40,7 +47,7 @@ export const Sizes = () => (
         size={MenuButton.sizes.XXS}
         ariaLabel={"extra extra small menu button"}
       >
-        <StoryDialogContent />
+        <MenuButtonContent />
       </MenuButton>
       <ComponentStateDescription title={"XXS"} />
     </section>
@@ -49,13 +56,13 @@ export const Sizes = () => (
         size={MenuButton.sizes.XS}
         ariaLabel={"extra small menu button"}
       >
-        <StoryDialogContent />
+        <MenuButtonContent />
       </MenuButton>
       <ComponentStateDescription title={"XS"} />
     </section>
     <section>
       <MenuButton size={MenuButton.sizes.SMALL} ariaLabel={"small menu button"}>
-        <StoryDialogContent />
+        <MenuButtonContent />
       </MenuButton>
       <ComponentStateDescription title={"SMALL"} />
     </section>
@@ -64,13 +71,13 @@ export const Sizes = () => (
         size={MenuButton.sizes.MEDIUM}
         ariaLabel={"medium menu button"}
       >
-        <StoryDialogContent />
+        <MenuButtonContent />
       </MenuButton>
       <ComponentStateDescription title={"MEDIUM"} />
     </section>
     <section>
       <MenuButton size={MenuButton.sizes.LARGE} ariaLabel={"large menu button"}>
-        <StoryDialogContent />
+        <MenuButtonContent />
       </MenuButton>
       <ComponentStateDescription title={"LARGE"} />
     </section>
@@ -78,6 +85,6 @@ export const Sizes = () => (
 );
 
 export default {
-  title: "Components/MenuButton",
+  title: "Components|MenuButton",
   component: MenuButton
 };

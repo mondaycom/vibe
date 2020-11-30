@@ -28,6 +28,6 @@ export const Sizes = () => {
 };
 
 export default {
-  title: "Components/Loader",
+  title: "Components|Loader",
   component: Loader
 };

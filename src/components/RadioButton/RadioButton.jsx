@@ -1,36 +1,35 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { baseClassName } from "./RadioButtonConstants";
 import "./RadioButton.scss";
 
-const RadioButton = ({
-  componentClassName,
-  text,
-  value,
-  name,
-  disabled,
-  defaultChecked,
-}) => {
-  return (
-    <label className={cx(baseClassName, componentClassName, { disabled })}>
-      <span className={`${baseClassName}__radio-input-container`}>
-        <input
-          className={`${baseClassName}__radio-input-container__radio-input`}
-          type="radio"
-          value={value}
-          name={name}
-          disabled={disabled}
-          defaultChecked={defaultChecked}
-        />
-        <span
-          className={`${baseClassName}__radio-input-container__radio-control`}
-        />
-      </span>
-      <span className={`${baseClassName}__radio-label`}>{text}</span>
-    </label>
-  );
-};
+const RadioButton = forwardRef(
+  (
+    { componentClassName, text, value, name, disabled, defaultChecked },
+    ref
+  ) => {
+    return (
+      <label className={cx(baseClassName, componentClassName, { disabled })}>
+        <span className={`${baseClassName}__radio-input-container`}>
+          <input
+            className={`${baseClassName}__radio-input-container__radio-input`}
+            type="radio"
+            value={value}
+            name={name}
+            disabled={disabled}
+            defaultChecked={defaultChecked}
+            ref={ref}
+          />
+          <span
+            className={`${baseClassName}__radio-input-container__radio-control`}
+          />
+        </span>
+        <span className={`${baseClassName}__radio-label`}>{text}</span>
+      </label>
+    );
+  }
+);
 
 RadioButton.defaultProps = {
   componentClassName: "",

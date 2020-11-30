@@ -1,5 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading,react/button-has-type */
-import React, { forwardRef, useCallback, useMemo, useRef } from "react";
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef
+} from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useResizeObserver from "../../hooks/useResizeObserver";
@@ -14,6 +20,7 @@ import {
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
+import { getParentBackgroundColorNotTransparent } from "./helper/dom-helpers";
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
@@ -62,6 +69,7 @@ const Button = forwardRef(
         const { blockSize, inlineSize } = borderBoxSize;
         const width = Math.max(inlineSize, MIN_BUTTON_HEIGHT_PX);
         const height = Math.max(blockSize, MIN_BUTTON_HEIGHT_PX);
+        if (!buttonRef.current) return;
         buttonRef.current.style.setProperty("--element-width", `${width}px`);
         buttonRef.current.style.setProperty("--element-height", `${height}px`);
       };
@@ -73,6 +81,16 @@ const Button = forwardRef(
       callback: updateCssVariables,
       debounceTime: UPDATE_CSS_VARIABLES_DEBOUNCE
     });
+    useEffect(() => {
+      if (color !== BUTTON_COLORS.ON_PRIMARY_COLOR) return;
+      if (kind !== BUTTON_TYPES.PRIMARY) return;
+      if (!buttonRef.current) return;
+
+      const buttonElement = buttonRef.current;
+      buttonElement.style.color = getParentBackgroundColorNotTransparent(
+        buttonElement
+      );
+    }, [kind, buttonRef, color]);
 
     const onMouseUp = useCallback(() => {
       const button = buttonRef.current;
@@ -140,7 +158,9 @@ const Button = forwardRef(
       marginRight,
       marginLeft,
       noSidePadding,
-      preventClickAnimation
+      preventClickAnimation,
+      leftFlat,
+      rightFlat
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
@@ -176,7 +196,8 @@ const Button = forwardRef(
       ariaLabel,
       loading,
       onFocus,
-      onBlur
+      onBlur,
+      mergedRef
     ]);
 
     if (loading) {

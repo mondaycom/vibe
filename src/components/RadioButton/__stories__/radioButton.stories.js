@@ -125,6 +125,6 @@ const renderRadioButtons = (count, options = {}) => {
 };
 
 export default {
-  title: "Components/RadioButton",
+  title: "Components|RadioButton",
   component: RadioButton,
 };

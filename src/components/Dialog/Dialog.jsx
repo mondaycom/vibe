@@ -196,10 +196,10 @@ export default class Dialog extends PureComponent {
     this.handleEvent("esckey", e.target);
   }
 
-  onClickOutside(e) {
+  onClickOutside(event) {
     const { onClickOutside } = this.props;
-    this.handleEvent("clickoutside", e.target);
-    onClickOutside(e);
+    this.handleEvent("clickoutside", event.target);
+    onClickOutside(event);
   }
 
   onDialogEnter() {
@@ -296,7 +296,9 @@ export default class Dialog extends PureComponent {
                 enabled: true,
                 phase: "write",
                 fn({ state }) {
-                  state.styles.popper.zIndex = zIndex;
+                  if (zIndex) {
+                    state.styles.popper.zIndex = zIndex;
+                  }
                   return state;
                 }
               },
@@ -322,7 +324,7 @@ export default class Dialog extends PureComponent {
               }
             ]}
           >
-            {({ placement, style, ref, arrowProps, ...props }) => {
+            {({ placement, style, ref, arrowProps }) => {
               if (!this.isShown() && placement) {
                 return null;
               }
@@ -398,7 +400,7 @@ Dialog.defaultProps = {
   onClickOutside: NOOP,
   onContentClick: NOOP,
   closeOnClickInside: false,
-  zIndex: 999999
+  zIndex: null
 };
 
 function chainOnPropsAndInstance(name, instance, props) {

@@ -1,0 +1,30 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/global-css-settings.scss";
+
+.dialog-content-container {
+  &--small {
+    padding: $spacing-small;
+  }
+
+  &--medium {
+    padding: $spacing-medium;
+  }
+
+
+  &--large {
+    padding: $spacing-large;
+  }
+
+  &--popover {
+    @include box-shadow-medium();
+    border-radius: $border-radius-medium;
+    @include theme-prop(background-color, dialog-background-color);
+  }
+
+  &--modal {
+    @include box-shadow-large();
+    border-radius: $border-radius-big;
+    @include theme-prop(background-color, modal-background-color);
+  }
+}

@@ -14,8 +14,10 @@ describe("TextField Tests", () => {
   let onChangeStub;
   let defaultPlaceHolder = "Place Holder Text";
   let clock;
+  let ref;
   beforeEach(() => {
     cleanup();
+    ref = {};
     onChangeStub = sinon.stub();
     clock = sinon.useFakeTimers();
     act(() => {
@@ -24,6 +26,7 @@ describe("TextField Tests", () => {
           placeholder={defaultPlaceHolder}
           onChange={onChangeStub}
           id="test"
+          ref={ref}
         />
       );
     });
@@ -76,6 +79,22 @@ describe("TextField Tests", () => {
     });
 
     expect(onChangeStub).to.not.be.called;
+  });
+
+  it("should be able to forward ref", () => {
+    const { rerender } = inputComponent;
+    act(() => {
+      inputComponent = rerender(
+        <TextField
+          placeholder={defaultPlaceHolder}
+          onChange={onChangeStub}
+          id="test"
+          debounceRate={200}
+          ref={ref}
+        />
+      );
+    });
+    expect(ref.current.className).to.include("input-component__input");
   });
 
   it("should call the debounced function after time passed (fake timers)", () => {

@@ -11,7 +11,7 @@ addParameters({
   },
   themes: [
     { name: 'Light', class: 'light-app-them', color: '#ffffff', default: true },
-    { name: 'Dark', class: 'dark-app-theme', color: '#1c1f3b' },
+    { name: 'Dark', class: 'dark-app-theme', color: '#000000' },
   ],
 });
 

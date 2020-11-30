@@ -2,11 +2,26 @@ import React from "react";
 import { boolean, select } from "@storybook/addon-knobs";
 import SplitButton from "../SplitButton";
 import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
-import StoryDialogContent from "../../Dialog/__stories__/StoryComponents/StoryDialogContent";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
+import { Info } from "../../Icon/Icons";
+import AttentionBox from "../../AttentionBox/AttentionBox";
+import "./splitButton.stories.scss";
+
+function SecondaryContentComponent() {
+  return (
+    <div className="split-button-story-content">
+      I can be whatever i want to be!
+    </div>
+  );
+}
 
 export const PrimaryButton = () => (
   <section>
+    <AttentionBox
+      title="Split Button extends Button prop types"
+      icon={Info}
+      text="This component extends the button prop types - size and kind will be applied to both buttons, main and secondary other will be applied to the main button"
+    />
     <StoryStateRow>
       <StoryStateColumn
         title="Small"
@@ -15,7 +30,8 @@ Post, perly , copy, readmore."
       >
         <SplitButton
           size={SplitButton.sizes.SMALL}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
+          secondaryDialogClassName="dialog-class-name"
         >
           Small
         </SplitButton>
@@ -23,7 +39,7 @@ Post, perly , copy, readmore."
       <StoryStateColumn title="Medium" description="Regular actions">
         <SplitButton
           size={SplitButton.sizes.MEDIUM}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Medium
         </SplitButton>
@@ -36,7 +52,7 @@ Important updates."
       >
         <SplitButton
           size={SplitButton.sizes.LARGE}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Large
         </SplitButton>
@@ -48,7 +64,7 @@ Important updates."
         <SplitButton
           disabled
           size={SplitButton.sizes.SMALL}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Small
         </SplitButton>
@@ -57,7 +73,7 @@ Important updates."
         <SplitButton
           disabled
           size={SplitButton.sizes.MEDIUM}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Medium
         </SplitButton>
@@ -66,7 +82,7 @@ Important updates."
         <SplitButton
           disabled
           size={SplitButton.sizes.LARGE}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Large
         </SplitButton>
@@ -82,7 +98,7 @@ export const SecondaryButton = () => (
         <SplitButton
           size={SplitButton.sizes.SMALL}
           kind={SplitButton.kinds.SECONDARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Small
         </SplitButton>
@@ -91,7 +107,7 @@ export const SecondaryButton = () => (
         <SplitButton
           size={SplitButton.sizes.MEDIUM}
           kind={SplitButton.kinds.SECONDARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Medium
         </SplitButton>
@@ -100,7 +116,7 @@ export const SecondaryButton = () => (
         <SplitButton
           size={SplitButton.sizes.LARGE}
           kind={SplitButton.kinds.SECONDARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Large
         </SplitButton>
@@ -113,7 +129,7 @@ export const SecondaryButton = () => (
           disabled
           size={SplitButton.sizes.SMALL}
           kind={SplitButton.kinds.SECONDARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Small
         </SplitButton>
@@ -123,7 +139,7 @@ export const SecondaryButton = () => (
           disabled
           size={SplitButton.sizes.MEDIUM}
           kind={SplitButton.kinds.SECONDARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Medium
         </SplitButton>
@@ -133,7 +149,7 @@ export const SecondaryButton = () => (
           disabled
           size={SplitButton.sizes.LARGE}
           kind={SplitButton.kinds.SECONDARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Large
         </SplitButton>
@@ -149,7 +165,7 @@ export const TertiaryButton = () => (
         <SplitButton
           size={SplitButton.sizes.SMALL}
           kind={SplitButton.kinds.TERTIARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Small
         </SplitButton>
@@ -158,7 +174,7 @@ export const TertiaryButton = () => (
         <SplitButton
           size={SplitButton.sizes.MEDIUM}
           kind={SplitButton.kinds.TERTIARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Medium
         </SplitButton>
@@ -167,7 +183,7 @@ export const TertiaryButton = () => (
         <SplitButton
           size={SplitButton.sizes.LARGE}
           kind={SplitButton.kinds.TERTIARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Large
         </SplitButton>
@@ -180,7 +196,7 @@ export const TertiaryButton = () => (
           disabled
           size={SplitButton.sizes.SMALL}
           kind={SplitButton.kinds.TERTIARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Small
         </SplitButton>
@@ -190,7 +206,7 @@ export const TertiaryButton = () => (
           disabled
           size={SplitButton.sizes.MEDIUM}
           kind={SplitButton.kinds.TERTIARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Medium
         </SplitButton>
@@ -200,7 +216,7 @@ export const TertiaryButton = () => (
           disabled
           size={SplitButton.sizes.LARGE}
           kind={SplitButton.kinds.TERTIARY}
-          secondaryDialogContent={<StoryDialogContent />}
+          secondaryDialogContent={<SecondaryContentComponent />}
         >
           Large
         </SplitButton>
@@ -217,7 +233,7 @@ export const SplitButtonsWithIcons = () => (
         kind={SplitButton.kinds.PRIMARY}
         color={SplitButton.colors.PRIMARY}
         leftIcon="fa fa-check"
-        secondaryDialogContent={<StoryDialogContent />}
+        secondaryDialogContent={<SecondaryContentComponent />}
       >
         Left Icon
       </SplitButton>
@@ -228,7 +244,7 @@ export const SplitButtonsWithIcons = () => (
         kind={SplitButton.kinds.PRIMARY}
         color={SplitButton.colors.PRIMARY}
         rightIcon="fa fa-check"
-        secondaryDialogContent={<StoryDialogContent />}
+        secondaryDialogContent={<SecondaryContentComponent />}
       >
         Right Icon
       </SplitButton>
@@ -239,14 +255,14 @@ export const SplitButtonsWithIcons = () => (
         kind={SplitButton.kinds.PRIMARY}
         color={SplitButton.colors.PRIMARY}
         rightIcon="fa fa-check"
-        secondaryDialogContent={<StoryDialogContent />}
+        secondaryDialogContent={<SecondaryContentComponent />}
       />
     </StoryStateColumn>
   </StoryStateRow>
 );
 
 export const Sandbox = () => (
-  <div>
+  <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
     <SplitButton
       id="Knobs"
       size={select(
@@ -264,12 +280,17 @@ export const Sandbox = () => (
         Object.values(SplitButton.kinds),
         SplitButton.kinds.PRIMARY
       )}
+      secondaryDialogPosition={select("Seconday Dialog Alignment", {
+        BOTTOM_START: SplitButton.secondaryPositions.BOTTOM_START,
+        BOTTOM_MIDDLE: SplitButton.secondaryPositions.BOTTOM_MIDDLE,
+        BOTTOM_END: SplitButton.secondaryPositions.BOTTOM_END
+      })}
       disabled={boolean("Disabled", false)}
       shouldCloseOnClickInsideDialog={boolean(
         "Should close dialog on click inside content",
         false
       )}
-      secondaryDialogContent={<StoryDialogContent />}
+      secondaryDialogContent={<SecondaryContentComponent />}
     >
       Split Button
     </SplitButton>
@@ -277,6 +298,6 @@ export const Sandbox = () => (
 );
 
 export default {
-  title: "Components/SplitButton",
+  title: "Components|SplitButton",
   component: SplitButton
 };
