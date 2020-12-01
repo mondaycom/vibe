@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import NOOP from "lodash/noop";
+import isNil from "lodash/isNil";
+import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
@@ -22,7 +24,7 @@ export const Checkbox = ({
 
   // If component did not receive default checked and checked props, choose default checked as
   // default behavior (handle isChecked logic inside input) and set default value
-  if (overrideDefaultChecked == undefined && checked == undefined) {
+  if (isNil(overrideDefaultChecked) && isNil(checked)) {
     overrideDefaultChecked = false;
   }
 
@@ -69,8 +71,12 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   componentClassName: "",
   label: "",
-  onChange: () => {},
-  disabled: false
+  onChange: NOOP,
+  disabled: false,
+  name: "",
+  value: "",
+  checked: undefined,
+  defaultChecked: undefined
 };
 
 export default Checkbox;
