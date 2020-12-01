@@ -1,8 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import {{properCase componentName}} from "../{{properCase componentName}}";
+import DialogContentContainer from "../DialogContentContainer";
 
 it("renders correctly with empty props", () => {
-  const tree = renderer.create(<{{properCase componentName}} />).toJSON();
+  const tree = renderer.create(<DialogContentContainer />).toJSON();
   expect(tree).toMatchSnapshot();
 });

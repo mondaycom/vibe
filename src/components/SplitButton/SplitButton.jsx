@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 // Libraries import
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
@@ -21,15 +22,23 @@ import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 
 // SCSS import
 import "./SplitButton.scss";
+import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 
 // Constants
 const DIALOG_MOVE_BY = { main: 8, secondary: 0 };
-const DIALOG_POSITION = "bottom-start";
 const DEFAULT_DIALOG_SHOW_TRIGGER = "click";
 const DEFAULT_DIALOG_HIDE_TRIGGER = ["clickoutside", "click", "esckey"];
 const SECONDARY_BUTTON_WRAPPER_CLASSNAME =
   "monday-style-split-button__secondary-button-wrapper";
 const EMPTY_ARR = [];
+
+const SECONDARY_CONTENT_POSITIONS = {
+  BOTTOM_START: "bottom-start",
+  BOTTOM_MIDDLE: "bottom",
+  BOTTOM_END: "bottom-end"
+};
+
+export const SECONDARY_BUTTON_ARIA_LABEL = "additional actions";
 
 const SplitButton = ({
   marginLeft,
@@ -50,6 +59,7 @@ const SplitButton = ({
   shouldCloseOnClickInsideDialog,
   zIndex,
   secondaryDialogClassName,
+  secondaryDialogPosition,
   ...buttonProps
 }) => {
   // State //
@@ -77,7 +87,7 @@ const SplitButton = ({
       if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
-    [setIsActive, disabled]
+    [setIsActive, shouldSetActive]
   );
   const setNotActive = useCallback(() => setIsActive(false), [setIsActive]);
   const setActiveOnEnter = useCallback(
@@ -85,7 +95,7 @@ const SplitButton = ({
       if (!shouldSetActive(e)) return;
       setIsActive(true);
     },
-    [setIsActive, disabled]
+    [setIsActive, shouldSetActive]
   );
 
   const showDialog = useCallback(() => {
@@ -144,6 +154,32 @@ const SplitButton = ({
     return DEFAULT_DIALOG_HIDE_TRIGGER;
   }, [shouldCloseOnClickInsideDialog]);
 
+  const actionsContent = useCallback(() => {
+    const content =
+      typeof secondaryDialogContent === "function"
+        ? secondaryDialogContent()
+        : secondaryDialogContent;
+    return (
+      <DialogContentContainer
+        type={DialogContentContainer.types.POPOVER}
+        size={DialogContentContainer.sizes.MEDIUM}
+      >
+        {content}
+      </DialogContentContainer>
+    );
+  }, [secondaryDialogContent]);
+
+  const animationEdgePosition = useMemo(() => {
+    if (secondaryDialogPosition === SECONDARY_CONTENT_POSITIONS.BOTTOM_MIDDLE) {
+      return "";
+    }
+    if (secondaryDialogPosition === SECONDARY_CONTENT_POSITIONS.BOTTOM_START) {
+      return "bottom";
+    }
+
+    return "top";
+  }, [secondaryDialogPosition]);
+
   return (
     <div className={classNames} ref={ref} role="button">
       <Button
@@ -168,12 +204,11 @@ const SplitButton = ({
       {shouldRenderSplitContent && (
         <div className={SECONDARY_BUTTON_WRAPPER_CLASSNAME}>
           <Dialog
-            // open={isDialogOpen}
             wrapperClassName={secondaryDialogClassName}
             zIndex={zIndex}
-            content={secondaryDialogContent}
-            position="bottom-start"
-            startingEdge="bottom"
+            content={actionsContent}
+            position={secondaryDialogPosition}
+            startingEdge={animationEdgePosition}
             animationType="expand"
             moveBy={DIALOG_MOVE_BY}
             onDialogDidShow={showDialog}
@@ -194,7 +229,7 @@ const SplitButton = ({
               onFocus={setHovered}
               onBlur={setNotHovered}
               disabled={disabled}
-              ariaLabel="additional actions"
+              ariaLabel={SECONDARY_BUTTON_ARIA_LABEL}
               aria-haspopup="true"
               aria-expanded={isDialogOpen}
             >
@@ -209,12 +244,19 @@ const SplitButton = ({
   );
 };
 
+SplitButton.secondaryPositions = SECONDARY_CONTENT_POSITIONS;
+SplitButton.sizes = Button.sizes;
+SplitButton.colors = Button.colors;
+SplitButton.kinds = Button.kinds;
+SplitButton.inputTags = Button.inputTags;
+
 SplitButton.defaultProps = {
   ...Button.defaultProps,
   onSecondaryDialogDidShow: NOOP,
   onSecondaryDialogDidHide: NOOP,
-  zIndex: 10000000,
-  secondaryDialogClassName: ""
+  zIndex: null,
+  secondaryDialogClassName: "",
+  secondaryDialogPosition: SECONDARY_CONTENT_POSITIONS.BOTTOM_START
 };
 
 SplitButton.propTypes = {
@@ -226,12 +268,15 @@ SplitButton.propTypes = {
   onSecondaryDialogDidShow: PropTypes.func,
   onSecondaryDialogDidHide: PropTypes.func,
   zIndex: PropTypes.number,
-  secondaryDialogClassName: PropTypes.string
+  /*
+   * Class name to provide the element which wraps the popover/modal/dialog
+   */
+  secondaryDialogClassName: PropTypes.string,
+  secondaryDialogPosition: PropTypes.oneOf([
+    SplitButton.secondaryPositions.BOTTOM_START,
+    SplitButton.secondaryPositions.BOTTOM_MIDDLE,
+    SplitButton.secondaryPositions.BOTTOM_END
+  ])
 };
-
-SplitButton.sizes = Button.sizes;
-SplitButton.colors = Button.colors;
-SplitButton.kinds = Button.kinds;
-SplitButton.inputTags = Button.inputTags;
 
 export default SplitButton;

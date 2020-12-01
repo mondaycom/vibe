@@ -114,6 +114,21 @@ describe("FormattedNumber Tests", () => {
     });
   });
 
+  describe("forward ref", () => {
+    it("should be able to forward ref", () => {
+      const ref = {};
+      render(
+        <FormattedNumber
+          ref={ref}
+          id="test"
+          className="ref-class-name"
+          value={1248}
+        />
+      );
+      expect(ref.current.className).to.include("ref-class-name");
+    });
+  });
+
   describe("Prefix && Suffix", () => {
     const value = 456;
     const prefix = "pref";

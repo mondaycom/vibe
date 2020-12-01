@@ -53,7 +53,9 @@ export const Sandbox = () => (
       >
         <TooltipReference />
       </Tooltip>
-      <span style={{ marginLeft: "8px" }}>Hover on me!</span>
+      <span style={{ marginLeft: "8px", color: "var(--primary-text-color)" }}>
+        Hover on me!
+      </span>
     </div>
   </StoryStateRow>
 );

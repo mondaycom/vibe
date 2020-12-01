@@ -10,11 +10,11 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly 1`] = `
     <svg
       className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
-      height={24}
+      height="24"
       onClick={[Function]}
       tabIndex={-1}
       viewBox="0 0 20 20"
-      width={24}
+      width="24"
     >
       <path
         clipRule="evenodd"
@@ -47,11 +47,11 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly with empty props 1`
     <svg
       className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
-      height={24}
+      height="24"
       onClick={[Function]}
       tabIndex={-1}
       viewBox="0 0 20 20"
-      width={24}
+      width="24"
     >
       <path
         clipRule="evenodd"

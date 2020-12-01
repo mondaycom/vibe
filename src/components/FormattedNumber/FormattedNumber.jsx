@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { baseClassName } from "./FormattedNumberConsts";
@@ -11,53 +11,58 @@ import "./FormattedNumber.scss";
 
 const { MAX_PRECISION, MIN_PRECISION } = formatNumberConsts;
 
-const FormattedNumber = ({
-  value,
-  className,
-  local,
-  prefix,
-  suffix,
-  emptyPlaceHolder,
-  decimalPrecision,
-  compact,
-  rtl
-}) => {
-  const renderSuffix = useMemo(() => {
-    if (!suffix) return null;
-
-    return <span className={`${baseClassName}__suffix`}>{suffix}</span>;
-  }, [suffix]);
-
-  const renderPrefix = useMemo(() => {
-    if (!prefix) return null;
-
-    return <span className={`${baseClassName}__prefix`}>{prefix}</span>;
-  }, [prefix]);
-
-  const calculatedValue = useMemo(() => {
-    return formatNumber(value, {
+const FormattedNumber = forwardRef(
+  (
+    {
+      value,
+      className,
       local,
-      precision: decimalPrecision,
-      isCompact: compact
-    });
-  }, [value, decimalPrecision, local, compact]);
+      prefix,
+      suffix,
+      emptyPlaceHolder,
+      decimalPrecision,
+      compact,
+      rtl
+    },
+    ref
+  ) => {
+    const renderSuffix = useMemo(() => {
+      if (!suffix) return null;
 
-  if (validateValue(value)) {
+      return <span className={`${baseClassName}__suffix`}>{suffix}</span>;
+    }, [suffix]);
+
+    const renderPrefix = useMemo(() => {
+      if (!prefix) return null;
+
+      return <span className={`${baseClassName}__prefix`}>{prefix}</span>;
+    }, [prefix]);
+
+    const calculatedValue = useMemo(() => {
+      return formatNumber(value, {
+        local,
+        precision: decimalPrecision,
+        isCompact: compact
+      });
+    }, [value, decimalPrecision, local, compact]);
+
+    if (validateValue(value)) {
+      return (
+        <span className={`${baseClassName}__place-holder`}>
+          {emptyPlaceHolder}
+        </span>
+      );
+    }
+
     return (
-      <span className={`${baseClassName}__place-holder`}>
-        {emptyPlaceHolder}
-      </span>
+      <div ref={ref} className={classNames(className, baseClassName)}>
+        {rtl ? renderSuffix : renderPrefix}
+        <span className={`${baseClassName}__number`}>{calculatedValue}</span>
+        {rtl ? renderPrefix : renderSuffix}
+      </div>
     );
   }
-
-  return (
-    <div className={classNames(className, baseClassName)}>
-      {rtl ? renderSuffix : renderPrefix}
-      <span className={`${baseClassName}__number`}>{calculatedValue}</span>
-      {rtl ? renderPrefix : renderSuffix}
-    </div>
-  );
-};
+);
 
 FormattedNumber.formatNumber = formatNumber;
 FormattedNumber.localFallBack = formatNumberConsts.DEFAULT_LOCAL;

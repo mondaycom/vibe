@@ -69,6 +69,7 @@ const Button = forwardRef(
         const { blockSize, inlineSize } = borderBoxSize;
         const width = Math.max(inlineSize, MIN_BUTTON_HEIGHT_PX);
         const height = Math.max(blockSize, MIN_BUTTON_HEIGHT_PX);
+        if (!buttonRef.current) return;
         buttonRef.current.style.setProperty("--element-width", `${width}px`);
         buttonRef.current.style.setProperty("--element-height", `${height}px`);
       };
@@ -157,7 +158,9 @@ const Button = forwardRef(
       marginRight,
       marginLeft,
       noSidePadding,
-      preventClickAnimation
+      preventClickAnimation,
+      leftFlat,
+      rightFlat
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
@@ -193,7 +196,8 @@ const Button = forwardRef(
       ariaLabel,
       loading,
       onFocus,
-      onBlur
+      onBlur,
+      mergedRef
     ]);
 
     if (loading) {

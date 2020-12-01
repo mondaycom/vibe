@@ -4,6 +4,7 @@ import cx from "classnames";
 import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
 import "./MenuButton.scss";
+import { DialogContentContainer } from "../index";
 
 function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
@@ -19,31 +20,43 @@ const MenuButton = ({
   open,
   zIndex,
   ariaLabel,
-  closeDialogOnContentClick
+  closeDialogOnContentClick,
+  dialogClassName
 }) => {
   const [isOpen, setIsOpen] = useState(open);
   const onMenuChangeCallback = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen, setIsOpen]);
 
-
   const hideTrigger = useMemo(() => {
-    const triggers = ["click", "clickoutside", "esckey"];
+    const triggers = ["clickoutside", "esckey"];
     if (closeDialogOnContentClick) {
       triggers.push("onContentClick");
     }
     return triggers;
   }, [closeDialogOnContentClick]);
 
+  const content = useMemo(() => {
+    return (
+      <DialogContentContainer
+        size={DialogContentContainer.sizes.MEDIUM}
+        type={DialogContentContainer.types.POPOVER}
+      >
+        {children}
+      </DialogContentContainer>
+    );
+  }, [children]);
+
   const Icon = component;
   const iconSize = size - 4;
 
   return (
     <Dialog
+      wrapperClassName={dialogClassName}
       position="bottom-start"
       startingEdge="bottom"
       animationType="expand"
-      content={children}
+      content={content}
       showTrigger={showTrigger}
       hideTrigger={hideTrigger}
       onDialogDidShow={onMenuChangeCallback}
@@ -97,16 +110,21 @@ MenuButton.propTypes = {
   open: PropTypes.bool,
   zIndex: PropTypes.number,
   ariaLabel: PropTypes.string,
-  closeDialogOnContentClick: PropTypes.bool
+  closeDialogOnContentClick: PropTypes.bool,
+  /*
+    Class name to provide the element which wraps the popover/modal/dialog
+   */
+  dialogClassName: PropTypes.string
 };
 MenuButton.defaultProps = {
   componentClassName: "",
   component: Menu,
   size: MenuButtonSizes.SMALL,
   open: false,
-  zIndex: 100,
+  zIndex: null,
   ariaLabel: "Menu Button",
-  closeDialogOnContentClick: false
+  closeDialogOnContentClick: false,
+  dialogClassName: ""
 };
 
 export default MenuButton;

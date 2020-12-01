@@ -1,10 +1,10 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import "./Loader.scss";
 
-function Loader({ svgClassName }) {
+const Loader = forwardRef(({ svgClassName }, ref) => {
   return (
-    <div className="monday-loader-component">
+    <div className="monday-loader-component" ref={ref}>
       <svg
         className={`circle-loader-spinner ${svgClassName}`}
         viewBox="0 0 50 50"
@@ -20,7 +20,7 @@ function Loader({ svgClassName }) {
       </svg>
     </div>
   );
-}
+});
 
 Loader.propTypes = {
   svgClassName: PropTypes.string

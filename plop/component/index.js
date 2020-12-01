@@ -45,7 +45,7 @@ module.exports = plop => {
         path: "src/published-components.js",
         pattern: /(\/\/ plop_marker:published-components)/g,
         template:
-          '\t{{properCase componentName}}: "/src/components/{{properCase componentName}}.jsx",'
+          '\t{{properCase componentName}}: "/src/components/{{properCase componentName}}/{{properCase componentName}}.jsx",'
       }
     ]
   });

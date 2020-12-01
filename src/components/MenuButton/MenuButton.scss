@@ -1,5 +1,6 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
+@import "../../styles/global-css-settings.scss";
 
 .menu-button--wrapper {
   border-radius: $border-radius-small;
@@ -11,6 +12,7 @@
   justify-content: center;
   cursor: pointer;
   padding: 0;
+  transition: transform 50ms $expand-animation-timing;
   @include theme-prop(color, primary-text-color);
 
   &:focus,
@@ -19,6 +21,7 @@
   }
 
   &--open {
+    transform: scale(0.95);
     @include theme-prop(background-color, primary-selected-color);
     @include theme-prop(color, primary-color);
     &:focus {
