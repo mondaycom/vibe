@@ -16,7 +16,7 @@ const publishedComponents = {
   RadioButton: "/src/components/RadioButton/RadioButton.jsx",
   SplitButton: "/src/components/SplitButton/SplitButton.jsx",
   Counter: "/src/components/Counter/Counter.jsx",
-  Checkbox: "/src/components/Checkbox.jsx",
+  Checkbox: "/src/components/Checkbox/Checkbox.js",
   SearchComponent: "/src/components/Search/Search.jsx", // TODO: remove when bumping to version 1.0.0
   Search: "/src/components/Search/Search.jsx",
   TextField: "/src/components/TextField/TextField.jsx",

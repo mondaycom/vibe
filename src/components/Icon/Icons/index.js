@@ -71,6 +71,7 @@ export {default as Page} from './components/Page';
 export {default as Person} from './components/Person';
 export {default as Pin} from './components/Pin';
 export {default as Print} from './components/Print';
+export {default as Remove} from './components/Remove';
 export {default as Replay} from './components/Replay';
 export {default as Robot} from './components/Robot';
 export {default as Search} from './components/Search';
