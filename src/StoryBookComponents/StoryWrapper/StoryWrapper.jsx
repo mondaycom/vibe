@@ -1,8 +1,9 @@
 import React from "react";
 import "./StoryWrapper.scss";
+import cx from "classnames";
 
-const StoryWrapper = ({ children }) => {
-  return <div className="monday-style-story-wrapper">{children}</div>;
+const StoryWrapper = ({ componentClassName, children }) => {
+  return <div className={cx("monday-style-story-wrapper", componentClassName)}>{children}</div>;
 };
 StoryWrapper.propTypes = {};
 StoryWrapper.defaultProps = {};
