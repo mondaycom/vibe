@@ -3,7 +3,7 @@ import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import useSetFocus from "../useSetFocus";
 import { fireEvent } from "@testing-library/react";
 
-describe.only("useSetFocus", () => {
+describe("useSetFocus", () => {
   let element;
   let setActiveStub = jest.fn();
   let setUnActiveStub = jest.fn();
