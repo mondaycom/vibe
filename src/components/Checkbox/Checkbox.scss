@@ -41,7 +41,7 @@ $checkbox-size: 16px;
     border: 1px solid;
     @include theme-prop(border-color, ui-border-color);
     border-radius: $border-radius-extra-small;
-    transition: transform 50ms cubic-bezier(0, 0, 0.35, 1);
+    transition: transform 50ms $expand-animation-timing;
     position: relative;
     overflow: hidden;
 
@@ -139,6 +139,7 @@ $checkbox-size: 16px;
       & + .monday-style-checkbox {
         &__checkbox, &__checkbox:hover {
           @include theme-prop(background-color, disabled-background-color);
+          @include theme-prop(border-color, ui-border-color);
 
           .monday-style-checkbox__icon {
             @include theme-prop(color, disabled-text-color);

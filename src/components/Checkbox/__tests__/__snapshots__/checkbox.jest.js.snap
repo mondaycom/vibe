@@ -20,11 +20,11 @@ exports[`Checkbox Tests Snapshot Tests renders correctly 1`] = `
     <svg
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
-      height={11}
+      height="11"
       onClick={[Function]}
       tabIndex={0}
       viewBox="0 0 20 20"
-      width={11}
+      width="11"
     >
       <path
         clipRule="evenodd"
@@ -51,8 +51,10 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when checked 1`] = `
     checked={true}
     className="monday-style-checkbox__input"
     disabled={false}
+    name=""
     onChange={[Function]}
     type="checkbox"
+    value=""
   />
   <div
     className="monday-style-checkbox__checkbox"
@@ -60,11 +62,11 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when checked 1`] = `
     <svg
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
-      height={11}
+      height="11"
       onClick={[Function]}
       tabIndex={0}
       viewBox="0 0 20 20"
-      width={11}
+      width="11"
     >
       <path
         clipRule="evenodd"
@@ -91,8 +93,10 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when disabled 1`] = `
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={true}
+    name=""
     onChange={[Function]}
     type="checkbox"
+    value=""
   />
   <div
     className="monday-style-checkbox__checkbox"
@@ -100,11 +104,11 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when disabled 1`] = `
     <svg
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
-      height={11}
+      height="11"
       onClick={[Function]}
       tabIndex={0}
       viewBox="0 0 20 20"
-      width={11}
+      width="11"
     >
       <path
         clipRule="evenodd"
@@ -131,8 +135,10 @@ exports[`Checkbox Tests Snapshot Tests renders correctly with empty props 1`] = 
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={false}
+    name=""
     onChange={[Function]}
     type="checkbox"
+    value=""
   />
   <div
     className="monday-style-checkbox__checkbox"
@@ -140,11 +146,11 @@ exports[`Checkbox Tests Snapshot Tests renders correctly with empty props 1`] = 
     <svg
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
-      height={11}
+      height="11"
       onClick={[Function]}
       tabIndex={0}
       viewBox="0 0 20 20"
-      width={11}
+      width="11"
     >
       <path
         clipRule="evenodd"

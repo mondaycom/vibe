@@ -34,7 +34,6 @@ describe("Checkbox Tests", () => {
       expect(tree).toMatchSnapshot();
     });
   });
-
   describe("Integration Tests", () => {
     const formName = "myForm";
     const checkboxName = "checkbox";
