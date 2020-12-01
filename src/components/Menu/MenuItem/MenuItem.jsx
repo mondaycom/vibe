@@ -4,7 +4,7 @@ import cx from "classnames";
 import Icon from "../../Icon/Icon";
 import isFunction from "lodash/isFunction";
 import useKeyEvent from "../../../hooks/useKeyEvent";
-import useEventListener from "../../../hooks/useEventListener";
+import useSetFocus from "../../../hooks/useSetFocus";
 import "./MenuItem.scss";
 
 const MenuItem = ({
@@ -18,6 +18,41 @@ const MenuItem = ({
   setActiveItemIndex,
   index,
 }) => {
+  const [isActive, setIsActive] = useState(activeItemIndex === index);
+
+  useEffect(() => {
+    setIsActive(activeItemIndex === index);
+  }, [activeItemIndex]);
+
+  const onClickCallback = useCallback(
+    (event) => {
+      if (onClick && !disabled && isActive) {
+        onClick(event);
+      }
+    },
+    [onClick, disabled, isActive]
+  );
+
+  const setActive = useCallback(() => {
+    if (setActiveItemIndex) {
+      setActiveItemIndex(index);
+    } else {
+      setIsActive(true);
+    }
+  }, [setActiveItemIndex, setIsActive, index]);
+
+  const setUnActive = useCallback(() => {
+    if (setActiveItemIndex) {
+      setActiveItemIndex(-1);
+    } else {
+      setIsActive(false);
+    }
+  }, [setActiveItemIndex, setIsActive]);
+
+  const ref = useRef(null);
+  useSetFocus({ ref, setActive, setUnActive, isActive });
+  useKeyEvent({ keys: ["Enter"], callback: onClickCallback });
+
   const renderMenuItemIconIfNeeded = () => {
     if (icon) {
       let finalIconType = iconType;
@@ -39,65 +74,6 @@ const MenuItem = ({
       );
     }
   };
-
-  const [isActive, setIsActive] = useState(activeItemIndex === index);
-
-  useEffect(() => {
-    setIsActive(activeItemIndex === index);
-  }, [activeItemIndex]);
-
-  const onClickCallback = useCallback(
-    (event) => {
-      if (onClick && !disabled && isActive) {
-        onClick(event);
-      }
-    },
-    [onClick, disabled, isActive]
-  );
-
-  const setActive = () => {
-    if (setActiveItemIndex) {
-      setActiveItemIndex(index);
-    } else {
-      setIsActive(true);
-    }
-  };
-
-  const setUnActive = () => {
-    if (setActiveItemIndex) {
-      setActiveItemIndex(-1);
-    } else {
-      setIsActive(false);
-    }
-  };
-
-  const createFocusRef = () => {
-    const itemRef = useRef(null);
-
-    useEffect(() => {
-      isActive && itemRef && itemRef.current && itemRef.current.focus();
-    }, [isActive]);
-
-    const handleMouseOver = () => setActive();
-    const handleMouseOut = () => setUnActive();
-
-    useEventListener({
-      eventName: "mouseover",
-      ref: itemRef,
-      callback: handleMouseOver,
-    });
-    useEventListener({
-      eventName: "mouseout",
-      ref: itemRef,
-      callback: handleMouseOut,
-    });
-
-    return itemRef;
-  };
-
-  useKeyEvent({ keys: ["Enter"], callback: onClickCallback });
-
-  const ref = createFocusRef();
 
   return (
     <div

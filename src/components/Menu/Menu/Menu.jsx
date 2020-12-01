@@ -5,19 +5,20 @@ import cx from "classnames";
 import { MENU_SIZES } from "./MenuConstants";
 import "./Menu.scss";
 
+const isChildSelectable = (newIndex, children) => {
+  const child = children[newIndex];
+  return child.type.isSelectable && !child.props.disabled;
+};
+
 const Menu = ({ classname, size, tabIndex, ariaLabel, children }) => {
   const ref = useRef(null);
   const [activeItemIndex, setActiveItemIndex] = useState(-1);
 
-  const isChildSelectable = (newIndex) => {
-    const child = children[newIndex];
-    return child.type.isSelectable && !child.props.disabled;
-  };
   const onArrowUp = useCallback(() => {
     let newIndex;
     for (let offset = children.length - 1; offset > 0; offset--) {
       newIndex = (activeItemIndex + offset) % children.length;
-      if (isChildSelectable(newIndex)) {
+      if (isChildSelectable(newIndex, children)) {
         break;
       }
     }
@@ -28,7 +29,7 @@ const Menu = ({ classname, size, tabIndex, ariaLabel, children }) => {
     let newIndex;
     for (let offset = 1; offset <= children.length; offset++) {
       newIndex = (activeItemIndex + offset) % children.length;
-      if (isChildSelectable(newIndex)) {
+      if (isChildSelectable(newIndex, children)) {
         break;
       }
     }
@@ -67,13 +68,16 @@ const Menu = ({ classname, size, tabIndex, ariaLabel, children }) => {
   );
 };
 
+Menu.sizes = MENU_SIZES;
+
 Menu.defaultProps = {
   classname: "",
   size: MENU_SIZES.MEDIUM,
   tabIndex: 0,
   ariaLabel: "Menu",
-  children: []
+  children: [],
 };
+
 Menu.propTypes = {
   classname: PropTypes.string,
   size: PropTypes.oneOf([

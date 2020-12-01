@@ -16,6 +16,8 @@ const Divider = ({ classname, direction }) => {
   );
 };
 
+Divider.directions = DIRECTIONS;
+
 Divider.defaultProps = {
   classname: "",
   direction: DIRECTIONS.HORIZONTAL,

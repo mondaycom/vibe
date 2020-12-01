@@ -7,8 +7,6 @@ import MenuItem from "../../MenuItem/MenuItem";
 import MenuTitle from "../../MenuTitle/MenuTitle";
 import Divider from "../../../Divider/Divider";
 import { selectIcon } from "../../../storybook-helpers";
-import { CAPTION_POSITIONS } from "../../MenuTitle/MenuTitleConstants";
-import { MENU_SIZES } from "../MenuConstants";
 import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
 
 const renderMenuItems = () => {
@@ -16,7 +14,7 @@ const renderMenuItems = () => {
     <MenuTitle
       id="menu-title-1"
       caption={"Caption"}
-      captionPosition={CAPTION_POSITIONS.TOP}
+      captionPosition={MenuTitle.positions.TOP}
     />,
     <MenuItem
       id="menu-item-1"
@@ -112,11 +110,11 @@ const renderMenuTitle = (index) => {
       captionPosition={select(
         `MenuTitle ${index} position`,
         {
-          TOP: CAPTION_POSITIONS.TOP,
-          BOTTOM: CAPTION_POSITIONS.BOTTOM,
-          CENTER: CAPTION_POSITIONS.CENTER,
+          TOP: MenuTitle.positions.TOP,
+          BOTTOM: MenuTitle.positions.BOTTOM,
+          CENTER: MenuTitle.positions.CENTER,
         },
-        "TOP"
+        MenuTitle.positions.BOTTOM
       )}
     />
   );
@@ -177,7 +175,7 @@ export const Sizes = () => {
     <div style={{ width: 700 }}>
       <FlexLayout>
         <StoryLine title="Small">
-          <Menu id="menu" size={MENU_SIZES.SMALL}>
+          <Menu id="menu" size={Menu.sizes.SMALL}>
             {renderMenuItems()}
           </Menu>
         </StoryLine>
@@ -185,7 +183,7 @@ export const Sizes = () => {
 
       <FlexLayout>
         <StoryLine title="Medium">
-          <Menu id="menu" size={MENU_SIZES.MEDIUM} tabIndex={1}>
+          <Menu id="menu" size={Menu.sizes.MEDIUM} tabIndex={1}>
             {renderMenuItems()}
           </Menu>
         </StoryLine>
@@ -193,7 +191,7 @@ export const Sizes = () => {
 
       <FlexLayout>
         <StoryLine title="Large">
-          <Menu id="menu" size={MENU_SIZES.LARGE} tabIndex={2}>
+          <Menu id="menu" size={Menu.sizes.LARGE} tabIndex={2}>
             {renderMenuItems()}
           </Menu>
         </StoryLine>

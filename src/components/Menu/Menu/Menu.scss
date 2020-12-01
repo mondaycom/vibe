@@ -2,15 +2,15 @@
 @import "../../../styles/typography.scss";
 
 .monday-style-menu {
-  &.monday-style-menu--small {
+  &--small {
     width: 200px;
   }
 
-  &.monday-style-menu--medium {
+  &--medium {
     width: 220px;
   }
 
-  &.monday-style-menu--large {
+  &--large {
     width: 240px;
   }
 }

@@ -5,20 +5,12 @@ import { CAPTION_POSITIONS } from "./MenuTitleConstants";
 import "./MenuTitle.scss";
 
 const MenuTitle = ({ classname, caption, captionPosition }) => {
-  const renderTopCaptionIfNeeded = () => {
-    if (caption && captionPosition === CAPTION_POSITIONS.TOP) {
+  const renderCaptionIfNeeded = () => {
+    if (caption) {
       return (
-        <div className="monday-style-menu-title__caption monday-style-menu-title__caption--top">
-          {caption}
-        </div>
-      );
-    }
-  };
-
-  const renderBottomCaptionIfNeeded = () => {
-    if (caption && captionPosition === CAPTION_POSITIONS.BOTTOM) {
-      return (
-        <div className="monday-style-menu-title__caption monday-style-menu-title__caption--bottom">
+        <div
+          className={`monday-style-menu-title__caption monday-style-menu-title__caption--${captionPosition}`}
+        >
           {caption}
         </div>
       );
@@ -26,25 +18,40 @@ const MenuTitle = ({ classname, caption, captionPosition }) => {
   };
 
   const renderDivider = () => {
-    if (caption && captionPosition === CAPTION_POSITIONS.CENTER) {
-      return (
-        <div className="monday-style-menu-title__caption monday-style-menu-title__caption--center">
-          {caption}
-        </div>
-      );
-    }
-
     return <div className="monday-style-menu-title__divider"></div>;
   };
 
+  const renderContent = () => {
+    switch (captionPosition) {
+      case CAPTION_POSITIONS.TOP: {
+        return (
+          <>
+            {renderCaptionIfNeeded()}
+            {renderDivider()}
+          </>
+        );
+      }
+      case CAPTION_POSITIONS.CENTER: {
+        return renderCaptionIfNeeded();
+      }
+      case CAPTION_POSITIONS.BOTTOM: {
+        return (
+          <>
+            {renderDivider()}
+            {renderCaptionIfNeeded()}
+          </>
+        );
+      }
+    }
+  };
   return (
     <div className={cx("monday-style-menu-title", classname)}>
-      {renderTopCaptionIfNeeded()}
-      {renderDivider()}
-      {renderBottomCaptionIfNeeded()}
+      {renderContent()}
     </div>
   );
 };
+
+MenuTitle.positions = CAPTION_POSITIONS;
 
 MenuTitle.defaultProps = {
   classname: "",

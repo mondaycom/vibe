@@ -1,5 +1,5 @@
 export const CAPTION_POSITIONS = {
-  TOP: "TOP",
-  BOTTOM: "BOTTOM",
-  CENTER: "CENTER",
+  TOP: "top",
+  BOTTOM: "bottom",
+  CENTER: "center",
 };

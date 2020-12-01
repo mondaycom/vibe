@@ -3,11 +3,10 @@ import Divider from "../Divider";
 import { FlexLayout } from "../../storybook-helpers";
 import StoryLine from "../../../StoryBookComponents/StoryLink/StoryLine";
 import { text, boolean, number, select } from "@storybook/addon-knobs";
-import { DIRECTIONS } from "../DividerConstants";
 
 export const Sandbox = () => {
-  const width = number("width", 200);
-  const height = number("height", 200);
+  const width = number("frame width", 200);
+  const height = number("frame height", 200);
   return (
     <div>
       <FlexLayout>
@@ -16,8 +15,8 @@ export const Sandbox = () => {
             <Divider
               id="divider"
               direction={select("direction", {
-                HORIZONTAL: DIRECTIONS.HORIZONTAL,
-                VERTICAL: DIRECTIONS.VERTICAL,
+                HORIZONTAL: Divider.directions.HORIZONTAL,
+                VERTICAL: Divider.directions.VERTICAL,
               })}
             />
           </div>
@@ -32,14 +31,14 @@ export const Directions = () => (
     <FlexLayout>
       <StoryLine title="Horizontal divider">
         <div style={{ width: 200, height: 200 }}>
-          <Divider id="divider" direction={DIRECTIONS.HORIZONTAL} />
+          <Divider id="divider" direction={Divider.directions.HORIZONTAL} />
         </div>
       </StoryLine>
     </FlexLayout>
     <FlexLayout>
       <StoryLine title="Vertical divider">
         <div style={{ width: 200, height: 200 }}>
-          <Divider id="divider" direction={DIRECTIONS.VERTICAL} />
+          <Divider id="divider" direction={Divider.directions.VERTICAL} />
         </div>
       </StoryLine>
     </FlexLayout>

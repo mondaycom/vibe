@@ -3,7 +3,6 @@ import MenuTitle from "../MenuTitle";
 import { FlexLayout } from "../../../storybook-helpers";
 import { text, boolean, number, select } from "@storybook/addon-knobs";
 import StoryLine from "../../../../StoryBookComponents/StoryLink/StoryLine";
-import { CAPTION_POSITIONS } from "../MenuTitleConstants";
 
 export const Sandbox = () => (
   <div style={{ width: 200 }}>
@@ -13,11 +12,11 @@ export const Sandbox = () => (
       captionPosition={select(
         "captionPosition",
         {
-          TOP: CAPTION_POSITIONS.TOP,
-          BOTTOM: CAPTION_POSITIONS.BOTTOM,
-          CENTER: CAPTION_POSITIONS.CENTER,
+          TOP: MenuTitle.positions.TOP,
+          BOTTOM: MenuTitle.positions.BOTTOM,
+          CENTER: MenuTitle.positions.CENTER,
         },
-        CAPTION_POSITIONS.BOTTOM
+        MenuTitle.positions.BOTTOM
       )}
     />
   </div>
@@ -30,7 +29,7 @@ export const States = () => (
         <MenuTitle
           id="menu-title-1"
           caption={"Caption"}
-          captionPosition={CAPTION_POSITIONS.TOP}
+          captionPosition={MenuTitle.positions.TOP}
         />
       </StoryLine>
     </FlexLayout>
@@ -44,7 +43,7 @@ export const States = () => (
         <MenuTitle
           id="menu-title-3"
           caption={"Caption"}
-          captionPosition={CAPTION_POSITIONS.CENTER}
+          captionPosition={MenuTitle.positions.CENTER}
         />
       </StoryLine>
     </FlexLayout>

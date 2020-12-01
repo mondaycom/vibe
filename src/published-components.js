@@ -4,10 +4,10 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
-  MenuTitle: "/src/components/Menu/MenuTitle.jsx",
-  Divider: "/src/components/Divider.jsx",
-  MenuItem: "/src/components/Menu/MenuItem.jsx",
-  Menu: "/src/components/Menu/Menu.jsx",
+  MenuTitle: "/src/components/Menu/MenuTitle/MenuTitle.jsx",
+  Divider: "/src/components/Divider/Divider.jsx",
+  MenuItem: "/src/components/Menu/MenuItem/MenuItem.jsx",
+  Menu: "/src/components/Menu/Menu/Menu.jsx",
   AttentionBox: "/src/components/AttentionBox/AttentionBox.jsx",
   Label: "/src/components/Label/Label.jsx",
   MenuButton: "/src/components/MenuButton/MenuButton.jsx",
