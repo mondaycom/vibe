@@ -4,6 +4,10 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  MenuTitle: "/src/components/Menu/MenuTitle/MenuTitle.jsx",
+  Divider: "/src/components/Divider/Divider.jsx",
+  MenuItem: "/src/components/Menu/MenuItem/MenuItem.jsx",
+  Menu: "/src/components/Menu/Menu/Menu.jsx",
   DialogContentContainer:
     "/src/components/DialogContentContainer/DialogContentContainer.jsx",
   AttentionBox: "/src/components/AttentionBox/AttentionBox.jsx",
@@ -27,7 +31,7 @@ const publishedComponents = {
   useEventListener: "/src/hooks/useEventListener.js",
   useDebounceEvent: "/src/hooks/useDebounceEvent.js",
   useClickOutside: "/src/hooks/useClickOutside.js",
-  useResizeObserver: "/src/hooks/useResizeObserver.js"
+  useResizeObserver: "/src/hooks/useResizeObserver.js",
 };
 
 function getPublishedComponents(dirPath = "") {
@@ -51,5 +55,5 @@ function exposeIcons(dirPath) {
 }
 
 module.exports = {
-  getPublishedComponents
+  getPublishedComponents,
 };

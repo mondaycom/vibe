@@ -1,0 +1,18 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.monday-style-divider {
+  @include theme-prop(background-color, ui-border-color);
+
+  &--horizontal {
+    height: 1px;
+    width: 100%;
+    margin: $spacing-xs 0;
+  }
+
+  &--vertical {
+    height: 100%;
+    width: 1px;
+    margin: 0 $spacing-xs;
+  }
+}
