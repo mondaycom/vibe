@@ -11,6 +11,7 @@ function BEMClass(className) {
 }
 
 const showTrigger = ["click", "enter"];
+const MOVE_BY = { main: 0, secondary: -6 };
 
 const MenuButton = ({
   componentClassName,
@@ -21,7 +22,8 @@ const MenuButton = ({
   zIndex,
   ariaLabel,
   closeDialogOnContentClick,
-  dialogClassName
+  dialogClassName,
+  dialogPaddingSize
 }) => {
   const [isOpen, setIsOpen] = useState(open);
   const onMenuChangeCallback = useCallback(() => {
@@ -39,13 +41,13 @@ const MenuButton = ({
   const content = useMemo(() => {
     return (
       <DialogContentContainer
-        size={DialogContentContainer.sizes.MEDIUM}
+        size={dialogPaddingSize}
         type={DialogContentContainer.types.POPOVER}
       >
         {children}
       </DialogContentContainer>
     );
-  }, [children]);
+  }, [children, dialogPaddingSize]);
 
   const Icon = component;
   const iconSize = size - 4;
@@ -57,6 +59,7 @@ const MenuButton = ({
       startingEdge="bottom"
       animationType="expand"
       content={content}
+      moveBy={MOVE_BY}
       showTrigger={showTrigger}
       hideTrigger={hideTrigger}
       onDialogDidShow={onMenuChangeCallback}
@@ -93,6 +96,7 @@ const MenuButtonSizes = {
 };
 
 MenuButton.sizes = MenuButtonSizes;
+MenuButton.paddingSizes = DialogContentContainer.sizes;
 
 MenuButton.propTypes = {
   componentClassName: PropTypes.string,
@@ -114,7 +118,13 @@ MenuButton.propTypes = {
   /*
     Class name to provide the element which wraps the popover/modal/dialog
    */
-  dialogClassName: PropTypes.string
+  dialogClassName: PropTypes.string,
+  dialogPaddingSize: PropTypes.oneOf([
+    MenuButton.paddingSizes.NONE,
+    MenuButton.paddingSizes.SMALL,
+    MenuButton.paddingSizes.MEDIUM,
+    MenuButton.paddingSizes.LARGE
+  ])
 };
 MenuButton.defaultProps = {
   componentClassName: "",
@@ -124,7 +134,8 @@ MenuButton.defaultProps = {
   zIndex: null,
   ariaLabel: "Menu Button",
   closeDialogOnContentClick: false,
-  dialogClassName: ""
+  dialogClassName: "",
+  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 
 export default MenuButton;

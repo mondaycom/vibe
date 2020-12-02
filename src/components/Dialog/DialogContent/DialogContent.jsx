@@ -10,6 +10,7 @@ import useKeyEvent from "../../../hooks/useKeyEvent";
 const transitionOptions = {};
 const NOOP = () => {};
 const EMPTY_OBJECT = {};
+
 export const DialogContent = React.forwardRef(
   (
     {

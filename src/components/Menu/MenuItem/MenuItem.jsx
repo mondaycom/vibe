@@ -90,6 +90,8 @@ const MenuItem = ({
   );
 };
 
+MenuItem.iconType = Icon.type;
+
 MenuItem.defaultProps = {
   classname: "",
   title: "",

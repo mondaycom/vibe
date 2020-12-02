@@ -11,9 +11,10 @@ const DIALOG_TYPES = {
 };
 
 const DIALOG_SIZES = {
+  NONE: "none",
   SMALL: "small",
-  LARGE: "large",
-  MEDIUM: "medium"
+  MEDIUM: "medium",
+  LARGE: "large"
 };
 
 const bemHelper = BEMClass("dialog-content-container");

@@ -4,6 +4,9 @@ import MenuButton from "../MenuButton";
 import { ComponentStateDescription, FlexLayout } from "../../storybook-helpers";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import "./menuButton.style.scss";
+import { Menu, MenuItem, MenuTitle } from "../../index";
+import {Add, Favorite, Remove, Sun} from "../../Icon/Icons";
+import Moon from "../../Icon/Icons/components/Moon";
 
 function MenuButtonContent() {
   return (
@@ -22,9 +25,34 @@ export const Sandbox = () => (
         "Close Dialog On Content Click",
         false
       )}
-      ariaLabel={"Default menu icon"}
+      dialogPaddingSize={select(
+        "Dialog Padding Size",
+        MenuButton.paddingSizes,
+        MenuButton.paddingSizes.MEDIUM
+      )}
+      ariaLabel="Default menu icon"
     >
-      <MenuButtonContent />
+      <Menu id="menu" size={Menu.sizes.MEDIUM}>
+        <MenuTitle
+          caption="Look up, you might see"
+          captionPosition={MenuTitle.positions.TOP}
+        />
+        <MenuItem
+          icon={Sun}
+          iconType={MenuItem.iconType.SVG}
+          title="The sun"
+        />
+        <MenuItem
+          icon={Moon}
+          iconType={MenuItem.iconType.SVG}
+          title="The moon"
+        />
+        <MenuItem
+          icon={Favorite}
+          iconType={MenuItem.iconType.SVG}
+          title="And the stars"
+        />
+      </Menu>
     </MenuButton>
   </div>
 );
