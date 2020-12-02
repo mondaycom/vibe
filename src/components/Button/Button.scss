@@ -61,7 +61,7 @@
 
   &:active {
     &:not(.monday-style-button--prevent-click-animation) {
-      transform: scale(0.95);
+      transform: scale(0.95) translate3d(0, 0, 0);
     }
   }
   .monday-style-button--left-icon {
