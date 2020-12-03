@@ -16,7 +16,8 @@ const Icon = ({
   iconLabel,
   iconType,
   iconSize,
-  ignoreFocusStyle
+  ignoreFocusStyle,
+  tabindex: externalTabIndex
 }) => {
   const {
     tabindex,
@@ -40,7 +41,7 @@ const Icon = ({
       <IconComponent
         size={iconSize}
         onClick={onClick}
-        tabIndex={tabindex}
+        tabIndex={externalTabIndex || tabindex}
         className={computedClassName}
         ref={iconRef}
       />
@@ -53,7 +54,7 @@ const Icon = ({
       onClick={onClickCallback}
       ref={iconRef}
       iconLabel={iconLabel}
-      tabIndex={tabindex}
+      tabIndex={externalTabIndex || tabindex}
       icon={icon}
     />
   );

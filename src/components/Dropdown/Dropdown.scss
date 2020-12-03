@@ -1,0 +1,44 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.dropdown-wrapper {
+  &__menu--close {
+    animation: fadeOut 0.1s $expand-animation-timing;
+  }
+
+  &__menu--open {
+    animation: fadeIn 0.1s $expand-animation-timing;
+  }
+
+  &__option--reset {
+    height: auto;
+  }
+
+  &__single-value--reset {
+    height: auto;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    max-height: 300px;
+  }
+  100% {
+    opacity: 0;
+    max-height: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    z-index: -10000;
+    transform: translateY(-75px);
+  }
+  100% {
+    opacity: 1;
+    z-index: 999;
+    transform: translateY(0px);
+  }
+}
