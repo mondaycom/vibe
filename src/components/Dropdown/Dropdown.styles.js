@@ -70,7 +70,6 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
   const general = {
     display: "flex",
     alignContent: "center",
-    // height: "32px",
     borderRadius: getCSSVar("border-radius-small"),
     marginRight: "8px",
     marginLeft: "8px",
