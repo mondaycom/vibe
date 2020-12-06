@@ -5,7 +5,12 @@ import useEventListener from "../../../hooks/useEventListener";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../constants/KeyCodes";
 
-export default function useIconProps({ onClick, className, clickable, ignoreFocusStyle }) {
+export default function useIconProps({
+  onClick,
+  className,
+  clickable,
+  ignoreFocusStyle
+}) {
   const iconRef = useRef(null);
   const onEnterCallback = useCallback(
     event => {
@@ -27,7 +32,7 @@ export default function useIconProps({ onClick, className, clickable, ignoreFocu
       "icon_component--clickable": clickable,
       "icon_component--no-focus-style": ignoreFocusStyle
     });
-  }, [clickable, className]);
+  }, [clickable, className, ignoreFocusStyle]);
 
   useEventListener({
     eventName: "mousedown",

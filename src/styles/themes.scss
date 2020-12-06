@@ -28,8 +28,14 @@ $theme: (
   "primary-background-color": $snow_white,
   "primary-background-hover-color": $wolf_gray,
   "dark-color": $mud_black,
+  "dark-background-color": $riverstone_gray,
   "secondary-text-color": $mud_black,
-  "text-color-on-primary": $snow_white
+  "text-color-on-primary": $snow_white,
+  "inverted-color-background": $mud_black,
+  "text-color-on-inverted": $snow_white,
+  "dark-background-on-secondary-color": $riverstone_gray,
+  "dialog-background-color": $snow_white,
+  "modal-background-color": $snow_white
 );
 
 $theme-var: (
@@ -57,8 +63,15 @@ $theme-var: (
   "primary-background-color": var(--primary-background-color),
   "primary-background-hover-color": var(--primary-background-hover-color),
   "dark-color": var(--color-mud_black),
+  "dark-background-color": var(--dark-background-color),
   "secondary-text-color": var(--secondary-text-color),
-  "text-color-on-primary": var(--text-color-on-primary)
+  "text-color-on-primary": var(--text-color-on-primary),
+  "inverted-color-background": var(--inverted-color-background),
+  "text-color-on-inverted": var(--text-color-on-inverted),
+  "dark-background-on-secondary-color":
+    var(--dark-background-on-secondary-color),
+  "dialog-background-color": var(--dialog-background-color),
+  "modal-background-color": var(--modal-background-color)
 );
 
 @mixin theme-prop(

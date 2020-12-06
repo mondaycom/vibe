@@ -1,0 +1,70 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/global-css-settings.scss";
+
+.menu-button--wrapper {
+  border-radius: $border-radius-small;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 50ms $expand-animation-timing;
+  @include theme-prop(color, primary-text-color);
+
+  &:focus,
+  &:hover {
+    @include theme-prop(background-color, primary-background-hover-color);
+  }
+
+  &--open {
+    transform: scale(0.95);
+    @include theme-prop(background-color, primary-selected-color);
+    @include theme-prop(color, primary-color);
+    &:focus {
+      @include theme-prop(background-color, primary-selected-color);
+
+    }
+    &:hover {
+      @include theme-prop(background-color, primary-selected-color);
+    }
+
+  }
+
+  &--size-16 {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--size-24 {
+    width: 24px;
+    height: 24px;
+  }
+
+  &--size-32 {
+    width: 32px;
+    height: 32px;
+  }
+
+  &--size-40 {
+    width: 40px;
+    height: 40px;
+  }
+
+  &--size-48 {
+    width: 48px;
+    height: 48px;
+  }
+
+  &--reference-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}

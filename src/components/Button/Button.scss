@@ -12,6 +12,9 @@
   cursor: pointer;
   white-space: nowrap;
   transition: 50ms transform, 0.1s $expand-animation-timing min-width;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   // will be updated dynamically after render by js
   --element-width: 32;
@@ -22,6 +25,16 @@
   }
   &--margin-left {
     margin-left: $spacing-small;
+  }
+
+  &--right-flat {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &--left-flat {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 
   min-width: var(--element-width);
@@ -47,7 +60,9 @@
   }
 
   &:active {
-    transform: scale(0.95);
+    &:not(.monday-style-button--prevent-click-animation) {
+      transform: scale(0.95) translate3d(0, 0, 0);
+    }
   }
   .monday-style-button--left-icon {
     padding-right: $spacing-small;
@@ -112,12 +127,11 @@
           }
           &-on-primary-color {
             @include theme-prop(background-color, text-color-on-primary);
-            color: inherit;
             &-active,
             &:hover,
             &:focus {
               background-color: #e6e9ef;
-              background-color: var(--color-ui_grey);
+              backdrop-filter: brightness(85%);
             }
           }
         }
@@ -186,7 +200,7 @@
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, primary-hover-color);
+              backdrop-filter: brightness(85%);
             }
           }
         }
@@ -238,7 +252,7 @@
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(background-color, primary-hover-color);
+              backdrop-filter: brightness(85%);
             }
           }
         }
@@ -252,5 +266,10 @@
         }
       }
     }
+  }
+
+  &--no-side-padding {
+    padding-right: 0;
+    padding-left: 0;
   }
 }

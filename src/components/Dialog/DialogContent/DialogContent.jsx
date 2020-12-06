@@ -10,6 +10,7 @@ import useKeyEvent from "../../../hooks/useKeyEvent";
 const transitionOptions = {};
 const NOOP = () => {};
 const EMPTY_OBJECT = {};
+
 export const DialogContent = React.forwardRef(
   (
     {
@@ -23,6 +24,7 @@ export const DialogContent = React.forwardRef(
       onMouseEnter = NOOP,
       onMouseLeave = NOOP,
       onClickOutside = NOOP,
+      onClick = NOOP,
       showDelay,
       styleObject = EMPTY_OBJECT
     },
@@ -51,6 +53,7 @@ export const DialogContent = React.forwardRef(
         )}
         ref={forwardRef}
         style={styleObject}
+        onClickCapture={onClick}
       >
         <CSSTransition
           {...transitionOptions}

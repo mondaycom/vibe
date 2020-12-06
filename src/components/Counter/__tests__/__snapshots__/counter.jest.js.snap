@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshots renders correctly with count above limit 1`] = `
+<span
+  className=""
+>
+  <div
+    aria-label="999+"
+    className="monday-style-counter monday-style-counter--size-lg monday-style-counter--kind-fill monday-style-counter--color-primary"
+  >
+    <span>
+      999+
+    </span>
+  </div>
+</span>
+`;
+
+exports[`Snapshots renders correctly with count below the limit 1`] = `
+<span
+  className=""
+>
+  <div
+    aria-label={1}
+    className="monday-style-counter monday-style-counter--size-lg monday-style-counter--kind-fill monday-style-counter--color-primary"
+  >
+    <span>
+      1
+    </span>
+  </div>
+</span>
+`;

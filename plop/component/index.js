@@ -13,7 +13,7 @@ module.exports = plop => {
       {
         type: "add",
         path:
-          "src/components/{{properCase componentName}}/{{properCase componentName}}.js",
+          "src/components/{{properCase componentName}}/{{properCase componentName}}.jsx",
         templateFile: "plop/component/component-js.txt"
       },
       {
@@ -32,7 +32,7 @@ module.exports = plop => {
         type: "add",
         path:
           "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}.jest.js",
-        templateFile: "plop/component/component-stories-js.txt"
+        templateFile: "plop/component/component-test-jest.txt"
       },
       {
         type: "append",
@@ -45,7 +45,7 @@ module.exports = plop => {
         path: "src/published-components.js",
         pattern: /(\/\/ plop_marker:published-components)/g,
         template:
-          '\t{{properCase componentName}}: "/src/components/{{properCase componentName}}.jsx",'
+          '\t{{properCase componentName}}: "/src/components/{{properCase componentName}}/{{properCase componentName}}.jsx",'
       }
     ]
   });

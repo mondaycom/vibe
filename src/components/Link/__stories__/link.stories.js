@@ -5,6 +5,7 @@ import "./link-story.scss";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
 import StoryLine from "../../../StoryBookComponents/StoryLink/StoryLine";
 import { FlexLayout } from "../../storybook-helpers";
+import { LINK_TARGET } from "../LinkConsts";
 
 export const Sandbox = () => (
   <div className="width-35">
@@ -12,7 +13,7 @@ export const Sandbox = () => (
       id="Knobs"
       href={text("href", "https://www.monday.com")}
       text={text("text", "Read More")}
-      icon="fa fa-star"
+      icon={text("icon", "fa fa-star")}
       iconPosition={select(
         "Icon Position",
         {
@@ -20,6 +21,16 @@ export const Sandbox = () => (
           End: Link.position.END
         },
         Link.position.START
+      )}
+      target={select(
+        "target",
+        {
+          "New Window": Link.target.NEW_WINDOW,
+          Parent: Link.target.PARENT,
+          Self: Link.target.SELF,
+          Top: Link.target.TOP
+        },
+        Link.target.NEW_WINDOW
       )}
     />
   </div>
@@ -104,6 +115,6 @@ export const RTLSupport = () => {
 };
 
 export default {
-  title: "Components/Link",
+  title: "Components|Link",
   component: Link
 };
