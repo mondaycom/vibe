@@ -4,13 +4,15 @@ import AsyncSelect from "react-select/async";
 import VirtualizedSelect from "react-select-virtualized";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import VirtualizedAsyncDropdown from "./VirtualizedAsyncDropdown/VirtualizedAsyncDropdown";
-import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
-import CloseSmall from "../Icon/Icons/components/CloseSmall";
+import VirtualizedAsyncDropdown from "./components/VirtualizedAsyncDropdown/VirtualizedAsyncDropdown";
+import MenuComponent from "./components/Menu/Menu";
+import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
+import OptionComponent from "./components/Option/Option";
+import SingleValueComponent from "./components/SingleValue/SingleValue";
+import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import { SIZE } from "./DropdownConstants";
 import { NOOP } from "../../utils/function-utils";
-import Icon from "../Icon/Icon";
-import styles, { customTheme, getIndicatorSize } from "./Dropdown.styles";
+import styles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 
 const Dropdown = ({
@@ -38,59 +40,36 @@ const Dropdown = ({
 }) => {
   const [isOpen, setOpen] = useState(false);
 
-  const handleMenuOpen = data => {
-    onMenuOpen(data);
-    setOpen(true);
-  };
+  const handleMenuOpen = useCallback(
+    data => {
+      onMenuOpen(data);
+      setOpen(true);
+    },
+    [onMenuOpen, setOpen]
+  );
 
-  const handleMenuClose = data => {
-    onMenuClose(data);
-    setOpen(false);
-  };
+  const handleMenuClose = useCallback(
+    data => {
+      onMenuClose(data);
+      setOpen(false);
+    },
+    [setOpen, onMenuClose]
+  );
 
   const customStyles = useMemo(() => styles({ size, rtl }), [size, rtl]);
 
   const Menu = useCallback(
-    props => (
-      <components.Menu
-        {...props}
-        className={cx("menu", {
-          "dropdown-wrapper__menu--open": isOpen,
-          "dropdown-wrapper__menu--close": !isOpen
-        })}
-      >
-        {props.children}
-      </components.Menu>
-    ),
+    props => <MenuComponent {...props} isOpen={isOpen} />,
     [isOpen]
   );
 
   const DropdownIndicator = useCallback(
-    props => (
-      <components.DropdownIndicator {...props} className={"dropdown-indicator"}>
-        <Icon
-          iconType={Icon.type.SVG}
-          icon={DropdownChevronDown}
-          iconSize={getIndicatorSize(size)}
-          tabindex="-1"
-        />
-      </components.DropdownIndicator>
-    ),
+    props => <DropdownIndicatorComponent {...props} size={size} />,
     [size]
   );
 
   const Option = useCallback(
-    props => {
-      if (!OptionRenderer) return null;
-      return (
-        <components.Option
-          {...props}
-          className={"dropdown-wrapper__option--reset"}
-        >
-          <OptionRenderer {...props.data} />
-        </components.Option>
-      );
-    },
+    props => <OptionComponent {...props} OptionRenderer={OptionRenderer} />,
     [OptionRenderer]
   );
 
@@ -100,31 +79,12 @@ const Dropdown = ({
   );
 
   const SingleValue = useCallback(
-    props => {
-      if (!ValueRenderer) return null;
-      return (
-        <components.SingleValue
-          {...props}
-          className={"dropdown-wrapper__single-value--reset"}
-        >
-          <ValueRenderer {...props.data} />
-        </components.SingleValue>
-      );
-    },
+    props => <SingleValueComponent {...props} ValueRenderer={ValueRenderer} />,
     [ValueRenderer]
   );
 
   const ClearIndicator = useCallback(
-    props => (
-      <components.ClearIndicator {...props} className={"clear-indicator"}>
-        <Icon
-          iconType={Icon.type.SVG}
-          icon={CloseSmall}
-          iconSize={getIndicatorSize(size)}
-          tabindex="-1"
-        />
-      </components.ClearIndicator>
-    ),
+    props => <ClearIndicatorComponent {...props} size={size} />,
     [size]
   );
 
@@ -181,7 +141,7 @@ const Dropdown = ({
   );
 };
 
-Dropdown.SIZE = SIZE;
+Dropdown.size = SIZE;
 
 Dropdown.defaultProps = {
   className: "",
@@ -267,7 +227,7 @@ Dropdown.propTypes = {
    */
   defaultValue: PropTypes.object,
   /**
-   * Select menu size from `Dropdown.SIZE` - Dropdown.SIZE.BIG | Dropdown.SIZE.MEDIUM | Dropdown.SIZE.SMALL
+   * Select menu size from `Dropdown.size` - Dropdown.size.LARGE | Dropdown.size.MEDIUM | Dropdown.size.SMALL
    */
   size: PropTypes.string,
   /**

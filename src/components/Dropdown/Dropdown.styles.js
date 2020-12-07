@@ -3,7 +3,7 @@ import { getCSSVar } from "../../services/themes";
 
 const getSizeInPx = size => {
   switch (size) {
-    case SIZE.BIG:
+    case SIZE.LARGE:
       return 48;
     case SIZE.MEDIUM:
       return 40;
@@ -37,15 +37,7 @@ const getColor = () => {
   return { color, backgroundColor };
 };
 
-const getFont = size => {
-  switch (size) {
-    case SIZE.BIG:
-    case SIZE.MEDIUM:
-    case SIZE.SMALL:
-    default:
-      return { fontSize: "14px", lineHeight: "14px" };
-  }
-};
+const getFont = () => ({ fontSize: "14px", lineHeight: "14px" });
 
 const disabledContainerStyle = isDisabled => {
   if (!isDisabled) return {};
@@ -148,16 +140,16 @@ const control = ({ size }) => (provided, { isDisabled }) => ({
   ...disabledContainerStyle(isDisabled)
 });
 
-const placeholder = ({ size }) => provided => ({
+const placeholder = () => provided => ({
   ...provided,
-  ...getFont(size),
+  ...getFont(),
   color: getCSSVar("secondary-text-color"),
   fontWeight: 400
 });
 
 const indicatorsContainer = ({ size }) => (provided, { isDisabled }) => ({
   ...provided,
-  ...getFont(size),
+  ...getFont(),
   ...getColor(),
   borderRadius: getCSSVar("border-radius-small"),
   ...disabledContainerStyle(isDisabled),
@@ -198,9 +190,9 @@ const clearIndicator = ({ size }) => () => ({
   }
 });
 
-const singleValue = ({ size }) => (provided, { isDisabled }) => ({
+const singleValue = () => (provided, { isDisabled }) => ({
   ...provided,
-  ...getFont(size),
+  ...getFont(),
   ...getColor(),
   ...disabledContainerStyle(isDisabled),
   display: "flex",
@@ -208,9 +200,9 @@ const singleValue = ({ size }) => (provided, { isDisabled }) => ({
   height: "100%"
 });
 
-const input = ({ size }) => provided => ({
+const input = () => provided => ({
   ...provided,
-  ...getFont(size),
+  ...getFont(),
   ...getColor(),
   display: "flex",
   alignItems: "center",
@@ -228,23 +220,23 @@ const getCenterContentStyle = rtl => {
 const valueContainer = ({ size, rtl }) => (provided, { isDisabled }) => ({
   ...provided,
   ...getCenterContentStyle(rtl),
-  ...getFont(size),
+  ...getFont(),
   ...getColor(),
   ...getInnerSize(size),
   ...disabledContainerStyle(isDisabled),
   borderRadius: getCSSVar("border-radius-small")
 });
 
-const menu = ({ size }) => provided => ({
+const menu = () => provided => ({
   ...provided,
-  ...getFont(size),
+  ...getFont(),
   color: getCSSVar("primary-text-color"),
   backgroundColor: getCSSVar("dialog-background-color"),
   boxShadow: getCSSVar("box-shadow-small")
 });
 
-const option = ({ size }) => (provided, state) => ({
-  ...getFont(size),
+const option = () => (provided, state) => ({
+  ...getFont(),
   ...getOptionStyle(provided, state)
 });
 
@@ -254,7 +246,7 @@ const indicatorSeparator = () => () => ({
 
 export const getIndicatorSize = size => {
   switch (size) {
-    case SIZE.BIG:
+    case SIZE.LARGE:
       return "20px";
     case SIZE.MEDIUM:
       return "20px";

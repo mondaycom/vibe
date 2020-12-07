@@ -1,5 +1,5 @@
 export const SIZE = Object.freeze({
-  BIG: "big",
+  LARGE: "large",
   MEDIUM: "medium",
   SMALL: "small"
 });

@@ -4,15 +4,9 @@ import { action } from "@storybook/addon-actions";
 import Dropdown from "../Dropdown";
 import Icon from "../../Icon/Icon";
 import * as icons from "../../Icon/Icons";
-import {
-  StoryStateRow,
-  StoryStateColumn,
-  ComponentStateDescription,
-  FlexLayout,
-  Divider
-} from "../../storybook-helpers";
+import { StoryStateRow, StoryStateColumn } from "../../storybook-helpers";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
-import "./dropdown.stories.scss"
+import "./dropdown.stories.scss";
 
 const mockColorOptions = [
   { value: "ocean", label: "Ocean", isFixed: true },
@@ -24,8 +18,8 @@ const mockColorOptions = [
 ];
 
 const mockVirtualizedOptions = new Array(10000)
-    .fill(null)
-    .map((_, i) => ({ value: i + 1, label: (i + 1).toString() }));
+  .fill(null)
+  .map((_, i) => ({ value: i + 1, label: (i + 1).toString() }));
 
 export const Sandbox = () => {
   const mockDefaultOptions = mockColorOptions.slice(0, 2);
@@ -84,14 +78,18 @@ export const Sandbox = () => {
         <StoryStateColumn title="Sandbox" centerize>
           <Dropdown
             id="Sandbox"
-            className={"dropdown-story"}
+            className="dropdown-story"
             disabled={boolean("disabled", false)}
             clearable={boolean("clearable", true)}
             rtl={boolean("rtl", false)}
             searchable={boolean("searchable", true)}
             name="color"
             options={isVirtualized ? mockVirtualizedOptions : mockColorOptions}
-            size={select("size", Object.values(Dropdown.SIZE), Dropdown.SIZE.SMALL)}
+            size={select(
+              "size",
+              Object.values(Dropdown.size),
+              Dropdown.size.SMALL
+            )}
             placeholder={text("placeholder", "Dropdown placeholder")}
             onMenuOpen={action("Menu Open")}
             onMenuClose={action("Menu Close")}
@@ -140,69 +138,106 @@ const mockIcons = [
 ];
 
 export const CustomRender = () => (
-    <section>
-      <StoryStateRow>
-        <StoryStateColumn title="Custom render" centerize>
-          <Dropdown
-            className={"dropdown-story"}
-            OptionRenderer={Icon}
-            searchable
-            name="color"
-            options={mockIcons}
-          />
-        </StoryStateColumn>
-      </StoryStateRow>
-    </section>
+  <section>
+    <StoryStateRow>
+      <StoryStateColumn title="Custom render" centerize>
+        <Dropdown
+          className="dropdown-story"
+          OptionRenderer={Icon}
+          searchable
+          name="color"
+          options={mockIcons}
+        />
+      </StoryStateColumn>
+    </StoryStateRow>
+  </section>
 );
 
 export const sizes = () => (
   <section>
     <StoryStateRow>
       <StoryStateColumn title="Small">
-        <Dropdown className={"dropdown-story"} size={Dropdown.SIZE.SMALL} options={mockColorOptions} />
+        <Dropdown
+          className="dropdown-story"
+          size={Dropdown.size.SMALL}
+          options={mockColorOptions}
+        />
       </StoryStateColumn>
       <StoryStateColumn title="Medium">
-        <Dropdown className={"dropdown-story"} size={Dropdown.SIZE.MEDIUM} options={mockColorOptions} />
+        <Dropdown
+          className="dropdown-story"
+          size={Dropdown.size.MEDIUM}
+          options={mockColorOptions}
+        />
       </StoryStateColumn>
-      <StoryStateColumn title="Large" >
-        <Dropdown className={"dropdown-story"} size={Dropdown.SIZE.LARGE} options={mockColorOptions} />
+      <StoryStateColumn title="Large">
+        <Dropdown
+          className="dropdown-story"
+          size={Dropdown.size.LARGE}
+          options={mockColorOptions}
+        />
       </StoryStateColumn>
     </StoryStateRow>
     <DescriptionLabel>Disabled</DescriptionLabel>
     <StoryStateRow>
       <StoryStateColumn title="Small">
-        <Dropdown disabled className={"dropdown-story"} size={Dropdown.SIZE.SMALL} options={mockColorOptions} />
+        <Dropdown
+          disabled
+          className="dropdown-story"
+          size={Dropdown.size.SMALL}
+          options={mockColorOptions}
+        />
       </StoryStateColumn>
       <StoryStateColumn title="Medium">
-        <Dropdown disabled className={"dropdown-story"} size={Dropdown.SIZE.MEDIUM} options={mockColorOptions} />
+        <Dropdown
+          disabled
+          className="dropdown-story"
+          size={Dropdown.size.MEDIUM}
+          options={mockColorOptions}
+        />
       </StoryStateColumn>
       <StoryStateColumn title="Large">
-        <Dropdown disabled className={"dropdown-story"} size={Dropdown.SIZE.LARGE} options={mockColorOptions} />
+        <Dropdown
+          disabled
+          className="dropdown-story"
+          size={Dropdown.size.LARGE}
+          options={mockColorOptions}
+        />
       </StoryStateColumn>
     </StoryStateRow>
-  </section>)
+  </section>
+);
 
 export const rtl = () => (
   <section>
     <StoryStateRow>
       <StoryStateColumn title="Left to Right (default)">
-        <Dropdown className={"dropdown-story"} options={mockColorOptions} />
+        <Dropdown className="dropdown-story" options={mockColorOptions} />
       </StoryStateColumn>
       <StoryStateColumn title="Right to Left">
-        <Dropdown className={"dropdown-story"} rtl options={mockColorOptions} />
+        <Dropdown className="dropdown-story" rtl options={mockColorOptions} />
       </StoryStateColumn>
     </StoryStateRow>
     <DescriptionLabel>Disabled</DescriptionLabel>
     <StoryStateRow>
-      <StoryStateColumn title={"Left to Right"}>
-        <Dropdown disabled className={"dropdown-story"} options={mockColorOptions} />
+      <StoryStateColumn title="Left to Right">
+        <Dropdown
+          disabled
+          className="dropdown-story"
+          options={mockColorOptions}
+        />
       </StoryStateColumn>
-      <StoryStateColumn title={"Right to Left"}>
-        <Dropdown disabled className={"dropdown-story"} rtl options={mockColorOptions} />
+      <StoryStateColumn title="Right to Left">
+        <Dropdown
+          disabled
+          className="dropdown-story"
+          rtl
+          options={mockColorOptions}
+        />
       </StoryStateColumn>
     </StoryStateRow>
   </section>
-)
+);
 
 export const virtualized = () => {
   const mockPromiseOptions = inputValue => {
@@ -218,17 +253,27 @@ export const virtualized = () => {
     });
   };
 
-  return (<section>
-    <StoryStateRow>
-      <StoryStateColumn title="Virtualized">
-        <Dropdown className={"dropdown-story"} isVirtualized options={mockVirtualizedOptions}/>
-      </StoryStateColumn>
-      <StoryStateColumn title="Virtualized + Async">
-        <Dropdown className={"dropdown-story"} isVirtualized asyncOptions={mockPromiseOptions}/>
-      </StoryStateColumn>
-    </StoryStateRow>
-  </section>)
-}
+  return (
+    <section>
+      <StoryStateRow>
+        <StoryStateColumn title="Virtualized">
+          <Dropdown
+            className="dropdown-story"
+            isVirtualized
+            options={mockVirtualizedOptions}
+          />
+        </StoryStateColumn>
+        <StoryStateColumn title="Virtualized + Async">
+          <Dropdown
+            className="dropdown-story"
+            isVirtualized
+            asyncOptions={mockPromiseOptions}
+          />
+        </StoryStateColumn>
+      </StoryStateRow>
+    </section>
+  );
+};
 
 export const async = () => {
   const mockPromiseOptions = inputValue => {
@@ -236,9 +281,9 @@ export const async = () => {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(
-            arr.filter(({ label }) =>
-                label.toLowerCase().includes(inputValue.toLowerCase())
-            )
+          arr.filter(({ label }) =>
+            label.toLowerCase().includes(inputValue.toLowerCase())
+          )
         );
       }, 1000);
     });
@@ -246,23 +291,40 @@ export const async = () => {
 
   const mockDefaultOptions = mockColorOptions.slice(0, 2);
 
-  return (<section>
-    <StoryStateRow>
-      <StoryStateColumn title="Async">
-        <Dropdown className={"dropdown-story"} asyncOptions={mockPromiseOptions}/>
-      </StoryStateColumn>
-      <StoryStateColumn title="Async + Cache">
-        <Dropdown className={"dropdown-story"} asyncOptions={mockPromiseOptions} cacheOptions/>
-      </StoryStateColumn>
-      <StoryStateColumn title="Async + Prefetch all">
-        <Dropdown className={"dropdown-story"} asyncOptions={mockPromiseOptions} defaultOptions={true}/>
-      </StoryStateColumn>
-      <StoryStateColumn title="Async + Cache + Prefetch some">
-        <Dropdown className={"dropdown-story"} asyncOptions={mockPromiseOptions} defaultOptions={mockDefaultOptions}/>
-      </StoryStateColumn>
-    </StoryStateRow>
-  </section>)
-}
+  return (
+    <section>
+      <StoryStateRow>
+        <StoryStateColumn title="Async">
+          <Dropdown
+            className="dropdown-story"
+            asyncOptions={mockPromiseOptions}
+          />
+        </StoryStateColumn>
+        <StoryStateColumn title="Async + Cache">
+          <Dropdown
+            className="dropdown-story"
+            asyncOptions={mockPromiseOptions}
+            cacheOptions
+          />
+        </StoryStateColumn>
+        <StoryStateColumn title="Async + Prefetch all">
+          <Dropdown
+            className="dropdown-story"
+            asyncOptions={mockPromiseOptions}
+            defaultOptions={true}
+          />
+        </StoryStateColumn>
+        <StoryStateColumn title="Async + Cache + Prefetch some">
+          <Dropdown
+            className="dropdown-story"
+            asyncOptions={mockPromiseOptions}
+            defaultOptions={mockDefaultOptions}
+          />
+        </StoryStateColumn>
+      </StoryStateRow>
+    </section>
+  );
+};
 
 export default {
   title: "Components/Dropdown",
