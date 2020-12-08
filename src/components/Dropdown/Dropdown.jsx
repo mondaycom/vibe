@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
-import VirtualizedSelect from "react-select-virtualized";
+// import VirtualizedSelect from "react-select-virtualized";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import VirtualizedAsyncDropdown from "./components/VirtualizedAsyncDropdown/VirtualizedAsyncDropdown";
+// import VirtualizedAsyncDropdown from "./components/VirtualizedAsyncDropdown/VirtualizedAsyncDropdown";
 import MenuComponent from "./components/Menu/Menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
 import OptionComponent from "./components/Option/Option";
@@ -88,14 +88,7 @@ const Dropdown = ({
     [size]
   );
 
-  let DropDownComponent;
-  if (isVirtualized) {
-    DropDownComponent = asyncOptions
-      ? VirtualizedAsyncDropdown
-      : VirtualizedSelect;
-  } else {
-    DropDownComponent = asyncOptions ? AsyncSelect : Select;
-  }
+  const DropDownComponent = asyncOptions ? AsyncSelect : Select;
 
   const asyncAdditions = {
     ...(asyncOptions && {
@@ -250,11 +243,12 @@ Dropdown.propTypes = {
   defaultOptions: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.arrayOf(PropTypes.object)
-  ]),
-  /**
-   * If set to true, the menu will use virtualization. Virtualized async works only with
-   */
-  isVirtualized: PropTypes.bool
+  ])
 };
+
+/**
+ * If set to true, the menu will use virtualization. Virtualized async works only with
+ */
+// isVirtualized: PropTypes.bool
 
 export default Dropdown;

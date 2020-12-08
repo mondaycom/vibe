@@ -4,7 +4,7 @@ import cx from "classnames";
 import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
 import "./MenuButton.scss";
-import { DialogContentContainer } from "../index";
+import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 
 function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
