@@ -5,6 +5,7 @@ import SearchStoryLine from "./SearchStoryLine";
 
 import { FlexLayout } from "../../storybook-helpers";
 import Search from "../Search";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => {
   return (
@@ -169,5 +170,6 @@ export const States = () => {
 
 export default {
   title: "Components|Search",
-  component: Search
+  component: Search,
+  decorators: [withPerformance]
 };

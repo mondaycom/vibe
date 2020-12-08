@@ -1,12 +1,12 @@
 import React from "react";
 import MenuItem from "../MenuItem";
 import { FlexLayout } from "../../../storybook-helpers";
-import { action } from "@storybook/addon-actions";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
+import { text, boolean, select } from "@storybook/addon-knobs";
 import { selectIcon } from "../../../storybook-helpers";
 import StoryLine from "../../../../StoryBookComponents/StoryLink/StoryLine";
 import { Activity } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => {
   const iconType = select(
@@ -69,4 +69,5 @@ export const States = () => (
 export default {
   title: "Work in progress/Menu/MenuItem",
   component: MenuItem,
+  decorators: [withPerformance]
 };

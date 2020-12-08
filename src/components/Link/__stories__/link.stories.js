@@ -6,6 +6,7 @@ import DescriptionLabel from "../../storybook-helpers/description-label/descript
 import StoryLine from "../../../StoryBookComponents/StoryLink/StoryLine";
 import { FlexLayout } from "../../storybook-helpers";
 import { LINK_TARGET } from "../LinkConsts";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => (
   <div className="width-35">
@@ -116,5 +117,6 @@ export const RTLSupport = () => {
 
 export default {
   title: "Components|Link",
-  component: Link
+  component: Link,
+  decorators: [withPerformance]
 };

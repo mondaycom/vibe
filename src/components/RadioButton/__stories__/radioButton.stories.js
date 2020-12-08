@@ -5,6 +5,7 @@ import { StoryStateColumn, FlexLayout } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import RadioButtonStoryLine from "./RadioButtonStoryLine";
 import "./radioButton.stories.scss";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => {
   const radiosCount = number("radiosCount", 5);
@@ -127,4 +128,5 @@ const renderRadioButtons = (count, options = {}) => {
 export default {
   title: "Components|RadioButton",
   component: RadioButton,
+  decorators: [withPerformance]
 };

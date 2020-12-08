@@ -2,6 +2,7 @@ import React from "react";
 import DialogContentContainer from "../DialogContentContainer";
 import "./dialogContentContainerStory.scss";
 import ComponentStateDescription from "../../storybook-helpers/component-state-description/ComponentStateDescription";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => (
   <div>
@@ -35,5 +36,6 @@ export const Types = () => (
 
 export default {
   title: "Components/DialogContentContainer",
-  component: DialogContentContainer
+  component: DialogContentContainer,
+  decorators: [withPerformance]
 };

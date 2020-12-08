@@ -6,6 +6,7 @@ import DescriptionLabel from "../../storybook-helpers/description-label/descript
 import { Info } from "../../Icon/Icons";
 import AttentionBox from "../../AttentionBox/AttentionBox";
 import "./splitButton.stories.scss";
+import { withPerformance } from "storybook-addon-performance";
 
 function SecondaryContentComponent() {
   return (
@@ -299,5 +300,6 @@ export const Sandbox = () => (
 
 export default {
   title: "Components|SplitButton",
-  component: SplitButton
+  component: SplitButton,
+  decorators: [withPerformance]
 };

@@ -4,7 +4,7 @@ import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
 import { number, select } from "@storybook/addon-knobs";
 import Notifications from "../../Icon/Icons/components/Notifications";
 import "./counter.stories.scss";
-import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Fill = () => (
   <section>
@@ -199,5 +199,6 @@ export const NotificationCounter = () => (
 
 export default {
   title: "Components|Counter",
-  component: Counter
+  component: Counter,
+  decorators: [withPerformance]
 };

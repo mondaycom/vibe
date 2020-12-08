@@ -9,6 +9,7 @@ import Bolt from "../Icons/components/Bolt";
 import CustomSvgIcon from "../CustomSvgIcon";
 import Link from "../../Link/Link";
 import SearchComponent from "../../Search/Search";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Icons = () => {
   return (
@@ -100,9 +101,7 @@ export const IconsList = () => {
         style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
       >
         {iconsMetaData.reduce((acc, icon) => {
-          if (
-            !icon.tags.toLowerCase().includes(filterData.toLowerCase())
-          ) {
+          if (!icon.tags.toLowerCase().includes(filterData.toLowerCase())) {
             return acc;
           }
           const Component = AllIcons[icon.file.split(".")[0]];
@@ -127,5 +126,6 @@ function IconComponent({ name, Component }) {
 
 export default {
   title: "Components|Icon",
-  component: Icon
+  component: Icon,
+  decorators: [withPerformance]
 };

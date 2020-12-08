@@ -1,14 +1,14 @@
 import React from "react";
+import { text, select } from "@storybook/addon-knobs";
+import { withPerformance } from "storybook-addon-performance";
 import AttentionBox from "../AttentionBox";
 import {
   StoryStateRow,
-  ComponentStateDescription,
+  ComponentStateDescription
 } from "../../storybook-helpers";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import { ATTENTION_BOX_TYPES } from "../AttentionBoxConstants";
 import "./attentionBox.stories.scss";
-import Icon from "../../Icon/Icon";
 
 const ATTENTION_BOX_TITLE = "Attention box title";
 const ATTENTION_BOX_TEXT =
@@ -26,7 +26,7 @@ export const Sandbox = () => {
             Primary: ATTENTION_BOX_TYPES.PRIMARY,
             Success: ATTENTION_BOX_TYPES.SUCCESS,
             Danger: ATTENTION_BOX_TYPES.DANGER,
-            Dark: ATTENTION_BOX_TYPES.DARK,
+            Dark: ATTENTION_BOX_TYPES.DARK
           },
           ATTENTION_BOX_TYPES.PRIMARY
         )}
@@ -58,7 +58,7 @@ export const States = () => {
   );
 };
 
-const renderAttentionBox = (type) => {
+const renderAttentionBox = type => {
   const customClass = "monday-style-attention-box-component-custom-class";
 
   return (
@@ -74,4 +74,5 @@ const renderAttentionBox = (type) => {
 export default {
   title: "Components|AttentionBox",
   component: AttentionBox,
+  decorators: [withPerformance]
 };
