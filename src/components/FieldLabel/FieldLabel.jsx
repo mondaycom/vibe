@@ -6,7 +6,7 @@ import Icon from "../Icon/Icon";
 const FieldLabel = forwardRef(
   (
     {
-      iconName = "",
+      icon = "",
       iconLabel = "",
       labelText = "",
       labelFor = "",
@@ -22,7 +22,7 @@ const FieldLabel = forwardRef(
     return (
       <section className="label-component--wrapper">
         <Icon
-          iconName={iconName}
+          icon={icon}
           className={cx("label-component--icon", iconClassName)}
           id={labelFor}
           clickable={false}

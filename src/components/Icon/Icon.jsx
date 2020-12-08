@@ -19,7 +19,8 @@ const Icon = forwardRef(
       iconLabel,
       iconType,
       iconSize,
-      ignoreFocusStyle
+      ignoreFocusStyle,
+      tabindex: externalTabIndex
     },
     ref
   ) => {
@@ -47,7 +48,7 @@ const Icon = forwardRef(
         <IconComponent
           size={iconSize.toString()}
           onClick={onClick}
-          tabIndex={tabindex}
+          tabIndex={externalTabIndex ?? tabindex}
           className={computedClassName}
         />
       );
@@ -59,7 +60,7 @@ const Icon = forwardRef(
         onClick={onClickCallback}
         ref={mergedRef}
         iconLabel={iconLabel}
-        tabIndex={tabindex}
+        tabIndex={externalTabIndex ?? tabindex}
         icon={icon}
       />
     );

@@ -22,3 +22,4 @@ export { default as AttentionBox } from "./AttentionBox/AttentionBox";
 export { default as Label } from "./Label/Label";
 export { default as Checkbox } from "./Checkbox/Checkbox";
 export { default as DialogContentContainer } from "./DialogContentContainer/DialogContentContainer";
+export { default as Dropdown } from "./Dropdown/Dropdown";
