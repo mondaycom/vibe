@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import FlexLayout from "../flex-layout/flex-layout";
-import {ComponentStateDescription} from "../index";
+import ComponentStateDescription from "../component-state-description/ComponentStateDescription";
 
 export default class StoryStateRow extends PureComponent {
   render() {
