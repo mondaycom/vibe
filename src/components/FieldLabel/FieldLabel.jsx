@@ -22,7 +22,7 @@ const FieldLabel = forwardRef(
     return (
       <section className="label-component--wrapper">
         <Icon
-          icon
+          icon={icon}
           className={cx("label-component--icon", iconClassName)}
           id={labelFor}
           clickable={false}
