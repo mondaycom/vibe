@@ -11,6 +11,7 @@ import {
   FlexLayout,
   Divider
 } from "../../storybook-helpers";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => (
   <StoryStateRow centerize>
@@ -136,5 +137,6 @@ export const ImmediateTooltips = () => (
 
 export default {
   title: "Components|Tooltip",
-  component: Tooltip
+  component: Tooltip,
+  decorators: [withPerformance]
 };

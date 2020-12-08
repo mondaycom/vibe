@@ -1,12 +1,12 @@
 import React from "react";
 import { select, boolean } from "@storybook/addon-knobs";
+import { withPerformance } from "storybook-addon-performance";
 import MenuButton from "../MenuButton";
 import { ComponentStateDescription, FlexLayout } from "../../storybook-helpers";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import "./menuButton.style.scss";
 import { Menu, MenuItem, MenuTitle } from "../../index";
-import {Add, Favorite, Remove, Sun} from "../../Icon/Icons";
-import Moon from "../../Icon/Icons/components/Moon";
+import { Favorite, Sun, Moon } from "../../Icon/Icons";
 
 function MenuButtonContent() {
   return (
@@ -37,11 +37,7 @@ export const Sandbox = () => (
           caption="Look up, you might see"
           captionPosition={MenuTitle.positions.TOP}
         />
-        <MenuItem
-          icon={Sun}
-          iconType={MenuItem.iconType.SVG}
-          title="The sun"
-        />
+        <MenuItem icon={Sun} iconType={MenuItem.iconType.SVG} title="The sun" />
         <MenuItem
           icon={Moon}
           iconType={MenuItem.iconType.SVG}
@@ -114,5 +110,6 @@ export const Sizes = () => (
 
 export default {
   title: "Components|MenuButton",
-  component: MenuButton
+  component: MenuButton,
+  decorators: [withPerformance]
 };

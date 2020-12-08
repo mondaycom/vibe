@@ -3,6 +3,7 @@ import { boolean, number, select, color } from "@storybook/addon-knobs";
 import LinearProgressBar from "../LinearProgressBar";
 import colors from "../../../../constants/colors.json";
 import "./linearProgressBar.stories.scss";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => (
   <div style={{ width: "50%", margin: "40px" }}>
@@ -61,5 +62,6 @@ export const multiProgressBars = () => {
 
 export default {
   title: "Components|Progress Bars/LinearProgressBar",
-  component: LinearProgressBar
+  component: LinearProgressBar,
+  decorators: [withPerformance]
 };

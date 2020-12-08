@@ -2,7 +2,8 @@ import React from "react";
 import Divider from "../Divider";
 import { FlexLayout } from "../../storybook-helpers";
 import StoryLine from "../../../StoryBookComponents/StoryLink/StoryLine";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
+import { number, select } from "@storybook/addon-knobs";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => {
   const width = number("frame width", 200);
@@ -16,7 +17,7 @@ export const Sandbox = () => {
               id="divider"
               direction={select("direction", {
                 HORIZONTAL: Divider.directions.HORIZONTAL,
-                VERTICAL: Divider.directions.VERTICAL,
+                VERTICAL: Divider.directions.VERTICAL
               })}
             />
           </div>
@@ -48,4 +49,5 @@ export const Directions = () => (
 export default {
   title: "Components/Divider",
   component: Divider,
+  decorators: [withPerformance]
 };

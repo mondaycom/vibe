@@ -2,6 +2,7 @@ import React from "react";
 import { text, number, select, boolean } from "@storybook/addon-knobs";
 import FormattedNumber from "../FormattedNumber";
 import "./formattedNumber.stories.scss";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => (
   <div style={{ width: "100%", margin: "40px" }}>
@@ -27,5 +28,6 @@ export const Sandbox = () => (
 
 export default {
   title: "Textual Helpers|FormattedNumber",
-  component: FormattedNumber
+  component: FormattedNumber,
+  decorators: [withPerformance]
 };

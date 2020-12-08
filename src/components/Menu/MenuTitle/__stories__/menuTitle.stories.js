@@ -1,8 +1,9 @@
 import React from "react";
 import MenuTitle from "../MenuTitle";
 import { FlexLayout } from "../../../storybook-helpers";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
+import { text, select } from "@storybook/addon-knobs";
 import StoryLine from "../../../../StoryBookComponents/StoryLink/StoryLine";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => (
   <div style={{ width: 200 }}>
@@ -14,7 +15,7 @@ export const Sandbox = () => (
         {
           TOP: MenuTitle.positions.TOP,
           BOTTOM: MenuTitle.positions.BOTTOM,
-          CENTER: MenuTitle.positions.CENTER,
+          CENTER: MenuTitle.positions.CENTER
         },
         MenuTitle.positions.BOTTOM
       )}
@@ -53,4 +54,5 @@ export const States = () => (
 export default {
   title: "Work in progress/Menu/MenuTitle",
   component: MenuTitle,
+  decorators: [withPerformance]
 };

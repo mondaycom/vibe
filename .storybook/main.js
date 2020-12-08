@@ -53,5 +53,9 @@ module.exports = {
   webpackFinal: async config => {
     return buildConfig(config);
   },
-  addons: ["storybook-addon-themes", '@storybook/addon-a11y']
+  addons: [
+    "storybook-addon-themes",
+    "@storybook/addon-a11y",
+    "storybook-addon-performance/register"
+  ]
 };

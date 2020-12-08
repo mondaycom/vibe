@@ -4,6 +4,7 @@ import TextField from "../TextField";
 import { ComponentStateDescription, FlexLayout } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import TextFieldStoryBookLine from "./TextFieldStoryBookLine";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => {
   return (
@@ -173,5 +174,6 @@ export const States = () => {
 
 export default {
   title: "Components|Text Field",
-  component: TextField
+  component: TextField,
+  decorators: [withPerformance]
 };

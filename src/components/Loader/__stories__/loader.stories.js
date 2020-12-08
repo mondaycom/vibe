@@ -3,6 +3,7 @@ import Loader from "../Loader";
 import LoaderStoryLine from "./LoaderStoryLine";
 import { FlexLayout } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sizes = () => {
   return (
@@ -29,5 +30,6 @@ export const Sizes = () => {
 
 export default {
   title: "Components|Loader",
-  component: Loader
+  component: Loader,
+  decorators: [withPerformance]
 };

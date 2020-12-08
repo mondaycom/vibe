@@ -3,6 +3,7 @@ import Button from "../Button";
 import StoryStateColumn from "../../storybook-helpers/story-state-column/story-state-column";
 import StoryStateRow from "../../storybook-helpers/story-states-row/story-states-row";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
+import { withPerformance } from "storybook-addon-performance";
 
 export const DefaultStory = () => (
   <Button marginLeft marginRight>
@@ -436,5 +437,6 @@ export const Loading = () => (
 
 export default {
   title: "Components|Button",
-  component: Button
+  component: Button,
+  decorators: [withPerformance]
 };

@@ -4,14 +4,11 @@ import { text, boolean, number } from "@storybook/addon-knobs";
 import Checkbox from "../Checkbox";
 import {
   StoryStateRow,
-  StoryStateColumn,
-  ComponentStateDescription,
-  FlexLayout,
-  Divider
 } from "../../storybook-helpers";
 import { renderCheckboxes } from "./checkbox.stories.renderCheckboxes";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import "./checkbox.stories.scss";
+import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => {
   const checkedCount = number("Checkboxes (checked prop) Count", 5);
@@ -158,5 +155,6 @@ export const RTLSupport = () => [
 export default {
   title: "Components/Checkbox",
   component: Checkbox,
-  argTypes: { onClick: { action: "onChange" } }
+  argTypes: { onClick: { action: "onChange" } },
+  decorators: [withPerformance]
 };

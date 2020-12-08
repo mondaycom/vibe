@@ -1,4 +1,5 @@
 import { useMemo, useCallback, useState, useRef, useEffect } from "react";
+import NOOP from "lodash/noop";
 import debounce from "lodash/debounce";
 
 export default function useDebounceEvent({
@@ -40,13 +41,6 @@ export default function useDebounceEvent({
     onChange("");
   }, [setValue, onChange]);
 
-  const updateValue = useCallback(
-    value => {
-      setValue(value);
-    },
-    [setValue]
-  );
-
   if (
     initialStateValue !== previousValue.current &&
     initialStateValue !== inputValue
@@ -54,5 +48,5 @@ export default function useDebounceEvent({
     setValue(initialStateValue);
   }
 
-  return { inputValue, onEventChanged, clearValue, updateValue };
+  return { inputValue, onEventChanged, clearValue, updateValue: setValue };
 }

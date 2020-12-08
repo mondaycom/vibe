@@ -8,6 +8,7 @@ import MenuTitle from "../../MenuTitle/MenuTitle";
 import Divider from "../../../Divider/Divider";
 import { selectIcon } from "../../../storybook-helpers";
 import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
+import { withPerformance } from "storybook-addon-performance";
 
 const renderMenuItems = () => {
   return [
@@ -80,11 +81,11 @@ const renderMenuItems = () => {
       onClick={() => {
         alert("7");
       }}
-    />,
+    />
   ];
 };
 
-const renderMenuItem = (index) => {
+const renderMenuItem = index => {
   return (
     <MenuItem
       id={`menu-item-${index}`}
@@ -98,11 +99,11 @@ const renderMenuItem = (index) => {
   );
 };
 
-const renderDivider = (index) => {
+const renderDivider = index => {
   return <Divider id={`menu-divider-${index}`} />;
 };
 
-const renderMenuTitle = (index) => {
+const renderMenuTitle = index => {
   return (
     <MenuTitle
       id={`menu-title-${index}`}
@@ -112,18 +113,18 @@ const renderMenuTitle = (index) => {
         {
           TOP: MenuTitle.positions.TOP,
           BOTTOM: MenuTitle.positions.BOTTOM,
-          CENTER: MenuTitle.positions.CENTER,
+          CENTER: MenuTitle.positions.CENTER
         },
         MenuTitle.positions.BOTTOM
       )}
     />
   );
 };
-const renderItem = (index) => {
+const renderItem = index => {
   const itemType = select(`Item ${index} type`, {
     MenuItem: "MenuItem",
     Divider: "Divider",
-    MenuTitle: "MenuTitle",
+    MenuTitle: "MenuTitle"
   });
 
   switch (itemType) {
@@ -142,7 +143,7 @@ const renderItem = (index) => {
   }
 };
 
-const renderMenuItemsByCount = (itemsCount) => {
+const renderMenuItemsByCount = itemsCount => {
   const items = [];
   for (var i = 0; i < itemsCount; i++) {
     items.push(renderItem(i));
@@ -161,7 +162,7 @@ export const Sandbox = () => {
         size={select("size", {
           SMALL: "small",
           MEDIUM: "medium",
-          LARGE: "large",
+          LARGE: "large"
         })}
       >
         {renderMenuItemsByCount(itemsCount)}
@@ -203,4 +204,5 @@ export const Sizes = () => {
 export default {
   title: "Work in progress/Menu/Menu",
   component: Menu,
+  decorators: [withPerformance]
 };
