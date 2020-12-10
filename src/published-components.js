@@ -8,6 +8,7 @@ const publishedComponents = {
   Divider: "/src/components/Divider/Divider.jsx",
   MenuItem: "/src/components/Menu/MenuItem/MenuItem.jsx",
   Menu: "/src/components/Menu/Menu/Menu.jsx",
+  Dialog: "/src/components/Dialog/Dialog.jsx",
   DialogContentContainer:
     "/src/components/DialogContentContainer/DialogContentContainer.jsx",
   AttentionBox: "/src/components/AttentionBox/AttentionBox.jsx",
