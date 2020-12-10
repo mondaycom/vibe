@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
@@ -14,14 +14,39 @@ const AttentionBox = ({
   title,
   text
 }) => {
+  const role = useMemo(() => {
+    if (type === ATTENTION_BOX_TYPES.DANGER) {
+      return "alert";
+    }
+
+    return "attention";
+  }, [type]);
+
+  const iconLabel = useMemo(() => {
+    if (type === ATTENTION_BOX_TYPES.DANGER) {
+      return "alert";
+    }
+
+    if (type === ATTENTION_BOX_TYPES.SUCCESS) {
+      return "success";
+    }
+
+    return "attention";
+  }, [type]);
+
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
-    <div className={cx(baseClassName, classNameWithType, componentClassName)}>
+    <section
+      className={cx(baseClassName, classNameWithType, componentClassName)}
+      role={role}
+    >
       <div
         className={cx(
           `${baseClassName}__title-container`,
           `${classNameWithType}__title-container`
         )}
+        role="heading"
+        aria-level="2"
       >
         <Icon
           iconType={iconType}
@@ -33,6 +58,7 @@ const AttentionBox = ({
           )}
           ignoreFocusStyle
           iconSize="24"
+          iconLabel={iconLabel}
         />
         <span
           className={cx(
@@ -48,7 +74,7 @@ const AttentionBox = ({
       >
         {text}
       </div>
-    </div>
+    </section>
   );
 };
 

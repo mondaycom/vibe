@@ -28,7 +28,8 @@ const Icon = forwardRef(
       tabindex,
       onClickCallback,
       computedClassName,
-      iconRef
+      iconRef,
+      role
     } = useIconProps({
       onClick,
       clickable,
@@ -50,6 +51,7 @@ const Icon = forwardRef(
           onClick={onClick}
           tabIndex={externalTabIndex ?? tabindex}
           className={computedClassName}
+          role={role}
         />
       );
     }
@@ -62,6 +64,7 @@ const Icon = forwardRef(
         iconLabel={iconLabel}
         tabIndex={externalTabIndex ?? tabindex}
         icon={icon}
+        role={role}
       />
     );
   }
