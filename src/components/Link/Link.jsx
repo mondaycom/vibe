@@ -18,7 +18,8 @@ const Link = forwardRef(
       ariaLabelDescription,
       icon,
       iconPosition,
-      id
+      id,
+      ariaLabeledBy
     },
     ref
   ) => {
@@ -34,6 +35,7 @@ const Link = forwardRef(
         target={target}
         className={cx("monday-style-link", componentClassName)}
         aria-label={ariaLabelDescription}
+        aria-labelledby={ariaLabeledBy}
       >
         {getIcon(isStart, icon, "monday-style-link--icon-start")}
         <span className="monday-style-link--text">{text}</span>
@@ -70,7 +72,10 @@ Link.propTypes = {
     Link.target.SELF,
     Link.target.TOP
   ]),
+  /** Aria label description */
   ariaLabelDescription: PropTypes.string,
+  /** element id to describe the counter accordingly */
+  ariaLabeledBy: PropTypes.string,
   icon: PropTypes.string,
   iconPosition: PropTypes.oneOf([Link.position.START, Link.position.END]),
   id: PropTypes.string
@@ -86,7 +91,8 @@ Link.defaultProps = {
   ariaLabelDescription: "",
   icon: "",
   iconPosition: Link.position.START,
-  id: ""
+  id: "",
+  ariaLabeledBy: ""
 };
 
 export default Link;

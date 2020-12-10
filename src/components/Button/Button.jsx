@@ -58,7 +58,8 @@ const Button = forwardRef(
       preventClickAnimation,
       noSidePadding,
       onFocus,
-      onBlur
+      onBlur,
+      ariaLabeledBy
     },
     ref
   ) => {
@@ -179,6 +180,7 @@ const Button = forwardRef(
         onFocus,
         onBlur,
         onMouseDown: onMouseDownClicked,
+        "aria-labelledby": ariaLabeledBy,
         "aria-label": ariaLabel,
         "aria-busy": loading
       };
@@ -255,52 +257,83 @@ const Button = forwardRef(
   }
 );
 
+Button.sizes = BUTTON_SIZES;
+Button.colors = BUTTON_COLORS;
+Button.kinds = BUTTON_TYPES;
+Button.inputTags = BUTTON_INPUT_TYPE;
+
 Button.propTypes = {
+  className: PropTypes.string,
+  /** The kind of a button is exposed on the component  */
   kind: PropTypes.oneOf([
-    BUTTON_TYPES.PRIMARY,
-    BUTTON_TYPES.SECONDARY,
-    BUTTON_TYPES.TERTIARY
+    Button.kinds.PRIMARY,
+    Button.kinds.SECONDARY,
+    Button.kinds.TERTIARY
   ]),
   onClick: PropTypes.func,
   onMouseDown: PropTypes.func,
+  /** Name of the button - for form submit usages  */
   name: PropTypes.string,
+  /** The size of a button is exposed on the component  */
   size: PropTypes.oneOf([
-    BUTTON_SIZES.SMALL,
-    BUTTON_SIZES.MEDIUM,
-    BUTTON_SIZES.LARGE
+    Button.sizes.SMALL,
+    Button.sizes.MEDIUM,
+    Button.sizes.LARGE
   ]),
+
+  /** The color of a button is exposed on the component  */
   color: PropTypes.oneOf([
-    BUTTON_COLORS.PRIMARY,
-    BUTTON_COLORS.NEGATIVE,
-    BUTTON_COLORS.POSITIVE,
-    BUTTON_COLORS.ON_PRIMARY_COLOR
+    Button.colors.PRIMARY,
+    Button.colors.NEGATIVE,
+    Button.colors.POSITIVE,
+    Button.colors.ON_PRIMARY_COLOR
   ]),
+
+  /** The type of a button is exposed on the component  */
+  type: PropTypes.oneOf([
+    Button.inputTags.BUTTON,
+    Button.inputTags.SUBMIT,
+    Button.inputTags.RESET
+  ]),
+  /** Disabled property which causes the button to be disabled */
   disabled: PropTypes.bool,
-  className: PropTypes.string,
+  /** Icon to place on the right*/
   rightIcon: PropTypes.string,
+  /** Icon to place on the left*/
   leftIcon: PropTypes.string,
-  successIcon: PropTypes.string,
-  successText: PropTypes.string,
+  /** the success props are used when you have async action and wants to display a success message */
   success: PropTypes.bool,
+  /** Success icon name */
+  successIcon: PropTypes.string,
+  /** Success text */
+  successText: PropTypes.string,
+
+  /** loading boolean which switches the text to a loader */
   loading: PropTypes.bool,
+
   // eslint-disable-next-line react/forbid-prop-types
   style: PropTypes.object,
+  /** displays the active state */
   active: PropTypes.bool,
+  /** id to pass to the button */
   id: PropTypes.string,
+  /** adds 8px margin to the right */
   marginRight: PropTypes.bool,
+  /** adds 8px margin to the left */
   marginLeft: PropTypes.bool,
-  type: PropTypes.oneOf([
-    BUTTON_INPUT_TYPE.BUTTON,
-    BUTTON_INPUT_TYPE.SUBMIT,
-    BUTTON_INPUT_TYPE.RESET
-  ]),
+
+  /** element id to describe the button accordingly */
+  ariaLabeledBy: PropTypes.string,
+  /** aria label to provide important when providing only Icon */
   ariaLabel: PropTypes.string,
+  /** On Button Focus callback */
+  onFocus: PropTypes.func,
+  /** On Button Blur callback */
+  onBlur: PropTypes.func,
   rightFlat: PropTypes.bool,
   leftFlat: PropTypes.bool,
   preventClickAnimation: PropTypes.bool,
-  noSidePadding: PropTypes.bool,
-  onFocus: PropTypes.func,
-  onBlur: PropTypes.func
+  noSidePadding: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -324,6 +357,7 @@ Button.defaultProps = {
   marginLeft: false,
   type: BUTTON_INPUT_TYPE.BUTTON,
   ariaLabel: "",
+  ariaLabeledBy: "",
   rightFlat: false,
   leftFlat: false,
   preventClickAnimation: false,
@@ -331,10 +365,5 @@ Button.defaultProps = {
   onFocus: NOOP,
   onBlur: NOOP
 };
-
-Button.sizes = BUTTON_SIZES;
-Button.colors = BUTTON_COLORS;
-Button.kinds = BUTTON_TYPES;
-Button.inputTags = BUTTON_INPUT_TYPE;
 
 export default Button;

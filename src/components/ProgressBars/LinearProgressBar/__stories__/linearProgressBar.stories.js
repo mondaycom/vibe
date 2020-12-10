@@ -1,5 +1,5 @@
 import React from "react";
-import { boolean, number, select, color } from "@storybook/addon-knobs";
+import { boolean, number, select, color , text} from "@storybook/addon-knobs";
 import LinearProgressBar from "../LinearProgressBar";
 import colors from "../../../../constants/colors.json";
 import "./linearProgressBar.stories.scss";
@@ -29,6 +29,7 @@ export const Sandbox = () => (
         ["linear-progress-bar--custom-class", ""],
         ""
       )}
+      ariaLabel={text("Bar Aria Label", "my awesome growth bar")}
     />
   </div>
 );
@@ -55,6 +56,7 @@ export const multiProgressBars = () => {
         indicateProgress
         multi
         multiValues={multiValues}
+        ariaLabel="A few colors"
       />
     </div>
   );

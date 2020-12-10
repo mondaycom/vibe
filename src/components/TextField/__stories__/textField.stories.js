@@ -15,6 +15,7 @@ export const Sandbox = () => {
         debounceRate={number("Debounce Rate (see console log)", 0)}
         onChange={value => console.log(value)}
         value={text("Initial Value", "")}
+        iconsNames={{ primary: "Primary Icon - could be any icon" }}
         iconName={text("Primary Icon Name", "fa-circle")}
         secondaryIconName={text("Secondary Icon Name", "")}
         validation={select(
@@ -34,6 +35,7 @@ export const Sandbox = () => {
         labelIconName={text("FieldLabel Icon Name", "fa-envelope")}
         title={text("Text filed label", "FieldLabel")}
         showCharCount={boolean("show hide char count", true)}
+        required={boolean("Filed is required", false)}
       />
     </div>
   );

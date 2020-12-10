@@ -47,7 +47,9 @@ const TextField = forwardRef(
       iconsNames,
       type,
       maxLength,
-      trim
+      trim,
+      role,
+      required
     },
     ref
   ) => {
@@ -111,6 +113,7 @@ const TextField = forwardRef(
         className={classNames("input-component", wrapperClassName, {
           "input-component--disabled": disabled
         })}
+        role={role}
       >
         <div className="input-component__label--wrapper">
           <FieldLabel
@@ -144,6 +147,8 @@ const TextField = forwardRef(
               onKeyDown={onKeyDown}
               aria-label={inputAriaLabel || placeholder}
               maxLength={maxLength}
+              aria-invalid={validation && validation.status === "error"}
+              required={required}
             />
             <div
               className={classNames("input-component__icon--container", {
@@ -206,10 +211,14 @@ const TextField = forwardRef(
   }
 );
 
+TextField.sizes = TEXT_FIELD_SIZE;
+TextField.feedbacks = FEEDBACK_STATES;
+TextField.types = TEXT_TYPES;
+
 TextField.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
-  /* See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
+  /** See https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete for all of the available options */
   autoComplete: PropTypes.string,
   value: PropTypes.string,
   onChange: PropTypes.func,
@@ -224,15 +233,16 @@ TextField.propTypes = {
   secondaryIconName: PropTypes.string,
   id: PropTypes.string,
   title: PropTypes.string,
-  /* TEXT_FIELD_SIZE is exposed on the component itself */
+  /** TEXT_FIELD_SIZE is exposed on the component itself */
   size: PropTypes.oneOf([
-    TEXT_FIELD_SIZE.SMALL,
-    TEXT_FIELD_SIZE.MEDIUM,
-    TEXT_FIELD_SIZE.LARGE
+    TextField.sizes.SMALL,
+    TextField.sizes.MEDIUM,
+    TextField.sizes.LARGE
   ]),
   validation: PropTypes.shape({
+    /** Don't provide status for plain assistant text */
     status: PropTypes.oneOf(["error", "success"]),
-    /* Don't provide status for plain assistant text */
+
     text: PropTypes.string
   }),
   wrapperClassName: PropTypes.string,
@@ -241,20 +251,24 @@ TextField.propTypes = {
   labelIconName: PropTypes.string,
   showCharCount: PropTypes.bool,
   inputAriaLabel: PropTypes.string,
-  /*  Icon names labels for a11y */
+  /**  Icon names labels for a11y */
   iconsNames: PropTypes.shape({
     layout: PropTypes.string,
     primary: PropTypes.string,
     secondary: PropTypes.string
   }),
-  /* TEXT_TYPES is exposed on the component itself */
+  /** TEXT_TYPES is exposed on the component itself */
   type: PropTypes.oneOf([
-    TEXT_TYPES.TEXT,
-    TEXT_TYPES.PASSWORD,
-    TEXT_TYPES.SEARCH
+    TextField.types.TEXT,
+    TextField.types.PASSWORD,
+    TextField.types.SEARCH
   ]),
   maxLength: PropTypes.number,
-  trim: PropTypes.bool
+  trim: PropTypes.bool,
+  /** ARIA role for container landmark */
+  role: PropTypes.string,
+  /** adds required to the input element */
+  required: PropTypes.bool
 };
 
 TextField.defaultProps = {
@@ -286,16 +300,14 @@ TextField.defaultProps = {
   iconsNames: EMPTY_OBJECT,
   type: TEXT_TYPES.TEXT,
   maxLength: null,
-  trim: false
+  trim: false,
+  role: "",
+  required: false
 };
 
 export const ARIA_LABELS = {
   CHAR: "Input char count",
   VALIDATION_TEXT: "Additional helper text"
 };
-
-TextField.sizes = TEXT_FIELD_SIZE;
-TextField.feedbacks = FEEDBACK_STATES;
-TextField.types = TEXT_TYPES;
 
 export default TextField;

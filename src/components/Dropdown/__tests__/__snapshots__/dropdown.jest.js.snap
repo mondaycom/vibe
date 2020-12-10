@@ -44,7 +44,7 @@ exports[`Dropdown should open menu on click if set 1`] = `
               autocapitalize="none"
               autocomplete="off"
               autocorrect="off"
-              id="react-select-2-input"
+              id="react-select-8-input"
               spellcheck="false"
               style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
               tabindex="0"
@@ -71,6 +71,7 @@ exports[`Dropdown should open menu on click if set 1`] = `
             class="icon_component icon_component--clickable"
             fill="currentColor"
             height="20px"
+            role="button"
             tabindex="-1"
             viewBox="0 0 20 20"
             width="20px"
@@ -93,42 +94,42 @@ exports[`Dropdown should open menu on click if set 1`] = `
       >
         <div
           class=" css-14cnnyc-option"
-          id="react-select-2-option-0"
+          id="react-select-8-option-0"
           tabindex="-1"
         >
           Ocean
         </div>
         <div
           class=" css-15bbhzv-option"
-          id="react-select-2-option-1"
+          id="react-select-8-option-1"
           tabindex="-1"
         >
           Blue
         </div>
         <div
           class=" css-4bbyqz-option"
-          id="react-select-2-option-2"
+          id="react-select-8-option-2"
           tabindex="-1"
         >
           Purple
         </div>
         <div
           class=" css-4bbyqz-option"
-          id="react-select-2-option-3"
+          id="react-select-8-option-3"
           tabindex="-1"
         >
           Red
         </div>
         <div
           class=" css-4bbyqz-option"
-          id="react-select-2-option-4"
+          id="react-select-8-option-4"
           tabindex="-1"
         >
           Orange
         </div>
         <div
           class=" css-4bbyqz-option"
-          id="react-select-2-option-5"
+          id="react-select-8-option-5"
           tabindex="-1"
         >
           Yellow
@@ -181,7 +182,7 @@ exports[`Dropdown should open menu on focus if set 1`] = `
               autocapitalize="none"
               autocomplete="off"
               autocorrect="off"
-              id="react-select-2-input"
+              id="react-select-7-input"
               spellcheck="false"
               style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
               tabindex="0"
@@ -208,6 +209,7 @@ exports[`Dropdown should open menu on focus if set 1`] = `
             class="icon_component icon_component--clickable"
             fill="currentColor"
             height="20px"
+            role="button"
             tabindex="-1"
             viewBox="0 0 20 20"
             width="20px"
@@ -230,42 +232,42 @@ exports[`Dropdown should open menu on focus if set 1`] = `
       >
         <div
           class=" css-14cnnyc-option"
-          id="react-select-2-option-0"
+          id="react-select-7-option-0"
           tabindex="-1"
         >
           Ocean
         </div>
         <div
           class=" css-15bbhzv-option"
-          id="react-select-2-option-1"
+          id="react-select-7-option-1"
           tabindex="-1"
         >
           Blue
         </div>
         <div
           class=" css-4bbyqz-option"
-          id="react-select-2-option-2"
+          id="react-select-7-option-2"
           tabindex="-1"
         >
           Purple
         </div>
         <div
           class=" css-4bbyqz-option"
-          id="react-select-2-option-3"
+          id="react-select-7-option-3"
           tabindex="-1"
         >
           Red
         </div>
         <div
           class=" css-4bbyqz-option"
-          id="react-select-2-option-4"
+          id="react-select-7-option-4"
           tabindex="-1"
         >
           Orange
         </div>
         <div
           class=" css-4bbyqz-option"
-          id="react-select-2-option-5"
+          id="react-select-7-option-5"
           tabindex="-1"
         >
           Yellow
@@ -288,117 +290,6 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
   >
     <div
       className=" css-1d5tytm-ValueContainer"
-    >
-      <div
-        className=" css-1dtegfv-placeholder"
-      >
-        placeHolder
-      </div>
-      <div
-        className="css-1m8eskj-Input"
-      >
-        <div
-          className=""
-          style={
-            Object {
-              "display": "inline-block",
-            }
-          }
-        >
-          <input
-            aria-autocomplete="list"
-            aria-label="Dropdown input"
-            autoCapitalize="none"
-            autoComplete="off"
-            autoCorrect="off"
-            disabled={false}
-            id="react-select-2-input"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onFocus={[Function]}
-            spellCheck="false"
-            style={
-              Object {
-                "background": 0,
-                "border": 0,
-                "boxSizing": "content-box",
-                "color": "inherit",
-                "fontSize": "inherit",
-                "label": "input",
-                "opacity": 1,
-                "outline": 0,
-                "padding": 0,
-                "width": "1px",
-              }
-            }
-            tabIndex="0"
-            type="text"
-            value=""
-          />
-          <div
-            style={
-              Object {
-                "height": 0,
-                "left": 0,
-                "overflow": "scroll",
-                "position": "absolute",
-                "top": 0,
-                "visibility": "hidden",
-                "whiteSpace": "pre",
-              }
-            }
-          >
-            
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      className=" css-1b5f2fp-IndicatorsContainer"
-    >
-      <span
-        className=" css-1xjgjl1-IndicatorSeparator"
-      />
-      <div
-        aria-hidden="true"
-        className="dropdown-indicator css-10t6ywh-indicatorContainer"
-        onMouseDown={[Function]}
-        onTouchEnd={[Function]}
-      >
-        <svg
-          className="icon_component icon_component--clickable"
-          fill="currentColor"
-          height="20px"
-          onClick={[Function]}
-          tabIndex="-1"
-          viewBox="0 0 20 20"
-          width="20px"
-        >
-          <path
-            clipRule="evenodd"
-            d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
-            fill="currentColor"
-            fillRule="evenodd"
-          />
-        </svg>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Dropdown should render correctly for the different sizes 2`] = `
-<div
-  className="dropdown-wrapper css-bbwnb8-container"
-  onKeyDown={[Function]}
->
-  <div
-    className=" css-132xx32-control"
-    onMouseDown={[Function]}
-    onTouchEnd={[Function]}
-  >
-    <div
-      className=" css-1d96xbr-ValueContainer"
     >
       <div
         className=" css-1dtegfv-placeholder"
@@ -465,14 +356,14 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
       </div>
     </div>
     <div
-      className=" css-hcxwnl-IndicatorsContainer"
+      className=" css-1b5f2fp-IndicatorsContainer"
     >
       <span
         className=" css-1xjgjl1-IndicatorSeparator"
       />
       <div
         aria-hidden="true"
-        className="dropdown-indicator css-z4zos4-indicatorContainer"
+        className="dropdown-indicator css-10t6ywh-indicatorContainer"
         onMouseDown={[Function]}
         onTouchEnd={[Function]}
       >
@@ -481,6 +372,7 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
           fill="currentColor"
           height="20px"
           onClick={[Function]}
+          role="button"
           tabIndex="-1"
           viewBox="0 0 20 20"
           width="20px"
@@ -498,18 +390,18 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
 </div>
 `;
 
-exports[`Dropdown should render correctly for the different sizes 3`] = `
+exports[`Dropdown should render correctly for the different sizes 2`] = `
 <div
-  className="dropdown-wrapper css-1pu8kyc-container"
+  className="dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
-    className=" css-veeint-control"
+    className=" css-132xx32-control"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
   >
     <div
-      className=" css-ndj9s9-ValueContainer"
+      className=" css-1d96xbr-ValueContainer"
     >
       <div
         className=" css-1dtegfv-placeholder"
@@ -576,6 +468,118 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
       </div>
     </div>
     <div
+      className=" css-hcxwnl-IndicatorsContainer"
+    >
+      <span
+        className=" css-1xjgjl1-IndicatorSeparator"
+      />
+      <div
+        aria-hidden="true"
+        className="dropdown-indicator css-z4zos4-indicatorContainer"
+        onMouseDown={[Function]}
+        onTouchEnd={[Function]}
+      >
+        <svg
+          className="icon_component icon_component--clickable"
+          fill="currentColor"
+          height="20px"
+          onClick={[Function]}
+          role="button"
+          tabIndex="-1"
+          viewBox="0 0 20 20"
+          width="20px"
+        >
+          <path
+            clipRule="evenodd"
+            d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+            fill="currentColor"
+            fillRule="evenodd"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dropdown should render correctly for the different sizes 3`] = `
+<div
+  className="dropdown-wrapper css-1pu8kyc-container"
+  onKeyDown={[Function]}
+>
+  <div
+    className=" css-veeint-control"
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+  >
+    <div
+      className=" css-ndj9s9-ValueContainer"
+    >
+      <div
+        className=" css-1dtegfv-placeholder"
+      >
+        placeHolder
+      </div>
+      <div
+        className="css-1m8eskj-Input"
+      >
+        <div
+          className=""
+          style={
+            Object {
+              "display": "inline-block",
+            }
+          }
+        >
+          <input
+            aria-autocomplete="list"
+            aria-label="Dropdown input"
+            autoCapitalize="none"
+            autoComplete="off"
+            autoCorrect="off"
+            disabled={false}
+            id="react-select-5-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            spellCheck="false"
+            style={
+              Object {
+                "background": 0,
+                "border": 0,
+                "boxSizing": "content-box",
+                "color": "inherit",
+                "fontSize": "inherit",
+                "label": "input",
+                "opacity": 1,
+                "outline": 0,
+                "padding": 0,
+                "width": "1px",
+              }
+            }
+            tabIndex="0"
+            type="text"
+            value=""
+          />
+          <div
+            style={
+              Object {
+                "height": 0,
+                "left": 0,
+                "overflow": "scroll",
+                "position": "absolute",
+                "top": 0,
+                "visibility": "hidden",
+                "whiteSpace": "pre",
+              }
+            }
+          >
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
       className=" css-12cxbpe-IndicatorsContainer"
     >
       <span
@@ -592,6 +596,7 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
           fill="currentColor"
           height="16px"
           onClick={[Function]}
+          role="button"
           tabIndex="-1"
           viewBox="0 0 20 20"
           width="16px"
@@ -703,6 +708,7 @@ exports[`Dropdown should render correctly with empty props 1`] = `
           fill="currentColor"
           height="20px"
           onClick={[Function]}
+          role="button"
           tabIndex="-1"
           viewBox="0 0 20 20"
           width="20px"
@@ -718,6 +724,108 @@ exports[`Dropdown should render correctly with empty props 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`Dropdown should use async if set 1`] = `
+<DocumentFragment>
+  <div
+    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+  >
+    <span
+      aria-live="polite"
+      class="css-1laao21-a11yText"
+    >
+      <span
+        id="aria-selection-event"
+      >
+         
+      </span>
+      <span
+        id="aria-context"
+      >
+           0 results available. Select is focused ,type to refine list, press Down to open the menu, 
+      </span>
+    </span>
+    <div
+      class=" css-quv8ei-control"
+    >
+      <div
+        class=" css-1d96xbr-ValueContainer"
+      >
+        <div
+          class=" css-1dtegfv-placeholder"
+        />
+        <div
+          class="css-1m8eskj-Input"
+        >
+          <div
+            class=""
+            style="display: inline-block;"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              id="react-select-6-input"
+              spellcheck="false"
+              style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class=" css-hcxwnl-IndicatorsContainer"
+      >
+        <div
+          aria-hidden="true"
+          class=" css-1xh8qep-loadingIndicator"
+        >
+          <span
+            class="css-1yvy2vo-LoadingDot"
+          />
+          <span
+            class="css-zoievk-LoadingDot"
+          />
+          <span
+            class="css-x748d8-LoadingDot"
+          />
+        </div>
+        <span
+          class=" css-1xjgjl1-IndicatorSeparator"
+        />
+        <div
+          aria-hidden="true"
+          class="dropdown-indicator css-z4zos4-indicatorContainer"
+        >
+          <svg
+            class="icon_component icon_component--clickable"
+            fill="currentColor"
+            height="20px"
+            role="button"
+            tabindex="-1"
+            viewBox="0 0 20 20"
+            width="20px"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`Dropdown should use virtualization if set 1`] = `

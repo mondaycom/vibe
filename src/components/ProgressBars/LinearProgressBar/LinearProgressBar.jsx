@@ -24,7 +24,8 @@ const LinearProgressBar = forwardRef(
       size,
       indicateProgress,
       multi,
-      multiValues
+      multiValues,
+      ariaLabel
     },
     ref
   ) => {
@@ -76,6 +77,7 @@ const LinearProgressBar = forwardRef(
     const renderBaseBars = !multi ? (
       <>
         <Bar
+          barLabelName={ariaLabel}
           barStyle={barStyle}
           id="linear-progress-bar"
           value={valueSecondary}
@@ -169,7 +171,9 @@ LinearProgressBar.propTypes = {
        */
       color: PropTypes.string.isRequired
     }).isRequired
-  )
+  ),
+  /** ARIA description for the progress bar */
+  ariaLabel: PropTypes.string
 };
 
 LinearProgressBar.defaultProps = {
@@ -183,7 +187,8 @@ LinearProgressBar.defaultProps = {
   min: 0,
   max: 100,
   animated: true,
-  multiValues: []
+  multiValues: [],
+  ariaLabel: ""
 };
 
 export default LinearProgressBar;

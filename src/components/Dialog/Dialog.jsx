@@ -35,10 +35,26 @@ export default class Dialog extends PureComponent {
     this.getContainer = this.getContainer.bind(this);
     this.onContentClick = this.onContentClick.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
+    this.closeDialogOnEscape = this.closeDialogOnEscape.bind(this);
 
     // Timeouts
     this.hideTimeout = null;
     this.showTimeout = null;
+  }
+
+  closeDialogOnEscape(event) {
+    if(!this.state.isOpen) {
+      return;
+    }
+    if (event.key === "Escape") this.hideDialogIfNeeded();
+  }
+
+  componentDidMount() {
+    document.addEventListener("keyup", this.closeDialogOnEscape);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keyup", this.closeDialogOnEscape);
   }
 
   getContainer() {
