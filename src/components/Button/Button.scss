@@ -139,7 +139,6 @@
           @include theme-prop(background-color, disabled-background-color);
           @include theme-prop(color, disabled-text-color);
           cursor: not-allowed;
-          pointer-events: none;
         }
       }
     }
@@ -209,7 +208,6 @@
         @include theme-prop(border-color, disabled-background-color);
         @include theme-prop(color, disabled-text-color);
         cursor: not-allowed;
-        pointer-events: none;
         &:hover {
           background-color: transparent;
         }
@@ -260,7 +258,6 @@
       &:disabled {
         @include theme-prop(color, disabled-text-color);
         cursor: not-allowed;
-        pointer-events: none;
         &:hover {
           background-color: transparent;
         }
