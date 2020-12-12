@@ -45,7 +45,8 @@
     "react-inlinesvg": "^2.1.1",
     "react-popper": "^2.2.3",
     "react-select": "^3.1.0",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "react-windowed-select": "^2.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

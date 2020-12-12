@@ -17,9 +17,9 @@ const mockColorOptions = [
   { value: "yellow", label: "Yellow" }
 ];
 
-// const mockVirtualizedOptions = new Array(10000)
-//   .fill(null)
-//   .map((_, i) => ({ value: i + 1, label: (i + 1).toString() }));
+const mockVirtualizedOptions = new Array(10000)
+  .fill(null)
+  .map((_, i) => ({ value: i + 1, label: (i + 1).toString() }));
 
 export const Sandbox = () => {
   const mockDefaultOptions = mockColorOptions.slice(0, 2);
@@ -30,12 +30,12 @@ export const Sandbox = () => {
     "Async"
   );
 
-  // const isVirtualized = boolean("isVirtualized", false);
+  const isVirtualized = boolean("isVirtualized", false);
   const isWithDefaultValue = boolean("defautValue", false);
   const noOptionsMessage = text("noOptionsMessage", "No options found");
 
   const mockPromiseOptions = inputValue => {
-    const arr = mockColorOptions;
+    const arr = isVirtualized ? mockVirtualizedOptions : mockColorOptions;
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(
@@ -56,7 +56,9 @@ export const Sandbox = () => {
       asyncOptions: mockPromiseOptions,
       cacheOptions: isCachedOptions,
       ...(isDefaultOptions && {
-        defaultOptions: mockDefaultOptions
+        defaultOptions: isVirtualized
+          ? [mockVirtualizedOptions[0]]
+          : mockDefaultOptions
       })
     };
   }
@@ -64,7 +66,9 @@ export const Sandbox = () => {
   extraProps = {
     ...extraProps,
     ...(isWithDefaultValue && {
-      defaultValue: mockColorOptions[0]
+      defaultValue: isVirtualized
+        ? mockVirtualizedOptions[0]
+        : mockColorOptions[0]
     })
   };
 
@@ -80,7 +84,7 @@ export const Sandbox = () => {
             rtl={boolean("rtl", false)}
             searchable={boolean("searchable", true)}
             name="color"
-            options={mockColorOptions}
+            options={isVirtualized ? mockVirtualizedOptions : mockColorOptions}
             size={select(
               "size",
               Object.values(Dropdown.size),
@@ -93,6 +97,7 @@ export const Sandbox = () => {
             noOptionsMessage={() => noOptionsMessage}
             openMenuOnFocus={boolean("openMenuOnFocus", true)}
             openMenuOnClick={boolean("openMenuOnClick", true)}
+            isVirtualized={isVirtualized}
             {...extraProps}
           />
         </StoryStateColumn>
@@ -234,39 +239,41 @@ export const rtl = () => (
   </section>
 );
 
-// export const virtualized = () => {
-//   const mockPromiseOptions = inputValue => {
-//     const arr = mockVirtualizedOptions;
-//     return new Promise(resolve => {
-//       setTimeout(() => {
-//         resolve(
-//           arr.filter(({ label }) =>
-//             label.toLowerCase().includes(inputValue.toLowerCase())
-//           )
-//         );
-//       }, 1000);
-//     });
-//   };
-//
-//   return (
-//     <section>
-//       <StoryStateRow>
-//         <StoryStateColumn title="Virtualized">
-//           <Dropdown
-//             className="dropdown-story"
-//             options={mockVirtualizedOptions}
-//           />
-//         </StoryStateColumn>
-//         <StoryStateColumn title="Virtualized + Async">
-//           <Dropdown
-//             className="dropdown-story"
-//             asyncOptions={mockPromiseOptions}
-//           />
-//         </StoryStateColumn>
-//       </StoryStateRow>
-//     </section>
-//   );
-// };
+export const virtualized = () => {
+  const mockPromiseOptions = inputValue => {
+    const arr = mockVirtualizedOptions;
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(
+          arr.filter(({ label }) =>
+            label.toLowerCase().includes(inputValue.toLowerCase())
+          )
+        );
+      }, 1000);
+    });
+  };
+
+  return (
+    <section>
+      <StoryStateRow>
+        <StoryStateColumn title="Virtualized">
+          <Dropdown
+            className="dropdown-story"
+            options={mockVirtualizedOptions}
+            isVirtualized
+          />
+        </StoryStateColumn>
+        <StoryStateColumn title="Virtualized + Async">
+          <Dropdown
+            className="dropdown-story"
+            asyncOptions={mockPromiseOptions}
+            isVirtualized
+          />
+        </StoryStateColumn>
+      </StoryStateRow>
+    </section>
+  );
+};
 
 export const async = () => {
   const mockPromiseOptions = inputValue => {
