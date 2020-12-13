@@ -1,10 +1,9 @@
 import React, { useCallback, useMemo, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
-// import VirtualizedSelect from "react-select-virtualized";
+import { WindowedMenuList } from "react-windowed-select";
 import PropTypes from "prop-types";
 import cx from "classnames";
-// import VirtualizedAsyncDropdown from "./components/VirtualizedAsyncDropdown/VirtualizedAsyncDropdown";
 import MenuComponent from "./components/Menu/Menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
 import OptionComponent from "./components/Option/Option";
@@ -22,6 +21,7 @@ const Dropdown = ({
   onMenuOpen,
   onMenuClose,
   onFocus,
+  onChange,
   searchable,
   options,
   defaultValue,
@@ -111,7 +111,8 @@ const Dropdown = ({
         ClearIndicator,
         Input,
         ...(OptionRenderer && { Option }),
-        ...(ValueRenderer && { SingleValue })
+        ...(ValueRenderer && { SingleValue }),
+        ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
       size={size}
       noOptionsMessage={noOptionsMessage}
@@ -123,6 +124,7 @@ const Dropdown = ({
       onMenuOpen={handleMenuOpen}
       onMenuClose={handleMenuClose}
       onFocus={onFocus}
+      onChange={onChange}
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}
       isRtl={rtl}
@@ -143,6 +145,7 @@ Dropdown.defaultProps = {
   onMenuClose: NOOP,
   onKeyDown: NOOP,
   onFocus: NOOP,
+  onChange: NOOP,
   searchable: true,
   options: [],
   noOptionsMessage: NOOP,
@@ -179,6 +182,10 @@ Dropdown.propTypes = {
    * Called when focused
    */
   onFocus: PropTypes.func,
+  /**
+   * Called when selected value has changed
+   */
+  onChange: PropTypes.func,
   /**
    * If true, search in options will be enabled
    */
@@ -243,12 +250,11 @@ Dropdown.propTypes = {
   defaultOptions: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.arrayOf(PropTypes.object)
-  ])
+  ]),
+  /**
+   * If set to true, the menu will use virtualization. Virtualized async works only with
+   */
+  isVirtualized: PropTypes.bool
 };
-
-/**
- * If set to true, the menu will use virtualization. Virtualized async works only with
- */
-// isVirtualized: PropTypes.bool
 
 export default Dropdown;
