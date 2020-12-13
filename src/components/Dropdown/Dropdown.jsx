@@ -21,6 +21,7 @@ const Dropdown = ({
   onMenuOpen,
   onMenuClose,
   onFocus,
+  onChange,
   searchable,
   options,
   defaultValue,
@@ -123,6 +124,7 @@ const Dropdown = ({
       onMenuOpen={handleMenuOpen}
       onMenuClose={handleMenuClose}
       onFocus={onFocus}
+      onChange={onChange}
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}
       isRtl={rtl}
@@ -143,6 +145,7 @@ Dropdown.defaultProps = {
   onMenuClose: NOOP,
   onKeyDown: NOOP,
   onFocus: NOOP,
+  onChange: NOOP,
   searchable: true,
   options: [],
   noOptionsMessage: NOOP,
@@ -179,6 +182,10 @@ Dropdown.propTypes = {
    * Called when focused
    */
   onFocus: PropTypes.func,
+  /**
+   * Called when selected value has changed
+   */
+  onChange: PropTypes.func,
   /**
    * If true, search in options will be enabled
    */

@@ -94,6 +94,7 @@ export const Sandbox = () => {
             onMenuOpen={action("Menu Open")}
             onMenuClose={action("Menu Close")}
             onFocus={action("Menu Focus")}
+            onChange={action("Selected value has changed")}
             noOptionsMessage={() => noOptionsMessage}
             openMenuOnFocus={boolean("openMenuOnFocus", true)}
             openMenuOnClick={boolean("openMenuOnClick", true)}
