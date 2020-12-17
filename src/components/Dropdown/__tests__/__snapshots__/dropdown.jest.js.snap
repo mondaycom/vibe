@@ -44,6 +44,143 @@ exports[`Dropdown should open menu on click if set 1`] = `
               autocapitalize="none"
               autocomplete="off"
               autocorrect="off"
+              id="react-select-9-input"
+              spellcheck="false"
+              style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+            <div
+              style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class=" css-hcxwnl-IndicatorsContainer"
+      >
+        <span
+          class=" css-1xjgjl1-IndicatorSeparator"
+        />
+        <div
+          aria-hidden="true"
+          class="dropdown-indicator css-1l2l4xx-indicatorContainer"
+        >
+          <svg
+            class="icon_component icon_component--clickable"
+            fill="currentColor"
+            height="20px"
+            tabindex="-1"
+            viewBox="0 0 20 20"
+            width="20px"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="menu dropdown-wrapper__menu--open css-1ysewv0-menu"
+    >
+      <div
+        class=" css-4ljt47-MenuList"
+      >
+        <div
+          class=" css-14cnnyc-option"
+          id="react-select-9-option-0"
+          tabindex="-1"
+        >
+          Ocean
+        </div>
+        <div
+          class=" css-15bbhzv-option"
+          id="react-select-9-option-1"
+          tabindex="-1"
+        >
+          Blue
+        </div>
+        <div
+          class=" css-4bbyqz-option"
+          id="react-select-9-option-2"
+          tabindex="-1"
+        >
+          Purple
+        </div>
+        <div
+          class=" css-4bbyqz-option"
+          id="react-select-9-option-3"
+          tabindex="-1"
+        >
+          Red
+        </div>
+        <div
+          class=" css-4bbyqz-option"
+          id="react-select-9-option-4"
+          tabindex="-1"
+        >
+          Orange
+        </div>
+        <div
+          class=" css-4bbyqz-option"
+          id="react-select-9-option-5"
+          tabindex="-1"
+        >
+          Yellow
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Dropdown should open menu on focus if set 1`] = `
+<DocumentFragment>
+  <div
+    class="dropdown-wrapper css-bbwnb8-container"
+  >
+    <span
+      aria-live="polite"
+      class="css-1laao21-a11yText"
+    >
+      <span
+        id="aria-selection-event"
+      >
+         
+      </span>
+      <span
+        id="aria-context"
+      >
+          option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
+      </span>
+    </span>
+    <div
+      class=" css-quv8ei-control"
+    >
+      <div
+        class=" css-1d96xbr-ValueContainer"
+      >
+        <div
+          class=" css-1dtegfv-placeholder"
+        />
+        <div
+          class="css-1m8eskj-Input"
+        >
+          <div
+            class=""
+            style="display: inline-block;"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-label="Dropdown input"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
               id="react-select-8-input"
               spellcheck="false"
               style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
@@ -71,7 +208,6 @@ exports[`Dropdown should open menu on click if set 1`] = `
             class="icon_component icon_component--clickable"
             fill="currentColor"
             height="20px"
-            role="button"
             tabindex="-1"
             viewBox="0 0 20 20"
             width="20px"
@@ -130,144 +266,6 @@ exports[`Dropdown should open menu on click if set 1`] = `
         <div
           class=" css-4bbyqz-option"
           id="react-select-8-option-5"
-          tabindex="-1"
-        >
-          Yellow
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Dropdown should open menu on focus if set 1`] = `
-<DocumentFragment>
-  <div
-    class="dropdown-wrapper css-bbwnb8-container"
-  >
-    <span
-      aria-live="polite"
-      class="css-1laao21-a11yText"
-    >
-      <span
-        id="aria-selection-event"
-      >
-         
-      </span>
-      <span
-        id="aria-context"
-      >
-          option Ocean focused, 1 of 6. 6 results available. Use Up and Down to choose options, press Enter to select the currently focused option, press Escape to exit the menu, press Tab to select the option and exit the menu.
-      </span>
-    </span>
-    <div
-      class=" css-quv8ei-control"
-    >
-      <div
-        class=" css-1d96xbr-ValueContainer"
-      >
-        <div
-          class=" css-1dtegfv-placeholder"
-        />
-        <div
-          class="css-1m8eskj-Input"
-        >
-          <div
-            class=""
-            style="display: inline-block;"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-label="Dropdown input"
-              autocapitalize="none"
-              autocomplete="off"
-              autocorrect="off"
-              id="react-select-7-input"
-              spellcheck="false"
-              style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
-              tabindex="0"
-              type="text"
-              value=""
-            />
-            <div
-              style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-            />
-          </div>
-        </div>
-      </div>
-      <div
-        class=" css-hcxwnl-IndicatorsContainer"
-      >
-        <span
-          class=" css-1xjgjl1-IndicatorSeparator"
-        />
-        <div
-          aria-hidden="true"
-          class="dropdown-indicator css-1l2l4xx-indicatorContainer"
-        >
-          <svg
-            class="icon_component icon_component--clickable"
-            fill="currentColor"
-            height="20px"
-            role="button"
-            tabindex="-1"
-            viewBox="0 0 20 20"
-            width="20px"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M10.5303 12.5303L10 12L9.46967 12.5303C9.76256 12.8232 10.2374 12.8232 10.5303 12.5303ZM10 10.9393L6.53033 7.46967C6.23744 7.17678 5.76256 7.17678 5.46967 7.46967C5.17678 7.76256 5.17678 8.23744 5.46967 8.53033L9.46967 12.5303L10 12L10.5303 12.5303L14.5303 8.53033C14.8232 8.23744 14.8232 7.76256 14.5303 7.46967C14.2374 7.17678 13.7626 7.17678 13.4697 7.46967L10 10.9393Z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div
-      class="menu dropdown-wrapper__menu--open css-1ysewv0-menu"
-    >
-      <div
-        class=" css-4ljt47-MenuList"
-      >
-        <div
-          class=" css-14cnnyc-option"
-          id="react-select-7-option-0"
-          tabindex="-1"
-        >
-          Ocean
-        </div>
-        <div
-          class=" css-15bbhzv-option"
-          id="react-select-7-option-1"
-          tabindex="-1"
-        >
-          Blue
-        </div>
-        <div
-          class=" css-4bbyqz-option"
-          id="react-select-7-option-2"
-          tabindex="-1"
-        >
-          Purple
-        </div>
-        <div
-          class=" css-4bbyqz-option"
-          id="react-select-7-option-3"
-          tabindex="-1"
-        >
-          Red
-        </div>
-        <div
-          class=" css-4bbyqz-option"
-          id="react-select-7-option-4"
-          tabindex="-1"
-        >
-          Orange
-        </div>
-        <div
-          class=" css-4bbyqz-option"
-          id="react-select-7-option-5"
           tabindex="-1"
         >
           Yellow
@@ -372,7 +370,6 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
           fill="currentColor"
           height="20px"
           onClick={[Function]}
-          role="button"
           tabIndex="-1"
           viewBox="0 0 20 20"
           width="20px"
@@ -484,7 +481,6 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
           fill="currentColor"
           height="20px"
           onClick={[Function]}
-          role="button"
           tabIndex="-1"
           viewBox="0 0 20 20"
           width="20px"
@@ -596,7 +592,6 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
           fill="currentColor"
           height="16px"
           onClick={[Function]}
-          role="button"
           tabIndex="-1"
           viewBox="0 0 20 20"
           width="16px"
@@ -708,7 +703,6 @@ exports[`Dropdown should render correctly with empty props 1`] = `
           fill="currentColor"
           height="20px"
           onClick={[Function]}
-          role="button"
           tabIndex="-1"
           viewBox="0 0 20 20"
           width="20px"
@@ -768,7 +762,7 @@ exports[`Dropdown should use async if set 1`] = `
               autocapitalize="none"
               autocomplete="off"
               autocorrect="off"
-              id="react-select-6-input"
+              id="react-select-7-input"
               spellcheck="false"
               style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
               tabindex="0"
@@ -809,7 +803,6 @@ exports[`Dropdown should use async if set 1`] = `
             class="icon_component icon_component--clickable"
             fill="currentColor"
             height="20px"
-            role="button"
             tabindex="-1"
             viewBox="0 0 20 20"
             width="20px"
@@ -870,7 +863,7 @@ exports[`Dropdown should use virtualization if set 1`] = `
               autocapitalize="none"
               autocomplete="off"
               autocorrect="off"
-              id="react-select-2-input"
+              id="react-select-6-input"
               spellcheck="false"
               style="box-sizing: content-box; width: 2px; border: 0px; opacity: 1; outline: 0; padding: 0px;"
               tabindex="0"
@@ -915,30 +908,156 @@ exports[`Dropdown should use virtualization if set 1`] = `
       class="menu dropdown-wrapper__menu--open css-1ysewv0-menu"
     >
       <div
-        style="overflow: visible; width: 0px;"
+        class=""
+        style="position: relative; height: 300px; overflow: auto; will-change: transform; direction: ltr; overflow-y: auto; box-sizing: border-box;"
       >
         <div
-          aria-label="grid"
-          aria-readonly="true"
-          class="ReactVirtualized__Grid ReactVirtualized__List"
-          role="grid"
-          style="box-sizing: border-box; direction: ltr; height: 300px; position: relative; width: 0px; will-change: transform; overflow-x: hidden; overflow-y: auto;"
-          tabindex="0"
-        />
-      </div>
-      <div
-        class="resize-triggers"
-      >
-        <div
-          class="expand-trigger"
+          style="height: 350008px; width: 100%;"
         >
           <div
-            style="width: 1px; height: 1px;"
-          />
+            style="position: absolute; left: 0px; top: 4px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-14cnnyc-option"
+                id="react-select-6-option-0"
+                tabindex="-1"
+              >
+                1
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 39px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-4bbyqz-option"
+                id="react-select-6-option-1"
+                tabindex="-1"
+              >
+                2
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 74px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-4bbyqz-option"
+                id="react-select-6-option-2"
+                tabindex="-1"
+              >
+                3
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 109px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-4bbyqz-option"
+                id="react-select-6-option-3"
+                tabindex="-1"
+              >
+                4
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 144px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-4bbyqz-option"
+                id="react-select-6-option-4"
+                tabindex="-1"
+              >
+                5
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 179px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-4bbyqz-option"
+                id="react-select-6-option-5"
+                tabindex="-1"
+              >
+                6
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 214px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-4bbyqz-option"
+                id="react-select-6-option-6"
+                tabindex="-1"
+              >
+                7
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 249px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-4bbyqz-option"
+                id="react-select-6-option-7"
+                tabindex="-1"
+              >
+                8
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 284px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-4bbyqz-option"
+                id="react-select-6-option-8"
+                tabindex="-1"
+              >
+                9
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 319px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-4bbyqz-option"
+                id="react-select-6-option-9"
+                tabindex="-1"
+              >
+                10
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; left: 0px; top: 354px; height: 35px; width: 100%;"
+          >
+            <div>
+              <div
+                class=" css-4bbyqz-option"
+                id="react-select-6-option-10"
+                tabindex="-1"
+              >
+                11
+              </div>
+            </div>
+          </div>
         </div>
-        <div
-          class="contract-trigger"
-        />
       </div>
     </div>
   </div>

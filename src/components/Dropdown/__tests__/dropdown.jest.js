@@ -29,7 +29,7 @@ describe("Dropdown", () => {
     });
   });
 
-  it.skip("should use virtualization if set", function() {
+  it("should use virtualization if set", function() {
     const mockVirtualizedOptions = new Array(10000)
       .fill(null)
       .map((_, i) => ({ value: i + 1, label: (i + 1).toString() }));
