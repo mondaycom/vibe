@@ -3,7 +3,7 @@ import "./FontIcon.scss";
 import classNames from "classnames";
 
 const FontIcon = forwardRef(
-  ({ className, onClick, iconLabel, tabIndex, icon }, iconRef) => {
+  ({ className, onClick, iconLabel, tabIndex, icon, role }, iconRef) => {
     const iconClassName = typeof icon === "function" ? "" : icon;
     return (
       <span
@@ -12,6 +12,7 @@ const FontIcon = forwardRef(
         ref={iconRef}
         aria-label={iconLabel}
         tabIndex={tabIndex}
+        role={role}
       >
         {typeof icon === "function" && icon()}
       </span>

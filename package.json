@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "0.0.40",
+  "version": "0.0.41",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "auto:bump-minor": "node scripts/autobump_minor.js",
     "auto:bump-major": "node scripts/autobump_major.js",
     "test:jest": "jest",
+    "test:jest:update": "npm run test:jest -- -u",
     "test": "./node_modules/karma/bin/karma start",
     "test-ci": "./node_modules/karma/bin/karma start --single-run",
     "start": "npm run build-react-icons && webpack --mode production --watch --config webpack/default.config.js",

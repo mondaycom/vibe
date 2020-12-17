@@ -58,12 +58,14 @@ export default function useIconProps({
     [onClick]
   );
   const tabindex = clickable ? 0 : -1;
+  const role = clickable ? "button" : "";
 
   return {
     tabindex,
     onClickCallback,
     computedClassName,
     onEnterCallback,
-    iconRef
+    iconRef,
+    role
   };
 }

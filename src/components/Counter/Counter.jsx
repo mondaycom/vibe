@@ -23,7 +23,17 @@ import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 
 import "./Counter.scss";
 
-const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits }) => {
+const Counter = ({
+  count,
+  size,
+  kind,
+  color,
+  wrapperClassName,
+  maxDigits,
+  ariaLabeledBy,
+  ariaLabel,
+  id
+}) => {
   // State
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(
     false
@@ -81,7 +91,7 @@ const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits }) => {
     count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : count;
 
   return (
-    <span className={wrapperClassName}>
+    <span className={wrapperClassName} aria-label={`${ariaLabel} ${countText}`}>
       <div className={classNames} aria-label={countText} ref={ref}>
         <SwitchTransition mode="out-in">
           <CSSTransition
@@ -91,7 +101,7 @@ const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits }) => {
             }}
             key={countText}
           >
-            <span>{countText}</span>
+            <span id={`counter-${id}`}>{countText}</span>
           </CSSTransition>
         </SwitchTransition>
       </div>
@@ -99,29 +109,39 @@ const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits }) => {
   );
 };
 
+Counter.sizes = COUNTER_SIZES;
+Counter.colors = COUNTER_COLORS;
+Counter.kinds = COUNTER_TYPES;
+
 Counter.propTypes = {
+  /** id to pass to the element */
+  id: PropTypes.string,
   wrapperClassName: PropTypes.string,
   count: PropTypes.number,
-  size: PropTypes.oneOf([COUNTER_SIZES.LARGE, COUNTER_SIZES.SMALL]),
+  /** element id to describe the counter accordingly */
+  ariaLabeledBy: PropTypes.string,
+  /** Counter Description */
+  ariaLabel: PropTypes.string,
+  size: PropTypes.oneOf([Counter.sizes.LARGE, Counter.sizes.SMALL]),
   color: PropTypes.oneOf([
-    COUNTER_COLORS.PRIMARY,
-    COUNTER_COLORS.DARK,
-    COUNTER_COLORS.NEGATIVE
+    Counter.colors.PRIMARY,
+    Counter.colors.DARK,
+    Counter.colors.NEGATIVE
   ]),
-  kind: PropTypes.oneOf([COUNTER_TYPES.FILL, COUNTER_TYPES.LINE]),
+  kind: PropTypes.oneOf([Counter.kinds.FILL, Counter.kinds.LINE]),
+  /** maximum number of digits to display (see relevant story)*/
   maxDigits: PropTypes.number
 };
 Counter.defaultProps = {
+  id: "",
   wrapperClassName: "",
   count: 0,
   size: COUNTER_SIZES.LARGE,
   color: COUNTER_COLORS.PRIMARY,
   kind: COUNTER_TYPES.FILL,
-  maxDigits: 3
+  maxDigits: 3,
+  ariaLabeledBy: "",
+  ariaLabel: ""
 };
-
-Counter.sizes = COUNTER_SIZES;
-Counter.colors = COUNTER_COLORS;
-Counter.kinds = COUNTER_TYPES;
 
 export default Counter;

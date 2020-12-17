@@ -28,7 +28,8 @@ const Icon = forwardRef(
       tabindex,
       onClickCallback,
       computedClassName,
-      iconRef
+      iconRef,
+      role
     } = useIconProps({
       onClick,
       clickable,
@@ -50,6 +51,7 @@ const Icon = forwardRef(
           onClick={onClick}
           tabIndex={externalTabIndex ?? tabindex}
           className={computedClassName}
+          role={role}
         />
       );
     }
@@ -62,6 +64,7 @@ const Icon = forwardRef(
         iconLabel={iconLabel}
         tabIndex={externalTabIndex ?? tabindex}
         icon={icon}
+        role={role}
       />
     );
   }
@@ -70,19 +73,19 @@ const Icon = forwardRef(
 Icon.type = ICON_TYPES;
 
 Icon.propTypes = {
-  /* onClick function */
   onClick: PropTypes.func,
   className: PropTypes.string,
-  /* we support two types of icons - SVG and FONT (classname) so this prop is either the name of the icon or the component */
+  /** the type of the component - svg, font or custom svg (using react-inlinesvg) */
+  iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
+  /** we support two types of icons - SVG and FONT (classname) so this prop is either the name of the icon or the component */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  /* is in used for tabIndex */
+  /** is in used for tabIndex */
   clickable: PropTypes.bool,
-  /* for aria-label support */
+  /** icon aria label support */
   iconLabel: PropTypes.string,
-  /* the type of the component 0 svg, font or custom svg (using react-inlinesvg) */
-  iconType: PropTypes.oneOf([ICON_TYPES.SVG, ICON_TYPES.ICON_FONT]),
-  /* size for font icon */
+  /** size for font icon */
   iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /** remove focus style */
   ignoreFocusStyle: PropTypes.bool
 };
 

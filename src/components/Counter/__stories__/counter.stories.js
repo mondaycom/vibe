@@ -13,13 +13,21 @@ export const Fill = () => (
     </StoryStateRow>
     <StoryStateRow>
       <StoryStateColumn title="Primary" description="Info counter">
-        <Counter />
+        <Counter ariaLabel="primary counter" id="primary-id" />
       </StoryStateColumn>
       <StoryStateColumn title="Negative" description="Notifications">
-        <Counter color={Counter.colors.NEGATIVE} />
+        <Counter
+          color={Counter.colors.NEGATIVE}
+          ariaLabel="Negative counter"
+          id="Negative-id"
+        />
       </StoryStateColumn>
       <StoryStateColumn title="Dark" description="General">
-        <Counter color={Counter.colors.DARK} />
+        <Counter
+          color={Counter.colors.DARK}
+          ariaLabel="Dark counter"
+          id="Dark-id"
+        />
       </StoryStateColumn>
     </StoryStateRow>
     <StoryStateRow>
@@ -27,13 +35,27 @@ export const Fill = () => (
     </StoryStateRow>
     <StoryStateRow>
       <StoryStateColumn title="Primary" description="Info counter">
-        <Counter size={Counter.sizes.SMALL} />
+        <Counter
+          size={Counter.sizes.SMALL}
+          ariaLabel="primary counter"
+          id="small-primary-id"
+        />
       </StoryStateColumn>
       <StoryStateColumn title="Negative" description="Notifications">
-        <Counter size={Counter.sizes.SMALL} color={Counter.colors.NEGATIVE} />
+        <Counter
+          size={Counter.sizes.SMALL}
+          color={Counter.colors.NEGATIVE}
+          ariaLabel="negative counter"
+          id="small-negative-id"
+        />
       </StoryStateColumn>
       <StoryStateColumn title="Dark" description="General">
-        <Counter size={Counter.sizes.SMALL} color={Counter.colors.DARK} />
+        <Counter
+          size={Counter.sizes.SMALL}
+          color={Counter.colors.DARK}
+          ariaLabel="dark counter"
+          id="small-dark-id"
+        />
       </StoryStateColumn>
     </StoryStateRow>
   </section>
@@ -46,13 +68,27 @@ export const Line = () => (
     </StoryStateRow>
     <StoryStateRow>
       <StoryStateColumn title="Primary" description="Info counter">
-        <Counter kind={Counter.kinds.LINE} />
+        <Counter
+          kind={Counter.kinds.LINE}
+          ariaLabel="primary-line counter"
+          id="primary-line-id-large"
+        />
       </StoryStateColumn>
       <StoryStateColumn title="Negative" description="Notifications">
-        <Counter kind={Counter.kinds.LINE} color={Counter.colors.NEGATIVE} />
+        <Counter
+          kind={Counter.kinds.LINE}
+          color={Counter.colors.NEGATIVE}
+          ariaLabel="negative counter"
+          id="negative-line-id-large"
+        />
       </StoryStateColumn>
       <StoryStateColumn title="Dark" description="General">
-        <Counter kind={Counter.kinds.LINE} color={Counter.colors.DARK} />
+        <Counter
+          kind={Counter.kinds.LINE}
+          color={Counter.colors.DARK}
+          ariaLabel="dark counter"
+          id="line-dark-id-large"
+        />
       </StoryStateColumn>
     </StoryStateRow>
     <StoryStateRow>
@@ -60,13 +96,20 @@ export const Line = () => (
     </StoryStateRow>
     <StoryStateRow>
       <StoryStateColumn title="Primary" description="Info counter">
-        <Counter kind={Counter.kinds.LINE} size={Counter.sizes.SMALL} />
+        <Counter
+          kind={Counter.kinds.LINE}
+          size={Counter.sizes.SMALL}
+          ariaLabel="primary-line counter"
+          id="primary-line-idsmall"
+        />
       </StoryStateColumn>
       <StoryStateColumn title="Negative" description="Notifications">
         <Counter
           kind={Counter.kinds.LINE}
           size={Counter.sizes.SMALL}
           color={Counter.colors.NEGATIVE}
+          ariaLabel="primary-line counter"
+          id="Negative-line-idsmall"
         />
       </StoryStateColumn>
       <StoryStateColumn title="Dark" description="General">
@@ -74,6 +117,8 @@ export const Line = () => (
           kind={Counter.kinds.LINE}
           size={Counter.sizes.SMALL}
           color={Counter.colors.DARK}
+          ariaLabel="primary-line counter"
+          id="dark-line-idsmall"
         />
       </StoryStateColumn>
     </StoryStateRow>
@@ -87,19 +132,34 @@ export const Limits = () => (
         title="1 digit limit"
         description="maxDigits=1, count=10"
       >
-        <Counter maxDigits={1} count={10} />
+        <Counter
+          maxDigits={1}
+          count={10}
+          id="limit-1-digit"
+          ariaLabel="Counter is limited by 1 digit"
+        />
       </StoryStateColumn>
       <StoryStateColumn
         title="2 digits limit"
         description="maxDigits=2, count=100"
       >
-        <Counter maxDigits={2} count={100} />
+        <Counter
+          maxDigits={2}
+          count={100}
+          id="limit-2-digit"
+          ariaLabel="Counter is limited by 2 digit"
+        />
       </StoryStateColumn>
       <StoryStateColumn
         title="3 digits limit"
         description="maxDigits=3, count=1000"
       >
-        <Counter maxDigits={3} count={1000} />
+        <Counter
+          maxDigits={3}
+          count={1000}
+          id="limit-3-digit"
+          ariaLabel="Counter is limited by 3 digit"
+        />
       </StoryStateColumn>
     </StoryStateRow>
   </section>

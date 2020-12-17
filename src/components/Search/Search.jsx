@@ -79,6 +79,7 @@ const Search = forwardRef(
         inputAriaLabel={inputAriaLabel}
         iconsNames={iconNames}
         type="search"
+        role="search"
       />
     );
   }

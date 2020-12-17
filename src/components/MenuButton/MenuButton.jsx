@@ -26,9 +26,13 @@ const MenuButton = ({
   dialogPaddingSize
 }) => {
   const [isOpen, setIsOpen] = useState(open);
-  const onMenuChangeCallback = useCallback(() => {
-    setIsOpen(!isOpen);
-  }, [isOpen, setIsOpen]);
+
+  const onDialogDidHide = useCallback(() => {
+    setIsOpen(false);
+  }, [setIsOpen]);
+  const onDialogDidShow = useCallback(() => {
+    setIsOpen(true);
+  }, [setIsOpen]);
 
   const hideTrigger = useMemo(() => {
     const triggers = ["clickoutside", "esckey"];
@@ -62,13 +66,14 @@ const MenuButton = ({
       moveBy={MOVE_BY}
       showTrigger={showTrigger}
       hideTrigger={hideTrigger}
-      onDialogDidShow={onMenuChangeCallback}
-      onDialogDidHide={onMenuChangeCallback}
+      onDialogDidShow={onDialogDidHide}
+      onDialogDidHide={onDialogDidHide}
       referenceWrapperClassName={BEMClass("reference-icon")}
       zIndex={zIndex}
     >
       <button
         type="button"
+        role="menu"
         className={cx(
           "menu-button--wrapper",
           componentClassName,
@@ -132,7 +137,7 @@ MenuButton.defaultProps = {
   size: MenuButtonSizes.SMALL,
   open: false,
   zIndex: null,
-  ariaLabel: "Menu Button",
+  ariaLabel: "Menu",
   closeDialogOnContentClick: false,
   dialogClassName: "",
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
