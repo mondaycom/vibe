@@ -25,6 +25,7 @@ const Dropdown = ({
   searchable,
   options,
   defaultValue,
+  value,
   noOptionsMessage,
   openMenuOnFocus,
   openMenuOnClick,
@@ -36,12 +37,12 @@ const Dropdown = ({
   asyncOptions,
   cacheOptions,
   defaultOptions,
-  isVirtualized
+  isVirtualized,
 }) => {
   const [isOpen, setOpen] = useState(false);
 
   const handleMenuOpen = useCallback(
-    data => {
+    (data) => {
       onMenuOpen(data);
       setOpen(true);
     },
@@ -49,7 +50,7 @@ const Dropdown = ({
   );
 
   const handleMenuClose = useCallback(
-    data => {
+    (data) => {
       onMenuClose(data);
       setOpen(false);
     },
@@ -59,32 +60,34 @@ const Dropdown = ({
   const customStyles = useMemo(() => styles({ size, rtl }), [size, rtl]);
 
   const Menu = useCallback(
-    props => <MenuComponent {...props} isOpen={isOpen} />,
+    (props) => <MenuComponent {...props} isOpen={isOpen} />,
     [isOpen]
   );
 
   const DropdownIndicator = useCallback(
-    props => <DropdownIndicatorComponent {...props} size={size} />,
+    (props) => <DropdownIndicatorComponent {...props} size={size} />,
     [size]
   );
 
   const Option = useCallback(
-    props => <OptionComponent {...props} OptionRenderer={OptionRenderer} />,
+    (props) => <OptionComponent {...props} OptionRenderer={OptionRenderer} />,
     [OptionRenderer]
   );
 
   const Input = useCallback(
-    props => <components.Input {...props} aria-label="Dropdown input" />,
+    (props) => <components.Input {...props} aria-label="Dropdown input" />,
     []
   );
 
   const SingleValue = useCallback(
-    props => <SingleValueComponent {...props} ValueRenderer={ValueRenderer} />,
+    (props) => (
+      <SingleValueComponent {...props} ValueRenderer={ValueRenderer} />
+    ),
     [ValueRenderer]
   );
 
   const ClearIndicator = useCallback(
-    props => <ClearIndicatorComponent {...props} size={size} />,
+    (props) => <ClearIndicatorComponent {...props} size={size} />,
     [size]
   );
 
@@ -94,12 +97,12 @@ const Dropdown = ({
     ...(asyncOptions && {
       loadOptions: asyncOptions,
       cacheOptions: cacheOptions,
-      ...(defaultOptions && { defaultOptions })
-    })
+      ...(defaultOptions && { defaultOptions }),
+    }),
   };
 
   const additions = {
-    ...(!asyncOptions && { options })
+    ...(!asyncOptions && { options }),
   };
 
   return (
@@ -112,7 +115,7 @@ const Dropdown = ({
         Input,
         ...(OptionRenderer && { Option }),
         ...(ValueRenderer && { SingleValue }),
-        ...(isVirtualized && { MenuList: WindowedMenuList })
+        ...(isVirtualized && { MenuList: WindowedMenuList }),
       }}
       size={size}
       noOptionsMessage={noOptionsMessage}
@@ -121,6 +124,7 @@ const Dropdown = ({
       isClearable={clearable}
       isSearchable={searchable}
       defaultValue={defaultValue}
+      value={value}
       onMenuOpen={handleMenuOpen}
       onMenuClose={handleMenuClose}
       onFocus={onFocus}
@@ -150,7 +154,7 @@ Dropdown.defaultProps = {
   options: [],
   noOptionsMessage: NOOP,
   clearable: true,
-  size: SIZE.MEDIUM
+  size: SIZE.MEDIUM,
 };
 
 Dropdown.propTypes = {
@@ -237,8 +241,8 @@ Dropdown.propTypes = {
     PropTypes.func, // callback
     PropTypes.shape({
       then: PropTypes.func.isRequired,
-      catch: PropTypes.func.isRequired
-    }) // Promise
+      catch: PropTypes.func.isRequired,
+    }), // Promise
   ]),
   /**
    * If set to true, fetched async options will be cached
@@ -249,12 +253,12 @@ Dropdown.propTypes = {
    */
   defaultOptions: PropTypes.oneOfType([
     PropTypes.bool,
-    PropTypes.arrayOf(PropTypes.object)
+    PropTypes.arrayOf(PropTypes.object),
   ]),
   /**
    * If set to true, the menu will use virtualization. Virtualized async works only with
    */
-  isVirtualized: PropTypes.bool
+  isVirtualized: PropTypes.bool,
 };
 
 export default Dropdown;
