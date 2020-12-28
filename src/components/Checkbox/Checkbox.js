@@ -1,6 +1,6 @@
+import React, { useEffect, useRef } from "react";
 import NOOP from "lodash/noop";
 import isNil from "lodash/isNil";
-import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
@@ -17,9 +17,15 @@ export const Checkbox = ({
   disabled,
   defaultChecked,
   value,
-  name
+  name,
+  id
 }) => {
-  const checkboxClassNames = [`${BASE_CLASS_NAME}__checkbox`];
+  const iconContainerRef = useRef(null);
+
+  const checkboxClassNames = [
+    `${BASE_CLASS_NAME}__checkbox`,
+    `${BASE_CLASS_NAME}__prevent-animation`
+  ];
   let overrideDefaultChecked = defaultChecked;
 
   // If component did not receive default checked and checked props, choose default checked as
@@ -28,9 +34,21 @@ export const Checkbox = ({
     overrideDefaultChecked = false;
   }
 
+  // useEffect(() => {
+  //   if (!iconContainerRef.current) {
+  //     return () => {};
+  //   }
+  //   window.requestAnimationFrame(() => {
+  //     iconContainerRef.current.classList.remove(
+  //       `${BASE_CLASS_NAME}__prevent-animation`
+  //     );
+  //   });
+  // }, []);
+
   return (
     <label className={cx(BASE_CLASS_NAME, componentClassName)}>
       <input
+        id={id}
         className={`${BASE_CLASS_NAME}__input`}
         value={value}
         name={name}
@@ -41,7 +59,7 @@ export const Checkbox = ({
         aria-label={label}
         checked={checked}
       />
-      <div className={cx(...checkboxClassNames)}>
+      <div className={cx(...checkboxClassNames)} ref={iconContainerRef}>
         <Icon
           className={`${BASE_CLASS_NAME}__icon`}
           iconType={Icon.type.SVG}
@@ -49,7 +67,7 @@ export const Checkbox = ({
           iconLabel="checkbox"
           ignoreFocusStyle
           clickable
-          iconSize={11}
+          iconSize="16"
         />
       </div>
       <span className={`${BASE_CLASS_NAME}__label`}>{label}</span>
@@ -58,6 +76,7 @@ export const Checkbox = ({
 };
 
 Checkbox.propTypes = {
+  id: PropTypes.string,
   componentClassName: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
@@ -69,6 +88,7 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
+  id: "",
   componentClassName: "",
   label: "",
   onChange: NOOP,

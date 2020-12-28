@@ -53,7 +53,7 @@
   }
 
   &__radio-label {
-    line-height: 1;
+    line-height: 21px;
     font-weight: 400;
     @include theme-prop(color, primary-text-color);
   }
@@ -62,21 +62,12 @@
     cursor: not-allowed;
   }
 
-  &:hover
-    &__radio-input-container
-    input:enabled:checked
-    + &__radio-input-container__radio-control {
+  &:hover &__radio-input-container input:enabled:checked + &__radio-input-container__radio-control {
     @include theme-prop(border-color, primary-hover-color);
   }
 
-  &:hover
-    &__radio-input-container
-    input:enabled:not(:checked)
-    + &__radio-input-container__radio-control,
-  &:focus-within
-    &__radio-input-container
-    input:enabled:not(:checked)
-    + &__radio-input-container__radio-control {
+  &:hover &__radio-input-container input:enabled:not(:checked) + &__radio-input-container__radio-control,
+  &:focus-within &__radio-input-container input:enabled:not(:checked) + &__radio-input-container__radio-control {
     @include theme-prop(border-color, primary-text-color);
   }
 }

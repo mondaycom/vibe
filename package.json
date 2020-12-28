@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "0.0.43",
+  "version": "0.0.47",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
@@ -50,11 +50,11 @@
     "react-windowed-select": "^2.0.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-transform-react-jsx": "^7.8.3",
-    "@babel/preset-env": "^7.7.6",
-    "@babel/preset-react": "^7.7.4",
+    "@babel/core": "^7.10.0",
+    "@babel/plugin-proposal-class-properties": "^7.10.0",
+    "@babel/plugin-transform-react-jsx": "^7.10.0",
+    "@babel/preset-env": "^7.10.0",
+    "@babel/preset-react": "^7.10.0",
     "@hot-loader/react-dom": "^16.13.0",
     "@mdx-js/loader": "^1.5.5",
     "@storybook/addon-a11y": "^6.0.21",
