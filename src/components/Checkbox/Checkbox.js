@@ -33,14 +33,16 @@ export const Checkbox = ({
     overrideDefaultChecked = false;
   }
 
-  useEffect(() => {
-    if (iconContainerRef.current) {
-      return () => {};
-    }
-    iconContainerRef.current.classList.remove(
-      `${BASE_CLASS_NAME}__prevent-animation`
-    );
-  }, [iconContainerRef]);
+  // useEffect(() => {
+  //   if (!iconContainerRef.current) {
+  //     return () => {};
+  //   }
+  //   window.requestAnimationFrame(() => {
+  //     iconContainerRef.current.classList.remove(
+  //       `${BASE_CLASS_NAME}__prevent-animation`
+  //     );
+  //   });
+  // }, []);
 
   return (
     <label className={cx(BASE_CLASS_NAME, componentClassName)}>

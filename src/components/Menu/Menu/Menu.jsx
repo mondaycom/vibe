@@ -27,6 +27,7 @@ const Menu = ({ classname, size, tabIndex, ariaLabel, children }) => {
 
   const onArrowDown = useCallback(() => {
     let newIndex;
+    if (!children) return;
     for (let offset = 1; offset <= children.length; offset++) {
       newIndex = (activeItemIndex + offset) % children.length;
       if (isChildSelectable(newIndex, children)) {
