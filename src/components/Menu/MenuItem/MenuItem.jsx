@@ -28,8 +28,11 @@ const MenuItem = ({
 
   const [referenceElement, setReferenceElement] = useState(null);
   const [popperElement, setPopperElement] = useState(null);
+
+  const isSubMenuOpen = !!children && isActive;
+
   const { styles, attributes } = usePopover(referenceElement, popperElement, {
-    isOpen: !!children && isActive
+    isOpen: isSubMenuOpen
   });
 
   useEffect(() => {
@@ -100,7 +103,12 @@ const MenuItem = ({
     >
       {renderMenuItemIconIfNeeded()}
       <div className="monday-style-menu-item__title">{title}</div>
-      <div style={styles.popper} {...attributes.popper} ref={setPopperElement}>
+      <div
+        style={styles.popper}
+        {...attributes.popper}
+        className="monday-style-menu-item__popover"
+        ref={setPopperElement}
+      >
         <DialogContentContainer>{children}</DialogContentContainer>
       </div>
     </div>
