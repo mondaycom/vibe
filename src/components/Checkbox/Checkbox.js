@@ -17,7 +17,8 @@ export const Checkbox = ({
   disabled,
   defaultChecked,
   value,
-  name
+  name,
+  id
 }) => {
   const iconContainerRef = useRef(null);
 
@@ -45,7 +46,7 @@ export const Checkbox = ({
   // }, []);
 
   return (
-    <label className={cx(BASE_CLASS_NAME, componentClassName)}>
+    <label className={cx(BASE_CLASS_NAME, componentClassName)} id={id}>
       <input
         className={`${BASE_CLASS_NAME}__input`}
         value={value}
@@ -74,6 +75,7 @@ export const Checkbox = ({
 };
 
 Checkbox.propTypes = {
+  id: PropTypes.string,
   componentClassName: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func,
@@ -85,6 +87,7 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
+  id: "",
   componentClassName: "",
   label: "",
   onChange: NOOP,
