@@ -46,8 +46,9 @@ export const Checkbox = ({
   // }, []);
 
   return (
-    <label className={cx(BASE_CLASS_NAME, componentClassName)} id={id}>
+    <label className={cx(BASE_CLASS_NAME, componentClassName)}>
       <input
+        id={id}
         className={`${BASE_CLASS_NAME}__input`}
         value={value}
         name={name}
