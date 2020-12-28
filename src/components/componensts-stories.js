@@ -13,11 +13,10 @@ export function loadComponentsStories() {
     require("./Search/__stories__/search.stories.js"),
     require("./TextField/__stories__/textField.stories.js"),
     require("./Tooltip/__stories__/tooltip.stories.js"),
+    require("./Menu/MenuItem/__stories__/menuItem.stories.js")
   ];
 }
 
 export function loadHelpers() {
-  return [
-    require("./FormattedNumber/__stories__/formattedNumber.stories")
-  ]
+  return [require("./FormattedNumber/__stories__/formattedNumber.stories")];
 }

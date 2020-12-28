@@ -66,6 +66,31 @@ export const States = () => (
   </div>
 );
 
+export const subMenu = () => {
+  const iconType = select(
+    "icon type",
+    { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG },
+    Icon.type.SVG
+  );
+  const icon =
+    iconType === Icon.type.SVG
+      ? selectIcon("SVG icon", "Activity")
+      : text("font icon", "fa fa-star");
+  return (
+    <div style={{ width: 200 }}>
+      <MenuItem
+        id="menu-item"
+        title={text("title", "My item")}
+        icon={icon}
+        disabled={boolean("disabled", false)}
+        onClick={() => alert("hello")}
+      >
+        <div>aweflewwd sd sd sdssfd sfd fdsf</div>
+      </MenuItem>
+    </div>
+  );
+};
+
 export default {
   title: "Work in progress/Menu/MenuItem",
   component: MenuItem,
