@@ -10,13 +10,14 @@ const RadioButton = forwardRef(
     const inputRef = useRef();
     const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
     const onChildClick = useCallback(() => {
+      if (disabled) return;
       if (inputRef.current) {
         inputRef.current.checked = true;
       }
       if (onSelect) {
         onSelect();
       }
-    }, [onSelect, inputRef]);
+    }, [onSelect, inputRef, disabled]);
 
     return (
       <label className={cx(baseClassName, componentClassName, { disabled })}>
