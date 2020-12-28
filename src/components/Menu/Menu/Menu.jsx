@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from "react";
-import useKeyEvent from "../../../hooks/useKeyEvent";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import useKeyEvent from "../../../hooks/useKeyEvent";
 import { MENU_SIZES } from "./MenuConstants";
 import "./Menu.scss";
 
@@ -61,7 +61,7 @@ const Menu = ({ classname, size, tabIndex, ariaLabel, children }) => {
             ...child?.props,
             activeItemIndex,
             index,
-            setActiveItemIndex,
+            setActiveItemIndex
           });
         })}
     </div>
@@ -74,8 +74,7 @@ Menu.defaultProps = {
   classname: "",
   size: MENU_SIZES.MEDIUM,
   tabIndex: 0,
-  ariaLabel: "Menu",
-  children: [],
+  ariaLabel: "Menu"
 };
 
 Menu.propTypes = {
@@ -83,10 +82,10 @@ Menu.propTypes = {
   size: PropTypes.oneOf([
     MENU_SIZES.SMALL,
     MENU_SIZES.MEDIUM,
-    MENU_SIZES.LARGE,
+    MENU_SIZES.LARGE
   ]),
   tabIndex: PropTypes.number,
-  ariaLabel: PropTypes.string,
+  ariaLabel: PropTypes.string
 };
 
 export default Menu;

@@ -1,6 +1,6 @@
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
-import * as AllIcons from "../../Icon/Icons";
 import { select } from "@storybook/addon-knobs";
+import * as AllIcons from "../../Icon/Icons";
 
 const getIcons = () => {
   return iconsMetaData.reduce((acc, icon) => {

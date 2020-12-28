@@ -20,12 +20,12 @@ Divider.directions = DIRECTIONS;
 
 Divider.defaultProps = {
   classname: "",
-  direction: DIRECTIONS.HORIZONTAL,
+  direction: DIRECTIONS.HORIZONTAL
 };
 
 Divider.propTypes = {
   classname: PropTypes.string,
-  direction: PropTypes.oneOf([DIRECTIONS.HORIZONTAL, DIRECTIONS.VERTICAL]),
+  direction: PropTypes.oneOf([DIRECTIONS.HORIZONTAL, DIRECTIONS.VERTICAL])
 };
 
 export default Divider;
