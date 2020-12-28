@@ -73,6 +73,7 @@ FormattedNumber.propTypes = {
   /**
    * A numeric value to format.
    */
+  // eslint-disable-next-line react/require-default-props
   value: PropTypes.number,
   /**
    * Add external styling. Will be added to the main container.
@@ -114,7 +115,9 @@ FormattedNumber.defaultProps = {
   compact: true,
   local: FormattedNumber.localFallBack,
   rtl: false,
-  className: ""
+  className: "",
+  prefix: "",
+  suffix: ""
 };
 
 export default FormattedNumber;

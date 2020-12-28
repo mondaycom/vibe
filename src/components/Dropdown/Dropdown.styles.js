@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { SIZE } from "./DropdownConstants";
 import { getCSSVar } from "../../services/themes";
 

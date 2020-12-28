@@ -1,8 +1,8 @@
 import React, { useCallback, useRef, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import isFunction from "lodash/isFunction";
 import cx from "classnames";
 import Icon from "../../Icon/Icon";
-import isFunction from "lodash/isFunction";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import useSetFocus from "../../../hooks/useSetFocus";
 import "./MenuItem.scss";
@@ -16,16 +16,16 @@ const MenuItem = ({
   onClick,
   activeItemIndex,
   setActiveItemIndex,
-  index,
+  index
 }) => {
   const [isActive, setIsActive] = useState(activeItemIndex === index);
 
   useEffect(() => {
     setIsActive(activeItemIndex === index);
-  }, [activeItemIndex]);
+  }, [activeItemIndex, index]);
 
   const onClickCallback = useCallback(
-    (event) => {
+    event => {
       if (onClick && !disabled && isActive) {
         onClick(event);
       }
@@ -67,7 +67,7 @@ const MenuItem = ({
             clickable={false}
             icon={icon}
             iconLabel={title}
-            className={"monday-style-menu-item__icon"}
+            className="monday-style-menu-item__icon"
             ignoreFocusStyle
           />
         </div>
@@ -79,7 +79,7 @@ const MenuItem = ({
     <div
       className={cx("monday-style-menu-item", classname, {
         "monday-style-menu-item--disabled": disabled,
-        "monday-style-menu-item--focused": isActive,
+        "monday-style-menu-item--focused": isActive
       })}
       ref={ref}
       onClick={onClickCallback}
@@ -101,7 +101,7 @@ MenuItem.defaultProps = {
   onClick: undefined,
   activeItemIndex: -1,
   setActiveItemIndex: undefined,
-  index: undefined,
+  index: undefined
 };
 MenuItem.propTypes = {
   classname: PropTypes.string,
@@ -112,7 +112,7 @@ MenuItem.propTypes = {
   onClick: PropTypes.func,
   activeItemIndex: PropTypes.number,
   setActiveItemIndex: PropTypes.func,
-  index: PropTypes.number,
+  index: PropTypes.number
 };
 
 MenuItem.isSelectable = true;

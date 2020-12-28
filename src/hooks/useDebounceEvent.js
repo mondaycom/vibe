@@ -1,5 +1,4 @@
 import { useMemo, useCallback, useState, useRef, useEffect } from "react";
-import NOOP from "lodash/noop";
 import debounce from "lodash/debounce";
 
 export default function useDebounceEvent({
