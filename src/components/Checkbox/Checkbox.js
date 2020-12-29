@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import NOOP from "lodash/noop";
 import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
@@ -34,19 +34,8 @@ export const Checkbox = ({
     overrideDefaultChecked = false;
   }
 
-  // useEffect(() => {
-  //   if (!iconContainerRef.current) {
-  //     return () => {};
-  //   }
-  //   window.requestAnimationFrame(() => {
-  //     iconContainerRef.current.classList.remove(
-  //       `${BASE_CLASS_NAME}__prevent-animation`
-  //     );
-  //   });
-  // }, []);
-
   return (
-    <label className={cx(BASE_CLASS_NAME, componentClassName)}>
+    <label className={cx(BASE_CLASS_NAME, componentClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}>
       <input
         id={id}
         className={`${BASE_CLASS_NAME}__input`}
