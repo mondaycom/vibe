@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useCallback } from "react";
 import NOOP from "lodash/noop";
 import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
@@ -21,6 +21,18 @@ export const Checkbox = ({
   id
 }) => {
   const iconContainerRef = useRef(null);
+  const inputRef = useRef(null);
+  const onMouseUpCallback = useCallback(() => {
+    if (!inputRef.current) {
+      return () => {};
+    }
+
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        inputRef.current.blur();
+      });
+    });
+  }, [inputRef]);
 
   const checkboxClassNames = [`${BASE_CLASS_NAME}__checkbox`, `${BASE_CLASS_NAME}__prevent-animation`];
   let overrideDefaultChecked = defaultChecked;
@@ -32,8 +44,9 @@ export const Checkbox = ({
   }
 
   return (
-    <label className={cx(BASE_CLASS_NAME, componentClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}>
+    <label className={cx(BASE_CLASS_NAME, componentClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })} onMouseUp={onMouseUpCallback}>
       <input
+        ref={inputRef}
         id={id}
         className={`${BASE_CLASS_NAME}__input`}
         value={value}
