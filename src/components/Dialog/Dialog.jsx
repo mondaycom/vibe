@@ -43,7 +43,8 @@ export default class Dialog extends PureComponent {
   }
 
   closeDialogOnEscape(event) {
-    if(!this.state.isOpen) {
+    const { isOpen } = this.state;
+    if (!isOpen) {
       return;
     }
     if (event.key === "Escape") this.hideDialogIfNeeded();

@@ -186,7 +186,6 @@ const Button = forwardRef(
       };
     }, [
       disabled,
-      buttonRef,
       classNames,
       name,
       onMouseUp,
@@ -199,7 +198,8 @@ const Button = forwardRef(
       loading,
       onFocus,
       onBlur,
-      mergedRef
+      mergedRef,
+      ariaLabeledBy
     ]);
 
     if (loading) {
@@ -297,9 +297,9 @@ Button.propTypes = {
   ]),
   /** Disabled property which causes the button to be disabled */
   disabled: PropTypes.bool,
-  /** Icon to place on the right*/
+  /** Icon to place on the right */
   rightIcon: PropTypes.string,
-  /** Icon to place on the left*/
+  /** Icon to place on the left */
   leftIcon: PropTypes.string,
   /** the success props are used when you have async action and wants to display a success message */
   success: PropTypes.bool,

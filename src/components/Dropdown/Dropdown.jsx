@@ -1,6 +1,8 @@
+/* eslint-disable react/jsx-props-no-spreading,react/require-default-props,react/forbid-prop-types */
 import React, { useCallback, useMemo, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
+import NOOP from "lodash/noop";
 import { WindowedMenuList } from "react-windowed-select";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -10,7 +12,6 @@ import OptionComponent from "./components/Option/Option";
 import SingleValueComponent from "./components/SingleValue/SingleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import { SIZE } from "./DropdownConstants";
-import { NOOP } from "../../utils/function-utils";
 import styles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 
@@ -25,6 +26,7 @@ const Dropdown = ({
   searchable,
   options,
   defaultValue,
+  value,
   noOptionsMessage,
   openMenuOnFocus,
   openMenuOnClick,
@@ -93,7 +95,7 @@ const Dropdown = ({
   const asyncAdditions = {
     ...(asyncOptions && {
       loadOptions: asyncOptions,
-      cacheOptions: cacheOptions,
+      cacheOptions,
       ...(defaultOptions && { defaultOptions })
     })
   };
@@ -121,6 +123,7 @@ const Dropdown = ({
       isClearable={clearable}
       isSearchable={searchable}
       defaultValue={defaultValue}
+      value={value}
       onMenuOpen={handleMenuOpen}
       onMenuClose={handleMenuClose}
       onFocus={onFocus}

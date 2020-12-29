@@ -18,7 +18,7 @@ const MenuTitle = ({ classname, caption, captionPosition }) => {
   };
 
   const renderDivider = () => {
-    return <div className="monday-style-menu-title__divider"></div>;
+    return <div className="monday-style-menu-title__divider" />;
   };
 
   const renderContent = () => {
@@ -56,7 +56,7 @@ MenuTitle.positions = CAPTION_POSITIONS;
 MenuTitle.defaultProps = {
   classname: "",
   caption: "",
-  captionPosition: CAPTION_POSITIONS.BOTTOM,
+  captionPosition: CAPTION_POSITIONS.BOTTOM
 };
 
 MenuTitle.propTypes = {
@@ -65,8 +65,8 @@ MenuTitle.propTypes = {
   captionPosition: PropTypes.oneOf([
     CAPTION_POSITIONS.BOTTOM,
     CAPTION_POSITIONS.TOP,
-    CAPTION_POSITIONS.CENTER,
-  ]),
+    CAPTION_POSITIONS.CENTER
+  ])
 };
 
 export default MenuTitle;

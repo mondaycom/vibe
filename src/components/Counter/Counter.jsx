@@ -91,7 +91,11 @@ const Counter = ({
     count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : count;
 
   return (
-    <span className={wrapperClassName} aria-label={`${ariaLabel} ${countText}`}>
+    <span
+      className={wrapperClassName}
+      aria-label={`${ariaLabel} ${countText}`}
+      aria-labelledby={ariaLabeledBy}
+    >
       <div className={classNames} aria-label={countText} ref={ref}>
         <SwitchTransition mode="out-in">
           <CSSTransition
@@ -129,7 +133,7 @@ Counter.propTypes = {
     Counter.colors.NEGATIVE
   ]),
   kind: PropTypes.oneOf([Counter.kinds.FILL, Counter.kinds.LINE]),
-  /** maximum number of digits to display (see relevant story)*/
+  /** maximum number of digits to display (see relevant story) */
   maxDigits: PropTypes.number
 };
 Counter.defaultProps = {

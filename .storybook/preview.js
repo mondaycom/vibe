@@ -2,7 +2,7 @@ import { addParameters, configure } from "@storybook/react";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
 
 import { loadFoundationsStories } from "../src/general-stories/foundations-stories";
-import { loadComponentsStories } from "../src/components/componensts-stories";
+import { loadComponentsStories } from "../src/components/components-stories";
 
 addParameters({
   docs: {

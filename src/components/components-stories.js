@@ -3,6 +3,7 @@ export function loadComponentsStories() {
     require("./AttentionBox/__stories__/attentionBox.stories.js"),
     require("./Button/__stories__/button.stories.js"),
     require("./Counter/__stories__/counter.stories.js"),
+    require("./Checkbox/__stories__/checkbox.stories.js"),
     require("./Icon/__stories__/icon.stories"),
     require("./Label/__stories__/label.stories.js"),
     require("./Link/__stories__/link.stories.js"),
@@ -13,11 +14,11 @@ export function loadComponentsStories() {
     require("./Search/__stories__/search.stories.js"),
     require("./TextField/__stories__/textField.stories.js"),
     require("./Tooltip/__stories__/tooltip.stories.js"),
+    require("./Menu/MenuItem/__stories__/menuItem.stories.js"),
+    require("./Toast/__stories__/toast.stories.js")
   ];
 }
 
 export function loadHelpers() {
-  return [
-    require("./FormattedNumber/__stories__/formattedNumber.stories")
-  ]
+  return [require("./FormattedNumber/__stories__/formattedNumber.stories")];
 }
