@@ -28,6 +28,23 @@ exports[`Snapshots renders correctly with children 1`] = `
     >
       item 1
     </div>
+    <div
+      className="monday-style-menu-item__popover"
+      style={
+        Object {
+          "left": "0",
+          "position": "absolute",
+          "top": "0",
+        }
+      }
+    >
+      <div
+        aria-describedby=""
+        aria-labelledby=""
+        className="dialog-content-container dialog-content-container--popover dialog-content-container--medium"
+        role="dialog"
+      />
+    </div>
   </div>
   <div
     className="monday-style-divider monday-style-divider--horizontal"
@@ -40,6 +57,23 @@ exports[`Snapshots renders correctly with children 1`] = `
       className="monday-style-menu-item__title"
     >
       item 2
+    </div>
+    <div
+      className="monday-style-menu-item__popover"
+      style={
+        Object {
+          "left": "0",
+          "position": "absolute",
+          "top": "0",
+        }
+      }
+    >
+      <div
+        aria-describedby=""
+        aria-labelledby=""
+        className="dialog-content-container dialog-content-container--popover dialog-content-container--medium"
+        role="dialog"
+      />
     </div>
   </div>
 </div>
