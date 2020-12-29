@@ -105,7 +105,7 @@ const Toast = ({
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}
             color={Button.colors.ON_PRIMARY_COLOR}
-            title="close alert"
+            ariaLabel="close-toast"
           >
             <Icon
               iconType={Icon.type.SVG}
