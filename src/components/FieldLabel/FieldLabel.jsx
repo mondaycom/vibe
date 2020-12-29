@@ -4,17 +4,7 @@ import "./FieldLabel.scss";
 import Icon from "../Icon/Icon";
 
 const FieldLabel = forwardRef(
-  (
-    {
-      icon = "",
-      iconLabel = "",
-      labelText = "",
-      labelFor = "",
-      iconClassName = "",
-      labelClassName = ""
-    },
-    ref
-  ) => {
+  ({ icon = "", iconLabel = "", labelText = "", labelFor = "", iconClassName = "", labelClassName = "" }, ref) => {
     if (!labelText) {
       return null;
     }
@@ -29,11 +19,7 @@ const FieldLabel = forwardRef(
           iconLabel={iconLabel}
           iconType={Icon.type.ICON_FONT}
         />
-        <label
-          htmlFor={labelFor}
-          ref={ref}
-          className={cx("label-component--text", labelClassName)}
-        >
+        <label htmlFor={labelFor} ref={ref} className={cx("label-component--text", labelClassName)}>
           {labelText}
         </label>
       </section>

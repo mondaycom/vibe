@@ -12,9 +12,7 @@ describe("useClickOutside", () => {
     callbackStub = sinon.stub();
     element = document.createElement("div");
     document.body.appendChild(element);
-    renderHook(() =>
-      useOnClickOutside({ ref: { current: element }, callback: callbackStub })
-    );
+    renderHook(() => useOnClickOutside({ ref: { current: element }, callback: callbackStub }));
   });
 
   afterEach(() => {

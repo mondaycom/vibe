@@ -14,11 +14,7 @@ import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
 
 const renderMenuItems = () => {
   return [
-    <MenuTitle
-      id="menu-title-1"
-      caption={"Caption"}
-      captionPosition={MenuTitle.positions.TOP}
-    />,
+    <MenuTitle id="menu-title-1" caption={"Caption"} captionPosition={MenuTitle.positions.TOP} />,
     <MenuItem
       id="menu-item-1"
       title={"Sombody"}
@@ -88,15 +84,8 @@ const renderMenuItems = () => {
 };
 
 export const Sandbox = () => {
-  const iconType = select(
-    "icon type",
-    { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG },
-    Icon.type.SVG
-  );
-  const icon =
-    iconType === Icon.type.SVG
-      ? selectIcon("SVG icon", "Activity")
-      : text("font icon", "fa fa-star");
+  const iconType = select("icon type", { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG }, Icon.type.SVG);
+  const icon = iconType === Icon.type.SVG ? selectIcon("SVG icon", "Activity") : text("font icon", "fa fa-star");
   return (
     <div style={{ width: 200 }}>
       <MenuItem
@@ -114,47 +103,25 @@ export const States = () => (
   <div style={{ width: 700 }}>
     <FlexLayout>
       <StoryLine title="Menu item">
-        <MenuItem
-          id="menu-item"
-          title={("title", "My item")}
-          icon={"fa fa-star-o"}
-          iconType={Icon.type.ICON_FONT}
-        />
+        <MenuItem id="menu-item" title={("title", "My item")} icon={"fa fa-star-o"} iconType={Icon.type.ICON_FONT} />
       </StoryLine>
     </FlexLayout>
     <FlexLayout>
       <StoryLine title="Menu item with svg icon">
-        <MenuItem
-          id="menu-item"
-          title={"SVG icon item"}
-          icon={Activity}
-          iconType={Icon.type.ICON_SVG}
-        />
+        <MenuItem id="menu-item" title={"SVG icon item"} icon={Activity} iconType={Icon.type.ICON_SVG} />
       </StoryLine>
     </FlexLayout>
     <FlexLayout>
       <StoryLine title="Disabled menu item">
-        <MenuItem
-          id="menu-item"
-          title={"Disabled item"}
-          icon={"fa fa-star-o"}
-          disabled={true}
-        />
+        <MenuItem id="menu-item" title={"Disabled item"} icon={"fa fa-star-o"} disabled={true} />
       </StoryLine>
     </FlexLayout>
   </div>
 );
 
 export const subMenu = () => {
-  const iconType = select(
-    "icon type",
-    { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG },
-    Icon.type.SVG
-  );
-  const icon =
-    iconType === Icon.type.SVG
-      ? selectIcon("SVG icon", "Activity")
-      : text("font icon", "fa fa-star");
+  const iconType = select("icon type", { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG }, Icon.type.SVG);
+  const icon = iconType === Icon.type.SVG ? selectIcon("SVG icon", "Activity") : text("font icon", "fa fa-star");
   return (
     <div>
       <div style={{ width: "260px" }}>

@@ -1,12 +1,7 @@
 import { useMemo, useCallback, useState, useRef, useEffect } from "react";
 import debounce from "lodash/debounce";
 
-export default function useDebounceEvent({
-  delay = 0,
-  onChange,
-  initialStateValue,
-  trim
-}) {
+export default function useDebounceEvent({ delay = 0, onChange, initialStateValue, trim }) {
   const [inputValue, setValue] = useState(initialStateValue);
   const previousValue = useRef(null);
 
@@ -40,10 +35,7 @@ export default function useDebounceEvent({
     onChange("");
   }, [setValue, onChange]);
 
-  if (
-    initialStateValue !== previousValue.current &&
-    initialStateValue !== inputValue
-  ) {
+  if (initialStateValue !== previousValue.current && initialStateValue !== inputValue) {
     setValue(initialStateValue);
   }
 

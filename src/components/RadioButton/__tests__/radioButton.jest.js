@@ -7,14 +7,7 @@ describe("RadioButton Tests", () => {
   describe("Snapshot Tests", () => {
     it("renders correctly", () => {
       const tree = renderer
-        .create(
-          <RadioButton
-            componentClassName="dummy-class-name"
-            name="radios"
-            value="option1"
-            text="Option 1"
-          />
-        )
+        .create(<RadioButton componentClassName="dummy-class-name" name="radios" value="option1" text="Option 1" />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -40,22 +33,9 @@ describe("RadioButton Tests", () => {
     beforeEach(() => {
       render(
         <form name={formName}>
-          <RadioButton
-            name={radiosName}
-            value={option1Value}
-            text={option1Text}
-            defaultChecked={true}
-          />
-          <RadioButton
-            name={radiosName}
-            value={option2Value}
-            text={option2Text}
-          />
-          <RadioButton
-            name={radiosName}
-            value={option3Value}
-            text={option3Text}
-          />
+          <RadioButton name={radiosName} value={option1Value} text={option1Text} defaultChecked={true} />
+          <RadioButton name={radiosName} value={option2Value} text={option2Text} />
+          <RadioButton name={radiosName} value={option3Value} text={option3Text} />
         </form>
       );
     });

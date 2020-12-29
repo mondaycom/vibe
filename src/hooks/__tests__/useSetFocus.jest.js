@@ -18,7 +18,7 @@ describe("useSetFocus", () => {
           ref: { current: element },
           setActive: setActiveStub,
           setUnActive: setUnActiveStub,
-          isActive,
+          isActive
         })
       );
     });

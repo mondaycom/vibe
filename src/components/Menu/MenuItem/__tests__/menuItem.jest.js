@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  act,
-} from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, act } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import MenuItem from "../MenuItem";
 
@@ -16,23 +10,17 @@ describe("Snapshots", () => {
   });
 
   it("renders correctly with custom class name", () => {
-    const tree = renderer
-      .create(<MenuItem classname="dummy-class-name" />)
-      .toJSON();
+    const tree = renderer.create(<MenuItem classname="dummy-class-name" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly with title and icon", () => {
-    const tree = renderer
-      .create(<MenuItem title="my item" icon="fa fa-star" />)
-      .toJSON();
+    const tree = renderer.create(<MenuItem title="my item" icon="fa fa-star" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly when disabled", () => {
-    const tree = renderer
-      .create(<MenuItem title="my item" disabled={true} />)
-      .toJSON();
+    const tree = renderer.create(<MenuItem title="my item" disabled={true} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
@@ -48,7 +36,7 @@ describe("<MenuItem />", () => {
   it("calls onClick when clicking on the menu item", () => {
     const onClickMock = jest.fn();
     const menuItemComponent = renderComponent({
-      onClick: onClickMock,
+      onClick: onClickMock
     });
 
     const item = menuItemComponent.getByText(itemName);

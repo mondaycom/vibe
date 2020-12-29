@@ -145,18 +145,11 @@ export default class Dialog extends PureComponent {
 
   handleEvent(eventName, target) {
     const { showTriggerIgnoreClass, hideTriggerIgnoreClass } = this.props;
-    if (
-      this.isShowTrigger(eventName) &&
-      !this.isShown() &&
-      !isInsideClass(target, showTriggerIgnoreClass)
-    ) {
+    if (this.isShowTrigger(eventName) && !this.isShown() && !isInsideClass(target, showTriggerIgnoreClass)) {
       return this.showDialogIfNeeded();
     }
 
-    if (
-      this.isHideTrigger(eventName) &&
-      !isInsideClass(target, hideTriggerIgnoreClass)
-    ) {
+    if (this.isHideTrigger(eventName) && !isInsideClass(target, hideTriggerIgnoreClass)) {
       return this.hideDialogIfNeeded();
     }
   }
@@ -254,8 +247,7 @@ export default class Dialog extends PureComponent {
     const { preventAnimation } = this.state;
 
     const disableOnClickOutside = !this.isHideTrigger("clickoutside");
-    const animationTypeCalculated =
-      preventAnimationOnMount || preventAnimation ? false : animationType;
+    const animationTypeCalculated = preventAnimationOnMount || preventAnimation ? false : animationType;
     const contentRendered = isFunction(content) ? content() : content;
 
     if (!contentRendered) {
@@ -270,28 +262,12 @@ export default class Dialog extends PureComponent {
                 className={referenceWrapperClassName}
                 ref={ref}
                 onBlur={chainOnPropsAndInstance("onBlur", this, this.props)}
-                onKeyDown={chainOnPropsAndInstance(
-                  "onKeyDown",
-                  this,
-                  this.props
-                )}
+                onKeyDown={chainOnPropsAndInstance("onKeyDown", this, this.props)}
                 onClick={chainOnPropsAndInstance("onClick", this, this.props)}
                 onFocus={chainOnPropsAndInstance("onFocus", this, this.props)}
-                onMouseDown={chainOnPropsAndInstance(
-                  "onMouseDown",
-                  this,
-                  this.props
-                )}
-                onMouseEnter={chainOnPropsAndInstance(
-                  "onMouseEnter",
-                  this,
-                  this.props
-                )}
-                onMouseLeave={chainOnPropsAndInstance(
-                  "onMouseLeave",
-                  this,
-                  this.props
-                )}
+                onMouseDown={chainOnPropsAndInstance("onMouseDown", this, this.props)}
+                onMouseEnter={chainOnPropsAndInstance("onMouseEnter", this, this.props)}
+                onMouseLeave={chainOnPropsAndInstance("onMouseLeave", this, this.props)}
               >
                 {children}
               </Refable>
@@ -367,10 +343,7 @@ export default class Dialog extends PureComponent {
                     <div
                       style={arrowProps.style}
                       ref={arrowProps.ref}
-                      className={cx(
-                        "monday-style-tooltip-arrow",
-                        tooltipClassName
-                      )}
+                      className={cx("monday-style-tooltip-arrow", tooltipClassName)}
                       data-placement={placement}
                     />
                   )}

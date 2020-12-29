@@ -5,15 +5,7 @@ import { DIRECTIONS } from "./DividerConstants";
 import "./Divider.scss";
 
 const Divider = ({ classname, direction }) => {
-  return (
-    <div
-      className={cx(
-        "monday-style-divider",
-        classname,
-        `monday-style-divider--${direction}`
-      )}
-    />
-  );
+  return <div className={cx("monday-style-divider", classname, `monday-style-divider--${direction}`)} />;
 };
 
 Divider.directions = DIRECTIONS;

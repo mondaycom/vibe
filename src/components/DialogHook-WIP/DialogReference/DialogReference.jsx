@@ -33,18 +33,9 @@ const DialogReference = ({
     onBlur: chainFunctions([childrenProps.onBlur, , onBlur], true),
     onClick: chainFunctions([childrenProps.onClick, onClick], true),
     onFocus: chainFunctions([childrenProps.onFocus, onFocus], true),
-    onMouseDown: chainFunctions(
-      [childrenProps["onMouseDown"], onMouseDown],
-      true
-    ),
-    onMouseEnter: chainFunctions(
-      [childrenProps["onMouseEnter"], onMouseEnter],
-      true
-    ),
-    onMouseLeave: chainFunctions(
-      [childrenProps["onMouseLeave"], onMouseLeave],
-      true
-    )
+    onMouseDown: chainFunctions([childrenProps["onMouseDown"], onMouseDown], true),
+    onMouseEnter: chainFunctions([childrenProps["onMouseEnter"], onMouseEnter], true),
+    onMouseLeave: chainFunctions([childrenProps["onMouseLeave"], onMouseLeave], true)
   });
 };
 export default DialogReference;

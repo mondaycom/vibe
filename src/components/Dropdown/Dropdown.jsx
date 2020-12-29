@@ -60,35 +60,19 @@ const Dropdown = ({
 
   const customStyles = useMemo(() => styles({ size, rtl }), [size, rtl]);
 
-  const Menu = useCallback(
-    props => <MenuComponent {...props} isOpen={isOpen} />,
-    [isOpen]
-  );
+  const Menu = useCallback(props => <MenuComponent {...props} isOpen={isOpen} />, [isOpen]);
 
-  const DropdownIndicator = useCallback(
-    props => <DropdownIndicatorComponent {...props} size={size} />,
-    [size]
-  );
+  const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
-  const Option = useCallback(
-    props => <OptionComponent {...props} OptionRenderer={OptionRenderer} />,
-    [OptionRenderer]
-  );
+  const Option = useCallback(props => <OptionComponent {...props} OptionRenderer={OptionRenderer} />, [OptionRenderer]);
 
-  const Input = useCallback(
-    props => <components.Input {...props} aria-label="Dropdown input" />,
-    []
-  );
+  const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
-  const SingleValue = useCallback(
-    props => <SingleValueComponent {...props} ValueRenderer={ValueRenderer} />,
-    [ValueRenderer]
-  );
+  const SingleValue = useCallback(props => <SingleValueComponent {...props} ValueRenderer={ValueRenderer} />, [
+    ValueRenderer
+  ]);
 
-  const ClearIndicator = useCallback(
-    props => <ClearIndicatorComponent {...props} size={size} />,
-    [size]
-  );
+  const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
   const DropDownComponent = asyncOptions ? AsyncSelect : Select;
 
@@ -250,10 +234,7 @@ Dropdown.propTypes = {
   /**
    * If set, `asyncOptions` will be invoked with its value on mount and the resolved results will be loaded
    */
-  defaultOptions: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.arrayOf(PropTypes.object)
-  ]),
+  defaultOptions: PropTypes.oneOfType([PropTypes.bool, PropTypes.arrayOf(PropTypes.object)]),
   /**
    * If set to true, the menu will use virtualization. Virtualized async works only with
    */

@@ -44,18 +44,10 @@ export const Line = () => (
         <Label text="New" color={Label.colors.DARK} kind={Label.kinds.LINE} />
       </StoryStateColumn>
       <StoryStateColumn title="Positive">
-        <Label
-          text="New"
-          color={Label.colors.POSITIVE}
-          kind={Label.kinds.LINE}
-        />
+        <Label text="New" color={Label.colors.POSITIVE} kind={Label.kinds.LINE} />
       </StoryStateColumn>
       <StoryStateColumn title="Negative">
-        <Label
-          text="New"
-          color={Label.colors.NEGATIVE}
-          kind={Label.kinds.LINE}
-        />
+        <Label text="New" color={Label.colors.NEGATIVE} kind={Label.kinds.LINE} />
       </StoryStateColumn>
     </StoryStateRow>
   </section>

@@ -5,12 +5,7 @@ import useEventListener from "../../../hooks/useEventListener";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../constants/KeyCodes";
 
-export default function useIconProps({
-  onClick,
-  className,
-  clickable,
-  ignoreFocusStyle
-}) {
+export default function useIconProps({ onClick, className, clickable, ignoreFocusStyle }) {
   const iconRef = useRef(null);
   const onEnterCallback = useCallback(
     event => {

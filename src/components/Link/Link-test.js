@@ -45,38 +45,26 @@ describe("<Link />", () => {
 
   it("should have the correct target", () => {
     const target = Link.target.SELF;
-    const { getByText } = render(
-      <Link text={text} href={href} target={target} />
-    );
+    const { getByText } = render(<Link text={text} href={href} target={target} />);
     const element = getByText(text).closest("a");
     expect(element.target).to.equal(target);
   });
 
   it("should apply aria label correctly", () => {
-    const { getByLabelText } = render(
-      <Link text={text} ariaLabelDescription={ariaLabel} />
-    );
+    const { getByLabelText } = render(<Link text={text} ariaLabelDescription={ariaLabel} />);
     const element = getByLabelText(ariaLabel);
     expect(element).to.be.ok;
   });
 
   describe("Icons", () => {
     it("Should present the icon", () => {
-      const { container } = render(
-        <Link ariaLabelDescription={ariaLabel} icon="icon-name" />
-      );
+      const { container } = render(<Link ariaLabelDescription={ariaLabel} icon="icon-name" />);
       const element = container.querySelector(".icon_component");
       expect(element).to.be.ok;
     });
 
     it("Icon should be before of the text", () => {
-      const { container } = render(
-        <Link
-          text={text}
-          ariaLabelDescription={ariaLabel}
-          icon="icon-name"
-        />
-      );
+      const { container } = render(<Link text={text} ariaLabelDescription={ariaLabel} icon="icon-name" />);
       const textElement = container.querySelector(".monday-style-link--text");
       const iconElement = container.querySelector(".icon_component");
       const textBox = textElement.getBoundingClientRect();
@@ -86,12 +74,7 @@ describe("<Link />", () => {
 
     it("Icon should be after of the text", () => {
       const { container } = render(
-        <Link
-          text={text}
-          ariaLabelDescription={ariaLabel}
-          icon="icon-name"
-          iconPosition={Link.position.END}
-        />
+        <Link text={text} ariaLabelDescription={ariaLabel} icon="icon-name" iconPosition={Link.position.END} />
       );
       const textElement = container.querySelector(".monday-style-link--text");
       const iconElement = container.querySelector(".icon_component");

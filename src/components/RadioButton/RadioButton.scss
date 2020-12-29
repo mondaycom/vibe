@@ -60,6 +60,9 @@
 
   &.disabled {
     cursor: not-allowed;
+    .monday-style-radio-button-component__radio-label {
+      @include theme-prop(color, disabled-text-color);
+    }
   }
 
   &:hover &__radio-input-container input:enabled:checked + &__radio-input-container__radio-control {

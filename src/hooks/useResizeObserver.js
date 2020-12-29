@@ -1,11 +1,7 @@
 import { useMemo, useEffect } from "react";
 import debounce from "lodash/debounce";
 
-export default function useResizeObserver({
-  ref,
-  callback,
-  debounceTime = 200
-}) {
+export default function useResizeObserver({ ref, callback, debounceTime = 200 }) {
   const debouncedCallback = useMemo(() => {
     return debounceTime === 0 ? callback : debounce(callback, debounceTime);
   }, [callback, debounceTime]);

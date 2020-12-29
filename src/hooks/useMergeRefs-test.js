@@ -1,11 +1,5 @@
 import React, { forwardRef, useRef, useEffect } from "react";
-import {
-  fireEvent,
-  render,
-  cleanup,
-  act,
-  screen
-} from "@testing-library/react";
+import { fireEvent, render, cleanup, act, screen } from "@testing-library/react";
 import useMergeRefs from "./useMergeRefs";
 import { sinon, expect } from "../test/test-helpers";
 
@@ -79,10 +73,7 @@ describe("useMergeRefs", () => {
         useEffect(() => {
           internalRef.current.addEventListener("click", innerRefCallbackStub);
           return () => {
-            internalRef.current.removeEventListener(
-              "click",
-              innerRefCallbackStub
-            );
+            internalRef.current.removeEventListener("click", innerRefCallbackStub);
           };
         }, []);
 

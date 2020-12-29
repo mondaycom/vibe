@@ -5,12 +5,7 @@ import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper
 import "./tooltip-story.scss";
 import { boolean, number, select } from "@storybook/addon-knobs";
 
-import {
-  StoryStateRow,
-  StoryStateColumn,
-  FlexLayout,
-  Divider
-} from "../../storybook-helpers";
+import { StoryStateRow, StoryStateColumn, FlexLayout, Divider } from "../../storybook-helpers";
 import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => (
@@ -38,11 +33,7 @@ export const Sandbox = () => (
           },
           "dark"
         )}
-        position={select(
-          "Tooltip Position",
-          { Top: "center", Bottom: "bottom", Right: "right", Left: "left" },
-          "top"
-        )}
+        position={select("Tooltip Position", { Top: "center", Bottom: "bottom", Right: "right", Left: "left" }, "top")}
         hideDelay={number("Hide Delay", 0)}
         showDelay={number("Show Delay", 300)}
         disableDialogSlide={true}
@@ -54,9 +45,7 @@ export const Sandbox = () => (
       >
         <TooltipReference />
       </Tooltip>
-      <span style={{ marginLeft: "8px", color: "var(--primary-text-color)" }}>
-        Hover on me!
-      </span>
+      <span style={{ marginLeft: "8px", color: "var(--primary-text-color)" }}>Hover on me!</span>
     </div>
   </StoryStateRow>
 );
@@ -78,17 +67,9 @@ export const Main = () => (
       <TooltipLineWrapper title="Top-End" position="top-end" theme="dark" />
     </FlexLayout>
     <FlexLayout fullWidth>
-      <TooltipLineWrapper
-        title="Bottom-Start"
-        position="bottom-start"
-        theme="dark"
-      />
+      <TooltipLineWrapper title="Bottom-Start" position="bottom-start" theme="dark" />
       <TooltipLineWrapper title="Bottom" position="bottom" theme="dark" />
-      <TooltipLineWrapper
-        title="Bottom-End"
-        position="bottom-end"
-        theme="dark"
-      />
+      <TooltipLineWrapper title="Bottom-End" position="bottom-end" theme="dark" />
     </FlexLayout>
     <FlexLayout fullWidth>
       <TooltipLineWrapper title="Right" position="right" theme="dark" />
@@ -117,11 +98,7 @@ export const ImmediateTooltips = () => (
         >
           <TooltipReference />
         </Tooltip>
-        <Tooltip
-          showDelay={number("Show Delay", 300)}
-          content={`I'm ignoring immediate show`}
-          containerSelector="body"
-        >
+        <Tooltip showDelay={number("Show Delay", 300)} content={`I'm ignoring immediate show`} containerSelector="body">
           <TooltipReference />
         </Tooltip>
       </StoryStateColumn>

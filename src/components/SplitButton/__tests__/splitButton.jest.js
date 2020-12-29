@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  cleanup,
-  fireEvent,
-  render,
-  screen,
-  act
-} from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, act } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import SplitButton, { SECONDARY_BUTTON_ARIA_LABEL } from "../SplitButton";
 
@@ -19,11 +13,7 @@ const ArrowButtonLabel = SECONDARY_BUTTON_ARIA_LABEL;
 
 const renderComponent = ({ ...props } = {}) => {
   return render(
-    <SplitButton
-      {...props}
-      className={className}
-      secondaryDialogContent={secondaryContent}
-    >
+    <SplitButton {...props} className={className} secondaryDialogContent={secondaryContent}>
       {text}
     </SplitButton>
   );
@@ -39,9 +29,7 @@ describe("<SplitButton />", () => {
       fireEvent.click(arrowButton.parentElement);
       jest.advanceTimersByTime(1000);
     });
-    const expectedSecondaryDialog = await screen.findByText(
-      secondaryContentText
-    );
+    const expectedSecondaryDialog = await screen.findByText(secondaryContentText);
     expect(expectedSecondaryDialog).toBeTruthy();
   });
 
@@ -91,30 +79,17 @@ describe("<SplitButton />", () => {
 
 describe("Snapshots", () => {
   it("renders correctly with only required props", () => {
-    const tree = renderer
-      .create(<SplitButton secondaryDialogContent={secondaryContent} />)
-      .toJSON();
+    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it("renders correctly with disabled", () => {
-    const tree = renderer
-      .create(
-        <SplitButton
-          secondaryDialogContent={secondaryContent}
-          disabled={true}
-        />
-      )
-      .toJSON();
+    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} disabled={true} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
   it("renders correctly with tertiary button", () => {
     const tree = renderer
       .create(
-        <SplitButton
-          secondaryDialogContent={secondaryContent}
-          kind={SplitButton.kinds.TERTIARY}
-          disabled={true}
-        />
+        <SplitButton secondaryDialogContent={secondaryContent} kind={SplitButton.kinds.TERTIARY} disabled={true} />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

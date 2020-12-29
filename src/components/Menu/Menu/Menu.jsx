@@ -46,11 +46,7 @@ const Menu = ({ classname, size, tabIndex, ariaLabel, children }) => {
 
   return (
     <div
-      className={cx(
-        "monday-style-menu",
-        classname,
-        `monday-style-menu--${size}`
-      )}
+      className={cx("monday-style-menu", classname, `monday-style-menu--${size}`)}
       ref={ref}
       tabIndex={tabIndex}
       onBlur={onBlur}
@@ -80,11 +76,7 @@ Menu.defaultProps = {
 
 Menu.propTypes = {
   classname: PropTypes.string,
-  size: PropTypes.oneOf([
-    MENU_SIZES.SMALL,
-    MENU_SIZES.MEDIUM,
-    MENU_SIZES.LARGE
-  ]),
+  size: PropTypes.oneOf([MENU_SIZES.SMALL, MENU_SIZES.MEDIUM, MENU_SIZES.LARGE]),
   tabIndex: PropTypes.number,
   ariaLabel: PropTypes.string
 };

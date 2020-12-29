@@ -6,14 +6,7 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { baseClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
-const AttentionBox = ({
-  componentClassName,
-  type,
-  icon,
-  iconType,
-  title,
-  text
-}) => {
+const AttentionBox = ({ componentClassName, type, icon, iconType, title, text }) => {
   const role = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
@@ -36,15 +29,9 @@ const AttentionBox = ({
 
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
-    <aside
-      className={cx(baseClassName, classNameWithType, componentClassName)}
-      role={role}
-    >
+    <aside className={cx(baseClassName, classNameWithType, componentClassName)} role={role}>
       <div
-        className={cx(
-          `${baseClassName}__title-container`,
-          `${classNameWithType}__title-container`
-        )}
+        className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}
         role="heading"
         aria-level="2"
       >
@@ -52,28 +39,18 @@ const AttentionBox = ({
           iconType={iconType}
           clickable={false}
           icon={icon}
-          className={cx(
-            `${baseClassName}__title-container__icon`,
-            `${classNameWithType}__title-container__icon`
-          )}
+          className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
           ignoreFocusStyle
           iconSize="24"
           iconLabel={iconLabel}
         />
         <span
-          className={cx(
-            `${baseClassName}__title-container__title`,
-            `${classNameWithType}__title-container__title`
-          )}
+          className={cx(`${baseClassName}__title-container__title`, `${classNameWithType}__title-container__title`)}
         >
           {title}
         </span>
       </div>
-      <div
-        className={cx(`${baseClassName}__text`, `${classNameWithType}__text`)}
-      >
-        {text}
-      </div>
+      <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`)}>{text}</div>
     </aside>
   );
 };

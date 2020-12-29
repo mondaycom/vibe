@@ -7,19 +7,17 @@ const fs = require("fs");
 const BumpTypes = {
   MAJOR: 0,
   MINOR: 1,
-  PATCH: 2,
+  PATCH: 2
 };
 
 function bumpVersion(bumpType) {
   console.log("reading package.json from", process.cwd());
-  const packageJson = JSON.parse(
-    fs.readFileSync(`${process.cwd()}/package.json`, "utf-8")
-  );
+  const packageJson = JSON.parse(fs.readFileSync(`${process.cwd()}/package.json`, "utf-8"));
 
   exec(
     `npm info ${packageJson.name} --json`,
     {
-      cwd: process.cwd(),
+      cwd: process.cwd()
     },
     (error, stdout) => {
       if (error) {
@@ -54,5 +52,5 @@ function bumpVersion(bumpType) {
 
 module.exports = {
   bumpVersion,
-  BumpTypes,
+  BumpTypes
 };

@@ -8,8 +8,6 @@ it("renders correctly with empty props", () => {
 });
 
 it("renders correctly with custom class name", () => {
-  const tree = renderer
-    .create(<Divider classname="dummy-class-name" />)
-    .toJSON();
+  const tree = renderer.create(<Divider classname="dummy-class-name" />).toJSON();
   expect(tree).toMatchSnapshot();
 });

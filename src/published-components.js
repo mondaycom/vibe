@@ -9,8 +9,7 @@ const publishedComponents = {
   MenuItem: "/src/components/Menu/MenuItem/MenuItem.jsx",
   Menu: "/src/components/Menu/Menu/Menu.jsx",
   Dialog: "/src/components/Dialog/Dialog.jsx",
-  DialogContentContainer:
-    "/src/components/DialogContentContainer/DialogContentContainer.jsx",
+  DialogContentContainer: "/src/components/DialogContentContainer/DialogContentContainer.jsx",
   AttentionBox: "/src/components/AttentionBox/AttentionBox.jsx",
   Label: "/src/components/Label/Label.jsx",
   MenuButton: "/src/components/MenuButton/MenuButton.jsx",
@@ -28,13 +27,12 @@ const publishedComponents = {
   Icon: "/src/components/Icon/Icon.jsx",
   CustomSvgIcon: "/src/components/Icon/CustomSvgIcon.jsx",
   FormattedNumber: "/src/components/FormattedNumber/FormattedNumber.jsx",
-  LinearProgressBar:
-    "/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
+  LinearProgressBar: "/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   useKeyEvent: "/src/hooks/useKeyEvent.js",
   useEventListener: "/src/hooks/useEventListener.js",
   useDebounceEvent: "/src/hooks/useDebounceEvent.js",
   useClickOutside: "/src/hooks/useClickOutside.js",
-  useResizeObserver: "/src/hooks/useResizeObserver.js",
+  useResizeObserver: "/src/hooks/useResizeObserver.js"
 };
 
 function getPublishedComponents(dirPath = "") {
@@ -58,5 +56,5 @@ function exposeIcons(dirPath) {
 }
 
 module.exports = {
-  getPublishedComponents,
+  getPublishedComponents
 };

@@ -1,13 +1,7 @@
 import React from "react";
 import { sinon, expect } from "../../test/test-helpers";
 import TextField, { ARIA_LABELS } from "./TextField";
-import {
-  render,
-  fireEvent,
-  cleanup,
-  screen,
-  act
-} from "@testing-library/react";
+import { render, fireEvent, cleanup, screen, act } from "@testing-library/react";
 
 describe("TextField Tests", () => {
   let inputComponent;
@@ -22,12 +16,7 @@ describe("TextField Tests", () => {
     clock = sinon.useFakeTimers();
     act(() => {
       inputComponent = render(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-          ref={ref}
-        />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />
       );
     });
   });
@@ -63,12 +52,7 @@ describe("TextField Tests", () => {
     const { rerender } = inputComponent;
     act(() => {
       inputComponent = rerender(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-          debounceRate={200}
-        />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} />
       );
     });
 
@@ -85,13 +69,7 @@ describe("TextField Tests", () => {
     const { rerender } = inputComponent;
     act(() => {
       inputComponent = rerender(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-          debounceRate={200}
-          ref={ref}
-        />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} ref={ref} />
       );
     });
     expect(ref.current.className).to.include("input-component__input");
@@ -102,12 +80,7 @@ describe("TextField Tests", () => {
     const debounceTime = 200;
     act(() => {
       inputComponent = rerender(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-          debounceRate={debounceTime}
-        />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={debounceTime} />
       );
     });
 
@@ -124,12 +97,7 @@ describe("TextField Tests", () => {
     const { rerender } = inputComponent;
     act(() => {
       inputComponent = rerender(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-          disabled
-        />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" disabled />
       );
     });
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
@@ -140,15 +108,7 @@ describe("TextField Tests", () => {
     const { rerender, getByText } = inputComponent;
     const title = "Title";
     act(() => {
-      rerender(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-          disabled
-          title={title}
-        />
-      );
+      rerender(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" disabled title={title} />);
     });
     const titleElement = getByText(title);
     expect(titleElement).to.be.ok;
@@ -158,14 +118,7 @@ describe("TextField Tests", () => {
     const { rerender, queryByText } = inputComponent;
     const title = "My Awesome Title";
     act(() => {
-      rerender(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-          disabled
-        />
-      );
+      rerender(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" disabled />);
     });
     const titleElement = queryByText(title);
     expect(titleElement).to.not.be.ok;
@@ -193,13 +146,7 @@ describe("TextField Tests", () => {
   it("should not display icon", () => {
     const { rerender, queryByLabelText } = inputComponent;
     act(() => {
-      rerender(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-        />
-      );
+      rerender(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" />);
     });
 
     const icon = queryByLabelText("test-icon");
@@ -285,12 +232,7 @@ describe("TextField Tests", () => {
   describe("autocomplete", () => {
     it("should add autocomplete attr and set it to on", () => {
       const { container } = render(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-          autoComplete="on"
-        />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" autoComplete="on" />
       );
       const element = container.querySelector('[autocomplete="on"]');
       expect(element).to.be.ok;
@@ -298,12 +240,7 @@ describe("TextField Tests", () => {
 
     it("should add autocomplete attr and set it to off", () => {
       const { container } = render(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-          autoComplete="off"
-        />
+        <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" autoComplete="off" />
       );
       const element = container.querySelector('[autocomplete="off"]');
       expect(element).to.be.ok;
@@ -313,14 +250,7 @@ describe("TextField Tests", () => {
   it("should trim the value if trim is true", () => {
     const { rerender } = inputComponent;
     act(() => {
-      inputComponent = rerender(
-        <TextField
-          placeholder={defaultPlaceHolder}
-          onChange={onChangeStub}
-          id="test"
-          trim
-        />
-      );
+      inputComponent = rerender(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" trim />);
     });
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
     const value = "Value of input      ";

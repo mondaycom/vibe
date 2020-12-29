@@ -1,21 +1,11 @@
 // Libraries import
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState
-} from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 // Constants import
-import {
-  COUNTER_COLORS,
-  COUNTER_SIZES,
-  COUNTER_TYPES
-} from "./CounterConstants";
+import { COUNTER_COLORS, COUNTER_SIZES, COUNTER_TYPES } from "./CounterConstants";
 
 // Hooks import
 import useEventListener from "../../hooks/useEventListener";
@@ -23,21 +13,9 @@ import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 
 import "./Counter.scss";
 
-const Counter = ({
-  count,
-  size,
-  kind,
-  color,
-  wrapperClassName,
-  maxDigits,
-  ariaLabeledBy,
-  ariaLabel,
-  id
-}) => {
+const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits, ariaLabeledBy, ariaLabel, id }) => {
   // State
-  const [countChangeAnimationState, setCountChangeAnimationState] = useState(
-    false
-  );
+  const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
   // Refs
   const ref = useRef(null);
@@ -87,15 +65,10 @@ const Counter = ({
     );
   }, [size, kind, color, countChangeAnimationState]);
 
-  const countText =
-    count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : count;
+  const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : count;
 
   return (
-    <span
-      className={wrapperClassName}
-      aria-label={`${ariaLabel} ${countText}`}
-      aria-labelledby={ariaLabeledBy}
-    >
+    <span className={wrapperClassName} aria-label={`${ariaLabel} ${countText}`} aria-labelledby={ariaLabeledBy}>
       <div className={classNames} aria-label={countText} ref={ref}>
         <SwitchTransition mode="out-in">
           <CSSTransition
@@ -127,11 +100,7 @@ Counter.propTypes = {
   /** Counter Description */
   ariaLabel: PropTypes.string,
   size: PropTypes.oneOf([Counter.sizes.LARGE, Counter.sizes.SMALL]),
-  color: PropTypes.oneOf([
-    Counter.colors.PRIMARY,
-    Counter.colors.DARK,
-    Counter.colors.NEGATIVE
-  ]),
+  color: PropTypes.oneOf([Counter.colors.PRIMARY, Counter.colors.DARK, Counter.colors.NEGATIVE]),
   kind: PropTypes.oneOf([Counter.kinds.FILL, Counter.kinds.LINE]),
   /** maximum number of digits to display (see relevant story) */
   maxDigits: PropTypes.number

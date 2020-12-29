@@ -22,10 +22,7 @@ export const Checkbox = ({
 }) => {
   const iconContainerRef = useRef(null);
 
-  const checkboxClassNames = [
-    `${BASE_CLASS_NAME}__checkbox`,
-    `${BASE_CLASS_NAME}__prevent-animation`
-  ];
+  const checkboxClassNames = [`${BASE_CLASS_NAME}__checkbox`, `${BASE_CLASS_NAME}__prevent-animation`];
   let overrideDefaultChecked = defaultChecked;
 
   // If component did not receive default checked and checked props, choose default checked as

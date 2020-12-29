@@ -44,10 +44,7 @@ const MenuButton = ({
 
   const content = useMemo(() => {
     return (
-      <DialogContentContainer
-        size={dialogPaddingSize}
-        type={DialogContentContainer.types.POPOVER}
-      >
+      <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
         {children}
       </DialogContentContainer>
     );
@@ -74,14 +71,9 @@ const MenuButton = ({
       <button
         type="button"
         role="menu"
-        className={cx(
-          "menu-button--wrapper",
-          componentClassName,
-          BEMClass(`size-${size}`),
-          {
-            [BEMClass("open")]: isOpen
-          }
-        )}
+        className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
+          [BEMClass("open")]: isOpen
+        })}
         aria-haspopup="true"
         aria-expanded={isOpen}
         aria-label={ariaLabel}

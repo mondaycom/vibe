@@ -7,10 +7,7 @@ const SingleValue = props => {
   const { ValueRenderer, data } = props;
   if (!ValueRenderer) return null;
   return (
-    <components.SingleValue
-      {...props}
-      className="dropdown-wrapper__single-value--reset"
-    >
+    <components.SingleValue {...props} className="dropdown-wrapper__single-value--reset">
       <ValueRenderer {...data} />
     </components.SingleValue>
   );

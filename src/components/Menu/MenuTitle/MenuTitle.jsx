@@ -8,9 +8,7 @@ const MenuTitle = ({ classname, caption, captionPosition }) => {
   const renderCaptionIfNeeded = () => {
     if (caption) {
       return (
-        <div
-          className={`monday-style-menu-title__caption monday-style-menu-title__caption--${captionPosition}`}
-        >
+        <div className={`monday-style-menu-title__caption monday-style-menu-title__caption--${captionPosition}`}>
           {caption}
         </div>
       );
@@ -44,11 +42,7 @@ const MenuTitle = ({ classname, caption, captionPosition }) => {
       }
     }
   };
-  return (
-    <div className={cx("monday-style-menu-title", classname)}>
-      {renderContent()}
-    </div>
-  );
+  return <div className={cx("monday-style-menu-title", classname)}>{renderContent()}</div>;
 };
 
 MenuTitle.positions = CAPTION_POSITIONS;
@@ -62,11 +56,7 @@ MenuTitle.defaultProps = {
 MenuTitle.propTypes = {
   classname: PropTypes.string,
   caption: PropTypes.string,
-  captionPosition: PropTypes.oneOf([
-    CAPTION_POSITIONS.BOTTOM,
-    CAPTION_POSITIONS.TOP,
-    CAPTION_POSITIONS.CENTER
-  ])
+  captionPosition: PropTypes.oneOf([CAPTION_POSITIONS.BOTTOM, CAPTION_POSITIONS.TOP, CAPTION_POSITIONS.CENTER])
 };
 
 export default MenuTitle;

@@ -75,29 +75,17 @@ export const SecondaryButton = () => (
     <DescriptionLabel>Disabled</DescriptionLabel>
     <StoryStateRow>
       <StoryStateColumn>
-        <Button
-          disabled
-          size={Button.sizes.SMALL}
-          kind={Button.kinds.SECONDARY}
-        >
+        <Button disabled size={Button.sizes.SMALL} kind={Button.kinds.SECONDARY}>
           Small
         </Button>
       </StoryStateColumn>
       <StoryStateColumn>
-        <Button
-          disabled
-          size={Button.sizes.MEDIUM}
-          kind={Button.kinds.SECONDARY}
-        >
+        <Button disabled size={Button.sizes.MEDIUM} kind={Button.kinds.SECONDARY}>
           Medium
         </Button>
       </StoryStateColumn>
       <StoryStateColumn>
-        <Button
-          disabled
-          size={Button.sizes.LARGE}
-          kind={Button.kinds.SECONDARY}
-        >
+        <Button disabled size={Button.sizes.LARGE} kind={Button.kinds.SECONDARY}>
           Large
         </Button>
       </StoryStateColumn>
@@ -132,11 +120,7 @@ export const TertiaryButton = () => (
         </Button>
       </StoryStateColumn>
       <StoryStateColumn>
-        <Button
-          size={Button.sizes.MEDIUM}
-          kind={Button.kinds.TERTIARY}
-          disabled
-        >
+        <Button size={Button.sizes.MEDIUM} kind={Button.kinds.TERTIARY} disabled>
           Medium
         </Button>
       </StoryStateColumn>
@@ -172,29 +156,17 @@ export const ActiveState = () => (
 export const PositiveButtons = () => (
   <StoryStateRow>
     <StoryStateColumn title="Primary">
-      <Button
-        size={Button.sizes.LARGE}
-        kind={Button.kinds.PRIMARY}
-        color={Button.colors.POSITIVE}
-      >
+      <Button size={Button.sizes.LARGE} kind={Button.kinds.PRIMARY} color={Button.colors.POSITIVE}>
         Positive Primary
       </Button>
     </StoryStateColumn>
     <StoryStateColumn title="Secondary">
-      <Button
-        size={Button.sizes.LARGE}
-        kind={Button.kinds.SECONDARY}
-        color={Button.colors.POSITIVE}
-      >
+      <Button size={Button.sizes.LARGE} kind={Button.kinds.SECONDARY} color={Button.colors.POSITIVE}>
         Positive Secondary
       </Button>
     </StoryStateColumn>
     <StoryStateColumn title="Tertiary">
-      <Button
-        size={Button.sizes.LARGE}
-        kind={Button.kinds.TERTIARY}
-        color={Button.colors.POSITIVE}
-      >
+      <Button size={Button.sizes.LARGE} kind={Button.kinds.TERTIARY} color={Button.colors.POSITIVE}>
         Positive Tertiary
       </Button>
     </StoryStateColumn>
@@ -204,29 +176,17 @@ export const PositiveButtons = () => (
 export const NegativeButtons = () => (
   <StoryStateRow>
     <StoryStateColumn title="Primary">
-      <Button
-        size={Button.sizes.LARGE}
-        kind={Button.kinds.PRIMARY}
-        color={Button.colors.NEGATIVE}
-      >
+      <Button size={Button.sizes.LARGE} kind={Button.kinds.PRIMARY} color={Button.colors.NEGATIVE}>
         Negative Primary
       </Button>
     </StoryStateColumn>
     <StoryStateColumn title="Secondary">
-      <Button
-        size={Button.sizes.LARGE}
-        kind={Button.kinds.SECONDARY}
-        color={Button.colors.NEGATIVE}
-      >
+      <Button size={Button.sizes.LARGE} kind={Button.kinds.SECONDARY} color={Button.colors.NEGATIVE}>
         Negative Secondary
       </Button>
     </StoryStateColumn>
     <StoryStateColumn title="Tertiary">
-      <Button
-        size={Button.sizes.LARGE}
-        kind={Button.kinds.TERTIARY}
-        color={Button.colors.NEGATIVE}
-      >
+      <Button size={Button.sizes.LARGE} kind={Button.kinds.TERTIARY} color={Button.colors.NEGATIVE}>
         Negative Tertiary
       </Button>
     </StoryStateColumn>
@@ -242,29 +202,17 @@ export const OnColorButtons = () => (
     >
       <StoryStateRow>
         <StoryStateColumn>
-          <Button
-            size={Button.sizes.LARGE}
-            kind={Button.kinds.PRIMARY}
-            color={Button.colors.ON_PRIMARY_COLOR}
-          >
+          <Button size={Button.sizes.LARGE} kind={Button.kinds.PRIMARY} color={Button.colors.ON_PRIMARY_COLOR}>
             On Primary Primary
           </Button>
         </StoryStateColumn>
         <StoryStateColumn>
-          <Button
-            size={Button.sizes.LARGE}
-            kind={Button.kinds.SECONDARY}
-            color={Button.colors.ON_PRIMARY_COLOR}
-          >
+          <Button size={Button.sizes.LARGE} kind={Button.kinds.SECONDARY} color={Button.colors.ON_PRIMARY_COLOR}>
             On Primary Secondary
           </Button>
         </StoryStateColumn>
         <StoryStateColumn>
-          <Button
-            size={Button.sizes.LARGE}
-            kind={Button.kinds.TERTIARY}
-            color={Button.colors.ON_PRIMARY_COLOR}
-          >
+          <Button size={Button.sizes.LARGE} kind={Button.kinds.TERTIARY} color={Button.colors.ON_PRIMARY_COLOR}>
             On Primary Tertiary
           </Button>
         </StoryStateColumn>
@@ -279,29 +227,17 @@ export const OnColorButtons = () => (
     >
       <StoryStateRow>
         <StoryStateColumn>
-          <Button
-            size={Button.sizes.LARGE}
-            kind={Button.kinds.PRIMARY}
-            color={Button.colors.ON_PRIMARY_COLOR}
-          >
+          <Button size={Button.sizes.LARGE} kind={Button.kinds.PRIMARY} color={Button.colors.ON_PRIMARY_COLOR}>
             On Primary Primary
           </Button>
         </StoryStateColumn>
         <StoryStateColumn>
-          <Button
-            size={Button.sizes.LARGE}
-            kind={Button.kinds.SECONDARY}
-            color={Button.colors.ON_PRIMARY_COLOR}
-          >
+          <Button size={Button.sizes.LARGE} kind={Button.kinds.SECONDARY} color={Button.colors.ON_PRIMARY_COLOR}>
             On Primary Secondary
           </Button>
         </StoryStateColumn>
         <StoryStateColumn>
-          <Button
-            size={Button.sizes.LARGE}
-            kind={Button.kinds.TERTIARY}
-            color={Button.colors.ON_PRIMARY_COLOR}
-          >
+          <Button size={Button.sizes.LARGE} kind={Button.kinds.TERTIARY} color={Button.colors.ON_PRIMARY_COLOR}>
             On Primary Tertiary
           </Button>
         </StoryStateColumn>
@@ -346,22 +282,12 @@ export const ButtonsWithIcons = () => (
 export const SuccessText = () => (
   <StoryStateRow>
     <StoryStateColumn title="Success Text">
-      <Button
-        success
-        size={Button.sizes.LARGE}
-        kind={Button.kinds.PRIMARY}
-        successText="Copied!"
-      >
+      <Button success size={Button.sizes.LARGE} kind={Button.kinds.PRIMARY} successText="Copied!">
         Success Text
       </Button>
     </StoryStateColumn>
     <StoryStateColumn title="Success Icon">
-      <Button
-        success
-        size={Button.sizes.LARGE}
-        kind={Button.kinds.PRIMARY}
-        successIcon="fa fa-check"
-      >
+      <Button success size={Button.sizes.LARGE} kind={Button.kinds.PRIMARY} successIcon="fa fa-check">
         Success icon
       </Button>
     </StoryStateColumn>
@@ -400,11 +326,7 @@ const LoadingButtonWrapper = ({ size, kind }) => {
       </Button>
       <br />
       <br />
-      <Button
-        onClick={resetLoading}
-        kind={Button.kinds.TERTIARY}
-        size={Button.sizes.SMALL}
-      >
+      <Button onClick={resetLoading} kind={Button.kinds.TERTIARY} size={Button.sizes.SMALL}>
         Reset loading
       </Button>
       <br />
@@ -415,22 +337,13 @@ const LoadingButtonWrapper = ({ size, kind }) => {
 export const Loading = () => (
   <StoryStateRow>
     <StoryStateColumn title="Left Icon Large">
-      <LoadingButtonWrapper
-        size={Button.sizes.MEDIUM}
-        kind={Button.kinds.PRIMARY}
-      />
+      <LoadingButtonWrapper size={Button.sizes.MEDIUM} kind={Button.kinds.PRIMARY} />
     </StoryStateColumn>
     <StoryStateColumn title="Left Icon Medium">
-      <LoadingButtonWrapper
-        size={Button.sizes.MEDIUM}
-        kind={Button.kinds.SECONDARY}
-      />
+      <LoadingButtonWrapper size={Button.sizes.MEDIUM} kind={Button.kinds.SECONDARY} />
     </StoryStateColumn>
     <StoryStateColumn title="Left Icon Small">
-      <LoadingButtonWrapper
-        size={Button.sizes.MEDIUM}
-        kind={Button.kinds.TERTIARY}
-      />
+      <LoadingButtonWrapper size={Button.sizes.MEDIUM} kind={Button.kinds.TERTIARY} />
     </StoryStateColumn>
   </StoryStateRow>
 );
