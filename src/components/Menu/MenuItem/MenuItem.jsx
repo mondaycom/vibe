@@ -1,10 +1,15 @@
 import React, { useCallback, useRef, useEffect, useState } from "react";
+
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
+
 import Icon from "../../Icon/Icon";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import useSetFocus from "../../../hooks/useSetFocus";
+import useMergeRefs from "../../../hooks/useMergeRefs";
+import usePopover from "../../../hooks/usePopover";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import "./MenuItem.scss";
 
 const MenuItem = ({
@@ -16,9 +21,19 @@ const MenuItem = ({
   onClick,
   activeItemIndex,
   setActiveItemIndex,
-  index
+  index,
+  children
 }) => {
   const [isActive, setIsActive] = useState(activeItemIndex === index);
+
+  const [referenceElement, setReferenceElement] = useState(null);
+  const [popperElement, setPopperElement] = useState(null);
+
+  const isSubMenuOpen = !!children && isActive;
+
+  const { styles, attributes } = usePopover(referenceElement, popperElement, {
+    isOpen: isSubMenuOpen
+  });
 
   useEffect(() => {
     setIsActive(activeItemIndex === index);
@@ -26,11 +41,12 @@ const MenuItem = ({
 
   const onClickCallback = useCallback(
     event => {
+      if (popperElement && popperElement.contains(event.target)) return;
       if (onClick && !disabled && isActive) {
         onClick(event);
       }
     },
-    [onClick, disabled, isActive]
+    [onClick, disabled, isActive, popperElement]
   );
 
   const setActive = useCallback(() => {
@@ -75,17 +91,26 @@ const MenuItem = ({
     }
   };
 
+  const mergedRef = useMergeRefs({ refs: [ref, setReferenceElement] });
   return (
     <div
       className={cx("monday-style-menu-item", classname, {
         "monday-style-menu-item--disabled": disabled,
         "monday-style-menu-item--focused": isActive
       })}
-      ref={ref}
+      ref={mergedRef}
       onClick={onClickCallback}
     >
       {renderMenuItemIconIfNeeded()}
       <div className="monday-style-menu-item__title">{title}</div>
+      <div
+        style={styles.popper}
+        {...attributes.popper}
+        className="monday-style-menu-item__popover"
+        ref={setPopperElement}
+      >
+        <DialogContentContainer>{children}</DialogContentContainer>
+      </div>
     </div>
   );
 };

@@ -13,7 +13,8 @@ export function loadComponentsStories() {
     require("./RadioButton/__stories__/radioButton.stories.js"),
     require("./Search/__stories__/search.stories.js"),
     require("./TextField/__stories__/textField.stories.js"),
-    require("./Tooltip/__stories__/tooltip.stories.js")
+    require("./Tooltip/__stories__/tooltip.stories.js"),
+    require("./Menu/MenuItem/__stories__/menuItem.stories.js")
   ];
 }
 
