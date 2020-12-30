@@ -39,12 +39,22 @@ export const States = () => {
           disabled={true}
         />
       </RadioButtonStoryLine>
-      <RadioButtonStoryLine title="Selected">
+      <RadioButtonStoryLine title="Default Checked">
         <RadioButton
           value="1"
           text="Option"
           name="selectedRadio"
           defaultChecked={true}
+          disabled={true}
+          componentClassName="monday-style-radio-button-selected"
+        />
+      </RadioButtonStoryLine>
+      <RadioButtonStoryLine title="Checked">
+        <RadioButton
+          value="1"
+          text="Option"
+          name="selectedRadio"
+          checked={true}
           disabled={true}
           componentClassName="monday-style-radio-button-selected"
         />

@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useCallback } from "react";
+import React, { useRef, forwardRef, useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -19,6 +19,13 @@ const RadioButton = forwardRef(
       }
     }, [onSelect, inputRef, disabled]);
 
+    const checkedProps = useMemo(() => {
+      if (checked !== undefined) {
+        return { checked };
+      }
+      return { defaultChecked };
+    }, [checked, defaultChecked]);
+
     return (
       <label className={cx(baseClassName, componentClassName, { disabled })}>
         <span className={`${baseClassName}__radio-input-container`}>
@@ -27,9 +34,8 @@ const RadioButton = forwardRef(
             type="radio"
             value={value}
             name={name}
-            checked={checked}
             disabled={disabled}
-            defaultChecked={defaultChecked}
+            {...checkedProps}
             onChange={onSelect}
             ref={mergedRef}
           />
