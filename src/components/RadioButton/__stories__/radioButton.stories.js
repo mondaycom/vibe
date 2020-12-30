@@ -94,8 +94,6 @@ const renderRadioButtons = (count, options = {}) => {
   for (let i = 0; i < count; i++) {
     radioButtons.push(
       <RadioButton
-        defaultChecked={!i}
-        checked={i === 2}
         value={includeKnobs ? text(`Value${i}`, `${i}`) : i}
         text={includeKnobs ? text(`Text${i}`, `Option ${i}`) : `Option ${i}`}
         name={includeKnobs ? text(`Name${i}`, "radios") : name}
