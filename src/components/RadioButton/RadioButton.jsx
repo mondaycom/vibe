@@ -6,7 +6,7 @@ import { baseClassName } from "./RadioButtonConstants";
 import "./RadioButton.scss";
 
 const RadioButton = forwardRef(
-  ({ componentClassName, text, value, name, disabled, defaultChecked, children, onSelect }, ref) => {
+  ({ componentClassName, text, value, name, disabled, defaultChecked, children, onSelect, checked }, ref) => {
     const inputRef = useRef();
     const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
     const onChildClick = useCallback(() => {
@@ -27,6 +27,7 @@ const RadioButton = forwardRef(
             type="radio"
             value={value}
             name={name}
+            checked={checked}
             disabled={disabled}
             defaultChecked={defaultChecked}
             onChange={onSelect}
@@ -51,7 +52,8 @@ RadioButton.defaultProps = {
   value: "",
   name: "",
   disabled: false,
-  defaultChecked: false
+  defaultChecked: false,
+  checked: undefined
 };
 RadioButton.propTypes = {
   componentClassName: PropTypes.string,
@@ -59,7 +61,8 @@ RadioButton.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
   disabled: PropTypes.bool,
-  defaultChecked: PropTypes.bool
+  defaultChecked: PropTypes.bool,
+  checked: PropTypes.bool
 };
 
 export default RadioButton;
