@@ -11,7 +11,7 @@ import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownI
 import OptionComponent from "./components/Option/Option";
 import SingleValueComponent from "./components/SingleValue/SingleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
-import { SIZE } from "./DropdownConstants";
+import { SIZE, defaultCustomStyles } from "./DropdownConstants";
 import styles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 
@@ -38,7 +38,9 @@ const Dropdown = ({
   asyncOptions,
   cacheOptions,
   defaultOptions,
-  isVirtualized
+  isVirtualized,
+  menuPortalTarget,
+  extraStyles
 }) => {
   const [isOpen, setOpen] = useState(false);
 
@@ -58,7 +60,7 @@ const Dropdown = ({
     [setOpen, onMenuClose]
   );
 
-  const customStyles = useMemo(() => styles({ size, rtl }), [size, rtl]);
+  const customStyles = useMemo(() => extraStyles(styles({ size, rtl })), [size, rtl, extraStyles]);
 
   const Menu = useCallback(props => <MenuComponent {...props} isOpen={isOpen} />, [isOpen]);
 
@@ -117,6 +119,7 @@ const Dropdown = ({
       isRtl={rtl}
       styles={customStyles}
       theme={customTheme}
+      menuPortalTarget={menuPortalTarget}
       {...asyncAdditions}
       {...additions}
     />
@@ -137,7 +140,8 @@ Dropdown.defaultProps = {
   options: [],
   noOptionsMessage: NOOP,
   clearable: true,
-  size: SIZE.MEDIUM
+  size: SIZE.MEDIUM,
+  extraStyles: defaultCustomStyles
 };
 
 Dropdown.propTypes = {
@@ -238,7 +242,15 @@ Dropdown.propTypes = {
   /**
    * If set to true, the menu will use virtualization. Virtualized async works only with
    */
-  isVirtualized: PropTypes.bool
+  isVirtualized: PropTypes.bool,
+  /**
+   * Whether the menu should use a portal, and where it should attach
+   */
+  menuPortalTarget: PropTypes.element,
+  /**
+   * Custom function to override existing styles, ex: base => {...base, ...myCustomOverrides}
+   */
+  extraStyles: PropTypes.func
 };
 
 export default Dropdown;
