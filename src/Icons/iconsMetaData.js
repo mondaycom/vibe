@@ -42,6 +42,13 @@ export const iconsMetaData = [
     tags: "Announcement, New, Shout",
     category: [PLATFORM],
   },
+  {
+    name: "API",
+    file: "API.svg",
+    description: "API",
+    tags: "API",
+    category: [PLATFORM],
+  },
 
   {
     name: "Archive",
@@ -80,6 +87,13 @@ export const iconsMetaData = [
     file: "Broadcast.svg",
     description: "Broadcast",
     tags: "Broadcast",
+    category: [PLATFORM],
+  },
+  {
+    name: "Broom",
+    file: "Broom.svg",
+    description: "Broom",
+    tags: "Broom, Brush, Clean, Spark",
     category: [PLATFORM],
   },
 
@@ -135,6 +149,14 @@ export const iconsMetaData = [
     file: "Column.svg",
     description: "Column",
     tags: "Column, Board",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "CreditCard",
+    file: "CreditCard.svg",
+    description: "CreditCard",
+    tags: "Credit Card, Pay, Swipe",
     category: [PLATFORM],
   },
 
@@ -275,6 +297,14 @@ export const iconsMetaData = [
     file: "Fullscreen.svg",
     description: "Fullscreen",
     tags: "Fullscreen, Expand",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Graph",
+    file: "Graph.svg",
+    description: "Graph",
+    tags: "Graph, Change, Line, XY",
     category: [PLATFORM],
   },
 
@@ -594,6 +624,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Security",
+    file: "Security.svg",
+    description: "Security",
+    tags: "Security, Shield, Protect",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Send",
     file: "Send.svg",
     description: "Send",
@@ -631,6 +669,15 @@ export const iconsMetaData = [
     tags: "Show, Eye",
     category: [PLATFORM],
   },
+
+  {
+    name: "Shredder",
+    file: "Shredder.svg",
+    description: "Shredder",
+    tags: "Shredder, Paper, Recycle",
+    category: [PLATFORM],
+  },
+
 
   {
     name: "Sort",
