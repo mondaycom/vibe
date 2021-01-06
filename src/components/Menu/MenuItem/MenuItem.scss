@@ -7,7 +7,8 @@
   flex-direction: row;
   padding: $spacing-xs $spacing-small;
   @include theme-prop(color, primary-text-color);
-
+  cursor: pointer;
+  user-select: none;
   .monday-style-menu-item__icon-wrapper {
     margin-right: $spacing-small;
     display: flex;
@@ -19,9 +20,11 @@
   }
 
   &.monday-style-menu-item--disabled {
+    cursor: not-allowed;
     @include theme-prop(color, disabled-text-color);
 
     .monday-style-menu-item__icon {
+      cursor: not-allowed;
       @include theme-prop(color, disabled-text-color);
     }
   }

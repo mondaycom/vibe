@@ -15,6 +15,7 @@ const MOVE_BY = { main: 0, secondary: -6 };
 
 const MenuButton = ({
   componentClassName,
+                      openDialogComponentClassName,
   children,
   component,
   size,
@@ -72,7 +73,8 @@ const MenuButton = ({
         type="button"
         role="menu"
         className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
-          [BEMClass("open")]: isOpen
+          [BEMClass("open")]: isOpen,
+          [openDialogComponentClassName]: isOpen
         })}
         aria-haspopup="true"
         aria-expanded={isOpen}
@@ -97,6 +99,10 @@ MenuButton.paddingSizes = DialogContentContainer.sizes;
 
 MenuButton.propTypes = {
   componentClassName: PropTypes.string,
+  /*
+    Class name to add to the button when the dialog is open
+   */
+  openDialogComponentClassName: PropTypes.string,
   /**
    * Receives React Component
    */
@@ -132,6 +138,7 @@ MenuButton.defaultProps = {
   ariaLabel: "Menu",
   closeDialogOnContentClick: false,
   dialogClassName: "",
+  openDialogComponentClassName: "",
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
 };
 

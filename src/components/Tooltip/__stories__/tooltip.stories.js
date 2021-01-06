@@ -42,6 +42,7 @@ export const Sandbox = () => (
         showTrigger={["mouseenter"]}
         hideTrigger={["mouseleave"]}
         containerSelector="body"
+        shouldShowOnMount
       >
         <TooltipReference />
       </Tooltip>
