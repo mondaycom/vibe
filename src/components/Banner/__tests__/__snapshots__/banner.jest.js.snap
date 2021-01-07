@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner should render correctly without props 1`] = `
+<aside
+  className="banner image-position__left"
+  role="banner"
+/>
+`;
+
+exports[`Banner should render title, subtitle and image 1`] = `
+<aside
+  className="banner mock-classname image-position__left"
+  role="banner"
+>
+  <h1
+    className="banner--title"
+  >
+    mock title
+  </h1>
+  <h2
+    className="banner--subtitle"
+  >
+    mock Subtitle
+  </h2>
+  <img
+    alt="mock image alt"
+    className="banner--image mock-image-classname"
+    src="mockImage.src"
+  />
+</aside>
+`;
+
+exports[`Banner should render with correct image position class - bottom 1`] = `
+<aside
+  className="banner image-position__bottom"
+  role="banner"
+/>
+`;
+
+exports[`Banner should render with correct image position class - left 1`] = `
+<aside
+  className="banner image-position__left"
+  role="banner"
+/>
+`;
+
+exports[`Banner should render with correct image position class - right 1`] = `
+<aside
+  className="banner image-position__right"
+  role="banner"
+/>
+`;
+
+exports[`Banner should render with correct image position class - top 1`] = `
+<aside
+  className="banner image-position__top"
+  role="banner"
+/>
+`;
+
+exports[`Banner should use custom render function for subtitle 1`] = `
+<aside
+  className="banner image-position__left"
+  role="banner"
+>
+  <h1
+    className="banner--title"
+  >
+    mock title
+  </h1>
+  <h2
+    className="banner--subtitle"
+  >
+    <div
+      data-testid="custom_render"
+    >
+      mock Subtitle
+    </div>
+  </h2>
+</aside>
+`;
+
+exports[`Banner should use custom render function for title 1`] = `
+<aside
+  className="banner image-position__left"
+  role="banner"
+>
+  <h1
+    className="banner--title"
+  >
+    <div
+      data-testid="custom_render"
+    >
+      mock title
+    </div>
+  </h1>
+  <h2
+    className="banner--subtitle"
+  >
+    mock Subtitle
+  </h2>
+</aside>
+`;

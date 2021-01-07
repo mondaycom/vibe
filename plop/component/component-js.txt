@@ -13,7 +13,7 @@ const {{properCase componentName}} = forwardRef(({ className }, ref) => {
         {text}
     </div>
   );
-;
+});
 
 {{properCase componentName}}.propTypes = {
     className: PropTypes.string,
