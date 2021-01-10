@@ -1,5 +1,6 @@
 import React from "react";
-import { text, select } from "@storybook/addon-knobs";
+import { text, select, boolean } from "@storybook/addon-knobs";
+import { action } from "@storybook/addon-actions";
 import { withPerformance } from "storybook-addon-performance";
 import * as Colors from "../../../constants/colors.json";
 import Banner from "../Banner";
@@ -14,12 +15,13 @@ export const Sandbox = () => (
       <StoryStateColumn centerize>
         <Banner
           id="Sandbox"
-          text={text("Text", "Test knob value")}
           title={text("Title", "Test title value")}
           subtitle={text("subTitle", "Test subtitle value")}
           imageSrc={text("Image source", EXAMPLE_IMAGE)}
           imageAlt={text("Image text description", "Test image alt")}
           imagePosition={select("Image position", Object.values(Banner.imagePosition), Banner.imagePosition.LEFT)}
+          onClose={action("Close pressed")}
+          rtl={boolean("Right to Left", false)}
         />
       </StoryStateColumn>
     </StoryStateRow>
@@ -124,6 +126,62 @@ export const SubtitleCustomRender = () => {
             title="Example Title"
             renderSubtitle={customSubtitleRender}
             imageSrc={EXAMPLE_IMAGE}
+          />
+        </StoryStateColumn>
+      </StoryStateRow>
+    </section>
+  );
+};
+
+export const CancelButton = () => {
+  const imagePosition = select("Image position", Object.values(Banner.imagePosition), Banner.imagePosition.LEFT);
+
+  return (
+    <section>
+      <StoryStateRow>
+        <StoryStateColumn title="With close button" centerize>
+          <Banner
+            subtitle="Example subtitle"
+            title="Example Title"
+            imageSrc={EXAMPLE_IMAGE}
+            onClose={action("Close pressed")}
+            imagePosition={imagePosition}
+          />
+        </StoryStateColumn>
+        <StoryStateColumn title="Without close button" centerize>
+          <Banner
+            subtitle="Example subtitle"
+            title="Example Title"
+            imageSrc={EXAMPLE_IMAGE}
+            imagePosition={imagePosition}
+          />
+        </StoryStateColumn>
+      </StoryStateRow>
+    </section>
+  );
+};
+
+export const TextDirection = () => {
+  const imagePosition = select("Image position", Object.values(Banner.imagePosition), Banner.imagePosition.LEFT);
+
+  return (
+    <section>
+      <StoryStateRow>
+        <StoryStateColumn title="Left to Right (Default)" centerize>
+          <Banner
+            subtitle="Example subtitle"
+            title="Example Title"
+            imageSrc={EXAMPLE_IMAGE}
+            imagePosition={imagePosition}
+          />
+        </StoryStateColumn>
+        <StoryStateColumn title="Right to Left" centerize>
+          <Banner
+            subtitle="Example subtitle"
+            title="Example Title"
+            imageSrc={EXAMPLE_IMAGE}
+            imagePosition={imagePosition}
+            rtl
           />
         </StoryStateColumn>
       </StoryStateRow>

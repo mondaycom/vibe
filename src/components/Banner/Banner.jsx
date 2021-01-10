@@ -4,12 +4,27 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { IMAGE_POSITIONS } from "./BannerConstants";
 import "./Banner.scss";
+import Button from "../Button/Button";
+import Icon from "../Icon/Icon";
+import CloseSmall from "../Icon/Icons/components/CloseSmall";
 
 const PRESERVE_VALUE = value => value;
 
 const Banner = forwardRef(
   (
-    { className, imageAlt, imageSrc, renderTitle, renderSubtitle, title, subtitle, imageClassName, imagePosition },
+    {
+      className,
+      imageAlt,
+      imageSrc,
+      renderTitle,
+      renderSubtitle,
+      title,
+      subtitle,
+      imageClassName,
+      imagePosition,
+      onClose,
+      rtl
+    },
     ref
   ) => {
     const componentRef = useRef(null);
@@ -32,11 +47,34 @@ const Banner = forwardRef(
       return <img src={imageSrc} alt={imageAlt} className={cx("banner--image", imageClassName)} />;
     }, [imageAlt, imageSrc, imageClassName]);
 
+    const renderCloseButton = useMemo(() => {
+      if (!onClose) return null;
+      return (
+        <Button
+          onClick={onClose}
+          className="banner--close"
+          size={Button.sizes.SMALL}
+          kind={Button.kinds.TERTIARY}
+          color={Button.colors.PRIMARY}
+          ariaLabel="close-banner"
+        >
+          <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="16px" ignoreFocusStyle />
+        </Button>
+      );
+    }, [onClose]);
+
     return (
-      <aside ref={mergedRef} className={cx("banner", className, `image-position__${imagePosition}`)} role="banner">
-        {renderedTitle}
-        {renderedSubtitle}
-        {renderImage}
+      <aside ref={mergedRef} className={cx("banner", className, { rtl })}>
+        <div
+          className={cx("banner--content", `image-position__${imagePosition}`, {
+            "close-button-spacing": !!renderCloseButton
+          })}
+        >
+          {renderCloseButton}
+          {renderedTitle}
+          {renderedSubtitle}
+          {renderImage}
+        </div>
       </aside>
     );
   }
@@ -85,7 +123,15 @@ Banner.propTypes = {
   /**
    * sub title value
    */
-  subtitle: PropTypes.string
+  subtitle: PropTypes.string,
+  /**
+   * Add X button to the component when initialized and called when the button is clicked
+   */
+  onClose: PropTypes.func,
+  /**
+   * Change to "Right to Left" if set to `true`. Defaults to "Left to Right"
+   */
+  rtl: PropTypes.bool
 };
 
 Banner.defaultProps = {
@@ -94,7 +140,12 @@ Banner.defaultProps = {
   imageAlt: "Banner main image",
   imageSrc: "",
   renderTitle: PRESERVE_VALUE,
-  renderSubtitle: PRESERVE_VALUE
+  renderSubtitle: PRESERVE_VALUE,
+  title: "",
+  subtitle: "",
+  imageClassName: "",
+  rtl: false,
+  onClose: null
 };
 
 export default Banner;

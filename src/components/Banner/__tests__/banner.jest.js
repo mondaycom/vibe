@@ -1,6 +1,19 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Banner from "../Banner";
+import { NOOP } from "../../../utils/function-utils";
+
+jest.mock("../../Button/Button", () => {
+  const Button = ({ onClick }) => (
+    <div data-testid="cancel-button" {...(onClick && { "data-onclick": "onclick-provided" })} />
+  );
+
+  Button.sizes = {};
+  Button.kinds = {};
+  Button.colors = {};
+
+  return Button;
+});
 
 describe("Banner", () => {
   const mockTitle = "mock title";
@@ -58,6 +71,40 @@ describe("Banner", () => {
   it("should use custom render function for title", function() {
     const tree = renderer
       .create(<Banner title={mockTitle} subtitle={mockSubtitle} renderTitle={mockRenderFunction} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("should render close button", function() {
+    const tree = renderer
+      .create(
+        <Banner
+          title={mockTitle}
+          subtitle={mockSubtitle}
+          imageSrc="mockImage.src"
+          imageAlt="mock image alt"
+          className="mock-classname"
+          onClose={NOOP}
+        />
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("should render in Right to Left mode", function() {
+    const tree = renderer
+      .create(
+        <Banner
+          title={mockTitle}
+          subtitle={mockSubtitle}
+          imageSrc="mockImage.src"
+          imageAlt="mock image alt"
+          imageClassName="mock-image-classname"
+          className="mock-classname"
+          onClose={NOOP}
+          rtl
+        />
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
