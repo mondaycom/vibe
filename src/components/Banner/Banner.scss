@@ -1,0 +1,138 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.banner {
+  width: content-box;
+
+  .banner--content {
+    display: grid;
+    position: relative;
+    padding: $spacing-large;
+    border-radius: $border-radius-medium;
+    grid-gap: $spacing-small;
+    justify-content: center;
+    align-content: center;
+    @include theme-prop(background-color, dark-background-on-secondary-color);
+    @include theme-prop(color, primary-text-color);
+
+    .banner--close {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    &.close-button-spacing {
+      padding-right: $spacing-xl;
+    }
+
+    &.image-position__left,
+    &.image-position__right {
+      grid-auto-rows: auto;
+      grid-auto-columns: auto;
+    }
+
+    &.image-position__left {
+      grid-template-areas:
+      'image  title    title   '
+      'image  subtitle subtitle';
+    }
+
+    &.image-position__right {
+      grid-template-areas:
+      'title    title     image'
+      'subtitle subtitle  image'
+    }
+
+    &.image-position__bottom,
+    &.image-position__top {
+      grid-auto-rows: auto;
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    &.image-position__top {
+      grid-template-areas:
+      'image'
+      'title'
+      'subtitle';
+    }
+    &.image-position__bottom {
+      grid-template-areas:
+      'title'
+      'subtitle'
+      'image';
+    }
+
+    .banner--title {
+      align-self: end;
+      margin: 0;
+      grid-area: title;
+      height: 32px;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      max-width: 782px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .banner--subtitle {
+      margin: 0;
+      grid-area: subtitle;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px;
+      max-width: 782px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .banner--image {
+      align-self: center;
+      justify-self: center;
+      grid-area: image;
+      width: 100px;
+      height: 100px;
+      border-radius: $border-radius-medium;
+      object-fit: contain;
+      @include theme-prop(background-color, primary-background-color, true);
+    }
+
+    .banner--close {
+      align-self: start;
+      grid-area: close;
+      border-radius: $border-radius-small;
+    }
+  }
+
+  &.rtl {
+    .banner--content {
+      text-align: right;
+
+      .banner--close {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: auto;
+      }
+
+      &.close-button-spacing {
+        padding-left: $spacing-xl;
+      }
+
+      &.image-position__left {
+        grid-template-areas:
+        'image  title    title'
+        'image  subtitle subtitle';
+      }
+
+      &.image-position__right {
+        grid-template-areas:
+        'title    title     image'
+        'subtitle subtitle  image';
+      }
+    }
+  }
+}
