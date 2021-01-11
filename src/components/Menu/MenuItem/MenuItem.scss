@@ -9,11 +9,21 @@
   @include theme-prop(color, primary-text-color);
   cursor: pointer;
   user-select: none;
+
   .monday-style-menu-item__icon-wrapper {
     margin-right: $spacing-small;
+  }
+
+  .monday-style-menu-item__sub_menu_icon-wrapper {
+    margin-left: $spacing-xs;
+  }
+
+  .monday-style-menu-item__sub_menu_icon-wrapper,
+  .monday-style-menu-item__icon-wrapper {
     display: flex;
     align-items: center;
 
+    .monday-style-menu-item__sub_menu_icon,
     .monday-style-menu-item__icon {
       @include theme-prop(color, icon-color);
     }
@@ -23,6 +33,7 @@
     cursor: not-allowed;
     @include theme-prop(color, disabled-text-color);
 
+    .monday-style-menu-item__sub_menu_icon,
     .monday-style-menu-item__icon {
       cursor: not-allowed;
       @include theme-prop(color, disabled-text-color);
@@ -40,5 +51,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    flex-grow: 1;
   }
 }

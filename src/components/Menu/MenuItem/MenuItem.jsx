@@ -5,6 +5,8 @@ import isFunction from "lodash/isFunction";
 import cx from "classnames";
 
 import Icon from "../../Icon/Icon";
+
+import DropdownChevronRight from "../../Icon/Icons/components/DropdownChevronRight";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import useSetFocus from "../../../hooks/useSetFocus";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -78,26 +80,42 @@ const MenuItem = ({
   useSetFocus({ ref, setActive, setUnActive, isActive });
   useKeyEvent({ keys: ["Enter"], callback: onClickCallback });
 
-  const renderMenuItemIconIfNeeded = () => {
-    if (icon) {
-      let finalIconType = iconType;
-      if (!finalIconType) {
-        finalIconType = isFunction(icon) ? Icon.type.SVG : Icon.type.ICON_FONT;
-      }
+  const renderSubMenuIconIfNeeded = () => {
+    if (!children) return null;
 
-      return (
-        <div className="monday-style-menu-item__icon-wrapper">
-          <Icon
-            iconType={finalIconType}
-            clickable={false}
-            icon={icon}
-            iconLabel={title}
-            className="monday-style-menu-item__icon"
-            ignoreFocusStyle
-          />
-        </div>
-      );
+    return (
+      <div className="monday-style-menu-item__sub_menu_icon-wrapper">
+        <Icon
+          clickable={false}
+          icon={DropdownChevronRight}
+          iconLabel={title}
+          className="monday-style-menu-item__sub_menu_icon"
+          ignoreFocusStyle
+        />
+      </div>
+    );
+  };
+
+  const renderMenuItemIconIfNeeded = () => {
+    if (!icon) return null;
+
+    let finalIconType = iconType;
+    if (!finalIconType) {
+      finalIconType = isFunction(icon) ? Icon.type.SVG : Icon.type.ICON_FONT;
     }
+
+    return (
+      <div className="monday-style-menu-item__icon-wrapper">
+        <Icon
+          iconType={finalIconType}
+          clickable={false}
+          icon={icon}
+          iconLabel={title}
+          className="monday-style-menu-item__icon"
+          ignoreFocusStyle
+        />
+      </div>
+    );
   };
 
   const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
@@ -120,6 +138,8 @@ const MenuItem = ({
       <div ref={titleRef} className="monday-style-menu-item__title">
         {title}
       </div>
+
+      {renderSubMenuIconIfNeeded()}
 
       <div
         style={styles.popper}

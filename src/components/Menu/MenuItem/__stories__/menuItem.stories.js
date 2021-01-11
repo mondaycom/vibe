@@ -153,9 +153,7 @@ export const overflowMenuItem = () => {
           icon={icon}
           disabled={boolean("disabled", false)}
           onClick={() => alert("hello")}
-        >
-          <div>bla</div>
-        </MenuItem>
+        ></MenuItem>
       </div>
       <div style={{ width: "260px" }}>
         <MenuItem
@@ -164,8 +162,19 @@ export const overflowMenuItem = () => {
           icon={icon}
           disabled={boolean("disabled", false)}
           onClick={() => alert("hello")}
+        ></MenuItem>
+      </div>
+      <div style={{ width: "260px" }}>
+        <MenuItem
+          id="menu-item-long-text"
+          title={"long text with sub menu - bla bla bla bla bla bla bla bla bla bla bla"}
+          icon={icon}
+          disabled={boolean("disabled", false)}
+          onClick={() => alert("hello")}
         >
-          <div>bla</div>
+          <Menu id="menu" size={Menu.sizes.SMALL}>
+            {renderMenuItems()}
+          </Menu>
         </MenuItem>
       </div>
     </div>
