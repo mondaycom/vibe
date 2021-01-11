@@ -710,6 +710,13 @@ export const iconsMetaData = [
     tags: "Table, Grid",
     category: [VIEW],
   },
+  {
+    name: "Team",
+    file: "Team.svg",
+    description: "Team",
+    tags: "Team, Person, People, User, Users",
+    category: [BASIC],
+  },
 
   {
     name: "ThumbsUp",
