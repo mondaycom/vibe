@@ -16,6 +16,8 @@ const FLIP_MODIFIER = {
 export default function usePopover(referenceElement, popperElement, { isOpen, placement = RIGHT_START }) {
   const forceUpdate = useForceUpdate();
 
+  // we have to use forceUpdate because
+  // usePopper need to run again after any refs changes, even after the first render.
   useLayoutEffect(() => {
     forceUpdate();
   }, [referenceElement, popperElement, forceUpdate]);
