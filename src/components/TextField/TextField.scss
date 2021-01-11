@@ -216,6 +216,7 @@
       &.input-component__icon--container-active {
         &.input-component__icon--container-has-icon {
           pointer-events: all;
+          cursor: pointer;
         }
         opacity: 1;
         .input-component__icon {
