@@ -35,4 +35,10 @@
       border-radius: $border-radius-small;
     }
   }
+
+  .monday-style-menu-item__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

@@ -141,6 +141,37 @@ export const subMenu = () => {
   );
 };
 
+export const overflowMenuItem = () => {
+  const iconType = select("icon type", { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG }, Icon.type.SVG);
+  const icon = iconType === Icon.type.SVG ? selectIcon("SVG icon", "Activity") : text("font icon", "fa fa-star");
+  return (
+    <div>
+      <div style={{ width: "260px" }}>
+        <MenuItem
+          id="menu-item-short-text"
+          title={"short text"}
+          icon={icon}
+          disabled={boolean("disabled", false)}
+          onClick={() => alert("hello")}
+        >
+          <div>bla</div>
+        </MenuItem>
+      </div>
+      <div style={{ width: "260px" }}>
+        <MenuItem
+          id="menu-item-long-text"
+          title={"long text - bla bla bla bla bla bla bla bla bla bla bla"}
+          icon={icon}
+          disabled={boolean("disabled", false)}
+          onClick={() => alert("hello")}
+        >
+          <div>bla</div>
+        </MenuItem>
+      </div>
+    </div>
+  );
+};
+
 export default {
   title: "Work in progress/Menu/MenuItem",
   component: MenuItem

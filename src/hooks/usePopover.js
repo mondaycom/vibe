@@ -1,6 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useLayoutEffect } from "react";
 import { usePopper } from "react-popper";
 import { PLACEMENTS } from "./popoverConstants";
+
+import useForceUpdate from "./useForceUpdate";
 
 const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = PLACEMENTS;
 
@@ -12,6 +14,12 @@ const FLIP_MODIFIER = {
 };
 
 export default function usePopover(referenceElement, popperElement, { isOpen, placement = RIGHT_START }) {
+  const forceUpdate = useForceUpdate();
+
+  useLayoutEffect(() => {
+    forceUpdate();
+  }, [referenceElement, popperElement, forceUpdate]);
+
   const popperOptions = useMemo(() => {
     return {
       placement,
