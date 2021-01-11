@@ -1,0 +1,53 @@
+export const colorsMap = [
+  "--primary-color",
+  "--primary-on-secondary-color",
+  "--primary-hover-color",
+  "--primary-hover-on-secondary-color",
+  "--primary-selected-color",
+  "--primary-selected-on-secondary-color",
+  "--primary-text-color",
+  "--primary-text-on-secondary-color",
+  "--text-color-on-primary",
+  "--primary-background-color",
+  "--primary-background-color-rgb",
+  "--primary-background-hover-color",
+  "--primary-background-hover-on-secondary-color",
+  "--inverted-color-background",
+  "--secondary-text-color",
+  "--secondary-text-on-secondary-color",
+  "--text-color-on-inverted",
+  // states
+  "--positive-color",
+  "--positive-color-hover",
+  "--positive-color-selected",
+  "--negative-color",
+  "--negative-color-hover",
+  "--negative-color-selected",
+  "--private-color",
+  "--shareable-color",
+  // borders
+  "--ui-border-color",
+  "--ui-border-on-secondary-color",
+  "--layout-border-color",
+  "--layout-border-on-secondary-color",
+  "--placeholder-color",
+  "--placeholder-on-secondary-color",
+  "--icon-color",
+  "--icon-on-secondary-color",
+  // disabled
+  "--disabled-background-color",
+  "--disabled-background-on-secondary-color",
+  "--disabled-text-color",
+  "--disabled-text-on-secondary-color",
+
+  "--dark-background-color",
+  "--dark-background-on-secondary-color",
+  "--modal-background-color",
+  "--secondary-background-color",
+
+  "--label-background-color",
+  "--label-background-on-secondary-color",
+
+  "--link-color",
+  "--link-on-secondary-color"
+];

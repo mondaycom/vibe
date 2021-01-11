@@ -82,7 +82,7 @@ $font-size-default: 14px;
   -moz-osx-font-smoothing: grayscale;
   font-family: $primary-font;
   font-size: $font-weight-normal;
-  font-weight: $font-weight-light;
+  font-weight: $font-weight-normal;
   line-height: 24px;
   text-decoration: none;
   @include theme-prop(color, link-color);
