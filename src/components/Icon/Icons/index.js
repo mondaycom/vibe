@@ -90,6 +90,7 @@ export {default as Sort} from './components/Sort';
 export {default as Sun} from './components/Sun';
 export {default as Switch} from './components/Switch';
 export {default as Table} from './components/Table';
+export {default as Team} from './components/Team';
 export {default as ThumbsUp} from './components/ThumbsUp';
 export {default as Time} from './components/Time';
 export {default as Unlocked} from './components/Unlocked';
