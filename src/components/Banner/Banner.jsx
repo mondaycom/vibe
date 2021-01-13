@@ -14,6 +14,7 @@ const Banner = forwardRef(
   (
     {
       className,
+      ariaLabeledBy,
       imageAlt,
       imageSrc,
       renderTitle,
@@ -64,7 +65,7 @@ const Banner = forwardRef(
     }, [onClose]);
 
     return (
-      <aside ref={mergedRef} className={cx("banner", className, { rtl })}>
+      <aside ref={mergedRef} className={cx(className, "banner", { rtl })} aria-label={ariaLabeledBy}>
         <div
           className={cx("banner--content", `image-position__${imagePosition}`, {
             "close-button-spacing": !!renderCloseButton
@@ -131,7 +132,11 @@ Banner.propTypes = {
   /**
    * Change to "Right to Left" if set to `true`. Defaults to "Left to Right"
    */
-  rtl: PropTypes.bool
+  rtl: PropTypes.bool,
+  /**
+   * Set the banner's aria label
+   */
+  ariaLabeledBy: PropTypes.string
 };
 
 Banner.defaultProps = {
@@ -145,7 +150,8 @@ Banner.defaultProps = {
   subtitle: "",
   imageClassName: "",
   rtl: false,
-  onClose: null
+  onClose: null,
+  ariaLabeledBy: "banner"
 };
 
 export default Banner;

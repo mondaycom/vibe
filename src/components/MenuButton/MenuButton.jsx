@@ -15,7 +15,7 @@ const MOVE_BY = { main: 0, secondary: -6 };
 
 const MenuButton = ({
   componentClassName,
-                      openDialogComponentClassName,
+  openDialogComponentClassName,
   children,
   component,
   size,
@@ -74,7 +74,7 @@ const MenuButton = ({
         role="menu"
         className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
           [BEMClass("open")]: isOpen,
-          [openDialogComponentClassName]: isOpen
+          [openDialogComponentClassName]: isOpen && openDialogComponentClassName
         })}
         aria-haspopup="true"
         aria-expanded={isOpen}

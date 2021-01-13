@@ -109,4 +109,8 @@ $arrow-size-md: 16px;
 
 .monday-style-dialog-content-component {
   padding: 6px;
+
+  &:focus {
+    outline: none;
+  }
 }

@@ -10,7 +10,8 @@
     padding: $spacing-large;
     border-radius: $border-radius-medium;
     grid-gap: $spacing-small;
-    justify-content: center;
+    justify-content: start;
+    column-gap: 24px;
     align-content: center;
     @include theme-prop(background-color, dark-background-on-secondary-color);
     @include theme-prop(color, primary-text-color);
@@ -79,10 +80,9 @@
     .banner--subtitle {
       margin: 0;
       grid-area: subtitle;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 400;
       line-height: 24px;
-      max-width: 782px;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
