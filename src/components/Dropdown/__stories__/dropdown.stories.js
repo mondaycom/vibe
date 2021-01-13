@@ -9,6 +9,7 @@ import DescriptionLabel from "../../storybook-helpers/description-label/descript
 import "./dropdown.stories.scss";
 
 const mockColorOptions = [
+  { value: "English", label: "English", isFixed: true },
   { value: "ocean", label: "Ocean", isFixed: true },
   { value: "blue", label: "Blue", isDisabled: true },
   { value: "purple", label: "Purple" },
@@ -21,6 +22,7 @@ const mockVirtualizedOptions = new Array(10000).fill(null).map((_, i) => ({ valu
 
 export const Sandbox = () => {
   const mockColorOptions = [
+    { value: "English", label: "English", isFixed: true },
     { value: "ocean", label: "Ocean", isFixed: true },
     { value: "blue", label: "Blue", isDisabled: true },
     { value: "purple", label: "Purple" },

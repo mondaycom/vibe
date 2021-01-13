@@ -1,8 +1,8 @@
 import React from "react";
-import { select, boolean } from "@storybook/addon-knobs";
+import { select, boolean, number } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import MenuButton from "../MenuButton";
-import { ComponentStateDescription, FlexLayout } from "../../storybook-helpers";
+import { ComponentStateDescription, FlexLayout, StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import "./menuButton.style.scss";
 import { Menu, MenuItem, MenuTitle } from "../../index";
@@ -13,22 +13,33 @@ function MenuButtonContent() {
 }
 
 export const Sandbox = () => (
-  <div>
-    <MenuButton
-      id="Knobs"
-      size={select("Size", MenuButton.sizes, MenuButton.sizes.MEDIUM)}
-      closeDialogOnContentClick={boolean("Close Dialog On Content Click", false)}
-      dialogPaddingSize={select("Dialog Padding Size", MenuButton.paddingSizes, MenuButton.paddingSizes.MEDIUM)}
-      ariaLabel="Default menu icon"
-    >
-      <Menu id="menu" size={Menu.sizes.MEDIUM}>
-        <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-        <MenuItem icon={Sun} iconType={MenuItem.iconType.SVG} title="The sun" />
-        <MenuItem icon={Moon} iconType={MenuItem.iconType.SVG} title="The moon" />
-        <MenuItem icon={Favorite} iconType={MenuItem.iconType.SVG} title="And the stars" />
-      </Menu>
-    </MenuButton>
-  </div>
+  <StoryStateRow>
+    <StoryStateColumn centerize>
+      <MenuButton
+        id="Knobs"
+        size={select("Size", MenuButton.sizes, MenuButton.sizes.MEDIUM)}
+        closeDialogOnContentClick={boolean("Close Dialog On Content Click", false)}
+        dialogPaddingSize={select("Dialog Padding Size", MenuButton.paddingSizes, MenuButton.paddingSizes.MEDIUM)}
+        dialogPosition={select(
+          "Dialog Opening Position",
+          MenuButton.dialogPositions,
+          MenuButton.dialogPositions.BOTTOM_START
+        )}
+        dialogOffset={{
+          main: number("Dialog offset in main axis", 0),
+          secondary: number("Dialog offset in secondary axis", 0)
+        }}
+        ariaLabel="Default menu icon"
+      >
+        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+          <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
+          <MenuItem icon={Sun} iconType={MenuItem.iconType.SVG} title="The sun" />
+          <MenuItem icon={Moon} iconType={MenuItem.iconType.SVG} title="The moon" />
+          <MenuItem icon={Favorite} iconType={MenuItem.iconType.SVG} title="And the stars" />
+        </Menu>
+      </MenuButton>
+    </StoryStateColumn>
+  </StoryStateRow>
 );
 
 export const DifferentIcon = () => (
@@ -72,6 +83,32 @@ export const Sizes = () => (
       <ComponentStateDescription title={"LARGE"} />
     </section>
   </FlexLayout>
+);
+
+export const Positions = () => (
+  <section>
+    <StoryStateRow>
+      <StoryStateColumn centerize title={"Bottom Start"}>
+        <MenuButton dialogPosition={MenuButton.dialogPositions.BOTTOM_START} ariaLabel={"Bottom Start"}>
+          <MenuButtonContent />
+        </MenuButton>
+      </StoryStateColumn>
+    </StoryStateRow>
+    <StoryStateRow>
+      <StoryStateColumn centerize title={"Bottom"}>
+        <MenuButton dialogPosition={MenuButton.dialogPositions.BOTTOM} ariaLabel={"Bottom"}>
+          <MenuButtonContent />
+        </MenuButton>
+      </StoryStateColumn>
+    </StoryStateRow>
+    <StoryStateRow>
+      <StoryStateColumn centerize title={"Bottom End"}>
+        <MenuButton dialogPosition={MenuButton.dialogPositions.BOTTOM_END} ariaLabel={"Bottom End"}>
+          <MenuButtonContent />
+        </MenuButton>
+      </StoryStateColumn>
+    </StoryStateRow>
+  </section>
 );
 
 export default {

@@ -15,7 +15,7 @@ const MOVE_BY = { main: 0, secondary: -6 };
 
 const MenuButton = ({
   componentClassName,
-                      openDialogComponentClassName,
+  openDialogComponentClassName,
   children,
   component,
   size,
@@ -23,6 +23,8 @@ const MenuButton = ({
   zIndex,
   ariaLabel,
   closeDialogOnContentClick,
+  dialogOffset,
+  dialogPosition,
   dialogClassName,
   dialogPaddingSize
 }) => {
@@ -51,17 +53,25 @@ const MenuButton = ({
     );
   }, [children, dialogPaddingSize]);
 
+  const computedDialogOffset = useMemo(
+    () => ({
+      ...MOVE_BY,
+      ...dialogOffset
+    }),
+    [dialogOffset]
+  );
+
   const Icon = component;
   const iconSize = size - 4;
 
   return (
     <Dialog
       wrapperClassName={dialogClassName}
-      position="bottom-start"
+      position={dialogPosition}
       startingEdge="bottom"
       animationType="expand"
       content={content}
-      moveBy={MOVE_BY}
+      moveBy={computedDialogOffset}
       showTrigger={showTrigger}
       hideTrigger={hideTrigger}
       onDialogDidShow={onDialogDidShow}
@@ -74,7 +84,7 @@ const MenuButton = ({
         role="menu"
         className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
           [BEMClass("open")]: isOpen,
-          [openDialogComponentClassName]: isOpen
+          [openDialogComponentClassName]: isOpen && openDialogComponentClassName
         })}
         aria-haspopup="true"
         aria-expanded={isOpen}
@@ -94,8 +104,15 @@ const MenuButtonSizes = {
   LARGE: "48"
 };
 
+const DialogPositions = {
+  BOTTOM: "bottom",
+  BOTTOM_START: "bottom-start",
+  BOTTOM_END: "bottom-end"
+};
+
 MenuButton.sizes = MenuButtonSizes;
 MenuButton.paddingSizes = DialogContentContainer.sizes;
+MenuButton.dialogPositions = DialogPositions;
 
 MenuButton.propTypes = {
   componentClassName: PropTypes.string,
@@ -122,11 +139,23 @@ MenuButton.propTypes = {
     Class name to provide the element which wraps the popover/modal/dialog
    */
   dialogClassName: PropTypes.string,
+  /**
+   * main - `dialogOffset.main` - main axis offset; `dialogOffset.secondary` secondary axis offset
+   */
+  dialogOffset: PropTypes.shape({
+    main: PropTypes.number,
+    secondary: PropTypes.number
+  }),
   dialogPaddingSize: PropTypes.oneOf([
     MenuButton.paddingSizes.NONE,
     MenuButton.paddingSizes.SMALL,
     MenuButton.paddingSizes.MEDIUM,
     MenuButton.paddingSizes.LARGE
+  ]),
+  dialogPosition: PropTypes.oneOf([
+    MenuButton.dialogPositions.BOTTOM_START,
+    MenuButton.dialogPositions.BOTTOM,
+    MenuButton.dialogPositions.BOTTOM_END
   ])
 };
 MenuButton.defaultProps = {
@@ -139,7 +168,9 @@ MenuButton.defaultProps = {
   closeDialogOnContentClick: false,
   dialogClassName: "",
   openDialogComponentClassName: "",
-  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
+  dialogOffset: MOVE_BY,
+  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM,
+  dialogPosition: MenuButton.dialogPositions.BOTTOM_START
 };
 
 export default MenuButton;
