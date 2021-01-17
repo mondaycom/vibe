@@ -608,6 +608,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Retry",
+    file: "Retry.svg",
+    description: "Retry",
+    tags: "Retry, Reload",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Robot",
     file: "Robot.svg",
     description: "Robot",
