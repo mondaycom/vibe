@@ -77,6 +77,7 @@ export {default as Pin} from './components/Pin';
 export {default as Print} from './components/Print';
 export {default as Remove} from './components/Remove';
 export {default as Replay} from './components/Replay';
+export {default as Retry} from './components/Retry';
 export {default as Robot} from './components/Robot';
 export {default as Search} from './components/Search';
 export {default as Security} from './components/Security';
