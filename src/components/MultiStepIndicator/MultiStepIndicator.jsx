@@ -48,7 +48,7 @@ MultiStepIndicator.propTypes = {
   steps: PropTypes.arrayOf({
     titleText: PropTypes.string,
     subtitleText: PropTypes.string,
-    status: PropTypes.arrayOf([
+    status: PropTypes.oneOf([
       StepIndicator.statuses.PENDING,
       StepIndicator.statuses.ACTIVE,
       StepIndicator.statuses.FULFILLED

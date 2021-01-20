@@ -19,7 +19,7 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
   };
 
   return (
-    <div className={cx(baseClassName, baseClassNameWithType, stepComponentClassName)} aria-label={ariaLabel}>
+    <div className={cx(...getClassnames(""), stepComponentClassName)} aria-label={ariaLabel}>
       <div className={cx(...getClassnames("__number-container"))}>
         <span className={cx(...getClassnames("__number-container__text"))}>
           {status === StepIndicator.statuses.FULFILLED ? <Check /> : stepNumber}
