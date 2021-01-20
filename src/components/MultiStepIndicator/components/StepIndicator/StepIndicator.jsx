@@ -27,7 +27,7 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
       </div>
       <div className={cx(...getClassnames("__text-container"))}>
         <div className={cx(...getClassnames("__text-container__title"))}>
-          <span className="visually-hidden">{status}</span> {/* A11y*/}
+          <span className="visually-hidden">{status}</span> {/* for accessibility */}
           <span className={cx(...getClassnames("__text-container__title__text"))}>{titleText}</span>
         </div>
         <div className={cx(...getClassnames("__text-container__subtitle"))}>
