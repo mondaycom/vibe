@@ -24,7 +24,7 @@ const MultiStepIndicator = forwardRef(
                 type={type}
                 stepComponentClassName={stepComponentClassName}
               />
-              {index !== steps.length - 1 && <StepsDivider />}
+              {index !== steps.length - 1 && <StepsDivider dividerComponentClassName={dividerComponentClassName} />}
             </>
           );
         })}
