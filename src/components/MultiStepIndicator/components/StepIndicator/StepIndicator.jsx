@@ -1,45 +1,110 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState, useRef, useCallback, useEffect } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
+
+import useEventListener from "../../../../hooks/useEventListener";
 import Icon from "../../../Icon/Icon";
 import Check from "../../../Icon/Icons/components/Check";
+
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
 
 const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, subtitleText, type }) => {
+  // Animations state
+  const [statusChangeAnimationState, setStatusChangeAnimationState] = useState(false);
+
+  // Refs
+  const componentRef = useRef(null);
+  const statusRef = useRef(status);
+
+  // Callbacks for modifying animation state
+  const enableStatusChangeAnimation = useCallback(() => {
+    setStatusChangeAnimationState(true);
+  }, [setStatusChangeAnimationState]);
+
+  const disableStatusChangeAnimation = useCallback(() => {
+    setStatusChangeAnimationState(false);
+  }, [setStatusChangeAnimationState]);
+
+  const isFirstStatusTransition = () => {
+    return (
+      statusRef.current === STEP_STATUSES.PENDING && [STEP_STATUSES.ACTIVE, STEP_STATUSES.FULFILLED].includes(status)
+    );
+  };
+
+  const isSecondStatusTransition = () => {
+    return statusRef.current === STEP_STATUSES.ACTIVE && status === STEP_STATUSES.FULFILLED;
+  };
+
+  // Event listeners for removing animation
+  useEventListener({
+    eventName: "animationend",
+    callback: disableStatusChangeAnimation,
+    componentRef
+  });
+
+  // Effect - triggering animation when necessary
+  useEffect(() => {
+    if (isFirstStatusTransition() || isSecondStatusTransition()) {
+      enableStatusChangeAnimation();
+    }
+  }, [status]);
+
+  // Effect - updating ref value
+  useEffect(() => {
+    statusRef.current = status;
+  }, [status]);
+
   const ariaLabel = useMemo(() => {
     return `Step ${stepNumber}: ${titleText} - ${subtitleText}, status: ${status}`;
   }, [status]);
 
   const baseClassNameWithType = `${baseClassName}--type-${type}`;
   const baseClassNameWithStatus = `${baseClassName}--status-${status}`;
+  const baseClassNameWithAnimation = `${baseClassName}--with-animation`;
 
-  const getClassnames = suffix => {
+  const getClassNamesWithSuffix = suffix => {
     return [`${baseClassName}${suffix}`, `${baseClassNameWithType}${suffix}`, `${baseClassNameWithStatus}${suffix}`];
   };
 
   return (
-    <div className={cx(...getClassnames(""), stepComponentClassName)} aria-label={ariaLabel}>
-      <div className={cx(...getClassnames("__number-container"))}>
-        <span className={cx(...getClassnames("__number-container__text"))}>
-          {status === STEP_STATUSES.FULFILLED ? (
-            <Icon
-              icon={Check}
-              className={`${baseClassName}__number-container__text__check-icon`}
-              iconLabel={STEP_STATUSES.FULFILLED}
-            />
-          ) : (
-            stepNumber
-          )}
-        </span>
+    <div
+      className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
+        [baseClassNameWithAnimation]: statusChangeAnimationState
+      })}
+      aria-label={ariaLabel}
+    >
+      <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef}>
+        <SwitchTransition mode="out-in">
+          <CSSTransition
+            classNames={`${baseClassName}--fade`}
+            addEndListener={(node, done) => {
+              node.addEventListener("transitionend", done, false);
+            }}
+            key={status}
+          >
+            <span className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
+              {status === STEP_STATUSES.FULFILLED ? (
+                <Icon
+                  icon={Check}
+                  className={`${baseClassName}__number-container__text__check-icon`}
+                  iconLabel={STEP_STATUSES.FULFILLED}
+                />
+              ) : (
+                stepNumber
+              )}
+            </span>
+          </CSSTransition>
+        </SwitchTransition>
       </div>
-      <div className={cx(...getClassnames("__text-container"))}>
-        <div className={cx(...getClassnames("__text-container__title"))}>
+      <div className={cx(...getClassNamesWithSuffix("__text-container"))}>
+        <div className={cx(...getClassNamesWithSuffix("__text-container__title"))}>
           <span className="visually-hidden">{status}</span> {/* for accessibility */}
-          <span className={cx(...getClassnames("__text-container__title__text"))}>{titleText}</span>
+          <span className={cx(...getClassNamesWithSuffix("__text-container__title__text"))}>{titleText}</span>
         </div>
-        <span className={cx(...getClassnames("__text-container__subtitle__text"))}>{subtitleText}</span>
+        <span className={cx(...getClassNamesWithSuffix("__text-container__subtitle__text"))}>{subtitleText}</span>
       </div>
     </div>
   );
