@@ -1,0 +1,8 @@
+@import "../../../../styles/themes.scss";
+
+.monday-style-steps-divider-component {
+  @include theme-prop(background-color, ui-border-color);
+  margin: 16px;
+  height: 1px;
+  width: 48px;
+}

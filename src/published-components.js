@@ -4,6 +4,7 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+	MultiStepIndicator: "/src/components/MultiStepIndicator/MultiStepIndicator.jsx",
   Banner: "/src/components/Banner/Banner.jsx",
   MenuTitle: "/src/components/Menu/MenuTitle/MenuTitle.jsx",
   Divider: "/src/components/Divider/Divider.jsx",

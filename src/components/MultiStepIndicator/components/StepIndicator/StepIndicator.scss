@@ -1,0 +1,77 @@
+@import "../../../../styles/themes.scss";
+@import "../../../../styles/typography.scss";
+
+.monday-style-step-indicator-component {
+  @include theme-prop(color, text-color-on-primary);
+  font-size: $font-size-input;
+  display: flex;
+
+  &__number-container {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+
+    &__text {
+      margin: auto;
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 8px;
+
+    &__title {
+      width: 100%;
+      .visually-hidden {
+        display: none;
+      }
+
+      &__text {
+        @include font-paragraph();
+        @include theme-prop(color, primary-text-color);
+      }
+    }
+
+    &__subtitle {
+      width: 100%;
+      &__text {
+        font-size: $font-size-default;
+        @include theme-prop(color, disabled-text-color);
+      }
+    }
+  }
+
+  &--type {
+    &-primary {
+      &__number-container {
+        @include theme-prop(background-color, primary-color);
+      }
+    }
+    &-danger {
+      &__number-container {
+        @include theme-prop(background-color, negative-color);
+      }
+    }
+    &-success {
+      &__number-container {
+        @include theme-prop(background-color, positive-color);
+      }
+    }
+    &-dark {
+      &__number-container {
+        @include theme-prop(background-color, primary-text-color);
+      }
+    }
+  }
+
+  &--status {
+    &-pending {
+      &__number-container {
+        @include theme-prop(background-color, disabled-background-color);
+      }
+    }
+  }
+}
