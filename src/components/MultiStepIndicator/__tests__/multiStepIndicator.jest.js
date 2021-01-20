@@ -13,17 +13,17 @@ describe("MultiStepIndicator", () => {
     it("Renders correctly with non-default props", () => {
       const exampleSteps = [
         {
-          status: StepIndicator.statuses.FULFILLED,
+          status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Title",
           subtitleText: "Subtitle"
         },
         {
-          status: StepIndicator.statuses.ACTIVE,
+          status: MultiStepIndicator.stepStatuses.ACTIVE,
           titleText: "Active",
           subtitleText: "Active Subtitle"
         },
         {
-          status: StepIndicator.statuses.PENDING,
+          status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Pending",
           subtitleText: "Pending Subtitle"
         }

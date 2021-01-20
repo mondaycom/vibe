@@ -4,7 +4,7 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
 import StepsDivider from "./components/StepsDivider/StepsDivider";
-import { MULTI_STEP_TYPES } from "./MultiStepConstants";
+import { MULTI_STEP_TYPES, STEP_STATUSES } from "./MultiStepConstants";
 import "./MultiStepIndicator.scss";
 
 const MultiStepIndicator = forwardRef(
@@ -34,6 +34,7 @@ const MultiStepIndicator = forwardRef(
 );
 
 MultiStepIndicator.types = MULTI_STEP_TYPES;
+MultiStepIndicator.stepStatuses = STEP_STATUSES;
 
 MultiStepIndicator.propTypes = {
   /** For overriding the container class styles. */
@@ -49,9 +50,9 @@ MultiStepIndicator.propTypes = {
     titleText: PropTypes.string,
     subtitleText: PropTypes.string,
     status: PropTypes.oneOf([
-      StepIndicator.statuses.PENDING,
-      StepIndicator.statuses.ACTIVE,
-      StepIndicator.statuses.FULFILLED
+      MultiStepIndicator.stepStatuses.PENDING,
+      MultiStepIndicator.stepStatuses.ACTIVE,
+      MultiStepIndicator.stepStatuses.FULFILLED
     ])
   }).isRequired,
   /** For overriding the styles of the step component - container of number/check and texts. */

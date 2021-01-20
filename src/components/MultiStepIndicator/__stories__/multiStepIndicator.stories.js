@@ -9,17 +9,17 @@ import StepIndicator from "../components/StepIndicator/StepIndicator";
 export const DefaultStory = () => {
   const steps = [
     {
-      status: StepIndicator.statuses.FULFILLED,
+      status: MultiStepIndicator.stepStatuses.FULFILLED,
       titleText: "Fulfilled step title",
       subtitleText: "Fulfilled subtitle"
     },
     {
-      status: StepIndicator.statuses.ACTIVE,
+      status: MultiStepIndicator.stepStatuses.ACTIVE,
       titleText: "Active step title",
       subtitleText: "Active subtitle"
     },
     {
-      status: StepIndicator.statuses.PENDING,
+      status: MultiStepIndicator.stepStatuses.PENDING,
       titleText: "Pending step title",
       subtitleText: "Pending subtitle"
     }
@@ -33,17 +33,17 @@ export const DefaultStory = () => {
 
 const exampleSteps = [
   {
-    status: StepIndicator.statuses.FULFILLED,
+    status: MultiStepIndicator.stepStatuses.FULFILLED,
     titleText: "Fulfilled title",
     subtitleText: "Fulfilled subtitle"
   },
   {
-    status: StepIndicator.statuses.ACTIVE,
+    status: MultiStepIndicator.stepStatuses.ACTIVE,
     titleText: "Active title",
     subtitleText: "Active subtitle"
   },
   {
-    status: StepIndicator.statuses.PENDING,
+    status: MultiStepIndicator.stepStatuses.PENDING,
     titleText: "Pending title",
     subtitleText: "Pending subtitle"
   }

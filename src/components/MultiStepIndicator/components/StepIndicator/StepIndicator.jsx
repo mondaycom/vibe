@@ -2,8 +2,8 @@ import React, { useMemo } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import Check from "../../../Icon/Icons/components/Check";
-import { MULTI_STEP_TYPES } from "../../MultiStepConstants";
-import { baseClassName, STEP_STATUSES } from "./StepIndicatorConstants";
+import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
+import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
 
 const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, subtitleText, type }) => {
@@ -22,7 +22,7 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
     <div className={cx(...getClassnames(""), stepComponentClassName)} aria-label={ariaLabel}>
       <div className={cx(...getClassnames("__number-container"))}>
         <span className={cx(...getClassnames("__number-container__text"))}>
-          {status === StepIndicator.statuses.FULFILLED ? <Check /> : stepNumber}
+          {status === STEP_STATUSES.FULFILLED ? <Check /> : stepNumber}
         </span>
       </div>
       <div className={cx(...getClassnames("__text-container"))}>
@@ -37,8 +37,6 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
     </div>
   );
 };
-
-StepIndicator.statuses = STEP_STATUSES;
 
 StepIndicator.propTypes = {
   status: PropTypes.oneOf([STEP_STATUSES.PENDING, STEP_STATUSES.ACTIVE, STEP_STATUSES.FULFILLED]).isRequired,
