@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
+import Icon from "../../../Icon/Icon";
 import Check from "../../../Icon/Icons/components/Check";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
@@ -8,7 +9,7 @@ import "./StepIndicator.scss";
 
 const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, subtitleText, type }) => {
   const ariaLabel = useMemo(() => {
-    return `Step ${stepNumber}: ${status}`;
+    return `Step ${stepNumber}: ${titleText} - ${subtitleText}, status: ${status}`;
   }, [status]);
 
   const baseClassNameWithType = `${baseClassName}--type-${type}`;
@@ -22,7 +23,15 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
     <div className={cx(...getClassnames(""), stepComponentClassName)} aria-label={ariaLabel}>
       <div className={cx(...getClassnames("__number-container"))}>
         <span className={cx(...getClassnames("__number-container__text"))}>
-          {status === STEP_STATUSES.FULFILLED ? <Check /> : stepNumber}
+          {status === STEP_STATUSES.FULFILLED ? (
+            <Icon
+              icon={Check}
+              className={`${baseClassName}__number-container__text__check-icon`}
+              iconLabel={STEP_STATUSES.FULFILLED}
+            />
+          ) : (
+            stepNumber
+          )}
         </span>
       </div>
       <div className={cx(...getClassnames("__text-container"))}>
@@ -30,9 +39,7 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
           <span className="visually-hidden">{status}</span> {/* for accessibility */}
           <span className={cx(...getClassnames("__text-container__title__text"))}>{titleText}</span>
         </div>
-        <div className={cx(...getClassnames("__text-container__subtitle"))}>
-          <span className={cx(...getClassnames("__text-container__subtitle__text"))}>{subtitleText}</span>
-        </div>
+        <span className={cx(...getClassnames("__text-container__subtitle__text"))}>{subtitleText}</span>
       </div>
     </div>
   );

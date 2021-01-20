@@ -3,4 +3,11 @@
 
 .multi-step-indicator--wrapper {
   display: flex;
+
+  &__divider {
+    @include theme-prop(background-color, ui-border-color);
+    margin: 16px;
+    height: 1px;
+    width: 48px;
+  }
 }

@@ -2,8 +2,8 @@ import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import Divider from "../Divider/Divider";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
-import StepsDivider from "./components/StepsDivider/StepsDivider";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "./MultiStepConstants";
 import "./MultiStepIndicator.scss";
 
@@ -11,10 +11,10 @@ const MultiStepIndicator = forwardRef(
   ({ className, type, steps, stepComponentClassName, dividerComponentClassName }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const text = "hello";
-
+    const baseClassName = "multi-step-indicator--wrapper";
+    const defaultDividerClassName = `${baseClassName}__divider`;
     return (
-      <div ref={mergedRef} className={cx("multi-step-indicator--wrapper", className)}>
+      <div ref={mergedRef} className={cx(baseClassName, className)}>
         {steps.map((step, index) => {
           return (
             <>
@@ -24,7 +24,9 @@ const MultiStepIndicator = forwardRef(
                 type={type}
                 stepComponentClassName={stepComponentClassName}
               />
-              {index !== steps.length - 1 && <StepsDivider dividerComponentClassName={dividerComponentClassName} />}
+              {index !== steps.length - 1 && (
+                <Divider classname={cx(defaultDividerClassName, dividerComponentClassName)} />
+              )}
             </>
           );
         })}
@@ -40,10 +42,10 @@ MultiStepIndicator.propTypes = {
   /** For overriding the container class styles. */
   className: PropTypes.string,
   type: PropTypes.oneOf([
-    MULTI_STEP_TYPES.PRIMARY,
-    MULTI_STEP_TYPES.SUCCESS,
-    MULTI_STEP_TYPES.DANGER,
-    MULTI_STEP_TYPES.DARK
+    MultiStepIndicator.types.PRIMARY,
+    MultiStepIndicator.types.SUCCESS,
+    MultiStepIndicator.types.DANGER,
+    MultiStepIndicator.types.DARK
   ]),
   /** Array of objects of the specified format. */
   steps: PropTypes.arrayOf({
