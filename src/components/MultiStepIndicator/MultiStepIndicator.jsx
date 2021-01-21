@@ -2,6 +2,8 @@ import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import Icon from "../Icon/Icon";
+import Check from "../Icon/Icons/components/Check";
 import Divider from "../Divider/Divider";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "./MultiStepConstants";
@@ -60,7 +62,11 @@ MultiStepIndicator.propTypes = {
   /** For overriding the styles of the step component - container of number/check and texts. */
   stepComponentClassName: PropTypes.string,
   /** For overriding the step-dividers styles. */
-  dividerComponentClassName: PropTypes.string
+  dividerComponentClassName: PropTypes.string,
+  /** For overriding the 'fulfilled' step's icon. Is passed directly to an Icon component. */
+  fulfilledStepIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  /** For overriding the 'fulfilled' step's icon type. Necessary when passing a string in the "fulfilledStepIcon" prop. */
+  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT])
 };
 
 MultiStepIndicator.defaultProps = {
@@ -68,7 +74,9 @@ MultiStepIndicator.defaultProps = {
   stepComponentClassName: "",
   dividerComponentClassName: "",
   type: MultiStepIndicator.types.PRIMARY,
-  steps: []
+  steps: [],
+  fulfilledStepIcon: Check,
+  fulfilledStepIconType: Icon.type.SVG
 };
 
 export default MultiStepIndicator;

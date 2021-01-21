@@ -2,5 +2,12 @@
 @import "../../styles/typography.scss";
 
 .hidden-text--wrapper {
-  display: none;
+  // clip pattern taken from https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/.
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

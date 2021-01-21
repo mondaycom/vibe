@@ -12,7 +12,16 @@ import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
 import HiddenText from "../../../HiddenText/HiddenText";
 
-const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, subtitleText, type }) => {
+const StepIndicator = ({
+  stepComponentClassName,
+  stepNumber,
+  status,
+  titleText,
+  subtitleText,
+  type,
+  fulfilledStepIcon,
+  fulfilledStepIconType
+}) => {
   // Animations state
   const [statusChangeAnimationState, setStatusChangeAnimationState] = useState(false);
 
@@ -35,7 +44,7 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
   useEventListener({
     eventName: "animationend",
     callback: disableStatusChangeAnimation,
-    componentRef
+    ref: componentRef
   });
 
   // Effect - triggering animation when necessary.
@@ -62,6 +71,19 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
     return [`${baseClassName}${suffix}`, `${baseClassNameWithType}${suffix}`, `${baseClassNameWithStatus}${suffix}`];
   };
 
+  const StepCircleDisplay = () => {
+    return status === STEP_STATUSES.FULFILLED ? (
+      <Icon
+        icon={fulfilledStepIcon}
+        className={`${baseClassName}__number-container__text__check-icon`}
+        iconLabel={STEP_STATUSES.FULFILLED}
+        iconType={fulfilledStepIconType}
+      />
+    ) : (
+      stepNumber
+    );
+  };
+
   return (
     <div
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
@@ -79,15 +101,7 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
             key={status}
           >
             <span className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
-              {status === STEP_STATUSES.FULFILLED ? (
-                <Icon
-                  icon={Check}
-                  className={`${baseClassName}__number-container__text__check-icon`}
-                  iconLabel={STEP_STATUSES.FULFILLED}
-                />
-              ) : (
-                stepNumber
-              )}
+              <StepCircleDisplay />
             </span>
           </CSSTransition>
         </SwitchTransition>
@@ -114,7 +128,9 @@ StepIndicator.propTypes = {
     MULTI_STEP_TYPES.SUCCESS,
     MULTI_STEP_TYPES.DANGER,
     MULTI_STEP_TYPES.DARK
-  )
+  ),
+  fulfilledStepIcon: PropTypes.func,
+  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT])
 };
 
 StepIndicator.defaultProps = {
@@ -123,7 +139,9 @@ StepIndicator.defaultProps = {
   status: STEP_STATUSES.PENDING,
   titleText: "Title text",
   subtitleText: "Subtitle text",
-  type: MULTI_STEP_TYPES.PRIMARY
+  type: MULTI_STEP_TYPES.PRIMARY,
+  fulfilledStepIcon: Check,
+  fulfilledStepIconType: Icon.type.SVG
 };
 
 export default StepIndicator;
