@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with empty props 1`] = `
+<span
+  className="hidden-text--wrapper"
+  id="hiddenText"
+>
+  This text is hidden
+</span>
+`;
