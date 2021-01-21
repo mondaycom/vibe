@@ -159,8 +159,89 @@ export const MultiStepIndicatorStateTransitionAnimation = () => {
   return (
     <section>
       <StoryStateRow>
-        <StoryStateColumn title="State transition example">
+        <StoryStateColumn title="State transition automatic example">
           <MultiStepIndicatorWithTransitioningState />
+        </StoryStateColumn>
+      </StoryStateRow>
+    </section>
+  );
+};
+
+export const StepTransitionManualExample = () => {
+  const firstStateSteps = [
+    {
+      status: MultiStepIndicator.stepStatuses.ACTIVE,
+      titleText: "First step title (active)",
+      subtitleText: "First subtitle"
+    },
+    {
+      status: MultiStepIndicator.stepStatuses.PENDING,
+      titleText: "Second step title (pending)",
+      subtitleText: "Second subtitle"
+    },
+    {
+      status: MultiStepIndicator.stepStatuses.PENDING,
+      titleText: "Third step title (pending)",
+      subtitleText: "Third subtitle"
+    }
+  ];
+  const secondStateSteps = [
+    {
+      status: MultiStepIndicator.stepStatuses.FULFILLED,
+      titleText: "First step title (fulfilled)",
+      subtitleText: "First subtitle"
+    },
+    {
+      status: MultiStepIndicator.stepStatuses.ACTIVE,
+      titleText: "Second step title (active)",
+      subtitleText: "Second subtitle"
+    },
+    {
+      status: MultiStepIndicator.stepStatuses.PENDING,
+      titleText: "Third step title (pending)",
+      subtitleText: "Third subtitle"
+    }
+  ];
+  const thirdStateSteps = [
+    {
+      status: MultiStepIndicator.stepStatuses.FULFILLED,
+      titleText: "First step title (fulfilled)",
+      subtitleText: "First subtitle"
+    },
+    {
+      status: MultiStepIndicator.stepStatuses.FULFILLED,
+      titleText: "Second step title (fulfilled)",
+      subtitleText: "Second subtitle"
+    },
+    {
+      status: MultiStepIndicator.stepStatuses.ACTIVE,
+      titleText: "Third step title (active)",
+      subtitleText: "Third subtitle"
+    }
+  ];
+  const fourthStateSteps = [
+    {
+      status: MultiStepIndicator.stepStatuses.FULFILLED,
+      titleText: "First step title (fulfilled)",
+      subtitleText: "First subtitle"
+    },
+    {
+      status: MultiStepIndicator.stepStatuses.FULFILLED,
+      titleText: "Second step title (fulfilled)",
+      subtitleText: "Second subtitle"
+    },
+    {
+      status: MultiStepIndicator.stepStatuses.FULFILLED,
+      titleText: "Third step title (fulfilled)",
+      subtitleText: "Third subtitle"
+    }
+  ];
+  const objects = [firstStateSteps, secondStateSteps, thirdStateSteps, fourthStateSteps];
+  return (
+    <section>
+      <StoryStateRow>
+        <StoryStateColumn title="State transition example">
+          <MultiStepIndicator steps={select("Step", objects, objects[0])} />
         </StoryStateColumn>
       </StoryStateRow>
     </section>

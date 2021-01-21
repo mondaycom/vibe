@@ -10,6 +10,7 @@ import Check from "../../../Icon/Icons/components/Check";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
+import HiddenText from "../../../HiddenText/HiddenText";
 
 const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, subtitleText, type }) => {
   // Animations state
@@ -17,7 +18,7 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
 
   // Refs
   const componentRef = useRef(null);
-  const statusRef = useRef(status);
+  const prevStatusRef = useRef(status);
 
   // Callbacks for modifying animation state
   const enableStatusChangeAnimation = useCallback(() => {
@@ -28,33 +29,25 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
     setStatusChangeAnimationState(false);
   }, [setStatusChangeAnimationState]);
 
-  const isFirstStatusTransition = () => {
-    return (
-      statusRef.current === STEP_STATUSES.PENDING && [STEP_STATUSES.ACTIVE, STEP_STATUSES.FULFILLED].includes(status)
-    );
-  };
+  const isStatusTransition = useCallback(() => prevStatusRef.current !== status, [prevStatusRef]);
 
-  const isSecondStatusTransition = () => {
-    return statusRef.current === STEP_STATUSES.ACTIVE && status === STEP_STATUSES.FULFILLED;
-  };
-
-  // Event listeners for removing animation
+  // Event listeners for removing animation.
   useEventListener({
     eventName: "animationend",
     callback: disableStatusChangeAnimation,
     componentRef
   });
 
-  // Effect - triggering animation when necessary
+  // Effect - triggering animation when necessary.
   useEffect(() => {
-    if (isFirstStatusTransition() || isSecondStatusTransition()) {
+    if (isStatusTransition()) {
       enableStatusChangeAnimation();
     }
   }, [status]);
 
-  // Effect - updating ref value
+  // Effect - updating previous status ref value (for animation) after component update.
   useEffect(() => {
-    statusRef.current = status;
+    prevStatusRef.current = status;
   }, [status]);
 
   const ariaLabel = useMemo(() => {
@@ -79,7 +72,7 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
       <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef}>
         <SwitchTransition mode="out-in">
           <CSSTransition
-            classNames={`${baseClassName}--fade`}
+            classNames={`${baseClassName}--swap`}
             addEndListener={(node, done) => {
               node.addEventListener("transitionend", done, false);
             }}
@@ -101,7 +94,7 @@ const StepIndicator = ({ stepComponentClassName, stepNumber, status, titleText, 
       </div>
       <div className={cx(...getClassNamesWithSuffix("__text-container"))}>
         <div className={cx(...getClassNamesWithSuffix("__text-container__title"))}>
-          <span className="visually-hidden">{status}</span> {/* for accessibility */}
+          <HiddenText text={status} /> {/* for accessibility */}
           <span className={cx(...getClassNamesWithSuffix("__text-container__title__text"))}>{titleText}</span>
         </div>
         <span className={cx(...getClassNamesWithSuffix("__text-container__subtitle__text"))}>{subtitleText}</span>
