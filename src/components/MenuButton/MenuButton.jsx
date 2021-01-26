@@ -1,10 +1,11 @@
 import React, { useCallback, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import NOOP from "lodash/noop";
 import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
-import "./MenuButton.scss";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
+import "./MenuButton.scss";
 
 function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
@@ -26,16 +27,21 @@ const MenuButton = ({
   dialogOffset,
   dialogPosition,
   dialogClassName,
-  dialogPaddingSize
+  dialogPaddingSize,
+  onMenuHide,
+  onMenuShow
 }) => {
   const [isOpen, setIsOpen] = useState(open);
 
   const onDialogDidHide = useCallback(() => {
     setIsOpen(false);
-  }, [setIsOpen]);
+    onMenuHide();
+  }, [setIsOpen, onMenuHide]);
+
   const onDialogDidShow = useCallback(() => {
     setIsOpen(true);
-  }, [setIsOpen]);
+    onMenuShow();
+  }, [setIsOpen, onMenuShow]);
 
   const hideTrigger = useMemo(() => {
     const triggers = ["clickoutside", "esckey"];
@@ -156,7 +162,15 @@ MenuButton.propTypes = {
     MenuButton.dialogPositions.BOTTOM_START,
     MenuButton.dialogPositions.BOTTOM,
     MenuButton.dialogPositions.BOTTOM_END
-  ])
+  ]),
+  /*
+    Callback function to be called when the menu is shown
+   */
+  onMenuShow: PropTypes.func,
+  /*
+  Callback function to be called when the menu is shown
+ */
+  onMenuHide: PropTypes.func
 };
 MenuButton.defaultProps = {
   componentClassName: "",
@@ -170,7 +184,9 @@ MenuButton.defaultProps = {
   openDialogComponentClassName: "",
   dialogOffset: MOVE_BY,
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM,
-  dialogPosition: MenuButton.dialogPositions.BOTTOM_START
+  dialogPosition: MenuButton.dialogPositions.BOTTOM_START,
+  onMenuShow: NOOP,
+  onMenuHide: NOOP
 };
 
 export default MenuButton;
