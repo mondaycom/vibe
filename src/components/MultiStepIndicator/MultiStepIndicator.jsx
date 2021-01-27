@@ -10,7 +10,18 @@ import { MULTI_STEP_TYPES, STEP_STATUSES } from "./MultiStepConstants";
 import "./MultiStepIndicator.scss";
 
 const MultiStepIndicator = forwardRef(
-  ({ className, type, steps, stepComponentClassName, dividerComponentClassName }, ref) => {
+  (
+    {
+      className,
+      type,
+      steps,
+      stepComponentClassName,
+      dividerComponentClassName,
+      fulfilledStepIcon,
+      fulfilledStepIconType
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const baseClassName = "multi-step-indicator--wrapper";
@@ -25,6 +36,8 @@ const MultiStepIndicator = forwardRef(
                 stepNumber={index + 1}
                 type={type}
                 stepComponentClassName={stepComponentClassName}
+                fulfilledStepIcon={fulfilledStepIcon}
+                fulfilledStepIconType={fulfilledStepIconType}
               />
               {index !== steps.length - 1 && (
                 <Divider classname={cx(defaultDividerClassName, dividerComponentClassName)} />
