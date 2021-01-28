@@ -1,20 +1,13 @@
 import React from "react";
-import { allMondayColors, colorsMap } from "./colors-vars-map";
+import { colorsMap } from "./colors-vars-map";
 import "./ColorItem.scss";
 import Sun from "../../components/Icon/Icons/components/Sun";
 import Moon from "../../components/Icon/Icons/components/Moon";
 import DescriptionLabel from "../../components/storybook-helpers/description-label/description-label";
 import StoryWrapper from "../../StoryBookComponents/StoryWrapper/StoryWrapper";
-import {
-  buildColorsStory,
-  codingColors,
-  darkColors,
-  greyColors,
-  mainColors,
-  mainColors2,
-  mainColors3
-} from "./colors-helper";
+import { buildColorsStory, codingColors, greyColors, mainColors, mainColors2, mainColors3 } from "./colors-helper";
 import StoryTitle from "../../components/storybook-helpers/story-title/story-title";
+import Divider from "../../components/Divider/Divider";
 
 const KeyColorItem = ({ color, description }) => {
   return (
@@ -79,11 +72,12 @@ export const Colors = () => {
       {buildColorsStory(mainColors)}
       {buildColorsStory(mainColors2)}
       {buildColorsStory(mainColors3)}
+      <StoryTitle text="Greyscale Colors" />
+      <DescriptionLabel>These grayscale palette used for shapes, icons ,backgrounds</DescriptionLabel>
       {buildColorsStory(greyColors)}
-      <div style={{ margin: "24px 0" }}>
+      <div style={{ margin: "12px 0" }}>
         <br />
       </div>
-      <StoryTitle text="Colors Keys" />
       <div className="colors-container">
         <div className="themes-icon-container">
           <div className="theme-name-spacer">Color Keys</div>
@@ -99,7 +93,7 @@ export const Colors = () => {
         ))}
       </div>
 
-      <div style={{ margin: "24px 0" }}>
+      <div style={{ margin: "12px 0" }}>
         <br />
       </div>
       <StoryTitle text="Status Colors" />
@@ -112,16 +106,6 @@ export const Colors = () => {
     </StoryWrapper>
   );
 };
-
-// export const MondayColors = () => {
-//   return (
-//     <div className="all-colors-container">
-//       {allMondayColors.map(colorName => (
-//         <ColorItem color={colorName} />
-//       ))}
-//     </div>
-//   );
-// };
 
 export default {
   title: "Foundations|Colors"
