@@ -12,6 +12,7 @@ import useSetFocus from "../../../hooks/useSetFocus";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import useIsMouseOver from "../../../hooks/useIsMouseOver";
+import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
 
 import usePopover from "../../../hooks/usePopover";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
@@ -27,58 +28,126 @@ const MenuItem = ({
   activeItemIndex,
   setActiveItemIndex,
   index,
-  children
+  children,
+  isParentMenuVisible,
+  setHasSubMenuOpen
 }) => {
   const ref = useRef(null);
   const titleRef = useRef();
+  const childRef = useRef();
   const isHovered = useIsMouseOver({ ref: titleRef });
+  const isMouseEnter = useIsMouseEnter({ ref });
 
   const isHoveredAndOverflowing = useIsOverflowing({ ref: isHovered && titleRef });
   const [isActive, setIsActive] = useState(activeItemIndex === index);
+  const [isOpen, setIsOpen] = useState(false);
 
   const referenceElementRef = useRef(null);
   const popperElementRef = useRef(null);
   const popperElement = popperElementRef.current;
   const referenceElement = referenceElementRef.current;
+  const childElement = childRef.current;
 
-  const isSubMenuOpen = !!children && isActive;
+  const isSubMenuOpen = !!children && (isMouseEnter || isOpen);
+
+  // check if parent menu is open for mouseout of parent menu of the parent menu (sub sub menu item)
+  const shouldShowSubMenu = isParentMenuVisible && isSubMenuOpen;
 
   const { styles, attributes } = usePopover(referenceElement, popperElement, {
     isOpen: isSubMenuOpen
   });
 
   useEffect(() => {
+    console.log("isOpen ", !!isOpen);
+    console.log("setHasSubMenuOpen ", setHasSubMenuOpen);
+    setHasSubMenuOpen && setHasSubMenuOpen(isOpen);
+  }, [isOpen, setHasSubMenuOpen]);
+
+  useEffect(() => {
     setIsActive(activeItemIndex === index);
   }, [activeItemIndex, index]);
 
+  const onCloseSubMenuCallback = useCallback(
+    event => {
+      console.log("onCloseSubMenuCallback ", onCloseSubMenuCallback);
+      if (shouldShowSubMenu) return;
+      if (!isActive) return;
+      if (!isOpen) return;
+      console.log("stop propagation ****");
+      setIsOpen(false);
+      event.preventDefault();
+      event.stopPropagation();
+    },
+    [setIsOpen, isActive, isOpen]
+  );
+
   const onClickCallback = useCallback(
     event => {
+      if (!isActive) return;
       if (popperElement && popperElement.contains(event.target)) return;
-      if (onClick && !disabled && isActive) {
+
+      if (childElement && isParentMenuVisible) {
+        setActiveItemIndex(index);
+        setIsOpen(true);
+        requestAnimationFrame(() => {
+          childElement.focus();
+        });
+        // event.preventDefault();
+        // event.stopPropagation();
+
+        return;
+      }
+
+      if (onClick && !disabled) {
+        // event.preventDefault();
+        // event.stopPropagation();
         onClick(event);
       }
     },
-    [onClick, disabled, isActive, popperElement]
+    [onClick, disabled, isActive, popperElement, childElement, index, isParentMenuVisible, setActiveItemIndex]
   );
 
-  const setActive = useCallback(() => {
-    if (setActiveItemIndex) {
-      setActiveItemIndex(index);
-    } else {
-      setIsActive(true);
-    }
-  }, [setActiveItemIndex, setIsActive, index]);
+  // const setActive = useCallback(() => {
+  //   if (setActiveItemIndex) {
+  //     setActiveItemIndex(index);
+  //   } else {
+  //     setIsActive(true);
+  //   }
+  // }, [setActiveItemIndex, setIsActive, index]);
 
-  const setUnActive = useCallback(() => {
-    if (setActiveItemIndex) {
-      setActiveItemIndex(-1);
-    } else {
-      setIsActive(false);
-    }
-  }, [setActiveItemIndex, setIsActive]);
+  // const setUnActive = useCallback(() => {
+  //   if (setActiveItemIndex) {
+  //     setActiveItemIndex(-1);
+  //   } else {
+  //     setIsActive(false);
+  //   }
+  // }, [setActiveItemIndex, setIsActive]);
+  // const setActive = () => {};
+  // const setUnActive = () => {};
 
-  useSetFocus({ ref, setActive, setUnActive, isActive });
-  useKeyEvent({ keys: ["Enter"], callback: onClickCallback });
+  // useSetFocus({ ref, setActive, setUnActive, isActive });
+  useKeyEvent({
+    keys: ["Enter", "ArrowRight"],
+    callback: onClickCallback
+  });
+
+  // useKeyEvent({
+  //   keys: ["Escape", "ArrowLeft"],
+  //   callback: onCloseSubMenuCallback
+  // });
+
+  const closeSubMenu = useCallback(() => {
+    setIsOpen(false);
+    requestAnimationFrame(() => {
+      console.log("referenceElement forucs", referenceElement);
+      referenceElement.focus();
+    });
+  }, [setIsOpen, referenceElement]);
+
+  const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
+
+  // Return the only child in children. Throws otherwise.
+  const submenuChild = children && React.Children.only(children);
 
   const renderSubMenuIconIfNeeded = () => {
     if (!children) return null;
@@ -118,9 +187,10 @@ const MenuItem = ({
     );
   };
 
-  const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
   return (
     <div
+      role="menuitem"
+      aria-haspopup={!!children}
       className={cx("monday-style-menu-item", classname, {
         "monday-style-menu-item--disabled": disabled,
         "monday-style-menu-item--focused": isActive
@@ -142,12 +212,20 @@ const MenuItem = ({
       {renderSubMenuIconIfNeeded()}
 
       <div
-        style={styles.popper}
+        style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
         {...attributes.popper}
         className="monday-style-menu-item__popover"
         ref={popperElementRef}
       >
-        <DialogContentContainer>{children}</DialogContentContainer>
+        <DialogContentContainer>
+          {submenuChild &&
+            React.cloneElement(submenuChild, {
+              ...submenuChild?.props,
+              isVisible: shouldShowSubMenu,
+              closeSubMenu,
+              ref: childRef
+            })}
+        </DialogContentContainer>
       </div>
     </div>
   );

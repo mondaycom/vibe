@@ -15,6 +15,7 @@ export function loadComponentsStories() {
     require("./TextField/__stories__/textField.stories.js"),
     require("./Tooltip/__stories__/tooltip.stories.js"),
     require("./Menu/MenuItem/__stories__/menuItem.stories.js"),
+    require("./Menu/Menu/__stories__/menu.stories.js"),
     require("./Toast/__stories__/toast.stories.js")
   ];
 }

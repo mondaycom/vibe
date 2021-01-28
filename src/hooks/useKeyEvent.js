@@ -3,6 +3,7 @@ import useEventListener from "./useEventListener";
 
 const DEFAULT_REF = { current: null };
 export default function useKeyEvent({
+  name = null,
   keys = [],
   ref = DEFAULT_REF,
   callback,
@@ -15,6 +16,12 @@ export default function useKeyEvent({
   const documentRef = useRef(document);
   const onKeyUpPress = useCallback(
     event => {
+      const { key } = event;
+      if (!keys.includes(key)) {
+        return;
+      }
+
+      name && console.log("evnt for  ", name, " preventDefault: ", preventDefault);
       if (preventDefault) {
         event.preventDefault();
       }
@@ -22,31 +29,26 @@ export default function useKeyEvent({
       if (stopPropagation) {
         event.stopPropagation();
       }
-      const { key } = event;
-      if (!keys.includes(key)) {
-        return;
-      }
+
       callback(event);
     },
-    [callback, keys, preventDefault, stopPropagation]
+    [name, callback, keys, preventDefault, stopPropagation]
   );
 
-  const referenceElement = useMemo(() => {
-    if (!ref || !ref.current) {
-      if (ignoreDocumentFallback) {
-        return null;
-      }
-
-      return documentRef;
-    }
-    return ref;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref, ref.current, documentRef, ignoreDocumentFallback]);
+  const refElement = ref && ref.current;
+  let listenerRef;
+  if (refElement) {
+    listenerRef = ref;
+  } else if (ignoreDocumentFallback) {
+    listenerRef = null;
+  } else {
+    listenerRef = documentRef;
+  }
 
   useEventListener({
     eventName: keyEventName,
     callback: onKeyUpPress,
-    ref: referenceElement,
+    ref: listenerRef,
     capture
   });
 }

@@ -14,37 +14,23 @@ import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
 
 const subSubMenuRenderer = () => {
   return (
-    <Menu id="sub-menu" size={Menu.sizes.SMALL}>
+    <Menu id="menu-level-3" size={Menu.sizes.SMALL}>
       {[
-        <MenuTitle id="sub-menu-title-1" caption="Caption" captionPosition={MenuTitle.positions.TOP} />,
-        <MenuItem
-          id="sub-menu-item-1"
-          title="bla bla"
-          icon={Activity}
-          subMenuRenderer={true}
-          onClick={() => alert("1")}
-        />,
-        <MenuItem
-          id="sub-menu-item-2"
-          title="bla blo bla"
-          icon={Activity}
-          subMenuRenderer={true}
-          onClick={() => alert("2")}
-        />
+        <MenuTitle id="sub-sub-menu-title-1" caption="sub-menu-Caption" captionPosition={MenuTitle.positions.TOP} />,
+        <MenuItem id="sub-sub-menu-item-1" title="bla bla" icon={Activity} onClick={() => alert("1")} />,
+        <MenuItem id="sub-sub-menu-item-2" title="bla blo bla" icon={Activity} onClick={() => alert("2")} />
       ]}
     </Menu>
   );
 };
 
-const renderMenuItems = ({ withSubMenu = false } = {}) => {
-  console.log("withSubMenu ", withSubMenu);
+const renderMenuItems = ({ withSubSubMenu = false } = {}) => {
   return [
     <MenuTitle id="menu-title-1" caption={"Caption"} captionPosition={MenuTitle.positions.TOP} />,
     <MenuItem
       id="menu-item-1"
       title={"Sombody"}
       icon={Activity}
-      subMenuRenderer={true}
       onClick={() => {
         alert("1");
       }}
@@ -53,28 +39,24 @@ const renderMenuItems = ({ withSubMenu = false } = {}) => {
       id="menu-item-2"
       title={"Come"}
       icon={Archive}
-      subMenuRenderer={true}
       onClick={() => {
         alert("2");
       }}
     >
-      {withSubMenu && subSubMenuRenderer()}
+      {withSubSubMenu && subSubMenuRenderer()}
     </MenuItem>,
     <MenuItem
       id="menu-item-3"
       title={"Get her"}
       icon={Settings}
-      subMenuRenderer={true}
       onClick={() => {
         alert("3");
       }}
     />,
-    <MenuTitle id="menu-title-2" caption={"Caption"} />,
     <MenuItem
       id="menu-item-4"
       title={"Like a"}
       icon={"fa fa-star-o"}
-      subMenuRenderer={true}
       onClick={() => {
         alert("4");
       }}
@@ -83,7 +65,6 @@ const renderMenuItems = ({ withSubMenu = false } = {}) => {
       id="menu-item-5"
       title={"Striper"}
       icon={Invite}
-      subMenuRenderer={true}
       onClick={() => {
         alert("5");
       }}
@@ -93,7 +74,6 @@ const renderMenuItems = ({ withSubMenu = false } = {}) => {
       id="menu-item-6"
       title={"She's dancing"}
       icon={"fa fa-star-o"}
-      subMenuRenderer={true}
       onClick={() => {
         alert("6");
       }}
@@ -154,7 +134,7 @@ export const subMenu = () => {
       <div style={{ width: "260px" }}>
         <MenuItem
           id="menu-item"
-          title={text("title", "Hover me to see the sub menu")}
+          title={text("title", " b Hover me to see the sub menu")}
           icon={icon}
           disabled={boolean("disabled", false)}
           onClick={() => alert("hello")}
@@ -174,17 +154,19 @@ export const subSubMenu = () => {
   return (
     <div>
       <div style={{ width: "260px" }}>
-        <MenuItem
-          id="menu-item"
-          title={text("title", "Hover me to see the sub menu")}
-          icon={icon}
-          disabled={boolean("disabled", false)}
-          onClick={() => alert("hello")}
-        >
-          <Menu id="menu" size={Menu.sizes.SMALL}>
-            {renderMenuItems({ withSubMenu: true })}
-          </Menu>
-        </MenuItem>
+        <Menu id="menu-level-1" size={Menu.sizes.SMALL}>
+          <MenuItem
+            id="menu-item-level-1"
+            title={text("title", "a Hover me to see the sub menu")}
+            icon={icon}
+            disabled={boolean("disabled", false)}
+            onClick={() => alert("hello")}
+          >
+            <Menu id="menu-level-2" size={Menu.sizes.SMALL}>
+              {renderMenuItems({ withSubSubMenu: true })}
+            </Menu>
+          </MenuItem>
+        </Menu>
       </div>
     </div>
   );
