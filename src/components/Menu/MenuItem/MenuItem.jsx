@@ -1,13 +1,18 @@
-import React, { useCallback, useRef, useEffect, useState } from "react";
+import React, { useCallback, useRef, useEffect, useState, useLayoutEffect, useReducer } from "react";
 
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
 
 import Icon from "../../Icon/Icon";
+
+import DropdownChevronRight from "../../Icon/Icons/components/DropdownChevronRight";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import useSetFocus from "../../../hooks/useSetFocus";
 import useMergeRefs from "../../../hooks/useMergeRefs";
+import useIsOverflowing from "../../../hooks/useIsOverflowing";
+import useIsMouseOver from "../../../hooks/useIsMouseOver";
+
 import usePopover from "../../../hooks/usePopover";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import "./MenuItem.scss";
@@ -24,10 +29,17 @@ const MenuItem = ({
   index,
   children
 }) => {
+  const ref = useRef(null);
+  const titleRef = useRef();
+  const isHovered = useIsMouseOver({ ref: titleRef });
+
+  const isHoveredAndOverflowing = useIsOverflowing({ ref: isHovered && titleRef });
   const [isActive, setIsActive] = useState(activeItemIndex === index);
 
-  const [referenceElement, setReferenceElement] = useState(null);
-  const [popperElement, setPopperElement] = useState(null);
+  const referenceElementRef = useRef(null);
+  const popperElementRef = useRef(null);
+  const popperElement = popperElementRef.current;
+  const referenceElement = referenceElementRef.current;
 
   const isSubMenuOpen = !!children && isActive;
 
@@ -65,33 +77,48 @@ const MenuItem = ({
     }
   }, [setActiveItemIndex, setIsActive]);
 
-  const ref = useRef(null);
   useSetFocus({ ref, setActive, setUnActive, isActive });
   useKeyEvent({ keys: ["Enter"], callback: onClickCallback });
 
-  const renderMenuItemIconIfNeeded = () => {
-    if (icon) {
-      let finalIconType = iconType;
-      if (!finalIconType) {
-        finalIconType = isFunction(icon) ? Icon.type.SVG : Icon.type.ICON_FONT;
-      }
+  const renderSubMenuIconIfNeeded = () => {
+    if (!children) return null;
 
-      return (
-        <div className="monday-style-menu-item__icon-wrapper">
-          <Icon
-            iconType={finalIconType}
-            clickable={false}
-            icon={icon}
-            iconLabel={title}
-            className="monday-style-menu-item__icon"
-            ignoreFocusStyle
-          />
-        </div>
-      );
-    }
+    return (
+      <div className="monday-style-menu-item__sub_menu_icon-wrapper">
+        <Icon
+          clickable={false}
+          icon={DropdownChevronRight}
+          iconLabel={title}
+          className="monday-style-menu-item__sub_menu_icon"
+          ignoreFocusStyle
+        />
+      </div>
+    );
   };
 
-  const mergedRef = useMergeRefs({ refs: [ref, setReferenceElement] });
+  const renderMenuItemIconIfNeeded = () => {
+    if (!icon) return null;
+
+    let finalIconType = iconType;
+    if (!finalIconType) {
+      finalIconType = isFunction(icon) ? Icon.type.SVG : Icon.type.ICON_FONT;
+    }
+
+    return (
+      <div className="monday-style-menu-item__icon-wrapper">
+        <Icon
+          iconType={finalIconType}
+          clickable={false}
+          icon={icon}
+          iconLabel={title}
+          className="monday-style-menu-item__icon"
+          ignoreFocusStyle
+        />
+      </div>
+    );
+  };
+
+  const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
   return (
     <div
       className={cx("monday-style-menu-item", classname, {
@@ -102,12 +129,23 @@ const MenuItem = ({
       onClick={onClickCallback}
     >
       {renderMenuItemIconIfNeeded()}
-      <div className="monday-style-menu-item__title">{title}</div>
+
+      {
+        // show tooltip if needed
+      }
+      {isHoveredAndOverflowing && null}
+
+      <div ref={titleRef} className="monday-style-menu-item__title">
+        {title}
+      </div>
+
+      {renderSubMenuIconIfNeeded()}
+
       <div
         style={styles.popper}
         {...attributes.popper}
         className="monday-style-menu-item__popover"
-        ref={setPopperElement}
+        ref={popperElementRef}
       >
         <DialogContentContainer>{children}</DialogContentContainer>
       </div>
