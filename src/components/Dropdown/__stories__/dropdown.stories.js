@@ -135,7 +135,7 @@ export const CustomRender = () => (
   <section>
     <StoryStateRow>
       <StoryStateColumn title="Custom render" centerize>
-        <Dropdown className="dropdown-story" OptionRenderer={Icon} searchable name="color" options={mockIcons} />
+        <Dropdown className="dropdown-story" optionRenderer={Icon} searchable name="color" options={mockIcons} />
       </StoryStateColumn>
     </StoryStateRow>
   </section>

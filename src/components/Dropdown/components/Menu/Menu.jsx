@@ -2,10 +2,10 @@
 import React from "react";
 import cx from "classnames";
 import { components } from "react-select";
-import "./Menu.scss";
+import "./menu.scss";
 
 const Menu = props => {
-  const { isOpen, children } = props;
+  const { isOpen, children, Renderer } = props;
   return (
     <components.Menu
       {...props}
@@ -13,7 +13,8 @@ const Menu = props => {
         "dropdown-wrapper__menu--open": isOpen
       })}
     >
-      {children}
+      {Renderer && Renderer(props)}
+      {!Renderer && children}
     </components.Menu>
   );
 };
