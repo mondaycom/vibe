@@ -217,11 +217,15 @@ Dropdown.propTypes = {
   /**
    * custom option render function
    */
-  OptionRenderer: PropTypes.func,
+  optionRenderer: PropTypes.func,
   /**
    * custom value render function
    */
-  ValueRenderer: PropTypes.func,
+  valueRenderer: PropTypes.func,
+  /**
+   * custom menu render function
+   */
+  menuRenderer: PropTypes.func,
   /**
    * If set to true, the dropdown will be in Right to Left mode
    */
