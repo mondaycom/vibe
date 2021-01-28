@@ -30,7 +30,8 @@ const MenuItem = ({
   index,
   children,
   isParentMenuVisible,
-  setHasSubMenuOpen
+  setHasSubMenuOpen,
+  focusParentMenu
 }) => {
   const ref = useRef(null);
   const titleRef = useRef();
@@ -58,28 +59,12 @@ const MenuItem = ({
   });
 
   useEffect(() => {
-    console.log("isOpen ", !!isOpen);
-    console.log("setHasSubMenuOpen ", setHasSubMenuOpen);
     setHasSubMenuOpen && setHasSubMenuOpen(isOpen);
   }, [isOpen, setHasSubMenuOpen]);
 
   useEffect(() => {
     setIsActive(activeItemIndex === index);
   }, [activeItemIndex, index]);
-
-  const onCloseSubMenuCallback = useCallback(
-    event => {
-      console.log("onCloseSubMenuCallback ", onCloseSubMenuCallback);
-      if (shouldShowSubMenu) return;
-      if (!isActive) return;
-      if (!isOpen) return;
-      console.log("stop propagation ****");
-      setIsOpen(false);
-      event.preventDefault();
-      event.stopPropagation();
-    },
-    [setIsOpen, isActive, isOpen]
-  );
 
   const onClickCallback = useCallback(
     event => {
@@ -92,15 +77,10 @@ const MenuItem = ({
         requestAnimationFrame(() => {
           childElement.focus();
         });
-        // event.preventDefault();
-        // event.stopPropagation();
-
         return;
       }
 
       if (onClick && !disabled) {
-        // event.preventDefault();
-        // event.stopPropagation();
         onClick(event);
       }
     },
@@ -131,18 +111,10 @@ const MenuItem = ({
     callback: onClickCallback
   });
 
-  // useKeyEvent({
-  //   keys: ["Escape", "ArrowLeft"],
-  //   callback: onCloseSubMenuCallback
-  // });
-
   const closeSubMenu = useCallback(() => {
     setIsOpen(false);
-    requestAnimationFrame(() => {
-      console.log("referenceElement forucs", referenceElement);
-      referenceElement.focus();
-    });
-  }, [setIsOpen, referenceElement]);
+    focusParentMenu && focusParentMenu();
+  }, [setIsOpen, focusParentMenu]);
 
   const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
 

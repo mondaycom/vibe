@@ -27,71 +27,51 @@ const Menu = forwardRef(
     const [hasSubMenuOpen, setHasSubMenuOpen] = useState(false);
     const children = React.Children.toArray(originalChildren);
     const ref = useRef(null);
+    const refElement = ref && ref.current;
     const [activeItemIndex, setActiveItemIndex] = useState(-1);
-
-    console.log("hasSubMenuOpen= ", hasSubMenuOpen);
 
     const onCloseMenu = useCallback(
       event => {
-        console.log("onCloseMenu hasSubMenuOpen=", hasSubMenuOpen);
         if (hasSubMenuOpen) return false;
-        event.preventDefault();
-        event.stopPropagation();
         setActiveItemIndex(-1);
-        if (closeSubMenu) closeSubMenu();
+        if (closeSubMenu) {
+          event.preventDefault();
+          event.stopPropagation();
+          closeSubMenu();
+        } else {
+          refElement && refElement.blur();
+        }
       },
-      [closeSubMenu, hasSubMenuOpen]
+      [closeSubMenu, hasSubMenuOpen, refElement]
     );
 
-    const onArrowRight = useCallback(() => {
-      console.log("onArrowRight");
-      let newIndex;
-      for (let offset = children.length - 1; offset > 0; offset--) {
-        newIndex = (activeItemIndex + offset) % children.length;
-        if (isChildSelectable(newIndex, children)) {
-          break;
-        }
-      }
-      console.log("setActiveItemIndex ", newIndex);
-      newIndex && setActiveItemIndex(newIndex);
-    }, [setActiveItemIndex, children, activeItemIndex]);
-
     const onArrowUp = useCallback(() => {
-      console.log("on arrow up ****");
       let newIndex;
 
-      console.log("children ", children);
       for (let offset = children.length - 1; offset > 0; offset--) {
         newIndex = (activeItemIndex + offset) % children.length;
-        console.log("newIndex ", newIndex);
         if (isChildSelectable(newIndex, children)) {
           break;
         }
       }
-      console.log("setActiveItemIndex ", newIndex);
       newIndex && setActiveItemIndex(newIndex);
     }, [setActiveItemIndex, children, activeItemIndex]);
 
     const onArrowDown = useCallback(() => {
-      console.log(" on arrow down ***");
       let newIndex;
 
       if (!children) return;
-      console.log("children ", children);
       for (let offset = 1; offset <= children.length; offset++) {
-        console.log("children loop", offset);
         newIndex = (activeItemIndex + offset) % children.length;
-        console.log("newIndex ", newIndex);
         if (isChildSelectable(newIndex, children)) {
           break;
         }
       }
-      console.log("setActiveItemIndex ", newIndex);
       (newIndex || newIndex === 0) && setActiveItemIndex(newIndex);
     }, [setActiveItemIndex, children, activeItemIndex]);
 
     const onEnterClickCallback = useCallback(
-      event => {
+      _event => {
         if (!isVisible) return;
         if (activeItemIndex === -1) {
           setActiveItemIndex(0);
@@ -130,47 +110,9 @@ const Menu = forwardRef(
       callback: onCloseMenu
     });
 
-    // useKeyEvent({
-    //   ref,
-    //   name: "right arrow clicked",
-    //   keys: ["ArrowRight"],
-    //   callback: onArrowRight,
-    //   stopPropagation: true,
-    //   preventDefault: true
-    // });
-
-    const refElement = ref && ref.current;
-
-    // const prevIsVisible = usePrevious(isVisible);
-    // const prevRefElement = usePrevious(refElement);
-
-    // useLayoutEffect(() => {
-    //   if (!refElement || !isVisible) return;
-    //   // console.log(id.toString().includes("menu-level-3"));
-    //   // if (id.toString().includes("menu-level-3")) debugger;
-    //   // console.log("add focus on ", refElement);
-    //   requestAnimationFrame(() => {
-    //     refElement && refElement.focus();
-    //   });
-
-    //   const isVisibleCahnged = prevIsVisible !== isVisible;
-    //   const prevRefElementCjamged = prevRefElement !== refElement;
-    //   refElement &&
-    //     console.log(
-    //       "focus **",
-
-    //       id,
-    //       "prevRefElementCjamged : ",
-    //       prevRefElementCjamged,
-    //       "isVisibleCahnged: ",
-    //       isVisibleCahnged
-    //     );
-    // }, [refElement, isVisible, id]);
-
-    // const onBlur = useCallback(() => {
-    //   console.log("on blur");
-    //   setActiveItemIndex(-1);
-    // }, [setActiveItemIndex]);
+    const focusParentMenu = useCallback(() => {
+      refElement && refElement.focus();
+    }, [refElement]);
 
     const mergedRef = useMergeRefs({ refs: [ref, forwardRef] });
 
@@ -188,10 +130,8 @@ const Menu = forwardRef(
               activeItemIndex,
               index,
               setHasSubMenuOpen,
-              setActiveItemIndex: index => {
-                console.log(" setActiveItemIndex index ", index);
-                setActiveItemIndex(index);
-              },
+              focusParentMenu,
+              setActiveItemIndex,
               isParentMenuVisible: isVisible
             });
           })}
