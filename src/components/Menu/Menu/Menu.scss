@@ -2,6 +2,10 @@
 @import "../../../styles/typography.scss";
 
 .monday-style-menu {
+  &:focus {
+    outline: none;
+  }
+
   &--small {
     width: 200px;
   }

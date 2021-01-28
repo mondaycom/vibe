@@ -38,7 +38,7 @@ const getColor = () => {
   return { color, backgroundColor };
 };
 
-const getFont = () => ({ fontSize: "14px", lineHeight: "14px" });
+const getFont = size => ({ fontSize: getSingleValueTextSize(size), lineHeight: getSingleValueTextSize(size) });
 
 const disabledContainerStyle = isDisabled => {
   if (!isDisabled) return {};
@@ -166,12 +166,14 @@ const dropdownIndicator = ({ size }) => (provided, { selectProps }) => {
     padding: "0px",
     ...getIndicatorBoxSize(size),
     margin: "4px 3px 4px 0px",
-    transition: `all 0.1s ${getCSSVar("expand-animation-timing")}`,
     backgroundColor: "transparent",
     borderRadius: getCSSVar("border-radius-small"),
-    transform: selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0deg)",
+    svg: {
+      transition: `transform 0.1s ${getCSSVar("expand-animation-timing")}`,
+      transform: selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
+    },
     color: getCSSVar("icon-color"),
-    ":hover": {
+    ":hover, :active": {
       backgroundColor: getCSSVar("primary-background-hover-color")
     }
   };
@@ -181,7 +183,6 @@ const clearIndicator = ({ size }) => () => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  transition: `all 0.1s ease`,
   color: getCSSVar("icon-color"),
   backgroundColor: "transparent",
   borderRadius: getCSSVar("border-radius-small"),
@@ -191,7 +192,7 @@ const clearIndicator = ({ size }) => () => ({
   }
 });
 
-const singleValue = () => (provided, { isDisabled }) => ({
+const singleValue = () => (provided, { isDisabled, size }) => ({
   ...provided,
   ...getFont(),
   ...getColor(),
@@ -200,6 +201,18 @@ const singleValue = () => (provided, { isDisabled }) => ({
   alignItems: "center",
   height: "100%"
 });
+
+function getSingleValueTextSize(size) {
+  switch (size) {
+    case SIZE.LARGE:
+      return "16px";
+    case SIZE.MEDIUM:
+      return "16px";
+    case SIZE.SMALL:
+    default:
+      return "14px";
+  }
+}
 
 const input = () => provided => ({
   ...provided,

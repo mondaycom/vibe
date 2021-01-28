@@ -2,7 +2,8 @@
 
 exports[`Banner should render close button 1`] = `
 <aside
-  className="banner mock-classname"
+  aria-label="Banner"
+  className="mock-classname banner"
 >
   <div
     className="banner--content image-position__left close-button-spacing"
@@ -32,6 +33,7 @@ exports[`Banner should render close button 1`] = `
 
 exports[`Banner should render correctly without props 1`] = `
 <aside
+  aria-label="Banner"
   className="banner"
 >
   <div
@@ -42,7 +44,8 @@ exports[`Banner should render correctly without props 1`] = `
 
 exports[`Banner should render in Right to Left mode 1`] = `
 <aside
-  className="banner mock-classname rtl"
+  aria-label="Banner"
+  className="mock-classname banner rtl"
 >
   <div
     className="banner--content image-position__left close-button-spacing"
@@ -72,7 +75,8 @@ exports[`Banner should render in Right to Left mode 1`] = `
 
 exports[`Banner should render title, subtitle and image 1`] = `
 <aside
-  className="banner mock-classname"
+  aria-label="Banner"
+  className="mock-classname banner"
 >
   <div
     className="banner--content image-position__left"
@@ -98,6 +102,7 @@ exports[`Banner should render title, subtitle and image 1`] = `
 
 exports[`Banner should render with correct image position class - bottom 1`] = `
 <aside
+  aria-label="Banner"
   className="banner"
 >
   <div
@@ -108,6 +113,7 @@ exports[`Banner should render with correct image position class - bottom 1`] = `
 
 exports[`Banner should render with correct image position class - left 1`] = `
 <aside
+  aria-label="Banner"
   className="banner"
 >
   <div
@@ -118,6 +124,7 @@ exports[`Banner should render with correct image position class - left 1`] = `
 
 exports[`Banner should render with correct image position class - right 1`] = `
 <aside
+  aria-label="Banner"
   className="banner"
 >
   <div
@@ -128,6 +135,7 @@ exports[`Banner should render with correct image position class - right 1`] = `
 
 exports[`Banner should render with correct image position class - top 1`] = `
 <aside
+  aria-label="Banner"
   className="banner"
 >
   <div
@@ -138,6 +146,7 @@ exports[`Banner should render with correct image position class - top 1`] = `
 
 exports[`Banner should use custom render function for subtitle 1`] = `
 <aside
+  aria-label="Banner"
   className="banner"
 >
   <div
@@ -163,6 +172,7 @@ exports[`Banner should use custom render function for subtitle 1`] = `
 
 exports[`Banner should use custom render function for title 1`] = `
 <aside
+  aria-label="Banner"
   className="banner"
 >
   <div

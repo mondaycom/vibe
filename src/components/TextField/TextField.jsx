@@ -132,10 +132,10 @@ const TextField = forwardRef(
                 "input-component__icon--container-has-icon": hasIcon,
                 "input-component__icon--container-active": isPrimary
               })}
+              onClick={onIconClickCallback}
             >
               <Icon
                 icon={iconName}
-                onClick={onIconClickCallback}
                 className={classNames("input-component__icon")}
                 clickable={isPrimary && iconClickable}
                 id={id}
@@ -149,10 +149,10 @@ const TextField = forwardRef(
                 "input-component__icon--container-has-icon": hasIcon,
                 "input-component__icon--container-active": isSecondary
               })}
+              onClick={onIconClickCallback}
             >
               <Icon
                 icon={secondaryIconName}
-                onClick={onIconClickCallback}
                 className={classNames("input-component__icon")}
                 clickable={isSecondary && iconClickable}
                 id={id}

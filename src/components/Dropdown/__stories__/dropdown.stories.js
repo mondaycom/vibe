@@ -9,6 +9,7 @@ import DescriptionLabel from "../../storybook-helpers/description-label/descript
 import "./dropdown.stories.scss";
 
 const mockColorOptions = [
+  { value: "English", label: "English", isFixed: true },
   { value: "ocean", label: "Ocean", isFixed: true },
   { value: "blue", label: "Blue", isDisabled: true },
   { value: "purple", label: "Purple" },
@@ -21,6 +22,7 @@ const mockVirtualizedOptions = new Array(10000).fill(null).map((_, i) => ({ valu
 
 export const Sandbox = () => {
   const mockColorOptions = [
+    { value: "English", label: "English", isFixed: true },
     { value: "ocean", label: "Ocean", isFixed: true },
     { value: "blue", label: "Blue", isDisabled: true },
     { value: "purple", label: "Purple" },
@@ -90,6 +92,7 @@ export const Sandbox = () => {
             openMenuOnFocus={boolean("openMenuOnFocus", true)}
             openMenuOnClick={boolean("openMenuOnClick", true)}
             isVirtualized={isVirtualized}
+            menuPortalTarget={document.body}
             {...extraProps}
           />
         </StoryStateColumn>
@@ -203,10 +206,20 @@ export const virtualized = () => {
     <section>
       <StoryStateRow>
         <StoryStateColumn title="Virtualized">
-          <Dropdown className="dropdown-story" options={mockVirtualizedOptions} isVirtualized />
+          <Dropdown
+            className="dropdown-story"
+            options={mockVirtualizedOptions}
+            isVirtualized
+            menuPortalTarget={document.body}
+          />
         </StoryStateColumn>
         <StoryStateColumn title="Virtualized + Async">
-          <Dropdown className="dropdown-story" asyncOptions={mockPromiseOptions} isVirtualized />
+          <Dropdown
+            className="dropdown-story"
+            asyncOptions={mockPromiseOptions}
+            isVirtualized
+            menuPortalTarget={document.body}
+          />
         </StoryStateColumn>
       </StoryStateRow>
     </section>
@@ -229,16 +242,31 @@ export const async = () => {
     <section>
       <StoryStateRow>
         <StoryStateColumn title="Async">
-          <Dropdown className="dropdown-story" asyncOptions={mockPromiseOptions} />
+          <Dropdown className="dropdown-story" asyncOptions={mockPromiseOptions} menuPortalTarget={document.body} />
         </StoryStateColumn>
         <StoryStateColumn title="Async + Cache">
-          <Dropdown className="dropdown-story" asyncOptions={mockPromiseOptions} cacheOptions />
+          <Dropdown
+            className="dropdown-story"
+            asyncOptions={mockPromiseOptions}
+            cacheOptions
+            menuPortalTarget={document.body}
+          />
         </StoryStateColumn>
         <StoryStateColumn title="Async + Prefetch all">
-          <Dropdown className="dropdown-story" asyncOptions={mockPromiseOptions} defaultOptions={true} />
+          <Dropdown
+            className="dropdown-story"
+            asyncOptions={mockPromiseOptions}
+            defaultOptions={true}
+            menuPortalTarget={document.body}
+          />
         </StoryStateColumn>
         <StoryStateColumn title="Async + Cache + Prefetch some">
-          <Dropdown className="dropdown-story" asyncOptions={mockPromiseOptions} defaultOptions={mockDefaultOptions} />
+          <Dropdown
+            className="dropdown-story"
+            asyncOptions={mockPromiseOptions}
+            defaultOptions={mockDefaultOptions}
+            menuPortalTarget={document.body}
+          />
         </StoryStateColumn>
       </StoryStateRow>
     </section>
