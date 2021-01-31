@@ -25,7 +25,6 @@ const Menu = forwardRef(
 
     const setSubMenuIsOpenByIndex = useCallback(
       (index, isOpen) => {
-        console.log("setSubMenuIsOpenByIndex ", index, isOpen);
         if (hasOpenSubMenu && index !== openSubMenuIndex) return;
 
         const isOpenIndexValue = isOpen ? index : null;
@@ -62,7 +61,6 @@ const Menu = forwardRef(
     }, [setActiveItemIndex, children, activeItemIndex, hasOpenSubMenu]);
 
     const onArrowDown = useCallback(() => {
-      console.log("menu arrow down clicked ");
       if (hasOpenSubMenu) return false;
       let newIndex;
 
@@ -78,7 +76,6 @@ const Menu = forwardRef(
 
     const onEnterClickCallback = useCallback(
       _event => {
-        console.log("menu enter clicked ");
         if (!isVisible) return;
         if (activeItemIndex === -1) {
           setActiveItemIndex(0);

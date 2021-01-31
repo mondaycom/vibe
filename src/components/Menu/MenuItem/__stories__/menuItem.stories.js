@@ -24,6 +24,18 @@ const subSubMenuRenderer = () => {
   );
 };
 
+const anotherSubSubMenuRenderer = () => {
+  return (
+    <Menu id="menu-level-3-b" size={Menu.sizes.SMALL}>
+      {[
+        <MenuTitle id="sub-sub-menu-title-1-b" caption="sub-menu-Caption" captionPosition={MenuTitle.positions.TOP} />,
+        <MenuItem id="sub-sub-menu-item-1-b" title="bla bla" icon={Activity} onClick={() => alert("1")} />,
+        <MenuItem id="sub-sub-menu-item-2-b" title="bla blo bla" icon={Activity} onClick={() => alert("2")} />
+      ]}
+    </Menu>
+  );
+};
+
 const renderMenuItems = ({ withSubSubMenu = false } = {}) => {
   return [
     <MenuTitle id="menu-title-1" caption={"Caption"} captionPosition={MenuTitle.positions.TOP} />,
@@ -52,7 +64,9 @@ const renderMenuItems = ({ withSubSubMenu = false } = {}) => {
       onClick={() => {
         alert("3");
       }}
-    />,
+    >
+      {withSubSubMenu && anotherSubSubMenuRenderer()}
+    </MenuItem>,
     <MenuItem
       id="menu-item-4"
       title={"Like a"}
@@ -95,13 +109,15 @@ export const Sandbox = () => {
   const icon = iconType === Icon.type.SVG ? selectIcon("SVG icon", "Activity") : text("font icon", "fa fa-star");
   return (
     <div style={{ width: 200 }}>
-      <MenuItem
-        id="menu-item"
-        title={text("title", "My item")}
-        icon={icon}
-        disabled={boolean("disabled", false)}
-        onClick={() => alert("hello")}
-      />
+      <Menu id="main-menu" size={Menu.sizes.SMALL}>
+        <MenuItem
+          id="menu-item"
+          title={text("title", "My item")}
+          icon={icon}
+          disabled={boolean("disabled", false)}
+          onClick={() => alert("hello")}
+        />
+      </Menu>
     </div>
   );
 };
@@ -110,17 +126,23 @@ export const States = () => (
   <div style={{ width: 700 }}>
     <FlexLayout>
       <StoryLine title="Menu item">
-        <MenuItem id="menu-item" title={("title", "My item")} icon={"fa fa-star-o"} iconType={Icon.type.ICON_FONT} />
+        <Menu size={Menu.sizes.SMALL}>
+          <MenuItem id="menu-item" title={("title", "My item")} icon={"fa fa-star-o"} iconType={Icon.type.ICON_FONT} />
+        </Menu>
       </StoryLine>
     </FlexLayout>
     <FlexLayout>
       <StoryLine title="Menu item with svg icon">
-        <MenuItem id="menu-item" title={"SVG icon item"} icon={Activity} iconType={Icon.type.ICON_SVG} />
+        <Menu size={Menu.sizes.SMALL}>
+          <MenuItem id="menu-item" title={"SVG icon item"} icon={Activity} iconType={Icon.type.ICON_SVG} />
+        </Menu>
       </StoryLine>
     </FlexLayout>
     <FlexLayout>
       <StoryLine title="Disabled menu item">
-        <MenuItem id="menu-item" title={"Disabled item"} icon={"fa fa-star-o"} disabled={true} />
+        <Menu size={Menu.sizes.SMALL}>
+          <MenuItem id="menu-item" title={"Disabled item"} icon={"fa fa-star-o"} disabled={true} />
+        </Menu>
       </StoryLine>
     </FlexLayout>
   </div>

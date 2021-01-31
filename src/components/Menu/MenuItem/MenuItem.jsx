@@ -69,8 +69,6 @@ const MenuItem = ({
     if (isMouseEnter === prevIsMouseEnter) return;
 
     if (isMouseEnter && !isActive) {
-      console.log("entered and not active");
-      console.log("set is active ", index);
       setActiveItemIndex(index);
       if (hasChildren) {
         setSubMenuIsOpenByIndex(index, true);
@@ -85,6 +83,7 @@ const MenuItem = ({
     }
     if (!isMouseEnter && isActive) {
       setActiveItemIndex(-1);
+      setSubMenuIsOpenByIndex(index, false);
     }
   }, [
     prevIsMouseEnter,
