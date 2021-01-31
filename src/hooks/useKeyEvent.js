@@ -21,7 +21,6 @@ export default function useKeyEvent({
         return;
       }
 
-      name && console.log("evnt for  ", name, " preventDefault: ", preventDefault);
       if (preventDefault) {
         event.preventDefault();
       }

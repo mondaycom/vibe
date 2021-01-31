@@ -6,14 +6,6 @@ import useKeyEvent from "../../../hooks/useKeyEvent";
 import { MENU_SIZES } from "./MenuConstants";
 import "./Menu.scss";
 
-export const usePrevious = value => {
-  const ref = useRef();
-  useLayoutEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
-};
-
 const isChildSelectable = (newIndex, children) => {
   const child = children[newIndex];
   return child.type.isSelectable && !child.props.disabled;
@@ -22,17 +14,29 @@ const isChildSelectable = (newIndex, children) => {
 const Menu = forwardRef(
   (
     { id, classname, size, tabIndex, ariaLabel, children: originalChildren, isVisible = true, closeSubMenu },
-    forwardRef
+    forwardedRef
   ) => {
-    const [hasSubMenuOpen, setHasSubMenuOpen] = useState(false);
     const children = React.Children.toArray(originalChildren);
     const ref = useRef(null);
     const refElement = ref && ref.current;
     const [activeItemIndex, setActiveItemIndex] = useState(-1);
+    const [openSubMenuIndex, setOpenSubMenuIndex] = useState(null);
+    const hasOpenSubMenu = openSubMenuIndex || openSubMenuIndex === 0;
+
+    const setSubMenuIsOpenByIndex = useCallback(
+      (index, isOpen) => {
+        console.log("setSubMenuIsOpenByIndex ", index, isOpen);
+        if (hasOpenSubMenu && index !== openSubMenuIndex) return;
+
+        const isOpenIndexValue = isOpen ? index : null;
+        setOpenSubMenuIndex(isOpenIndexValue);
+      },
+      [openSubMenuIndex, setOpenSubMenuIndex, hasOpenSubMenu]
+    );
 
     const onCloseMenu = useCallback(
       event => {
-        if (hasSubMenuOpen) return false;
+        if (hasOpenSubMenu) return false;
         setActiveItemIndex(-1);
         if (closeSubMenu) {
           event.preventDefault();
@@ -42,12 +46,12 @@ const Menu = forwardRef(
           refElement && refElement.blur();
         }
       },
-      [closeSubMenu, hasSubMenuOpen, refElement]
+      [closeSubMenu, hasOpenSubMenu, refElement]
     );
 
     const onArrowUp = useCallback(() => {
       let newIndex;
-
+      if (hasOpenSubMenu) return false;
       for (let offset = children.length - 1; offset > 0; offset--) {
         newIndex = (activeItemIndex + offset) % children.length;
         if (isChildSelectable(newIndex, children)) {
@@ -55,9 +59,11 @@ const Menu = forwardRef(
         }
       }
       newIndex && setActiveItemIndex(newIndex);
-    }, [setActiveItemIndex, children, activeItemIndex]);
+    }, [setActiveItemIndex, children, activeItemIndex, hasOpenSubMenu]);
 
     const onArrowDown = useCallback(() => {
+      console.log("menu arrow down clicked ");
+      if (hasOpenSubMenu) return false;
       let newIndex;
 
       if (!children) return;
@@ -68,10 +74,11 @@ const Menu = forwardRef(
         }
       }
       (newIndex || newIndex === 0) && setActiveItemIndex(newIndex);
-    }, [setActiveItemIndex, children, activeItemIndex]);
+    }, [setActiveItemIndex, children, activeItemIndex, hasOpenSubMenu]);
 
     const onEnterClickCallback = useCallback(
       _event => {
+        console.log("menu enter clicked ");
         if (!isVisible) return;
         if (activeItemIndex === -1) {
           setActiveItemIndex(0);
@@ -81,28 +88,20 @@ const Menu = forwardRef(
     );
 
     useKeyEvent({
-      ref,
       name: "menu ArrowDown",
       keys: ["ArrowDown"],
-      callback: onArrowDown,
-      stopPropagation: true,
-      preventDefault: true
+      callback: onArrowDown
     });
 
     useKeyEvent({
-      ref,
       name: "menu arrow down",
       keys: ["ArrowUp"],
-      callback: onArrowUp,
-      stopPropagation: true,
-      preventDefault: true
+      callback: onArrowUp
     });
 
     useKeyEvent({
       keys: ["Enter"],
-      callback: onEnterClickCallback,
-      stopPropagation: true,
-      preventDefault: true
+      callback: onEnterClickCallback
     });
 
     useKeyEvent({
@@ -114,10 +113,11 @@ const Menu = forwardRef(
       refElement && refElement.focus();
     }, [refElement]);
 
-    const mergedRef = useMergeRefs({ refs: [ref, forwardRef] });
+    const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
     return (
       <div
+        id={id}
         className={cx("monday-style-menu", classname, `monday-style-menu--${size}`)}
         ref={mergedRef}
         tabIndex={tabIndex}
@@ -129,10 +129,11 @@ const Menu = forwardRef(
               ...child?.props,
               activeItemIndex,
               index,
-              setHasSubMenuOpen,
               focusParentMenu,
               setActiveItemIndex,
-              isParentMenuVisible: isVisible
+              isParentMenuVisible: isVisible,
+              setSubMenuIsOpenByIndex,
+              hasOpenSubMenu: index === openSubMenuIndex
             });
           })}
       </div>

@@ -13,6 +13,8 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import useIsMouseOver from "../../../hooks/useIsMouseOver";
 import useIsMouseEnter from "../../../hooks/useIsMouseEnter";
+import useForceUpdate from "../../../hooks/useForceUpdate";
+import usePrevious from "../../../hooks/usePrevious";
 
 import usePopover from "../../../hooks/usePopover";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
@@ -30,8 +32,9 @@ const MenuItem = ({
   index,
   children,
   isParentMenuVisible,
-  setHasSubMenuOpen,
-  focusParentMenu
+  focusParentMenu,
+  hasOpenSubMenu,
+  setSubMenuIsOpenByIndex
 }) => {
   const ref = useRef(null);
   const titleRef = useRef();
@@ -41,7 +44,6 @@ const MenuItem = ({
 
   const isHoveredAndOverflowing = useIsOverflowing({ ref: isHovered && titleRef });
   const [isActive, setIsActive] = useState(activeItemIndex === index);
-  const [isOpen, setIsOpen] = useState(false);
 
   const referenceElementRef = useRef(null);
   const popperElementRef = useRef(null);
@@ -49,18 +51,51 @@ const MenuItem = ({
   const referenceElement = referenceElementRef.current;
   const childElement = childRef.current;
 
-  const isSubMenuOpen = !!children && (isMouseEnter || isOpen);
+  const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
+
+  const forceUpdate = useForceUpdate();
+  const hasChildren = !!children;
 
   // check if parent menu is open for mouseout of parent menu of the parent menu (sub sub menu item)
-  const shouldShowSubMenu = isParentMenuVisible && isSubMenuOpen;
+  const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
 
   const { styles, attributes } = usePopover(referenceElement, popperElement, {
     isOpen: isSubMenuOpen
   });
 
+  const prevIsMouseEnter = usePrevious(isMouseEnter);
+
   useEffect(() => {
-    setHasSubMenuOpen && setHasSubMenuOpen(isOpen);
-  }, [isOpen, setHasSubMenuOpen]);
+    if (isMouseEnter === prevIsMouseEnter) return;
+
+    if (isMouseEnter && !isActive) {
+      console.log("entered and not active");
+      console.log("set is active ", index);
+      setActiveItemIndex(index);
+      if (hasChildren) {
+        setSubMenuIsOpenByIndex(index, true);
+        requestAnimationFrame(() => {
+          forceUpdate();
+        });
+      }
+    }
+
+    if (isMouseEnter && isActive) {
+      setSubMenuIsOpenByIndex(index, !!isMouseEnter);
+    }
+    if (!isMouseEnter && isActive) {
+      setActiveItemIndex(-1);
+    }
+  }, [
+    prevIsMouseEnter,
+    isMouseEnter,
+    setSubMenuIsOpenByIndex,
+    isActive,
+    setActiveItemIndex,
+    index,
+    forceUpdate,
+    hasChildren
+  ]);
 
   useEffect(() => {
     setIsActive(activeItemIndex === index);
@@ -68,57 +103,57 @@ const MenuItem = ({
 
   const onClickCallback = useCallback(
     event => {
-      if (!isActive) return;
-      if (popperElement && popperElement.contains(event.target)) return;
+      if (!isActive && !isMouseEnter) return;
 
-      if (childElement && isParentMenuVisible) {
+      if (isActive && hasChildren) {
         setActiveItemIndex(index);
-        setIsOpen(true);
+        setSubMenuIsOpenByIndex(index, true);
         requestAnimationFrame(() => {
-          childElement.focus();
+          forceUpdate();
         });
         return;
       }
 
-      if (onClick && !disabled) {
+      if (shouldShowSubMenu) return;
+
+      if (onClick && !disabled && isActive) {
         onClick(event);
       }
     },
-    [onClick, disabled, isActive, popperElement, childElement, index, isParentMenuVisible, setActiveItemIndex]
+    [
+      onClick,
+      isMouseEnter,
+      forceUpdate,
+      disabled,
+      isActive,
+      index,
+      setActiveItemIndex,
+      hasChildren,
+      shouldShowSubMenu,
+      setSubMenuIsOpenByIndex
+    ]
   );
 
-  // const setActive = useCallback(() => {
-  //   if (setActiveItemIndex) {
-  //     setActiveItemIndex(index);
-  //   } else {
-  //     setIsActive(true);
-  //   }
-  // }, [setActiveItemIndex, setIsActive, index]);
+  useEffect(() => {
+    if (shouldShowSubMenu && childElement) {
+      requestAnimationFrame(() => {
+        childElement.focus();
+      });
+    }
+  }, [shouldShowSubMenu, childElement]);
 
-  // const setUnActive = useCallback(() => {
-  //   if (setActiveItemIndex) {
-  //     setActiveItemIndex(-1);
-  //   } else {
-  //     setIsActive(false);
-  //   }
-  // }, [setActiveItemIndex, setIsActive]);
-  // const setActive = () => {};
-  // const setUnActive = () => {};
-
-  // useSetFocus({ ref, setActive, setUnActive, isActive });
   useKeyEvent({
     keys: ["Enter", "ArrowRight"],
     callback: onClickCallback
   });
 
   const closeSubMenu = useCallback(() => {
-    setIsOpen(false);
+    setSubMenuIsOpenByIndex(index, false);
     focusParentMenu && focusParentMenu();
-  }, [setIsOpen, focusParentMenu]);
+  }, [setSubMenuIsOpenByIndex, focusParentMenu, index]);
 
   const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
 
-  // Return the only child in children. Throws otherwise.
   const submenuChild = children && React.Children.only(children);
 
   const renderSubMenuIconIfNeeded = () => {
@@ -189,15 +224,16 @@ const MenuItem = ({
         className="monday-style-menu-item__popover"
         ref={popperElementRef}
       >
-        <DialogContentContainer>
-          {submenuChild &&
-            React.cloneElement(submenuChild, {
+        {submenuChild && shouldShowSubMenu && (
+          <DialogContentContainer>
+            {React.cloneElement(submenuChild, {
               ...submenuChild?.props,
               isVisible: shouldShowSubMenu,
               closeSubMenu,
               ref: childRef
             })}
-        </DialogContentContainer>
+          </DialogContentContainer>
+        )}
       </div>
     </div>
   );

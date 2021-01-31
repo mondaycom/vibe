@@ -132,17 +132,19 @@ export const subMenu = () => {
   return (
     <div>
       <div style={{ width: "260px" }}>
-        <MenuItem
-          id="menu-item"
-          title={text("title", " b Hover me to see the sub menu")}
-          icon={icon}
-          disabled={boolean("disabled", false)}
-          onClick={() => alert("hello")}
-        >
-          <Menu id="menu" size={Menu.sizes.SMALL}>
-            {renderMenuItems()}
-          </Menu>
-        </MenuItem>
+        <Menu id="main-menu" size={Menu.sizes.SMALL}>
+          <MenuItem
+            id="menu-item"
+            title={text("title", " b Hover me to see the sub menu")}
+            icon={icon}
+            disabled={boolean("disabled", false)}
+            onClick={() => alert("hello")}
+          >
+            <Menu id="sub-menu" size={Menu.sizes.SMALL}>
+              {renderMenuItems()}
+            </Menu>
+          </MenuItem>
+        </Menu>
       </div>
     </div>
   );
