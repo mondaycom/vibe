@@ -35,28 +35,23 @@ const MenuItem = ({
   hasOpenSubMenu,
   setSubMenuIsOpenByIndex
 }) => {
+  const isActive = activeItemIndex === index;
+  const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
+  const hasChildren = !!children;
+  const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
+
   const ref = useRef(null);
   const titleRef = useRef();
   const childRef = useRef();
-  const isHovered = useIsMouseOver({ ref: titleRef });
-  const isMouseEnter = useIsMouseEnter({ ref });
-
-  const isHoveredAndOverflowing = useIsOverflowing({ ref: isHovered && titleRef });
-  const [isActive, setIsActive] = useState(activeItemIndex === index);
-
   const referenceElementRef = useRef(null);
   const popperElementRef = useRef(null);
   const popperElement = popperElementRef.current;
   const referenceElement = referenceElementRef.current;
   const childElement = childRef.current;
-
-  const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
-
+  const isTitleHoveredHovered = useIsMouseOver({ ref: titleRef });
+  const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: isTitleHoveredHovered && titleRef });
+  const isMouseEnter = useIsMouseEnter({ ref });
   const forceUpdate = useForceUpdate();
-  const hasChildren = !!children;
-
-  // check if parent menu is open for mouseout of parent menu of the parent menu (sub sub menu item)
-  const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
 
   const { styles, attributes } = usePopover(referenceElement, popperElement, {
     isOpen: isSubMenuOpen
@@ -94,10 +89,6 @@ const MenuItem = ({
     forceUpdate,
     hasChildren
   ]);
-
-  useEffect(() => {
-    setIsActive(activeItemIndex === index);
-  }, [activeItemIndex, index]);
 
   const onClickCallback = useCallback(
     event => {
@@ -194,7 +185,6 @@ const MenuItem = ({
 
   return (
     <div
-      role="menuitem"
       aria-haspopup={!!children}
       className={cx("monday-style-menu-item", classname, {
         "monday-style-menu-item--disabled": disabled,
@@ -205,10 +195,8 @@ const MenuItem = ({
     >
       {renderMenuItemIconIfNeeded()}
 
-      {
-        // show tooltip if needed
-      }
-      {isHoveredAndOverflowing && null}
+      {// show tooltip if needed
+      isTitleHoveredAndOverflowing && null}
 
       <div ref={titleRef} className="monday-style-menu-item__title">
         {title}
