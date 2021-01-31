@@ -19,7 +19,13 @@ const Menu = forwardRef(
     const ref = useRef(null);
     const refElement = ref && ref.current;
     const [activeItemIndex, setActiveItemIndex] = useState(-1);
-    const { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex } = useSubMenuIndex();
+    const {
+      setSubMenuIsOpenByIndex,
+      hasOpenSubMenu,
+      openSubMenuIndex,
+      setOpenSubMenuIndex,
+      resetOpenSubMenuIndex
+    } = useSubMenuIndex();
 
     const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, closeSubMenu);
 
@@ -49,6 +55,7 @@ const Menu = forwardRef(
               index,
               focusParentMenu,
               setActiveItemIndex,
+              resetOpenSubMenuIndex,
               isParentMenuVisible: isVisible,
               setSubMenuIsOpenByIndex,
               hasOpenSubMenu: index === openSubMenuIndex

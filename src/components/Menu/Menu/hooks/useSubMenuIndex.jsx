@@ -6,13 +6,15 @@ export default function useSubMenuIndex() {
 
   const setSubMenuIsOpenByIndex = useCallback(
     (index, isOpen) => {
-      if (hasOpenSubMenu && index !== openSubMenuIndex) return;
-
       const isOpenIndexValue = isOpen ? index : null;
       setOpenSubMenuIndex(isOpenIndexValue);
     },
-    [openSubMenuIndex, setOpenSubMenuIndex, hasOpenSubMenu]
+    [setOpenSubMenuIndex]
   );
 
-  return { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex };
+  const resetOpenSubMenuIndex = useCallback(() => {
+    setOpenSubMenuIndex(null);
+  }, [setOpenSubMenuIndex]);
+
+  return { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex, resetOpenSubMenuIndex };
 }

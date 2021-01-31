@@ -31,6 +31,7 @@ const MenuItem = ({
   index,
   children,
   isParentMenuVisible,
+  resetOpenSubMenuIndex,
   focusParentMenu,
   hasOpenSubMenu,
   setSubMenuIsOpenByIndex
@@ -60,26 +61,23 @@ const MenuItem = ({
   const prevIsMouseEnter = usePrevious(isMouseEnter);
 
   useEffect(() => {
+    if (!isMouseEnter) return;
     if (isMouseEnter === prevIsMouseEnter) return;
 
-    if (isMouseEnter && !isActive) {
+    if (!isActive) {
       setActiveItemIndex(index);
       if (hasChildren) {
         setSubMenuIsOpenByIndex(index, true);
-        requestAnimationFrame(() => {
-          forceUpdate();
-        });
+      } else {
+        resetOpenSubMenuIndex();
       }
     }
 
-    if (isMouseEnter && isActive) {
+    if (isActive) {
       setSubMenuIsOpenByIndex(index, !!isMouseEnter);
     }
-    if (!isMouseEnter && isActive) {
-      setActiveItemIndex(-1);
-      setSubMenuIsOpenByIndex(index, false);
-    }
   }, [
+    resetOpenSubMenuIndex,
     prevIsMouseEnter,
     isMouseEnter,
     setSubMenuIsOpenByIndex,
@@ -97,9 +95,6 @@ const MenuItem = ({
       if (isActive && hasChildren) {
         setActiveItemIndex(index);
         setSubMenuIsOpenByIndex(index, true);
-        requestAnimationFrame(() => {
-          forceUpdate();
-        });
         return;
       }
 
@@ -112,7 +107,6 @@ const MenuItem = ({
     [
       onClick,
       isMouseEnter,
-      forceUpdate,
       disabled,
       isActive,
       index,
