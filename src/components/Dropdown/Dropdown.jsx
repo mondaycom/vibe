@@ -6,10 +6,10 @@ import NOOP from "lodash/noop";
 import { WindowedMenuList } from "react-windowed-select";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import MenuComponent from "./components/Menu/Menu";
+import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
-import OptionComponent from "./components/Option/Option";
-import SingleValueComponent from "./components/SingleValue/SingleValue";
+import OptionComponent from "./components/option/option";
+import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import { SIZE, defaultCustomStyles } from "./DropdownConstants";
 import styles, { customTheme } from "./Dropdown.styles";
@@ -32,7 +32,10 @@ const Dropdown = ({
   openMenuOnClick,
   clearable,
   OptionRenderer,
+  optionRenderer,
   ValueRenderer,
+  valueRenderer,
+  menuRenderer,
   rtl,
   size,
   asyncOptions,
@@ -40,9 +43,13 @@ const Dropdown = ({
   defaultOptions,
   isVirtualized,
   menuPortalTarget,
-  extraStyles
+  extraStyles,
+  menuIsOpen
 }) => {
   const [isOpen, setOpen] = useState(false);
+
+  const finalOptionRenderer = optionRenderer || OptionRenderer;
+  const finalValueRenderer = valueRenderer || ValueRenderer;
 
   const handleMenuOpen = useCallback(
     data => {
@@ -62,16 +69,21 @@ const Dropdown = ({
 
   const customStyles = useMemo(() => extraStyles(styles({ size, rtl })), [size, rtl, extraStyles]);
 
-  const Menu = useCallback(props => <MenuComponent {...props} isOpen={isOpen} />, [isOpen]);
+  const Menu = useCallback(props => <MenuComponent {...props} isOpen={isOpen} Renderer={menuRenderer} />, [
+    isOpen,
+    menuRenderer
+  ]);
 
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
-  const Option = useCallback(props => <OptionComponent {...props} OptionRenderer={OptionRenderer} />, [OptionRenderer]);
+  const Option = useCallback(props => <OptionComponent {...props} Renderer={finalOptionRenderer} />, [
+    finalOptionRenderer
+  ]);
 
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
-  const SingleValue = useCallback(props => <SingleValueComponent {...props} ValueRenderer={ValueRenderer} />, [
-    ValueRenderer
+  const SingleValue = useCallback(props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />, [
+    finalValueRenderer
   ]);
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
@@ -98,8 +110,8 @@ const Dropdown = ({
         Menu,
         ClearIndicator,
         Input,
-        ...(OptionRenderer && { Option }),
-        ...(ValueRenderer && { SingleValue }),
+        ...(finalOptionRenderer && { Option }),
+        ...(finalValueRenderer && { SingleValue }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
       size={size}
@@ -120,6 +132,7 @@ const Dropdown = ({
       styles={customStyles}
       theme={customTheme}
       menuPortalTarget={menuPortalTarget}
+      menuIsOpen={menuIsOpen}
       {...asyncAdditions}
       {...additions}
     />
@@ -204,11 +217,15 @@ Dropdown.propTypes = {
   /**
    * custom option render function
    */
-  OptionRenderer: PropTypes.func,
+  optionRenderer: PropTypes.func,
   /**
    * custom value render function
    */
-  ValueRenderer: PropTypes.func,
+  valueRenderer: PropTypes.func,
+  /**
+   * custom menu render function
+   */
+  menuRenderer: PropTypes.func,
   /**
    * If set to true, the dropdown will be in Right to Left mode
    */

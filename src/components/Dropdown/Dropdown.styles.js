@@ -45,7 +45,7 @@ const disabledContainerStyle = isDisabled => {
   return {
     backgroundColor: getCSSVar("disabled-background-color"),
     color: getCSSVar("primary-text-color"),
-    border: "none",
+    borderColor: "transparent",
     cursor: "not-allowed",
     ":active, :focus, :hover": {
       borderColor: `${getCSSVar("ui-border-color")}`,
