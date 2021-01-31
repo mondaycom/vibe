@@ -69,17 +69,23 @@ const Menu = forwardRef(
 Menu.sizes = MENU_SIZES;
 
 Menu.defaultProps = {
+  id: undefined,
   classname: "",
   size: MENU_SIZES.MEDIUM,
   tabIndex: 0,
-  ariaLabel: "Menu"
+  ariaLabel: "Menu",
+  isVisible: true,
+  closeSubMenu: undefined
 };
 
 Menu.propTypes = {
+  id: PropTypes.string,
   classname: PropTypes.string,
   size: PropTypes.oneOf([MENU_SIZES.SMALL, MENU_SIZES.MEDIUM, MENU_SIZES.LARGE]),
   tabIndex: PropTypes.number,
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  isVisible: PropTypes.bool,
+  closeSubMenu: PropTypes.func
 };
 
 export default Menu;

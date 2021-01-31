@@ -185,8 +185,14 @@ MenuItem.defaultProps = {
   onClick: undefined,
   activeItemIndex: -1,
   setActiveItemIndex: undefined,
-  index: undefined
+  index: undefined,
+  isParentMenuVisible: false,
+  resetOpenSubMenuIndex: undefined,
+  focusParentMenu: undefined,
+  hasOpenSubMenu: false,
+  setSubMenuIsOpenByIndex: undefined
 };
+
 MenuItem.propTypes = {
   classname: PropTypes.string,
   title: PropTypes.string,
@@ -196,7 +202,12 @@ MenuItem.propTypes = {
   onClick: PropTypes.func,
   activeItemIndex: PropTypes.number,
   setActiveItemIndex: PropTypes.func,
-  index: PropTypes.number
+  index: PropTypes.number,
+  isParentMenuVisible: PropTypes.bool,
+  resetOpenSubMenuIndex: PropTypes.func,
+  focusParentMenu: PropTypes.func,
+  hasOpenSubMenu: PropTypes.bool,
+  setSubMenuIsOpenByIndex: PropTypes.func
 };
 
 MenuItem.isSelectable = true;
