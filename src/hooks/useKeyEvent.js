@@ -3,7 +3,6 @@ import useEventListener from "./useEventListener";
 
 const DEFAULT_REF = { current: null };
 export default function useKeyEvent({
-  name = null,
   keys = [],
   ref = DEFAULT_REF,
   callback,
@@ -31,7 +30,7 @@ export default function useKeyEvent({
 
       callback(event);
     },
-    [name, callback, keys, preventDefault, stopPropagation]
+    [callback, keys, preventDefault, stopPropagation]
   );
 
   const refElement = ref && ref.current;
