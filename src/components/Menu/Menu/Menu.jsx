@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useRef, useCallback } from "react";
+import React, { useMemo, forwardRef, useState, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -15,10 +15,14 @@ const Menu = forwardRef(
     { id, classname, size, tabIndex, ariaLabel, children: originalChildren, isVisible = true, closeSubMenu },
     forwardedRef
   ) => {
-    const children = React.Children.toArray(originalChildren);
     const ref = useRef(null);
     const refElement = ref && ref.current;
     const [activeItemIndex, setActiveItemIndex] = useState(-1);
+
+    const children = useMemo(() => {
+      return React.Children.toArray(originalChildren);
+    }, [originalChildren]);
+
     const {
       setSubMenuIsOpenByIndex,
       hasOpenSubMenu,
