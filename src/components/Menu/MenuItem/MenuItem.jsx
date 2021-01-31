@@ -8,7 +8,6 @@ import Icon from "../../Icon/Icon";
 
 import DropdownChevronRight from "../../Icon/Icons/components/DropdownChevronRight";
 import useKeyEvent from "../../../hooks/useKeyEvent";
-import useSetFocus from "../../../hooks/useSetFocus";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import useIsMouseOver from "../../../hooks/useIsMouseOver";

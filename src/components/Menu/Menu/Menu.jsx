@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useKeyEvent from "../../../hooks/useKeyEvent";
+import useOnClickOutside from "../../../hooks/useOnClickOutside";
 import { MENU_SIZES } from "./MenuConstants";
 import "./Menu.scss";
 
@@ -35,18 +36,28 @@ const Menu = forwardRef(
 
     const onCloseMenu = useCallback(
       event => {
-        if (hasOpenSubMenu) return false;
         setActiveItemIndex(-1);
+        setOpenSubMenuIndex(null);
+        closeSubMenu && closeSubMenu();
+      },
+      [closeSubMenu, setOpenSubMenuIndex]
+    );
+
+    const onEscapeClick = useCallback(
+      event => {
+        if (hasOpenSubMenu) return false;
+        onCloseMenu();
         if (closeSubMenu) {
           event.preventDefault();
           event.stopPropagation();
-          closeSubMenu();
         } else {
           refElement && refElement.blur();
         }
       },
-      [closeSubMenu, hasOpenSubMenu, refElement]
+      [closeSubMenu, hasOpenSubMenu, refElement, setOpenSubMenuIndex, onCloseMenu]
     );
+
+    useOnClickOutside({ ref, callback: onCloseMenu });
 
     const onArrowUp = useCallback(() => {
       let newIndex;
@@ -103,7 +114,7 @@ const Menu = forwardRef(
 
     useKeyEvent({
       keys: ["Escape", "ArrowLeft"],
-      callback: onCloseMenu
+      callback: onEscapeClick
     });
 
     const focusParentMenu = useCallback(() => {
