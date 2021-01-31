@@ -57,7 +57,7 @@ const Menu = forwardRef(
           break;
         }
       }
-      newIndex && setActiveItemIndex(newIndex);
+      (newIndex || newIndex === 0) && setActiveItemIndex(newIndex);
     }, [setActiveItemIndex, children, activeItemIndex, hasOpenSubMenu]);
 
     const onArrowDown = useCallback(() => {
