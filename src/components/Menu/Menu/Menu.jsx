@@ -2,7 +2,7 @@ import React, { useMemo, forwardRef, useState, useRef, useCallback } from "react
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import useOnClickOutside from "../../../hooks/useOnClickOutside";
+import useClickOutside from "../../../hooks/useClickOutside";
 import useSubMenuIndex from "./hooks/useSubMenuIndex";
 import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
@@ -33,7 +33,7 @@ const Menu = forwardRef(
 
     const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, closeSubMenu);
 
-    useOnClickOutside({ ref, callback: onCloseMenu });
+    useClickOutside({ ref, callback: onCloseMenu });
     useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, refElement, closeSubMenu);
     useMenuKeyboardNavigation(hasOpenSubMenu, children, activeItemIndex, setActiveItemIndex, isVisible);
 

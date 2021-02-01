@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 
 import useEventListener from "./useEventListener";
 
-export default function useMergeRefs({ ref, name }) {
+export default function useMergeRefs({ ref }) {
   const [isHovered, setIsHover] = useState(false);
 
   const element = ref && ref.current;
