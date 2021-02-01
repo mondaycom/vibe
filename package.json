@@ -13,7 +13,7 @@
     "test-ci": "./node_modules/karma/bin/karma start --single-run",
     "start": "npm run build-react-icons && webpack --mode production --watch --config webpack/default.config.js",
     "build": "npm run build-react-icons && webpack --mode production --config webpack/default.config.js",
-    "storybook": "npm run build-react-icons && start-storybook -p 7007",
+    "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "link-local": "npm link && npm start",
