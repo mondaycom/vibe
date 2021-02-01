@@ -196,35 +196,35 @@ export const overflowMenuItem = () => {
   return (
     <div>
       <div style={{ width: "260px" }}>
-        <MenuItem
-          id="menu-item-short-text"
-          title={"short text"}
-          icon={icon}
-          disabled={boolean("disabled", false)}
-          onClick={() => alert("hello")}
-        ></MenuItem>
-      </div>
-      <div style={{ width: "260px" }}>
-        <MenuItem
-          id="menu-item-long-text"
-          title={"long text - bla bla bla bla bla bla bla bla bla bla bla"}
-          icon={icon}
-          disabled={boolean("disabled", false)}
-          onClick={() => alert("hello")}
-        ></MenuItem>
-      </div>
-      <div style={{ width: "260px" }}>
-        <MenuItem
-          id="menu-item-long-text"
-          title={"long text with sub menu - bla bla bla bla bla bla bla bla bla bla bla"}
-          icon={icon}
-          disabled={boolean("disabled", false)}
-          onClick={() => alert("hello")}
-        >
-          <Menu id="menu" size={Menu.sizes.SMALL}>
-            {renderMenuItems()}
-          </Menu>
-        </MenuItem>
+        <Menu id="menu-level-1" size={Menu.sizes.SMALL}>
+          <MenuItem
+            id="menu-item-short-text"
+            title="short text"
+            icon={icon}
+            disabled={boolean("disabled", false)}
+            onClick={() => alert("hello")}
+          />
+
+          <MenuItem
+            id="menu-item-long-text"
+            title="long text - bla bla bla bla bla bla bla bla bla bla bla"
+            icon={icon}
+            disabled={boolean("disabled", false)}
+            onClick={() => alert("hello")}
+          />
+
+          <MenuItem
+            id="menu-item-long-text"
+            title="long text with sub menu - bla bla bla bla bla bla bla bla bla bla bla"
+            icon={icon}
+            disabled={boolean("disabled", false)}
+            onClick={() => alert("hello")}
+          >
+            <Menu id="sub-menu" size={Menu.sizes.SMALL}>
+              {renderMenuItems()}
+            </Menu>
+          </MenuItem>
+        </Menu>
       </div>
     </div>
   );
