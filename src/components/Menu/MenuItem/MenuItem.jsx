@@ -1,20 +1,21 @@
-import React, { useCallback, useRef, useEffect, useState, useLayoutEffect, useReducer } from "react";
+import React, { useCallback, useRef, useEffect } from "react";
 
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
 
 import Icon from "../../Icon/Icon";
-
 import DropdownChevronRight from "../../Icon/Icons/components/DropdownChevronRight";
-import useKeyEvent from "../../../hooks/useKeyEvent";
-import useSetFocus from "../../../hooks/useSetFocus";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import useIsMouseOver from "../../../hooks/useIsMouseOver";
-
 import usePopover from "../../../hooks/usePopover";
-import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+
+import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
+import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
+
 import "./MenuItem.scss";
 
 const MenuItem = ({
@@ -27,61 +28,73 @@ const MenuItem = ({
   activeItemIndex,
   setActiveItemIndex,
   index,
-  children
+  children,
+  isParentMenuVisible,
+  resetOpenSubMenuIndex,
+  focusParentMenu,
+  hasOpenSubMenu,
+  setSubMenuIsOpenByIndex
 }) => {
+  const isActive = activeItemIndex === index;
+  const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
+  const hasChildren = !!children;
+  const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
+  const submenuChild = children && React.Children.only(children);
+
   const ref = useRef(null);
   const titleRef = useRef();
-  const isHovered = useIsMouseOver({ ref: titleRef });
-
-  const isHoveredAndOverflowing = useIsOverflowing({ ref: isHovered && titleRef });
-  const [isActive, setIsActive] = useState(activeItemIndex === index);
-
+  const childRef = useRef();
   const referenceElementRef = useRef(null);
   const popperElementRef = useRef(null);
   const popperElement = popperElementRef.current;
   const referenceElement = referenceElementRef.current;
+  const childElement = childRef.current;
 
-  const isSubMenuOpen = !!children && isActive;
+  const isTitleHoveredHovered = useIsMouseOver({ ref: titleRef });
+  const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: isTitleHoveredHovered && titleRef });
 
   const { styles, attributes } = usePopover(referenceElement, popperElement, {
     isOpen: isSubMenuOpen
   });
 
-  useEffect(() => {
-    setIsActive(activeItemIndex === index);
-  }, [activeItemIndex, index]);
-
-  const onClickCallback = useCallback(
-    event => {
-      if (popperElement && popperElement.contains(event.target)) return;
-      if (onClick && !disabled && isActive) {
-        onClick(event);
-      }
-    },
-    [onClick, disabled, isActive, popperElement]
+  useMenuItemMouseEvents(
+    ref,
+    resetOpenSubMenuIndex,
+    setSubMenuIsOpenByIndex,
+    isActive,
+    setActiveItemIndex,
+    index,
+    hasChildren
   );
 
-  const setActive = useCallback(() => {
-    if (setActiveItemIndex) {
-      setActiveItemIndex(index);
-    } else {
-      setIsActive(true);
-    }
-  }, [setActiveItemIndex, setIsActive, index]);
+  const { onClickCallback } = useMenuItemKeyboardEvents(
+    onClick,
+    disabled,
+    isActive,
+    index,
+    setActiveItemIndex,
+    hasChildren,
+    shouldShowSubMenu,
+    setSubMenuIsOpenByIndex
+  );
 
-  const setUnActive = useCallback(() => {
-    if (setActiveItemIndex) {
-      setActiveItemIndex(-1);
-    } else {
-      setIsActive(false);
+  useEffect(() => {
+    if (shouldShowSubMenu && childElement) {
+      requestAnimationFrame(() => {
+        childElement.focus();
+      });
     }
-  }, [setActiveItemIndex, setIsActive]);
+  }, [shouldShowSubMenu, childElement]);
 
-  useSetFocus({ ref, setActive, setUnActive, isActive });
-  useKeyEvent({ keys: ["Enter"], callback: onClickCallback });
+  const closeSubMenu = useCallback(() => {
+    setSubMenuIsOpenByIndex(index, false);
+    focusParentMenu && focusParentMenu();
+  }, [setSubMenuIsOpenByIndex, focusParentMenu, index]);
+
+  const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
 
   const renderSubMenuIconIfNeeded = () => {
-    if (!children) return null;
+    if (!hasChildren) return null;
 
     return (
       <div className="monday-style-menu-item__sub_menu_icon-wrapper">
@@ -118,9 +131,9 @@ const MenuItem = ({
     );
   };
 
-  const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
   return (
     <div
+      aria-haspopup={!!children}
       className={cx("monday-style-menu-item", classname, {
         "monday-style-menu-item--disabled": disabled,
         "monday-style-menu-item--focused": isActive
@@ -130,10 +143,8 @@ const MenuItem = ({
     >
       {renderMenuItemIconIfNeeded()}
 
-      {
-        // show tooltip if needed
-      }
-      {isHoveredAndOverflowing && null}
+      {// show tooltip if needed
+      isTitleHoveredAndOverflowing && null}
 
       <div ref={titleRef} className="monday-style-menu-item__title">
         {title}
@@ -142,12 +153,22 @@ const MenuItem = ({
       {renderSubMenuIconIfNeeded()}
 
       <div
-        style={styles.popper}
+        style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...attributes.popper}
         className="monday-style-menu-item__popover"
         ref={popperElementRef}
       >
-        <DialogContentContainer>{children}</DialogContentContainer>
+        {submenuChild && shouldShowSubMenu && (
+          <DialogContentContainer>
+            {React.cloneElement(submenuChild, {
+              ...submenuChild?.props,
+              isVisible: shouldShowSubMenu,
+              closeSubMenu,
+              ref: childRef
+            })}
+          </DialogContentContainer>
+        )}
       </div>
     </div>
   );
@@ -164,8 +185,14 @@ MenuItem.defaultProps = {
   onClick: undefined,
   activeItemIndex: -1,
   setActiveItemIndex: undefined,
-  index: undefined
+  index: undefined,
+  isParentMenuVisible: false,
+  resetOpenSubMenuIndex: undefined,
+  focusParentMenu: undefined,
+  hasOpenSubMenu: false,
+  setSubMenuIsOpenByIndex: undefined
 };
+
 MenuItem.propTypes = {
   classname: PropTypes.string,
   title: PropTypes.string,
@@ -175,7 +202,12 @@ MenuItem.propTypes = {
   onClick: PropTypes.func,
   activeItemIndex: PropTypes.number,
   setActiveItemIndex: PropTypes.func,
-  index: PropTypes.number
+  index: PropTypes.number,
+  isParentMenuVisible: PropTypes.bool,
+  resetOpenSubMenuIndex: PropTypes.func,
+  focusParentMenu: PropTypes.func,
+  hasOpenSubMenu: PropTypes.bool,
+  setSubMenuIsOpenByIndex: PropTypes.func
 };
 
 MenuItem.isSelectable = true;

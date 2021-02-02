@@ -2,15 +2,17 @@ import { useCallback, useRef } from "react";
 import useEventListener from "./useEventListener";
 
 export default function useOnClickOutside({ ref, callback }) {
+  const refElement = ref && ref.current;
+
   const onClickOutsideListener = useCallback(
     event => {
-      if (!ref.current || ref.current.contains(event.target)) {
-        return () => {};
+      if (!refElement || refElement.contains(event.target)) {
+        return;
       }
       callback(event);
     },
 
-    [ref, callback]
+    [refElement, callback]
   );
 
   const documentRef = useRef(document);
@@ -21,6 +23,7 @@ export default function useOnClickOutside({ ref, callback }) {
     callback: onClickOutsideListener,
     capture: true
   });
+
   useEventListener({
     eventName: "touchend",
     ref: documentRef,
