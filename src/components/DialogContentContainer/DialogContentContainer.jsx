@@ -20,10 +20,7 @@ const DIALOG_SIZES = {
 const bemHelper = BEMClass("dialog-content-container");
 
 const DialogContentContainer = forwardRef(
-  (
-    { className, ariaLabelledby, ariaDescribedby, type, size, children },
-    ref
-  ) => {
+  ({ className, ariaLabelledby, ariaDescribedby, type, size, children }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -33,12 +30,7 @@ const DialogContentContainer = forwardRef(
         aria-labelledby={ariaLabelledby}
         aria-describedby={ariaDescribedby}
         ref={mergedRef}
-        className={cx(
-          "dialog-content-container",
-          className,
-          bemHelper(type),
-          bemHelper(size)
-        )}
+        className={cx("dialog-content-container", className, bemHelper(type), bemHelper(size))}
       >
         {children}
       </div>
@@ -51,11 +43,7 @@ DialogContentContainer.propTypes = {
   ariaLabelledby: PropTypes.string,
   ariaDescribedby: PropTypes.string,
   type: PropTypes.oneOf([DIALOG_TYPES.MODAL, DIALOG_TYPES.POPOVER]),
-  size: PropTypes.oneOf([
-    DIALOG_SIZES.SMALL,
-    DIALOG_SIZES.MEDIUM,
-    DIALOG_SIZES.LARGE
-  ])
+  size: PropTypes.oneOf([DIALOG_SIZES.SMALL, DIALOG_SIZES.MEDIUM, DIALOG_SIZES.LARGE])
 };
 
 DialogContentContainer.defaultProps = {

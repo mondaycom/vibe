@@ -1,11 +1,7 @@
 import React, { useMemo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import {
-  baseClassName,
-  PROGRESS_BAR_SIZES,
-  PROGRESS_BAR_STYLES
-} from "./LinearProgressBarConstants";
+import { baseClassName, PROGRESS_BAR_SIZES, PROGRESS_BAR_STYLES } from "./LinearProgressBarConstants";
 import { calculatePercentage } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
@@ -36,8 +32,7 @@ const LinearProgressBar = forwardRef(
 
     const valuePercentage = useMemo(() => {
       if (multi) {
-        const firstValue =
-          multiValues && multiValues.length && multiValues[0].value;
+        const firstValue = multiValues && multiValues.length && multiValues[0].value;
         if (firstValue === null || firstValue === undefined) return 0;
         return calculatePercentage(firstValue, min, max);
       }
@@ -67,11 +62,7 @@ const LinearProgressBar = forwardRef(
     }, [min, max, animated, multiValues, multi]);
 
     const renderPercentage = indicateProgress ? (
-      <PercentageLabel
-        forElement="linear-progress-bar"
-        className={`${baseClassName}__label`}
-        value={valuePercentage}
-      />
+      <PercentageLabel forElement="linear-progress-bar" className={`${baseClassName}__label`} value={valuePercentage} />
     ) : null;
 
     const renderBaseBars = !multi ? (
@@ -86,14 +77,7 @@ const LinearProgressBar = forwardRef(
           min={min}
           max={max}
         />
-        <Bar
-          barStyle={barStyle}
-          value={value}
-          animated={animated}
-          baseClass={baseClassName}
-          min={min}
-          max={max}
-        />
+        <Bar barStyle={barStyle} value={value} animated={animated} baseClass={baseClassName} min={min} max={max} />
       </>
     ) : null;
 

@@ -22,9 +22,7 @@ describe("Dropdown", () => {
 
   it("should render correctly for the different sizes", function() {
     Object.values(Dropdown.size).forEach(size => {
-      const tree = renderer
-        .create(<Dropdown size={size} placeholder="placeHolder" />)
-        .toJSON();
+      const tree = renderer.create(<Dropdown size={size} placeholder="placeHolder" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
@@ -34,12 +32,7 @@ describe("Dropdown", () => {
       .fill(null)
       .map((_, i) => ({ value: i + 1, label: (i + 1).toString() }));
     const { getByLabelText, asFragment } = render(
-      <Dropdown
-        options={mockVirtualizedOptions}
-        isVirtualized
-        openMenuOnClick
-        openMenuOnFocus
-      />
+      <Dropdown options={mockVirtualizedOptions} isVirtualized openMenuOnClick openMenuOnFocus />
     );
     const inputElement = getByLabelText("Dropdown input");
     inputElement.focus();
@@ -52,20 +45,12 @@ describe("Dropdown", () => {
       const arr = mockOptions;
       return new Promise(resolve => {
         setTimeout(() => {
-          resolve(
-            arr.filter(({ label }) =>
-              label.toLowerCase().includes(inputValue.toLowerCase())
-            )
-          );
+          resolve(arr.filter(({ label }) => label.toLowerCase().includes(inputValue.toLowerCase())));
         }, 1000);
       });
     };
     const { getByLabelText, asFragment } = render(
-      <Dropdown
-        className="dropdown-story"
-        asyncOptions={mockPromiseOptions}
-        defaultOptions={true}
-      />
+      <Dropdown className="dropdown-story" asyncOptions={mockPromiseOptions} defaultOptions={true} />
     );
     const inputElement = getByLabelText("Dropdown input");
     inputElement.focus();
@@ -74,9 +59,7 @@ describe("Dropdown", () => {
   });
 
   it("should open menu on focus if set", function() {
-    const { getByLabelText, asFragment } = render(
-      <Dropdown options={mockOptions} openMenuOnFocus />
-    );
+    const { getByLabelText, asFragment } = render(<Dropdown options={mockOptions} openMenuOnFocus />);
     const inputElement = getByLabelText("Dropdown input");
 
     inputElement.focus();
@@ -86,12 +69,7 @@ describe("Dropdown", () => {
 
   it("should open menu on click if set", function() {
     const { asFragment, getByLabelText } = render(
-      <Dropdown
-        options={mockOptions}
-        openMenuOnClick
-        searchable
-        placeholder={"mockPlaceholder"}
-      />
+      <Dropdown options={mockOptions} openMenuOnClick searchable placeholder={"mockPlaceholder"} />
     );
     const inputElement = getByLabelText("Dropdown input");
     inputElement.focus();

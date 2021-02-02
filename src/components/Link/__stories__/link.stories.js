@@ -41,9 +41,8 @@ export const States = () => {
   return (
     <div className="links-list">
       <DescriptionLabel>
-        When adding links please make sure to pass a short but descriptive{" "}
-        <code>ariaLabelDescription</code> prop in order to better support screen
-        readers
+        When adding links please make sure to pass a short but descriptive <code>ariaLabelDescription</code> prop in
+        order to better support screen readers
       </DescriptionLabel>
       <FlexLayout>
         <StoryLine title="Start Icon">

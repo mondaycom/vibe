@@ -209,13 +209,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: background-color 0.1s ease-in;
       border-radius: $border-radius-small;
       opacity: 0;
       pointer-events: none;
       &.input-component__icon--container-active {
         &.input-component__icon--container-has-icon {
           pointer-events: all;
+          cursor: pointer;
         }
         opacity: 1;
         .input-component__icon {

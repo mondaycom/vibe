@@ -12,11 +12,6 @@ import { withPerformance } from "storybook-addon-performance";
 
 const renderMenuItems = () => {
   return [
-    <MenuTitle
-      id="menu-title-1"
-      caption={"Caption"}
-      captionPosition={MenuTitle.positions.TOP}
-    />,
     <MenuItem
       id="menu-item-1"
       title={"Sombody"}
@@ -44,7 +39,7 @@ const renderMenuItems = () => {
         alert("3");
       }}
     />,
-    <MenuTitle id="menu-title-2" caption={"Caption"} />,
+
     <MenuItem
       id="menu-item-4"
       title={"Like a"}
@@ -63,7 +58,7 @@ const renderMenuItems = () => {
         alert("5");
       }}
     />,
-    <Divider id="devider" />,
+
     <MenuItem
       id="menu-item-6"
       title={"She's dancing"}

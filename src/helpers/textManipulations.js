@@ -8,10 +8,7 @@ const validateLocalSupported = local => {
   let isLocalSupported;
   try {
     const options = { localeMatcher: "lookup" };
-    isLocalSupported = !!Intl.NumberFormat.supportedLocalesOf(
-      convertToArray(local),
-      options
-    ).length;
+    isLocalSupported = !!Intl.NumberFormat.supportedLocalesOf(convertToArray(local), options).length;
   } catch (err) {
     isLocalSupported = false;
   }
@@ -31,10 +28,7 @@ export const formatNumberConsts = Object.freeze({
   DEFAULT_LOCAL
 });
 
-export const formatNumber = (
-  value,
-  { local = DEFAULT_LOCAL, isCompact = true, precision = 2 } = {}
-) => {
+export const formatNumber = (value, { local = DEFAULT_LOCAL, isCompact = true, precision = 2 } = {}) => {
   if (value === undefined || value === null) return;
   const isLocalSupported = validateLocalSupported(local);
   const normalizedPrecision = validatePrecision(precision);

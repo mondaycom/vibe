@@ -2,30 +2,14 @@ import React, { useMemo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { baseClassName } from "./FormattedNumberConsts";
-import {
-  formatNumber,
-  formatNumberConsts
-} from "../../helpers/textManipulations";
+import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
 import { customPropTypes, validateValue } from "./FormattedNumberHelpers";
 import "./FormattedNumber.scss";
 
 const { MAX_PRECISION, MIN_PRECISION } = formatNumberConsts;
 
 const FormattedNumber = forwardRef(
-  (
-    {
-      value,
-      className,
-      local,
-      prefix,
-      suffix,
-      emptyPlaceHolder,
-      decimalPrecision,
-      compact,
-      rtl
-    },
-    ref
-  ) => {
+  ({ value, className, local, prefix, suffix, emptyPlaceHolder, decimalPrecision, compact, rtl }, ref) => {
     const renderSuffix = useMemo(() => {
       if (!suffix) return null;
 
@@ -47,11 +31,7 @@ const FormattedNumber = forwardRef(
     }, [value, decimalPrecision, local, compact]);
 
     if (validateValue(value)) {
-      return (
-        <span className={`${baseClassName}__place-holder`}>
-          {emptyPlaceHolder}
-        </span>
-      );
+      return <span className={`${baseClassName}__place-holder`}>{emptyPlaceHolder}</span>;
     }
 
     return (
@@ -73,6 +53,7 @@ FormattedNumber.propTypes = {
   /**
    * A numeric value to format.
    */
+  // eslint-disable-next-line react/require-default-props
   value: PropTypes.number,
   /**
    * Add external styling. Will be added to the main container.
@@ -114,7 +95,9 @@ FormattedNumber.defaultProps = {
   compact: true,
   local: FormattedNumber.localFallBack,
   rtl: false,
-  className: ""
+  className: "",
+  prefix: "",
+  suffix: ""
 };
 
 export default FormattedNumber;

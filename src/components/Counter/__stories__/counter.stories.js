@@ -16,18 +16,10 @@ export const Fill = () => (
         <Counter ariaLabel="primary counter" id="primary-id" />
       </StoryStateColumn>
       <StoryStateColumn title="Negative" description="Notifications">
-        <Counter
-          color={Counter.colors.NEGATIVE}
-          ariaLabel="Negative counter"
-          id="Negative-id"
-        />
+        <Counter color={Counter.colors.NEGATIVE} ariaLabel="Negative counter" id="Negative-id" />
       </StoryStateColumn>
       <StoryStateColumn title="Dark" description="General">
-        <Counter
-          color={Counter.colors.DARK}
-          ariaLabel="Dark counter"
-          id="Dark-id"
-        />
+        <Counter color={Counter.colors.DARK} ariaLabel="Dark counter" id="Dark-id" />
       </StoryStateColumn>
     </StoryStateRow>
     <StoryStateRow>
@@ -35,11 +27,7 @@ export const Fill = () => (
     </StoryStateRow>
     <StoryStateRow>
       <StoryStateColumn title="Primary" description="Info counter">
-        <Counter
-          size={Counter.sizes.SMALL}
-          ariaLabel="primary counter"
-          id="small-primary-id"
-        />
+        <Counter size={Counter.sizes.SMALL} ariaLabel="primary counter" id="small-primary-id" />
       </StoryStateColumn>
       <StoryStateColumn title="Negative" description="Notifications">
         <Counter
@@ -50,12 +38,7 @@ export const Fill = () => (
         />
       </StoryStateColumn>
       <StoryStateColumn title="Dark" description="General">
-        <Counter
-          size={Counter.sizes.SMALL}
-          color={Counter.colors.DARK}
-          ariaLabel="dark counter"
-          id="small-dark-id"
-        />
+        <Counter size={Counter.sizes.SMALL} color={Counter.colors.DARK} ariaLabel="dark counter" id="small-dark-id" />
       </StoryStateColumn>
     </StoryStateRow>
   </section>
@@ -68,11 +51,7 @@ export const Line = () => (
     </StoryStateRow>
     <StoryStateRow>
       <StoryStateColumn title="Primary" description="Info counter">
-        <Counter
-          kind={Counter.kinds.LINE}
-          ariaLabel="primary-line counter"
-          id="primary-line-id-large"
-        />
+        <Counter kind={Counter.kinds.LINE} ariaLabel="primary-line counter" id="primary-line-id-large" />
       </StoryStateColumn>
       <StoryStateColumn title="Negative" description="Notifications">
         <Counter
@@ -128,49 +107,20 @@ export const Line = () => (
 export const Limits = () => (
   <section>
     <StoryStateRow>
-      <StoryStateColumn
-        title="1 digit limit"
-        description="maxDigits=1, count=10"
-      >
-        <Counter
-          maxDigits={1}
-          count={10}
-          id="limit-1-digit"
-          ariaLabel="Counter is limited by 1 digit"
-        />
+      <StoryStateColumn title="1 digit limit" description="maxDigits=1, count=10">
+        <Counter maxDigits={1} count={10} id="limit-1-digit" ariaLabel="Counter is limited by 1 digit" />
       </StoryStateColumn>
-      <StoryStateColumn
-        title="2 digits limit"
-        description="maxDigits=2, count=100"
-      >
-        <Counter
-          maxDigits={2}
-          count={100}
-          id="limit-2-digit"
-          ariaLabel="Counter is limited by 2 digit"
-        />
+      <StoryStateColumn title="2 digits limit" description="maxDigits=2, count=100">
+        <Counter maxDigits={2} count={100} id="limit-2-digit" ariaLabel="Counter is limited by 2 digit" />
       </StoryStateColumn>
-      <StoryStateColumn
-        title="3 digits limit"
-        description="maxDigits=3, count=1000"
-      >
-        <Counter
-          maxDigits={3}
-          count={1000}
-          id="limit-3-digit"
-          ariaLabel="Counter is limited by 3 digit"
-        />
+      <StoryStateColumn title="3 digits limit" description="maxDigits=3, count=1000">
+        <Counter maxDigits={3} count={1000} id="limit-3-digit" ariaLabel="Counter is limited by 3 digit" />
       </StoryStateColumn>
     </StoryStateRow>
   </section>
 );
 
-const CountChangeComponent = ({
-  initialCount,
-  maxCount,
-  maxDigits,
-  ...props
-}) => {
+const CountChangeComponent = ({ initialCount, maxCount, maxDigits, ...props }) => {
   const [count, setCount] = useState(null);
   const changeCountCallback = useCallback(() => {
     const newCount = count === maxCount ? initialCount : count + 1;
@@ -201,12 +151,7 @@ export const CountChangeAnimation = () => {
       </StoryStateRow>
       <StoryStateRow>
         <StoryStateColumn title="Going above maxDigits">
-          <CountChangeComponent
-            initialCount={97}
-            maxCount={102}
-            maxDigits={2}
-            color={Counter.colors.NEGATIVE}
-          />
+          <CountChangeComponent initialCount={97} maxCount={102} maxDigits={2} color={Counter.colors.NEGATIVE} />
         </StoryStateColumn>
       </StoryStateRow>
     </section>
@@ -218,16 +163,8 @@ export const Sandbox = () => (
     <Counter
       id="Knobs"
       count={number("Count", 5)}
-      size={select(
-        "Size",
-        [Counter.sizes.LARGE, Counter.sizes.SMALL],
-        Counter.sizes.LARGE
-      )}
-      kind={select(
-        "Kind",
-        [Counter.kinds.FILL, Counter.kinds.LINE],
-        Counter.kinds.FILL
-      )}
+      size={select("Size", [Counter.sizes.LARGE, Counter.sizes.SMALL], Counter.sizes.LARGE)}
+      kind={select("Kind", [Counter.kinds.FILL, Counter.kinds.LINE], Counter.kinds.FILL)}
       color={select(
         "Color",
         [Counter.colors.PRIMARY, Counter.colors.DARK, Counter.colors.NEGATIVE],
@@ -243,11 +180,7 @@ export const NotificationCounter = () => (
     <Counter
       id="Knobs"
       count={number("Count", 5)}
-      size={select(
-        "Size",
-        [Counter.sizes.LARGE, Counter.sizes.SMALL],
-        Counter.sizes.LARGE
-      )}
+      size={select("Size", [Counter.sizes.LARGE, Counter.sizes.SMALL], Counter.sizes.LARGE)}
       kind={Counter.kinds.FILL}
       color={Counter.colors.NEGATIVE}
       maxDigits={number("Max Digits", 3)}

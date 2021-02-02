@@ -46,10 +46,6 @@ exports[`RadioButton Tests Snapshot Tests renders correctly with empty props 1`]
       className="monday-style-radio-button-component__radio-input-container__radio-control"
     />
   </span>
-  <span
-    className="monday-style-radio-button-component__radio-label"
-  >
-    
-  </span>
+  
 </label>
 `;

@@ -3,6 +3,7 @@
 exports[`Snapshots renders correctly with count above limit 1`] = `
 <span
   aria-label=" 999+"
+  aria-labelledby=""
   className=""
 >
   <div
@@ -21,6 +22,7 @@ exports[`Snapshots renders correctly with count above limit 1`] = `
 exports[`Snapshots renders correctly with count below the limit 1`] = `
 <span
   aria-label=" 1"
+  aria-labelledby=""
   className=""
 >
   <div

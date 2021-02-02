@@ -13,11 +13,7 @@ describe("<Buttoon />", () => {
     clickActionStub = sinon.stub();
     onMouseDownStub = sinon.stub();
     buttonComponent = render(
-      <Button
-        className={className}
-        onClick={clickActionStub}
-        onMouseDown={onMouseDownStub}
-      >
+      <Button className={className} onClick={clickActionStub} onMouseDown={onMouseDownStub}>
         {text}
       </Button>
     );
@@ -97,12 +93,7 @@ describe("<Buttoon />", () => {
     it("should add the aria label", () => {
       const ariaLabel = "Icon Name";
       const { getByLabelText } = render(
-        <Button
-          ariaLabel={ariaLabel}
-          className={className}
-          onClick={clickActionStub}
-          onMouseDown={onMouseDownStub}
-        >
+        <Button ariaLabel={ariaLabel} className={className} onClick={clickActionStub} onMouseDown={onMouseDownStub}>
           {text}
         </Button>
       );
@@ -122,11 +113,7 @@ describe("<Buttoon />", () => {
         </Button>
       );
       const buttonElement = getByText(text);
-      expect(
-        buttonElement.classList.contains(
-          `monday-style-button--size-${Button.sizes.SMALL}`
-        )
-      ).to.equal(true);
+      expect(buttonElement.classList.contains(`monday-style-button--size-${Button.sizes.SMALL}`)).to.equal(true);
     });
 
     it("small size should add the relevant class medium", () => {
@@ -136,11 +123,7 @@ describe("<Buttoon />", () => {
         </Button>
       );
       const buttonElement = getByText(text);
-      expect(
-        buttonElement.classList.contains(
-          `monday-style-button--size-${Button.sizes.MEDIUM}`
-        )
-      ).to.equal(true);
+      expect(buttonElement.classList.contains(`monday-style-button--size-${Button.sizes.MEDIUM}`)).to.equal(true);
     });
 
     it("small size should add the relevant class large", () => {
@@ -150,11 +133,7 @@ describe("<Buttoon />", () => {
         </Button>
       );
       const buttonElement = getByText(text);
-      expect(
-        buttonElement.classList.contains(
-          `monday-style-button--size-${Button.sizes.LARGE}`
-        )
-      ).to.equal(true);
+      expect(buttonElement.classList.contains(`monday-style-button--size-${Button.sizes.LARGE}`)).to.equal(true);
     });
   });
   describe("colors", () => {
@@ -163,15 +142,9 @@ describe("<Buttoon />", () => {
       unmount();
     });
     it("should add primary color", () => {
-      const { getByText } = render(
-        <Button className={className}>{text}</Button>
-      );
+      const { getByText } = render(<Button className={className}>{text}</Button>);
       const buttonElement = getByText(text);
-      expect(
-        buttonElement.classList.contains(
-          `monday-style-button--color-${Button.colors.PRIMARY}`
-        )
-      ).to.equal(true);
+      expect(buttonElement.classList.contains(`monday-style-button--color-${Button.colors.PRIMARY}`)).to.equal(true);
     });
     it("should add primary positive", () => {
       const { getByText } = render(
@@ -180,11 +153,7 @@ describe("<Buttoon />", () => {
         </Button>
       );
       const buttonElement = getByText(text);
-      expect(
-        buttonElement.classList.contains(
-          `monday-style-button--color-${Button.colors.POSITIVE}`
-        )
-      ).to.equal(true);
+      expect(buttonElement.classList.contains(`monday-style-button--color-${Button.colors.POSITIVE}`)).to.equal(true);
     });
     it("should add primary negative", () => {
       const { getByText } = render(
@@ -193,11 +162,7 @@ describe("<Buttoon />", () => {
         </Button>
       );
       const buttonElement = getByText(text);
-      expect(
-        buttonElement.classList.contains(
-          `monday-style-button--color-${Button.colors.NEGATIVE}`
-        )
-      ).to.equal(true);
+      expect(buttonElement.classList.contains(`monday-style-button--color-${Button.colors.NEGATIVE}`)).to.equal(true);
     });
     it("should add primary on-primary", () => {
       const { getByText } = render(
@@ -206,11 +171,9 @@ describe("<Buttoon />", () => {
         </Button>
       );
       const buttonElement = getByText(text);
-      expect(
-        buttonElement.classList.contains(
-          `monday-style-button--color-${Button.colors.ON_PRIMARY_COLOR}`
-        )
-      ).to.equal(true);
+      expect(buttonElement.classList.contains(`monday-style-button--color-${Button.colors.ON_PRIMARY_COLOR}`)).to.equal(
+        true
+      );
     });
 
     describe("success", () => {
@@ -235,21 +198,12 @@ describe("<Buttoon />", () => {
 
       it("color should be POSITIVE when success is true", () => {
         const { getByText } = render(
-          <Button
-            className={className}
-            color={Button.colors.PRIMARY}
-            success
-            successText="Success"
-          >
+          <Button className={className} color={Button.colors.PRIMARY} success successText="Success">
             {text}
           </Button>
         );
         const buttonElement = getByText("Success");
-        expect(
-          buttonElement.classList.contains(
-            `monday-style-button--color-${Button.colors.POSITIVE}`
-          )
-        ).to.equal(true);
+        expect(buttonElement.classList.contains(`monday-style-button--color-${Button.colors.POSITIVE}`)).to.equal(true);
       });
     });
   });

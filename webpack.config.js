@@ -30,9 +30,7 @@ module.exports = options => {
     {
       loader: "postcss-loader",
       options: {
-        plugins: () => [
-          autoprefixer() /* Using browsers from .browserslistrc file */
-        ]
+        plugins: () => [autoprefixer() /* Using browsers from .browserslistrc file */]
       }
     }
   ];

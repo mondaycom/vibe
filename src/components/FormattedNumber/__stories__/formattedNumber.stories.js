@@ -8,11 +8,7 @@ export const Sandbox = () => (
   <div style={{ width: "100%", margin: "40px" }}>
     <div style={{ width: "40px", height: "40px" }}>
       <FormattedNumber
-        className={select(
-          "With custom class",
-          ["formatted-number--custom-class", ""],
-          ""
-        )}
+        className={select("With custom class", ["formatted-number--custom-class", ""], "")}
         value={number("Value", 50000)}
         prefix={text("Prefix", "$")}
         suffix={text("Suffix", "Human")}

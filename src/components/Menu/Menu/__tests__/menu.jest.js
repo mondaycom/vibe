@@ -14,9 +14,7 @@ describe("Snapshots", () => {
   });
 
   it("renders correctly with custom class name", () => {
-    const tree = renderer
-      .create(<Menu classname="dummy-class-name" />)
-      .toJSON();
+    const tree = renderer.create(<Menu classname="dummy-class-name" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

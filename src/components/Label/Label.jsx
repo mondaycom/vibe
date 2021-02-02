@@ -7,12 +7,7 @@ import Leg from "./Leg";
 
 const Label = ({ wrapperClassName, kind, color, text = "" }) => {
   const classNames = useMemo(
-    () =>
-      cx(
-        "monday-style-label",
-        `monday-style-label--kind-${kind}`,
-        `monday-style-label--color-${color}`
-      ),
+    () => cx("monday-style-label", `monday-style-label--kind-${kind}`, `monday-style-label--color-${color}`),
     [kind, color]
   );
   return (
@@ -30,12 +25,7 @@ const Label = ({ wrapperClassName, kind, color, text = "" }) => {
 Label.propTypes = {
   wrapperClassName: PropTypes.string,
   text: PropTypes.string,
-  color: PropTypes.oneOf([
-    LABEL_COLORS.PRIMARY,
-    LABEL_COLORS.DARK,
-    LABEL_COLORS.POSITIVE,
-    LABEL_COLORS.NEGATIVE
-  ]),
+  color: PropTypes.oneOf([LABEL_COLORS.PRIMARY, LABEL_COLORS.DARK, LABEL_COLORS.POSITIVE, LABEL_COLORS.NEGATIVE]),
   kind: PropTypes.oneOf([LABEL_TYPES.FILL, LABEL_TYPES.LINE])
 };
 Label.defaultProps = {

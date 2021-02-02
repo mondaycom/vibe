@@ -1,0 +1,155 @@
+@import "../../../../styles/themes.scss";
+@import "../../../../styles/typography.scss";
+
+.monday-style-step-indicator-component {
+  @include theme-prop(color, text-color-on-primary);
+  font-size: $font-size-input;
+  display: flex;
+
+  &--with-animation {
+    animation: circle-pop 250ms;
+  }
+
+  &--swap {
+    /* New state enters */
+    &-enter {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    &-enter-active {
+      position: relative;
+      opacity: 1;
+      transition: transform 150ms cubic-bezier(0, 0, 0.35, 1), opacity 70ms;
+      transform: translateY(0);
+    }
+
+    /* Old state leaves */
+    &-exit {
+      position: relative;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    &-exit-active {
+      position: relative;
+      opacity: 0;
+      transform: translateY(-15px);
+      transition: transform 150ms cubic-bezier(0, 0, 0.35, 1), opacity 70ms;
+    }
+  }
+
+  &__number-container {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+
+    &__text {
+      margin: auto;
+      display: flex;
+      align-items: center;
+
+      &__check-icon {
+        width: 20px;
+        height: 20px;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 8px;
+
+    &__title {
+      width: 100%;
+      .visually-hidden {
+        display: none;
+      }
+
+      &__text {
+        @include font-paragraph();
+        @include theme-prop(color, primary-text-color);
+      }
+    }
+
+    &__subtitle__text {
+      width: 100%;
+      font-size: $font-size-default;
+      @include theme-prop(color, disabled-text-color);
+    }
+  }
+
+  &--type {
+    &-primary {
+      &__number-container {
+        @include theme-prop(background-color, primary-color);
+      }
+    }
+    &-danger {
+      &__number-container {
+        @include theme-prop(background-color, negative-color);
+      }
+    }
+    &-success {
+      &__number-container {
+        @include theme-prop(background-color, positive-color);
+      }
+    }
+    &-dark {
+      &__number-container {
+        @include theme-prop(background-color, primary-text-color);
+      }
+    }
+  }
+
+  &--status {
+    &-pending {
+      &__number-container {
+        @include theme-prop(background-color, disabled-background-color);
+      }
+    }
+  }
+
+  @keyframes circle-pop {
+    0% {
+      transform: scale(1);
+    }
+
+    33% {
+      transform: scale(1.1);
+    }
+
+    66% {
+      transform: scale(0.97);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+// Fixes unreadability for light colored text inside active/fulfilled steps, in dark mode.
+.dark-app-theme {
+  .monday-style-step-indicator-component {
+    &--type {
+      &-dark {
+        &__number-container {
+          @include theme-prop(color, dark-color);
+        }
+      }
+    }
+
+    &--status {
+      &-pending {
+        &__number-container {
+          @include theme-prop(color, primary-text-color);
+        }
+      }
+    }
+  }
+}

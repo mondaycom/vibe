@@ -7,14 +7,7 @@ describe("Checkbox Tests", () => {
   describe("Snapshot Tests", () => {
     it("renders correctly", () => {
       const tree = renderer
-        .create(
-          <Checkbox
-            componentClassName="dummy-class-name"
-            label="Option 1"
-            name="checkbox"
-            value="option1"
-          />
-        )
+        .create(<Checkbox componentClassName="dummy-class-name" label="Option 1" name="checkbox" value="option1" />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
@@ -49,22 +42,9 @@ describe("Checkbox Tests", () => {
     beforeEach(() => {
       render(
         <form name={formName}>
-          <Checkbox
-            name={checkboxName}
-            value={option1Value}
-            label={option1Text}
-            defaultChecked={true}
-          />
-          <Checkbox
-            name={checkboxName}
-            value={option2Value}
-            label={option2Text}
-          />
-          <Checkbox
-            name={checkboxName}
-            value={option3Value}
-            label={option3Text}
-          />
+          <Checkbox name={checkboxName} value={option1Value} label={option1Text} defaultChecked={true} />
+          <Checkbox name={checkboxName} value={option2Value} label={option2Text} />
+          <Checkbox name={checkboxName} value={option3Value} label={option3Text} />
         </form>
       );
     });

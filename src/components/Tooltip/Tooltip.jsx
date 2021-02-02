@@ -26,10 +26,7 @@ export default class Tooltip extends React.PureComponent {
   }
 
   getContainer() {
-    return (
-      document.getElementById("tooltips-container") ||
-      document.querySelector("body")
-    );
+    return document.getElementById("tooltips-container") || document.querySelector("body");
   }
 
   renderTooltipContent() {
@@ -81,18 +78,13 @@ export default class Tooltip extends React.PureComponent {
     if (globalState.openTooltipsCount > 0) {
       return 0;
     }
-    return globalState.lastTooltipHideTS
-      ? Date.now() - globalState.lastTooltipHideTS
-      : Infinity;
+    return globalState.lastTooltipHideTS ? Date.now() - globalState.lastTooltipHideTS : Infinity;
   }
 
   getShowDelay() {
     const { showDelay, immediateShowDelay } = this.props;
     const timeSinceLastTooltip = this.getTimeSinceLastTooltip();
-    if (
-      (immediateShowDelay === 0 || immediateShowDelay) &&
-      timeSinceLastTooltip < IMMEDIATE_SHOW_THRESHOLD_MS
-    ) {
+    if ((immediateShowDelay === 0 || immediateShowDelay) && timeSinceLastTooltip < IMMEDIATE_SHOW_THRESHOLD_MS) {
       // showing the tooltip immediately (without animation)
       return {
         showDelay: immediateShowDelay,
@@ -106,16 +98,7 @@ export default class Tooltip extends React.PureComponent {
   }
 
   render() {
-    const {
-      withoutDialog,
-      moveBy,
-      justify,
-      children,
-      getContainer,
-      theme,
-      paddingSize,
-      tip
-    } = this.props;
+    const { withoutDialog, moveBy, justify, children, getContainer, theme, paddingSize, tip } = this.props;
 
     if (!children) {
       return null;

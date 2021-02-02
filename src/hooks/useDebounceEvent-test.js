@@ -27,9 +27,7 @@ describe("useDebounceEvent", () => {
 
   describe("return types", () => {
     it("should give a callback function", () => {
-      expect(typeof hookResult.result.current.onEventChanged).to.equal(
-        "function"
-      );
+      expect(typeof hookResult.result.current.onEventChanged).to.equal("function");
     });
 
     it("should give a clear function", () => {

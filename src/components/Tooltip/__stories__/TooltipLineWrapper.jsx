@@ -5,12 +5,7 @@ import Tooltip from "../Tooltip";
 import TooltipContent from "./TooltipContent";
 import "./tooltip-story.scss";
 
-const TooltipLineWrapper = ({
-  title,
-  justify = "center",
-  position = "top",
-  theme = "dark"
-}) => {
+const TooltipLineWrapper = ({ title, justify = "center", position = "top", theme = "dark" }) => {
   const isBottom = position.indexOf("bottom") > -1;
   return (
     <div className="width-20">

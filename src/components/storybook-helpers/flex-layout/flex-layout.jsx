@@ -4,14 +4,7 @@ import "./flex-layout.scss";
 
 export default class FlexLayout extends PureComponent {
   render() {
-    const {
-      direction,
-      children,
-      centerize,
-      className,
-      spaceBetween,
-      fullWidth
-    } = this.props;
+    const { direction, children, centerize, className, spaceBetween, fullWidth } = this.props;
 
     return (
       <div

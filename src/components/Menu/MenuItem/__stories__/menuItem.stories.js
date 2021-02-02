@@ -1,32 +1,123 @@
 import React from "react";
-import MenuItem from "../MenuItem";
-import { FlexLayout } from "../../../storybook-helpers";
 import { text, boolean, select } from "@storybook/addon-knobs";
-import { selectIcon } from "../../../storybook-helpers";
+import MenuItem from "../MenuItem";
+import Menu from "../../Menu/Menu";
+import Divider from "../../../Divider/Divider";
+import MenuTitle from "../../MenuTitle/MenuTitle";
+import { FlexLayout, selectIcon } from "../../../storybook-helpers";
+
 import StoryLine from "../../../../StoryBookComponents/StoryLink/StoryLine";
-import { Activity } from "../../../Icon/Icons";
+
 import Icon from "../../../Icon/Icon";
-import { withPerformance } from "storybook-addon-performance";
+
+import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
+
+const subSubMenuRenderer = () => {
+  return (
+    <Menu id="menu-level-3" size={Menu.sizes.SMALL}>
+      {[
+        <MenuTitle id="sub-sub-menu-title-1" caption="sub-menu-Caption" captionPosition={MenuTitle.positions.TOP} />,
+        <MenuItem id="sub-sub-menu-item-1" title="bla bla" icon={Activity} onClick={() => alert("1")} />,
+        <MenuItem id="sub-sub-menu-item-2" title="bla blo bla" icon={Activity} onClick={() => alert("2")} />
+      ]}
+    </Menu>
+  );
+};
+
+const anotherSubSubMenuRenderer = () => {
+  return (
+    <Menu id="menu-level-3-b" size={Menu.sizes.SMALL}>
+      {[
+        <MenuTitle id="sub-sub-menu-title-1-b" caption="sub-menu-Caption" captionPosition={MenuTitle.positions.TOP} />,
+        <MenuItem id="sub-sub-menu-item-1-b" title="bla bla" icon={Activity} onClick={() => alert("1")} />,
+        <MenuItem id="sub-sub-menu-item-2-b" title="bla blo bla" icon={Activity} onClick={() => alert("2")} />
+      ]}
+    </Menu>
+  );
+};
+
+const renderMenuItems = ({ withSubSubMenu = false } = {}) => {
+  return [
+    <MenuTitle id="menu-title-1" caption={"Caption"} captionPosition={MenuTitle.positions.TOP} />,
+    <MenuItem
+      id="menu-item-1"
+      title={"Sombody"}
+      icon={Activity}
+      onClick={() => {
+        alert("1");
+      }}
+    />,
+    <MenuItem
+      id="menu-item-2"
+      title={"Come"}
+      icon={Archive}
+      onClick={() => {
+        alert("2");
+      }}
+    >
+      {withSubSubMenu && subSubMenuRenderer()}
+    </MenuItem>,
+    <MenuItem
+      id="menu-item-3"
+      title={"Get her"}
+      icon={Settings}
+      onClick={() => {
+        alert("3");
+      }}
+    >
+      {withSubSubMenu && anotherSubSubMenuRenderer()}
+    </MenuItem>,
+    <MenuItem
+      id="menu-item-4"
+      title={"Like a"}
+      icon={"fa fa-star-o"}
+      onClick={() => {
+        alert("4");
+      }}
+    />,
+    <MenuItem
+      id="menu-item-5"
+      title={"Striper"}
+      icon={Invite}
+      onClick={() => {
+        alert("5");
+      }}
+    />,
+    <Divider id="devider" />,
+    <MenuItem
+      id="menu-item-6"
+      title={"She's dancing"}
+      icon={"fa fa-star-o"}
+      onClick={() => {
+        alert("6");
+      }}
+    />,
+    <MenuItem
+      id="menu-item-7"
+      title={"When disabled"}
+      icon={"fa fa-star-o"}
+      disabled={true}
+      onClick={() => {
+        alert("7");
+      }}
+    />
+  ];
+};
 
 export const Sandbox = () => {
-  const iconType = select(
-    "icon type",
-    { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG },
-    Icon.type.SVG
-  );
-  const icon =
-    iconType === Icon.type.SVG
-      ? selectIcon("SVG icon", "Activity")
-      : text("font icon", "fa fa-star");
+  const iconType = select("icon type", { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG }, Icon.type.SVG);
+  const icon = iconType === Icon.type.SVG ? selectIcon("SVG icon", "Activity") : text("font icon", "fa fa-star");
   return (
     <div style={{ width: 200 }}>
-      <MenuItem
-        id="menu-item"
-        title={text("title", "My item")}
-        icon={icon}
-        disabled={boolean("disabled", false)}
-        onClick={() => alert("hello")}
-      />
+      <Menu id="main-menu" size={Menu.sizes.SMALL}>
+        <MenuItem
+          id="menu-item"
+          title={text("title", "My item")}
+          icon={icon}
+          disabled={boolean("disabled", false)}
+          onClick={() => alert("hello")}
+        />
+      </Menu>
     </div>
   );
 };
@@ -35,39 +126,111 @@ export const States = () => (
   <div style={{ width: 700 }}>
     <FlexLayout>
       <StoryLine title="Menu item">
-        <MenuItem
-          id="menu-item"
-          title={("title", "My item")}
-          icon={"fa fa-star-o"}
-          iconType={Icon.type.ICON_FONT}
-        />
+        <Menu size={Menu.sizes.SMALL}>
+          <MenuItem id="menu-item" title={("title", "My item")} icon={"fa fa-star-o"} iconType={Icon.type.ICON_FONT} />
+        </Menu>
       </StoryLine>
     </FlexLayout>
     <FlexLayout>
       <StoryLine title="Menu item with svg icon">
-        <MenuItem
-          id="menu-item"
-          title={"SVG icon item"}
-          icon={Activity}
-          iconType={Icon.type.ICON_SVG}
-        />
+        <Menu size={Menu.sizes.SMALL}>
+          <MenuItem id="menu-item" title={"SVG icon item"} icon={Activity} iconType={Icon.type.ICON_SVG} />
+        </Menu>
       </StoryLine>
     </FlexLayout>
     <FlexLayout>
       <StoryLine title="Disabled menu item">
-        <MenuItem
-          id="menu-item"
-          title={"Disabled item"}
-          icon={"fa fa-star-o"}
-          disabled={true}
-        />
+        <Menu size={Menu.sizes.SMALL}>
+          <MenuItem id="menu-item" title={"Disabled item"} icon={"fa fa-star-o"} disabled={true} />
+        </Menu>
       </StoryLine>
     </FlexLayout>
   </div>
 );
 
+export const subMenu = () => {
+  const iconType = select("icon type", { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG }, Icon.type.SVG);
+  const icon = iconType === Icon.type.SVG ? selectIcon("SVG icon", "Activity") : text("font icon", "fa fa-star");
+  return (
+    <div>
+      <div style={{ width: "260px" }}>
+        <Menu id="main-menu" size={Menu.sizes.SMALL}>
+          <MenuItem
+            id="menu-item"
+            title={text("title", " b Hover me to see the sub menu")}
+            icon={icon}
+            disabled={boolean("disabled", false)}
+            onClick={() => alert("hello")}
+          >
+            <Menu id="sub-menu" size={Menu.sizes.SMALL}>
+              {renderMenuItems()}
+            </Menu>
+          </MenuItem>
+        </Menu>
+      </div>
+    </div>
+  );
+};
+
+export const subSubMenu = () => {
+  const iconType = select("icon type", { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG }, Icon.type.SVG);
+  const icon = iconType === Icon.type.SVG ? selectIcon("SVG icon", "Activity") : text("font icon", "fa fa-star");
+  return (
+    <div>
+      <div style={{ width: "260px" }}>
+        <Menu id="menu-level-1" size={Menu.sizes.SMALL}>
+          <MenuItem title={"Hover me to see the sub menu"} icon={icon} onClick={() => alert("hello")}>
+            <Menu size={Menu.sizes.SMALL}>{renderMenuItems({ withSubSubMenu: true })}</Menu>
+          </MenuItem>
+          <MenuItem title={"menu item"} icon={icon} onClick={() => alert("hello")} />
+          <MenuItem title={"menu item b"} icon={icon} onClick={() => alert("hello")} />
+        </Menu>
+      </div>
+    </div>
+  );
+};
+
+export const overflowMenuItem = () => {
+  const iconType = select("icon type", { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG }, Icon.type.SVG);
+  const icon = iconType === Icon.type.SVG ? selectIcon("SVG icon", "Activity") : text("font icon", "fa fa-star");
+  return (
+    <div>
+      <div style={{ width: "260px" }}>
+        <Menu id="menu-level-1" size={Menu.sizes.SMALL}>
+          <MenuItem
+            id="menu-item-short-text"
+            title="short text"
+            icon={icon}
+            disabled={boolean("disabled", false)}
+            onClick={() => alert("hello")}
+          />
+
+          <MenuItem
+            id="menu-item-long-text"
+            title="long text - bla bla bla bla bla bla bla bla bla bla bla"
+            icon={icon}
+            disabled={boolean("disabled", false)}
+            onClick={() => alert("hello")}
+          />
+
+          <MenuItem
+            id="menu-item-long-text"
+            title="long text with sub menu - bla bla bla bla bla bla bla bla bla bla bla"
+            icon={icon}
+            disabled={boolean("disabled", false)}
+            onClick={() => alert("hello")}
+          >
+            <Menu id="sub-menu" size={Menu.sizes.SMALL}>
+              {renderMenuItems()}
+            </Menu>
+          </MenuItem>
+        </Menu>
+      </div>
+    </div>
+  );
+};
+
 export default {
   title: "Work in progress/Menu/MenuItem",
-  component: MenuItem,
-  decorators: [withPerformance]
+  component: MenuItem
 };

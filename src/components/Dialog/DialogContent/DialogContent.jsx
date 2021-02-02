@@ -47,40 +47,22 @@ export const DialogContent = React.forwardRef(
     }
     return (
       <span
-        className={classNames(
-          "monday-style-dialog-content-wrapper",
-          wrapperClassName
-        )}
+        className={classNames("monday-style-dialog-content-wrapper", wrapperClassName)}
         ref={forwardRef}
         style={styleObject}
         onClickCapture={onClick}
       >
-        <CSSTransition
-          {...transitionOptions}
-          in={isOpen}
-          appear={!!animationType}
-          timeout={showDelay}
-        >
+        <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
           <div
-            className={classNames(
-              "monday-style-dialog-content-component",
-              position,
-              {
-                [`edge-${startingEdge}`]: startingEdge
-              }
-            )}
+            className={classNames("monday-style-dialog-content-component", position, {
+              [`edge-${startingEdge}`]: startingEdge
+            })}
             ref={ref}
           >
             {React.Children.toArray(children).map(child => {
               return cloneElement(child, {
-                onMouseEnter: chainFunctions([
-                  child.props.onMouseEnter,
-                  onMouseEnter
-                ]),
-                onMouseLeave: chainFunctions([
-                  child.props.onMouseLeave,
-                  onMouseLeave
-                ])
+                onMouseEnter: chainFunctions([child.props.onMouseEnter, onMouseEnter]),
+                onMouseLeave: chainFunctions([child.props.onMouseLeave, onMouseLeave])
               });
             })}
           </div>

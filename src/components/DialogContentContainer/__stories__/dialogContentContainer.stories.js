@@ -6,10 +6,7 @@ import { withPerformance } from "storybook-addon-performance";
 
 export const Sandbox = () => (
   <div>
-    <DialogContentContainer
-      id="Knobs"
-      className="dialog-content-container-story"
-    >
+    <DialogContentContainer id="Knobs" className="dialog-content-container-story">
       I can be whatever i want to be!!!
     </DialogContentContainer>
   </div>
@@ -18,17 +15,11 @@ export const Sandbox = () => (
 export const Types = () => (
   <div>
     <ComponentStateDescription title="Popover mode" />
-    <DialogContentContainer
-      type={DialogContentContainer.types.POPOVER}
-      className="dialog-content-container-story"
-    >
+    <DialogContentContainer type={DialogContentContainer.types.POPOVER} className="dialog-content-container-story">
       I can be whatever i want to be!!!
     </DialogContentContainer>
     <ComponentStateDescription title="Modal mode" />
-    <DialogContentContainer
-      type={DialogContentContainer.types.MODAL}
-      className="dialog-content-container-story"
-    >
+    <DialogContentContainer type={DialogContentContainer.types.MODAL} className="dialog-content-container-story">
       I can be whatever i want to be!!!
     </DialogContentContainer>
   </div>

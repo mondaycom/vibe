@@ -1,11 +1,4 @@
-import React, {
-  cloneElement,
-  useCallback,
-  useRef,
-  useState,
-  useEffect,
-  useMemo
-} from "react";
+import React, { cloneElement, useCallback, useRef, useState, useEffect, useMemo } from "react";
 import { usePopper } from "react-popper";
 import isFunction from "lodash/isFunction";
 import "../Dialog/Dialog.scss";
@@ -129,19 +122,11 @@ const Dialog = ({
 
   const handleEvent = useCallback(
     (eventName, target) => {
-      if (
-        isShowTrigger(eventName) &&
-        !isShown &&
-        !isInsideClass(target, showTriggerIgnoreClass)
-      ) {
+      if (isShowTrigger(eventName) && !isShown && !isInsideClass(target, showTriggerIgnoreClass)) {
         return showDialogIfNeeded();
       }
 
-      if (
-        isHideTrigger(eventName) &&
-        isShown &&
-        !isInsideClass(target, hideTriggerIgnoreClass)
-      ) {
+      if (isHideTrigger(eventName) && isShown && !isInsideClass(target, hideTriggerIgnoreClass)) {
         return hideDialogIfNeeded();
       }
     },
@@ -252,11 +237,7 @@ const Dialog = ({
     ]
   });
 
-  console.log(
-    "referenceElement, popperElement:",
-    referenceElement,
-    popperElement
-  );
+  console.log("referenceElement, popperElement:", referenceElement, popperElement);
 
   return (
     <>
@@ -272,11 +253,7 @@ const Dialog = ({
         {children}
       </DialogReference>
       {isShown && (
-        <div
-          style={styles.popper}
-          ref={setPopperElement}
-          className="monday-style-dialog-content-wrapper"
-        >
+        <div style={styles.popper} ref={setPopperElement} className="monday-style-dialog-content-wrapper">
           <DialogContent
             onMouseEnter={onDialogEnter}
             onMouseLeave={onDialogLeave}
