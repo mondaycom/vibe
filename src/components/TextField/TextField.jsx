@@ -8,7 +8,7 @@ import Icon from "../Icon/Icon";
 import {
   FEEDBACK_CLASSES,
   FEEDBACK_STATES,
-  sizeMapper
+  sizeMapper,
 } from "./TextFieldHelpers";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import { TEXT_FIELD_SIZE, TEXT_TYPES } from "./TextFieldConstants";
@@ -31,6 +31,7 @@ const TextField = forwardRef(
       debounceRate,
       autoFocus,
       disabled,
+      readonly,
       setRef,
       iconName,
       secondaryIconName,
@@ -49,7 +50,7 @@ const TextField = forwardRef(
       maxLength,
       trim,
       role,
-      required
+      required,
     },
     ref
   ) => {
@@ -58,7 +59,7 @@ const TextField = forwardRef(
       delay: debounceRate,
       onChange,
       initialStateValue: value,
-      trim
+      trim,
     });
 
     const currentStateIconName = useMemo(() => {
@@ -90,7 +91,7 @@ const TextField = forwardRef(
       inputRef,
       clearOnIconClick,
       disabled,
-      onIconClick
+      onIconClick,
     ]);
 
     const validationClass = useMemo(() => {
@@ -111,7 +112,7 @@ const TextField = forwardRef(
     return (
       <div
         className={classNames("input-component", wrapperClassName, {
-          "input-component--disabled": disabled
+          "input-component--disabled": disabled,
         })}
         role={role}
       >
@@ -131,13 +132,14 @@ const TextField = forwardRef(
           >
             <input
               className={classNames(className, "input-component__input", {
-                "input-component__input--has-icon": !!hasIcon
+                "input-component__input--has-icon": !!hasIcon,
               })}
               placeholder={placeholder}
               autoComplete={autoComplete}
               value={inputValue}
               onChange={onEventChanged}
               disabled={disabled}
+              readOnly={readonly}
               ref={mergedRef}
               autoFocus={autoFocus}
               type={type}
@@ -153,7 +155,7 @@ const TextField = forwardRef(
             <div
               className={classNames("input-component__icon--container", {
                 "input-component__icon--container-has-icon": hasIcon,
-                "input-component__icon--container-active": isPrimary
+                "input-component__icon--container-active": isPrimary,
               })}
             >
               <Icon
@@ -170,7 +172,7 @@ const TextField = forwardRef(
             <div
               className={classNames("input-component__icon--container", {
                 "input-component__icon--container-has-icon": hasIcon,
-                "input-component__icon--container-active": isSecondary
+                "input-component__icon--container-active": isSecondary,
               })}
             >
               <Icon
@@ -228,6 +230,7 @@ TextField.propTypes = {
   debounceRate: PropTypes.number,
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
+  readonly: PropTypes.bool,
   setRef: PropTypes.func,
   iconName: PropTypes.string,
   secondaryIconName: PropTypes.string,
@@ -237,13 +240,13 @@ TextField.propTypes = {
   size: PropTypes.oneOf([
     TextField.sizes.SMALL,
     TextField.sizes.MEDIUM,
-    TextField.sizes.LARGE
+    TextField.sizes.LARGE,
   ]),
   validation: PropTypes.shape({
     /** Don't provide status for plain assistant text */
     status: PropTypes.oneOf(["error", "success"]),
 
-    text: PropTypes.string
+    text: PropTypes.string,
   }),
   wrapperClassName: PropTypes.string,
   onIconClick: PropTypes.func,
@@ -255,20 +258,20 @@ TextField.propTypes = {
   iconsNames: PropTypes.shape({
     layout: PropTypes.string,
     primary: PropTypes.string,
-    secondary: PropTypes.string
+    secondary: PropTypes.string,
   }),
   /** TEXT_TYPES is exposed on the component itself */
   type: PropTypes.oneOf([
     TextField.types.TEXT,
     TextField.types.PASSWORD,
-    TextField.types.SEARCH
+    TextField.types.SEARCH,
   ]),
   maxLength: PropTypes.number,
   trim: PropTypes.bool,
   /** ARIA role for container landmark */
   role: PropTypes.string,
   /** adds required to the input element */
-  required: PropTypes.bool
+  required: PropTypes.bool,
 };
 
 TextField.defaultProps = {
@@ -283,6 +286,7 @@ TextField.defaultProps = {
   debounceRate: 0,
   autoFocus: false,
   disabled: false,
+  readonly: false,
   setRef: NOOP,
   iconName: "",
   secondaryIconName: "",
@@ -302,12 +306,12 @@ TextField.defaultProps = {
   maxLength: null,
   trim: false,
   role: "",
-  required: false
+  required: false,
 };
 
 export const ARIA_LABELS = {
   CHAR: "Input char count",
-  VALIDATION_TEXT: "Additional helper text"
+  VALIDATION_TEXT: "Additional helper text",
 };
 
 export default TextField;
