@@ -3,29 +3,31 @@
 exports[`Checkbox Tests Snapshot Tests renders correctly 1`] = `
 <label
   className="monday-style-checkbox dummy-class-name"
+  onMouseUp={[Function]}
 >
   <input
     aria-label="Option 1"
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={false}
+    id=""
     name="checkbox"
     onChange={[Function]}
     type="checkbox"
     value="option1"
   />
   <div
-    className="monday-style-checkbox__checkbox"
+    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
   >
     <svg
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
-      height="11"
+      height="16"
       onClick={[Function]}
       role="button"
       tabIndex={0}
       viewBox="0 0 20 20"
-      width="11"
+      width="16"
     >
       <path
         clipRule="evenodd"
@@ -46,29 +48,31 @@ exports[`Checkbox Tests Snapshot Tests renders correctly 1`] = `
 exports[`Checkbox Tests Snapshot Tests renders correctly when checked 1`] = `
 <label
   className="monday-style-checkbox"
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
     checked={true}
     className="monday-style-checkbox__input"
     disabled={false}
+    id=""
     name=""
     onChange={[Function]}
     type="checkbox"
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox"
+    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
   >
     <svg
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
-      height="11"
+      height="16"
       onClick={[Function]}
       role="button"
       tabIndex={0}
       viewBox="0 0 20 20"
-      width="11"
+      width="16"
     >
       <path
         clipRule="evenodd"
@@ -88,30 +92,32 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when checked 1`] = `
 
 exports[`Checkbox Tests Snapshot Tests renders correctly when disabled 1`] = `
 <label
-  className="monday-style-checkbox"
+  className="monday-style-checkbox monday-style-checkbox__disabled"
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={true}
+    id=""
     name=""
     onChange={[Function]}
     type="checkbox"
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox"
+    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
   >
     <svg
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
-      height="11"
+      height="16"
       onClick={[Function]}
       role="button"
       tabIndex={0}
       viewBox="0 0 20 20"
-      width="11"
+      width="16"
     >
       <path
         clipRule="evenodd"
@@ -132,29 +138,31 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when disabled 1`] = `
 exports[`Checkbox Tests Snapshot Tests renders correctly with empty props 1`] = `
 <label
   className="monday-style-checkbox"
+  onMouseUp={[Function]}
 >
   <input
     aria-label=""
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={false}
+    id=""
     name=""
     onChange={[Function]}
     type="checkbox"
     value=""
   />
   <div
-    className="monday-style-checkbox__checkbox"
+    className="monday-style-checkbox__checkbox monday-style-checkbox__prevent-animation"
   >
     <svg
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
-      height="11"
+      height="16"
       onClick={[Function]}
       role="button"
       tabIndex={0}
       viewBox="0 0 20 20"
-      width="11"
+      width="16"
     >
       <path
         clipRule="evenodd"

@@ -9,11 +9,7 @@ import "./splitButton.stories.scss";
 import { withPerformance } from "storybook-addon-performance";
 
 function SecondaryContentComponent() {
-  return (
-    <div className="split-button-story-content">
-      I can be whatever i want to be!
-    </div>
-  );
+  return <div className="split-button-story-content">I can be whatever i want to be!</div>;
 }
 
 export const PrimaryButton = () => (
@@ -38,10 +34,7 @@ Post, perly , copy, readmore."
         </SplitButton>
       </StoryStateColumn>
       <StoryStateColumn title="Medium" description="Regular actions">
-        <SplitButton
-          size={SplitButton.sizes.MEDIUM}
-          secondaryDialogContent={<SecondaryContentComponent />}
-        >
+        <SplitButton size={SplitButton.sizes.MEDIUM} secondaryDialogContent={<SecondaryContentComponent />}>
           Medium
         </SplitButton>
       </StoryStateColumn>
@@ -51,10 +44,7 @@ Post, perly , copy, readmore."
 Marketing banners
 Important updates."
       >
-        <SplitButton
-          size={SplitButton.sizes.LARGE}
-          secondaryDialogContent={<SecondaryContentComponent />}
-        >
+        <SplitButton size={SplitButton.sizes.LARGE} secondaryDialogContent={<SecondaryContentComponent />}>
           Large
         </SplitButton>
       </StoryStateColumn>
@@ -62,29 +52,17 @@ Important updates."
     <DescriptionLabel>Disabled</DescriptionLabel>
     <StoryStateRow>
       <StoryStateColumn>
-        <SplitButton
-          disabled
-          size={SplitButton.sizes.SMALL}
-          secondaryDialogContent={<SecondaryContentComponent />}
-        >
+        <SplitButton disabled size={SplitButton.sizes.SMALL} secondaryDialogContent={<SecondaryContentComponent />}>
           Small
         </SplitButton>
       </StoryStateColumn>
       <StoryStateColumn>
-        <SplitButton
-          disabled
-          size={SplitButton.sizes.MEDIUM}
-          secondaryDialogContent={<SecondaryContentComponent />}
-        >
+        <SplitButton disabled size={SplitButton.sizes.MEDIUM} secondaryDialogContent={<SecondaryContentComponent />}>
           Medium
         </SplitButton>
       </StoryStateColumn>
       <StoryStateColumn>
-        <SplitButton
-          disabled
-          size={SplitButton.sizes.LARGE}
-          secondaryDialogContent={<SecondaryContentComponent />}
-        >
+        <SplitButton disabled size={SplitButton.sizes.LARGE} secondaryDialogContent={<SecondaryContentComponent />}>
           Large
         </SplitButton>
       </StoryStateColumn>
@@ -266,31 +244,16 @@ export const Sandbox = () => (
   <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
     <SplitButton
       id="Knobs"
-      size={select(
-        "Size",
-        Object.values(SplitButton.sizes),
-        SplitButton.sizes.LARGE
-      )}
-      color={select(
-        "Color",
-        Object.values(SplitButton.colors),
-        SplitButton.colors.PRIMARY
-      )}
-      kind={select(
-        "Kind",
-        Object.values(SplitButton.kinds),
-        SplitButton.kinds.PRIMARY
-      )}
+      size={select("Size", Object.values(SplitButton.sizes), SplitButton.sizes.LARGE)}
+      color={select("Color", Object.values(SplitButton.colors), SplitButton.colors.PRIMARY)}
+      kind={select("Kind", Object.values(SplitButton.kinds), SplitButton.kinds.PRIMARY)}
       secondaryDialogPosition={select("Seconday Dialog Alignment", {
         BOTTOM_START: SplitButton.secondaryPositions.BOTTOM_START,
         BOTTOM_MIDDLE: SplitButton.secondaryPositions.BOTTOM_MIDDLE,
         BOTTOM_END: SplitButton.secondaryPositions.BOTTOM_END
       })}
       disabled={boolean("Disabled", false)}
-      shouldCloseOnClickInsideDialog={boolean(
-        "Should close dialog on click inside content",
-        false
-      )}
+      shouldCloseOnClickInsideDialog={boolean("Should close dialog on click inside content", false)}
       secondaryDialogContent={<SecondaryContentComponent />}
     >
       Split Button

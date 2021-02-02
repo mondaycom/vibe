@@ -4,13 +4,15 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+	HiddenText: "/src/components/HiddenText/HiddenText.jsx",
+	MultiStepIndicator: "/src/components/MultiStepIndicator/MultiStepIndicator.jsx",
+  Banner: "/src/components/Banner/Banner.jsx",
   MenuTitle: "/src/components/Menu/MenuTitle/MenuTitle.jsx",
   Divider: "/src/components/Divider/Divider.jsx",
   MenuItem: "/src/components/Menu/MenuItem/MenuItem.jsx",
   Menu: "/src/components/Menu/Menu/Menu.jsx",
   Dialog: "/src/components/Dialog/Dialog.jsx",
-  DialogContentContainer:
-    "/src/components/DialogContentContainer/DialogContentContainer.jsx",
+  DialogContentContainer: "/src/components/DialogContentContainer/DialogContentContainer.jsx",
   AttentionBox: "/src/components/AttentionBox/AttentionBox.jsx",
   Label: "/src/components/Label/Label.jsx",
   MenuButton: "/src/components/MenuButton/MenuButton.jsx",
@@ -22,19 +24,19 @@ const publishedComponents = {
   SearchComponent: "/src/components/Search/Search.jsx", // TODO: remove when bumping to version 1.0.0
   Search: "/src/components/Search/Search.jsx",
   TextField: "/src/components/TextField/TextField.jsx",
+  Toast: "/src/components/Toast/Toast.jsx",
   Tooltip: "/src/components/Tooltip/Tooltip.jsx",
   Button: "/src/components/Button/Button.jsx",
   Loader: "/src/components/Loader/Loader.jsx",
   Icon: "/src/components/Icon/Icon.jsx",
   CustomSvgIcon: "/src/components/Icon/CustomSvgIcon.jsx",
   FormattedNumber: "/src/components/FormattedNumber/FormattedNumber.jsx",
-  LinearProgressBar:
-    "/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
+  LinearProgressBar: "/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   useKeyEvent: "/src/hooks/useKeyEvent.js",
   useEventListener: "/src/hooks/useEventListener.js",
   useDebounceEvent: "/src/hooks/useDebounceEvent.js",
   useClickOutside: "/src/hooks/useClickOutside.js",
-  useResizeObserver: "/src/hooks/useResizeObserver.js",
+  useResizeObserver: "/src/hooks/useResizeObserver.js"
 };
 
 function getPublishedComponents(dirPath = "") {
@@ -58,5 +60,5 @@ function exposeIcons(dirPath) {
 }
 
 module.exports = {
-  getPublishedComponents,
+  getPublishedComponents
 };

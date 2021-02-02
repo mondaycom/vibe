@@ -5,11 +5,7 @@ import classNames from "classnames";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import "./TextField.scss";
 import Icon from "../Icon/Icon";
-import {
-  FEEDBACK_CLASSES,
-  FEEDBACK_STATES,
-  sizeMapper
-} from "./TextFieldHelpers";
+import { FEEDBACK_CLASSES, FEEDBACK_STATES, sizeMapper } from "./TextFieldHelpers";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import { TEXT_FIELD_SIZE, TEXT_TYPES } from "./TextFieldConstants";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -84,14 +80,7 @@ const TextField = forwardRef(
         clearValue();
       }
       onIconClick(currentStateIconName);
-    }, [
-      clearValue,
-      currentStateIconName,
-      inputRef,
-      clearOnIconClick,
-      disabled,
-      onIconClick
-    ]);
+    }, [clearValue, currentStateIconName, inputRef, clearOnIconClick, disabled, onIconClick]);
 
     const validationClass = useMemo(() => {
       if (!validation) {
@@ -101,8 +90,7 @@ const TextField = forwardRef(
     }, [validation]);
 
     const hasIcon = iconName || secondaryIconName;
-    const shouldShowExtraText =
-      showCharCount || (validation && validation.text);
+    const shouldShowExtraText = showCharCount || (validation && validation.text);
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
 
@@ -116,19 +104,8 @@ const TextField = forwardRef(
         role={role}
       >
         <div className="input-component__label--wrapper">
-          <FieldLabel
-            labelText={title}
-            icon={labelIconName}
-            iconLabel={iconsNames.layout}
-            labelFor={id}
-          />
-          <div
-            className={classNames(
-              "input-component__input-wrapper",
-              sizeMapper[size],
-              validationClass
-            )}
-          >
+          <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
+          <div className={classNames("input-component__input-wrapper", sizeMapper[size], validationClass)}>
             <input
               className={classNames(className, "input-component__input", {
                 "input-component__input--has-icon": !!hasIcon
@@ -155,10 +132,10 @@ const TextField = forwardRef(
                 "input-component__icon--container-has-icon": hasIcon,
                 "input-component__icon--container-active": isPrimary
               })}
+              onClick={onIconClickCallback}
             >
               <Icon
                 icon={iconName}
-                onClick={onIconClickCallback}
                 className={classNames("input-component__icon")}
                 clickable={isPrimary && iconClickable}
                 id={id}
@@ -172,10 +149,10 @@ const TextField = forwardRef(
                 "input-component__icon--container-has-icon": hasIcon,
                 "input-component__icon--container-active": isSecondary
               })}
+              onClick={onIconClickCallback}
             >
               <Icon
                 icon={secondaryIconName}
-                onClick={onIconClickCallback}
                 className={classNames("input-component__icon")}
                 clickable={isSecondary && iconClickable}
                 id={id}
@@ -188,18 +165,12 @@ const TextField = forwardRef(
           {shouldShowExtraText && (
             <div className="input-component__sub-text-container">
               {validation && validation.text && (
-                <span
-                  className="input-component__sub-text-container-status"
-                  aria-label={ARIA_LABELS.VALIDATION_TEXT}
-                >
+                <span className="input-component__sub-text-container-status" aria-label={ARIA_LABELS.VALIDATION_TEXT}>
                   {validation.text}
                 </span>
               )}
               {showCharCount && (
-                <span
-                  className="input-component__sub-text-container-counter"
-                  aria-label={ARIA_LABELS.CHAR}
-                >
+                <span className="input-component__sub-text-container-counter" aria-label={ARIA_LABELS.CHAR}>
                   {(inputValue && inputValue.length) || 0}
                 </span>
               )}
@@ -234,11 +205,7 @@ TextField.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
   /** TEXT_FIELD_SIZE is exposed on the component itself */
-  size: PropTypes.oneOf([
-    TextField.sizes.SMALL,
-    TextField.sizes.MEDIUM,
-    TextField.sizes.LARGE
-  ]),
+  size: PropTypes.oneOf([TextField.sizes.SMALL, TextField.sizes.MEDIUM, TextField.sizes.LARGE]),
   validation: PropTypes.shape({
     /** Don't provide status for plain assistant text */
     status: PropTypes.oneOf(["error", "success"]),
@@ -258,11 +225,7 @@ TextField.propTypes = {
     secondary: PropTypes.string
   }),
   /** TEXT_TYPES is exposed on the component itself */
-  type: PropTypes.oneOf([
-    TextField.types.TEXT,
-    TextField.types.PASSWORD,
-    TextField.types.SEARCH
-  ]),
+  type: PropTypes.oneOf([TextField.types.TEXT, TextField.types.PASSWORD, TextField.types.SEARCH]),
   maxLength: PropTypes.number,
   trim: PropTypes.bool,
   /** ARIA role for container landmark */

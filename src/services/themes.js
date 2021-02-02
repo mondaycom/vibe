@@ -14,5 +14,4 @@ export function getCSSVar(varName) {
   }
 }
 
-export const getComputedVarColor = (elem, cssVar) =>
-  getComputedStyle(elem).getPropertyValue(`--${cssVar}`);
+export const getComputedVarColor = (elem, cssVar) => getComputedStyle(elem).getPropertyValue(`--${cssVar}`);

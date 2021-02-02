@@ -6,13 +6,7 @@ describe("AttentionBox Tests", () => {
   describe("Snapshot Tests", () => {
     it("renders correctly", () => {
       const tree = renderer
-        .create(
-          <AttentionBox
-            componentClassName="dummy-class-name"
-            title="Title"
-            text="Text"
-          />
-        )
+        .create(<AttentionBox componentClassName="dummy-class-name" title="Title" text="Text" />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });

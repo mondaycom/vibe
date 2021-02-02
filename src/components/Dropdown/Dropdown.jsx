@@ -1,16 +1,17 @@
+/* eslint-disable react/jsx-props-no-spreading,react/require-default-props,react/forbid-prop-types */
 import React, { useCallback, useMemo, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
+import NOOP from "lodash/noop";
 import { WindowedMenuList } from "react-windowed-select";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import MenuComponent from "./components/Menu/Menu";
+import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
-import OptionComponent from "./components/Option/Option";
-import SingleValueComponent from "./components/SingleValue/SingleValue";
+import OptionComponent from "./components/option/option";
+import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
-import { SIZE } from "./DropdownConstants";
-import { NOOP } from "../../utils/function-utils";
+import { SIZE, defaultCustomStyles } from "./DropdownConstants";
 import styles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 
@@ -31,18 +32,27 @@ const Dropdown = ({
   openMenuOnClick,
   clearable,
   OptionRenderer,
+  optionRenderer,
   ValueRenderer,
+  valueRenderer,
+  menuRenderer,
   rtl,
   size,
   asyncOptions,
   cacheOptions,
   defaultOptions,
   isVirtualized,
+  menuPortalTarget,
+  extraStyles,
+  menuIsOpen
 }) => {
   const [isOpen, setOpen] = useState(false);
 
+  const finalOptionRenderer = optionRenderer || OptionRenderer;
+  const finalValueRenderer = valueRenderer || ValueRenderer;
+
   const handleMenuOpen = useCallback(
-    (data) => {
+    data => {
       onMenuOpen(data);
       setOpen(true);
     },
@@ -50,59 +60,46 @@ const Dropdown = ({
   );
 
   const handleMenuClose = useCallback(
-    (data) => {
+    data => {
       onMenuClose(data);
       setOpen(false);
     },
     [setOpen, onMenuClose]
   );
 
-  const customStyles = useMemo(() => styles({ size, rtl }), [size, rtl]);
+  const customStyles = useMemo(() => extraStyles(styles({ size, rtl })), [size, rtl, extraStyles]);
 
-  const Menu = useCallback(
-    (props) => <MenuComponent {...props} isOpen={isOpen} />,
-    [isOpen]
-  );
+  const Menu = useCallback(props => <MenuComponent {...props} isOpen={isOpen} Renderer={menuRenderer} />, [
+    isOpen,
+    menuRenderer
+  ]);
 
-  const DropdownIndicator = useCallback(
-    (props) => <DropdownIndicatorComponent {...props} size={size} />,
-    [size]
-  );
+  const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
-  const Option = useCallback(
-    (props) => <OptionComponent {...props} OptionRenderer={OptionRenderer} />,
-    [OptionRenderer]
-  );
+  const Option = useCallback(props => <OptionComponent {...props} Renderer={finalOptionRenderer} />, [
+    finalOptionRenderer
+  ]);
 
-  const Input = useCallback(
-    (props) => <components.Input {...props} aria-label="Dropdown input" />,
-    []
-  );
+  const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
-  const SingleValue = useCallback(
-    (props) => (
-      <SingleValueComponent {...props} ValueRenderer={ValueRenderer} />
-    ),
-    [ValueRenderer]
-  );
+  const SingleValue = useCallback(props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />, [
+    finalValueRenderer
+  ]);
 
-  const ClearIndicator = useCallback(
-    (props) => <ClearIndicatorComponent {...props} size={size} />,
-    [size]
-  );
+  const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
   const DropDownComponent = asyncOptions ? AsyncSelect : Select;
 
   const asyncAdditions = {
     ...(asyncOptions && {
       loadOptions: asyncOptions,
-      cacheOptions: cacheOptions,
-      ...(defaultOptions && { defaultOptions }),
-    }),
+      cacheOptions,
+      ...(defaultOptions && { defaultOptions })
+    })
   };
 
   const additions = {
-    ...(!asyncOptions && { options }),
+    ...(!asyncOptions && { options })
   };
 
   return (
@@ -113,9 +110,9 @@ const Dropdown = ({
         Menu,
         ClearIndicator,
         Input,
-        ...(OptionRenderer && { Option }),
-        ...(ValueRenderer && { SingleValue }),
-        ...(isVirtualized && { MenuList: WindowedMenuList }),
+        ...(finalOptionRenderer && { Option }),
+        ...(finalValueRenderer && { SingleValue }),
+        ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
       size={size}
       noOptionsMessage={noOptionsMessage}
@@ -134,6 +131,8 @@ const Dropdown = ({
       isRtl={rtl}
       styles={customStyles}
       theme={customTheme}
+      menuPortalTarget={menuPortalTarget}
+      menuIsOpen={menuIsOpen}
       {...asyncAdditions}
       {...additions}
     />
@@ -155,6 +154,7 @@ Dropdown.defaultProps = {
   noOptionsMessage: NOOP,
   clearable: true,
   size: SIZE.MEDIUM,
+  extraStyles: defaultCustomStyles
 };
 
 Dropdown.propTypes = {
@@ -217,11 +217,15 @@ Dropdown.propTypes = {
   /**
    * custom option render function
    */
-  OptionRenderer: PropTypes.func,
+  optionRenderer: PropTypes.func,
   /**
    * custom value render function
    */
-  ValueRenderer: PropTypes.func,
+  valueRenderer: PropTypes.func,
+  /**
+   * custom menu render function
+   */
+  menuRenderer: PropTypes.func,
   /**
    * If set to true, the dropdown will be in Right to Left mode
    */
@@ -241,8 +245,8 @@ Dropdown.propTypes = {
     PropTypes.func, // callback
     PropTypes.shape({
       then: PropTypes.func.isRequired,
-      catch: PropTypes.func.isRequired,
-    }), // Promise
+      catch: PropTypes.func.isRequired
+    }) // Promise
   ]),
   /**
    * If set to true, fetched async options will be cached
@@ -251,14 +255,19 @@ Dropdown.propTypes = {
   /**
    * If set, `asyncOptions` will be invoked with its value on mount and the resolved results will be loaded
    */
-  defaultOptions: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.arrayOf(PropTypes.object),
-  ]),
+  defaultOptions: PropTypes.oneOfType([PropTypes.bool, PropTypes.arrayOf(PropTypes.object)]),
   /**
    * If set to true, the menu will use virtualization. Virtualized async works only with
    */
   isVirtualized: PropTypes.bool,
+  /**
+   * Whether the menu should use a portal, and where it should attach
+   */
+  menuPortalTarget: PropTypes.element,
+  /**
+   * Custom function to override existing styles, ex: base => {...base, ...myCustomOverrides}
+   */
+  extraStyles: PropTypes.func
 };
 
 export default Dropdown;

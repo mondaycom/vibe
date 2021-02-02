@@ -1,12 +1,7 @@
 import React from "react";
 import "./GlobalSettingGeneralComponent.scss";
 
-const GlobalSettingsGeneralComponent = ({
-  children,
-  title,
-  bullets,
-  value
-}) => {
+const GlobalSettingsGeneralComponent = ({ children, title, bullets, value }) => {
   return (
     <div className="global-settings-general-component">
       <div className="global-settings-child-container">{children}</div>
@@ -16,9 +11,7 @@ const GlobalSettingsGeneralComponent = ({
           return <div className="global-settings-list-item">{bullet}</div>;
         })}
       </div>
-      {value && (
-        <div className="global-settings-general-component-value">{value}</div>
-      )}
+      {value && <div className="global-settings-general-component-value">{value}</div>}
     </div>
   );
 };

@@ -27,11 +27,7 @@ export const States = () => (
   <div style={{ width: 700 }}>
     <FlexLayout>
       <StoryLine title="Menu title with top caption">
-        <MenuTitle
-          id="menu-title-1"
-          caption={"Caption"}
-          captionPosition={MenuTitle.positions.TOP}
-        />
+        <MenuTitle id="menu-title-1" caption={"Caption"} captionPosition={MenuTitle.positions.TOP} />
       </StoryLine>
     </FlexLayout>
     <FlexLayout>
@@ -41,11 +37,7 @@ export const States = () => (
     </FlexLayout>
     <FlexLayout>
       <StoryLine title="Menu title with center caption">
-        <MenuTitle
-          id="menu-title-3"
-          caption={"Caption"}
-          captionPosition={MenuTitle.positions.CENTER}
-        />
+        <MenuTitle id="menu-title-3" caption={"Caption"} captionPosition={MenuTitle.positions.CENTER} />
       </StoryLine>
     </FlexLayout>
   </div>

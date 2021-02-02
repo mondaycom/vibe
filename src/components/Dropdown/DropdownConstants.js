@@ -3,3 +3,5 @@ export const SIZE = Object.freeze({
   MEDIUM: "medium",
   SMALL: "small"
 });
+
+export const defaultCustomStyles = baseStyles => baseStyles;

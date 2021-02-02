@@ -1,10 +1,6 @@
 import React from "react";
 import * as Colors from "../../constants/colors.json";
-import {
-  StoryStateRow,
-  StoryStateColumn,
-  ColorItem
-} from "../../components/storybook-helpers";
+import { StoryStateRow, StoryStateColumn, ColorItem } from "../../components/storybook-helpers";
 
 const mainColors = {
   primary: {
@@ -131,13 +127,4 @@ const buildColorsStory = (colors, halfSize) => {
   );
 };
 
-export {
-  mainColors,
-  mainColors2,
-  mainColors3,
-  darkColors,
-  greyColors,
-  codingColors,
-  buildColorsStory,
-  textColors
-};
+export { mainColors, mainColors2, mainColors3, darkColors, greyColors, codingColors, buildColorsStory, textColors };

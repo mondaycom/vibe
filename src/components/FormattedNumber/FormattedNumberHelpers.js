@@ -1,7 +1,6 @@
 export const validateValue = value => {
   const isNullOrUndefined = value === null || value === undefined;
-  const isEmptyStringWithSpaces =
-    typeof value === "string" && !value.replace(" ", "").length;
+  const isEmptyStringWithSpaces = typeof value === "string" && !value.replace(" ", "").length;
   // eslint-disable-next-line no-restricted-globals
   return isNullOrUndefined || isNaN(value) || isEmptyStringWithSpaces;
 };

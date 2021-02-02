@@ -70,9 +70,7 @@ describe("Snapshots", () => {
     expect(tree).toMatchSnapshot();
   });
   it("renders correctly with count above limit", () => {
-    const tree = renderer
-      .create(<Counter count={1000} maxDigits={3} />)
-      .toJSON();
+    const tree = renderer.create(<Counter count={1000} maxDigits={3} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

@@ -89,24 +89,28 @@ $arrow-size-md: 16px;
   width: $arrow-size;
   height: $arrow-size;
   position: absolute;
-  border-radius: 2px 0 2px 0;
+  border-radius: 2px;
 }
 
 .monday-style-tooltip-arrow {
   &[data-placement*="bottom"] {
-    top: 0;
+    top: 1px;
   }
   &[data-placement*="top"] {
-    bottom: 0;
+    bottom: 1px;
   }
   &[data-placement*="left"] {
-    right: 0;
+    right: 1px;
   }
   &[data-placement*="right"] {
-    left: 0;
+    left: 1px;
   }
 }
 
 .monday-style-dialog-content-component {
   padding: 6px;
+
+  &:focus {
+    outline: none;
+  }
 }

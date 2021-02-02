@@ -10,7 +10,7 @@ $checkbox-size: 16px;
 }
 
 @mixin hover-unselected {
-  @include theme-prop(border-color, dark-color);
+  @include theme-prop(border-color, secondary-text-color);
 }
 
 .monday-style-checkbox {
@@ -19,16 +19,6 @@ $checkbox-size: 16px;
   align-items: center;
   width: fit-content;
   height: min-content;
-
-  &:active {
-    .monday-style-checkbox__checkbox {
-      transform: scale(0.8);
-      transform-origin: center;
-      transition:
-              background-color 0ms linear 50ms,
-              border-color 0ms linear 50ms;
-    }
-  }
 
   &__checkbox {
     cursor: pointer;
@@ -46,7 +36,7 @@ $checkbox-size: 16px;
     overflow: hidden;
 
     &:after {
-      content: ' ';
+      content: " ";
       background-color: transparent;
       position: absolute;
       height: $checkbox-size;
@@ -63,14 +53,20 @@ $checkbox-size: 16px;
 
   &__icon {
     width: 100%;
-    height: 85%;
     @include theme-prop(color, text-color-on-primary);
     visibility: hidden;
+  }
+
+  &__disabled {
+    .monday-style-checkbox__label {
+      @include theme-prop(color, disabled-text-color);
+    }
   }
 
   &__label {
     @include font-input();
     cursor: pointer;
+    user-select: none;
     margin-inline-start: $spacing-small;
     @include theme-prop(color, primary-text-color);
   }
@@ -91,10 +87,11 @@ $checkbox-size: 16px;
         @include hover-unselected;
       }
 
-      &:checked + .monday-style-checkbox__checkbox{
+      &:checked + .monday-style-checkbox__checkbox {
         @include hover-selected;
       }
     }
+
     &:checked {
       &:focus + .monday-style-checkbox__checkbox:after {
         @include theme-prop(background-color, primary-hover-color);
@@ -102,6 +99,10 @@ $checkbox-size: 16px;
 
       & + .monday-style-checkbox {
         &__checkbox {
+          animation: checkbox-grow-animation 50ms;
+          &__prevent-animation {
+            animation-duration: 0ms;
+          }
           @include theme-prop(background-color, primary-color);
           border-color: transparent;
 
@@ -114,7 +115,7 @@ $checkbox-size: 16px;
           }
 
           &:after {
-            content: ' ';
+            content: " ";
             @include theme-prop(background-color, primary-color);
             height: $checkbox-size;
             transform: scaleX(0);
@@ -137,7 +138,8 @@ $checkbox-size: 16px;
     }
     &:disabled {
       & + .monday-style-checkbox {
-        &__checkbox, &__checkbox:hover {
+        &__checkbox,
+        &__checkbox:hover {
           @include theme-prop(background-color, disabled-background-color);
           @include theme-prop(border-color, ui-border-color);
 
@@ -147,5 +149,15 @@ $checkbox-size: 16px;
         }
       }
     }
+  }
+}
+
+@keyframes checkbox-grow-animation {
+  0% {
+    transform: scale(0.8);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

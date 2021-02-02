@@ -77,6 +77,5 @@ export const typographyList = [
     lineheight: "24px",
     spacing: 0,
     comments: "Links"
-  },
-
+  }
 ];

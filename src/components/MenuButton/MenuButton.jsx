@@ -1,10 +1,11 @@
 import React, { useCallback, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import NOOP from "lodash/noop";
 import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
-import "./MenuButton.scss";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
+import "./MenuButton.scss";
 
 function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
@@ -15,6 +16,7 @@ const MOVE_BY = { main: 0, secondary: -6 };
 
 const MenuButton = ({
   componentClassName,
+  openDialogComponentClassName,
   children,
   component,
   size,
@@ -22,17 +24,24 @@ const MenuButton = ({
   zIndex,
   ariaLabel,
   closeDialogOnContentClick,
+  dialogOffset,
+  dialogPosition,
   dialogClassName,
-  dialogPaddingSize
+  dialogPaddingSize,
+  onMenuHide,
+  onMenuShow
 }) => {
   const [isOpen, setIsOpen] = useState(open);
 
   const onDialogDidHide = useCallback(() => {
     setIsOpen(false);
-  }, [setIsOpen]);
+    onMenuHide();
+  }, [setIsOpen, onMenuHide]);
+
   const onDialogDidShow = useCallback(() => {
     setIsOpen(true);
-  }, [setIsOpen]);
+    onMenuShow();
+  }, [setIsOpen, onMenuShow]);
 
   const hideTrigger = useMemo(() => {
     const triggers = ["clickoutside", "esckey"];
@@ -44,14 +53,19 @@ const MenuButton = ({
 
   const content = useMemo(() => {
     return (
-      <DialogContentContainer
-        size={dialogPaddingSize}
-        type={DialogContentContainer.types.POPOVER}
-      >
+      <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
         {children}
       </DialogContentContainer>
     );
   }, [children, dialogPaddingSize]);
+
+  const computedDialogOffset = useMemo(
+    () => ({
+      ...MOVE_BY,
+      ...dialogOffset
+    }),
+    [dialogOffset]
+  );
 
   const Icon = component;
   const iconSize = size - 4;
@@ -59,14 +73,14 @@ const MenuButton = ({
   return (
     <Dialog
       wrapperClassName={dialogClassName}
-      position="bottom-start"
+      position={dialogPosition}
       startingEdge="bottom"
       animationType="expand"
       content={content}
-      moveBy={MOVE_BY}
+      moveBy={computedDialogOffset}
       showTrigger={showTrigger}
       hideTrigger={hideTrigger}
-      onDialogDidShow={onDialogDidHide}
+      onDialogDidShow={onDialogDidShow}
       onDialogDidHide={onDialogDidHide}
       referenceWrapperClassName={BEMClass("reference-icon")}
       zIndex={zIndex}
@@ -74,14 +88,10 @@ const MenuButton = ({
       <button
         type="button"
         role="menu"
-        className={cx(
-          "menu-button--wrapper",
-          componentClassName,
-          BEMClass(`size-${size}`),
-          {
-            [BEMClass("open")]: isOpen
-          }
-        )}
+        className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
+          [BEMClass("open")]: isOpen,
+          [openDialogComponentClassName]: isOpen && openDialogComponentClassName
+        })}
         aria-haspopup="true"
         aria-expanded={isOpen}
         aria-label={ariaLabel}
@@ -100,11 +110,22 @@ const MenuButtonSizes = {
   LARGE: "48"
 };
 
+const DialogPositions = {
+  BOTTOM: "bottom",
+  BOTTOM_START: "bottom-start",
+  BOTTOM_END: "bottom-end"
+};
+
 MenuButton.sizes = MenuButtonSizes;
 MenuButton.paddingSizes = DialogContentContainer.sizes;
+MenuButton.dialogPositions = DialogPositions;
 
 MenuButton.propTypes = {
   componentClassName: PropTypes.string,
+  /*
+    Class name to add to the button when the dialog is open
+   */
+  openDialogComponentClassName: PropTypes.string,
   /**
    * Receives React Component
    */
@@ -124,12 +145,32 @@ MenuButton.propTypes = {
     Class name to provide the element which wraps the popover/modal/dialog
    */
   dialogClassName: PropTypes.string,
+  /**
+   * main - `dialogOffset.main` - main axis offset; `dialogOffset.secondary` secondary axis offset
+   */
+  dialogOffset: PropTypes.shape({
+    main: PropTypes.number,
+    secondary: PropTypes.number
+  }),
   dialogPaddingSize: PropTypes.oneOf([
     MenuButton.paddingSizes.NONE,
     MenuButton.paddingSizes.SMALL,
     MenuButton.paddingSizes.MEDIUM,
     MenuButton.paddingSizes.LARGE
-  ])
+  ]),
+  dialogPosition: PropTypes.oneOf([
+    MenuButton.dialogPositions.BOTTOM_START,
+    MenuButton.dialogPositions.BOTTOM,
+    MenuButton.dialogPositions.BOTTOM_END
+  ]),
+  /*
+    Callback function to be called when the menu is shown
+   */
+  onMenuShow: PropTypes.func,
+  /*
+  Callback function to be called when the menu is shown
+ */
+  onMenuHide: PropTypes.func
 };
 MenuButton.defaultProps = {
   componentClassName: "",
@@ -140,7 +181,12 @@ MenuButton.defaultProps = {
   ariaLabel: "Menu",
   closeDialogOnContentClick: false,
   dialogClassName: "",
-  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM
+  openDialogComponentClassName: "",
+  dialogOffset: MOVE_BY,
+  dialogPaddingSize: DialogContentContainer.sizes.MEDIUM,
+  dialogPosition: MenuButton.dialogPositions.BOTTOM_START,
+  onMenuShow: NOOP,
+  onMenuHide: NOOP
 };
 
 export default MenuButton;

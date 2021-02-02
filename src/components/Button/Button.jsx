@@ -1,22 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading,react/button-has-type */
-import React, {
-  forwardRef,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef
-} from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Button.scss";
-import {
-  BUTTON_COLORS,
-  BUTTON_INPUT_TYPE,
-  BUTTON_SIZES,
-  BUTTON_TYPES
-} from "./ButtonContstants";
+import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_SIZES, BUTTON_TYPES } from "./ButtonContstants";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
@@ -88,9 +77,7 @@ const Button = forwardRef(
       if (!buttonRef.current) return;
 
       const buttonElement = buttonRef.current;
-      buttonElement.style.color = getParentBackgroundColorNotTransparent(
-        buttonElement
-      );
+      buttonElement.style.color = getParentBackgroundColorNotTransparent(buttonElement);
     }, [kind, buttonRef, color]);
 
     const onMouseUp = useCallback(() => {
@@ -186,7 +173,6 @@ const Button = forwardRef(
       };
     }, [
       disabled,
-      buttonRef,
       classNames,
       name,
       onMouseUp,
@@ -199,7 +185,8 @@ const Button = forwardRef(
       loading,
       onFocus,
       onBlur,
-      mergedRef
+      mergedRef,
+      ariaLabeledBy
     ]);
 
     if (loading) {
@@ -265,21 +252,13 @@ Button.inputTags = BUTTON_INPUT_TYPE;
 Button.propTypes = {
   className: PropTypes.string,
   /** The kind of a button is exposed on the component  */
-  kind: PropTypes.oneOf([
-    Button.kinds.PRIMARY,
-    Button.kinds.SECONDARY,
-    Button.kinds.TERTIARY
-  ]),
+  kind: PropTypes.oneOf([Button.kinds.PRIMARY, Button.kinds.SECONDARY, Button.kinds.TERTIARY]),
   onClick: PropTypes.func,
   onMouseDown: PropTypes.func,
   /** Name of the button - for form submit usages  */
   name: PropTypes.string,
   /** The size of a button is exposed on the component  */
-  size: PropTypes.oneOf([
-    Button.sizes.SMALL,
-    Button.sizes.MEDIUM,
-    Button.sizes.LARGE
-  ]),
+  size: PropTypes.oneOf([Button.sizes.SMALL, Button.sizes.MEDIUM, Button.sizes.LARGE]),
 
   /** The color of a button is exposed on the component  */
   color: PropTypes.oneOf([
@@ -290,16 +269,12 @@ Button.propTypes = {
   ]),
 
   /** The type of a button is exposed on the component  */
-  type: PropTypes.oneOf([
-    Button.inputTags.BUTTON,
-    Button.inputTags.SUBMIT,
-    Button.inputTags.RESET
-  ]),
+  type: PropTypes.oneOf([Button.inputTags.BUTTON, Button.inputTags.SUBMIT, Button.inputTags.RESET]),
   /** Disabled property which causes the button to be disabled */
   disabled: PropTypes.bool,
-  /** Icon to place on the right*/
+  /** Icon to place on the right */
   rightIcon: PropTypes.string,
-  /** Icon to place on the left*/
+  /** Icon to place on the left */
   leftIcon: PropTypes.string,
   /** the success props are used when you have async action and wants to display a success message */
   success: PropTypes.bool,

@@ -65,10 +65,7 @@ const Search = forwardRef(
         debounceRate={debounceRate}
         className={classNames(className, "search_component", getType(type))}
         secondaryIconName={secondaryIconName}
-        wrapperClassName={classNames(
-          wrapperClassName,
-          "search_component_wrapper"
-        )}
+        wrapperClassName={classNames(wrapperClassName, "search_component_wrapper")}
         onBlur={onBlur}
         onFocus={onFocus}
         ref={mergedRef}

@@ -1,5 +1,5 @@
 import React from "react";
-import { boolean, number, select, color , text} from "@storybook/addon-knobs";
+import { boolean, number, select, color, text } from "@storybook/addon-knobs";
 import LinearProgressBar from "../LinearProgressBar";
 import colors from "../../../../constants/colors.json";
 import "./linearProgressBar.stories.scss";
@@ -13,22 +13,10 @@ export const Sandbox = () => (
       valueSecondary={number("Secondary bar value", 60)}
       max={number("Max value", 100)}
       min={number("Min value", 0)}
-      size={select(
-        "Size",
-        Object.values(LinearProgressBar.sizes),
-        LinearProgressBar.sizes.LARGE
-      )}
-      barStyle={select(
-        "Style",
-        Object.values(LinearProgressBar.styles),
-        LinearProgressBar.styles.PRIMARY
-      )}
+      size={select("Size", Object.values(LinearProgressBar.sizes), LinearProgressBar.sizes.LARGE)}
+      barStyle={select("Style", Object.values(LinearProgressBar.styles), LinearProgressBar.styles.PRIMARY)}
       indicateProgress={boolean("Indicate Progress", true)}
-      className={select(
-        "With custom class",
-        ["linear-progress-bar--custom-class", ""],
-        ""
-      )}
+      className={select("With custom class", ["linear-progress-bar--custom-class", ""], "")}
       ariaLabel={text("Bar Aria Label", "my awesome growth bar")}
     />
   </div>

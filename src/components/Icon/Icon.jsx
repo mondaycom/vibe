@@ -24,13 +24,7 @@ const Icon = forwardRef(
     },
     ref
   ) => {
-    const {
-      tabindex,
-      onClickCallback,
-      computedClassName,
-      iconRef,
-      role
-    } = useIconProps({
+    const { tabindex, onClickCallback, computedClassName, iconRef, role } = useIconProps({
       onClick,
       clickable,
       className,

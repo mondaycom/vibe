@@ -16,6 +16,7 @@
       opacity: 0;
       width: 0;
       height: 0;
+      margin: 0;
     }
 
     &__radio-control {
@@ -53,30 +54,24 @@
   }
 
   &__radio-label {
-    line-height: 1;
+    line-height: 21px;
     font-weight: 400;
     @include theme-prop(color, primary-text-color);
   }
 
   &.disabled {
     cursor: not-allowed;
+    .monday-style-radio-button-component__radio-label {
+      @include theme-prop(color, disabled-text-color);
+    }
   }
 
-  &:hover
-    &__radio-input-container
-    input:enabled:checked
-    + &__radio-input-container__radio-control {
+  &:hover &__radio-input-container input:enabled:checked + &__radio-input-container__radio-control {
     @include theme-prop(border-color, primary-hover-color);
   }
 
-  &:hover
-    &__radio-input-container
-    input:enabled:not(:checked)
-    + &__radio-input-container__radio-control,
-  &:focus-within
-    &__radio-input-container
-    input:enabled:not(:checked)
-    + &__radio-input-container__radio-control {
+  &:hover &__radio-input-container input:enabled:not(:checked) + &__radio-input-container__radio-control,
+  &:focus-within &__radio-input-container input:enabled:not(:checked) + &__radio-input-container__radio-control {
     @include theme-prop(border-color, primary-text-color);
   }
 }

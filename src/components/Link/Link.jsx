@@ -47,14 +47,7 @@ const Link = forwardRef(
 
 function getIcon(shouldShow, icon, className) {
   if (!shouldShow) return;
-  return (
-    <Icon
-      className={className}
-      clickable={false}
-      icon={icon}
-      iconType={Icon.type.ICON_FONT}
-    />
-  );
+  return <Icon className={className} clickable={false} icon={icon} iconType={Icon.type.ICON_FONT} />;
 }
 
 Link.target = LINK_TARGET;
@@ -66,12 +59,7 @@ Link.propTypes = {
   text: PropTypes.string,
   rel: PropTypes.string,
   onClick: PropTypes.func,
-  target: PropTypes.oneOf([
-    Link.target.NEW_WINDOW,
-    Link.target.PARENT,
-    Link.target.SELF,
-    Link.target.TOP
-  ]),
+  target: PropTypes.oneOf([Link.target.NEW_WINDOW, Link.target.PARENT, Link.target.SELF, Link.target.TOP]),
   /** Aria label description */
   ariaLabelDescription: PropTypes.string,
   /** element id to describe the counter accordingly */

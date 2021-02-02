@@ -28,8 +28,7 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 const DIALOG_MOVE_BY = { main: 8, secondary: 0 };
 const DEFAULT_DIALOG_SHOW_TRIGGER = "click";
 const DEFAULT_DIALOG_HIDE_TRIGGER = ["clickoutside", "click", "esckey"];
-const SECONDARY_BUTTON_WRAPPER_CLASSNAME =
-  "monday-style-split-button__secondary-button-wrapper";
+const SECONDARY_BUTTON_WRAPPER_CLASSNAME = "monday-style-split-button__secondary-button-wrapper";
 const EMPTY_ARR = [];
 
 const SECONDARY_CONTENT_POSITIONS = {
@@ -143,27 +142,17 @@ const SplitButton = ({
     [className, kind, color, isActive, isDialogOpen, isHovered, disabled]
   );
 
-  const dialogShowTrigger = useMemo(
-    () => (disabled ? EMPTY_ARR : DEFAULT_DIALOG_SHOW_TRIGGER),
-    [disabled]
-  );
+  const dialogShowTrigger = useMemo(() => (disabled ? EMPTY_ARR : DEFAULT_DIALOG_SHOW_TRIGGER), [disabled]);
 
   const dialogHideTrigger = useMemo(() => {
-    if (shouldCloseOnClickInsideDialog)
-      return [...DEFAULT_DIALOG_HIDE_TRIGGER, "onContentClick"];
+    if (shouldCloseOnClickInsideDialog) return [...DEFAULT_DIALOG_HIDE_TRIGGER, "onContentClick"];
     return DEFAULT_DIALOG_HIDE_TRIGGER;
   }, [shouldCloseOnClickInsideDialog]);
 
   const actionsContent = useCallback(() => {
-    const content =
-      typeof secondaryDialogContent === "function"
-        ? secondaryDialogContent()
-        : secondaryDialogContent;
+    const content = typeof secondaryDialogContent === "function" ? secondaryDialogContent() : secondaryDialogContent;
     return (
-      <DialogContentContainer
-        type={DialogContentContainer.types.POPOVER}
-        size={DialogContentContainer.sizes.MEDIUM}
-      >
+      <DialogContentContainer type={DialogContentContainer.types.POPOVER} size={DialogContentContainer.sizes.MEDIUM}>
         {content}
       </DialogContentContainer>
     );
@@ -261,10 +250,7 @@ SplitButton.defaultProps = {
 
 SplitButton.propTypes = {
   ...Button.propTypes,
-  secondaryDialogContent: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.object
-  ]).isRequired,
+  secondaryDialogContent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
   onSecondaryDialogDidShow: PropTypes.func,
   onSecondaryDialogDidHide: PropTypes.func,
   zIndex: PropTypes.number,

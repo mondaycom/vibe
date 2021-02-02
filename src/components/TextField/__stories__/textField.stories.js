@@ -62,35 +62,19 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="Disabled" />
         <div className="width-35">
-          <TextField
-            id="_5"
-            disabled
-            placeholder="Placeholder text"
-            size="md"
-          />
+          <TextField id="_5" disabled placeholder="Placeholder text" size="md" />
         </div>
       </FlexLayout>
       <FlexLayout>
         <ComponentStateDescription title="With Icon" />
         <div className="width-35">
-          <TextField
-            id="_4"
-            iconName="fa-star"
-            placeholder="Placeholder text"
-            size="md"
-            value="initial value"
-          />
+          <TextField id="_4" iconName="fa-star" placeholder="Placeholder text" size="md" value="initial value" />
         </div>
       </FlexLayout>
       <FlexLayout>
         <ComponentStateDescription title="Active/Focus" />
         <div className="width-35">
-          <TextField
-            id="_6"
-            autoFocus
-            placeholder="Placeholder text"
-            size="md"
-          />
+          <TextField id="_6" autoFocus placeholder="Placeholder text" size="md" />
         </div>
       </FlexLayout>
       <FlexLayout>
@@ -140,24 +124,13 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="With FieldLabel" />
         <div className="width-35">
-          <TextField
-            id="_9"
-            title="Title"
-            placeholder="Placeholder text"
-            size="md"
-          />
+          <TextField id="_9" title="Title" placeholder="Placeholder text" size="md" />
         </div>
       </FlexLayout>
       <FlexLayout>
         <ComponentStateDescription title="With FieldLabel and Icon" />
         <div style={{ width: "35%", marginRight: "5%" }}>
-          <TextField
-            id="_10"
-            title="Title"
-            labelIconName="fa-envelope"
-            placeholder="Placeholder text"
-            size="md"
-          />
+          <TextField id="_10" title="Title" labelIconName="fa-envelope" placeholder="Placeholder text" size="md" />
         </div>
         <div className="width-35">
           <TextField

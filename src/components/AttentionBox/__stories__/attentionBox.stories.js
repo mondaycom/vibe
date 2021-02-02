@@ -2,17 +2,13 @@ import React from "react";
 import { text, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import AttentionBox from "../AttentionBox";
-import {
-  StoryStateRow,
-  ComponentStateDescription
-} from "../../storybook-helpers";
+import { StoryStateRow, ComponentStateDescription } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import { ATTENTION_BOX_TYPES } from "../AttentionBoxConstants";
 import "./attentionBox.stories.scss";
 
 const ATTENTION_BOX_TITLE = "Attention box title";
-const ATTENTION_BOX_TEXT =
-  "Studies show that 100% of people who celebrate birthdays, will eventually die.";
+const ATTENTION_BOX_TEXT = "Studies show that 100% of people who celebrate birthdays, will eventually die.";
 
 export const Sandbox = () => {
   return (
@@ -62,12 +58,7 @@ const renderAttentionBox = type => {
   const customClass = "monday-style-attention-box-component-custom-class";
 
   return (
-    <AttentionBox
-      type={type}
-      title={ATTENTION_BOX_TITLE}
-      text={ATTENTION_BOX_TEXT}
-      componentClassName={customClass}
-    />
+    <AttentionBox type={type} title={ATTENTION_BOX_TITLE} text={ATTENTION_BOX_TEXT} componentClassName={customClass} />
   );
 };
 

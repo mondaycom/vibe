@@ -9,11 +9,7 @@ export default class StoryStateColumn extends PureComponent {
     const { title, children, description, ignore, centerize } = this.props;
 
     return (
-      <FlexLayout
-        className={cx("story-state-column", { ignore })}
-        direction="column"
-        centerize={centerize}
-      >
+      <FlexLayout className={cx("story-state-column", { ignore })} direction="column" centerize={centerize}>
         <DescriptionLabel>{title}</DescriptionLabel>
         <FlexLayout centerize={true}>{children}</FlexLayout>
         <DescriptionLabel>{description}</DescriptionLabel>

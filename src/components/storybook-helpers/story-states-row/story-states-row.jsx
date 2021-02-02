@@ -5,7 +5,9 @@ import ComponentStateDescription from "../component-state-description/ComponentS
 export default class StoryStateRow extends PureComponent {
   render() {
     const { children, centerize, componentDescription, componentClassName } = this.props;
-    const childComp = componentDescription ? [<ComponentStateDescription title={componentDescription} />, children] : children;
+    const childComp = componentDescription
+      ? [<ComponentStateDescription title={componentDescription} />, children]
+      : children;
     return (
       <FlexLayout centerize={centerize} direction="row" className={componentClassName}>
         {childComp}

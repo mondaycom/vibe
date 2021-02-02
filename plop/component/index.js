@@ -5,33 +5,28 @@ module.exports = plop => {
       {
         type: "input",
         name: "componentName",
-        message:
-          "What is the name of your component? (use spaces if multi word)"
+        message: "What is the name of your component? (use spaces if multi word)"
       }
     ],
     actions: [
       {
         type: "add",
-        path:
-          "src/components/{{properCase componentName}}/{{properCase componentName}}.jsx",
+        path: "src/components/{{properCase componentName}}/{{properCase componentName}}.jsx",
         templateFile: "plop/component/component-js.txt"
       },
       {
         type: "add",
-        path:
-          "src/components/{{properCase componentName}}/{{properCase componentName}}.scss",
+        path: "src/components/{{properCase componentName}}/{{properCase componentName}}.scss",
         templateFile: "plop/component/component-scss.txt"
       },
       {
         type: "add",
-        path:
-          "src/components/{{properCase componentName}}/__stories__/{{camelCase componentName}}.stories.js",
+        path: "src/components/{{properCase componentName}}/__stories__/{{camelCase componentName}}.stories.js",
         templateFile: "plop/component/component-stories-js.txt"
       },
       {
         type: "add",
-        path:
-          "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}.jest.js",
+        path: "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}.jest.js",
         templateFile: "plop/component/component-test-jest.txt"
       },
       {

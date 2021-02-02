@@ -1,5 +1,5 @@
 import React from "react";
-import cx from "classnames"
+import cx from "classnames";
 import ComponentStateDescription from "../../components/storybook-helpers/component-state-description/ComponentStateDescription";
 import "./StoryLine.scss";
 

@@ -15,31 +15,14 @@ export const Icons = () => {
   return (
     <>
       <FlexLayout className="main-icon-story">
-        <div
-          className="single-icon-wrapper"
-          style={{ color: "var(--primary-color)" }}
-        >
-          <Icon
-            iconType={Icon.type.SVG}
-            icon={Bolt}
-            iconLabel="my bolt svg icon"
-            clickable
-            iconSize={16}
-          />
+        <div className="single-icon-wrapper" style={{ color: "var(--primary-color)" }}>
+          <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" clickable iconSize={16} />
         </div>
         <DescriptionLabel>SVG Icon</DescriptionLabel>
       </FlexLayout>
       <FlexLayout className="main-icon-story">
-        <div
-          className="single-icon-wrapper"
-          style={{ color: "var(--color-egg_yolk)" }}
-        >
-          <Icon
-            iconType={Icon.type.ICON_FONT}
-            iconLabel="my font awesome start icon"
-            icon="fa fa-star"
-            clickable
-          />
+        <div className="single-icon-wrapper" style={{ color: "var(--color-egg_yolk)" }}>
+          <Icon iconType={Icon.type.ICON_FONT} iconLabel="my font awesome start icon" icon="fa fa-star" clickable />
         </div>
         <DescriptionLabel>Font Icon</DescriptionLabel>
       </FlexLayout>
@@ -70,13 +53,10 @@ export const IconsList = () => {
   return (
     <section className="icons-story">
       <div className="icon-story-description">
-        Each icon is exported as a react component under the{" "}
-        <code>dist/icons</code> folder. Just import the icon by it's name as
-        shown in the list below
+        Each icon is exported as a react component under the <code>dist/icons</code> folder. Just import the icon by
+        it's name as shown in the list below
         <br />
-        <code>
-          import DoubleCheck from "monday-ui-react-core/dist/icons/DoubleCheck";
-        </code>
+        <code>import DoubleCheck from "monday-ui-react-core/dist/icons/DoubleCheck";</code>
         <br />
         <div
           style={{
@@ -97,9 +77,7 @@ export const IconsList = () => {
           />
         </div>
       </div>
-      <div
-        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-      >
+      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
         {iconsMetaData.reduce((acc, icon) => {
           if (!icon.tags.toLowerCase().includes(filterData.toLowerCase())) {
             return acc;
