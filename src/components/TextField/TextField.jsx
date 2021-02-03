@@ -27,6 +27,7 @@ const TextField = forwardRef(
       debounceRate,
       autoFocus,
       disabled,
+      readonly,
       setRef,
       iconName,
       secondaryIconName,
@@ -115,6 +116,7 @@ const TextField = forwardRef(
               value={inputValue}
               onChange={onEventChanged}
               disabled={disabled}
+              readOnly={readonly}
               ref={mergedRef}
               autoFocus={autoFocus}
               type={type}
@@ -199,6 +201,7 @@ TextField.propTypes = {
   debounceRate: PropTypes.number,
   autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
+  readonly: PropTypes.bool,
   setRef: PropTypes.func,
   iconName: PropTypes.string,
   secondaryIconName: PropTypes.string,
@@ -246,6 +249,7 @@ TextField.defaultProps = {
   debounceRate: 0,
   autoFocus: false,
   disabled: false,
+  readonly: false,
   setRef: NOOP,
   iconName: "",
   secondaryIconName: "",
