@@ -9,7 +9,7 @@ import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_SIZES, BUTTON_TYPES } from "./
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
-import { getParentBackgroundColorNotTransparent } from "./helper/dom-helpers";
+import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
@@ -48,7 +48,8 @@ const Button = forwardRef(
       noSidePadding,
       onFocus,
       onBlur,
-      ariaLabeledBy
+      ariaLabeledBy,
+      defaultTextColorOnPrimaryColor
     },
     ref
   ) => {
@@ -77,8 +78,8 @@ const Button = forwardRef(
       if (!buttonRef.current) return;
 
       const buttonElement = buttonRef.current;
-      buttonElement.style.color = getParentBackgroundColorNotTransparent(buttonElement);
-    }, [kind, buttonRef, color]);
+      buttonElement.style.color = getParentBackgroundColorNotTransparent(buttonElement, defaultTextColorOnPrimaryColor);
+    }, [kind, buttonRef, color, defaultTextColorOnPrimaryColor]);
 
     const onMouseUp = useCallback(() => {
       const button = buttonRef.current;
@@ -308,7 +309,9 @@ Button.propTypes = {
   rightFlat: PropTypes.bool,
   leftFlat: PropTypes.bool,
   preventClickAnimation: PropTypes.bool,
-  noSidePadding: PropTypes.bool
+  noSidePadding: PropTypes.bool,
+  /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
+  defaultTextColorOnPrimaryColor: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -338,7 +341,8 @@ Button.defaultProps = {
   preventClickAnimation: false,
   noSidePadding: false,
   onFocus: NOOP,
-  onBlur: NOOP
+  onBlur: NOOP,
+  defaultTextColorOnPrimaryColor: TRANSPARENT_COLOR
 };
 
 export default Button;
