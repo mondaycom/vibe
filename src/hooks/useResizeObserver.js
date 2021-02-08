@@ -15,14 +15,19 @@ export default function useResizeObserver({ ref, callback, debounceTime = 200 })
 
     const resizeObserver = new ResizeObserver(entries => {
       const entry = entries[0];
-      if (!(entry && entry.borderBoxSize && entry.borderBoxSize.length > 0)) {
+      if (entry && entry.borderBoxSize) {
+        const borderBoxSize = entry.borderBoxSize.length > 0 ? entry.borderBoxSize[0] : entry.borderBoxSize;
+        animationFrameId = window.requestAnimationFrame(() => {
+          debouncedCallback({ borderBoxSize });
+        });
+      } else if (entry.contentRect) {
+        const borderBoxSize = { blockSize: entry.contentRect.height };
+        animationFrameId = window.requestAnimationFrame(() => {
+          debouncedCallback({ borderBoxSize });
+        });
+      } else {
         return () => {};
       }
-
-      const borderBoxSize = entry.borderBoxSize[0];
-      animationFrameId = window.requestAnimationFrame(() => {
-        debouncedCallback({ borderBoxSize });
-      });
     });
 
     resizeObserver.observe(ref.current);
