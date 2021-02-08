@@ -6,6 +6,11 @@ export default function useResizeObserver({ ref, callback, debounceTime = 200 })
     return debounceTime === 0 ? callback : debounce(callback, debounceTime);
   }, [callback, debounceTime]);
 
+  const borderBoxSizeCallback = borderBoxSize =>
+    window.requestAnimationFrame(() => {
+      debouncedCallback({ borderBoxSize });
+    });
+
   useEffect(() => {
     if (!window.ResizeObserver) {
       return () => {};
@@ -17,14 +22,10 @@ export default function useResizeObserver({ ref, callback, debounceTime = 200 })
       const entry = entries[0];
       if (entry && entry.borderBoxSize) {
         const borderBoxSize = entry.borderBoxSize.length > 0 ? entry.borderBoxSize[0] : entry.borderBoxSize;
-        animationFrameId = window.requestAnimationFrame(() => {
-          debouncedCallback({ borderBoxSize });
-        });
+        animationFrameId = borderBoxSizeCallback(borderBoxSize);
       } else if (entry.contentRect) {
         const borderBoxSize = { blockSize: entry.contentRect.height };
-        animationFrameId = window.requestAnimationFrame(() => {
-          debouncedCallback({ borderBoxSize });
-        });
+        animationFrameId = borderBoxSizeCallback(borderBoxSize);
       } else {
         return () => {};
       }
