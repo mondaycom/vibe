@@ -22,8 +22,11 @@ export default function useResizeObserver({ ref, callback, debounceTime = 200 })
       const entry = entries[0];
       if (entry && entry.borderBoxSize) {
         const borderBoxSize = entry.borderBoxSize.length > 0 ? entry.borderBoxSize[0] : entry.borderBoxSize;
+        // handle chrome (entry.borderBoxSize[0])
+        // handle ff (entry.borderBoxSize)
         animationFrameId = borderBoxSizeCallback(borderBoxSize);
       } else if (entry.contentRect) {
+        // handle safari (entry.contentRect)
         const borderBoxSize = { blockSize: entry.contentRect.height };
         animationFrameId = borderBoxSizeCallback(borderBoxSize);
       } else {
