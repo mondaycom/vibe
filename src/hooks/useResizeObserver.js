@@ -6,15 +6,15 @@ export default function useResizeObserver({ ref, callback, debounceTime = 200 })
     return debounceTime === 0 ? callback : debounce(callback, debounceTime);
   }, [callback, debounceTime]);
 
-  const borderBoxSizeCallback = borderBoxSize =>
-    window.requestAnimationFrame(() => {
-      debouncedCallback({ borderBoxSize });
-    });
-
   useEffect(() => {
     if (!window.ResizeObserver) {
       return () => {};
     }
+
+    const borderBoxSizeCallback = borderBoxSize =>
+      window.requestAnimationFrame(() => {
+        debouncedCallback({ borderBoxSize });
+      });
 
     let animationFrameId = null;
 
