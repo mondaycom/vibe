@@ -2,7 +2,7 @@
 @import "../../styles/typography.scss";
 
 .expand-collapse--wrapper {
-    .expand-collapse-container {
+    .expand-collapse {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -15,20 +15,20 @@
         border-radius: $border-radius-small;
     }
 
-    .expand-collapse-header {
+    .expand-collapse__header {
         padding: $spacing-medium;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
 
-    .expand-collapse-content {
+    .expand-collapse__content {
         padding: $spacing-medium;
         border-top: 1px solid;
         @include theme-prop(border-color, ui-border-color);
     }
 
-    .expand-collapse-section {
+    .expand-collapse__section {
         width: 100%;
     }
 }

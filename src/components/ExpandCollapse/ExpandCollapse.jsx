@@ -18,8 +18,8 @@ const ExpandCollapse = forwardRef(({ children, headerComponentRenderer, classNam
 
   return (
     <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)}>
-      <div className="expand-collapse-container">
-        <div className="expand-collapse-header expand-collapse-section">
+      <div className="expand-collapse">
+        <div className="expand-collapse__header expand-collapse__section">
           {headerComponentRenderer()}
           <Icon
             iconType={Icon.type.SVG}
@@ -30,7 +30,7 @@ const ExpandCollapse = forwardRef(({ children, headerComponentRenderer, classNam
             clickable={true}
           />
         </div>
-        {isOpen && <div className="expand-collapse-content expand-collapse-section">{children}</div>}
+        {isOpen && <div className="expand-collapse__content expand-collapse__section">{children}</div>}
       </div>
     </div>
   );
