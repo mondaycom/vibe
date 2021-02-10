@@ -28,3 +28,4 @@ export { default as Banner } from "./Banner/Banner";
 
 export { default as MultiStepIndicator } from "./MultiStepIndicator/MultiStepIndicator";
 export { default as HiddenText } from "./HiddenText/HiddenText";
+export { default as ExpandCollapse } from "./ExpandCollapse/ExpandCollapse";

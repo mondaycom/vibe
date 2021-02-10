@@ -1,0 +1,34 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.expand-collapse--wrapper {
+    .expand-collapse-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        @include theme-prop(color, primary-text-color);
+        background-color: transparent;
+        border: 1px solid;
+        @include theme-prop(border-color, ui-border-color);
+        box-sizing: border-box;
+        border-radius: $border-radius-small;
+    }
+
+    .expand-collapse-header {
+        padding: $spacing-medium;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .expand-collapse-content {
+        padding: $spacing-medium;
+        border-top: 1px solid;
+        @include theme-prop(border-color, ui-border-color);
+    }
+
+    .expand-collapse-section {
+        width: 100%;
+    }
+}
