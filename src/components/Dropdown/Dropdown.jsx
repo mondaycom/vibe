@@ -31,6 +31,7 @@ const Dropdown = ({
   openMenuOnFocus,
   openMenuOnClick,
   clearable,
+  isMulti,
   OptionRenderer,
   optionRenderer,
   ValueRenderer,
@@ -119,6 +120,7 @@ const Dropdown = ({
       placeholder={placeholder}
       isDisabled={disabled}
       isClearable={clearable}
+      isMulti={isMulti}
       isSearchable={searchable}
       defaultValue={defaultValue}
       value={value}
@@ -153,6 +155,7 @@ Dropdown.defaultProps = {
   options: [],
   noOptionsMessage: NOOP,
   clearable: true,
+  isMulti: false,
   size: SIZE.MEDIUM,
   extraStyles: defaultCustomStyles
 };
@@ -214,6 +217,10 @@ Dropdown.propTypes = {
    * If set to true, clear button will be added
    */
   clearable: PropTypes.bool,
+  /**
+   * If set to true, will allow multi selections
+   */
+  isMulti: PropTypes.bool,
   /**
    * custom option render function
    */
