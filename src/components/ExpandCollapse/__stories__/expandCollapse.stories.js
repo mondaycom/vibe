@@ -14,8 +14,7 @@ export const Sandbox = () => {
 
     return (<div style={{ width, height }}>
         <ExpandCollapse 
-        headerComponentRenderer={() => <p>Knobs doen't support functions - <b>insert any component you want</b></p>}>
-            <p>Knobs doen't support functions</p>
+        headerComponentRenderer={() => <h2><b>I can be anything</b></h2>}>
             <h2>insert any component you want</h2>
             <p>here is a robot for you</p>
             <Icon iconType={Icon.type.SVG} icon={Robot} iconSize={"52px"} tabindex="-1" clickable={true} />
