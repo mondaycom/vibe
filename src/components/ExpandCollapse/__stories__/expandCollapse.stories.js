@@ -34,18 +34,6 @@ export const OpenByDefault = () => (
     </div>
 );
 
-export const IconTitleHeader = () => (
-    <div>
-        <ExpandCollapse 
-        className="expandCollapse"
-        headerComponentRenderer={IconTitleHeaderComponent("Header Text", 
-        "Some subtext to describe stuff...")}>
-            <Icon iconType={Icon.type.SVG} icon={Robot} iconSize={"52px"} tabindex="-1" clickable={true} />
-        </ExpandCollapse>
-    </div>
-);
-
-
 export default {
     title: "Components/ExpandCollapse",
     component: ExpandCollapse,
