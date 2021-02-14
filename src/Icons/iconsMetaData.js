@@ -267,7 +267,13 @@ export const iconsMetaData = [
     tags: "Enter, Keyboard, Key",
     category: [PLATFORM],
   },
-
+  {
+    name: "ExternalPage",
+    file: "ExternalPage.svg",
+    description: "External Page",
+    tags: "External, Page, New Tab, Open",
+    category: [PLATFORM],
+  },
   {
     name: "Favorite",
     file: "Favorite.svg",
