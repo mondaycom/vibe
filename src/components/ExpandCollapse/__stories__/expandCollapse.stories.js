@@ -3,7 +3,6 @@ import { action } from '@storybook/addon-actions';
 import { text, number } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import ExpandCollapse from "../ExpandCollapse";
-import IconTitleHeaderComponent from "../components/IconTitleHeader/IconTitleHeaderComponent";
 import Icon from "../../Icon/Icon";
 import Robot from "../../Icon/Icons/components/Robot";
 import "./expandCollapse.stories.scss"

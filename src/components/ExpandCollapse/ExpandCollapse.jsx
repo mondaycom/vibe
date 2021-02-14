@@ -20,7 +20,7 @@ const ExpandCollapse = forwardRef(({ children, headerComponentRenderer, classNam
     <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)}>
       <div className="expand-collapse">
         <div className="expand-collapse__header expand-collapse__section">
-          {headerComponentRenderer()}
+          {headerComponentRenderer && headerComponentRenderer()}
           <Icon
             iconType={Icon.type.SVG}
             icon={DropdownChevronDown}
@@ -44,7 +44,7 @@ ExpandCollapse.propTypes = {
   /**
    * The value of the expandable section
    */
-  children: PropTypes.children,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   /**
    * Custom styling
    */
