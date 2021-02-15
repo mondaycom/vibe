@@ -19,8 +19,8 @@ const ExpandCollapse = forwardRef(
 
     return (
       <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)}>
-        <div className="expand-collapse" onClick={toogleExpand}>
-          <div className="expand-collapse__header expand-collapse__section">
+        <div className="expand-collapse">
+          <div className="expand-collapse__header expand-collapse__section" onClick={toogleExpand}>
             {headerComponentRenderer && headerComponentRenderer()}
             <Icon
               iconType={Icon.type.SVG}

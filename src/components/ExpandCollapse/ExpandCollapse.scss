@@ -13,7 +13,6 @@
         @include theme-prop(border-color, ui-border-color);
         box-sizing: border-box;
         border-radius: $border-radius-small;
-        cursor: pointer;
     }
 
     .expand-collapse__header {
@@ -21,6 +20,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        cursor: pointer;
     }
 
     .expand-collapse__content {
