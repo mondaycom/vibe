@@ -65,7 +65,7 @@ exports[`Dropdown should open menu on click if set 1`] = `
         />
         <div
           aria-hidden="true"
-          class="dropdown-indicator css-1l2l4xx-indicatorContainer"
+          class="dropdown-indicator css-1pxbrck-indicatorContainer"
         >
           <svg
             class="icon_component icon_component--clickable"
@@ -203,7 +203,7 @@ exports[`Dropdown should open menu on focus if set 1`] = `
         />
         <div
           aria-hidden="true"
-          class="dropdown-indicator css-1l2l4xx-indicatorContainer"
+          class="dropdown-indicator css-1pxbrck-indicatorContainer"
         >
           <svg
             class="icon_component icon_component--clickable"
@@ -363,7 +363,7 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
       />
       <div
         aria-hidden="true"
-        className="dropdown-indicator css-10t6ywh-indicatorContainer"
+        className="dropdown-indicator css-1uglcx3-indicatorContainer"
         onMouseDown={[Function]}
         onTouchEnd={[Function]}
       >
@@ -475,7 +475,7 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
       />
       <div
         aria-hidden="true"
-        className="dropdown-indicator css-z4zos4-indicatorContainer"
+        className="dropdown-indicator css-1ycu3uq-indicatorContainer"
         onMouseDown={[Function]}
         onTouchEnd={[Function]}
       >
@@ -587,7 +587,7 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
       />
       <div
         aria-hidden="true"
-        className="dropdown-indicator css-e3mugu-indicatorContainer"
+        className="dropdown-indicator css-prutdb-indicatorContainer"
         onMouseDown={[Function]}
         onTouchEnd={[Function]}
       >
@@ -699,7 +699,7 @@ exports[`Dropdown should render correctly with empty props 1`] = `
       />
       <div
         aria-hidden="true"
-        className="dropdown-indicator css-z4zos4-indicatorContainer"
+        className="dropdown-indicator css-1ycu3uq-indicatorContainer"
         onMouseDown={[Function]}
         onTouchEnd={[Function]}
       >
@@ -803,7 +803,7 @@ exports[`Dropdown should use async if set 1`] = `
         />
         <div
           aria-hidden="true"
-          class="dropdown-indicator css-z4zos4-indicatorContainer"
+          class="dropdown-indicator css-slqvkp-indicatorContainer"
         >
           <svg
             class="icon_component icon_component--clickable"
@@ -891,7 +891,7 @@ exports[`Dropdown should use virtualization if set 1`] = `
         />
         <div
           aria-hidden="true"
-          class="dropdown-indicator css-1l2l4xx-indicatorContainer"
+          class="dropdown-indicator css-1pxbrck-indicatorContainer"
         >
           <svg
             class="icon_component icon_component--clickable"
