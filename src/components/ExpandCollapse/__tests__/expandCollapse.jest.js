@@ -45,7 +45,7 @@ describe('ExpandCollapse', () => {
     expect(screen.getByText("Child 2")).toBeInTheDocument();
   });
 
-  it("Should render child components after clicking the expand button", function() {
+  it("Should render child components after clicking component", function() {
     const { container } = render(
       <ExpandCollapse headerComponentRenderer={() => <h1>Some Header</h1>}>
         <h1>Child 1</h1>
@@ -58,7 +58,7 @@ describe('ExpandCollapse', () => {
     expect(screen.queryByText("Child 1")).toBeNull();
     expect(screen.queryByText("Child 2")).toBeNull();
 
-    fireEvent.click(container.querySelector("svg"));
+    fireEvent.click(container.firstChild.firstChild);
 
     expect(screen.getByText("Child 1")).toBeInTheDocument();
     expect(screen.getByText("Child 2")).toBeInTheDocument();
