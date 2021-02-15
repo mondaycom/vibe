@@ -6,10 +6,10 @@ exports[`ExpandCollapse renders correctly with empty props 1`] = `
 >
   <div
     className="expand-collapse"
-    onClick={[Function]}
   >
     <div
       className="expand-collapse__header expand-collapse__section"
+      onClick={[Function]}
     >
       <svg
         className="icon_component"

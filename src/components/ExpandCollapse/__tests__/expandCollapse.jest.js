@@ -58,7 +58,7 @@ describe('ExpandCollapse', () => {
     expect(screen.queryByText("Child 1")).toBeNull();
     expect(screen.queryByText("Child 2")).toBeNull();
 
-    fireEvent.click(container.firstChild.firstChild);
+    fireEvent.click(container.firstChild.firstChild.firstChild);
 
     expect(screen.getByText("Child 1")).toBeInTheDocument();
     expect(screen.getByText("Child 2")).toBeInTheDocument();
