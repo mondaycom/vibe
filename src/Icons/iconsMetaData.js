@@ -598,6 +598,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "PushNotifications",
+    file: "PushNotifications.svg",
+    description: "Push Notifications",
+    tags: "Push, Notifications, Bar",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Remove",
     file: "Remove.svg",
     description: "Remove",
