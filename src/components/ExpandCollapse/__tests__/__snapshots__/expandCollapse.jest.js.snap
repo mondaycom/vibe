@@ -6,19 +6,20 @@ exports[`ExpandCollapse renders correctly with empty props 1`] = `
 >
   <div
     className="expand-collapse"
+    onClick={[Function]}
   >
     <div
       className="expand-collapse__header expand-collapse__section"
     >
       <svg
-        className="icon_component icon_component--clickable"
+        className="icon_component"
         fill="currentColor"
-        height="52px"
+        height="24"
         onClick={[Function]}
-        role="button"
+        role=""
         tabIndex="-1"
         viewBox="0 0 20 20"
-        width="52px"
+        width="24"
       >
         <path
           clipRule="evenodd"
