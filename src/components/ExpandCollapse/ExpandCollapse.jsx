@@ -21,7 +21,7 @@ const ExpandCollapse = forwardRef(({ children, headerComponentRenderer, classNam
       <div className="expand-collapse" onClick={toogleExpand}>
         <div className="expand-collapse__header expand-collapse__section">
           {headerComponentRenderer && headerComponentRenderer()}
-          <Icon iconType={Icon.type.SVG} icon={DropdownChevronDown} iconSize={"52px"} tabindex="-1" />
+          <Icon iconType={Icon.type.SVG} icon={DropdownChevronDown} iconSize={"52px"} tabindex="-1" clickable={false} />
         </div>
         {isOpen && <div className="expand-collapse__content expand-collapse__section">{children}</div>}
       </div>
