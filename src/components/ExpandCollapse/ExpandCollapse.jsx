@@ -6,7 +6,7 @@ import "./ExpandCollapse.scss";
 import Icon from "../Icon/Icon";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 
-const ExpandCollapse = forwardRef(({ children, headerComponentRenderer, className, defaultOpenState = false }, ref) => {
+const ExpandCollapse = forwardRef(({ children, headerComponentRenderer, className, defaultOpenState }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
