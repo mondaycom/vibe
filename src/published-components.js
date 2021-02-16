@@ -4,6 +4,7 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+	ExpandCollapse: "/src/components/ExpandCollapse/ExpandCollapse.jsx",
 	HiddenText: "/src/components/HiddenText/HiddenText.jsx",
 	MultiStepIndicator: "/src/components/MultiStepIndicator/MultiStepIndicator.jsx",
   Banner: "/src/components/Banner/Banner.jsx",
