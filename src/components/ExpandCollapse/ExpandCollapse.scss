@@ -47,10 +47,10 @@
     }
 
     .animate-expand-collapse__content {
-        animation: fadeIn 0.1s $expand-animation-timing;
+        animation: expandContentAnimation 0.1s $expand-animation-timing;
       }
       
-      @keyframes fadeIn {
+      @keyframes expandContentAnimation {
         0% {
           opacity: 0;
           transform: translateY(-75px);
