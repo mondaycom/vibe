@@ -22,7 +22,7 @@ const ExpandCollapse = forwardRef(
         <div className="expand-collapse">
           <div
             className={`expand-collapse__header expand-collapse__section ${isOpen && "expand-collapse__header--open"}`}
-            onClick={toogleExpand}
+            onClickCapture={toogleExpand}
           >
             {headerComponentRenderer && headerComponentRenderer()}
             <Icon
