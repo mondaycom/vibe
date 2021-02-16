@@ -45,7 +45,8 @@ const Dropdown = ({
   isVirtualized,
   menuPortalTarget,
   extraStyles,
-  menuIsOpen
+  menuIsOpen,
+  tabIndex
 }) => {
   const [isOpen, setOpen] = useState(false);
 
@@ -135,6 +136,7 @@ const Dropdown = ({
       theme={customTheme}
       menuPortalTarget={menuPortalTarget}
       menuIsOpen={menuIsOpen}
+      tabIndex={tabIndex}
       {...asyncAdditions}
       {...additions}
     />
@@ -157,7 +159,8 @@ Dropdown.defaultProps = {
   noOptionsMessage: NOOP,
   clearable: true,
   size: SIZE.MEDIUM,
-  extraStyles: defaultCustomStyles
+  extraStyles: defaultCustomStyles,
+  tabIndex: "0"
 };
 
 Dropdown.propTypes = {
@@ -274,7 +277,12 @@ Dropdown.propTypes = {
   /**
    * Custom function to override existing styles, ex: base => {...base, ...myCustomOverrides}
    */
-  extraStyles: PropTypes.func
+  extraStyles: PropTypes.func,
+
+  /**
+   * Tab index for keyboard navigation purposes
+   */
+  tabIndex: PropTypes.string
 };
 
 export default Dropdown;
