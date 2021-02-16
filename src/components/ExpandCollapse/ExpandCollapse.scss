@@ -35,11 +35,11 @@
 
     .animate-icon-open {
         transform: rotate( -180deg );            
-        transition: transform 150ms ease;
+        transition: transform 200ms ease;
     }
     
     .animate-icon-close {
         transform: rotate( -360deg );            
-        transition: transform 150ms ease;
+        transition: transform 200ms ease;
     }
 }
