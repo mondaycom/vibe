@@ -23,6 +23,7 @@ const ExpandCollapse = forwardRef(
           <div className="expand-collapse__header expand-collapse__section" onClick={toogleExpand}>
             {headerComponentRenderer && headerComponentRenderer()}
             <Icon
+              className={isOpen ? "animate-icon-open" : "animate-icon-close"}
               iconType={Icon.type.SVG}
               icon={DropdownChevronDown}
               iconSize={iconSize}

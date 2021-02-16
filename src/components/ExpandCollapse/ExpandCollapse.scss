@@ -32,4 +32,14 @@
     .expand-collapse__section {
         width: 100%;
     }
+
+    .animate-icon-open {
+        transform: rotate( -180deg );            
+        transition: transform 150ms ease;
+    }
+    
+    .animate-icon-close {
+        transform: rotate( -360deg );            
+        transition: transform 150ms ease;
+    }
 }
