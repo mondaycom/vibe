@@ -23,10 +23,13 @@
         cursor: pointer;
     }
 
+    .expand-collapse__header--open{
+        border-bottom: 1px solid;
+        @include theme-prop(border-color, ui-border-color);
+    }
+
     .expand-collapse__content {
         padding: $spacing-medium;
-        border-top: 1px solid;
-        @include theme-prop(border-color, ui-border-color);
     }
 
     .expand-collapse__section {
@@ -42,4 +45,20 @@
         transform: rotate( -360deg );            
         transition: transform 200ms ease;
     }
+
+    .animate-expand-collapse__content {
+        animation: fadeIn 0.1s $expand-animation-timing;
+      }
+      
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-75px);
+          transform: translateY(var(--dropdown-menu-fadinY, -75px));
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
 }

@@ -20,7 +20,10 @@ const ExpandCollapse = forwardRef(
     return (
       <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)}>
         <div className="expand-collapse">
-          <div className="expand-collapse__header expand-collapse__section" onClick={toogleExpand}>
+          <div
+            className={`expand-collapse__header expand-collapse__section ${isOpen && "expand-collapse__header--open"}`}
+            onClick={toogleExpand}
+          >
             {headerComponentRenderer && headerComponentRenderer()}
             <Icon
               className={isOpen ? "animate-icon-open" : "animate-icon-close"}
@@ -31,7 +34,14 @@ const ExpandCollapse = forwardRef(
               clickable={false}
             />
           </div>
-          {isOpen && <div className="expand-collapse__content expand-collapse__section">{children}</div>}
+          {isOpen && (
+            <div
+              className={`expand-collapse__content expand-collapse__section ${isOpen &&
+                "animate-expand-collapse__content"}`}
+            >
+              {children}
+            </div>
+          )}
         </div>
       </div>
     );
