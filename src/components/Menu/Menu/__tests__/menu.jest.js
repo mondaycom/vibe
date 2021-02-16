@@ -51,7 +51,7 @@ const renderComponent = ({ ...props } = {}) => {
   );
 };
 
-describe("<Menu />", () => {
+describe.skip("<Menu />", () => {
   afterEach(() => {
     cleanup();
   });

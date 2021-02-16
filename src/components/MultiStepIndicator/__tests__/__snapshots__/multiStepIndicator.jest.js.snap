@@ -46,7 +46,8 @@ exports[`MultiStepIndicator Render tests Renders correctly with non-default prop
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-success__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
-          className="visually-hidden"
+          className="hidden-text--wrapper"
+          id="hiddenText"
         >
           fulfilled
         </span>
@@ -87,7 +88,8 @@ exports[`MultiStepIndicator Render tests Renders correctly with non-default prop
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-success__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
-          className="visually-hidden"
+          className="hidden-text--wrapper"
+          id="hiddenText"
         >
           active
         </span>
@@ -128,7 +130,8 @@ exports[`MultiStepIndicator Render tests Renders correctly with non-default prop
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-success__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
-          className="visually-hidden"
+          className="hidden-text--wrapper"
+          id="hiddenText"
         >
           pending
         </span>
