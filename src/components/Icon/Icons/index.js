@@ -16,6 +16,7 @@ export {default as Broom} from './components/Broom';
 export {default as Calendar} from './components/Calendar';
 export {default as Chart} from './components/Chart';
 export {default as Check} from './components/Check';
+export {default as CheckList} from './components/CheckList';
 export {default as Close} from './components/Close';
 export {default as CloseSmall} from './components/CloseSmall';
 export {default as Column} from './components/Column';
