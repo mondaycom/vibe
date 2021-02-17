@@ -22,6 +22,7 @@ const Dropdown = ({
   onMenuOpen,
   onMenuClose,
   onFocus,
+  onBlur,
   onChange,
   searchable,
   options,
@@ -44,7 +45,8 @@ const Dropdown = ({
   isVirtualized,
   menuPortalTarget,
   extraStyles,
-  menuIsOpen
+  menuIsOpen,
+  tabIndex
 }) => {
   const [isOpen, setOpen] = useState(false);
 
@@ -125,6 +127,7 @@ const Dropdown = ({
       onMenuOpen={handleMenuOpen}
       onMenuClose={handleMenuClose}
       onFocus={onFocus}
+      onBlur={onBlur}
       onChange={onChange}
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}
@@ -133,6 +136,7 @@ const Dropdown = ({
       theme={customTheme}
       menuPortalTarget={menuPortalTarget}
       menuIsOpen={menuIsOpen}
+      tabIndex={tabIndex}
       {...asyncAdditions}
       {...additions}
     />
@@ -148,13 +152,15 @@ Dropdown.defaultProps = {
   onMenuClose: NOOP,
   onKeyDown: NOOP,
   onFocus: NOOP,
+  onBlur: NOOP,
   onChange: NOOP,
   searchable: true,
   options: [],
   noOptionsMessage: NOOP,
   clearable: true,
   size: SIZE.MEDIUM,
-  extraStyles: defaultCustomStyles
+  extraStyles: defaultCustomStyles,
+  tabIndex: "0"
 };
 
 Dropdown.propTypes = {
@@ -186,6 +192,10 @@ Dropdown.propTypes = {
    * Called when focused
    */
   onFocus: PropTypes.func,
+  /**
+   * Called when blurred
+   */
+  onBlur: PropTypes.func,
   /**
    * Called when selected value has changed
    */
@@ -267,7 +277,12 @@ Dropdown.propTypes = {
   /**
    * Custom function to override existing styles, ex: base => {...base, ...myCustomOverrides}
    */
-  extraStyles: PropTypes.func
+  extraStyles: PropTypes.func,
+
+  /**
+   * Tab index for keyboard navigation purposes
+   */
+  tabIndex: PropTypes.string
 };
 
 export default Dropdown;

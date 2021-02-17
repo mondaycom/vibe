@@ -13,7 +13,7 @@ export const Sandbox = () => {
         autoFocus={boolean("Autofocus", true)}
         placeholder={text("Placeholder", "default placeholder")}
         debounceRate={number("Debounce Rate (see console log)", 0)}
-        onChange={value => console.log(value)}
+        onChange={(value) => console.log(value)}
         value={text("Initial Value", "")}
         iconsNames={{ primary: "Primary Icon - could be any icon" }}
         iconName={text("Primary Icon Name", "fa-circle")}
@@ -24,12 +24,13 @@ export const Sandbox = () => {
             None: null,
             Error: { status: "error", text: "error" },
             Success: { status: "success", text: "success" },
-            Assist: { status: "", text: "assist text" }
+            Assist: { status: "", text: "assist text" },
           },
           { status: "", text: "assist text" }
         )}
         id="Knobs"
         disabled={boolean("Disabled", false)}
+        readonly={boolean("Readonly", true)}
         size={select("Size", { Small: "s", Medium: "md", Large: "l" }, "md")}
         clearOnIconClick={boolean("clear data in icon click", true)}
         labelIconName={text("FieldLabel Icon Name", "fa-envelope")}
@@ -150,5 +151,5 @@ export const States = () => {
 export default {
   title: "Components|Text Field",
   component: TextField,
-  decorators: [withPerformance]
+  decorators: [withPerformance],
 };

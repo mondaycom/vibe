@@ -32,7 +32,7 @@ const renderComponent = ({ ...props } = {}) => {
   return render(<MenuItem title={itemName} {...props} />);
 };
 
-describe("<MenuItem />", () => {
+describe.skip("<MenuItem />", () => {
   it("calls onClick when clicking on the menu item", () => {
     const onClickMock = jest.fn();
     const menuItemComponent = renderComponent({

@@ -4,7 +4,6 @@ exports[`Snapshots renders correctly with children 1`] = `
 <div
   aria-label="Menu"
   className="monday-style-menu dummy-class-name monday-style-menu--medium"
-  onBlur={[Function]}
   tabIndex={0}
 >
   <div
@@ -20,6 +19,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     </div>
   </div>
   <div
+    aria-haspopup={false}
     className="monday-style-menu-item"
     onClick={[Function]}
   >
@@ -35,21 +35,16 @@ exports[`Snapshots renders correctly with children 1`] = `
           "left": "0",
           "position": "absolute",
           "top": "0",
+          "visibility": "hidden",
         }
       }
-    >
-      <div
-        aria-describedby=""
-        aria-labelledby=""
-        className="dialog-content-container dialog-content-container--popover dialog-content-container--medium"
-        role="dialog"
-      />
-    </div>
+    />
   </div>
   <div
     className="monday-style-divider monday-style-divider--horizontal"
   />
   <div
+    aria-haspopup={false}
     className="monday-style-menu-item"
     onClick={[Function]}
   >
@@ -65,16 +60,10 @@ exports[`Snapshots renders correctly with children 1`] = `
           "left": "0",
           "position": "absolute",
           "top": "0",
+          "visibility": "hidden",
         }
       }
-    >
-      <div
-        aria-describedby=""
-        aria-labelledby=""
-        className="dialog-content-container dialog-content-container--popover dialog-content-container--medium"
-        role="dialog"
-      />
-    </div>
+    />
   </div>
 </div>
 `;
@@ -83,7 +72,6 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 <div
   aria-label="Menu"
   className="monday-style-menu dummy-class-name monday-style-menu--medium"
-  onBlur={[Function]}
   tabIndex={0}
 />
 `;
@@ -92,7 +80,6 @@ exports[`Snapshots renders correctly with empty props 1`] = `
 <div
   aria-label="Menu"
   className="monday-style-menu monday-style-menu--medium"
-  onBlur={[Function]}
   tabIndex={0}
 />
 `;

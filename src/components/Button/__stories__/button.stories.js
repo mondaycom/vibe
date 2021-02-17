@@ -4,6 +4,7 @@ import StoryStateColumn from "../../storybook-helpers/story-state-column/story-s
 import StoryStateRow from "../../storybook-helpers/story-states-row/story-states-row";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
 import { withPerformance } from "storybook-addon-performance";
+import { TRANSPARENT_COLOR } from "../helper/dom-helpers";
 
 export const DefaultStory = () => (
   <Button marginLeft marginRight>
@@ -239,6 +240,46 @@ export const OnColorButtons = () => (
         <StoryStateColumn>
           <Button size={Button.sizes.LARGE} kind={Button.kinds.TERTIARY} color={Button.colors.ON_PRIMARY_COLOR}>
             On Primary Tertiary
+          </Button>
+        </StoryStateColumn>
+      </StoryStateRow>
+    </div>
+    <div
+      style={{
+        backgroundColor: TRANSPARENT_COLOR,
+        borderRadius: "4px",
+        marginTop: "16px"
+      }}
+    >
+      <StoryStateRow>
+        <StoryStateColumn>
+          <Button
+            size={Button.sizes.LARGE}
+            kind={Button.kinds.PRIMARY}
+            color={Button.colors.ON_PRIMARY_COLOR}
+            defaultTextColorOnPrimaryColor="hotpink"
+          >
+            Transparent with color
+          </Button>
+        </StoryStateColumn>
+        <StoryStateColumn>
+          <Button
+            size={Button.sizes.LARGE}
+            kind={Button.kinds.PRIMARY}
+            color={Button.colors.ON_PRIMARY_COLOR}
+            defaultTextColorOnPrimaryColor="#000000"
+          >
+            Transparent with color
+          </Button>
+        </StoryStateColumn>
+        <StoryStateColumn>
+          <Button
+            size={Button.sizes.LARGE}
+            kind={Button.kinds.PRIMARY}
+            color={Button.colors.ON_PRIMARY_COLOR}
+            defaultTextColorOnPrimaryColor="var(--primary-color)"
+          >
+            Transparent with color
           </Button>
         </StoryStateColumn>
       </StoryStateRow>

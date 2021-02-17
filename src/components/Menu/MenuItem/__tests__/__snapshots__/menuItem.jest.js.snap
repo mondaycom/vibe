@@ -2,6 +2,7 @@
 
 exports[`Snapshots renders correctly when disabled 1`] = `
 <div
+  aria-haspopup={false}
   className="monday-style-menu-item monday-style-menu-item--disabled"
   onClick={[Function]}
 >
@@ -17,21 +18,16 @@ exports[`Snapshots renders correctly when disabled 1`] = `
         "left": "0",
         "position": "absolute",
         "top": "0",
+        "visibility": "hidden",
       }
     }
-  >
-    <div
-      aria-describedby=""
-      aria-labelledby=""
-      className="dialog-content-container dialog-content-container--popover dialog-content-container--medium"
-      role="dialog"
-    />
-  </div>
+  />
 </div>
 `;
 
 exports[`Snapshots renders correctly with custom class name 1`] = `
 <div
+  aria-haspopup={false}
   className="monday-style-menu-item dummy-class-name"
   onClick={[Function]}
 >
@@ -47,21 +43,16 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
         "left": "0",
         "position": "absolute",
         "top": "0",
+        "visibility": "hidden",
       }
     }
-  >
-    <div
-      aria-describedby=""
-      aria-labelledby=""
-      className="dialog-content-container dialog-content-container--popover dialog-content-container--medium"
-      role="dialog"
-    />
-  </div>
+  />
 </div>
 `;
 
 exports[`Snapshots renders correctly with empty props 1`] = `
 <div
+  aria-haspopup={false}
   className="monday-style-menu-item"
   onClick={[Function]}
 >
@@ -77,21 +68,16 @@ exports[`Snapshots renders correctly with empty props 1`] = `
         "left": "0",
         "position": "absolute",
         "top": "0",
+        "visibility": "hidden",
       }
     }
-  >
-    <div
-      aria-describedby=""
-      aria-labelledby=""
-      className="dialog-content-container dialog-content-container--popover dialog-content-container--medium"
-      role="dialog"
-    />
-  </div>
+  />
 </div>
 `;
 
 exports[`Snapshots renders correctly with title and icon 1`] = `
 <div
+  aria-haspopup={false}
   className="monday-style-menu-item"
   onClick={[Function]}
 >
@@ -118,15 +104,9 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
         "left": "0",
         "position": "absolute",
         "top": "0",
+        "visibility": "hidden",
       }
     }
-  >
-    <div
-      aria-describedby=""
-      aria-labelledby=""
-      className="dialog-content-container dialog-content-container--popover dialog-content-container--medium"
-      role="dialog"
-    />
-  </div>
+  />
 </div>
 `;
