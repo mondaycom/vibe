@@ -239,6 +239,7 @@ export default class Dialog extends PureComponent {
       position,
       showDelay,
       moveBy,
+      modifiers,
       tooltip,
       tooltipClassName,
       referenceWrapperClassName,
@@ -314,7 +315,8 @@ export default class Dialog extends PureComponent {
                   state.styles.arrow.transform = `${state.styles.arrow.transform} rotate(45deg)`;
                   return state;
                 }
-              }
+              },
+              ...modifiers
             ]}
           >
             {({ placement, style, ref, arrowProps }) => {
@@ -361,6 +363,7 @@ export default class Dialog extends PureComponent {
 Dialog.defaultProps = {
   referenceWrapperClassName: "",
   position: "top",
+  modifiers: [],
   startingEdge: "",
   moveBy: { main: 0, secondary: 0 },
   showDelay: 100,
