@@ -46,7 +46,8 @@ const Dropdown = ({
   menuPortalTarget,
   extraStyles,
   menuIsOpen,
-  tabIndex
+  tabIndex,
+  id
 }) => {
   const [isOpen, setOpen] = useState(false);
 
@@ -137,6 +138,7 @@ const Dropdown = ({
       menuPortalTarget={menuPortalTarget}
       menuIsOpen={menuIsOpen}
       tabIndex={tabIndex}
+      id={id}
       {...asyncAdditions}
       {...additions}
     />
@@ -282,7 +284,11 @@ Dropdown.propTypes = {
   /**
    * Tab index for keyboard navigation purposes
    */
-  tabIndex: PropTypes.string
+  tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * ID for the select container
+   */
+  id: PropTypes.string
 };
 
 export default Dropdown;
