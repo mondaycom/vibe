@@ -73,7 +73,13 @@ export const iconsMetaData = [
     tags: "Board",
     category: [PLATFORM],
   },
-
+  {
+    name: "Bold",
+    file: "Bold.svg",
+    description: "Bold",
+    tags: "Bold, Text, Design",
+    category: [PLATFORM],
+  },
   {
     name: "Bolt",
     file: "Bolt.svg",
@@ -96,6 +102,14 @@ export const iconsMetaData = [
     tags: "Broom, Brush, Clean, Spark",
     category: [PLATFORM],
   },
+  {
+    name: "Bullets",
+    file: "Bullets.svg",
+    description: "Bullets",
+    tags: "Bullets, List, Text, Design",
+    category: [PLATFORM],
+  },
+
 
   {
     name: "Bookmark",
@@ -158,7 +172,13 @@ export const iconsMetaData = [
     tags: "Column, Board",
     category: [PLATFORM],
   },
-
+  {
+    name: "Comment",
+    file: "Comment.svg",
+    description: "Comment",
+    tags: "Comment, Text, Design",
+    category: [PLATFORM],
+  },
   {
     name: "CreditCard",
     file: "CreditCard.svg",
@@ -274,6 +294,15 @@ export const iconsMetaData = [
     tags: "Enter, Keyboard, Key",
     category: [PLATFORM],
   },
+
+  {
+    name: "Emoji",
+    file: "Emoji.svg",
+    description: "Emoji",
+    tags: "Emoji, Smiley, Text, Design",
+    category: [PLATFORM],
+  },
+
   {
     name: "ExternalPage",
     file: "ExternalPage.svg",
@@ -361,6 +390,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Highlight",
+    file: "Highlight.svg",
+    description: "Highlight",
+    tags: "Highlight, Text, Design",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Home",
     file: "Home.svg",
     description: "Home",
@@ -405,6 +442,14 @@ export const iconsMetaData = [
     file: "Invite.svg",
     description: "Invite",
     tags: "Invite, User, Add",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Italic",
+    file: "Italic.svg",
+    description: "Italic",
+    tags: "Italic, Text, Design",
     category: [PLATFORM],
   },
 
@@ -613,6 +658,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Redo",
+    file: "Redo.svg",
+    description: "Redo",
+    tags: "Redo, Text, Design",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Remove",
     file: "Remove.svg",
     description: "Remove",
@@ -717,6 +770,21 @@ export const iconsMetaData = [
   },
 
   {
+    name: "StrikethroughS",
+    file: "StrikethroughS.svg",
+    description: "Strike Through",
+    tags: "Strike Through, Text, Design",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "StrikethroughT",
+    file: "StrikethroughT.svg",
+    description: "Strike Through",
+    tags: "Strike Through, Text, Design",
+    category: [PLATFORM],
+  },
+  {
     name: "Sun",
     file: "Sun.svg",
     description: "Sun",
@@ -748,6 +816,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Textcolor",
+    file: "Textcolor.svg",
+    description: "Text Color",
+    tags: "Text Color, Color, Text, Design",
+    category: [PLATFORM],
+  },
+
+  {
     name: "ThumbsUp",
     file: "ThumbsUp.svg",
     description: "ThumbsUp",
@@ -760,6 +836,21 @@ export const iconsMetaData = [
     file: "Time.svg",
     description: "Time",
     tags: "Time, Clock",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Underline",
+    file: "Underline.svg",
+    description: "Underline",
+    tags: "Underline, Text, Design",
+    category: [PLATFORM],
+  },
+  {
+    name: "Undo",
+    file: "Undo.svg",
+    description: "Undo",
+    tags: "Undo, Text, Design",
     category: [PLATFORM],
   },
 
