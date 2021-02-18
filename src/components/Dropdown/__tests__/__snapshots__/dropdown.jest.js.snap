@@ -4,7 +4,6 @@ exports[`Dropdown should open menu on click if set 1`] = `
 <DocumentFragment>
   <div
     class="dropdown-wrapper css-bbwnb8-container"
-    id=""
   >
     <span
       aria-live="polite"
@@ -145,7 +144,6 @@ exports[`Dropdown should open menu on focus if set 1`] = `
 <DocumentFragment>
   <div
     class="dropdown-wrapper css-bbwnb8-container"
-    id=""
   >
     <span
       aria-live="polite"
@@ -283,7 +281,6 @@ exports[`Dropdown should open menu on focus if set 1`] = `
 exports[`Dropdown should render correctly for the different sizes 1`] = `
 <div
   className="dropdown-wrapper css-cmnsoe-container"
-  id=""
   onKeyDown={[Function]}
 >
   <div
@@ -396,7 +393,6 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
 exports[`Dropdown should render correctly for the different sizes 2`] = `
 <div
   className="dropdown-wrapper css-bbwnb8-container"
-  id=""
   onKeyDown={[Function]}
 >
   <div
@@ -509,7 +505,6 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
 exports[`Dropdown should render correctly for the different sizes 3`] = `
 <div
   className="dropdown-wrapper css-1pu8kyc-container"
-  id=""
   onKeyDown={[Function]}
 >
   <div
@@ -622,7 +617,6 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
 exports[`Dropdown should render correctly with empty props 1`] = `
 <div
   className="dropdown-wrapper css-bbwnb8-container"
-  id=""
   onKeyDown={[Function]}
 >
   <div
@@ -736,7 +730,6 @@ exports[`Dropdown should use async if set 1`] = `
 <DocumentFragment>
   <div
     class="dropdown-wrapper dropdown-story css-bbwnb8-container"
-    id=""
   >
     <span
       aria-live="polite"
@@ -839,7 +832,6 @@ exports[`Dropdown should use virtualization if set 1`] = `
 <DocumentFragment>
   <div
     class="dropdown-wrapper css-bbwnb8-container"
-    id=""
   >
     <span
       aria-live="polite"

@@ -163,7 +163,7 @@ Dropdown.defaultProps = {
   size: SIZE.MEDIUM,
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
-  id: ""
+  id: undefined
 };
 
 Dropdown.propTypes = {
