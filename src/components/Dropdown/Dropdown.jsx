@@ -162,7 +162,8 @@ Dropdown.defaultProps = {
   clearable: true,
   size: SIZE.MEDIUM,
   extraStyles: defaultCustomStyles,
-  tabIndex: "0"
+  tabIndex: "0",
+  id: ""
 };
 
 Dropdown.propTypes = {
