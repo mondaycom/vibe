@@ -1,27 +1,26 @@
 {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "modules": "commonjs",
-          "targets": {
-            "chrome": "49",
-            "ie": "11",
-            "firefox": "51",
-            "edge": "14"
-          }
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": "commonjs",
+        "targets": {
+          "chrome": "49",
+          "ie": "11",
+          "firefox": "51",
+          "edge": "14"
         }
-      ],
-      "@babel/preset-react"
+      }
     ],
-    "plugins": [
-      "react-require",
-      [
-        "@babel/plugin-proposal-class-properties",
-        {
-          "loose": true
-        }
-      ]
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "react-require",
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
     ]
+  ]
 }
-  
