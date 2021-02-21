@@ -1,0 +1,20 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.editable-input--wrapper {
+  @include theme-prop(background-color, primary-background-color);
+  width: 100%;
+  max-height: 100%;
+  margin: auto 0;
+  padding: 0 2px;
+  outline: none;
+  border: 1px dashed;
+  @include theme-prop(border-color, ui-border-color);
+  text-align: left;
+
+  &.no-resize {
+    resize: none;
+  }
+
+  @include font-default();
+}

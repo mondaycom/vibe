@@ -10,6 +10,7 @@ export default function useResizeObserver({ ref, callback, debounceTime = 200 })
     if (!window.ResizeObserver) {
       return () => {};
     }
+    if (!ref.current) return;
 
     const borderBoxSizeCallback = borderBoxSize =>
       window.requestAnimationFrame(() => {
@@ -47,5 +48,5 @@ export default function useResizeObserver({ ref, callback, debounceTime = 200 })
 
       resizeObserver.disconnect();
     };
-  }, [ref, callback, debounceTime, debouncedCallback]);
+  }, [ref.current, callback, debounceTime, debouncedCallback]);
 }
