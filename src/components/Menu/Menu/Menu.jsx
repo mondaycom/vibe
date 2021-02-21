@@ -40,7 +40,7 @@ const Menu = forwardRef(
       openSubMenuIndex,
       setOpenSubMenuIndex,
       resetOpenSubMenuIndex
-    } = useSubMenuIndex(ref);
+    } = useSubMenuIndex();
 
     const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, closeSubMenu);
 

@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-export default function useSubMenuIndex(ref) {
+export default function useSubMenuIndex() {
   const [openSubMenuIndex, setOpenSubMenuIndex] = useState(null);
   const hasOpenSubMenu = openSubMenuIndex || openSubMenuIndex === 0;
 
@@ -9,7 +9,7 @@ export default function useSubMenuIndex(ref) {
       const isOpenIndexValue = isOpen ? index : null;
       setOpenSubMenuIndex(isOpenIndexValue);
     },
-    [openSubMenuIndex, setOpenSubMenuIndex, ref]
+    [setOpenSubMenuIndex]
   );
 
   const resetOpenSubMenuIndex = useCallback(() => {
