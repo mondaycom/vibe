@@ -22,6 +22,7 @@ const MenuItem = ({
   classname,
   title,
   icon,
+  menuRef,
   iconType,
   disabled,
   onClick,
@@ -31,7 +32,6 @@ const MenuItem = ({
   children,
   isParentMenuVisible,
   resetOpenSubMenuIndex,
-  focusParentMenu,
   hasOpenSubMenu,
   setSubMenuIsOpenByIndex
 }) => {
@@ -57,8 +57,9 @@ const MenuItem = ({
     isOpen: isSubMenuOpen
   });
 
-  useMenuItemMouseEvents(
+  const isMouseEnter = useMenuItemMouseEvents(
     ref,
+    menuRef,
     resetOpenSubMenuIndex,
     setSubMenuIsOpenByIndex,
     isActive,
@@ -75,7 +76,9 @@ const MenuItem = ({
     setActiveItemIndex,
     hasChildren,
     shouldShowSubMenu,
-    setSubMenuIsOpenByIndex
+    setSubMenuIsOpenByIndex,
+    menuRef,
+    isMouseEnter
   );
 
   useEffect(() => {
@@ -88,8 +91,7 @@ const MenuItem = ({
 
   const closeSubMenu = useCallback(() => {
     setSubMenuIsOpenByIndex(index, false);
-    focusParentMenu && focusParentMenu();
-  }, [setSubMenuIsOpenByIndex, focusParentMenu, index]);
+  }, [setSubMenuIsOpenByIndex, index]);
 
   const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
 
@@ -187,10 +189,9 @@ MenuItem.defaultProps = {
   setActiveItemIndex: undefined,
   index: undefined,
   isParentMenuVisible: false,
-  resetOpenSubMenuIndex: undefined,
-  focusParentMenu: undefined,
   hasOpenSubMenu: false,
-  setSubMenuIsOpenByIndex: undefined
+  setSubMenuIsOpenByIndex: undefined,
+  resetOpenSubMenuIndex: undefined
 };
 
 MenuItem.propTypes = {
@@ -205,7 +206,6 @@ MenuItem.propTypes = {
   index: PropTypes.number,
   isParentMenuVisible: PropTypes.bool,
   resetOpenSubMenuIndex: PropTypes.func,
-  focusParentMenu: PropTypes.func,
   hasOpenSubMenu: PropTypes.bool,
   setSubMenuIsOpenByIndex: PropTypes.func
 };

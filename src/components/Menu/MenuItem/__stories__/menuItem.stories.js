@@ -178,7 +178,7 @@ export const subSubMenu = () => {
   return (
     <div>
       <div style={{ width: "260px" }}>
-        <Menu id="menu-level-1" size={Menu.sizes.SMALL}>
+        <Menu id="menu-level-1" size={Menu.sizes.SMALL} tabIndex="0">
           <MenuItem title={"Hover me to see the sub menu"} icon={icon} onClick={() => alert("hello")}>
             <Menu size={Menu.sizes.SMALL}>{renderMenuItems({ withSubSubMenu: true })}</Menu>
           </MenuItem>

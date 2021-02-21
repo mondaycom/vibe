@@ -5,6 +5,7 @@ import usePrevious from "../../../../hooks/usePrevious";
 
 export default function useMenuItemMouseEvents(
   ref,
+  menuRef,
   resetOpenSubMenuIndex,
   setSubMenuIsOpenByIndex,
   isActive,
@@ -19,6 +20,11 @@ export default function useMenuItemMouseEvents(
   useEffect(() => {
     if (!isMouseEnter) return;
     if (isMouseEnter === prevIsMouseEnter) return;
+
+    if (!setSubMenuIsOpenByIndex || !resetOpenSubMenuIndex) {
+      console.error("MenuItem must be a first level child of a menu");
+      return;
+    }
 
     if (!isActive) {
       setActiveItemIndex(index);
@@ -42,4 +48,6 @@ export default function useMenuItemMouseEvents(
     index,
     hasChildren
   ]);
+
+  return isMouseEnter;
 }

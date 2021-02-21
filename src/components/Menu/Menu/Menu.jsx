@@ -1,4 +1,4 @@
-import React, { useMemo, forwardRef, useState, useRef, useCallback } from "react";
+import React, { useMemo, forwardRef, useState, useRef, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -16,7 +16,6 @@ const Menu = forwardRef(
     forwardedRef
   ) => {
     const ref = useRef(null);
-    const refElement = ref && ref.current;
     const [activeItemIndex, setActiveItemIndex] = useState(-1);
 
     const children = useMemo(() => {
@@ -29,17 +28,22 @@ const Menu = forwardRef(
       openSubMenuIndex,
       setOpenSubMenuIndex,
       resetOpenSubMenuIndex
-    } = useSubMenuIndex();
+    } = useSubMenuIndex(ref);
 
     const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, closeSubMenu);
 
     useClickOutside({ ref, callback: onCloseMenu });
-    useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, refElement, closeSubMenu);
-    useMenuKeyboardNavigation(hasOpenSubMenu, children, activeItemIndex, setActiveItemIndex, isVisible);
+    useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, closeSubMenu);
+    useMenuKeyboardNavigation(hasOpenSubMenu, children, activeItemIndex, setActiveItemIndex, isVisible, ref);
 
-    const focusParentMenu = useCallback(() => {
-      refElement && refElement.focus();
-    }, [refElement]);
+    useEffect(() => {
+      if (hasOpenSubMenu) return;
+      if (activeItemIndex > -1) {
+        requestAnimationFrame(() => {
+          ref && ref.current && ref.current.focus();
+        });
+      }
+    }, [activeItemIndex, hasOpenSubMenu]);
 
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
@@ -57,8 +61,8 @@ const Menu = forwardRef(
               ...child?.props,
               activeItemIndex,
               index,
-              focusParentMenu,
               setActiveItemIndex,
+              menuRef: ref,
               resetOpenSubMenuIndex,
               isParentMenuVisible: isVisible,
               setSubMenuIsOpenByIndex,
@@ -76,7 +80,7 @@ Menu.defaultProps = {
   id: undefined,
   classname: "",
   size: MENU_SIZES.MEDIUM,
-  tabIndex: 0,
+  tabIndex: -1,
   ariaLabel: "Menu",
   isVisible: true,
   closeSubMenu: undefined

@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-export default function useSubMenuIndex() {
+export default function useSubMenuIndex(ref) {
   const [openSubMenuIndex, setOpenSubMenuIndex] = useState(null);
   const hasOpenSubMenu = openSubMenuIndex || openSubMenuIndex === 0;
 
@@ -8,8 +8,13 @@ export default function useSubMenuIndex() {
     (index, isOpen) => {
       const isOpenIndexValue = isOpen ? index : null;
       setOpenSubMenuIndex(isOpenIndexValue);
+      if (isOpenIndexValue === null) {
+        requestAnimationFrame(() => {
+          ref && ref.current && ref.current.focus();
+        });
+      }
     },
-    [setOpenSubMenuIndex]
+    [openSubMenuIndex, setOpenSubMenuIndex, ref]
   );
 
   const resetOpenSubMenuIndex = useCallback(() => {

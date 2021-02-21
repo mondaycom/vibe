@@ -16,7 +16,8 @@ export default function useMenuKeyboardNavigation(
   children,
   activeItemIndex,
   setActiveItemIndex,
-  isVisible
+  isVisible,
+  ref
 ) {
   const onArrowKeyEvent = useCallback(
     direction => {
@@ -63,16 +64,22 @@ export default function useMenuKeyboardNavigation(
 
   useKeyEvent({
     keys: ["ArrowDown"],
-    callback: onArrowDown
+    callback: onArrowDown,
+    ref,
+    preventDefault: true
   });
 
   useKeyEvent({
     keys: ["ArrowUp"],
-    callback: onArrowUp
+    callback: onArrowUp,
+    ref,
+    preventDefault: true
   });
 
   useKeyEvent({
     keys: ["Enter"],
-    callback: onEnterClickCallback
+    callback: onEnterClickCallback,
+    ref,
+    preventDefault: true
   });
 }

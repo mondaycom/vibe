@@ -10,11 +10,18 @@ export default function useMenuItemKeyboardEvents(
   setActiveItemIndex,
   hasChildren,
   shouldShowSubMenu,
-  setSubMenuIsOpenByIndex
+  setSubMenuIsOpenByIndex,
+  menuRef,
+  isMouseEnter
 ) {
   const onClickCallback = useCallback(
     event => {
-      if (!isActive) return;
+      if (!isActive && !isMouseEnter) return;
+
+      if (!setActiveItemIndex || !setSubMenuIsOpenByIndex) {
+        console.error("MenuItem must be a first level child of a menu");
+        return;
+      }
 
       if (isActive && hasChildren) {
         setActiveItemIndex(index);
@@ -24,16 +31,47 @@ export default function useMenuItemKeyboardEvents(
 
       if (shouldShowSubMenu) return;
 
-      if (onClick && !disabled && isActive) {
+      const isKeyEvent = !!event.key;
+
+      if (isKeyEvent && onClick && !disabled && isActive) {
         onClick(event);
       }
+
+      if (!isKeyEvent && onClick && !disabled && isMouseEnter) {
+        if (!isActive) {
+          setActiveItemIndex(index);
+          if (hasChildren) {
+            setSubMenuIsOpenByIndex(index, true);
+          }
+        }
+
+        if (!hasChildren) {
+          // wait for background of menu item to change before trigger click
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              onClick(event);
+            });
+          });
+        }
+      }
     },
-    [onClick, disabled, isActive, index, setActiveItemIndex, hasChildren, shouldShowSubMenu, setSubMenuIsOpenByIndex]
+    [
+      onClick,
+      disabled,
+      isActive,
+      index,
+      setActiveItemIndex,
+      hasChildren,
+      shouldShowSubMenu,
+      setSubMenuIsOpenByIndex,
+      isMouseEnter
+    ]
   );
 
   useKeyEvent({
     keys: ["Enter", "ArrowRight"],
-    callback: onClickCallback
+    callback: onClickCallback,
+    ref: menuRef
   });
 
   return { onClickCallback };

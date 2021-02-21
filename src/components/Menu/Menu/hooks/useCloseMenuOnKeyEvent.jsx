@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
-export default function useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, refElement, closeSubMenu) {
+export default function useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, closeSubMenu) {
   const onEscapeOrLeftArrowClick = useCallback(
     event => {
       if (hasOpenSubMenu) return false;
@@ -10,14 +10,15 @@ export default function useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, refE
         event.preventDefault();
         event.stopPropagation();
       } else {
-        refElement && refElement.blur();
+        ref && ref.current && ref.current.blur();
       }
     },
-    [closeSubMenu, hasOpenSubMenu, refElement, onCloseMenu]
+    [closeSubMenu, hasOpenSubMenu, ref, onCloseMenu]
   );
 
   useKeyEvent({
     keys: ["Escape", "ArrowLeft"],
-    callback: onEscapeOrLeftArrowClick
+    callback: onEscapeOrLeftArrowClick,
+    ref
   });
 }
