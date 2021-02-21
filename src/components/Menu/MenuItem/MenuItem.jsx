@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useEffect } from "react";
+import React, { useCallback, useRef, useEffect, useLayoutEffect } from "react";
 
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
@@ -33,7 +33,8 @@ const MenuItem = ({
   isParentMenuVisible,
   resetOpenSubMenuIndex,
   hasOpenSubMenu,
-  setSubMenuIsOpenByIndex
+  setSubMenuIsOpenByIndex,
+  onCloseMenu
 }) => {
   const isActive = activeItemIndex === index;
   const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -50,8 +51,8 @@ const MenuItem = ({
   const referenceElement = referenceElementRef.current;
   const childElement = childRef.current;
 
-  const isTitleHoveredHovered = useIsMouseOver({ ref: titleRef });
-  const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: isTitleHoveredHovered && titleRef });
+  const isTitleHovered = useIsMouseOver({ ref: titleRef });
+  const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: isTitleHovered && titleRef });
 
   const { styles, attributes } = usePopover(referenceElement, popperElement, {
     isOpen: isSubMenuOpen
@@ -81,7 +82,7 @@ const MenuItem = ({
     isMouseEnter
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (shouldShowSubMenu && childElement) {
       requestAnimationFrame(() => {
         childElement.focus();
@@ -89,9 +90,16 @@ const MenuItem = ({
     }
   }, [shouldShowSubMenu, childElement]);
 
-  const closeSubMenu = useCallback(() => {
-    setSubMenuIsOpenByIndex(index, false);
-  }, [setSubMenuIsOpenByIndex, index]);
+  const closeSubMenu = useCallback(
+    (options = { propagate: false }) => {
+      if (options.propagate !== false) {
+        onCloseMenu && onCloseMenu(options);
+      }
+
+      setSubMenuIsOpenByIndex(index, false);
+    },
+    [setSubMenuIsOpenByIndex, index, onCloseMenu]
+  );
 
   const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
 

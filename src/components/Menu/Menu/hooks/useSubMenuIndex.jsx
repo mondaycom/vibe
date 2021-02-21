@@ -8,11 +8,6 @@ export default function useSubMenuIndex(ref) {
     (index, isOpen) => {
       const isOpenIndexValue = isOpen ? index : null;
       setOpenSubMenuIndex(isOpenIndexValue);
-      if (isOpenIndexValue === null) {
-        requestAnimationFrame(() => {
-          ref && ref.current && ref.current.focus();
-        });
-      }
     },
     [openSubMenuIndex, setOpenSubMenuIndex, ref]
   );

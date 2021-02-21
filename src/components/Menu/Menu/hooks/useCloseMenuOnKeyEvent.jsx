@@ -5,8 +5,9 @@ export default function useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref,
   const onEscapeOrLeftArrowClick = useCallback(
     event => {
       if (hasOpenSubMenu) return false;
-      onCloseMenu();
+      onCloseMenu({ propagate: false });
       if (closeSubMenu) {
+        closeSubMenu({ propagate: false });
         event.preventDefault();
         event.stopPropagation();
       } else {

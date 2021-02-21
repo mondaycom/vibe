@@ -1,4 +1,4 @@
-import React, { useMemo, forwardRef, useState, useRef, useCallback, useEffect } from "react";
+import React, { useMemo, forwardRef, useState, useRef, useCallback, useEffect, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -7,12 +7,24 @@ import useSubMenuIndex from "./hooks/useSubMenuIndex";
 import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
 import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
+import useMouseLeave from "./hooks/useMouseLeave";
+import useMenuBlur from "./hooks/useMenuBlur";
 import { MENU_SIZES } from "./MenuConstants";
 import "./Menu.scss";
 
 const Menu = forwardRef(
   (
-    { id, classname, size, tabIndex, ariaLabel, children: originalChildren, isVisible = true, closeSubMenu },
+    {
+      id,
+      classname,
+      size,
+      tabIndex,
+      ariaLabel,
+      children: originalChildren,
+      isVisible = true,
+      closeSubMenu,
+      focusOnMount
+    },
     forwardedRef
   ) => {
     const ref = useRef(null);
@@ -34,9 +46,20 @@ const Menu = forwardRef(
 
     useClickOutside({ ref, callback: onCloseMenu });
     useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, closeSubMenu);
-    useMenuKeyboardNavigation(hasOpenSubMenu, children, activeItemIndex, setActiveItemIndex, isVisible, ref);
+    useMenuKeyboardNavigation(
+      hasOpenSubMenu,
+      children,
+      activeItemIndex,
+      setActiveItemIndex,
+      isVisible,
+      ref,
+      resetOpenSubMenuIndex
+    );
+    useMouseLeave(resetOpenSubMenuIndex, hasOpenSubMenu, ref, setActiveItemIndex);
 
-    useEffect(() => {
+    useMenuBlur(ref, resetOpenSubMenuIndex, hasOpenSubMenu, closeSubMenu);
+
+    useLayoutEffect(() => {
       if (hasOpenSubMenu) return;
       if (activeItemIndex > -1) {
         requestAnimationFrame(() => {
@@ -44,6 +67,13 @@ const Menu = forwardRef(
         });
       }
     }, [activeItemIndex, hasOpenSubMenu]);
+
+    useLayoutEffect(() => {
+      if (!focusOnMount) return;
+      requestAnimationFrame(() => {
+        ref && ref.current && ref.current.focus();
+      });
+    }, [ref, focusOnMount]);
 
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
@@ -61,6 +91,7 @@ const Menu = forwardRef(
               ...child?.props,
               activeItemIndex,
               index,
+              onCloseMenu,
               setActiveItemIndex,
               menuRef: ref,
               resetOpenSubMenuIndex,
@@ -75,9 +106,11 @@ const Menu = forwardRef(
 );
 
 Menu.sizes = MENU_SIZES;
+Menu.supportFocusOnMount = true;
 
 Menu.defaultProps = {
   id: undefined,
+  focusOnMount: false,
   classname: "",
   size: MENU_SIZES.MEDIUM,
   tabIndex: -1,
@@ -92,6 +125,7 @@ Menu.propTypes = {
   size: PropTypes.oneOf([MENU_SIZES.SMALL, MENU_SIZES.MEDIUM, MENU_SIZES.LARGE]),
   tabIndex: PropTypes.number,
   ariaLabel: PropTypes.string,
+  focusOnMount: PropTypes.bool,
   isVisible: PropTypes.bool,
   closeSubMenu: PropTypes.func
 };

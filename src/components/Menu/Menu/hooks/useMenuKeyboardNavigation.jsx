@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
 const ARROW_DIRECTIONS = {
@@ -17,11 +17,17 @@ export default function useMenuKeyboardNavigation(
   activeItemIndex,
   setActiveItemIndex,
   isVisible,
-  ref
+  ref,
+  resetOpenSubMenuIndex
 ) {
   const onArrowKeyEvent = useCallback(
     direction => {
       let newIndex;
+      const refElement = ref && ref.current;
+      if (document.activeElement === refElement && hasOpenSubMenu) {
+        resetOpenSubMenuIndex(); // as a fallback for blur from sub menu and sub menu not closing
+        return;
+      }
       if (hasOpenSubMenu) return false;
 
       if (direction === ARROW_DIRECTIONS.DOWN) {
@@ -42,7 +48,7 @@ export default function useMenuKeyboardNavigation(
 
       if (newIndex || newIndex === 0) setActiveItemIndex(newIndex);
     },
-    [activeItemIndex, children, hasOpenSubMenu, setActiveItemIndex]
+    [ref, activeItemIndex, children, hasOpenSubMenu, setActiveItemIndex, resetOpenSubMenuIndex]
   );
   const onArrowUp = useCallback(() => {
     onArrowKeyEvent(ARROW_DIRECTIONS.UP);
@@ -55,11 +61,12 @@ export default function useMenuKeyboardNavigation(
   const onEnterClickCallback = useCallback(
     _event => {
       if (!isVisible) return;
+
       if (activeItemIndex === -1) {
         setActiveItemIndex(0);
       }
     },
-    [setActiveItemIndex, activeItemIndex, isVisible]
+    [setActiveItemIndex, activeItemIndex, isVisible, ref, hasOpenSubMenu, resetOpenSubMenuIndex]
   );
 
   useKeyEvent({

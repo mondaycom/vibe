@@ -51,13 +51,25 @@ const MenuButton = ({
     return triggers;
   }, [closeDialogOnContentClick]);
 
+  const clonedChild = useMemo(() => {
+    const child = children && React.Children.only(children);
+
+    if (child.type && child.type.supportFocusOnMount) {
+      return React.cloneElement(child, {
+        focusOnMount: true
+      });
+    }
+
+    return child;
+  }, [children]);
+
   const content = useMemo(() => {
     return (
       <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
-        {children}
+        {clonedChild}
       </DialogContentContainer>
     );
-  }, [children, dialogPaddingSize]);
+  }, [clonedChild, dialogPaddingSize]);
 
   const computedDialogOffset = useMemo(
     () => ({
