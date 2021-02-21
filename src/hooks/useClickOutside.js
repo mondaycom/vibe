@@ -7,6 +7,7 @@ export default function useOnClickOutside({ ref, callback }) {
       if (!ref || !ref.current || ref.current.contains(event.target)) {
         return;
       }
+
       callback(event);
     },
 
@@ -16,7 +17,7 @@ export default function useOnClickOutside({ ref, callback }) {
   const documentRef = useRef(document);
 
   useEventListener({
-    eventName: "click",
+    eventName: "mousedown",
     ref: documentRef,
     callback: onClickOutsideListener,
     capture: true

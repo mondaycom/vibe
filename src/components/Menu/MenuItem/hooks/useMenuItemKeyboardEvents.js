@@ -16,6 +16,9 @@ export default function useMenuItemKeyboardEvents(
 ) {
   const onClickCallback = useCallback(
     event => {
+      event.preventDefault();
+      event.stopPropagation();
+
       if (!isActive && !isMouseEnter) return;
 
       if (!setActiveItemIndex || !setSubMenuIsOpenByIndex) {
@@ -71,7 +74,8 @@ export default function useMenuItemKeyboardEvents(
   useKeyEvent({
     keys: ["Enter", "ArrowRight"],
     callback: onClickCallback,
-    ref: menuRef
+    ref: menuRef,
+    preventDefault: true
   });
 
   return { onClickCallback };

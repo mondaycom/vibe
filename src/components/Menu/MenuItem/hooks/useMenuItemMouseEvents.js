@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 import useIsMouseEnter from "../../../../hooks/useIsMouseEnter";
 import usePrevious from "../../../../hooks/usePrevious";
@@ -17,7 +17,7 @@ export default function useMenuItemMouseEvents(
 
   const prevIsMouseEnter = usePrevious(isMouseEnter);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!isMouseEnter) return;
     if (isMouseEnter === prevIsMouseEnter) return;
 

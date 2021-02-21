@@ -8,7 +8,6 @@ import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
 import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
 import useMouseLeave from "./hooks/useMouseLeave";
-import useMenuBlur from "./hooks/useMenuBlur";
 import { MENU_SIZES } from "./MenuConstants";
 import "./Menu.scss";
 
@@ -23,6 +22,7 @@ const Menu = forwardRef(
       children: originalChildren,
       isVisible = true,
       closeSubMenu,
+      closeParentMenus,
       focusOnMount
     },
     forwardedRef
@@ -43,6 +43,10 @@ const Menu = forwardRef(
     } = useSubMenuIndex();
 
     const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, closeSubMenu);
+    const onCloseParentMenus = useCallback(() => {
+      onCloseMenu();
+      closeParentMenus && closeParentMenus();
+    }, [closeParentMenus, onCloseMenu]);
 
     useClickOutside({ ref, callback: onCloseMenu });
     useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, closeSubMenu);
@@ -56,8 +60,6 @@ const Menu = forwardRef(
       resetOpenSubMenuIndex
     );
     useMouseLeave(resetOpenSubMenuIndex, hasOpenSubMenu, ref, setActiveItemIndex);
-
-    useMenuBlur(ref, resetOpenSubMenuIndex, hasOpenSubMenu, closeSubMenu);
 
     useLayoutEffect(() => {
       if (hasOpenSubMenu) return;
@@ -77,8 +79,14 @@ const Menu = forwardRef(
 
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
+    const blurCallback = useCallback(() => {
+      if (hasOpenSubMenu) return;
+      onCloseParentMenus && onCloseParentMenus();
+    }, [hasOpenSubMenu, onCloseParentMenus]);
+
     return (
       <div
+        onBlur={blurCallback}
         id={id}
         className={cx("monday-style-menu", classname, `monday-style-menu--${size}`)}
         ref={mergedRef}
@@ -92,6 +100,7 @@ const Menu = forwardRef(
               activeItemIndex,
               index,
               onCloseMenu,
+              onCloseParentMenus,
               setActiveItemIndex,
               menuRef: ref,
               resetOpenSubMenuIndex,
