@@ -14,7 +14,7 @@ import {
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./EditableInput.scss";
 
-const TEXTAREA_TYPE = "textarea";
+export const TEXTAREA_TYPE = "textarea";
 
 const isTextArea = inputType => {
   return TEXTAREA_TYPE === inputType;

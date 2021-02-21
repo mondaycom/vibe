@@ -2,6 +2,9 @@
 @import "../../styles/typography.scss";
 
 .heading-component {
+  border: 1px solid transparent;
+  padding: 0 2px;
+
   &.heading-element-type-h1 {
     @include font-main();
   }
@@ -19,5 +22,13 @@
 
   &.heading-element-ellipsis {
     @include line-clamp(var(--heading-clamp-lines));
+  }
+
+  &.suggest-edit-on-hover {
+    &:hover {
+      cursor: text;
+      border: 1px dashed;
+      @include theme-prop(border-color, ui-border-color);
+    }
   }
 }
