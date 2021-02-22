@@ -236,7 +236,7 @@ EditableInput.defaultProps = {
   onFinishEditing: undefined,
   onArrowKeyDown: undefined,
   onCancelEditing: undefined,
-  textareaSubmitOnEnter: true
+  textareaSubmitOnEnter: false
 };
 
 export default EditableInput;

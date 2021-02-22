@@ -29,7 +29,7 @@ const EditableHeading = props => {
 
   // Callbacks
   const onClick = useCallback(() => {
-    if (disabled) return;
+    if (disabled || isEditing) return;
     setIsEditing(true);
     onStartEditing && onStartEditing();
   }, [disabled, setIsEditing, onStartEditing]);
@@ -149,7 +149,7 @@ EditableHeading.defaultProps = {
   type: TYPES.H1,
   errorClass: "error",
   errorClassTimeout: 2000,
-  displayPlaceholderInTextMode: false,
+  displayPlaceholderInTextMode: true,
   suggestEditOnHover: true,
   autoSize: true
 };
