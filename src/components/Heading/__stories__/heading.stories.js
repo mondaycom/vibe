@@ -13,9 +13,13 @@ export const Sandbox = () => (
     <br />
     <Heading type={TYPES.h4} value="Suggest Edit H4" suggestEditOnHover />
     <br />
-    <Heading type={TYPES.h5} value="Hello H5" />
+    <Heading type={TYPES.h5} value="H5 with tooltip" nonEllipsisTooltip="Click to edit" />
     <br />
-    <Heading type={TYPES.h3} value="In publishing and graphic design, Lorem ipsum is a placeholder" />
+    <Heading
+      type={TYPES.h3}
+      value="In publishing and graphic design, Lorem ipsum is a placeholder"
+      nonEllipsisTooltip="This tooltip is not shown since overflow"
+    />
     <br />
     <Heading
       style={{ maxHeight: "64px" }}

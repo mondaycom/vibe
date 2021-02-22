@@ -8,7 +8,9 @@ $font-size-input: 14px;
 $font-size-paragraph: 16px;
 $font-size-subtitle: 18px;
 $font-size-secondary: 24px;
+$font-size-secondary-smaller: 20px; // responsive
 $font-size-header: 32px;
+$font-size-header-smaller: 24px; // responsive
 $font-size-default: 14px;
 
 @mixin font-main {
@@ -19,6 +21,10 @@ $font-size-default: 14px;
   font-size: $font-size-header;
   letter-spacing: -1px;
   line-height: 52px;
+
+  @media (max-width: 1440px) {
+    font-size: $font-size-header-smaller;
+  }
 }
 
 @mixin font-title {
@@ -29,6 +35,10 @@ $font-size-default: 14px;
   font-size: $font-size-secondary;
   letter-spacing: -0.2px;
   line-height: 32px;
+
+  @media (max-width: 1440px) {
+    font-size: $font-size-secondary-smaller;
+  }
 }
 
 @mixin font-title-secondary {
@@ -39,6 +49,10 @@ $font-size-default: 14px;
   font-size: $font-size-secondary;
   letter-spacing: -0.2px;
   line-height: 32px;
+
+  @media (max-width: 1440px) {
+    font-size: $font-size-secondary-smaller;
+  }
 }
 
 @mixin font-subtitle {
