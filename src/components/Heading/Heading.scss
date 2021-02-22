@@ -3,7 +3,7 @@
 
 .heading-component {
   border: 1px solid transparent;
-  padding: 0 2px;
+  @include heading-padding();
 
   &.heading-element-type-h1 {
     @include font-main();

@@ -113,3 +113,7 @@ $font-size-default: 14px;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+@mixin heading-padding {
+  padding: 0 4px;
+}
