@@ -10,7 +10,7 @@
   @include heading-padding();
   outline: none;
   border: 1px dashed;
-  @include theme-prop(border-color, primary-color);
+  @include theme-prop(border-color, ui-border-color);
   text-align: left;
 
   &.no-resize {

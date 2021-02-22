@@ -17,7 +17,8 @@ const EditableHeading = props => {
     onCancelEditing,
     errorClassTimeout,
     style,
-    onStartEditing
+    onStartEditing,
+    contentRenderer
   } = props;
   // State
   const [isEditing, setIsEditing] = useState(editing && !disabled);
@@ -90,6 +91,9 @@ const EditableHeading = props => {
   };
   const renderContentComponent = () => {
     const contentProps = getContentProps();
+    if (contentRenderer) {
+      return contentRenderer(contentProps);
+    }
     // eslint-disable-next-line react/jsx-props-no-spreading
     return <Heading {...contentProps} />;
   };
