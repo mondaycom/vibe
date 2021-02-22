@@ -143,4 +143,6 @@ EditableHeading.defaultProps = {
   autoSize: true
 };
 
+EditableHeading.types = TYPES;
+
 export default EditableHeading;

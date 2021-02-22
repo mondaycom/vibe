@@ -68,4 +68,6 @@ Heading.defaultProps = {
   suggestEditOnHover: false
 };
 
+Heading.types = TYPES;
+
 export default Heading;
