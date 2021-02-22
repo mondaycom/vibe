@@ -20,6 +20,7 @@ const EditableHeading = props => {
     onStartEditing,
     contentRenderer
   } = props;
+
   // State
   const [isEditing, setIsEditing] = useState(editing && !disabled);
   const [isError, setIsError] = useState(false);
