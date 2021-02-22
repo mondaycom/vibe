@@ -8,7 +8,17 @@ import { TYPES } from "../Heading/HeadingConstants";
 import "./EditableHeading.scss";
 
 const EditableHeading = props => {
-  const { className, value, editing, disabled, onFinishEditing, onCancelEditing, errorClassTimeout, style } = props;
+  const {
+    className,
+    value,
+    editing,
+    disabled,
+    onFinishEditing,
+    onCancelEditing,
+    errorClassTimeout,
+    style,
+    onStartEditing
+  } = props;
   // State
   const [isEditing, setIsEditing] = useState(editing && !disabled);
   const [isError, setIsError] = useState(false);
@@ -21,7 +31,8 @@ const EditableHeading = props => {
   const onClick = useCallback(() => {
     if (disabled) return;
     setIsEditing(true);
-  }, [disabled, setIsEditing]);
+    onStartEditing && onStartEditing();
+  }, [disabled, setIsEditing, onStartEditing]);
 
   const onFinishEditingCallback = useCallback(
     (newValue, event) => {
