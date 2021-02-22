@@ -1,27 +1,26 @@
-import { useLayoutEffect, useState } from "react";
+import { useCallback, useState } from "react";
+import useResizeObserver from "./useResizeObserver";
 
-export default function useMergeRefs({ ref, maxLines = 1 }) {
-  const [isOverflowing, setIsOverflowing] = useState(false);
-  const element = ref.current;
-  const innerHtml = element && element.innerHTML;
-
-  const overflowingFunction = maxLines > 1 ? isElementOverflowingY : isElementOverflowingX;
-
-  useLayoutEffect(() => {
-    if (!element) {
-      setIsOverflowing(false);
-      return;
-    }
-
-    setIsOverflowing(overflowingFunction(element));
-  }, [element, overflowingFunction, innerHtml]);
+function checkOverflow(element) {
+  if (!element) {
+    return false;
+  }
+  const curOverflow = element.style.overflow;
+  if (!curOverflow || curOverflow === "visible") element.style.overflow = "hidden";
+  const isOverflowing = element.clientWidth < element.scrollWidth || element.clientHeight < element.scrollHeight;
+  element.style.overflow = curOverflow;
   return isOverflowing;
 }
 
-function isElementOverflowingX(domElement) {
-  return domElement.clientWidth < domElement.scrollWidth;
-}
-
-function isElementOverflowingY(domElement) {
-  return domElement.clientHeight < domElement.scrollHeight;
+export default function useIsOverflowing({ ref }) {
+  const [isOverflowing, setIsOverflowing] = useState(checkOverflow(ref.current));
+  const callback = useCallback(() => {
+    setIsOverflowing(checkOverflow(ref.current));
+  }, [ref, setIsOverflowing]);
+  useResizeObserver({
+    ref,
+    callback,
+    debounceTime: 0
+  });
+  return isOverflowing;
 }

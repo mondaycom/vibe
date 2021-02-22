@@ -34,14 +34,14 @@
 
     &.image-position__left {
       grid-template-areas:
-      'image  title    title   '
-      'image  subtitle subtitle';
+        "image  title    title   "
+        "image  subtitle subtitle";
     }
 
     &.image-position__right {
       grid-template-areas:
-      'title    title     image'
-      'subtitle subtitle  image'
+        "title    title     image"
+        "subtitle subtitle  image";
     }
 
     &.image-position__bottom,
@@ -52,15 +52,15 @@
 
     &.image-position__top {
       grid-template-areas:
-      'image'
-      'title'
-      'subtitle';
+        "image"
+        "title"
+        "subtitle";
     }
     &.image-position__bottom {
       grid-template-areas:
-      'title'
-      'subtitle'
-      'image';
+        "title"
+        "subtitle"
+        "image";
     }
 
     .banner--title {
@@ -81,10 +81,7 @@
       @include font-paragraph();
       margin: 0;
       grid-area: subtitle;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      @include line-clamp(3);
     }
 
     .banner--image {
@@ -122,14 +119,14 @@
 
       &.image-position__left {
         grid-template-areas:
-        'image  title    title'
-        'image  subtitle subtitle';
+          "image  title    title"
+          "image  subtitle subtitle";
       }
 
       &.image-position__right {
         grid-template-areas:
-        'title    title     image'
-        'subtitle subtitle  image';
+          "title    title     image"
+          "subtitle subtitle  image";
       }
     }
   }

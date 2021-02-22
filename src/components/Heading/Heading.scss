@@ -1,0 +1,34 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.heading-component {
+  border: 1px solid transparent;
+  @include heading-padding();
+
+  &.heading-element-type-h1 {
+    @include font-main();
+  }
+  &.heading-element-type-h2 {
+    @include font-title();
+  }
+  &.heading-element-type-h3 {
+    @include font-subtitle();
+  }
+
+  &.heading-element-type-h4,
+  &.heading-element-type-h5 {
+    @include font-default();
+  }
+
+  &.heading-element-ellipsis {
+    @include line-clamp(var(--heading-clamp-lines));
+  }
+
+  &.suggest-edit-on-hover {
+    &:hover {
+      cursor: text;
+      border: 1px dashed;
+      @include theme-prop(border-color, ui-border-color);
+    }
+  }
+}
