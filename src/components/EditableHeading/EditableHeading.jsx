@@ -8,9 +8,9 @@ import { TYPES } from "../Heading/HeadingConstants";
 import "./EditableHeading.scss";
 
 const EditableHeading = props => {
-  const { className, value, editing, isDisabled, onFinishEditing, onCancelEditing, errorClassTimeout, style } = props;
+  const { className, value, editing, disabled, onFinishEditing, onCancelEditing, errorClassTimeout, style } = props;
   // State
-  const [isEditing, setIsEditing] = useState(editing);
+  const [isEditing, setIsEditing] = useState(editing && !disabled);
   const [isError, setIsError] = useState(false);
   const [valueState, setValueState] = useState(value || "");
 
@@ -19,9 +19,9 @@ const EditableHeading = props => {
 
   // Callbacks
   const onClick = useCallback(() => {
-    if (isDisabled) return;
+    if (disabled) return;
     setIsEditing(true);
-  }, [isDisabled, setIsEditing]);
+  }, [disabled, setIsEditing]);
 
   const onFinishEditingCallback = useCallback(
     (newValue, event) => {
@@ -67,7 +67,7 @@ const EditableHeading = props => {
 
   // Render
   const getContentProps = () => {
-    const suggestEditOnHover = props.suggestEditOnHover && !isDisabled;
+    const suggestEditOnHover = props.suggestEditOnHover && !disabled;
     const valueOrPlaceholder = valueState || props.placeholder || "";
     return {
       value: props.displayPlaceholderInTextMode ? valueOrPlaceholder : valueState,
