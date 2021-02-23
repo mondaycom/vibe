@@ -814,6 +814,21 @@ export const iconsMetaData = [
     tags: "Team, Person, People, User, Users",
     category: [BASIC],
   },
+  {
+    name: "Text",
+    file: "Text.svg",
+    description: "Text",
+    tags: "Regular, Text, Design, Font",
+    category: [BASIC],
+  },
+
+  {
+    name: "TextBig",
+    file: "TextBig.svg",
+    description: "Text Big",
+    tags: "Big, Text, Design, Font, Text Big",
+    category: [BASIC],
+  },
 
   {
     name: "Textcolor",
@@ -821,6 +836,22 @@ export const iconsMetaData = [
     description: "Text Color",
     tags: "Text Color, Color, Text, Design",
     category: [PLATFORM],
+  },
+
+  {
+    name: "TextHuge",
+    file: "TextHuge.svg",
+    description: "Text Huge",
+    tags: "Huge, Text, Design, Font Text Huge",
+    category: [BASIC],
+  },
+
+  {
+    name: "TextSmall",
+    file: "TextSmall.svg",
+    description: "Text Small",
+    tags: "Small, Text, Design, Font, Text Small",
+    category: [BASIC],
   },
 
   {
