@@ -9,8 +9,8 @@
   margin: auto 0;
   @include heading-padding();
   outline: none;
-  border: 1px dashed;
-  @include theme-prop(border-color, ui-border-color);
+  border: 1px solid;
+  @include theme-prop(border-color, primary-color);
   text-align: left;
 
   &.no-resize {

@@ -1,6 +1,4 @@
 import React from "react";
-import { action } from "@storybook/addon-actions";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import EditableHeading from "../EditableHeading";
 import { TYPES } from "../../Heading/HeadingConstants";
@@ -9,7 +7,7 @@ export const Sandbox = () => (
   <div style={{ width: "200px", height: "500px", padding: "16px", border: "1px solid" }}>
     <EditableHeading type={TYPES.h1} value="Edit H1" />
     <br />
-    <EditableHeading type={TYPES.h2} value="Edit H2" />
+    <EditableHeading type={TYPES.h2} value="Edit H2 tooltip" tooltip="Click to edit" />
     <br />
     <EditableHeading type={TYPES.h3} value="Edit H3" />
     <br />
