@@ -26,6 +26,7 @@ export {default as Comment} from './components/Comment';
 export {default as CreditCard} from './components/CreditCard';
 export {default as Dashboard} from './components/Dashboard';
 export {default as Delete} from './components/Delete';
+export {default as Divider} from './components/Divider';
 export {default as DoubleCheck} from './components/DoubleCheck';
 export {default as Download} from './components/Download';
 export {default as Drag} from './components/Drag';
