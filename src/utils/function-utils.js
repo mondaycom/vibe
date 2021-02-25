@@ -9,7 +9,7 @@ export function chainRefFunctions(funcsOrRefs, allowBreak = false) {
         let result;
         if (isFunction(funcOrRef)) {
           result = funcOrRef(args);
-        } else {
+        } else if (funcOrRef) {
           funcOrRef.current = args;
         }
         if (result === false && allowBreak) {

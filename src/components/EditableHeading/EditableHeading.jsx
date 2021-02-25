@@ -34,7 +34,7 @@ const EditableHeading = props => {
     if (disabled || isEditing) return;
     setIsEditing(true);
     onStartEditing && onStartEditing();
-  }, [disabled, setIsEditing, onStartEditing]);
+  }, [isEditing, disabled, setIsEditing, onStartEditing]);
 
   const onFinishEditingCallback = useCallback(
     (newValue, event) => {
@@ -87,7 +87,8 @@ const EditableHeading = props => {
       type: props.type,
       suggestEditOnHover,
       tooltipPosition: props.tooltipPosition,
-      ellipsisMaxLines: props.ellipsisMaxLines
+      ellipsisMaxLines: props.ellipsisMaxLines,
+      nonEllipsisTooltip: props.tooltip
     };
   };
   const renderContentComponent = () => {

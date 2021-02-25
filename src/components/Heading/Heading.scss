@@ -3,6 +3,9 @@
 
 .heading-component {
   border: 1px solid transparent;
+  border-radius: $border-radius-small;
+  min-width: 0;
+
   @include heading-padding();
 
   &.heading-element-type-h1 {
@@ -27,7 +30,7 @@
   &.suggest-edit-on-hover {
     &:hover {
       cursor: text;
-      border: 1px dashed;
+      border: 1px solid;
       @include theme-prop(border-color, ui-border-color);
     }
   }

@@ -16,7 +16,8 @@ const Heading = ({
   ellipsisMaxLines,
   style,
   tooltipPosition,
-  suggestEditOnHover
+  suggestEditOnHover,
+  nonEllipsisTooltip // tooltip to show when no overflow
 }) => {
   const componentRef = useRef(null);
   const classNames = cx("heading-component", className, `heading-element-type-${type}`, {
@@ -37,9 +38,10 @@ const Heading = ({
     }
   }, [componentRef, ellipsisMaxLines, isOverflowing]);
 
-  if (isOverflowing) {
+  if (isOverflowing || nonEllipsisTooltip) {
+    const tooltipContent = isOverflowing ? value : nonEllipsisTooltip;
     return (
-      <Tooltip content={value} position={tooltipPosition}>
+      <Tooltip content={tooltipContent} position={tooltipPosition}>
         {Element}
       </Tooltip>
     );
@@ -55,7 +57,8 @@ Heading.propTypes = {
   id: PropTypes.string,
   ellipsis: PropTypes.bool,
   ellipsisMaxLines: PropTypes.number,
-  suggestEditOnHover: PropTypes.bool
+  suggestEditOnHover: PropTypes.bool,
+  nonEllipsisTooltip: PropTypes.string
 };
 Heading.defaultProps = {
   className: "",
@@ -65,7 +68,8 @@ Heading.defaultProps = {
   id: "",
   ellipsis: true,
   ellipsisMaxLines: 1,
-  suggestEditOnHover: false
+  suggestEditOnHover: false,
+  nonEllipsisTooltip: null
 };
 
 Heading.types = TYPES;

@@ -8,7 +8,12 @@ $font-size-input: 14px;
 $font-size-paragraph: 16px;
 $font-size-subtitle: 18px;
 $font-size-secondary: 24px;
+$font-size-secondary-smaller: 20px; // responsive
 $font-size-header: 32px;
+$font-size-header-smaller: 24px; // responsive
+$line-height-for-size-32: 52px;
+$line-height-for-size-24: 32px;
+$line-height-for-size-20: 24px;
 $font-size-default: 14px;
 
 @mixin font-main {
@@ -18,7 +23,12 @@ $font-size-default: 14px;
   font-weight: $font-weight-bold;
   font-size: $font-size-header;
   letter-spacing: -1px;
-  line-height: 52px;
+  line-height: $line-height-for-size-32;
+
+  @media (max-width: 1440px) {
+    font-size: $font-size-header-smaller;
+    line-height: $line-height-for-size-24;
+  }
 }
 
 @mixin font-title {
@@ -28,7 +38,12 @@ $font-size-default: 14px;
   font-weight: $font-weight-bold;
   font-size: $font-size-secondary;
   letter-spacing: -0.2px;
-  line-height: 32px;
+  line-height: $line-height-for-size-24;
+
+  @media (max-width: 1440px) {
+    font-size: $font-size-secondary-smaller;
+    line-height: $line-height-for-size-20;
+  }
 }
 
 @mixin font-title-secondary {
@@ -38,7 +53,12 @@ $font-size-default: 14px;
   font-weight: $font-weight-light;
   font-size: $font-size-secondary;
   letter-spacing: -0.2px;
-  line-height: 32px;
+  line-height: $line-height-for-size-24;
+
+  @media (max-width: 1440px) {
+    font-size: $font-size-secondary-smaller;
+    line-height: $line-height-for-size-20;
+  }
 }
 
 @mixin font-subtitle {
@@ -112,6 +132,7 @@ $font-size-default: 14px;
   -webkit-line-clamp: $lines;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  white-space: initial; // doesn't work with white-space: no-wrap
 }
 
 @mixin heading-padding {
