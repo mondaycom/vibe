@@ -1,0 +1,44 @@
+@import "../../../styles/themes.scss";
+@import "../../../styles/states.scss";
+
+.breadcrumbItem--wrapper {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  @include theme-prop(color, secondary-text-color);
+  padding: 0px 2px;
+  overflow: hidden;  
+
+  .breadcrumb-text {
+    color: inherit;
+    text-decoration: none;
+    margin: 0px 4px;
+    line-height: 22px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .breadcrumb-icon {
+    height: 14px;
+    width: 14px;
+    flex-shrink: 0;
+  }
+
+  &.hover:hover {
+    @include theme-prop(background-color, primary-background-hover-color);
+    border-radius: 4px;
+  }
+
+  &.disabled {
+    @include disabled;
+  }
+
+  &.current {
+    @include theme-prop(color, primary-text-color);
+    font-weight: 500;
+  }
+}
