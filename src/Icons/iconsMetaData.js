@@ -202,6 +202,13 @@ export const iconsMetaData = [
     tags: "Delete, Remove, Trash, Bin",
     category: [PLATFORM],
   },
+  {
+    name: "Divider",
+    file: "Divider.svg",
+    description: "Divider",
+    tags: "Divider, Design, Separator",
+    category: [BASIC],
+  },
 
   {
     name: "DoubleCheck",
