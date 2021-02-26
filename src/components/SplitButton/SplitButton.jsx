@@ -59,6 +59,7 @@ const SplitButton = ({
   zIndex,
   secondaryDialogClassName,
   secondaryDialogPosition,
+  dialogPaddingSize,
   ...buttonProps
 }) => {
   // State //
@@ -152,11 +153,11 @@ const SplitButton = ({
   const actionsContent = useCallback(() => {
     const content = typeof secondaryDialogContent === "function" ? secondaryDialogContent() : secondaryDialogContent;
     return (
-      <DialogContentContainer type={DialogContentContainer.types.POPOVER} size={DialogContentContainer.sizes.MEDIUM}>
+      <DialogContentContainer type={DialogContentContainer.types.POPOVER} size={dialogPaddingSize}>
         {content}
       </DialogContentContainer>
     );
-  }, [secondaryDialogContent]);
+  }, [secondaryDialogContent, dialogPaddingSize]);
 
   const animationEdgePosition = useMemo(() => {
     if (secondaryDialogPosition === SECONDARY_CONTENT_POSITIONS.BOTTOM_MIDDLE) {
@@ -238,6 +239,7 @@ SplitButton.sizes = Button.sizes;
 SplitButton.colors = Button.colors;
 SplitButton.kinds = Button.kinds;
 SplitButton.inputTags = Button.inputTags;
+SplitButton.dialogPaddingSizes = DialogContentContainer.sizes;
 
 SplitButton.defaultProps = {
   ...Button.defaultProps,
@@ -245,7 +247,8 @@ SplitButton.defaultProps = {
   onSecondaryDialogDidHide: NOOP,
   zIndex: null,
   secondaryDialogClassName: "",
-  secondaryDialogPosition: SECONDARY_CONTENT_POSITIONS.BOTTOM_START
+  secondaryDialogPosition: SECONDARY_CONTENT_POSITIONS.BOTTOM_START,
+  dialogPaddingSize: SplitButton.dialogPaddingSizes.MEDIUM
 };
 
 SplitButton.propTypes = {
@@ -253,6 +256,7 @@ SplitButton.propTypes = {
   secondaryDialogContent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
   onSecondaryDialogDidShow: PropTypes.func,
   onSecondaryDialogDidHide: PropTypes.func,
+
   zIndex: PropTypes.number,
   /*
    * Class name to provide the element which wraps the popover/modal/dialog
@@ -262,6 +266,15 @@ SplitButton.propTypes = {
     SplitButton.secondaryPositions.BOTTOM_START,
     SplitButton.secondaryPositions.BOTTOM_MIDDLE,
     SplitButton.secondaryPositions.BOTTOM_END
+  ]),
+  /*
+    Popover Container padding size
+   */
+  dialogPaddingSize: PropTypes.oneOf([
+    SplitButton.dialogPaddingSizes.NONE,
+    SplitButton.dialogPaddingSizes.SMALL,
+    SplitButton.dialogPaddingSizes.MEDIUM,
+    SplitButton.dialogPaddingSizes.LARGE
   ])
 };
 
