@@ -15,6 +15,7 @@ export {default as Bolt} from './components/Bolt';
 export {default as Bookmark} from './components/Bookmark';
 export {default as Broadcast} from './components/Broadcast';
 export {default as Broom} from './components/Broom';
+export {default as Bullet} from './components/Bullet';
 export {default as Bullets} from './components/Bullets';
 export {default as Bulllet} from './components/Bulllet';
 export {default as Calendar} from './components/Calendar';
