@@ -2,5 +2,7 @@
 @import "../../../styles/states.scss";
 
 .breadcrumbItem--wrapper {
+  display: inline-flex;
+  overflow: hidden;  
   list-style-type: none;
 }
