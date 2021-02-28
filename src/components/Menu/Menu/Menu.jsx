@@ -12,12 +12,12 @@ import "./Menu.scss";
 
 const Menu = forwardRef(
   (
-    { id, classname, size, tabIndex, ariaLabel, children: originalChildren, isVisible = true, closeSubMenu },
+    { id, classname, size, tabIndex, ariaLabel, children: originalChildren, isVisible = true, closeSubMenu, focusItemIndex },
     forwardedRef
   ) => {
     const ref = useRef(null);
     const refElement = ref && ref.current;
-    const [activeItemIndex, setActiveItemIndex] = useState(-1);
+    const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
 
     const children = useMemo(() => {
       return React.Children.toArray(originalChildren);
@@ -79,7 +79,8 @@ Menu.defaultProps = {
   tabIndex: 0,
   ariaLabel: "Menu",
   isVisible: true,
-  closeSubMenu: undefined
+  closeSubMenu: undefined,
+  focusItemIndex: -1
 };
 
 Menu.propTypes = {
@@ -89,7 +90,8 @@ Menu.propTypes = {
   tabIndex: PropTypes.number,
   ariaLabel: PropTypes.string,
   isVisible: PropTypes.bool,
-  closeSubMenu: PropTypes.func
+  closeSubMenu: PropTypes.func,
+  focusItemIndex: PropTypes.number
 };
 
 export default Menu;
