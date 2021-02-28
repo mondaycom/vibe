@@ -67,6 +67,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "BlockQuote",
+    file: "BlockQuote.svg",
+    description: "BlockQuote",
+    tags: "Blockquote, Block, Quote, Text, Design",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Board",
     file: "Board.svg",
     description: "Board",
@@ -107,6 +115,14 @@ export const iconsMetaData = [
     file: "Bullets.svg",
     description: "Bullets",
     tags: "Bullets, List, Text, Design",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Bullet",
+    file: "Bullet.svg",
+    description: "Bullet",
+    tags: "Bullet, List, Text, Design, Bullets",
     category: [PLATFORM],
   },
 
