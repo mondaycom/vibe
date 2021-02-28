@@ -52,6 +52,7 @@ const MenuButton = ({
   }, [closeDialogOnContentClick]);
 
   const content = useMemo(() => {
+    if (!children) return <div/>;
     return (
       <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
         {children}
