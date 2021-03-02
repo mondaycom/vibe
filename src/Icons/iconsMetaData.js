@@ -157,6 +157,14 @@ export const iconsMetaData = [
     tags: "Check, Done, V",
     category: [BASIC],
   },
+
+  {
+    name: "Checkbox",
+    file: "Checkbox.svg",
+    description: "Checkbox",
+    tags: "Design, Checkbox, Check",
+    category: [BASIC],
+  },
   {
     name: "CheckList",
     file: "CheckList.svg",
@@ -200,6 +208,14 @@ export const iconsMetaData = [
     file: "CreditCard.svg",
     description: "CreditCard",
     tags: "Credit Card, Pay, Swipe",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Cut",
+    file: "Cut.svg",
+    description: "Cut",
+    tags: "Cut, Design",
     category: [PLATFORM],
   },
 
@@ -346,6 +362,14 @@ export const iconsMetaData = [
     file: "Feedback.svg",
     description: "Feedback",
     tags: "Feedback",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "File",
+    file: "File.svg",
+    description: "File",
+    tags: "File",
     category: [PLATFORM],
   },
 
@@ -528,6 +552,14 @@ export const iconsMetaData = [
     name: "Mention",
     file: "Mention.svg",
     description: "Mention",
+    tags: "@, Mention, at",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Mention",
+    file: "Mention.svg",
+    description: "Mention",
     tags: "Mention, Tag",
     category: [PLATFORM],
   },
@@ -633,6 +665,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "NoColor",
+    file: "NoColor.svg",
+    description: "No Color",
+    tags: "No Color, Drop",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Notifications",
     file: "Notifications.svg",
     description: "Notifications",
@@ -645,6 +685,14 @@ export const iconsMetaData = [
     file: "Page.svg",
     description: "Page",
     tags: "Page",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Paste",
+    file: "Paste.svg",
+    description: "Paste",
+    tags: "Paste",
     category: [PLATFORM],
   },
 
@@ -677,6 +725,14 @@ export const iconsMetaData = [
     file: "PushNotification.svg",
     description: "Push Notifications",
     tags: "Push, Notifications, Bar",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Quote",
+    file: "Quote.svg",
+    description: "Quote",
+    tags: "Quote",
     category: [PLATFORM],
   },
 
@@ -900,6 +956,15 @@ export const iconsMetaData = [
     tags: "Underline, Text, Design",
     category: [PLATFORM],
   },
+
+  {
+    name: "TurnInto",
+    file: "TurnInto.svg",
+    description: "Turn Into",
+    tags: "Turn Into, Switch",
+    category: [PLATFORM],
+  },
+
   {
     name: "Undo",
     file: "Undo.svg",
