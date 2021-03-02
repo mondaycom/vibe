@@ -552,15 +552,7 @@ export const iconsMetaData = [
     name: "Mention",
     file: "Mention.svg",
     description: "Mention",
-    tags: "@, Mention, at",
-    category: [PLATFORM],
-  },
-
-  {
-    name: "Mention",
-    file: "Mention.svg",
-    description: "Mention",
-    tags: "Mention, Tag",
+    tags: "@, Mention, At, Tag",
     category: [PLATFORM],
   },
 
@@ -679,6 +671,13 @@ export const iconsMetaData = [
     tags: "Notifications, Bell",
     category: [PLATFORM],
   },
+  {
+    name: "Numbers",
+    file: "Numbers.svg",
+    description: "Numbers",
+    tags: "Numbers, List, Design",
+    category: [PLATFORM],
+  },
 
   {
     name: "Page",
@@ -692,7 +691,7 @@ export const iconsMetaData = [
     name: "Paste",
     file: "Paste.svg",
     description: "Paste",
-    tags: "Paste",
+    tags: "Paste, Design",
     category: [PLATFORM],
   },
 
