@@ -87,6 +87,7 @@ export {default as NavigationChevronUp} from './components/NavigationChevronUp';
 export {default as NewTab} from './components/NewTab';
 export {default as NoColor} from './components/NoColor';
 export {default as Notifications} from './components/Notifications';
+export {default as Numbers} from './components/Numbers';
 export {default as Page} from './components/Page';
 export {default as Paste} from './components/Paste';
 export {default as Person} from './components/Person';
