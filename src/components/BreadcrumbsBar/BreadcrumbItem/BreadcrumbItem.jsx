@@ -13,11 +13,10 @@ export const BreadcrumbItem = ({
   className,
   text,
   isDisabled = false,
-  isClickable = false,
+  isClickable,
   link,
   func,
   isCurrent = false,
-  hasHover,
   icon
 }) => {
   const componentRef = useRef(null);
@@ -35,7 +34,7 @@ export const BreadcrumbItem = ({
         className={classNames(
           "breadcrumbItem--wrapper",
           className,
-          { hover: hasHover },
+          { clickable: isClickable },
           { current: isCurrent },
           { disabled: isDisabled }
         )}
@@ -43,7 +42,7 @@ export const BreadcrumbItem = ({
         <BreadcrumbContent
           className={classNames(
             "breadcrumb-content",
-            { hover: hasHover },
+            { clickable: isClickable },
             { current: isCurrent },
             { disabled: isDisabled }
           )}

@@ -4,14 +4,19 @@ import cx from "classnames";
 import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRight";
 import "./BreadcrumbsBar.scss";
 
-const BreadcrumbsBar = ({ className, children, hasHoverEffect = true }) => (
+const BREADCRUMBS_BAR_TYPE = {
+  NAVIGATION: "navigation",
+  INDICATION: "indication"
+};
+
+const BreadcrumbsBar = ({ className, children, type }) => (
   <nav aria-label="Breadcrumb" className={cx("breadcrumbs-bar--wrapper", className)}>
     <ol>
       {children &&
         React.Children.map(children, (child, index) => [
           React.cloneElement(child, {
             ...child?.props,
-            hasHover: hasHoverEffect
+            isClickable: type === BREADCRUMBS_BAR_TYPE.INDICATION ? false : true
           }),
           index < children.length - 1 && (
             <NavigationChevronRight className="sparatorIcon" size={"14"} aria-hidden="true" />
@@ -23,11 +28,13 @@ const BreadcrumbsBar = ({ className, children, hasHoverEffect = true }) => (
 
 BreadcrumbsBar.propTypes = {
   className: PropTypes.string,
-  hasHoverEffect: PropTypes.bool
+  type: PropTypes.oneOf([BREADCRUMBS_BAR_TYPE.INDICATION, BREADCRUMBS_BAR_TYPE.NAVIGATION])
 };
 BreadcrumbsBar.defaultProps = {
   className: "",
-  hasHoverEffect: true
+  type: BREADCRUMBS_BAR_TYPE.INDICATION
 };
+
+BreadcrumbsBar.types = BREADCRUMBS_BAR_TYPE;
 
 export default BreadcrumbsBar;

@@ -37,7 +37,7 @@ export const BreadcrumbContent = forwardRef(({ className, isClickable, link, fun
       }
     } else {
       elementToRender = (
-        <span className={className} aria-disabled="true" tabIndex="0">
+        <span className={className} aria-disabled="true" tabIndex="0" style={{ cursor: "default" }}>
           {Icon && <Icon className="breadcrumb-icon" size={"14"} />}
           <span ref={ref} className="breadcrumb-text">
             {text}

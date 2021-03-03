@@ -32,7 +32,7 @@
     outline: none;
   }
 
-  &.hover:hover,
+  &.clickable:hover,
   &:focus-within {
     @include theme-prop(background-color, primary-background-hover-color);
     border-radius: 4px;
@@ -40,6 +40,7 @@
 
   &.disabled {
     @include disabled;
+    cursor: not-allowed !important;
   }
 
   &.current {
