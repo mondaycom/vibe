@@ -29,6 +29,7 @@ const Dropdown = ({
   options,
   defaultValue,
   value,
+  inputValue,
   noOptionsMessage,
   openMenuOnFocus,
   openMenuOnClick,
@@ -126,6 +127,7 @@ const Dropdown = ({
       isSearchable={searchable}
       defaultValue={defaultValue}
       value={value}
+      inputValue={inputValue}
       onMenuOpen={handleMenuOpen}
       onMenuClose={handleMenuClose}
       onFocus={onFocus}
@@ -254,6 +256,10 @@ Dropdown.propTypes = {
    * Set default selected value
    */
   defaultValue: PropTypes.object,
+  /**
+   * Set default input value
+   */
+  inputValue: PropTypes.string,
   /**
    * Select menu size from `Dropdown.size` - Dropdown.size.LARGE | Dropdown.size.MEDIUM | Dropdown.size.SMALL
    */
