@@ -24,6 +24,7 @@ const Dropdown = ({
   onFocus,
   onBlur,
   onChange,
+  onKeyDown,
   onInputChange,
   searchable,
   options,
@@ -136,6 +137,7 @@ const Dropdown = ({
       onInputChange={onInputChange}
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}
+      onKeyDown={onKeyDown}
       isRtl={rtl}
       styles={customStyles}
       theme={customTheme}
