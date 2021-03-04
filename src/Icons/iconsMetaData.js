@@ -126,7 +126,6 @@ export const iconsMetaData = [
     category: [PLATFORM],
   },
 
-
   {
     name: "Bookmark",
     file: "Bookmark.svg",
@@ -186,6 +185,14 @@ export const iconsMetaData = [
     file: "CloseSmall.svg",
     description: "Close Small",
     tags: "Close, X, Cancel",
+    category: [BASIC],
+  },
+
+  {
+    name: "Code",
+    file: "Code.svg",
+    description: "Code",
+    tags: "Code, Design",
     category: [BASIC],
   },
 
@@ -441,6 +448,14 @@ export const iconsMetaData = [
     file: "Highlight.svg",
     description: "Highlight",
     tags: "Highlight, Text, Design",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "HighlightColorBucket",
+    file: "HighlightColorBucket.svg",
+    description: "Highlight",
+    tags: "Highlight, Text, Design, Bucket",
     category: [PLATFORM],
   },
 
@@ -837,7 +852,6 @@ export const iconsMetaData = [
     tags: "Shredder, Paper, Recycle",
     category: [PLATFORM],
   },
-
 
   {
     name: "Sort",
