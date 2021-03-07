@@ -1,9 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import BreadcrumbsBar from "../BreadcrumbsBar";
-import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem";
-import BoardIcon from "../../Icon/Icons/components/Board";
-import WorkspaceIcon from "../../Icon/Icons/components/Workspace";
+import BreadcrumbsBar from "../../BreadcrumbsBar";
+import BreadcrumbItem from "../BreadcrumbItem";
+import BoardIcon from "../../../Icon/Icons/components/Board";
+import WorkspaceIcon from "../../../Icon/Icons/components/Workspace";
 import { fireEvent, render } from "@testing-library/react";
 
 jest.useFakeTimers();
