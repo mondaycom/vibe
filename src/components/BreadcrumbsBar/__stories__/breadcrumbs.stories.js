@@ -2,7 +2,7 @@ import React from "react";
 import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import BreadcrumbsBar from "../BreadcrumbsBar";
-import { BreadcrumbItem } from "../BreadcrumbItem/BreadcrumbItem";
+import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem";
 import BoardIcon from "../../Icon/Icons/components/Board";
 import WorkspaceIcon from "../../Icon/Icons/components/Workspace";
 import GroupIcon from "../../Icon/Icons/components/Group";

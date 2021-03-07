@@ -1,22 +1,22 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import Tooltip from "../../Tooltip/Tooltip";
-import "./BreadcrumbItem.scss";
-import useKeyEvent from "../../../hooks/useKeyEvent";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
+import "./BreadcrumbItem.scss";
 
 const MOUSEENTER = ["mouseenter"];
 const MOUSELEAVE = ["mouseleave"];
 
-export const BreadcrumbItem = ({
+const BreadcrumbItem = ({
   className,
   text,
-  isDisabled = false,
+  isDisabled,
   isClickable,
   link,
   func,
-  isCurrent = false,
+  isCurrent,
   icon
 }) => {
   const componentRef = useRef(null);
@@ -57,3 +57,28 @@ export const BreadcrumbItem = ({
     </Tooltip>
   );
 };
+
+BreadcrumbItem.propTypes = {
+  className: PropTypes.string,
+  text: PropTypes.string,
+  isDisabled: PropTypes.bool,
+  isClickable: PropTypes.bool,
+  link: PropTypes.string,
+  func: PropTypes.func,
+  isCurrent: PropTypes.bool,
+  icon: PropTypes.string
+};
+
+BreadcrumbItem.defaultProps = {
+  className: "",
+  text: "",
+  isDisabled: false,
+  isClickable: false,
+  link: undefined,
+  func: undefined,
+  isCurrent: false,
+  icon: undefined
+};
+
+export default BreadcrumbItem;
+

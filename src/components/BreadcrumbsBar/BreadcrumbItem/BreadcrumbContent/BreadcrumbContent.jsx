@@ -18,7 +18,7 @@ export const BreadcrumbContent = forwardRef(({ className, isClickable, link, fun
     if (isClickable && (link || func)) {
       if (link) {
         elementToRender = (
-          <a className={className} href={link} onKeyDown={onKeyDown} style={{ cursor: "pointer" }}>
+          <a className={className} href={link} onKeyDown={onKeyDown}>
             {Icon && <Icon className="breadcrumb-icon" size={"14"} />}
             <span ref={ref} className="breadcrumb-text">
               {text}
@@ -27,7 +27,7 @@ export const BreadcrumbContent = forwardRef(({ className, isClickable, link, fun
         );
       } else {
         elementToRender = (
-          <span className={className} onClick={func} onKeyDown={onKeyDown} tabIndex="0" style={{ cursor: "pointer" }}>
+          <span className={className} onClick={func} onKeyDown={onKeyDown} tabIndex="0" >
             {Icon && <Icon className="breadcrumb-icon" size={"14"} />}
             <span ref={ref} className="breadcrumb-text">
               {text}
@@ -37,7 +37,7 @@ export const BreadcrumbContent = forwardRef(({ className, isClickable, link, fun
       }
     } else {
       elementToRender = (
-        <span className={className} aria-disabled="true" tabIndex="0" style={{ cursor: "default" }}>
+        <span className={className} aria-disabled="true" tabIndex="0">
           {Icon && <Icon className="breadcrumb-icon" size={"14"} />}
           <span ref={ref} className="breadcrumb-text">
             {text}

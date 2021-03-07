@@ -1,8 +1,14 @@
-@import "../../../styles/themes.scss";
-@import "../../../styles/states.scss";
-
 .breadcrumbItem--wrapper {
   display: inline-flex;
-  overflow: hidden;  
+  overflow: hidden;
   list-style-type: none;
+  cursor: default;
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
 }

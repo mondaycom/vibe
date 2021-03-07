@@ -38,13 +38,12 @@
     border-radius: 4px;
   }
 
-  &.disabled {
-    @include disabled;
-    cursor: not-allowed !important;
-  }
-
   &.current {
     @include theme-prop(color, primary-text-color);
     font-weight: 500;
+  }
+
+  &.disabled {
+    @include disabled;
   }
 }
