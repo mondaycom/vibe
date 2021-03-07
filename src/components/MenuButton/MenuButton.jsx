@@ -29,7 +29,8 @@ const MenuButton = ({
   dialogClassName,
   dialogPaddingSize,
   onMenuHide,
-  onMenuShow
+  onMenuShow,
+  disabled
 }) => {
   const [isOpen, setIsOpen] = useState(open);
 
@@ -91,7 +92,8 @@ const MenuButton = ({
         role="menu"
         className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
           [BEMClass("open")]: isOpen,
-          [openDialogComponentClassName]: isOpen && openDialogComponentClassName
+          [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
+          [BEMClass("disabled")]: disabled
         })}
         aria-haspopup="true"
         aria-expanded={isOpen}
@@ -171,7 +173,8 @@ MenuButton.propTypes = {
   /*
   Callback function to be called when the menu is shown
  */
-  onMenuHide: PropTypes.func
+  onMenuHide: PropTypes.func,
+  disabled: PropTypes.bool
 };
 MenuButton.defaultProps = {
   componentClassName: "",
@@ -187,7 +190,8 @@ MenuButton.defaultProps = {
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM,
   dialogPosition: MenuButton.dialogPositions.BOTTOM_START,
   onMenuShow: NOOP,
-  onMenuHide: NOOP
+  onMenuHide: NOOP,
+  disabled: false
 };
 
 export default MenuButton;

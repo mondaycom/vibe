@@ -67,4 +67,10 @@
     align-items: center;
   }
 
+  &--disabled {
+    @include theme-prop(border-color, disabled-background-color);
+    @include theme-prop(color, disabled-text-color);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
 }
