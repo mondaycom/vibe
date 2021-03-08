@@ -1,10 +1,12 @@
 import React, { useMemo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { baseClassName, PROGRESS_BAR_SIZES, PROGRESS_BAR_STYLES } from "./LinearProgressBarConstants";
+import { baseClassName, PROGRESS_BAR_STYLES } from "./LinearProgressBarConstants";
 import { calculatePercentage } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
+import { SIZES } from "../../../constants/sizes";
+
 import "./LinearProgressBar.scss";
 
 const LinearProgressBar = forwardRef(
@@ -94,7 +96,7 @@ const LinearProgressBar = forwardRef(
 );
 
 LinearProgressBar.styles = PROGRESS_BAR_STYLES;
-LinearProgressBar.sizes = PROGRESS_BAR_SIZES;
+LinearProgressBar.sizes = SIZES;
 
 LinearProgressBar.propTypes = {
   /**
@@ -128,7 +130,7 @@ LinearProgressBar.propTypes = {
   /**
    * Determine the progress bar height (Supported options exposed through `LinearProgressBar.sizes`)
    */
-  size: PropTypes.oneOf(Object.values(PROGRESS_BAR_SIZES)),
+  size: PropTypes.oneOf(Object.values(SIZES)),
   /**
    * Show progress bar progression in percentages
    */
@@ -162,7 +164,7 @@ LinearProgressBar.propTypes = {
 
 LinearProgressBar.defaultProps = {
   barStyle: PROGRESS_BAR_STYLES.PRIMARY,
-  size: PROGRESS_BAR_SIZES.SMALL,
+  size: SIZES.SMALL,
   className: "",
   multi: false,
   indicateProgress: false,

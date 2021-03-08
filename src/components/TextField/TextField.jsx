@@ -7,7 +7,8 @@ import "./TextField.scss";
 import Icon from "../Icon/Icon";
 import { FEEDBACK_CLASSES, FEEDBACK_STATES, sizeMapper } from "./TextFieldHelpers";
 import FieldLabel from "../FieldLabel/FieldLabel";
-import { TEXT_FIELD_SIZE, TEXT_TYPES } from "./TextFieldConstants";
+import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
+import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 
 const NOOP = () => {};
@@ -106,7 +107,9 @@ const TextField = forwardRef(
       >
         <div className="input-component__label--wrapper">
           <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
-          <div className={classNames("input-component__input-wrapper", sizeMapper[size], validationClass)}>
+          <div
+            className={classNames("input-component__input-wrapper", sizeMapper[getActualSize(size)], validationClass)}
+          >
             <input
               className={classNames(className, "input-component__input", {
                 "input-component__input--has-icon": !!hasIcon
@@ -184,7 +187,7 @@ const TextField = forwardRef(
   }
 );
 
-TextField.sizes = TEXT_FIELD_SIZE;
+TextField.sizes = SIZES;
 TextField.feedbacks = FEEDBACK_STATES;
 TextField.types = TEXT_TYPES;
 
@@ -207,7 +210,7 @@ TextField.propTypes = {
   secondaryIconName: PropTypes.string,
   id: PropTypes.string,
   title: PropTypes.string,
-  /** TEXT_FIELD_SIZE is exposed on the component itself */
+  /** SIZES is exposed on the component itself */
   size: PropTypes.oneOf([TextField.sizes.SMALL, TextField.sizes.MEDIUM, TextField.sizes.LARGE]),
   validation: PropTypes.shape({
     /** Don't provide status for plain assistant text */

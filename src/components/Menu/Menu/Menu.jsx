@@ -7,12 +7,23 @@ import useSubMenuIndex from "./hooks/useSubMenuIndex";
 import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
 import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
-import { MENU_SIZES } from "./MenuConstants";
+import { SIZES } from "../../../constants/sizes";
+
 import "./Menu.scss";
 
 const Menu = forwardRef(
   (
-    { id, classname, size, tabIndex, ariaLabel, children: originalChildren, isVisible = true, closeSubMenu, focusItemIndex },
+    {
+      id,
+      classname,
+      size,
+      tabIndex,
+      ariaLabel,
+      children: originalChildren,
+      isVisible = true,
+      closeSubMenu,
+      focusItemIndex
+    },
     forwardedRef
   ) => {
     const ref = useRef(null);
@@ -70,12 +81,12 @@ const Menu = forwardRef(
   }
 );
 
-Menu.sizes = MENU_SIZES;
+Menu.sizes = SIZES;
 
 Menu.defaultProps = {
   id: undefined,
   classname: "",
-  size: MENU_SIZES.MEDIUM,
+  size: SIZES.MEDIUM,
   tabIndex: 0,
   ariaLabel: "Menu",
   isVisible: true,
@@ -86,7 +97,7 @@ Menu.defaultProps = {
 Menu.propTypes = {
   id: PropTypes.string,
   classname: PropTypes.string,
-  size: PropTypes.oneOf([MENU_SIZES.SMALL, MENU_SIZES.MEDIUM, MENU_SIZES.LARGE]),
+  size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE]),
   tabIndex: PropTypes.number,
   ariaLabel: PropTypes.string,
   isVisible: PropTypes.bool,

@@ -155,9 +155,9 @@ export const Sandbox = () => {
       <Menu
         id="menu"
         size={select("size", {
-          SMALL: "small",
-          MEDIUM: "medium",
-          LARGE: "large"
+          SMALL: Menu.sizes.SMALL,
+          MEDIUM: Menu.sizes.MEDIUM,
+          LARGE: Menu.sizes.LARGE
         })}
       >
         {renderMenuItemsByCount(itemsCount)}

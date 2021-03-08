@@ -5,7 +5,8 @@ import cx from "classnames";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 // Constants import
-import { COUNTER_COLORS, COUNTER_SIZES, COUNTER_TYPES } from "./CounterConstants";
+import { COUNTER_COLORS, getActualSize, COUNTER_TYPES } from "./CounterConstants";
+import { SIZES } from "../../constants/sizes";
 
 // Hooks import
 import useEventListener from "../../hooks/useEventListener";
@@ -56,7 +57,7 @@ const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits, ariaLa
   const classNames = useMemo(() => {
     return cx(
       "monday-style-counter",
-      `monday-style-counter--size-${size}`,
+      `monday-style-counter--size-${getActualSize(size)}`,
       `monday-style-counter--kind-${kind}`,
       `monday-style-counter--color-${color}`,
       {
@@ -86,7 +87,7 @@ const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits, ariaLa
   );
 };
 
-Counter.sizes = COUNTER_SIZES;
+Counter.sizes = SIZES;
 Counter.colors = COUNTER_COLORS;
 Counter.kinds = COUNTER_TYPES;
 
@@ -109,7 +110,7 @@ Counter.defaultProps = {
   id: "",
   wrapperClassName: "",
   count: 0,
-  size: COUNTER_SIZES.LARGE,
+  size: SIZES.LARGE,
   color: COUNTER_COLORS.PRIMARY,
   kind: COUNTER_TYPES.FILL,
   maxDigits: 3,

@@ -7,7 +7,11 @@ export const Sandbox = () => (
   <div style={{ width: "200px", border: "1px solid" }}>
     <Heading type={TYPES.h1} value="Hello H1" />
     <br />
+    <Heading type={TYPES.h1} value="Hello H1 medium" size="medium" />
+    <br />
     <Heading type={TYPES.h2} value="Hello H2" />
+    <br />
+    <Heading type={TYPES.h2} value="Hello H2 small" size="small" />
     <br />
     <Heading type={TYPES.h3} value="Hello H3" />
     <br />
