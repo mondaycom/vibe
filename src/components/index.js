@@ -32,3 +32,6 @@ export { default as ExpandCollapse } from "./ExpandCollapse/ExpandCollapse";
 export { default as Heading } from "./Heading/Heading";
 export { default as EditableInput } from "./EditableInput/EditableInput";
 export { default as EditableHeading } from "./EditableHeading/EditableHeading";
+
+export { default as BreadcrumbsBar } from "./BreadcrumbsBar/BreadcrumbsBar";
+export { default as BreadcrumbItem } from "./BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
