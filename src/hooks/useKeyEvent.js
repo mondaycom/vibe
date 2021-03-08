@@ -11,7 +11,7 @@ export default function useKeyEvent({
   capture = false,
   preventDefault = false,
   stopPropagation = false,
-  keyEventName = "keydown" // need keydown and not keyup to prevent scrolling with prevent default
+  keyEventName = "keydown" // need keydown and not keyup to prevent scrolling with prevent default, for example during menu keyboard navigation
 }) {
   const documentRef = useRef(document);
   const onKeyUpPress = useCallback(
