@@ -26,15 +26,17 @@ const BreadcrumbsBar = ({ className, children, type }) => (
   </nav>
 );
 
+BreadcrumbsBar.types = BREADCRUMBS_BAR_TYPE;
+
 BreadcrumbsBar.propTypes = {
   className: PropTypes.string,
-  type: PropTypes.oneOf([BREADCRUMBS_BAR_TYPE.INDICATION, BREADCRUMBS_BAR_TYPE.NAVIGATION])
+  /** The type of the bar is responsible for whether it will be navigational or for indication only  */
+  type: PropTypes.oneOf([BreadcrumbsBar.types.INDICATION, BreadcrumbsBar.types.NAVIGATION])
 };
+
 BreadcrumbsBar.defaultProps = {
   className: "",
   type: BREADCRUMBS_BAR_TYPE.INDICATION
 };
-
-BreadcrumbsBar.types = BREADCRUMBS_BAR_TYPE;
 
 export default BreadcrumbsBar;

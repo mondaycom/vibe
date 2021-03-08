@@ -36,7 +36,7 @@ export const BreadcrumbsTypes = () => {
             <BreadcrumbItem
               text="Workspace"
               icon={WorkspaceIcon}
-              func={() => {
+              onClick={() => {
                 alert("Hello");
               }}
             />

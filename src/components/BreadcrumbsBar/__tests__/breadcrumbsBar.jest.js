@@ -4,7 +4,7 @@ import BreadcrumbsBar from "../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem";
 import { fireEvent, render } from "@testing-library/react";
 
-describe.only("BreadcrumbsBar", () => {
+describe("BreadcrumbsBar", () => {
   it("renders correctly with empty props", () => {
     const tree = renderer.create(<BreadcrumbsBar />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -22,7 +22,7 @@ describe.only("BreadcrumbsBar", () => {
       .create(
         <BreadcrumbsBar>
           <BreadcrumbItem text="Workspace" link="https://www.google.com" isDisabled={false} isCurrent={false} />
-          <BreadcrumbItem text="Board" func={() => alert("hello")} isDisabled={true} isCurrent={true} />
+          <BreadcrumbItem text="Board" onClick={() => alert("hello")} isDisabled={true} isCurrent={true} />
         </BreadcrumbsBar>
       )
       .toJSON();

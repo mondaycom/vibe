@@ -1,21 +1,24 @@
 import React, { forwardRef, useCallback } from "react";
 import "./BreadcrumbContent.scss";
 
-export const BreadcrumbContent = forwardRef(({ className, isClickable, link, func, text, icon }, ref) => {
+const ENTER_KEY = "Enter";
+const SPACE_KEY = " ";
+
+export const BreadcrumbContent = forwardRef(({ className, isClickable, link, onClick, text, icon }, ref) => {
   const Icon = icon;
   const onKeyDown = useCallback(
     event => {
-      if (event.key === "Enter" || event.key === " ") {
-        link ? (window.parent.location.href = link) : func();
+      if (event.key === ENTER_KEY || event.key === SPACE_KEY) {
+        link ? (window.parent.location.href = link) : onClick();
       }
     },
-    [func, link]
+    [onClick, link]
   );
 
   const renderBreadcrumbContent = () => {
     let elementToRender;
 
-    if (isClickable && (link || func)) {
+    if (isClickable && (link || onClick)) {
       if (link) {
         elementToRender = (
           <a className={className} href={link} onKeyDown={onKeyDown}>
@@ -27,7 +30,7 @@ export const BreadcrumbContent = forwardRef(({ className, isClickable, link, fun
         );
       } else {
         elementToRender = (
-          <span className={className} onClick={func} onKeyDown={onKeyDown} tabIndex="0" >
+          <span className={className} onClick={onClick} onKeyDown={onKeyDown} tabIndex="0">
             {Icon && <Icon className="breadcrumb-icon" size={"14"} />}
             <span ref={ref} className="breadcrumb-text">
               {text}

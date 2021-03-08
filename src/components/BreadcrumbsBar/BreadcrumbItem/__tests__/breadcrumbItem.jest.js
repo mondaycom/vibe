@@ -8,7 +8,7 @@ import { fireEvent, render } from "@testing-library/react";
 
 jest.useFakeTimers();
 
-describe.only("BreadcrumbsItem", () => {
+describe("BreadcrumbsItem", () => {
   it("renders correctly with empty props", () => {
     const tree = renderer
       .create(
@@ -55,7 +55,7 @@ describe.only("BreadcrumbsItem", () => {
 
     const { getByText } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
-        <BreadcrumbItem text="Workspace" func={onClickMock} />
+        <BreadcrumbItem text="Workspace" onClick={onClickMock} />
       </BreadcrumbsBar>
     );
 
@@ -71,7 +71,7 @@ describe.only("BreadcrumbsItem", () => {
 
     const { getByText } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.INDICATION}>
-        <BreadcrumbItem text="Workspace" func={onClickMock} />
+        <BreadcrumbItem text="Workspace" onClick={onClickMock} />
       </BreadcrumbsBar>
     );
 
@@ -87,7 +87,7 @@ describe.only("BreadcrumbsItem", () => {
 
     const { getByText } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
-        <BreadcrumbItem text="Workspace" func={onClickMock} />
+        <BreadcrumbItem text="Workspace" onClick={onClickMock} />
       </BreadcrumbsBar>
     );
 
@@ -104,7 +104,7 @@ describe.only("BreadcrumbsItem", () => {
 
     const { getByText } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
-        <BreadcrumbItem text="Workspace" func={onClickMock} />
+        <BreadcrumbItem text="Workspace" onClick={onClickMock} />
       </BreadcrumbsBar>
     );
 

@@ -36,7 +36,7 @@ export const Sandbox = () => (
       <BreadcrumbItem
         text={text("Third breadcrumb text", "Group")}
         icon={boolean("Third has icon", true) ? GroupIcon : null}
-        func={() => {
+        onClick={() => {
           alert("Hello");
         }}
         isDisabled={boolean("Third is disabled", true)}
@@ -45,7 +45,7 @@ export const Sandbox = () => (
       <BreadcrumbItem
         text={text("Fourth breadcrumb text", "Item")}
         icon={boolean("Fourth has icon", true) ? ItemIcon : null}
-        func={() => {
+        onClick={() => {
           alert("Hello");
         }}
         isDisabled={boolean("Fourth is disabled", false)}
@@ -75,28 +75,28 @@ export const BreadcrumbsTypes = () => {
             <BreadcrumbItem
               text="Workspace"
               icon={WorkspaceIcon}
-              func={() => {
+              onClick={() => {
                 alert("Hello");
               }}
             />
             <BreadcrumbItem
               text="Board"
               icon={BoardIcon}
-              func={() => {
+              onClick={() => {
                 alert("Hello");
               }}
             />
             <BreadcrumbItem
               text="Group"
               icon={GroupIcon}
-              func={() => {
+              onClick={() => {
                 alert("Hello");
               }}
             />
             <BreadcrumbItem
               text="Item"
               icon={ItemIcon}
-              func={() => {
+              onClick={() => {
                 alert("Hello");
               }}
             />
