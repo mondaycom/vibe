@@ -34,8 +34,7 @@ const MenuItem = ({
   resetOpenSubMenuIndex,
   hasOpenSubMenu,
   setSubMenuIsOpenByIndex,
-  onCloseMenu,
-  onCloseParentMenus
+  onCloseMenu
 }) => {
   const isActive = activeItemIndex === index;
   const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -91,11 +90,6 @@ const MenuItem = ({
     }
   }, [shouldShowSubMenu, childElement]);
 
-  const closeParentMenus = useCallback(() => {
-    onCloseParentMenus && onCloseParentMenus();
-    setSubMenuIsOpenByIndex(index, false);
-  }, [setSubMenuIsOpenByIndex, index, onCloseParentMenus]);
-
   const closeSubMenu = useCallback(() => {
     setSubMenuIsOpenByIndex(index, false);
   }, [setSubMenuIsOpenByIndex, index, onCloseMenu]);
@@ -148,7 +142,7 @@ const MenuItem = ({
         "monday-style-menu-item--focused": isActive
       })}
       ref={mergedRef}
-      onMouseDown={onClickCallback}
+      onClick={onClickCallback}
     >
       {renderMenuItemIconIfNeeded()}
 
@@ -174,7 +168,6 @@ const MenuItem = ({
               ...submenuChild?.props,
               isVisible: shouldShowSubMenu,
               closeSubMenu,
-              closeParentMenus,
               ref: childRef
             })}
           </DialogContentContainer>

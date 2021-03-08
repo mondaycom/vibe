@@ -1,4 +1,5 @@
 import React, { useMemo, forwardRef, useState, useRef, useCallback, useEffect, useLayoutEffect } from "react";
+import { useFocusWithin } from "@react-aria/interactions";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -22,7 +23,6 @@ const Menu = forwardRef(
       children: originalChildren,
       isVisible = true,
       closeSubMenu,
-      closeParentMenus,
       focusOnMount
     },
     forwardedRef
@@ -43,10 +43,6 @@ const Menu = forwardRef(
     } = useSubMenuIndex();
 
     const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, closeSubMenu);
-    const onCloseParentMenus = useCallback(() => {
-      onCloseMenu();
-      closeParentMenus && closeParentMenus();
-    }, [closeParentMenus, onCloseMenu]);
 
     useClickOutside({ ref, callback: onCloseMenu });
     useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, closeSubMenu);
@@ -79,14 +75,16 @@ const Menu = forwardRef(
 
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
-    const blurCallback = useCallback(() => {
-      if (hasOpenSubMenu) return;
-      onCloseParentMenus && onCloseParentMenus();
-    }, [hasOpenSubMenu, onCloseParentMenus]);
+    const { focusWithinProps } = useFocusWithin({
+      onBlurWithin: _e => {
+        onCloseMenu && onCloseMenu();
+      }
+    });
 
     return (
       <div
-        onBlur={blurCallback}
+        onFocus={focusWithinProps.onFocus}
+        onBlur={focusWithinProps.onBlur}
         id={id}
         className={cx("monday-style-menu", classname, `monday-style-menu--${size}`)}
         ref={mergedRef}
@@ -100,7 +98,6 @@ const Menu = forwardRef(
               activeItemIndex,
               index,
               onCloseMenu,
-              onCloseParentMenus,
               setActiveItemIndex,
               menuRef: ref,
               resetOpenSubMenuIndex,

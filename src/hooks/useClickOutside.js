@@ -17,7 +17,7 @@ export default function useOnClickOutside({ ref, callback }) {
   const documentRef = useRef(document);
 
   useEventListener({
-    eventName: "mousedown",
+    eventName: "click",
     ref: documentRef,
     callback: onClickOutsideListener,
     capture: true
