@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useEffect } from "react";
+import React, { useCallback, useRef, useEffect, useLayoutEffect } from "react";
 
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
@@ -23,6 +23,7 @@ const MenuItem = ({
   title,
   label,
   icon,
+  menuRef,
   iconType,
   disabled,
   onClick,
@@ -32,7 +33,6 @@ const MenuItem = ({
   children,
   isParentMenuVisible,
   resetOpenSubMenuIndex,
-  focusParentMenu,
   hasOpenSubMenu,
   setSubMenuIsOpenByIndex
 }) => {
@@ -51,14 +51,14 @@ const MenuItem = ({
   const referenceElement = referenceElementRef.current;
   const childElement = childRef.current;
 
-  const isTitleHoveredHovered = useIsMouseOver({ ref: titleRef });
-  const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: isTitleHoveredHovered && titleRef });
+  const isTitleHovered = useIsMouseOver({ ref: titleRef });
+  const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: isTitleHovered && titleRef });
 
   const { styles, attributes } = usePopover(referenceElement, popperElement, {
     isOpen: isSubMenuOpen
   });
 
-  useMenuItemMouseEvents(
+  const isMouseEnter = useMenuItemMouseEvents(
     ref,
     resetOpenSubMenuIndex,
     setSubMenuIsOpenByIndex,
@@ -76,10 +76,12 @@ const MenuItem = ({
     setActiveItemIndex,
     hasChildren,
     shouldShowSubMenu,
-    setSubMenuIsOpenByIndex
+    setSubMenuIsOpenByIndex,
+    menuRef,
+    isMouseEnter
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (shouldShowSubMenu && childElement) {
       requestAnimationFrame(() => {
         childElement.focus();
@@ -89,8 +91,7 @@ const MenuItem = ({
 
   const closeSubMenu = useCallback(() => {
     setSubMenuIsOpenByIndex(index, false);
-    focusParentMenu && focusParentMenu();
-  }, [setSubMenuIsOpenByIndex, focusParentMenu, index]);
+  }, [setSubMenuIsOpenByIndex, index]);
 
   const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
 
@@ -193,10 +194,9 @@ MenuItem.defaultProps = {
   setActiveItemIndex: undefined,
   index: undefined,
   isParentMenuVisible: false,
-  resetOpenSubMenuIndex: undefined,
-  focusParentMenu: undefined,
   hasOpenSubMenu: false,
-  setSubMenuIsOpenByIndex: undefined
+  setSubMenuIsOpenByIndex: undefined,
+  resetOpenSubMenuIndex: undefined
 };
 
 MenuItem.propTypes = {
@@ -211,7 +211,6 @@ MenuItem.propTypes = {
   index: PropTypes.number,
   isParentMenuVisible: PropTypes.bool,
   resetOpenSubMenuIndex: PropTypes.func,
-  focusParentMenu: PropTypes.func,
   hasOpenSubMenu: PropTypes.bool,
   setSubMenuIsOpenByIndex: PropTypes.func
 };

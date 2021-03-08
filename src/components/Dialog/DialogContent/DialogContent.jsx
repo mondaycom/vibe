@@ -11,6 +11,8 @@ const transitionOptions = {};
 const NOOP = () => {};
 const EMPTY_OBJECT = {};
 
+const KEYS = ["Esc", "Escape"];
+
 export const DialogContent = React.forwardRef(
   (
     {
@@ -39,7 +41,7 @@ export const DialogContent = React.forwardRef(
       },
       [isOpen, onClickOutside]
     );
-    useKeyEvent({ keys: ["Esc", "Escape"], callback: onEsc });
+    useKeyEvent({ keys: KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });
 
     if (animationType) {

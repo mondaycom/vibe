@@ -5,13 +5,13 @@ import useEventListener from "./useEventListener";
 export default function useMergeRefs({ ref }) {
   const [isHovered, setIsHover] = useState(false);
 
-  const element = ref && ref.current;
   const setHovered = useCallback(
     event => {
+      const element = ref && ref.current;
       const isEventHover = event.target === element;
       setIsHover(isEventHover);
     },
-    [setIsHover, element]
+    [setIsHover, ref]
   );
   const setNotHovered = useCallback(() => setIsHover(false), [setIsHover]);
 

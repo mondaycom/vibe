@@ -14,7 +14,7 @@ import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
 
 const subSubMenuRenderer = () => {
   return (
-    <Menu id="menu-level-3" size={Menu.sizes.SMALL}>
+    <Menu tabIndex={0} id="menu-level-3" size={Menu.sizes.SMALL}>
       {[
         <MenuTitle id="sub-sub-menu-title-1" caption="sub-menu-Caption" captionPosition={MenuTitle.positions.TOP} />,
         <MenuItem id="sub-sub-menu-item-1" title="bla bla" icon={Activity} onClick={() => alert("1")} />,
@@ -26,7 +26,7 @@ const subSubMenuRenderer = () => {
 
 const anotherSubSubMenuRenderer = () => {
   return (
-    <Menu id="menu-level-3-b" size={Menu.sizes.SMALL}>
+    <Menu tabIndex={0} id="menu-level-3-b" size={Menu.sizes.SMALL}>
       {[
         <MenuTitle id="sub-sub-menu-title-1-b" caption="sub-menu-Caption" captionPosition={MenuTitle.positions.TOP} />,
         <MenuItem id="sub-sub-menu-item-1-b" title="bla bla" icon={Activity} onClick={() => alert("1")} />,
@@ -109,7 +109,7 @@ export const Sandbox = () => {
   const icon = iconType === Icon.type.SVG ? selectIcon("SVG icon", "Activity") : text("font icon", "fa fa-star");
   return (
     <div style={{ width: 200 }}>
-      <Menu id="main-menu" size={Menu.sizes.SMALL}>
+      <Menu tabIndex={0} id="main-menu" size={Menu.sizes.SMALL}>
         <MenuItem
           id="menu-item"
           title={text("title", "My item")}
@@ -154,7 +154,7 @@ export const subMenu = () => {
   return (
     <div>
       <div style={{ width: "260px" }}>
-        <Menu id="main-menu" size={Menu.sizes.SMALL}>
+        <Menu tabIndex={0} id="main-menu" size={Menu.sizes.SMALL}>
           <MenuItem
             id="menu-item"
             title={text("title", " b Hover me to see the sub menu")}
@@ -162,7 +162,7 @@ export const subMenu = () => {
             disabled={boolean("disabled", false)}
             onClick={() => alert("hello")}
           >
-            <Menu id="sub-menu" size={Menu.sizes.SMALL}>
+            <Menu tabIndex={0} id="sub-menu" size={Menu.sizes.SMALL}>
               {renderMenuItems()}
             </Menu>
           </MenuItem>
@@ -178,7 +178,7 @@ export const subSubMenu = () => {
   return (
     <div>
       <div style={{ width: "260px" }}>
-        <Menu id="menu-level-1" size={Menu.sizes.SMALL}>
+        <Menu tabIndex={0} id="menu-level-1" size={Menu.sizes.SMALL} tabIndex="0">
           <MenuItem title={"Hover me to see the sub menu"} icon={icon} onClick={() => alert("hello")}>
             <Menu size={Menu.sizes.SMALL}>{renderMenuItems({ withSubSubMenu: true })}</Menu>
           </MenuItem>
@@ -196,7 +196,7 @@ export const overflowMenuItem = () => {
   return (
     <div>
       <div style={{ width: "260px" }}>
-        <Menu id="menu-level-1" size={Menu.sizes.SMALL}>
+        <Menu tabIndex={0} id="menu-level-1" size={Menu.sizes.SMALL}>
           <MenuItem
             id="menu-item-short-text"
             title="short text"
@@ -220,7 +220,7 @@ export const overflowMenuItem = () => {
             disabled={boolean("disabled", false)}
             onClick={() => alert("hello")}
           >
-            <Menu id="sub-menu" size={Menu.sizes.SMALL}>
+            <Menu tabIndex={0} id="sub-menu" size={Menu.sizes.SMALL}>
               {renderMenuItems()}
             </Menu>
           </MenuItem>

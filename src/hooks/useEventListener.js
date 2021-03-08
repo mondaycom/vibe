@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 
 export default function useEventListener({ eventName, callback, ref, capture = false }) {
-  const refElement = ref && ref.current;
   useEffect(() => {
-    if (!refElement) {
-      return;
-    }
-    refElement.addEventListener(eventName, callback, { capture });
+    const refElement = ref && ref.current;
+    if (!refElement) return;
+
+    const listenerOptions = { capture };
+    refElement.addEventListener(eventName, callback, listenerOptions);
     return () => {
-      refElement.removeEventListener(eventName, callback, { capture });
+      refElement.removeEventListener(eventName, callback, listenerOptions);
     };
-  }, [eventName, refElement, callback, capture]);
+  }, [eventName, ref, callback, capture]);
 }
