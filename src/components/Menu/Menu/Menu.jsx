@@ -23,13 +23,13 @@ const Menu = forwardRef(
       children: originalChildren,
       isVisible = true,
       closeSubMenu,
-      focusOnMount
+      focusOnMount,
       focusItemIndex
     },
     forwardedRef
   ) => {
     const ref = useRef(null);
-    const [activeItemIndex, setActiveItemIndex] = useState(-1);
+    const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
 
     const children = useMemo(() => {
       return React.Children.toArray(originalChildren);
