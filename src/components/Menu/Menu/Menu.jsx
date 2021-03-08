@@ -118,7 +118,7 @@ Menu.defaultProps = {
   focusOnMount: false,
   classname: "",
   size: MENU_SIZES.MEDIUM,
-  tabIndex: -1,
+  tabIndex: 0,
   ariaLabel: "Menu",
   isVisible: true,
   closeSubMenu: undefined
