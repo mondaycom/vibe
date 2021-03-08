@@ -5,10 +5,10 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "AssignedInSubItem",
-      file: ".svg",
-      description: "Describes a pulse that has a subitem that you are assigned to",
-      tags: "arrow, subitem"
+      name: "MoreBelow",
+      file: "MoreBelow.svg",
+      description: "Boxed curved arrow",
+      tags: "arrow"
   },
 
   {
