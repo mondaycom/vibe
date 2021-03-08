@@ -5,7 +5,6 @@ import usePrevious from "../../../../hooks/usePrevious";
 
 export default function useMenuItemMouseEvents(
   ref,
-  menuRef,
   resetOpenSubMenuIndex,
   setSubMenuIsOpenByIndex,
   isActive,

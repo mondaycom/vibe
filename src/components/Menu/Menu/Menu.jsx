@@ -97,7 +97,6 @@ const Menu = forwardRef(
               ...child?.props,
               activeItemIndex,
               index,
-              onCloseMenu,
               setActiveItemIndex,
               menuRef: ref,
               resetOpenSubMenuIndex,

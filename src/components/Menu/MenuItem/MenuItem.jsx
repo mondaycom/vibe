@@ -33,8 +33,7 @@ const MenuItem = ({
   isParentMenuVisible,
   resetOpenSubMenuIndex,
   hasOpenSubMenu,
-  setSubMenuIsOpenByIndex,
-  onCloseMenu
+  setSubMenuIsOpenByIndex
 }) => {
   const isActive = activeItemIndex === index;
   const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -60,7 +59,6 @@ const MenuItem = ({
 
   const isMouseEnter = useMenuItemMouseEvents(
     ref,
-    menuRef,
     resetOpenSubMenuIndex,
     setSubMenuIsOpenByIndex,
     isActive,
@@ -92,7 +90,7 @@ const MenuItem = ({
 
   const closeSubMenu = useCallback(() => {
     setSubMenuIsOpenByIndex(index, false);
-  }, [setSubMenuIsOpenByIndex, index, onCloseMenu]);
+  }, [setSubMenuIsOpenByIndex, index]);
 
   const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
 
