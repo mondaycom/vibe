@@ -31,6 +31,8 @@ const DEFAULT_DIALOG_HIDE_TRIGGER = ["clickoutside", "click", "esckey"];
 const SECONDARY_BUTTON_WRAPPER_CLASSNAME = "monday-style-split-button__secondary-button-wrapper";
 const EMPTY_ARR = [];
 
+const ENTER_KEYS = [keyCodes.ENTER];
+
 const SECONDARY_CONTENT_POSITIONS = {
   BOTTOM_START: "bottom-start",
   BOTTOM_MIDDLE: "bottom",
@@ -120,7 +122,7 @@ const SplitButton = ({
   useEventListener({ eventName: "transitionend", callback: setNotActive, ref });
 
   // Key events
-  useKeyEvent({ keys: [keyCodes.ENTER], ref, callback: setActiveOnEnter });
+  useKeyEvent({ keys: ENTER_KEYS, ref, callback: setActiveOnEnter });
 
   // We won't show the secondary button in case of success or loading
   const shouldRenderSplitContent = !(success || loading);

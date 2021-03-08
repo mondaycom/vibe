@@ -6,6 +6,10 @@ const ARROW_DIRECTIONS = {
   DOWN: "down"
 };
 
+const ARROW_DOWN_KEYS = ["ArrowDown"];
+const ARROW_UP_KEYS = ["ArrowUp"];
+const ENTER_KEYS = ["Enter"];
+
 const isChildSelectable = (newIndex, children) => {
   const child = children[newIndex];
   return child.type.isSelectable && !child.props.disabled;
@@ -70,21 +74,21 @@ export default function useMenuKeyboardNavigation(
   );
 
   useKeyEvent({
-    keys: ["ArrowDown"],
+    keys: ARROW_DOWN_KEYS,
     callback: onArrowDown,
     ref,
     preventDefault: true
   });
 
   useKeyEvent({
-    keys: ["ArrowUp"],
+    keys: ARROW_UP_KEYS,
     callback: onArrowUp,
     ref,
     preventDefault: true
   });
 
   useKeyEvent({
-    keys: ["Enter"],
+    keys: ENTER_KEYS,
     callback: onEnterClickCallback,
     ref,
     preventDefault: true

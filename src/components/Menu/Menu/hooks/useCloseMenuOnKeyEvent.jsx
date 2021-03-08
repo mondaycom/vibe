@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
+const KEYS = ["Escape", "ArrowLeft"];
+
 export default function useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, closeSubMenu) {
   const onEscapeOrLeftArrowClick = useCallback(
     event => {
@@ -18,7 +20,7 @@ export default function useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref,
   );
 
   useKeyEvent({
-    keys: ["Escape", "ArrowLeft"],
+    keys: KEYS,
     callback: onEscapeOrLeftArrowClick,
     ref
   });

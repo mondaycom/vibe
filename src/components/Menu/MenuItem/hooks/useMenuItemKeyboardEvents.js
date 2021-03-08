@@ -2,6 +2,8 @@ import { useCallback } from "react";
 
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
+const KEYS = ["Enter", "ArrowRight"];
+
 export default function useMenuItemKeyboardEvents(
   onClick,
   disabled,
@@ -72,7 +74,7 @@ export default function useMenuItemKeyboardEvents(
   );
 
   useKeyEvent({
-    keys: ["Enter", "ArrowRight"],
+    keys: KEYS,
     callback: onClickCallback,
     ref: menuRef,
     preventDefault: true
