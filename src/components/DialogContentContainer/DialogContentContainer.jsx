@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { BEMClass } from "../../helpers/bem-helper";
+import { SIZES } from "../../constants/sizes";
+
 import "./DialogContentContainer.scss";
 
 const DIALOG_TYPES = {
@@ -12,9 +14,9 @@ const DIALOG_TYPES = {
 
 const DIALOG_SIZES = {
   NONE: "none",
-  SMALL: "small",
-  MEDIUM: "medium",
-  LARGE: "large"
+  SMALL: SIZES.SMALL,
+  MEDIUM: SIZES.MEDIUM,
+  LARGE: SIZES.LARGE
 };
 
 const bemHelper = BEMClass("dialog-content-container");

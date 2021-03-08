@@ -4,6 +4,7 @@ import cx from "classnames";
 import Heading from "../Heading/Heading";
 import EditableInput, { TEXTAREA_TYPE } from "../EditableInput/EditableInput";
 import { TYPES } from "../Heading/HeadingConstants";
+import { SIZES } from "../../constants/sizes";
 
 import "./EditableHeading.scss";
 
@@ -88,7 +89,8 @@ const EditableHeading = props => {
       suggestEditOnHover,
       tooltipPosition: props.tooltipPosition,
       ellipsisMaxLines: props.ellipsisMaxLines,
-      nonEllipsisTooltip: props.tooltip
+      nonEllipsisTooltip: props.tooltip,
+      size: props.size
     };
   };
   const renderContentComponent = () => {
@@ -105,7 +107,7 @@ const EditableHeading = props => {
     const inputType = props.inputType || textAreaType;
     return {
       value: valueState,
-      className: `editable-heading-input heading-element-type-${props.type}`,
+      className: `editable-heading-input heading-element-type-${props.type} size-${props.size}`,
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,
@@ -148,7 +150,8 @@ EditableHeading.propTypes = {
   errorClassTimeout: PropTypes.number,
   displayPlaceholderInTextMode: PropTypes.bool,
   suggestEditOnHover: PropTypes.bool,
-  autoSize: PropTypes.bool
+  autoSize: PropTypes.bool,
+  size: PropTypes.oneOf(Object.keys(SIZES))
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -157,9 +160,11 @@ EditableHeading.defaultProps = {
   errorClassTimeout: 2000,
   displayPlaceholderInTextMode: true,
   suggestEditOnHover: true,
-  autoSize: true
+  autoSize: true,
+  size: SIZES.LARGE
 };
 
 EditableHeading.types = TYPES;
+EditableHeading.sizes = SIZES;
 
 export default EditableHeading;

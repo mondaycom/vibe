@@ -73,7 +73,7 @@
   }
 
   &--size {
-    &-sm {
+    &-small {
       @include font-input();
       padding: $spacing-xs $spacing-small;
       min-height: 32px;
@@ -83,13 +83,13 @@
       }
     }
 
-    &-md {
+    &-medium {
       @include font-paragraph();
       padding: $spacing-small $spacing-medium;
       min-height: 40px;
     }
 
-    &-lg {
+    &-large {
       @include font-paragraph();
       padding: $spacing-small-medium $spacing-large;
       min-height: 48px;
@@ -150,15 +150,15 @@
       background-color: transparent;
       &.monday-style-button {
         &--size {
-          &-sm {
+          &-small {
             line-height: 22px;
           }
 
-          &-md {
+          &-medium {
             line-height: 22px;
           }
 
-          &-lg {
+          &-large {
             line-height: 22px;
           }
         }
@@ -170,10 +170,7 @@
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(
-                background-color,
-                primary-background-hover-color
-              );
+              @include theme-prop(background-color, primary-background-hover-color);
             }
           }
           &-positive {
@@ -225,10 +222,7 @@
             &-active,
             &:hover,
             &:focus {
-              @include theme-prop(
-                background-color,
-                primary-background-hover-color
-              );
+              @include theme-prop(background-color, primary-background-hover-color);
             }
           }
           &-positive {

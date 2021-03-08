@@ -11,7 +11,8 @@ import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownI
 import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
-import { SIZE, defaultCustomStyles } from "./DropdownConstants";
+import { defaultCustomStyles } from "./DropdownConstants";
+import { SIZES } from "../../constants/sizes";
 import styles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 
@@ -145,7 +146,7 @@ const Dropdown = ({
   );
 };
 
-Dropdown.size = SIZE;
+Dropdown.size = SIZES;
 
 Dropdown.defaultProps = {
   className: "",
@@ -160,7 +161,7 @@ Dropdown.defaultProps = {
   options: [],
   noOptionsMessage: NOOP,
   clearable: true,
-  size: SIZE.MEDIUM,
+  size: SIZES.MEDIUM,
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
   id: undefined
