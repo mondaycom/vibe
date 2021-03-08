@@ -68,7 +68,7 @@ const MenuButton = ({
   }, [children]);
 
   const content = useMemo(() => {
-    if (!children) return <div/>;
+    if (!clonedChildren.length === 0) return <div />;
     return (
       <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
         {clonedChildren}
