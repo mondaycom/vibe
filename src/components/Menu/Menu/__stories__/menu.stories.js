@@ -156,9 +156,9 @@ export const Sandbox = () => {
         tabIndex={0}
         id="menu"
         size={select("size", {
-          SMALL: "small",
-          MEDIUM: "medium",
-          LARGE: "large"
+          SMALL: Menu.sizes.SMALL,
+          MEDIUM: Menu.sizes.MEDIUM,
+          LARGE: Menu.sizes.LARGE
         })}
       >
         {renderMenuItemsByCount(itemsCount)}

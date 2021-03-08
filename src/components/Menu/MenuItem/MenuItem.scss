@@ -9,6 +9,7 @@
   @include theme-prop(color, primary-text-color);
   cursor: pointer;
   user-select: none;
+  align-items: center;
 
   .monday-style-menu-item__icon-wrapper {
     margin-right: $spacing-small;
@@ -52,5 +53,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     flex-grow: 1;
+  }
+
+  .monday-style-menu-item__label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 0;
+    @include font-caption();
   }
 }

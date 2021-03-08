@@ -9,7 +9,7 @@ import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
 import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
 import useMouseLeave from "./hooks/useMouseLeave";
-import { MENU_SIZES } from "./MenuConstants";
+import { SIZES } from "../../../constants/sizes";
 import "./Menu.scss";
 
 const Menu = forwardRef(
@@ -24,6 +24,7 @@ const Menu = forwardRef(
       isVisible = true,
       closeSubMenu,
       focusOnMount
+      focusItemIndex
     },
     forwardedRef
   ) => {
@@ -110,29 +111,31 @@ const Menu = forwardRef(
   }
 );
 
-Menu.sizes = MENU_SIZES;
 Menu.supportFocusOnMount = true;
+Menu.sizes = SIZES;
 
 Menu.defaultProps = {
   id: undefined,
   focusOnMount: false,
   classname: "",
-  size: MENU_SIZES.MEDIUM,
+  size: SIZES.MEDIUM,
   tabIndex: 0,
   ariaLabel: "Menu",
   isVisible: true,
-  closeSubMenu: undefined
+  closeSubMenu: undefined,
+  focusItemIndex: -1
 };
 
 Menu.propTypes = {
   id: PropTypes.string,
   classname: PropTypes.string,
-  size: PropTypes.oneOf([MENU_SIZES.SMALL, MENU_SIZES.MEDIUM, MENU_SIZES.LARGE]),
+  size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE]),
   tabIndex: PropTypes.number,
   ariaLabel: PropTypes.string,
   focusOnMount: PropTypes.bool,
   isVisible: PropTypes.bool,
-  closeSubMenu: PropTypes.func
+  closeSubMenu: PropTypes.func,
+  focusItemIndex: PropTypes.number
 };
 
 export default Menu;

@@ -17,6 +17,7 @@ export default class Dialog extends PureComponent {
     super(props);
     this.referenceRef = React.createRef();
     this.state = {
+      shouldUseDerivedStateFromProps: props.useDerivedStateFromProps,
       isOpen: props.shouldShowOnMount
     };
 
@@ -56,6 +57,13 @@ export default class Dialog extends PureComponent {
 
   componentWillUnmount() {
     document.removeEventListener("keyup", this.closeDialogOnEscape);
+  }
+
+  static getDerivedStateFromProps(nextProps, state) {
+    if (state.shouldUseDerivedStateFromProps) {
+      return { isOpen: nextProps.props };
+    }
+    return null;
   }
 
   getContainer() {
@@ -393,7 +401,8 @@ Dialog.defaultProps = {
   onClickOutside: NOOP,
   onContentClick: NOOP,
   closeOnClickInside: false,
-  zIndex: null
+  zIndex: null,
+  useDerivedStateFromProps: false
 };
 
 function chainOnPropsAndInstance(name, instance, props) {

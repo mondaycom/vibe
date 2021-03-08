@@ -21,6 +21,7 @@ import "./MenuItem.scss";
 const MenuItem = ({
   classname,
   title,
+  label,
   icon,
   menuRef,
   iconType,
@@ -151,6 +152,10 @@ const MenuItem = ({
         {title}
       </div>
 
+      {label && <div ref={titleRef} className="monday-style-menu-item__label">
+        {label}
+      </div>}
+
       {renderSubMenuIconIfNeeded()}
 
       <div
@@ -180,6 +185,7 @@ MenuItem.iconType = Icon.type;
 MenuItem.defaultProps = {
   classname: "",
   title: "",
+  lebel: "",
   icon: "",
   iconType: undefined,
   disabled: false,

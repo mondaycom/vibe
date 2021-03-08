@@ -13,14 +13,15 @@
   }
 
   &--size {
-    &-sm {
+    &-small,
+    &-medium {
       @include font-caption();
       min-width: 18px;
       line-height: 18px;
       padding: 0 $spacing-xs-small;
     }
 
-    &-lg {
+    &-large {
       @include font-input();
       line-height: 24px;
       min-width: 24px;

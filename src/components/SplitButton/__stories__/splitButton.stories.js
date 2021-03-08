@@ -247,10 +247,16 @@ export const Sandbox = () => (
       size={select("Size", Object.values(SplitButton.sizes), SplitButton.sizes.LARGE)}
       color={select("Color", Object.values(SplitButton.colors), SplitButton.colors.PRIMARY)}
       kind={select("Kind", Object.values(SplitButton.kinds), SplitButton.kinds.PRIMARY)}
-      secondaryDialogPosition={select("Seconday Dialog Alignment", {
+      secondaryDialogPosition={select("Secondary Dialog Alignment", {
         BOTTOM_START: SplitButton.secondaryPositions.BOTTOM_START,
         BOTTOM_MIDDLE: SplitButton.secondaryPositions.BOTTOM_MIDDLE,
         BOTTOM_END: SplitButton.secondaryPositions.BOTTOM_END
+      })}
+      dialogPaddingSize={select("Secondary Dialog Padding", {
+        NONE: SplitButton.dialogPaddingSizes.NONE,
+        SMALL: SplitButton.dialogPaddingSizes.SMALL,
+        MEDIUM: SplitButton.dialogPaddingSizes.MEDIUM,
+        LARGE: SplitButton.dialogPaddingSizes.LARGE
       })}
       disabled={boolean("Disabled", false)}
       shouldCloseOnClickInsideDialog={boolean("Should close dialog on click inside content", false)}

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
-import { chainFunctions } from "../../utils/function-utils";
+import { chainFunctions, chainRefFunctions } from "../../utils/function-utils";
 
 export const Refable = React.forwardRef(({ children, ...rest }, ref) => {
   return React.Children.map(children, child => {
@@ -20,7 +20,7 @@ export const Refable = React.forwardRef(({ children, ...rest }, ref) => {
       onMouseLeave: getChainedFunction("onMouseLeave", child.props, rest),
       onMouseDown: getChainedFunction("onMouseDown", child.props, rest),
       onFocus: getChainedFunction("onFocus", child.props, rest),
-      ref: chainFunctions([child.ref, ref])
+      ref: chainRefFunctions([child.ref, ref])
     });
   });
 });

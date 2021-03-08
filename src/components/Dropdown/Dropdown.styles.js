@@ -1,14 +1,14 @@
 /* eslint-disable no-param-reassign */
-import { SIZE } from "./DropdownConstants";
+import { SIZES } from "../../constants/sizes";
 import { getCSSVar } from "../../services/themes";
 
 const getSizeInPx = size => {
   switch (size) {
-    case SIZE.LARGE:
+    case SIZES.LARGE:
       return 48;
-    case SIZE.MEDIUM:
+    case SIZES.MEDIUM:
       return 40;
-    case SIZE.SMALL:
+    case SIZES.SMALL:
     default:
       return 32;
   }
@@ -204,11 +204,11 @@ const singleValue = () => (provided, { isDisabled, size }) => ({
 
 function getSingleValueTextSize(size) {
   switch (size) {
-    case SIZE.LARGE:
+    case SIZES.LARGE:
       return "16px";
-    case SIZE.MEDIUM:
+    case SIZES.MEDIUM:
       return "16px";
-    case SIZE.SMALL:
+    case SIZES.SMALL:
     default:
       return "14px";
   }
@@ -260,11 +260,11 @@ const indicatorSeparator = () => () => ({
 
 export const getIndicatorSize = size => {
   switch (size) {
-    case SIZE.LARGE:
+    case SIZES.LARGE:
       return "20px";
-    case SIZE.MEDIUM:
+    case SIZES.MEDIUM:
       return "20px";
-    case SIZE.SMALL:
+    case SIZES.SMALL:
     default:
       return "16px";
   }

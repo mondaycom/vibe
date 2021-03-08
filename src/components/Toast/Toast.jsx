@@ -34,21 +34,8 @@ const getIcon = (type, icon) => {
   ) : null;
 };
 
-const Toast = ({
-  open,
-  autoHideDuration,
-  type,
-  icon,
-  hideIcon,
-  action,
-  children,
-  closeable,
-  onClose
-}) => {
-  const classNames = useMemo(
-    () => cx("monday-style-toast", `monday-style-toast--type-${type}`),
-    [type]
-  );
+const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children, closeable, onClose }) => {
+  const classNames = useMemo(() => cx("monday-style-toast", `monday-style-toast--type-${type}`), [type]);
   const handleClose = useCallback(() => {
     if (onClose) {
       onClose();
@@ -81,16 +68,9 @@ const Toast = ({
   const iconElement = !hideIcon && getIcon(type, icon);
 
   return (
-    <CSSTransition
-      in={open}
-      classNames="monday-style-toast-animation"
-      timeout={400}
-      unmountOnExit
-    >
+    <CSSTransition in={open} classNames="monday-style-toast-animation" timeout={400} unmountOnExit>
       <div className={classNames} role="alert" aria-live="polite">
-        {iconElement && (
-          <div className="monday-style-toast-icon">{iconElement}</div>
-        )}
+        {iconElement && <div className="monday-style-toast-icon">{iconElement}</div>}
         <div
           className={cx("monday-style-toast-content", {
             "monday-style-toast-content-no-icon": !iconElement
@@ -107,13 +87,7 @@ const Toast = ({
             color={Button.colors.ON_PRIMARY_COLOR}
             ariaLabel="close-toast"
           >
-            <Icon
-              iconType={Icon.type.SVG}
-              clickable={false}
-              icon={CloseSmall}
-              iconSize="20px"
-              ignoreFocusStyle
-            />
+            <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
           </Button>
         )}
       </div>
@@ -124,11 +98,7 @@ const Toast = ({
 Toast.propTypes = {
   /** If true, Toast is open (visible) */
   open: PropTypes.bool,
-  type: PropTypes.oneOf([
-    TOAST_TYPES.NORMAL,
-    TOAST_TYPES.POSITIVE,
-    TOAST_TYPES.NEGATIVE
-  ]),
+  type: PropTypes.oneOf([TOAST_TYPES.NORMAL, TOAST_TYPES.POSITIVE, TOAST_TYPES.NEGATIVE]),
   /** Possible to override the dafult icon */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /** If true, won't show the icon */

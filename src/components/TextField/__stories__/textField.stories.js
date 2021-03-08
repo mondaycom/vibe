@@ -13,7 +13,7 @@ export const Sandbox = () => {
         autoFocus={boolean("Autofocus", true)}
         placeholder={text("Placeholder", "default placeholder")}
         debounceRate={number("Debounce Rate (see console log)", 0)}
-        onChange={(value) => console.log(value)}
+        onChange={value => console.log(value)}
         value={text("Initial Value", "")}
         iconsNames={{ primary: "Primary Icon - could be any icon" }}
         iconName={text("Primary Icon Name", "fa-circle")}
@@ -24,14 +24,18 @@ export const Sandbox = () => {
             None: null,
             Error: { status: "error", text: "error" },
             Success: { status: "success", text: "success" },
-            Assist: { status: "", text: "assist text" },
+            Assist: { status: "", text: "assist text" }
           },
           { status: "", text: "assist text" }
         )}
         id="Knobs"
         disabled={boolean("Disabled", false)}
         readonly={boolean("Readonly", true)}
-        size={select("Size", { Small: "s", Medium: "md", Large: "l" }, "md")}
+        size={select(
+          "Size",
+          { Small: TextField.sizes.SMALL, Medium: TextField.sizes.MEDIUM, Large: TextField.sizes.LARGE },
+          "md"
+        )}
         clearOnIconClick={boolean("clear data in icon click", true)}
         labelIconName={text("FieldLabel Icon Name", "fa-envelope")}
         title={text("Text filed label", "FieldLabel")}
@@ -48,10 +52,10 @@ export const Sizes = () => {
         <TextField id="_1" placeholder="Placeholder text" />
       </TextFieldStoryBookLine>
       <TextFieldStoryBookLine title="Medium - 40px">
-        <TextField id="_2" placeholder="Placeholder text" size="md" />
+        <TextField id="_2" placeholder="Placeholder text" size={TextField.sizes.MEDIUM} />
       </TextFieldStoryBookLine>
       <TextFieldStoryBookLine title="Large - 48px">
-        <TextField id="_3" placeholder="Placeholder text" size="l" />
+        <TextField id="_3" placeholder="Placeholder text" size={TextField.sizes.LARGE} />
       </TextFieldStoryBookLine>
     </StoryWrapper>
   );
@@ -63,19 +67,25 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="Disabled" />
         <div className="width-35">
-          <TextField id="_5" disabled placeholder="Placeholder text" size="md" />
+          <TextField id="_5" disabled placeholder="Placeholder text" size={TextField.sizes.MEDIUM} />
         </div>
       </FlexLayout>
       <FlexLayout>
         <ComponentStateDescription title="With Icon" />
         <div className="width-35">
-          <TextField id="_4" iconName="fa-star" placeholder="Placeholder text" size="md" value="initial value" />
+          <TextField
+            id="_4"
+            iconName="fa-star"
+            placeholder="Placeholder text"
+            size={TextField.sizes.MEDIUM}
+            value="initial value"
+          />
         </div>
       </FlexLayout>
       <FlexLayout>
         <ComponentStateDescription title="Active/Focus" />
         <div className="width-35">
-          <TextField id="_6" autoFocus placeholder="Placeholder text" size="md" />
+          <TextField id="_6" autoFocus placeholder="Placeholder text" size={TextField.sizes.MEDIUM} />
         </div>
       </FlexLayout>
       <FlexLayout>
@@ -86,7 +96,7 @@ export const States = () => {
             iconName="fa-check"
             validation={{ status: "success" }}
             placeholder="Placeholder text"
-            size="md"
+            size={TextField.sizes.MEDIUM}
           />
         </div>
         <div className="width-35">
@@ -96,7 +106,7 @@ export const States = () => {
             iconName="fa-check"
             validation={{ status: "success", text: "good job!" }}
             placeholder="Placeholder text"
-            size="md"
+            size={TextField.sizes.MEDIUM}
           />
         </div>
       </FlexLayout>
@@ -108,7 +118,7 @@ export const States = () => {
             iconName="fa-exclamation-circle"
             validation={{ status: "error" }}
             placeholder="Placeholder text"
-            size="md"
+            size={TextField.sizes.MEDIUM}
           />
         </div>
         <div className="width-35">
@@ -118,20 +128,26 @@ export const States = () => {
             iconName="fa-exclamation-circle"
             validation={{ status: "error", text: "try again" }}
             placeholder="Placeholder text"
-            size="md"
+            size={TextField.sizes.MEDIUM}
           />
         </div>
       </FlexLayout>
       <FlexLayout>
         <ComponentStateDescription title="With FieldLabel" />
         <div className="width-35">
-          <TextField id="_9" title="Title" placeholder="Placeholder text" size="md" />
+          <TextField id="_9" title="Title" placeholder="Placeholder text" size={TextField.sizes.MEDIUM} />
         </div>
       </FlexLayout>
       <FlexLayout>
         <ComponentStateDescription title="With FieldLabel and Icon" />
         <div style={{ width: "35%", marginRight: "5%" }}>
-          <TextField id="_10" title="Title" labelIconName="fa-envelope" placeholder="Placeholder text" size="md" />
+          <TextField
+            id="_10"
+            title="Title"
+            labelIconName="fa-envelope"
+            placeholder="Placeholder text"
+            size={TextField.sizes.MEDIUM}
+          />
         </div>
         <div className="width-35">
           <TextField
@@ -139,7 +155,7 @@ export const States = () => {
             title="Title"
             labelIconName="fa-envelope"
             placeholder="Placeholder text"
-            size="md"
+            size={TextField.sizes.MEDIUM}
             validation={{ text: "Assist text" }}
           />
         </div>
@@ -151,5 +167,5 @@ export const States = () => {
 export default {
   title: "Components|Text Field",
   component: TextField,
-  decorators: [withPerformance],
+  decorators: [withPerformance]
 };
