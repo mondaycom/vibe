@@ -2,7 +2,7 @@ import React from "react";
 import { text, boolean, select } from "@storybook/addon-knobs";
 import MenuItem from "../MenuItem";
 import Menu from "../../Menu/Menu";
-import Divider from "../../../Divider/Divider";
+import MenuDevider from "../../MenuDevider/MenuDevider";
 import MenuTitle from "../../MenuTitle/MenuTitle";
 import { FlexLayout, selectIcon } from "../../../storybook-helpers";
 
@@ -39,6 +39,7 @@ const anotherSubSubMenuRenderer = () => {
 const renderMenuItems = ({ withSubSubMenu = false } = {}) => {
   return [
     <MenuTitle id="menu-title-1" caption={"Caption"} captionPosition={MenuTitle.positions.TOP} />,
+    <MenuDevider />,
     <MenuItem
       id="menu-item-1"
       title={"Sombody"}
@@ -83,7 +84,7 @@ const renderMenuItems = ({ withSubSubMenu = false } = {}) => {
         alert("5");
       }}
     />,
-    <Divider id="devider" />,
+    <MenuDevider />,
     <MenuItem
       id="menu-item-6"
       title={"She's dancing"}
@@ -183,6 +184,7 @@ export const subSubMenu = () => {
             <Menu size={Menu.sizes.SMALL}>{renderMenuItems({ withSubSubMenu: true })}</Menu>
           </MenuItem>
           <MenuItem title={"menu item"} icon={icon} onClick={() => alert("hello")} />
+          <MenuDevider />
           <MenuItem title={"menu item b"} icon={icon} onClick={() => alert("hello")} />
         </Menu>
       </div>
