@@ -1,7 +1,14 @@
-export const TEXT_FIELD_SIZE = {
-  SMALL: "s",
-  MEDIUM: "md",
-  LARGE: "l"
+import { SIZES } from "../../constants/sizes";
+
+const OLD_TEXT_FIELD_SIZES = {
+  s: SIZES.SMALL,
+  md: SIZES.MEDIUM,
+  l: SIZES.LARGE
+};
+
+// Support old sizes (backward compatible)
+export const getActualSize = size => {
+  return OLD_TEXT_FIELD_SIZES[size] || size;
 };
 
 export const TEXT_TYPES = {

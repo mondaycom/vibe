@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 import useIsMouseEnter from "../../../../hooks/useIsMouseEnter";
 import usePrevious from "../../../../hooks/usePrevious";
@@ -16,9 +16,14 @@ export default function useMenuItemMouseEvents(
 
   const prevIsMouseEnter = usePrevious(isMouseEnter);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!isMouseEnter) return;
     if (isMouseEnter === prevIsMouseEnter) return;
+
+    if (!setSubMenuIsOpenByIndex || !resetOpenSubMenuIndex) {
+      console.error("MenuItem must be a first level child of a menu");
+      return;
+    }
 
     if (!isActive) {
       setActiveItemIndex(index);
@@ -42,4 +47,6 @@ export default function useMenuItemMouseEvents(
     index,
     hasChildren
   ]);
+
+  return isMouseEnter;
 }

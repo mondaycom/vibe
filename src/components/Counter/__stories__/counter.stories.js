@@ -23,7 +23,7 @@ export const Fill = () => (
       </StoryStateColumn>
     </StoryStateRow>
     <StoryStateRow>
-      <StoryStateColumn title="Small" />
+      <StoryStateColumn title="Small/Medium" />
     </StoryStateRow>
     <StoryStateRow>
       <StoryStateColumn title="Primary" description="Info counter">

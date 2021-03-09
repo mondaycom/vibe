@@ -4,12 +4,14 @@ import cx from "classnames";
 import { TYPES } from "./HeadingConstants";
 import Tooltip from "../Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
+import { SIZES } from "../../constants/sizes";
 import "./Heading.scss";
 
 const Heading = ({
   className,
   value,
   type,
+  size,
   ariaLabel,
   id,
   ellipsis,
@@ -20,7 +22,7 @@ const Heading = ({
   nonEllipsisTooltip // tooltip to show when no overflow
 }) => {
   const componentRef = useRef(null);
-  const classNames = cx("heading-component", className, `heading-element-type-${type}`, {
+  const classNames = cx("heading-component", className, `heading-element-type-${type}`, `size-${size}`, {
     "heading-element-ellipsis": ellipsis,
     "suggest-edit-on-hover": suggestEditOnHover
   });
@@ -58,7 +60,8 @@ Heading.propTypes = {
   ellipsis: PropTypes.bool,
   ellipsisMaxLines: PropTypes.number,
   suggestEditOnHover: PropTypes.bool,
-  nonEllipsisTooltip: PropTypes.string
+  nonEllipsisTooltip: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(SIZES))
 };
 Heading.defaultProps = {
   className: "",
@@ -69,9 +72,11 @@ Heading.defaultProps = {
   ellipsis: true,
   ellipsisMaxLines: 1,
   suggestEditOnHover: false,
-  nonEllipsisTooltip: null
+  nonEllipsisTooltip: null,
+  size: SIZES.LARGE
 };
 
 Heading.types = TYPES;
+Heading.sizes = SIZES;
 
 export default Heading;

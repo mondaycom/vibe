@@ -5,10 +5,11 @@ import cx from "classnames";
 import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Button.scss";
-import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_SIZES, BUTTON_TYPES } from "./ButtonContstants";
+import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize } from "./ButtonContstants";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
+import { SIZES } from "../../constants/sizes";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
@@ -122,7 +123,7 @@ const Button = forwardRef(
       return cx(
         className,
         "monday-style-button",
-        `monday-style-button--size-${size}`,
+        `monday-style-button--size-${getActualSize(size)}`,
         `monday-style-button--kind-${kind}`,
         `monday-style-button--color-${calculatedColor}`,
         {
@@ -245,7 +246,7 @@ const Button = forwardRef(
   }
 );
 
-Button.sizes = BUTTON_SIZES;
+Button.sizes = SIZES;
 Button.colors = BUTTON_COLORS;
 Button.kinds = BUTTON_TYPES;
 Button.inputTags = BUTTON_INPUT_TYPE;
@@ -319,7 +320,7 @@ Button.defaultProps = {
   onClick: NOOP,
   onMouseDown: NOOP,
   name: "",
-  size: BUTTON_SIZES.MEDIUM,
+  size: SIZES.MEDIUM,
   color: BUTTON_COLORS.PRIMARY,
   disabled: false,
   className: "",

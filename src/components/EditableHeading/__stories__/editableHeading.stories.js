@@ -12,6 +12,8 @@ export const Sandbox = () => (
     <br />
     <EditableHeading type={TYPES.h2} value="Edit H2 tooltip" tooltip="Click to edit" />
     <br />
+    <EditableHeading type={TYPES.h2} value="Edit H2 small" size="small" />
+    <br />
     <EditableHeading type={TYPES.h3} value="Edit H3" />
     <br />
     <EditableHeading type={TYPES.h4} value="Edit H4" />

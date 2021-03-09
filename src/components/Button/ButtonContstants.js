@@ -1,3 +1,5 @@
+import { SIZES } from "../../constants/sizes";
+
 export const BUTTON_TYPES = {
   PRIMARY: "primary",
   SECONDARY: "secondary",
@@ -11,10 +13,15 @@ export const BUTTON_COLORS = {
   ON_PRIMARY_COLOR: "on-primary-color"
 };
 
-export const BUTTON_SIZES = {
-  SMALL: "sm",
-  MEDIUM: "md",
-  LARGE: "lg"
+const OLD_BUTTON_SIZES = {
+  sm: SIZES.SMALL,
+  md: SIZES.MEDIUM,
+  lg: SIZES.LARGE
+};
+
+// Support old sizes (backward compatible)
+export const getActualSize = size => {
+  return OLD_BUTTON_SIZES[size] || size;
 };
 
 export const BUTTON_KIND_CLASS_NAMES = {

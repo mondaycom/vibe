@@ -4,7 +4,8 @@ import classNames from "classnames";
 import "./Search.scss";
 import TextField from "../TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { SIZES, TYPES } from "./SearchConstats";
+import { TYPES } from "./SearchConstats";
+import { SIZES } from "../../constants/sizes";
 
 const NOOP = () => {};
 

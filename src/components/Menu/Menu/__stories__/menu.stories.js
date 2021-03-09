@@ -153,11 +153,12 @@ export const Sandbox = () => {
   return (
     <div>
       <Menu
+        tabIndex={0}
         id="menu"
         size={select("size", {
-          SMALL: "small",
-          MEDIUM: "medium",
-          LARGE: "large"
+          SMALL: Menu.sizes.SMALL,
+          MEDIUM: Menu.sizes.MEDIUM,
+          LARGE: Menu.sizes.LARGE
         })}
       >
         {renderMenuItemsByCount(itemsCount)}
@@ -171,7 +172,7 @@ export const Sizes = () => {
     <div style={{ width: 700 }}>
       <FlexLayout>
         <StoryLine title="Small">
-          <Menu id="menu" size={Menu.sizes.SMALL}>
+          <Menu id="menu" size={Menu.sizes.SMALL} tabIndex={0}>
             {renderMenuItems()}
           </Menu>
         </StoryLine>

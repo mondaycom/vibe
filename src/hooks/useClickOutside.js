@@ -2,17 +2,16 @@ import { useCallback, useRef } from "react";
 import useEventListener from "./useEventListener";
 
 export default function useOnClickOutside({ ref, callback }) {
-  const refElement = ref && ref.current;
-
   const onClickOutsideListener = useCallback(
     event => {
-      if (!refElement || refElement.contains(event.target)) {
+      if (!ref || !ref.current || ref.current.contains(event.target)) {
         return;
       }
+
       callback(event);
     },
 
-    [refElement, callback]
+    [ref, callback]
   );
 
   const documentRef = useRef(document);

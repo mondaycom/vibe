@@ -20,6 +20,11 @@
     line-height: 8px;
   }
 
+  &__medium {
+    height: 6px;
+    line-height: 6px;
+  }
+
   &__small {
     height: 4px;
     line-height: 4px;
@@ -39,7 +44,7 @@
       border-radius: $border-radius-small;
 
       &--animate {
-        transition: width 0.1s $expand-animation-timing
+        transition: width 0.1s $expand-animation-timing;
       }
 
       &--primary {

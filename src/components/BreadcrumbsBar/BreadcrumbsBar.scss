@@ -1,0 +1,13 @@
+@import "../../styles/themes.scss";
+
+.breadcrumbs-bar--wrapper ol{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+
+    .sparatorIcon{
+        @include theme-prop(color, secondary-text-color);
+        flex-shrink: 0;
+    }
+}

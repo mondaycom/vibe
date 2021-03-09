@@ -2,6 +2,7 @@ import { useMemo, useCallback, useRef } from "react";
 import useEventListener from "./useEventListener";
 
 const DEFAULT_REF = { current: null };
+
 export default function useKeyEvent({
   keys = [],
   ref = DEFAULT_REF,
@@ -10,7 +11,7 @@ export default function useKeyEvent({
   capture = false,
   preventDefault = false,
   stopPropagation = false,
-  keyEventName = "keyup"
+  keyEventName = "keydown" // need keydown and not keyup to prevent scrolling with prevent default, for example during menu keyboard navigation
 }) {
   const documentRef = useRef(document);
   const onKeyUpPress = useCallback(
@@ -33,9 +34,9 @@ export default function useKeyEvent({
     [callback, keys, preventDefault, stopPropagation]
   );
 
-  const refElement = ref && ref.current;
   let listenerRef;
-  if (refElement) {
+
+  if (ref) {
     listenerRef = ref;
   } else if (ignoreDocumentFallback) {
     listenerRef = null;
