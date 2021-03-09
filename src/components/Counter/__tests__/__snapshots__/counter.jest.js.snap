@@ -8,7 +8,7 @@ exports[`Snapshots renders correctly with count above limit 1`] = `
 >
   <div
     aria-label="999+"
-    className="monday-style-counter monday-style-counter--size-lg monday-style-counter--kind-fill monday-style-counter--color-primary"
+    className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary"
   >
     <span
       id="counter-"
@@ -27,7 +27,7 @@ exports[`Snapshots renders correctly with count below the limit 1`] = `
 >
   <div
     aria-label={1}
-    className="monday-style-counter monday-style-counter--size-lg monday-style-counter--kind-fill monday-style-counter--color-primary"
+    className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary"
   >
     <span
       id="counter-"
