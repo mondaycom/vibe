@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import useResizeObserver from "./useResizeObserver";
 
+// Use this hook when you want to get the index of the child which should be hidden from
+
 function useElementsOverflowingIndex({ ref, children, paddingSize, resizeDebounceTime }) {
   const [size, setSize] = useState(null);
 
