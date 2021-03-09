@@ -152,9 +152,11 @@ const MenuItem = ({
         {title}
       </div>
 
-      {label && <div ref={titleRef} className="monday-style-menu-item__label">
-        {label}
-      </div>}
+      {label && (
+        <div ref={titleRef} className="monday-style-menu-item__label">
+          {label}
+        </div>
+      )}
 
       {renderSubMenuIconIfNeeded()}
 
@@ -216,5 +218,6 @@ MenuItem.propTypes = {
 };
 
 MenuItem.isSelectable = true;
+MenuItem.isMenuChild = true;
 
 export default MenuItem;

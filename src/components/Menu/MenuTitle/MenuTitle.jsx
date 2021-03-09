@@ -14,38 +14,11 @@ const MenuTitle = ({ classname, caption, captionPosition }) => {
       );
     }
   };
-
-  const renderDivider = () => {
-    return <div className="monday-style-menu-title__divider" />;
-  };
-
-  const renderContent = () => {
-    switch (captionPosition) {
-      case CAPTION_POSITIONS.TOP: {
-        return (
-          <>
-            {renderCaptionIfNeeded()}
-            {renderDivider()}
-          </>
-        );
-      }
-      case CAPTION_POSITIONS.CENTER: {
-        return renderCaptionIfNeeded();
-      }
-      case CAPTION_POSITIONS.BOTTOM: {
-        return (
-          <>
-            {renderDivider()}
-            {renderCaptionIfNeeded()}
-          </>
-        );
-      }
-    }
-  };
-  return <div className={cx("monday-style-menu-title", classname)}>{renderContent()}</div>;
+  return <div className={cx("monday-style-menu-title", classname)}>{renderCaptionIfNeeded()}</div>;
 };
 
 MenuTitle.positions = CAPTION_POSITIONS;
+MenuTitle.isMenuChild = true;
 
 MenuTitle.defaultProps = {
   classname: "",

@@ -6,13 +6,13 @@
 
   .monday-style-menu-title__caption {
     @include theme-prop(color, icon-color);
+    margin: $spacing-small 0;
   }
 
   .monday-style-menu-title__caption--center {
     display: flex;
     flex-basis: 100%;
     align-items: center;
-    margin: $spacing-xs 0;
   }
 
   .monday-style-menu-title__caption--bottom,
@@ -21,7 +21,7 @@
   }
 
   .monday-style-menu-title__caption--bottom {
-    padding-bottom: $spacing-xs;
+    padding-bottom: $spacing-small;
   }
 
   .monday-style-menu-title__caption--center::before,
@@ -33,12 +33,5 @@
     font-size: 0;
     line-height: 0;
     margin: 0 $spacing-small;
-  }
-
-  .monday-style-menu-title__divider {
-    height: 1px;
-    width: 100%;
-    margin: $spacing-xs 0;
-    @include theme-prop(background-color, ui-border-color);
   }
 }
