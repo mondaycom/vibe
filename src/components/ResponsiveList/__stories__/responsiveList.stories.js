@@ -6,7 +6,18 @@ import Button from "../../Button/Button";
 import Search from "../../Search/Search";
 import SplitButton from "../../SplitButton/SplitButton";
 import Icon from "../../Icon/Icon";
-import { Group, API, Moon, Sun, Bolt, Activity, Alert, Bookmark, Broom } from "../../Icon/Icons";
+import {
+  Group,
+  API,
+  Moon,
+  Sun,
+  Bolt,
+  Activity,
+  Alert,
+  Broom,
+  Search as SearchIcon,
+  CloseSmall
+} from "../../Icon/Icons";
 import { MenuItem } from "../../index";
 import Menu from "../../Menu/Menu/Menu";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
@@ -37,8 +48,8 @@ export const Sandbox = () => (
           <Search
             size={Search.sizes.MEDIUM}
             placeholder="search for content"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
+            iconName={() => <SearchIcon />}
+            secondaryIconName={() => <CloseSmall />}
           />
         </div>
         <Button kind={Button.kinds.TERTIARY} marginLeft>
