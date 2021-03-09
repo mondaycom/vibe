@@ -4,6 +4,8 @@ exports[`Snapshots renders correctly with children 1`] = `
 <div
   aria-label="Menu"
   className="monday-style-menu dummy-class-name monday-style-menu--medium"
+  onBlur={[Function]}
+  onFocus={[Function]}
   tabIndex={0}
 >
   <div
@@ -72,6 +74,8 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 <div
   aria-label="Menu"
   className="monday-style-menu dummy-class-name monday-style-menu--medium"
+  onBlur={[Function]}
+  onFocus={[Function]}
   tabIndex={0}
 />
 `;
@@ -80,6 +84,8 @@ exports[`Snapshots renders correctly with empty props 1`] = `
 <div
   aria-label="Menu"
   className="monday-style-menu monday-style-menu--medium"
+  onBlur={[Function]}
+  onFocus={[Function]}
   tabIndex={0}
 />
 `;
