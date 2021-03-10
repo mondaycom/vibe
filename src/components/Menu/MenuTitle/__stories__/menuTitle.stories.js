@@ -44,7 +44,7 @@ export const States = () => (
 );
 
 export default {
-  title: "Work in progress/Menu/MenuTitle",
+  title: "Components/Menu/MenuTitle",
   component: MenuTitle,
   decorators: [withPerformance]
 };

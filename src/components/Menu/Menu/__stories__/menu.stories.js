@@ -198,7 +198,7 @@ export const Sizes = () => {
 };
 
 export default {
-  title: "Work in progress/Menu/Menu",
+  title: "Components/Menu/Menu",
   component: Menu,
   decorators: [withPerformance]
 };
