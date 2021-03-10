@@ -342,6 +342,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Event",
+    file: "Event.svg",
+    description: "Event",
+    tags: "Event, Day, Calendar",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Emoji",
     file: "Emoji.svg",
     description: "Emoji",
@@ -508,6 +516,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "IPRestrictions",
+    file: "IPRestrictions.svg",
+    description: "IP Restrictions",
+    tags: "IP, Lock, Globe, Restrictions",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Italic",
     file: "Italic.svg",
     description: "Italic",
@@ -576,6 +592,14 @@ export const iconsMetaData = [
     file: "Menu.svg",
     description: "Menu",
     tags: "Menu, 3 Dots, Dots",
+    category: [BASIC],
+  },
+
+  {
+    name: "Microphone",
+    file: "Microphone.svg",
+    description: "Microphone",
+    tags: "Microphone, voice, sound",
     category: [BASIC],
   },
 
@@ -676,6 +700,14 @@ export const iconsMetaData = [
     file: "NoColor.svg",
     description: "No Color",
     tags: "No Color, Drop",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Note",
+    file: "Note.svg",
+    description: "Note",
+    tags: "Note, Page",
     category: [PLATFORM],
   },
 
@@ -1007,6 +1039,14 @@ export const iconsMetaData = [
     file: "Upgrade.svg",
     description: "Upgrade",
     tags: "Upgrade, Stars",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Upload",
+    file: "Upload.svg",
+    description: "Upload",
+    tags: "Upload, Up, File, Outgoing, Export",
     category: [PLATFORM],
   },
 
