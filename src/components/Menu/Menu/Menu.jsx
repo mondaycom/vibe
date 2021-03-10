@@ -36,7 +36,7 @@ const Menu = forwardRef(
       const menuChildren = allChildren.filter(child => {
         if (child.type.isMenuChild) return true;
         console.error(
-          "Menu child must be a menuChild item (such as MenuItem, MenuDevider, MenuTitle, etc). This child is not supported: ",
+          "Menu child must be a menuChild item (such as MenuItem, MenuDivider, MenuTitle, etc). This child is not supported: ",
           child
         );
         return false;
