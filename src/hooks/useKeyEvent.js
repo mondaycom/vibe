@@ -1,11 +1,9 @@
 import { useMemo, useCallback, useRef } from "react";
 import useEventListener from "./useEventListener";
 
-const DEFAULT_REF = { current: null };
-
 export default function useKeyEvent({
   keys = [],
-  ref = DEFAULT_REF,
+  ref,
   callback,
   ignoreDocumentFallback = false,
   capture = false,
