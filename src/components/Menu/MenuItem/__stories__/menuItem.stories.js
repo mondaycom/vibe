@@ -233,6 +233,6 @@ export const overflowMenuItem = () => {
 };
 
 export default {
-  title: "Work in progress/Menu/MenuItem",
+  title: "Components/Menu/MenuItem",
   component: MenuItem
 };
