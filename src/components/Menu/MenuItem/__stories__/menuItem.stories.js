@@ -18,7 +18,12 @@ const subSubMenuRenderer = () => {
       {[
         <MenuTitle id="sub-sub-menu-title-1" caption="sub-menu-Caption" captionPosition={MenuTitle.positions.TOP} />,
         <MenuItem id="sub-sub-menu-item-1" title="bla bla" icon={Activity} onClick={() => alert("1")} />,
-        <MenuItem id="sub-sub-menu-item-2" title="bla blo bla" icon={Activity} onClick={() => alert("2")} />
+        <MenuItem
+          id="sub-sub-menu-item-2"
+          title="bla blo bla bla"
+          icon={Activity}
+          onClick={() => console.log("bla bla")}
+        />
       ]}
     </Menu>
   );

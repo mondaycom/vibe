@@ -1,9 +1,12 @@
 import { useCallback } from "react";
 
-export default function useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, closeSubMenu) {
-  return useCallback(() => {
-    setActiveItemIndex(-1);
-    setOpenSubMenuIndex(null);
-    closeSubMenu && closeSubMenu();
-  }, [closeSubMenu, setOpenSubMenuIndex, setActiveItemIndex]);
+export default function useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, onClose) {
+  return useCallback(
+    (options = {}) => {
+      setActiveItemIndex(-1);
+      setOpenSubMenuIndex(null);
+      onClose && onClose(options);
+    },
+    [onClose, setOpenSubMenuIndex, setActiveItemIndex]
+  );
 }

@@ -14,7 +14,8 @@ export default function useMenuItemKeyboardEvents(
   shouldShowSubMenu,
   setSubMenuIsOpenByIndex,
   menuRef,
-  isMouseEnter
+  isMouseEnter,
+  closeMenu
 ) {
   const onClickCallback = useCallback(
     event => {
@@ -38,8 +39,13 @@ export default function useMenuItemKeyboardEvents(
 
       const isKeyEvent = !!event.key;
 
-      if (isKeyEvent && onClick && !disabled && isActive) {
+      const clickCallback = () => {
         onClick(event);
+        closeMenu({ propagate: true });
+      };
+
+      if (isKeyEvent && onClick && !disabled && isActive) {
+        clickCallback();
       }
 
       if (!isKeyEvent && onClick && !disabled && isMouseEnter) {
@@ -54,7 +60,7 @@ export default function useMenuItemKeyboardEvents(
           // wait for background of menu item to change before trigger click
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-              onClick(event);
+              clickCallback();
             });
           });
         }

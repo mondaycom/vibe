@@ -34,13 +34,23 @@ const MenuItem = ({
   isParentMenuVisible,
   resetOpenSubMenuIndex,
   hasOpenSubMenu,
-  setSubMenuIsOpenByIndex
+  setSubMenuIsOpenByIndex,
+  closeMenu
 }) => {
   const isActive = activeItemIndex === index;
   const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
   const hasChildren = !!children;
   const shouldShowSubMenu = hasChildren && isParentMenuVisible && isSubMenuOpen;
   const submenuChild = children && React.Children.only(children);
+  let menuChild;
+  if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
+    menuChild = submenuChild;
+  } else if (submenuChild) {
+    console.Error(
+      "menu item can acceept only menu element as first level child, this element is not valid: ",
+      submenuChild
+    );
+  }
 
   const ref = useRef(null);
   const titleRef = useRef();
@@ -78,7 +88,8 @@ const MenuItem = ({
     shouldShowSubMenu,
     setSubMenuIsOpenByIndex,
     menuRef,
-    isMouseEnter
+    isMouseEnter,
+    closeMenu
   );
 
   useLayoutEffect(() => {
@@ -89,9 +100,15 @@ const MenuItem = ({
     }
   }, [shouldShowSubMenu, childElement]);
 
-  const closeSubMenu = useCallback(() => {
-    setSubMenuIsOpenByIndex(index, false);
-  }, [setSubMenuIsOpenByIndex, index]);
+  const closeSubMenu = useCallback(
+    (options = {}) => {
+      setSubMenuIsOpenByIndex(index, false);
+      if (options.propagate) {
+        closeMenu(options);
+      }
+    },
+    [setSubMenuIsOpenByIndex, index, closeMenu]
+  );
 
   const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
 
@@ -167,12 +184,13 @@ const MenuItem = ({
         className="monday-style-menu-item__popover"
         ref={popperElementRef}
       >
-        {submenuChild && shouldShowSubMenu && (
+        {menuChild && shouldShowSubMenu && (
           <DialogContentContainer>
-            {React.cloneElement(submenuChild, {
-              ...submenuChild?.props,
+            {React.cloneElement(menuChild, {
+              ...menuChild?.props,
               isVisible: shouldShowSubMenu,
-              closeSubMenu,
+              isSubMenu: true,
+              onClose: closeSubMenu,
               ref: childRef
             })}
           </DialogContentContainer>
