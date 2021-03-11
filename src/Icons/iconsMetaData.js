@@ -4,6 +4,13 @@ const VIEW = "View";
 export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
+  {
+      name: "MoreBelowFilled",
+      file: ".svg",
+      description: "filled box with a curved arrow",
+      tags: "arrow"
+  },
+
 
 
   {
