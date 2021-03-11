@@ -46,6 +46,18 @@
       @include theme-prop(background-color, primary-background-hover-color);
       border-radius: $border-radius-small;
     }
+
+    &.monday-style-menu-item--selected {
+      @include theme-prop(background-color, primary-selected-color);
+      @include theme-prop(color, primary-color);
+      border-radius: $border-radius-small;
+
+      .monday-style-menu-item__icon-wrapper {
+        .monday-style-menu-item__icon {
+          @include theme-prop(color, primary-color);
+        }
+      }
+    }
   }
 
   .monday-style-menu-item__title {

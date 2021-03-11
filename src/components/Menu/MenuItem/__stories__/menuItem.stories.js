@@ -121,6 +121,7 @@ export const Sandbox = () => {
           title={text("title", "My item")}
           icon={icon}
           disabled={boolean("disabled", false)}
+          selected={boolean("selected", false)}
           onClick={() => alert("hello")}
         />
       </Menu>

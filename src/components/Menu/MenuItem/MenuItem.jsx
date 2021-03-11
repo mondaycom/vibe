@@ -26,6 +26,7 @@ const MenuItem = ({
   menuRef,
   iconType,
   disabled,
+  selected,
   onClick,
   activeItemIndex,
   setActiveItemIndex,
@@ -155,15 +156,18 @@ const MenuItem = ({
       aria-haspopup={!!children}
       className={cx("monday-style-menu-item", classname, {
         "monday-style-menu-item--disabled": disabled,
-        "monday-style-menu-item--focused": isActive
+        "monday-style-menu-item--focused": isActive,
+        "monday-style-menu-item--selected": selected
       })}
       ref={mergedRef}
       onClick={onClickCallback}
     >
       {renderMenuItemIconIfNeeded()}
 
-      {// show tooltip if needed
-      isTitleHoveredAndOverflowing && null}
+      {
+        // show tooltip if needed
+        isTitleHoveredAndOverflowing && null
+      }
 
       <div ref={titleRef} className="monday-style-menu-item__title">
         {title}
@@ -209,6 +213,7 @@ MenuItem.defaultProps = {
   icon: "",
   iconType: undefined,
   disabled: false,
+  selected: false,
   onClick: undefined,
   activeItemIndex: -1,
   setActiveItemIndex: undefined,
@@ -225,6 +230,7 @@ MenuItem.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   disabled: PropTypes.bool,
+  selected: PropTypes.bool,
   onClick: PropTypes.func,
   activeItemIndex: PropTypes.number,
   setActiveItemIndex: PropTypes.func,
