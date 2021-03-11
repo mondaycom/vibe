@@ -24,7 +24,8 @@ const Menu = forwardRef(
       isVisible = true,
       onClose,
       focusOnMount,
-      focusItemIndex
+      focusItemIndex,
+      isSubMenu
     },
     forwardedRef
   ) => {
@@ -55,7 +56,7 @@ const Menu = forwardRef(
     const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, onClose);
 
     useClickOutside({ ref, callback: onCloseMenu });
-    useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, onClose);
+    useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu);
     useMenuKeyboardNavigation(
       hasOpenSubMenu,
       children,
