@@ -22,9 +22,10 @@ const Menu = forwardRef(
       ariaLabel,
       children: originalChildren,
       isVisible = true,
-      closeSubMenu,
+      onClose,
       focusOnMount,
-      focusItemIndex
+      focusItemIndex,
+      isSubMenu
     },
     forwardedRef
   ) => {
@@ -52,10 +53,10 @@ const Menu = forwardRef(
       resetOpenSubMenuIndex
     } = useSubMenuIndex();
 
-    const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, closeSubMenu);
+    const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, onClose);
 
     useClickOutside({ ref, callback: onCloseMenu });
-    useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, closeSubMenu);
+    useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu);
     useMenuKeyboardNavigation(
       hasOpenSubMenu,
       children,
@@ -112,7 +113,8 @@ const Menu = forwardRef(
               resetOpenSubMenuIndex,
               isParentMenuVisible: isVisible,
               setSubMenuIsOpenByIndex,
-              hasOpenSubMenu: index === openSubMenuIndex
+              hasOpenSubMenu: index === openSubMenuIndex,
+              closeMenu: onCloseMenu
             });
           })}
       </div>
@@ -120,6 +122,7 @@ const Menu = forwardRef(
   }
 );
 
+Menu.isMenu = true;
 Menu.supportFocusOnMount = true;
 Menu.sizes = SIZES;
 
@@ -131,8 +134,9 @@ Menu.defaultProps = {
   tabIndex: 0,
   ariaLabel: "Menu",
   isVisible: true,
-  closeSubMenu: undefined,
-  focusItemIndex: -1
+  onClose: undefined,
+  focusItemIndex: -1,
+  isSubMenu: false
 };
 
 Menu.propTypes = {
@@ -143,8 +147,9 @@ Menu.propTypes = {
   ariaLabel: PropTypes.string,
   focusOnMount: PropTypes.bool,
   isVisible: PropTypes.bool,
-  closeSubMenu: PropTypes.func,
-  focusItemIndex: PropTypes.number
+  onClose: PropTypes.func,
+  focusItemIndex: PropTypes.number,
+  isSubMenu: PropTypes.bool
 };
 
 export default Menu;

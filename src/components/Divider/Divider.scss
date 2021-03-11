@@ -2,12 +2,12 @@
 @import "../../styles/typography.scss";
 
 .monday-style-divider {
-  @include theme-prop(background-color, ui-border-color);
+  @include theme-prop(background-color, layout-border-color);
 
   &--horizontal {
     height: 1px;
     width: 100%;
-    margin: $spacing-xs 0;
+    margin: $spacing-small 0;
   }
 
   &--vertical {
