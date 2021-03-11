@@ -25,6 +25,31 @@ exports[`Snapshots renders correctly when disabled 1`] = `
 </div>
 `;
 
+exports[`Snapshots renders correctly when selected 1`] = `
+<div
+  aria-haspopup={false}
+  className="monday-style-menu-item monday-style-menu-item--selected"
+  onClick={[Function]}
+>
+  <div
+    className="monday-style-menu-item__title"
+  >
+    my item
+  </div>
+  <div
+    className="monday-style-menu-item__popover"
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+        "visibility": "hidden",
+      }
+    }
+  />
+</div>
+`;
+
 exports[`Snapshots renders correctly with custom class name 1`] = `
 <div
   aria-haspopup={false}
