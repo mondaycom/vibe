@@ -70,27 +70,30 @@ export default function useMenuKeyboardNavigation(
         setActiveItemIndex(0);
       }
     },
-    [setActiveItemIndex, activeItemIndex, isVisible, ref, hasOpenSubMenu, resetOpenSubMenuIndex]
+    [setActiveItemIndex, activeItemIndex, isVisible]
   );
 
   useKeyEvent({
     keys: ARROW_DOWN_KEYS,
     callback: onArrowDown,
     ref,
-    preventDefault: true
+    preventDefault: true,
+    stopPropagation: true
   });
 
   useKeyEvent({
     keys: ARROW_UP_KEYS,
     callback: onArrowUp,
     ref,
-    preventDefault: true
+    preventDefault: true,
+    stopPropagation: true
   });
 
   useKeyEvent({
     keys: ENTER_KEYS,
     callback: onEnterClickCallback,
     ref,
-    preventDefault: true
+    preventDefault: true,
+    stopPropagation: true
   });
 }
