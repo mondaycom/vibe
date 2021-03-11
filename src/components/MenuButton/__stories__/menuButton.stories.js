@@ -8,6 +8,8 @@ import "./menuButton.style.scss";
 import { Menu, MenuItem, MenuTitle } from "../../index";
 import { Favorite, Sun, Moon } from "../../Icon/Icons";
 
+const NOOP = () => {};
+
 function MenuButtonContent() {
   return <div className="menu-button-content-story">I can be whatever i want to be!</div>;
 }
@@ -34,9 +36,9 @@ export const Sandbox = () => (
       >
         <Menu id="menu" size={Menu.sizes.MEDIUM}>
           <MenuTitle caption="Look up, you might see" captionPosition={MenuTitle.positions.TOP} />
-          <MenuItem icon={Sun} iconType={MenuItem.iconType.SVG} title="The sun" />
-          <MenuItem icon={Moon} iconType={MenuItem.iconType.SVG} title="The moon" />
-          <MenuItem icon={Favorite} iconType={MenuItem.iconType.SVG} title="And the stars" />
+          <MenuItem icon={Sun} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The sun" />
+          <MenuItem icon={Moon} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="The moon" />
+          <MenuItem icon={Favorite} onClick={NOOP} iconType={MenuItem.iconType.SVG} title="And the stars" />
         </Menu>
       </MenuButton>
     </StoryStateColumn>
