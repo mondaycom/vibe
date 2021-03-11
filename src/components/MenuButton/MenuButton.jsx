@@ -65,8 +65,6 @@ const MenuButton = ({
         newProps.onClose = onDialogDidHide;
       }
 
-      newProps.hideMenuButtonDialog = onDialogDidHide;
-
       return React.cloneElement(child, newProps);
     });
 
