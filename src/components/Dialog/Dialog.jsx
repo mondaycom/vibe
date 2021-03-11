@@ -61,7 +61,7 @@ export default class Dialog extends PureComponent {
 
   static getDerivedStateFromProps(nextProps, state) {
     if (state.shouldUseDerivedStateFromProps) {
-      return { isOpen: nextProps.props };
+      return { isOpen: nextProps.isOpen };
     }
     return null;
   }

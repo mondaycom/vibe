@@ -56,16 +56,20 @@ const MenuButton = ({
     const childrenArr = React.Children.toArray(children);
 
     const cloned = childrenArr.map(child => {
+      const newProps = {};
       if (child.type && child.type.supportFocusOnMount) {
-        return React.cloneElement(child, {
-          focusOnMount: true
-        });
+        newProps.focusOnMount = true;
       }
-      return child;
+
+      if (child.type && child.type.isMenu) {
+        newProps.onClose = onDialogDidHide;
+      }
+
+      return React.cloneElement(child, newProps);
     });
 
     return cloned;
-  }, [children]);
+  }, [children, onDialogDidHide]);
 
   const content = useMemo(() => {
     if (!clonedChildren.length === 0) return <div />;
@@ -97,10 +101,12 @@ const MenuButton = ({
       moveBy={computedDialogOffset}
       showTrigger={showTrigger}
       hideTrigger={hideTrigger}
+      useDerivedStateFromProps={true}
       onDialogDidShow={onDialogDidShow}
       onDialogDidHide={onDialogDidHide}
       referenceWrapperClassName={BEMClass("reference-icon")}
       zIndex={zIndex}
+      isOpen={isOpen}
     >
       <button
         type="button"
