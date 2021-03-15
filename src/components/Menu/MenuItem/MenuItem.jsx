@@ -161,6 +161,7 @@ const MenuItem = ({
       })}
       ref={mergedRef}
       onClick={onClickCallback}
+      role="menuitem"
     >
       {renderMenuItemIconIfNeeded()}
 
@@ -172,15 +173,12 @@ const MenuItem = ({
       <div ref={titleRef} className="monday-style-menu-item__title">
         {title}
       </div>
-
       {label && (
         <div ref={titleRef} className="monday-style-menu-item__label">
           {label}
         </div>
       )}
-
       {renderSubMenuIconIfNeeded()}
-
       <div
         style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
         // eslint-disable-next-line react/jsx-props-no-spreading

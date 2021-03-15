@@ -101,6 +101,7 @@ const Menu = forwardRef(
         ref={mergedRef}
         tabIndex={tabIndex}
         aria-label={ariaLabel}
+        role="menu"
       >
         {children &&
           React.Children.map(children, (child, index) => {
