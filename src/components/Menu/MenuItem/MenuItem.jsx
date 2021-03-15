@@ -165,10 +165,8 @@ const MenuItem = ({
     >
       {renderMenuItemIconIfNeeded()}
 
-      {
-        // show tooltip if needed
-        isTitleHoveredAndOverflowing && null
-      }
+      {// show tooltip if needed
+      isTitleHoveredAndOverflowing && null}
 
       <div ref={titleRef} className="monday-style-menu-item__title">
         {title}
