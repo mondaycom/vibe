@@ -23,6 +23,11 @@ describe("Snapshots", () => {
     const tree = renderer.create(<MenuItem title="my item" disabled={true} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("renders correctly when selected", () => {
+    const tree = renderer.create(<MenuItem title="my item" selected={true} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
 
 jest.useFakeTimers();
