@@ -30,13 +30,10 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text })
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
     <aside className={cx(baseClassName, classNameWithType, componentClassName)} role={role}>
-      <div
-        className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}
-        role="heading"
-        aria-level="2"
-      >
+      <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
         <Icon
           iconType={iconType}
+          ariaHidden
           clickable={false}
           icon={icon}
           className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
@@ -49,7 +46,7 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text })
         >
           {title}
         </span>
-      </div>
+      </h2>
       <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`)}>{text}</div>
     </aside>
   );

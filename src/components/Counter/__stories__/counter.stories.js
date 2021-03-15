@@ -5,6 +5,7 @@ import { number, select } from "@storybook/addon-knobs";
 import Notifications from "../../Icon/Icons/components/Notifications";
 import "./counter.stories.scss";
 import { withPerformance } from "storybook-addon-performance";
+import HiddenText from "../../HiddenText/HiddenText";
 
 export const Fill = () => (
   <section>
@@ -12,14 +13,22 @@ export const Fill = () => (
       <StoryStateColumn title="Large" />
     </StoryStateRow>
     <StoryStateRow>
+      <HiddenText id="fill-primary" text="Counter for primary" />
+      <HiddenText id="fill-negative" text="counter for negative" />
+      <HiddenText id="fill-dark" text="counter for dark" />
       <StoryStateColumn title="Primary" description="Info counter">
-        <Counter ariaLabel="primary counter" id="primary-id" />
+        <Counter ariaLabel="primary counter" id="primary-id" ariaLabeledBy="fill-primary" />
       </StoryStateColumn>
       <StoryStateColumn title="Negative" description="Notifications">
-        <Counter color={Counter.colors.NEGATIVE} ariaLabel="Negative counter" id="Negative-id" />
+        <Counter
+          color={Counter.colors.NEGATIVE}
+          ariaLabel="Negative counter"
+          id="Negative-id"
+          ariaLabeledBy="fill-negative"
+        />
       </StoryStateColumn>
       <StoryStateColumn title="Dark" description="General">
-        <Counter color={Counter.colors.DARK} ariaLabel="Dark counter" id="Dark-id" />
+        <Counter color={Counter.colors.DARK} ariaLabel="Dark counter" id="Dark-id" ariaLabeledBy="fill-dark" />
       </StoryStateColumn>
     </StoryStateRow>
     <StoryStateRow>

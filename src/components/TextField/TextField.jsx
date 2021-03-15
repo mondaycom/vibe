@@ -10,6 +10,7 @@ import FieldLabel from "../FieldLabel/FieldLabel";
 import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
 import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import { useButton } from "@react-aria/button";
 
 const NOOP = () => {};
 
@@ -97,6 +98,10 @@ const TextField = forwardRef(
     const isPrimary = iconName === currentStateIconName;
 
     const mergedRef = useMergeRefs({ refs: [ref, inputRef, setRef] });
+    const { buttonProps } = useButton({
+      onPress: onIconClickCallback,
+      elementType: "div"
+    });
 
     return (
       <div
@@ -137,12 +142,13 @@ const TextField = forwardRef(
                 "input-component__icon--container-has-icon": hasIcon,
                 "input-component__icon--container-active": isPrimary
               })}
-              onClick={onIconClickCallback}
+              {...buttonProps}
+              tabIndex={isPrimary ? "0" : "-1"}
             >
               <Icon
                 icon={iconName}
                 className={classNames("input-component__icon")}
-                clickable={isPrimary && iconClickable}
+                clickable={false}
                 id={id}
                 iconLabel={iconsNames.primary}
                 iconType={Icon.type.ICON_FONT}
@@ -154,12 +160,13 @@ const TextField = forwardRef(
                 "input-component__icon--container-has-icon": hasIcon,
                 "input-component__icon--container-active": isSecondary
               })}
-              onClick={onIconClickCallback}
+              {...buttonProps}
+              tabIndex={isPrimary ? "-1" : "0"}
             >
               <Icon
                 icon={secondaryIconName}
                 className={classNames("input-component__icon")}
-                clickable={isSecondary && iconClickable}
+                clickable={false}
                 id={id}
                 iconLabel={iconsNames.secondary}
                 iconType={Icon.type.ICON_FONT}
