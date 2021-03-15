@@ -226,7 +226,7 @@ const SplitButton = ({
               aria-expanded={isDialogOpen}
             >
               <div className="monday-style-split-button__secondary-button-icon-wrapper">
-                <DropdownChevronDown />
+                <DropdownChevronDown aria-hidden="true"/>
               </div>
             </Button>
           </Dialog>
