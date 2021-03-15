@@ -57,7 +57,7 @@ const Banner = forwardRef(
           size={Button.sizes.SMALL}
           kind={Button.kinds.TERTIARY}
           color={Button.colors.PRIMARY}
-          ariaLabel="close-banner"
+          ariaLabel="Close"
         >
           <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="16px" ignoreFocusStyle />
         </Button>
