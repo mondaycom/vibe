@@ -6,13 +6,10 @@ export const iconsMetaData = [
   // plop_marker:icon_metadata
   {
       name: "MoreBelowFilled",
-      file: ".svg",
+      file: "MoreBelowFilled.svg",
       description: "filled box with a curved arrow",
       tags: "arrow"
   },
-
-
-
   {
     name: "Activity",
     file: "Activity.svg",
