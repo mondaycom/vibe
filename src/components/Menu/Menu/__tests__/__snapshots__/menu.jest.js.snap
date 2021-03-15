@@ -12,9 +12,6 @@ exports[`Snapshots renders correctly with children 1`] = `
     className="monday-style-menu-title"
   >
     <div
-      className="monday-style-menu-title__divider"
-    />
-    <div
       className="monday-style-menu-title__caption monday-style-menu-title__caption--bottom"
     >
       my title
@@ -42,9 +39,6 @@ exports[`Snapshots renders correctly with children 1`] = `
       }
     />
   </div>
-  <div
-    className="monday-style-divider monday-style-divider--horizontal"
-  />
   <div
     aria-haspopup={false}
     className="monday-style-menu-item"

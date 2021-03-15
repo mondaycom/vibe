@@ -1,15 +1,16 @@
 import React, { useRef, useState, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import { useButton } from "@react-aria/button";
 import Heading from "../Heading/Heading";
 import EditableInput, { TEXTAREA_TYPE } from "../EditableInput/EditableInput";
 import { TYPES } from "../Heading/HeadingConstants";
 import { SIZES } from "../../constants/sizes";
-
 import "./EditableHeading.scss";
 
 const EditableHeading = props => {
   const {
+    id,
     className,
     value,
     editing,
@@ -65,6 +66,11 @@ const EditableHeading = props => {
   const onInputSuccessCallback = useCallback(() => {
     clearErrorState();
   }, [clearErrorState]);
+
+  const { buttonProps } = useButton({
+    onPress: onClick,
+    elementType: "div"
+  });
 
   // Effects
   useEffect(() => {
@@ -137,7 +143,14 @@ const EditableHeading = props => {
   };
 
   return (
-    <div ref={ref} style={style} className={cx("editable-heading--wrapper", className)} onClick={onClick}>
+    <div
+      ref={ref}
+      style={style}
+      className={cx("editable-heading--wrapper", className)}
+      {...buttonProps}
+      aria-label={`${value} ${props.tooltip || ""}`}
+      id={id}
+    >
       {isEditing ? renderInputComponent() : renderContentComponent()}
     </div>
   );
@@ -145,6 +158,7 @@ const EditableHeading = props => {
 
 EditableHeading.propTypes = {
   className: PropTypes.string,
+  id: PropTypes.string,
   type: PropTypes.oneOf(Object.keys(TYPES)),
   errorClass: PropTypes.string,
   errorClassTimeout: PropTypes.number,
@@ -155,6 +169,7 @@ EditableHeading.propTypes = {
 };
 EditableHeading.defaultProps = {
   className: "",
+  id: "",
   type: TYPES.H1,
   errorClass: "error",
   errorClassTimeout: 2000,

@@ -2,8 +2,23 @@
 
 exports[`renders correctly with empty props 1`] = `
 <div
+  aria-label="undefined "
   className="editable-heading--wrapper"
+  id=""
   onClick={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchCancel={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  role="button"
+  tabIndex={0}
+  type="button"
 >
   <h1
     aria-label=""

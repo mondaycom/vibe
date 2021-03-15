@@ -50,7 +50,7 @@ it("renders correctly with Bolt Icon", () => {
   expect(tree).toMatchSnapshot();
 });
 
-it("renders correctly with open state", () => {
+it.skip("renders correctly with open state", () => {
   const tree = renderer
     .create(
       <MenuButton open>
