@@ -82,6 +82,7 @@ export {default as Mobile} from './components/Mobile';
 export {default as MondayLogoOutline} from './components/MondayLogoOutline';
 export {default as Moon} from './components/Moon';
 export {default as MoreBelow} from './components/MoreBelow';
+export {default as MoreBelowFilled} from './components/MoreBelowFilled';
 export {default as MoveArrowDown} from './components/MoveArrowDown';
 export {default as MoveArrowLeft} from './components/MoveArrowLeft';
 export {default as MoveArrowRight} from './components/MoveArrowRight';
