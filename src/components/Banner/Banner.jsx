@@ -34,13 +34,13 @@ const Banner = forwardRef(
     const renderedTitle = useMemo(() => {
       const computedTitle = renderTitle(title);
       if (!computedTitle) return null;
-      return <h1 className="banner--title">{computedTitle}</h1>;
+      return <h2 className="banner--title">{computedTitle}</h2>;
     }, [title, renderTitle]);
 
     const renderedSubtitle = useMemo(() => {
       const computedSubtitle = renderSubtitle(subtitle);
       if (!computedSubtitle) return null;
-      return <h2 className="banner--subtitle">{computedSubtitle}</h2>;
+      return <h3 className="banner--subtitle">{computedSubtitle}</h3>;
     }, [subtitle, renderSubtitle]);
 
     const renderImage = useMemo(() => {
@@ -142,7 +142,7 @@ Banner.propTypes = {
 Banner.defaultProps = {
   className: "",
   imagePosition: IMAGE_POSITIONS.LEFT,
-  imageAlt: "Banner main image",
+  imageAlt: "",
   imageSrc: "",
   renderTitle: PRESERVE_VALUE,
   renderSubtitle: PRESERVE_VALUE,
