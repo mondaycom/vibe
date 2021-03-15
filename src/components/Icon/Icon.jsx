@@ -20,7 +20,8 @@ const Icon = forwardRef(
       iconType,
       iconSize,
       ignoreFocusStyle,
-      tabindex: externalTabIndex
+      tabindex: externalTabIndex,
+      ariaHidden
     },
     ref
   ) => {
@@ -41,6 +42,7 @@ const Icon = forwardRef(
       const IconComponent = icon;
       return (
         <IconComponent
+          aria-hidden={ariaHidden}
           size={iconSize.toString()}
           onClick={onClick}
           tabIndex={externalTabIndex ?? tabindex}
@@ -52,6 +54,7 @@ const Icon = forwardRef(
 
     return (
       <FontIcon
+        ariaHidden={ariaHidden}
         className={cx(computedClassName)}
         onClick={onClickCallback}
         ref={mergedRef}
@@ -80,7 +83,8 @@ Icon.propTypes = {
   /** size for font icon */
   iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** remove focus style */
-  ignoreFocusStyle: PropTypes.bool
+  ignoreFocusStyle: PropTypes.bool,
+  ariaHidden: PropTypes.bool
 };
 
 Icon.defaultProps = {
@@ -91,7 +95,8 @@ Icon.defaultProps = {
   iconLabel: "",
   iconType: ICON_TYPES.SVG,
   iconSize: 16,
-  ignoreFocusStyle: false
+  ignoreFocusStyle: false,
+  ariaHidden: false
 };
 
 export default Icon;
