@@ -27,7 +27,7 @@ const MultiStepIndicator = forwardRef(
     const baseClassName = "multi-step-indicator--wrapper";
     const defaultDividerClassName = `${baseClassName}__divider`;
     return (
-      <div ref={mergedRef} className={cx(baseClassName, className)}>
+      <ol ref={mergedRef} className={cx(baseClassName, className)}>
         {steps.map((step, index) => {
           return (
             <>
@@ -45,7 +45,7 @@ const MultiStepIndicator = forwardRef(
             </>
           );
         })}
-      </div>
+      </ol>
     );
   }
 );

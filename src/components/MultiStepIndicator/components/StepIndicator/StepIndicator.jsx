@@ -78,6 +78,8 @@ const StepIndicator = ({
         className={`${baseClassName}__number-container__text__check-icon`}
         iconLabel={STEP_STATUSES.FULFILLED}
         iconType={fulfilledStepIconType}
+        ignoreFocusStyle
+        clickable={false}
       />
     ) : (
       stepNumber
@@ -85,7 +87,7 @@ const StepIndicator = ({
   };
 
   return (
-    <div
+    <li
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
         [baseClassNameWithAnimation]: statusChangeAnimationState
       })}
@@ -113,7 +115,7 @@ const StepIndicator = ({
         </div>
         <span className={cx(...getClassNamesWithSuffix("__text-container__subtitle__text"))}>{subtitleText}</span>
       </div>
-    </div>
+    </li>
   );
 };
 
