@@ -50,7 +50,9 @@ const Button = forwardRef(
       onFocus,
       onBlur,
       ariaLabeledBy,
-      defaultTextColorOnPrimaryColor
+      defaultTextColorOnPrimaryColor,
+      ariaHasPopup,
+      ariaExpanded
     },
     ref
   ) => {
@@ -171,7 +173,9 @@ const Button = forwardRef(
         onMouseDown: onMouseDownClicked,
         "aria-labelledby": ariaLabeledBy,
         "aria-label": ariaLabel,
-        "aria-busy": loading
+        "aria-busy": loading,
+        "aria-haspopup": ariaHasPopup,
+        "aria-expended": ariaExpanded
       };
     }, [
       disabled,
@@ -303,6 +307,10 @@ Button.propTypes = {
   ariaLabeledBy: PropTypes.string,
   /** aria label to provide important when providing only Icon */
   ariaLabel: PropTypes.string,
+  /** aria for a button popup */
+  ariaHasPopup: PropTypes.bool,
+  /** aria to be set if the popup is open */
+  ariaExpanded: PropTypes.bool,
   /** On Button Focus callback */
   onFocus: PropTypes.func,
   /** On Button Blur callback */
@@ -343,7 +351,9 @@ Button.defaultProps = {
   noSidePadding: false,
   onFocus: NOOP,
   onBlur: NOOP,
-  defaultTextColorOnPrimaryColor: TRANSPARENT_COLOR
+  defaultTextColorOnPrimaryColor: TRANSPARENT_COLOR,
+  ariaHasPopup: false,
+  ariaExpanded: false
 };
 
 export default Button;

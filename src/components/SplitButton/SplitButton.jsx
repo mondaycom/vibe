@@ -222,11 +222,11 @@ const SplitButton = ({
               onBlur={setNotHovered}
               disabled={disabled}
               ariaLabel={SECONDARY_BUTTON_ARIA_LABEL}
-              aria-haspopup="true"
-              aria-expanded={isDialogOpen}
+              ariaHasPopup
+              ariaExpanded={isDialogOpen}
             >
               <div className="monday-style-split-button__secondary-button-icon-wrapper">
-                <DropdownChevronDown aria-hidden="true"/>
+                <DropdownChevronDown aria-hidden="true" />
               </div>
             </Button>
           </Dialog>
