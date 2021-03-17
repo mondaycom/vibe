@@ -61,7 +61,7 @@ Heading.propTypes = {
   ellipsisMaxLines: PropTypes.number,
   suggestEditOnHover: PropTypes.bool,
   nonEllipsisTooltip: PropTypes.string,
-  size: PropTypes.oneOf(Object.keys(SIZES))
+  size: PropTypes.oneOf(Object.values(SIZES))
 };
 Heading.defaultProps = {
   className: "",

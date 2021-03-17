@@ -169,7 +169,7 @@ EditableHeading.propTypes = {
   displayPlaceholderInTextMode: PropTypes.bool,
   suggestEditOnHover: PropTypes.bool,
   autoSize: PropTypes.bool,
-  size: PropTypes.oneOf(Object.keys(SIZES))
+  size: PropTypes.oneOf(Object.values(SIZES))
 };
 EditableHeading.defaultProps = {
   className: "",
