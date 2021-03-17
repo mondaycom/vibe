@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback, useEffect } from "react";
+import React, { useRef, useState, useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { useButton } from "@react-aria/button";
@@ -142,12 +142,16 @@ const EditableHeading = props => {
     return <EditableInput {...inputProps} />;
   };
 
+  const clickProps = useMemo(() => {
+    return isEditing ? { onClick, role: "button", tabIndex: "0" } : buttonProps;
+  }, [isEditing, buttonProps, onClick]);
+
   return (
     <div
       ref={ref}
       style={style}
       className={cx("editable-heading--wrapper", className)}
-      {...buttonProps}
+      {...clickProps}
       aria-label={`${value} ${props.tooltip || ""}`}
       id={id}
     >
