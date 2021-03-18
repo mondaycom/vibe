@@ -4,11 +4,12 @@ exports[`renders correctly with caption 1`] = `
 <div
   className="monday-style-menu-title"
 >
-  <div
+  <label
     className="monday-style-menu-title__caption monday-style-menu-title__caption--bottom"
+    id=""
   >
     my title
-  </div>
+  </label>
 </div>
 `;
 

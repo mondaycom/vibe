@@ -20,6 +20,7 @@ const Menu = forwardRef(
       size,
       tabIndex,
       ariaLabel,
+      ariaDescribedBy,
       children: originalChildren,
       isVisible = true,
       onClose,
@@ -103,6 +104,7 @@ const Menu = forwardRef(
         aria-label={ariaLabel}
         role="menu"
         aria-activedescendant={`${id}-${activeItemIndex}`}
+        aria-describedby={ariaDescribedBy}
       >
         {children &&
           React.Children.map(children, (child, index) => {
@@ -136,6 +138,7 @@ Menu.defaultProps = {
   size: SIZES.MEDIUM,
   tabIndex: 0,
   ariaLabel: "Menu",
+  ariaDescribedBy: undefined,
   isVisible: true,
   onClose: undefined,
   focusItemIndex: -1,
@@ -148,6 +151,7 @@ Menu.propTypes = {
   size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE]),
   tabIndex: PropTypes.number,
   ariaLabel: PropTypes.string,
+  ariaDescribedBy: PropTypes.string,
   focusOnMount: PropTypes.bool,
   isVisible: PropTypes.bool,
   onClose: PropTypes.func,

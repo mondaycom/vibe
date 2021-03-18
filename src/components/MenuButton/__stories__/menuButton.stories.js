@@ -60,7 +60,8 @@ export const DifferentIcon = () => (
 
 export const MenuButtonWithMenu = () => (
   <MenuButton ariaLabel="opens a menu with sub menu">
-    <Menu id="menu-in-menu-button">
+    <Menu id="menu-in-menu-button" ariaDescribedBy="title-id">
+      <MenuTitle caption="My awesome menu" id="title-id" />
       <MenuItem title="First" icon={Moon} />
       <MenuItem title="Second" icon={Sun}>
         <Menu id="sub-menu-directions">

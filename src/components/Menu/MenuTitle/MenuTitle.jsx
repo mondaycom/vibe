@@ -4,13 +4,16 @@ import cx from "classnames";
 import { CAPTION_POSITIONS } from "./MenuTitleConstants";
 import "./MenuTitle.scss";
 
-const MenuTitle = ({ classname, caption, captionPosition }) => {
+const MenuTitle = ({ classname, caption, captionPosition, id }) => {
   const renderCaptionIfNeeded = () => {
     if (caption) {
       return (
-        <div className={`monday-style-menu-title__caption monday-style-menu-title__caption--${captionPosition}`}>
+        <label
+          className={`monday-style-menu-title__caption monday-style-menu-title__caption--${captionPosition}`}
+          id={id}
+        >
           {caption}
-        </div>
+        </label>
       );
     }
   };
@@ -23,13 +26,15 @@ MenuTitle.isMenuChild = true;
 MenuTitle.defaultProps = {
   classname: "",
   caption: "",
-  captionPosition: CAPTION_POSITIONS.BOTTOM
+  id: "",
+  captionPosition: MenuTitle.positions.BOTTOM
 };
 
 MenuTitle.propTypes = {
   classname: PropTypes.string,
   caption: PropTypes.string,
-  captionPosition: PropTypes.oneOf([CAPTION_POSITIONS.BOTTOM, CAPTION_POSITIONS.TOP, CAPTION_POSITIONS.CENTER])
+  id: PropTypes.string,
+  captionPosition: PropTypes.oneOf([MenuTitle.positions.BOTTOM, MenuTitle.positions.TOP, MenuTitle.positions.CENTER])
 };
 
 export default MenuTitle;
