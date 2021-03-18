@@ -1,4 +1,5 @@
-import React, { useCallback, useRef, useEffect, useLayoutEffect } from "react";
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { useCallback, useRef, useLayoutEffect, useMemo } from "react";
 
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
@@ -49,7 +50,7 @@ const MenuItem = ({
     menuChild = submenuChild;
   } else if (submenuChild) {
     console.Error(
-      "menu item can acceept only menu element as first level child, this element is not valid: ",
+      "menu item can accept only menu element as first level child, this element is not valid: ",
       submenuChild
     );
   }
@@ -152,10 +153,18 @@ const MenuItem = ({
     );
   };
 
+  const a11yProps = useMemo(() => {
+    if (!children) return {};
+    return {
+      "aria-haspopup": true,
+      "aria-expanded": hasOpenSubMenu
+    };
+  }, [children, hasOpenSubMenu]);
+
   return (
     <li
       id={`${menuId}-${index}`}
-      aria-haspopup={!!children}
+      {...a11yProps}
       className={cx("monday-style-menu-item", classname, {
         "monday-style-menu-item--disabled": disabled,
         "monday-style-menu-item--focused": isActive,

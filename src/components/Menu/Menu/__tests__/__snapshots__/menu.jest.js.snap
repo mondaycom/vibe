@@ -21,7 +21,6 @@ exports[`Snapshots renders correctly with children 1`] = `
   </div>
   <li
     aria-current={false}
-    aria-haspopup={false}
     className="monday-style-menu-item"
     id="undefined-1"
     onClick={[Function]}
@@ -46,7 +45,6 @@ exports[`Snapshots renders correctly with children 1`] = `
   </li>
   <li
     aria-current={false}
-    aria-haspopup={false}
     className="monday-style-menu-item"
     id="undefined-2"
     onClick={[Function]}
