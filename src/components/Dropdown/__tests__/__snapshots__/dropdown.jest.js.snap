@@ -68,6 +68,7 @@ exports[`Dropdown should open menu on click if set 1`] = `
           class="dropdown-indicator css-1pxbrck-indicatorContainer"
         >
           <svg
+            aria-hidden="false"
             class="icon_component icon_component--clickable"
             fill="currentColor"
             height="20px"
@@ -206,6 +207,7 @@ exports[`Dropdown should open menu on focus if set 1`] = `
           class="dropdown-indicator css-1pxbrck-indicatorContainer"
         >
           <svg
+            aria-hidden="false"
             class="icon_component icon_component--clickable"
             fill="currentColor"
             height="20px"
@@ -368,6 +370,7 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
         onTouchEnd={[Function]}
       >
         <svg
+          aria-hidden={false}
           className="icon_component icon_component--clickable"
           fill="currentColor"
           height="20px"
@@ -480,6 +483,7 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
         onTouchEnd={[Function]}
       >
         <svg
+          aria-hidden={false}
           className="icon_component icon_component--clickable"
           fill="currentColor"
           height="20px"
@@ -592,6 +596,7 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
         onTouchEnd={[Function]}
       >
         <svg
+          aria-hidden={false}
           className="icon_component icon_component--clickable"
           fill="currentColor"
           height="16px"
@@ -704,6 +709,7 @@ exports[`Dropdown should render correctly with empty props 1`] = `
         onTouchEnd={[Function]}
       >
         <svg
+          aria-hidden={false}
           className="icon_component icon_component--clickable"
           fill="currentColor"
           height="20px"
@@ -806,6 +812,7 @@ exports[`Dropdown should use async if set 1`] = `
           class="dropdown-indicator css-slqvkp-indicatorContainer"
         >
           <svg
+            aria-hidden="false"
             class="icon_component icon_component--clickable"
             fill="currentColor"
             height="20px"
@@ -894,6 +901,7 @@ exports[`Dropdown should use virtualization if set 1`] = `
           class="dropdown-indicator css-1pxbrck-indicatorContainer"
         >
           <svg
+            aria-hidden="false"
             class="icon_component icon_component--clickable"
             fill="currentColor"
             height="20px"

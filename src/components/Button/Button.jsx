@@ -52,14 +52,15 @@ const Button = forwardRef(
       ariaLabeledBy,
       defaultTextColorOnPrimaryColor,
       ariaHasPopup,
-      ariaExpanded
+      ariaExpanded,
+      ariaControls
     },
     ref
   ) => {
     const buttonRef = useRef(null);
 
     const updateCssVariables = useMemo(() => {
-      const callback = ({ borderBoxSize }) => {
+      return ({ borderBoxSize }) => {
         const { blockSize, inlineSize } = borderBoxSize;
         const width = Math.max(inlineSize, MIN_BUTTON_HEIGHT_PX);
         const height = Math.max(blockSize, MIN_BUTTON_HEIGHT_PX);
@@ -67,7 +68,6 @@ const Button = forwardRef(
         buttonRef.current.style.setProperty("--element-width", `${width}px`);
         buttonRef.current.style.setProperty("--element-height", `${height}px`);
       };
-      return callback;
     }, [buttonRef]);
 
     useResizeObserver({
@@ -175,7 +175,8 @@ const Button = forwardRef(
         "aria-label": ariaLabel,
         "aria-busy": loading,
         "aria-haspopup": ariaHasPopup,
-        "aria-expended": ariaExpanded
+        "aria-expended": ariaExpanded,
+        "aria-controls": ariaControls
       };
     }, [
       disabled,
@@ -192,7 +193,10 @@ const Button = forwardRef(
       onFocus,
       onBlur,
       mergedRef,
-      ariaLabeledBy
+      ariaLabeledBy,
+      ariaControls,
+      ariaExpanded,
+      ariaHasPopup
     ]);
 
     if (loading) {
@@ -302,7 +306,6 @@ Button.propTypes = {
   marginRight: PropTypes.bool,
   /** adds 8px margin to the left */
   marginLeft: PropTypes.bool,
-
   /** element id to describe the button accordingly */
   ariaLabeledBy: PropTypes.string,
   /** aria label to provide important when providing only Icon */
@@ -311,6 +314,8 @@ Button.propTypes = {
   ariaHasPopup: PropTypes.bool,
   /** aria to be set if the popup is open */
   ariaExpanded: PropTypes.bool,
+  /** aria controls - receives id for the controlled region */
+  ariaControls: PropTypes.string,
   /** On Button Focus callback */
   onFocus: PropTypes.func,
   /** On Button Blur callback */
@@ -328,6 +333,7 @@ Button.defaultProps = {
   onClick: NOOP,
   onMouseDown: NOOP,
   name: "",
+  style: undefined,
   size: SIZES.MEDIUM,
   color: BUTTON_COLORS.PRIMARY,
   disabled: false,
@@ -343,8 +349,6 @@ Button.defaultProps = {
   marginRight: false,
   marginLeft: false,
   type: BUTTON_INPUT_TYPE.BUTTON,
-  ariaLabel: "",
-  ariaLabeledBy: "",
   rightFlat: false,
   leftFlat: false,
   preventClickAnimation: false,
@@ -353,7 +357,10 @@ Button.defaultProps = {
   onBlur: NOOP,
   defaultTextColorOnPrimaryColor: TRANSPARENT_COLOR,
   ariaHasPopup: false,
-  ariaExpanded: false
+  ariaExpanded: false,
+  ariaControls: undefined,
+  ariaLabel: undefined,
+  ariaLabeledBy: undefined
 };
 
 export default Button;

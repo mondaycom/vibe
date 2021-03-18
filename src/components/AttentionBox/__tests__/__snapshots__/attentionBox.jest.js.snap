@@ -5,12 +5,11 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly 1`] = `
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary dummy-class-name"
   role="complementary"
 >
-  <div
-    aria-level="2"
+  <h2
     className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
-    role="heading"
   >
     <svg
+      aria-hidden={true}
       className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
@@ -32,7 +31,7 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly 1`] = `
     >
       Title
     </span>
-  </div>
+  </h2>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
   >
@@ -46,12 +45,11 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly with empty props 1`
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
   role="complementary"
 >
-  <div
-    aria-level="2"
+  <h2
     className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
-    role="heading"
   >
     <svg
+      aria-hidden={true}
       className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
@@ -73,7 +71,7 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly with empty props 1`
     >
       
     </span>
-  </div>
+  </h2>
   <div
     className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
   >

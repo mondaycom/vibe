@@ -6,6 +6,7 @@ exports[`Snapshots renders correctly with children 1`] = `
   className="monday-style-menu dummy-class-name monday-style-menu--medium"
   onBlur={[Function]}
   onFocus={[Function]}
+  role="menu"
   tabIndex={0}
 >
   <div
@@ -21,6 +22,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     aria-haspopup={false}
     className="monday-style-menu-item"
     onClick={[Function]}
+    role="menuitem"
   >
     <div
       className="monday-style-menu-item__title"
@@ -43,6 +45,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     aria-haspopup={false}
     className="monday-style-menu-item"
     onClick={[Function]}
+    role="menuitem"
   >
     <div
       className="monday-style-menu-item__title"
@@ -70,6 +73,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
   className="monday-style-menu dummy-class-name monday-style-menu--medium"
   onBlur={[Function]}
   onFocus={[Function]}
+  role="menu"
   tabIndex={0}
 />
 `;
@@ -80,6 +84,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
   className="monday-style-menu monday-style-menu--medium"
   onBlur={[Function]}
   onFocus={[Function]}
+  role="menu"
   tabIndex={0}
 />
 `;

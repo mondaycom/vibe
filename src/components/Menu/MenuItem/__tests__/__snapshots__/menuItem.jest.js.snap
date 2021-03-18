@@ -5,6 +5,7 @@ exports[`Snapshots renders correctly when disabled 1`] = `
   aria-haspopup={false}
   className="monday-style-menu-item monday-style-menu-item--disabled"
   onClick={[Function]}
+  role="menuitem"
 >
   <div
     className="monday-style-menu-item__title"
@@ -30,6 +31,7 @@ exports[`Snapshots renders correctly when selected 1`] = `
   aria-haspopup={false}
   className="monday-style-menu-item monday-style-menu-item--selected"
   onClick={[Function]}
+  role="menuitem"
 >
   <div
     className="monday-style-menu-item__title"
@@ -55,6 +57,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
   aria-haspopup={false}
   className="monday-style-menu-item dummy-class-name"
   onClick={[Function]}
+  role="menuitem"
 >
   <div
     className="monday-style-menu-item__title"
@@ -80,6 +83,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
   aria-haspopup={false}
   className="monday-style-menu-item"
   onClick={[Function]}
+  role="menuitem"
 >
   <div
     className="monday-style-menu-item__title"
@@ -105,11 +109,13 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
   aria-haspopup={false}
   className="monday-style-menu-item"
   onClick={[Function]}
+  role="menuitem"
 >
   <div
     className="monday-style-menu-item__icon-wrapper"
   >
     <span
+      aria-hidden={false}
       aria-label="my item"
       className="icon_component monday-style-menu-item__icon icon_component--no-focus-style fa fa fa-star"
       onClick={[Function]}

@@ -7,8 +7,8 @@ exports[`Snapshots renders correctly with disabled 1`] = `
 >
   <button
     aria-busy={false}
-    aria-label=""
-    aria-labelledby=""
+    aria-expended={false}
+    aria-haspopup={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     disabled={true}
     id=""
@@ -35,8 +35,9 @@ exports[`Snapshots renders correctly with disabled 1`] = `
     >
       <button
         aria-busy={false}
+        aria-expended={false}
+        aria-haspopup={true}
         aria-label="additional actions"
-        aria-labelledby=""
         className="monday-style-split-button__secondary-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation monday-style-button--no-side-padding"
         disabled={true}
         id=""
@@ -52,6 +53,7 @@ exports[`Snapshots renders correctly with disabled 1`] = `
           className="monday-style-split-button__secondary-button-icon-wrapper"
         >
           <svg
+            aria-hidden="true"
             fill="currentColor"
             height="20"
             viewBox="0 0 20 20"
@@ -78,8 +80,8 @@ exports[`Snapshots renders correctly with only required props 1`] = `
 >
   <button
     aria-busy={false}
-    aria-label=""
-    aria-labelledby=""
+    aria-expended={false}
+    aria-haspopup={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     disabled={false}
     id=""
@@ -106,8 +108,9 @@ exports[`Snapshots renders correctly with only required props 1`] = `
     >
       <button
         aria-busy={false}
+        aria-expended={false}
+        aria-haspopup={true}
         aria-label="additional actions"
-        aria-labelledby=""
         className="monday-style-split-button__secondary-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation monday-style-button--no-side-padding"
         disabled={false}
         id=""
@@ -123,6 +126,7 @@ exports[`Snapshots renders correctly with only required props 1`] = `
           className="monday-style-split-button__secondary-button-icon-wrapper"
         >
           <svg
+            aria-hidden="true"
             fill="currentColor"
             height="20"
             viewBox="0 0 20 20"
@@ -149,8 +153,8 @@ exports[`Snapshots renders correctly with tertiary button 1`] = `
 >
   <button
     aria-busy={false}
-    aria-label=""
-    aria-labelledby=""
+    aria-expended={false}
+    aria-haspopup={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     disabled={true}
     id=""
@@ -177,8 +181,9 @@ exports[`Snapshots renders correctly with tertiary button 1`] = `
     >
       <button
         aria-busy={false}
+        aria-expended={false}
+        aria-haspopup={true}
         aria-label="additional actions"
-        aria-labelledby=""
         className="monday-style-split-button__secondary-button monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation monday-style-button--no-side-padding"
         disabled={true}
         id=""
@@ -194,6 +199,7 @@ exports[`Snapshots renders correctly with tertiary button 1`] = `
           className="monday-style-split-button__secondary-button-icon-wrapper"
         >
           <svg
+            aria-hidden="true"
             fill="currentColor"
             height="20"
             viewBox="0 0 20 20"

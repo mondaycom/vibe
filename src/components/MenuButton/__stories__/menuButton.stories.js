@@ -7,6 +7,11 @@ import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown
 import "./menuButton.style.scss";
 import { Menu, MenuItem, MenuTitle } from "../../index";
 import { Favorite, Sun, Moon } from "../../Icon/Icons";
+import Bolt from "../../Icon/Icons/components/Bolt";
+import MoveArrowUp from "../../Icon/Icons/components/MoveArrowUp";
+import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
+import MoveArrowLeft from "../../Icon/Icons/components/MoveArrowLeft";
+import MoveArrowRight from "../../Icon/Icons/components/MoveArrowRight";
 
 const NOOP = () => {};
 
@@ -51,6 +56,23 @@ export const DifferentIcon = () => (
       <MenuButtonContent />
     </MenuButton>
   </div>
+);
+
+export const MenuButtonWithMenu = () => (
+  <MenuButton ariaLabel="opens a menu with sub menu">
+    <Menu>
+      <MenuItem title="First" icon={Moon} />
+      <MenuItem title="Second" icon={Sun}>
+        <Menu>
+          <MenuItem title="Up" icon={MoveArrowUp} />
+          <MenuItem title="Down" icon={MoveArrowDown} />
+          <MenuItem title="Left" icon={MoveArrowLeft} />
+          <MenuItem title="Right" icon={MoveArrowRight} />
+        </Menu>
+      </MenuItem>
+      <MenuItem title="Third" icon={Bolt} />
+    </Menu>
+  </MenuButton>
 );
 
 export const Sizes = () => (
