@@ -2,6 +2,7 @@
 @import "../../../styles/typography.scss";
 
 .monday-style-menu-item {
+  margin: unset;
   @include font-default;
   display: flex;
   flex-direction: row;

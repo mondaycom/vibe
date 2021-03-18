@@ -93,7 +93,7 @@ const Menu = forwardRef(
     });
 
     return (
-      <div
+      <ul
         onFocus={focusWithinProps.onFocus}
         onBlur={focusWithinProps.onBlur}
         id={id}
@@ -102,6 +102,7 @@ const Menu = forwardRef(
         tabIndex={tabIndex}
         aria-label={ariaLabel}
         role="menu"
+        aria-activedescendant={`${id}-${activeItemIndex}`}
       >
         {children &&
           React.Children.map(children, (child, index) => {
@@ -115,10 +116,11 @@ const Menu = forwardRef(
               isParentMenuVisible: isVisible,
               setSubMenuIsOpenByIndex,
               hasOpenSubMenu: index === openSubMenuIndex,
-              closeMenu: onCloseMenu
+              closeMenu: onCloseMenu,
+              menuId: id
             });
           })}
-      </div>
+      </ul>
     );
   }
 );

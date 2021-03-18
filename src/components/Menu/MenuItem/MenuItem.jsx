@@ -31,6 +31,7 @@ const MenuItem = ({
   activeItemIndex,
   setActiveItemIndex,
   index,
+  menuId,
   children,
   isParentMenuVisible,
   resetOpenSubMenuIndex,
@@ -152,7 +153,8 @@ const MenuItem = ({
   };
 
   return (
-    <div
+    <li
+      id={`${menuId}-${index}`}
       aria-haspopup={!!children}
       className={cx("monday-style-menu-item", classname, {
         "monday-style-menu-item--disabled": disabled,
@@ -162,6 +164,7 @@ const MenuItem = ({
       ref={mergedRef}
       onClick={onClickCallback}
       role="menuitem"
+      aria-current={isActive}
     >
       {renderMenuItemIconIfNeeded()}
 
@@ -196,7 +199,7 @@ const MenuItem = ({
           </DialogContentContainer>
         )}
       </div>
-    </div>
+    </li>
   );
 };
 

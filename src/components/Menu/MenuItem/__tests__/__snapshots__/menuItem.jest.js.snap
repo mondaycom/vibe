@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Snapshots renders correctly when disabled 1`] = `
-<div
+<li
+  aria-current={false}
   aria-haspopup={false}
   className="monday-style-menu-item monday-style-menu-item--disabled"
+  id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
 >
@@ -23,13 +25,15 @@ exports[`Snapshots renders correctly when disabled 1`] = `
       }
     }
   />
-</div>
+</li>
 `;
 
 exports[`Snapshots renders correctly when selected 1`] = `
-<div
+<li
+  aria-current={false}
   aria-haspopup={false}
   className="monday-style-menu-item monday-style-menu-item--selected"
+  id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
 >
@@ -49,13 +53,15 @@ exports[`Snapshots renders correctly when selected 1`] = `
       }
     }
   />
-</div>
+</li>
 `;
 
 exports[`Snapshots renders correctly with custom class name 1`] = `
-<div
+<li
+  aria-current={false}
   aria-haspopup={false}
   className="monday-style-menu-item dummy-class-name"
+  id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
 >
@@ -75,13 +81,15 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
       }
     }
   />
-</div>
+</li>
 `;
 
 exports[`Snapshots renders correctly with empty props 1`] = `
-<div
+<li
+  aria-current={false}
   aria-haspopup={false}
   className="monday-style-menu-item"
+  id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
 >
@@ -101,13 +109,15 @@ exports[`Snapshots renders correctly with empty props 1`] = `
       }
     }
   />
-</div>
+</li>
 `;
 
 exports[`Snapshots renders correctly with title and icon 1`] = `
-<div
+<li
+  aria-current={false}
   aria-haspopup={false}
   className="monday-style-menu-item"
+  id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
 >
@@ -139,5 +149,5 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
       }
     }
   />
-</div>
+</li>
 `;

@@ -2,6 +2,8 @@
 @import "../../../styles/typography.scss";
 
 .monday-style-menu {
+  margin: unset;
+  padding: unset;
   &:focus {
     outline: none;
   }
