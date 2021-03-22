@@ -38,7 +38,7 @@ const Icon = forwardRef(
       return null;
     }
 
-    if (iconType === ICON_TYPES.SVG) {
+    if (iconType === ICON_TYPES.SVG || typeof icon === "function") {
       const IconComponent = icon;
       return (
         <IconComponent

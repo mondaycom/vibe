@@ -153,6 +153,7 @@ const TextField = forwardRef(
                 iconLabel={iconsNames.primary}
                 iconType={Icon.type.ICON_FONT}
                 ignoreFocusStyle
+                iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
               />
             </div>
             <div
@@ -171,6 +172,7 @@ const TextField = forwardRef(
                 iconLabel={iconsNames.secondary}
                 iconType={Icon.type.ICON_FONT}
                 ignoreFocusStyle
+                iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
               />
             </div>
           </div>
@@ -213,8 +215,8 @@ TextField.propTypes = {
   disabled: PropTypes.bool,
   readonly: PropTypes.bool,
   setRef: PropTypes.func,
-  iconName: PropTypes.string,
-  secondaryIconName: PropTypes.string,
+  iconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  secondaryIconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   id: PropTypes.string,
   title: PropTypes.string,
   /** SIZES is exposed on the component itself */
@@ -228,7 +230,7 @@ TextField.propTypes = {
   wrapperClassName: PropTypes.string,
   onIconClick: PropTypes.func,
   clearOnIconClick: PropTypes.bool,
-  labelIconName: PropTypes.string,
+  labelIconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   showCharCount: PropTypes.bool,
   inputAriaLabel: PropTypes.string,
   /**  Icon names labels for a11y */

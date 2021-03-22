@@ -6,6 +6,8 @@ import SearchStoryLine from "./SearchStoryLine";
 import { FlexLayout } from "../../storybook-helpers";
 import Search from "../Search";
 import { withPerformance } from "storybook-addon-performance";
+import { CloseSmall } from "../../Icon/Icons";
+import SearchIcon from "../../Icon/Icons/components/Search";
 
 export const Sandbox = () => {
   return (
@@ -43,8 +45,8 @@ export const Sizes = () => {
           <Search
             className=""
             inputAriaLabel="Search for content"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
+            iconName={SearchIcon}
+            secondaryIconName={CloseSmall}
             id="size_1"
             placeholder="Placeholder text goes here"
             size={Search.sizes.SMALL}
@@ -58,8 +60,8 @@ export const Sizes = () => {
           <Search
             className=""
             inputAriaLabel="Search for content"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
+            iconName={SearchIcon}
+            secondaryIconName={CloseSmall}
             id="size_2"
             placeholder="Placeholder text goes here"
             size={Search.sizes.MEDIUM}
@@ -73,8 +75,8 @@ export const Sizes = () => {
           <Search
             className=""
             inputAriaLabel="Search for content"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
+            iconName={SearchIcon}
+            secondaryIconName={CloseSmall}
             id="size_3"
             placeholder="Placeholder text goes here"
             size={Search.sizes.LARGE}
@@ -95,8 +97,8 @@ export const States = () => {
           <Search
             className=""
             inputAriaLabel="Search for content"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
+            iconName={SearchIcon}
+            secondaryIconName={CloseSmall}
             id="states_1"
             placeholder="Placeholder text goes here"
             size={Search.sizes.MEDIUM}
@@ -110,8 +112,8 @@ export const States = () => {
           <Search
             className="input-component__input--hover"
             inputAriaLabel="Search for content"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
+            iconName={SearchIcon}
+            secondaryIconName={CloseSmall}
             id="states_1"
             placeholder="Placeholder text goes here"
             size={Search.sizes.MEDIUM}
@@ -124,8 +126,8 @@ export const States = () => {
         <SearchStoryLine title="Filled">
           <Search
             inputAriaLabel="Search for content"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
+            iconName={SearchIcon}
+            secondaryIconName={CloseSmall}
             id="states_1"
             placeholder="Placeholder text goes here"
             size={Search.sizes.MEDIUM}
@@ -139,8 +141,8 @@ export const States = () => {
           <Search
             className="input-component__input--active"
             inputAriaLabel="Search for content"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
+            iconName={SearchIcon}
+            secondaryIconName={CloseSmall}
             id="states_1"
             placeholder="Placeholder text goes here"
             size={Search.sizes.MEDIUM}
@@ -154,8 +156,8 @@ export const States = () => {
           <Search
             className="input-component__input--active"
             inputAriaLabel="Search for content"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
+            iconName={SearchIcon}
+            secondaryIconName={CloseSmall}
             id="states_1"
             placeholder="Placeholder text goes here"
             size={Search.sizes.MEDIUM}

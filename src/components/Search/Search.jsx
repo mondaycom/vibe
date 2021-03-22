@@ -87,8 +87,8 @@ Search.sizes = SIZES;
 Search.types = TYPES;
 
 Search.propTypes = {
-  secondaryIconName: PropTypes.string,
-  iconName: PropTypes.string,
+  secondaryIconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  iconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   onChange: PropTypes.func,
   autoFocus: PropTypes.bool,
   underline: PropTypes.bool,
