@@ -4,6 +4,7 @@
 .editable-heading--wrapper {
   width: 100%;
   min-width: 0;
+  border: 1px solid transparent;
   &:focus,
   &:active {
     outline: none;
