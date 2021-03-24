@@ -83,7 +83,8 @@ module.exports = options => {
       path: __dirname + "/dist/",
       filename: "[name].js",
       library: "monday-style",
-      libraryTarget: "umd"
+      libraryTarget: "umd",
+      globalObject: "this"
     },
     optimization: {
       minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
