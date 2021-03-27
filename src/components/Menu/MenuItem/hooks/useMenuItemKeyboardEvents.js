@@ -38,11 +38,15 @@ export default function useMenuItemKeyboardEvents(
       const isKeyEvent = !!event.key;
 
       const clickCallback = () => {
+        event.preventDefault();
         onClick(event);
         closeMenu({ propagate: true });
       };
 
       if (isKeyEvent && onClick && !disabled && isActive) {
+        if (event.key === "ArrowRight") {
+          return;
+        }
         clickCallback();
       }
 
@@ -81,8 +85,7 @@ export default function useMenuItemKeyboardEvents(
   useKeyEvent({
     keys: KEYS,
     callback: onClickCallback,
-    ref: useDocumentEventListeners ? undefined : menuRef,
-    preventDefault: true
+    ref: useDocumentEventListeners ? undefined : menuRef
   });
 
   return { onClickCallback };
