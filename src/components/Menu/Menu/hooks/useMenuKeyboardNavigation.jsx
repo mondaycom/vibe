@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useMemo } from "react";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
 const ARROW_DIRECTIONS = {
@@ -22,16 +22,13 @@ export default function useMenuKeyboardNavigation(
   setActiveItemIndex,
   isVisible,
   ref,
-  resetOpenSubMenuIndex
+  resetOpenSubMenuIndex,
+  useDocumentEventListeners
 ) {
   const onArrowKeyEvent = useCallback(
     direction => {
       let newIndex;
-      const refElement = ref && ref.current;
-      if (document.activeElement === refElement && hasOpenSubMenu) {
-        resetOpenSubMenuIndex(); // as a fallback for blur from sub menu and sub menu not closing
-        return;
-      }
+
       if (hasOpenSubMenu) return false;
 
       if (direction === ARROW_DIRECTIONS.DOWN) {
@@ -52,7 +49,7 @@ export default function useMenuKeyboardNavigation(
 
       if (newIndex || newIndex === 0) setActiveItemIndex(newIndex);
     },
-    [ref, activeItemIndex, children, hasOpenSubMenu, setActiveItemIndex, resetOpenSubMenuIndex]
+    [activeItemIndex, children, hasOpenSubMenu, setActiveItemIndex]
   );
   const onArrowUp = useCallback(() => {
     onArrowKeyEvent(ARROW_DIRECTIONS.UP);
@@ -73,27 +70,31 @@ export default function useMenuKeyboardNavigation(
     [setActiveItemIndex, activeItemIndex, isVisible]
   );
 
+  const listenerOptions = useMemo(() => {
+    if (useDocumentEventListeners) return undefined;
+
+    return {
+      ref,
+      preventDefault: true,
+      stopPropagation: true
+    };
+  }, [useDocumentEventListeners, ref]);
+
   useKeyEvent({
     keys: ARROW_DOWN_KEYS,
     callback: onArrowDown,
-    ref,
-    preventDefault: true,
-    stopPropagation: true
+    ...listenerOptions
   });
 
   useKeyEvent({
     keys: ARROW_UP_KEYS,
     callback: onArrowUp,
-    ref,
-    preventDefault: true,
-    stopPropagation: true
+    ...listenerOptions
   });
 
   useKeyEvent({
     keys: ENTER_KEYS,
     callback: onEnterClickCallback,
-    ref,
-    preventDefault: true,
-    stopPropagation: true
+    ...listenerOptions
   });
 }

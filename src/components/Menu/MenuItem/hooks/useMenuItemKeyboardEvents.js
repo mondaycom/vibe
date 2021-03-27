@@ -15,13 +15,11 @@ export default function useMenuItemKeyboardEvents(
   setSubMenuIsOpenByIndex,
   menuRef,
   isMouseEnter,
-  closeMenu
+  closeMenu,
+  useDocumentEventListeners
 ) {
   const onClickCallback = useCallback(
     event => {
-      event.preventDefault();
-      event.stopPropagation();
-
       if (!isActive && !isMouseEnter) return;
 
       if (!setActiveItemIndex || !setSubMenuIsOpenByIndex) {
@@ -75,14 +73,15 @@ export default function useMenuItemKeyboardEvents(
       hasChildren,
       shouldShowSubMenu,
       setSubMenuIsOpenByIndex,
-      isMouseEnter
+      isMouseEnter,
+      closeMenu
     ]
   );
 
   useKeyEvent({
     keys: KEYS,
     callback: onClickCallback,
-    ref: menuRef,
+    ref: useDocumentEventListeners ? undefined : menuRef,
     preventDefault: true
   });
 

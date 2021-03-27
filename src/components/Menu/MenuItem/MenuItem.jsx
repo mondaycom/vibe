@@ -38,7 +38,8 @@ const MenuItem = ({
   resetOpenSubMenuIndex,
   hasOpenSubMenu,
   setSubMenuIsOpenByIndex,
-  closeMenu
+  closeMenu,
+  useDocumentEventListeners
 }) => {
   const isActive = activeItemIndex === index;
   const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -92,16 +93,19 @@ const MenuItem = ({
     setSubMenuIsOpenByIndex,
     menuRef,
     isMouseEnter,
-    closeMenu
+    closeMenu,
+    useDocumentEventListeners
   );
 
   useLayoutEffect(() => {
+    if (useDocumentEventListeners) return;
+
     if (shouldShowSubMenu && childElement) {
       requestAnimationFrame(() => {
         childElement.focus();
       });
     }
-  }, [shouldShowSubMenu, childElement]);
+  }, [shouldShowSubMenu, childElement, useDocumentEventListeners]);
 
   const closeSubMenu = useCallback(
     (options = {}) => {
@@ -229,7 +233,8 @@ MenuItem.defaultProps = {
   isParentMenuVisible: false,
   hasOpenSubMenu: false,
   setSubMenuIsOpenByIndex: undefined,
-  resetOpenSubMenuIndex: undefined
+  resetOpenSubMenuIndex: undefined,
+  useDocumentEventListeners: false
 };
 
 MenuItem.propTypes = {
@@ -246,7 +251,8 @@ MenuItem.propTypes = {
   isParentMenuVisible: PropTypes.bool,
   resetOpenSubMenuIndex: PropTypes.func,
   hasOpenSubMenu: PropTypes.bool,
-  setSubMenuIsOpenByIndex: PropTypes.func
+  setSubMenuIsOpenByIndex: PropTypes.func,
+  useDocumentEventListeners: PropTypes.bool
 };
 
 MenuItem.isSelectable = true;
