@@ -44,7 +44,10 @@ export const Checkbox = ({
   }
 
   return (
-    <label className={cx(BASE_CLASS_NAME, componentClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })} onMouseUp={onMouseUpCallback}>
+    <label
+      className={cx(BASE_CLASS_NAME, componentClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
+      onMouseUp={onMouseUpCallback}
+    >
       <input
         ref={inputRef}
         id={id}
