@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
 
+import Tooltip from "../../Tooltip/Tooltip";
 import Icon from "../../Icon/Icon";
 import DropdownChevronRight from "../../Icon/Icons/components/DropdownChevronRight";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
@@ -27,6 +28,7 @@ const MenuItem = ({
   menuRef,
   iconType,
   disabled,
+  disableReason,
   selected,
   onClick,
   activeItemIndex,
@@ -39,7 +41,9 @@ const MenuItem = ({
   hasOpenSubMenu,
   setSubMenuIsOpenByIndex,
   closeMenu,
-  useDocumentEventListeners
+  useDocumentEventListeners,
+  tooltipPosition,
+  tooltipShowDelay
 }) => {
   const isActive = activeItemIndex === index;
   const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -165,54 +169,63 @@ const MenuItem = ({
     };
   }, [children, hasOpenSubMenu]);
 
+  const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled;
+  const tooltipContent = disabled ? disableReason : title;
+
   return (
-    <li
-      id={`${menuId}-${index}`}
-      {...a11yProps}
-      className={cx("monday-style-menu-item", classname, {
-        "monday-style-menu-item--disabled": disabled,
-        "monday-style-menu-item--focused": isActive,
-        "monday-style-menu-item--selected": selected
-      })}
-      ref={mergedRef}
-      onClick={onClickCallback}
-      role="menuitem"
-      aria-current={isActive}
+    <Tooltip
+      content={shouldShowTooltip ? tooltipContent : null}
+      position={tooltipPosition}
+      showDelay={tooltipShowDelay}
     >
-      {renderMenuItemIconIfNeeded()}
-
-      {// show tooltip if needed
-      isTitleHoveredAndOverflowing && null}
-
-      <div ref={titleRef} className="monday-style-menu-item__title">
-        {title}
-      </div>
-      {label && (
-        <div ref={titleRef} className="monday-style-menu-item__label">
-          {label}
-        </div>
-      )}
-      {renderSubMenuIconIfNeeded()}
-      <div
-        style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...attributes.popper}
-        className="monday-style-menu-item__popover"
-        ref={popperElementRef}
+      <li
+        id={`${menuId}-${index}`}
+        {...a11yProps}
+        className={cx("monday-style-menu-item", classname, {
+          "monday-style-menu-item--disabled": disabled,
+          "monday-style-menu-item--focused": isActive,
+          "monday-style-menu-item--selected": selected
+        })}
+        ref={mergedRef}
+        onClick={onClickCallback}
+        role="menuitem"
+        aria-current={isActive}
       >
-        {menuChild && shouldShowSubMenu && (
-          <DialogContentContainer>
-            {React.cloneElement(menuChild, {
-              ...menuChild?.props,
-              isVisible: shouldShowSubMenu,
-              isSubMenu: true,
-              onClose: closeSubMenu,
-              ref: childRef
-            })}
-          </DialogContentContainer>
+        {renderMenuItemIconIfNeeded()}
+
+        {// show tooltip if needed
+        isTitleHoveredAndOverflowing && null}
+
+        <div ref={titleRef} className="monday-style-menu-item__title">
+          {title}
+        </div>
+        {label && (
+          <div ref={titleRef} className="monday-style-menu-item__label">
+            {label}
+          </div>
         )}
-      </div>
-    </li>
+        {renderSubMenuIconIfNeeded()}
+        <div
+          style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...attributes.popper}
+          className="monday-style-menu-item__popover"
+          ref={popperElementRef}
+        >
+          {menuChild && shouldShowSubMenu && (
+            <DialogContentContainer>
+              {React.cloneElement(menuChild, {
+                ...menuChild?.props,
+                isVisible: shouldShowSubMenu,
+                isSubMenu: true,
+                onClose: closeSubMenu,
+                ref: childRef
+              })}
+            </DialogContentContainer>
+          )}
+        </div>
+      </li>
+    </Tooltip>
   );
 };
 
@@ -225,6 +238,7 @@ MenuItem.defaultProps = {
   icon: "",
   iconType: undefined,
   disabled: false,
+  disableReason: undefined,
   selected: false,
   onClick: undefined,
   activeItemIndex: -1,
@@ -234,7 +248,9 @@ MenuItem.defaultProps = {
   hasOpenSubMenu: false,
   setSubMenuIsOpenByIndex: undefined,
   resetOpenSubMenuIndex: undefined,
-  useDocumentEventListeners: false
+  useDocumentEventListeners: false,
+  tooltipPosition: "right",
+  tooltipShowDelay: 300
 };
 
 MenuItem.propTypes = {
@@ -243,6 +259,7 @@ MenuItem.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   disabled: PropTypes.bool,
+  disableReason: PropTypes.string,
   selected: PropTypes.bool,
   onClick: PropTypes.func,
   activeItemIndex: PropTypes.number,
@@ -252,7 +269,9 @@ MenuItem.propTypes = {
   resetOpenSubMenuIndex: PropTypes.func,
   hasOpenSubMenu: PropTypes.bool,
   setSubMenuIsOpenByIndex: PropTypes.func,
-  useDocumentEventListeners: PropTypes.bool
+  useDocumentEventListeners: PropTypes.bool,
+  tooltipPosition: PropTypes.oneOf("right", "left", "top", "bottom"),
+  tooltipShowDelay: PropTypes.number
 };
 
 MenuItem.isSelectable = true;
