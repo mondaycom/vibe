@@ -183,6 +183,13 @@ export const iconsMetaData = [
   },
 
   {
+    name: "CloseRound",
+    file: "CloseRound.svg",
+    description: "Close Round",
+    tags: "Close, X, Cancel, Round",
+    category: [BASIC],
+  },
+  {
     name: "CloseSmall",
     file: "CloseSmall.svg",
     description: "Close Small",
@@ -197,6 +204,16 @@ export const iconsMetaData = [
     tags: "Code, Design",
     category: [BASIC],
   },
+
+  {
+    name: "CollapseRound",
+    file: "CollapseRound.svg",
+    description: "Collapse Round",
+    tags: "Collapse, Round, Close",
+    category: [BASIC],
+  },
+
+
 
   {
     name: "Column",
