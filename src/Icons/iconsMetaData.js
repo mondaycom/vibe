@@ -5,10 +5,10 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "MoreBelowFilled",
-      file: "MoreBelowFilled.svg",
-      description: "filled box with a curved arrow",
-      tags: "arrow"
+    name: "MoreBelowFilled",
+    file: "MoreBelowFilled.svg",
+    description: "filled box with a curved arrow",
+    tags: "arrow",
   },
   {
     name: "Activity",
@@ -185,14 +185,6 @@ export const iconsMetaData = [
     tags: "Close, X, Cancel",
     category: [BASIC],
   },
-
-  {
-    name: "CloseRound",
-    file: "CloseRound.svg",
-    description: "Close Round",
-    tags: "Close, X, Cancel, Round",
-    category: [BASIC],
-  },
   {
     name: "CloseSmall",
     file: "CloseSmall.svg",
@@ -210,15 +202,12 @@ export const iconsMetaData = [
   },
 
   {
-    name: "CollapseRound",
-    file: "CollapseRound.svg",
+    name: "Collapse",
+    file: "Collapse.svg",
     description: "Collapse Round",
     tags: "Collapse, Round, Close",
     category: [BASIC],
   },
-
-
-
   {
     name: "Column",
     file: "Column.svg",
@@ -654,7 +643,7 @@ export const iconsMetaData = [
     name: "MoreBelow",
     file: "MoreBelow.svg",
     description: "Boxed curved arrow",
-    tags: "arrow"
+    tags: "arrow",
   },
 
   {
