@@ -23,13 +23,12 @@ export const Checkbox = ({
   const iconContainerRef = useRef(null);
   const inputRef = useRef(null);
   const onMouseUpCallback = useCallback(() => {
-    if (!inputRef.current) {
-      return () => {};
-    }
+    const input = inputRef.current;
+    if (!input) return;
 
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        inputRef.current.blur();
+        input.blur();
       });
     });
   }, [inputRef]);
@@ -44,7 +43,10 @@ export const Checkbox = ({
   }
 
   return (
-    <label className={cx(BASE_CLASS_NAME, componentClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })} onMouseUp={onMouseUpCallback}>
+    <label
+      className={cx(BASE_CLASS_NAME, componentClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
+      onMouseUp={onMouseUpCallback}
+    >
       <input
         ref={inputRef}
         id={id}
