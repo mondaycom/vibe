@@ -27,6 +27,7 @@ export {default as Close} from './components/Close';
 export {default as CloseRound} from './components/CloseRound';
 export {default as CloseSmall} from './components/CloseSmall';
 export {default as Code} from './components/Code';
+export {default as Collapse} from './components/Collapse';
 export {default as CollapseRound} from './components/CollapseRound';
 export {default as Column} from './components/Column';
 export {default as Comment} from './components/Comment';
