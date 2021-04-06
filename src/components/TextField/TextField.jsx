@@ -43,6 +43,8 @@ const TextField = forwardRef(
       labelIconName,
       showCharCount,
       inputAriaLabel,
+      searchResultsContainerId,
+      activeDescendant,
       iconsNames,
       type,
       maxLength,
@@ -132,9 +134,12 @@ const TextField = forwardRef(
               onBlur={onBlur}
               onFocus={onFocus}
               onKeyDown={onKeyDown}
-              aria-label={inputAriaLabel || placeholder}
               maxLength={maxLength}
+              role={searchResultsContainerId && "combobox"} // For voice reader
+              aria-label={inputAriaLabel || placeholder}
               aria-invalid={validation && validation.status === "error"}
+              aria-owns={searchResultsContainerId}
+              aria-activedescendant={activeDescendant}
               required={required}
             />
             <div
@@ -233,6 +238,8 @@ TextField.propTypes = {
   labelIconName: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   showCharCount: PropTypes.bool,
   inputAriaLabel: PropTypes.string,
+  searchResultsContainerId: PropTypes.string,
+  activeDescendant: PropTypes.string,
   /**  Icon names labels for a11y */
   iconsNames: PropTypes.shape({
     layout: PropTypes.string,
@@ -275,7 +282,8 @@ TextField.defaultProps = {
   labelIconName: "",
   showCharCount: false,
   inputAriaLabel: "",
-
+  searchResultsContainerId: "",
+  activeDescendant: "",
   iconsNames: EMPTY_OBJECT,
   type: TEXT_TYPES.TEXT,
   maxLength: null,
