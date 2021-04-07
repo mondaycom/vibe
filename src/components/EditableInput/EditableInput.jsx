@@ -206,7 +206,7 @@ const EditableInput = forwardRef(
         autoComplete={autoComplete ? "on" : "off"}
         rows={rows}
         maxLength={maxLength}
-        aria-label={ariaLabel}
+        ariaLabel={ariaLabel}
       />
     );
   }
@@ -240,7 +240,7 @@ EditableInput.defaultProps = {
   onArrowKeyDown: undefined,
   onCancelEditing: undefined,
   textareaSubmitOnEnter: false,
-  ariaLabel: ""
+  ariaLabel: undefined
 };
 
 export default EditableInput;
