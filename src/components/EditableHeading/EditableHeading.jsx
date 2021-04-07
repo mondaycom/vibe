@@ -137,7 +137,8 @@ const EditableHeading = props => {
       onFinishEditing: onFinishEditingCallback,
       onCancelEditing: onCancelEditingCallback,
       onError: onInputErrorCallback,
-      onSuccess: onInputSuccessCallback
+      onSuccess: onInputSuccessCallback,
+      ariaLabel: props.inputAriaLabel
     };
   };
 
