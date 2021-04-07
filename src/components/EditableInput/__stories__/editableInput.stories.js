@@ -10,7 +10,12 @@ export const Sandbox = () => (
     <EditableInput inputType="textarea" value={"Hello textarea"} />
     <br />
     <br />
-    <EditableInput inputType="textarea" autoSize value={"Hello textarea autosize test long long text"} />
+    <EditableInput
+      inputType="textarea"
+      autoSize
+      value={"Hello textarea autosize test long long text"}
+      ariaLabel="Edit input"
+    />
   </div>
 );
 

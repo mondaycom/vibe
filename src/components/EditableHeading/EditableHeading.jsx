@@ -137,7 +137,8 @@ const EditableHeading = props => {
       onFinishEditing: onFinishEditingCallback,
       onCancelEditing: onCancelEditingCallback,
       onError: onInputErrorCallback,
-      onSuccess: onInputSuccessCallback
+      onSuccess: onInputSuccessCallback,
+      ariaLabel: props.inputAriaLabel
     };
   };
 
@@ -174,7 +175,8 @@ EditableHeading.propTypes = {
   displayPlaceholderInTextMode: PropTypes.bool,
   suggestEditOnHover: PropTypes.bool,
   autoSize: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(SIZES))
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  inputAriaLabel: PropTypes.string
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -185,7 +187,8 @@ EditableHeading.defaultProps = {
   displayPlaceholderInTextMode: true,
   suggestEditOnHover: true,
   autoSize: true,
-  size: SIZES.LARGE
+  size: SIZES.LARGE,
+  inputAriaLabel: undefined
 };
 
 EditableHeading.types = TYPES;
