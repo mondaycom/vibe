@@ -3,13 +3,7 @@
     [
       "@babel/preset-env",
       {
-        "modules": "commonjs",
-        "targets": {
-          "chrome": "49",
-          "ie": "11",
-          "firefox": "51",
-          "edge": "14"
-        }
+        "modules": "commonjs"
       }
     ],
     "@babel/preset-react"
