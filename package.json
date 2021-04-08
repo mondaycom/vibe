@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "0.0.122",
+  "version": "0.1.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
@@ -145,5 +145,15 @@
   },
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [ci-skip]"
-  }
+  },
+  "browserslist": [
+    "last 4 versions and >0.1% and not IE 11",
+    "Firefox ESR",
+    "not dead",
+    "not Samsung > 0",
+    "not op_mini all",
+    "not and_ff > 0",
+    "not and_qq > 0",
+    "not and_uc > 0"
+  ]
 }
