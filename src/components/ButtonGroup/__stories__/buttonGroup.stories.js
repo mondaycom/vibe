@@ -5,13 +5,13 @@ import ButtonGroup from "../ButtonGroup";
 export const Sandbox = () => (
   <div
     style={{
-      width: "800px",
-      height: "300px",
-      border: "1px solid"
+      width: "380px",
+      height: "400px",
+      border: "1px solid",
+      padding: "30px"
     }}
   >
-    <br />
-    <div style={{ textAlign: "center" }}>Medium Size</div>
+    <div style={{ textAlign: "left" }}>Medium Size</div>
     <br />
     <ButtonGroup
       componentClassName="buttons-group"
@@ -33,12 +33,12 @@ export const Sandbox = () => (
       kind={ButtonGroup.kinds.TERTIARY}
       options={[
         { value: 1, text: "Option 1", icon: "fa fa-star" },
-        { value: 2, text: "Option 2" },
+        { value: 2, text: "Option 2", subText: "This is a subtext" },
         { value: 3, text: "Option 3", leftIcon: "fa fa-star" }
       ]}
     />
     <br />
-    <div style={{ textAlign: "center" }}>Medium Size Disabled</div>
+    <div style={{ textAlign: "left" }}>Medium Size Disabled</div>
     <br />
     <ButtonGroup
       componentClassName="buttons-group"
@@ -53,7 +53,7 @@ export const Sandbox = () => (
       ]}
     />
     <br />
-    <div style={{ textAlign: "center" }}>Small Size</div>
+    <div style={{ textAlign: "left" }}>Small Size</div>
     <br />
     <ButtonGroup
       componentClassName="buttons-group"
