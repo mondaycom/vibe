@@ -12,6 +12,7 @@ export { default as Link } from "./Link/Link";
 export { default as CustomSvgIcon } from "./Icon/CustomSvgIcon";
 export { default as Menu } from "./Menu/Menu/Menu";
 export { default as MenuItem } from "./Menu/MenuItem/MenuItem";
+export { default as AlertBanner } from "./AlertBanner/AlertBanner";
 export { default as MenuDivider } from "./Menu/MenuDivider/MenuDivider";
 export { default as Divider } from "./Divider/Divider";
 export { default as MenuTitle } from "./Menu/MenuTitle/MenuTitle";

@@ -1,0 +1,14 @@
+@import "../../../styles/global-css-settings.scss";
+@import "../../../styles/typography.scss";
+@import "../../../styles/themes.scss";
+
+.monday-style-link.monday-style-alert-banner-link {
+  @include theme-prop(color, text-color-on-primary);
+  text-decoration: underline;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+.monday-style-alert-banner-link-margin-left {
+  margin-left: $spacing-small;
+}

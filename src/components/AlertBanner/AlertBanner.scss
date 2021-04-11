@@ -1,0 +1,39 @@
+@import "../../styles/global-css-settings.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/themes.scss";
+
+.monday-alert-banner {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-weight: 400;
+
+  &.monday-alert-banner {
+    &--background-color {
+      &-primary {
+        @include theme-prop(background-color, primary-color);
+        @include theme-prop(color, text-color-on-primary);
+      }
+      &-positive {
+        @include theme-prop(background-color, positive-color);
+        @include theme-prop(color, text-color-on-primary);
+      }
+      &-negative {
+        @include theme-prop(background-color, negative-color);
+        @include theme-prop(color, text-color-on-primary);
+      }
+      &-dark {
+        @include theme-prop(background-color, inverted-color-background);
+        @include theme-prop(color, text-color-on-inverted);
+      }
+    }
+  }
+}
+
+.monday-style-button.alert-banner-close-btn {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
