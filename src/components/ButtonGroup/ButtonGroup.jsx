@@ -7,75 +7,80 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { baseClassName } from "./ButtonGroupConstants";
 import "./ButtonGroup.scss";
 
-const ButtonGroup = forwardRef(({ componentClassName, options, name, disabled, value, onSelect, size, kind }, ref) => {
-  const inputRef = useRef();
-  const [valueState, setValueState] = useState(value);
-  const prevValue = usePrevious(value);
-  const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
+const ButtonGroup = forwardRef(
+  ({ componentClassName, options, name, disabled, value, onSelect, size, kind, groupAriaLabel }, ref) => {
+    const inputRef = useRef();
+    const [valueState, setValueState] = useState(value);
+    const prevValue = usePrevious(value);
+    const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
 
-  const onClick = useCallback(
-    option => {
-      const isDisabled = disabled || option.disabled;
-      if (!isDisabled) {
-        setValueState(option.value);
-        if (onSelect) {
-          onSelect(option.value, name);
+    const onClick = useCallback(
+      option => {
+        const isDisabled = disabled || option.disabled;
+        if (!isDisabled) {
+          setValueState(option.value);
+          if (onSelect) {
+            onSelect(option.value, name);
+          }
         }
+      },
+      [onSelect, disabled, name]
+    );
+
+    const selectedOption = useMemo(() => {
+      return options.find(option => option.value === valueState);
+    }, [options, valueState]);
+
+    const Buttons = useMemo(() => {
+      return options.map(option => {
+        const isSelected = option.value === valueState;
+        return (
+          <Button
+            key={option.value}
+            size={size}
+            onClick={() => onClick(option)}
+            rightIcon={option.icon}
+            leftIcon={option.leftIcon}
+            disabled={disabled || option.disabled}
+            active={isSelected}
+            kind={Button.kinds.TERTIARY}
+            preventClickAnimation
+            ariaLabel={option.ariaLabel}
+          >
+            {option.text && (
+              <span className={cx(`${baseClassName}__option-text`, { selected: isSelected, disabled })}>
+                {" "}
+                {option.text}{" "}
+              </span>
+            )}
+          </Button>
+        );
+      });
+    }, [options, disabled, onClick, size, valueState]);
+
+    // Effects
+    useEffect(() => {
+      // Update value if changed from props
+      if (value !== prevValue && value !== valueState) {
+        setValueState(value);
       }
-    },
-    [onSelect, disabled, name]
-  );
+    }, [value, prevValue, valueState, setValueState]);
 
-  const selectedOption = useMemo(() => {
-    return options.find(option => option.value === valueState);
-  }, [options, valueState]);
-
-  const Buttons = useMemo(() => {
-    return options.map(option => {
-      const isSelected = option.value === valueState;
-      return (
-        <Button
-          key={option.value}
-          size={size}
-          onClick={() => onClick(option)}
-          rightIcon={option.icon}
-          leftIcon={option.leftIcon}
-          disabled={disabled || option.disabled}
-          active={isSelected}
-          kind={Button.kinds.TERTIARY}
-          preventClickAnimation
-        >
-          {option.text && (
-            <span className={cx(`${baseClassName}__option-text`, { selected: isSelected, disabled })}>
-              {" "}
-              {option.text}{" "}
-            </span>
-          )}
-        </Button>
-      );
-    });
-  }, [options, disabled, onClick, size, valueState]);
-
-  // Effects
-  useEffect(() => {
-    // Update value if changed from props
-    if (value !== prevValue && value !== valueState) {
-      setValueState(value);
-    }
-  }, [value, prevValue, valueState, setValueState]);
-
-  return (
-    <div
-      className={cx(baseClassName, componentClassName, `${baseClassName}--kind-${kind}`, { disabled })}
-      ref={mergedRef}
-    >
-      <div className={cx(`${baseClassName}__buttons-container`)}>{Buttons}</div>
-      {selectedOption && selectedOption.subText && (
-        <div className={`${baseClassName}__sub-text-container`}>{selectedOption.subText}</div>
-      )}
-    </div>
-  );
-});
+    return (
+      <div
+        className={cx(baseClassName, componentClassName, `${baseClassName}--kind-${kind}`, { disabled })}
+        ref={mergedRef}
+      >
+        <div role="group" aria-label={groupAriaLabel} className={cx(`${baseClassName}__buttons-container`)}>
+          {Buttons}
+        </div>
+        {selectedOption && selectedOption.subText && (
+          <div className={`${baseClassName}__sub-text-container`}>{selectedOption.subText}</div>
+        )}
+      </div>
+    );
+  }
+);
 
 ButtonGroup.sizes = Button.sizes;
 ButtonGroup.kinds = Button.kinds;
