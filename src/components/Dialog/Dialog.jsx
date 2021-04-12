@@ -9,6 +9,7 @@ import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
 import "./Dialog.scss";
 import { Refable } from "../Refable/Refable";
+import { HIDE_SHOW_EVENTS } from "./consts/dialog-show-hide-event";
 
 const NOOP = () => {};
 
@@ -48,7 +49,7 @@ export default class Dialog extends PureComponent {
     if (!isOpen) {
       return;
     }
-    if (event.key === "Escape") this.hideDialogIfNeeded();
+    if (event.key === "Escape") this.hideDialogIfNeeded(HIDE_SHOW_EVENTS.ESCAPE_KEY);
   }
 
   componentDidMount() {
@@ -119,27 +120,27 @@ export default class Dialog extends PureComponent {
     }
   }
 
-  hideDialog() {
+  hideDialog(event, eventName) {
     const { hideDelay, instantShowAndHide } = this.props;
     if (instantShowAndHide) {
-      this.onHideDialog();
+      this.onHideDialog(event, eventName);
       this.setState({ isOpen: false });
       this.hideTimeout = null;
     } else {
       this.hideTimeout = setTimeout(() => {
-        this.onHideDialog();
+        this.onHideDialog(event, eventName);
         this.setState({ isOpen: false });
         this.hideTimeout = null;
       }, hideDelay);
     }
   }
 
-  onHideDialog() {
+  onHideDialog(event, eventName) {
     const { onDialogDidHide } = this.props;
-    if (onDialogDidHide) onDialogDidHide();
+    if (onDialogDidHide) onDialogDidHide(event, eventName);
   }
 
-  hideDialogIfNeeded() {
+  hideDialogIfNeeded(event, eventName) {
     if (this.showTimeout) {
       clearTimeout(this.showTimeout);
       this.showTimeout = null;
@@ -148,17 +149,17 @@ export default class Dialog extends PureComponent {
     if (this.hideTimeout) {
       return;
     }
-    this.hideDialog();
+    this.hideDialog(event, eventName);
   }
 
-  handleEvent(eventName, target) {
+  handleEvent(eventName, target, event) {
     const { showTriggerIgnoreClass, hideTriggerIgnoreClass } = this.props;
     if (this.isShowTrigger(eventName) && !this.isShown() && !isInsideClass(target, showTriggerIgnoreClass)) {
       return this.showDialogIfNeeded();
     }
 
     if (this.isHideTrigger(eventName) && !isInsideClass(target, hideTriggerIgnoreClass)) {
-      return this.hideDialogIfNeeded();
+      return this.hideDialogIfNeeded(event, eventName);
     }
   }
 
@@ -179,21 +180,21 @@ export default class Dialog extends PureComponent {
   }
 
   onMouseEnter(e) {
-    this.handleEvent("mouseenter", e.target);
+    this.handleEvent("mouseenter", e.target, e);
   }
 
   onMouseLeave(e) {
-    this.handleEvent("mouseleave", e.target);
+    this.handleEvent("mouseleave", e.target, e);
   }
 
   onClick(e) {
     if (e.button) return;
-    this.handleEvent("click", e.target);
+    this.handleEvent("click", e.target, e);
   }
 
   onKeyDown(event) {
     if (event.key === "Enter") {
-      this.handleEvent("enter", event.target);
+      this.handleEvent("enter", event.target, e);
     }
   }
 
@@ -216,7 +217,7 @@ export default class Dialog extends PureComponent {
 
   onClickOutside(event) {
     const { onClickOutside } = this.props;
-    this.handleEvent("clickoutside", event.target);
+    this.handleEvent("clickoutside", event.target, event);
     onClickOutside(event);
   }
 
@@ -227,12 +228,12 @@ export default class Dialog extends PureComponent {
 
   onDialogLeave() {
     const { showOnDialogEnter } = this.props;
-    if (showOnDialogEnter) this.hideDialogIfNeeded();
+    if (showOnDialogEnter) this.hideDialogIfNeeded("DialogLeave");
   }
 
   onContentClick(e) {
     const { onContentClick } = this.props;
-    this.handleEvent("onContentClick", e.target);
+    this.handleEvent("onContentClick", e.target, e);
     onContentClick();
   }
 
@@ -368,6 +369,8 @@ export default class Dialog extends PureComponent {
   }
 }
 
+Dialog.hideShowTriggers = HIDE_SHOW_EVENTS;
+
 Dialog.defaultProps = {
   referenceWrapperClassName: "",
   position: "top",
@@ -376,8 +379,8 @@ Dialog.defaultProps = {
   moveBy: { main: 0, secondary: 0 },
   showDelay: 100,
   hideDelay: 100,
-  showTrigger: "mouseenter",
-  hideTrigger: "mouseleave",
+  showTrigger: HIDE_SHOW_EVENTS.MOUSE_ENTER,
+  hideTrigger: HIDE_SHOW_EVENTS.MOUSE_LEAVE,
   showOnDialogEnter: false,
   shouldShowOnMount: false,
   disable: false,

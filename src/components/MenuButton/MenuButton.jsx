@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useMemo } from "react";
+import React, { useCallback, useState, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -32,12 +32,32 @@ const MenuButton = ({
   onMenuShow,
   disabled
 }) => {
+  const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
+  const onClick = useCallback(
+    event => {
+      if (isOpen) {
+        event.preventDefault();
+        event.stopPropagation();
+        return;
+      }
+      setIsOpen(true);
+    },
+    [setIsOpen, isOpen]
+  );
+  const onDialogDidHide = useCallback(
+    (event, hideEvent) => {
+      setIsOpen(false);
 
-  const onDialogDidHide = useCallback(() => {
-    setIsOpen(false);
-    onMenuHide();
-  }, [setIsOpen, onMenuHide]);
+      onMenuHide();
+      if (buttonRef.current && hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY) {
+        buttonRef.current.focus();
+      } else {
+        hideEvent && buttonRef.current && buttonRef.current.blur();
+      }
+    },
+    [setIsOpen, onMenuHide, buttonRef]
+  );
 
   const onDialogDidShow = useCallback(() => {
     setIsOpen(true);
@@ -45,7 +65,7 @@ const MenuButton = ({
   }, [setIsOpen, onMenuShow]);
 
   const hideTrigger = useMemo(() => {
-    const triggers = ["clickoutside", "esckey"];
+    const triggers = ["clickoutside", "esckey", "click"];
     if (closeDialogOnContentClick) {
       triggers.push("onContentClick");
     }
@@ -55,20 +75,18 @@ const MenuButton = ({
   const clonedChildren = useMemo(() => {
     const childrenArr = React.Children.toArray(children);
 
-    const cloned = childrenArr.map(child => {
+    return childrenArr.map(child => {
       const newProps = {};
       if (child.type && child.type.supportFocusOnMount) {
         newProps.focusOnMount = true;
       }
 
-      if (child.type && child.type.isMenu) {
-        newProps.onClose = onDialogDidHide;
-      }
+      // if (child.type && child.type.isMenu) {
+      //   newProps.onClose = onDialogDidHide;
+      // }
 
       return React.cloneElement(child, newProps);
     });
-
-    return cloned;
   }, [children, onDialogDidHide]);
 
   const content = useMemo(() => {
@@ -90,7 +108,6 @@ const MenuButton = ({
 
   const Icon = component;
   const iconSize = size - 4;
-
   return (
     <Dialog
       wrapperClassName={dialogClassName}
@@ -109,6 +126,8 @@ const MenuButton = ({
       isOpen={isOpen}
     >
       <button
+        onClick={onClick}
+        ref={buttonRef}
         type="button"
         role="menu"
         className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {

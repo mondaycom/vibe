@@ -90,8 +90,8 @@ const Menu = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
     const { focusWithinProps } = useFocusWithin({
-      onBlurWithin: _e => {
-        onCloseMenu && onCloseMenu();
+      onBlurWithin: e => {
+        onCloseMenu && onCloseMenu(e);
       }
     });
 
