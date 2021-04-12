@@ -316,6 +316,13 @@ export const iconsMetaData = [
     category: [PLATFORM],
   },
   {
+    name: "GIF",
+    file: "Gif.svg",
+    description: "Gif",
+    tags: "Gif",
+    category: [PLATFORM],
+  },
+  {
     name: "Group",
     file: "Group.svg",
     description: "Group",
