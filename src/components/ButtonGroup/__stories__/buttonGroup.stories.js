@@ -16,6 +16,7 @@ export const Sandbox = () => (
     <ButtonGroup
       componentClassName="buttons-group"
       name="test1"
+      groupAriaLabel="My first button group"
       onSelect={value => console.log("Selected: ", value)}
       size={ButtonGroup.sizes.MEDIUM}
       options={[
@@ -28,6 +29,7 @@ export const Sandbox = () => (
     <ButtonGroup
       componentClassName="buttons-group-tertiary"
       name="test2"
+      groupAriaLabel="My second button group"
       onSelect={value => console.log("Selected: ", value)}
       size={ButtonGroup.sizes.MEDIUM}
       kind={ButtonGroup.kinds.TERTIARY}
@@ -43,6 +45,7 @@ export const Sandbox = () => (
     <ButtonGroup
       componentClassName="buttons-group"
       name="test1"
+      groupAriaLabel="My third button group"
       onSelect={value => console.log("Selected: ", value)}
       size={ButtonGroup.sizes.MEDIUM}
       disabled
@@ -58,6 +61,7 @@ export const Sandbox = () => (
     <ButtonGroup
       componentClassName="buttons-group"
       name="test1"
+      groupAriaLabel="My fourth button group"
       onSelect={value => console.log("Selected: ", value)}
       size={ButtonGroup.sizes.SMALL}
       options={[
