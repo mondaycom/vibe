@@ -46,13 +46,9 @@ const ButtonGroup = forwardRef(
             kind={Button.kinds.TERTIARY}
             preventClickAnimation
             ariaLabel={option.ariaLabel}
+            className={cx(`${baseClassName}__option-text`, { selected: isSelected, disabled })}
           >
-            {option.text && (
-              <span className={cx(`${baseClassName}__option-text`, { selected: isSelected, disabled })}>
-                {" "}
-                {option.text}{" "}
-              </span>
-            )}
+            {option.text}
           </Button>
         );
       });
