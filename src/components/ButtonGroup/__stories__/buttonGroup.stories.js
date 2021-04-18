@@ -35,7 +35,7 @@ export const Sandbox = () => (
       kind={ButtonGroup.kinds.TERTIARY}
       options={[
         { value: 1, text: "Option 1", icon: "fa fa-star" },
-        { value: 2, text: "Option 2", subText: "This is a subtext" },
+        { value: 2, text: "Option 2", subText: "This is a subtext", ariaLabel: "Aria Label" },
         { value: 3, text: "Option 3", leftIcon: "fa fa-star" }
       ]}
     />

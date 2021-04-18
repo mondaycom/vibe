@@ -35,6 +35,9 @@ $focus_color: rgba(#0071d9, 0.4); // --color-dark_blue with opacity 0.4
       &--color {
         &-primary {
           &-active {
+            &:hover {
+              @include theme-prop(background-color, primary-selected-color);
+            }
             @include theme-prop(background-color, primary-selected-color);
             @include theme-prop(border-color, primary-color);
             z-index: 10;
