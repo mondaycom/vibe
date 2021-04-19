@@ -141,6 +141,7 @@ export {default as Unlocked} from './components/Unlocked';
 export {default as Update} from './components/Update';
 export {default as Upgrade} from './components/Upgrade';
 export {default as Upload} from './components/Upload';
+export {default as Video} from './components/Video';
 export {default as Wand} from './components/Wand';
 export {default as Work} from './components/Work';
 export {default as Workspace} from './components/Workspace';
