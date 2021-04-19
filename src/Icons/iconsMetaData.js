@@ -4,13 +4,6 @@ const VIEW = "View";
 export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
-  {
-    name: "video",
-    file: "Video.svg",
-    description: "Video icon",
-    tags: "video",
-    category: [PLATFORM],
-  },
 
   {
     name: "Activity",
@@ -1068,6 +1061,14 @@ export const iconsMetaData = [
     file: "Upload.svg",
     description: "Upload",
     tags: "Upload, Up, File, Outgoing, Export",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Video",
+    file: "Video.svg",
+    description: "Video icon",
+    tags: "video",
     category: [PLATFORM],
   },
 
