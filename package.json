@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
@@ -149,6 +149,8 @@
   "browserslist": [
     "last 4 versions and >0.1%",
     "Firefox ESR",
+    "not IE 11",
+    "Edge 18",
     "not dead",
     "not Samsung > 0",
     "not op_mini all",
