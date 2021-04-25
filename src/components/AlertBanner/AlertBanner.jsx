@@ -34,17 +34,34 @@ const AlertBanner = forwardRef(({ children: originalChildren, className, backgro
 
   return (
     <div className={classNames}>
-      {children}
-      <Button
-        className="alert-banner-close-btn"
-        onClick={() => {}}
-        size={Button.sizes.SMALL}
-        kind={Button.kinds.TERTIARY}
-        color={Button.colors.ON_PRIMARY_COLOR}
-        ariaLabel="close-toast"
-      >
-        <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
-      </Button>
+      <div className="monday-alert-banner__inner">
+        {children.map((child, index) => {
+          console.log("child ", child);
+          return (
+            <div
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              className={cx("monday-alert-banner__inner-item", {
+                "monday-alert-banner__inner-item-text": child.type.isAlertBannerText
+              })}
+            >
+              {child.type.isAlertBannerText ? <div className="monday-alert-banner__ellipsis">{child}</div> : child}
+            </div>
+          );
+        })}
+      </div>
+      <div className="monday-alert-banner__close-button-wrapper">
+        <Button
+          className="alert-banner-close-btn"
+          onClick={() => {}}
+          size={Button.sizes.SMALL}
+          kind={Button.kinds.TERTIARY}
+          color={Button.colors.ON_PRIMARY_COLOR}
+          ariaLabel="close-toast"
+        >
+          <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
+        </Button>
+      </div>
     </div>
   );
 });

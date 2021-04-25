@@ -7,8 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   font-weight: 400;
+  width: 100%;
 
   &.monday-alert-banner {
     &--background-color {
@@ -32,8 +32,42 @@
   }
 }
 
+.monday-alert-banner__inner {
+  flex: 1 1 auto;
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  padding-left: $spacing-medium;
+}
+
+.monday-alert-banner__close-button-wrapper {
+  flex: 0 0 40px;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
 .monday-style-button.alert-banner-close-btn {
   position: absolute;
   right: 4px;
   top: 4px;
+}
+
+.monday-alert-banner__ellipsis {
+  flex: 0 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.monday-alert-banner__inner-item {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.monday-alert-banner__inner-item-text {
+  flex: 0 1 auto;
+  min-width: 0;
 }

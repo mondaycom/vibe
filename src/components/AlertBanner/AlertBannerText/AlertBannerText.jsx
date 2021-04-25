@@ -11,6 +11,7 @@ const AlertBannerText = ({ text, marginLeft }) => {
 };
 
 AlertBannerText.isAlertBannerItem = true;
+AlertBannerText.isAlertBannerText = true;
 
 AlertBannerText.propTypes = {
   text: PropTypes.string.isRequired,
