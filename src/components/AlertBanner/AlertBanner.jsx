@@ -32,6 +32,8 @@ const AlertBanner = forwardRef(({ children: originalChildren, className, backgro
     });
   }, [originalChildren]);
 
+  const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
+
   return (
     <div className={classNames}>
       <div className="monday-alert-banner__inner">
@@ -56,7 +58,7 @@ const AlertBanner = forwardRef(({ children: originalChildren, className, backgro
           onClick={() => {}}
           size={Button.sizes.SMALL}
           kind={Button.kinds.TERTIARY}
-          color={Button.colors.ON_PRIMARY_COLOR}
+          color={isDarkBackground ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
           ariaLabel="close-toast"
         >
           <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />

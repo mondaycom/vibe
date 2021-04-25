@@ -2,6 +2,11 @@
 @import "../../../styles/typography.scss";
 @import "../../../styles/themes.scss";
 
+.monday-style-alert-banner-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .monday-style-alert-banner-text-margin-left {
   margin-left: $spacing-small;
 }

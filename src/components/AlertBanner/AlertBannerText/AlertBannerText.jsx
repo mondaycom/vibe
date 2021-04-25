@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import Tooltip from "../../Tooltip/Tooltip";
+import useIsOverflowing from "../../../hooks/useIsOverflowing";
 
 import "./AlertBannerText.scss";
 
-const AlertBannerText = ({ text, marginLeft }) => {
-  const classNames = cx({ "monday-style-alert-banner-text-margin-left": marginLeft });
+const TOOLTIP_SHOW_TRIGGERS = ["mouseenter"];
+const TOOLTIP_HIDE_TRIGGERS = ["mouseleave"];
 
-  return <span className={classNames}>{text}</span>;
+const AlertBannerText = ({ text, marginLeft }) => {
+  const componentRef = useRef(null);
+  const classNames = cx("monday-style-alert-banner-text", { "monday-style-alert-banner-text-margin-left": marginLeft });
+  const isOverflowing = useIsOverflowing({ ref: componentRef });
+  console.log("isOverflowing ", isOverflowing);
+  console.log("itext", isOverflowing && text);
+
+  return (
+    <Tooltip
+      position={"bottom"}
+      content={isOverflowing && text}
+      showTrigger={TOOLTIP_SHOW_TRIGGERS}
+      hideTrigger={TOOLTIP_HIDE_TRIGGERS}
+    >
+      <div ref={componentRef} className={classNames}>
+        <span>{text}</span>
+      </div>
+    </Tooltip>
+  );
 };
 
 AlertBannerText.isAlertBannerItem = true;

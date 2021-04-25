@@ -275,7 +275,8 @@ Button.propTypes = {
     Button.colors.PRIMARY,
     Button.colors.NEGATIVE,
     Button.colors.POSITIVE,
-    Button.colors.ON_PRIMARY_COLOR
+    Button.colors.ON_PRIMARY_COLOR,
+    Button.colors.ON_INVERTED_BACKGROUND
   ]),
 
   /** The type of a button is exposed on the component  */
