@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { select, boolean, number } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import MenuButton from "../MenuButton";
@@ -58,6 +58,23 @@ export const DifferentIcon = () => (
   </div>
 );
 
+const ClickableMenuItemButton = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <MenuItemButton
+      id="menu-item-button-1"
+      rightIcon="fa fa-star-o"
+      kind={MenuItemButton.kinds.PRIMARY}
+      onClick={() => {
+        setCount(count + 1);
+      }}
+    >
+      {`Clicks ${count}`}
+    </MenuItemButton>
+  );
+};
+
 export const MenuButtonWithMenu = () => (
   <MenuButton ariaLabel="opens a menu with sub menu">
     <Menu id="menu-in-menu-button" ariaDescribedBy="title-id">
@@ -69,20 +86,10 @@ export const MenuButtonWithMenu = () => (
           <MenuItem title="Down" icon={MoveArrowDown} />
           <MenuItem title="Left" icon={MoveArrowLeft} />
           <MenuItem title="Right" icon={MoveArrowRight} />
-          <MenuItemButton
-            id="menu-item-button-1"
-            rightIcon={"fa fa-star-o"}
-            kind={MenuItemButton.kinds.PRIMARY}
-            onClick={() => {
-              alert("Button 1");
-            }}
-          >
-            Primary Button
-          </MenuItemButton>
-          ,
         </Menu>
       </MenuItem>
       <MenuItem title="Third" icon={Bolt} />
+      {ClickableMenuItemButton()}
     </Menu>
   </MenuButton>
 );

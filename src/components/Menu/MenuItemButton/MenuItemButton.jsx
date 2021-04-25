@@ -90,6 +90,7 @@ const MenuItemButton = ({
           onClick={onClickCallback}
           kind={kind}
           size={Button.sizes.SMALL}
+          blurOnMouseUp={false}
         >
           <div className="menu-item-button-content">{children}</div>
         </Button>
