@@ -5,7 +5,7 @@ import MenuButton from "../MenuButton";
 import { ComponentStateDescription, FlexLayout, StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import "./menuButton.style.scss";
-import { Menu, MenuItem, MenuTitle } from "../../index";
+import { Menu, MenuItem, MenuTitle, MenuItemButton } from "../../index";
 import { Favorite, Sun, Moon } from "../../Icon/Icons";
 import Bolt from "../../Icon/Icons/components/Bolt";
 import MoveArrowUp from "../../Icon/Icons/components/MoveArrowUp";
@@ -69,6 +69,17 @@ export const MenuButtonWithMenu = () => (
           <MenuItem title="Down" icon={MoveArrowDown} />
           <MenuItem title="Left" icon={MoveArrowLeft} />
           <MenuItem title="Right" icon={MoveArrowRight} />
+          <MenuItemButton
+            id="menu-item-button-1"
+            rightIcon={"fa fa-star-o"}
+            kind={MenuItemButton.kinds.PRIMARY}
+            onClick={() => {
+              alert("Button 1");
+            }}
+          >
+            Primary Button
+          </MenuItemButton>
+          ,
         </Menu>
       </MenuItem>
       <MenuItem title="Third" icon={Bolt} />
