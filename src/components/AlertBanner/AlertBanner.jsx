@@ -13,6 +13,8 @@ const AlertBanner = forwardRef(({ children: originalChildren, className, backgro
     return cx(className, "monday-alert-banner", `monday-alert-banner--background-color-${backgroundColor}`);
   }, [className, backgroundColor]);
 
+  const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
+
   const children = useMemo(() => {
     const allChildren = React.Children.toArray(originalChildren);
     const filteredChildren = allChildren.filter(child => {
@@ -27,12 +29,11 @@ const AlertBanner = forwardRef(({ children: originalChildren, className, backgro
     return filteredChildren.map((child, index) => {
       return React.cloneElement(child, {
         ...child?.props,
-        marginLeft: index > 0
+        marginLeft: index > 0,
+        isDarkBackground
       });
     });
-  }, [originalChildren]);
-
-  const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
+  }, [originalChildren, isDarkBackground]);
 
   return (
     <div className={classNames}>

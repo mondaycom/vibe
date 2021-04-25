@@ -6,9 +6,10 @@ import Link from "../../Link/Link";
 
 import "./AlertBannerLink.scss";
 
-const AlertBannerLink = ({ marginLeft, linkProps }) => {
+const AlertBannerLink = ({ marginLeft, linkProps, isDarkBackground }) => {
   const classNames = cx({
-    "monday-style-alert-banner-link-margin-left": marginLeft
+    "monday-style-alert-banner-link-margin-left": marginLeft,
+    "monday-style-alert-banner-link-dark-background": isDarkBackground
   });
 
   return (

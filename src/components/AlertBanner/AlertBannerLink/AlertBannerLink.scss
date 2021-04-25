@@ -9,6 +9,12 @@
   -moz-osx-font-smoothing: auto;
 }
 
+.monday-style-alert-banner-link-dark-background {
+  .monday-style-link.monday-style-alert-banner-link {
+    @include theme-prop(color, text-color-on-inverted);
+  }
+}
+
 .monday-style-alert-banner-link-margin-left {
   margin-left: $spacing-small;
 }
