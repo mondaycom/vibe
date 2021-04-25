@@ -26,12 +26,18 @@ const Menu = forwardRef(
       onClose,
       focusOnMount,
       focusItemIndex,
-      isSubMenu
+      focusItemIndexOnMount,
+      isSubMenu,
+      useDocumentEventListeners
     },
     forwardedRef
   ) => {
     const ref = useRef(null);
     const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
+
+    useEffect(() => {
+      if (focusItemIndexOnMount !== -1) setActiveItemIndex(focusItemIndexOnMount);
+    }, [focusItemIndexOnMount]);
 
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren);
@@ -57,7 +63,7 @@ const Menu = forwardRef(
     const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, onClose);
 
     useClickOutside({ ref, callback: onCloseMenu });
-    useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu);
+    useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu, useDocumentEventListeners);
     useMenuKeyboardNavigation(
       hasOpenSubMenu,
       children,
@@ -65,25 +71,26 @@ const Menu = forwardRef(
       setActiveItemIndex,
       isVisible,
       ref,
-      resetOpenSubMenuIndex
+      resetOpenSubMenuIndex,
+      useDocumentEventListeners
     );
     useMouseLeave(resetOpenSubMenuIndex, hasOpenSubMenu, ref, setActiveItemIndex);
 
     useLayoutEffect(() => {
-      if (hasOpenSubMenu) return;
+      if (hasOpenSubMenu || useDocumentEventListeners) return;
       if (activeItemIndex > -1) {
         requestAnimationFrame(() => {
           ref && ref.current && ref.current.focus();
         });
       }
-    }, [activeItemIndex, hasOpenSubMenu]);
+    }, [activeItemIndex, hasOpenSubMenu, useDocumentEventListeners]);
 
     useLayoutEffect(() => {
-      if (!focusOnMount) return;
+      if (!focusOnMount || useDocumentEventListeners) return;
       requestAnimationFrame(() => {
         ref && ref.current && ref.current.focus();
       });
-    }, [ref, focusOnMount]);
+    }, [ref, focusOnMount, useDocumentEventListeners]);
 
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
@@ -119,7 +126,8 @@ const Menu = forwardRef(
               setSubMenuIsOpenByIndex,
               hasOpenSubMenu: index === openSubMenuIndex,
               closeMenu: onCloseMenu,
-              menuId: id
+              menuId: id,
+              useDocumentEventListeners
             });
           })}
       </ul>
@@ -142,7 +150,9 @@ Menu.defaultProps = {
   isVisible: true,
   onClose: undefined,
   focusItemIndex: -1,
-  isSubMenu: false
+  isSubMenu: false,
+  useDocumentEventListeners: false,
+  focusItemIndexOnMount: -1
 };
 
 Menu.propTypes = {
@@ -156,7 +166,9 @@ Menu.propTypes = {
   isVisible: PropTypes.bool,
   onClose: PropTypes.func,
   focusItemIndex: PropTypes.number,
-  isSubMenu: PropTypes.bool
+  isSubMenu: PropTypes.bool,
+  useDocumentEventListeners: PropTypes.bool,
+  focusItemIndexOnMount: PropTypes.number
 };
 
 export default Menu;

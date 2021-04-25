@@ -3,7 +3,14 @@ import useKeyEvent from "../../../../hooks/useKeyEvent";
 
 const KEYS = ["Escape", "ArrowLeft"];
 
-export default function useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu) {
+export default function useCloseMenuOnKeyEvent(
+  hasOpenSubMenu,
+  onCloseMenu,
+  ref,
+  onClose,
+  isSubMenu,
+  useDocumentEventListeners
+) {
   const onEscapeOrLeftArrowClick = useCallback(
     event => {
       const isArrowLeftClick = event.key === "ArrowLeft";
@@ -20,12 +27,12 @@ export default function useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref,
         event.stopPropagation();
       }
     },
-    [onClose, hasOpenSubMenu, onCloseMenu]
+    [onClose, hasOpenSubMenu, onCloseMenu, isSubMenu]
   );
 
   useKeyEvent({
     keys: KEYS,
     callback: onEscapeOrLeftArrowClick,
-    ref
+    ref: useDocumentEventListeners ? undefined : ref
   });
 }

@@ -1,9 +1,10 @@
-import React, { useRef, useLayoutEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { TYPES } from "./HeadingConstants";
 import Tooltip from "../Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
+import useRefWithCallback from "../../hooks/useRefWithCallback";
 import { SIZES } from "../../constants/sizes";
 import "./Heading.scss";
 
@@ -21,14 +22,16 @@ const Heading = ({
   suggestEditOnHover,
   nonEllipsisTooltip // tooltip to show when no overflow
 }) => {
-  const componentRef = useRef(null);
+  const [componentRef, setRef] = useRefWithCallback(node =>
+    node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines)
+  );
   const classNames = cx("heading-component", className, `heading-element-type-${type}`, `size-${size}`, {
     "heading-element-ellipsis": ellipsis,
     "suggest-edit-on-hover": suggestEditOnHover
   });
   const Element = React.createElement(
     type,
-    { className: classNames, "aria-label": ariaLabel, id, ref: componentRef, style },
+    { className: classNames, "aria-label": ariaLabel, id, ref: setRef, style },
     value
   );
 

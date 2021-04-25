@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Menu from "../Menu";
 import { FlexLayout } from "../../../storybook-helpers";
 import { text, boolean, number, select } from "@storybook/addon-knobs";
@@ -9,6 +9,8 @@ import Divider from "../../../Divider/Divider";
 import { selectIcon } from "../../../storybook-helpers";
 import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
 import { withPerformance } from "storybook-addon-performance";
+
+const DISABLE_REASON = "You can't click me";
 
 const renderMenuItems = () => {
   return [
@@ -73,6 +75,7 @@ const renderMenuItems = () => {
       title={"When disabled"}
       icon={"fa fa-star-o"}
       disabled={true}
+      disableReason={DISABLE_REASON}
       onClick={() => {
         alert("7");
       }}
@@ -87,6 +90,7 @@ const renderMenuItem = index => {
       title={text(`MenuItem ${index} name`, "item")}
       icon={selectIcon(`MenuItem ${index} icon`, "Activity")}
       disabled={boolean(`MenuItem ${index} disabled`, false)}
+      disableReason={DISABLE_REASON}
       onClick={() => {
         alert(index);
       }}
@@ -192,6 +196,26 @@ export const Sizes = () => {
             {renderMenuItems()}
           </Menu>
         </StoryLine>
+      </FlexLayout>
+    </div>
+  );
+};
+
+export const menuKeyboardNavigationWithoutFocus = () => {
+  const inputRef = useRef();
+  useEffect(() => {
+    inputRef.current.focus();
+  }, [inputRef]);
+
+  return (
+    <div style={{ width: 700 }}>
+      <FlexLayout>
+        <form>
+          <input ref={inputRef} tabIndex={0} />
+        </form>
+        <Menu useDocumentEventListeners={true} id="menu" size={Menu.sizes.SMALL} tabIndex={0}>
+          {renderMenuItems()}
+        </Menu>
       </FlexLayout>
     </div>
   );

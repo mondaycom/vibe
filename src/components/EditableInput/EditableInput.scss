@@ -15,7 +15,7 @@
   @include theme-prop(border-color, primary-color);
   vertical-align: top;
   text-align: left;
-
+  vertical-align: top;
   &.no-resize {
     resize: none;
   }

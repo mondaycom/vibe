@@ -48,7 +48,8 @@ const EditableInput = forwardRef(
       onTabHandler,
       onCancelEditing,
       textareaSubmitOnEnter,
-      onArrowKeyDown
+      onArrowKeyDown,
+      ariaLabel
     },
     ref
   ) => {
@@ -205,6 +206,7 @@ const EditableInput = forwardRef(
         autoComplete={autoComplete ? "on" : "off"}
         rows={rows}
         maxLength={maxLength}
+        ariaLabel={ariaLabel}
       />
     );
   }
@@ -222,7 +224,8 @@ EditableInput.propTypes = {
   onFinishEditing: PropTypes.func,
   onArrowKeyDown: PropTypes.func,
   onCancelEditing: PropTypes.func,
-  textareaSubmitOnEnter: PropTypes.bool
+  textareaSubmitOnEnter: PropTypes.bool,
+  ariaLabel: PropTypes.string
 };
 EditableInput.defaultProps = {
   className: "",
@@ -236,7 +239,8 @@ EditableInput.defaultProps = {
   onFinishEditing: undefined,
   onArrowKeyDown: undefined,
   onCancelEditing: undefined,
-  textareaSubmitOnEnter: false
+  textareaSubmitOnEnter: false,
+  ariaLabel: undefined
 };
 
 export default EditableInput;

@@ -23,13 +23,12 @@ export const Checkbox = ({
   const iconContainerRef = useRef(null);
   const inputRef = useRef(null);
   const onMouseUpCallback = useCallback(() => {
-    if (!inputRef.current) {
-      return () => {};
-    }
+    const input = inputRef.current;
+    if (!input) return;
 
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        inputRef.current.blur();
+        input.blur();
       });
     });
   }, [inputRef]);

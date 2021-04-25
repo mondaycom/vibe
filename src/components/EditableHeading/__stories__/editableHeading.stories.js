@@ -28,6 +28,7 @@ export const Sandbox = () => (
       type={TYPES.h2}
       value="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form"
       ellipsisMaxLines={2}
+      inputAriaLabel="Edit header"
     />
   </div>
 );
