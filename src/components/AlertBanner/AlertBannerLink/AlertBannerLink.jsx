@@ -6,7 +6,7 @@ import Link from "../../Link/Link";
 
 import "./AlertBannerLink.scss";
 
-const AlertBannerLink = ({ marginLeft, linkProps, isDarkBackground }) => {
+const AlertBannerLink = ({ marginLeft, isDarkBackground, ...linkProps }) => {
   const classNames = cx({
     "monday-style-alert-banner-link-margin-left": marginLeft,
     "monday-style-alert-banner-link-dark-background": isDarkBackground
@@ -14,22 +14,28 @@ const AlertBannerLink = ({ marginLeft, linkProps, isDarkBackground }) => {
 
   return (
     <div className={classNames}>
-      <Link componentClassName="monday-style-alert-banner-link" {...linkProps} />
+      <Link {...linkProps} componentClassName="monday-style-alert-banner-link" />
     </div>
   );
 };
 
 AlertBannerLink.isAlertBannerItem = true;
 
+// eslint-disable-next-line no-unused-vars
+const { componentClassName: _componentClassNamePropsType, ...linkPropsTypes } = Link.propTypes;
 AlertBannerLink.propTypes = {
+  linkPropsTypes,
   /** adds 8px margin to the left */
   marginLeft: PropTypes.bool,
-  // eslint-disable-next-line react/forbid-prop-types
-  linkProps: PropTypes.object.isRequired
+  isDarkBackground: PropTypes.bool
 };
 
+// eslint-disable-next-line no-unused-vars
+const { componentClassName: _componentClassNameDefaultProp, ...linkDefaultPropTypes } = Link.defaultProps;
 AlertBannerLink.defaultProps = {
-  marginLeft: false
+  ...linkDefaultPropTypes,
+  marginLeft: false,
+  isDarkBackground: false
 };
 
 export default AlertBannerLink;

@@ -16,9 +16,9 @@ export const Sandbox = () => (
       ariaLabel={text("Bar Aria Label", "my awesome alert banner")}
     >
       <AlertBannerText text="bla bla bla" />
-      <AlertBannerLink linkProps={{ text: "bla bla bla", href: "https://monday.com" }} />
+      <AlertBannerLink text="bla bla bla" href="https://monday.com" />
       <AlertBannerText text="bla bla bla" />
-      <AlertBannerLink linkProps={{ text: "bla bla bla", href: "https://monday.com" }} />
+      <AlertBannerLink text="bla bla bla" href="https://monday.com" />
     </AlertBanner>
   </div>
 );
@@ -35,9 +35,9 @@ export const Overflowing = () => (
       ariaLabel={text("Bar Aria Label", "my awesome alert banner")}
     >
       <AlertBannerText text="bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla" />
-      <AlertBannerLink linkProps={{ text: "bla bla bla", href: "https://monday.com" }} />
+      <AlertBannerLink text="bla bla bla" href="https://monday.com" />
       <AlertBannerText text="bla bla bla  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla" />
-      <AlertBannerLink linkProps={{ text: "bla bla bla", href: "https://monday.com" }} />
+      <AlertBannerLink text="bla bla bla" href="https://monday.com" />
     </AlertBanner>
   </div>
 );
