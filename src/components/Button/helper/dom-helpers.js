@@ -6,14 +6,15 @@ export function getParentBackgroundColorNotTransparent(element, defaultColor) {
     if (!element) {
       return defaultColor;
     }
-    return element.style.backgroundColor;
+
+    return window.getComputedStyle(element).backgroundColor;
   }
 
   if (!parentElement) {
     return defaultColor;
   }
 
-  const backgroundColor = parentElement.style.backgroundColor;
+  const backgroundColor = window.getComputedStyle(parentElement).backgroundColor;
   if (!backgroundColor || backgroundColor === defaultColor) {
     return getParentBackgroundColorNotTransparent(parentElement, defaultColor);
   }
