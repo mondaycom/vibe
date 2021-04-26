@@ -10,6 +10,7 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly 1`] = `
   >
     <svg
       aria-hidden={true}
+      aria-label="attention"
       className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
@@ -50,6 +51,7 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly with empty props 1`
   >
     <svg
       aria-hidden={true}
+      aria-label="attention"
       className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
