@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { select, boolean, number } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import MenuButton from "../MenuButton";
 import { ComponentStateDescription, FlexLayout, StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import "./menuButton.style.scss";
-import { Menu, MenuItem, MenuTitle } from "../../index";
+import { Menu, MenuItem, MenuTitle, MenuItemButton } from "../../index";
 import { Favorite, Sun, Moon } from "../../Icon/Icons";
 import Bolt from "../../Icon/Icons/components/Bolt";
 import MoveArrowUp from "../../Icon/Icons/components/MoveArrowUp";
@@ -58,6 +58,23 @@ export const DifferentIcon = () => (
   </div>
 );
 
+const ClickableMenuItemButton = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <MenuItemButton
+      id="menu-item-button-1"
+      rightIcon="fa fa-star-o"
+      kind={MenuItemButton.kinds.PRIMARY}
+      onClick={() => {
+        setCount(count + 1);
+      }}
+    >
+      {`Clicks ${count}`}
+    </MenuItemButton>
+  );
+};
+
 export const MenuButtonWithMenu = () => (
   <MenuButton ariaLabel="opens a menu with sub menu">
     <Menu id="menu-in-menu-button" ariaDescribedBy="title-id">
@@ -72,6 +89,7 @@ export const MenuButtonWithMenu = () => (
         </Menu>
       </MenuItem>
       <MenuItem title="Third" icon={Bolt} />
+      {ClickableMenuItemButton()}
     </Menu>
   </MenuButton>
 );

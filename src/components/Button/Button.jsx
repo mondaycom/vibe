@@ -53,7 +53,8 @@ const Button = forwardRef(
       defaultTextColorOnPrimaryColor,
       ariaHasPopup,
       ariaExpanded,
-      ariaControls
+      ariaControls,
+      blurOnMouseUp
     },
     ref
   ) => {
@@ -89,8 +90,10 @@ const Button = forwardRef(
       if (!button) {
         return;
       }
-      button.blur();
-    }, [buttonRef]);
+      if (blurOnMouseUp) {
+        button.blur();
+      }
+    }, [buttonRef, blurOnMouseUp]);
 
     const onButtonClicked = useCallback(
       event => {
@@ -265,6 +268,8 @@ Button.propTypes = {
   kind: PropTypes.oneOf([Button.kinds.PRIMARY, Button.kinds.SECONDARY, Button.kinds.TERTIARY]),
   onClick: PropTypes.func,
   onMouseDown: PropTypes.func,
+  /** Blur on button click */
+  blurOnMouseUp: PropTypes.bool,
   /** Name of the button - for form submit usages  */
   name: PropTypes.string,
   /** The size of a button is exposed on the component  */
@@ -332,6 +337,7 @@ Button.defaultProps = {
   kind: BUTTON_TYPES.PRIMARY,
   onClick: NOOP,
   onMouseDown: NOOP,
+  blurOnMouseUp: true,
   name: undefined,
   style: undefined,
   size: SIZES.MEDIUM,
