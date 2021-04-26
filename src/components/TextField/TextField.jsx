@@ -98,6 +98,7 @@ const TextField = forwardRef(
     const shouldShowExtraText = showCharCount || (validation && validation.text);
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
+    const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
 
     const mergedRef = useMergeRefs({ refs: [ref, inputRef, setRef] });
     const { buttonProps } = useButton({
@@ -167,7 +168,7 @@ const TextField = forwardRef(
                 "input-component__icon--container-active": isSecondary
               })}
               {...buttonProps}
-              tabIndex={!secondaryIconName.length && isPrimary ? "-1" : "0"}
+              tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
             >
               <Icon
                 icon={secondaryIconName}

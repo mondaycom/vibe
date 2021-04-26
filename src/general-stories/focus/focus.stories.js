@@ -1,21 +1,17 @@
 import "./focus.scss";
 import DescriptionLabel from "../../components/storybook-helpers/description-label/description-label";
-import { Button, Checkbox, Menu, MenuItem, MenuTitle, RadioButton, TextField } from "../../components";
+import {Button, Checkbox, Divider, Menu, MenuItem, MenuTitle, RadioButton, TextField} from "../../components";
 import Search from "../../components/Search/Search";
 import SearchIcon from "../../components/Icon/Icons/components/Search";
 import { CloseSmall, Moon, Sun } from "../../components/Icon/Icons";
-import SearchStoryLine from "../../components/Search/__stories__/SearchStoryLine";
 import React from "react";
 import SplitButton from "../../components/SplitButton/SplitButton";
-import { StoryStateColumn } from "../../components/storybook-helpers";
 import BreadcrumbsBar from "../../components/BreadcrumbsBar/BreadcrumbsBar";
 import BreadcrumbItem from "../../components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
 import WorkspaceIcon from "../../components/Icon/Icons/components/Workspace";
 import BoardIcon from "../../components/Icon/Icons/components/Board";
 import GroupIcon from "../../components/Icon/Icons/components/Group";
 import ItemIcon from "../../components/Icon/Icons/components/Item";
-import StoryLine from "../../StoryBookComponents/StoryLink/StoryLine";
-import { number } from "@storybook/addon-knobs";
 import ExpandCollapse from "../../components/ExpandCollapse/ExpandCollapse";
 import Icon from "../../components/Icon/Icon";
 import Robot from "../../components/Icon/Icons/components/Robot";
@@ -31,6 +27,11 @@ export const Focus = () => {
   return (
     <div>
       <DescriptionLabel>Navigate with the keyboard in order to show how keyboard focus looks like</DescriptionLabel>
+      <DescriptionLabel>
+        We are using the css pseudo class <code>:focus-visible</code> and the polyfill which adds{" "}
+        <code>focus-visible</code> class in order to support older browsers
+      </DescriptionLabel>
+      <Divider/>
       <div>
         <DescriptionLabel>Buttons</DescriptionLabel>
         <div className="components-container-large">

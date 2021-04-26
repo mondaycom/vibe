@@ -6,7 +6,7 @@ import { ComponentStateDescription, FlexLayout, StoryStateColumn, StoryStateRow 
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import "./menuButton.style.scss";
 import { Menu, MenuItem, MenuTitle, MenuItemButton } from "../../index";
-import { Favorite, Sun, Moon } from "../../Icon/Icons";
+import { Favorite, Sun, Moon, AddSmall } from "../../Icon/Icons";
 import Bolt from "../../Icon/Icons/components/Bolt";
 import MoveArrowUp from "../../Icon/Icons/components/MoveArrowUp";
 import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
@@ -48,6 +48,14 @@ export const Sandbox = () => (
       </MenuButton>
     </StoryStateColumn>
   </StoryStateRow>
+);
+
+export const Disabled = () => (
+  <div style={{ width: "32px" }}>
+    <MenuButton disabled={true} disabledReason="Something is not right" ariaLabel="chevron menu icon menu button">
+      <MenuButtonContent />
+    </MenuButton>
+  </div>
 );
 
 export const DifferentIcon = () => (
@@ -153,6 +161,19 @@ export const Positions = () => (
       </StoryStateColumn>
     </StoryStateRow>
   </section>
+);
+
+export const WithText = () => (
+  <div style={{ width: "100px" }}>
+    <MenuButton
+      component={AddSmall}
+      text="Add"
+      dialogPosition={MenuButton.dialogPositions.RIGHT_START}
+      startingEdge="end"
+    >
+      <MenuButtonContent />
+    </MenuButton>
+  </div>
 );
 
 export default {
