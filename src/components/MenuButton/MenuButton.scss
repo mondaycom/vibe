@@ -1,19 +1,19 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 @import "../../styles/global-css-settings.scss";
+@import "../../styles/states.scss";
 
 .menu-button--wrapper {
+  @include reset-button();
   border-radius: $border-radius-small;
-  border: none;
-  outline: none;
   background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 0;
   transition: transform 50ms $expand-animation-timing;
   @include theme-prop(color, primary-text-color);
+  @include focus-style();
 
   &:focus,
   &:hover {
@@ -26,12 +26,10 @@
     @include theme-prop(color, primary-color);
     &:focus {
       @include theme-prop(background-color, primary-selected-color);
-
     }
     &:hover {
       @include theme-prop(background-color, primary-selected-color);
     }
-
   }
 
   &--size-16 {

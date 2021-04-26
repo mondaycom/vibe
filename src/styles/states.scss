@@ -44,8 +44,8 @@
     outline: none;
     //border: 1px solid;
     @include theme-prop(border-color, primary-color);
-    box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
-
+    box-shadow: 0 0 0 2px hsla(209, 100%, 50%, 0.5);
+    z-index: 11;
     border-radius: 2px;
   }
 }

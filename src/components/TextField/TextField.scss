@@ -89,7 +89,6 @@
         }
       }
     }
-
     &.input-component__input-wrapper--size-small {
       height: 32px;
       .input-component__input {
@@ -171,7 +170,6 @@
       &.input-component__input--hover {
         @include theme-prop(border-color, primary-text-color);
       }
-      @include focus-style();
       &:focus,
       &:active,
       &.input-component__input--active {
@@ -220,7 +218,6 @@
         outline: none;
         @include theme-prop(background-color, primary-background-hover-color);
       }
-      @include focus-style();
 
       &.input-component__icon--container-active {
         &.input-component__icon--container-has-icon {

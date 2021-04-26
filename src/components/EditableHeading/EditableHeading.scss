@@ -1,11 +1,13 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
+@import "../../styles/states.scss";
 
 .editable-heading--wrapper {
   width: 100%;
   min-width: 0;
   border: 1px solid transparent;
   border-radius: $border-radius-small;
+  @include focus-style();
   &:focus,
   &:active {
     outline: none;
