@@ -2,7 +2,6 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 
-$focus_color: rgba(#0071d9, 0.4); // --color-dark_blue with opacity 0.4
 
 .monday-style-button-group-component {
   display: flex;
@@ -43,12 +42,6 @@ $focus_color: rgba(#0071d9, 0.4); // --color-dark_blue with opacity 0.4
             z-index: 10;
           }
         }
-      }
-
-      // For keyboard tab navigation
-      &:focus-visible {
-        box-shadow: 0 0 0px 2px $focus_color;
-        z-index: 11; // above others
       }
     }
   }

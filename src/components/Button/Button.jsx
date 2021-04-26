@@ -202,6 +202,20 @@ const Button = forwardRef(
       ariaHasPopup
     ]);
 
+    const leftIconSize = useMemo(() => {
+      if (typeof leftIcon !== "function") return;
+      if (size === SIZES.SMALL) return "20";
+      if (size === SIZES.MEDIUM) return "24";
+      return "24";
+    }, [leftIcon, size]);
+
+    const rightIconSize = useMemo(() => {
+      if (typeof rightIcon !== "function") return;
+      if (size === SIZES.SMALL) return "20";
+      if (size === SIZES.MEDIUM) return "24";
+      return "24";
+    }, [rightIcon, size]);
+
     if (loading) {
       return (
         <button {...buttonProps}>
@@ -238,6 +252,7 @@ const Button = forwardRef(
             iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={leftIcon}
+            iconSize={leftIconSize}
             className={cx({ "monday-style-button--left-icon": !!children })}
             ignoreFocusStyle
           />
@@ -248,6 +263,7 @@ const Button = forwardRef(
             iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={rightIcon}
+            iconSize={rightIconSize}
             className={cx({ "monday-style-button--right-icon": !!children })}
             ignoreFocusStyle
           />

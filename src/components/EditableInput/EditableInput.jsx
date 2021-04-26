@@ -215,7 +215,7 @@ const EditableInput = forwardRef(
 EditableInput.propTypes = {
   className: PropTypes.string,
   placeholder: PropTypes.string,
-  inputType: PropTypes.oneOf("input", "textarea"),
+  inputType: PropTypes.oneOf(["input", "textarea"]),
   autoSize: PropTypes.bool,
   autoComplete: PropTypes.bool,
   maxLength: PropTypes.number,

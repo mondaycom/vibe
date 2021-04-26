@@ -1,5 +1,6 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
+@import "../../styles/states.scss";
 
 .input-component {
   position: relative;
@@ -88,7 +89,6 @@
         }
       }
     }
-
     &.input-component__input-wrapper--size-small {
       height: 32px;
       .input-component__input {
@@ -170,7 +170,6 @@
       &.input-component__input--hover {
         @include theme-prop(border-color, primary-text-color);
       }
-
       &:focus,
       &:active,
       &.input-component__input--active {
@@ -216,8 +215,10 @@
       &:active,
       &:focus,
       &:focus-visible {
+        outline: none;
         @include theme-prop(background-color, primary-background-hover-color);
       }
+
       &.input-component__icon--container-active {
         &.input-component__icon--container-has-icon {
           pointer-events: all;
