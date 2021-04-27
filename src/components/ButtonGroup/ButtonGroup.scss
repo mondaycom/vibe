@@ -1,0 +1,72 @@
+@import "../../styles/global-css-settings.scss";
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+
+.monday-style-button-group-component {
+  display: flex;
+  flex-direction: column;
+
+  &__sub-text-container {
+    @include font-caption();
+  }
+
+  &__buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .monday-style-button {
+      border: 1px solid;
+      border-radius: 0;
+      @include theme-prop(background-color, primary-background-color);
+      @include theme-prop(border-color, ui-border-color);
+      margin-left: -1px;
+
+      &:first-child {
+        border-radius: $border-radius-small 0 0 $border-radius-small;
+        margin-left: 0;
+      }
+      &:last-child {
+        border-radius: 0 $border-radius-small $border-radius-small 0;
+      }
+
+      &--color {
+        &-primary {
+          &-active {
+            &:hover {
+              @include theme-prop(background-color, primary-selected-color);
+            }
+            @include theme-prop(background-color, primary-selected-color);
+            @include theme-prop(border-color, primary-color);
+            z-index: 10;
+          }
+        }
+      }
+    }
+  }
+  &__option-text {
+    &:not(.disabled) {
+      @include theme-prop(color, primary-text-color);
+      &.selected {
+        @include theme-prop(color, primary-color);
+      }
+    }
+  }
+
+  &--kind {
+    &-tertiary {
+      .monday-style-button {
+        border-color: transparent;
+
+        &:first-child {
+          border-color: transparent;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+}

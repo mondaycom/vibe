@@ -193,9 +193,6 @@ const MenuItem = ({
       >
         {renderMenuItemIconIfNeeded()}
 
-        {// show tooltip if needed
-        isTitleHoveredAndOverflowing && null}
-
         <div ref={titleRef} className="monday-style-menu-item__title">
           {title}
         </div>
@@ -234,7 +231,7 @@ MenuItem.iconType = Icon.type;
 MenuItem.defaultProps = {
   classname: "",
   title: "",
-  lebel: "",
+  label: "",
   icon: "",
   iconType: undefined,
   disabled: false,
@@ -256,6 +253,7 @@ MenuItem.defaultProps = {
 MenuItem.propTypes = {
   classname: PropTypes.string,
   title: PropTypes.string,
+  label: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   disabled: PropTypes.bool,

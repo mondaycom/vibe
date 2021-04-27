@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { select, boolean, number } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import MenuButton from "../MenuButton";
 import { ComponentStateDescription, FlexLayout, StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
 import "./menuButton.style.scss";
-import { Menu, MenuItem, MenuTitle } from "../../index";
-import { Favorite, Sun, Moon } from "../../Icon/Icons";
+import { Menu, MenuItem, MenuTitle, MenuItemButton } from "../../index";
+import { Favorite, Sun, Moon, AddSmall } from "../../Icon/Icons";
 import Bolt from "../../Icon/Icons/components/Bolt";
 import MoveArrowUp from "../../Icon/Icons/components/MoveArrowUp";
 import MoveArrowDown from "../../Icon/Icons/components/MoveArrowDown";
@@ -50,6 +50,14 @@ export const Sandbox = () => (
   </StoryStateRow>
 );
 
+export const Disabled = () => (
+  <div style={{ width: "32px" }}>
+    <MenuButton disabled={true} disabledReason="Something is not right" ariaLabel="chevron menu icon menu button">
+      <MenuButtonContent />
+    </MenuButton>
+  </div>
+);
+
 export const DifferentIcon = () => (
   <div>
     <MenuButton component={DropdownChevronDown} ariaLabel={"chevron menu icon menu button"}>
@@ -57,6 +65,23 @@ export const DifferentIcon = () => (
     </MenuButton>
   </div>
 );
+
+const ClickableMenuItemButton = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <MenuItemButton
+      id="menu-item-button-1"
+      rightIcon="fa fa-star-o"
+      kind={MenuItemButton.kinds.PRIMARY}
+      onClick={() => {
+        setCount(count + 1);
+      }}
+    >
+      {`Clicks ${count}`}
+    </MenuItemButton>
+  );
+};
 
 export const MenuButtonWithMenu = () => (
   <MenuButton ariaLabel="opens a menu with sub menu">
@@ -72,6 +97,7 @@ export const MenuButtonWithMenu = () => (
         </Menu>
       </MenuItem>
       <MenuItem title="Third" icon={Bolt} />
+      {ClickableMenuItemButton()}
     </Menu>
   </MenuButton>
 );
@@ -135,6 +161,19 @@ export const Positions = () => (
       </StoryStateColumn>
     </StoryStateRow>
   </section>
+);
+
+export const WithText = () => (
+  <div style={{ width: "100px" }}>
+    <MenuButton
+      component={AddSmall}
+      text="Add"
+      dialogPosition={MenuButton.dialogPositions.RIGHT_START}
+      startingEdge="end"
+    >
+      <MenuButtonContent />
+    </MenuButton>
+  </div>
 );
 
 export default {

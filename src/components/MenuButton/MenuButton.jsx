@@ -6,10 +6,14 @@ import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import "./MenuButton.scss";
+import Tooltip from "../Tooltip/Tooltip";
 
 function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
 }
+
+const TOOLTIP_SHOW_TRIGGER = ["mouseenter"];
+const TOOLTIP_HIDE_TRIGGER = ["mouseleave"];
 
 const showTrigger = ["click", "enter"];
 const MOVE_BY = { main: 0, secondary: -6 };
@@ -30,7 +34,10 @@ const MenuButton = ({
   dialogPaddingSize,
   onMenuHide,
   onMenuShow,
-  disabled
+  disabled,
+  text,
+  disabledReason,
+  startingEdge
 }) => {
   const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
@@ -106,9 +113,21 @@ const MenuButton = ({
     [dialogOffset]
   );
 
+  const onMouseUp = event => {
+    if (disabled) {
+      event.currentTarget.blur();
+    }
+  };
+
   const Icon = component;
   const iconSize = size - 4;
   return (
+      <Tooltip
+          content={disabledReason}
+          position="right"
+          showTrigger={TOOLTIP_SHOW_TRIGGER}
+          hideTrigger={TOOLTIP_HIDE_TRIGGER}
+      >
     <Dialog
       wrapperClassName={dialogClassName}
       position={dialogPosition}
@@ -133,15 +152,21 @@ const MenuButton = ({
         className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
           [BEMClass("open")]: isOpen,
           [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
-          [BEMClass("disabled")]: disabled
+          [BEMClass("disabled")]: disabled,
+          [BEMClass("text")]: text
         })}
         aria-haspopup="true"
         aria-expanded={isOpen}
         aria-label={ariaLabel}
+        onMouseUp={onMouseUp}
+        aria-disabled={disabled}
       >
         <Icon size={Math.min(iconSize, 28).toString()} />
+        {text && <span className={BEMClass("inner-text")}>{text}</span>}
+
       </button>
     </Dialog>
+      </Tooltip>
   );
 };
 
@@ -154,6 +179,15 @@ const MenuButtonSizes = {
 };
 
 const DialogPositions = {
+  LEFT: "left",
+  LEFT_START: "left-start",
+  LEFT_END: "left-end",
+  RIGHT: "right",
+  RIGHT_START: "right-start",
+  RIGHT_END: "right-end",
+  TOP: "top",
+  TOP_START: "top-start",
+  TOP_END: "top-end",
   BOTTOM: "bottom",
   BOTTOM_START: "bottom-start",
   BOTTOM_END: "bottom-end"
@@ -204,8 +238,22 @@ MenuButton.propTypes = {
   dialogPosition: PropTypes.oneOf([
     MenuButton.dialogPositions.BOTTOM_START,
     MenuButton.dialogPositions.BOTTOM,
-    MenuButton.dialogPositions.BOTTOM_END
+    MenuButton.dialogPositions.BOTTOM_END,
+    MenuButton.dialogPositions.LEFT,
+    MenuButton.dialogPositions.LEFT_START,
+    MenuButton.dialogPositions.LEFT_END,
+    MenuButton.dialogPositions.RIGHT,
+    MenuButton.dialogPositions.RIGHT_START,
+    MenuButton.dialogPositions.RIGHT_END,
+    MenuButton.dialogPositions.TOP,
+    MenuButton.dialogPositions.TOP_END,
+    MenuButton.dialogPositions.TOP_START
   ]),
+
+  /**
+   * Dialog Alignment
+   */
+  startingEdge: PropTypes.string,
   /*
     Callback function to be called when the menu is shown
    */
@@ -214,7 +262,15 @@ MenuButton.propTypes = {
   Callback function to be called when the menu is shown
  */
   onMenuHide: PropTypes.func,
-  disabled: PropTypes.bool
+  /**
+   * Text to be displayed after the icon
+   */
+  text: PropTypes.string,
+  disabled: PropTypes.bool,
+  /**
+   * Disabled tooltip text
+   */
+  disabledReason: PropTypes.string
 };
 MenuButton.defaultProps = {
   componentClassName: "",
@@ -223,6 +279,7 @@ MenuButton.defaultProps = {
   open: false,
   zIndex: null,
   ariaLabel: "Menu",
+  startingEdge: "bottom",
   closeDialogOnContentClick: false,
   dialogClassName: "",
   openDialogComponentClassName: "",
@@ -231,7 +288,9 @@ MenuButton.defaultProps = {
   dialogPosition: MenuButton.dialogPositions.BOTTOM_START,
   onMenuShow: NOOP,
   onMenuHide: NOOP,
-  disabled: false
+  disabled: false,
+  text: undefined,
+  disabledReason: undefined
 };
 
 export default MenuButton;
