@@ -1,6 +1,6 @@
 import "./focus.scss";
 import DescriptionLabel from "../../components/storybook-helpers/description-label/description-label";
-import {Button, Checkbox, Divider, Menu, MenuItem, MenuTitle, RadioButton, TextField} from "../../components";
+import { Button, Checkbox, Divider, Menu, MenuItem, MenuTitle, RadioButton, TextField } from "../../components";
 import Search from "../../components/Search/Search";
 import SearchIcon from "../../components/Icon/Icons/components/Search";
 import { CloseSmall, Moon, Sun } from "../../components/Icon/Icons";
@@ -31,7 +31,7 @@ export const Focus = () => {
         We are using the css pseudo class <code>:focus-visible</code> and the polyfill which adds{" "}
         <code>focus-visible</code> class in order to support older browsers
       </DescriptionLabel>
-      <Divider/>
+      <Divider />
       <div>
         <DescriptionLabel>Buttons</DescriptionLabel>
         <div className="components-container-large">

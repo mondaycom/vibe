@@ -1,6 +1,6 @@
 import { useCallback, useRef } from "react";
 import useEventListener from "./useEventListener";
-import {HIDE_SHOW_EVENTS} from "../components/Dialog/consts/dialog-show-hide-event";
+import { HIDE_SHOW_EVENTS } from "../components/Dialog/consts/dialog-show-hide-event";
 
 export default function useOnClickOutside({ ref, callback }) {
   const onClickOutsideListener = useCallback(

@@ -194,7 +194,11 @@ export default class Dialog extends PureComponent {
 
   onKeyDown(event) {
     if (event.key === "Enter") {
-      this.handleEvent("enter", event.target, e);
+      this.handleEvent("enter", event.target, event);
+    }
+
+    if (event.key === "Tab") {
+      this.handleEvent("tab", event.target, event);
     }
   }
 
