@@ -122,51 +122,50 @@ const MenuButton = ({
   const Icon = component;
   const iconSize = size - 4;
   return (
-      <Tooltip
-          content={disabledReason}
-          position="right"
-          showTrigger={TOOLTIP_SHOW_TRIGGER}
-          hideTrigger={TOOLTIP_HIDE_TRIGGER}
-      >
-    <Dialog
-      wrapperClassName={dialogClassName}
-      position={dialogPosition}
-      startingEdge="bottom"
-      animationType="expand"
-      content={content}
-      moveBy={computedDialogOffset}
-      showTrigger={showTrigger}
-      hideTrigger={hideTrigger}
-      useDerivedStateFromProps={true}
-      onDialogDidShow={onDialogDidShow}
-      onDialogDidHide={onDialogDidHide}
-      referenceWrapperClassName={BEMClass("reference-icon")}
-      zIndex={zIndex}
-      isOpen={isOpen}
+    <Tooltip
+      content={disabledReason}
+      position="right"
+      showTrigger={TOOLTIP_SHOW_TRIGGER}
+      hideTrigger={TOOLTIP_HIDE_TRIGGER}
     >
-      <button
-        onClick={onClick}
-        ref={buttonRef}
-        type="button"
-        role="menu"
-        className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
-          [BEMClass("open")]: isOpen,
-          [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
-          [BEMClass("disabled")]: disabled,
-          [BEMClass("text")]: text
-        })}
-        aria-haspopup="true"
-        aria-expanded={isOpen}
-        aria-label={ariaLabel}
-        onMouseUp={onMouseUp}
-        aria-disabled={disabled}
+      <Dialog
+        wrapperClassName={dialogClassName}
+        position={dialogPosition}
+        startingEdge="bottom"
+        animationType="expand"
+        content={content}
+        moveBy={computedDialogOffset}
+        showTrigger={showTrigger}
+        hideTrigger={hideTrigger}
+        useDerivedStateFromProps={true}
+        onDialogDidShow={onDialogDidShow}
+        onDialogDidHide={onDialogDidHide}
+        referenceWrapperClassName={BEMClass("reference-icon")}
+        zIndex={zIndex}
+        isOpen={isOpen}
       >
-        <Icon size={Math.min(iconSize, 28).toString()} />
-        {text && <span className={BEMClass("inner-text")}>{text}</span>}
-
-      </button>
-    </Dialog>
-      </Tooltip>
+        <button
+          onClick={onClick}
+          ref={buttonRef}
+          type="button"
+          role="menu"
+          className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
+            [BEMClass("open")]: isOpen,
+            [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
+            [BEMClass("disabled")]: disabled,
+            [BEMClass("text")]: text
+          })}
+          aria-haspopup="true"
+          aria-expanded={isOpen}
+          aria-label={ariaLabel}
+          onMouseUp={onMouseUp}
+          aria-disabled={disabled}
+        >
+          <Icon size={Math.min(iconSize, 28).toString()} />
+          {text && <span className={BEMClass("inner-text")}>{text}</span>}
+        </button>
+      </Dialog>
+    </Tooltip>
   );
 };
 
