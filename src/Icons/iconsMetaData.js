@@ -257,6 +257,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Doc",
+    file: "Doc.svg",
+    description: "Doc icon",
+    tags: "Doc, Document",
+    category: [PLATFORM],
+  },
+
+  {
     name: "DoubleCheck",
     file: "DoubleCheck.svg",
     description: "Double Check",
