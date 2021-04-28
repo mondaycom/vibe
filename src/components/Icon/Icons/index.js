@@ -36,6 +36,7 @@ export {default as Cut} from './components/Cut';
 export {default as Dashboard} from './components/Dashboard';
 export {default as Delete} from './components/Delete';
 export {default as Divider} from './components/Divider';
+export {default as Doc} from './components/Doc';
 export {default as DoubleCheck} from './components/DoubleCheck';
 export {default as Download} from './components/Download';
 export {default as Drag} from './components/Drag';
