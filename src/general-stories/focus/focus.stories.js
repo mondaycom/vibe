@@ -131,5 +131,5 @@ export const Focus = () => {
 };
 
 export default {
-  title: "Foundations|Focus"
+  title: "A11y|Focus"
 };

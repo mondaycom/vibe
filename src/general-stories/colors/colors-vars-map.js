@@ -88,7 +88,7 @@ export const colorsMap = [
   // Link
   { color: "--link-color", description: "Use only for links" },
   { color: "--link-on-secondary-color", description: "Use only for links on secondary colors" },
-  //Backgrounds
+  // Backgrounds
   { color: "--primary-background-color", description: "Primary background color" },
   { color: "--secondary-background-color", description: "Secondary background color" }
 ];

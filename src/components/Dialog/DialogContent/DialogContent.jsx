@@ -11,7 +11,7 @@ const transitionOptions = {};
 const NOOP = () => {};
 const EMPTY_OBJECT = {};
 
-const KEYS = ["Esc", "Escape"];
+const KEYS = ["Esc", "Escape", "Tab"];
 
 export const DialogContent = React.forwardRef(
   (

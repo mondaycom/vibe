@@ -49,7 +49,8 @@ export default class Dialog extends PureComponent {
     if (!isOpen) {
       return;
     }
-    if (event.key === "Escape") this.hideDialogIfNeeded(HIDE_SHOW_EVENTS.ESCAPE_KEY);
+    if (event.key === "Escape") this.hideDialogIfNeeded(event, HIDE_SHOW_EVENTS.ESCAPE_KEY);
+    if (event.key === "Tab") this.hideDialogIfNeeded(event, HIDE_SHOW_EVENTS.TAB_KEY);
   }
 
   componentDidMount() {
@@ -204,19 +205,19 @@ export default class Dialog extends PureComponent {
 
   onMouseDown(e) {
     if (e.button) return;
-    this.handleEvent("mousedown", e.target);
+    this.handleEvent("mousedown", e.target, e);
   }
 
   onFocus(e) {
-    this.handleEvent("focus", e.target);
+    this.handleEvent("focus", e.target, e);
   }
 
   onBlur(e) {
-    this.handleEvent("blur", e.relatedTarget);
+    this.handleEvent("blur", e.relatedTarget, e);
   }
 
   onEsc(e) {
-    this.handleEvent("esckey", e.target);
+    this.handleEvent("esckey", e.target, e);
   }
 
   onClickOutside(event) {

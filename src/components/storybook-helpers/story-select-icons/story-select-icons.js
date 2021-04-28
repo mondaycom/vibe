@@ -1,10 +1,15 @@
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { select } from "@storybook/addon-knobs";
 import * as AllIcons from "../../Icon/Icons";
 
 const getIcons = () => {
   return iconsMetaData.reduce((acc, icon) => {
     const Component = AllIcons[icon.file.split(".")[0]];
+    if (!Component) {
+      console.error("missing -  ", icon.file);
+      return acc;
+    }
     acc[Component.name] = Component;
     return acc;
   }, {});

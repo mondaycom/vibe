@@ -19,7 +19,9 @@
     "link-local": "npm link && npm start",
     "plop": "plop",
     "build-react-icons": "svg2react-icon --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
-    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx}\""
+    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx}\"",
+    "eslint": "eslint ./src",
+    "eslint-fix": "eslint ./src --fix"
   },
   "repository": {
     "type": "git",

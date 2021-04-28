@@ -15,7 +15,8 @@ function BEMClass(className) {
 const TOOLTIP_SHOW_TRIGGER = ["mouseenter"];
 const TOOLTIP_HIDE_TRIGGER = ["mouseleave"];
 
-const showTrigger = ["click", "enter"];
+const showTrigger = [];
+const EMPTY_ARRAY = [];
 const MOVE_BY = { main: 0, secondary: -6 };
 
 const MenuButton = ({
@@ -43,19 +44,35 @@ const MenuButton = ({
   const [isOpen, setIsOpen] = useState(open);
   const onClick = useCallback(
     event => {
+      if (disabled) {
+        return;
+      }
+
       if (isOpen) {
         event.preventDefault();
         event.stopPropagation();
         return;
       }
-      setIsOpen(true);
+      setIsOpen(!isOpen);
     },
-    [setIsOpen, isOpen]
+    [setIsOpen, isOpen, disabled]
   );
+
+  const onMenuDidClose = useCallback(
+    event => {
+      if (event && event.key === "Escape") {
+        setIsOpen(false);
+        buttonRef.current.focus();
+      } else {
+        buttonRef.current.blur();
+      }
+    },
+    [buttonRef, setIsOpen]
+  );
+
   const onDialogDidHide = useCallback(
     (event, hideEvent) => {
       setIsOpen(false);
-
       onMenuHide();
       if (buttonRef.current && hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY) {
         buttonRef.current.focus();
@@ -71,30 +88,28 @@ const MenuButton = ({
     onMenuShow();
   }, [setIsOpen, onMenuShow]);
 
-  const hideTrigger = useMemo(() => {
-    const triggers = ["clickoutside", "esckey", "click", "tab"];
+  const [clonedChildren, hideTrigger] = useMemo(() => {
+    const triggers = new Set(["clickoutside", "tab", "esckey"]);
     if (closeDialogOnContentClick) {
-      triggers.push("onContentClick");
+      triggers.add("onContentClick");
     }
-    return triggers;
-  }, [closeDialogOnContentClick]);
-
-  const clonedChildren = useMemo(() => {
     const childrenArr = React.Children.toArray(children);
 
-    return childrenArr.map(child => {
+    const cloned = childrenArr.map(child => {
       const newProps = {};
       if (child.type && child.type.supportFocusOnMount) {
         newProps.focusOnMount = true;
+        triggers.delete("triggers");
       }
 
-      // if (child.type && child.type.isMenu) {
-      //   newProps.onClose = onDialogDidHide;
-      // }
+      if (child.type && child.type.isMenu) {
+        newProps.onClose = onMenuDidClose;
+      }
 
       return React.cloneElement(child, newProps);
     });
-  }, [children, onDialogDidHide]);
+    return [cloned, Array.from(triggers)];
+  }, [children, onMenuDidClose, closeDialogOnContentClick]);
 
   const content = useMemo(() => {
     if (!clonedChildren.length === 0) return <div />;
@@ -131,11 +146,11 @@ const MenuButton = ({
       <Dialog
         wrapperClassName={dialogClassName}
         position={dialogPosition}
-        startingEdge="bottom"
+        startingEdge={startingEdge}
         animationType="expand"
         content={content}
         moveBy={computedDialogOffset}
-        showTrigger={showTrigger}
+        showTrigger={disabled ? EMPTY_ARRAY : showTrigger}
         hideTrigger={hideTrigger}
         useDerivedStateFromProps={true}
         onDialogDidShow={onDialogDidShow}
