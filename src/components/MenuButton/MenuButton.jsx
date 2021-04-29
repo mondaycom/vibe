@@ -12,8 +12,8 @@ function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
 }
 
-const TOOLTIP_SHOW_TRIGGER = ["mouseenter"];
-const TOOLTIP_HIDE_TRIGGER = ["mouseleave"];
+const TOOLTIP_SHOW_TRIGGER = [Dialog.hideShowTriggers.MOUSE_ENTER];
+const TOOLTIP_HIDE_TRIGGER = [Dialog.hideShowTriggers.MOUSE_LEAVE];
 
 const showTrigger = [];
 const EMPTY_ARRAY = [];
@@ -89,17 +89,22 @@ const MenuButton = ({
   }, [setIsOpen, onMenuShow]);
 
   const [clonedChildren, hideTrigger] = useMemo(() => {
-    const triggers = new Set(["clickoutside", "tab", "esckey"]);
-    if (closeDialogOnContentClick) {
-      triggers.add("onContentClick");
-    }
-    const childrenArr = React.Children.toArray(children);
+    const triggers = new Set([
+      Dialog.hideShowTriggers.CLICK_OUTSIDE,
+      Dialog.hideShowTriggers.TAB_KEY,
+      Dialog.hideShowTriggers.ESCAPE_KEY
+    ]);
 
+    if (closeDialogOnContentClick) {
+      triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
+    }
+
+    const childrenArr = React.Children.toArray(children);
     const cloned = childrenArr.map(child => {
       const newProps = {};
       if (child.type && child.type.supportFocusOnMount) {
         newProps.focusOnMount = true;
-        triggers.delete("triggers");
+        triggers.delete(Dialog.hideShowTriggers.ESCAPE_KEY);
       }
 
       if (child.type && child.type.isMenu) {

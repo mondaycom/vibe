@@ -6,7 +6,7 @@
 .monday-style-button {
   --loader-padding: 8px;
   outline: none;
-  border: none;
+  border: 1px solid transparent;
   height: auto;
   font-family: Roboto, sans-serif;
   border-radius: $border-radius-small;
@@ -77,7 +77,7 @@
     &-small {
       @include font-input();
       padding: $spacing-xs $spacing-small;
-      min-height: 32px;
+      height: 32px;
       line-height: 24px;
       .monday-style-button__loader {
         top: 7px;
@@ -87,13 +87,13 @@
     &-medium {
       @include font-paragraph();
       padding: $spacing-small $spacing-medium;
-      min-height: 40px;
+      height: 40px;
     }
 
     &-large {
       @include font-paragraph();
       padding: $spacing-small-medium $spacing-large;
-      min-height: 48px;
+      height: 48px;
     }
   }
 
