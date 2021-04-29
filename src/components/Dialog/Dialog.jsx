@@ -138,7 +138,6 @@ export default class Dialog extends PureComponent {
 
   onHideDialog(event, eventName) {
     const { onDialogDidHide } = this.props;
-    debugger;
     if (onDialogDidHide) onDialogDidHide(event, eventName);
   }
 
