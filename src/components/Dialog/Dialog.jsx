@@ -50,7 +50,7 @@ export default class Dialog extends PureComponent {
       return;
     }
     if (event.key === "Escape") this.hideDialogIfNeeded(event, HIDE_SHOW_EVENTS.ESCAPE_KEY);
-    if (event.key === "Tab") this.hideDialogIfNeeded(event, HIDE_SHOW_EVENTS.TAB_KEY);
+    if (event.key === "Tab") this.handleEvent(HIDE_SHOW_EVENTS.TAB_KEY, event);
   }
 
   componentDidMount() {
@@ -175,9 +175,10 @@ export default class Dialog extends PureComponent {
     return convertToArray(showTrigger).indexOf(event) > -1;
   }
 
-  isHideTrigger(event) {
+  isHideTrigger(eventName) {
+    console.log(eventName);
     const { hideTrigger } = this.props;
-    return convertToArray(hideTrigger).indexOf(event) > -1;
+    return convertToArray(hideTrigger).indexOf(eventName) > -1;
   }
 
   onMouseEnter(e) {
@@ -231,9 +232,9 @@ export default class Dialog extends PureComponent {
     if (showOnDialogEnter) this.showDialogIfNeeded();
   }
 
-  onDialogLeave() {
+  onDialogLeave(event) {
     const { showOnDialogEnter } = this.props;
-    if (showOnDialogEnter) this.hideDialogIfNeeded("DialogLeave");
+    if (showOnDialogEnter) this.hideDialogIfNeeded(event, "DialogLeave");
   }
 
   onContentClick(e) {

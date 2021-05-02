@@ -20,6 +20,7 @@ const EMPTY_ARRAY = [];
 const MOVE_BY = { main: 0, secondary: -6 };
 
 const MenuButton = ({
+  id,
   componentClassName,
   openDialogComponentClassName,
   children,
@@ -38,7 +39,8 @@ const MenuButton = ({
   disabled,
   text,
   disabledReason,
-  startingEdge
+  startingEdge,
+  removeTabCloseTrigger
 }) => {
   const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
@@ -53,7 +55,7 @@ const MenuButton = ({
         event.stopPropagation();
         return;
       }
-      setIsOpen(!isOpen);
+      setIsOpen(true);
     },
     [setIsOpen, isOpen, disabled]
   );
@@ -62,9 +64,10 @@ const MenuButton = ({
     event => {
       if (event && event.key === "Escape") {
         setIsOpen(false);
-        buttonRef.current.focus();
-      } else {
-        buttonRef.current.blur();
+        const button = buttonRef.current;
+        window.requestAnimationFrame(() => {
+          button.focus();
+        });
       }
     },
     [buttonRef, setIsOpen]
@@ -74,11 +77,12 @@ const MenuButton = ({
     (event, hideEvent) => {
       setIsOpen(false);
       onMenuHide();
-      if (buttonRef.current && hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY) {
-        buttonRef.current.focus();
-      } else {
-        hideEvent && buttonRef.current && buttonRef.current.blur();
-      }
+      const button = buttonRef.current;
+      window.requestAnimationFrame(() => {
+        if (button && hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY) {
+          button.focus();
+        }
+      });
     },
     [setIsOpen, onMenuHide, buttonRef]
   );
@@ -99,6 +103,10 @@ const MenuButton = ({
       triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
     }
 
+    if (removeTabCloseTrigger) {
+      triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
+    }
+
     const childrenArr = React.Children.toArray(children);
     const cloned = childrenArr.map(child => {
       const newProps = {};
@@ -114,7 +122,7 @@ const MenuButton = ({
       return React.cloneElement(child, newProps);
     });
     return [cloned, Array.from(triggers)];
-  }, [children, onMenuDidClose, closeDialogOnContentClick]);
+  }, [children, onMenuDidClose, closeDialogOnContentClick, removeTabCloseTrigger]);
 
   const content = useMemo(() => {
     if (!clonedChildren.length === 0) return <div />;
@@ -165,6 +173,7 @@ const MenuButton = ({
         isOpen={isOpen}
       >
         <button
+          id={id}
           onClick={onClick}
           ref={buttonRef}
           type="button"
@@ -217,6 +226,10 @@ MenuButton.paddingSizes = DialogContentContainer.sizes;
 MenuButton.dialogPositions = DialogPositions;
 
 MenuButton.propTypes = {
+  /*
+    Id for the menu button
+   */
+  id: PropTypes.string,
   componentClassName: PropTypes.string,
   /*
     Class name to add to the button when the dialog is open
@@ -289,9 +302,14 @@ MenuButton.propTypes = {
   /**
    * Disabled tooltip text
    */
-  disabledReason: PropTypes.string
+  disabledReason: PropTypes.string,
+  /*
+    Remove "Tab" key from the hide trigger
+   */
+  removeTabCloseTrigger: PropTypes.bool
 };
 MenuButton.defaultProps = {
+  id: undefined,
   componentClassName: "",
   component: Menu,
   size: MenuButtonSizes.SMALL,
@@ -309,7 +327,8 @@ MenuButton.defaultProps = {
   onMenuHide: NOOP,
   disabled: false,
   text: undefined,
-  disabledReason: undefined
+  disabledReason: undefined,
+  removeTabCloseTrigger: false
 };
 
 export default MenuButton;
