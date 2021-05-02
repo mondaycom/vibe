@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
@@ -19,7 +19,9 @@
     "link-local": "npm link && npm start",
     "plop": "plop",
     "build-react-icons": "svg2react-icon --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
-    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx}\""
+    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx}\"",
+    "eslint": "eslint ./src",
+    "eslint-fix": "eslint ./src --fix"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useMemo } from "react";
+import React, { useCallback, useState, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -12,13 +12,15 @@ function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
 }
 
-const TOOLTIP_SHOW_TRIGGER = ["mouseenter"];
-const TOOLTIP_HIDE_TRIGGER = ["mouseleave"];
+const TOOLTIP_SHOW_TRIGGER = [Dialog.hideShowTriggers.MOUSE_ENTER];
+const TOOLTIP_HIDE_TRIGGER = [Dialog.hideShowTriggers.MOUSE_LEAVE];
 
-const showTrigger = ["click", "enter"];
+const showTrigger = [];
+const EMPTY_ARRAY = [];
 const MOVE_BY = { main: 0, secondary: -6 };
 
 const MenuButton = ({
+  id,
   componentClassName,
   openDialogComponentClassName,
   children,
@@ -37,46 +39,90 @@ const MenuButton = ({
   disabled,
   text,
   disabledReason,
-  startingEdge
+  startingEdge,
+  removeTabCloseTrigger
 }) => {
+  const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
+  const onClick = useCallback(
+    event => {
+      if (disabled) {
+        return;
+      }
 
-  const onDialogDidHide = useCallback(() => {
-    setIsOpen(false);
-    onMenuHide();
-  }, [setIsOpen, onMenuHide]);
+      if (isOpen) {
+        event.preventDefault();
+        event.stopPropagation();
+        return;
+      }
+      setIsOpen(true);
+    },
+    [setIsOpen, isOpen, disabled]
+  );
+
+  const onMenuDidClose = useCallback(
+    event => {
+      if (event && event.key === "Escape") {
+        setIsOpen(false);
+        const button = buttonRef.current;
+        window.requestAnimationFrame(() => {
+          button.focus();
+        });
+      }
+    },
+    [buttonRef, setIsOpen]
+  );
+
+  const onDialogDidHide = useCallback(
+    (event, hideEvent) => {
+      setIsOpen(false);
+      onMenuHide();
+      const button = buttonRef.current;
+      window.requestAnimationFrame(() => {
+        if (button && hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY) {
+          button.focus();
+        }
+      });
+    },
+    [setIsOpen, onMenuHide, buttonRef]
+  );
 
   const onDialogDidShow = useCallback(() => {
     setIsOpen(true);
     onMenuShow();
   }, [setIsOpen, onMenuShow]);
 
-  const hideTrigger = useMemo(() => {
-    const triggers = ["clickoutside", "esckey"];
+  const [clonedChildren, hideTrigger] = useMemo(() => {
+    const triggers = new Set([
+      Dialog.hideShowTriggers.CLICK_OUTSIDE,
+      Dialog.hideShowTriggers.TAB_KEY,
+      Dialog.hideShowTriggers.ESCAPE_KEY
+    ]);
+
     if (closeDialogOnContentClick) {
-      triggers.push("onContentClick");
+      triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
     }
-    return triggers;
-  }, [closeDialogOnContentClick]);
 
-  const clonedChildren = useMemo(() => {
+    if (removeTabCloseTrigger) {
+      triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
+    }
+
     const childrenArr = React.Children.toArray(children);
-
     const cloned = childrenArr.map(child => {
       const newProps = {};
       if (child.type && child.type.supportFocusOnMount) {
         newProps.focusOnMount = true;
+        triggers.delete(Dialog.hideShowTriggers.ESCAPE_KEY);
       }
 
       if (child.type && child.type.isMenu) {
-        newProps.onClose = onDialogDidHide;
+        newProps.onClose = onMenuDidClose;
       }
 
       return React.cloneElement(child, newProps);
     });
-
-    return cloned;
-  }, [children, onDialogDidHide]);
+    return [cloned, Array.from(triggers)];
+  }, [children, onMenuDidClose, closeDialogOnContentClick, removeTabCloseTrigger]);
 
   const content = useMemo(() => {
     if (!clonedChildren.length === 0) return <div />;
@@ -103,7 +149,6 @@ const MenuButton = ({
 
   const Icon = component;
   const iconSize = size - 4;
-
   return (
     <Tooltip
       content={disabledReason}
@@ -118,7 +163,7 @@ const MenuButton = ({
         animationType="expand"
         content={content}
         moveBy={computedDialogOffset}
-        showTrigger={!disabled && showTrigger}
+        showTrigger={disabled ? EMPTY_ARRAY : showTrigger}
         hideTrigger={hideTrigger}
         useDerivedStateFromProps={true}
         onDialogDidShow={onDialogDidShow}
@@ -128,6 +173,9 @@ const MenuButton = ({
         isOpen={isOpen}
       >
         <button
+          id={id}
+          onClick={onClick}
+          ref={buttonRef}
           type="button"
           role="menu"
           className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
@@ -178,6 +226,10 @@ MenuButton.paddingSizes = DialogContentContainer.sizes;
 MenuButton.dialogPositions = DialogPositions;
 
 MenuButton.propTypes = {
+  /*
+    Id for the menu button
+   */
+  id: PropTypes.string,
   componentClassName: PropTypes.string,
   /*
     Class name to add to the button when the dialog is open
@@ -250,9 +302,14 @@ MenuButton.propTypes = {
   /**
    * Disabled tooltip text
    */
-  disabledReason: PropTypes.string
+  disabledReason: PropTypes.string,
+  /*
+    Remove "Tab" key from the hide trigger
+   */
+  removeTabCloseTrigger: PropTypes.bool
 };
 MenuButton.defaultProps = {
+  id: undefined,
   componentClassName: "",
   component: Menu,
   size: MenuButtonSizes.SMALL,
@@ -270,7 +327,8 @@ MenuButton.defaultProps = {
   onMenuHide: NOOP,
   disabled: false,
   text: undefined,
-  disabledReason: undefined
+  disabledReason: undefined,
+  removeTabCloseTrigger: false
 };
 
 export default MenuButton;

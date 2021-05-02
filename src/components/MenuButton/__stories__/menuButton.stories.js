@@ -83,24 +83,37 @@ const ClickableMenuItemButton = () => {
   );
 };
 
-export const MenuButtonWithMenu = () => (
-  <MenuButton ariaLabel="opens a menu with sub menu">
-    <Menu id="menu-in-menu-button" ariaDescribedBy="title-id">
-      <MenuTitle caption="My awesome menu" id="title-id" />
-      <MenuItem title="First" icon={Moon} />
-      <MenuItem title="Second" icon={Sun}>
-        <Menu id="sub-menu-directions">
-          <MenuItem title="Up" icon={MoveArrowUp} />
-          <MenuItem title="Down" icon={MoveArrowDown} />
-          <MenuItem title="Left" icon={MoveArrowLeft} />
-          <MenuItem title="Right" icon={MoveArrowRight} />
-        </Menu>
-      </MenuItem>
-      <MenuItem title="Third" icon={Bolt} />
-      {ClickableMenuItemButton()}
-    </Menu>
-  </MenuButton>
-);
+export const MenuButtonWithMenu = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <MenuButton ariaLabel="opens a menu with sub menu">
+      <Menu id="menu-in-menu-button" ariaDescribedBy="title-id">
+        <MenuTitle caption="My awesome menu" id="title-id" />
+        <MenuItem title="First" icon={Moon} />
+        <MenuItem title="Second" icon={Sun}>
+          <Menu id="sub-menu-directions">
+            <MenuItem title="Up" icon={MoveArrowUp} />
+            <MenuItem title="Down" icon={MoveArrowDown} />
+            <MenuItem title="Left" icon={MoveArrowLeft} />
+            <MenuItem title="Right" icon={MoveArrowRight} />
+          </Menu>
+        </MenuItem>
+        <MenuItem title="Third" icon={Bolt} />
+
+        <MenuItemButton
+          id="menu-item-button-1"
+          rightIcon={Bolt}
+          kind={MenuItemButton.kinds.PRIMARY}
+          onClick={() => {
+            setCount(count + 1);
+          }}
+        >
+          {`Clicks ${count}`}
+        </MenuItemButton>
+      </Menu>
+    </MenuButton>
+  );
+};
 
 export const Sizes = () => (
   <FlexLayout fullWidth spaceBetween className="monday-button-story-ai ">

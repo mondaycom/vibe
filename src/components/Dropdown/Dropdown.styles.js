@@ -192,7 +192,7 @@ const clearIndicator = ({ size }) => () => ({
   }
 });
 
-const singleValue = () => (provided, { isDisabled, size }) => ({
+const singleValue = () => (provided, { isDisabled }) => ({
   ...provided,
   ...getFont(),
   ...getColor(),

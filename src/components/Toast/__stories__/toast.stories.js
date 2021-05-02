@@ -9,19 +9,13 @@ import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
 
 export const Toasts = () => {
   const sendIconElement = (
-    <Icon
-      iconType={Icon.type.SVG}
-      clickable={false}
-      icon={Send}
-      iconSize="20px"
-      ignoreFocusStyle
-    />
+    <Icon iconType={Icon.type.SVG} clickable={false} icon={Send} iconSize="20px" ignoreFocusStyle />
   );
   const knobs = {
     type: select("type", {
       Normal: TOAST_TYPES.NORMAL,
       Positive: TOAST_TYPES.POSITIVE,
-      Negative: TOAST_TYPES.NEGATIVE,
+      Negative: TOAST_TYPES.NEGATIVE
     }),
     closeable: boolean("closeable", true),
     autoHideDuration: number("autoHideDuration", 0),
@@ -47,15 +41,11 @@ export const Toasts = () => {
           <Toast
             open={toastOpen}
             onClose={() => closeToast()}
-            action={(
-              <Button
-                size={Button.sizes.SMALL}
-                kind={Button.kinds.SECONDARY}
-                color={Button.colors.ON_PRIMARY_COLOR}
-              >
+            action={
+              <Button size={Button.sizes.SMALL} kind={Button.kinds.SECONDARY} color={Button.colors.ON_PRIMARY_COLOR}>
                 Undo 5
               </Button>
-            )}
+            }
             type={knobs.type}
             icon={icon}
             closeable={knobs.closeable}
