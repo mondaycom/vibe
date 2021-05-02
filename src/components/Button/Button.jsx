@@ -178,7 +178,7 @@ const Button = forwardRef(
         "aria-label": ariaLabel,
         "aria-busy": loading,
         "aria-haspopup": ariaHasPopup,
-        "aria-expended": ariaExpanded,
+        "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls
       };
     }, [
