@@ -27,6 +27,7 @@ export { default as DialogContentContainer } from "./DialogContentContainer/Dial
 export { default as Dropdown } from "./Dropdown/Dropdown";
 export { default as Toast } from "./Toast/Toast";
 export { default as Banner } from "./Banner/Banner";
+export { default as ButtonGroup } from "./ButtonGroup/ButtonGroup";
 
 export { default as MultiStepIndicator } from "./MultiStepIndicator/MultiStepIndicator";
 export { default as HiddenText } from "./HiddenText/HiddenText";
