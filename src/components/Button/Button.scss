@@ -250,6 +250,14 @@
               backdrop-filter: brightness(85%);
             }
           }
+          &-on-inverted-background {
+            @include theme-prop(color, text-color-on-inverted);
+            &-active,
+            &:hover,
+            &:focus {
+              backdrop-filter: brightness(85%);
+            }
+          }
         }
       }
       &:disabled {

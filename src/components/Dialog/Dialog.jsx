@@ -176,7 +176,6 @@ export default class Dialog extends PureComponent {
   }
 
   isHideTrigger(eventName) {
-    console.log(eventName);
     const { hideTrigger } = this.props;
     return convertToArray(hideTrigger).indexOf(eventName) > -1;
   }
