@@ -39,7 +39,7 @@ const AlertBanner = forwardRef(
     }, [originalChildren, isDarkBackground]);
 
     return (
-      <div className={classNames} role="banner" ariaLabel={ariaLabel || "banner"}>
+      <div ref={ref} className={classNames} role="banner" ariaLabel={ariaLabel || "banner"}>
         <div className="monday-alert-banner__inner">
           {children.map((child, index) => {
             return (
