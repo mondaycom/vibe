@@ -29,7 +29,7 @@ AlertBannerButton.isAlertBannerItem = true;
 // eslint-disable-next-line no-unused-vars
 const { size: _sizePropsType, ...buttonPropsTypes } = Button.propTypes;
 AlertBannerButton.propTypes = {
-  buttonPropsTypes,
+  ...buttonPropsTypes,
   /** adds 8px margin to the left */
   marginLeft: PropTypes.bool,
   isDarkBackground: PropTypes.bool

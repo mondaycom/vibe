@@ -24,7 +24,7 @@ AlertBannerLink.isAlertBannerItem = true;
 // eslint-disable-next-line no-unused-vars
 const { componentClassName: _componentClassNamePropsType, ...linkPropsTypes } = Link.propTypes;
 AlertBannerLink.propTypes = {
-  linkPropsTypes,
+  ...linkPropsTypes,
   /** adds 8px margin to the left */
   marginLeft: PropTypes.bool,
   isDarkBackground: PropTypes.bool
