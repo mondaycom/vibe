@@ -17,10 +17,10 @@ export const Sandbox = () => (
       className={select("With custom class", ["alert-banner--custom-class", ""], "")}
       ariaLabel={text("Bar Aria Label", "my awesome alert banner")}
     >
-      <AlertBannerText text="bla bla bla" />
-      <AlertBannerLink text="bla bla bla" href="https://monday.com" />
-      <AlertBannerText text="bla bla bla" />
-      <AlertBannerLink text="bla bla bla" href="https://monday.com" />
+      <AlertBannerText text="Lorem ipsum" />
+      <AlertBannerLink text="Lorem ipsum" href="https://monday.com" />
+      <AlertBannerText text="Lorem ipsum" />
+      <AlertBannerLink text="Lorem ipsum" href="https://monday.com" />
     </AlertBanner>
   </div>
 );
@@ -36,10 +36,10 @@ export const Overflowing = () => (
       className={select("With custom class", ["alert-banner--custom-class", ""], "")}
       ariaLabel={text("Bar Aria Label", "my awesome alert banner")}
     >
-      <AlertBannerText text="bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla" />
-      <AlertBannerLink text="bla bla bla" href="https://monday.com" />
-      <AlertBannerText text="bla bla bla  bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla" />
-      <AlertBannerLink text="bla bla bla" href="https://monday.com" />
+      <AlertBannerText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
+      <AlertBannerLink text="Lorem ipsum" href="https://monday.com" />
+      <AlertBannerText text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
+      <AlertBannerLink text="Lorem ipsum" href="https://monday.com" />
     </AlertBanner>
   </div>
 );
@@ -57,7 +57,7 @@ export const AlertBannerWithButtons = () => {
         className={select("With custom class", ["alert-banner--custom-class", ""], "")}
         ariaLabel={text("Bar Aria Label", "my awesome alert banner")}
       >
-        <AlertBannerText text="bla bla bla bla bla bla bla bla bla" />
+        <AlertBannerText text="Lorem ipsum dolor sit amet" />
         {/* we need to change key when backgroundColor changes to trigger button text color calculation  */}
         <AlertBannerButton key={backgroundColor} onClick={() => console.log("button clicked")}>
           Lorem Ipsum

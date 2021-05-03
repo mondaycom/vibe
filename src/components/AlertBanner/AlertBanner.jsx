@@ -8,66 +8,69 @@ import CloseSmall from "../Icon/Icons/components/CloseSmall";
 
 import "./AlertBanner.scss";
 
-const AlertBanner = forwardRef(({ children: originalChildren, className, backgroundColor, ariaLabel }, ref) => {
-  const classNames = useMemo(() => {
-    return cx(className, "monday-alert-banner", `monday-alert-banner--background-color-${backgroundColor}`);
-  }, [className, backgroundColor]);
+const NOOP = () => {};
 
-  const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
+const AlertBanner = forwardRef(
+  ({ children: originalChildren, className, backgroundColor, onClose, ariaLabel }, ref) => {
+    const classNames = useMemo(() => {
+      return cx(className, "monday-alert-banner", `monday-alert-banner--background-color-${backgroundColor}`);
+    }, [className, backgroundColor]);
 
-  const children = useMemo(() => {
-    const allChildren = React.Children.toArray(originalChildren);
-    const filteredChildren = allChildren.filter(child => {
-      if (child.type.isAlertBannerItem) return true;
-      console.error(
-        "Alert banner child is not supported. Please use AlertBannerText, AlertBannerLink or AlertBannerButton.",
-        child
-      );
-      return false;
-    });
+    const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
 
-    return filteredChildren.map((child, index) => {
-      return React.cloneElement(child, {
-        ...child?.props,
-        marginLeft: index > 0,
-        isDarkBackground
+    const children = useMemo(() => {
+      const allChildren = React.Children.toArray(originalChildren);
+      const filteredChildren = allChildren.filter(child => {
+        if (child.type.isAlertBannerItem) return true;
+        console.error(
+          "Alert banner child is not supported. Please use AlertBannerText, AlertBannerLink or AlertBannerButton.",
+          child
+        );
+        return false;
       });
-    });
-  }, [originalChildren, isDarkBackground]);
 
-  return (
-    <div className={classNames}>
-      <div className="monday-alert-banner__inner">
-        {children.map((child, index) => {
-          console.log("child ", child);
-          return (
-            <div
-              // eslint-disable-next-line react/no-array-index-key
-              key={index}
-              className={cx("monday-alert-banner__inner-item", {
-                "monday-alert-banner__inner-item-text": child.type.isAlertBannerText
-              })}
-            >
-              {child.type.isAlertBannerText ? <div className="monday-alert-banner__ellipsis">{child}</div> : child}
-            </div>
-          );
-        })}
+      return filteredChildren.map((child, index) => {
+        return React.cloneElement(child, {
+          ...child?.props,
+          marginLeft: index > 0,
+          isDarkBackground
+        });
+      });
+    }, [originalChildren, isDarkBackground]);
+
+    return (
+      <div className={classNames} role="banner" ariaLabel={ariaLabel || "banner"}>
+        <div className="monday-alert-banner__inner">
+          {children.map((child, index) => {
+            return (
+              <div
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
+                className={cx("monday-alert-banner__inner-item", {
+                  "monday-alert-banner__inner-item-text": child.type.isAlertBannerText
+                })}
+              >
+                {child.type.isAlertBannerText ? <div className="monday-alert-banner__ellipsis">{child}</div> : child}
+              </div>
+            );
+          })}
+        </div>
+        <div className="monday-alert-banner__close-button-wrapper">
+          <Button
+            className="monday-alert-banner__alert-banner-close-btn"
+            onClick={onClose}
+            size={Button.sizes.SMALL}
+            kind={Button.kinds.TERTIARY}
+            color={isDarkBackground ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
+            ariaLabel="close-toast"
+          >
+            <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
+          </Button>
+        </div>
       </div>
-      <div className="monday-alert-banner__close-button-wrapper">
-        <Button
-          className="alert-banner-close-btn"
-          onClick={() => {}}
-          size={Button.sizes.SMALL}
-          kind={Button.kinds.TERTIARY}
-          color={isDarkBackground ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
-          ariaLabel="close-toast"
-        >
-          <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
-        </Button>
-      </div>
-    </div>
-  );
-});
+    );
+  }
+);
 
 AlertBanner.backgroundColors = BACKGROUND_COLORS;
 AlertBanner.propTypes = {
@@ -81,15 +84,16 @@ AlertBanner.propTypes = {
     AlertBanner.backgroundColors.POSITIVE,
     AlertBanner.backgroundColors.DARK
   ]),
-
   /** ARIA description for the progress bar */
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  onClose: PropTypes.func
 };
 
 AlertBanner.defaultProps = {
   backgroundColor: AlertBanner.backgroundColors.PRIMARY,
   className: "",
-  ariaLabel: ""
+  ariaLabel: "",
+  onClose: NOOP
 };
 
 export default AlertBanner;

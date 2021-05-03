@@ -13,8 +13,6 @@ const AlertBannerText = ({ text, marginLeft }) => {
   const componentRef = useRef(null);
   const classNames = cx("monday-style-alert-banner-text", { "monday-style-alert-banner-text-margin-left": marginLeft });
   const isOverflowing = useIsOverflowing({ ref: componentRef });
-  console.log("isOverflowing ", isOverflowing);
-  console.log("itext", isOverflowing && text);
 
   return (
     <Tooltip
