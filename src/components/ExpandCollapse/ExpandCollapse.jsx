@@ -7,7 +7,7 @@ import Icon from "../Icon/Icon";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 
 const ExpandCollapse = forwardRef(
-  ({ children, headerComponentRenderer, className, defaultOpenState, iconSize }, ref) => {
+  ({ children, headerComponentRenderer, className, defaultOpenState, iconSize, id }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -18,11 +18,15 @@ const ExpandCollapse = forwardRef(
     };
 
     return (
-      <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)}>
+      <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)} id={id}>
         <div className="expand-collapse">
-          <div
-            className={`expand-collapse__header expand-collapse__section ${isOpen && "expand-collapse__header--open"}`}
+          <button
+            className={cx("expand-collapse__header", "expand-collapse__section", {
+              "expand-collapse__header--open": isOpen
+            })}
             onClickCapture={toogleExpand}
+            aria-expanded={isOpen}
+            aria-controls={`${id}-controls`}
           >
             {headerComponentRenderer && headerComponentRenderer()}
             <Icon
@@ -33,11 +37,13 @@ const ExpandCollapse = forwardRef(
               tabindex="-1"
               clickable={false}
             />
-          </div>
+          </button>
           {isOpen && (
             <div
               className={`expand-collapse__content expand-collapse__section ${isOpen &&
                 "animate-expand-collapse__content"}`}
+              id={`${id}-controls`}
+              role="region"
             >
               {children}
             </div>
@@ -49,6 +55,10 @@ const ExpandCollapse = forwardRef(
 );
 
 ExpandCollapse.propTypes = {
+  /**
+   * Id for the component
+   */
+  id: PropTypes.string,
   /**
    * Component as parameter to be rendered as header
    */
@@ -71,6 +81,7 @@ ExpandCollapse.propTypes = {
   defaultOpenState: PropTypes.bool
 };
 ExpandCollapse.defaultProps = {
+  id: "",
   className: "",
   defaultOpenState: false,
   iconSize: 24

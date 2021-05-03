@@ -43,9 +43,11 @@ export const Checkbox = ({
   }
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <label
       className={cx(BASE_CLASS_NAME, componentClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
       onMouseUp={onMouseUpCallback}
+      htmlFor={id}
     >
       <input
         ref={inputRef}
@@ -89,7 +91,7 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
-  id: "",
+  id: undefined,
   componentClassName: "",
   label: "",
   onChange: NOOP,

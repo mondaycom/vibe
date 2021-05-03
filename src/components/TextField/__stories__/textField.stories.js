@@ -14,7 +14,6 @@ export const Sandbox = () => {
         placeholder={text("Placeholder", "default placeholder")}
         debounceRate={number("Debounce Rate (see console log)", 0)}
         onChange={value => console.log(value)}
-        value={text("Initial Value", "")}
         iconsNames={{ primary: "Primary Icon - could be any icon" }}
         iconName={text("Primary Icon Name", "fa-circle")}
         secondaryIconName={text("Secondary Icon Name", "")}

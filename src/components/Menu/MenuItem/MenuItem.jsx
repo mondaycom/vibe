@@ -19,6 +19,7 @@ import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 
 import "./MenuItem.scss";
+import { DialogPositions } from "../../../constants/sizes";
 
 const MenuItem = ({
   classname,
@@ -193,9 +194,6 @@ const MenuItem = ({
       >
         {renderMenuItemIconIfNeeded()}
 
-        {// show tooltip if needed
-        isTitleHoveredAndOverflowing && null}
-
         <div ref={titleRef} className="monday-style-menu-item__title">
           {title}
         </div>
@@ -230,11 +228,11 @@ const MenuItem = ({
 };
 
 MenuItem.iconType = Icon.type;
-
+MenuItem.tooltipPositions = DialogPositions;
 MenuItem.defaultProps = {
   classname: "",
   title: "",
-  lebel: "",
+  label: "",
   icon: "",
   iconType: undefined,
   disabled: false,
@@ -249,13 +247,14 @@ MenuItem.defaultProps = {
   setSubMenuIsOpenByIndex: undefined,
   resetOpenSubMenuIndex: undefined,
   useDocumentEventListeners: false,
-  tooltipPosition: "right",
+  tooltipPosition: MenuItem.tooltipPositions.RIGHT,
   tooltipShowDelay: 300
 };
 
 MenuItem.propTypes = {
   classname: PropTypes.string,
   title: PropTypes.string,
+  label: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   disabled: PropTypes.bool,
@@ -270,7 +269,12 @@ MenuItem.propTypes = {
   hasOpenSubMenu: PropTypes.bool,
   setSubMenuIsOpenByIndex: PropTypes.func,
   useDocumentEventListeners: PropTypes.bool,
-  tooltipPosition: PropTypes.oneOf("right", "left", "top", "bottom"),
+  tooltipPosition: PropTypes.oneOf([
+    MenuItem.tooltipPositions.RIGHT,
+    MenuItem.tooltipPositions.LEFT,
+    MenuItem.tooltipPositions.TOP,
+    MenuItem.tooltipPositions.BOTTOM
+  ]),
   tooltipShowDelay: PropTypes.number
 };
 

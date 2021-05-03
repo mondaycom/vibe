@@ -2,6 +2,7 @@
 
 exports[`renders correctly with Bolt Icon 1`] = `
 <button
+  aria-disabled={false}
   aria-expanded={false}
   aria-haspopup="true"
   aria-label="Menu"
@@ -13,6 +14,7 @@ exports[`renders correctly with Bolt Icon 1`] = `
   onMouseDown={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onMouseUp={[Function]}
   role="menu"
   type="button"
 >
@@ -34,6 +36,7 @@ exports[`renders correctly with Bolt Icon 1`] = `
 
 exports[`renders correctly with Bolt Icon 2`] = `
 <button
+  aria-disabled={false}
   aria-expanded={false}
   aria-haspopup="true"
   aria-label="Menu"
@@ -45,6 +48,7 @@ exports[`renders correctly with Bolt Icon 2`] = `
   onMouseDown={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onMouseUp={[Function]}
   role="menu"
   type="button"
 >
@@ -64,6 +68,7 @@ exports[`renders correctly with Bolt Icon 2`] = `
 
 exports[`renders correctly with empty props 1`] = `
 <button
+  aria-disabled={false}
   aria-expanded={false}
   aria-haspopup="true"
   aria-label="Menu"
@@ -75,6 +80,7 @@ exports[`renders correctly with empty props 1`] = `
   onMouseDown={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onMouseUp={[Function]}
   role="menu"
   type="button"
 >
@@ -124,6 +130,7 @@ exports[`renders correctly with open state 1`] = `
 
 exports[`renders correctly with size Large 1`] = `
 <button
+  aria-disabled={false}
   aria-expanded={false}
   aria-haspopup="true"
   aria-label="Menu"
@@ -135,6 +142,7 @@ exports[`renders correctly with size Large 1`] = `
   onMouseDown={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onMouseUp={[Function]}
   role="menu"
   type="button"
 >

@@ -43,6 +43,7 @@ const Icon = forwardRef(
       return (
         <IconComponent
           aria-hidden={ariaHidden}
+          aria-label={iconLabel}
           size={iconSize.toString()}
           onClick={onClick}
           tabIndex={externalTabIndex ?? tabindex}

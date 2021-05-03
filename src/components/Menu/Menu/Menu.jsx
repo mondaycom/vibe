@@ -26,6 +26,7 @@ const Menu = forwardRef(
       onClose,
       focusOnMount,
       focusItemIndex,
+      focusItemIndexOnMount,
       isSubMenu,
       useDocumentEventListeners
     },
@@ -33,6 +34,10 @@ const Menu = forwardRef(
   ) => {
     const ref = useRef(null);
     const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
+
+    useEffect(() => {
+      if (focusItemIndexOnMount !== -1) setActiveItemIndex(focusItemIndexOnMount);
+    }, [focusItemIndexOnMount]);
 
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren);
@@ -90,8 +95,8 @@ const Menu = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
     const { focusWithinProps } = useFocusWithin({
-      onBlurWithin: _e => {
-        onCloseMenu && onCloseMenu();
+      onBlurWithin: e => {
+        onCloseMenu && onCloseMenu(e);
       }
     });
 
@@ -146,7 +151,8 @@ Menu.defaultProps = {
   onClose: undefined,
   focusItemIndex: -1,
   isSubMenu: false,
-  useDocumentEventListeners: false
+  useDocumentEventListeners: false,
+  focusItemIndexOnMount: -1
 };
 
 Menu.propTypes = {
@@ -161,7 +167,8 @@ Menu.propTypes = {
   onClose: PropTypes.func,
   focusItemIndex: PropTypes.number,
   isSubMenu: PropTypes.bool,
-  useDocumentEventListeners: PropTypes.bool
+  useDocumentEventListeners: PropTypes.bool,
+  focusItemIndexOnMount: PropTypes.number
 };
 
 export default Menu;

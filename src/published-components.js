@@ -17,6 +17,7 @@ const publishedComponents = {
   MenuTitle: "/src/components/Menu/MenuTitle/MenuTitle.jsx",
   Divider: "/src/components/Divider/Divider.jsx",
   MenuItem: "/src/components/Menu/MenuItem/MenuItem.jsx",
+  MenuItemButton: "/src/components/Menu/MenuItemButton/MenuItemButton.jsx",
   MenuDivider: "/src/components/Menu/MenuDivider/MenuDivider.jsx",
   Menu: "/src/components/Menu/Menu/Menu.jsx",
   Dialog: "/src/components/Dialog/Dialog.jsx",
@@ -44,7 +45,8 @@ const publishedComponents = {
   useEventListener: "/src/hooks/useEventListener.js",
   useDebounceEvent: "/src/hooks/useDebounceEvent.js",
   useClickOutside: "/src/hooks/useClickOutside.js",
-  useResizeObserver: "/src/hooks/useResizeObserver.js"
+  useResizeObserver: "/src/hooks/useResizeObserver.js",
+  allIcons: "/src/components/Icon/Icons"
 };
 
 function getPublishedComponents(dirPath = "") {

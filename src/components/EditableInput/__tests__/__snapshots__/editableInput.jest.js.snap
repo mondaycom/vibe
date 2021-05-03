@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly aria label 1`] = `
+exports[`renders correctly with aria label 1`] = `
 <input
   ariaLabel="Edit input"
   autoComplete="on"

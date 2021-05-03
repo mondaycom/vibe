@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import sinon from "sinon";
 import mocha from "mocha";
 import chai from "chai";

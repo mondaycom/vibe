@@ -24,14 +24,8 @@ describe("BreadcrumbsItem", () => {
     const tree = renderer
       .create(
         <BreadcrumbsBar>
-          <BreadcrumbItem
-            icon={WorkspaceIcon}
-            text="Workspace"
-          />
-          <BreadcrumbItem
-            icon={BoardIcon}
-            text="Board"
-          />
+          <BreadcrumbItem icon={WorkspaceIcon} text="Workspace" />
+          <BreadcrumbItem icon={BoardIcon} text="Board" />
         </BreadcrumbsBar>
       )
       .toJSON();
@@ -47,7 +41,7 @@ describe("BreadcrumbsItem", () => {
 
     const link = getByRole("link");
 
-    expect(link.getAttribute('href')).toBe("https://www.google.com");
+    expect(link.getAttribute("href")).toBe("https://www.google.com");
   });
 
   it("if navigation item, click works", () => {
@@ -93,7 +87,7 @@ describe("BreadcrumbsItem", () => {
 
     const item = getByText("Workspace");
     fireEvent.focus(item);
-    fireEvent.keyDown(item, { key: "Enter", code: "Enter", charCode:"13" });
+    fireEvent.keyDown(item, { key: "Enter", code: "Enter", charCode: "13" });
     jest.advanceTimersByTime(1000);
 
     expect(onClickMock.mock.calls.length).toBe(1);
@@ -109,7 +103,7 @@ describe("BreadcrumbsItem", () => {
     );
 
     const item = getByText("Workspace");
-    fireEvent.keyDown(item, { key: " ", code: "Space", charCode:"32" });
+    fireEvent.keyDown(item, { key: " ", code: "Space", charCode: "32" });
     jest.advanceTimersByTime(1000);
 
     expect(onClickMock.mock.calls.length).toBe(1);

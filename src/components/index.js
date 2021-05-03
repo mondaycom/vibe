@@ -13,6 +13,7 @@ export { default as CustomSvgIcon } from "./Icon/CustomSvgIcon";
 export { default as Menu } from "./Menu/Menu/Menu";
 export { default as MenuItem } from "./Menu/MenuItem/MenuItem";
 export { default as AlertBanner } from "./AlertBanner/AlertBanner";
+export { default as MenuItemButton } from "./Menu/MenuItemButton/MenuItemButton";
 export { default as MenuDivider } from "./Menu/MenuDivider/MenuDivider";
 export { default as Divider } from "./Divider/Divider";
 export { default as MenuTitle } from "./Menu/MenuTitle/MenuTitle";
@@ -27,6 +28,7 @@ export { default as DialogContentContainer } from "./DialogContentContainer/Dial
 export { default as Dropdown } from "./Dropdown/Dropdown";
 export { default as Toast } from "./Toast/Toast";
 export { default as Banner } from "./Banner/Banner";
+export { default as ButtonGroup } from "./ButtonGroup/ButtonGroup";
 
 export { default as MultiStepIndicator } from "./MultiStepIndicator/MultiStepIndicator";
 export { default as HiddenText } from "./HiddenText/HiddenText";
