@@ -34,6 +34,7 @@ import IconName from "monday-ui-style/src/Icons/IconName.svg";
 ## Icons
 
 ### Adding a new icon
+In order to add a new icon you will need to for and open a PR - https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
 
 When adding a new icon please make sure that there isn't a similar icon - if so either replace the icon or make sure that we need another version of it
 
