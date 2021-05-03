@@ -91,7 +91,7 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
-  id: "",
+  id: undefined,
   componentClassName: "",
   label: "",
   onChange: NOOP,
