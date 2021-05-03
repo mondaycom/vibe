@@ -14,16 +14,12 @@ const AlertBannerButton = ({ marginLeft, isDarkBackground, ...buttonProps }) => 
 
   return (
     <div className={classNames}>
-      <Button size={Button.sizes.SMALL} kind={Button.kinds.PRIMARY} color={Button.colors.ON_PRIMARY_COLOR}>
-        On Primary Primary
-      </Button>
-      {/* <Button
+      <Button
         {...buttonProps}
         size={Button.sizes.SMALL}
         className="monday-style-alert-banner-button"
-        defaultTextColorOnPrimaryColor="var(--primary-color)"
         color={Button.colors.ON_PRIMARY_COLOR}
-      /> */}
+      />
     </div>
   );
 };

@@ -44,23 +44,28 @@ export const Overflowing = () => (
   </div>
 );
 
-export const AlertBannerWithButtons = () => (
-  <div style={{ width: "50%", margin: "40px" }}>
-    <AlertBanner
-      backgroundColor={select(
-        "Background color",
-        Object.values(AlertBanner.backgroundColors),
-        AlertBanner.backgroundColors.RPIMARY
-      )}
-      className={select("With custom class", ["alert-banner--custom-class", ""], "")}
-      ariaLabel={text("Bar Aria Label", "my awesome alert banner")}
-    >
-      <AlertBannerText text="bla bla bla bla bla bla bla bla bla" />
-      <AlertBannerButton onClick={() => console.log("button clicked")}>bla bla bla</AlertBannerButton>
-      <AlertBannerButton onClick={() => console.log("button clicked")}>bla bla bla</AlertBannerButton>
-    </AlertBanner>
-  </div>
-);
+export const AlertBannerWithButtons = () => {
+  const backgroundColor = select(
+    "Background color",
+    Object.values(AlertBanner.backgroundColors),
+    AlertBanner.backgroundColors.RPIMARY
+  );
+  return (
+    <div style={{ width: "50%", margin: "40px" }}>
+      <AlertBanner
+        backgroundColor={backgroundColor}
+        className={select("With custom class", ["alert-banner--custom-class", ""], "")}
+        ariaLabel={text("Bar Aria Label", "my awesome alert banner")}
+      >
+        <AlertBannerText text="bla bla bla bla bla bla bla bla bla" />
+        {/* we need to change key when backgroundColor changes to trigger button text color calculation  */}
+        <AlertBannerButton key={backgroundColor} onClick={() => console.log("button clicked")}>
+          Lorem Ipsum
+        </AlertBannerButton>
+      </AlertBanner>
+    </div>
+  );
+};
 
 export default {
   title: "Components|AlertBanner/AlertBanner",
