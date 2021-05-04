@@ -28,6 +28,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "AddUpdate",
+    file: "AddUpdate.svg",
+    description: "Add Update",
+    tags: "Add, Plus, Update",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Alert",
     file: "Alert.svg",
     description: "Alert",
