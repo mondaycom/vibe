@@ -993,6 +993,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "TextIndicator",
+    file: "TextIndicator.svg",
+    description: "Text Indicator",
+    tags: "Text, Design",
+    category: [BASIC],
+  },
+
+  {
     name: "TextSmall",
     file: "TextSmall.svg",
     description: "Text Small",
