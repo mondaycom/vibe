@@ -15,7 +15,7 @@ function BEMClass(className) {
 const TOOLTIP_SHOW_TRIGGER = [Dialog.hideShowTriggers.MOUSE_ENTER];
 const TOOLTIP_HIDE_TRIGGER = [Dialog.hideShowTriggers.MOUSE_LEAVE];
 
-const showTrigger = [];
+const showTrigger = ["click", "enter"];
 const EMPTY_ARRAY = [];
 const MOVE_BY = { main: 0, secondary: -6 };
 
@@ -44,24 +44,26 @@ const MenuButton = ({
 }) => {
   const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
-  const onClick = useCallback(
-    event => {
-      if (disabled) {
-        return;
-      }
-
-      if (isOpen) {
-        event.preventDefault();
-        event.stopPropagation();
-        return;
-      }
-      setIsOpen(true);
-    },
-    [setIsOpen, isOpen, disabled]
-  );
+  // const onClick = useCallback(
+  //   event => {
+  //     console.log("on click");
+  //     if (disabled) {
+  //       return;
+  //     }
+  //
+  //     if (isOpen) {
+  //       event.preventDefault();
+  //       event.stopPropagation();
+  //       return;
+  //     }
+  //     setIsOpen(true);
+  //   },
+  //   [setIsOpen, isOpen, disabled]
+  // );
 
   const onMenuDidClose = useCallback(
     event => {
+      console.log("on menu did close");
       if (event && event.key === "Escape") {
         setIsOpen(false);
         const button = buttonRef.current;
@@ -75,6 +77,7 @@ const MenuButton = ({
 
   const onDialogDidHide = useCallback(
     (event, hideEvent) => {
+      console.log("on dialog did hide");
       setIsOpen(false);
       onMenuHide();
       const button = buttonRef.current;
@@ -88,6 +91,7 @@ const MenuButton = ({
   );
 
   const onDialogDidShow = useCallback(() => {
+    console.log("on dialog did show");
     setIsOpen(true);
     onMenuShow();
   }, [setIsOpen, onMenuShow]);
@@ -174,7 +178,6 @@ const MenuButton = ({
       >
         <button
           id={id}
-          onClick={onClick}
           ref={buttonRef}
           type="button"
           role="menu"
