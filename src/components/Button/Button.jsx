@@ -10,6 +10,7 @@ import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
 import { SIZES } from "../../constants/sizes";
+import { ARIA_HAS_POPUP_TYPES } from "../../constants/a11y/aria";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
@@ -333,7 +334,14 @@ Button.propTypes = {
   /** aria label to provide important when providing only Icon */
   ariaLabel: PropTypes.string,
   /** aria for a button popup */
-  ariaHasPopup: PropTypes.bool,
+  ariaHasPopup: PropTypes.oneOf([
+    PropTypes.bool,
+    ARIA_HAS_POPUP_TYPES.MENU,
+    ARIA_HAS_POPUP_TYPES.LISTBOX,
+    ARIA_HAS_POPUP_TYPES.TREE,
+    ARIA_HAS_POPUP_TYPES.GRID,
+    ARIA_HAS_POPUP_TYPES.DIALOG
+  ]),
   /** aria to be set if the popup is open */
   ariaExpanded: PropTypes.bool,
   /** aria controls - receives id for the controlled region */
