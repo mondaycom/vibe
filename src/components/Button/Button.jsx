@@ -10,7 +10,6 @@ import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
 import { SIZES } from "../../constants/sizes";
-import { ARIA_HAS_POPUP_TYPES } from "../../constants/a11y/aria";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
