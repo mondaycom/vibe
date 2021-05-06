@@ -334,14 +334,7 @@ Button.propTypes = {
   /** aria label to provide important when providing only Icon */
   ariaLabel: PropTypes.string,
   /** aria for a button popup */
-  ariaHasPopup: PropTypes.oneOf([
-    PropTypes.bool,
-    ARIA_HAS_POPUP_TYPES.MENU,
-    ARIA_HAS_POPUP_TYPES.LISTBOX,
-    ARIA_HAS_POPUP_TYPES.TREE,
-    ARIA_HAS_POPUP_TYPES.GRID,
-    ARIA_HAS_POPUP_TYPES.DIALOG
-  ]),
+  ariaHasPopup: PropTypes.oneOf([true, false, "menu", "listbox", "tree", "grid", "dialog"]),
   /** aria to be set if the popup is open */
   ariaExpanded: PropTypes.bool,
   /** aria controls - receives id for the controlled region */
