@@ -118,7 +118,7 @@ const EditableHeading = props => {
     const inputType = props.inputType || textAreaType;
     return {
       value: valueState,
-      className: `editable-heading-input heading-element-type-${props.type} size-${props.size}`,
+      className: `editable-heading-input element-type-${props.type} size-${props.size}`,
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,
