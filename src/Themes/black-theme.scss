@@ -1,32 +1,31 @@
-.dark-app-theme {
+.black-app-theme {
   // primary coloring
   --primary-color: var(--color-basic_blue);
-  --primary-on-secondary-color: var(--color-basic_blue);
-  --primary-hover-color: #0060b9;
-  --primary-hover-on-secondary-color: #0060b9;
+  --primary-hover-color: var(--color-dark_blue);
   --primary-selected-color: #404b69;
-  --primary-selected-on-secondary-color: #133774;
   --primary-text-color: #d5d8df;
-  --primary-text-on-secondary-color: #d5d8df;
-
-  --primary-background-color: #181b34;
-  --primary-background-color-rgb: 24, 27, 52;
-
+  --secondary-text-color: #9699a5;
   --primary-background-hover-color: #4b4e69;
-  --primary-background-hover-on-secondary-color: #4b4e69;
-
   --inverted-color-background: #ffffff;
-  --text-color-on-inverted: var(--color-mud_black);
-
+  --text-color-on-inverted: #323338;
+  --text-color-on-primary: #ffffff;
   // states
   --positive-color: var(--color-success);
   --positive-color-hover: var(--color-success-hover);
-  --positive-color-selected: #26503e;
+  --positive-color-selected: var(--color-success-highlight);
   --negative-color: var(--color-error);
   --negative-color-hover: var(--color-error-hover);
-  --negative-color-selected: #642830;
+  --negative-color-selected: var(--color-error-highlight);
   --private-color: var(--color-private);
-  --shareable-color: #a358df;
+  --shareable-color: var(--color-purple);
+
+  --primary-on-secondary-color: var(--color-basic_blue);
+  --primary-hover-on-secondary-color: var(--color-dark_blue);
+  --primary-selected-on-secondary-color: var(--color-highlight_blue);
+  --primary-text-on-secondary-color: var(--color-mud_black);
+  --primary-background-color: #1c1f3b;
+  //--primary-background-color-rgb: 255, 255, 255;
+  --primary-background-hover-on-secondary-color: var(--color-ui_grey);
 
   // borders
   --ui-border-color: #797e93;
@@ -34,178 +33,174 @@
   --layout-border-color: #4b4e69;
   --layout-border-on-secondary-color: #4b4e69;
 
-  --placeholder-color: var(--color-wolf_gray);
-  --placeholder-on-secondary-color: var(--color-wolf_gray);
-  --icon-color: var(--color-wolf_gray);
-  --icon-on-secondary-color: var(--color-wolf_gray);
+  --placeholder-color: #c5c7d0;
+  --placeholder-on-secondary-color: #c5c7d0;
+  --icon-color: #c5c7d0;
+  --icon-on-secondary-color: #c5c7d0;
 
   // disabled
-  --disabled-background-color: #e6e9ef;
-  --disabled-background-on-secondary-color: #4b4e69;
-  --disabled-text-color: rgba(197, 199, 208, 0.75);
-  --disabled-text-on-secondary-color: rgba(197, 199, 208, 0.75);
+  --disabled-background-color: #636363;
+  --disabled-background-on-secondary-color: #636363;
+  --disabled-text-color: rgba(77, 78, 82, 0.75);
+  --disabled-text-on-secondary-color: rgba(77, 78, 82, 0.75);
 
   --dark-background-color: #393b53;
-  --dark-background-on-secondary-color: #4b4e69;
-  --modal-background-color: #181b34;
-  --secondary-background-color: #30324e;
+  --dark-background-on-secondary-color: #393b53;
+  --modal-background-color: #393b53;
+  --secondary-background-color: #393b53;
   //deprecated - use secondary-background-color
-  --dialog-background-color: #30324e;
+  --dialog-background-color: #393b53;
 
-  --label-background-color: #404b69;
-  --label-background-on-secondary-color: #404b69;
-  --secondary-text-color: var(--color-jaco_gray);
-  --secondary-text-on-secondary-color: var(--color-jaco_gray);
-  --link-color: #69a7ef;
-  --link-on-secondary-color: #69a7ef;
+  --label-background-color: var(--color-highlight_blue);
+  --link-color: #6191c9;
+  --link-on-secondary-color: #6191c9;
 
-  // green grass
   --color-grass_green: #359970;
   --color-grass_green-hover: #116846;
-  --color-grass_green-selected: #0f4f43;
+  --color-grass_green-selected: #0a482e;
 
   // done green
   --color-done-gren: #33d391;
   --color-done-gren-hover: #0f9b63;
-  --color-done-gren-selected: #0e7358;
+  --color-done-gren-selected: #096c43;
 
   // Bright Green
   --color-bright-green: #b0dc51;
   --color-bright-green-hover: #7ca32b;
-  --color-bright-green-selected: #5c7930;
+  --color-bright-green-selected: #56721b;
 
   // Saladish
   --color-saladish: #d5c567;
   --color-saladish-hover: #9d8f3e;
-  --color-saladish-selected: #736a3e;
+  --color-saladish-selected: #6d6329;
 
   // Egg Yolk
   --color-egg_yolk: #ffd533;
   --color-egg_yolk-hover: #c29e11;
-  --color-egg_yolk-selected: #c29e11;
+  --color-egg_yolk-selected: #886e09;
 
   // Working on it
   --color-working_orange: #fdbc64;
   --color-working_orange-hvoer: #c0873c;
-  --color-working_orange-selected: #8c653c;
+  --color-working_orange-selected: #875e27;
 
   // Dark orange
   --color-dark-orange: #ff7b4d;
   --color-dark-orange-hover: #c25531;
-  --color-dark-orange-selected: #8d4134;
+  --color-dark-orange-selected: #883a1f;
 
   // Peach Color
   --color-peach: #ffbdbd;
   --color-peach-hover: #c2888a;
-  --color-peach-selected: #8d6674;
+  --color-peach-selected: #885f5f;
 
   // Sunset Color
   --color-sunset: #ff9191;
   --color-sunset-hover: #c26163;
-  --color-sunset-selected: #8d4a58;
+  --color-sunset-selected: #884343;
 
   // Stuck red
   --color-stuck-red: #e8697d;
   --color-stuck-red-hover: #ad3f51;
-  --color-stuck-red-seleced: #7f314b;
+  --color-stuck-red-seleced: #792a36;
 
   // Dark red
   --color-dark-red: #c95c76;
   --color-dark-red-hover: #92334c;
-  --color-dark-red-selected: #6b2947;
+  --color-dark-red-selected: #662232;
 
   // Sofia
   --color-sofia_pink: #ff44a1;
   --color-sofia_pink-hover: #c21e71;
-  --color-sofia_pink-selected: #8d1a62;
+  --color-sofia_pink-selected: #88134d;
 
   // Lipstick color
   --color-lipstick: #ff7bd0;
   --color-lipstick-hover: #c24e9a;
-  --color-lipstick-selected: #8d3c7f;
+  --color-lipstick-selected: #88356a;
 
   // Bubble
   --color-bubble: #fbb4f4;
   --color-bubble-hover: #be80ba;
-  --color-bubble-selected: #8b6096;
+  --color-bubble-selected: #855981;
 
   // Purple
   --color-purple: #b57de3;
   --color-purple-hover: #8050ab;
-  --color-purple-selected: #5f3e8b;
+  --color-purple-selected: #593776;
 
   // Dark purple
   --color-dark_purple: #936fda;
   --color-dark_purple-hover: #6344a3;
-  --color-dark_purple-selected: #4a3586;
+  --color-dark_purple-selected: #442e71;
 
   // Berry
-  --color-berry: #6645a9;
+  --color-berry: #9862a1;
   --color-berry-hover: #673971;
-  --color-berry-selected: #4d2d62;
+  --color-berry-selected: #47264d;
 
   // Dark indigo
-  --color-dark_indigo: #401694;
+  --color-dark_indigo: #6645a9;
   --color-dark_indigo-hover: #3c1f78;
-  --color-dark_indigo-selected: #2e1b67;
+  --color-dark_indigo-selected: #291452;
 
   // Indigo
   --color-indigo: #777ae5;
   --color-indigo-hoevr: #4b4ead;
-  --color-indigo-selected: #383c8d;
+  --color-indigo-selected: #333578;
 
   // Navy
   --color-navy: #4e73a7;
   --color-navy-hover: #274776;
-  --color-navy-selected: #1f3866;
+  --color-navy-selected: #193151;
 
   // Light Blue
   --color-bright-blue: #79affd;
   --color-bright-blue-hover: #4c7cc1;
-  --color-bright-blue-selected: #395d9b;
+  --color-bright-blue-selected: #345686;
 
   // Dark blue
   --color-dark-blue: #339ecd;
   --color-dark-blue-hoevr: #0f6d97;
-  --color-dark-blue-selected: #0e527e;
+  --color-dark-blue-selected: #094b69;
 
   // Aquamarine
   --color-aquamarine: #71d6d1;
   --color-aquamarine-hover: #469e9b;
-  --color-aquamarine-selected: #357580;
+  --color-aquamarine-selected: #2f6e6b;
 
   // Chili Blue
   --color-chili-blue: #85d6ff;
   --color-chili-blue-hover: #569ec3;
-  --color-chili-blue-selected: #41759d;
+  --color-chili-blue-selected: #3b6e88;
 
   // River
   --color-river: #86b4ca;
   --color-river-hover: #588095;
-  --color-river-selected: #42607c;
+  --color-river-selected: #3c5967;
 
   // winter
   --color-winter: #aebdca;
   --color-winter-hover: #7b8895;
-  --color-winter-selected: #5b667c;
+  --color-winter-selected: #555f67;
 
   // Explosive
   --color-explosive: #d0d0d0;
   --color-explosive-hover: #98999a;
-  --color-explosive-selected: #70717f;
+  --color-explosive-selected: #6a6a6a;
 
   // American Grey
   --color-american_gray: #999999;
   --color-american_gray-hover: #69696a;
-  --color-american_gray-selected: #4e505e;
+  --color-american_gray-selected: #494949;
 
   // Blackish
   --color-blackish: #5c5c5c;
   --color-blackish-hover: #222222;
-  --color-blackish-selected: #272937;
+  --color-blackish-selected: #222222;
 
   // Brown
   --color-brown: #99756c;
   --color-brown-hover: #684943;
-  --color-brown-selected: #4d3941;
+  --color-brown-selected: #48322c;
 }
