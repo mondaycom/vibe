@@ -1,51 +1,12 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 
-.example-padding {
-  padding: 13px 0;
-}
-
-.main-title {
-  @include font-main();
-  @include theme-prop(color, primary-text-color);
-}
-
-.title {
-  @include font-title();
-  @include theme-prop(color, primary-text-color);
-}
-
-.sub-secondary {
-  @include font-title-secondary();
-  @include theme-prop(color, primary-text-color);
-}
-
-.subtitle {
-  @include font-subtitle();
-  @include theme-prop(color, primary-text-color);
-}
-
-.paragraph {
-  @include font-paragraph();
-  @include theme-prop(color, primary-text-color);
-}
-
-.paragraph-bold {
-  @include font-paragraph-bold();
-  @include theme-prop(color, primary-text-color);
+.example-margin {
+  margin: 12px 0;
 }
 
 .input {
   @include font-input();
-  @include theme-prop(color, primary-text-color);
-}
-
-.link {
-  @include font-link();
-}
-
-.caption {
-  @include font-caption();
 }
 
 .typo-row {
