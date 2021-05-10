@@ -7,30 +7,62 @@ import DescriptionLabel from "../../components/storybook-helpers/description-lab
 import StoryWrapper from "../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import { buildColorsStory, codingColors, greyColors, mainColors, mainColors2, mainColors3 } from "./colors-helper";
 import StoryTitle from "../../components/storybook-helpers/story-title/story-title";
-import Divider from "../../components/Divider/Divider";
+import Bolt from "../../components/Icon/Icons/components/Bolt";
 
 const KeyColorItem = ({ color, description }) => {
   return (
     <section className="color-item-component">
-      <div className="color-name">
+      <div className="color-name" style={{ width: "200px" }}>
         <span style={{ padding: "0 8px", fontSize: "16px" }}>{color}</span>
         <DescriptionLabel className="color-name-description">{description}</DescriptionLabel>
       </div>
 
-      <div className="light-app-theme" style={{ height: "80%" }}>
-        <div
-          className="color-element"
-          style={{
-            width: "150px",
-            backgroundColor: `var(${color})`,
-            borderRadius: "4px 0px 0px 4px",
-            border: "1px solid var(--ui-border-color)",
-            borderRight: "none"
-          }}
-        />
+      <div
+        className="light-app-theme"
+        style={{
+          height: "100%",
+          backgroundColor: "var(--primary-background-color)",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <div style={{ height: "80%" }}>
+          <div
+            className="color-element"
+            style={{
+              width: "150px",
+              backgroundColor: `var(${color})`,
+              borderRadius: "4px 0px 0px 4px",
+              border: "1px solid var(--ui-border-color)",
+              borderRight: "none"
+            }}
+          />
+        </div>
       </div>
       <div
         className="dark-app-theme"
+        style={{
+          height: "100%",
+          backgroundColor: "var(--primary-background-color)",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <div style={{ height: "80%" }}>
+          <div
+            className="color-element"
+            style={{
+              width: "175px",
+              backgroundColor: `var(${color})`,
+              borderRadius: "0px 4px 4px 0px",
+              border: "1px solid var(--ui-border-color)",
+              borderLeft: "none"
+            }}
+          />
+        </div>
+      </div>
+      <div
+        className="black-app-theme"
         style={{
           width: "175px",
           height: "100%",
@@ -84,8 +116,11 @@ export const Colors = () => {
           <span className="theme-container">
             <Sun className="theme-icon" /> Light
           </span>
-          <span className="theme-container dark-app-theme" style={{ width: "175" }}>
+          <span className="theme-container dark-app-theme">
             <Moon className="theme-icon" /> Dark
+          </span>
+          <span className="theme-container black-app-theme" style={{ width: "175" }}>
+            <Bolt className="theme-icon" /> Dark
           </span>
         </div>
         {colorsMap.map(({ color, description }) => (

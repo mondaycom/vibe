@@ -8,15 +8,16 @@
   width: fit-content;
   height: fit-content;
   @include theme-prop(color, dark-color);
+  &__text {
+    @include theme-prop(color, primary-text-color);
+  }
   &--type {
     &-primary {
       @include theme-prop(color, primary-text-color);
       @include theme-prop(background-color, primary-selected-color);
 
       &__title-container {
-        &__icon {
-          @include theme-prop(color, primary-color);
-        }
+        @include theme-prop(color, primary-color);
       }
     }
 
@@ -24,9 +25,7 @@
       @include theme-prop(background-color, negative-color-selected);
 
       &__title-container {
-        &__icon {
-          @include theme-prop(color, negative-color);
-        }
+        @include theme-prop(color, negative-color);
       }
     }
 
@@ -34,9 +33,7 @@
       @include theme-prop(background-color, positive-color-selected);
 
       &__title-container {
-        &__icon {
-          @include theme-prop(color, positive-color);
-        }
+        @include theme-prop(color, positive-color);
       }
     }
 
