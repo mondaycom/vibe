@@ -5,12 +5,11 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "Versioning",
-      file: "Versioning.svg",
-      description: "Versioning",
-      tags: "version, versions, versioning, version history"
+    name: "Versioning",
+    file: "Versioning.svg",
+    description: "Versioning",
+    tags: "version, versions, versioning, version history",
   },
-
 
   {
     name: "Activity",
@@ -473,6 +472,13 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Help",
+    file: "Help.svg",
+    description: "Help",
+    tags: "help, question",
+  },
+
+  {
     name: "Health",
     file: "Health.svg",
     description: "Health",
@@ -692,6 +698,13 @@ export const iconsMetaData = [
     description: "Move Arrow Up",
     tags: "Move, Arrow, Up",
     category: [BASIC],
+  },
+
+  {
+    name: "MyWeek",
+    file: "MyWeek.svg",
+    description: "My week",
+    tags: "my week, week, calendar",
   },
 
   {
