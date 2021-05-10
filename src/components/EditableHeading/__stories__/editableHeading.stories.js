@@ -5,10 +5,10 @@ import Icon from "../../Icon/Icon";
 import { TYPES } from "../../Heading/HeadingConstants";
 
 export const Sandbox = () => (
-  <div style={{ width: "200px", height: "500px", padding: "16px", border: "1px solid" }}>
+  <div style={{ width: "200px", height: "500px", padding: "16px", border: "1px solid var(--layout-border-color)" }}>
     <div style={{ display: "flex", alignItems: "center" }}>
       <EditableHeading type={TYPES.h1} value="Edit H1 Long text test" />
-      <div style={{ flex: "0 0 30px" }}>
+      <div style={{ flex: "0 0 30px", color: "var(--icon-color)" }}>
         <Icon iconType={Icon.type.ICON_FONT} icon="fa fa-star" />
       </div>
     </div>

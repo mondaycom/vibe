@@ -1,5 +1,5 @@
 import React from "react";
-import { colorsMap } from "./colors-vars-map";
+import { colorsMap, contentColors } from "./colors-vars-map";
 import "./ColorItem.scss";
 import Sun from "../../components/Icon/Icons/components/Sun";
 import Moon from "../../components/Icon/Icons/components/Moon";
@@ -54,9 +54,9 @@ const KeyColorItem = ({ color, description }) => {
             style={{
               width: "175px",
               backgroundColor: `var(${color})`,
-              borderRadius: "0px 4px 4px 0px",
               border: "1px solid var(--ui-border-color)",
-              borderLeft: "none"
+              borderLeft: "none",
+              borderRight: "none"
             }}
           />
         </div>
@@ -83,6 +83,88 @@ const KeyColorItem = ({ color, description }) => {
             }}
           />
         </div>
+      </div>
+    </section>
+  );
+};
+function ContentColors({ color, isFirst, isLast }) {
+  return (
+    <div style={{ height: "80%", display: "flex" }}>
+      <div
+        className="color-element"
+        style={{
+          width: "50px",
+          backgroundColor: `var(--color-${color})`,
+          borderRadius: isFirst ? "4px 0px 0px 4px" : "none",
+          border: "1px solid var(--ui-border-color)",
+          borderRight: "none"
+        }}
+      />
+      <div
+        className="color-element"
+        style={{
+          width: "50px",
+          backgroundColor: `var(--color-${color}-hover)`,
+          border: "1px solid var(--ui-border-color)",
+          borderRight: "none",
+          borderLeft: "none"
+        }}
+      />
+      <div
+        className="color-element"
+        style={{
+          width: "50px",
+          backgroundColor: `var(--color-${color}-selected)`,
+          borderRadius: isLast ? "0px 4px 4px 0px" : "none",
+          border: "1px solid var(--ui-border-color)",
+          borderRight: "none",
+          borderLeft: "none"
+        }}
+      />
+    </div>
+  );
+}
+
+const ContentColorItem = ({ color }) => {
+  return (
+    <section className="color-item-component">
+      <div className="color-name" style={{ width: "200px" }}>
+        <span style={{ padding: "0 8px", fontSize: "16px" }}>--color-{color}</span>
+      </div>
+
+      <div
+        className="light-app-theme"
+        style={{
+          height: "100%",
+          backgroundColor: "var(--primary-background-color)",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <ContentColors color={color} isFirst />
+      </div>
+      <div
+        className="dark-app-theme"
+        style={{
+          height: "100%",
+          backgroundColor: "var(--primary-background-color)",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <ContentColors color={color} />
+      </div>
+      <div
+        className="black-app-theme"
+        style={{
+          width: "175px",
+          height: "100%",
+          backgroundColor: "var(--primary-background-color)",
+          display: "flex",
+          alignItems: "center"
+        }}
+      >
+        <ContentColors color={color} isLast />
       </div>
     </section>
   );
@@ -137,7 +219,9 @@ export const Colors = () => {
         gives understanding and indication of orientation and belonging. The board’s main strength is its simple and
         visual appearance. That’s why the status colors should appear on the board and nowhere else in the UI.
       </DescriptionLabel>
-      {buildColorsStory(codingColors, true)}
+      {contentColors.map(color => {
+        return <ContentColorItem color={color} />;
+      })}
     </StoryWrapper>
   );
 };

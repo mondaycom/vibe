@@ -93,6 +93,39 @@ export const colorsMap = [
   { color: "--secondary-background-color", description: "Secondary background color" }
 ];
 
+export const contentColors = [
+  "grass_green",
+  "done-green",
+  "bright-green",
+  "saladish",
+  "egg_yolk",
+  "working_orange",
+  "dark-orange",
+  "peach",
+  "sunset",
+  "stuck-red",
+  "dark-red",
+  "sofia_pink",
+  "lipstick",
+  "bubble",
+  "purple",
+  "dark_purple",
+  "berry",
+  "dark_indigo",
+  "indigo",
+  "navy",
+  "bright-blue",
+  "dark-blue",
+  "aquamarine",
+  "chili-blue",
+  "river",
+  "winter",
+  "explosive",
+  "american_gray",
+  "blackish",
+  "brown"
+];
+
 export const allMondayColors = [
   "--color-asphalt",
   "--color-light_blue",
