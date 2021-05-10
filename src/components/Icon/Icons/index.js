@@ -94,7 +94,7 @@ export {default as MoveArrowDown} from './components/MoveArrowDown';
 export {default as MoveArrowLeft} from './components/MoveArrowLeft';
 export {default as MoveArrowRight} from './components/MoveArrowRight';
 export {default as MoveArrowUp} from './components/MoveArrowUp';
-export {default as My week} from './components/My week';
+export {default as MyWeek} from './components/MyWeek';
 export {default as NavigationChevronDown} from './components/NavigationChevronDown';
 export {default as NavigationChevronLeft} from './components/NavigationChevronLeft';
 export {default as NavigationChevronRight} from './components/NavigationChevronRight';
