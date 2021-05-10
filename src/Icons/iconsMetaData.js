@@ -4,6 +4,13 @@ const VIEW = "View";
 export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
+  {
+      name: "Versioning",
+      file: "Versioning.svg",
+      description: "Versioning",
+      tags: "version, versions, versioning, version history"
+  },
+
 
   {
     name: "Activity",
