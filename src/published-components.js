@@ -46,7 +46,8 @@ const publishedComponents = {
   useDebounceEvent: "/src/hooks/useDebounceEvent.js",
   useClickOutside: "/src/hooks/useClickOutside.js",
   useResizeObserver: "/src/hooks/useResizeObserver.js",
-  allIcons: "/src/components/Icon/Icons"
+  allIcons: "/src/components/Icon/Icons",
+  Link: "/src/components/Link/Link.jsx"
 };
 
 function getPublishedComponents(dirPath = "") {

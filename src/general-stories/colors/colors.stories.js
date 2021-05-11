@@ -127,7 +127,7 @@ function ContentColors({ color, isFirst, isLast }) {
 
 const ContentColorItem = ({ color }) => {
   return (
-    <section className="color-item-component">
+    <section className="content-color">
       <div className="color-name" style={{ width: "200px" }}>
         <span style={{ padding: "0 8px", fontSize: "16px" }}>--color-{color}</span>
       </div>
@@ -138,7 +138,8 @@ const ContentColorItem = ({ color }) => {
           height: "100%",
           backgroundColor: "var(--primary-background-color)",
           display: "flex",
-          alignItems: "center"
+          alignItems: "center",
+          padding: "0 8px"
         }}
       >
         <ContentColors color={color} isFirst />
@@ -149,7 +150,8 @@ const ContentColorItem = ({ color }) => {
           height: "100%",
           backgroundColor: "var(--primary-background-color)",
           display: "flex",
-          alignItems: "center"
+          alignItems: "center",
+          padding: "0 8px"
         }}
       >
         <ContentColors color={color} />
@@ -161,7 +163,8 @@ const ContentColorItem = ({ color }) => {
           height: "100%",
           backgroundColor: "var(--primary-background-color)",
           display: "flex",
-          alignItems: "center"
+          alignItems: "center",
+          padding: "0 8px"
         }}
       >
         <ContentColors color={color} isLast />
@@ -195,7 +198,7 @@ export const Colors = () => {
       <div className="colors-container">
         <div className="themes-icon-container">
           <div className="theme-name-spacer">Color Keys</div>
-          <span className="theme-container">
+          <span className="theme-container light-app-theme">
             <Sun className="theme-icon" /> Light
           </span>
           <span className="theme-container dark-app-theme">
@@ -219,6 +222,20 @@ export const Colors = () => {
         gives understanding and indication of orientation and belonging. The board’s main strength is its simple and
         visual appearance. That’s why the status colors should appear on the board and nowhere else in the UI.
       </DescriptionLabel>
+      <div className="colors-container">
+        <div className="themes-icon-container">
+          <div className="theme-name-spacer">Color Keys</div>
+          <span className="theme-container light-app-theme" style={{ width: "175px" }}>
+            <Sun className="theme-icon" /> Light
+          </span>
+          <span className="theme-container dark-app-theme" style={{ width: "175px" }}>
+            <Moon className="theme-icon" /> Dark
+          </span>
+          <span className="theme-container black-app-theme" style={{ width: "175px" }}>
+            <Bolt className="theme-icon" /> Dark
+          </span>
+        </div>
+      </div>
       {contentColors.map(color => {
         return <ContentColorItem color={color} />;
       })}
