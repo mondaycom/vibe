@@ -151,7 +151,6 @@ $font-size-default: 14px;
 }
 
 // Override tags styles
-h1,
 .element-type-h1 {
   @include font-main();
   &.size-small,
@@ -160,7 +159,6 @@ h1,
   }
 }
 
-h2,
 .element-type-h2 {
   @include font-title();
   &.size-small,
@@ -168,7 +166,6 @@ h2,
     @include font-subtitle();
   }
 }
-h3,
 .element-type-h3 {
   @include font-title-secondary();
   &.size-small,
@@ -177,17 +174,14 @@ h3,
   }
 }
 
-h4,
 .element-type-h4 {
   @include font-subtitle();
 }
 
-h5,
 .element-type-h5 {
   @include font-paragraph-bold();
 }
 
-h6,
 .element-type-h6 {
   @include font-general-text();
 }
