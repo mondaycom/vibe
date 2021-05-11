@@ -44,7 +44,8 @@ const MenuItem = ({
   closeMenu,
   useDocumentEventListeners,
   tooltipPosition,
-  tooltipShowDelay
+  tooltipShowDelay,
+  isInitialSelectedState
 }) => {
   const isActive = activeItemIndex === index;
   const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -185,7 +186,8 @@ const MenuItem = ({
         className={cx("monday-style-menu-item", classname, {
           "monday-style-menu-item--disabled": disabled,
           "monday-style-menu-item--focused": isActive,
-          "monday-style-menu-item--selected": selected
+          "monday-style-menu-item--selected": selected,
+          "monday-style-menu-item-initial-selected": isInitialSelectedState
         })}
         ref={mergedRef}
         onClick={onClickCallback}

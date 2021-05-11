@@ -193,7 +193,7 @@ const MenuButton = ({
           onMouseUp={onMouseUp}
           aria-disabled={disabled}
         >
-          <Icon size={Math.min(iconSize, 28).toString()} />
+          <Icon size={Math.min(iconSize, 28).toString()} role="img" aria-hidden="true" />
           {text && <span className={BEMClass("inner-text")}>{text}</span>}
         </button>
       </Dialog>

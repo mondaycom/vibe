@@ -55,7 +55,7 @@ const Icon = forwardRef(
 
     return (
       <FontIcon
-        ariaHidden={ariaHidden}
+        aria-hidden={clickable ? ariaHidden : "true"}
         className={cx(computedClassName)}
         onClick={onClickCallback}
         ref={mergedRef}
