@@ -379,8 +379,8 @@ Button.defaultProps = {
   onFocus: NOOP,
   onBlur: NOOP,
   defaultTextColorOnPrimaryColor: TRANSPARENT_COLOR,
-  ariaHasPopup: false,
-  ariaExpanded: false,
+  ariaHasPopup: undefined,
+  ariaExpanded: undefined,
   ariaControls: undefined,
   ariaLabel: undefined,
   ariaLabeledBy: undefined
