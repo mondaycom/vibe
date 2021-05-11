@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/no-autofocus */
+/* eslint-disable */
 import React, { forwardRef, useRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
@@ -68,10 +68,6 @@ const TextField = forwardRef(
       }
       return iconName;
     }, [iconName, secondaryIconName, inputValue]);
-
-    const iconClickable = useMemo(() => {
-      return !disabled && (clearOnIconClick || onIconClick !== NOOP);
-    }, [onIconClick, clearOnIconClick, disabled]);
 
     const onIconClickCallback = useCallback(() => {
       if (disabled) {
@@ -149,7 +145,7 @@ const TextField = forwardRef(
                 "input-component__icon--container-active": isPrimary
               })}
               {...buttonProps}
-              tabIndex={iconName.length && isPrimary ? "0" : "-1"}
+              tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
             >
               <Icon
                 icon={iconName}

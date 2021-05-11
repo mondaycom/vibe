@@ -176,7 +176,7 @@ const Button = forwardRef(
         onMouseDown: onMouseDownClicked,
         "aria-labelledby": ariaLabeledBy,
         "aria-label": ariaLabel,
-        "aria-busy": loading,
+        "aria-busy": loading ? "true" : undefined,
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls

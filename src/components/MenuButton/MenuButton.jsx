@@ -189,7 +189,7 @@ const MenuButton = ({
           })}
           aria-haspopup="true"
           aria-expanded={isOpen}
-          aria-label={ariaLabel}
+          aria-label={!text && ariaLabel}
           onMouseUp={onMouseUp}
           aria-disabled={disabled}
         >

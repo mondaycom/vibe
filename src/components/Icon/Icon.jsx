@@ -42,7 +42,7 @@ const Icon = forwardRef(
       const IconComponent = icon;
       return (
         <IconComponent
-          aria-hidden={ariaHidden}
+          aria-hidden={clickable ? ariaHidden : "true"}
           aria-label={iconLabel}
           size={iconSize.toString()}
           onClick={onClick}
