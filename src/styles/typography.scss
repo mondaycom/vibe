@@ -192,12 +192,10 @@ h6,
   @include font-general-text();
 }
 
-p,
 .element-type-p {
   @include font-paragraph();
 }
 
-small,
 .element-type-small {
   @include font-caption();
 }
