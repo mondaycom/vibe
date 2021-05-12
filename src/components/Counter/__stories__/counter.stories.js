@@ -184,6 +184,42 @@ export const Sandbox = () => (
   </div>
 );
 
+export const Empty = () => (
+    <div>
+        <Counter
+            id="Knobs"
+            count={number("Count", 5)}
+            size={select("Size", [Counter.sizes.LARGE, Counter.sizes.SMALL], Counter.sizes.LARGE)}
+            kind={select("Kind", [Counter.kinds.FILL, Counter.kinds.LINE], Counter.kinds.FILL)}
+            color={select(
+                "Color",
+                [Counter.colors.PRIMARY, Counter.colors.DARK, Counter.colors.NEGATIVE],
+                Counter.colors.PRIMARY
+            )}
+            maxDigits={number("Max Digits", 3)}
+            showEmpty={true}
+        />
+    </div>
+);
+
+export const Loader = () => (
+    <div>
+        <Counter
+            id="Knobs"
+            count={number("Count", 5)}
+            size={select("Size", [Counter.sizes.LARGE, Counter.sizes.SMALL], Counter.sizes.LARGE)}
+            kind={select("Kind", [Counter.kinds.FILL, Counter.kinds.LINE], Counter.kinds.FILL)}
+            color={select(
+                "Color",
+                [Counter.colors.PRIMARY, Counter.colors.DARK, Counter.colors.NEGATIVE],
+                Counter.colors.PRIMARY
+            )}
+            maxDigits={number("Max Digits", 3)}
+            showLoader={true}
+        />
+    </div>
+);
+
 export const NotificationCounter = () => (
   <div className="storybook-counter-sandbox-tag">
     <Counter

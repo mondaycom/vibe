@@ -14,7 +14,22 @@ import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 
 import "./Counter.scss";
 
-const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits, ariaLabeledBy, ariaLabel, id }) => {
+// Components import
+import Loader from "../Loader/Loader";
+
+const Counter = ({
+  count,
+  size,
+  kind,
+  color,
+  wrapperClassName,
+  maxDigits,
+  ariaLabeledBy,
+  ariaLabel,
+  id,
+  showLoader,
+  showEmpty
+}) => {
   // State
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
@@ -71,17 +86,25 @@ const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits, ariaLa
   return (
     <span className={wrapperClassName} aria-label={`${ariaLabel} ${countText}`} aria-labelledby={ariaLabeledBy}>
       <div className={classNames} aria-label={countText} ref={ref}>
-        <SwitchTransition mode="out-in">
-          <CSSTransition
-            classNames="monday-style-counter--fade"
-            addEndListener={(node, done) => {
-              node.addEventListener("transitionend", done, false);
-            }}
-            key={countText}
-          >
-            <span id={`counter-${id}`}>{countText}</span>
-          </CSSTransition>
-        </SwitchTransition>
+        {showLoader ? (
+          <div style={{ width: "16px", height: "24px" }}>
+            <Loader />
+          </div>
+        ) : (
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              classNames="monday-style-counter--fade"
+              addEndListener={(node, done) => {
+                node.addEventListener("transitionend", done, false);
+              }}
+              key={countText}
+            >
+              <span id={`counter-${id}`} style={{ visibility: showEmpty ? "hidden" : "visible" }}>
+                {countText}
+              </span>
+            </CSSTransition>
+          </SwitchTransition>
+        )}
       </div>
     </span>
   );
@@ -104,7 +127,9 @@ Counter.propTypes = {
   color: PropTypes.oneOf([Counter.colors.PRIMARY, Counter.colors.DARK, Counter.colors.NEGATIVE]),
   kind: PropTypes.oneOf([Counter.kinds.FILL, Counter.kinds.LINE]),
   /** maximum number of digits to display (see relevant story) */
-  maxDigits: PropTypes.number
+  maxDigits: PropTypes.number,
+  showEmpty: PropTypes.bool,
+  showLoader: PropTypes.bool
 };
 Counter.defaultProps = {
   id: "",
@@ -115,7 +140,9 @@ Counter.defaultProps = {
   kind: COUNTER_TYPES.FILL,
   maxDigits: 3,
   ariaLabeledBy: "",
-  ariaLabel: ""
+  ariaLabel: "",
+  showEmpty: false,
+  showLoader: false
 };
 
 export default Counter;
