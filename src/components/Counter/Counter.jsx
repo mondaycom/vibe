@@ -86,11 +86,9 @@ const Counter = ({
   return (
     <span className={wrapperClassName} aria-label={`${ariaLabel} ${countText}`} aria-labelledby={ariaLabeledBy}>
       <div className={classNames} aria-label={countText} ref={ref}>
-        {showLoader ? (
-          <div style={{ width: "16px", height: "24px" }}>
+        { showLoader && <div className="loader">
             <Loader />
-          </div>
-        ) : (
+          </div> }
           <SwitchTransition mode="out-in">
             <CSSTransition
               classNames="monday-style-counter--fade"
@@ -99,12 +97,11 @@ const Counter = ({
               }}
               key={countText}
             >
-              <span id={`counter-${id}`} style={{ visibility: showEmpty ? "hidden" : "visible" }}>
+              <span id={`counter-${id}`} style={{ visibility: showEmpty || showLoader ? "hidden" : "visible" }}>
                 {countText}
               </span>
             </CSSTransition>
           </SwitchTransition>
-        )}
       </div>
     </span>
   );
