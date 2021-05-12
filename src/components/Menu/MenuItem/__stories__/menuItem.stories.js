@@ -152,7 +152,13 @@ export const States = () => (
     <FlexLayout>
       <StoryLine title="Disabled menu item">
         <Menu size={Menu.sizes.SMALL}>
-          <MenuItem id="menu-item" title={"Disabled item"} icon={"fa fa-star-o"} disabled={true} disableReason={DISABLE_REASON} />
+          <MenuItem
+            id="menu-item"
+            title={"Disabled item"}
+            icon={"fa fa-star-o"}
+            disabled={true}
+            disableReason={DISABLE_REASON}
+          />
         </Menu>
       </StoryLine>
     </FlexLayout>

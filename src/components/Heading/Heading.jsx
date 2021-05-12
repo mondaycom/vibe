@@ -25,7 +25,7 @@ const Heading = ({
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines)
   );
-  const classNames = cx("heading-component", className, `heading-element-type-${type}`, `size-${size}`, {
+  const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
     "heading-element-ellipsis": ellipsis,
     "suggest-edit-on-hover": suggestEditOnHover
   });

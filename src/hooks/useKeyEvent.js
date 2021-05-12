@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useRef } from "react";
+import { useCallback, useRef } from "react";
 import useEventListener from "./useEventListener";
 
 export default function useKeyEvent({

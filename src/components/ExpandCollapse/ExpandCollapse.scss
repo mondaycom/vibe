@@ -1,64 +1,67 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
+@import "../../styles/states.scss";
 
 .expand-collapse--wrapper {
-    .expand-collapse {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        @include theme-prop(color, primary-text-color);
-        background-color: transparent;
-        border: 1px solid;
-        @include theme-prop(border-color, ui-border-color);
-        box-sizing: border-box;
-        border-radius: $border-radius-small;
-    }
+  .expand-collapse {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    @include theme-prop(color, primary-text-color);
+    background-color: transparent;
+    border: 1px solid;
+    @include theme-prop(border-color, ui-border-color);
+    box-sizing: border-box;
+    border-radius: $border-radius-small;
+  }
 
-    .expand-collapse__header {
-        padding: $spacing-medium;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-    }
+  .expand-collapse__header {
+    @include reset-button();
 
-    .expand-collapse__header--open{
-        border-bottom: 1px solid;
-        @include theme-prop(border-color, ui-border-color);
-    }
+    padding: $spacing-medium;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
 
-    .expand-collapse__content {
-        padding: $spacing-medium;
-    }
+  .expand-collapse__header--open {
+    border-bottom: 1px solid;
+    @include theme-prop(border-color, ui-border-color);
+  }
 
-    .expand-collapse__section {
-        width: 100%;
-    }
+  .expand-collapse__content {
+    padding: $spacing-medium;
+  }
 
-    .animate-icon-open {
-        transform: rotate( -180deg );            
-        transition: transform 200ms ease;
-    }
-    
-    .animate-icon-close {
-        transform: rotate( -360deg );            
-        transition: transform 200ms ease;
-    }
+  .expand-collapse__section {
+    width: 100%;
+  }
 
-    .animate-expand-collapse__content {
-        animation: expandContentAnimation 0.1s $expand-animation-timing;
-      }
-      
-      @keyframes expandContentAnimation {
-        0% {
-          opacity: 0;
-          transform: translateY(-75px);
-          transform: translateY(var(--dropdown-menu-fadinY, -75px));
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0px);
-        }
-      }
+  .animate-icon-open {
+    transform: rotate(-180deg);
+    transition: transform 200ms ease;
+  }
+
+  .animate-icon-close {
+    transform: rotate(-360deg);
+    transition: transform 200ms ease;
+  }
+
+  .animate-expand-collapse__content {
+    animation: expandContentAnimation 0.1s $expand-animation-timing;
+  }
+
+  @keyframes expandContentAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(-75px);
+      transform: translateY(var(--dropdown-menu-fadinY, -75px));
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
 }

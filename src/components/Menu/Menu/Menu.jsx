@@ -1,4 +1,4 @@
-import React, { useMemo, forwardRef, useState, useRef, useCallback, useEffect, useLayoutEffect } from "react";
+import React, { useMemo, forwardRef, useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
 import { useFocusWithin } from "@react-aria/interactions";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -26,6 +26,7 @@ const Menu = forwardRef(
       onClose,
       focusOnMount,
       focusItemIndex,
+      focusItemIndexOnMount,
       isSubMenu,
       useDocumentEventListeners
     },
@@ -33,10 +34,27 @@ const Menu = forwardRef(
   ) => {
     const ref = useRef(null);
     const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
+    const [isInitialSelectedState, setIsInitialSelectedState] = useState(false);
+
+    const onSetActiveItemIndexCallback = useCallback(
+      index => {
+        setActiveItemIndex(index);
+        setIsInitialSelectedState(false);
+      },
+      [setActiveItemIndex, setIsInitialSelectedState]
+    );
+
+    useEffect(() => {
+      if (focusItemIndexOnMount === -1) {
+        return;
+      }
+      setActiveItemIndex(focusItemIndexOnMount);
+      setIsInitialSelectedState(true);
+    }, [focusItemIndexOnMount, setIsInitialSelectedState]);
 
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren);
-      const menuChildren = allChildren.filter(child => {
+      return allChildren.filter(child => {
         if (child.type.isMenuChild) return true;
         console.error(
           "Menu child must be a menuChild item (such as MenuItem, MenuDivider, MenuTitle, etc). This child is not supported: ",
@@ -44,7 +62,6 @@ const Menu = forwardRef(
         );
         return false;
       });
-      return menuChildren;
     }, [originalChildren]);
 
     const {
@@ -55,7 +72,7 @@ const Menu = forwardRef(
       resetOpenSubMenuIndex
     } = useSubMenuIndex();
 
-    const onCloseMenu = useOnCloseMenu(setActiveItemIndex, setOpenSubMenuIndex, onClose);
+    const onCloseMenu = useOnCloseMenu(onSetActiveItemIndexCallback, setOpenSubMenuIndex, onClose);
 
     useClickOutside({ ref, callback: onCloseMenu });
     useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu, useDocumentEventListeners);
@@ -63,13 +80,13 @@ const Menu = forwardRef(
       hasOpenSubMenu,
       children,
       activeItemIndex,
-      setActiveItemIndex,
+      onSetActiveItemIndexCallback,
       isVisible,
       ref,
       resetOpenSubMenuIndex,
       useDocumentEventListeners
     );
-    useMouseLeave(resetOpenSubMenuIndex, hasOpenSubMenu, ref, setActiveItemIndex);
+    useMouseLeave(resetOpenSubMenuIndex, hasOpenSubMenu, ref, onSetActiveItemIndexCallback);
 
     useLayoutEffect(() => {
       if (hasOpenSubMenu || useDocumentEventListeners) return;
@@ -90,8 +107,8 @@ const Menu = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, forwardedRef] });
 
     const { focusWithinProps } = useFocusWithin({
-      onBlurWithin: _e => {
-        onCloseMenu && onCloseMenu();
+      onBlurWithin: e => {
+        onCloseMenu && onCloseMenu(e);
       }
     });
 
@@ -122,7 +139,8 @@ const Menu = forwardRef(
               hasOpenSubMenu: index === openSubMenuIndex,
               closeMenu: onCloseMenu,
               menuId: id,
-              useDocumentEventListeners
+              useDocumentEventListeners,
+              isInitialSelectedState
             });
           })}
       </ul>
@@ -146,7 +164,8 @@ Menu.defaultProps = {
   onClose: undefined,
   focusItemIndex: -1,
   isSubMenu: false,
-  useDocumentEventListeners: false
+  useDocumentEventListeners: false,
+  focusItemIndexOnMount: -1
 };
 
 Menu.propTypes = {
@@ -161,7 +180,8 @@ Menu.propTypes = {
   onClose: PropTypes.func,
   focusItemIndex: PropTypes.number,
   isSubMenu: PropTypes.bool,
-  useDocumentEventListeners: PropTypes.bool
+  useDocumentEventListeners: PropTypes.bool,
+  focusItemIndexOnMount: PropTypes.number
 };
 
 export default Menu;

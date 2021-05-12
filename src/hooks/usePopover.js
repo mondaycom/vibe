@@ -32,6 +32,7 @@ export default function usePopover(referenceElement, popperElement, { isOpen, pl
           enabled: true,
           phase: "write",
           fn: ({ state }) => {
+            // eslint-disable-next-line no-param-reassign
             state.styles.popper.visibility = isOpen ? "visible" : "hidden";
             return state;
           }

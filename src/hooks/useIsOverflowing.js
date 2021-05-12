@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { useCallback, useState } from "react";
 import useResizeObserver from "./useResizeObserver";
 

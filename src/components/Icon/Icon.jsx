@@ -42,7 +42,8 @@ const Icon = forwardRef(
       const IconComponent = icon;
       return (
         <IconComponent
-          aria-hidden={ariaHidden}
+          aria-hidden={clickable ? ariaHidden : "true"}
+          aria-label={iconLabel}
           size={iconSize.toString()}
           onClick={onClick}
           tabIndex={externalTabIndex ?? tabindex}
@@ -54,7 +55,7 @@ const Icon = forwardRef(
 
     return (
       <FontIcon
-        ariaHidden={ariaHidden}
+        aria-hidden={clickable ? ariaHidden : "true"}
         className={cx(computedClassName)}
         onClick={onClickCallback}
         ref={mergedRef}

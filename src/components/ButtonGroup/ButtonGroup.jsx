@@ -46,13 +46,9 @@ const ButtonGroup = forwardRef(
             kind={Button.kinds.TERTIARY}
             preventClickAnimation
             ariaLabel={option.ariaLabel}
+            className={cx(`${baseClassName}__option-text`, { selected: isSelected, disabled })}
           >
-            {option.text && (
-              <span className={cx(`${baseClassName}__option-text`, { selected: isSelected, disabled })}>
-                {" "}
-                {option.text}{" "}
-              </span>
-            )}
+            {option.text}
           </Button>
         );
       });
@@ -91,7 +87,8 @@ ButtonGroup.defaultProps = {
   name: "",
   disabled: false,
   size: ButtonGroup.sizes.SMALL,
-  kind: ButtonGroup.kinds.SECONDARY
+  kind: ButtonGroup.kinds.SECONDARY,
+  groupAriaLabel: ""
 };
 ButtonGroup.propTypes = {
   componentClassName: PropTypes.string,
@@ -99,7 +96,8 @@ ButtonGroup.propTypes = {
   name: PropTypes.string,
   disabled: PropTypes.bool,
   size: PropTypes.oneOf([ButtonGroup.sizes.SMALL, ButtonGroup.sizes.MEDIUM, ButtonGroup.sizes.LARGE]),
-  kind: PropTypes.oneOf([ButtonGroup.kinds.SECONDARY, ButtonGroup.kinds.TERTIARY])
+  kind: PropTypes.oneOf([ButtonGroup.kinds.SECONDARY, ButtonGroup.kinds.TERTIARY]),
+  groupAriaLabel: PropTypes.string
 };
 
 export default ButtonGroup;

@@ -5,6 +5,7 @@
     "mocha": true
   },
   "parser": "babel-eslint",
+  "ignorePatterns": ["*test.js", "*.jest.js", "*.stories*.js"],
   "extends": ["airbnb", "plugin:prettier/recommended", "plugin:react-hooks/recommended"],
   "plugins": ["only-warn", "import", "react", "jsx-a11y", "json", "markdown", "mocha", "react-hooks"],
   "rules": {
@@ -32,8 +33,16 @@
     "react/prop-types": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "jsx-a11y/no-static-element-interactions": "off",
-    "jsx-a11y/alt-text": "off",
-    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/alt-text": "error",
+    "jsx-a11y/no-noninteractive-element-interactions": [
+      "warn",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
+    "jsx-a11y/click-events-have-key-events": "error",
     "react/jsx-boolean-value": "off"
   }
 }

@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/no-autofocus */
+/* eslint-disable */
 import React, { forwardRef, useRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
@@ -69,10 +69,6 @@ const TextField = forwardRef(
       return iconName;
     }, [iconName, secondaryIconName, inputValue]);
 
-    const iconClickable = useMemo(() => {
-      return !disabled && (clearOnIconClick || onIconClick !== NOOP);
-    }, [onIconClick, clearOnIconClick, disabled]);
-
     const onIconClickCallback = useCallback(() => {
       if (disabled) {
         return;
@@ -98,6 +94,7 @@ const TextField = forwardRef(
     const shouldShowExtraText = showCharCount || (validation && validation.text);
     const isSecondary = secondaryIconName === currentStateIconName;
     const isPrimary = iconName === currentStateIconName;
+    const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
 
     const mergedRef = useMergeRefs({ refs: [ref, inputRef, setRef] });
     const { buttonProps } = useButton({
@@ -148,7 +145,7 @@ const TextField = forwardRef(
                 "input-component__icon--container-active": isPrimary
               })}
               {...buttonProps}
-              tabIndex={isPrimary ? "0" : "-1"}
+              tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
             >
               <Icon
                 icon={iconName}
@@ -167,7 +164,7 @@ const TextField = forwardRef(
                 "input-component__icon--container-active": isSecondary
               })}
               {...buttonProps}
-              tabIndex={isPrimary ? "-1" : "0"}
+              tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
             >
               <Icon
                 icon={secondaryIconName}

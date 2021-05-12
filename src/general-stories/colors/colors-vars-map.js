@@ -1,48 +1,129 @@
 export const colorsMap = [
   { color: "--primary-color", description: "Use this to emphasise main ui components" },
-  { color: "--primary-on-secondary-color", description: "Use this to emphasise main ui components on secondary background color" },
+  {
+    color: "--primary-on-secondary-color",
+    description: "Use this to emphasise main ui components on secondary background color"
+  },
   { color: "--primary-hover-color", description: "Use only as a hover on primary color" },
-  { color: "--primary-hover-on-secondary-color", description: "Use only as a hover on primary color on secondary background color" },
+  {
+    color: "--primary-hover-on-secondary-color",
+    description: "Use only as a hover on primary color on secondary background color"
+  },
   { color: "--primary-selected-color", description: "Use this to indicate selected state of primary items" },
-  { color: "--primary-selected-on-secondary-color", description: "Use this to indicate selected state of primary items on secondary background color" },
+  {
+    color: "--primary-selected-on-secondary-color",
+    description: "Use this to indicate selected state of primary items on secondary background color"
+  },
   { color: "--primary-text-color", description: "Use for default text color" },
-  { color: "--primary-text-on-secondary-color", description: "Use for default text color on secondary background color" },
+  {
+    color: "--primary-text-on-secondary-color",
+    description: "Use for default text color on secondary background color"
+  },
   { color: "--secondary-text-color", description: "Use when you need text with lesser importance" },
-  { color: "--secondary-text-on-secondary-color", description: "Use when you need text with lesser importance (on secondary background color)" },
+  {
+    color: "--secondary-text-on-secondary-color",
+    description: "Use when you need text with lesser importance (on secondary background color)"
+  },
   { color: "--primary-background-hover-color", description: "Use as hover color" },
   { color: "--primary-background-hover-on-secondary-color", description: "Use as hover color on secondary color" },
-  { color: "--inverted-color-background", description: "Inverted background color (opposite of primary background color)" },
+  {
+    color: "--inverted-color-background",
+    description: "Inverted background color (opposite of primary background color)"
+  },
   { color: "--text-color-on-inverted", description: "Inverted text color (opposite of primary text color)" },
   { color: "--text-color-on-primary", description: "Use for text on primary color" },
   // states
-  { color: "--positive-color", description: "Use when you want to indicate sometime positive (success, completion of something...)" },
+  {
+    color: "--positive-color",
+    description: "Use when you want to indicate sometime positive (success, completion of something...)"
+  },
   { color: "--positive-color-hover", description: "Use only as hover color on positive color" },
   { color: "--positive-color-selected", description: "Use only as selected indication for a positive colors" },
-  { color: "--negative-color", description: "Use when you want to indicate a negative action/state (delete, failed action..., error)" },
+  {
+    color: "--negative-color",
+    description: "Use when you want to indicate a negative action/state (delete, failed action..., error)"
+  },
   { color: "--negative-color-hover", description: "Use only as hover color on negative color" },
   { color: "--negative-color-selected", description: "Use as selected indication for negative colors" },
-  { color: "--private-color", description: "Use when you want to indicate that something is private (board, icons...)" },
-  { color: "--shareable-color", description: "Use when you want to indicate that something is shareable (board, dashboard...)" },
+  {
+    color: "--private-color",
+    description: "Use when you want to indicate that something is private (board, icons...)"
+  },
+  {
+    color: "--shareable-color",
+    description: "Use when you want to indicate that something is shareable (board, dashboard...)"
+  },
   // borders
   { color: "--ui-border-color", description: "Border color for ui elements and components (Button, Input...)" },
   { color: "--ui-border-on-secondary-color", description: "Border color for ui elements on secondary color" },
-  { color: "--layout-border-color", description: "Border color for general layout and separators (Leftpane, Menu Divider...)" },
-  { color: "--layout-border-on-secondary-color", description: "Border color for general layout on secondary background color" },
+  {
+    color: "--layout-border-color",
+    description: "Border color for general layout and separators (Leftpane, Menu Divider...)"
+  },
+  {
+    color: "--layout-border-on-secondary-color",
+    description: "Border color for general layout on secondary background color"
+  },
   { color: "--placeholder-color", description: "Use for placeholder text in inputs fields" },
-  { color: "--placeholder-on-secondary-color", description: "Use for placeholder text in inputs fields on secondary background color" },
+  {
+    color: "--placeholder-on-secondary-color",
+    description: "Use for placeholder text in inputs fields on secondary background color"
+  },
   { color: "--icon-color", description: "Default color for icons" },
   { color: "--icon-on-secondary-color", description: "Default color for icons on secondary background color" },
   // disabled
-  { color: "--disabled-background-color", description: "Use as background for disabled elements (ui hovers or elements)" },
+  {
+    color: "--disabled-background-color",
+    description: "Use as background for disabled elements (ui hovers or elements)"
+  },
   { color: "--disabled-text-color", description: "Use as text in disabled components" },
-  { color: "--disabled-background-on-secondary-color", description: "Use as background for disabled elements on secondary background" },
-  { color: "--disabled-text-on-secondary-color", description: "Use as text in disabled components on secondary background color" },
+  {
+    color: "--disabled-background-on-secondary-color",
+    description: "Use as background for disabled elements on secondary background"
+  },
+  {
+    color: "--disabled-text-on-secondary-color",
+    description: "Use as text in disabled components on secondary background color"
+  },
   // Link
   { color: "--link-color", description: "Use only for links" },
   { color: "--link-on-secondary-color", description: "Use only for links on secondary colors" },
-   //Backgrounds
+  // Backgrounds
   { color: "--primary-background-color", description: "Primary background color" },
-  { color: "--secondary-background-color", description: "Secondary background color" },
+  { color: "--secondary-background-color", description: "Secondary background color" }
+];
+
+export const contentColors = [
+  "grass_green",
+  "done-green",
+  "bright-green",
+  "saladish",
+  "egg_yolk",
+  "working_orange",
+  "dark-orange",
+  "peach",
+  "sunset",
+  "stuck-red",
+  "dark-red",
+  "sofia_pink",
+  "lipstick",
+  "bubble",
+  "purple",
+  "dark_purple",
+  "berry",
+  "dark_indigo",
+  "indigo",
+  "navy",
+  "bright-blue",
+  "dark-blue",
+  "aquamarine",
+  "chili-blue",
+  "river",
+  "winter",
+  "explosive",
+  "american_gray",
+  "blackish",
+  "brown"
 ];
 
 export const allMondayColors = [
