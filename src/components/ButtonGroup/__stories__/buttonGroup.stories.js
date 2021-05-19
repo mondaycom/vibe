@@ -60,7 +60,7 @@ export const Sandbox = () => (
     <br />
     <ButtonGroup
       componentClassName="buttons-group"
-      name="test1"
+      name="test2"
       groupAriaLabel="My fourth button group"
       onSelect={value => console.log("Selected: ", value)}
       size={ButtonGroup.sizes.SMALL}
@@ -68,6 +68,49 @@ export const Sandbox = () => (
         { value: 1, text: "Option 1", icon: "fa fa-star" },
         { value: 2, text: "Option 2" },
         { value: 3, text: "Option 3", leftIcon: "fa fa-star" }
+      ]}
+    />
+    <br />
+  </div>
+);
+
+export const ButtonGroupWithTooltip = () => (
+  <div
+    style={{
+      width: "380px",
+      height: "400px",
+      border: "1px solid",
+      padding: "30px"
+    }}
+  >
+    <div style={{ textAlign: "left" }}>Tooltip with top position</div>
+    <br />
+    <ButtonGroup
+      componentClassName="buttons-group"
+      name="test1"
+      groupAriaLabel="My first button group"
+      size={ButtonGroup.sizes.SMALL}
+      tooltipContainerSelector="body"
+      options={[
+        { value: 1, text: "With tooltip", tooltipContent: "Option 1 tooltip" },
+        { value: 2, text: "Without tooltip"  },
+        { value: 3, text: "With tooltip", tooltipContent: "Option 3 tooltip"}
+      ]}
+    />
+    <br />
+    <div style={{ textAlign: "left" }}>Tooltip with bottom position</div>
+    <br />
+    <ButtonGroup
+      componentClassName="buttons-group"
+      name="test1"
+      groupAriaLabel="My second button group"
+      size={ButtonGroup.sizes.SMALL}
+      tooltipPosition="bottom"
+      tooltipContainerSelector="body"
+      options={[
+        { value: 1, text: "With tooltip", tooltipContent: "Option 1 tooltip" },
+        { value: 2, text: "Without tooltip"  },
+        { value: 3, text: "With tooltip", tooltipContent: "Option 3 tooltip"}
       ]}
     />
     <br />
