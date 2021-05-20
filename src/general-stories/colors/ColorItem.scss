@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 var(--spacing-small);
   .color-element {
     height: 100%;
   }
@@ -35,15 +34,18 @@
   }
 }
 
-
-
-
 .colors-container {
   max-width: 900px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+.colors-container-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
 }
 .themes-icon-container {
   position: sticky;
@@ -71,7 +73,7 @@
   padding: 0 16px;
 }
 .theme-icon {
-  margin-right: 4px
+  margin-right: 4px;
 }
 
 .all-colors-container {
@@ -89,7 +91,6 @@
     border-bottom: 1px solid var(--ui-border-color);
     margin-bottom: 16px;
     .all-color-element {
-
       width: 100%;
       height: 100%;
     }
@@ -99,5 +100,4 @@
       margin: 8px 0;
     }
   }
-
 }

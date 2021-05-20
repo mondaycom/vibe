@@ -205,7 +205,7 @@ export const Colors = () => {
             <Moon className="theme-icon" /> Dark
           </span>
           <span className="theme-container black-app-theme" style={{ width: "175" }}>
-            <Bolt className="theme-icon" /> Dark
+            <Bolt className="theme-icon" /> Dim
           </span>
         </div>
         {colorsMap.map(({ color, description }) => (
@@ -222,17 +222,17 @@ export const Colors = () => {
         gives understanding and indication of orientation and belonging. The board’s main strength is its simple and
         visual appearance. That’s why the status colors should appear on the board and nowhere else in the UI.
       </DescriptionLabel>
-      <div className="colors-container">
+      <div className="colors-container-content">
         <div className="themes-icon-container">
           <div className="theme-name-spacer">Color Keys</div>
-          <span className="theme-container light-app-theme" style={{ width: "175px" }}>
+          <span className="theme-container light-app-theme" style={{ width: "190px" }}>
             <Sun className="theme-icon" /> Light
           </span>
-          <span className="theme-container dark-app-theme" style={{ width: "175px" }}>
+          <span className="theme-container dark-app-theme" style={{ width: "166px" }}>
             <Moon className="theme-icon" /> Dark
           </span>
           <span className="theme-container black-app-theme" style={{ width: "175px" }}>
-            <Bolt className="theme-icon" /> Dark
+            <Bolt className="theme-icon" /> Dim
           </span>
         </div>
       </div>
