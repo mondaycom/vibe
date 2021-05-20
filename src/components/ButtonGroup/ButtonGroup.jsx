@@ -59,7 +59,7 @@ const ButtonGroup = forwardRef(
           </ButtonWrapper>
         );
       });
-    }, [options, disabled, onClick, size, valueState, tooltipPosition]);
+    }, [options, disabled, onClick, size, valueState, tooltipPosition, tooltipHideDelay, tooltipShowDelay, tooltipContainerSelector, tooltipMoveBy]);
 
     // Effects
     useEffect(() => {
@@ -96,7 +96,11 @@ ButtonGroup.defaultProps = {
   size: ButtonGroup.sizes.SMALL,
   kind: ButtonGroup.kinds.SECONDARY,
   groupAriaLabel: "",
-  tooltipContainerSelector: PropTypes.string
+  tooltipContainerSelector: undefined,
+  tooltipPosition: undefined,
+  tooltipHideDelay: undefined,
+  tooltipShowDelay: undefined,
+  tooltipMoveBy: undefined
 };
 
 ButtonGroup.propTypes = {

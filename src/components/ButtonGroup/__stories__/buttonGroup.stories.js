@@ -1,6 +1,8 @@
 import React from "react";
 import { withPerformance } from "storybook-addon-performance";
 import ButtonGroup from "../ButtonGroup";
+import {StoryStateColumn, StoryStateRow} from "../../storybook-helpers";
+import {FakeXMLHttpRequest} from "sinon";
 
 export const Sandbox = () => (
   <div
@@ -75,46 +77,43 @@ export const Sandbox = () => (
 );
 
 export const ButtonGroupWithTooltip = () => (
-  <div
-    style={{
-      width: "380px",
-      height: "400px",
-      border: "1px solid",
-      padding: "30px"
-    }}
-  >
-    <div style={{ textAlign: "left" }}>Tooltip with top position</div>
-    <br />
-    <ButtonGroup
-      componentClassName="buttons-group"
-      name="test1"
-      groupAriaLabel="My first button group"
-      size={ButtonGroup.sizes.SMALL}
-      tooltipContainerSelector="body"
-      options={[
-        { value: 1, text: "With tooltip", tooltipContent: "Option 1 tooltip" },
-        { value: 2, text: "Without tooltip"  },
-        { value: 3, text: "With tooltip", tooltipContent: "Option 3 tooltip"}
-      ]}
-    />
-    <br />
-    <div style={{ textAlign: "left" }}>Tooltip with bottom position</div>
-    <br />
-    <ButtonGroup
-      componentClassName="buttons-group"
-      name="test1"
-      groupAriaLabel="My second button group"
-      size={ButtonGroup.sizes.SMALL}
-      tooltipPosition="bottom"
-      tooltipContainerSelector="body"
-      options={[
-        { value: 1, text: "With tooltip", tooltipContent: "Option 1 tooltip" },
-        { value: 2, text: "Without tooltip"  },
-        { value: 3, text: "With tooltip", tooltipContent: "Option 3 tooltip"}
-      ]}
-    />
-    <br />
-  </div>
+    <>
+        <StoryStateRow>
+            <StoryStateColumn title="Tooltip with bottom position" />
+        </StoryStateRow>
+        <StoryStateRow>
+            <ButtonGroup
+                componentClassName="buttons-group"
+                name="test1"
+                groupAriaLabel="My second button group"
+                size={ButtonGroup.sizes.SMALL}
+                tooltipPosition="bottom"
+                tooltipContainerSelector="body"
+                options={[
+                    { value: 1, text: "With tooltip", tooltipContent: "Option 1 tooltip" },
+                    { value: 2, text: "Without tooltip"  },
+                    { value: 3, text: "With tooltip", tooltipContent: "Option 3 tooltip"}
+                ]}
+            />
+        </StoryStateRow>
+        <StoryStateRow>
+            <StoryStateColumn title="Tooltip with top position" />
+        </StoryStateRow>
+        <StoryStateRow>
+            <ButtonGroup
+                componentClassName="buttons-group"
+                name="test1"
+                groupAriaLabel="My first button group"
+                size={ButtonGroup.sizes.SMALL}
+                tooltipContainerSelector="body"
+                options={[
+                    { value: 1, text: "With tooltip", tooltipContent: "Option 1 tooltip" },
+                    { value: 2, text: "Without tooltip"  },
+                    { value: 3, text: "With tooltip", tooltipContent: "Option 3 tooltip"}
+                ]}
+            />
+        </StoryStateRow>
+    </>
 );
 
 export default {
