@@ -1,6 +1,8 @@
 import React from "react";
 import { withPerformance } from "storybook-addon-performance";
 import ButtonGroup from "../ButtonGroup";
+import {StoryStateColumn, StoryStateRow} from "../../storybook-helpers";
+import {FakeXMLHttpRequest} from "sinon";
 
 export const Sandbox = () => (
   <div
@@ -60,7 +62,7 @@ export const Sandbox = () => (
     <br />
     <ButtonGroup
       componentClassName="buttons-group"
-      name="test1"
+      name="test2"
       groupAriaLabel="My fourth button group"
       onSelect={value => console.log("Selected: ", value)}
       size={ButtonGroup.sizes.SMALL}
@@ -72,6 +74,46 @@ export const Sandbox = () => (
     />
     <br />
   </div>
+);
+
+export const ButtonGroupWithTooltip = () => (
+    <>
+        <StoryStateRow>
+            <StoryStateColumn title="Tooltip with bottom position" />
+        </StoryStateRow>
+        <StoryStateRow>
+            <ButtonGroup
+                componentClassName="buttons-group"
+                name="test1"
+                groupAriaLabel="My second button group"
+                size={ButtonGroup.sizes.SMALL}
+                tooltipPosition="bottom"
+                tooltipContainerSelector="body"
+                options={[
+                    { value: 1, text: "With tooltip", tooltipContent: "Option 1 tooltip" },
+                    { value: 2, text: "Without tooltip"  },
+                    { value: 3, text: "With tooltip", tooltipContent: "Option 3 tooltip"}
+                ]}
+            />
+        </StoryStateRow>
+        <StoryStateRow>
+            <StoryStateColumn title="Tooltip with top position" />
+        </StoryStateRow>
+        <StoryStateRow>
+            <ButtonGroup
+                componentClassName="buttons-group"
+                name="test1"
+                groupAriaLabel="My first button group"
+                size={ButtonGroup.sizes.SMALL}
+                tooltipContainerSelector="body"
+                options={[
+                    { value: 1, text: "With tooltip", tooltipContent: "Option 1 tooltip" },
+                    { value: 2, text: "Without tooltip"  },
+                    { value: 3, text: "With tooltip", tooltipContent: "Option 3 tooltip"}
+                ]}
+            />
+        </StoryStateRow>
+    </>
 );
 
 export default {

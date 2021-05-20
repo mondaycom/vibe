@@ -5,10 +5,11 @@ import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { baseClassName } from "./ButtonGroupConstants";
+import { ButtonWrapper } from "./ButtonWrapper";
 import "./ButtonGroup.scss";
 
 const ButtonGroup = forwardRef(
-  ({ componentClassName, options, name, disabled, value, onSelect, size, kind, groupAriaLabel }, ref) => {
+  ({ componentClassName, options, name, disabled, value, onSelect, size, kind, groupAriaLabel, tooltipPosition, tooltipHideDelay, tooltipShowDelay, tooltipContainerSelector, tooltipMoveBy}, ref) => {
     const inputRef = useRef();
     const [valueState, setValueState] = useState(value);
     const prevValue = usePrevious(value);
@@ -35,7 +36,7 @@ const ButtonGroup = forwardRef(
       return options.map(option => {
         const isSelected = option.value === valueState;
         return (
-          <Button
+          <ButtonWrapper
             key={option.value}
             size={size}
             onClick={() => onClick(option)}
@@ -46,13 +47,19 @@ const ButtonGroup = forwardRef(
             kind={Button.kinds.TERTIARY}
             preventClickAnimation
             ariaLabel={option.ariaLabel}
+            tooltipContent={option.tooltipContent}
+            tooltipPosition={tooltipPosition}
+            tooltipHideDelay={tooltipHideDelay}
+            tooltipShowDelay={tooltipShowDelay}
+            tooltipContainerSelector={tooltipContainerSelector}
+            tooltipMoveBy={tooltipMoveBy}
             className={cx(`${baseClassName}__option-text`, { selected: isSelected, disabled })}
           >
             {option.text}
-          </Button>
+          </ButtonWrapper>
         );
       });
-    }, [options, disabled, onClick, size, valueState]);
+    }, [options, disabled, onClick, size, valueState, tooltipPosition, tooltipHideDelay, tooltipShowDelay, tooltipContainerSelector, tooltipMoveBy]);
 
     // Effects
     useEffect(() => {
@@ -88,8 +95,14 @@ ButtonGroup.defaultProps = {
   disabled: false,
   size: ButtonGroup.sizes.SMALL,
   kind: ButtonGroup.kinds.SECONDARY,
-  groupAriaLabel: ""
+  groupAriaLabel: "",
+  tooltipContainerSelector: undefined,
+  tooltipPosition: undefined,
+  tooltipHideDelay: undefined,
+  tooltipShowDelay: undefined,
+  tooltipMoveBy: undefined
 };
+
 ButtonGroup.propTypes = {
   componentClassName: PropTypes.string,
   value: PropTypes.string,
@@ -97,7 +110,12 @@ ButtonGroup.propTypes = {
   disabled: PropTypes.bool,
   size: PropTypes.oneOf([ButtonGroup.sizes.SMALL, ButtonGroup.sizes.MEDIUM, ButtonGroup.sizes.LARGE]),
   kind: PropTypes.oneOf([ButtonGroup.kinds.SECONDARY, ButtonGroup.kinds.TERTIARY]),
-  groupAriaLabel: PropTypes.string
+  groupAriaLabel: PropTypes.string,
+  tooltipPosition: PropTypes.string,
+  tooltipHideDelay: PropTypes.number,
+  tooltipShowDelay: PropTypes.number,
+  tooltipContainerSelector: PropTypes.string,
+  tooltipMoveBy: PropTypes.object
 };
 
 export default ButtonGroup;
