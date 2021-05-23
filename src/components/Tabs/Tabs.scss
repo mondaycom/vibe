@@ -12,7 +12,9 @@
     ul li a:hover {
       cursor: default;
     }
+    @include theme-prop(color, disabled-text-color);
   }
+
   ul {
     $border-height: 2px;
     list-style-type: none;
