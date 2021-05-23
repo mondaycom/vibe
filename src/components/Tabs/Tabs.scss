@@ -12,7 +12,6 @@
     ul li a:hover {
       cursor: default;
     }
-    @include theme-prop(color, disabled-text-color);
   }
 
   ul {
@@ -29,17 +28,25 @@
         @include theme-prop(color, primary-text-color);
         font-weight: 400;
         font-size: 17px;
-        border-bottom: $border-height solid #f1f1f1;
+        border-bottom: $border-height solid;
+        @include theme-prop(border-color, primary-background-hover-color);
         user-select: none;
+
         &:focus {
           outline: none;
         }
+
         &:hover {
-          border-bottom: $border-height solid #d0d0d0;
+          &:not(.disabled) {
+            border-radius: 4px;
+            @include theme-prop(background-color, primary-background-hover-color);
+          }
         }
+
         &.active {
           @include theme-prop(border-bottom-color, primary-color);
         }
+
         &.disabled {
           @include theme-prop(color, disabled-text-color);
           cursor: not-allowed;
