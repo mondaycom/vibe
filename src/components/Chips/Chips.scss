@@ -1,0 +1,49 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/states.scss";
+
+$icon-margin: 4px;
+
+.chips--wrapper {
+  display: flex;
+  overflow: hidden;
+  height: 24px;
+  border-radius: 4px;
+  padding: 1px 8px;
+  align-items: center;
+  margin: 0 4px;
+  user-select: none;
+
+  .chip-icon {
+    &.left {
+      margin-right: $icon-margin;
+    }
+    &.right {
+      margin-left: $icon-margin;
+    }
+    &.close {
+      margin-left: $icon-margin;
+      @include focus-style();
+      cursor: pointer;
+      @include theme-prop(color, primary-text-color);
+
+      &:hover {
+        @include theme-prop(background-color, primary-background-hover-color);
+      }
+    }
+  }
+
+  &.disabled {
+    .chip-icon {
+      @include theme-prop(color, disabled-text-color);
+    }
+    .label {
+      @include theme-prop(color, disabled-text-color);
+    }
+  }
+
+  .label {
+    @include font-general-text();
+    @include ellipsis();
+  }
+}

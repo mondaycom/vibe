@@ -67,6 +67,7 @@ exports[`BreadcrumbsBar renders correctly with items 1`] = `
       className="breadcrumbItem--wrapper current disabled"
     >
       <span
+        aria-current="page"
         aria-disabled="true"
         className="breadcrumb-content current disabled"
         tabIndex="0"
