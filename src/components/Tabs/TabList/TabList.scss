@@ -41,21 +41,6 @@
         @include theme-prop(border-bottom-color, primary-color);
       }
 
-      &.disabled {
-        a {
-          cursor: not-allowed;
-        }
-      }
-
-      &:not(.disabled) {
-        a {
-          &:hover {
-            border-radius: 4px;
-            @include theme-prop(background-color, primary-background-hover-color);
-          }
-        }
-      }
-
       a {
         $margin-bottom: 1px;
         height: calc(100% - #{$margin-bottom});
@@ -69,9 +54,25 @@
         font-size: 16px;
         user-select: none;
         margin-bottom: $margin-bottom;
+        cursor: pointer;
 
         &:focus {
           outline: none;
+        }
+      }
+
+      &.disabled {
+        a {
+          cursor: not-allowed;
+        }
+      }
+
+      &:not(.disabled) {
+        a {
+          &:hover {
+            border-radius: 4px;
+            @include theme-prop(background-color, primary-background-hover-color);
+          }
         }
       }
     }
