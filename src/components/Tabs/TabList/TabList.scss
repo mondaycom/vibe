@@ -3,6 +3,7 @@
 
 .tabs--wrapper {
   padding-bottom: 20px;
+  font-size: 16px;
 
   &.disabled {
     opacity: 0;
@@ -29,6 +30,21 @@
         @include theme-prop(border-bottom-color, primary-color);
       }
 
+      &.disabled {
+        a {
+          cursor: not-allowed;
+        }
+      }
+
+      &:not(.disabled) {
+        a {
+          &:hover {
+            border-radius: 4px;
+            @include theme-prop(background-color, primary-background-hover-color);
+          }
+        }
+      }
+
       a {
         display: inline-block;
         text-decoration: none;
@@ -41,18 +57,6 @@
 
         &:focus {
           outline: none;
-        }
-
-        &:hover {
-          &:not(.disabled) {
-            border-radius: 4px;
-            @include theme-prop(background-color, primary-background-hover-color);
-          }
-        }
-
-        &.disabled {
-          @include theme-prop(color, disabled-text-color);
-          cursor: not-allowed;
         }
       }
     }

@@ -6,11 +6,12 @@ import "./TabList.scss";
 
 function renderTab(tab, tabId, activeTabId, onTabClick) {
   const isActive = tabId === activeTabId;
+  const isDisabled = tab.props.disabled;
 
   return (
-    <li key={tabId} className={cx({ active: isActive })}>
+    <li key={tabId} className={cx({ active: isActive, disabled: isDisabled })}>
       <a
-        onClick={() => onTabClick(tabId)}
+        onClick={() => !isDisabled && onTabClick(tabId)}
         href="javascript:void(0)"
       >
         {tab}
