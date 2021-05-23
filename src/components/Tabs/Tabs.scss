@@ -1,0 +1,48 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.tabs--wrapper {
+  padding-bottom: 20px;
+
+  &.disabled {
+    opacity: 0;
+    height: 0;
+    padding-bottom: 5px;
+    pointer-events: none;
+    ul li a:hover {
+      cursor: default;
+    }
+  }
+  ul {
+    $border-height: 2px;
+    list-style-type: none;
+    font-size: 0;
+    position: relative;
+    li {
+      display: inline-block;
+      a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 5px 20px;
+        @include theme-prop(color, primary-text-color);
+        font-weight: 400;
+        font-size: 17px;
+        border-bottom: $border-height solid #f1f1f1;
+        user-select: none;
+        &:focus {
+          outline: none;
+        }
+        &:hover {
+          border-bottom: $border-height solid #d0d0d0;
+        }
+        &.active {
+          @include theme-prop(border-bottom-color, primary-color);
+        }
+        &.disabled {
+          @include theme-prop(color, disabled-text-color);
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}

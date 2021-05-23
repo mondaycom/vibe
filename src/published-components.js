@@ -4,6 +4,7 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+	Tabs: "/src/components/Tabs/Tabs.jsx",
   BreadcrumbItem: "/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx",
   BreadcrumbsBar: "/src/components/BreadcrumbsBar/BreadcrumbsBar.jsx",
   ResponsiveList: "/src/components/ResponsiveList/ResponsiveList.jsx",
