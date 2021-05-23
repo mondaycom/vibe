@@ -2,5 +2,23 @@
 @import "../../../styles/typography";
 
 .tab-panels--wrapper {
+  .tab-panel {
+    display: none;
+    transform: translateX(4px);
+    -webkit-transform: translateX(4px);
 
+    &.active {
+      display: block;
+      animation: slide-in 0.2s forwards;
+      -webkit-animation: slide-in 0.2s forwards;
+    }
+  }
+}
+
+@keyframes slide-in {
+  100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+  100% { -webkit-transform: translateX(0%); }
 }
