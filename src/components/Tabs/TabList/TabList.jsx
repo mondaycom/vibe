@@ -45,12 +45,15 @@ TabList.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   onTabChange: PropTypes.func,
-  activeTabId: PropTypes.number
+  activeTabId: PropTypes.number,
+  __TYPE: PropTypes.string
 };
+
 TabList.defaultProps = {
   className: "",
   id: "",
-  onTabChange: () => {}
+  onTabChange: () => {},
+  __TYPE: "TabList"
 };
 
 export default TabList;

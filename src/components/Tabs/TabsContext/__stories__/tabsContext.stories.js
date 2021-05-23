@@ -6,14 +6,24 @@ import TabsContext from "../TabsContext";
 import { StoryStateRow, StoryStateColumn, ComponentStateDescription, FlexLayout, Divider } from "../../../storybook-helpers";
 import DarkThemeContainer from "../../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
 import StoryWrapper from "../../../../StoryBookComponents/StoryWrapper/StoryWrapper";
+import TabList from "../../TabList/TabList";
+import Tab from "../../Tab/Tab";
+import TabPanel from "../../TabPanel/TabPanel";
 
 
 export const Sandbox = () => (
     <div>
-        <TabsContext
-            id="Knobs"
-            text={text("Text", "Test knob value")}
-        />
+      <TabsContext>
+        <TabList id="Knobs">
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+          <Tab>Third</Tab>
+        </TabList>
+
+        <TabPanel>First panel</TabPanel>
+        <TabPanel>Second panel</TabPanel>
+        <TabPanel>Third panel</TabPanel>
+      </TabsContext>
     </div>
 );
 
