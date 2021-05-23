@@ -24,7 +24,7 @@ function renderTabs(tabs, activeTabId, onTabClick) {
   return <ul>{tabs.map((tab, index) => renderTab(tab, index, activeTabId, onTabClick))}</ul>;
 }
 
-const TabList = forwardRef(({ className, id, onTabChange, activeTabId, children }, ref) => {
+const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, children }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -35,7 +35,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, children 
     }
 
     return (
-    <div ref={mergedRef} className={cx("tabs--wrapper", className)} id={id}>
+    <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
       {renderTabs(children, activeTab, onTabClick)}
     </div>
   );
@@ -46,6 +46,7 @@ TabList.propTypes = {
   id: PropTypes.string,
   onTabChange: PropTypes.func,
   activeTabId: PropTypes.number,
+  tabType: PropTypes.string,
   __TYPE: PropTypes.string
 };
 
@@ -53,6 +54,7 @@ TabList.defaultProps = {
   className: "",
   id: "",
   onTabChange: () => {},
+  tabType: "Compact",
   __TYPE: "TabList"
 };
 

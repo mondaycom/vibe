@@ -11,7 +11,14 @@ import Tab from "../../Tab/Tab";
 
 export const Sandbox = () => (
     <div>
-      <TabList id="Knobs">
+      <TabList tabType="compact">
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
+      </TabList>
+
+      <TabList tabType="stretched">
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
