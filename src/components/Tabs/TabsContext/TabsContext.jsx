@@ -17,9 +17,12 @@ const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) =
     return (
     <div ref={mergedRef} className={cx("tabs-context--wrapper", className)} id={id}>
         {React.Children.map(children, child => {
-            if (child.props.__TYPE) {
+            if (child.props.__TYPE === "TabList") {
                 return React.cloneElement(child, { onTabChange: onTabClick });
+            } else if (child.props.__TYPE === "TabPanels") {
+                return React.cloneElement(child, { activeTabId: activeTab });
             }
+            return child;
         })}
     </div>
   );

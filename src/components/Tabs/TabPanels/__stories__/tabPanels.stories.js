@@ -2,37 +2,25 @@ import React from "react";
 import { action } from '@storybook/addon-actions';
 import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
-import TabsContext from "../TabsContext";
+import TabPanels from "../TabPanels";
 import { StoryStateRow, StoryStateColumn, ComponentStateDescription, FlexLayout, Divider } from "../../../storybook-helpers";
 import DarkThemeContainer from "../../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
 import StoryWrapper from "../../../../StoryBookComponents/StoryWrapper/StoryWrapper";
-import TabList from "../../TabList/TabList";
-import Tab from "../../Tab/Tab";
-import TabPanel from "../../TabPanel/TabPanel";
-import { TabPanels } from "../../../index";
 
 
 export const Sandbox = () => (
     <div>
-      <TabsContext>
-        <TabList id="Knobs">
-          <Tab>First</Tab>
-          <Tab>Second</Tab>
-          <Tab>Third</Tab>
-        </TabList>
-
-        <TabPanels>
-          <TabPanel>First panel</TabPanel>
-          <TabPanel>Second panel</TabPanel>
-          <TabPanel>Third panel</TabPanel>
-        </TabPanels>
-      </TabsContext>
+      <TabPanels>
+        <TabPanels>First tab panel</TabPanels>
+        <TabPanels>Second tab panel</TabPanels>
+        <TabPanels>Third tab panel</TabPanels>
+      </TabPanels>
     </div>
 );
 
 export default {
-    title: "Components/Tabs/TabsContext",
-    component: TabsContext,
+    title: "Components/Tabs/TabPanels",
+    component: TabPanels,
     decorators: [withPerformance]
 
 };
