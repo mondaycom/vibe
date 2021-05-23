@@ -8,10 +8,9 @@ function renderTab(tab, tabId, activeTabId, onTabClick) {
   const isActive = tabId === activeTabId;
 
   return (
-    <li key={tabId}>
+    <li key={tabId} className={cx({ active: isActive })}>
       <a
         onClick={() => onTabClick(tabId)}
-        className={cx({ active: isActive })}
         href="javascript:void(0)"
       >
         {tab}

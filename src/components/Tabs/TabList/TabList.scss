@@ -19,8 +19,16 @@
     list-style-type: none;
     font-size: 0;
     position: relative;
+
     li {
       display: inline-block;
+      border-bottom: $border-height solid;
+      @include theme-prop(border-color, primary-background-hover-color);
+
+      &.active {
+        @include theme-prop(border-bottom-color, primary-color);
+      }
+
       a {
         display: inline-block;
         text-decoration: none;
@@ -28,9 +36,8 @@
         @include theme-prop(color, primary-text-color);
         font-weight: 400;
         font-size: 17px;
-        border-bottom: $border-height solid;
-        @include theme-prop(border-color, primary-background-hover-color);
         user-select: none;
+        margin-bottom: 1px;
 
         &:focus {
           outline: none;
@@ -41,10 +48,6 @@
             border-radius: 4px;
             @include theme-prop(background-color, primary-background-hover-color);
           }
-        }
-
-        &.active {
-          @include theme-prop(border-bottom-color, primary-color);
         }
 
         &.disabled {
