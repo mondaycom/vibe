@@ -15,16 +15,27 @@
   }
 
   ul {
-    $border-height: 2px;
+    display: flex;
+    flex-direction: row;
     list-style-type: none;
     font-size: 0;
     position: relative;
+    height: 40px;
+
+    &.sm {
+      height: 32px;
+    }
+
+    &.lg {
+      height: 48px;
+    }
 
     li {
       display: inline-block;
-      border-bottom: $border-height solid;
+      border-bottom: 2px solid;
       @include theme-prop(border-color, primary-background-hover-color);
       text-align: center;
+      height: 100%;
 
       &.active {
         @include theme-prop(border-bottom-color, primary-color);
@@ -46,14 +57,18 @@
       }
 
       a {
-        display: inline-block;
+        $margin-bottom: 1px;
+        height: calc(100% - #{$margin-bottom});
+        display: flex;
+        align-items: center;
+        justify-content: center;
         text-decoration: none;
         padding: 4px 16px;
         @include theme-prop(color, primary-text-color);
         font-weight: 400;
         font-size: 16px;
         user-select: none;
-        margin-bottom: 1px;
+        margin-bottom: $margin-bottom;
 
         &:focus {
           outline: none;
@@ -65,8 +80,6 @@
   &.stretched {
     ul {
       width: 100%;
-      display: flex;
-      flex-direction: row;
 
       li {
         width: 100%;

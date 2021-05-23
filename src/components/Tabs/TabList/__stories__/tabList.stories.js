@@ -24,6 +24,27 @@ export const Sandbox = () => (
         <Tab>Third</Tab>
         <Tab disabled>Disabled</Tab>
       </TabList>
+
+      <TabList size="sm">
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
+      </TabList>
+
+      <TabList size="md">
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
+      </TabList>
+
+      <TabList size="lg">
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
+      </TabList>
     </div>
 );
 
