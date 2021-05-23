@@ -16,6 +16,7 @@ export function chainRefFunctions(funcsOrRefs, allowBreak = false) {
           return;
         }
       } catch (e) {
+        console.error(e);
         return;
       }
     }
@@ -33,6 +34,7 @@ export function chainFunctions(funcs, allowBreak = false) {
           return;
         }
       } catch (e) {
+        console.error(e);
         return;
       }
     }
