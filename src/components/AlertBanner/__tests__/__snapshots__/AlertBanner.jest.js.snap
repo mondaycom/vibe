@@ -2,7 +2,7 @@
 
 exports[`AlertBanner should render correctly without props 1`] = `
 <div
-  ariaLabel="banner"
+  aria-label="banner"
   className="monday-alert-banner monday-alert-banner--background-color-primary"
   role="banner"
 >
@@ -22,7 +22,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
 
 exports[`AlertBanner should render with correctly with multiple elements 1`] = `
 <div
-  ariaLabel="banner"
+  aria-label="banner"
   className="monday-alert-banner monday-alert-banner--background-color-primary"
   role="banner"
 >
@@ -109,7 +109,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
 
 exports[`AlertBanner should render with correctly with text and link 1`] = `
 <div
-  ariaLabel="banner"
+  aria-label="banner"
   className="monday-alert-banner monday-alert-banner--background-color-primary"
   role="banner"
 >
@@ -169,7 +169,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
 
 exports[`AlertBanner should render with correctly with text and link 2`] = `
 <div
-  ariaLabel="banner"
+  aria-label="banner"
   className="monday-alert-banner monday-alert-banner--background-color-primary"
   role="banner"
 >
@@ -217,7 +217,7 @@ exports[`AlertBanner should render with correctly with text and link 2`] = `
 
 exports[`AlertBanner shuold render correctly with props 1`] = `
 <div
-  ariaLabel="lorem-banner"
+  aria-label="lorem-banner"
   className="my-lorem-ipsum-banner monday-alert-banner monday-alert-banner--background-color-negative"
   role="banner"
 >

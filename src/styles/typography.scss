@@ -150,6 +150,12 @@ $font-size-default: 14px;
   padding: 0 4px;
 }
 
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 // Override tags styles
 .element-type-h1 {
   @include font-main();
