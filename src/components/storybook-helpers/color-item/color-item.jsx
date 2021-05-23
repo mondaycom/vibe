@@ -4,7 +4,7 @@ import "./color-item.scss";
 
 export default class ColorItem extends PureComponent {
   render() {
-    const { name, codeName, value, themeColor, halfSize } = this.props;
+    const { name, value, themeColor, halfSize } = this.props;
     const style = { backgroundColor: value };
 
     return (

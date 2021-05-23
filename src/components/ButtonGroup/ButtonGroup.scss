@@ -49,7 +49,7 @@
     &:not(.disabled) {
       @include theme-prop(color, primary-text-color);
       &.selected {
-        @include theme-prop(color, primary-color);
+        @include theme-prop(color, primary-text-color);
       }
     }
   }

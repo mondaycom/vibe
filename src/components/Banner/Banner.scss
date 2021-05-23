@@ -13,7 +13,7 @@
     justify-content: start;
     column-gap: 24px;
     align-content: center;
-    @include theme-prop(background-color, dark-background-on-secondary-color);
+    background-color: var(--primary-background-hover-color);
     @include theme-prop(color, primary-text-color);
 
     .banner--close {
