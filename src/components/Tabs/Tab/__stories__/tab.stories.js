@@ -10,10 +10,12 @@ import StoryWrapper from "../../../../StoryBookComponents/StoryWrapper/StoryWrap
 
 export const Sandbox = () => (
     <div>
-        <Tab
-            id="Knobs"
-            text={text("Text", "Test knob value")}
-        />
+      normal:
+      <Tab id="normal">Normal</Tab>
+      active:
+      <Tab id="active" active>Active</Tab>
+      disabled:
+      <Tab id="disabled" disabled>Disabled</Tab>
     </div>
 );
 
