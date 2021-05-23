@@ -15,6 +15,7 @@ export const Sandbox = () => (
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
       </TabList>
     </div>
 );

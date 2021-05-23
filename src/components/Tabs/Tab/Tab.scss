@@ -2,13 +2,6 @@
 @import "../../../styles/typography";
 
 .tab--wrapper {
-  &:hover {
-    &:not(.disabled) {
-      @include theme-prop(background-color, primary-background-hover-color);
-      border-radius: 4px;
-    }
-  }
-
   &.disabled {
     @include theme-prop(color, disabled-text-color);
   }
