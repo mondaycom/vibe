@@ -4,14 +4,12 @@ import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./TabPanel.scss";
 
-const TabPanel = forwardRef(({ className, id }, ref) => {
+const TabPanel = forwardRef(({ className, id, children }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     return (
-    <div ref={mergedRef} className={cx("tab-panel--wrapper", className)} id={id}>
-        My awesome new component
-    </div>
+    <div ref={mergedRef} className={cx("tab-panel--wrapper", className)} id={id}>{children}</div>
   );
 });
 

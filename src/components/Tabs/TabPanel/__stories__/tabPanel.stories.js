@@ -10,10 +10,7 @@ import StoryWrapper from "../../../../StoryBookComponents/StoryWrapper/StoryWrap
 
 export const Sandbox = () => (
     <div>
-        <TabPanel
-            id="Knobs"
-            text={text("Text", "Test knob value")}
-        />
+      <TabPanel>Panel</TabPanel>
     </div>
 );
 
