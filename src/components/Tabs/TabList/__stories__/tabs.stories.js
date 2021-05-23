@@ -2,15 +2,15 @@ import React from "react";
 import { action } from '@storybook/addon-actions';
 import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
-import Tabs from "../Tabs";
-import { StoryStateRow, StoryStateColumn, ComponentStateDescription, FlexLayout, Divider } from "../../storybook-helpers";
-import DarkThemeContainer from "../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
-import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
+import TabList from "../TabList";
+import { StoryStateRow, StoryStateColumn, ComponentStateDescription, FlexLayout, Divider } from "../../../storybook-helpers";
+import DarkThemeContainer from "../../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
+import StoryWrapper from "../../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 
 
 export const Sandbox = () => (
     <div>
-        {/*<Tabs*/}
+        {/*<TabList*/}
         {/*    id="Knobs"*/}
         {/*    tabs={{*/}
         {/*      "first": { name: "First", tooltip: "first tab", content: <div>First tab content</div> },*/}
@@ -19,7 +19,7 @@ export const Sandbox = () => (
         {/*    }}*/}
         {/*    activeTab="first"*/}
         {/*/>*/}
-      <Tabs
+      <TabList
         id="Knobs"
         tabs={{
           "first": { name: "First", content: <div>First tab content</div> },
@@ -32,8 +32,7 @@ export const Sandbox = () => (
 );
 
 export default {
-    title: "Components/Tabs",
-    component: Tabs,
+    title: "Components/Tabs/TabList",
+    component: TabList,
     decorators: [withPerformance]
-
 };
