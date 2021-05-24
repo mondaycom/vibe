@@ -9,7 +9,25 @@ import { ButtonWrapper } from "./ButtonWrapper";
 import "./ButtonGroup.scss";
 
 const ButtonGroup = forwardRef(
-  ({ componentClassName, options, name, disabled, value, onSelect, size, kind, groupAriaLabel, tooltipPosition, tooltipHideDelay, tooltipShowDelay, tooltipContainerSelector, tooltipMoveBy}, ref) => {
+  (
+    {
+      componentClassName,
+      options,
+      name,
+      disabled,
+      value,
+      onSelect,
+      size,
+      kind,
+      groupAriaLabel,
+      tooltipPosition,
+      tooltipHideDelay,
+      tooltipShowDelay,
+      tooltipContainerSelector,
+      tooltipMoveBy
+    },
+    ref
+  ) => {
     const inputRef = useRef();
     const [valueState, setValueState] = useState(value);
     const prevValue = usePrevious(value);
@@ -42,7 +60,6 @@ const ButtonGroup = forwardRef(
             onClick={() => onClick(option)}
             rightIcon={option.icon}
             leftIcon={option.leftIcon}
-            disabled={disabled || option.disabled}
             active={isSelected}
             kind={Button.kinds.TERTIARY}
             preventClickAnimation
@@ -53,13 +70,28 @@ const ButtonGroup = forwardRef(
             tooltipShowDelay={tooltipShowDelay}
             tooltipContainerSelector={tooltipContainerSelector}
             tooltipMoveBy={tooltipMoveBy}
-            className={cx(`${baseClassName}__option-text`, { selected: isSelected, disabled })}
+            className={cx(`${baseClassName}__option-text`, {
+              selected: isSelected,
+              disabled,
+              "button-disabled": option.disabled
+            })}
           >
             {option.text}
           </ButtonWrapper>
         );
       });
-    }, [options, disabled, onClick, size, valueState, tooltipPosition, tooltipHideDelay, tooltipShowDelay, tooltipContainerSelector, tooltipMoveBy]);
+    }, [
+      options,
+      disabled,
+      onClick,
+      size,
+      valueState,
+      tooltipPosition,
+      tooltipHideDelay,
+      tooltipShowDelay,
+      tooltipContainerSelector,
+      tooltipMoveBy
+    ]);
 
     // Effects
     useEffect(() => {

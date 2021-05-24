@@ -39,7 +39,7 @@
             }
             @include theme-prop(background-color, primary-selected-color);
             @include theme-prop(border-color, primary-color);
-            z-index: 10;
+            z-index: 20;
           }
         }
       }
@@ -67,6 +67,10 @@
   }
 
   &.disabled {
+    cursor: not-allowed;
+  }
+
+  .button-disabled {
     cursor: not-allowed;
   }
 }
