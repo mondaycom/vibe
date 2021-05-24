@@ -10,7 +10,7 @@ function renderTab(tab, tabId, activeTabId, onTabClick) {
 
   return (
     <li key={tabId} className={cx({ active: isActive, disabled: isDisabled })}>
-      <a
+      <a role="tab"
         onClick={() => !isDisabled && onTabClick(tabId)}
       >
         {tab}
@@ -35,7 +35,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
 
     return (
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id} tabIndex={0}>
-      <ul className={size}>{renderTabs(children, activeTab, onTabClick)}</ul>
+      <ul className={size} role="tablist">{renderTabs(children, activeTab, onTabClick)}</ul>
     </div>
   );
 });
