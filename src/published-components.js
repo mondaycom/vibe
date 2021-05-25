@@ -4,6 +4,7 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+	Chips: "/src/components/Chips/Chips.jsx",
 	TabPanels: "/src/components/TabPanels/TabPanels.jsx",
 	TabsContext: "/src/components/TabsContext/TabsContext.jsx",
 	TabPanel: "/src/components/TabPanel/TabPanel.jsx",

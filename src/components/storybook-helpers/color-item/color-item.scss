@@ -1,9 +1,10 @@
-@import "../../../styles/colors.scss";
+@import "../../../styles/typography.scss";
+@import "../../../styles/themes.scss";
 
 .color-item {
   display: flex;
   flex-direction: column;
-  width: 142px;
+  width: 180px;
   &:first-child {
     padding-left: 0;
   }

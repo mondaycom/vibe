@@ -126,6 +126,55 @@ export const contentColors = [
   "brown"
 ];
 
+export const contentColorsByName = {
+  GRASS_GREEN: "grass_green",
+  DONE_GREEN: "done-green",
+  BRIGHT_GREEN: "bright-green",
+  SALADISH: "saladish",
+  EGG_YOLK: "egg_yolk",
+  WORKING_ORANGE: "working_orange",
+  DARK_ORANGE: "dark-orange",
+  PEACH: "peach",
+  SUNSET: "sunset",
+  STUCK_RED: "stuck-red",
+  DARK_RED: "dark-red",
+  SOFIA_PINK: "sofia_pink",
+  LIPSTICK: "lipstick",
+  BUBBLE: "bubble",
+  PURPLE: "purple",
+  DARK_PURPLE: "dark_purple",
+  BERRY: "berry",
+  DARK_INDIGO: "dark_indigo",
+  INDIGO: "indigo",
+  NAVY: "navy",
+  BRIGHT_BLUE: "bright-blue",
+  DARK_BLUE: "dark-blue",
+  AQUAMARINE: "aquamarine",
+  CHILI_BLUE: "chili-blue",
+  RIVER: "river",
+  WINTER: "winter",
+  EXPLOSIVE: "explosive",
+  AMERICAN_GRAY: "american_gray",
+  BLACKISH: "blackish",
+  BROWN: "brown"
+};
+
+export const stateSelectedColors = {
+  POSITIVE: "--positive-color-selected",
+  NEGATIVE: "--negative-color-selected",
+  PRIMARY: "--primary-selected-color"
+};
+
+export const getSelectedColor = colorName => {
+  if (contentColorsByName[colorName]) {
+    return `var(--color-${contentColorsByName[colorName]}-selected)`;
+  }
+  if (stateSelectedColors[colorName]) {
+    return `var(${stateSelectedColors[colorName]})`;
+  }
+  return colorName;
+};
+
 export const allMondayColors = [
   "--color-asphalt",
   "--color-light_blue",

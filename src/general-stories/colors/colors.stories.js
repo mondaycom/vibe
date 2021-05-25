@@ -5,7 +5,7 @@ import Sun from "../../components/Icon/Icons/components/Sun";
 import Moon from "../../components/Icon/Icons/components/Moon";
 import DescriptionLabel from "../../components/storybook-helpers/description-label/description-label";
 import StoryWrapper from "../../StoryBookComponents/StoryWrapper/StoryWrapper";
-import { buildColorsStory, codingColors, greyColors, mainColors, mainColors2, mainColors3 } from "./colors-helper";
+import { buildColorsStory, greyColors, mainColors, mainColors2 } from "./colors-helper";
 import StoryTitle from "../../components/storybook-helpers/story-title/story-title";
 import Bolt from "../../components/Icon/Icons/components/Bolt";
 
@@ -87,15 +87,15 @@ const KeyColorItem = ({ color, description }) => {
     </section>
   );
 };
-function ContentColors({ color, isFirst, isLast }) {
+function ContentColors({ color, themeName }) {
   return (
-    <div style={{ height: "80%", display: "flex" }}>
+    <div style={{ height: "80%", display: "flex" }} className={themeName}>
       <div
         className="color-element"
         style={{
           width: "50px",
           backgroundColor: `var(--color-${color})`,
-          borderRadius: isFirst ? "4px 0px 0px 4px" : "none",
+          borderRadius: "4px 0px 0px 4px",
           border: "1px solid var(--ui-border-color)",
           borderRight: "none"
         }}
@@ -115,9 +115,8 @@ function ContentColors({ color, isFirst, isLast }) {
         style={{
           width: "50px",
           backgroundColor: `var(--color-${color}-selected)`,
-          borderRadius: isLast ? "0px 4px 4px 0px" : "none",
+          borderRadius: "0px 4px 4px 0px",
           border: "1px solid var(--ui-border-color)",
-          borderRight: "none",
           borderLeft: "none"
         }}
       />
@@ -133,16 +132,18 @@ const ContentColorItem = ({ color }) => {
       </div>
 
       <div
-        className="light-app-theme"
+        className="default-app-theme"
         style={{
+          width: "175px",
+
           height: "100%",
           backgroundColor: "var(--primary-background-color)",
           display: "flex",
           alignItems: "center",
-          padding: "0 8px"
+          padding: "0 8px 0 16px"
         }}
       >
-        <ContentColors color={color} isFirst />
+        <ContentColors color={color} themeName="default-app-theme" />
       </div>
       <div
         className="dark-app-theme"
@@ -167,7 +168,7 @@ const ContentColorItem = ({ color }) => {
           padding: "0 8px"
         }}
       >
-        <ContentColors color={color} isLast />
+        <ContentColors color={color} />
       </div>
     </section>
   );
@@ -188,7 +189,6 @@ export const Colors = () => {
       <StoryTitle text="Main Colors" />
       {buildColorsStory(mainColors)}
       {buildColorsStory(mainColors2)}
-      {buildColorsStory(mainColors3)}
       <StoryTitle text="Greyscale Colors" />
       <DescriptionLabel>These grayscale palette used for shapes, icons ,backgrounds</DescriptionLabel>
       {buildColorsStory(greyColors)}
@@ -198,7 +198,7 @@ export const Colors = () => {
       <div className="colors-container">
         <div className="themes-icon-container">
           <div className="theme-name-spacer">Color Keys</div>
-          <span className="theme-container light-app-theme">
+          <span className="theme-container light-app-theme" style={{ width: "150px" }}>
             <Sun className="theme-icon" /> Light
           </span>
           <span className="theme-container dark-app-theme">
@@ -216,7 +216,7 @@ export const Colors = () => {
       <div style={{ margin: "12px 0" }}>
         <br />
       </div>
-      <StoryTitle text="Status Colors" />
+      <StoryTitle text="Content Colors" />
       <DescriptionLabel>
         These colours are used only for color coding purposes like groups colours, statuses timeline bars etc.. this
         gives understanding and indication of orientation and belonging. The board’s main strength is its simple and
@@ -225,7 +225,7 @@ export const Colors = () => {
       <div className="colors-container-content">
         <div className="themes-icon-container">
           <div className="theme-name-spacer">Color Keys</div>
-          <span className="theme-container light-app-theme" style={{ width: "190px" }}>
+          <span className="theme-container light-app-theme" style={{ width: "175px" }}>
             <Sun className="theme-icon" /> Light
           </span>
           <span className="theme-container dark-app-theme" style={{ width: "166px" }}>
