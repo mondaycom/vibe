@@ -1,6 +1,5 @@
 import React, { useRef, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
-import { useButton } from "@react-aria/button";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -28,11 +27,6 @@ const Chips = forwardRef(
         onDelete(id);
       }
     }, [id, onDelete]);
-
-    const { buttonProps } = useButton({
-      onPress: onDeleteCallback,
-      elementType: "span"
-    });
 
     return (
       <div
