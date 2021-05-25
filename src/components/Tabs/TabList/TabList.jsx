@@ -8,7 +8,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-    const [activeTab, setActiveTab] = useState(activeTabId || 0);
+    const [activeTab, setActiveTab] = useState(activeTabId);
     const onTabClick = useCallback((tabId) => {
         setActiveTab(tabId);
         onTabChange && onTabChange(tabId)
@@ -37,6 +37,7 @@ TabList.defaultProps = {
   className: "",
   id: "",
   onTabChange: () => {},
+  activeTabId: 0,
   tabType: "Compact",
   __TYPE: "TabList"
 };
