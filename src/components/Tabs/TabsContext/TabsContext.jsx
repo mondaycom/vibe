@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useState } from "react";
+import React, { useRef, forwardRef, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -9,10 +9,9 @@ const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) =
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const [activeTab, setActiveTab] = useState(activeTabId);
-
-    function onTabClick(tabId) {
+    const onTabClick = useCallback((tabId) => {
         setActiveTab(tabId);
-    }
+    }, [setActiveTab]);
 
     return (
     <div ref={mergedRef} className={cx("tabs-context--wrapper", className)} id={id}>
