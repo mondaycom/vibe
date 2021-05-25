@@ -9,7 +9,13 @@ const Tab = forwardRef(({ className, id, disabled, active, onClick, children }, 
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     return (
-      <li ref={mergedRef} key={id} className={cx("tab--wrapper", className, { active, disabled })} id={id}>
+      <li ref={mergedRef}
+          key={id}
+          className={cx("tab--wrapper", className, { active, disabled })}
+          id={id}
+          aria-selected={active}
+          aria-disabled={disabled}
+      >
           <a role="tab"
              onClick={() => !disabled && onClick()}
           >
