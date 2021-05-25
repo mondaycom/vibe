@@ -8,7 +8,7 @@ const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) =
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-    const [activeTab, setActiveTab] = useState(activeTabId || 0);
+    const [activeTab, setActiveTab] = useState(activeTabId);
 
     function onTabClick(tabId) {
         setActiveTab(tabId);
@@ -35,7 +35,8 @@ TabsContext.propTypes = {
 };
 TabsContext.defaultProps = {
     className: "",
-    id: ""
+    id: "",
+    activeTabId: 0
 };
 
 export default TabsContext;
