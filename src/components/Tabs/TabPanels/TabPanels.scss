@@ -9,16 +9,16 @@
 
     &.active {
       display: block;
-      animation: slide-in 0.2s forwards;
-      -webkit-animation: slide-in 0.2s forwards;
+      animation: panel-slide-in 0.2s forwards;
+      -webkit-animation: panel-slide-in 0.2s forwards;
     }
   }
 }
 
-@keyframes slide-in {
+@keyframes panel-slide-in {
   100% { transform: translateX(0%); }
 }
 
-@-webkit-keyframes slide-in {
+@-webkit-keyframes panel-slide-in {
   100% { -webkit-transform: translateX(0%); }
 }
