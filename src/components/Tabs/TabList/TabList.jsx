@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useState } from "react";
+import React, { useRef, forwardRef, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -9,15 +9,15 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const [activeTab, setActiveTab] = useState(activeTabId || 0);
-    function onTabClick(tabId) {
-      setActiveTab(tabId);
-      onTabChange && onTabChange(tabId)
-    }
+    const onTabClick = useCallback((tabId) => {
+        setActiveTab(tabId);
+        onTabChange && onTabChange(tabId)
+    }, [setActiveTab, onTabChange]);
 
     return (
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id} tabIndex={0}>
       <ul className={size} role="tablist">{React.Children.map(children, (child, index) => {
-        return React.cloneElement(child, { active: activeTab === index, onClick: () => onTabClick(index) });
+        return React.cloneElement(child, { value: index, active: activeTab === index, onClick: onTabClick });
       })}</ul>
     </div>
   );
