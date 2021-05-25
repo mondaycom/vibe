@@ -40,7 +40,6 @@ const mainColors2 = {
   share: { value: "var(--shareable-color)", name: "Shareable", themeColor: "shareable-color" }
 };
 
-
 const greyColors = {
   mud_black: { value: Colors.mud_black, name: "Mud" },
   wolf_gray: { value: Colors.wolf_gray, name: "Wolf" },
