@@ -12,8 +12,12 @@ export const Sandbox = () => (
     <div>
       normal:
       <Tab id="normal">Normal</Tab>
+
       disabled:
       <Tab id="disabled" disabled>Disabled</Tab>
+
+      active:
+      <Tab id="active" active>Active</Tab>
     </div>
 );
 

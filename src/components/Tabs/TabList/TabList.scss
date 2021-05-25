@@ -29,53 +29,6 @@
     &.lg {
       height: 48px;
     }
-
-    li {
-      display: inline-block;
-      border-bottom: 2px solid;
-      @include theme-prop(border-color, primary-background-hover-color);
-      text-align: center;
-      height: 100%;
-
-      &.active {
-        @include theme-prop(border-bottom-color, primary-color);
-      }
-
-      a {
-        $margin-bottom: 1px;
-        height: calc(100% - #{$margin-bottom});
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        padding: 4px 16px;
-        @include theme-prop(color, primary-text-color);
-        font-weight: 400;
-        font-size: 16px;
-        user-select: none;
-        margin-bottom: $margin-bottom;
-        cursor: pointer;
-
-        &:focus {
-          outline: none;
-        }
-      }
-
-      &.disabled {
-        a {
-          cursor: not-allowed;
-        }
-      }
-
-      &:not(.disabled) {
-        a {
-          &:hover {
-            border-radius: 4px;
-            @include theme-prop(background-color, primary-background-hover-color);
-          }
-        }
-      }
-    }
   }
 
   &.stretched {
