@@ -16,7 +16,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
 
     return (
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id} tabIndex={0}>
-      <ul className={size} role="tablist">{React.Children.map(children, (child, index) => {
+      <ul className={cx("tabs-list", size)} role="tablist">{React.Children.map(children, (child, index) => {
         return React.cloneElement(child, { value: index, active: activeTab === index, onClick: onTabClick });
       })}</ul>
     </div>

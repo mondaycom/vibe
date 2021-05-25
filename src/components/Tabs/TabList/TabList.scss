@@ -9,12 +9,16 @@
     height: 0;
     padding-bottom: 5px;
     pointer-events: none;
-    ul li a:hover {
-      cursor: default;
+    .tabs-list {
+      .tab--wrapper {
+        .tab-inner:hover {
+          cursor: default;
+        }
+      }
     }
   }
 
-  ul {
+  .tabs-list {
     display: flex;
     flex-direction: row;
     list-style-type: none;
@@ -32,13 +36,13 @@
   }
 
   &.stretched {
-    ul {
+    .tabs-list {
       width: 100%;
 
-      li {
+      .tab--wrapper {
         width: 100%;
 
-        a {
+        .tab-inner {
           width: 100%;
         }
       }

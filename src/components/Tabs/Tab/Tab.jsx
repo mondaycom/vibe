@@ -17,6 +17,7 @@ const Tab = forwardRef(({ className, id, value, disabled, active, onClick, child
           aria-disabled={disabled}
       >
           <a role="tab"
+             className="tab-inner"
              onClick={() => !disabled && onClick(value)}
           >
               {children}

@@ -8,7 +8,7 @@
   text-align: center;
   height: 100%;
 
-  a {
+  .tab-inner {
     $margin-bottom: 1px;
     height: calc(100% - #{$margin-bottom});
     display: flex;
@@ -35,13 +35,13 @@
   &.disabled {
     @include theme-prop(color, disabled-text-color);
 
-    a {
+    .tab-inner {
       cursor: not-allowed;
     }
   }
 
   &:not(.disabled) {
-    a {
+    .tab-inner {
       &:hover {
         border-radius: 4px;
         @include theme-prop(background-color, primary-background-hover-color);
