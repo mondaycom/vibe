@@ -2,7 +2,8 @@ var fs = require("fs");
 
 const startReplaceOrigin = "({size, ...props}) => (";
 const startReplaceReplaced = " React.forwardRef(({size, ...props}, ref) => (";
-
+const replaceRefOrigin = "{...props}>";
+const replaceRefReplaced = "{...props} ref={ref}>";
 const endReplaceOrigin = ");";
 const endReplaceReplaced = "));";
 
@@ -27,10 +28,12 @@ const dirName = "src/components/Icon/Icons/components/";
 readFiles(
   dirName,
   function(filename, content) {
-    let newContent;
     console.log("optimizing:: ", filename);
-    newContent = content.replace(startReplaceOrigin, startReplaceReplaced);
-    newContent = newContent.replace(endReplaceOrigin, endReplaceReplaced);
+    const newContent = content
+      .replace(replaceRefOrigin, replaceRefReplaced)
+      .replace(startReplaceOrigin, startReplaceReplaced)
+      .replace(endReplaceOrigin, endReplaceReplaced);
+
     fs.writeFile(`${dirName}/${filename}`, newContent, "utf8", function(err) {
       if (err) return console.log(err);
     });

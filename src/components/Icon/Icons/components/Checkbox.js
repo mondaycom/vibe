@@ -3,7 +3,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 const Checkbox =  React.forwardRef(({size, ...props}, ref) => (
-  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
+  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props} ref={ref}>
     <g fill="currentColor" fillRule="evenodd" clipRule="evenodd">
       <path d="M1.82141 4.57141C1.82141 3.05263 3.05263 1.82141 4.57141 1.82141H15.4286C16.9473 1.82141 18.1786 3.05263 18.1786 4.57141V15.4286C18.1786 16.9473 16.9473 18.1786 15.4286 18.1786H4.57141C3.05263 18.1786 1.82141 16.9473 1.82141 15.4286V4.57141ZM4.57141 3.32141C3.88105 3.32141 3.32141 3.88105 3.32141 4.57141V15.4286C3.32141 16.1189 3.88106 16.6786 4.57141 16.6786H15.4286C16.1189 16.6786 16.6786 16.1189 16.6786 15.4286V4.57141C16.6786 3.88106 16.1189 3.32141 15.4286 3.32141H4.57141Z"
       />

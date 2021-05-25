@@ -51,7 +51,7 @@ const ButtonGroup = forwardRef(
     }, [options, valueState]);
 
     const Buttons = useMemo(() => {
-      return options.map(option => {
+      return options.map((option, index) => {
         const isSelected = option.value === valueState;
         return (
           <ButtonWrapper
@@ -61,6 +61,8 @@ const ButtonGroup = forwardRef(
             rightIcon={option.icon}
             leftIcon={option.leftIcon}
             active={isSelected}
+            rightFlat={index !== options.length - 1}
+            leftFlat={index !== 0}
             kind={Button.kinds.TERTIARY}
             preventClickAnimation
             ariaLabel={option.ariaLabel}
@@ -106,7 +108,12 @@ const ButtonGroup = forwardRef(
         className={cx(baseClassName, componentClassName, `${baseClassName}--kind-${kind}`, { disabled })}
         ref={mergedRef}
       >
-        <div role="group" aria-label={groupAriaLabel} className={cx(`${baseClassName}__buttons-container`)}>
+        <div
+          role="group"
+          aria-label={groupAriaLabel}
+          className={cx(`${baseClassName}__buttons-container`)}
+          aria-disabled={disabled}
+        >
           {Buttons}
         </div>
         {selectedOption && selectedOption.subText && (

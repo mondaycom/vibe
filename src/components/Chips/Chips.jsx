@@ -63,14 +63,15 @@ const Chips = forwardRef(
           />
         ) : null}
         {!readOnly && !disabled && (
-          <span
+          <Icon
             aria-label={`Remove ${label}`}
-            {...buttonProps}
             className="chip-icon close"
-            style={{ height: iconSize }}
-          >
-            <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize={iconSize} />
-          </span>
+            iconType={Icon.type.SVG}
+            clickable
+            icon={CloseSmall}
+            iconSize={iconSize}
+            onClick={onDeleteCallback}
+          />
         )}
       </div>
     );

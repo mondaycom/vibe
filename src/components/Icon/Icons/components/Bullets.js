@@ -3,7 +3,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 const Bullets =  React.forwardRef(({size, ...props}, ref) => (
-  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
+  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props} ref={ref}>
     <g fill="currentColor">
       <path d="M3 5.53846C3 5.68127 3.05673 5.81823 3.15771 5.91921C3.25869 6.02019 3.39565 6.07692 3.53846 6.07692C3.68127 6.07692 3.81823 6.02019 3.91921 5.91921C4.02019 5.81823 4.07692 5.68127 4.07692 5.53846C4.07692 5.39565 4.02019 5.25869 3.91921 5.15771C3.81823 5.05673 3.68127 5 3.53846 5C3.39565 5 3.25869 5.05673 3.15771 5.15771C3.05673 5.25869 3 5.39565 3 5.53846V5.53846Z"
       />

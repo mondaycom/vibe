@@ -6,6 +6,7 @@ import { FakeXMLHttpRequest } from "sinon";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
 import TextSmall from "../../Icon/Icons/components/TextSmall";
 import Doc from "../../Icon/Icons/components/Doc";
+import { Bolt } from "../../Icon/Icons";
 
 export const Sandbox = () => (
   <div
@@ -78,21 +79,6 @@ export const Sandbox = () => (
     <br />
   </div>
 );
-
-export const test = () => {
-  return (
-    <ButtonGroup
-      componentClassName="buttons-group"
-      name="test3"
-      onSelect={value => console.log("Selected: ", value)}
-      size={ButtonGroup.sizes.SMALL}
-      options={[
-        { value: 1, text: "Option 1", icon: TextSmall },
-        { value: 2, text: "Option 2", disabled: true, icon: Doc }
-      ]}
-    />
-  );
-};
 
 export const ButtonGroupWithTooltip = () => (
   <>
