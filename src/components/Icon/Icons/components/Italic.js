@@ -2,8 +2,8 @@
 /* tslint:disable */
 import PropTypes from 'prop-types';
 import React from 'react';
-const Italic = ({size, ...props}) => (
-  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
+const Italic =  React.forwardRef(({size, ...props}, ref) => (
+  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props} ref={ref}>
     <g fill="currentColor" fillRule="evenodd" clipRule="evenodd">
       <path d="M13.2523 2.2937C13.6423 2.43301 13.8456 2.86218 13.7063 3.25226L8.70631 17.2523C8.567 17.6423 8.13784 17.8456 7.74775 17.7063C7.35767 17.567 7.15438 17.1378 7.2937 16.7478L12.2937 2.74775C12.433 2.35767 12.8622 2.15438 13.2523 2.2937Z"
       />
@@ -11,7 +11,7 @@ const Italic = ({size, ...props}) => (
       />
     </g>
   </svg>
-);
+));
 Italic.displayName = 'Italic';
 Italic.propTypes = {
   size: PropTypes.string

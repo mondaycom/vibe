@@ -1,6 +1,5 @@
 import React, { useRef, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
-import { useButton } from "@react-aria/button";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -28,11 +27,6 @@ const Chips = forwardRef(
         onDelete(id);
       }
     }, [id, onDelete]);
-
-    const { buttonProps } = useButton({
-      onPress: onDeleteCallback,
-      elementType: "span"
-    });
 
     return (
       <div
@@ -63,14 +57,15 @@ const Chips = forwardRef(
           />
         ) : null}
         {!readOnly && !disabled && (
-          <span
+          <Icon
             aria-label={`Remove ${label}`}
-            {...buttonProps}
             className="chip-icon close"
-            style={{ height: iconSize }}
-          >
-            <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize={iconSize} />
-          </span>
+            iconType={Icon.type.SVG}
+            clickable
+            icon={CloseSmall}
+            iconSize={iconSize}
+            onClick={onDeleteCallback}
+          />
         )}
       </div>
     );
