@@ -29,8 +29,7 @@ TabList.propTypes = {
   onTabChange: PropTypes.func,
   activeTabId: PropTypes.number,
   tabType: PropTypes.string,
-  size: PropTypes.string,
-  __TYPE: PropTypes.string
+  size: PropTypes.string
 };
 
 TabList.defaultProps = {
@@ -38,8 +37,9 @@ TabList.defaultProps = {
   id: "",
   onTabChange: () => {},
   activeTabId: 0,
-  tabType: "Compact",
-  __TYPE: "TabList"
+  tabType: "Compact"
 };
+
+TabList.isTabList = true;
 
 export default TabList;

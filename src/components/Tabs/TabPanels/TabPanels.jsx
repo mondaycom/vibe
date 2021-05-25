@@ -23,14 +23,14 @@ const TabPanels = forwardRef(({ className, id, activeTabId, children }, ref) => 
 TabPanels.propTypes = {
     className: PropTypes.string,
     id: PropTypes.string,
-    activeTabId: PropTypes.number,
-    __TYPE: PropTypes.string
+    activeTabId: PropTypes.number
 };
 TabPanels.defaultProps = {
     className: "",
     id: "",
-    activeTabId: 0,
-    __TYPE: "TabPanels"
+    activeTabId: 0
 };
+
+TabPanels.isTabPanels = true;
 
 export default TabPanels;
