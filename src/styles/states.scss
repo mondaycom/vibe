@@ -47,9 +47,7 @@
 
 @mixin focus-style-css {
   outline: none;
-  border: 1px solid;
-  @include theme-prop(border-color, primary-hover-color, true);
-  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
+  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5), 0px 0px 0px 1px var(--primary-hover-color) inset;
   z-index: 11;
   border-radius: 4px;
 }

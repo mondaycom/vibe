@@ -28,10 +28,12 @@ const Chips = forwardRef(
       }
     }, [id, onDelete]);
 
+    const hasCloseButton = !readOnly && !disabled;
+
     return (
       <div
         ref={mergedRef}
-        className={cx("chips--wrapper", className, { disabled })}
+        className={cx("chips--wrapper", className, { disabled, "with-close": hasCloseButton })}
         id={id}
         style={backgroundColorStyle}
       >
@@ -56,14 +58,14 @@ const Chips = forwardRef(
             ignoreFocusStyle
           />
         ) : null}
-        {!readOnly && !disabled && (
+        {hasCloseButton && (
           <Icon
             aria-label={`Remove ${label}`}
             className="chip-icon close"
             iconType={Icon.type.SVG}
             clickable
             icon={CloseSmall}
-            iconSize={iconSize}
+            iconSize={18}
             onClick={onDeleteCallback}
           />
         )}

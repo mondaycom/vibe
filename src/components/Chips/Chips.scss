@@ -13,6 +13,12 @@ $icon-margin: 4px;
   align-items: center;
   margin: 0 4px;
   user-select: none;
+  animation: chips-enter 100ms;
+  animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
+
+  &.with-close {
+    padding-right: 4px;
+  }
 
   .chip-icon {
     &.left {
@@ -26,9 +32,10 @@ $icon-margin: 4px;
       @include focus-style();
       cursor: pointer;
       @include theme-prop(color, primary-text-color);
+      border-radius: 4px;
 
       &:hover {
-        @include theme-prop(background-color, primary-background-hover-color);
+        @include theme-prop(background-color, primary-background-color);
       }
     }
   }
@@ -45,5 +52,20 @@ $icon-margin: 4px;
   .label {
     @include font-general-text();
     @include ellipsis();
+  }
+}
+
+@keyframes chips-enter {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
   }
 }
