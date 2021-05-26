@@ -1,7 +1,7 @@
 .chips-wrapper {
   display: flex;
   flex-wrap: wrap;
-  height: 100px;
+  height: 140px;
   border: 1px solid #c5c7d0;
   width: 700px;
   align-items: center;
@@ -11,5 +11,11 @@
   .reset-button {
     position: absolute;
     bottom: -40px;
+  }
+
+  .add-button {
+    position: absolute;
+    bottom: -40px;
+    left: 100px;
   }
 }
