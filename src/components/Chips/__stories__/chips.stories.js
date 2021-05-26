@@ -21,16 +21,21 @@ export const Sandbox = () => (
   </div>
 );
 
+const randomProperty = function(obj) {
+  const keys = Object.keys(obj);
+  return obj[keys[(keys.length * Math.random()) << 0]];
+};
+
 const chipsPropsById = {
   1: { key: "1", id: "1", label: "Label chip" },
   2: { key: "2", id: "2", label: "Chip with left icon", leftIcon: "fa fa-star-o", color: Chips.colors.NEGATIVE },
   3: { key: "3", id: "3", label: "Chip with right icon", rightIcon: "fa fa-info", color: Chips.colors.POSITIVE },
   4: { key: "4", id: "4", label: "Disabled chip", leftIcon: "fa fa-star-o", rightIcon: "fa fa-info", disabled: true },
-  5: { key: "5", id: "5", label: "Label chip 5" },
-  6: { key: "6", id: "6", label: "Label chip 6" },
-  7: { key: "7", id: "7", label: "Label chip 7" },
-  8: { key: "8", id: "8", label: "Label chip 8" },
-  9: { key: "9", id: "9", label: "Label chip 9" },
+  5: { key: "5", id: "5", label: "Label chip 5", color: randomProperty(Chips.colors) },
+  6: { key: "6", id: "6", label: "Label chip 6", color: randomProperty(Chips.colors) },
+  7: { key: "7", id: "7", label: "Label chip 7", color: randomProperty(Chips.colors) },
+  8: { key: "8", id: "8", label: "Label chip 8", color: randomProperty(Chips.colors) },
+  9: { key: "9", id: "9", label: "Label chip 9", color: randomProperty(Chips.colors) }
 };
 
 const ChipsWrapper = () => {
