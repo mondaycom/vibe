@@ -2,8 +2,8 @@
 /* tslint:disable */
 import PropTypes from 'prop-types';
 import React from 'react';
-const StrikethroughT =  React.forwardRef(({size, ...props}, ref) => (
-  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props} ref={ref}>
+const StrikethroughT = ({size, ...props}) => (
+  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
     <g fill="currentColor" fillRule="evenodd" clipRule="evenodd">
       <path d="M10 1.82143C10.4142 1.82143 10.75 2.15721 10.75 2.57143V7.71428C10.75 8.1285 10.4142 8.46428 10 8.46428 9.58579 8.46428 9.25 8.1285 9.25 7.71428V2.57143C9.25 2.15721 9.58579 1.82143 10 1.82143zM6.39286 17.4286C6.39286 17.0143 6.72865 16.6786 7.14286 16.6786H12.8571C13.2714 16.6786 13.6071 17.0143 13.6071 17.4286 13.6071 17.8428 13.2714 18.1786 12.8571 18.1786H7.14286C6.72865 18.1786 6.39286 17.8428 6.39286 17.4286z"
       />
@@ -11,7 +11,7 @@ const StrikethroughT =  React.forwardRef(({size, ...props}, ref) => (
       />
     </g>
   </svg>
-));
+);
 StrikethroughT.displayName = 'StrikethroughT';
 StrikethroughT.propTypes = {
   size: PropTypes.string

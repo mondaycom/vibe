@@ -2,8 +2,8 @@
 /* tslint:disable */
 import PropTypes from 'prop-types';
 import React from 'react';
-const Video =  React.forwardRef(({size, ...props}, ref) => (
-  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props} ref={ref}>
+const Video = ({size, ...props}) => (
+  <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
     <g fill="currentColor" fillRule="evenodd" clipRule="evenodd">
       <path d="M1.82141 4.56839C1.82141 3.04961 3.05263 1.81839 4.57141 1.81839H15.4286C16.9473 1.81839 18.1786 3.04961 18.1786 4.56839V15.4255C18.1786 16.9443 16.9473 18.1755 15.4286 18.1755H4.57141C3.05263 18.1755 1.82141 16.9443 1.82141 15.4255V4.56839ZM4.57141 3.31839C3.88105 3.31839 3.32141 3.87803 3.32141 4.56839V15.4255C3.32141 16.1159 3.88105 16.6755 4.57141 16.6755H15.4286C16.1189 16.6755 16.6786 16.1159 16.6786 15.4255V4.56839C16.6786 3.87803 16.1189 3.31839 15.4286 3.31839H4.57141Z"
       />
@@ -11,7 +11,7 @@ const Video =  React.forwardRef(({size, ...props}, ref) => (
       />
     </g>
   </svg>
-));
+);
 Video.displayName = 'Video';
 Video.propTypes = {
   size: PropTypes.string
