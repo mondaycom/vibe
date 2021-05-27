@@ -46,7 +46,6 @@ const MenuButton = ({
   const [isOpen, setIsOpen] = useState(open);
   // const onClick = useCallback(
   //   event => {
-  //     console.log("on click");
   //     if (disabled) {
   //       return;
   //     }
@@ -63,7 +62,6 @@ const MenuButton = ({
 
   const onMenuDidClose = useCallback(
     event => {
-      console.log("on menu did close");
       if (event && event.key === "Escape") {
         setIsOpen(false);
         const button = buttonRef.current;
@@ -77,7 +75,6 @@ const MenuButton = ({
 
   const onDialogDidHide = useCallback(
     (event, hideEvent) => {
-      console.log("on dialog did hide");
       setIsOpen(false);
       onMenuHide();
       const button = buttonRef.current;
@@ -91,7 +88,6 @@ const MenuButton = ({
   );
 
   const onDialogDidShow = useCallback(() => {
-    console.log("on dialog did show");
     setIsOpen(true);
     onMenuShow();
   }, [setIsOpen, onMenuShow]);

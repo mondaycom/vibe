@@ -38,7 +38,7 @@ const StepIndicator = ({
     setStatusChangeAnimationState(false);
   }, [setStatusChangeAnimationState]);
 
-  const isStatusTransition = useCallback(() => prevStatusRef.current !== status, [prevStatusRef]);
+  const isStatusTransition = useCallback(() => prevStatusRef.current !== status, [prevStatusRef, status]);
 
   // Event listeners for removing animation.
   useEventListener({
@@ -52,7 +52,7 @@ const StepIndicator = ({
     if (isStatusTransition()) {
       enableStatusChangeAnimation();
     }
-  }, [status]);
+  }, [status, isStatusTransition, enableStatusChangeAnimation]);
 
   // Effect - updating previous status ref value (for animation) after component update.
   useEffect(() => {
@@ -61,7 +61,7 @@ const StepIndicator = ({
 
   const ariaLabel = useMemo(() => {
     return `Step ${stepNumber}: ${titleText} - ${subtitleText}, status: ${status}`;
-  }, [status]);
+  }, [status, titleText, stepNumber, subtitleText]);
 
   const baseClassNameWithType = `${baseClassName}--type-${type}`;
   const baseClassNameWithStatus = `${baseClassName}--status-${status}`;

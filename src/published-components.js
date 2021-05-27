@@ -10,6 +10,7 @@ const publishedComponents = {
 	TabPanel: "/src/components/TabPanel/TabPanel.jsx",
 	Tab: "/src/components/Tab/Tab.jsx",
 	TabList: "/src/components/TabList/TabList.jsx",
+  Chips: "/src/components/Chips/Chips.jsx",
   BreadcrumbItem: "/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx",
   BreadcrumbsBar: "/src/components/BreadcrumbsBar/BreadcrumbsBar.jsx",
   ResponsiveList: "/src/components/ResponsiveList/ResponsiveList.jsx",
