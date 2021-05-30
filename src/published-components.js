@@ -4,12 +4,11 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
-	Chips: "/src/components/Chips/Chips.jsx",
-	TabPanels: "/src/components/TabPanels/TabPanels.jsx",
-	TabsContext: "/src/components/TabsContext/TabsContext.jsx",
-	TabPanel: "/src/components/TabPanel/TabPanel.jsx",
-	Tab: "/src/components/Tab/Tab.jsx",
-	TabList: "/src/components/TabList/TabList.jsx",
+  TabPanels: "/src/components/Tabs/TabPanels/TabPanels.jsx",
+  TabsContext: "/src/components/Tabs/TabsContext/TabsContext.jsx",
+  TabPanel: "/src/components/Tabs/TabPanel/TabPanel.jsx",
+  Tab: "/src/components/Tabs/Tab/Tab.jsx",
+  TabList: "/src/components/Tabs/TabList/TabList.jsx",
   Chips: "/src/components/Chips/Chips.jsx",
   BreadcrumbItem: "/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx",
   BreadcrumbsBar: "/src/components/BreadcrumbsBar/BreadcrumbsBar.jsx",
