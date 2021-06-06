@@ -1,7 +1,9 @@
 import React from "react";
 import { withPerformance } from "storybook-addon-performance";
 import Tab from "../Tab";
-import { StoryStateRow, StoryStateColumn } from "../../../storybook-helpers";
+import { StoryStateRow, StoryStateColumn, ComponentStateDescription } from "../../../storybook-helpers";
+import Icon from "../../../Icon/Icon";
+import Email from "../../../Icon/Icons/components/Email";
 
 export const DefaultStory = () => (
   <ul role="tablist">
@@ -41,6 +43,28 @@ export const States = () => (
           <Tab id="focus-active" focus active>Focus and active</Tab>
         </ul>
       </StoryStateColumn>
+    </StoryStateRow>
+  </section>
+);
+
+export const Icons = () => (
+  <section>
+    <ComponentStateDescription title="Icon left to tab name"/>
+    <StoryStateRow>
+      <ul role="tablist">
+        <Tab icon={Email} iconType={Icon.type.SVG} iconSide="left">
+          Tab
+        </Tab>
+      </ul>
+    </StoryStateRow>
+
+    <ComponentStateDescription title="Icon right to tab name"/>
+    <StoryStateRow>
+      <ul role="tablist">
+        <Tab icon={Email} iconType={Icon.type.SVG} iconSide="right">
+          Tab
+        </Tab>
+      </ul>
     </StoryStateRow>
   </section>
 );

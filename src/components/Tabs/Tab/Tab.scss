@@ -29,6 +29,15 @@
     &:focus {
       outline: none;
     }
+
+    .tab-icon {
+      margin-right: 8px;
+
+      &.right {
+        margin-right: 0;
+        margin-left: 8px;
+      }
+    }
   }
 
   &.focus {
