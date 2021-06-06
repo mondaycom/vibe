@@ -8,10 +8,8 @@ import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper
 import Checkbox from "../../Checkbox/Checkbox";
 
 export const Sandbox = () => {
-  debugger;
   const [isSelected, setIsSelected] = useState(true);
   const onChange = isSelected => {
-    debugger;
     setIsSelected(isSelected);
   };
   const controlledClassName = isSelected
