@@ -29,6 +29,12 @@ export const States = () => (
           <Tab id="active" active>Active</Tab>
         </ul>
       </StoryStateColumn>
+
+      <StoryStateColumn title="Focus">
+        <ul role="tablist">
+          <Tab id="focus" focus>Focus</Tab>
+        </ul>
+      </StoryStateColumn>
     </StoryStateRow>
   </section>
 );

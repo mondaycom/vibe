@@ -32,6 +32,28 @@
     @include theme-prop(border-bottom-color, primary-color);
   }
 
+  &.focus {
+    position: relative;
+    border: 1px solid;
+    @include theme-prop(border-color, primary-color);
+    box-sizing: border-box;
+    border-radius: 1px;
+
+    :before {
+      content: " ";
+      position: absolute;
+      z-index: -1;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      opacity: 0.4;
+      border: 3px solid;
+      @include theme-prop(border-color, primary-color);
+      border-radius: 4px;
+    }
+  }
+
   &.disabled {
     @include theme-prop(color, disabled-text-color);
 

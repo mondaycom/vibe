@@ -4,14 +4,14 @@ import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./Tab.scss";
 
-const Tab = forwardRef(({ className, id, value, disabled, active, onClick, children }, ref) => {
+const Tab = forwardRef(({ className, id, value, disabled, active, focus, onClick, children }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     return (
       <li ref={mergedRef}
           key={id}
-          className={cx("tab--wrapper", className, { active, disabled })}
+          className={cx("tab--wrapper", className, { active, disabled, focus })}
           id={id}
           role="tab"
           aria-selected={active}
@@ -32,6 +32,7 @@ Tab.propTypes = {
     value: PropTypes.number,
     disabled: PropTypes.bool,
     active: PropTypes.bool,
+    focus: PropTypes.bool,
     onClick: PropTypes.func
 };
 Tab.defaultProps = {
@@ -39,7 +40,8 @@ Tab.defaultProps = {
     id: "",
     value: 0,
     disabled: false,
-    active: false
+    active: false,
+    focus: false
 };
 
 export default Tab;
