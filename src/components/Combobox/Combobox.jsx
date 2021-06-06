@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
@@ -11,11 +12,14 @@ import useListKeyboardNavigation from "../../hooks/useListKeyboardNavigation";
 import "./Combobox.scss";
 
 const renderOption = (index, option, isActive, onOptionClick, onOptionHover) => {
-  const { id, leftIcon, rightIcon, label, iconSize = 16, disabled, selected } = option;
+  const { id, leftIcon, rightIcon, label, iconSize = 16, disabled, selected, ariaLabel } = option;
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <div
       key={id || label}
+      role="listitem"
+      ariaLabel={ariaLabel}
+      id={`combox-item-${id}`}
       onMouseEnter={onOptionHover}
       onClick={event => onOptionClick(event, index)}
       className={cx("combobox-option", { disabled, selected, active: isActive })}
@@ -118,7 +122,14 @@ const Combobox = forwardRef(
     }
 
     return (
-      <div ref={mergedRef} className={cx("combobox--wrapper", className)} id={id}>
+      // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
+      <div
+        ref={mergedRef}
+        role="listbox"
+        aria-activedescendant={`combobox-item-${id}`}
+        className={cx("combobox--wrapper", className)}
+        id={id}
+      >
         <Search
           ref={inputRef}
           className="combobox--wrapper-search"
@@ -138,7 +149,7 @@ const Combobox = forwardRef(
   }
 );
 
-Search.sizes = SIZES;
+Combobox.sizes = SIZES;
 
 Combobox.propTypes = {
   className: PropTypes.string,
@@ -147,7 +158,7 @@ Combobox.propTypes = {
   noResultsMessage: PropTypes.string,
   disabled: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.object),
-  size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE]),
+  size: PropTypes.oneOf([Combobox.sizes.SMALL, Combobox.sizes.MEDIUM, Combobox.sizes.LARGE]),
   onAddNew: PropTypes.func,
   addNewLabel: PropTypes.string
 };
@@ -158,7 +169,7 @@ Combobox.defaultProps = {
   noResultsMessage: "No results found",
   disabled: false,
   options: [],
-  size: SIZES.MEDIUM,
+  size: Combobox.sizes.MEDIUM,
   onAddNew: undefined,
   addNewLabel: "Add new"
 };
