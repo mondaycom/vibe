@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import NOOP from "lodash/noop";
@@ -8,6 +8,7 @@ import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
 import ToggleText from "./ToggleText";
 import "./Toggle.scss";
+import { useToggle } from "../../hooks/useToggle";
 
 const Toggle = ({
   id,
@@ -22,26 +23,21 @@ const Toggle = ({
   ariaControls,
   isHideLabels
 }) => {
-  const toggleRef = useRef();
-  const toggleState = useToggleState({ defaultSelected: isDefaultSelected, isSelected, onChange });
-  const { inputProps } = useSwitch(
-    {
-      id,
-      defaultSelected: isDefaultSelected,
-      isSelected,
-      onChange,
-      value,
-      name,
-      isDisabled,
-      "aria-label": ariaLabel,
-      "aria-controls": ariaControls
-    },
-    toggleState,
-    toggleRef
-  );
+  const { inputProps } = useToggle({
+    id,
+    isDefaultSelected,
+    isSelected,
+    onChange,
+    value,
+    name,
+    isDisabled,
+    ariaLabel,
+    ariaControls
+  });
+
   const className = classNames(`${BASE_TOGGLE_CLASS_NAME}__toggle`, componentClassName, {
-    [`${BASE_TOGGLE_CLASS_NAME}__toggle--selected`]: toggleState.isSelected,
-    [`${BASE_TOGGLE_CLASS_NAME}__toggle--not-selected`]: !toggleState.isSelected,
+    [`${BASE_TOGGLE_CLASS_NAME}__toggle--selected`]: inputProps.checked,
+    [`${BASE_TOGGLE_CLASS_NAME}__toggle--not-selected`]: !inputProps.checked,
     [`${BASE_TOGGLE_CLASS_NAME}__toggle--disabled`]: isDisabled
   });
 
