@@ -18,7 +18,6 @@
     position: absolute;
     left: 0;
     right: 0;
-    //bottom: -2px;
     content: '';
     border-bottom: solid 2px;
     @include theme-prop(border-bottom-color, primary-color);
