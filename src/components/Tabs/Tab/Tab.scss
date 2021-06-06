@@ -3,8 +3,11 @@
 
 .tab--wrapper {
   display: inline-block;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
   border-bottom: 2px solid;
-  @include theme-prop(border-color, primary-background-hover-color);
+  @include theme-prop(border-bottom-color, primary-background-hover-color);
   @include theme-prop(color, primary-text-color);
   text-align: center;
   height: 100%;
