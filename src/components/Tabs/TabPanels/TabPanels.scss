@@ -17,8 +17,8 @@
 
     &.active {
       display: block;
-      animation: panel-slide-in 0.2s forwards;
-      -webkit-animation: panel-slide-in 0.2s forwards;
+      animation: panel-slide-in 150ms forwards cubic-bezier(0,0,0.35,1);
+      -webkit-animation: panel-slide-in 150ms forwards cubic-bezier(0,0,0.35,1);
     }
   }
 
