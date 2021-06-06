@@ -1,0 +1,39 @@
+@import "../../styles/states.scss";
+
+.monday-style-toggle{
+  &__container {
+    @include reset-button();
+    position: relative;
+    height: 24px;
+    width: 41px;
+    cursor: pointer;
+    border-radius: 100px;
+    &::after {
+      content: " ";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: calc(50% - 18px/2);
+      @include theme-prop(background-color, primary-background-color);
+    }
+
+    &--selected {
+      @include theme-prop(background-color, primary-color);
+      &::after {
+        left: 3px;
+      }
+    }
+
+    &--not-selected {
+      @include theme-prop(background-color, ui-border-color);
+      &::after {
+        left: 20px;
+      }
+    }
+
+    &--disabled {
+      @include theme-prop(background-color, primary-background-hover-color);
+    }
+  }
+}
