@@ -17,24 +17,35 @@ const Toggle = ({
   onChange,
   value,
   name,
-  isDisabled = true,
-  ariaLabel
+  isDisabled,
+  ariaLabel,
+  ariaControls
 }) => {
   const toggleRef = useRef();
   const toggleState = useToggleState({ defaultSelected, isSelected });
   const { inputProps } = useSwitch(
-    { id, defaultSelected, isSelected, onChange, value, name, isDisabled, "aria-label": ariaLabel },
+    {
+      id,
+      defaultSelected,
+      isSelected,
+      onChange,
+      value,
+      name,
+      isDisabled,
+      "aria-label": ariaLabel,
+      "aria-controls": ariaControls
+    },
     toggleState,
     toggleRef
   );
-  const className = classNames(`${BASE_CLASS_NAME}__container`, componentClassName, {
-    [`${BASE_CLASS_NAME}__container--selected`]: toggleState.isSelected,
-    [`${BASE_CLASS_NAME}__container--not-selected`]: !toggleState.isSelected,
-    [`${BASE_CLASS_NAME}__container--disabled`]: isDisabled
+  const className = classNames(`${BASE_CLASS_NAME}__toggle`, componentClassName, {
+    [`${BASE_CLASS_NAME}__toggle--selected`]: toggleState.isSelected,
+    [`${BASE_CLASS_NAME}__toggle--not-selected`]: !toggleState.isSelected,
+    [`${BASE_CLASS_NAME}__toggle--disabled`]: isDisabled
   });
 
   return (
-    <label htmlFor={id}>
+    <label htmlFor={id} className={`${BASE_CLASS_NAME}__wrapper`}>
       <VisuallyHidden>
         <input {...inputProps} />
       </VisuallyHidden>
@@ -54,10 +65,12 @@ Toggle.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string,
   name: PropTypes.string,
+  isDisabled: PropTypes.bool,
   /**
    * Aria props
    */
-  "aria-controls": PropTypes.string
+  ariaLabel: PropTypes.string,
+  ariaControls: PropTypes.string
 };
 
 Toggle.defaultProps = {
@@ -68,7 +81,9 @@ Toggle.defaultProps = {
   onChange: NOOP,
   value: undefined,
   name: undefined,
-  "aria-controls": undefined
+  isDisabled: false,
+  ariaLabel: undefined,
+  ariaControls: undefined
 };
 
 export default Toggle;

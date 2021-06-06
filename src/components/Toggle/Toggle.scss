@@ -1,13 +1,19 @@
 @import "../../styles/states.scss";
 
+@mixin toggle-animation {
+  transition: 150ms $expand-animation-timing;
+}
+
 .monday-style-toggle{
-  &__container {
+  &__toggle {
     @include reset-button();
     position: relative;
     height: 24px;
     width: 41px;
     cursor: pointer;
     border-radius: 100px;
+    @include toggle-animation;
+
     &::after {
       content: " ";
       position: absolute;
@@ -15,6 +21,7 @@
       height: 18px;
       border-radius: 50%;
       top: calc(50% - 18px/2);
+      @include toggle-animation;
       @include theme-prop(background-color, primary-background-color);
     }
 
