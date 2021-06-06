@@ -23,7 +23,7 @@ const Toggle = ({
   isHideLabels
 }) => {
   const toggleRef = useRef();
-  const toggleState = useToggleState({ defaultSelected: isDefaultSelected, isSelected });
+  const toggleState = useToggleState({ defaultSelected: isDefaultSelected, isSelected, onChange });
   const { inputProps } = useSwitch(
     {
       id,
@@ -45,10 +45,13 @@ const Toggle = ({
     [`${BASE_TOGGLE_CLASS_NAME}__toggle--disabled`]: isDisabled
   });
 
+  // TODO: ask orr about support for all browsers? MARGIN INLINE
+  // TODO: ask about on and off text
+
   return (
     <label htmlFor={id} className={`${BASE_TOGGLE_CLASS_NAME}__wrapper`}>
       <VisuallyHidden>
-        <input {...inputProps} />
+        <input disabled={isDisabled} {...inputProps} />
       </VisuallyHidden>
       {isHideLabels ? null : <ToggleText>Off</ToggleText>}
       <div className={className} aria-hidden="true" />

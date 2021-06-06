@@ -46,13 +46,11 @@ describe("Toggle Tests", () => {
       });
 
       it("should change state to off when is default selected and clicked", () => {
-        before(() => {
-          render(
-            <form name={formName}>
-              <Toggle componentClassName="dummy-class-name" isDefaultSelected />
-            </form>
-          );
-        });
+        render(
+          <form name={formName}>
+            <Toggle componentClassName="dummy-class-name" isDefaultSelected />
+          </form>
+        );
 
         const toggle = screen.getByRole(toggleRole);
         fireEvent.click(toggle);
@@ -60,30 +58,27 @@ describe("Toggle Tests", () => {
       });
 
       it("should change state to on when is default not selected and clicked", () => {
-        before(() => {
-          render(
-            <form name={formName}>
-              <Toggle componentClassName="dummy-class-name" isDefaultSelected={false} />
-            </form>
-          );
-        });
-
+        render(
+          <form name={formName}>
+            <Toggle componentClassName="dummy-class-name" isDefaultSelected={false} />
+          </form>
+        );
         const toggle = screen.getByRole(toggleRole);
         fireEvent.click(toggle);
         expect(toggle.checked).toBeTruthy();
       });
 
       it("should not change state when disabled, default selected and clicked", () => {
-        before(() => {
-          render(
-            <form name={formName}>
-              <Toggle componentClassName="dummy-class-name" isDefaultSelected isDisabled />
-            </form>
-          );
-        });
+        render(
+          <form name={formName}>
+            <Toggle componentClassName="dummy-class-name" isDefaultSelected isDisabled />
+          </form>
+        );
 
         const toggle = screen.getByRole(toggleRole);
+        console.log("s", toggle.checked);
         fireEvent.click(toggle);
+        console.log("s", toggle.checked);
         expect(toggle.checked).toBeTruthy();
       });
     });
@@ -94,13 +89,11 @@ describe("Toggle Tests", () => {
       });
 
       it("should not change state to off when is selected, clicked and prop does not changed", () => {
-        before(() => {
-          render(
-            <form name={formName}>
-              <Toggle componentClassName="dummy-class-name" isSelected />
-            </form>
-          );
-        });
+        render(
+          <form name={formName}>
+            <Toggle componentClassName="dummy-class-name" isSelected />
+          </form>
+        );
 
         const toggle = screen.getByRole(toggleRole);
         fireEvent.click(toggle);
@@ -108,13 +101,11 @@ describe("Toggle Tests", () => {
       });
 
       it("should not change state to on when is not selected, clicked and prop does not changed", () => {
-        before(() => {
-          render(
-            <form name={formName}>
-              <Toggle componentClassName="dummy-class-name" isSelected={false} />
-            </form>
-          );
-        });
+        render(
+          <form name={formName}>
+            <Toggle componentClassName="dummy-class-name" isSelected={false} />
+          </form>
+        );
 
         const toggle = screen.getByRole(toggleRole);
         fireEvent.click(toggle);

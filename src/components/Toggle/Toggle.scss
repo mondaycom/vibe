@@ -14,7 +14,6 @@
   &__toggle {
     @include reset-button();
     @include toggle-animation;
-    // TODO: ask orr about support for all browsers?
     margin-inline: $spacing-small;
     position: relative;
     height: 24px;

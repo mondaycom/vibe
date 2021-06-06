@@ -1,0 +1,14 @@
+@import "../../../styles/themes.scss";
+
+#monday-style-story-toggle__controlled-area {
+  @include theme-prop(color, text-color-on-primary)
+}
+.monday-style-story-toggle__controlled-area {
+  &--selected {
+    @include theme-prop(background-color, positive-color);
+  }
+
+  &--not-selected {
+    @include theme-prop(background-color, negative-color);
+  }
+}
