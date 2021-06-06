@@ -5,28 +5,29 @@ import NOOP from "lodash/noop";
 import { useToggleState } from "@react-stately/toggle";
 import { useSwitch } from "@react-aria/switch";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
+import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
+import ToggleText from "./ToggleText";
 import "./Toggle.scss";
-
-const BASE_CLASS_NAME = "monday-style-toggle";
 
 const Toggle = ({
   id,
   componentClassName,
-  defaultSelected,
+  isDefaultSelected,
   isSelected,
   onChange,
   value,
   name,
   isDisabled,
   ariaLabel,
-  ariaControls
+  ariaControls,
+  isHideLabels
 }) => {
   const toggleRef = useRef();
-  const toggleState = useToggleState({ defaultSelected, isSelected });
+  const toggleState = useToggleState({ defaultSelected: isDefaultSelected, isSelected });
   const { inputProps } = useSwitch(
     {
       id,
-      defaultSelected,
+      defaultSelected: isDefaultSelected,
       isSelected,
       onChange,
       value,
@@ -38,18 +39,20 @@ const Toggle = ({
     toggleState,
     toggleRef
   );
-  const className = classNames(`${BASE_CLASS_NAME}__toggle`, componentClassName, {
-    [`${BASE_CLASS_NAME}__toggle--selected`]: toggleState.isSelected,
-    [`${BASE_CLASS_NAME}__toggle--not-selected`]: !toggleState.isSelected,
-    [`${BASE_CLASS_NAME}__toggle--disabled`]: isDisabled
+  const className = classNames(`${BASE_TOGGLE_CLASS_NAME}__toggle`, componentClassName, {
+    [`${BASE_TOGGLE_CLASS_NAME}__toggle--selected`]: toggleState.isSelected,
+    [`${BASE_TOGGLE_CLASS_NAME}__toggle--not-selected`]: !toggleState.isSelected,
+    [`${BASE_TOGGLE_CLASS_NAME}__toggle--disabled`]: isDisabled
   });
 
   return (
-    <label htmlFor={id} className={`${BASE_CLASS_NAME}__wrapper`}>
+    <label htmlFor={id} className={`${BASE_TOGGLE_CLASS_NAME}__wrapper`}>
       <VisuallyHidden>
         <input {...inputProps} />
       </VisuallyHidden>
+      {isHideLabels ? null : <ToggleText>Off</ToggleText>}
       <div className={className} aria-hidden="true" />
+      {isHideLabels ? null : <ToggleText>On</ToggleText>}
     </label>
   );
 };
@@ -60,12 +63,13 @@ Toggle.propTypes = {
    */
   id: PropTypes.string,
   componentClassName: PropTypes.string,
-  defaultSelected: PropTypes.bool,
+  isDefaultSelected: PropTypes.bool,
   isSelected: PropTypes.bool,
   onChange: PropTypes.func,
   value: PropTypes.string,
   name: PropTypes.string,
   isDisabled: PropTypes.bool,
+  isHideLabels: PropTypes.bool,
   /**
    * Aria props
    */
@@ -76,12 +80,13 @@ Toggle.propTypes = {
 Toggle.defaultProps = {
   id: undefined,
   componentClassName: "",
-  defaultSelected: true,
+  isDefaultSelected: true,
   isSelected: undefined,
   onChange: NOOP,
   value: undefined,
   name: undefined,
   isDisabled: false,
+  isHideLabels: false,
   ariaLabel: undefined,
   ariaControls: undefined
 };

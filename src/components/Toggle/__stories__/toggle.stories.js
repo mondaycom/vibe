@@ -10,7 +10,7 @@ export const Sandbox = () => (
       <StoryStateColumn title="Toggle" />
     </StoryStateRow>
     <StoryStateRow>
-      <Toggle defaultSelected={boolean("Default Selected", true)} />
+      <Toggle isDefaultSelected={false} />
     </StoryStateRow>
   </>
 );
