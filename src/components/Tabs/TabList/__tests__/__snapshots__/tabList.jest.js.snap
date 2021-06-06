@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  className="tabs--wrapper Compact"
+  id=""
+>
+  <ul
+    className="tabs-list"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    role="tablist"
+    tabIndex={0}
+  />
+</div>
+`;
