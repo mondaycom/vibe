@@ -12,22 +12,20 @@ import TabPanel from "../../TabPanel/TabPanel";
 import { TabPanels } from "../../../index";
 
 
-export const Sandbox = () => (
-    <div>
-      <TabsContext>
-        <TabList id="Knobs">
-          <Tab>First</Tab>
-          <Tab>Second</Tab>
-          <Tab>Third</Tab>
-        </TabList>
+export const DefaultStory = () => (
+  <TabsContext>
+    <TabList>
+      <Tab>First</Tab>
+      <Tab>Second</Tab>
+      <Tab>Third</Tab>
+    </TabList>
 
-        <TabPanels>
-          <TabPanel>First panel</TabPanel>
-          <TabPanel>Second panel</TabPanel>
-          <TabPanel>Third panel</TabPanel>
-        </TabPanels>
-      </TabsContext>
-    </div>
+    <TabPanels>
+      <TabPanel>First panel</TabPanel>
+      <TabPanel>Second panel</TabPanel>
+      <TabPanel>Third panel</TabPanel>
+    </TabPanels>
+  </TabsContext>
 );
 
 export default {
