@@ -1,8 +1,8 @@
-import React, { useRef, forwardRef, useState, useCallback, useEffect } from "react";
+import React, { useRef, forwardRef, useState, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import { useKeyboard } from "@react-aria/interactions";
+import { useFocusWithin, useKeyboard } from "@react-aria/interactions";
 import "./TabList.scss";
 
 const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, size, children }, ref) => {
@@ -46,9 +46,19 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
       onKeyUp: (e) => {}
     });
 
+    const { focusWithinProps } = useFocusWithin({
+      onFocusWithin: () => {
+        setFocusTab(activeTab);
+      },
+
+      onBlurWithin: () => {
+        setFocusTab(-1);
+      }
+    });
+
     return (
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
-      <ul tabIndex={0} {...keyboardProps} className={cx("tabs-list", size)} role="tablist">
+      <ul tabIndex={0} {...keyboardProps} {...focusWithinProps} className={cx("tabs-list", size)} role="tablist">
         {React.Children.map(children, (child, index) => {
           return React.cloneElement(child, { value: index, active: activeTab === index, focus: focusTab === index, onClick: onTabClick });
         })}
