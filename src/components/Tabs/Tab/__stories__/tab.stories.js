@@ -1,24 +1,28 @@
 import React from "react";
-import { action } from '@storybook/addon-actions';
-import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import Tab from "../Tab";
-import { StoryStateRow, StoryStateColumn, ComponentStateDescription, FlexLayout, Divider } from "../../../storybook-helpers";
-import DarkThemeContainer from "../../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
-import StoryWrapper from "../../../../StoryBookComponents/StoryWrapper/StoryWrapper";
+import { StoryStateRow, StoryStateColumn } from "../../../storybook-helpers";
 
+export const DefaultStory = () => (
+  <Tab id="tab">Tab</Tab>
+);
 
-export const Sandbox = () => (
-    <div>
-      normal:
-      <Tab id="normal">Normal</Tab>
+export const TabStates = () => (
+  <section>
+    <StoryStateRow>
+      <StoryStateColumn title="Normal">
+        <Tab id="normal">Normal</Tab>
+      </StoryStateColumn>
 
-      disabled:
-      <Tab id="disabled" disabled>Disabled</Tab>
+      <StoryStateColumn title="Disabled">
+        <Tab id="disabled" disabled>Disabled</Tab>
+      </StoryStateColumn>
 
-      active:
-      <Tab id="active" active>Active</Tab>
-    </div>
+      <StoryStateColumn title="Active">
+        <Tab id="active" active>Active</Tab>
+      </StoryStateColumn>
+    </StoryStateRow>
+  </section>
 );
 
 export default {
