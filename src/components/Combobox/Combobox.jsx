@@ -11,7 +11,7 @@ import Button from "../Button/Button";
 import useListKeyboardNavigation from "../../hooks/useListKeyboardNavigation";
 import "./Combobox.scss";
 
-const renderOption = (index, option, isActive, onOptionClick, onOptionHover) => {
+const renderOption = (index, option, isActive, isActiveByKeyboard, onOptionClick, onOptionHover) => {
   const { id, leftIcon, rightIcon, label, iconSize = 16, disabled, selected, ariaLabel } = option;
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
@@ -21,8 +21,13 @@ const renderOption = (index, option, isActive, onOptionClick, onOptionHover) => 
       ariaLabel={ariaLabel}
       id={`combox-item-${id}`}
       onMouseEnter={onOptionHover}
-      onClick={event => onOptionClick(event, index)}
-      className={cx("combobox-option", { disabled, selected, active: isActive })}
+      onClick={event => onOptionClick(event, index, option, true)}
+      className={cx("combobox-option", {
+        disabled,
+        selected,
+        active: isActive,
+        "active-outline": isActiveByKeyboard && isActive
+      })}
     >
       {leftIcon && (
         <Icon
@@ -54,14 +59,29 @@ const Combobox = forwardRef(
     const componentRef = useRef(null);
     const inputRef = useRef(null);
     const [activeItemIndex, setActiveItemIndex] = useState(-1);
+    const [isActiveByKeyboard, setIsActiveByKeyboard] = useState(false);
     const [filterValue, setFilterValue] = useState("");
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-    const onOptionClick = useCallback(
-      (_event, optionIndex) => {
-        onClick && onClick(options[optionIndex]);
+    const setActiveItemIndexKeyboardNav = useCallback(
+      index => {
+        setActiveItemIndex(index);
+        setIsActiveByKeyboard(true);
       },
-      [onClick, options]
+      [setActiveItemIndex]
+    );
+
+    const onOptionClick = useCallback(
+      (_event, index, option, mouseClick) => {
+        onClick && onClick(option);
+        setActiveItemIndex(index);
+        if (mouseClick) {
+          // set focus on input again
+          inputRef.current.focus();
+        }
+        setIsActiveByKeyboard(!mouseClick);
+      },
+      [onClick]
     );
 
     const onOptionHover = useCallback(
@@ -71,13 +91,15 @@ const Combobox = forwardRef(
       [setActiveItemIndex]
     );
 
+    const filterdOptions = useMemo(() => {
+      return options.filter(({ label }) => !filterValue || label.includes(filterValue));
+    }, [options, filterValue]);
+
     const renderedItems = useMemo(() => {
-      return options
-        .filter(({ label }) => !filterValue || label.includes(filterValue))
-        .map((option, index) => {
-          return renderOption(index, option, activeItemIndex === index, onOptionClick, onOptionHover);
-        });
-    }, [options, filterValue, onOptionClick, activeItemIndex, onOptionHover]);
+      return filterdOptions.map((option, index) => {
+        return renderOption(index, option, activeItemIndex === index, isActiveByKeyboard, onOptionClick, onOptionHover);
+      });
+    }, [options, filterValue, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionHover]);
 
     const onChangeCallback = useCallback(
       value => {
@@ -86,15 +108,22 @@ const Combobox = forwardRef(
       [setFilterValue]
     );
 
-    const isChildSelectable = useCallback((index, currentOptions) => {
-      return currentOptions[index] && !currentOptions[index].disabled;
+    const isChildSelectable = useCallback(option => {
+      return option && !option.disabled;
     }, []);
 
     const onAddNewCallback = useCallback(() => {
       onAddNew && onAddNew(filterValue);
     }, [onAddNew, filterValue]);
 
-    useListKeyboardNavigation(inputRef, options, activeItemIndex, setActiveItemIndex, isChildSelectable, onOptionClick);
+    useListKeyboardNavigation(
+      inputRef,
+      filterdOptions,
+      activeItemIndex,
+      setActiveItemIndexKeyboardNav,
+      isChildSelectable,
+      onOptionClick
+    );
 
     const hasResults = renderedItems.length > 0;
     const hasFilter = filterValue.length > 0;
