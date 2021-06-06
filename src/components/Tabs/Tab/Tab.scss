@@ -28,10 +28,6 @@
     }
   }
 
-  &.active {
-    @include theme-prop(border-bottom-color, primary-color);
-  }
-
   &.focus {
     position: relative;
     border: 1px solid;
@@ -39,10 +35,19 @@
     box-sizing: border-box;
     border-radius: 1px;
 
+    :after {
+      content: " ";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-bottom: 1px solid;
+      @include theme-prop(border-color, primary-background-hover-color);
+    }
+
     :before {
       content: " ";
       position: absolute;
-      z-index: -1;
       top: -4px;
       left: -4px;
       right: -4px;
@@ -51,6 +56,22 @@
       border: 3px solid;
       @include theme-prop(border-color, primary-color);
       border-radius: 4px;
+    }
+  }
+
+  &.active {
+    border-bottom: 2px solid;
+    border-bottom-style: inset;
+    @include theme-prop(border-bottom-color, primary-color);
+
+    &.focus {
+      :after {
+        border-bottom: none;
+      }
+
+      :before {
+        bottom: -5px;
+      }
     }
   }
 
