@@ -44,7 +44,7 @@ const Tab = forwardRef(({
   return (
     <li ref={mergedRef}
         key={id}
-        className={cx("tab--wrapper", className, { active, disabled, focus })}
+        className={cx("tab--wrapper", className, { active, disabled, "focus-visible": focus })}
         id={id}
         role="tab"
         aria-selected={active}

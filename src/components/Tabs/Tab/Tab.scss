@@ -4,8 +4,8 @@
 .tab--wrapper {
   display: inline-block;
   border-top: 1px solid transparent;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
+  padding-left: 1px;
+  padding-right: 1px;
   border-bottom: 2px solid;
   @include theme-prop(border-bottom-color, primary-background-hover-color);
   @include theme-prop(color, primary-text-color);
@@ -41,12 +41,14 @@
     }
   }
 
-  &.focus {
+  &.focus-visible {
     position: relative;
     border: 1px solid;
     @include theme-prop(border-color, primary-color);
     box-sizing: border-box;
     border-radius: 1px;
+    padding-left: 0;
+    padding-right: 0;
 
     :after {
       content: " ";
@@ -77,7 +79,7 @@
     border-bottom-style: inset;
     @include theme-prop(border-bottom-color, primary-color);
 
-    &.focus {
+    &.focus-visible {
       :after {
         border-bottom: none;
       }
