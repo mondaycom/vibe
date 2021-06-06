@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  className="tabs--wrapper Compact"
+  id=""
+  tabIndex={0}
+>
+  <ul
+    className="tabs-list"
+    role="tablist"
+  />
+</div>
+`;

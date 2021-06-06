@@ -146,6 +146,7 @@ Combobox.propTypes = {
   id: PropTypes.string,
   noResultsMessage: PropTypes.string,
   disabled: PropTypes.bool,
+  options: PropTypes.arrayOf(PropTypes.object),
   size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE]),
   onAddNew: PropTypes.func,
   addNewLabel: PropTypes.string
@@ -156,6 +157,7 @@ Combobox.defaultProps = {
   id: "",
   noResultsMessage: "No results found",
   disabled: false,
+  options: [],
   size: SIZES.MEDIUM,
   onAddNew: undefined,
   addNewLabel: "Add new"
