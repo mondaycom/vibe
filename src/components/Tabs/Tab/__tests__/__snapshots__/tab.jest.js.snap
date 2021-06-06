@@ -34,7 +34,7 @@ exports[`<Tab /> Snapshot tests renders correctly focus and active tab 1`] = `
 <li
   aria-disabled={false}
   aria-selected={true}
-  className="tab--wrapper active focus"
+  className="tab--wrapper active focus-visible"
   id=""
   role="tab"
 >
@@ -49,7 +49,7 @@ exports[`<Tab /> Snapshot tests renders correctly focus tab 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tab--wrapper focus"
+  className="tab--wrapper focus-visible"
   id=""
   role="tab"
 >
