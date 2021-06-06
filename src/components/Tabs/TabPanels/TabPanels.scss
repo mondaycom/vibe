@@ -1,0 +1,24 @@
+@import "../../../styles/themes";
+@import "../../../styles/typography";
+
+.tab-panels--wrapper {
+  .tab-panel {
+    display: none;
+    transform: translateX(4px);
+    -webkit-transform: translateX(4px);
+
+    &.active {
+      display: block;
+      animation: panel-slide-in 0.2s forwards;
+      -webkit-animation: panel-slide-in 0.2s forwards;
+    }
+  }
+}
+
+@keyframes panel-slide-in {
+  100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes panel-slide-in {
+  100% { -webkit-transform: translateX(0%); }
+}

@@ -1,0 +1,51 @@
+@import "../../../styles/themes";
+@import "../../../styles/typography";
+
+.tab--wrapper {
+  display: inline-block;
+  border-bottom: 2px solid;
+  @include theme-prop(border-color, primary-background-hover-color);
+  text-align: center;
+  height: 100%;
+
+  .tab-inner {
+    $margin-bottom: 1px;
+    height: calc(100% - #{$margin-bottom});
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 4px 16px;
+    @include theme-prop(color, primary-text-color);
+    font-weight: 400;
+    font-size: 16px;
+    user-select: none;
+    margin-bottom: $margin-bottom;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &.active {
+    @include theme-prop(border-bottom-color, primary-color);
+  }
+
+  &.disabled {
+    @include theme-prop(color, disabled-text-color);
+
+    .tab-inner {
+      cursor: not-allowed;
+    }
+  }
+
+  &:not(.disabled) {
+    .tab-inner {
+      &:hover {
+        border-radius: 4px;
+        @include theme-prop(background-color, primary-background-hover-color);
+      }
+    }
+  }
+}

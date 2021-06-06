@@ -32,6 +32,7 @@ export {default as Collapse} from './components/Collapse';
 export {default as CollapseRound} from './components/CollapseRound';
 export {default as Column} from './components/Column';
 export {default as Comment} from './components/Comment';
+export {default as Completed} from './components/Completed';
 export {default as CreditCard} from './components/CreditCard';
 export {default as Cut} from './components/Cut';
 export {default as Dashboard} from './components/Dashboard';

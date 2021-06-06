@@ -2,7 +2,6 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 
-
 .monday-style-button-group-component {
   display: flex;
   flex-direction: column;
@@ -18,28 +17,17 @@
 
     .monday-style-button {
       border: 1px solid;
-      border-radius: 0;
       @include theme-prop(background-color, primary-background-color);
       @include theme-prop(border-color, ui-border-color);
-      margin-left: -1px;
-
-      &:first-child {
-        border-radius: $border-radius-small 0 0 $border-radius-small;
-        margin-left: 0;
-      }
-      &:last-child {
-        border-radius: 0 $border-radius-small $border-radius-small 0;
-      }
-
       &--color {
         &-primary {
           &-active {
+            z-index: 20;
             &:hover {
               @include theme-prop(background-color, primary-selected-color);
             }
             @include theme-prop(background-color, primary-selected-color);
             @include theme-prop(border-color, primary-color);
-            z-index: 10;
           }
         }
       }
@@ -49,7 +37,8 @@
     &:not(.disabled) {
       @include theme-prop(color, primary-text-color);
       &.selected {
-        @include theme-prop(color, primary-color);
+        z-index: 10;
+        @include theme-prop(color, primary-text-color);
       }
     }
   }
@@ -67,6 +56,18 @@
   }
 
   &.disabled {
+    cursor: not-allowed;
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    background-color: var(--disabled-background-color);
+    opacity: 0.5;
+  }
+
+  .button-disabled {
+    background-color: var(--disabled-background-color);
+    opacity: 0.5;
     cursor: not-allowed;
   }
 }

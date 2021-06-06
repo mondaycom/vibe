@@ -1,0 +1,21 @@
+.chips-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  height: 140px;
+  border: 1px solid #c5c7d0;
+  width: 700px;
+  align-items: center;
+  padding: 8px;
+  position: relative;
+
+  .reset-button {
+    position: absolute;
+    bottom: -40px;
+  }
+
+  .add-button {
+    position: absolute;
+    bottom: -40px;
+    left: 100px;
+  }
+}

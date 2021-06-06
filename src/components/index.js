@@ -41,3 +41,11 @@ export { default as ResponsiveList } from "./ResponsiveList/ResponsiveList";
 
 export { default as BreadcrumbsBar } from "./BreadcrumbsBar/BreadcrumbsBar";
 export { default as BreadcrumbItem } from "./BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem";
+
+export { default as Chips } from "./Chips/Chips";
+export { default as TabList } from "./Tabs/TabList/TabList";
+export { default as Tab } from "./Tabs/Tab/Tab";
+export { default as TabPanel } from "./Tabs/TabPanel/TabPanel";
+export { default as TabsContext } from "./Tabs/TabsContext/TabsContext";
+export { default as TabPanels } from "./Tabs/TabPanels/TabPanels";
+
