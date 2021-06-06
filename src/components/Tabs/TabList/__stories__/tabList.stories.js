@@ -1,11 +1,7 @@
 import React from "react";
-import { action } from '@storybook/addon-actions';
-import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import TabList from "../TabList";
-import { StoryStateRow, StoryStateColumn, ComponentStateDescription, FlexLayout, Divider } from "../../../storybook-helpers";
-import DarkThemeContainer from "../../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
-import StoryWrapper from "../../../../StoryBookComponents/StoryWrapper/StoryWrapper";
+import { StoryStateRow, ComponentStateDescription } from "../../../storybook-helpers";
 import DescriptionLabel from "../../../storybook-helpers/description-label/description-label";
 import Tab from "../../Tab/Tab";
 
