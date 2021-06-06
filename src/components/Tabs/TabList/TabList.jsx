@@ -1,7 +1,8 @@
-import React, { useRef, forwardRef, useState, useCallback } from "react";
+import React, { useRef, forwardRef, useState, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
+import { useKeyboard } from "@react-aria/interactions";
 import "./TabList.scss";
 
 const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, size, children }, ref) => {
@@ -14,11 +15,28 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
         onTabChange && onTabChange(tabId)
     }, [setActiveTab, onTabChange]);
 
+    function onKeyDown(keyCode) {
+      if (keyCode === 37 && activeTab > 0) { // left arrow
+        onTabClick(activeTab - 1);
+      } else if (keyCode === 39 && activeTab < children.length - 1) { // right arrow
+        onTabClick(activeTab + 1);
+      }
+    }
+
+    const { keyboardProps } = useKeyboard({
+      onKeyDown: (e) => {
+        onKeyDown(e.keyCode);
+      },
+      onKeyUp: (e) => {}
+    });
+
     return (
-    <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id} tabIndex={0}>
-      <ul className={cx("tabs-list", size)} role="tablist">{React.Children.map(children, (child, index) => {
-        return React.cloneElement(child, { value: index, active: activeTab === index, onClick: onTabClick });
-      })}</ul>
+    <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id} tabIndex={0} {...keyboardProps}>
+      <ul className={cx("tabs-list", size)} role="tablist">
+        {React.Children.map(children, (child, index) => {
+          return React.cloneElement(child, { value: index, active: activeTab === index, onClick: onTabClick });
+        })}
+      </ul>
     </div>
   );
 });
