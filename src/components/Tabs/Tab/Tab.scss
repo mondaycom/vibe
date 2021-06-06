@@ -95,22 +95,10 @@
     }
 
     &.focus-visible {
-      //&:after {
-      //  position: absolute;
-      //  bottom: -3px;
-      //  border-bottom: 4px solid;
-      //  @include theme-prop(border-bottom-color, primary-color);
-      //}
-      //
-      //:after {
-      //  bottom: -1px;
-      //  @include theme-prop(border-color, primary-color);
-      //  //border: none;
-      //}
-      //
-      //:before {
-      //  bottom: -6px;
-      //}
+      :after {
+        border-bottom: 4px solid;
+        @include theme-prop(border-bottom-color, primary-color);
+      }
     }
   }
 
