@@ -3,13 +3,11 @@ import { action } from '@storybook/addon-actions';
 import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import TabsContext from "../TabsContext";
-import { StoryStateRow, StoryStateColumn, ComponentStateDescription, FlexLayout, Divider } from "../../../storybook-helpers";
-import DarkThemeContainer from "../../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
-import StoryWrapper from "../../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import TabList from "../../TabList/TabList";
 import Tab from "../../Tab/Tab";
 import TabPanel from "../../TabPanel/TabPanel";
 import { TabPanels } from "../../../index";
+import "./tabsContext.stories.scss";
 
 
 export const DefaultStory = () => (
