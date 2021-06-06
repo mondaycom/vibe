@@ -66,7 +66,7 @@ Tab.propTypes = {
   disabled: PropTypes.bool,
   active: PropTypes.bool,
   focus: PropTypes.bool,
-  icon: PropTypes.element,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   iconType: PropTypes.string,
   iconSide: PropTypes.string,
   onClick: PropTypes.func

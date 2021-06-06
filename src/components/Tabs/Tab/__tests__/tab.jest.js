@@ -1,6 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Tab from "../Tab";
+import Email from "../../../Icon/Icons/components/Email";
+import Icon from "../../../Icon/Icon";
 
 describe("<Tab />", () => {
   describe("Snapshot tests", () => {
@@ -26,6 +28,20 @@ describe("<Tab />", () => {
 
     it("renders correctly focus and active tab", () => {
       const tree = renderer.create(<Tab focus active />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it("renders correctly tab with icon on left", () => {
+      const tree = renderer.create(
+        <Tab icon={Email} iconType={Icon.type.SVG} iconSide="left">Tab</Tab>
+      ).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it("renders correctly tab with icon on right", () => {
+      const tree = renderer.create(
+        <Tab icon={Email} iconType={Icon.type.SVG} iconSide="right">Tab</Tab>
+      ).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

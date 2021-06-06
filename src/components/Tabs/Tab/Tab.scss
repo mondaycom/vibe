@@ -31,6 +31,7 @@
     }
 
     .tab-icon {
+      @include theme-prop(color, icon-color);
       margin-right: 8px;
 
       &.right {
