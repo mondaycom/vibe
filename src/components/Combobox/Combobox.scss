@@ -76,7 +76,9 @@ $icon-margin: 4px;
 
       &.active {
         position: relative;
-        @include focus-style-css();
+        &.active-outline {
+          @include focus-style-css();
+        }
       }
 
       .option-label {

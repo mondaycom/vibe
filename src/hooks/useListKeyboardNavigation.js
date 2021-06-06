@@ -25,9 +25,9 @@ export default function useListKeyboardNavigation(
 
       if (direction === ARROW_DIRECTIONS.DOWN) {
         if (activeItemIndex >= options.length - 1) return;
-        for (let offset = 1; offset < options.length; offset++) {
+        for (let offset = 1; offset <= options.length; offset++) {
           const nextIndex = activeItemIndex + offset;
-          if (isChildSelectable(nextIndex, options)) {
+          if (isChildSelectable(options[nextIndex])) {
             newIndex = nextIndex;
             break;
           }
@@ -38,7 +38,7 @@ export default function useListKeyboardNavigation(
         } else {
           for (let offset = 1; offset <= activeItemIndex; offset++) {
             const prevIndex = activeItemIndex - offset;
-            if (isChildSelectable(prevIndex, options)) {
+            if (isChildSelectable(options[prevIndex])) {
               newIndex = prevIndex;
               break;
             }
@@ -61,8 +61,8 @@ export default function useListKeyboardNavigation(
   const onEnterClickCallback = useCallback(
     event => {
       const hasValidIndex = activeItemIndex || activeItemIndex === 0;
-      if (!onClick || !hasValidIndex || !isChildSelectable(activeItemIndex, options)) return;
-      onClick(event, activeItemIndex);
+      if (!onClick || !hasValidIndex || !isChildSelectable(options[activeItemIndex])) return;
+      onClick(event, activeItemIndex, options[activeItemIndex]);
     },
     [activeItemIndex, onClick, isChildSelectable, options]
   );
