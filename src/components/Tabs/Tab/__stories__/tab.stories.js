@@ -7,7 +7,7 @@ export const DefaultStory = () => (
   <Tab id="tab">Tab</Tab>
 );
 
-export const TabStates = () => (
+export const States = () => (
   <section>
     <StoryStateRow>
       <StoryStateColumn title="Normal">
