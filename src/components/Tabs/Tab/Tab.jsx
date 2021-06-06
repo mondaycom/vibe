@@ -13,11 +13,11 @@ const Tab = forwardRef(({ className, id, value, disabled, active, onClick, child
           key={id}
           className={cx("tab--wrapper", className, { active, disabled })}
           id={id}
+          role="tab"
           aria-selected={active}
           aria-disabled={disabled}
       >
-          <a role="tab"
-             className="tab-inner"
+          <a className="tab-inner"
              onClick={() => !disabled && onClick(value)}
           >
               {children}

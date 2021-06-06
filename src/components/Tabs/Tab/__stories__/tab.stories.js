@@ -4,22 +4,30 @@ import Tab from "../Tab";
 import { StoryStateRow, StoryStateColumn } from "../../../storybook-helpers";
 
 export const DefaultStory = () => (
-  <Tab id="tab">Tab</Tab>
+  <ul role="tablist">
+    <Tab id="tab">Tab</Tab>
+  </ul>
 );
 
 export const States = () => (
   <section>
     <StoryStateRow>
       <StoryStateColumn title="Normal">
-        <Tab id="normal">Normal</Tab>
+        <ul role="tablist">
+          <Tab id="normal">Normal</Tab>
+        </ul>
       </StoryStateColumn>
 
       <StoryStateColumn title="Disabled">
-        <Tab id="disabled" disabled>Disabled</Tab>
+        <ul role="tablist">
+          <Tab id="disabled" disabled>Disabled</Tab>
+        </ul>
       </StoryStateColumn>
 
       <StoryStateColumn title="Active">
-        <Tab id="active" active>Active</Tab>
+        <ul role="tablist">
+          <Tab id="active" active>Active</Tab>
+        </ul>
       </StoryStateColumn>
     </StoryStateRow>
   </section>
