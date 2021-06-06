@@ -56,24 +56,21 @@
 
   &.focus-visible {
     position: relative;
-    border-top: 1px solid;
-    border-left: 1px solid;
-    border-right: 1px solid;
-    @include theme-prop(border-color, primary-color);
-    box-sizing: border-box;
-    border-radius: 1px;
-    padding-left: 0;
-    padding-right: 0;
 
     :after {
       content: "";
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-      border-bottom: 1px solid;
-      border-bottom-style: inset;
-      @include theme-prop(border-color, primary-background-hover-color);
+      left: -1px;
+      right: -1px;
+      top: -1px;
+      bottom: -3px;
+      border: 1px solid;
+      @include theme-prop(border-color, primary-color);
+      box-sizing: border-box;
+      border-radius: 1px;
+      padding-left: 0;
+      padding-right: 0;
+      z-index: 1;
     }
 
     :before {
@@ -82,12 +79,12 @@
       top: -4px;
       left: -4px;
       right: -4px;
-      bottom: -5px;
+      bottom: -6px;
       opacity: 0.4;
       border: 3px solid;
       @include theme-prop(border-color, primary-color);
       border-radius: 4px;
-      z-index: 0;
+      z-index: 1;
     }
   }
 
@@ -98,22 +95,22 @@
     }
 
     &.focus-visible {
-      &:after {
-        position: absolute;
-        bottom: -3px;
-        border-bottom: 4px solid;
-        @include theme-prop(border-bottom-color, primary-color);
-      }
-
-      :after {
-        bottom: -1px;
-        @include theme-prop(border-color, primary-color);
-        //border: none;
-      }
-
-      :before {
-        bottom: -6px;
-      }
+      //&:after {
+      //  position: absolute;
+      //  bottom: -3px;
+      //  border-bottom: 4px solid;
+      //  @include theme-prop(border-bottom-color, primary-color);
+      //}
+      //
+      //:after {
+      //  bottom: -1px;
+      //  @include theme-prop(border-color, primary-color);
+      //  //border: none;
+      //}
+      //
+      //:before {
+      //  bottom: -6px;
+      //}
     }
   }
 
