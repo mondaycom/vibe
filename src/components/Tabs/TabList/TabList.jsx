@@ -24,7 +24,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
 
     function onKeyDown(keyCode) {
       let newFocusTab = focusTab;
-      if (keyCode === 37 || keyCode === 39) {
+      if (keyCode === 37 || keyCode === 39) { // left or right arrow
         if (newFocusTab < 0) {
           newFocusTab = activeTab;
         }
@@ -34,7 +34,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
         setFocusTab(newFocusTab - 1);
       } else if (keyCode === 39 && newFocusTab < children.length - 1) { // right arrow
         setFocusTab(newFocusTab + 1);
-      } else if (keyCode === 13) { // enter
+      } else if (keyCode === 13 || keyCode === 32) { // enter or space
         onTabSelect(focusTab);
       }
     }
