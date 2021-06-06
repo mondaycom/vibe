@@ -10,16 +10,22 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const [activeTab, setActiveTab] = useState(activeTabId);
-    const onTabClick = useCallback((tabId) => {
-        setActiveTab(tabId);
-        onTabChange && onTabChange(tabId)
-    }, [setActiveTab, onTabChange]);
+    const [focusTab, setFocusTab] = useState(-1);
 
-    const [focusTab, setFocusTab] = useState(null);
+    function onTabSelect(tabId) {
+      setActiveTab(tabId);
+      onTabChange && onTabChange(tabId);
+    }
+
+    const onTabClick = useCallback((tabId) => {
+      onTabSelect(tabId);
+      setFocusTab(-1);
+    }, [onTabSelect, setFocusTab]);
+
     function onKeyDown(keyCode) {
       let newFocusTab = focusTab;
       if (keyCode === 37 || keyCode === 39) {
-        if (!newFocusTab) {
+        if (newFocusTab < 0) {
           newFocusTab = activeTab;
         }
       }
@@ -29,7 +35,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
       } else if (keyCode === 39 && newFocusTab < children.length - 1) { // right arrow
         setFocusTab(newFocusTab + 1);
       } else if (keyCode === 13) { // enter
-        onTabClick(focusTab);
+        onTabSelect(focusTab);
       }
     }
 
