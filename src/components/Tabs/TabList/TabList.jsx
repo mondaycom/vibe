@@ -15,11 +15,21 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
         onTabChange && onTabChange(tabId)
     }, [setActiveTab, onTabChange]);
 
+    const [focusTab, setFocusTab] = useState(null);
     function onKeyDown(keyCode) {
-      if (keyCode === 37 && activeTab > 0) { // left arrow
-        onTabClick(activeTab - 1);
-      } else if (keyCode === 39 && activeTab < children.length - 1) { // right arrow
-        onTabClick(activeTab + 1);
+      let newFocusTab = focusTab;
+      if (keyCode === 37 || keyCode === 39) {
+        if (!newFocusTab) {
+          newFocusTab = activeTab;
+        }
+      }
+
+      if (keyCode === 37 && newFocusTab > 0) { // left arrow
+        setFocusTab(newFocusTab - 1);
+      } else if (keyCode === 39 && newFocusTab < children.length - 1) { // right arrow
+        setFocusTab(newFocusTab + 1);
+      } else if (keyCode === 13) { // enter
+        onTabClick(focusTab);
       }
     }
 
@@ -34,7 +44,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
       <ul tabIndex={0} {...keyboardProps} className={cx("tabs-list", size)} role="tablist">
         {React.Children.map(children, (child, index) => {
-          return React.cloneElement(child, { value: index, active: activeTab === index, onClick: onTabClick });
+          return React.cloneElement(child, { value: index, active: activeTab === index, focus: focusTab === index, onClick: onTabClick });
         })}
       </ul>
     </div>
