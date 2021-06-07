@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toggle Tests Snapshot Tests renders correctly when disabled 1`] = `
+<label
+  className="monday-style-toggle__wrapper"
+>
+  <div
+    style={
+      Object {
+        "border": 0,
+        "clip": "rect(0 0 0 0)",
+        "clipPath": "inset(50%)",
+        "height": 1,
+        "margin": "0 -1px -1px 0",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": 1,
+      }
+    }
+  >
+    <input
+      aria-checked={true}
+      checked={true}
+      disabled={true}
+      onChange={[Function]}
+      onClick={[Function]}
+      onDragStart={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+  </div>
+  <span
+    className="monday-style-toggle__text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="monday-style-toggle__toggle monday-style-toggle__toggle--selected monday-style-toggle__toggle--disabled"
+  />
+  <span
+    className="monday-style-toggle__text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by default selected (off)  1`] = `
+<label
+  className="monday-style-toggle__wrapper"
+>
+  <div
+    style={
+      Object {
+        "border": 0,
+        "clip": "rect(0 0 0 0)",
+        "clipPath": "inset(50%)",
+        "height": 1,
+        "margin": "0 -1px -1px 0",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": 1,
+      }
+    }
+  >
+    <input
+      aria-checked={false}
+      checked={false}
+      disabled={false}
+      onChange={[Function]}
+      onClick={[Function]}
+      onDragStart={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+  </div>
+  <span
+    className="monday-style-toggle__text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="monday-style-toggle__toggle dummy-class-name monday-style-toggle__toggle--not-selected"
+  />
+  <span
+    className="monday-style-toggle__text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by default selected (on)  1`] = `
+<label
+  className="monday-style-toggle__wrapper"
+>
+  <div
+    style={
+      Object {
+        "border": 0,
+        "clip": "rect(0 0 0 0)",
+        "clipPath": "inset(50%)",
+        "height": 1,
+        "margin": "0 -1px -1px 0",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": 1,
+      }
+    }
+  >
+    <input
+      aria-checked={true}
+      checked={true}
+      disabled={false}
+      onChange={[Function]}
+      onClick={[Function]}
+      onDragStart={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+  </div>
+  <span
+    className="monday-style-toggle__text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="monday-style-toggle__toggle dummy-class-name monday-style-toggle__toggle--selected"
+  />
+  <span
+    className="monday-style-toggle__text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by isSelected (off) 1`] = `
+<label
+  className="monday-style-toggle__wrapper"
+>
+  <div
+    style={
+      Object {
+        "border": 0,
+        "clip": "rect(0 0 0 0)",
+        "clipPath": "inset(50%)",
+        "height": 1,
+        "margin": "0 -1px -1px 0",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": 1,
+      }
+    }
+  >
+    <input
+      aria-checked={false}
+      checked={false}
+      disabled={false}
+      onChange={[Function]}
+      onClick={[Function]}
+      onDragStart={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+  </div>
+  <span
+    className="monday-style-toggle__text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="monday-style-toggle__toggle dummy-class-name monday-style-toggle__toggle--not-selected"
+  />
+  <span
+    className="monday-style-toggle__text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by isSelected (on) 1`] = `
+<label
+  className="monday-style-toggle__wrapper"
+>
+  <div
+    style={
+      Object {
+        "border": 0,
+        "clip": "rect(0 0 0 0)",
+        "clipPath": "inset(50%)",
+        "height": 1,
+        "margin": "0 -1px -1px 0",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": 1,
+      }
+    }
+  >
+    <input
+      aria-checked={true}
+      checked={true}
+      disabled={false}
+      onChange={[Function]}
+      onClick={[Function]}
+      onDragStart={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+  </div>
+  <span
+    className="monday-style-toggle__text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="monday-style-toggle__toggle dummy-class-name monday-style-toggle__toggle--selected"
+  />
+  <span
+    className="monday-style-toggle__text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle Tests Snapshot Tests renders correctly with empty props 1`] = `
+<label
+  className="monday-style-toggle__wrapper"
+>
+  <div
+    style={
+      Object {
+        "border": 0,
+        "clip": "rect(0 0 0 0)",
+        "clipPath": "inset(50%)",
+        "height": 1,
+        "margin": "0 -1px -1px 0",
+        "overflow": "hidden",
+        "padding": 0,
+        "position": "absolute",
+        "whiteSpace": "nowrap",
+        "width": 1,
+      }
+    }
+  >
+    <input
+      aria-checked={true}
+      checked={true}
+      disabled={false}
+      onChange={[Function]}
+      onClick={[Function]}
+      onDragStart={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchCancel={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      role="switch"
+      type="checkbox"
+    />
+  </div>
+  <span
+    className="monday-style-toggle__text"
+  >
+    Off
+  </span>
+  <div
+    aria-hidden="true"
+    className="monday-style-toggle__toggle monday-style-toggle__toggle--selected"
+  />
+  <span
+    className="monday-style-toggle__text"
+  >
+    On
+  </span>
+</label>
+`;

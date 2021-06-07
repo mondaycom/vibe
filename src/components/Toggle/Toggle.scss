@@ -14,7 +14,7 @@
   &__toggle {
     @include reset-button();
     @include toggle-animation;
-    margin-inline: $spacing-small;
+    margin: 0 $spacing-small;
     position: relative;
     height: 24px;
     width: 41px;
