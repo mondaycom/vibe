@@ -20,7 +20,7 @@ export const Sandbox = () => {
       <StoryStateRow>
         <Toggle
           onChange={onChange}
-          isHideLabels={boolean("isHideLabels", false)}
+          areLabelsHidden={boolean("areLabelsHidden", false)}
           isDisabled={boolean("Disabled", false)}
           ariaLabel={text("Aria Label", "Toggle aria label")}
           ariaControls="monday-style-story-toggle__controlled-area"
