@@ -3,31 +3,27 @@ import { action } from '@storybook/addon-actions';
 import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import TabsContext from "../TabsContext";
-import { StoryStateRow, StoryStateColumn, ComponentStateDescription, FlexLayout, Divider } from "../../../storybook-helpers";
-import DarkThemeContainer from "../../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
-import StoryWrapper from "../../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import TabList from "../../TabList/TabList";
 import Tab from "../../Tab/Tab";
 import TabPanel from "../../TabPanel/TabPanel";
 import { TabPanels } from "../../../index";
+import "./tabsContext.stories.scss";
 
 
-export const Sandbox = () => (
-    <div>
-      <TabsContext>
-        <TabList id="Knobs">
-          <Tab>First</Tab>
-          <Tab>Second</Tab>
-          <Tab>Third</Tab>
-        </TabList>
+export const DefaultStory = () => (
+  <TabsContext>
+    <TabList>
+      <Tab>First</Tab>
+      <Tab>Second</Tab>
+      <Tab>Third</Tab>
+    </TabList>
 
-        <TabPanels>
-          <TabPanel>First panel</TabPanel>
-          <TabPanel>Second panel</TabPanel>
-          <TabPanel>Third panel</TabPanel>
-        </TabPanels>
-      </TabsContext>
-    </div>
+    <TabPanels>
+      <TabPanel>First panel</TabPanel>
+      <TabPanel>Second panel</TabPanel>
+      <TabPanel>Third panel</TabPanel>
+    </TabPanels>
+  </TabsContext>
 );
 
 export default {
