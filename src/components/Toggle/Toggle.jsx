@@ -55,9 +55,6 @@ const Toggle = ({
 };
 
 Toggle.propTypes = {
-  /**
-   * use toggle props
-   */
   id: PropTypes.string,
   componentClassName: PropTypes.string,
   isDefaultSelected: PropTypes.bool,
