@@ -20,7 +20,7 @@ const renderOption = (index, option, isActive, isActiveByKeyboard, onOptionClick
       role="listitem"
       ariaLabel={ariaLabel}
       id={`combox-item-${id}`}
-      onMouseEnter={onOptionHover}
+      onMouseEnter={!disabled && onOptionHover}
       onClick={event => onOptionClick(event, index, option, true)}
       className={cx("combobox-option", {
         disabled,
@@ -73,6 +73,7 @@ const Combobox = forwardRef(
 
     const onOptionClick = useCallback(
       (_event, index, option, mouseClick) => {
+        if (option.disabled) return;
         onClick && onClick(option);
         setActiveItemIndex(index);
         if (mouseClick) {
@@ -99,7 +100,7 @@ const Combobox = forwardRef(
       return filterdOptions.map((option, index) => {
         return renderOption(index, option, activeItemIndex === index, isActiveByKeyboard, onOptionClick, onOptionHover);
       });
-    }, [options, filterValue, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionHover]);
+    }, [filterdOptions, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionHover]);
 
     const onChangeCallback = useCallback(
       value => {
@@ -114,7 +115,9 @@ const Combobox = forwardRef(
 
     const onAddNewCallback = useCallback(() => {
       onAddNew && onAddNew(filterValue);
-    }, [onAddNew, filterValue]);
+      // clear filter after adding
+      setFilterValue("");
+    }, [onAddNew, filterValue, setFilterValue]);
 
     useListKeyboardNavigation(
       inputRef,
@@ -156,7 +159,7 @@ const Combobox = forwardRef(
         ref={mergedRef}
         role="listbox"
         aria-activedescendant={`combobox-item-${id}`}
-        className={cx("combobox--wrapper", className)}
+        className={cx("combobox--wrapper", className, { empty: !hasResults })}
         id={id}
       >
         <Search
