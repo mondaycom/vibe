@@ -4,7 +4,7 @@ import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./TabPanels.scss";
 
-const TabPanels = forwardRef(({ className, id, activeTabId, children }, ref) => {
+const TabPanels = forwardRef(({ className, id, activeTabId, animationDirection, children }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -12,7 +12,7 @@ const TabPanels = forwardRef(({ className, id, activeTabId, children }, ref) => 
     <div ref={mergedRef} className={cx("tab-panels--wrapper", className)} id={id}>
       {React.Children.map(children, (child, index) => {
         if (activeTabId === index) {
-          return React.cloneElement(child, { className: "tab-panel active" });
+          return React.cloneElement(child, { className: cx("tab-panel", "active", `animation-direction-${animationDirection}`) });
         }
         return React.cloneElement(child, { className: "tab-panel" });
       })}
@@ -23,12 +23,14 @@ const TabPanels = forwardRef(({ className, id, activeTabId, children }, ref) => 
 TabPanels.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
-  activeTabId: PropTypes.number
+  activeTabId: PropTypes.number,
+  animationDirection: PropTypes.string
 };
 TabPanels.defaultProps = {
   className: "",
   id: "",
-  activeTabId: 0
+  activeTabId: 0,
+  animationDirection: "rtl"
 };
 
 TabPanels.isTabPanels = true;

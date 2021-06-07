@@ -1,0 +1,301 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TabList /> Snapshot tests renders correctly large tab list 1`] = `
+<div
+  className="tabs--wrapper Compact"
+  id=""
+>
+  <ul
+    className="tabs-list lg"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tab--wrapper active"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tab--wrapper"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        Second
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tab--wrapper"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        Third
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<TabList /> Snapshot tests renders correctly medium tab list 1`] = `
+<div
+  className="tabs--wrapper Compact"
+  id=""
+>
+  <ul
+    className="tabs-list md"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tab--wrapper active"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tab--wrapper"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        Second
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tab--wrapper"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        Third
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<TabList /> Snapshot tests renders correctly small tab list 1`] = `
+<div
+  className="tabs--wrapper Compact"
+  id=""
+>
+  <ul
+    className="tabs-list sm"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tab--wrapper active"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tab--wrapper"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        Second
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tab--wrapper"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        Third
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<TabList /> Snapshot tests renders correctly stretched tab list 1`] = `
+<div
+  className="tabs--wrapper stretched"
+  id=""
+>
+  <ul
+    className="tabs-list"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tab--wrapper active"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tab--wrapper"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        Second
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tab--wrapper"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        Third
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`<TabList /> Snapshot tests renders correctly with empty props 1`] = `
+<div
+  className="tabs--wrapper Compact"
+  id=""
+>
+  <ul
+    className="tabs-list"
+    onBlur={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    role="tablist"
+    tabIndex={0}
+  >
+    <li
+      aria-disabled={false}
+      aria-selected={true}
+      className="tab--wrapper active"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        First
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tab--wrapper"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        Second
+      </a>
+    </li>
+    <li
+      aria-disabled={false}
+      aria-selected={false}
+      className="tab--wrapper"
+      id=""
+      role="tab"
+    >
+      <a
+        className="tab-inner"
+        onClick={[Function]}
+      >
+        Third
+      </a>
+    </li>
+  </ul>
+</div>
+`;

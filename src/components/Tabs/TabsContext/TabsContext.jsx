@@ -8,10 +8,12 @@ const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) =
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
+    const [previousActiveTab, setPreviousActiveTab] = useState(activeTabId);
     const [activeTab, setActiveTab] = useState(activeTabId);
     const onTabClick = useCallback((tabId) => {
+        setPreviousActiveTab(activeTab);
         setActiveTab(tabId);
-    }, [setActiveTab]);
+    }, [setPreviousActiveTab, activeTab, setActiveTab]);
 
     return (
     <div ref={mergedRef} className={cx("tabs-context--wrapper", className)} id={id}>
@@ -19,7 +21,8 @@ const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) =
             if (child.type.isTabList) {
                 return React.cloneElement(child, { onTabChange: onTabClick });
             } else if (child.type.isTabPanels) {
-                return React.cloneElement(child, { activeTabId: activeTab });
+                const animationDirection = previousActiveTab < activeTab ? "ltr" : "rtl";
+                return React.cloneElement(child, { activeTabId: activeTab, animationDirection });
             }
             return child;
         })}
