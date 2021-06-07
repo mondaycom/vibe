@@ -5,7 +5,6 @@ import Toggle from "../Toggle";
 import { boolean, text } from "@storybook/addon-knobs";
 import "./toggle.stories.scss";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
-import Checkbox from "../../Checkbox/Checkbox";
 
 export const Sandbox = () => {
   const [isSelected, setIsSelected] = useState(true);

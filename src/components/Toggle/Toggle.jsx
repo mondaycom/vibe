@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import NOOP from "lodash/noop";
-import { useToggleState } from "@react-stately/toggle";
-import { useSwitch } from "@react-aria/switch";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
 import ToggleText from "./ToggleText";
@@ -21,9 +19,11 @@ const Toggle = ({
   isDisabled,
   ariaLabel,
   ariaControls,
-  isHideLabels
+  areLabelsHidden,
+  onOverrideText,
+  offOverrideText
 }) => {
-  const { inputProps } = useToggle({
+  const { inputProps, isChecked, isFocusVisible } = useToggle({
     id,
     isDefaultSelected,
     isSelected,
@@ -36,22 +36,20 @@ const Toggle = ({
   });
 
   const className = classNames(`${BASE_TOGGLE_CLASS_NAME}__toggle`, componentClassName, {
-    [`${BASE_TOGGLE_CLASS_NAME}__toggle--selected`]: inputProps.checked,
-    [`${BASE_TOGGLE_CLASS_NAME}__toggle--not-selected`]: !inputProps.checked,
-    [`${BASE_TOGGLE_CLASS_NAME}__toggle--disabled`]: isDisabled
+    [`${BASE_TOGGLE_CLASS_NAME}__toggle--selected`]: isChecked,
+    [`${BASE_TOGGLE_CLASS_NAME}__toggle--not-selected`]: !isChecked,
+    [`${BASE_TOGGLE_CLASS_NAME}__toggle--disabled`]: isDisabled,
+    [`${BASE_TOGGLE_CLASS_NAME}__toggle--focused`]: isFocusVisible
   });
-
-  // TODO: ask orr about support for all browsers? MARGIN INLINE
-  // TODO: ask about on and off text
 
   return (
     <label htmlFor={id} className={`${BASE_TOGGLE_CLASS_NAME}__wrapper`}>
       <VisuallyHidden>
-        <input disabled={isDisabled} {...inputProps} />
+        <input {...inputProps} />
       </VisuallyHidden>
-      {isHideLabels ? null : <ToggleText>Off</ToggleText>}
+      {areLabelsHidden ? null : <ToggleText>{offOverrideText}</ToggleText>}
       <div className={className} aria-hidden="true" />
-      {isHideLabels ? null : <ToggleText>On</ToggleText>}
+      {areLabelsHidden ? null : <ToggleText>{onOverrideText}</ToggleText>}
     </label>
   );
 };
@@ -68,10 +66,9 @@ Toggle.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
   isDisabled: PropTypes.bool,
-  isHideLabels: PropTypes.bool,
-  /**
-   * Aria props
-   */
+  areLabelsHidden: PropTypes.bool,
+  onOverrideText: PropTypes.string,
+  offOverrideText: PropTypes.string,
   ariaLabel: PropTypes.string,
   ariaControls: PropTypes.string
 };
@@ -85,9 +82,11 @@ Toggle.defaultProps = {
   value: undefined,
   name: undefined,
   isDisabled: false,
-  isHideLabels: false,
+  areLabelsHidden: false,
   ariaLabel: undefined,
-  ariaControls: undefined
+  ariaControls: undefined,
+  onOverrideText: "On",
+  offOverrideText: "Off"
 };
 
 export default Toggle;

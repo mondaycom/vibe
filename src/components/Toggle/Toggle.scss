@@ -49,6 +49,10 @@
     &--disabled {
       @include theme-prop(background-color, primary-background-hover-color);
     }
+
+    &--focused {
+      @include focus-style-css();
+    }
   }
 
   &__text {
