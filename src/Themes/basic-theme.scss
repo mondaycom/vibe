@@ -60,4 +60,9 @@
   --secondary-text-on-secondary-color: var(--color-asphalt);
   --link-color: var(--color-link_color);
   --link-on-secondary-color: var(--color-link_color);
+
+  // Shadows
+  ---box-shadow-small: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  ---box-shadow-mediun: 0px 6px 20px rgba(0, 0, 0, 0.2);
+  ---box-shadow-large: 0px 15px 50px rgba(0, 0, 0, 0.3);
 }
