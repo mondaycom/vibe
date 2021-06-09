@@ -1,0 +1,65 @@
+@import "../../styles/states.scss";
+@import "../../styles/global-css-settings.scss";
+
+@mixin toggle-animation {
+  transition: 100ms $expand-animation-timing;
+}
+
+.monday-style-toggle{
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__toggle {
+    @include reset-button();
+    @include toggle-animation;
+    margin: 0 $spacing-small;
+    position: relative;
+    height: 24px;
+    width: 41px;
+    cursor: pointer;
+    border-radius: 100px;
+
+    &::after {
+      @include theme-prop(background-color, primary-background-color);
+      content: " ";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: calc(50% - 18px/2);
+      @include toggle-animation;
+    }
+
+    &--selected {
+      @include theme-prop(background-color, primary-color);
+      &::after {
+        left: 20px;
+      }
+    }
+
+    &--not-selected {
+      @include theme-prop(background-color, ui-border-color);
+      &::after {
+        left: 3px;
+      }
+    }
+
+    &--disabled {
+      @include theme-prop(background-color, primary-background-hover-color);
+    }
+
+    &--focused {
+      @include focus-style-css();
+    }
+  }
+
+  &__text {
+    @include theme-prop(color, primary-text-color);
+    font-style: normal;
+    font-weight: normal;
+    size: 14px;
+    line-height: 22px;
+  }
+}
