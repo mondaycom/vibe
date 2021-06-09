@@ -19,7 +19,7 @@
     height: 24px;
     width: 41px;
     cursor: pointer;
-    border-radius: 100px;
+    border-radius: 100px !important;
 
     &::after {
       @include theme-prop(background-color, primary-background-color);
