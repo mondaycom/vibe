@@ -4,19 +4,6 @@ const VIEW = "View";
 export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
-  {
-    name: "Completed",
-    file: "Completed.svg",
-    description: "Completed",
-    tags: "Completed, Done, Tick, V",
-  },
-
-  {
-    name: "Versioning",
-    file: "Versioning.svg",
-    description: "Versioning",
-    tags: "version, versions, versioning, version history",
-  },
 
   {
     name: "Activity",
@@ -69,6 +56,14 @@ export const iconsMetaData = [
     file: "API.svg",
     description: "API",
     tags: "API",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Apps",
+    file: "Apps.svg",
+    description: "Apps",
+    tags: "apps, puzzle, app, add",
     category: [PLATFORM],
   },
 
@@ -237,6 +232,13 @@ export const iconsMetaData = [
     description: "Comment",
     tags: "Comment, Text, Design",
     category: [PLATFORM],
+  },
+
+  {
+    name: "Completed",
+    file: "Completed.svg",
+    description: "Completed",
+    tags: "Completed, Done, Tick, V",
   },
   {
     name: "CreditCard",
@@ -1106,6 +1108,14 @@ export const iconsMetaData = [
     tags: "Upload, Up, File, Outgoing, Export",
     category: [PLATFORM],
   },
+
+  {
+    name: "Versioning",
+    file: "Versioning.svg",
+    description: "Versioning",
+    tags: "version, versions, versioning, version history",
+  },
+
 
   {
     name: "Video",
