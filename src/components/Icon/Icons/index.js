@@ -7,6 +7,7 @@ export {default as AddUpdate} from './components/AddUpdate';
 export {default as Alert} from './components/Alert';
 export {default as Announcement} from './components/Announcement';
 export {default as API} from './components/API';
+export {default as Apps} from './components/Apps';
 export {default as Archive} from './components/Archive';
 export {default as Attach} from './components/Attach';
 export {default as BlockQuote} from './components/BlockQuote';
