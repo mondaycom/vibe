@@ -42,7 +42,9 @@ When adding a new icon please make sure that there isn't a similar icon - if so 
 
 We are maintaining a metadata file on the icons, it helps our icon library to be more readable and search able when you want to search for a relevant icon
 
-When adding a new icon please run `npm run plop` and fill in the relevant information
+How to add a new icon?
+Add the icon in SVG format under src/Icons folder (size 20x20) 
+then run `npm run plop` and fill in the relevant information
 
 ### Icon colors
 
