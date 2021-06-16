@@ -9,7 +9,6 @@ $white-theme-border: 1px solid #f1f1f1;
 
 $surface-theme-bg-color: #5b607a;
 $surface-theme-font-color: #fff;
-$surface-theme-box-shadow: $box-shadow-small;
 
 $arrow-size: 12px;
 $arrow-size-md: 16px;
@@ -19,7 +18,7 @@ $arrow-size-md: 16px;
   display: inline-block;
   border-radius: $border-radius-small;
   padding: $spacing-small $spacing-medium;
-  @include box-shadow-medium();
+  @include theme-prop(box-shadow, box-shadow-medium);
   @include font-input();
   max-width: 50vw;
   word-break: break-word;
@@ -45,7 +44,7 @@ $arrow-size-md: 16px;
 .monday-style-arrow-white {
   background-color: $white-theme-bg-color;
   color: $white-theme-font-color;
-  box-shadow: $box-shadow-medium;
+  @include theme-prop(box-shadow, box-shadow-medium);
   border: $white-theme-border;
 }
 

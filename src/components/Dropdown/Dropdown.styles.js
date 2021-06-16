@@ -83,7 +83,7 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
     return {
       ...provided,
       ...general,
-      color: getCSSVar("primary-color"),
+      color: getCSSVar("primary-text-color"),
       backgroundColor: getCSSVar("primary-selected-color"),
       cursor: "pointer"
     };
@@ -174,7 +174,8 @@ const dropdownIndicator = ({ size }) => (provided, { selectProps }) => {
     },
     color: getCSSVar("icon-color"),
     ":hover, :active": {
-      backgroundColor: getCSSVar("primary-background-hover-color")
+      backgroundColor: getCSSVar("primary-background-hover-color"),
+      color: getCSSVar("icon-color"),
     }
   };
 };
