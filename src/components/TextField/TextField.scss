@@ -218,6 +218,7 @@
         outline: none;
         @include theme-prop(background-color, primary-background-hover-color);
       }
+      -webkit-appearance: none;
 
       &.input-component__icon--container-active {
         &.input-component__icon--container-has-icon {
