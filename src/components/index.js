@@ -49,3 +49,5 @@ export { default as TabPanel } from "./Tabs/TabPanel/TabPanel";
 export { default as TabsContext } from "./Tabs/TabsContext/TabsContext";
 export { default as TabPanels } from "./Tabs/TabPanels/TabPanels";
 
+
+export { default as Combobox } from "./Combobox/Combobox";
