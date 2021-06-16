@@ -12,7 +12,7 @@ export const iconsMetaData = [
   },
 
   {
-      name: "RadioButton",
+      name: "Radio",
       file: "Radio.svg",
       description: "RadioButton",
       tags: "Radio,Radio button,select,single"
