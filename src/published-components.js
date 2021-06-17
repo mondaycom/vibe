@@ -56,10 +56,10 @@ const publishedComponents = {
   allIcons: "/src/components/Icon/Icons",
   Link: "/src/components/Link/Link.jsx",
   ButtonGroup: "/src/components/ButtonGroup/ButtonGroup.jsx",
-  AlertBanner: "/src/components/ButtonGroup/ButtonGroup.jsx",
-  AlertBannerLink: "/src/components/ButtonGroup/ButtonGroupLink.jsx",
-  AlertBannerText: "/src/components/ButtonGroup/ButtonGroupText.jsx",
-  AlertBannerButton: "/src/components/ButtonGroup/ButtonGroupButton.jsx",
+  AlertBanner: "/src/components/AlertBanner/AlertBanner.jsx",
+  AlertBannerLink: "/src/components/AlertBanner/AlertBannerLink.jsx",
+  AlertBannerText: "/src/components/AlertBanner/AlertBannerText.jsx",
+  AlertBannerButton: "/src/components/AlertBanner/AlertBannerButton.jsx",
   Toggle: "/src/components/Toggle/Toggle.jsx"
 };
 
