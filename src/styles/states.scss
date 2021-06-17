@@ -50,3 +50,18 @@
   z-index: 11;
   border-radius: 4px;
 }
+
+
+@mixin _scrollerThumb($color) {
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 4px;
+  }
+}
+@mixin scroller($width: 4px, $color: var(--ui-border-color)) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  @include _scrollerThumb($color);
+}

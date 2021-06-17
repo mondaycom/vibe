@@ -20,8 +20,8 @@ export const Sandbox = () => {
           debounceRate={number("debounceRate", 0)}
           onChange={action("onChange", value => console.log(value))}
           value={text("value", "")}
-          iconName={text("Font Awesome icon name", "fa-search")}
-          secondaryIconName="fa-close"
+          iconName={SearchIcon}
+          secondaryIconName={CloseSmall}
           validation={select("validation", {
             None: null,
             Error: { status: "error" },
