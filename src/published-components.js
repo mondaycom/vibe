@@ -55,7 +55,12 @@ const publishedComponents = {
   useResizeObserver: "/src/hooks/useResizeObserver.js",
   allIcons: "/src/components/Icon/Icons",
   Link: "/src/components/Link/Link.jsx",
-  ButtonGroup: "/src/components/ButtonGroup/ButtonGroup.jsx"
+  ButtonGroup: "/src/components/ButtonGroup/ButtonGroup.jsx",
+  AlertBanner: "/src/components/AlertBanner/AlertBanner.jsx",
+  AlertBannerLink: "/src/components/AlertBanner/AlertBannerLink.jsx",
+  AlertBannerText: "/src/components/AlertBanner/AlertBannerText.jsx",
+  AlertBannerButton: "/src/components/AlertBanner/AlertBannerButton.jsx",
+  Toggle: "/src/components/Toggle/Toggle.jsx"
 };
 
 function getPublishedComponents(dirPath = "") {
