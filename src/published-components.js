@@ -57,9 +57,9 @@ const publishedComponents = {
   Link: "/src/components/Link/Link.jsx",
   ButtonGroup: "/src/components/ButtonGroup/ButtonGroup.jsx",
   AlertBanner: "/src/components/AlertBanner/AlertBanner.jsx",
-  AlertBannerLink: "/src/components/AlertBanner/AlertBannerLink.jsx",
-  AlertBannerText: "/src/components/AlertBanner/AlertBannerText.jsx",
-  AlertBannerButton: "/src/components/AlertBanner/AlertBannerButton.jsx",
+  AlertBannerLink: "/src/components/AlertBanner/AlertBannerLink/AlertBannerLink.jsx",
+  AlertBannerText: "/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx",
+  AlertBannerButton: "/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx",
   Toggle: "/src/components/Toggle/Toggle.jsx"
 };
 
