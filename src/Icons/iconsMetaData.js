@@ -5,6 +5,14 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Apps",
+      file: "Apps.svg",
+      description: "monday apps section",
+      tags: "app,apps,apps marketplace,installed apps,puzzle,add",
+      category: [PLATFORM],
+  },
+
+  {
       name: "Globe",
       file: "Globe.svg",
       description: "Globe",
@@ -86,15 +94,6 @@ export const iconsMetaData = [
     tags: "API",
     category: [PLATFORM],
   },
-
-  {
-    name: "Apps",
-    file: "Apps.svg",
-    description: "Apps",
-    tags: "apps, puzzle, app, add",
-    category: [PLATFORM],
-  },
-
   {
     name: "Archive",
     file: "Archive.svg",
