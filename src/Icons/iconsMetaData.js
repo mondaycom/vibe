@@ -4,6 +4,34 @@ const VIEW = "View";
 export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
+  {
+      name: "Globe",
+      file: "Globe.svg",
+      description: "Globe",
+      tags: "Globe,earth,world,country"
+  },
+
+  {
+      name: "Radio",
+      file: "Radio.svg",
+      description: "RadioButton",
+      tags: "Radio,Radio button,select,single"
+  },
+
+  {
+      name: "LongText",
+      file: "LongText.svg",
+      description: "LongText",
+      tags: "text,long text,description,lines"
+  },
+
+  {
+      name: "ShortText",
+      file: "ShortText.svg",
+      description: "ShortText",
+      tags: "short text,text,title,line"
+  },
+
 
   {
     name: "Activity",
