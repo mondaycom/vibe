@@ -16,6 +16,7 @@ export const Sandbox = () => (
       )}
       className={select("With custom class", ["alert-banner--custom-class", ""], "")}
       ariaLabel={text("Bar Aria Label", "my awesome alert banner")}
+      isCloseHidden={boolean("Is close hidden", false)}
     >
       <AlertBannerText text="Lorem ipsum" />
       <AlertBannerLink text="Lorem ipsum" href="https://monday.com" />

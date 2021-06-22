@@ -84,4 +84,9 @@ describe("AlertBanner", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("should render correctly with hidden close button", () => {
+    const tree = renderer.create(<AlertBanner isCloseHidden></AlertBanner>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

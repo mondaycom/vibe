@@ -11,7 +11,7 @@ import "./AlertBanner.scss";
 const NOOP = () => {};
 
 const AlertBanner = forwardRef(
-  ({ children: originalChildren, className, backgroundColor, onClose, ariaLabel }, ref) => {
+  ({ children: originalChildren, className, backgroundColor, onClose, ariaLabel, isCloseHidden }, ref) => {
     const classNames = useMemo(() => {
       return cx(className, "monday-alert-banner", `monday-alert-banner--background-color-${backgroundColor}`);
     }, [className, backgroundColor]);
@@ -56,16 +56,18 @@ const AlertBanner = forwardRef(
           })}
         </div>
         <div className="monday-alert-banner__close-button-wrapper">
-          <Button
-            className="monday-alert-banner__alert-banner-close-btn"
-            onClick={onClose}
-            size={Button.sizes.SMALL}
-            kind={Button.kinds.TERTIARY}
-            color={isDarkBackground ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
-            ariaLabel="close-toast"
-          >
-            <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
-          </Button>
+          {isCloseHidden ? null : (
+            <Button
+              className="monday-alert-banner__alert-banner-close-btn"
+              onClick={onClose}
+              size={Button.sizes.SMALL}
+              kind={Button.kinds.TERTIARY}
+              color={isDarkBackground ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
+              ariaLabel="close-toast"
+            >
+              <Icon iconType={Icon.type.SVG} clickable={false} icon={CloseSmall} iconSize="20px" ignoreFocusStyle />
+            </Button>
+          )}
         </div>
       </div>
     );
@@ -84,6 +86,7 @@ AlertBanner.propTypes = {
     AlertBanner.backgroundColors.POSITIVE,
     AlertBanner.backgroundColors.DARK
   ]),
+  isCloseHidden: PropTypes.bool,
   /** ARIA description for the progress bar */
   ariaLabel: PropTypes.string,
   onClose: PropTypes.func
@@ -91,6 +94,7 @@ AlertBanner.propTypes = {
 
 AlertBanner.defaultProps = {
   backgroundColor: AlertBanner.backgroundColors.PRIMARY,
+  isCloseHidden: false,
   className: "",
   ariaLabel: "",
   onClose: NOOP
