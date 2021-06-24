@@ -10,14 +10,13 @@ import { isInsideClass } from "../../utils/dom-utils";
 import "./Dialog.scss";
 import { Refable } from "../Refable/Refable";
 import { HIDE_SHOW_EVENTS } from "./consts/dialog-show-hide-event";
-import {DialogPositions} from "../../constants/sizes";
+import { DialogPositions } from "../../constants/sizes";
 
 const NOOP = () => {};
 
 export default class Dialog extends PureComponent {
   constructor(props) {
     super(props);
-    this.referenceRef = React.createRef();
     this.state = {
       shouldUseDerivedStateFromProps: props.useDerivedStateFromProps,
       isOpen: props.shouldShowOnMount
