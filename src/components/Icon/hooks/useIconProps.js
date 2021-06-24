@@ -55,7 +55,7 @@ export default function useIconProps({ onClick, className, clickable, ignoreFocu
     [onClick]
   );
   const tabindex = clickable ? 0 : -1;
-  const role = clickable ? "button" : "";
+  const role = clickable ? "button" : undefined;
 
   return {
     tabindex,

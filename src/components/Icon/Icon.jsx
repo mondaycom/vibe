@@ -94,7 +94,7 @@ Icon.defaultProps = {
   className: "",
   icon: "",
   clickable: true,
-  iconLabel: "",
+  iconLabel: undefined,
   iconType: ICON_TYPES.SVG,
   iconSize: 16,
   ignoreFocusStyle: false,
