@@ -1,5 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`AlertBanner should render correctly with hidden close button 1`] = `
+<div
+  aria-label="banner"
+  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  role="banner"
+>
+  <div
+    className="monday-alert-banner__inner"
+  />
+  <div
+    className="monday-alert-banner__close-button-wrapper"
+  />
+</div>
+`;
+
 exports[`AlertBanner should render correctly without props 1`] = `
 <div
   aria-label="banner"
