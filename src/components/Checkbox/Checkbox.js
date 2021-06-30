@@ -10,17 +10,17 @@ import "./Checkbox.scss";
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
 export const Checkbox = ({
-                           componentClassName,
-                           label,
-                           ariaLabelledBy,
-                           onChange,
-                           checked,
-                           disabled,
-                           defaultChecked,
-                           value,
-                           name,
-                           id
-                         }) => {
+  componentClassName,
+  label,
+  ariaLabelledBy,
+  onChange,
+  checked,
+  disabled,
+  defaultChecked,
+  value,
+  name,
+  id
+}) => {
   const iconContainerRef = useRef(null);
   const inputRef = useRef(null);
   const onMouseUpCallback = useCallback(() => {
