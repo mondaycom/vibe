@@ -71,9 +71,7 @@ export const Checkbox = ({
           icon={Check}
           iconLabel="checkbox"
           ignoreFocusStyle
-          clickable
-          ariaHidden
-          tabindex="-1"
+          clickable={false}
           iconSize="16"
         />
       </div>
