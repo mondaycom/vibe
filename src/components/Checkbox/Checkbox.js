@@ -10,16 +10,17 @@ import "./Checkbox.scss";
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
 export const Checkbox = ({
-  componentClassName,
-  label,
-  onChange,
-  checked,
-  disabled,
-  defaultChecked,
-  value,
-  name,
-  id
-}) => {
+                           componentClassName,
+                           label,
+                           ariaLabelledBy,
+                           onChange,
+                           checked,
+                           disabled,
+                           defaultChecked,
+                           value,
+                           name,
+                           id
+                         }) => {
   const iconContainerRef = useRef(null);
   const inputRef = useRef(null);
   const onMouseUpCallback = useCallback(() => {
@@ -60,6 +61,7 @@ export const Checkbox = ({
         defaultChecked={overrideDefaultChecked}
         disabled={disabled}
         aria-label={label}
+        aria-labelledby={ariaLabelledBy}
         checked={checked}
       />
       <div className={cx(...checkboxClassNames)} ref={iconContainerRef}>
@@ -70,6 +72,8 @@ export const Checkbox = ({
           iconLabel="checkbox"
           ignoreFocusStyle
           clickable
+          ariaHidden
+          tabindex="-1"
           iconSize="16"
         />
       </div>
@@ -82,6 +86,7 @@ Checkbox.propTypes = {
   id: PropTypes.string,
   componentClassName: PropTypes.string,
   label: PropTypes.string,
+  ariaLabelledBy: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
   defaultChecked: PropTypes.bool,
@@ -98,6 +103,7 @@ Checkbox.defaultProps = {
   disabled: false,
   name: "",
   value: "",
+  ariaLabelledBy: undefined,
   checked: undefined,
   defaultChecked: undefined
 };
