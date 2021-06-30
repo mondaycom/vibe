@@ -3,4 +3,14 @@
   border: 1px solid;
   padding: 16px;
   height: 400px;
+
+  .custom-icon {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

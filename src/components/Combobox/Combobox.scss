@@ -53,6 +53,11 @@ $icon-margin: 4px;
     flex: 1 1 auto;
     padding: 8px;
 
+    .category-label {
+      @include theme-prop(color, placeholder-color);
+      padding-bottom: 4px;
+    }
+
     .combobox-option {
       padding: 8px;
       height: 32px;

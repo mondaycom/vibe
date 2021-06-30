@@ -13,13 +13,31 @@ import "./Combobox.scss";
 
 const renderOption = (index, option, isActive, isActiveByKeyboard, onOptionClick, onOptionHover) => {
   const { id, leftIcon, rightIcon, label, iconSize = 16, disabled, selected, ariaLabel } = option;
+
+  const renderIcon = (icon, className) => {
+    if (typeof icon === "string") {
+      return (
+        <Icon
+          className={cx("option-icon", className)}
+          iconType={Icon.type.ICON_FONT}
+          clickable={false}
+          icon={icon}
+          iconSize={iconSize}
+          ignoreFocusStyle
+        />
+      );
+    } else if (typeof icon === "function") {
+      return icon(`option-icon ${className}`);
+    }
+  };
+
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <div
       key={id || label}
-      role="listitem"
-      ariaLabel={ariaLabel}
-      id={`combox-item-${id}`}
+      role="option"
+      ariaLabel={ariaLabel || label}
+      id={`combobox-item-${index}`}
       onMouseEnter={!disabled && onOptionHover}
       onClick={event => onOptionClick(event, index, option, true)}
       className={cx("combobox-option", {
@@ -29,33 +47,63 @@ const renderOption = (index, option, isActive, isActiveByKeyboard, onOptionClick
         "active-outline": isActiveByKeyboard && isActive
       })}
     >
-      {leftIcon && (
-        <Icon
-          className="option-icon left"
-          iconType={Icon.type.ICON_FONT}
-          clickable={false}
-          icon={leftIcon}
-          iconSize={iconSize}
-          ignoreFocusStyle
-        />
-      )}
+      {leftIcon && renderIcon(leftIcon, "left")}
       <div className="option-label">{label}</div>
-      {rightIcon && (
-        <Icon
-          className="option-icon right"
-          iconType={Icon.type.ICON_FONT}
-          clickable={false}
-          icon={rightIcon}
-          iconSize={iconSize}
-          ignoreFocusStyle
-        />
-      )}
+      {rightIcon && renderIcon(rightIcon, "right")}
     </div>
   );
 };
 
+const renderCategory = category => {
+  if (!category.label) return null;
+
+  return (
+    <div
+      key={category.id}
+      role="presentation"
+      ariaLabel={category.ariaLabel || category.label}
+      id={`combox-category-${category.id}`}
+      className="category-label"
+    >
+      {category.label}
+    </div>
+  );
+};
+
+const getOptionsByCategories = (options, categories, filterValue) => {
+  return options.reduce((result, option) => {
+    const categoryId = option.categoryId;
+    // skipping if the option doesn't have a category
+    if (!categoryId) return result;
+    if (categories[categoryId]?.onlyShowOnSearch && !filterValue) return result;
+
+    if (result[categoryId]) {
+      result[categoryId].push(option);
+    } else {
+      result[categoryId] = [option];
+    }
+
+    return result;
+  }, {});
+};
+
 const Combobox = forwardRef(
-  ({ className, id, placeholder, size, disabled, options, noResultsMessage, onAddNew, addNewLabel, onClick }, ref) => {
+  (
+    {
+      className,
+      id,
+      placeholder,
+      size,
+      disabled,
+      options,
+      categories,
+      noResultsMessage,
+      onAddNew,
+      addNewLabel,
+      onClick
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
     const [activeItemIndex, setActiveItemIndex] = useState(-1);
@@ -94,13 +142,45 @@ const Combobox = forwardRef(
 
     const filterdOptions = useMemo(() => {
       return options.filter(({ label }) => !filterValue || label.includes(filterValue));
-    }, [options, filterValue]);
+    }, [options, categories, filterValue]);
 
     const renderedItems = useMemo(() => {
-      return filterdOptions.map((option, index) => {
-        return renderOption(index, option, activeItemIndex === index, isActiveByKeyboard, onOptionClick, onOptionHover);
-      });
-    }, [filterdOptions, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionHover]);
+      if (categories) {
+        const optionsByCategories = getOptionsByCategories(filterdOptions, categories, filterValue);
+
+        let index = 0;
+        return Object.keys(optionsByCategories).map(categoryId => {
+          return (
+            <div role="group" aria-labelledby={`combox-category-${categoryId}`}>
+              {renderCategory(categories[categoryId])}
+              {optionsByCategories[categoryId].map(option => {
+                const renderedOption = renderOption(
+                  index,
+                  option,
+                  activeItemIndex === index,
+                  isActiveByKeyboard,
+                  onOptionClick,
+                  onOptionHover
+                );
+                index++;
+                return renderedOption;
+              })}
+            </div>
+          );
+        });
+      } else {
+        return filterdOptions.map((option, index) => {
+          return renderOption(
+            index,
+            option,
+            activeItemIndex === index,
+            isActiveByKeyboard,
+            onOptionClick,
+            onOptionHover
+          );
+        });
+      }
+    }, [filterdOptions, categories, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionHover]);
 
     const onChangeCallback = useCallback(
       value => {
@@ -155,17 +235,12 @@ const Combobox = forwardRef(
 
     return (
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
-      <div
-        ref={mergedRef}
-        role="listbox"
-        aria-activedescendant={`combobox-item-${id}`}
-        className={cx("combobox--wrapper", className, { empty: !hasResults })}
-        id={id}
-      >
+      <div ref={mergedRef} className={cx("combobox--wrapper", className, { empty: !hasResults })} id={id}>
         <Search
           ref={inputRef}
           className="combobox--wrapper-search"
           inputAriaLabel="Search for content"
+          activeDescendant={`combobox-item-${activeItemIndex}`}
           id="combobox-search"
           iconName="fa-search"
           secondaryIconName="fa-close"
@@ -174,7 +249,9 @@ const Combobox = forwardRef(
           disabled={disabled}
           onChange={onChangeCallback}
         />
-        <div className="combobox--wrapper-list">{renderedItems}</div>
+        <div className="combobox--wrapper-list" role="listbox">
+          {renderedItems}
+        </div>
         {hasFilter && !hasResults && renderNoResults()}
       </div>
     );
@@ -190,6 +267,7 @@ Combobox.propTypes = {
   noResultsMessage: PropTypes.string,
   disabled: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.object),
+  categories: PropTypes.object,
   size: PropTypes.oneOf([Combobox.sizes.SMALL, Combobox.sizes.MEDIUM, Combobox.sizes.LARGE]),
   onAddNew: PropTypes.func,
   addNewLabel: PropTypes.string
@@ -201,6 +279,7 @@ Combobox.defaultProps = {
   noResultsMessage: "No results found",
   disabled: false,
   options: [],
+  categories: undefined,
   size: Combobox.sizes.MEDIUM,
   onAddNew: undefined,
   addNewLabel: "Add new"

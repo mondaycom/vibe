@@ -12,6 +12,7 @@ import {
 } from "../../storybook-helpers";
 import DarkThemeContainer from "../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
+import cx from "classnames";
 import "./combobox.stories.scss";
 
 export const Sandbox = () => (
@@ -19,6 +20,14 @@ export const Sandbox = () => (
     <ComboboxWrapper />
   </div>
 );
+
+export const ComboboxWithCategories = () => {
+  return (
+    <div className="container">
+      <ComboboxWithCategoriesWrapper />
+    </div>
+  );
+};
 
 const getOptions = (selectedId, additionalOptions = []) => {
   const options = [
@@ -58,6 +67,49 @@ const ComboboxWrapper = () => {
           setSelectedId(option.id);
         }}
         options={getOptions(selectedId, addedItems)}
+      />
+    </div>
+  );
+};
+
+const ComboboxWithCategoriesWrapper = () => {
+  const [selectedId, setSelectedId] = useState("2");
+
+  const iconRenderer = className => {
+    return (
+      <div className={cx("custom-icon", className)} aria-hidden={true}>
+        A
+      </div>
+    );
+  };
+  const options = [
+    { id: "1", label: "Favorites", leftIcon: iconRenderer, categoryId: "favorites" },
+    { id: "2", label: "second", rightIcon: iconRenderer, categoryId: "important" },
+    { id: "3", label: "disabled", disabled: true, rightIcon: "fa fa-star-o", categoryId: "important" },
+    { id: "4", label: "fourth", leftIcon: "fa fa-star-o", categoryId: "other" },
+    { id: "5", label: "fifth", leftIcon: "fa fa-star-o", categoryId: "other" }
+  ];
+
+  const categories = {
+    favorites: { id: "favorites" },
+    important: { id: "important", label: "Important" },
+    other: { id: "other", label: "Other", onlyShowOnSearch: true }
+  };
+
+  options.forEach(option => {
+    option.selected = option.id === selectedId;
+  });
+
+  return (
+    <div className="combobox-wrapper">
+      <Combobox
+        placeholder="Search here!"
+        onClick={option => {
+          console.log("Clicked on ", option.label);
+          setSelectedId(option.id);
+        }}
+        options={options}
+        categories={categories}
       />
     </div>
   );
