@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
+import React, { useRef, useState, forwardRef, useMemo, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
@@ -11,11 +11,24 @@ import Button from "../Button/Button";
 import useListKeyboardNavigation from "../../hooks/useListKeyboardNavigation";
 import "./Combobox.scss";
 
-const renderOption = (index, option, isActive, isActiveByKeyboard, onOptionClick, onOptionHover) => {
-  const { id, leftIcon, rightIcon, label, iconSize = 16, disabled, selected, ariaLabel } = option;
+const renderOption = (index, option, isActive, isActiveByKeyboard, onOptionClick, onOptionHover, optionLineHeight) => {
+  const {
+    id,
+    leftIcon,
+    rightIcon,
+    leftIconType,
+    rightIconType,
+    label,
+    iconSize = 16,
+    disabled,
+    selected,
+    ariaLabel
+  } = option;
 
-  const renderIcon = (icon, className) => {
-    if (typeof icon === "string") {
+  const renderIcon = (icon, iconType, className) => {
+    if (iconType === Combobox.iconTypes.RENDERER) {
+      return icon(`option-icon ${className}`);
+    } else {
       return (
         <Icon
           className={cx("option-icon", className)}
@@ -26,8 +39,6 @@ const renderOption = (index, option, isActive, isActiveByKeyboard, onOptionClick
           ignoreFocusStyle
         />
       );
-    } else if (typeof icon === "function") {
-      return icon(`option-icon ${className}`);
     }
   };
 
@@ -46,10 +57,11 @@ const renderOption = (index, option, isActive, isActiveByKeyboard, onOptionClick
         active: isActive,
         "active-outline": isActiveByKeyboard && isActive
       })}
+      style={{ height: optionLineHeight }}
     >
-      {leftIcon && renderIcon(leftIcon, "left")}
+      {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
       <div className="option-label">{label}</div>
-      {rightIcon && renderIcon(rightIcon, "right")}
+      {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
     </div>
   );
 };
@@ -94,6 +106,9 @@ const Combobox = forwardRef(
       id,
       placeholder,
       size,
+      optionLineHeight,
+      backgroundColor,
+      autoFocus,
       disabled,
       options,
       categories,
@@ -110,6 +125,13 @@ const Combobox = forwardRef(
     const [isActiveByKeyboard, setIsActiveByKeyboard] = useState(false);
     const [filterValue, setFilterValue] = useState("");
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+
+    useEffect(() => {
+      if (!inputRef.current) return;
+
+      const inputElement = inputRef.current;
+      inputElement.style.backgroundColor = backgroundColor;
+    }, [inputRef, backgroundColor]);
 
     const setActiveItemIndexKeyboardNav = useCallback(
       index => {
@@ -141,7 +163,7 @@ const Combobox = forwardRef(
     );
 
     const filterdOptions = useMemo(() => {
-      return options.filter(({ label }) => !filterValue || label.includes(filterValue));
+      return options.filter(({ label }) => !filterValue || label.toLowerCase().includes(filterValue.toLowerCase()));
     }, [options, categories, filterValue]);
 
     const renderedItems = useMemo(() => {
@@ -160,7 +182,8 @@ const Combobox = forwardRef(
                   activeItemIndex === index,
                   isActiveByKeyboard,
                   onOptionClick,
-                  onOptionHover
+                  onOptionHover,
+                  optionLineHeight
                 );
                 index++;
                 return renderedOption;
@@ -176,7 +199,8 @@ const Combobox = forwardRef(
             activeItemIndex === index,
             isActiveByKeyboard,
             onOptionClick,
-            onOptionHover
+            onOptionHover,
+            optionLineHeight
           );
         });
       }
@@ -235,9 +259,15 @@ const Combobox = forwardRef(
 
     return (
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
-      <div ref={mergedRef} className={cx("combobox--wrapper", className, { empty: !hasResults })} id={id}>
+      <div
+        ref={mergedRef}
+        className={cx("combobox--wrapper", className, { empty: !hasResults })}
+        style={{ backgroundColor: backgroundColor }}
+        id={id}
+      >
         <Search
           ref={inputRef}
+          wrapperClassName="combobox--wrapper-search-wrapper"
           className="combobox--wrapper-search"
           inputAriaLabel="Search for content"
           activeDescendant={`combobox-item-${activeItemIndex}`}
@@ -248,6 +278,7 @@ const Combobox = forwardRef(
           size={size}
           disabled={disabled}
           onChange={onChangeCallback}
+          autoFocus={autoFocus}
         />
         <div className="combobox--wrapper-list" role="listbox">
           {renderedItems}
@@ -259,6 +290,10 @@ const Combobox = forwardRef(
 );
 
 Combobox.sizes = SIZES;
+Combobox.iconTypes = {
+  DEFAULT: "default",
+  RENDERER: "renderer"
+};
 
 Combobox.propTypes = {
   className: PropTypes.string,
@@ -269,6 +304,9 @@ Combobox.propTypes = {
   options: PropTypes.arrayOf(PropTypes.object),
   categories: PropTypes.object,
   size: PropTypes.oneOf([Combobox.sizes.SMALL, Combobox.sizes.MEDIUM, Combobox.sizes.LARGE]),
+  optionLineHeight: PropTypes.number,
+  backgroundColor: PropTypes.string,
+  autoFocus: PropTypes.bool,
   onAddNew: PropTypes.func,
   addNewLabel: PropTypes.string
 };
@@ -281,6 +319,9 @@ Combobox.defaultProps = {
   options: [],
   categories: undefined,
   size: Combobox.sizes.MEDIUM,
+  optionLineHeight: 32,
+  backgroundColor: "var(--primary-background-color)",
+  autoFocus: false,
   onAddNew: undefined,
   addNewLabel: "Add new"
 };
