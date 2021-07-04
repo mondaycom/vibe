@@ -12,7 +12,6 @@ const BASE_CLASS_NAME = "monday-style-checkbox";
 export const Checkbox = ({
   componentClassName,
   label,
-  ariaLabelledBy,
   onChange,
   checked,
   disabled,
@@ -61,7 +60,6 @@ export const Checkbox = ({
         defaultChecked={overrideDefaultChecked}
         disabled={disabled}
         aria-label={label}
-        aria-labelledby={ariaLabelledBy}
         checked={checked}
       />
       <div className={cx(...checkboxClassNames)} ref={iconContainerRef}>
@@ -71,7 +69,7 @@ export const Checkbox = ({
           icon={Check}
           iconLabel="checkbox"
           ignoreFocusStyle
-          clickable={false}
+          clickable
           iconSize="16"
         />
       </div>
