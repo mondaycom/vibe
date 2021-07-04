@@ -1,0 +1,38 @@
+@import "../../styles/global-css-settings.scss";
+
+@mixin skeleton($radius: $border-radius-small) {
+  @include theme-prop(background, disabled-background-color);
+  border-radius: $radius;
+}
+
+.monday-style-skeleton {
+  &_rectangle {
+    $rectangle-default-size: 160px;
+    height: $rectangle-default-size;
+    width: $rectangle-default-size;
+    @include skeleton;
+  }
+
+  &_circle {
+    $circle-default-size: 40px;
+    $circle-radius: 70px;
+    height: $circle-default-size;
+    width: $circle-default-size;
+    @include skeleton($circle-radius);
+  }
+
+  &_text {
+    width: 162px;
+    @include skeleton;
+
+    &--h1, &--h2, &--h3 {
+      height: 24px;
+    }
+    &--h4 {
+      height: 21px;
+    }
+    &--h5, &--h6, &--costume {
+      height: 16px;
+    }
+  }
+}

@@ -1,3 +1,9 @@
 export function BEMClass(componentName) {
-  return className => `${componentName}--${className}`;
+  return ({ element, state }) => {
+    debugger;
+    let className = componentName;
+    if (element) className = `${className}_${element}`;
+    if (state) className = `${className}--${state}`;
+    return className;
+  };
 }
