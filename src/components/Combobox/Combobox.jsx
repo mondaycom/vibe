@@ -5,99 +5,13 @@ import isFunction from "lodash/isFunction";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
-import Icon from "../Icon/Icon";
 import { SIZES } from "../../constants/sizes";
 import Button from "../Button/Button";
 import useListKeyboardNavigation from "../../hooks/useListKeyboardNavigation";
+import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
+import ComboboxCategory from "./components/ComboboxCategory/ComboboxCategory";
+import { getOptionsByCategories } from "./ComboboxService";
 import "./Combobox.scss";
-
-const renderOption = (index, option, isActive, isActiveByKeyboard, onOptionClick, onOptionHover, optionLineHeight) => {
-  const {
-    id,
-    leftIcon,
-    rightIcon,
-    leftIconType,
-    rightIconType,
-    label,
-    iconSize = 16,
-    disabled,
-    selected,
-    ariaLabel
-  } = option;
-
-  const renderIcon = (icon, iconType, className) => {
-    if (iconType === Combobox.iconTypes.RENDERER) {
-      return icon(`option-icon ${className}`);
-    } else {
-      return (
-        <Icon
-          className={cx("option-icon", className)}
-          iconType={Icon.type.ICON_FONT}
-          clickable={false}
-          icon={icon}
-          iconSize={iconSize}
-          ignoreFocusStyle
-        />
-      );
-    }
-  };
-
-  return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <div
-      key={id || label}
-      role="option"
-      ariaLabel={ariaLabel || label}
-      id={`combobox-item-${index}`}
-      onMouseEnter={!disabled && onOptionHover}
-      onClick={event => onOptionClick(event, index, option, true)}
-      className={cx("combobox-option", {
-        disabled,
-        selected,
-        active: isActive,
-        "active-outline": isActiveByKeyboard && isActive
-      })}
-      style={{ height: optionLineHeight }}
-    >
-      {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
-      <div className="option-label">{label}</div>
-      {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
-    </div>
-  );
-};
-
-const renderCategory = category => {
-  if (!category.label) return null;
-
-  return (
-    <div
-      key={category.id}
-      role="presentation"
-      ariaLabel={category.ariaLabel || category.label}
-      id={`combox-category-${category.id}`}
-      className="category-label"
-    >
-      {category.label}
-    </div>
-  );
-};
-
-const getOptionsByCategories = (options, categories, filterValue) => {
-  return options.reduce((result, option) => {
-    const categoryId = option.categoryId;
-    // skipping if the option doesn't have a category
-    if (!categoryId) return result;
-    if (categories[categoryId]?.onlyShowOnSearch && !filterValue) return result;
-
-    if (result[categoryId]) {
-      result[categoryId].push(option);
-    } else {
-      result[categoryId] = [option];
-    }
-
-    return result;
-  }, {});
-};
 
 const Combobox = forwardRef(
   (
@@ -174,16 +88,18 @@ const Combobox = forwardRef(
         return Object.keys(optionsByCategories).map(categoryId => {
           return (
             <div role="group" aria-labelledby={`combox-category-${categoryId}`}>
-              {renderCategory(categories[categoryId])}
+              <ComboboxCategory category={categories[categoryId]} />
               {optionsByCategories[categoryId].map(option => {
-                const renderedOption = renderOption(
-                  index,
-                  option,
-                  activeItemIndex === index,
-                  isActiveByKeyboard,
-                  onOptionClick,
-                  onOptionHover,
-                  optionLineHeight
+                const renderedOption = (
+                  <ComboboxOption
+                    index={index}
+                    option={option}
+                    isActive={activeItemIndex === index}
+                    isActiveByKeyboard={isActiveByKeyboard}
+                    onOptionClick={onOptionClick}
+                    onOptionHover={onOptionHover}
+                    optionLineHeight={optionLineHeight}
+                  />
                 );
                 index++;
                 return renderedOption;
@@ -193,14 +109,16 @@ const Combobox = forwardRef(
         });
       } else {
         return filterdOptions.map((option, index) => {
-          return renderOption(
-            index,
-            option,
-            activeItemIndex === index,
-            isActiveByKeyboard,
-            onOptionClick,
-            onOptionHover,
-            optionLineHeight
+          return (
+            <ComboboxOption
+              index={index}
+              option={option}
+              isActive={activeItemIndex === index}
+              isActiveByKeyboard={isActiveByKeyboard}
+              onOptionClick={onOptionClick}
+              onOptionHover={onOptionHover}
+              optionLineHeight={optionLineHeight}
+            />
           );
         });
       }
@@ -290,10 +208,7 @@ const Combobox = forwardRef(
 );
 
 Combobox.sizes = SIZES;
-Combobox.iconTypes = {
-  DEFAULT: "default",
-  RENDERER: "renderer"
-};
+Combobox.iconTypes = ComboboxOption.iconTypes;
 
 Combobox.propTypes = {
   className: PropTypes.string,

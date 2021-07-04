@@ -353,8 +353,8 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
     >
       <div
         ariaLabel="category2"
-        className="category-label"
-        id="combox-category-category2"
+        className="combobox-category"
+        id="combobox-category-category2"
         role="presentation"
       >
         category2
