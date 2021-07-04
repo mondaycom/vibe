@@ -12,6 +12,7 @@ const BASE_CLASS_NAME = "monday-style-checkbox";
 export const Checkbox = ({
   componentClassName,
   label,
+  ariaLabelledBy,
   onChange,
   checked,
   disabled,
@@ -60,6 +61,7 @@ export const Checkbox = ({
         defaultChecked={overrideDefaultChecked}
         disabled={disabled}
         aria-label={label}
+        aria-labelledby={ariaLabelledBy}
         checked={checked}
       />
       <div className={cx(...checkboxClassNames)} ref={iconContainerRef}>
@@ -69,7 +71,7 @@ export const Checkbox = ({
           icon={Check}
           iconLabel="checkbox"
           ignoreFocusStyle
-          clickable
+          clickable={false}
           iconSize="16"
         />
       </div>
@@ -82,6 +84,7 @@ Checkbox.propTypes = {
   id: PropTypes.string,
   componentClassName: PropTypes.string,
   label: PropTypes.string,
+  ariaLabelledBy: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
   defaultChecked: PropTypes.bool,
@@ -98,6 +101,7 @@ Checkbox.defaultProps = {
   disabled: false,
   name: "",
   value: "",
+  ariaLabelledBy: undefined,
   checked: undefined,
   defaultChecked: undefined
 };
