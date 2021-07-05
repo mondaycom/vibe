@@ -1,7 +1,14 @@
-.monday-style-story-text-container  {
-  display: flex;
-  align-items: center;
-  .monday-style-skeleton_text {
+.monday-style-story-skeleton {
+  &_text-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &_element {
     margin-left: 16px;
+  }
+
+  .component-state-description-title{
+    margin-bottom: 16px;
   }
 }

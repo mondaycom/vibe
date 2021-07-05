@@ -12,6 +12,7 @@ import "./Skeleton.scss";
 import { BEMClass } from "../../helpers/bem-helper";
 
 const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
+const HIDDEN_CHILD_CSS_ELEMENT = "hidden-child";
 const bemHelper = BEMClass(SKELETON_CSS_BASE_CLASS);
 
 export const Skeleton = ({ type, size, className, width, height, children }) => {
@@ -23,7 +24,6 @@ export const Skeleton = ({ type, size, className, width, height, children }) => 
       className={cx(SKELETON_CSS_BASE_CLASS, {
         [bemHelper({ state: "adjust-child" })]: !isNil(children)
       })}
-      style={{ width, height }}
     >
       <div
         className={cx(
@@ -31,8 +31,9 @@ export const Skeleton = ({ type, size, className, width, height, children }) => 
           bemHelper({ element: skeletonType, state: skeletonSize }),
           className
         )}
+        style={{ width, height }}
       >
-        {children}
+        {children ? <div className={bemHelper({ element: HIDDEN_CHILD_CSS_ELEMENT })}>{children}</div> : null}
       </div>
     </div>
   );
