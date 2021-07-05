@@ -33,7 +33,11 @@ export const Skeleton = ({ type, size, className, width, height, children }) => 
         )}
         style={{ width, height }}
       >
-        {children ? <div className={bemHelper({ element: HIDDEN_CHILD_CSS_ELEMENT })}>{children}</div> : null}
+        {children ? (
+          <div className={bemHelper({ element: HIDDEN_CHILD_CSS_ELEMENT })} aria-hidden="true">
+            {children}
+          </div>
+        ) : null}
       </div>
     </div>
   );
