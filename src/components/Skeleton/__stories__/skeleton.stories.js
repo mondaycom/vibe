@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { action } from "@storybook/addon-actions";
-import { text, boolean } from "@storybook/addon-knobs";
+import { select, number } from "@storybook/addon-knobs";
 import { StoryStateRow } from "../../storybook-helpers";
 import { withPerformance } from "storybook-addon-performance";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
@@ -9,6 +9,46 @@ import Heading from "../../Heading/Heading";
 import { TYPES } from "../../Heading/HeadingConstants";
 import StoryTitle from "../../storybook-helpers/story-title/story-title";
 import "./skeleton.stories.scss";
+import { SKELETON_ALLOWED_SIZES } from "../SkeletonConstants";
+
+export const RectangleSkeletonSandbox = () => {
+  return (
+    <StoryWrapper>
+      <Skeleton
+        type={Skeleton.types.RECTANGLE}
+        height={number("Height", undefined)}
+        width={number("Width", undefined)}
+        size={select("Size", SKELETON_ALLOWED_SIZES.RECTANGLE, Skeleton.sizes.COSTUME)}
+      />
+    </StoryWrapper>
+  );
+};
+
+export const CircleSkeletonSandbox = () => {
+  return (
+    <StoryWrapper>
+      <Skeleton
+        type={Skeleton.types.CIRCLE}
+        height={number("Height", undefined)}
+        width={number("Width", undefined)}
+        size={select("Size", SKELETON_ALLOWED_SIZES.CIRCLE, Skeleton.sizes.COSTUME)}
+      />
+    </StoryWrapper>
+  );
+};
+
+export const TextSkeletonSandbox = () => {
+  return (
+    <StoryWrapper>
+      <Skeleton
+        type={Skeleton.types.TEXT}
+        height={number("Height", undefined)}
+        width={number("Width", undefined)}
+        size={select("Size", SKELETON_ALLOWED_SIZES.TEXT, Skeleton.sizes.COSTUME)}
+      />
+    </StoryWrapper>
+  );
+};
 
 export const States = () => {
   return (
