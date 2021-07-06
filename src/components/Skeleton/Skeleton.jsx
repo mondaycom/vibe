@@ -15,7 +15,7 @@ const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
 const HIDDEN_CHILD_CSS_ELEMENT = "hidden-child";
 const bemHelper = BEMClass(SKELETON_CSS_BASE_CLASS);
 
-export const Skeleton = ({ type, size, className, width, height, children }) => {
+export const Skeleton = ({ type, size, className, width, height }) => {
   const skeletonType = SKELETON_ALLOWED_TYPES.indexOf(type) > -1 ? type : SKELETON_TYPES.RECTANGLE;
   const typeDescription = skeletonType.toUpperCase();
   const skeletonSize = SKELETON_ALLOWED_SIZES[typeDescription].indexOf(size) > -1 ? size : SKELETON_COSTUME_SIZE;
@@ -28,13 +28,7 @@ export const Skeleton = ({ type, size, className, width, height, children }) => 
           className
         )}
         style={{ width, height }}
-      >
-        {children ? (
-          <div className={bemHelper({ element: HIDDEN_CHILD_CSS_ELEMENT })} aria-hidden="true">
-            {children}
-          </div>
-        ) : null}
-      </div>
+      />
     </div>
   );
 };
