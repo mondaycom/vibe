@@ -333,7 +333,7 @@ Button.propTypes = {
   /** aria label to provide important when providing only Icon */
   ariaLabel: PropTypes.string,
   /** aria for a button popup */
-  ariaHasPopup: PropTypes.bool,
+  ariaHasPopup: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /** aria to be set if the popup is open */
   ariaExpanded: PropTypes.bool,
   /** aria controls - receives id for the controlled region */

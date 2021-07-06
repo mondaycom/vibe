@@ -11,6 +11,7 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
 
+import { DialogPositions } from "../../../constants/sizes";
 import "./MenuItemButton.scss";
 
 const MenuItemButton = ({
@@ -100,6 +101,7 @@ const MenuItemButton = ({
 };
 
 MenuItemButton.kinds = Button.kinds;
+MenuItemButton.tooltipPositions = DialogPositions;
 
 MenuItemButton.defaultProps = {
   classname: "",
@@ -125,7 +127,12 @@ MenuItemButton.propTypes = {
   disabled: PropTypes.bool,
   disableReason: PropTypes.string,
   onClick: PropTypes.func,
-  tooltipPosition: PropTypes.oneOf("right", "left", "top", "bottom"),
+  tooltipPosition: PropTypes.oneOf([
+    MenuItemButton.tooltipPositions.RIGHT,
+    MenuItemButton.tooltipPositions.LEFT,
+    MenuItemButton.tooltipPositions.TOP,
+    MenuItemButton.tooltipPositions.BOTTOM
+  ]),
   tooltipShowDelay: PropTypes.number
 };
 
