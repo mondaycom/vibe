@@ -20,7 +20,8 @@ const ResponsiveList = forwardRef(
       dialogZIndex,
       dialogClassName,
       menuButtonClassName,
-      resizeDebounceTime
+      resizeDebounceTime,
+      menuButtonProps
     },
     ref
   ) => {
@@ -54,6 +55,7 @@ const ResponsiveList = forwardRef(
             size={menuButtonSize}
             openDialogComponentClassName={cx("responsive-list--menu-button-dialog", dialogClassName)}
             zIndex={dialogZIndex}
+            {...menuButtonProps}
           >
             <div className="responsive-list-menu-wrapper-flex">{menuChildren}</div>
           </MenuButton>
@@ -69,6 +71,10 @@ ResponsiveList.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   menuButtonClassName: PropTypes.string,
+  /**
+   These attributes will be passed to the MenuButton
+   */
+  menuButtonProps: PropTypes.object,
   dialogClassName: PropTypes.string,
   menuButtonSize: PropTypes.oneOf(Object.keys(ResponsiveList.menuButtonSizes)),
   /**
@@ -86,6 +92,7 @@ ResponsiveList.defaultProps = {
   className: "",
   dialogClassName: "",
   menuButtonClassName: "",
+  menuButtonProps: {},
   menuButtonSize: ResponsiveList.menuButtonSizes.SMALL,
   paddingSize: DEFAULT_MINIMAL_MARGIN,
   dialogZIndex: 9999,
