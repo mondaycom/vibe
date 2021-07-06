@@ -1,6 +1,6 @@
 @import "../../../styles/global-css-settings";
 
-.monday-style-story-skeleton {
+.skeleton-states {
   &_text-container {
     display: flex;
     align-items: center;
@@ -8,6 +8,10 @@
 
   &_element {
     margin-left: 16px;
+  }
+
+  .skeleton-states_text--small {
+    font-size: 14px;
   }
 
   .component-state-description-title{

@@ -13,58 +13,38 @@ import "./skeleton.stories.scss";
 export const States = () => {
   return (
     <StoryWrapper>
-      <div className="monday-style-story-skeleton">
+      <div className="skeleton-states">
         <StoryTitle text="Circle skeleton" />
         <Skeleton type={Skeleton.types.CIRCLE} />
         <StoryTitle text="Rectangle skeleton" />
         <Skeleton type={Skeleton.types.RECTANGLE} />
-        <div className="monday-style-story-skeleton_text-container">
+        <div className="skeleton-states_text-container">
           <Heading type={TYPES.h1} value="H1 text skeleton" />
-          <Skeleton
-            type={Skeleton.types.TEXT}
-            size={Skeleton.sizes.TEXT.H1}
-            className="monday-style-story-skeleton_element"
-          />
+          <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H1} className="skeleton-states_element" />
         </div>
-        <div className="monday-style-story-skeleton_text-container">
+        <div className="skeleton-states_text-container">
           <Heading type={TYPES.h2} value="H2 text skeleton" />
-          <Skeleton
-            type={Skeleton.types.TEXT}
-            size={Skeleton.sizes.TEXT.H2}
-            className="monday-style-story-skeleton_element"
-          />
+          <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H2} className="skeleton-states_element" />
         </div>
-        <div className="monday-style-story-skeleton_text-container">
+        <div className="skeleton-states_text-container">
           <Heading type={TYPES.h3} value="H3 text skeleton" />
-          <Skeleton
-            type={Skeleton.types.TEXT}
-            size={Skeleton.sizes.TEXT.H3}
-            className="monday-style-story-skeleton_element"
-          />
+          <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H3} className="skeleton-states_element" />
         </div>
-        <div className="monday-style-story-skeleton_text-container">
+        <div className="skeleton-states_text-container">
           <Heading type={TYPES.h4} value="H4 text skeleton" />
-          <Skeleton
-            type={Skeleton.types.TEXT}
-            size={Skeleton.sizes.TEXT.H4}
-            className="monday-style-story-skeleton_element"
-          />
+          <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H4} className="skeleton-states_element" />
         </div>
-        <div className="monday-style-story-skeleton_text-container">
+        <div className="skeleton-states_text-container">
           <Heading type={TYPES.h5} value="H5 text skeleton" />
-          <Skeleton
-            type={Skeleton.types.TEXT}
-            size={Skeleton.sizes.TEXT.H5}
-            className="monday-style-story-skeleton_element"
-          />
+          <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H5} className="skeleton-states_element" />
         </div>
-        <div className="monday-style-story-skeleton_text-container">
-          <Heading type={TYPES.h5} value="Costume text skeleton" />
-          <Skeleton
-            type={Skeleton.types.TEXT}
-            size={Skeleton.sizes.COSTUME}
-            className="monday-style-story-skeleton_element"
-          />
+        <div className="skeleton-states_text-container">
+          <Heading type={TYPES.h5} className="skeleton-states_text--small" value="Small 14px text" />
+          <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} className="skeleton-states_element" />
+        </div>
+        <div className="skeleton-states_text-container">
+          <Heading type={TYPES.h5} value="Custom text" className="skeleton-states_text--small" />
+          <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.CUSTOM} className="skeleton-states_element" />
         </div>
       </div>
     </StoryWrapper>
@@ -131,7 +111,7 @@ export const RectangleSkeletonSandbox = () => {
         type={Skeleton.types.RECTANGLE}
         height={number("Height", undefined)}
         width={number("Width", undefined)}
-        size={select("Size", SKELETON_ALLOWED_SIZES.RECTANGLE, Skeleton.sizes.COSTUME)}
+        size={select("Size", SKELETON_ALLOWED_SIZES.RECTANGLE, Skeleton.sizes.CUSTOM)}
       />
     </StoryWrapper>
   );
@@ -145,7 +125,7 @@ export const CircleSkeletonSandbox = () => {
         type={Skeleton.types.CIRCLE}
         height={number("Height", undefined)}
         width={number("Width", undefined)}
-        size={select("Size", SKELETON_ALLOWED_SIZES.CIRCLE, Skeleton.sizes.COSTUME)}
+        size={select("Size", SKELETON_ALLOWED_SIZES.CIRCLE, Skeleton.sizes.CUSTOM)}
       />
     </StoryWrapper>
   );
@@ -159,7 +139,7 @@ export const TextSkeletonSandbox = () => {
         type={Skeleton.types.TEXT}
         height={number("Height", undefined)}
         width={number("Width", undefined)}
-        size={select("Size", SKELETON_ALLOWED_SIZES.TEXT, Skeleton.sizes.COSTUME)}
+        size={select("Size", SKELETON_ALLOWED_SIZES.TEXT, Skeleton.sizes.CUSTOM)}
       />
     </StoryWrapper>
   );

@@ -70,8 +70,11 @@
     &--h4 {
       height: 21px;
     }
-    &--h5, &--h6, &--costume {
+    &--h5, &--h6 {
       height: 16px;
+    }
+    &--small, &--custom {
+      height: 12px;
     }
   }
 }

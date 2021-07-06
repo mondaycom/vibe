@@ -130,8 +130,8 @@ describe("Skeleton Tests", () => {
         expect(tree).toMatchSnapshot();
       });
 
-      it("with COSTUME size", () => {
-        const tree = renderer.create(<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.COSTUME} />).toJSON();
+      it("with CUSTOM size", () => {
+        const tree = renderer.create(<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.CUSTOM} />).toJSON();
         expect(tree).toMatchSnapshot();
       });
     });
