@@ -1,0 +1,44 @@
+@import "../../../styles/global-css-settings";
+
+.skeleton-states {
+  &_text-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &_element {
+    margin-left: 16px;
+  }
+
+  .skeleton-states_text--small {
+    font-size: 14px;
+  }
+
+  .component-state-description-title{
+    margin-bottom: 16px;
+  }
+}
+
+.basic-skeleton-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .basic-skeleton-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .basic-skeleton-text {
+    margin-left: 16px;
+  }
+
+  .basic-skeleton-rect {
+    margin-top: 4px;
+    width: 130px;
+    height: 130px;
+  }
+  .monday-style-skeleton {
+    margin-bottom: 8px;
+  }
+}

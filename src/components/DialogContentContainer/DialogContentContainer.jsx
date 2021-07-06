@@ -32,7 +32,7 @@ const DialogContentContainer = forwardRef(
         aria-labelledby={ariaLabelledby}
         aria-describedby={ariaDescribedby}
         ref={mergedRef}
-        className={cx("dialog-content-container", className, bemHelper(type), bemHelper(size))}
+        className={cx("dialog-content-container", className, bemHelper({ state: type }), bemHelper({ state: size }))}
       >
         {children}
       </div>

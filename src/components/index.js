@@ -54,3 +54,4 @@ export { default as TabPanels } from "./Tabs/TabPanels/TabPanels";
 
 export { default as Combobox } from "./Combobox/Combobox";
 export { default as Toggle } from "./Toggle/Toggle";
+export { default as Skeleton } from "./Skeleton/Skeleton";

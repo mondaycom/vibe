@@ -16,6 +16,15 @@ $line-height-for-size-32: 52px;
 $line-height-for-size-24: 32px;
 $font-size-default: 14px;
 
+$h1-empty-state-height: 32px;
+$h2-empty-state-height: 24px;
+$h3-empty-state-height: 24px;
+$h4-empty-state-height: 21px;
+$h5-empty-state-height: 16px;
+$p-empty-state-height: 16px;
+$h6-empty-state-height: 12px;
+$small-empty-state-height: 12px;
+
 // Main Heading (h1)
 @mixin font-main {
   -webkit-font-smoothing: antialiased;
