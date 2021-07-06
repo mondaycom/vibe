@@ -44,8 +44,7 @@ Skeleton.propTypes = {
   ),
   className: PropTypes.string,
   width: PropTypes.number,
-  height: PropTypes.number,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
+  height: PropTypes.number
 };
 
 Skeleton.defaultProps = {
@@ -53,8 +52,7 @@ Skeleton.defaultProps = {
   size: SKELETON_SIZES.COSTUME,
   className: "",
   width: undefined,
-  height: undefined,
-  children: null
+  height: undefined
 };
 
 Skeleton.types = SKELETON_TYPES;
