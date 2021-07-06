@@ -41,7 +41,7 @@ Skeleton.propTypes = {
       ...SKELETON_ALLOWED_SIZES.CIRCLE,
       ...SKELETON_ALLOWED_SIZES.TEXT
     ])
-  ).isRequired,
+  ),
   className: PropTypes.string,
   width: PropTypes.number,
   height: PropTypes.number,
@@ -49,6 +49,8 @@ Skeleton.propTypes = {
 };
 
 Skeleton.defaultProps = {
+  type: SKELETON_TYPES.RECTANGLE,
+  size: SKELETON_SIZES.COSTUME,
   className: "",
   width: undefined,
   height: undefined,
