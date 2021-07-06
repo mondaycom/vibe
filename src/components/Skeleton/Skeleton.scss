@@ -63,8 +63,10 @@
   &_text {
     width: 162px;
     @include skeleton;
-
-    &--h1, &--h2, &--h3 {
+    &--h1 {
+      height: 32px;
+    }
+    &--h2, &--h3 {
       height: 24px;
     }
     &--h4 {
