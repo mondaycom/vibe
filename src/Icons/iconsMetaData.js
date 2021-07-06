@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "MoreActions",
+      file: "MoreActions.svg",
+      description: "Icons used for dropdown of more actions",
+      tags: "more,actions,dropdown,arrow"
+  },
+
+  {
       name: "Apps",
       file: "Apps.svg",
       description: "monday apps section",
