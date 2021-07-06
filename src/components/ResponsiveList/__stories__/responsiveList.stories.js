@@ -70,7 +70,7 @@ export const Sandbox = () => (
   <div style={{ width: "100%" }}>
     <DescriptionLabel>
       Use this component when you want to collapse elements into a menu button which appends to the end of the row. The
-      list wraps the element with <code>display: flex;</code> property and <code>overflow: hidden</code> in order to
+      list wraps the element with <code>display: flex;</code> property in order to
       calculate the
     </DescriptionLabel>
     <br />
