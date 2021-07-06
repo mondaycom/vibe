@@ -5,41 +5,40 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "Apps",
-      file: "Apps.svg",
-      description: "monday apps section",
-      tags: "app,apps,apps marketplace,installed apps,puzzle,add",
-      category: [PLATFORM],
+    name: "Apps",
+    file: "Apps.svg",
+    description: "monday apps section",
+    tags: "app,apps,apps marketplace,installed apps,puzzle,add",
+    category: [PLATFORM],
   },
 
   {
-      name: "Globe",
-      file: "Globe.svg",
-      description: "Globe",
-      tags: "Globe,earth,world,country"
+    name: "Globe",
+    file: "Globe.svg",
+    description: "Globe",
+    tags: "Globe,earth,world,country",
   },
 
   {
-      name: "Radio",
-      file: "Radio.svg",
-      description: "RadioButton",
-      tags: "Radio,Radio button,select,single"
+    name: "Radio",
+    file: "Radio.svg",
+    description: "RadioButton",
+    tags: "Radio,Radio button,select,single",
   },
 
   {
-      name: "LongText",
-      file: "LongText.svg",
-      description: "LongText",
-      tags: "text,long text,description,lines"
+    name: "LongText",
+    file: "LongText.svg",
+    description: "LongText",
+    tags: "text,long text,description,lines",
   },
 
   {
-      name: "ShortText",
-      file: "ShortText.svg",
-      description: "ShortText",
-      tags: "short text,text,title,line"
+    name: "ShortText",
+    file: "ShortText.svg",
+    description: "ShortText",
+    tags: "short text,text,title,line",
   },
-
 
   {
     name: "Activity",
@@ -123,6 +122,20 @@ export const iconsMetaData = [
     file: "Board.svg",
     description: "Board",
     tags: "Board",
+    category: [PLATFORM],
+  },
+  {
+    name: "BoardPrivate",
+    file: "BoardPrivate.svg",
+    description: "Private Board",
+    tags: "Board, Private",
+    category: [PLATFORM],
+  },
+  {
+    name: "BoardShareable",
+    file: "BoardShareable.svg",
+    description: "Shareable Board",
+    tags: "Board, Shareable, Share",
     category: [PLATFORM],
   },
   {
@@ -292,6 +305,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "DashboardPrivate",
+    file: "DashboardPrivate.svg",
+    description: "Private Dashboard",
+    tags: "Dashboard, Board, Private",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Delete",
     file: "Delete.svg",
     description: "Delete",
@@ -309,8 +330,24 @@ export const iconsMetaData = [
   {
     name: "Doc",
     file: "Doc.svg",
-    description: "Doc icon",
+    description: "Doc",
     tags: "Doc, Document",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "DocPrivate",
+    file: "DocPrivate.svg",
+    description: "Private Doc",
+    tags: "Doc, Document, Private",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "DocShareable",
+    file: "DocShareable.svg",
+    description: "Shareable Doc",
+    tags: "Doc, Document, Shareable, Share",
     category: [PLATFORM],
   },
 
@@ -460,7 +497,13 @@ export const iconsMetaData = [
     tags: "Filter, Funnel",
     category: [PLATFORM],
   },
-
+  {
+    name: "Folder",
+    file: "Folder.svg",
+    description: "Folder",
+    tags: "Folder",
+    category: [PLATFORM],
+  },
   {
     name: "Fullscreen",
     file: "Fullscreen.svg",
@@ -655,6 +698,22 @@ export const iconsMetaData = [
     file: "Locked.svg",
     description: "Locked",
     tags: "Lock, Locked, Closed, Private",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "LogIn",
+    file: "LogIn.svg",
+    description: "Log In",
+    tags: "LogIn",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "LogOut",
+    file: "LogOut.svg",
+    description: "Log Out",
+    tags: "LogOut",
     category: [PLATFORM],
   },
 
@@ -1143,7 +1202,6 @@ export const iconsMetaData = [
     tags: "version, versions, versioning, version history",
   },
 
-
   {
     name: "Video",
     file: "Video.svg",
@@ -1157,6 +1215,14 @@ export const iconsMetaData = [
     file: "Wand.svg",
     description: "Wand",
     tags: "Wand, Star",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "WhatsNew",
+    file: "WhatsNew.svg",
+    description: "Whats New",
+    tags: "WhatsNew, New",
     category: [PLATFORM],
   },
 
