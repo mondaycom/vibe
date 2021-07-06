@@ -1,3 +1,25 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
 .monday-style-avatar {
-
+  border: 1px solid;
+  border-radius: 50%;
+  overflow: hidden;
+  @include theme-prop(border-color, primary-background-color);
+  &--large {
+    $avatar-size-large: 50px;
+    height: $avatar-size-large;
+    width: $avatar-size-large;
+  }
+  &--medium {
+    $avatar-size-medium: 36px;
+    height: $avatar-size-medium;
+    width: $avatar-size-medium;
+  }
+  &--small {
+    $avatar-size-small: 28px;
+    height: $avatar-size-small;
+    width: $avatar-size-small;
+  }
+  font-size: $font-size-avatar;
+  @include theme-prop()
 }
