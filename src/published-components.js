@@ -61,7 +61,7 @@ const publishedComponents = {
   AlertBannerText: "/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx",
   AlertBannerButton: "/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx",
   Toggle: "/src/components/Toggle/Toggle.jsx",
-  Skeleton: "src/components/Skeleton/Skeleton.jsx"
+  Skeleton: "/src/components/Skeleton/Skeleton.jsx"
 };
 
 function getPublishedComponents(dirPath = "") {
