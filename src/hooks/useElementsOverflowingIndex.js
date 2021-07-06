@@ -7,8 +7,8 @@ function useElementsOverflowingIndex({ ref, children, paddingSize, resizeDebounc
   const [size, setSize] = useState(null);
 
   const onResize = useCallback(
-    ({ borderBoxSize }) => {
-      setSize(borderBoxSize.inlineSize);
+    () => {
+      setSize(ref.current.scrollWidth);
     },
     [setSize]
   );
