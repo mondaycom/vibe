@@ -74,14 +74,4 @@
       height: 16px;
     }
   }
-
-  &--adjust-child {
-    .monday-style-skeleton_rectangle, .monday-style-skeleton_circle, .monday-style-skeleton_text {
-      height: auto;
-      width: initial;
-    }
-    .monday-style-skeleton_hidden-child {
-      visibility: hidden;
-    }
-  }
 }

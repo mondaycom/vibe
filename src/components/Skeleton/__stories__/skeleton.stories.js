@@ -71,7 +71,7 @@ export const States = () => {
   );
 };
 
-export const Basic = () => {
+export const BasicExample = () => {
   return (
     <StoryWrapper componentClassName="basic-skeleton-wrapper">
       <div style={{ display: "flex" }}>
@@ -119,25 +119,6 @@ export const Basic = () => {
           </div>
         </div>
       </div>
-    </StoryWrapper>
-  );
-};
-export const DynamicSkeletonSize = () => {
-  return (
-    <StoryWrapper componentClassName="monday-style-story-skeleton">
-      <StoryTitle text="Dynamic skeleton size" />
-      <ComponentStateDescription
-        title={
-          "When we transfer a child element to the skeleton, the skeleton knows how to adjust its size to the size of the child (the skeleton become dynamic whose size depends on what it hides)"
-        }
-        full
-      />
-      <StoryStateRow componentDescription="Example">
-        <Skeleton>
-          <div style={{ width: 200, height: 300, background: "red" }} />
-        </Skeleton>
-        <div style={{ width: 200, height: 300, background: "red" }} className="monday-style-story-skeleton_element" />
-      </StoryStateRow>
     </StoryWrapper>
   );
 };

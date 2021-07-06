@@ -20,11 +20,7 @@ export const Skeleton = ({ type, size, className, width, height, children }) => 
   const typeDescription = skeletonType.toUpperCase();
   const skeletonSize = SKELETON_ALLOWED_SIZES[typeDescription].indexOf(size) > -1 ? size : SKELETON_COSTUME_SIZE;
   return (
-    <div
-      className={cx(SKELETON_CSS_BASE_CLASS, {
-        [bemHelper({ state: "adjust-child" })]: !isNil(children)
-      })}
-    >
+    <div className={SKELETON_CSS_BASE_CLASS}>
       <div
         className={cx(
           bemHelper({ element: skeletonType }),
