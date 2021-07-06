@@ -24,6 +24,7 @@ export const SKELETON_SIZES = {
     H4: "h4",
     H5: "h5",
     H6: "h6",
+    P: "p",
     SMALL: "small"
   }
 };

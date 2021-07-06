@@ -1,4 +1,5 @@
 @import "../../styles/global-css-settings.scss";
+@import "../../styles/typography.scss";
 
 @mixin shine-animation() {
   overflow: hidden;
@@ -64,19 +65,28 @@
     width: 162px;
     @include skeleton;
     &--h1 {
-      height: 32px;
+      height: $h1-empty-state-height
     }
-    &--h2, &--h3 {
-      height: 24px;
+    &--h2 {
+      height: $h2-empty-state-height;
+    }
+    &--h2 {
+      height: $h3-empty-state-height;
     }
     &--h4 {
-      height: 21px;
+      height: $h4-empty-state-height;
     }
-    &--h5, &--h6 {
-      height: 16px;
+    &--h5 {
+      height: $h5-empty-state-height;
+    }
+    &--h6 {
+      height: $h6-empty-state-height;
+    }
+    &--h6 {
+      height: $p-empty-state-height;
     }
     &--small, &--custom {
-      height: 12px;
+      height: $small-empty-state-height;
     }
   }
 }

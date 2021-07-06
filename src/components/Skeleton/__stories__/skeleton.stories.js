@@ -43,6 +43,14 @@ export const States = () => {
           <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} className="skeleton-states_element" />
         </div>
         <div className="skeleton-states_text-container">
+          <Heading type={TYPES.h5} className="skeleton-states_text--small" value="H6 text skeleton" />
+          <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} className="skeleton-states_element" />
+        </div>
+        <div className="skeleton-states_text-container">
+          <Heading type={TYPES.h5} className="skeleton-states_text--small" value="Paragraph" />
+          <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} className="skeleton-states_element" />
+        </div>
+        <div className="skeleton-states_text-container">
           <Heading type={TYPES.h5} value="Custom text" className="skeleton-states_text--small" />
           <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.CUSTOM} className="skeleton-states_element" />
         </div>
