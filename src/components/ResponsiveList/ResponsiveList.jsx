@@ -71,6 +71,9 @@ ResponsiveList.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   menuButtonClassName: PropTypes.string,
+  /**
+   These attributes will be passed to the MenuButton
+   */
   menuButtonProps: PropTypes.object,
   dialogClassName: PropTypes.string,
   menuButtonSize: PropTypes.oneOf(Object.keys(ResponsiveList.menuButtonSizes)),
