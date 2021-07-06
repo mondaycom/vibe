@@ -38,7 +38,7 @@
 }
 
 @mixin skeleton($radius: $border-radius-small) {
-  @include theme-prop(background, dark-background-color); // should be replaced with all grey color
+  @include theme-prop(background, disabled-background-color); // should be replaced with all grey color
   border-radius: $radius;
   @include shine-animation;
 
