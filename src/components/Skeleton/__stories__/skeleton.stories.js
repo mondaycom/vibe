@@ -70,6 +70,58 @@ export const States = () => {
     </StoryWrapper>
   );
 };
+
+export const Basic = () => {
+  return (
+    <StoryWrapper componentClassName="basic-skeleton-wrapper">
+      <div style={{ display: "flex" }}>
+        <Skeleton type={Skeleton.types.CIRCLE} />
+        <div className="basic-skeleton-text-wrapper">
+          <Skeleton
+            type={Skeleton.types.TEXT}
+            size={Skeleton.sizes.TEXT.H5}
+            className="basic-skeleton-text"
+            width={70}
+          />
+        </div>
+      </div>
+      <div style={{ display: "flex" }}>
+        <Skeleton
+          type={Skeleton.types.RECTANGLE}
+          className="monday-style-story-skeleton_element"
+          className="basic-skeleton-rect"
+        />
+        <div className="basic-skeleton-text-wrapper">
+          <div className="basic-skeleton-text-wrapper">
+            <Skeleton
+              type={Skeleton.types.TEXT}
+              size={Skeleton.sizes.TEXT.H3}
+              className="basic-skeleton-text"
+              width={90}
+            />
+          </div>
+          <div className="basic-skeleton-text-wrapper">
+            <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H5} className="basic-skeleton-text" />
+          </div>
+          <div className="basic-skeleton-text-wrapper">
+            <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H5} className="basic-skeleton-text" />
+          </div>
+          <div className="basic-skeleton-text-wrapper">
+            <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H5} className="basic-skeleton-text" />
+          </div>
+          <div className="basic-skeleton-text-wrapper">
+            <Skeleton
+              type={Skeleton.types.TEXT}
+              width={70}
+              size={Skeleton.sizes.TEXT.H5}
+              className="basic-skeleton-text"
+            />
+          </div>
+        </div>
+      </div>
+    </StoryWrapper>
+  );
+};
 export const DynamicSkeletonSize = () => {
   return (
     <StoryWrapper componentClassName="monday-style-story-skeleton">
