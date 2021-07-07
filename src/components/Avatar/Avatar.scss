@@ -1,6 +1,7 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 .monday-style-avatar {
+  background: var(--color-asphalt-with-opacity);
   border: 1px solid;
   border-radius: 50%;
   overflow: hidden;
