@@ -1,15 +1,18 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { withPerformance } from "storybook-addon-performance";
 import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
 import { Avatar } from "../Avatar";
 import { boolean, text } from "@storybook/addon-knobs";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import "./avatar.stories.scss";
+import { AvatarBadge } from "../AvatarBadge";
+import { Sun } from "../../Icon/Icons";
 
 const IMG_SRC =
   "https://files.monday.com/use1/photos/16447897/small/16447897-Hadas_Farhi_photo_2020_10_04_10_14_06.png?1601806446";
 
 export const States = () => {
+  const bottomLeftBadgeProps = useMemo(() => ({ icon: Sun }));
   return (
     <StoryWrapper componentClassName="monday-style-story-avatar">
       <StoryStateRow componentDescription="Avatar with image" componentClassName="monday-style-story-avatar_states">
@@ -45,6 +48,19 @@ export const States = () => {
         componentClassName="monday-style-story-avatar_states"
       >
         <Avatar size={Avatar.sizes.LARGE} text="HF" isDisabled className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.MEDIUM} text="HF" isDisabled className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.SMALL} text="HF" isDisabled className="monday-style-story-avatar_state" />
+      </StoryStateRow>
+      <StoryStateRow componentDescription="Avatar with badges" componentClassName="monday-style-story-avatar_states">
+        <Avatar
+          size={Avatar.sizes.LARGE}
+          text="HF"
+          className="monday-style-story-avatar_state"
+          bottomLeftBadgeProps={bottomLeftBadgeProps}
+          bottomRightBadgeProps={bottomLeftBadgeProps}
+          topLeftBadgeProps={bottomLeftBadgeProps}
+          topRightBadgeProps={bottomLeftBadgeProps}
+        />
         <Avatar size={Avatar.sizes.MEDIUM} text="HF" isDisabled className="monday-style-story-avatar_state" />
         <Avatar size={Avatar.sizes.SMALL} text="HF" isDisabled className="monday-style-story-avatar_state" />
       </StoryStateRow>

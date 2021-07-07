@@ -36,5 +36,10 @@ describe("AttentionBox Tests", () => {
       const tree = renderer.create(<Avatar isSquare />).toJSON();
       expect(tree).toMatchSnapshot();
     });
+
+    it("renders correctly accessibility props", () => {
+      const tree = renderer.create(<Avatar tabIndex={-1} ariaHidden />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 });

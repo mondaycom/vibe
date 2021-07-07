@@ -1,64 +1,66 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 .monday-style-avatar {
-  border: 1px solid;
-  border-radius: 50%;
-  overflow: hidden;
-
-  @include theme-prop(border-color, primary-background-color);
-  @include theme-prop(color, text-color-on-primary);
-
-  &--large {
-    $avatar-size-large: 50px;
-    height: $avatar-size-large;
-    width: $avatar-size-large;
-    .monday-style-avatar_text {
-      font-size: $font-size-avatar-large;
-    }
-  }
-
-  &--medium {
-    $avatar-size-medium: 36px;
-    height: $avatar-size-medium;
-    width: $avatar-size-medium;
-    .monday-style-avatar_text {
-      font-size: $font-size-avatar-medium;
-    }
-  }
-
-  &--small {
-    $avatar-size-small: 28px;
-    height: $avatar-size-small;
-    width: $avatar-size-small;
-
-    .monday-style-avatar_text {
-      font-size: $font-size-avatar-small;
-    }
-  }
-
-  &--is-disabled {
+  position: relative;
+  &_circle {
     position: relative;
-    &:before {
-      content: "";
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      opacity: 0.5;
-      @include theme-prop(background, disabled-background-color);
+    border: 1px solid;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @include theme-prop(border-color, primary-background-color);
+    @include theme-prop(color, text-color-on-primary);
+
+    &--large {
+      $avatar-size-large: 50px;
+      height: $avatar-size-large;
+      width: $avatar-size-large;
+
+      .monday-style-avatar_text {
+        font-size: $font-size-avatar-large;
+      }
     }
 
-  }
+    &--medium {
+      $avatar-size-medium: 36px;
+      height: $avatar-size-medium;
+      width: $avatar-size-medium;
 
-  &--is-square {
-    border-radius: $border-radius-small;
-  }
+      .monday-style-avatar_text {
+        font-size: $font-size-avatar-medium;
+      }
+    }
 
+    &--small {
+      $avatar-size-small: 28px;
+      height: $avatar-size-small;
+      width: $avatar-size-small;
+
+      .monday-style-avatar_text {
+        font-size: $font-size-avatar-small;
+      }
+    }
+
+    &--is-disabled {
+      &:before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        opacity: 0.5;
+        @include theme-prop(background, disabled-background-color);
+      }
+    }
+
+    &--is-square {
+      border-radius: $border-radius-small;
+    }
+  }
   &_image {
     width: 100%;
     height: 100%;
   }
-
   &_text {
     font-family: $primary-font;
     font-weight: $font-weight-normal;
@@ -69,5 +71,39 @@
     align-items: center;
     width: 100%;
     height: 100%;
+  }
+  &_badges {
+    position: absolute;
+    top: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+    width: 100%;
+
+    .monday-style-avatar-badge {
+      &--top-left {
+        grid-row: 1;
+        grid-column: 1;
+        justify-self: start;
+      }
+
+      &--top-right {
+        grid-row: 1;
+        grid-column: 2;
+        justify-self: end;
+      }
+
+      &--bottom-left {
+        grid-row: 2;
+        grid-column: 1;
+        justify-self: start;
+      }
+
+      &--bottom-right {
+        grid-row: 2;
+        grid-column: 2;
+        justify-self: end;
+      }
+    }
   }
 }
