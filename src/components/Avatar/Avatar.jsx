@@ -4,55 +4,49 @@ import { useMemo } from "react";
 import { BEMClass } from "../../helpers/bem-helper";
 import { AVATAR_SIZES } from "./AvatarConstants";
 import "./Avatar.scss";
-import { getCSSVar } from "../../services/themes";
-import { getSelectedColor } from "../../general-stories/colors/colors-vars-map";
+import { getSelectedColor, elementColorsNames } from "../../general-stories/colors/colors-vars-map";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
 // TODO: still need to figure it out: color
-export const Avatar = ({ className, size, img, text, isSupportEmptyState, role, ariaLabel, backgroundColor }) => {
+export const Avatar = ({ className, size, img, text, role, ariaLabel, backgroundColor }) => {
   let avatarContent = useMemo(() => {
-    if (img) avatarContent = <img role={role} alt={ariaLabel} src={img} />;
-    else if (text === "" && isSupportEmptyState) <div />;
+    if (img) avatarContent = <img role={role} alt={ariaLabel} src={img} className={bemHelper({ element: "image" })} />;
     else
       avatarContent = (
-        <span aria-label={ariaLabel} role={role}>
+        <span className={bemHelper({ element: "text" })} aria-label={ariaLabel} role={role}>
           {text}
         </span>
       );
     return avatarContent;
-  });
+  }, [role, ariaLabel, img, text]);
 
   const backgroundColorStyle = useMemo(() => {
     return { backgroundColor: getSelectedColor(backgroundColor) };
   }, [backgroundColor]);
 
   return (
-    <div
-      className={cx(AVATAR_CSS_BASE_CLASS, bemHelper({ state: size }), className)}
-      style={{ backgroundColor: backgroundColorStyle }}
-    >
+    <div className={cx(AVATAR_CSS_BASE_CLASS, bemHelper({ state: size }), className)} style={backgroundColorStyle}>
       {avatarContent}
     </div>
   );
 };
 Avatar.propTypes = {
   className: PropTypes.string,
-  backgroundColor: PropTypes.string,
+  backgroundColor: PropTypes.oneOf(elementColorsNames),
   role: PropTypes.string,
-  alt: PropTypes.string,
-  size: PropTypes.oneOf([AVATAR_SIZES.LARGE, AVATAR_SIZES.MEDIUM, AVATAR_SIZES.SMALL]),
-  isSupportEmptyState: PropTypes.bool
+  ariaLabel: PropTypes.string,
+  size: PropTypes.oneOf([AVATAR_SIZES.LARGE, AVATAR_SIZES.MEDIUM, AVATAR_SIZES.SMALL])
 };
 
 Avatar.defaultProps = {
   className: "",
-  backgroundColor: "red",
+  backgroundColor: elementColorsNames.PRIMARY,
   role: undefined,
-  alt: "",
-  size: AVATAR_SIZES.LARGE,
-  isSupportEmptyState: true
+  ariaLabel: "",
+  size: AVATAR_SIZES.LARGE
 };
 
 Avatar.sizes = AVATAR_SIZES;
+Avatar.colors = elementColorsNames;

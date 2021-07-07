@@ -165,6 +165,14 @@ export const stateSelectedColors = {
   PRIMARY: "--primary-selected-color"
 };
 
+export const elementColorsNames = [...Object.keys(contentColorsByName), ...Object.keys(stateSelectedColors)].reduce(
+  (acc, key) => {
+    acc[key] = key;
+    return acc;
+  },
+  {}
+);
+
 export const getSelectedColor = colorName => {
   if (contentColorsByName[colorName]) {
     return `var(--color-${contentColorsByName[colorName]}-selected)`;

@@ -6,11 +6,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
 import { NOOP } from "../../utils/function-utils";
-import {
-  contentColorsByName,
-  stateSelectedColors,
-  getSelectedColor
-} from "../../general-stories/colors/colors-vars-map";
+import { elementColorsNames, getSelectedColor } from "../../general-stories/colors/colors-vars-map";
 import "./Chips.scss";
 
 const Chips = forwardRef(
@@ -74,10 +70,7 @@ const Chips = forwardRef(
   }
 );
 
-Chips.colors = [...Object.keys(contentColorsByName), ...Object.keys(stateSelectedColors)].reduce((acc, key) => {
-  acc[key] = key;
-  return acc;
-}, {});
+Chips.colors = elementColorsNames;
 
 Chips.propTypes = {
   className: PropTypes.string,
