@@ -5,7 +5,7 @@
   border: 1px solid;
   border-radius: 50%;
   overflow: hidden;
-  font-size: $font-size-avatar;
+
   @include theme-prop(border-color, primary-background-color);
   @include theme-prop(color, text-color-on-primary);
 
@@ -33,6 +33,13 @@
   }
 
   &_text {
+    font-size: $font-size-avatar;
+    font-family: $primary-font;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-for-size-18;
+    letter-spacing: -0.5px;
+    display: flex;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;

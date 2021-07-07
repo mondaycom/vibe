@@ -9,7 +9,6 @@ import { getSelectedColor, elementColorsNames } from "../../general-stories/colo
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
-// TODO: still need to figure it out: color
 export const Avatar = ({ className, size, img, text, role, ariaLabel, backgroundColor }) => {
   let avatarContent = useMemo(() => {
     if (img) avatarContent = <img role={role} alt={ariaLabel} src={img} className={bemHelper({ element: "image" })} />;
