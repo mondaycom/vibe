@@ -1,7 +1,6 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 .monday-style-avatar {
-  background: var(--color-asphalt-with-opacity);
   border: 1px solid;
   border-radius: 50%;
   overflow: hidden;
@@ -13,18 +12,46 @@
     $avatar-size-large: 50px;
     height: $avatar-size-large;
     width: $avatar-size-large;
+    .monday-style-avatar_text {
+      font-size: $font-size-avatar-large;
+    }
   }
 
   &--medium {
     $avatar-size-medium: 36px;
     height: $avatar-size-medium;
     width: $avatar-size-medium;
+    .monday-style-avatar_text {
+      font-size: $font-size-avatar-medium;
+    }
   }
 
   &--small {
     $avatar-size-small: 28px;
     height: $avatar-size-small;
     width: $avatar-size-small;
+
+    .monday-style-avatar_text {
+      font-size: $font-size-avatar-small;
+    }
+  }
+
+  &--is-disabled {
+    position: relative;
+    &:before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      opacity: 0.5;
+      @include theme-prop(background, disabled-background-color);
+    }
+
+  }
+
+  &--is-square {
+    border-radius: $border-radius-small;
   }
 
   &_image {
@@ -33,7 +60,6 @@
   }
 
   &_text {
-    font-size: $font-size-avatar;
     font-family: $primary-font;
     font-weight: $font-weight-normal;
     line-height: $line-height-for-size-18;

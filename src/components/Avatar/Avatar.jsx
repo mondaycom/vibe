@@ -9,7 +9,21 @@ import { getSelectedColor, elementColorsNames } from "../../general-stories/colo
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
-export const Avatar = ({ className, size, img, text, role, ariaLabel, backgroundColor }) => {
+export const Avatar = ({
+  className,
+  size,
+  img,
+  text,
+  role,
+  ariaLabel,
+  backgroundColor,
+  isSquare,
+  isDisabled,
+  topLeftIcon,
+  topRightIcon,
+  bottomLeftIcon,
+  bottomRightIcon
+}) => {
   let avatarContent = useMemo(() => {
     if (img) avatarContent = <img role={role} alt={ariaLabel} src={img} className={bemHelper({ element: "image" })} />;
     else
@@ -26,7 +40,13 @@ export const Avatar = ({ className, size, img, text, role, ariaLabel, background
   }, [backgroundColor]);
 
   return (
-    <div className={cx(AVATAR_CSS_BASE_CLASS, bemHelper({ state: size }), className)} style={backgroundColorStyle}>
+    <div
+      className={cx(AVATAR_CSS_BASE_CLASS, bemHelper({ state: size }), className, {
+        [bemHelper({ state: "is-disabled" })]: isDisabled,
+        [bemHelper({ state: "is-square" })]: isSquare
+      })}
+      style={backgroundColorStyle}
+    >
       {avatarContent}
     </div>
   );
@@ -36,7 +56,13 @@ Avatar.propTypes = {
   backgroundColor: PropTypes.oneOf(elementColorsNames),
   role: PropTypes.string,
   ariaLabel: PropTypes.string,
-  size: PropTypes.oneOf([AVATAR_SIZES.LARGE, AVATAR_SIZES.MEDIUM, AVATAR_SIZES.SMALL])
+  size: PropTypes.oneOf([AVATAR_SIZES.LARGE, AVATAR_SIZES.MEDIUM, AVATAR_SIZES.SMALL]),
+  isDisabled: PropTypes.bool,
+  isSquare: PropTypes.bool,
+  topLeftIcon: PropTypes.element,
+  topRightIcon: PropTypes.element,
+  bottomLeftIcon: PropTypes.element,
+  bottomRightIcon: PropTypes.element
 };
 
 Avatar.defaultProps = {
@@ -44,7 +70,13 @@ Avatar.defaultProps = {
   backgroundColor: elementColorsNames.PRIMARY,
   role: undefined,
   ariaLabel: "",
-  size: AVATAR_SIZES.LARGE
+  size: AVATAR_SIZES.LARGE,
+  isDisabled: false,
+  isSquare: false,
+  topLeftIcon: undefined,
+  topRightIcon: undefined,
+  bottomLeftIcon: undefined,
+  bottomRightIcon: undefined
 };
 
 Avatar.sizes = AVATAR_SIZES;

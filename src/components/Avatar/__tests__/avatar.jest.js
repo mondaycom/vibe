@@ -31,5 +31,10 @@ describe("AttentionBox Tests", () => {
       const tree = renderer.create(<Avatar />).toJSON();
       expect(tree).toMatchSnapshot();
     });
+
+    it("renders correctly square avatar", () => {
+      const tree = renderer.create(<Avatar isSquare />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 });

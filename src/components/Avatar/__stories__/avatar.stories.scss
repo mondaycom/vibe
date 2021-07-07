@@ -1,3 +1,11 @@
-.monday-style-attention-box-component-custom-class {
-  width: 340px;
+@import "../../../styles/global-css-settings.scss";
+
+.monday-style-story-avatar {
+  &_states {
+    display: flex;
+    align-items: center;
+  }
+  &_state {
+    margin-left:$spacing-medium;
+  }
 }

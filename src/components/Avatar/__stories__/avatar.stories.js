@@ -13,24 +13,40 @@ export const States = () => {
   return (
     <StoryWrapper componentClassName="monday-style-story-avatar">
       <StoryStateRow componentDescription="Avatar with image" componentClassName="monday-style-story-avatar_states">
-        <Avatar size={Avatar.sizes.LARGE} img={IMG_SRC} />
-        <Avatar size={Avatar.sizes.MEDIUM} img={IMG_SRC} />
-        <Avatar size={Avatar.sizes.SMALL} img={IMG_SRC} />
+        <Avatar size={Avatar.sizes.LARGE} img={IMG_SRC} className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.MEDIUM} img={IMG_SRC} className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.SMALL} img={IMG_SRC} className="monday-style-story-avatar_state" />
       </StoryStateRow>
-      <StoryStateRow componentDescription="Avatar with text">
-        <Avatar size={Avatar.sizes.LARGE} text="HF" />
-        <Avatar size={Avatar.sizes.MEDIUM} text="HF" />
-        <Avatar size={Avatar.sizes.SMALL} text="HF" />
+      <StoryStateRow componentDescription="Avatar with text" componentClassName="monday-style-story-avatar_states">
+        <Avatar size={Avatar.sizes.LARGE} text="HF" className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.MEDIUM} text="HF" className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.SMALL} text="HF" className="monday-style-story-avatar_state" />
       </StoryStateRow>
-      <StoryStateRow componentDescription="Avatar with icon">
-        <Avatar size={Avatar.sizes.LARGE} />
-        <Avatar size={Avatar.sizes.MEDIUM} />
-        <Avatar size={Avatar.sizes.SMALL} />
+      <StoryStateRow componentDescription="Avatar with icon" componentClassName="monday-style-story-avatar_states">
+        <Avatar size={Avatar.sizes.LARGE} className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.MEDIUM} className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.SMALL} className="monday-style-story-avatar_state" />
       </StoryStateRow>
-      <StoryStateRow componentDescription="Avatar with empty state">
-        <Avatar size={Avatar.sizes.LARGE} />
-        <Avatar size={Avatar.sizes.MEDIUM} />
-        <Avatar size={Avatar.sizes.SMALL} />
+      <StoryStateRow componentDescription="Square avatar" componentClassName="monday-style-story-avatar_states">
+        <Avatar size={Avatar.sizes.LARGE} text="W" isSquare className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.MEDIUM} text="W" isSquare className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.SMALL} text="W" isSquare className="monday-style-story-avatar_state" />
+      </StoryStateRow>
+      <StoryStateRow
+        componentDescription="Disabled avatar with image"
+        componentClassName="monday-style-story-avatar_states"
+      >
+        <Avatar size={Avatar.sizes.LARGE} img={IMG_SRC} isDisabled className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.MEDIUM} img={IMG_SRC} isDisabled className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.SMALL} img={IMG_SRC} isDisabled className="monday-style-story-avatar_state" />
+      </StoryStateRow>
+      <StoryStateRow
+        componentDescription="Disabled avatar with text"
+        componentClassName="monday-style-story-avatar_states"
+      >
+        <Avatar size={Avatar.sizes.LARGE} text="HF" isDisabled className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.MEDIUM} text="HF" isDisabled className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.SMALL} text="HF" isDisabled className="monday-style-story-avatar_state" />
       </StoryStateRow>
     </StoryWrapper>
   );
