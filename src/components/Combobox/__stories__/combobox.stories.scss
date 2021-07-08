@@ -1,0 +1,23 @@
+@import "../../../styles/states.scss";
+
+.container {
+  border: 1px solid;
+  padding: 16px;
+  width: 300px;
+
+  .combobox-wrapper {
+    height: 100%;
+    overflow: auto;
+    @include scroller;
+
+    .custom-icon {
+      width: 20px;
+      height: 20px;
+      background-color: yellow;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

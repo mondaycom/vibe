@@ -8,6 +8,10 @@
   width: fit-content;
   height: fit-content;
   @include theme-prop(color, dark-color);
+  &__text,
+  &__title-container {
+    @include theme-prop(color, primary-text-color);
+  }
   &--type {
     &-primary {
       @include theme-prop(color, primary-text-color);
@@ -41,7 +45,7 @@
     }
 
     &-dark {
-      @include theme-prop(background-color, dark-background-on-secondary-color);
+      @include theme-prop(background-color, primary-background-hover-color);
       @include theme-prop(color, primary-text-color);
 
       &__title-container {

@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import "./FontIcon.scss";
 import classNames from "classnames";
 
-const FontIcon = forwardRef(({ className, onClick, iconLabel, tabIndex, icon, role, ariaHidden }, iconRef) => {
+const FontIcon = forwardRef(({ className, onClick, iconLabel, tabIndex, icon, role = "img", ariaHidden }, iconRef) => {
   const iconClassName = typeof icon === "function" ? "" : icon;
   return (
     <span

@@ -21,7 +21,8 @@ exports[`MultiStepIndicator Render tests Renders correctly with non-default prop
         className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
       >
         <svg
-          aria-hidden={false}
+          aria-hidden="true"
+          aria-label="fulfilled"
           className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
           fill="currentColor"
           height="16"

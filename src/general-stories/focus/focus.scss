@@ -1,0 +1,15 @@
+.components-container {
+  margin: 12px 0;
+  width: 350px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.components-container-large {
+  margin: 12px 0;
+  width: 550px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.small-margin {
+  margin-left: var(--spacing-small);
+}

@@ -4,6 +4,13 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  Combobox: "/src/components/Combobox/Combobox.jsx",
+  TabPanels: "/src/components/Tabs/TabPanels/TabPanels.jsx",
+  TabsContext: "/src/components/Tabs/TabsContext/TabsContext.jsx",
+  TabPanel: "/src/components/Tabs/TabPanel/TabPanel.jsx",
+  Tab: "/src/components/Tabs/Tab/Tab.jsx",
+  TabList: "/src/components/Tabs/TabList/TabList.jsx",
+  Chips: "/src/components/Chips/Chips.jsx",
   BreadcrumbItem: "/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx",
   BreadcrumbsBar: "/src/components/BreadcrumbsBar/BreadcrumbsBar.jsx",
   ResponsiveList: "/src/components/ResponsiveList/ResponsiveList.jsx",
@@ -17,6 +24,7 @@ const publishedComponents = {
   MenuTitle: "/src/components/Menu/MenuTitle/MenuTitle.jsx",
   Divider: "/src/components/Divider/Divider.jsx",
   MenuItem: "/src/components/Menu/MenuItem/MenuItem.jsx",
+  MenuItemButton: "/src/components/Menu/MenuItemButton/MenuItemButton.jsx",
   MenuDivider: "/src/components/Menu/MenuDivider/MenuDivider.jsx",
   Menu: "/src/components/Menu/Menu/Menu.jsx",
   Dialog: "/src/components/Dialog/Dialog.jsx",
@@ -44,7 +52,16 @@ const publishedComponents = {
   useEventListener: "/src/hooks/useEventListener.js",
   useDebounceEvent: "/src/hooks/useDebounceEvent.js",
   useClickOutside: "/src/hooks/useClickOutside.js",
-  useResizeObserver: "/src/hooks/useResizeObserver.js"
+  useResizeObserver: "/src/hooks/useResizeObserver.js",
+  allIcons: "/src/components/Icon/Icons",
+  Link: "/src/components/Link/Link.jsx",
+  ButtonGroup: "/src/components/ButtonGroup/ButtonGroup.jsx",
+  AlertBanner: "/src/components/AlertBanner/AlertBanner.jsx",
+  AlertBannerLink: "/src/components/AlertBanner/AlertBannerLink/AlertBannerLink.jsx",
+  AlertBannerText: "/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx",
+  AlertBannerButton: "/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx",
+  Toggle: "/src/components/Toggle/Toggle.jsx",
+  Skeleton: "/src/components/Skeleton/Skeleton.jsx"
 };
 
 function getPublishedComponents(dirPath = "") {

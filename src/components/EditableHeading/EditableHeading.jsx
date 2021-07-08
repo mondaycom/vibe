@@ -6,6 +6,7 @@ import Heading from "../Heading/Heading";
 import EditableInput, { TEXTAREA_TYPE } from "../EditableInput/EditableInput";
 import { TYPES } from "../Heading/HeadingConstants";
 import { SIZES } from "../../constants/sizes";
+import usePrevious from "../../hooks/usePrevious";
 import "./EditableHeading.scss";
 
 const EditableHeading = props => {
@@ -27,6 +28,7 @@ const EditableHeading = props => {
   const [isEditing, setIsEditing] = useState(editing && !disabled);
   const [isError, setIsError] = useState(false);
   const [valueState, setValueState] = useState(value || "");
+  const prevValue = usePrevious(value);
 
   // Refs
   const ref = useRef(null);
@@ -74,8 +76,11 @@ const EditableHeading = props => {
 
   // Effects
   useEffect(() => {
-    setIsEditing(editing);
-  }, [editing, setIsEditing]);
+    // Update value if changed from props
+    if (!editing && value !== prevValue && value !== valueState) {
+      setValueState(value);
+    }
+  }, [editing, value, prevValue, valueState, setValueState]);
 
   useEffect(() => {
     let timer;
@@ -113,7 +118,7 @@ const EditableHeading = props => {
     const inputType = props.inputType || textAreaType;
     return {
       value: valueState,
-      className: `editable-heading-input heading-element-type-${props.type} size-${props.size}`,
+      className: `editable-heading-input element-type-${props.type} size-${props.size}`,
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,
@@ -132,7 +137,8 @@ const EditableHeading = props => {
       onFinishEditing: onFinishEditingCallback,
       onCancelEditing: onCancelEditingCallback,
       onError: onInputErrorCallback,
-      onSuccess: onInputSuccessCallback
+      onSuccess: onInputSuccessCallback,
+      ariaLabel: props.inputAriaLabel
     };
   };
 
@@ -169,7 +175,8 @@ EditableHeading.propTypes = {
   displayPlaceholderInTextMode: PropTypes.bool,
   suggestEditOnHover: PropTypes.bool,
   autoSize: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(SIZES))
+  size: PropTypes.oneOf(Object.values(SIZES)),
+  inputAriaLabel: PropTypes.string
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -180,7 +187,8 @@ EditableHeading.defaultProps = {
   displayPlaceholderInTextMode: true,
   suggestEditOnHover: true,
   autoSize: true,
-  size: SIZES.LARGE
+  size: SIZES.LARGE,
+  inputAriaLabel: undefined
 };
 
 EditableHeading.types = TYPES;

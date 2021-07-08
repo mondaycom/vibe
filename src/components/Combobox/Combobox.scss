@@ -1,0 +1,59 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/states.scss";
+
+.combobox--wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  @include font-general-text();
+
+  &.empty {
+    max-height: 200px;
+  }
+
+  &-search-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  &-search {
+    flex: 0 0 auto;
+  }
+
+  &-no-results {
+    flex: 1 1 auto;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+
+    .message-wrapper {
+      flex: 1 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .message {
+        @include ellipsis();
+      }
+    }
+
+    .add-new-button {
+      flex: 0 0 auto;
+      width: 100% !important;
+      margin-bottom: 8px;
+
+      .button-label {
+        @include ellipsis();
+      }
+    }
+  }
+
+  &-list {
+    flex: 1 1 auto;
+    padding: 8px 4px;
+  }
+}

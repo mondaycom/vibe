@@ -2,10 +2,9 @@
 @import "../../styles/typography.scss";
 
 .responsive-list--wrapper {
-  overflow: hidden;
   display: flex;
+  justify-content: flex-end;
   .responsive-list-menu-button {
-    margin-inline-start: auto;
     flex-shrink: 0;
   }
 }

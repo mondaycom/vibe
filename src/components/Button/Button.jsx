@@ -53,7 +53,8 @@ const Button = forwardRef(
       defaultTextColorOnPrimaryColor,
       ariaHasPopup,
       ariaExpanded,
-      ariaControls
+      ariaControls,
+      blurOnMouseUp
     },
     ref
   ) => {
@@ -89,8 +90,10 @@ const Button = forwardRef(
       if (!button) {
         return;
       }
-      button.blur();
-    }, [buttonRef]);
+      if (blurOnMouseUp) {
+        button.blur();
+      }
+    }, [buttonRef, blurOnMouseUp]);
 
     const onButtonClicked = useCallback(
       event => {
@@ -173,9 +176,9 @@ const Button = forwardRef(
         onMouseDown: onMouseDownClicked,
         "aria-labelledby": ariaLabeledBy,
         "aria-label": ariaLabel,
-        "aria-busy": loading,
+        "aria-busy": loading ? "true" : undefined,
         "aria-haspopup": ariaHasPopup,
-        "aria-expended": ariaExpanded,
+        "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls
       };
     }, [
@@ -198,6 +201,20 @@ const Button = forwardRef(
       ariaExpanded,
       ariaHasPopup
     ]);
+
+    const leftIconSize = useMemo(() => {
+      if (typeof leftIcon !== "function") return;
+      if (size === SIZES.SMALL) return "20";
+      if (size === SIZES.MEDIUM) return "24";
+      return "24";
+    }, [leftIcon, size]);
+
+    const rightIconSize = useMemo(() => {
+      if (typeof rightIcon !== "function") return;
+      if (size === SIZES.SMALL) return "20";
+      if (size === SIZES.MEDIUM) return "24";
+      return "24";
+    }, [rightIcon, size]);
 
     if (loading) {
       return (
@@ -235,6 +252,7 @@ const Button = forwardRef(
             iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={leftIcon}
+            iconSize={leftIconSize}
             className={cx({ "monday-style-button--left-icon": !!children })}
             ignoreFocusStyle
           />
@@ -245,6 +263,7 @@ const Button = forwardRef(
             iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={rightIcon}
+            iconSize={rightIconSize}
             className={cx({ "monday-style-button--right-icon": !!children })}
             ignoreFocusStyle
           />
@@ -265,6 +284,8 @@ Button.propTypes = {
   kind: PropTypes.oneOf([Button.kinds.PRIMARY, Button.kinds.SECONDARY, Button.kinds.TERTIARY]),
   onClick: PropTypes.func,
   onMouseDown: PropTypes.func,
+  /** Blur on button click */
+  blurOnMouseUp: PropTypes.bool,
   /** Name of the button - for form submit usages  */
   name: PropTypes.string,
   /** The size of a button is exposed on the component  */
@@ -275,7 +296,8 @@ Button.propTypes = {
     Button.colors.PRIMARY,
     Button.colors.NEGATIVE,
     Button.colors.POSITIVE,
-    Button.colors.ON_PRIMARY_COLOR
+    Button.colors.ON_PRIMARY_COLOR,
+    Button.colors.ON_INVERTED_BACKGROUND
   ]),
 
   /** The type of a button is exposed on the component  */
@@ -311,7 +333,7 @@ Button.propTypes = {
   /** aria label to provide important when providing only Icon */
   ariaLabel: PropTypes.string,
   /** aria for a button popup */
-  ariaHasPopup: PropTypes.bool,
+  ariaHasPopup: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /** aria to be set if the popup is open */
   ariaExpanded: PropTypes.bool,
   /** aria controls - receives id for the controlled region */
@@ -332,7 +354,8 @@ Button.defaultProps = {
   kind: BUTTON_TYPES.PRIMARY,
   onClick: NOOP,
   onMouseDown: NOOP,
-  name: "",
+  blurOnMouseUp: true,
+  name: undefined,
   style: undefined,
   size: SIZES.MEDIUM,
   color: BUTTON_COLORS.PRIMARY,
@@ -345,7 +368,7 @@ Button.defaultProps = {
   success: false,
   loading: false,
   active: false,
-  id: "",
+  id: undefined,
   marginRight: false,
   marginLeft: false,
   type: BUTTON_INPUT_TYPE.BUTTON,
@@ -356,8 +379,8 @@ Button.defaultProps = {
   onFocus: NOOP,
   onBlur: NOOP,
   defaultTextColorOnPrimaryColor: TRANSPARENT_COLOR,
-  ariaHasPopup: false,
-  ariaExpanded: false,
+  ariaHasPopup: undefined,
+  ariaExpanded: undefined,
   ariaControls: undefined,
   ariaLabel: undefined,
   ariaLabeledBy: undefined

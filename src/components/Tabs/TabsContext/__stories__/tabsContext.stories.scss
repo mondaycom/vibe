@@ -1,0 +1,16 @@
+@import "../../../../styles/themes";
+
+.tabs-context--wrapper {
+  height: 95vh;
+
+  .tab-panels--wrapper {
+    height: 80%;
+
+    .tab-panel--wrapper {
+      height: 100%;
+
+      padding: 8px;
+      @include theme-prop(background-color, primary-background-hover-color);
+    }
+  }
+}

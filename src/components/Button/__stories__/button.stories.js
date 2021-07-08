@@ -5,6 +5,7 @@ import StoryStateRow from "../../storybook-helpers/story-states-row/story-states
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
 import { withPerformance } from "storybook-addon-performance";
 import { TRANSPARENT_COLOR } from "../helper/dom-helpers";
+import { Add, Remove } from "../../Icon/Icons";
 
 export const DefaultStory = () => (
   <Button marginLeft marginRight>
@@ -388,6 +389,31 @@ export const Loading = () => (
     </StoryStateColumn>
   </StoryStateRow>
 );
+
+export const AdjacentButtons = () => {
+  return (
+    <StoryStateRow>
+      <Button
+        rightFlat
+        kind={Button.kinds.SECONDARY}
+        size={Button.sizes.SMALL}
+        preventClickAnimation
+        ariaLabel="decrease zoom level"
+      >
+        <Remove />
+      </Button>
+      <Button
+        leftFlat
+        kind={Button.kinds.SECONDARY}
+        size={Button.sizes.SMALL}
+        preventClickAnimation
+        ariaLabel="increase zoom level"
+      >
+        <Add />
+      </Button>
+    </StoryStateRow>
+  );
+};
 
 export default {
   title: "Components|Button",

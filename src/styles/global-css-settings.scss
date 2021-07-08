@@ -1,3 +1,5 @@
+@import "./themes";
+
 $box-shadow-small: 0 4px 8px -1px rgba(0, 0, 0, 0.2);
 $box-shadow-medium: 0px 6px 20px -2px rgba(0, 0, 0, 0.2);
 $box-shadow-large: 0px 15px 50px -10px rgba(0, 0, 0, 0.3);
@@ -30,16 +32,13 @@ $expand-animation-timing: cubic-bezier(0, 0, 0.35, 1);
 }
 
 @mixin box-shadow-small() {
-  box-shadow: $box-shadow-small;
-  box-shadow: 0 4px 8px -1px rgba(var(--theme-box-shadow), 0.2);
+  @include theme-prop(box-shadow, box-shadow-small);
 }
 
 @mixin box-shadow-medium() {
-  box-shadow: $box-shadow-medium;
-  box-shadow: 0px 6px 20px -2px rgba(var(--theme-box-shadow), 0.2);
+  @include theme-prop(box-shadow, box-shadow-medium);
 }
 
 @mixin box-shadow-large() {
-  box-shadow: $box-shadow-large;
-  box-shadow: 0px 15px 50px -10px rgba(var(--theme-box-shadow), 0.3);
+  @include theme-prop(box-shadow, box-shadow-large);
 }

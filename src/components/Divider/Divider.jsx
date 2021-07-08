@@ -17,7 +17,7 @@ Divider.defaultProps = {
 
 Divider.propTypes = {
   classname: PropTypes.string,
-  direction: PropTypes.oneOf([DIRECTIONS.HORIZONTAL, DIRECTIONS.VERTICAL])
+  direction: PropTypes.oneOf([Divider.directions.HORIZONTAL, Divider.directions.VERTICAL])
 };
 
 export default Divider;

@@ -6,13 +6,8 @@ exports[`Snapshots renders correctly with disabled 1`] = `
   role="button"
 >
   <button
-    aria-busy={false}
-    aria-expended={false}
-    aria-haspopup={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     disabled={true}
-    id=""
-    name=""
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -34,14 +29,11 @@ exports[`Snapshots renders correctly with disabled 1`] = `
       onMouseLeave={[Function]}
     >
       <button
-        aria-busy={false}
-        aria-expended={false}
+        aria-expanded={false}
         aria-haspopup={true}
         aria-label="additional actions"
         className="monday-style-split-button__secondary-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation monday-style-button--no-side-padding"
         disabled={true}
-        id=""
-        name=""
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -79,13 +71,8 @@ exports[`Snapshots renders correctly with only required props 1`] = `
   role="button"
 >
   <button
-    aria-busy={false}
-    aria-expended={false}
-    aria-haspopup={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     disabled={false}
-    id=""
-    name=""
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -107,14 +94,11 @@ exports[`Snapshots renders correctly with only required props 1`] = `
       onMouseLeave={[Function]}
     >
       <button
-        aria-busy={false}
-        aria-expended={false}
+        aria-expanded={false}
         aria-haspopup={true}
         aria-label="additional actions"
         className="monday-style-split-button__secondary-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation monday-style-button--no-side-padding"
         disabled={false}
-        id=""
-        name=""
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -152,13 +136,8 @@ exports[`Snapshots renders correctly with tertiary button 1`] = `
   role="button"
 >
   <button
-    aria-busy={false}
-    aria-expended={false}
-    aria-haspopup={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     disabled={true}
-    id=""
-    name=""
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -180,14 +159,11 @@ exports[`Snapshots renders correctly with tertiary button 1`] = `
       onMouseLeave={[Function]}
     >
       <button
-        aria-busy={false}
-        aria-expended={false}
+        aria-expanded={false}
         aria-haspopup={true}
         aria-label="additional actions"
         className="monday-style-split-button__secondary-button monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation monday-style-button--no-side-padding"
         disabled={true}
-        id=""
-        name=""
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}

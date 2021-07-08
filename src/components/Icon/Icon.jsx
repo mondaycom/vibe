@@ -38,11 +38,13 @@ const Icon = forwardRef(
       return null;
     }
 
-    if (iconType === ICON_TYPES.SVG || typeof icon === "function") {
+    if (iconType === ICON_TYPES.SVG || typeof icon === "function" || typeof icon === "object") {
       const IconComponent = icon;
       return (
         <IconComponent
-          aria-hidden={ariaHidden}
+          ref={mergedRef}
+          aria-hidden={clickable ? ariaHidden : "true"}
+          aria-label={iconLabel}
           size={iconSize.toString()}
           onClick={onClick}
           tabIndex={externalTabIndex ?? tabindex}
@@ -54,7 +56,7 @@ const Icon = forwardRef(
 
     return (
       <FontIcon
-        ariaHidden={ariaHidden}
+        aria-hidden={clickable ? ariaHidden : "true"}
         className={cx(computedClassName)}
         onClick={onClickCallback}
         ref={mergedRef}
@@ -92,7 +94,7 @@ Icon.defaultProps = {
   className: "",
   icon: "",
   clickable: true,
-  iconLabel: "",
+  iconLabel: undefined,
   iconType: ICON_TYPES.SVG,
   iconSize: 16,
   ignoreFocusStyle: false,

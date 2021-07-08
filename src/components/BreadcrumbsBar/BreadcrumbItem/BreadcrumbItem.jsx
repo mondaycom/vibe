@@ -43,6 +43,7 @@ const BreadcrumbItem = ({ className, text, isDisabled, isClickable, link, onClic
           onClick={onClick}
           text={text}
           icon={icon}
+          isCurrent={isCurrent}
         />
       </li>
     </Tooltip>

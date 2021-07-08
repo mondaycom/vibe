@@ -10,7 +10,6 @@ exports[`Checkbox Tests Snapshot Tests renders correctly 1`] = `
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={false}
-    id=""
     name="checkbox"
     onChange={[Function]}
     type="checkbox"
@@ -21,6 +20,7 @@ exports[`Checkbox Tests Snapshot Tests renders correctly 1`] = `
   >
     <svg
       aria-hidden={false}
+      aria-label="checkbox"
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
       height="16"
@@ -56,7 +56,6 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when checked 1`] = `
     checked={true}
     className="monday-style-checkbox__input"
     disabled={false}
-    id=""
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -67,6 +66,7 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when checked 1`] = `
   >
     <svg
       aria-hidden={false}
+      aria-label="checkbox"
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
       height="16"
@@ -102,7 +102,6 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when disabled 1`] = `
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={true}
-    id=""
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -113,6 +112,7 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when disabled 1`] = `
   >
     <svg
       aria-hidden={false}
+      aria-label="checkbox"
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
       height="16"
@@ -148,7 +148,6 @@ exports[`Checkbox Tests Snapshot Tests renders correctly with empty props 1`] = 
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={false}
-    id=""
     name=""
     onChange={[Function]}
     type="checkbox"
@@ -159,6 +158,7 @@ exports[`Checkbox Tests Snapshot Tests renders correctly with empty props 1`] = 
   >
     <svg
       aria-hidden={false}
+      aria-label="checkbox"
       className="icon_component monday-style-checkbox__icon icon_component--clickable icon_component--no-focus-style"
       fill="currentColor"
       height="16"
