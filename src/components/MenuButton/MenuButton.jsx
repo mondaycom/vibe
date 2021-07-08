@@ -176,7 +176,6 @@ const MenuButton = ({
           id={id}
           ref={buttonRef}
           type="button"
-          role="menu"
           className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
             [BEMClass("open")]: isOpen,
             [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
