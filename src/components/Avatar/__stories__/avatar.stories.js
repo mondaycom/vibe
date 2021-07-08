@@ -6,13 +6,13 @@ import { boolean, text } from "@storybook/addon-knobs";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import "./avatar.stories.scss";
 import { AvatarBadge } from "../AvatarBadge";
-import { Sun } from "../../Icon/Icons";
+import { Locked, Sun } from "../../Icon/Icons";
 
 const IMG_SRC =
   "https://files.monday.com/use1/photos/16447897/small/16447897-Hadas_Farhi_photo_2020_10_04_10_14_06.png?1601806446";
 
 export const States = () => {
-  const bottomLeftBadgeProps = useMemo(() => ({ icon: Sun }));
+  const bottomLeftBadgeProps = useMemo(() => ({ icon: Locked }));
   return (
     <StoryWrapper componentClassName="monday-style-story-avatar">
       <StoryStateRow componentDescription="Avatar with image" componentClassName="monday-style-story-avatar_states">
@@ -21,7 +21,12 @@ export const States = () => {
         <Avatar size={Avatar.sizes.SMALL} img={IMG_SRC} className="monday-style-story-avatar_state" />
       </StoryStateRow>
       <StoryStateRow componentDescription="Avatar with text" componentClassName="monday-style-story-avatar_states">
-        <Avatar size={Avatar.sizes.LARGE} text="HF" className="monday-style-story-avatar_state" />
+        <Avatar
+          size={Avatar.sizes.LARGE}
+          text="HF"
+          className="monday-style-story-avatar_state"
+          backgroundColor={Avatar.colors.GRASS_GREEN}
+        />
         <Avatar size={Avatar.sizes.MEDIUM} text="HF" className="monday-style-story-avatar_state" />
         <Avatar size={Avatar.sizes.SMALL} text="HF" className="monday-style-story-avatar_state" />
       </StoryStateRow>

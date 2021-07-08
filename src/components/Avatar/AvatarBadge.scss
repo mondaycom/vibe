@@ -2,5 +2,14 @@
   $avatar-badge-size: 19px;
   height: $avatar-badge-size;
   width: $avatar-badge-size;
-
+  stroke: white;
+  color: red;
+  stroke-width: 1px;
+  &:before {
+    content: "";
+    height: 200px;
+    width: 200px;
+    display: flex;
+    background: red;
+  }
 }

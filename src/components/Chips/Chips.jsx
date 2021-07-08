@@ -6,7 +6,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
 import { NOOP } from "../../utils/function-utils";
-import { elementColorsNames, getSelectedColor } from "../../general-stories/colors/colors-vars-map";
+import { elementColorsNames, getElementColor } from "../../general-stories/colors/colors-vars-map";
 import "./Chips.scss";
 
 const Chips = forwardRef(
@@ -15,7 +15,7 @@ const Chips = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const backgroundColorStyle = useMemo(() => {
-      return { backgroundColor: disabled ? getCSSVar("disabled-background-color") : getSelectedColor(color) };
+      return { backgroundColor: disabled ? getCSSVar("disabled-background-color") : getElementColor(color, true) };
     }, [disabled, color]);
 
     const onDeleteCallback = useCallback(() => {

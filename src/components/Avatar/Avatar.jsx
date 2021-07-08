@@ -64,14 +64,14 @@ export const Avatar = ({
     }
     if (!isNil(bottomLeftBadgeProps)) {
       badges.push(
-        <div className={cx(bemHelper({ element: "badge", state: "top-right" }))}>
+        <div className={cx(bemHelper({ element: "badge", state: "bottom-left" }))}>
           <AvatarBadge size={avatarSize} {...bottomLeftBadgeProps} />
         </div>
       );
     }
     if (!isNil(bottomRightBadgeProps)) {
       badges.push(
-        <div className={cx(bemHelper({ element: "badge", state: "top-right" }))}>
+        <div className={cx(bemHelper({ element: "badge", state: "bottom-right" }))}>
           <AvatarBadge size={avatarSize} {...bottomRightBadgeProps} />
         </div>
       );
@@ -81,17 +81,12 @@ export const Avatar = ({
   }, [topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
   return (
-    <div className={AVATAR_CSS_BASE_CLASS}>
+    <div className={cx(AVATAR_CSS_BASE_CLASS, className)}>
       <div
-        className={cx(
-          bemHelper({ element: "circle" }),
-          bemHelper({ element: "circle", state: avatarSize }),
-          className,
-          {
-            [bemHelper({ element: "circle", state: "is-disabled" })]: isDisabled,
-            [bemHelper({ element: "circle", state: "is-square" })]: isSquare
-          }
-        )}
+        className={cx(bemHelper({ element: "circle" }), bemHelper({ element: "circle", state: avatarSize }), {
+          [bemHelper({ element: "circle", state: "is-disabled" })]: isDisabled,
+          [bemHelper({ element: "circle", state: "is-square" })]: isSquare
+        })}
         aria-hidden={ariaHidden}
         tabIndex={tabIndex}
         style={backgroundColorStyle}

@@ -8,6 +8,7 @@ import {
   AVATAR_SIZES,
   AVATAR_ALLOWED_SIZES
 } from "./AvatarConstants";
+import "./AvatarBadge.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar-badge";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);

@@ -173,9 +173,9 @@ export const elementColorsNames = [...Object.keys(contentColorsByName), ...Objec
   {}
 );
 
-export const getSelectedColor = colorName => {
+export const getElementColor = (colorName, isSelected = false) => {
   if (contentColorsByName[colorName]) {
-    return `var(--color-${contentColorsByName[colorName]}-selected)`;
+    return `var(--color-${contentColorsByName[colorName]}${isSelected ? "--selected" : ""}`;
   }
   if (stateSelectedColors[colorName]) {
     return `var(${stateSelectedColors[colorName]})`;
