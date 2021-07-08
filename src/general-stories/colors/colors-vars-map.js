@@ -164,14 +164,11 @@ export const stateSelectedColors = {
   NEGATIVE: "--negative-color-selected",
   PRIMARY: "--primary-selected-color"
 };
-
-export const elementColorsNames = [...Object.keys(contentColorsByName), ...Object.keys(stateSelectedColors)].reduce(
-  (acc, key) => {
-    acc[key] = key;
-    return acc;
-  },
-  {}
-);
+export const elementAllowedColors = [...Object.keys(contentColorsByName), ...Object.keys(stateSelectedColors)];
+export const elementColorsNames = elementAllowedColors.reduce((acc, key) => {
+  acc[key] = key;
+  return acc;
+}, {});
 
 export const getElementColor = (colorName, isSelected = false) => {
   if (contentColorsByName[colorName]) {

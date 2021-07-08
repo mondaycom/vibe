@@ -1,15 +1,23 @@
 .monday-style-avatar-badge {
-  $avatar-badge-size: 19px;
-  height: $avatar-badge-size;
-  width: $avatar-badge-size;
   stroke: white;
   color: red;
   stroke-width: 1px;
-  &:before {
-    content: "";
-    height: 200px;
-    width: 200px;
-    display: flex;
-    background: red;
+
+  &--large{
+    $avatar-badge-size-large: 19px;
+    height: $avatar-badge-size-large;
+    width: $avatar-badge-size-large;
+  }
+
+  &--medium {
+    $avatar-badge-size-medium: 13px;
+    height: $avatar-badge-size-medium;
+    width: $avatar-badge-size-medium;
+  }
+
+  &--small {
+    $avatar-badge-size-small: 10px;
+    height: $avatar-badge-size-small;
+    width: $avatar-badge-size-small;
   }
 }
