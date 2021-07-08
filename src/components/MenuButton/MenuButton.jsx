@@ -109,6 +109,8 @@ const MenuButton = ({
 
     const childrenArr = React.Children.toArray(children);
     const cloned = childrenArr.map(child => {
+      if (!React.isValidElement(child)) return null;
+
       const newProps = {};
       if (child.type && child.type.supportFocusOnMount) {
         newProps.focusOnMount = true;
