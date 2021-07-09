@@ -5,12 +5,13 @@ import { Avatar } from "../Avatar";
 import { boolean, number, select, text } from "@storybook/addon-knobs";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import { AvatarBadge } from "../AvatarBadge";
-import { Locked } from "../../Icon/Icons";
+import { Locked, WhatsNew } from "../../Icon/Icons";
 import StoryTitle from "../../storybook-helpers/story-title/story-title";
 import { contentColors } from "../../../general-stories/colors/colors-vars-map";
 import { stateSelectedColors } from "../../../general-stories/colors/colors-vars-map";
 import "./avatar.stories.scss";
 import { AVATAR_ALLOWED_SIZES } from "../AvatarConstants";
+import Icon from "../../Icon/Icon";
 
 const IMG_SRC =
   "https://files.monday.com/use1/photos/16447897/small/16447897-Hadas_Farhi_photo_2020_10_04_10_14_06.png?1601806446";
@@ -28,46 +29,46 @@ export const States = () => {
       <StoryStateRow componentDescription="Avatar with text" componentClassName="monday-style-story-avatar_states">
         <Avatar
           size={Avatar.sizes.LARGE}
-          children="HF"
+          text="HF"
           className="monday-style-story-avatar_state"
-          backgroundColor={Avatar.colors.GRASS_GREEN}
+          backgroundColor={Avatar.colors.PURPLE}
         />
         <Avatar
           size={Avatar.sizes.MEDIUM}
-          children="HF"
+          text="HF"
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.WORKING_ORANGE}
         />
         <Avatar
           size={Avatar.sizes.SMALL}
-          children="HF"
+          text="HF"
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.INDIGO}
         />
       </StoryStateRow>
       <StoryStateRow componentDescription="Avatar with icon" componentClassName="monday-style-story-avatar_states">
-        <Avatar size={Avatar.sizes.LARGE} className="monday-style-story-avatar_state" />
-        <Avatar size={Avatar.sizes.MEDIUM} className="monday-style-story-avatar_state" />
-        <Avatar size={Avatar.sizes.SMALL} className="monday-style-story-avatar_state" />
+        <Avatar size={Avatar.sizes.LARGE} className="monday-style-story-avatar_state" isSquare icon={WhatsNew} />
+        <Avatar size={Avatar.sizes.MEDIUM} className="monday-style-story-avatar_state" isSquare icon={WhatsNew} />
+        <Avatar size={Avatar.sizes.SMALL} className="monday-style-story-avatar_state" isSquare icon={WhatsNew} />
       </StoryStateRow>
       <StoryStateRow componentDescription="Square avatar" componentClassName="monday-style-story-avatar_states">
         <Avatar
           size={Avatar.sizes.LARGE}
-          children="W"
+          text="W"
           isSquare
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.DONE_GREEN}
         />
         <Avatar
           size={Avatar.sizes.MEDIUM}
-          children="W"
+          text="W"
           isSquare
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.LIPSTICK}
         />
         <Avatar
           size={Avatar.sizes.SMALL}
-          children="W"
+          text="W"
           isSquare
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.RIVER}
@@ -87,21 +88,21 @@ export const States = () => {
       >
         <Avatar
           size={Avatar.sizes.LARGE}
-          children="HF"
+          text="HF"
           backgroundColor={Avatar.colors.GRASS_GREEN}
           isDisabled
           className="monday-style-story-avatar_state"
         />
         <Avatar
           size={Avatar.sizes.MEDIUM}
-          children="HF"
+          text="HF"
           backgroundColor={Avatar.colors.WORKING_ORANGE}
           isDisabled
           className="monday-style-story-avatar_state"
         />
         <Avatar
           size={Avatar.sizes.SMALL}
-          children="HF"
+          text="HF"
           backgroundColor={Avatar.colors.INDIGO}
           isDisabled
           className="monday-style-story-avatar_state"
@@ -110,7 +111,7 @@ export const States = () => {
       <StoryStateRow componentDescription="Avatar with badges" componentClassName="monday-style-story-avatar_states">
         <Avatar
           size={Avatar.sizes.LARGE}
-          children="HF"
+          text="HF"
           className="monday-style-story-avatar_state"
           bottomLeftBadgeProps={bottomLeftBadgeProps}
           bottomRightBadgeProps={bottomLeftBadgeProps}
@@ -119,7 +120,7 @@ export const States = () => {
         />
         <Avatar
           size={Avatar.sizes.MEDIUM}
-          children="HF"
+          text="HF"
           className="monday-style-story-avatar_state"
           bottomLeftBadgeProps={bottomLeftBadgeProps}
           bottomRightBadgeProps={bottomLeftBadgeProps}
@@ -128,7 +129,7 @@ export const States = () => {
         />
         <Avatar
           size={Avatar.sizes.SMALL}
-          children="HF"
+          text="HF"
           className="monday-style-story-avatar_state"
           bottomLeftBadgeProps={bottomLeftBadgeProps}
           bottomRightBadgeProps={bottomLeftBadgeProps}
@@ -145,7 +146,7 @@ export const Sandbox = () => {
     <StoryWrapper>
       <StoryTitle text="Avatar Sandbox" />
       <Avatar
-        children={text("Text", "S")}
+        text={text("Text", "S")}
         ariaLabel={text("Aria Label", "My avatar")}
         isDisabled={boolean("Is disabled", false)}
         size={select("Size", Avatar.sizes.LARGE, AVATAR_ALLOWED_SIZES)}

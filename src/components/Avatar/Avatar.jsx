@@ -16,7 +16,8 @@ export const Avatar = ({
   className,
   size,
   img,
-  children,
+  icon,
+  text,
   role,
   ariaLabel,
   backgroundColor,
@@ -31,17 +32,24 @@ export const Avatar = ({
 }) => {
   const avatarType = isNil(img) ? "text" : "img";
   const avatarSize = AVATAR_ALLOWED_SIZES.indexOf(size) > -1 ? size : AVATAR_SIZES.LARGE;
-  const avatarContent = useMemo(
-    () =>
-      img ? (
-        <img role={role} alt={ariaLabel} src={img} className={bemHelper({ element: "image" })} />
-      ) : (
-        <span className={bemHelper({ element: "text" })} aria-label={ariaLabel} role={role}>
-          {children}
-        </span>
-      ),
-    [role, ariaLabel, img, children]
-  );
+  const avatarContent = useMemo(() => {
+    if (img) return <img role={role} alt={ariaLabel} src={img} className={bemHelper({ element: "image" })} />;
+    if (icon)
+      return (
+        <Icon
+          icon={icon}
+          aria-label={ariaLabel}
+          role={role}
+          clickable={false}
+          className={bemHelper({ element: "icon" })}
+        />
+      );
+    return (
+      <span className={bemHelper({ element: "text" })} aria-label={ariaLabel} role={role}>
+        {text}
+      </span>
+    );
+  }, [role, ariaLabel, img, text]);
 
   const backgroundColorStyle = useMemo(() => {
     return { backgroundColor: getElementColor(backgroundColor) };

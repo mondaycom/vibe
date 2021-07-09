@@ -7,6 +7,9 @@
     border: 1px solid;
     border-radius: 50%;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include theme-prop(color, text-color-on-primary);
 
     &--large {
@@ -17,6 +20,13 @@
       .monday-style-avatar_text {
         font-size: $font-size-avatar-large;
       }
+
+      .monday-style-avatar_icon {
+        $avatar-icon-large: 28px;
+        height:  $avatar-icon-large;
+        width: $avatar-icon-large;
+      }
+
     }
 
     &--medium {
@@ -27,6 +37,13 @@
       .monday-style-avatar_text {
         font-size: $font-size-avatar-medium;
       }
+
+      .monday-style-avatar_icon {
+        $avatar-icon-medium: 18px;
+        height:  $avatar-icon-medium;
+        width: $avatar-icon-medium;
+      }
+
     }
 
     &--small {
@@ -36,6 +53,12 @@
 
       .monday-style-avatar_text {
         font-size: $font-size-avatar-small;
+      }
+
+      .monday-style-avatar_icon {
+        $avatar-icon-small: 12px;
+        height:  $avatar-icon-small;
+        width: $avatar-icon-small;
       }
     }
 
