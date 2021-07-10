@@ -122,10 +122,10 @@ Avatar.propTypes = {
   ariaHidden: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isSquare: PropTypes.bool,
-  topLeftIcon: PropTypes.instanceOf(Icon),
-  topRightIcon: PropTypes.instanceOf(Icon),
-  bottomLeftIcon: PropTypes.instanceOf(Icon),
-  bottomRightIcon: PropTypes.instanceOf(Icon)
+  topLeftIconProps: PropTypes.object,
+  topRightIconProps: PropTypes.object,
+  bottomLeftIconProps: PropTypes.object,
+  bottomRightIconProps: PropTypes.object
 };
 
 Avatar.defaultProps = {
@@ -139,10 +139,10 @@ Avatar.defaultProps = {
   ariaHidden: false,
   isDisabled: false,
   isSquare: false,
-  topLeftIcon: undefined,
-  topRightIcon: undefined,
-  bottomLeftIcon: undefined,
-  bottomRightIcon: undefined
+  topLeftIconProps: undefined,
+  topRightIconProps: undefined,
+  bottomLeftIconProps: undefined,
+  bottomRightIconProps: undefined
 };
 
 Avatar.sizes = AVATAR_SIZES;
