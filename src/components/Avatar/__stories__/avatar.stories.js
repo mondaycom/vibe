@@ -4,20 +4,18 @@ import { StoryStateRow } from "../../storybook-helpers";
 import { Avatar } from "../Avatar";
 import { boolean, number, select, text } from "@storybook/addon-knobs";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
-import { AvatarBadge } from "../AvatarBadge";
-import { Locked, WhatsNew } from "../../Icon/Icons";
+import { WhatsNew } from "../../Icon/Icons";
 import StoryTitle from "../../storybook-helpers/story-title/story-title";
-import { contentColors } from "../../../general-stories/colors/colors-vars-map";
-import { stateSelectedColors } from "../../../general-stories/colors/colors-vars-map";
-import "./avatar.stories.scss";
 import { AVATAR_ALLOWED_SIZES } from "../AvatarConstants";
-import Icon from "../../Icon/Icon";
+import CustomSvgIcon from "../../Icon/CustomSvgIcon";
+import "./avatar.stories.scss";
 
 const IMG_SRC =
   "https://files.monday.com/use1/photos/16447897/small/16447897-Hadas_Farhi_photo_2020_10_04_10_14_06.png?1601806446";
+const BADGE_SRC = "https://cdn7.monday.com/images/working-status/wfh.svg";
 
 export const States = () => {
-  const bottomLeftBadgeProps = useMemo(() => ({ icon: Locked }));
+  const badgeProps = useMemo(() => ({ src: BADGE_SRC }), []);
   return (
     <StoryWrapper componentClassName="monday-style-story-avatar">
       <StoryTitle text="Avatar States" />
@@ -108,33 +106,56 @@ export const States = () => {
           className="monday-style-story-avatar_state"
         />
       </StoryStateRow>
-      <StoryStateRow componentDescription="Avatar with badges" componentClassName="monday-style-story-avatar_states">
+      <StoryStateRow
+        componentDescription="Avatar with top badges"
+        componentClassName="monday-style-story-avatar_states"
+      >
         <Avatar
           size={Avatar.sizes.LARGE}
-          text="HF"
+          text="RM"
           className="monday-style-story-avatar_state"
-          bottomLeftBadgeProps={bottomLeftBadgeProps}
-          bottomRightBadgeProps={bottomLeftBadgeProps}
-          topLeftBadgeProps={bottomLeftBadgeProps}
-          topRightBadgeProps={bottomLeftBadgeProps}
+          topLeftBadgeProps={badgeProps}
+          topRightBadgeProps={badgeProps}
         />
         <Avatar
           size={Avatar.sizes.MEDIUM}
-          text="HF"
+          text="RM"
           className="monday-style-story-avatar_state"
-          bottomLeftBadgeProps={bottomLeftBadgeProps}
-          bottomRightBadgeProps={bottomLeftBadgeProps}
-          topLeftBadgeProps={bottomLeftBadgeProps}
-          topRightBadgeProps={bottomLeftBadgeProps}
+          topLeftBadgeProps={badgeProps}
+          topRightBadgeProps={badgeProps}
         />
         <Avatar
           size={Avatar.sizes.SMALL}
-          text="HF"
+          text="RM"
           className="monday-style-story-avatar_state"
-          bottomLeftBadgeProps={bottomLeftBadgeProps}
-          bottomRightBadgeProps={bottomLeftBadgeProps}
-          topLeftBadgeProps={bottomLeftBadgeProps}
-          topRightBadgeProps={bottomLeftBadgeProps}
+          topLeftBadgeProps={badgeProps}
+          topRightBadgeProps={badgeProps}
+        />
+      </StoryStateRow>
+      <StoryStateRow
+        componentDescription="Avatar with bottom badges"
+        componentClassName="monday-style-story-avatar_states"
+      >
+        <Avatar
+          size={Avatar.sizes.LARGE}
+          text="RM"
+          className="monday-style-story-avatar_state"
+          bottomLeftBadgeProps={badgeProps}
+          bottomRightBadgeProps={badgeProps}
+        />
+        <Avatar
+          size={Avatar.sizes.MEDIUM}
+          text="RM"
+          className="monday-style-story-avatar_state"
+          bottomLeftBadgeProps={badgeProps}
+          bottomRightBadgeProps={badgeProps}
+        />
+        <Avatar
+          size={Avatar.sizes.SMALL}
+          text="RM"
+          className="monday-style-story-avatar_state"
+          bottomLeftBadgeProps={badgeProps}
+          bottomRightBadgeProps={badgeProps}
         />
       </StoryStateRow>
     </StoryWrapper>
