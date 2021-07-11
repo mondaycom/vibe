@@ -174,7 +174,7 @@ export const getElementColor = (colorName, isSelected = false) => {
   if (contentColorsByName[colorName]) {
     return `var(--color-${contentColorsByName[colorName]}${isSelected ? "--selected" : ""}`;
   }
-  if (stateSelectedColors[colorName]) {
+  if (stateSelectedColors[colorName] && isSelected) {
     return `var(${stateSelectedColors[colorName]})`;
   }
   return colorName;
