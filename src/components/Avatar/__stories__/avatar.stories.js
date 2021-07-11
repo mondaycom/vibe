@@ -1,13 +1,12 @@
 import React, { useMemo } from "react";
 import { withPerformance } from "storybook-addon-performance";
 import { StoryStateRow } from "../../storybook-helpers";
-import { Avatar } from "../Avatar";
+import Avatar from "../Avatar";
 import { boolean, number, select, text } from "@storybook/addon-knobs";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import { WhatsNew } from "../../Icon/Icons";
 import StoryTitle from "../../storybook-helpers/story-title/story-title";
 import { AVATAR_ALLOWED_SIZES } from "../AvatarConstants";
-import CustomSvgIcon from "../../Icon/CustomSvgIcon";
 import "./avatar.stories.scss";
 
 const IMG_SRC =

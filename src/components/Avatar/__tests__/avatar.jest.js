@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { Avatar } from "../Avatar";
+import Avatar from "../Avatar";
 import { WhatsNew } from "../../Icon/Icons";
 
 jest.mock("../../Icon/Icon", () => ({ icon }) => <div data-testid="icon-mock">{icon}</div>);

@@ -1,12 +1,11 @@
 import { select, number } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
-import { Skeleton } from "../Skeleton";
+import Skeleton from "../Skeleton";
 import Heading from "../../Heading/Heading";
 import { TYPES } from "../../Heading/HeadingConstants";
 import StoryTitle from "../../storybook-helpers/story-title/story-title";
 import { SKELETON_ALLOWED_SIZES } from "../SkeletonConstants";
-import { ComponentStateDescription, StoryStateRow } from "../../storybook-helpers";
 import React from "react";
 import "./skeleton.stories.scss";
 
