@@ -4,15 +4,15 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { AVATAR_SIZES, AVATAR_ALLOWED_SIZES } from "./AvatarConstants";
-import "./Avatar.scss";
 import { getElementColor, elementColorsNames } from "../../general-stories/colors/colors-vars-map";
 import Icon from "../Icon/Icon";
 import { AvatarBadge } from "./AvatarBadge";
+import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
-export const Avatar = ({
+const Avatar = ({
   className,
   size,
   img,
@@ -122,10 +122,10 @@ Avatar.propTypes = {
   ariaHidden: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isSquare: PropTypes.bool,
-  topLeftIconProps: PropTypes.object,
-  topRightIconProps: PropTypes.object,
-  bottomLeftIconProps: PropTypes.object,
-  bottomRightIconProps: PropTypes.object
+  topLeftBadgeProps: PropTypes.object,
+  topRightBadgeProps: PropTypes.object,
+  bottomLeftBadgeProps: PropTypes.object,
+  bottomRightBadgeProps: PropTypes.object
 };
 
 Avatar.defaultProps = {
@@ -139,11 +139,13 @@ Avatar.defaultProps = {
   ariaHidden: false,
   isDisabled: false,
   isSquare: false,
-  topLeftIconProps: undefined,
-  topRightIconProps: undefined,
-  bottomLeftIconProps: undefined,
-  bottomRightIconProps: undefined
+  topLeftBadgeProps: undefined,
+  topRightBadgeProps: undefined,
+  bottomLeftBadgeProps: undefined,
+  bottomRightBadgeProps: undefined
 };
 
 Avatar.sizes = AVATAR_SIZES;
 Avatar.colors = elementColorsNames;
+
+export default Avatar;
