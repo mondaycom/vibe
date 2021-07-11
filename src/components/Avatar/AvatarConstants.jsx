@@ -9,8 +9,6 @@ export const AVATAR_SIZES = {
 };
 export const AVATAR_ALLOWED_SIZES = Object.values(AVATAR_SIZES);
 
-// This is different from dialog positions terminology. but, start and end it's not clear (what is start? what is end?)
-// and this css syntax is not yes work in all browsers
 export const AVATAR_BADGE_POSITIONS = {
   TOP_RIGHT: "top-right",
   BOTTOM_RIGHT: "bottom-right",

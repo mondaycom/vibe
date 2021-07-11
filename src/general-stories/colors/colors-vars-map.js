@@ -170,11 +170,11 @@ export const elementColorsNames = elementAllowedColors.reduce((acc, key) => {
   return acc;
 }, {});
 
-export const getElementColor = (colorName, isSelected = false) => {
+export const getElementColor = (colorName, isSelectedPalette = false) => {
   if (contentColorsByName[colorName]) {
-    return `var(--color-${contentColorsByName[colorName]}${isSelected ? "--selected" : ""}`;
+    return `var(--color-${contentColorsByName[colorName]}${isSelectedPalette ? "--selected" : ""}`;
   }
-  if (stateSelectedColors[colorName] && isSelected) {
+  if (stateSelectedColors[colorName] && isSelectedPalette) {
     return `var(${stateSelectedColors[colorName]})`;
   }
   return colorName;
