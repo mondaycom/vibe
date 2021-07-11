@@ -43,6 +43,7 @@
 
       .monday-style-avatar_text {
         font-size: $font-size-avatar-medium;
+        margin-top: 1px;
       }
 
       .monday-style-avatar_icon {
@@ -59,6 +60,7 @@
       width: $avatar-size-small;
 
       .monday-style-avatar_text {
+        margin-top: 1px;
         font-size: $font-size-avatar-small;
       }
 
@@ -84,8 +86,8 @@
         width: 100%;
         position: absolute;
         top: 0;
-        opacity: 0.5;
-        @include theme-prop(background, disabled-background-color);
+        opacity: 0.7;
+        @include theme-prop(background, primary-background-color);
       }
     }
 

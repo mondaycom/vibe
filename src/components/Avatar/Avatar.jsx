@@ -52,7 +52,7 @@ const Avatar = ({
   }, [role, ariaLabel, img, text]);
 
   const backgroundColorStyle = useMemo(() => {
-    return { backgroundColor: getElementColor(backgroundColor) };
+    return img ? undefined : { backgroundColor: getElementColor(backgroundColor) };
   }, [backgroundColor]);
 
   const badgesContainer = useMemo(() => {
