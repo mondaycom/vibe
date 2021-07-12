@@ -3,7 +3,7 @@ import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
-import { AVATAR_SIZES, AVATAR_ALLOWED_SIZES, AVATAR_TYPES, AVATAR_ALLOWED_TYPES } from "./AvatarConstants";
+import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { getElementColor, elementColorsNames } from "../../general-stories/colors/colors-vars-map";
 import { AvatarBadge } from "./AvatarBadge";
 import "./Avatar.scss";
@@ -31,8 +31,6 @@ const Avatar = ({
   bottomLeftBadgeProps,
   bottomRightBadgeProps
 }) => {
-  const avatarType = AVATAR_ALLOWED_TYPES.indexOf(type) > -1 ? type : AVATAR_TYPES.TEXT;
-  const avatarSize = AVATAR_ALLOWED_SIZES.indexOf(size) > -1 ? size : AVATAR_SIZES.LARGE;
   const backgroundColorStyle = useMemo(() => {
     return src ? undefined : { backgroundColor: getElementColor(backgroundColor) };
   }, [backgroundColor]);
@@ -42,28 +40,28 @@ const Avatar = ({
     if (!isNil(topLeftBadgeProps)) {
       badges.push(
         <div className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "top-left" }))}>
-          <AvatarBadge size={avatarSize} {...topLeftBadgeProps} />
+          <AvatarBadge size={size} {...topLeftBadgeProps} />
         </div>
       );
     }
     if (!isNil(topRightBadgeProps)) {
       badges.push(
         <div className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "top-right" }))}>
-          <AvatarBadge size={avatarSize} {...topRightBadgeProps} />
+          <AvatarBadge size={size} {...topRightBadgeProps} />
         </div>
       );
     }
     if (!isNil(bottomLeftBadgeProps)) {
       badges.push(
         <div className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "bottom-left" }))}>
-          <AvatarBadge size={avatarSize} {...bottomLeftBadgeProps} />
+          <AvatarBadge size={size} {...bottomLeftBadgeProps} />
         </div>
       );
     }
     if (!isNil(bottomRightBadgeProps)) {
       badges.push(
         <div className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "bottom-right" }))}>
-          <AvatarBadge size={avatarSize} {...bottomRightBadgeProps} />
+          <AvatarBadge size={size} {...bottomRightBadgeProps} />
         </div>
       );
     }
@@ -76,8 +74,8 @@ const Avatar = ({
       <div
         className={cx(
           bemHelper({ element: "circle" }),
-          bemHelper({ element: "circle", state: avatarType }),
-          bemHelper({ element: "circle", state: avatarSize }),
+          bemHelper({ element: "circle", state: type }),
+          bemHelper({ element: "circle", state: size }),
           {
             [bemHelper({ element: "circle", state: "is-disabled" })]: isDisabled,
             [bemHelper({ element: "circle", state: "is-square" })]: isSquare
@@ -87,29 +85,25 @@ const Avatar = ({
         tabIndex={tabIndex}
         style={backgroundColorStyle}
       >
-        <AvatarContent
-          type={avatarType}
-          size={avatarSize}
-          src={src}
-          icon={icon}
-          text={text}
-          ariaLabel={ariaLabel}
-          role={role}
-        />
+        <AvatarContent type={type} size={size} src={src} icon={icon} text={text} ariaLabel={ariaLabel} role={role} />
       </div>
       {badgesContainer}
     </div>
   );
 };
 
+Avatar.types = AVATAR_TYPES;
+Avatar.sizes = AVATAR_SIZES;
+Avatar.colors = elementColorsNames;
+
 Avatar.propTypes = {
   src: PropTypes.string,
-  type: PropTypes.oneOf(AVATAR_ALLOWED_TYPES),
+  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   className: PropTypes.string,
-  backgroundColor: PropTypes.oneOf(elementColorsNames),
+  backgroundColor: PropTypes.oneOf(Object.keys(Avatar.colors)),
   role: PropTypes.string,
   ariaLabel: PropTypes.string,
-  size: PropTypes.oneOf(AVATAR_ALLOWED_SIZES),
+  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   ariaHidden: PropTypes.bool,
   isDisabled: PropTypes.bool,
@@ -137,9 +131,5 @@ Avatar.defaultProps = {
   bottomLeftBadgeProps: undefined,
   bottomRightBadgeProps: undefined
 };
-
-Avatar.types = AVATAR_TYPES;
-Avatar.sizes = AVATAR_SIZES;
-Avatar.colors = elementColorsNames;
 
 export default Avatar;

@@ -1,5 +1,9 @@
 @import "../../styles/typography.scss";
 
+$avatar-icon-large: 28px;
+$avatar-icon-medium: 18px;
+$avatar-icon-small: 12px;
+
 .monday-style-avatar-content {
   &_img {
     object-fit: cover;
@@ -35,19 +39,16 @@
 
   &_icon {
     &--large {
-      $avatar-icon-large: 28px;
       height: $avatar-icon-large;
       width: $avatar-icon-large;
     }
 
     &--medium {
-      $avatar-icon-medium: 18px;
       height:  $avatar-icon-medium;
       width: $avatar-icon-medium;
     }
 
     &--small {
-      $avatar-icon-small: 12px;
       height:  $avatar-icon-small;
       width: $avatar-icon-small;
     }

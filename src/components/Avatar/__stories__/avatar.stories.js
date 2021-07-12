@@ -42,18 +42,21 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.LARGE}
           text="HF"
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.PURPLE}
         />
         <Avatar
           size={Avatar.sizes.MEDIUM}
           text="HF"
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.WORKING_ORANGE}
         />
         <Avatar
           size={Avatar.sizes.SMALL}
           text="HF"
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.INDIGO}
         />
@@ -86,6 +89,7 @@ export const States = () => {
           size={Avatar.sizes.LARGE}
           text="W"
           isSquare
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.DONE_GREEN}
         />
@@ -93,6 +97,7 @@ export const States = () => {
           size={Avatar.sizes.MEDIUM}
           text="W"
           isSquare
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.LIPSTICK}
         />
@@ -100,6 +105,7 @@ export const States = () => {
           size={Avatar.sizes.SMALL}
           text="W"
           isSquare
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           backgroundColor={Avatar.colors.RIVER}
         />
@@ -137,6 +143,7 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.LARGE}
           text="HF"
+          type={Avatar.types.TEXT}
           backgroundColor={Avatar.colors.GRASS_GREEN}
           isDisabled
           className="monday-style-story-avatar_state"
@@ -144,6 +151,7 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.MEDIUM}
           text="HF"
+          type={Avatar.types.TEXT}
           backgroundColor={Avatar.colors.WORKING_ORANGE}
           isDisabled
           className="monday-style-story-avatar_state"
@@ -151,6 +159,7 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.SMALL}
           text="HF"
+          type={Avatar.types.TEXT}
           backgroundColor={Avatar.colors.INDIGO}
           isDisabled
           className="monday-style-story-avatar_state"
@@ -163,6 +172,7 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.LARGE}
           text="RM"
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           topLeftBadgeProps={badgeProps}
           topRightBadgeProps={badgeProps}
@@ -170,6 +180,7 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.MEDIUM}
           text="RM"
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           topLeftBadgeProps={badgeProps}
           topRightBadgeProps={badgeProps}
@@ -177,6 +188,7 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.SMALL}
           text="RM"
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           topLeftBadgeProps={badgeProps}
           topRightBadgeProps={badgeProps}
@@ -189,6 +201,7 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.LARGE}
           text="RM"
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           bottomLeftBadgeProps={badgeProps}
           bottomRightBadgeProps={badgeProps}
@@ -196,6 +209,7 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.MEDIUM}
           text="RM"
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           bottomLeftBadgeProps={badgeProps}
           bottomRightBadgeProps={badgeProps}
@@ -203,6 +217,7 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.SMALL}
           text="RM"
+          type={Avatar.types.TEXT}
           className="monday-style-story-avatar_state"
           bottomLeftBadgeProps={badgeProps}
           bottomRightBadgeProps={badgeProps}
@@ -217,11 +232,11 @@ export const Sandbox = () => {
     <StoryWrapper>
       <StoryTitle text="Avatar Sandbox" />
       <Avatar
-        type={select("Type", Avatar.types.TEXT, AVATAR_ALLOWED_TYPES)}
+        type={select("Type", AVATAR_ALLOWED_TYPES, Avatar.types.TEXT)}
         text={text("Text", "S")}
         ariaLabel={text("Aria Label", "My avatar")}
         isDisabled={boolean("Is disabled", false)}
-        size={select("Size", Avatar.sizes.LARGE, AVATAR_ALLOWED_SIZES)}
+        size={select("Size", AVATAR_ALLOWED_SIZES, Avatar.sizes.LARGE)}
         role={text("Role", "img")}
         backgroundColor={select("Background color", Object.keys(Avatar.colors), Avatar.colors.DONE_GREEN)}
         tabIndex={number("Tab index", 0)}
