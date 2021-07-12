@@ -17,7 +17,7 @@ describe("Avatar Tests", () => {
     });
 
     it("renders correctly with image and text", () => {
-      const tree = renderer.create(<Avatar img={IMG_SRC} text="Name" />).toJSON();
+      const tree = renderer.create(<Avatar src={IMG_SRC} text="Name" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
@@ -42,7 +42,7 @@ describe("Avatar Tests", () => {
     });
 
     it("renders correctly an icon", () => {
-      const tree = renderer.create(<Avatar tabIndex={-1} ariaHidden icon={WhatsNew} />).toJSON();
+      const tree = renderer.create(<Avatar icon={WhatsNew} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
@@ -50,8 +50,6 @@ describe("Avatar Tests", () => {
       const tree = renderer
         .create(
           <Avatar
-            tabIndex={-1}
-            ariaHidden
             topRightBadgeProps={{ src: BADGE_SRC }}
             topLeftBadgeProps={{ src: BADGE_SRC }}
             bottomRightBadgeProps={{ src: BADGE_SRC }}
@@ -65,8 +63,6 @@ describe("Avatar Tests", () => {
       const tree = renderer
         .create(
           <Avatar
-            tabIndex={-1}
-            ariaHidden
             topRightBadgeProps={{ src: "not valid" }}
             topLeftBadgeProps={{ src: "not valid" }}
             bottomRightBadgeProps={{ src: "not valid" }}

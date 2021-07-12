@@ -22,19 +22,19 @@ export const States = () => {
         <Avatar
           type={Avatar.types.IMG}
           size={Avatar.sizes.LARGE}
-          img={IMG_SRC}
+          src={IMG_SRC}
           className="monday-style-story-avatar_state"
         />
         <Avatar
           type={Avatar.types.IMG}
           size={Avatar.sizes.MEDIUM}
-          img={IMG_SRC}
+          src={IMG_SRC}
           className="monday-style-story-avatar_state"
         />
         <Avatar
           type={Avatar.types.IMG}
           size={Avatar.sizes.SMALL}
-          img={IMG_SRC}
+          src={IMG_SRC}
           className="monday-style-story-avatar_state"
         />
       </StoryStateRow>
@@ -111,20 +111,20 @@ export const States = () => {
         <Avatar
           size={Avatar.sizes.LARGE}
           type={Avatar.types.IMG}
-          img={IMG_SRC}
+          src={IMG_SRC}
           isDisabled
           className="monday-style-story-avatar_state"
         />
         <Avatar
           size={Avatar.sizes.MEDIUM}
-          img={IMG_SRC}
+          src={IMG_SRC}
           type={Avatar.types.IMG}
           isDisabled
           className="monday-style-story-avatar_state"
         />
         <Avatar
           size={Avatar.sizes.SMALL}
-          img={IMG_SRC}
+          src={IMG_SRC}
           isDisabled
           type={Avatar.types.IMG}
           className="monday-style-story-avatar_state"

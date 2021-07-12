@@ -24,7 +24,7 @@ export const AvatarBadge = ({ src, ariaLabel, tabIndex, className, size, ...othe
 AvatarBadge.propTypes = {
   src: PropTypes.string.isRequired,
   ariaLabel: PropTypes.string,
-  tabIndex: PropTypes.oneOfType(PropTypes.string, PropTypes.number),
+  tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   className: PropTypes.string,
   size: PropTypes.oneOf(AVATAR_ALLOWED_SIZES)
 };

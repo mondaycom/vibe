@@ -5,7 +5,6 @@ import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { AVATAR_SIZES, AVATAR_ALLOWED_SIZES, AVATAR_TYPES, AVATAR_ALLOWED_TYPES } from "./AvatarConstants";
 import { getElementColor, elementColorsNames } from "../../general-stories/colors/colors-vars-map";
-import Icon from "../Icon/Icon";
 import { AvatarBadge } from "./AvatarBadge";
 import "./Avatar.scss";
 import { AvatarContent } from "./AvatarContent";
@@ -17,7 +16,7 @@ const Avatar = ({
   type,
   className,
   size,
-  img,
+  src,
   icon,
   text,
   role,
@@ -35,7 +34,7 @@ const Avatar = ({
   const avatarType = AVATAR_ALLOWED_TYPES.indexOf(type) > -1 ? type : AVATAR_TYPES.TEXT;
   const avatarSize = AVATAR_ALLOWED_SIZES.indexOf(size) > -1 ? size : AVATAR_SIZES.LARGE;
   const backgroundColorStyle = useMemo(() => {
-    return img ? undefined : { backgroundColor: getElementColor(backgroundColor) };
+    return src ? undefined : { backgroundColor: getElementColor(backgroundColor) };
   }, [backgroundColor]);
 
   const badgesContainer = useMemo(() => {
@@ -91,7 +90,7 @@ const Avatar = ({
         <AvatarContent
           type={avatarType}
           size={avatarSize}
-          img={img}
+          src={src}
           icon={icon}
           text={text}
           ariaLabel={ariaLabel}
@@ -104,9 +103,9 @@ const Avatar = ({
 };
 
 Avatar.propTypes = {
+  src: PropTypes.string,
   type: PropTypes.oneOf(AVATAR_ALLOWED_TYPES),
   className: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   backgroundColor: PropTypes.oneOf(elementColorsNames),
   role: PropTypes.string,
   ariaLabel: PropTypes.string,
@@ -122,14 +121,14 @@ Avatar.propTypes = {
 };
 
 Avatar.defaultProps = {
+  src: undefined,
   className: "",
   type: AVATAR_TYPES.TEXT,
   backgroundColor: elementColorsNames.CHILI_BLUE,
   role: undefined,
-  ariaLabel: "",
+  ariaLabel: undefined,
   size: AVATAR_SIZES.LARGE,
   tabIndex: 0,
-  children: undefined,
   ariaHidden: false,
   isDisabled: false,
   isSquare: false,
