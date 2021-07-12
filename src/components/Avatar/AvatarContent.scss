@@ -1,0 +1,55 @@
+@import "../../styles/typography.scss";
+
+.monday-style-avatar-content {
+  &_img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &_text {
+    font-family: $primary-font;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-for-size-18;
+    letter-spacing: -0.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    &--large {
+      font-size: $font-size-avatar-large;
+    }
+
+    &--medium {
+      font-size: $font-size-avatar-medium;
+      margin-top: 1px;
+    }
+
+    &--small {
+      margin-top: 1px;
+      font-size: $font-size-avatar-small;
+    }
+  }
+
+  &_icon {
+    &--large {
+      $avatar-icon-large: 28px;
+      height: $avatar-icon-large;
+      width: $avatar-icon-large;
+    }
+
+    &--medium {
+      $avatar-icon-medium: 18px;
+      height:  $avatar-icon-medium;
+      width: $avatar-icon-medium;
+    }
+
+    &--small {
+      $avatar-icon-small: 12px;
+      height:  $avatar-icon-small;
+      width: $avatar-icon-small;
+    }
+  }
+}

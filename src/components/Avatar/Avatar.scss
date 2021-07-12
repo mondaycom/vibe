@@ -1,6 +1,9 @@
 @import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
 @import "../../styles/states.scss";
+
+$avatar-size-large: 50px;
+$avatar-size-medium: 36px;
+$avatar-size-small: 28px;
 
 .monday-style-avatar {
   position: relative;
@@ -20,55 +23,18 @@
     }
 
     &--large {
-      $avatar-size-large: 50px;
       height: $avatar-size-large;
       width: $avatar-size-large;
-
-      .monday-style-avatar_text {
-        font-size: $font-size-avatar-large;
-      }
-
-      .monday-style-avatar_icon {
-        $avatar-icon-large: 28px;
-        height:  $avatar-icon-large;
-        width: $avatar-icon-large;
-      }
-
     }
 
     &--medium {
-      $avatar-size-medium: 36px;
       height: $avatar-size-medium;
       width: $avatar-size-medium;
-
-      .monday-style-avatar_text {
-        font-size: $font-size-avatar-medium;
-        margin-top: 1px;
-      }
-
-      .monday-style-avatar_icon {
-        $avatar-icon-medium: 18px;
-        height:  $avatar-icon-medium;
-        width: $avatar-icon-medium;
-      }
-
     }
 
     &--small {
-      $avatar-size-small: 28px;
       height: $avatar-size-small;
       width: $avatar-size-small;
-
-      .monday-style-avatar_text {
-        margin-top: 1px;
-        font-size: $font-size-avatar-small;
-      }
-
-      .monday-style-avatar_icon {
-        $avatar-icon-small: 12px;
-        height:  $avatar-icon-small;
-        width: $avatar-icon-small;
-      }
     }
 
     &--img {
@@ -98,23 +64,6 @@
         @include focus-style($border-radius-small);
       }
     }
-  }
-
-  &_image {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-  &_text {
-    font-family: $primary-font;
-    font-weight: $font-weight-normal;
-    line-height: $line-height-for-size-18;
-    letter-spacing: -0.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
   }
 
   &_badges {

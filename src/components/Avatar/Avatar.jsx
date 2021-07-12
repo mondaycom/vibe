@@ -3,16 +3,18 @@ import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
-import { AVATAR_SIZES, AVATAR_ALLOWED_SIZES } from "./AvatarConstants";
+import { AVATAR_SIZES, AVATAR_ALLOWED_SIZES, AVATAR_TYPES, AVATAR_ALLOWED_TYPES } from "./AvatarConstants";
 import { getElementColor, elementColorsNames } from "../../general-stories/colors/colors-vars-map";
 import Icon from "../Icon/Icon";
 import { AvatarBadge } from "./AvatarBadge";
 import "./Avatar.scss";
+import { AvatarContent } from "./AvatarContent";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
 const Avatar = ({
+  type,
   className,
   size,
   img,
@@ -30,27 +32,8 @@ const Avatar = ({
   bottomLeftBadgeProps,
   bottomRightBadgeProps
 }) => {
-  const avatarType = isNil(img) ? "text" : "img";
+  const avatarType = AVATAR_ALLOWED_TYPES.indexOf(type) > -1 ? type : AVATAR_TYPES.TEXT;
   const avatarSize = AVATAR_ALLOWED_SIZES.indexOf(size) > -1 ? size : AVATAR_SIZES.LARGE;
-  const avatarContent = useMemo(() => {
-    if (img) return <img role={role} alt={ariaLabel} src={img} className={bemHelper({ element: "image" })} />;
-    if (icon)
-      return (
-        <Icon
-          icon={icon}
-          aria-label={ariaLabel}
-          role={role}
-          clickable={false}
-          className={bemHelper({ element: "icon" })}
-        />
-      );
-    return (
-      <span className={bemHelper({ element: "text" })} aria-label={ariaLabel} role={role}>
-        {text}
-      </span>
-    );
-  }, [role, ariaLabel, img, text]);
-
   const backgroundColorStyle = useMemo(() => {
     return img ? undefined : { backgroundColor: getElementColor(backgroundColor) };
   }, [backgroundColor]);
@@ -105,13 +88,23 @@ const Avatar = ({
         tabIndex={tabIndex}
         style={backgroundColorStyle}
       >
-        {avatarContent}
+        <AvatarContent
+          type={avatarType}
+          size={avatarSize}
+          img={img}
+          icon={icon}
+          text={text}
+          ariaLabel={ariaLabel}
+          role={role}
+        />
       </div>
       {badgesContainer}
     </div>
   );
 };
+
 Avatar.propTypes = {
+  type: PropTypes.oneOf(AVATAR_ALLOWED_TYPES),
   className: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   backgroundColor: PropTypes.oneOf(elementColorsNames),
@@ -130,6 +123,7 @@ Avatar.propTypes = {
 
 Avatar.defaultProps = {
   className: "",
+  type: AVATAR_TYPES.TEXT,
   backgroundColor: elementColorsNames.CHILI_BLUE,
   role: undefined,
   ariaLabel: "",
@@ -145,6 +139,7 @@ Avatar.defaultProps = {
   bottomRightBadgeProps: undefined
 };
 
+Avatar.types = AVATAR_TYPES;
 Avatar.sizes = AVATAR_SIZES;
 Avatar.colors = elementColorsNames;
 

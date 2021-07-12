@@ -16,7 +16,7 @@ exports[`Avatar Tests Snapshot Tests renders correctly accessibility props 1`] =
   >
     <span
       aria-label=""
-      className="monday-style-avatar_text"
+      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
     />
   </div>
 </div>
@@ -36,8 +36,9 @@ exports[`Avatar Tests Snapshot Tests renders correctly an icon 1`] = `
     }
     tabIndex={-1}
   >
-    <div
-      data-testid="icon-mock"
+    <span
+      aria-label=""
+      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
     />
   </div>
 </div>
@@ -59,7 +60,7 @@ exports[`Avatar Tests Snapshot Tests renders correctly square avatar 1`] = `
   >
     <span
       aria-label=""
-      className="monday-style-avatar_text"
+      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
     />
   </div>
 </div>
@@ -81,7 +82,7 @@ exports[`Avatar Tests Snapshot Tests renders correctly with badges 1`] = `
   >
     <span
       aria-label=""
-      className="monday-style-avatar_text"
+      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
     />
   </div>
   <div
@@ -135,7 +136,7 @@ exports[`Avatar Tests Snapshot Tests renders correctly with damaged src badges 1
   >
     <span
       aria-label=""
-      className="monday-style-avatar_text"
+      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
     />
   </div>
   <div
@@ -189,7 +190,7 @@ exports[`Avatar Tests Snapshot Tests renders correctly with empty props 1`] = `
   >
     <span
       aria-label=""
-      className="monday-style-avatar_text"
+      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
     />
   </div>
 </div>
@@ -201,18 +202,12 @@ exports[`Avatar Tests Snapshot Tests renders correctly with image 1`] = `
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large"
-    style={
-      Object {
-        "backgroundColor": "var(--color-chili-blue",
-      }
-    }
+    className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
     tabIndex={0}
   >
-    <img
-      alt=""
-      className="monday-style-avatar_image"
-      src="https://files.monday.com/use1/photos/16447897/small/16447897-Hadas_Farhi_photo_2020_10_04_10_14_06.png?1601806446"
+    <span
+      aria-label=""
+      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
     />
   </div>
 </div>
@@ -224,19 +219,15 @@ exports[`Avatar Tests Snapshot Tests renders correctly with image and text 1`] =
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large"
-    style={
-      Object {
-        "backgroundColor": "var(--color-chili-blue",
-      }
-    }
+    className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
     tabIndex={0}
   >
-    <img
-      alt=""
-      className="monday-style-avatar_image"
-      src="https://files.monday.com/use1/photos/16447897/small/16447897-Hadas_Farhi_photo_2020_10_04_10_14_06.png?1601806446"
-    />
+    <span
+      aria-label=""
+      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+    >
+      Name
+    </span>
   </div>
 </div>
 `;
@@ -247,18 +238,12 @@ exports[`Avatar Tests Snapshot Tests renders correctly with not valid image 1`] 
 >
   <div
     aria-hidden={false}
-    className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large"
-    style={
-      Object {
-        "backgroundColor": "var(--color-chili-blue",
-      }
-    }
+    className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
     tabIndex={0}
   >
-    <img
-      alt=""
-      className="monday-style-avatar_image"
-      src="not valid src"
+    <span
+      aria-label=""
+      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
     />
   </div>
 </div>
@@ -280,7 +265,7 @@ exports[`Avatar Tests Snapshot Tests renders correctly with text 1`] = `
   >
     <span
       aria-label=""
-      className="monday-style-avatar_text"
+      className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
     />
   </div>
 </div>

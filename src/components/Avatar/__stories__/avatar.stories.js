@@ -6,7 +6,7 @@ import { boolean, number, select, text } from "@storybook/addon-knobs";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import { WhatsNew } from "../../Icon/Icons";
 import StoryTitle from "../../storybook-helpers/story-title/story-title";
-import { AVATAR_ALLOWED_SIZES } from "../AvatarConstants";
+import { AVATAR_ALLOWED_SIZES, AVATAR_ALLOWED_TYPES } from "../AvatarConstants";
 import "./avatar.stories.scss";
 
 const IMG_SRC =
@@ -19,9 +19,24 @@ export const States = () => {
     <StoryWrapper componentClassName="monday-style-story-avatar">
       <StoryTitle text="Avatar States" />
       <StoryStateRow componentDescription="Avatar with image" componentClassName="monday-style-story-avatar_states">
-        <Avatar size={Avatar.sizes.LARGE} img={IMG_SRC} className="monday-style-story-avatar_state" />
-        <Avatar size={Avatar.sizes.MEDIUM} img={IMG_SRC} className="monday-style-story-avatar_state" />
-        <Avatar size={Avatar.sizes.SMALL} img={IMG_SRC} className="monday-style-story-avatar_state" />
+        <Avatar
+          type={Avatar.types.IMG}
+          size={Avatar.sizes.LARGE}
+          img={IMG_SRC}
+          className="monday-style-story-avatar_state"
+        />
+        <Avatar
+          type={Avatar.types.IMG}
+          size={Avatar.sizes.MEDIUM}
+          img={IMG_SRC}
+          className="monday-style-story-avatar_state"
+        />
+        <Avatar
+          type={Avatar.types.IMG}
+          size={Avatar.sizes.SMALL}
+          img={IMG_SRC}
+          className="monday-style-story-avatar_state"
+        />
       </StoryStateRow>
       <StoryStateRow componentDescription="Avatar with text" componentClassName="monday-style-story-avatar_states">
         <Avatar
@@ -44,9 +59,27 @@ export const States = () => {
         />
       </StoryStateRow>
       <StoryStateRow componentDescription="Avatar with icon" componentClassName="monday-style-story-avatar_states">
-        <Avatar size={Avatar.sizes.LARGE} className="monday-style-story-avatar_state" isSquare icon={WhatsNew} />
-        <Avatar size={Avatar.sizes.MEDIUM} className="monday-style-story-avatar_state" isSquare icon={WhatsNew} />
-        <Avatar size={Avatar.sizes.SMALL} className="monday-style-story-avatar_state" isSquare icon={WhatsNew} />
+        <Avatar
+          type={Avatar.types.ICON}
+          size={Avatar.sizes.LARGE}
+          className="monday-style-story-avatar_state"
+          isSquare
+          icon={WhatsNew}
+        />
+        <Avatar
+          size={Avatar.sizes.MEDIUM}
+          type={Avatar.types.ICON}
+          className="monday-style-story-avatar_state"
+          isSquare
+          icon={WhatsNew}
+        />
+        <Avatar
+          size={Avatar.sizes.SMALL}
+          type={Avatar.types.ICON}
+          className="monday-style-story-avatar_state"
+          isSquare
+          icon={WhatsNew}
+        />
       </StoryStateRow>
       <StoryStateRow componentDescription="Square avatar" componentClassName="monday-style-story-avatar_states">
         <Avatar
@@ -75,9 +108,27 @@ export const States = () => {
         componentDescription="Disabled avatar with image"
         componentClassName="monday-style-story-avatar_states"
       >
-        <Avatar size={Avatar.sizes.LARGE} img={IMG_SRC} isDisabled className="monday-style-story-avatar_state" />
-        <Avatar size={Avatar.sizes.MEDIUM} img={IMG_SRC} isDisabled className="monday-style-story-avatar_state" />
-        <Avatar size={Avatar.sizes.SMALL} img={IMG_SRC} isDisabled className="monday-style-story-avatar_state" />
+        <Avatar
+          size={Avatar.sizes.LARGE}
+          type={Avatar.types.IMG}
+          img={IMG_SRC}
+          isDisabled
+          className="monday-style-story-avatar_state"
+        />
+        <Avatar
+          size={Avatar.sizes.MEDIUM}
+          img={IMG_SRC}
+          type={Avatar.types.IMG}
+          isDisabled
+          className="monday-style-story-avatar_state"
+        />
+        <Avatar
+          size={Avatar.sizes.SMALL}
+          img={IMG_SRC}
+          isDisabled
+          type={Avatar.types.IMG}
+          className="monday-style-story-avatar_state"
+        />
       </StoryStateRow>
       <StoryStateRow
         componentDescription="Disabled avatar with text"
@@ -166,6 +217,7 @@ export const Sandbox = () => {
     <StoryWrapper>
       <StoryTitle text="Avatar Sandbox" />
       <Avatar
+        type={select("Type", Avatar.types.TEXT, AVATAR_ALLOWED_TYPES)}
         text={text("Text", "S")}
         ariaLabel={text("Aria Label", "My avatar")}
         isDisabled={boolean("Is disabled", false)}
