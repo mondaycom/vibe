@@ -89,6 +89,7 @@ const ComboboxWrapper = () => {
         optionLineHeight={number("optionLineHeight", 32)}
         backgroundColor={text("backgroundColor")}
         disabled={boolean("disabled")}
+        listClassName="temp"
       />
     </div>
   );

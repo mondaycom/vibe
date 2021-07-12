@@ -29,7 +29,8 @@ const Combobox = forwardRef(
       noResultsMessage,
       onAddNew,
       addNewLabel,
-      onClick
+      onClick,
+      listClassName
     },
     ref
   ) => {
@@ -107,21 +108,20 @@ const Combobox = forwardRef(
             </div>
           );
         });
-      } else {
-        return filterdOptions.map((option, index) => {
-          return (
-            <ComboboxOption
-              index={index}
-              option={option}
-              isActive={activeItemIndex === index}
-              isActiveByKeyboard={isActiveByKeyboard}
-              onOptionClick={onOptionClick}
-              onOptionHover={onOptionHover}
-              optionLineHeight={optionLineHeight}
-            />
-          );
-        });
       }
+      return filterdOptions.map((option, index) => {
+        return (
+          <ComboboxOption
+            index={index}
+            option={option}
+            isActive={activeItemIndex === index}
+            isActiveByKeyboard={isActiveByKeyboard}
+            onOptionClick={onOptionClick}
+            onOptionHover={onOptionHover}
+            optionLineHeight={optionLineHeight}
+          />
+        );
+      });
     }, [filterdOptions, categories, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionHover]);
 
     const onChangeCallback = useCallback(
@@ -180,7 +180,7 @@ const Combobox = forwardRef(
       <div
         ref={mergedRef}
         className={cx("combobox--wrapper", className, { empty: !hasResults })}
-        style={{ backgroundColor: backgroundColor }}
+        style={{ backgroundColor }}
         id={id}
       >
         <Search
@@ -198,7 +198,7 @@ const Combobox = forwardRef(
           onChange={onChangeCallback}
           autoFocus={autoFocus}
         />
-        <div className="combobox--wrapper-list" role="listbox">
+        <div className={cx("combobox--wrapper-list", listClassName)} role="listbox">
           {renderedItems}
         </div>
         {hasFilter && !hasResults && renderNoResults()}
