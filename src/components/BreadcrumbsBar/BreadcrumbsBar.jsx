@@ -13,15 +13,17 @@ const BreadcrumbsBar = ({ className, children, type }) => (
   <nav aria-label="Breadcrumb" className={cx("breadcrumbs-bar--wrapper", className)}>
     <ol>
       {children &&
-        React.Children.map(children, (child, index) => [
-          React.cloneElement(child, {
-            ...child?.props,
-            isClickable: type === BREADCRUMBS_BAR_TYPE.INDICATION ? false : true
-          }),
-          index < children.length - 1 && (
-            <NavigationChevronRight className="sparatorIcon" size={"14"} aria-hidden="true" />
-          )
-        ])}
+        React.Children.map(children, (child, index) =>
+          React.isValidElement(child)
+            ? [
+                index > 0 && <NavigationChevronRight className="sparatorIcon" size={"14"} aria-hidden="true" />,
+                React.cloneElement(child, {
+                  ...child?.props,
+                  isClickable: type === BREADCRUMBS_BAR_TYPE.INDICATION ? false : true
+                })
+              ]
+            : null
+        )}
     </ol>
   </nav>
 );

@@ -14,6 +14,7 @@ export {default as BlockQuote} from './components/BlockQuote';
 export {default as Board} from './components/Board';
 export {default as BoardPrivate} from './components/BoardPrivate';
 export {default as BoardShareable} from './components/BoardShareable';
+export {default as BoardTemplate} from './components/BoardTemplate';
 export {default as Bold} from './components/Bold';
 export {default as Bolt} from './components/Bolt';
 export {default as Bookmark} from './components/Bookmark';
