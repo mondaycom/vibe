@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import cx from "classnames";
 import Icon from "../../../Icon/Icon";
 import "./ComboboxOption.scss";
@@ -25,6 +25,14 @@ const ComboboxOption = ({
     ariaLabel
   } = option;
 
+  const ref = useRef(null);
+  useEffect(() => {
+    const element = ref.current;
+    if (isActive && element) {
+      element.scrollIntoView({ behaviour: "smooth" });
+    }
+  }, [ref, isActive]);
+
   const renderIcon = (icon, iconType, className) => {
     if (iconType === ComboboxOption.iconTypes.RENDERER) {
       return icon(`option-icon ${className}`);
@@ -45,6 +53,7 @@ const ComboboxOption = ({
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <div
+      ref={ref}
       key={id || label}
       role="option"
       ariaLabel={ariaLabel || label}
