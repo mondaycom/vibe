@@ -17,7 +17,6 @@ exports[`renders correctly with empty props 1`] = `
   </div>
   <svg
     aria-hidden={false}
-    aria-label=""
     className="icon_component chip-icon close icon_component--clickable"
     fill="currentColor"
     height="18"
