@@ -12,12 +12,6 @@
     max-height: 200px;
   }
 
-  &-search-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-
   &-search {
     flex: 0 0 auto;
   }
@@ -56,5 +50,6 @@
     flex: 1 1 auto;
     padding: 8px 4px;
     overflow: auto;
+    @include scroller;
   }
 }

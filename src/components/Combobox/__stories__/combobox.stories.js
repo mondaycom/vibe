@@ -16,14 +16,14 @@ import cx from "classnames";
 import "./combobox.stories.scss";
 
 export const Sandbox = () => (
-  <div className="container" style={{ height: number("external wrapper height", 200) }}>
+  <div className="container" style={{ width: number("external wrapper width", 300) }}>
     <ComboboxWrapper />
   </div>
 );
 
 export const ComboboxWithCategories = () => {
   return (
-    <div className="container">
+    <div className="container categories-container">
       <ComboboxWithCategoriesWrapper />
     </div>
   );
@@ -87,9 +87,8 @@ const ComboboxWrapper = () => {
           Combobox.sizes.MEDIUM
         )}
         optionLineHeight={number("optionLineHeight", 32)}
-        backgroundColor={text("backgroundColor")}
+        optionsListHeight={number("optionsListHeight", 150)}
         disabled={boolean("disabled")}
-        listClassName="temp"
       />
     </div>
   );
