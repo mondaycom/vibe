@@ -4,11 +4,6 @@ exports[`<Combobox /> renders correctly with empty props 1`] = `
 <div
   className="combobox--wrapper empty"
   id=""
-  style={
-    Object {
-      "backgroundColor": "var(--primary-background-color)",
-    }
-  }
 >
   <div
     className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
@@ -98,6 +93,11 @@ exports[`<Combobox /> renders correctly with empty props 1`] = `
   <div
     className="combobox--wrapper-list"
     role="listbox"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
   />
 </div>
 `;
@@ -106,11 +106,6 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
 <div
   className="combobox--wrapper"
   id=""
-  style={
-    Object {
-      "backgroundColor": "var(--primary-background-color)",
-    }
-  }
 >
   <div
     className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
@@ -200,6 +195,11 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
   <div
     className="combobox--wrapper-list"
     role="listbox"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
   >
     <div
       ariaLabel="Test"
@@ -228,11 +228,6 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
 <div
   className="combobox--wrapper"
   id=""
-  style={
-    Object {
-      "backgroundColor": "var(--primary-background-color)",
-    }
-  }
 >
   <div
     className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
@@ -322,6 +317,11 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
   <div
     className="combobox--wrapper-list"
     role="listbox"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
   >
     <div
       aria-labelledby="combox-category-category1"
