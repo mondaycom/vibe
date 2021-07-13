@@ -42,3 +42,10 @@ $expand-animation-timing: cubic-bezier(0, 0, 0.35, 1);
 @mixin box-shadow-large() {
   @include theme-prop(box-shadow, box-shadow-large);
 }
+
+@mixin hidden-element() {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
