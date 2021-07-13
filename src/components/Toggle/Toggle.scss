@@ -5,6 +5,12 @@
   &_wrapper {
     display: flex;
     align-items: center;
+    &--disabled {
+      opacity: 0.4;
+      & .monday-style-toggle_text {
+        color: rgba(var(--primary-text-color), 0.4);
+      }
+    }
   }
 
   // Since it is not possible to change the design of the checkbox according to the storybook toggle requirements using css,
@@ -56,10 +62,6 @@
       &::after {
         left: 3px;
       }
-    }
-
-    &--disabled {
-      @include theme-prop(background-color, primary-background-hover-color);
     }
   }
 
