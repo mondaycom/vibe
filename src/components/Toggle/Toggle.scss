@@ -59,7 +59,8 @@
     }
 
     &--disabled {
-      @include theme-prop(background-color, primary-background-hover-color);
+      opacity: 0.4;
+      color: rgba(var(--primary-text-color), 0.4);
     }
   }
 
