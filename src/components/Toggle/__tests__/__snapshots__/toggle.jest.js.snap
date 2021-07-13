@@ -2,10 +2,10 @@
 
 exports[`Toggle Tests Snapshot Tests renders correctly when disabled 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="monday-style-toggle_wrapper monday-style-toggle_wrapper--disabled"
 >
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     Off
   </span>
@@ -34,10 +34,10 @@ exports[`Toggle Tests Snapshot Tests renders correctly when disabled 1`] = `
   />
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected monday-style-toggle_toggle--disabled"
+    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
   />
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     On
   </span>
@@ -49,7 +49,7 @@ exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by
   className="monday-style-toggle_wrapper"
 >
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     Off
   </span>
@@ -81,7 +81,7 @@ exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by
     className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--not-selected"
   />
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     On
   </span>
@@ -93,7 +93,7 @@ exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by
   className="monday-style-toggle_wrapper"
 >
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     Off
   </span>
@@ -125,7 +125,7 @@ exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by
     className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--selected"
   />
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     On
   </span>
@@ -137,7 +137,7 @@ exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by
   className="monday-style-toggle_wrapper"
 >
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     Off
   </span>
@@ -169,7 +169,7 @@ exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by
     className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--not-selected"
   />
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     On
   </span>
@@ -181,7 +181,7 @@ exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by
   className="monday-style-toggle_wrapper"
 >
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     Off
   </span>
@@ -213,7 +213,7 @@ exports[`Toggle Tests Snapshot Tests renders correctly when selection defined by
     className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--selected"
   />
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     On
   </span>
@@ -225,7 +225,7 @@ exports[`Toggle Tests Snapshot Tests renders correctly with empty props 1`] = `
   className="monday-style-toggle_wrapper"
 >
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     Off
   </span>
@@ -257,7 +257,7 @@ exports[`Toggle Tests Snapshot Tests renders correctly with empty props 1`] = `
     className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
   />
   <span
-    className="monday-style-toggle__text"
+    className="monday-style-toggle_text"
   >
     On
   </span>
