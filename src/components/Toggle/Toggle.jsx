@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+import cx from "classnames";
 import NOOP from "lodash/noop";
 import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
 import ToggleText from "./ToggleText";
@@ -37,17 +37,22 @@ const Toggle = ({
     ariaControls
   });
 
-  const className = classNames(bemHelper({ element: "toggle" }), componentClassName, {
-    [bemHelper({ element: "toggle", state: "selected" })]: isChecked,
-    [bemHelper({ element: "toggle", state: "not-selected" })]: !isChecked,
-    [bemHelper({ element: "toggle", state: "disabled" })]: isDisabled
-  });
-
   return (
-    <label htmlFor={id} className={bemHelper({ element: "wrapper" })}>
+    <label
+      htmlFor={id}
+      className={cx(bemHelper({ element: "wrapper" }), {
+        [bemHelper({ element: "wrapper", state: "disabled" })]: isDisabled
+      })}
+    >
       {areLabelsHidden ? null : <ToggleText>{offOverrideText}</ToggleText>}
       <input {...inputProps} className={bemHelper({ element: "input" })} />
-      <div className={className} aria-hidden="true" />
+      <div
+        className={cx(bemHelper({ element: "toggle" }), componentClassName, {
+          [bemHelper({ element: "toggle", state: "selected" })]: isChecked,
+          [bemHelper({ element: "toggle", state: "not-selected" })]: !isChecked
+        })}
+        aria-hidden="true"
+      />
       {areLabelsHidden ? null : <ToggleText>{onOverrideText}</ToggleText>}
     </label>
   );
