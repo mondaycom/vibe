@@ -1,12 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import SVG from "react-inlinesvg";
 import "./CustomSvgIcon.scss";
+import { getScreenReaderAccessProps } from "../../helpers/screenReaderAccessHelper";
 
 const CustomSvgIcon = ({ className, src, onClick, clickable, ...props }) => {
-  const tabIndex = clickable ? 0 : -1;
+  const screenReaderAccessProps = useMemo(() => getScreenReaderAccessProps(), []);
   return (
     <SVG
       tabIndex={tabIndex}

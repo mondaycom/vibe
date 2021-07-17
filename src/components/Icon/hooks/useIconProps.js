@@ -4,10 +4,11 @@ import NOOP from "lodash/noop";
 import useEventListener from "../../../hooks/useEventListener";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../constants/KeyCodes";
+import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAccessProps";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
-export default function useIconProps({ onClick, className, clickable, ignoreFocusStyle }) {
+export default function useIconProps({ onClick, className, clickable, ignoreFocusStyle, isDecorationOnly, iconLabel }) {
   const iconRef = useRef(null);
   const onEnterCallback = useCallback(
     event => {
@@ -54,15 +55,18 @@ export default function useIconProps({ onClick, className, clickable, ignoreFocu
     },
     [onClick]
   );
-  const tabindex = clickable ? 0 : -1;
-  const role = clickable ? "button" : undefined;
+
+  const screenReaderAccessProps = useIconScreenReaderAccessProps({
+    isClickable: clickable,
+    label: iconLabel,
+    isDecorationOnly
+  });
 
   return {
-    tabindex,
+    ...screenReaderAccessProps,
     onClickCallback,
     computedClassName,
     onEnterCallback,
-    iconRef,
-    role
+    iconRef
   };
 }

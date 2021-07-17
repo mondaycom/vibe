@@ -25,10 +25,19 @@ const Icon = forwardRef(
     },
     ref
   ) => {
-    const { tabindex, onClickCallback, computedClassName, iconRef, role } = useIconProps({
+    const {
+      tabIndex,
+      ["aria-hidden"]: isHidden,
+      ["aria-label"]: ariaLabel,
+      onClickCallback,
+      computedClassName,
+      iconRef,
+      role
+    } = useIconProps({
       onClick,
       clickable,
       className,
+      isDecorationOnly: ariaHidden,
       ignoreFocusStyle
     });
 
@@ -43,11 +52,11 @@ const Icon = forwardRef(
       return (
         <IconComponent
           ref={mergedRef}
-          aria-hidden={clickable ? ariaHidden : "true"}
+          aria-hidden={isHidden}
           aria-label={iconLabel}
           size={iconSize.toString()}
           onClick={onClick}
-          tabIndex={externalTabIndex ?? tabindex}
+          tabIndex={externalTabIndex ?? tabIndex}
           className={computedClassName}
           role={role}
         />
@@ -56,12 +65,12 @@ const Icon = forwardRef(
 
     return (
       <FontIcon
-        aria-hidden={clickable ? ariaHidden : "true"}
+        aria-hidden={isHidden}
         className={cx(computedClassName)}
         onClick={onClickCallback}
         ref={mergedRef}
         iconLabel={iconLabel}
-        tabIndex={externalTabIndex ?? tabindex}
+        tabIndex={externalTabIndex ?? tabIndex}
         icon={icon}
         role={role}
       />
