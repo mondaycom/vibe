@@ -25,21 +25,16 @@ const Icon = forwardRef(
     },
     ref
   ) => {
-    const {
-      tabIndex,
-      ["aria-hidden"]: isHidden,
-      ["aria-label"]: ariaLabel,
-      onClickCallback,
-      computedClassName,
-      iconRef,
-      role
-    } = useIconProps({
+    const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
       onClick,
+      iconLabel,
       clickable,
       className,
       isDecorationOnly: ariaHidden,
       ignoreFocusStyle
     });
+
+    screenReaderAccessProps.tabIndex = externalTabIndex ?? screenReaderAccessProps.tabIndex;
 
     const mergedRef = useMergeRefs({ refs: [ref, iconRef] });
 
@@ -51,28 +46,22 @@ const Icon = forwardRef(
       const IconComponent = icon;
       return (
         <IconComponent
+          {...screenReaderAccessProps}
           ref={mergedRef}
-          aria-hidden={isHidden}
-          aria-label={iconLabel}
           size={iconSize.toString()}
           onClick={onClick}
-          tabIndex={externalTabIndex ?? tabIndex}
           className={computedClassName}
-          role={role}
         />
       );
     }
 
     return (
       <FontIcon
-        aria-hidden={isHidden}
+        {...screenReaderAccessProps}
         className={cx(computedClassName)}
         onClick={onClickCallback}
         ref={mergedRef}
-        iconLabel={iconLabel}
-        tabIndex={externalTabIndex ?? tabIndex}
         icon={icon}
-        role={role}
       />
     );
   }

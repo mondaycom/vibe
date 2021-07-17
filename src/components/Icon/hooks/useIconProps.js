@@ -63,7 +63,7 @@ export default function useIconProps({ onClick, className, clickable, ignoreFocu
   });
 
   return {
-    ...screenReaderAccessProps,
+    screenReaderAccessProps,
     onClickCallback,
     computedClassName,
     onEnterCallback,

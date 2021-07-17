@@ -22,7 +22,11 @@ export const Icons = () => {
       </FlexLayout>
       <FlexLayout className="main-icon-story">
         <div className="single-icon-wrapper" style={{ color: "var(--color-egg_yolk)" }}>
-          <Icon iconType={Icon.type.ICON_FONT} iconLabel="my font awesome start icon" icon="fa fa-star" clickable />
+          <Icon
+            iconType={Icon.type.ICON_FONT}
+            iconLabel="my font awesome start icon"
+            icon="fa fa-star"
+          />
         </div>
         <DescriptionLabel>Font Icon</DescriptionLabel>
       </FlexLayout>
