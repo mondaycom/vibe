@@ -12,7 +12,7 @@ export function getClickableScreenReaderAccessProps({ isKeyboardAccessible = tru
   return {
     role: "button",
     tabIndex: isKeyboardAccessible ? 0 : -1,
-    isDecorationOnly
+    "aria-hidden": isDecorationOnly
   };
 }
 

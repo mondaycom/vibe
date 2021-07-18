@@ -73,14 +73,12 @@ exports[`<Tab /> Snapshot tests renders correctly tab with icon on left 1`] = `
     onClick={[Function]}
   >
     <svg
-      aria-hidden="true"
-      aria-label=""
+      aria-hidden={true}
       className="icon_component tab-icon left icon_component--no-focus-style"
       fill="currentColor"
       height="18"
       onClick={[Function]}
-      role=""
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="18"
     >
@@ -114,14 +112,12 @@ exports[`<Tab /> Snapshot tests renders correctly tab with icon on right 1`] = `
     a
     b
     <svg
-      aria-hidden="true"
-      aria-label=""
+      aria-hidden={true}
       className="icon_component tab-icon right icon_component--no-focus-style"
       fill="currentColor"
       height="18"
       onClick={[Function]}
-      role=""
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="18"
     >
