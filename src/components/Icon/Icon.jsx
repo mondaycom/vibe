@@ -31,10 +31,9 @@ const Icon = forwardRef(
       clickable,
       className,
       isDecorationOnly: ariaHidden,
-      ignoreFocusStyle
+      ignoreFocusStyle,
+      externalTabIndex
     });
-
-    screenReaderAccessProps.tabIndex = externalTabIndex ?? screenReaderAccessProps.tabIndex;
 
     const mergedRef = useMergeRefs({ refs: [ref, iconRef] });
 

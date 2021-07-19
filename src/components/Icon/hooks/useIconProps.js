@@ -8,7 +8,15 @@ import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAc
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
-export default function useIconProps({ onClick, className, clickable, ignoreFocusStyle, isDecorationOnly, iconLabel }) {
+export default function useIconProps({
+  onClick,
+  className,
+  clickable,
+  ignoreFocusStyle,
+  isDecorationOnly,
+  iconLabel,
+  externalTabIndex
+}) {
   const iconRef = useRef(null);
   const onEnterCallback = useCallback(
     event => {
@@ -61,6 +69,8 @@ export default function useIconProps({ onClick, className, clickable, ignoreFocu
     label: iconLabel,
     isDecorationOnly
   });
+
+  screenReaderAccessProps.tabIndex = externalTabIndex ?? screenReaderAccessProps.tabIndex;
 
   return {
     screenReaderAccessProps,
