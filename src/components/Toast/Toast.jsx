@@ -95,6 +95,8 @@ const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children,
   );
 };
 
+Toast.types = TOAST_TYPES;
+
 Toast.propTypes = {
   /** If true, Toast is open (visible) */
   open: PropTypes.bool,
