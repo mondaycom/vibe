@@ -52,7 +52,7 @@ export const Sandbox = () => {
             autoHideDuration={knobs.autoHideDuration}
             hideIcon={knobs.hideIcon}
           >
-            Something Happened!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            Something Happened
           </Toast>
         </StoryStateColumn>
       </StoryStateRow>
