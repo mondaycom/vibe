@@ -1,21 +1,21 @@
-import { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { number, select, boolean } from "@storybook/addon-knobs";
-import { TOAST_TYPES } from "../ToastConstants";
 import Toast from "../Toast";
 import Button from "../../Button/Button";
 import Icon from "../../Icon/Icon";
 import Send from "../../Icon/Icons/components/Send";
 import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
 
-export const Toasts = () => {
+export const Sandbox = () => {
   const sendIconElement = (
     <Icon iconType={Icon.type.SVG} clickable={false} icon={Send} iconSize="20px" ignoreFocusStyle />
   );
+
   const knobs = {
     type: select("type", {
-      Normal: TOAST_TYPES.NORMAL,
-      Positive: TOAST_TYPES.POSITIVE,
-      Negative: TOAST_TYPES.NEGATIVE
+      Normal: Toast.types.NORMAL,
+      Positive: Toast.types.POSITIVE,
+      Negative: Toast.types.NEGATIVE
     }),
     closeable: boolean("closeable", true),
     autoHideDuration: number("autoHideDuration", 0),
@@ -52,14 +52,13 @@ export const Toasts = () => {
             autoHideDuration={knobs.autoHideDuration}
             hideIcon={knobs.hideIcon}
           >
-            Something Happened
+            Something Happened!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           </Toast>
         </StoryStateColumn>
       </StoryStateRow>
     </section>
   );
 };
-
 export default {
   title: "Components|Toast",
   component: Toast
