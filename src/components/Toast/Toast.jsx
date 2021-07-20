@@ -33,9 +33,8 @@ const getIcon = (type, icon) => {
     />
   ) : null;
 };
-
-const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children, closeable, onClose }) => {
-  const classNames = useMemo(() => cx("monday-style-toast", `monday-style-toast--type-${type}`), [type]);
+const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children, closeable, onClose, className }) => {
+  const classNames = useMemo(() => cx("monday-style-toast", `monday-style-toast--type-${type}`, className), [type]);
   const handleClose = useCallback(() => {
     if (onClose) {
       onClose();
@@ -96,8 +95,11 @@ const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children,
   );
 };
 
+Toast.types = TOAST_TYPES;
+
 Toast.propTypes = {
   /** If true, Toast is open (visible) */
+  className: PropTypes.string,
   open: PropTypes.bool,
   type: PropTypes.oneOf([TOAST_TYPES.NORMAL, TOAST_TYPES.POSITIVE, TOAST_TYPES.NEGATIVE]),
   /** Possible to override the dafult icon */
@@ -117,6 +119,7 @@ Toast.propTypes = {
 
 Toast.defaultProps = {
   type: TOAST_TYPES.NORMAL,
+  className: "",
   open: false,
   action: null,
   hideIcon: false,
