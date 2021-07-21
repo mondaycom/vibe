@@ -7,7 +7,7 @@ const ToastButton = ({ className, ...buttonProps }) => {
   return (
     <Button
       {...buttonProps}
-      className={cx("monday-style-toast_button", className)}
+      className={cx("monday-style-toast-action_button", className)}
       size={Button.sizes.SMALL}
       color={Button.colors.ON_PRIMARY_COLOR}
     />
@@ -25,7 +25,7 @@ const { size: _sizeDefaultProp, ...linkDefaultPropTypes } = Button.defaultProps;
 ToastButton.defaultProps = {
   ...linkDefaultPropTypes,
   size: Button.sizes.SMALL,
-  kind: Button.kinds.TERTIARY,
+  kind: Button.kinds.SECONDARY,
   marginLeft: false,
   isDarkBackground: false
 };

@@ -15,7 +15,7 @@
   padding: $spacing-small;
   align-items: center;
   display: flex;
-  min-width: 390px;
+  min-width: 200px;
   border-radius: $border-radius-small;
 
   &-icon {
@@ -36,6 +36,12 @@
   &-action {
     padding-right: $spacing-small;
     margin-left: $spacing-large;
+    display: flex;
+    &_button, &_link {
+      &:not(:first-child) {
+        margin-left: $spacing-medium;
+      }
+    }
   }
 
   &--type {
