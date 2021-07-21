@@ -81,7 +81,6 @@ export const Sandbox = () => {
         <Toast
           open={toastOpenLink}
           onClose={() => closeToastLink()}
-          action={<ToastLink text="Lorem ipsum" href="https://monday.com" />}
           type={knobs.type}
           icon={icon}
           closeable={knobs.closeable}
@@ -89,6 +88,7 @@ export const Sandbox = () => {
           hideIcon={knobs.hideIcon}
         >
           Something Happened
+          <ToastLink text="Lorem ipsum" href="https://monday.com" />
         </Toast>
       </StoryStateColumn>
       <StoryStateColumn>
@@ -96,7 +96,7 @@ export const Sandbox = () => {
         <Toast
           open={toastOpenLinkButton}
           onClose={() => closeToastLinkButton()}
-          action={[<ToastLink text="Lorem ipsum" href="https://monday.com" />, <ToastButton>Undo 5</ToastButton>]}
+          action={<ToastButton>Undo 5</ToastButton>}
           type={knobs.type}
           icon={icon}
           closeable={knobs.closeable}
@@ -104,6 +104,7 @@ export const Sandbox = () => {
           hideIcon={knobs.hideIcon}
         >
           Something Happened
+          <ToastLink text="Lorem ipsum" href="https://monday.com" />
         </Toast>
       </StoryStateColumn>
     </section>

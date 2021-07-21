@@ -25,6 +25,7 @@
   }
 
   &-content {
+    display: inline-flex;
     line-height: 22px;
     font-size: 14px;
     flex-grow: 1;
@@ -34,13 +35,10 @@
   }
 
   &-action {
-    padding-right: $spacing-small;
-    margin-left: $spacing-large;
+    margin-left: $spacing-medium;
     display: flex;
     &_button, &_link {
-      &:not(:first-child) {
-        margin-left: $spacing-medium;
-      }
+      margin-left: $spacing-small;
     }
   }
 
@@ -71,6 +69,10 @@
       animation-duration: 160ms;
       animation-name: toast-pop-out;
     }
+  }
+
+  &_close-button {
+    margin-left: $spacing-small;
   }
 }
 
