@@ -80,6 +80,7 @@ const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children,
         {action && <div className="monday-style-toast-action">{action}</div>}
         {closeable && (
           <Button
+            className="monday-style-toast_close-button"
             onClick={handleClose}
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}

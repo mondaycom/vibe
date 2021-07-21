@@ -5,6 +5,8 @@ import Button from "../../Button/Button";
 import Icon from "../../Icon/Icon";
 import Send from "../../Icon/Icons/components/Send";
 import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
+import ToastButton from "../ToastButton/ToastButton";
+import ToastLink from "../ToastLink/ToastLink";
 
 export const Sandbox = () => {
   const sendIconElement = (
@@ -27,35 +29,84 @@ export const Sandbox = () => {
     hideIcon: boolean("hideIcon", false)
   };
   const [toastOpen, setToastOpen] = useState(false);
+  const [toastOpenButton, setToastOpenButton] = useState(false);
+  const [toastOpenLink, setToastOpenLink] = useState(false);
+  const [toastOpenLinkButton, setToastOpenLinkButton] = useState(false);
+
   const toggleToast = () => setToastOpen(open => !open);
   const closeToast = () => setToastOpen(false);
+  const toggleToastButton = () => setToastOpenButton(open => !open);
+  const closeToastButton = () => setToastOpenButton(false);
+  const toggleToastLink = () => setToastOpenLink(open => !open);
+  const closeToastLink = () => setToastOpenLink(false);
+  const toggleToastLinkButton = () => setToastOpenLinkButton(open => !open);
+  const closeToastLinkButton = () => setToastOpenLinkButton(false);
   let icon = knobs.icon;
   if (knobs.icon === "send") {
     icon = sendIconElement;
   }
   return (
     <section>
-      <StoryStateRow>
-        <StoryStateColumn>
-          <Button onClick={() => toggleToast()}>Toggle Toast!</Button>
-          <Toast
-            open={toastOpen}
-            onClose={() => closeToast()}
-            action={
-              <Button size={Button.sizes.SMALL} kind={Button.kinds.SECONDARY} color={Button.colors.ON_PRIMARY_COLOR}>
-                Undo 5
-              </Button>
-            }
-            type={knobs.type}
-            icon={icon}
-            closeable={knobs.closeable}
-            autoHideDuration={knobs.autoHideDuration}
-            hideIcon={knobs.hideIcon}
-          >
-            Something Happened
-          </Toast>
-        </StoryStateColumn>
-      </StoryStateRow>
+      <StoryStateColumn>
+        <Button onClick={() => toggleToast()}>Toggle Toast!</Button>
+        <Toast
+          open={toastOpen}
+          onClose={() => closeToast()}
+          type={knobs.type}
+          icon={icon}
+          closeable={knobs.closeable}
+          autoHideDuration={knobs.autoHideDuration}
+          hideIcon={knobs.hideIcon}
+        >
+          Something Happened
+        </Toast>
+      </StoryStateColumn>
+      <StoryStateColumn>
+        <Button onClick={() => toggleToastButton()}>Toggle toast with button!</Button>
+        <Toast
+          open={toastOpenButton}
+          onClose={() => closeToastButton()}
+          action={<ToastButton>Undo 5</ToastButton>}
+          type={knobs.type}
+          icon={icon}
+          closeable={knobs.closeable}
+          autoHideDuration={knobs.autoHideDuration}
+          hideIcon={knobs.hideIcon}
+        >
+          Something Happened
+        </Toast>
+      </StoryStateColumn>
+      <StoryStateColumn>
+        <Button onClick={() => toggleToastLink()}>Toggle Toast with link!</Button>
+        <Toast
+          open={toastOpenLink}
+          onClose={() => closeToastLink()}
+          type={knobs.type}
+          icon={icon}
+          closeable={knobs.closeable}
+          autoHideDuration={knobs.autoHideDuration}
+          hideIcon={knobs.hideIcon}
+        >
+          Something Happened
+          <ToastLink text="Lorem ipsum" href="https://monday.com" />
+        </Toast>
+      </StoryStateColumn>
+      <StoryStateColumn>
+        <Button onClick={() => toggleToastLinkButton()}>Toggle Toast with link and button!</Button>
+        <Toast
+          open={toastOpenLinkButton}
+          onClose={() => closeToastLinkButton()}
+          action={<ToastButton>Undo 5</ToastButton>}
+          type={knobs.type}
+          icon={icon}
+          closeable={knobs.closeable}
+          autoHideDuration={knobs.autoHideDuration}
+          hideIcon={knobs.hideIcon}
+        >
+          Something Happened
+          <ToastLink text="Lorem ipsum" href="https://monday.com" />
+        </Toast>
+      </StoryStateColumn>
     </section>
   );
 };
