@@ -44,7 +44,6 @@ const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children,
   const timerAutoHide = useRef();
   const setAutoHideTimer = useCallback(
     duration => {
-      debugger;
       if (!onClose || duration == null) {
         return;
       }
