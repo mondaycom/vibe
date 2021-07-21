@@ -6,7 +6,6 @@ import "./ToastLink.scss";
 
 const ToastLink = ({ className, ...linkProps }) => {
   const classNames = cx("monday-style-toast-action_link", className);
-
   return <Link {...linkProps} componentClassName={classNames} />;
 };
 
