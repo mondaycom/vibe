@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import cx from "classnames";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 
 const ToastButton = ({ className, ...buttonProps }) => {
   return (

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import cx from "classnames";
-import Link from "../Link/Link";
+import Link from "../../Link/Link";
 import "./ToastLink.scss";
 
 const ToastLink = ({ className, ...linkProps }) => {
