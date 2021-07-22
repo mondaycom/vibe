@@ -5,8 +5,6 @@ import Button from "../../Button/Button";
 import Icon from "../../Icon/Icon";
 import Send from "../../Icon/Icons/components/Send";
 import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
-import ToastButton from "../ToastButton/ToastButton";
-import ToastLink from "../ToastLink/ToastLink";
 
 export const Sandbox = () => {
   const sendIconElement = (
