@@ -160,6 +160,7 @@ Toast.defaultProps = {
   icon: null,
   closeable: true,
   autoHideDuration: null,
+  actions: undefined,
   onClose: NOOP
 };
 
