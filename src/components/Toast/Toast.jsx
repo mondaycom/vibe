@@ -34,7 +34,23 @@ const getIcon = (type, icon) => {
   ) : null;
 };
 
-const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children, closeable, onClose }) => {
+const Toast = ({
+  open,
+  autoHideDuration,
+  type,
+  icon,
+  hideIcon,
+  action: deprecatedAction,
+  actions,
+  children,
+  closeable,
+  onClose
+}) => {
+  const toastLinks = useMemo(() => {
+    return actions
+      .filter(action => action.type === TOAST_ACTION_TYPES.LINK)
+      .map(({ type, ...otherProps }) => <ToastLink {...otherProps} />);
+  }, []);
   const classNames = useMemo(() => cx("monday-style-toast", `monday-style-toast--type-${type}`), [type]);
   const handleClose = useCallback(() => {
     if (onClose) {
@@ -78,7 +94,7 @@ const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children,
         >
           {children}
         </div>
-        {action && <div className="monday-style-toast-action">{action}</div>}
+        {deprecatedAction && <div className="monday-style-toast-action">{deprecatedAction}</div>}
         {closeable && (
           <Button
             onClick={handleClose}
