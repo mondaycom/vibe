@@ -44,14 +44,15 @@ const Toast = ({
   actions,
   children,
   closeable,
-  onClose
+  onClose,
+                 className
 }) => {
   const toastLinks = useMemo(() => {
     return actions
       .filter(action => action.type === TOAST_ACTION_TYPES.LINK)
       .map(({ type, ...otherProps }) => <ToastLink {...otherProps} />);
   }, []);
-  const classNames = useMemo(() => cx("monday-style-toast", `monday-style-toast--type-${type}`), [type]);
+  const classNames = useMemo(() => cx("monday-style-toast", `monday-style-toast--type-${type}`, className), [type]);
   const handleClose = useCallback(() => {
     if (onClose) {
       onClose();
@@ -97,6 +98,7 @@ const Toast = ({
         {deprecatedAction && <div className="monday-style-toast-action">{deprecatedAction}</div>}
         {closeable && (
           <Button
+            className="monday-style-toast_close-button"
             onClick={handleClose}
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}
@@ -111,8 +113,11 @@ const Toast = ({
   );
 };
 
+Toast.types = TOAST_TYPES;
+
 Toast.propTypes = {
   /** If true, Toast is open (visible) */
+  className: PropTypes.string,
   open: PropTypes.bool,
   type: PropTypes.oneOf([TOAST_TYPES.NORMAL, TOAST_TYPES.POSITIVE, TOAST_TYPES.NEGATIVE]),
   /** Possible to override the dafult icon */
@@ -132,6 +137,7 @@ Toast.propTypes = {
 
 Toast.defaultProps = {
   type: TOAST_TYPES.NORMAL,
+  className: "",
   open: false,
   action: null,
   hideIcon: false,
