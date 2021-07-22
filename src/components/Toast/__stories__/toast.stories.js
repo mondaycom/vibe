@@ -66,8 +66,8 @@ export const Sandbox = () => {
         <Toast
           open={toastOpenButton}
           onClose={() => closeToastButton()}
-          action={<ToastButton>Undo 5</ToastButton>}
           type={knobs.type}
+          actions={[{ type: Toast.actionTypes.BUTTON, content: "Undo 5" }]}
           icon={icon}
           closeable={knobs.closeable}
           autoHideDuration={knobs.autoHideDuration}
@@ -77,7 +77,7 @@ export const Sandbox = () => {
         </Toast>
       </StoryStateColumn>
       <StoryStateColumn>
-        <Button onClick={() => toggleToastLink()}>Toggle Toast with link!</Button>
+        <Button onClick={() => toggleToastLink()}>Toggle toast with link!</Button>
         <Toast
           open={toastOpenLink}
           onClose={() => closeToastLink()}
@@ -86,9 +86,9 @@ export const Sandbox = () => {
           closeable={knobs.closeable}
           autoHideDuration={knobs.autoHideDuration}
           hideIcon={knobs.hideIcon}
+          actions={[{ type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com" }]}
         >
           Something Happened
-          <ToastLink text="Lorem ipsum" href="https://monday.com" />
         </Toast>
       </StoryStateColumn>
       <StoryStateColumn>
@@ -96,15 +96,17 @@ export const Sandbox = () => {
         <Toast
           open={toastOpenLinkButton}
           onClose={() => closeToastLinkButton()}
-          action={<ToastButton>Undo 5</ToastButton>}
           type={knobs.type}
           icon={icon}
           closeable={knobs.closeable}
           autoHideDuration={knobs.autoHideDuration}
           hideIcon={knobs.hideIcon}
+          actions={[
+            { type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com" },
+            { type: Toast.actionTypes.BUTTON, content: "Undo 5" }
+          ]}
         >
           Something Happened
-          <ToastLink text="Lorem ipsum" href="https://monday.com" />
         </Toast>
       </StoryStateColumn>
     </section>
