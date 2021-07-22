@@ -4,12 +4,14 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import { CSSTransition } from "react-transition-group";
 import Button from "../Button/Button";
+import ToastLink from "./ToastLink/ToastLink";
+import ToastButton from "./ToastButton/ToastButton";
 import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import Alert from "../Icon/Icons/components/Alert";
 import Info from "../Icon/Icons/components/Info";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
-import { TOAST_TYPES } from "./ToastConstants";
+import { TOAST_TYPES, TOAST_ACTION_TYPES } from "./ToastConstants";
 import "./Toast.scss";
 
 const defaultIconMap = {
@@ -33,7 +35,34 @@ const getIcon = (type, icon) => {
     />
   ) : null;
 };
-const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children, closeable, onClose, className }) => {
+
+const Toast = ({
+  open,
+  autoHideDuration,
+  type,
+  icon,
+  hideIcon,
+  action: deprecatedAction,
+  actions,
+  children,
+  closeable,
+  onClose,
+  className
+}) => {
+  const toastLinks = useMemo(() => {
+    return actions
+      ? actions
+          .filter(action => action.type === TOAST_ACTION_TYPES.LINK)
+          .map(({ type, ...otherProps }) => <ToastLink {...otherProps} />)
+      : null;
+  }, [actions]);
+  const toastButtons = useMemo(() => {
+    return actions
+      ? actions
+          .filter(action => action.type === TOAST_ACTION_TYPES.BUTTON)
+          .map(({ type, content, ...otherProps }) => <ToastButton {...otherProps}> {content} </ToastButton>)
+      : null;
+  }, [actions]);
   const classNames = useMemo(() => cx("monday-style-toast", `monday-style-toast--type-${type}`, className), [type]);
   const handleClose = useCallback(() => {
     if (onClose) {
@@ -76,8 +105,11 @@ const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children,
           })}
         >
           {children}
+          {toastLinks}
         </div>
-        {action && <div className="monday-style-toast-action">{action}</div>}
+        {(toastButtons || deprecatedAction) && (
+          <div className="monday-style-toast-action">{toastButtons || deprecatedAction}</div>
+        )}
         {closeable && (
           <Button
             className="monday-style-toast_close-button"
@@ -96,10 +128,12 @@ const Toast = ({ open, autoHideDuration, type, icon, hideIcon, action, children,
 };
 
 Toast.types = TOAST_TYPES;
+Toast.actionTypes = TOAST_ACTION_TYPES;
 
 Toast.propTypes = {
   /** If true, Toast is open (visible) */
   className: PropTypes.string,
+  actions: PropTypes.array,
   open: PropTypes.bool,
   type: PropTypes.oneOf([TOAST_TYPES.NORMAL, TOAST_TYPES.POSITIVE, TOAST_TYPES.NEGATIVE]),
   /** Possible to override the dafult icon */
@@ -126,6 +160,7 @@ Toast.defaultProps = {
   icon: null,
   closeable: true,
   autoHideDuration: null,
+  actions: undefined,
   onClose: NOOP
 };
 
