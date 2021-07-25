@@ -5,59 +5,49 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import Icon from "../../Icon/Icon";
 import "./Tab.scss";
 
-const Tab = forwardRef(({
-  className,
-  id,
-  value,
-  disabled,
-  active,
-  focus,
-  onClick,
-  icon,
-  iconType,
-  iconSide,
-  children
-}, ref) => {
-  const componentRef = useRef(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+const Tab = forwardRef(
+  ({ className, id, value, disabled, active, focus, onClick, icon, iconType, iconSide, children }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-  function renderIconAndChildren() {
-    if (!icon) return children;
+    function renderIconAndChildren() {
+      if (!icon) return children;
 
-    const iconElement = (
-      <Icon
-        clickable={false}
-        icon={icon}
-        className={cx("tab-icon", iconSide)}
-        iconSize={18}
-        ignoreFocusStyle
-      />
-    );
+      const iconElement = (
+        <Icon
+          clickable={false}
+          ariaHidden={true}
+          icon={icon}
+          className={cx("tab-icon", iconSide)}
+          iconSize={18}
+          ignoreFocusStyle
+        />
+      );
 
-    if (iconSide === "left") {
-      return [iconElement, ...children];
+      if (iconSide === "left") {
+        return [iconElement, ...children];
+      }
+
+      return [...children, iconElement];
     }
 
-    return [...children, iconElement];
-  }
-
-  return (
-    <li ref={mergedRef}
+    return (
+      <li
+        ref={mergedRef}
         key={id}
         className={cx("tab--wrapper", className, { active, disabled, "focus-visible": focus })}
         id={id}
         role="tab"
         aria-selected={active}
         aria-disabled={disabled}
-    >
-        <a className="tab-inner"
-           onClick={() => !disabled && onClick(value)}
-        >
-            {renderIconAndChildren()}
+      >
+        <a className="tab-inner" onClick={() => !disabled && onClick(value)}>
+          {renderIconAndChildren()}
         </a>
-    </li>
-  );
-});
+      </li>
+    );
+  }
+);
 
 Tab.propTypes = {
   className: PropTypes.string,

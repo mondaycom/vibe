@@ -55,11 +55,11 @@ exports[`<Combobox /> renders correctly with empty props 1`] = `
           tabIndex="-1"
         >
           <span
+            aria-hidden={false}
             aria-label="Search"
             className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
             onClick={[Function]}
             role="img"
-            tabIndex={-1}
           />
         </div>
         <div
@@ -80,11 +80,11 @@ exports[`<Combobox /> renders correctly with empty props 1`] = `
           tabIndex="-1"
         >
           <span
+            aria-hidden={false}
             aria-label="Clear Search"
             className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
             onClick={[Function]}
             role="img"
-            tabIndex={-1}
           />
         </div>
       </div>
@@ -157,11 +157,11 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
           tabIndex="-1"
         >
           <span
+            aria-hidden={false}
             aria-label="Search"
             className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
             onClick={[Function]}
             role="img"
-            tabIndex={-1}
           />
         </div>
         <div
@@ -182,11 +182,11 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
           tabIndex="-1"
         >
           <span
+            aria-hidden={false}
             aria-label="Clear Search"
             className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
             onClick={[Function]}
             role="img"
-            tabIndex={-1}
           />
         </div>
       </div>
@@ -279,11 +279,11 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
           tabIndex="-1"
         >
           <span
+            aria-hidden={false}
             aria-label="Search"
             className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
             onClick={[Function]}
             role="img"
-            tabIndex={-1}
           />
         </div>
         <div
@@ -304,11 +304,11 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
           tabIndex="-1"
         >
           <span
+            aria-hidden={false}
             aria-label="Clear Search"
             className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
             onClick={[Function]}
             role="img"
-            tabIndex={-1}
           />
         </div>
       </div>

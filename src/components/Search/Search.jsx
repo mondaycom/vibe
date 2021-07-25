@@ -146,7 +146,7 @@ Search.defaultProps = {
   className: "",
   id: "search",
   validation: null,
-  inputAriaLabel: "",
+  inputAriaLabel: undefined,
   searchResultsContainerId: "",
   activeDescendant: "",
   iconNames: ICON_NAMES

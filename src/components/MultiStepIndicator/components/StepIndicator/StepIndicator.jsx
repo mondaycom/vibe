@@ -80,6 +80,7 @@ const StepIndicator = ({
         iconType={fulfilledStepIconType}
         ignoreFocusStyle
         clickable={false}
+        ariaHidden={true}
       />
     ) : (
       stepNumber
