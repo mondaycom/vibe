@@ -39,7 +39,13 @@ const DefaultExampleTemplate = (responseListProps) => {
     <SplitButton size={SplitButton.sizes.MAIN} marginRight secondaryDialogContent={<SecondaryContentComponent />}>
       Add Item
     </SplitButton>
-    <div className="responsive-lst-search">
+    <div className="responsive-lst-search" responsiveListPlaceholder={<Search
+      id={"search-icon-inside"}
+      size={Search.sizes.MEDIUM}
+      placeholder="search for content"
+      iconName={() => <SearchIcon />}
+      secondaryIconName={() => <CloseSmall />}
+    />}>
       <Search
         size={Search.sizes.MEDIUM}
         placeholder="search for content"
