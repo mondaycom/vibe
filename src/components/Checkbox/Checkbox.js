@@ -69,9 +69,9 @@ export const Checkbox = ({
           className={`${BASE_CLASS_NAME}__icon`}
           iconType={Icon.type.SVG}
           icon={Check}
-          iconLabel="checkbox"
           ignoreFocusStyle
           clickable={false}
+          ariaHidden={true}
           iconSize="16"
         />
       </div>
@@ -96,7 +96,7 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   id: undefined,
   componentClassName: "",
-  label: "",
+  label: undefined,
   onChange: NOOP,
   disabled: false,
   name: "",

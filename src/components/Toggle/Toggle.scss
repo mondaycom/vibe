@@ -7,6 +7,9 @@
     align-items: center;
     &--disabled {
       opacity: 0.4;
+      & .monday-style-toggle_toggle {
+        cursor: not-allowed;
+      }
       & .monday-style-toggle_text {
         color: rgba(var(--primary-text-color), 0.4);
       }

@@ -1,12 +1,20 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 
+.responsive-list--root {
+  position: relative;
+}
 .responsive-list--wrapper {
   display: flex;
   justify-content: flex-end;
   .responsive-list-menu-button {
     flex-shrink: 0;
   }
+}
+.responsive-list--dummy {
+  width: 100%;
+  position: absolute;
+  visibility: hidden;
 }
 .responsive-list--menu-button-dialog {
   display: flex;

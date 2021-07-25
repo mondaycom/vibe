@@ -278,7 +278,7 @@ TextField.defaultProps = {
   clearOnIconClick: false,
   labelIconName: "",
   showCharCount: false,
-  inputAriaLabel: "",
+  inputAriaLabel: undefined,
   searchResultsContainerId: "",
   activeDescendant: "",
   iconsNames: EMPTY_OBJECT,
