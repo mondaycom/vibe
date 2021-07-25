@@ -33,7 +33,7 @@ CustomSvgIcon.propTypes = {
   className: "",
   src: "",
   ariaLabel: undefined,
-  ariaHidden: false
+  ariaHidden: undefined
 };
 
 export default CustomSvgIcon;
