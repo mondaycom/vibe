@@ -1,8 +1,16 @@
+import isNil from "lodash/isNil";
+
 export function getIconScreenReaderAccessProps({ isClickable, isDecorationOnly, isKeyboardAccessible, label }) {
-  if (isClickable) return getClickableIconScreenReaderAccessProps({ label, isDecorationOnly, isKeyboardAccessible });
+  const overrideIsDecorationOnly = isNil(isDecorationOnly) ? !isClickable : isDecorationOnly;
+  if (isClickable)
+    return getClickableIconScreenReaderAccessProps({
+      label,
+      isDecorationOnly: overrideIsDecorationOnly,
+      isKeyboardAccessible
+    });
   return {
     role: "img",
-    "aria-hidden": isDecorationOnly,
+    "aria-hidden": overrideIsDecorationOnly,
     tabIndex: undefined,
     "aria-label": isDecorationOnly ? undefined : label
   };

@@ -95,7 +95,7 @@ Icon.defaultProps = {
   iconType: ICON_TYPES.SVG,
   iconSize: 16,
   ignoreFocusStyle: false,
-  ariaHidden: false
+  ariaHidden: undefined
 };
 
 export default Icon;

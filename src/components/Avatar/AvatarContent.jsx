@@ -14,7 +14,16 @@ export const AvatarContent = ({ type, src, icon, text, ariaLabel, role, size }) 
     case AVATAR_TYPES.IMG:
       return <img role={role} alt={ariaLabel} src={src} className={className} />;
     case AVATAR_TYPES.ICON:
-      return <Icon icon={icon} aria-label={ariaLabel} role={role} clickable={false} className={className} />;
+      return (
+        <Icon
+          icon={icon}
+          aria-label={ariaLabel}
+          role={role}
+          clickable={false}
+          className={className}
+          ariaHidden={false}
+        />
+      );
     case AVATAR_TYPES.TEXT:
       return (
         <span aria-label={ariaLabel} role={role} className={className}>
