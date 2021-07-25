@@ -14,6 +14,7 @@ const ResponsiveList = forwardRef(
     {
       id,
       className,
+      rootClassName,
       children,
       menuButtonSize,
       paddingSize,
@@ -21,13 +22,20 @@ const ResponsiveList = forwardRef(
       dialogClassName,
       menuButtonClassName,
       resizeDebounceTime,
+      menuButtonAriaLabel,
       menuButtonProps
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const index = useElementsOverflowingIndex({ ref: componentRef, children, paddingSize, resizeDebounceTime });
+    const index = useElementsOverflowingIndex({
+      ref: componentRef,
+      children,
+      paddingSize,
+      resizeDebounceTime,
+      ignoreLast: true
+    });
 
     const directChildren = useMemo(() => {
       if (index === -1) {
@@ -47,19 +55,37 @@ const ResponsiveList = forwardRef(
     }, [children, index]);
 
     return (
-      <div ref={mergedRef} className={cx("responsive-list--wrapper", className)} id={id}>
-        {directChildren}
-        {!!menuChildren.length && (
+      <div className={cx("responsive-list--root", rootClassName)} id={id}>
+        {index !== null && (
+          <div className={cx("responsive-list--wrapper", className)}>
+            {directChildren}
+            {!!menuChildren.length && (
+              <MenuButton
+                componentClassName={cx("responsive-list-menu-button", menuButtonClassName)}
+                size={menuButtonSize}
+                openDialogComponentClassName={cx("responsive-list--menu-button-dialog", dialogClassName)}
+                zIndex={dialogZIndex}
+                ariaLabel={menuButtonAriaLabel}
+                {...menuButtonProps}
+              >
+                <div className="responsive-list-menu-wrapper-flex">{menuChildren}</div>
+              </MenuButton>
+            )}
+          </div>
+        )}
+        <div ref={mergedRef} className={cx("responsive-list--wrapper responsive-list--dummy", className)}>
+          {children}
           <MenuButton
             componentClassName={cx("responsive-list-menu-button", menuButtonClassName)}
             size={menuButtonSize}
             openDialogComponentClassName={cx("responsive-list--menu-button-dialog", dialogClassName)}
             zIndex={dialogZIndex}
+            ariaLabel={menuButtonAriaLabel}
             {...menuButtonProps}
           >
-            <div className="responsive-list-menu-wrapper-flex">{menuChildren}</div>
+            <div className="responsive-list-menu-wrapper-flex" />
           </MenuButton>
-        )}
+        </div>
       </div>
     );
   }
@@ -75,6 +101,8 @@ ResponsiveList.propTypes = {
    These attributes will be passed to the MenuButton
    */
   menuButtonProps: PropTypes.object,
+  menuButtonAriaLabel: "More Actions",
+  rootClassName: PropTypes.string,
   dialogClassName: PropTypes.string,
   menuButtonSize: PropTypes.oneOf(Object.keys(ResponsiveList.menuButtonSizes)),
   /**
@@ -92,6 +120,8 @@ ResponsiveList.defaultProps = {
   className: "",
   dialogClassName: "",
   menuButtonClassName: "",
+  rootClassName: "",
+  menuButtonAriaLabel: "More Actions",
   menuButtonProps: {},
   menuButtonSize: ResponsiveList.menuButtonSizes.SMALL,
   paddingSize: DEFAULT_MINIMAL_MARGIN,
