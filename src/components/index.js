@@ -30,6 +30,8 @@ export { default as Checkbox } from "./Checkbox/Checkbox";
 export { default as DialogContentContainer } from "./DialogContentContainer/DialogContentContainer";
 export { default as Dropdown } from "./Dropdown/Dropdown";
 export { default as Toast } from "./Toast/Toast";
+export { default as ToastButton } from "./Toast/ToastButton/ToastButton";
+export { default as ToastLink } from "./Toast/ToastLink/ToastLink";
 export { default as Banner } from "./Banner/Banner";
 export { default as ButtonGroup } from "./ButtonGroup/ButtonGroup";
 

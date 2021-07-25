@@ -3,3 +3,8 @@ export const TOAST_TYPES = {
   POSITIVE: "positive",
   NEGATIVE: "negative"
 };
+
+export const TOAST_ACTION_TYPES = {
+  LINK: "link",
+  BUTTON: "button"
+};
