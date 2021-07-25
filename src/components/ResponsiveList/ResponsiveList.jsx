@@ -54,6 +54,13 @@ const ResponsiveList = forwardRef(
       return childrenArray.slice(index, childrenArray.length);
     }, [children, index]);
 
+
+    const hiddenChildren = useMemo(() => {
+      const childrenArray = React.Children.toArray(children);
+
+      return childrenArray.map(el => el?.props?.responsiveListPlaceholder || el);
+    }, [children]);
+
     return (
       <div className={cx("responsive-list--root", rootClassName)} id={id}>
         {index !== null && (
@@ -74,7 +81,7 @@ const ResponsiveList = forwardRef(
           </div>
         )}
         <div ref={mergedRef} className={cx("responsive-list--wrapper responsive-list--dummy", className)}>
-          {children}
+          {hiddenChildren}
           <MenuButton
             componentClassName={cx("responsive-list-menu-button", menuButtonClassName)}
             size={menuButtonSize}
