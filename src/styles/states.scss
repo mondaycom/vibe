@@ -34,21 +34,21 @@
   @include focus-style();
 }
 
-@mixin focus-style {
+@mixin focus-style($focus-radius: 4px) {
   &:focus:not(.focus-visible) {
     outline: none;
   }
   &:focus-visible,
   &.focus-visible {
-    @include focus-style-css();
+    @include focus-style-css($focus-radius);
   }
 }
 
-@mixin focus-style-css {
+@mixin focus-style-css($focus-radius: 4px) {
   outline: none;
   box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5), 0px 0px 0px 1px var(--primary-hover-color) inset;
   z-index: 11;
-  border-radius: 4px;
+  border-radius: $focus-radius;
 }
 
 

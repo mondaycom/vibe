@@ -1,0 +1,9 @@
+@import "../../../styles/global-css-settings.scss";
+@import "../../../styles/themes.scss";
+
+.monday-style-toast-action_link {
+  @include theme-prop(color, text-color-on-primary);
+  text-decoration: underline;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}

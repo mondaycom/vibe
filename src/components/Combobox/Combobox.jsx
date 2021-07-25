@@ -21,7 +21,7 @@ const Combobox = forwardRef(
       placeholder,
       size,
       optionLineHeight,
-      backgroundColor,
+      optionsListHeight,
       autoFocus,
       disabled,
       options,
@@ -39,13 +39,6 @@ const Combobox = forwardRef(
     const [isActiveByKeyboard, setIsActiveByKeyboard] = useState(false);
     const [filterValue, setFilterValue] = useState("");
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-
-    useEffect(() => {
-      if (!inputRef.current) return;
-
-      const inputElement = inputRef.current;
-      inputElement.style.backgroundColor = backgroundColor;
-    }, [inputRef, backgroundColor]);
 
     const setActiveItemIndexKeyboardNav = useCallback(
       index => {
@@ -107,21 +100,20 @@ const Combobox = forwardRef(
             </div>
           );
         });
-      } else {
-        return filterdOptions.map((option, index) => {
-          return (
-            <ComboboxOption
-              index={index}
-              option={option}
-              isActive={activeItemIndex === index}
-              isActiveByKeyboard={isActiveByKeyboard}
-              onOptionClick={onOptionClick}
-              onOptionHover={onOptionHover}
-              optionLineHeight={optionLineHeight}
-            />
-          );
-        });
       }
+      return filterdOptions.map((option, index) => {
+        return (
+          <ComboboxOption
+            index={index}
+            option={option}
+            isActive={activeItemIndex === index}
+            isActiveByKeyboard={isActiveByKeyboard}
+            onOptionClick={onOptionClick}
+            onOptionHover={onOptionHover}
+            optionLineHeight={optionLineHeight}
+          />
+        );
+      });
     }, [filterdOptions, categories, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionHover]);
 
     const onChangeCallback = useCallback(
@@ -177,12 +169,7 @@ const Combobox = forwardRef(
 
     return (
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
-      <div
-        ref={mergedRef}
-        className={cx("combobox--wrapper", className, { empty: !hasResults })}
-        style={{ backgroundColor: backgroundColor }}
-        id={id}
-      >
+      <div ref={mergedRef} className={cx("combobox--wrapper", className, { empty: !hasResults })} id={id}>
         <Search
           ref={inputRef}
           wrapperClassName="combobox--wrapper-search-wrapper"
@@ -198,7 +185,7 @@ const Combobox = forwardRef(
           onChange={onChangeCallback}
           autoFocus={autoFocus}
         />
-        <div className="combobox--wrapper-list" role="listbox">
+        <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           {renderedItems}
         </div>
         {hasFilter && !hasResults && renderNoResults()}
@@ -220,7 +207,7 @@ Combobox.propTypes = {
   categories: PropTypes.object,
   size: PropTypes.oneOf([Combobox.sizes.SMALL, Combobox.sizes.MEDIUM, Combobox.sizes.LARGE]),
   optionLineHeight: PropTypes.number,
-  backgroundColor: PropTypes.string,
+  optionsListHeight: PropTypes.number,
   autoFocus: PropTypes.bool,
   onAddNew: PropTypes.func,
   addNewLabel: PropTypes.string
@@ -235,7 +222,7 @@ Combobox.defaultProps = {
   categories: undefined,
   size: Combobox.sizes.MEDIUM,
   optionLineHeight: 32,
-  backgroundColor: "var(--primary-background-color)",
+  optionsListHeight: undefined,
   autoFocus: false,
   onAddNew: undefined,
   addNewLabel: "Add new"

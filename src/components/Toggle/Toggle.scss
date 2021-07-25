@@ -1,19 +1,37 @@
 @import "../../styles/states.scss";
 @import "../../styles/global-css-settings.scss";
 
-@mixin toggle-animation {
-  transition: 100ms $expand-animation-timing;
-}
-
 .monday-style-toggle{
-  &__wrapper {
+  &_wrapper {
     display: flex;
     align-items: center;
+    &--disabled {
+      opacity: 0.4;
+      & .monday-style-toggle_text {
+        color: rgba(var(--primary-text-color), 0.4);
+      }
+    }
   }
 
-  &__toggle {
+  // Since it is not possible to change the design of the checkbox according to the storybook toggle requirements using css,
+  // we hide the checkbox and draw a new one instead.
+  // In order to allow accessibility, all operations will be performed on the hidden checkbox and be reflected
+  // in the new toggle we drew.
+  &_input {
+    @include hidden-element;
+
+    // When the hidden checkbox will be focused by keyboard navigation events, the toggle appearance will reflect it
+    &:focus-visible,
+    &.focus-visible {
+      & + .monday-style-toggle_toggle {
+        @include focus-style-css();
+      }
+    }
+  }
+
+  &_toggle {
     @include reset-button();
-    @include toggle-animation;
+    transition: background-color 100ms $expand-animation-timing;
     margin: 0 $spacing-small;
     position: relative;
     height: 24px;
@@ -29,7 +47,7 @@
       height: 18px;
       border-radius: 50%;
       top: calc(50% - 18px/2);
-      @include toggle-animation;
+      transition: left 100ms $expand-animation-timing;
     }
 
     &--selected {
@@ -45,17 +63,9 @@
         left: 3px;
       }
     }
-
-    &--disabled {
-      @include theme-prop(background-color, primary-background-hover-color);
-    }
-
-    &--focused {
-      @include focus-style-css();
-    }
   }
 
-  &__text {
+  &_text {
     @include theme-prop(color, primary-text-color);
     font-style: normal;
     font-weight: normal;

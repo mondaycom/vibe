@@ -41,6 +41,8 @@ const publishedComponents = {
   Search: "/src/components/Search/Search.jsx",
   TextField: "/src/components/TextField/TextField.jsx",
   Toast: "/src/components/Toast/Toast.jsx",
+  ToastButton: "/src/components/Toast/ToastButton/ToastButton.jsx",
+  ToastLink: "/src/components/Toast/ToastLink/ToastLink.jsx",
   Tooltip: "/src/components/Tooltip/Tooltip.jsx",
   Button: "/src/components/Button/Button.jsx",
   Loader: "/src/components/Loader/Loader.jsx",
@@ -61,7 +63,8 @@ const publishedComponents = {
   AlertBannerText: "/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx",
   AlertBannerButton: "/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx",
   Toggle: "/src/components/Toggle/Toggle.jsx",
-  Skeleton: "/src/components/Skeleton/Skeleton.jsx"
+  Skeleton: "/src/components/Skeleton/Skeleton.jsx",
+  Avatar: "/src/components/Avatar/Avatar.jsx"
 };
 
 function getPublishedComponents(dirPath = "") {

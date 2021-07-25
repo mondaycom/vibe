@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
+import cx from "classnames";
 import NOOP from "lodash/noop";
-import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
 import ToggleText from "./ToggleText";
 import "./Toggle.scss";
 import { useToggle } from "../../hooks/useToggle";
+import { BEMClass } from "../../helpers/bem-helper";
+
+const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
 
 const Toggle = ({
   id,
@@ -23,7 +25,7 @@ const Toggle = ({
   onOverrideText,
   offOverrideText
 }) => {
-  const { inputProps, isChecked, isFocusVisible } = useToggle({
+  const { inputProps, isChecked } = useToggle({
     id,
     isDefaultSelected,
     isSelected,
@@ -35,20 +37,22 @@ const Toggle = ({
     ariaControls
   });
 
-  const className = classNames(`${BASE_TOGGLE_CLASS_NAME}__toggle`, componentClassName, {
-    [`${BASE_TOGGLE_CLASS_NAME}__toggle--selected`]: isChecked,
-    [`${BASE_TOGGLE_CLASS_NAME}__toggle--not-selected`]: !isChecked,
-    [`${BASE_TOGGLE_CLASS_NAME}__toggle--disabled`]: isDisabled,
-    [`${BASE_TOGGLE_CLASS_NAME}__toggle--focused`]: isFocusVisible
-  });
-
   return (
-    <label htmlFor={id} className={`${BASE_TOGGLE_CLASS_NAME}__wrapper`}>
-      <VisuallyHidden>
-        <input {...inputProps} />
-      </VisuallyHidden>
+    <label
+      htmlFor={id}
+      className={cx(bemHelper({ element: "wrapper" }), {
+        [bemHelper({ element: "wrapper", state: "disabled" })]: isDisabled
+      })}
+    >
       {areLabelsHidden ? null : <ToggleText>{offOverrideText}</ToggleText>}
-      <div className={className} aria-hidden="true" />
+      <input {...inputProps} className={bemHelper({ element: "input" })} />
+      <div
+        className={cx(bemHelper({ element: "toggle" }), componentClassName, {
+          [bemHelper({ element: "toggle", state: "selected" })]: isChecked,
+          [bemHelper({ element: "toggle", state: "not-selected" })]: !isChecked
+        })}
+        aria-hidden="true"
+      />
       {areLabelsHidden ? null : <ToggleText>{onOverrideText}</ToggleText>}
     </label>
   );

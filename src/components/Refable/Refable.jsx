@@ -4,6 +4,7 @@ import { chainFunctions, chainRefFunctions } from "../../utils/function-utils";
 
 export const Refable = React.forwardRef(({ children, ...rest }, ref) => {
   return React.Children.map(children, child => {
+    if (!React.isValidElement(child)) return null;
     if (typeof child.type !== "string") {
       return (
         <span ref={ref} {...rest}>

@@ -127,21 +127,23 @@ const Menu = forwardRef(
       >
         {children &&
           React.Children.map(children, (child, index) => {
-            return React.cloneElement(child, {
-              ...child?.props,
-              activeItemIndex,
-              index,
-              setActiveItemIndex,
-              menuRef: ref,
-              resetOpenSubMenuIndex,
-              isParentMenuVisible: isVisible,
-              setSubMenuIsOpenByIndex,
-              hasOpenSubMenu: index === openSubMenuIndex,
-              closeMenu: onCloseMenu,
-              menuId: id,
-              useDocumentEventListeners,
-              isInitialSelectedState
-            });
+            return React.isValidElement(child)
+              ? React.cloneElement(child, {
+                  ...child?.props,
+                  activeItemIndex,
+                  index,
+                  setActiveItemIndex,
+                  menuRef: ref,
+                  resetOpenSubMenuIndex,
+                  isParentMenuVisible: isVisible,
+                  setSubMenuIsOpenByIndex,
+                  hasOpenSubMenu: index === openSubMenuIndex,
+                  closeMenu: onCloseMenu,
+                  menuId: id,
+                  useDocumentEventListeners,
+                  isInitialSelectedState
+                })
+              : null;
           })}
       </ul>
     );

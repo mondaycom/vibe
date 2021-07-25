@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { render, screen, cleanup, fireEvent } from "@testing-library/react";
-import { Skeleton } from "../Skeleton";
+import Skeleton from "../Skeleton";
 
 describe("Skeleton Tests", () => {
   describe("Snapshot Tests", () => {
