@@ -288,22 +288,6 @@ exports[`Skeleton Tests Snapshot Tests renders correctly when text with H5 size 
 </div>
 `;
 
-exports[`Skeleton Tests Snapshot Tests renders correctly when text with custom size 1`] = `
-<div
-  className="monday-style-skeleton"
->
-  <div
-    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
-    style={
-      Object {
-        "height": undefined,
-        "width": undefined,
-      }
-    }
-  />
-</div>
-`;
-
 exports[`Skeleton Tests Snapshot Tests renders correctly when text with empty props 1`] = `
 <div
   className="monday-style-skeleton"

@@ -124,11 +124,11 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
     className="monday-style-menu-item__icon-wrapper"
   >
     <span
+      aria-hidden={true}
       aria-label="my item"
       className="icon_component monday-style-menu-item__icon icon_component--no-focus-style fa fa fa-star"
       onClick={[Function]}
-      role=""
-      tabIndex={-1}
+      role="img"
     />
   </div>
   <div

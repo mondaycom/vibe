@@ -15,13 +15,12 @@ exports[`ExpandCollapse renders correctly with empty props 1`] = `
       onClickCapture={[Function]}
     >
       <svg
-        aria-hidden="true"
-        aria-label=""
+        aria-hidden={true}
         className="icon_component animate-icon-close"
         fill="currentColor"
         height="24"
         onClick={[Function]}
-        role=""
+        role="img"
         tabIndex="-1"
         viewBox="0 0 20 20"
         width="24"
