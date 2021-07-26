@@ -6,6 +6,7 @@ exports[`renders correctly with empty props 1`] = `
   className="editable-heading--wrapper"
   id=""
   onClick={[Function]}
+  onDragStart={[Function]}
   onKeyDown={[Function]}
   onKeyUp={[Function]}
   onMouseDown={[Function]}
@@ -18,7 +19,6 @@ exports[`renders correctly with empty props 1`] = `
   onTouchStart={[Function]}
   role="button"
   tabIndex={0}
-  type="button"
 >
   <h1
     aria-label=""
