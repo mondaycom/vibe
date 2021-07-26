@@ -15,7 +15,6 @@ exports[`renders correctly with Bolt Icon 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
-  role="menu"
   type="button"
 >
   <svg
@@ -51,7 +50,6 @@ exports[`renders correctly with Bolt Icon 2`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
-  role="menu"
   type="button"
 >
   <svg
@@ -85,7 +83,6 @@ exports[`renders correctly with empty props 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
-  role="menu"
   type="button"
 >
   <svg
@@ -149,7 +146,6 @@ exports[`renders correctly with size Large 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
-  role="menu"
   type="button"
 >
   <svg

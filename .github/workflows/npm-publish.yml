@@ -6,6 +6,9 @@ name: Node.js Package
 on:
   release:
     types: [created]
+  push:
+    branches:
+      - master
 
 jobs:
   publish-npm:
@@ -17,7 +20,17 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
+      - run: npm version patch --no-git-tag-version
+      - run: git config --global user.name 'ci' && git config --global user.email 'deploy@monday.com'
+      - run: git add package.json package-lock.json
+      - run: git commit -m "version bump"
+      - run: git push
       - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          automatic_release_tag: latest

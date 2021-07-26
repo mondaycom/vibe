@@ -10,12 +10,12 @@ exports[`Toast tests Snapshot Tests don't renders close button if closeable=fals
     className="monday-style-toast-icon"
   >
     <svg
-      aria-hidden="true"
+      aria-hidden={true}
       className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="24px"
     >
@@ -47,12 +47,12 @@ exports[`Toast tests Snapshot Tests renders correctly with button 1`] = `
     className="monday-style-toast-icon"
   >
     <svg
-      aria-hidden="true"
+      aria-hidden={true}
       className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="24px"
     >
@@ -99,12 +99,12 @@ exports[`Toast tests Snapshot Tests renders correctly with button 1`] = `
     type="button"
   >
     <svg
-      aria-hidden="true"
+      aria-hidden={true}
       className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="20px"
       onClick={[Function]}
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="20px"
     >
@@ -129,12 +129,12 @@ exports[`Toast tests Snapshot Tests renders correctly with button and link 1`] =
     className="monday-style-toast-icon"
   >
     <svg
-      aria-hidden="true"
+      aria-hidden={true}
       className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="24px"
     >
@@ -197,12 +197,12 @@ exports[`Toast tests Snapshot Tests renders correctly with button and link 1`] =
     type="button"
   >
     <svg
-      aria-hidden="true"
+      aria-hidden={true}
       className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="20px"
       onClick={[Function]}
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="20px"
     >
@@ -227,12 +227,12 @@ exports[`Toast tests Snapshot Tests renders correctly with link 1`] = `
     className="monday-style-toast-icon"
   >
     <svg
-      aria-hidden="true"
+      aria-hidden={true}
       className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="24px"
     >
@@ -280,12 +280,12 @@ exports[`Toast tests Snapshot Tests renders correctly with link 1`] = `
     type="button"
   >
     <svg
-      aria-hidden="true"
+      aria-hidden={true}
       className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="20px"
       onClick={[Function]}
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="20px"
     >
@@ -312,12 +312,12 @@ exports[`Toast tests Snapshot Tests renders toast when open is true 1`] = `
     className="monday-style-toast-icon"
   >
     <svg
-      aria-hidden="true"
+      aria-hidden={true}
       className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="24px"
       onClick={[Function]}
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="24px"
     >
@@ -346,12 +346,12 @@ exports[`Toast tests Snapshot Tests renders toast when open is true 1`] = `
     type="button"
   >
     <svg
-      aria-hidden="true"
+      aria-hidden={true}
       className="icon_component icon_component--no-focus-style"
       fill="currentColor"
       height="20px"
       onClick={[Function]}
-      tabIndex={-1}
+      role="img"
       viewBox="0 0 20 20"
       width="20px"
     >
