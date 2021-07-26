@@ -17,6 +17,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm version patch --no-git-tag-version
+      - run: git config --global user.name 'ci' && git config --global user.email 'deploy@monday.com'
       - run: git add package.json package-lock.json
       - run: git commit -m "version bump"
       - run: git push
