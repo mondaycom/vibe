@@ -5,17 +5,17 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "MoreActions",
-      file: "MoreActions.svg",
-      description: "Icons used for dropdown of more actions",
-      tags: "more,actions,dropdown,arrow"
+    name: "MoreActions",
+    file: "MoreActions.svg",
+    description: "Icons used for dropdown of more actions",
+    tags: "more,actions,dropdown,arrow",
   },
   {
-      name: "Apps",
-      file: "Apps.svg",
-      description: "monday apps section",
-      tags: "app,apps,apps marketplace,installed apps,puzzle,add",
-      category: [PLATFORM],
+    name: "Apps",
+    file: "Apps.svg",
+    description: "monday apps section",
+    tags: "app,apps,apps marketplace,installed apps,puzzle,add",
+    category: [PLATFORM],
   },
   {
     name: "Globe",
@@ -141,6 +141,13 @@ export const iconsMetaData = [
     file: "BoardShareable.svg",
     description: "Shareable Board",
     tags: "Board, Shareable, Share",
+    category: [PLATFORM],
+  },
+  {
+    name: "BoardTemplate",
+    file: "BoardTemplate.svg",
+    description: "Template Board",
+    tags: "Board, Template",
     category: [PLATFORM],
   },
   {
