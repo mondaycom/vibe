@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const ICONS_FOLDERS = path.resolve("./src/icons");
+const ICONS_FOLDERS = path.resolve("./src/Icons");
 const METADATA_FILENAME = "iconsMetaData.js";
 const METADATA_FILE_PATH = ICONS_FOLDERS+"/"+METADATA_FILENAME;
 
