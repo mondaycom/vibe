@@ -8,42 +8,48 @@ export const iconsMetaData = [
       name: "Work",
       file: "Work.svg",
       description: "work",
-      tags: "work"
+      tags: "work",
+      ignore: true
   },
 
   {
       name: "MoreBelowFilled",
       file: "MoreBelowFilled.svg",
       description: "More below filled",
-      tags: "more,below,filled"
+      tags: "more,below,filled",
+      ignore: true
   },
 
   {
       name: "MoreBelow",
       file: "MoreBelow.svg",
       description: "more below",
-      tags: "more,below"
+      tags: "more,below",
+      ignore: true
   },
 
   {
       name: "CollapseRound",
       file: "CollapseRound.svg",
       description: "Collapse round",
-      tags: "collapse,round"
+      tags: "collapse,round",
+      ignore: true
   },
 
   {
       name: "CloseRound",
       file: "CloseRound.svg",
       description: "Close round",
-      tags: "close,round"
+      tags: "close,round",
+      ignore: true
   },
 
   {
       name: "Bulllet",
       file: "Bulllet.svg",
       description: "Bullet",
-      tags: "bullet"
+      tags: "bullet",
+      ignore: true
   },
 
   {
