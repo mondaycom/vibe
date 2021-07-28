@@ -5,6 +5,48 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Work",
+      file: "Work.svg",
+      description: "work",
+      tags: "work"
+  },
+
+  {
+      name: "MoreBelowFilled",
+      file: "MoreBelowFilled.svg",
+      description: "More below filled",
+      tags: "more,below,filled"
+  },
+
+  {
+      name: "MoreBelow",
+      file: "MoreBelow.svg",
+      description: "more below",
+      tags: "more,below"
+  },
+
+  {
+      name: "CollapseRound",
+      file: "CollapseRound.svg",
+      description: "Collapse round",
+      tags: "collapse,round"
+  },
+
+  {
+      name: "CloseRound",
+      file: "CloseRound.svg",
+      description: "Close round",
+      tags: "close,round"
+  },
+
+  {
+      name: "Bulllet",
+      file: "Bulllet.svg",
+      description: "Bullet",
+      tags: "bullet"
+  },
+
+  {
     name: "MoreActions",
     file: "MoreActions.svg",
     description: "Icons used for dropdown of more actions",
