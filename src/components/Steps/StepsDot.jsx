@@ -19,7 +19,6 @@ export const StepsDot = ({ stepsCount, onChangeActiveStep, activeStepIndex, step
     onPress: onClick,
     elementType: "div"
   });
-  debugger;
 
   return (
     <div

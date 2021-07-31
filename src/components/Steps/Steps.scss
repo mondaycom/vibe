@@ -46,7 +46,6 @@
       }
     }
   }
-
   &-command {
     display: flex;
     align-items: center;
@@ -79,6 +78,34 @@
       color: var(--icon-color);
       width: 15.5px;
       height: 15.5px;
+    }
+  }
+  &--on-primary {
+    .monday-style-steps-header {
+      &_numbers {
+        color: var(--text-color-on-primary);
+      }
+
+      &_dot {
+        background: var(--primary-hover-color);
+        @include focus-style-on-primary;
+        &:hover {
+          background: var(--text-color-on-primary);
+        }
+
+        &--is-active {
+          background: var(--text-color-on-primary);
+        }
+      }
+    }
+    .monday-style-steps-command {
+      @include focus-style-on-primary;
+      &_text {
+        color: var(--text-color-on-primary);
+      }
+      &_icon {
+        color: var(--text-color-on-primary);
+      }
     }
   }
 }

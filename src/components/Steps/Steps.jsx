@@ -5,16 +5,16 @@ import {
   STEPS_NUMBERS_TYPE,
   STEPS_GALLERY_TYPE,
   STEPS_CSS_BASE_CLASS,
-  MAX_STEPS_FOR_GALLERY_TYPE
+  MAX_STEPS_FOR_GALLERY_TYPE,
+  STEPS_TYPES
 } from "./StepsConstants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { StepsHeader } from "./StepsHeader";
-import "./Steps.scss";
 import { NOOP } from "../../utils/function-utils";
 import { BEMClass } from "../../helpers/bem-helper";
+import "./Steps.scss";
 
-const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-wrapper`;
-const bemHelper = BEMClass(CSS_BASE_CLASS);
+const bemHelper = BEMClass(STEPS_CSS_BASE_CLASS);
 
 const Steps = forwardRef(({ className, id, steps, activeStepIndex, type, onChangeActiveStep, isOnPrimary }, ref) => {
   const componentRef = useRef(null);
@@ -23,7 +23,7 @@ const Steps = forwardRef(({ className, id, steps, activeStepIndex, type, onChang
   return (
     <div
       ref={mergedRef}
-      className={cx(CSS_BASE_CLASS, className, { [bemHelper({ state: "on-primary" })]: isOnPrimary })}
+      className={cx(STEPS_CSS_BASE_CLASS, className, { [bemHelper({ state: "on-primary" })]: isOnPrimary })}
       id={id}
     >
       <StepsHeader
@@ -37,7 +37,7 @@ const Steps = forwardRef(({ className, id, steps, activeStepIndex, type, onChang
   );
 });
 
-Steps.types = [STEPS_NUMBERS_TYPE, STEPS_GALLERY_TYPE];
+Steps.types = STEPS_TYPES;
 
 Steps.propTypes = {
   activeStepIndex: PropTypes.number,
