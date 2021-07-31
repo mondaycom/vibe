@@ -1,8 +1,13 @@
 import React, { useMemo } from "react";
 import cx from "classnames";
 import { useButton } from "@react-aria/button";
-import { element } from "prop-types";
-import { FORWARD_DESCRIPTION, BACKWARD_DESCRIPTION, STEPS_CSS_BASE_CLASS } from "./StepsConstants";
+import {
+  FORWARD_DESCRIPTION,
+  BACKWARD_DESCRIPTION,
+  STEPS_CSS_BASE_CLASS,
+  BACK_COMMAND_TEST_ID,
+  NEXT_COMMAND_TEST_ID
+} from "./StepsConstants";
 import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRight";
 import NavigationChevronLeft from "../Icon/Icons/components/NavigationChevronLeft";
 import { BEMClass } from "../../helpers/bem-helper";
@@ -32,7 +37,11 @@ export const StepsCommand = ({ isForward, onChangeActiveStep, overrideDescriptio
 
   const icon = isForward ? NavigationChevronRight : NavigationChevronLeft;
   return (
-    <div className={cx(CSS_BASE_CLASS, bemHelper({ state: isForward ? "forward" : "backward" }))} {...buttonProps}>
+    <div
+      className={cx(CSS_BASE_CLASS, bemHelper({ state: isForward ? "forward" : "backward" }))}
+      data-testid={isForward ? FORWARD_DESCRIPTION : BACK_COMMAND_TEST_ID}
+      {...buttonProps}
+    >
       <span className={bemHelper({ element: "text" })}>{description}</span>
       <Icon icon={icon} clickable={false} className={bemHelper({ element: "icon" })} />
     </div>
