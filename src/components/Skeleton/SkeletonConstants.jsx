@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 // Fixed names
 export const SKELETON_CIRCLE_TYPE = "circle";
 export const SKELETON_TEXT_TYPE = "text";

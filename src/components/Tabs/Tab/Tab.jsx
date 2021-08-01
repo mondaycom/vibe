@@ -1,4 +1,5 @@
 import React, { useRef, forwardRef } from "react";
+import NOOP from "lodash/noop";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -17,6 +18,7 @@ const Tab = forwardRef(
         <Icon
           clickable={false}
           ariaHidden={true}
+          iconType={iconType}
           icon={icon}
           className={cx("tab-icon", iconSide)}
           iconSize={18}
@@ -57,7 +59,7 @@ Tab.propTypes = {
   active: PropTypes.bool,
   focus: PropTypes.bool,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  iconType: PropTypes.string,
+  iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   iconSide: PropTypes.string,
   onClick: PropTypes.func
 };
@@ -69,8 +71,9 @@ Tab.defaultProps = {
   active: false,
   focus: false,
   icon: null,
-  iconType: null,
-  iconSide: "left"
+  iconType: undefined,
+  iconSide: "left",
+  onClick: NOOP
 };
 
 export default Tab;

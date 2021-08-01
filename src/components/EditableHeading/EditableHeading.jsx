@@ -21,7 +21,8 @@ const EditableHeading = props => {
     errorClassTimeout,
     style,
     onStartEditing,
-    contentRenderer
+    contentRenderer,
+    tooltip
   } = props;
 
   // State
@@ -158,7 +159,7 @@ const EditableHeading = props => {
       style={style}
       className={cx("editable-heading--wrapper", className)}
       {...clickProps}
-      aria-label={`${value} ${props.tooltip || ""}`}
+      aria-label={`${value} ${tooltip || ""}`}
       id={id}
     >
       {isEditing ? renderInputComponent() : renderContentComponent()}

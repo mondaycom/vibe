@@ -53,17 +53,20 @@ const Toast = ({
     return actions
       ? actions
           .filter(action => action.type === TOAST_ACTION_TYPES.LINK)
-          .map(({ type, ...otherProps }) => <ToastLink {...otherProps} />)
+          .map(({ type: _type, ...otherProps }) => <ToastLink {...otherProps} />)
       : null;
   }, [actions]);
   const toastButtons = useMemo(() => {
     return actions
       ? actions
           .filter(action => action.type === TOAST_ACTION_TYPES.BUTTON)
-          .map(({ type, content, ...otherProps }) => <ToastButton {...otherProps}> {content} </ToastButton>)
+          .map(({ type: _type, content, ...otherProps }) => <ToastButton {...otherProps}> {content} </ToastButton>)
       : null;
   }, [actions]);
-  const classNames = useMemo(() => cx("monday-style-toast", `monday-style-toast--type-${type}`, className), [type]);
+  const classNames = useMemo(() => cx("monday-style-toast", `monday-style-toast--type-${type}`, className), [
+    type,
+    className
+  ]);
   const handleClose = useCallback(() => {
     if (onClose) {
       onClose();

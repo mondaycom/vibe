@@ -8,6 +8,7 @@ export const getOptionsByCategories = (options, categories, filterValue) => {
     if (result[categoryId]) {
       result[categoryId].push(option);
     } else {
+      // eslint-disable-next-line no-param-reassign
       result[categoryId] = [option];
     }
 

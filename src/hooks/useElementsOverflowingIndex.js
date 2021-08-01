@@ -23,19 +23,21 @@ function useElementsOverflowingIndex({ ref, children, paddingSize, resizeDebounc
   const [indexToSplit, setIndexToSplit] = useState(null);
 
   useEffect(() => {
-    if(ignoreLast) {
+    if (ignoreLast) {
       const withoutLast = aggregatedChildLengths.slice(0, -1);
       const allInWithoutLast = !withoutLast.find(({ totalLength }) => totalLength > size - paddingSize);
-      if(allInWithoutLast) {
+      if (allInWithoutLast) {
         setIndexToSplit(-1);
       } else {
         const lastSize = aggregatedChildLengths.length > 0 ? last(aggregatedChildLengths).childLength : 0;
-        setIndexToSplit(aggregatedChildLengths.findIndex(({ totalLength }) => totalLength > size - paddingSize - lastSize));
+        setIndexToSplit(
+          aggregatedChildLengths.findIndex(({ totalLength }) => totalLength > size - paddingSize - lastSize)
+        );
       }
     } else {
       setIndexToSplit(aggregatedChildLengths.findIndex(({ totalLength }) => totalLength > size - paddingSize));
     }
-  }, [aggregatedChildLengths, size, setIndexToSplit, paddingSize]);
+  }, [aggregatedChildLengths, size, setIndexToSplit, paddingSize, ignoreLast]);
 
   useEffect(() => {
     if (!ref.current) return;

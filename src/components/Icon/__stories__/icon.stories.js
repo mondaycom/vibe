@@ -95,7 +95,7 @@ function IconComponent({ name, Component }) {
   return (
     <FlexLayout className="icon-story-component">
       <div style={{ width: "26px", height: "26px" }}>
-        <Component size={26} />
+        <Component size={"26"} />
       </div>
       <DescriptionLabel className="icon-story-name">{name}</DescriptionLabel>
     </FlexLayout>

@@ -5,40 +5,44 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./TabsContext.scss";
 
 const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+  const componentRef = useRef(null);
+  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-    const [previousActiveTab, setPreviousActiveTab] = useState(activeTabId);
-    const [activeTab, setActiveTab] = useState(activeTabId);
-    const onTabClick = useCallback((tabId) => {
-        setPreviousActiveTab(activeTab);
-        setActiveTab(tabId);
-    }, [setPreviousActiveTab, activeTab, setActiveTab]);
+  const [previousActiveTab, setPreviousActiveTab] = useState(activeTabId);
+  const [activeTab, setActiveTab] = useState(activeTabId);
+  const onTabClick = useCallback(
+    tabId => {
+      setPreviousActiveTab(activeTab);
+      setActiveTab(tabId);
+    },
+    [setPreviousActiveTab, activeTab, setActiveTab]
+  );
 
-    return (
+  return (
     <div ref={mergedRef} className={cx("tabs-context--wrapper", className)} id={id}>
-        {React.Children.map(children, child => {
-            if (child.type.isTabList) {
-                return React.cloneElement(child, { onTabChange: onTabClick });
-            } else if (child.type.isTabPanels) {
-                const animationDirection = previousActiveTab < activeTab ? "ltr" : "rtl";
-                return React.cloneElement(child, { activeTabId: activeTab, animationDirection });
-            }
-            return child;
-        })}
+      {React.Children.map(children, child => {
+        if (child.type.isTabList) {
+          return React.cloneElement(child, { onTabChange: onTabClick });
+        }
+        if (child.type.isTabPanels) {
+          const animationDirection = previousActiveTab < activeTab ? "ltr" : "rtl";
+          return React.cloneElement(child, { activeTabId: activeTab, animationDirection });
+        }
+        return child;
+      })}
     </div>
   );
 });
 
 TabsContext.propTypes = {
-    className: PropTypes.string,
-    id: PropTypes.string,
-    activeTabId: PropTypes.number
+  className: PropTypes.string,
+  id: PropTypes.string,
+  activeTabId: PropTypes.number
 };
 TabsContext.defaultProps = {
-    className: "",
-    id: "",
-    activeTabId: 0
+  className: "",
+  id: "",
+  activeTabId: 0
 };
 
 export default TabsContext;

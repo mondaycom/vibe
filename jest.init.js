@@ -9,4 +9,12 @@ jest.mock('react-transition-group', () => {
     props.in ? <FakeTransition>{props.children}</FakeTransition> : null,
   )
   return {CSSTransition: FakeCSSTransition, Transition: FakeTransition, SwitchTransition: FakeTransition}
-})
+});
+
+let error = console.error;
+console.error = function(warning) {
+  if (/(Invalid prop|Failed prop type)/.test(warning)) {
+    throw new Error(warning);
+  }
+  error.apply(console, arguments);
+};

@@ -1,8 +1,8 @@
-import React, { cloneElement, useCallback, useRef, useState, useEffect, useMemo } from "react";
+import React, { useCallback, useRef, useState, useEffect, useMemo } from "react";
 import { usePopper } from "react-popper";
 import isFunction from "lodash/isFunction";
 import "../Dialog/Dialog.scss";
-import { chainFunctions, convertToArray } from "../../utils/function-utils";
+import { convertToArray } from "../../utils/function-utils";
 import { DialogContent } from "../Dialog/DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
 import DialogReference from "./DialogReference/DialogReference";

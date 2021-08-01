@@ -12,7 +12,9 @@ const TabPanels = forwardRef(({ className, id, activeTabId, animationDirection, 
     <div ref={mergedRef} className={cx("tab-panels--wrapper", className)} id={id}>
       {React.Children.map(children, (child, index) => {
         if (activeTabId === index) {
-          return React.cloneElement(child, { className: cx("tab-panel", "active", `animation-direction-${animationDirection}`) });
+          return React.cloneElement(child, {
+            className: cx("tab-panel", "active", `animation-direction-${animationDirection}`)
+          });
         }
         return React.cloneElement(child, { className: "tab-panel" });
       })}
