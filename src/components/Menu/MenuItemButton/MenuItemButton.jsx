@@ -120,8 +120,8 @@ MenuItemButton.defaultProps = {
 MenuItemButton.propTypes = {
   classname: PropTypes.string,
   kind: PropTypes.oneOf([MenuItemButton.kinds.PRIMARY, MenuItemButton.kinds.SECONDARY, MenuItemButton.kinds.TERTIARY]),
-  leftIcon: PropTypes.string,
-  rightIcon: PropTypes.string,
+  leftIcon: PropTypes.node,
+  rightIcon: PropTypes.node,
   index: PropTypes.number,
   activeItemIndex: PropTypes.number,
   disabled: PropTypes.bool,

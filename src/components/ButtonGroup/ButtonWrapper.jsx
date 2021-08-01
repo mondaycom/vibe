@@ -13,8 +13,6 @@ export const ButtonWrapper = ({
   tooltipMovedBy,
   ...otherProps
 }) => {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  console.log('otherProps:', otherProps); 
   let button = <Button {...otherProps} />;
   if (!isNil(tooltipContent)) {
     button = (
