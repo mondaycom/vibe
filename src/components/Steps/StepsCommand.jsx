@@ -39,7 +39,7 @@ export const StepsCommand = ({ isForward, onChangeActiveStep, overrideDescriptio
   return (
     <div
       className={cx(CSS_BASE_CLASS, bemHelper({ state: isForward ? "forward" : "backward" }))}
-      data-testid={isForward ? FORWARD_DESCRIPTION : BACK_COMMAND_TEST_ID}
+      data-testid={isForward ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
       {...buttonProps}
     >
       <span className={bemHelper({ element: "text" })}>{description}</span>
