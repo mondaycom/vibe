@@ -70,8 +70,7 @@ describe("Steps tests", () => {
       act(() => {
         fireEvent.click(backwardButton);
       });
-      console.log(onClickMock);
-      //expect(onClickMock.mock.calls.length).toBe(1);
+      expect(onClickMock.mock.calls.length).toBe(1);
     });
     it("call onChangeIndexCallback when click on go forward button and it does not disable", () => {
       const onClickMock = jest.fn();
