@@ -5,6 +5,48 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Recurring",
+      file: "Recurring.svg",
+      description: "Recurring icon",
+      tags: "recurring, time, timebased, every, automation, cron"
+  },
+
+  {
+      name: "Featured",
+      file: "Featured.svg",
+      description: "Featured category icon",
+      tags: "featured, category, highlights, automation"
+  },
+
+  {
+      name: "DueDate",
+      file: "DueDate.svg",
+      description: "DueDate icon",
+      tags: "duedate, date, deadline, automation, timebased, cron"
+  },
+
+  {
+      name: "Dependency",
+      file: "Dependency.svg",
+      description: "Dependencies icon",
+      tags: "dependency, category, dependencies, ensure, adjust, automations"
+  },
+
+  {
+      name: "Custom",
+      file: "Custom.svg",
+      description: "Custom categoty icon",
+      tags: "custom, recipe, automations, dynamic, builder"
+  },
+
+  {
+      name: "Basic",
+      file: "Basic.svg",
+      description: "Basic category icon",
+      tags: "basic, category, automations"
+  },
+
+  {
     name: "MoreActions",
     file: "MoreActions.svg",
     description: "Icons used for dropdown of more actions",
