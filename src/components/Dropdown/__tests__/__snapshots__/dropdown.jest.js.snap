@@ -24,7 +24,7 @@ exports[`Dropdown should open menu on click if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-1d96xbr-ValueContainer"
+        class=" css-q81peh-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
@@ -32,7 +32,7 @@ exports[`Dropdown should open menu on click if set 1`] = `
           mockPlaceholder
         </div>
         <div
-          class="css-1m8eskj-Input"
+          class="css-lkl2xd-Component"
         >
           <div
             class=""
@@ -58,10 +58,10 @@ exports[`Dropdown should open menu on click if set 1`] = `
         </div>
       </div>
       <div
-        class=" css-hcxwnl-IndicatorsContainer"
+        class=" css-1aqjfd-Component"
       >
         <span
-          class=" css-1xjgjl1-IndicatorSeparator"
+          class=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -91,7 +91,7 @@ exports[`Dropdown should open menu on click if set 1`] = `
       class="menu dropdown-wrapper__menu--open css-1ysewv0-menu"
     >
       <div
-        class=" css-4ljt47-MenuList"
+        class=" css-bknh9q-Component"
       >
         <div
           class=" css-14cnnyc-option"
@@ -165,13 +165,13 @@ exports[`Dropdown should open menu on focus if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-1d96xbr-ValueContainer"
+        class=" css-q81peh-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-1m8eskj-Input"
+          class="css-lkl2xd-Component"
         >
           <div
             class=""
@@ -197,10 +197,10 @@ exports[`Dropdown should open menu on focus if set 1`] = `
         </div>
       </div>
       <div
-        class=" css-hcxwnl-IndicatorsContainer"
+        class=" css-1aqjfd-Component"
       >
         <span
-          class=" css-1xjgjl1-IndicatorSeparator"
+          class=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -230,7 +230,7 @@ exports[`Dropdown should open menu on focus if set 1`] = `
       class="menu dropdown-wrapper__menu--open css-1ysewv0-menu"
     >
       <div
-        class=" css-4ljt47-MenuList"
+        class=" css-bknh9q-Component"
       >
         <div
           class=" css-14cnnyc-option"
@@ -291,7 +291,7 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
     onTouchEnd={[Function]}
   >
     <div
-      className=" css-1d5tytm-ValueContainer"
+      className=" css-1k4v80n-Component"
     >
       <div
         className=" css-1dtegfv-placeholder"
@@ -299,7 +299,7 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
         placeHolder
       </div>
       <div
-        className="css-1m8eskj-Input"
+        className="css-lkl2xd-Component"
       >
         <div
           className=""
@@ -358,10 +358,10 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
       </div>
     </div>
     <div
-      className=" css-1b5f2fp-IndicatorsContainer"
+      className=" css-hsetqv-Component"
     >
       <span
-        className=" css-1xjgjl1-IndicatorSeparator"
+        className=" css-ds71as-Component"
       />
       <div
         aria-hidden="true"
@@ -404,7 +404,7 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
     onTouchEnd={[Function]}
   >
     <div
-      className=" css-1d96xbr-ValueContainer"
+      className=" css-q81peh-Component"
     >
       <div
         className=" css-1dtegfv-placeholder"
@@ -412,7 +412,7 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
         placeHolder
       </div>
       <div
-        className="css-1m8eskj-Input"
+        className="css-lkl2xd-Component"
       >
         <div
           className=""
@@ -471,10 +471,10 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
       </div>
     </div>
     <div
-      className=" css-hcxwnl-IndicatorsContainer"
+      className=" css-1aqjfd-Component"
     >
       <span
-        className=" css-1xjgjl1-IndicatorSeparator"
+        className=" css-ds71as-Component"
       />
       <div
         aria-hidden="true"
@@ -517,7 +517,7 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
     onTouchEnd={[Function]}
   >
     <div
-      className=" css-ndj9s9-ValueContainer"
+      className=" css-qq27oj-Component"
     >
       <div
         className=" css-1dtegfv-placeholder"
@@ -525,7 +525,7 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
         placeHolder
       </div>
       <div
-        className="css-1m8eskj-Input"
+        className="css-lkl2xd-Component"
       >
         <div
           className=""
@@ -584,10 +584,10 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
       </div>
     </div>
     <div
-      className=" css-12cxbpe-IndicatorsContainer"
+      className=" css-col3eb-Component"
     >
       <span
-        className=" css-1xjgjl1-IndicatorSeparator"
+        className=" css-ds71as-Component"
       />
       <div
         aria-hidden="true"
@@ -630,7 +630,7 @@ exports[`Dropdown should render correctly with empty props 1`] = `
     onTouchEnd={[Function]}
   >
     <div
-      className=" css-1d96xbr-ValueContainer"
+      className=" css-q81peh-Component"
     >
       <div
         className=" css-1dtegfv-placeholder"
@@ -638,7 +638,7 @@ exports[`Dropdown should render correctly with empty props 1`] = `
         
       </div>
       <div
-        className="css-1m8eskj-Input"
+        className="css-lkl2xd-Component"
       >
         <div
           className=""
@@ -697,10 +697,10 @@ exports[`Dropdown should render correctly with empty props 1`] = `
       </div>
     </div>
     <div
-      className=" css-hcxwnl-IndicatorsContainer"
+      className=" css-1aqjfd-Component"
     >
       <span
-        className=" css-1xjgjl1-IndicatorSeparator"
+        className=" css-ds71as-Component"
       />
       <div
         aria-hidden="true"
@@ -756,13 +756,13 @@ exports[`Dropdown should use async if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-1d96xbr-ValueContainer"
+        class=" css-q81peh-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-1m8eskj-Input"
+          class="css-lkl2xd-Component"
         >
           <div
             class=""
@@ -788,24 +788,24 @@ exports[`Dropdown should use async if set 1`] = `
         </div>
       </div>
       <div
-        class=" css-hcxwnl-IndicatorsContainer"
+        class=" css-1aqjfd-Component"
       >
         <div
           aria-hidden="true"
           class=" css-1xh8qep-loadingIndicator"
         >
           <span
-            class="css-1yvy2vo-LoadingDot"
+            class="css-imwzes-Component"
           />
           <span
-            class="css-zoievk-LoadingDot"
+            class="css-1ue98e-Component"
           />
           <span
-            class="css-x748d8-LoadingDot"
+            class="css-fwsb3e-Component"
           />
         </div>
         <span
-          class=" css-1xjgjl1-IndicatorSeparator"
+          class=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
@@ -859,13 +859,13 @@ exports[`Dropdown should use virtualization if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-1d96xbr-ValueContainer"
+        class=" css-q81peh-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-1m8eskj-Input"
+          class="css-lkl2xd-Component"
         >
           <div
             class=""
@@ -891,10 +891,10 @@ exports[`Dropdown should use virtualization if set 1`] = `
         </div>
       </div>
       <div
-        class=" css-hcxwnl-IndicatorsContainer"
+        class=" css-1aqjfd-Component"
       >
         <span
-          class=" css-1xjgjl1-IndicatorSeparator"
+          class=" css-ds71as-Component"
         />
         <div
           aria-hidden="true"
