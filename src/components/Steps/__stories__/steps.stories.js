@@ -67,7 +67,7 @@ export const Sandbox = () => {
     <Steps
       steps={steps}
       className={isOnPrimary ? "monday-style-story-steps-on-primary-wrapper" : undefined}
-      type={select("Background color", [Steps.types.GALLERY, Steps.types.NUMBERS])}
+      type={select("Type", [Steps.types.GALLERY, Steps.types.NUMBERS])}
       activeStepIndex={number("Active step index", 0)}
       areNavigationButtonsHidden={boolean("Are navigation buttons hidden")}
       isOnPrimary={isOnPrimary}

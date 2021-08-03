@@ -58,14 +58,14 @@
       margin-right: $spacing-small;
       flex-direction: row-reverse;
       .monday-style-steps-command_icon {
-        margin-right: $spacing-medium;
+        margin-right: $spacing-small-medium;
       }
     }
 
     &--forward {
       margin-left: $spacing-small;
       .monday-style-steps-command_icon {
-        margin-left: $spacing-medium;
+        margin-left: $spacing-small-medium;
       }
     }
 
