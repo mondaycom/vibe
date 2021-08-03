@@ -1,0 +1,16 @@
+name: Get latest release version
+on: [push]
+
+jobs:
+  get-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Fetch release version
+        run: |
+          cur_version = node -p "require('./package.json').dependencies['monday-ui-style']"
+          latest_version = npm show monday-ui-style version
+          echo $cur_version
+          echo $latest_version
+          same_version = $cur_version == $latest_version
+          echo $same_version
