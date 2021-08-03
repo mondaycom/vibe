@@ -14,8 +14,11 @@ jobs:
           npm show monday-ui-style version
 
           echo "CURRENT_VERSION=$(node -p "require('./package.json').dependencies['monday-ui-style']")" >> $GITHUB_ENV
+          echo "LATEST_VERSION=$(npm show monday-ui-style version)" >> $GITHUB_ENV
+
+      - name: Read release version
+        run: |
           echo "var current"
           echo "${{ env.CURRENT_VERSION }}"
-          echo "LATEST_VERSION=$(npm show monday-ui-style version)" >> $GITHUB_ENV
           echo "var latest"
           echo "${{ env.LATEST_VERSION }}"
