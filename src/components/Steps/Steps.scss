@@ -31,8 +31,10 @@
     }
 
     &_dot {
+      all: unset;
       width: 6px;
       height: 6px;
+      cursor: pointer;
       border-radius: 50%;
       background: var(--ui-border-color);
       @include focus-style;
@@ -51,7 +53,6 @@
   &-command {
     display: flex;
     align-items: center;
-    @include focus-style;
 
     &--backward {
       margin-right: $spacing-small;

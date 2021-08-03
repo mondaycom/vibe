@@ -1,20 +1,27 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import { StepsDot } from "./StepsDot";
 import { STEPS_CSS_BASE_CLASS } from "./StepsConstants";
 
 const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-header_gallery`;
 
-export const StepsGalleryHeader = ({ activeStepIndex, stepsCount, onChangeActiveStep }) => {
-  debugger;
+export const StepsGalleryHeader = ({
+  activeStepIndex,
+  stepsCount,
+  onChangeActiveStep,
+  groupAriaLabel,
+  stepDescriptionFunc
+}) => {
+  const defaultStepDescriptionFunc = useCallback(stepIndex => `Step number ${stepIndex}`, []);
   const galleryDots = useMemo(() => {
     const dots = [];
     for (let stepIndex = 0; stepIndex < stepsCount; stepIndex++) {
       dots.push(
         <StepsDot
-          key={`monday-style-step-dot-${stepIndex}`}
+          key={`monday-style-step-dot-${stepIndex + 1}`}
           stepIndex={stepIndex}
           onChangeActiveStep={onChangeActiveStep}
           stepsCount={stepsCount}
+          stepDescriptionFunc={stepDescriptionFunc || defaultStepDescriptionFunc}
           activeStepIndex={activeStepIndex}
         />
       );
@@ -22,5 +29,9 @@ export const StepsGalleryHeader = ({ activeStepIndex, stepsCount, onChangeActive
     return dots;
   }, [activeStepIndex, onChangeActiveStep, stepsCount]);
 
-  return <div className={CSS_BASE_CLASS}>{galleryDots || null}</div>;
+  return (
+    <div role="group" className={CSS_BASE_CLASS}>
+      {galleryDots || null}
+    </div>
+  );
 };
