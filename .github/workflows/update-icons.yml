@@ -22,3 +22,11 @@ jobs:
           echo "${{ env.CURRENT_VERSION }}"
           echo "var latest"
           echo "${{ env.LATEST_VERSION }}"
+      - name: Same version
+        if: ${{ env.CURRENT_VERSION == env.LATEST_VERSION }}
+        run: |
+          echo "Same version"
+      - name: Not same version
+        if: ${{ env.CURRENT_VERSION != env.LATEST_VERSION }}
+        run: |
+          echo "Not same version"
