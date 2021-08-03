@@ -26,7 +26,7 @@ jobs:
           echo "var latest"
           echo "${{ env.LATEST_VERSION }}"
 
-          echo ::set-output name=branch_exists::$([ -z "`git ls-remote --heads origin update-version/version-${{env.LATEST_VERSION}}`" ] && echo "false" || echo "true")
+          echo ::set-output name=branch_exists::$([ -z "`git ls-remote --heads origin update-version/style-version-${{env.LATEST_VERSION}}`" ] && echo "false" || echo "true")
 
       - name: Same version
         if: ${{ env.CURRENT_VERSION == env.LATEST_VERSION }}
@@ -57,7 +57,7 @@ jobs:
           commit-message: Update version
           committer: Monday Style <mondaystyle@monday.com>
           author: Monday Style <mondaystyle@monday.com>
-          branch: update-version/version-${{env.LATEST_VERSION}}
+          branch: update-version/style-version-${{env.LATEST_VERSION}}
           title: 'Upgrade icons'
           body: |
             New icons version
