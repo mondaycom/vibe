@@ -29,6 +29,7 @@ jobs:
           echo "same version"
 
       - name: Not same version - install & check changes
+        id: git-check
         if: ${{ env.CURRENT_VERSION != env.LATEST_VERSION }}
         run: |
           echo "Not same version"
