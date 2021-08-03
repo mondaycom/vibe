@@ -8,29 +8,18 @@ exports[`Steps tests Snapshot Tests renders correctly with empty props 1`] = `
   <div
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
-    <div
-      className="monday-style-steps-command monday-style-steps-command--backward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Back
-      </span>
+      Back
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -48,33 +37,23 @@ exports[`Steps tests Snapshot Tests renders correctly with empty props 1`] = `
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
     <div
       className="monday-style-steps-header_gallery"
+      role="group"
     />
-    <div
-      className="monday-style-steps-command monday-style-steps-command--forward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={false}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Next
-      </span>
+      Next
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -92,7 +71,7 @@ exports[`Steps tests Snapshot Tests renders correctly with empty props 1`] = `
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
   </div>
 </div>
 `;
@@ -105,29 +84,18 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
   <div
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
-    <div
-      className="monday-style-steps-command monday-style-steps-command--backward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={true}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Back
-      </span>
+      Back
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -145,68 +113,36 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
     <div
       className="monday-style-steps-header_gallery"
+      role="group"
     >
-      <div
+      <button
+        aria-current="step"
+        aria-label="Step number 0"
         className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
         onClick={[Function]}
-        onDragStart={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
       />
-      <div
+      <button
+        aria-current={false}
+        aria-label="Step number 1"
         className="monday-style-steps-header_dot"
         onClick={[Function]}
-        onDragStart={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
       />
     </div>
-    <div
-      className="monday-style-steps-command monday-style-steps-command--forward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={false}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Next
-      </span>
+      Next
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -224,7 +160,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
   </div>
   <div
     data-testid="first-step"
@@ -242,29 +178,18 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
   <div
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
-    <div
-      className="monday-style-steps-command monday-style-steps-command--backward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Back
-      </span>
+      Back
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -282,68 +207,36 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
     <div
       className="monday-style-steps-header_gallery"
+      role="group"
     >
-      <div
+      <button
+        aria-current={false}
+        aria-label="Step number 0"
         className="monday-style-steps-header_dot"
         onClick={[Function]}
-        onDragStart={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
       />
-      <div
+      <button
+        aria-current="step"
+        aria-label="Step number 1"
         className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
         onClick={[Function]}
-        onDragStart={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
       />
     </div>
-    <div
-      className="monday-style-steps-command monday-style-steps-command--forward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={true}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Next
-      </span>
+      Next
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -361,7 +254,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
   </div>
   <div
     data-testid="second-step"
@@ -379,29 +272,18 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view with reg
   <div
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
-    <div
-      className="monday-style-steps-command monday-style-steps-command--backward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Back
-      </span>
+      Back
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -419,68 +301,36 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view with reg
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
     <div
       className="monday-style-steps-header_gallery"
+      role="group"
     >
-      <div
+      <button
+        aria-current={false}
+        aria-label="Step number 0"
         className="monday-style-steps-header_dot"
         onClick={[Function]}
-        onDragStart={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
       />
-      <div
+      <button
+        aria-current="step"
+        aria-label="Step number 1"
         className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
         onClick={[Function]}
-        onDragStart={[Function]}
-        onKeyDown={[Function]}
-        onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchCancel={[Function]}
-        onTouchEnd={[Function]}
-        onTouchMove={[Function]}
-        onTouchStart={[Function]}
-        role="button"
-        tabIndex={0}
       />
     </div>
-    <div
-      className="monday-style-steps-command monday-style-steps-command--forward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={true}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Next
-      </span>
+      Next
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -498,7 +348,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view with reg
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
   </div>
   <div
     data-testid="second-step"
@@ -516,29 +366,18 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
   <div
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
-    <div
-      className="monday-style-steps-command monday-style-steps-command--backward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={true}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Back
-      </span>
+      Back
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -556,35 +395,24 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
     <div
       className="monday-style-steps-header_numbers"
     >
       1 \\ 2
     </div>
-    <div
-      className="monday-style-steps-command monday-style-steps-command--forward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={false}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Next
-      </span>
+      Next
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -602,7 +430,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
   </div>
   <div
     data-testid="first-step"
@@ -620,29 +448,18 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
   <div
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
-    <div
-      className="monday-style-steps-command monday-style-steps-command--backward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Back
-      </span>
+      Back
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -660,35 +477,24 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
     <div
       className="monday-style-steps-header_numbers"
     >
       2 \\ 2
     </div>
-    <div
-      className="monday-style-steps-command monday-style-steps-command--forward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={true}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Next
-      </span>
+      Next
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -706,7 +512,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
   </div>
   <div
     data-testid="second-step"
@@ -724,29 +530,18 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view with reg
   <div
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
-    <div
-      className="monday-style-steps-command monday-style-steps-command--backward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Back
-      </span>
+      Back
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -764,35 +559,24 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view with reg
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
     <div
       className="monday-style-steps-header_numbers"
     >
       2 \\ 2
     </div>
-    <div
-      className="monday-style-steps-command monday-style-steps-command--forward"
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={true}
+      onBlur={[Function]}
       onClick={[Function]}
-      onDragStart={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
+      onFocus={[Function]}
       onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
       onMouseUp={[Function]}
-      onTouchCancel={[Function]}
-      onTouchEnd={[Function]}
-      onTouchMove={[Function]}
-      onTouchStart={[Function]}
-      role="button"
-      tabIndex={0}
+      type="button"
     >
-      <span
-        className="monday-style-steps-command_text"
-      >
-        Next
-      </span>
+      Next
       <svg
         aria-hidden={true}
         className="icon_component monday-style-steps-command_icon"
@@ -810,7 +594,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view with reg
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
   </div>
   <div
     data-testid="second-step"

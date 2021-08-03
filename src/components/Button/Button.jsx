@@ -54,7 +54,8 @@ const Button = forwardRef(
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
-      blurOnMouseUp
+      blurOnMouseUp,
+      dataTestId
     },
     ref
   ) => {
@@ -179,7 +180,8 @@ const Button = forwardRef(
         "aria-busy": loading ? "true" : undefined,
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
-        "aria-controls": ariaControls
+        "aria-controls": ariaControls,
+        "data-testid": dataTestId
       };
     }, [
       disabled,

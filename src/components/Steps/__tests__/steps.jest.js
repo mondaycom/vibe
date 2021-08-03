@@ -85,7 +85,7 @@ describe("Steps tests", () => {
       });
 
       expect(onClickMock.mock.calls.length).toBe(1);
-    }); /**
+    });
     it("does not call onChangeIndexCallback when click on back button and when in first page", () => {
       const onClickMock = jest.fn();
       const steps = renderComponent({
@@ -106,7 +106,7 @@ describe("Steps tests", () => {
       const onClickMock = jest.fn();
       const steps = renderComponent({
         onChangeActiveStep: onClickMock,
-        activeStepIndex: steps.length - 1
+        activeStepIndex: stepsContent.length - 1
       });
       const forwardButton = steps.getByTestId(NEXT_COMMAND_TEST_ID);
 
@@ -115,6 +115,6 @@ describe("Steps tests", () => {
       });
 
       expect(onClickMock.mock.calls.length).toBe(0);
-    });**/
+    });
   });
 });

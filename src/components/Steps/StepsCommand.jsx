@@ -49,7 +49,7 @@ export const StepsCommand = ({
   return (
     <Button
       className={cx(CSS_BASE_CLASS, bemHelper({ state: isForward ? "forward" : "backward" }))}
-      data-testid={isForward ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
+      dataTestId={isForward ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
       kind={Button.kinds.TERTIARY}
       onClick={overrideOnClick}
       disabled={isDisable}
