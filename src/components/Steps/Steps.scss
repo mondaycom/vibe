@@ -8,7 +8,9 @@
 }
 .monday-style-steps {
   &-header {
+    margin-bottom: $spacing-small;
     display: flex;
+    align-items: center;
 
     &_numbers {
      margin: 0 $spacing-small;
@@ -52,28 +54,20 @@
     @include focus-style;
 
     &--backward {
+      margin-right: $spacing-small;
       flex-direction: row-reverse;
       .monday-style-steps-command_icon {
         margin-right: $spacing-medium;
       }
-      .monday-style-steps-command_text {
-        margin-right: $spacing-small;
-      }
     }
 
     &--forward {
-      .monday-style-steps-command_text {
-        margin-right: $spacing-medium;
-        margin-left: $spacing-small;
-
-      }
+      margin-left: $spacing-small;
       .monday-style-steps-command_icon {
+        margin-left: $spacing-medium;
       }
     }
 
-    &_text {
-      @include font-default;
-    }
     &_icon {
       color: var(--icon-color);
       width: 15.5px;
@@ -81,30 +75,33 @@
     }
   }
   &--on-primary {
-    .monday-style-steps-header {
-      &_numbers {
-        color: var(--text-color-on-primary);
-      }
-
-      &_dot {
-        background: var(--primary-hover-color);
-        @include focus-style-on-primary;
-        &:hover {
-          background: var(--text-color-on-primary);
+    .monday-style-steps {
+      &-header {
+        &_numbers {
+          color: var(--text-color-on-primary);
         }
 
-        &--is-active {
-          background: var(--text-color-on-primary);
+        &_dot {
+          background: var(--primary-hover-color);
+          @include focus-style-on-primary;
+
+          &:hover {
+            background: var(--text-color-on-primary);
+          }
+
+          &--is-active {
+            background: var(--text-color-on-primary);
+          }
         }
       }
-    }
-    .monday-style-steps-command {
-      @include focus-style-on-primary;
-      &_text {
-        color: var(--text-color-on-primary);
-      }
-      &_icon {
-        color: var(--text-color-on-primary);
+      &-command{
+        &--disabled {
+
+        }
+
+        &_icon {
+          color: var(--text-color-on-primary);
+        }
       }
     }
   }

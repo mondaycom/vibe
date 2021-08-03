@@ -133,6 +133,7 @@
             &:focus {
               background-color: #e6e9ef;
               backdrop-filter: brightness(85%);
+              @include focus-style-on-primary();
             }
           }
         }
@@ -199,6 +200,7 @@
             &:hover,
             &:focus {
               backdrop-filter: brightness(85%);
+              @include focus-style-on-primary();
             }
           }
         }
@@ -248,6 +250,7 @@
             &:hover,
             &:focus {
               backdrop-filter: brightness(85%);
+              @include focus-style-on-primary();
             }
           }
           &-on-inverted-background {

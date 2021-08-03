@@ -16,31 +16,40 @@ import "./Steps.scss";
 
 const bemHelper = BEMClass(STEPS_CSS_BASE_CLASS);
 
-const Steps = forwardRef(({ className, id, steps, activeStepIndex, type, onChangeActiveStep, isOnPrimary }, ref) => {
-  const componentRef = useRef(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-  const overrideType = steps.length > MAX_STEPS_FOR_GALLERY_TYPE ? STEPS_NUMBERS_TYPE : type;
-  return (
-    <div
-      ref={mergedRef}
-      className={cx(STEPS_CSS_BASE_CLASS, className, { [bemHelper({ state: "on-primary" })]: isOnPrimary })}
-      id={id}
-    >
-      <StepsHeader
-        onChangeActiveStep={onChangeActiveStep}
-        type={overrideType}
-        activeStepIndex={activeStepIndex}
-        stepsCount={steps.length}
-      />
-      {steps[activeStepIndex]}
-    </div>
-  );
-});
+const Steps = forwardRef(
+  (
+    { className, id, steps, activeStepIndex, type, onChangeActiveStep, isOnPrimary, areNavigationButtonsHidden },
+    ref
+  ) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const overrideType = steps.length > MAX_STEPS_FOR_GALLERY_TYPE ? STEPS_NUMBERS_TYPE : type;
+    return (
+      <div
+        ref={mergedRef}
+        className={cx(STEPS_CSS_BASE_CLASS, className, { [bemHelper({ state: "on-primary" })]: isOnPrimary })}
+        id={id}
+      >
+        <StepsHeader
+          onChangeActiveStep={onChangeActiveStep}
+          type={overrideType}
+          activeStepIndex={activeStepIndex}
+          stepsCount={steps.length}
+          areNavigationButtonsHidden={areNavigationButtonsHidden}
+          isOnPrimary={isOnPrimary}
+        />
+        {steps[activeStepIndex]}
+      </div>
+    );
+  }
+);
 
 Steps.types = STEPS_TYPES;
 
 Steps.propTypes = {
   activeStepIndex: PropTypes.number,
+  onChangeActiveStep: PropTypes.func,
+  areNavigationButtonsHidden: PropTypes.bool,
   steps: PropTypes.arrayOf(PropTypes.element),
   className: PropTypes.string,
   id: PropTypes.string,
@@ -55,6 +64,7 @@ Steps.defaultProps = {
   className: "",
   id: "",
   onChangeActiveStep: NOOP,
+  areNavigationButtonsHidden: false,
   type: STEPS_GALLERY_TYPE
 };
 

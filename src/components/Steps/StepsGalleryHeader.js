@@ -11,6 +11,7 @@ export const StepsGalleryHeader = ({ activeStepIndex, stepsCount, onChangeActive
     for (let stepIndex = 0; stepIndex < stepsCount; stepIndex++) {
       dots.push(
         <StepsDot
+          key={`monday-style-step-dot-${stepIndex}`}
           stepIndex={stepIndex}
           onChangeActiveStep={onChangeActiveStep}
           stepsCount={stepsCount}
