@@ -1,6 +1,5 @@
 name: Get latest release version
 on:
-  push:
   schedule:
     - cron:  '*/10 * * * *'
 
