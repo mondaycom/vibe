@@ -8,7 +8,7 @@ import { BACK_COMMAND_TEST_ID, NEXT_COMMAND_TEST_ID } from "../StepsConstants";
 jest.useFakeTimers();
 const stepsContent = [<div data-testid="first-step">first</div>, <div data-testid="second-step">second</div>];
 const renderComponent = ({ ...props }) => {
-  return render(<Steps steps={stepsContent} {...props}></Steps>);
+  return render(<Steps steps={stepsContent} {...props}/>);
 };
 describe("Steps tests", () => {
   describe("Snapshot Tests", () => {
