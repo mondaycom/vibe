@@ -54,7 +54,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update version
           committer: Monday Style <mondaystyle@monday.com>
-          author: Monday Style <mondaystyle@monday.com>@users.noreply.github.com>
+          author: Monday Style <mondaystyle@monday.com>
           branch: update-version/version-${{env.LATEST_VERSION}}
           title: 'Upgrade icons'
           body: |
