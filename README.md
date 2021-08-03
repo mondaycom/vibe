@@ -44,7 +44,7 @@ We are maintaining a metadata file on the icons, it helps our icon library to be
 
 How to add a new icon?
 Add the icon in SVG format under src/Icons folder (size 20x20) 
-then run `npm run plop` and fill in the relevant information
+then run `npm run generate-meta` and fill in the relevant information
 
 ### Icon colors
 
