@@ -5,6 +5,27 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+    name: "Gantt",
+    file: "Gantt.svg",
+    description: "Gantt icon",
+    tags: "gantt, timeline",
+  },
+
+  {
+    name: "Counter",
+    file: "Counter.svg",
+    description: "counter icon",
+    tags: "numbers, 123, counter, digits",
+  },
+
+  {
+    name: "Widgets",
+    file: "Widgets.svg",
+    description: "Widgets icon",
+    tags: "widget, graph",
+  },
+
+  {
       name: "Recurring",
       file: "Recurring.svg",
       description: "Recurring icon",
