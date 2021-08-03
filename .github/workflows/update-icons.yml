@@ -61,8 +61,8 @@ jobs:
             New icons version
           labels: |
             icons
-          assignees: mentaman
-          reviewers: mentaman
+          assignees: orrgottlieb
+          reviewers: orrgottlieb
           team-reviewers: |
             owners
             maintainers
