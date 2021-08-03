@@ -14,3 +14,11 @@ if (TESTING_STORYBOOK) {
     return {CSSTransition: FakeCSSTransition, Transition: FakeTransition, SwitchTransition: FakeTransition}
   })
 }
+
+let error = console.error;
+console.error = function(warning) {
+  if (/(Invalid prop|Failed prop type)/.test(warning) && !warning.includes("of value `not valid`")) {
+    throw new Error(warning);
+  }
+  error.apply(console, arguments);
+};

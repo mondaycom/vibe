@@ -54,7 +54,6 @@ const ResponsiveList = forwardRef(
       return childrenArray.slice(index, childrenArray.length);
     }, [children, index]);
 
-
     const hiddenChildren = useMemo(() => {
       const childrenArray = React.Children.toArray(children);
 
@@ -108,10 +107,10 @@ ResponsiveList.propTypes = {
    These attributes will be passed to the MenuButton
    */
   menuButtonProps: PropTypes.object,
-  menuButtonAriaLabel: "More Actions",
+  menuButtonAriaLabel: PropTypes.string,
   rootClassName: PropTypes.string,
   dialogClassName: PropTypes.string,
-  menuButtonSize: PropTypes.oneOf(Object.keys(ResponsiveList.menuButtonSizes)),
+  menuButtonSize: PropTypes.oneOf(Object.values(ResponsiveList.menuButtonSizes)),
   /**
   Amount of space to save between the menu button and the content
    */

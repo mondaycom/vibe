@@ -25,22 +25,21 @@ export const BreadcrumbContent = forwardRef(({ className, isClickable, link, onC
           </span>
         </a>
       );
-    } else {
-      return (
-        <span
-          className={className}
-          onClick={onClick}
-          onKeyDown={onKeyDown}
-          tabIndex="0"
-          aria-current={isCurrent ? "page" : undefined}
-        >
-          {Icon && <Icon className="breadcrumb-icon" size="14" clickable={false} />}
-          <span ref={ref} className="breadcrumb-text">
-            {text}
-          </span>
-        </span>
-      );
     }
+    return (
+      <span
+        className={className}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        tabIndex="0"
+        aria-current={isCurrent ? "page" : undefined}
+      >
+        {Icon && <Icon className="breadcrumb-icon" size="14" clickable={false} />}
+        <span ref={ref} className="breadcrumb-text">
+          {text}
+        </span>
+      </span>
+    );
   }
   return (
     <span className={className} aria-disabled="true" tabIndex="0" aria-current={isCurrent ? "page" : undefined}>

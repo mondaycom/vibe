@@ -231,7 +231,7 @@ Dropdown.propTypes = {
   /**
    * custom option render function
    */
-  optionRenderer: PropTypes.func,
+  optionRenderer: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   /**
    * custom value render function
    */
@@ -277,7 +277,7 @@ Dropdown.propTypes = {
   /**
    * Whether the menu should use a portal, and where it should attach
    */
-  menuPortalTarget: PropTypes.element,
+  menuPortalTarget: PropTypes.oneOfType(PropTypes.element, PropTypes.object),
   /**
    * Custom function to override existing styles, ex: base => {...base, ...myCustomOverrides}
    */

@@ -31,7 +31,7 @@ export const Sandbox = () => {
         size={select(
           "Size",
           { Small: TextField.sizes.SMALL, Medium: TextField.sizes.MEDIUM, Large: TextField.sizes.LARGE },
-          "md"
+          TextField.sizes.MEDIUM
         )}
         clearOnIconClick={boolean("clear data in icon click", true)}
         labelIconName={text("FieldLabel Icon Name", "fa-envelope")}

@@ -2,7 +2,7 @@ import React from "react";
 import isNil from "lodash/isNil";
 import Button from "../Button/Button";
 import Tooltip from "../Tooltip/Tooltip";
-import {HIDE_SHOW_EVENTS} from "../Dialog/consts/dialog-show-hide-event";
+import { HIDE_SHOW_EVENTS } from "../Dialog/consts/dialog-show-hide-event";
 
 export const ButtonWrapper = ({
   tooltipContent,

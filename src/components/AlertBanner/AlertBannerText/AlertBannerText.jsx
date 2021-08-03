@@ -16,7 +16,7 @@ const AlertBannerText = ({ text, marginLeft }) => {
 
   return (
     <Tooltip
-      position={"bottom"}
+      position="bottom"
       content={isOverflowing && text}
       showTrigger={TOOLTIP_SHOW_TRIGGERS}
       hideTrigger={TOOLTIP_HIDE_TRIGGERS}

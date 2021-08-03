@@ -195,7 +195,7 @@ export const NotificationCounter = () => (
       maxDigits={number("Max Digits", 3)}
       wrapperClassName="counter-tag"
     />
-    <Notifications size={32} />
+    <Notifications size={"32"} />
   </div>
 );
 
