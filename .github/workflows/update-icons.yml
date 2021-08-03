@@ -22,10 +22,16 @@ jobs:
           echo "${{ env.CURRENT_VERSION }}"
           echo "var latest"
           echo "${{ env.LATEST_VERSION }}"
-      - name: Same version
+      - name: Same version - update & check changes
         if: ${{ env.CURRENT_VERSION == env.LATEST_VERSION }}
+        id: git-check
         run: |
-          echo "Same version"
+          npm install monday-ui-style@{{env.LATEST_VERSION}}
+          echo ::set-output name=modified::$([ -z "`git status --porcelain`" ] && echo "false" || echo "true")
+      - name: Commit latest changes
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+        echo "commiting npm changes"
       - name: Not same version
         if: ${{ env.CURRENT_VERSION != env.LATEST_VERSION }}
         run: |
