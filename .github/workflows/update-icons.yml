@@ -15,7 +15,7 @@ jobs:
 
           echo "CURRENT_VERSION=$(node -p "require('./package.json').dependencies['monday-ui-style']")" >> $GITHUB_ENV
           echo "var current"
-          echo $CURRENT_VERSION
+          echo ${{ env.CURRENT_VERSION }}
           echo "LATEST_VERSION=$(npm show monday-ui-style version)" >> $GITHUB_ENV
           echo "var latest"
-          echo $LATEST_VERSION
+          echo ${{ env.LATEST_VERSION }}
