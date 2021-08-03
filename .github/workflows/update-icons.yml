@@ -52,9 +52,9 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: Update report
-          committer: GitHub <mondaystyle@monday.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          commit-message: Update version
+          committer: Monday Style <mondaystyle@monday.com>
+          author: Monday Style <mondaystyle@monday.com>@users.noreply.github.com>
           branch: update-version/version-${{env.LATEST_VERSION}}
           title: 'Upgrade icons'
           body: |
