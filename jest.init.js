@@ -17,7 +17,7 @@ if (TESTING_STORYBOOK) {
 
 let error = console.error;
 console.error = function(warning) {
-  if (/(Invalid prop|Failed prop type)/.test(warning)) {
+  if (/(Invalid prop|Failed prop type)/.test(warning) && !warning.includes("of value `not valid`")) {
     throw new Error(warning);
   }
   error.apply(console, arguments);
