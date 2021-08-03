@@ -17,11 +17,14 @@ jobs:
           echo "LATEST_VERSION=$(npm show monday-ui-style version)" >> $GITHUB_ENV
 
       - name: Read release version
+        id: read-release-version
         run: |
           echo "var current"
           echo "${{ env.CURRENT_VERSION }}"
           echo "var latest"
           echo "${{ env.LATEST_VERSION }}"
+
+          echo ::set-output name=branch_exists::$([ -z "`git ls-remote --heads origin update-version/version-${{env.LATEST_VERSION}}`" ] && echo "false" || echo "true")
 
       - name: Same version
         if: ${{ env.CURRENT_VERSION == env.LATEST_VERSION }}
@@ -30,7 +33,7 @@ jobs:
 
       - name: Not same version - install & check changes
         id: git-check
-        if: ${{ env.CURRENT_VERSION != env.LATEST_VERSION }}
+        if: ${{ env.CURRENT_VERSION != env.LATEST_VERSION && steps.read-release-version.outputs.branch_exists == 'false' }}
         run: |
           echo "Not same version"
           npm install monday-ui-style@${{env.LATEST_VERSION}}
@@ -44,7 +47,23 @@ jobs:
           npm run build-react-icons
           echo ::set-output name=success::$(echo "true")
 
-      - name: Commit latest changes
+      - name: Create a pr
         if: steps.build-react-icons.outputs.success == 'true'
-        run: |
-          echo "commiting npm changes"
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Update report
+          committer: GitHub <mondaystyle@monday.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          branch: update-version/version-${{env.LATEST_VERSION}}
+          title: 'Upgrade icons'
+          body: |
+            New icons version
+          labels: |
+            icons
+          assignees: mentaman
+          reviewers: mentaman
+          team-reviewers: |
+            owners
+            maintainers
+          draft: false
