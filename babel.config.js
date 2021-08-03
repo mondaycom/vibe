@@ -1,3 +1,5 @@
+const { testing } = process.env;
+const TESTING_STORYBOOK = testing === "storybook";
 module.exports = api => {
   api.cache.using(() => process.env.NODE_ENV);
 
@@ -7,12 +9,16 @@ module.exports = api => {
         "@babel/preset-env",
         {
           modules: "commonjs",
-          targets: {
-            chrome: "49",
-            ie: "11",
-            firefox: "51",
-            edge: "14"
-          }
+          targets: TESTING_STORYBOOK
+            ? {
+                node: "current"
+              }
+            : {
+                chrome: "49",
+                ie: "11",
+                firefox: "51",
+                edge: "14"
+              }
         }
       ],
       "@babel/preset-react"
@@ -32,23 +38,6 @@ module.exports = api => {
         }
       ],
       "react-docgen"
-    ],
-    env: {
-      test: {
-        plugins: ["@babel/plugin-transform-modules-commonjs"],
-        presets: [
-          [
-            "@babel/preset-env",
-            {
-              modules: "commonjs",
-              targets: {
-                node: "current"
-              }
-            }
-          ],
-          "@babel/preset-react"
-        ]
-      }
-    }
+    ]
   };
-}
+};
