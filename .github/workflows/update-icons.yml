@@ -8,9 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Fetch release version
         run: |
-          cur_version = node -p "require('./package.json').dependencies['monday-ui-style']"
-          latest_version = npm show monday-ui-style version
-          echo $cur_version
-          echo $latest_version
-          same_version = $cur_version == $latest_version
-          echo $same_version
+          echo "CURRENT_VERSION=$(current_version=node -p \"require('./package.json').dependencies['monday-ui-style']\")" >> $GITHUB_ENV
+          echo $CURRENT_VERSION
+          echo "LATEST_VERSION=$(npm show monday-ui-style version)" >> $GITHUB_ENV
+          echo LATEST_VERSION
