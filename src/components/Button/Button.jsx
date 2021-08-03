@@ -305,9 +305,9 @@ Button.propTypes = {
   /** Disabled property which causes the button to be disabled */
   disabled: PropTypes.bool,
   /** Icon to place on the right */
-  rightIcon: PropTypes.string,
+  rightIcon: PropTypes.node,
   /** Icon to place on the left */
-  leftIcon: PropTypes.string,
+  leftIcon: PropTypes.node,
   /** the success props are used when you have async action and wants to display a success message */
   success: PropTypes.bool,
   /** Success icon name */

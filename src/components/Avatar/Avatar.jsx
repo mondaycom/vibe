@@ -39,28 +39,28 @@ const Avatar = ({
     const badges = [];
     if (!isNil(topLeftBadgeProps)) {
       badges.push(
-        <div className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "top-left" }))}>
+        <div key="top-left-badge" className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "top-left" }))}>
           <AvatarBadge size={size} {...topLeftBadgeProps} />
         </div>
       );
     }
     if (!isNil(topRightBadgeProps)) {
       badges.push(
-        <div className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "top-right" }))}>
+        <div key="top-right-badge" className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "top-right" }))}>
           <AvatarBadge size={size} {...topRightBadgeProps} />
         </div>
       );
     }
     if (!isNil(bottomLeftBadgeProps)) {
       badges.push(
-        <div className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "bottom-left" }))}>
+        <div key="bottom-left-badge" className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "bottom-left" }))}>
           <AvatarBadge size={size} {...bottomLeftBadgeProps} />
         </div>
       );
     }
     if (!isNil(bottomRightBadgeProps)) {
       badges.push(
-        <div className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "bottom-right" }))}>
+        <div key="bottom-right-bade" className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "bottom-right" }))}>
           <AvatarBadge size={size} {...bottomRightBadgeProps} />
         </div>
       );
