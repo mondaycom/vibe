@@ -12,7 +12,10 @@ import Avatar from "../../Avatar/Avatar";
 export const States = () => {
   const [numbersIndex, setNumberIndex] = useState(0);
   const changeIndex = (e, active) => setNumberIndex(active);
-  const steps = useMemo(() => [<div>first</div>, <div>second</div>, <div>third</div>], []);
+  const steps = useMemo(
+    () => [<div>first</div>, <div>second</div>, <div>third</div>, <div>fourth</div>, <div>Fifth</div>],
+    []
+  );
   return (
     <StoryWrapper>
       <StoryTitle text="Regular mode - steps with number view" />
@@ -60,9 +63,16 @@ export const States = () => {
 };
 export const Sandbox = () => {
   const isOnPrimary = boolean("Is on primary", false);
+  const stepsNumber = number("Steps number", 5);
   const [numbersIndex, setNumberIndex] = useState(0);
   const changeIndex = (e, active) => setNumberIndex(active);
-  const steps = useMemo(() => [<div>first</div>, <div>second</div>, <div>third</div>], []);
+  const steps = useMemo(() => {
+    const retval = [];
+    for (let i = 0; i < stepsNumber; i++) {
+      retval.push(<div>{i}</div>);
+    }
+    return retval;
+  }, [stepsNumber]);
   return (
     <Steps
       steps={steps}

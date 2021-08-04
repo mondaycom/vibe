@@ -23,7 +23,6 @@ const Steps = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const overrideType = steps.length > MAX_STEPS_FOR_GALLERY_TYPE ? STEPS_NUMBERS_TYPE : type;
     return (
       <div
         ref={mergedRef}
@@ -32,7 +31,7 @@ const Steps = forwardRef(
       >
         <StepsHeader
           onChangeActiveStep={onChangeActiveStep}
-          type={overrideType}
+          type={type}
           activeStepIndex={activeStepIndex}
           stepsCount={steps.length}
           areNavigationButtonsHidden={areNavigationButtonsHidden}

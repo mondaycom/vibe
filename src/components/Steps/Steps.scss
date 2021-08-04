@@ -40,9 +40,9 @@
       @include focus-style;
       transform-origin: center;
       transform: scale(1);
-      transition: transform 0.2s $expand-animation-timing;
+      transition: transform 0.2s $expand-animation-timing, background 0.2s $expand-animation-timing;
       &:hover {
-        @include active-step-dot;
+        transform: scale(1.3);
       }
 
       &--is-active {
@@ -87,7 +87,7 @@
           @include focus-style-on-primary;
 
           &:hover {
-            background: var(--text-color-on-primary);
+            background: var(--primary-hover-color);
           }
 
           &--is-active {
