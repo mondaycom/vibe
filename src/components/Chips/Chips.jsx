@@ -79,9 +79,9 @@ Chips.propTypes = {
   disabled: PropTypes.bool,
   readOnly: PropTypes.bool,
   /** Icon to place on the right */
-  rightIcon: PropTypes.string,
+  rightIcon: PropTypes.node,
   /** Icon to place on the left */
-  leftIcon: PropTypes.string,
+  leftIcon: PropTypes.node,
   color: PropTypes.oneOf(Object.keys(Chips.colors)),
   /** size for font icon */
   iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),

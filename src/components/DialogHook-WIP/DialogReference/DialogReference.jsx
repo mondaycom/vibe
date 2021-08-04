@@ -1,5 +1,5 @@
+// eslint-disable-next-line no-unused-vars
 import React, { cloneElement, useEffect, useMemo } from "react";
-import { findDOMNode } from "react-dom";
 import cx from "classnames";
 import { chainFunctions } from "../../../utils/function-utils";
 
@@ -30,12 +30,12 @@ const DialogReference = ({
 
   return cloneElement(children, {
     className: cx(children.props.className, uniqueClassName),
-    onBlur: chainFunctions([childrenProps.onBlur, , onBlur], true),
+    onBlur: chainFunctions([childrenProps.onBlur, onBlur], true),
     onClick: chainFunctions([childrenProps.onClick, onClick], true),
     onFocus: chainFunctions([childrenProps.onFocus, onFocus], true),
-    onMouseDown: chainFunctions([childrenProps["onMouseDown"], onMouseDown], true),
-    onMouseEnter: chainFunctions([childrenProps["onMouseEnter"], onMouseEnter], true),
-    onMouseLeave: chainFunctions([childrenProps["onMouseLeave"], onMouseLeave], true)
+    onMouseDown: chainFunctions([childrenProps.onMouseDown, onMouseDown], true),
+    onMouseEnter: chainFunctions([childrenProps.onMouseEnter, onMouseEnter], true),
+    onMouseLeave: chainFunctions([childrenProps.onMouseLeave, onMouseLeave], true)
   });
 };
 export default DialogReference;

@@ -5,21 +5,23 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./TabPanel.scss";
 
 const TabPanel = forwardRef(({ className, id, children }, ref) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+  const componentRef = useRef(null);
+  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-    return (
-    <div ref={mergedRef} className={cx("tab-panel--wrapper", className)} id={id} role="tabpanel">{children}</div>
+  return (
+    <div ref={mergedRef} className={cx("tab-panel--wrapper", className)} id={id} role="tabpanel">
+      {children}
+    </div>
   );
 });
 
 TabPanel.propTypes = {
-    className: PropTypes.string,
-    id: PropTypes.string
+  className: PropTypes.string,
+  id: PropTypes.string
 };
 TabPanel.defaultProps = {
-    className: "",
-    id: ""
+  className: "",
+  id: ""
 };
 
 export default TabPanel;

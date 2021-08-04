@@ -223,12 +223,14 @@ TextField.propTypes = {
   title: PropTypes.string,
   /** SIZES is exposed on the component itself */
   size: PropTypes.oneOf([TextField.sizes.SMALL, TextField.sizes.MEDIUM, TextField.sizes.LARGE]),
-  validation: PropTypes.shape({
+  validation: PropTypes.oneOfType([PropTypes.shape({
     /** Don't provide status for plain assistant text */
     status: PropTypes.oneOf(["error", "success"]),
 
     text: PropTypes.string
-  }),
+  }), PropTypes.shape({
+    text: PropTypes.string
+  })]),
   wrapperClassName: PropTypes.string,
   onIconClick: PropTypes.func,
   clearOnIconClick: PropTypes.bool,
@@ -271,7 +273,7 @@ TextField.defaultProps = {
   secondaryIconName: "",
   id: "input",
   title: "",
-  size: "s",
+  size: TextField.sizes.SMALL,
   validation: null,
   wrapperClassName: "",
   onIconClick: NOOP,

@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useMemo } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import SVG from "react-inlinesvg";
@@ -23,13 +23,13 @@ const CustomSvgIcon = ({ className, src, onClick, clickable, ariaLabel, ariaHidd
   );
 };
 
-CustomSvgIcon.defaultProps = {
+CustomSvgIcon.propTypes = {
   className: PropTypes.string,
   src: PropTypes.string,
   ariaLabel: PropTypes.string,
   ariaHidden: PropTypes.bool
 };
-CustomSvgIcon.propTypes = {
+CustomSvgIcon.defaultProps = {
   className: "",
   src: "",
   ariaLabel: undefined,

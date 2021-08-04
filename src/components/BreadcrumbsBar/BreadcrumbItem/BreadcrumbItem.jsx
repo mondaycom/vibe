@@ -65,7 +65,7 @@ BreadcrumbItem.propTypes = {
   /** Should be the current Item - mainly effects the item`s style. */
   isCurrent: PropTypes.bool,
   /** An Icon - If no icon needed then should be left empty. */
-  icon: PropTypes.string
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 BreadcrumbItem.defaultProps = {

@@ -218,7 +218,7 @@ export const Colors = () => {
       </div>
       <StoryTitle text="Content Colors" />
       <DescriptionLabel>
-        These colours are used only for color coding purposes like groups colours, statuses timeline bars etc.. this
+        These colors are used only for color coding purposes like groups colors, statuses timeline bars etc.. this
         gives understanding and indication of orientation and belonging. The board’s main strength is its simple and
         visual appearance. That’s why the status colors should appear on the board and nowhere else in the UI.
       </DescriptionLabel>

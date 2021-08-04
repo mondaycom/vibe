@@ -2,7 +2,7 @@ import React from "react";
 import isNil from "lodash/isNil";
 import Button from "../Button/Button";
 import Tooltip from "../Tooltip/Tooltip";
-import {HIDE_SHOW_EVENTS} from "../Dialog/consts/dialog-show-hide-event";
+import { HIDE_SHOW_EVENTS } from "../Dialog/consts/dialog-show-hide-event";
 
 export const ButtonWrapper = ({
   tooltipContent,
@@ -13,8 +13,6 @@ export const ButtonWrapper = ({
   tooltipMovedBy,
   ...otherProps
 }) => {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  console.log('otherProps:', otherProps); 
   let button = <Button {...otherProps} />;
   if (!isNil(tooltipContent)) {
     button = (
