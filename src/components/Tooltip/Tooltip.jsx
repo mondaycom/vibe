@@ -4,7 +4,8 @@ import classnames from "classnames";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
 import "./Tooltip.scss";
-
+import { DialogPositions } from "../../constants/sizes";
+import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
 
@@ -125,6 +126,8 @@ export default class Tooltip extends React.PureComponent {
   }
 }
 
+Tooltip.arrowPositions = DialogPositions;
+Tooltip.animationTypes = DIALOG_ANIMATION_TYPES;
 Tooltip.defaultProps = {
   arrowPosition: "center", // begin, center, end
   moveBy: { main: 4, secondary: 0 },
