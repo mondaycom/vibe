@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef } from "react";
+import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -48,10 +48,9 @@ const Tipseen = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideCloseAriaLabel = closeAriaLabel || "Close";
-
-    return (
-      <div ref={mergedRef} className={cx(`${TIPSEEN_BASE_CSS_CLASS}--wrapper`, className)} id={id}>
-        <Tooltip position={position} animationType={animationType} hideDelay={hideDelay} showDelay={showDelay}>
+    const tipseenContent = useMemo(
+      () => (
+        <>
           <div className={bemHelper({ element: "header" })}>
             <Button
               className={bemHelper({ element: "close-button" })}
@@ -65,6 +64,25 @@ const Tipseen = forwardRef(
             {title ? <span className={bemHelper("title")}>{title}</span> : null}
           </div>
           <div className={bemHelper({ element: "content" })}>{children}</div>
+        </>
+      ),
+      [children, isCloseButtonHidden, onClose, overrideCloseAriaLabel, title]
+    );
+
+    return (
+      <div ref={mergedRef} className={cx(`${TIPSEEN_BASE_CSS_CLASS}--wrapper`, className)} id={id}>
+        <Tooltip
+          shouldShowOnMount
+          position={position}
+          animationType={animationType}
+          hideDelay={hideDelay}
+          showDelay={showDelay}
+          content={tipseenContent}
+          theme={Tooltip.themes.Primary}
+          showTrigger={["click"]}
+          hideTrigger={["click"]}
+        >
+          <div>heyyy</div>
         </Tooltip>
       </div>
     );
