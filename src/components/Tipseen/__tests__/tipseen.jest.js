@@ -6,16 +6,37 @@ import renderer from "react-test-renderer";
 
 jest.useFakeTimers();
 const renderComponent = ({ ...props }) => {
-  return render(<Steps steps={stepsContent} {...props} />);
+  return render(
+    <Tipseen {...props}>
+      <div />
+    </Tipseen>
+  );
 };
 describe("Tipseen tests", () => {
   describe("Snapshot Tests", () => {
     it("renders correctly with empty props", () => {
-      const tree = renderer.create(<Tipseen />).toJSON();
+      const tree = renderer
+        .create(
+          <Tipseen>
+            <div />
+          </Tipseen>
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it("renders correctly with title", () => {
+      const tree = renderer.create(<Tipseen title="mock title" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without close button", () => {
-      const tree = renderer.create(<Tipseen />).toJSON();
+      const tree = renderer
+        .create(
+          <Tipseen isCloseButtonHidden>
+            <div />
+          </Tipseen>
+        )
+        .toJSON();
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without title", () => {

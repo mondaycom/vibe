@@ -60,7 +60,7 @@ const Tipseen = forwardRef(
               onClick={onClose}
               size={Button.sizes.SMALL}
               kind={Button.kinds.TERTIARY}
-              color={isCloseButtonOnImage ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.PRIMARY}
+              color={isCloseButtonOnImage ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
               ariaLabel={overrideCloseAriaLabel}
             >
               {isCloseButtonHidden ? null : <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />}
@@ -87,7 +87,7 @@ const Tipseen = forwardRef(
           hideTrigger={["click"]}
           containerSelector={containerSelector}
         >
-          <div>heyyy</div>
+          {children}
         </Tooltip>
       </div>
     );
