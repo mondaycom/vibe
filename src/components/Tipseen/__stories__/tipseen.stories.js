@@ -16,7 +16,7 @@ import cx from "classnames";
 
 export const Sandbox = () => (
   <div>
-    <Tipseen id="Knobs" title={text("Text", "Test knob value")}>
+    <Tipseen id="Knobs" title={text("Text", "Test knob value")} content={"hhhh"}>
       <div className={cx("tooltip-empty-element")} />
     </Tipseen>
   </div>

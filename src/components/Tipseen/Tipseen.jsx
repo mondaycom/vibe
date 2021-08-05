@@ -22,7 +22,7 @@ import "./Tipseen.scss";
  shouldShowOnMount,
  theme,
  wrapperClassName,
- * @type {React.ForwardRefExoticComponent<React.PropsWithoutRef<{readonly title?: *, readonly isCloseButtonHidden?: *, readonly position?: *, readonly className?: *}> & React.RefAttributes<unknown>>}
+ * @type {string}
  */
 
 const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
@@ -41,7 +41,10 @@ const Tipseen = forwardRef(
       isCloseButtonHidden,
       onClose,
       closeAriaLabel,
-      children
+      children,
+      content,
+      isCloseButtonOnImage,
+      containerSelector
     },
     ref
   ) => {
@@ -50,21 +53,22 @@ const Tipseen = forwardRef(
     const overrideCloseAriaLabel = closeAriaLabel || "Close";
     const tipseenContent = useMemo(
       () => (
-        <>
+        <div className={TIPSEEN_BASE_CSS_CLASS}>
           <div className={bemHelper({ element: "header" })}>
             <Button
               className={bemHelper({ element: "close-button" })}
               onClick={onClose}
               size={Button.sizes.SMALL}
               kind={Button.kinds.TERTIARY}
+              color={isCloseButtonOnImage ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.PRIMARY}
               ariaLabel={overrideCloseAriaLabel}
             >
-              {isCloseButtonHidden ? null : <Icon clickable={false} icon={CloseSmall} iconSize={15} ignoreFocusStyle />}
+              {isCloseButtonHidden ? null : <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />}
             </Button>
-            {title ? <span className={bemHelper("title")}>{title}</span> : null}
+            {title ? <span className={bemHelper({ element: "title" })}>{title}</span> : null}
           </div>
-          <div className={bemHelper({ element: "content" })}>{children}</div>
-        </>
+          <div className={bemHelper({ element: "content" })}>{content}</div>
+        </div>
       ),
       [children, isCloseButtonHidden, onClose, overrideCloseAriaLabel, title]
     );
@@ -81,6 +85,7 @@ const Tipseen = forwardRef(
           theme={Tooltip.themes.Primary}
           showTrigger={["click"]}
           hideTrigger={["click"]}
+          containerSelector={containerSelector}
         >
           <div>heyyy</div>
         </Tooltip>
@@ -113,7 +118,8 @@ Tipseen.propTypes = {
   showDelay: PropTypes.number,
   title: PropTypes.string,
   isCloseButtonHidden: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  containerSelector: PropTypes.string
 };
 Tipseen.defaultProps = {
   className: "",
@@ -124,7 +130,8 @@ Tipseen.defaultProps = {
   showDelay: 0,
   title: undefined,
   isCloseButtonHidden: false,
-  children: null
+  children: null,
+  containerSelector: undefined
 };
 
 export default Tipseen;

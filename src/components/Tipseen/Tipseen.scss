@@ -1,6 +1,28 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
+@import "../../styles/global-css-settings.scss";
 
-.tipseen--wrapper {
+.monday-style-tipseen {
+  margin: $spacing-small;
+  min-width: 400px;
 
+  &_header {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &_close-button {
+    position: absolute;
+    top: $spacing-xs;
+    right: $spacing-xs;
+  }
+
+  &_title {
+    @include font-paragraph-bold;
+    color: var(--text-color-on-primary);
+  }
+
+  &_content {
+
+  }
 }
