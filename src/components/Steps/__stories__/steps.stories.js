@@ -7,11 +7,14 @@ import { STEPS_GALLERY_TYPE, STEPS_NUMBERS_TYPE } from "../StepsConstants";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import StoryTitle from "../../storybook-helpers/story-title/story-title";
 import "./steps.stories.scss";
-import Avatar from "../../Avatar/Avatar";
 
 export const States = () => {
   const [numbersIndex, setNumberIndex] = useState(0);
-  const changeIndex = (e, active) => setNumberIndex(active);
+  const changeIndex = (e, active) => {
+    // eslint-disable-next-line no-debugger
+    debugger;
+    setNumberIndex(active);
+  };
   const steps = useMemo(
     () => [<div>first</div>, <div>second</div>, <div>third</div>, <div>fourth</div>, <div>Fifth</div>],
     []

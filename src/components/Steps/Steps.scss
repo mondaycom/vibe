@@ -97,7 +97,7 @@
       }
       &-command{
         &_icon {
-          @include theme-prop(background, text-color-on-primary);
+          @include theme-prop(color, text-color-on-primary);
         }
       }
     }

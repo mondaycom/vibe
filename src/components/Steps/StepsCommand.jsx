@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import {
@@ -12,7 +12,6 @@ import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRi
 import NavigationChevronLeft from "../Icon/Icons/components/NavigationChevronLeft";
 import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../Icon/Icon";
-import { useChangeStepFunction } from "./hooks/useChangeStepFunction";
 import Button from "../Button/Button";
 import { NOOP } from "../../utils/function-utils";
 
@@ -35,14 +34,7 @@ export const StepsCommand = ({
   }, [isForward, buttonChildren]);
   const buttonBaseColor = isOnPrimary ? Button.colors.ON_PRIMARY_COLOR : undefined;
   const newStepIndex = isForward ? activeStepIndex + 1 : activeStepIndex - 1;
-
-  const overrideOnClick = useChangeStepFunction({
-    onClickCallback: onChangeActiveStep,
-    activeStepIndex,
-    stepsCount,
-    newStepIndex
-  });
-
+  const onClick = useCallback(e => onChangeActiveStep(e, newStepIndex), [newStepIndex, onChangeActiveStep]);
   const isDisable = (isForward && activeStepIndex === stepsCount - 1) || (!isForward && activeStepIndex === 0);
 
   const icon = isForward ? NavigationChevronRight : NavigationChevronLeft;
@@ -51,7 +43,7 @@ export const StepsCommand = ({
       className={cx(CSS_BASE_CLASS, bemHelper({ state: isForward ? "forward" : "backward" }))}
       dataTestId={isForward ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
       kind={Button.kinds.TERTIARY}
-      onClick={overrideOnClick}
+      onClick={onClick}
       disabled={isDisable}
       color={buttonBaseColor}
       {...otherButtonProps}
