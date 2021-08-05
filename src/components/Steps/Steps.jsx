@@ -1,13 +1,7 @@
 import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import {
-  STEPS_NUMBERS_TYPE,
-  STEPS_GALLERY_TYPE,
-  STEPS_CSS_BASE_CLASS,
-  MAX_STEPS_FOR_GALLERY_TYPE,
-  STEPS_TYPES
-} from "./StepsConstants";
+import { STEPS_GALLERY_TYPE, STEPS_CSS_BASE_CLASS, STEPS_TYPES } from "./StepsConstants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { StepsHeader } from "./StepsHeader";
 import { NOOP } from "../../utils/function-utils";
@@ -52,7 +46,7 @@ Steps.propTypes = {
   steps: PropTypes.arrayOf(PropTypes.element),
   className: PropTypes.string,
   id: PropTypes.string,
-  type: PropTypes.oneOf([STEPS_GALLERY_TYPE, STEPS_NUMBERS_TYPE]),
+  type: PropTypes.oneOf([Steps.types.GALLERY, Steps.types.NUMBERS]),
   isOnPrimary: PropTypes.bool
 };
 

@@ -31,12 +31,12 @@
     }
 
     &_dot {
-      all: unset;
+      @include reset-button;
       width: 6px;
       height: 6px;
       cursor: pointer;
       border-radius: 50%;
-      background: var(--ui-border-color);
+      @include theme-prop(background, ui-border-color);
       @include focus-style;
       transform-origin: center;
       transform: scale(1);
@@ -70,7 +70,7 @@
     }
 
     &_icon {
-      color: var(--icon-color);
+      @include theme-prop(color, icon-color);
       width: 15.5px;
       height: 15.5px;
     }
@@ -79,29 +79,25 @@
     .monday-style-steps {
       &-header {
         &_numbers {
-          color: var(--text-color-on-primary);
+          @include theme-prop(color, text-color-on-primary);
         }
 
         &_dot {
-          background: var(--primary-hover-color);
+          @include theme-prop(background, primary-hover-color);
           @include focus-style-on-primary;
 
           &:hover {
-            background: var(--primary-hover-color);
+            @include theme-prop(background, primary-hover-color);
           }
 
           &--is-active {
-            background: var(--text-color-on-primary);
+            @include theme-prop(background, text-color-on-primary);
           }
         }
       }
       &-command{
-        &--disabled {
-
-        }
-
         &_icon {
-          color: var(--text-color-on-primary);
+          @include theme-prop(background, text-color-on-primary);
         }
       }
     }

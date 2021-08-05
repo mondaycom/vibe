@@ -4,13 +4,7 @@ import { STEPS_CSS_BASE_CLASS } from "./StepsConstants";
 
 const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-header_gallery`;
 
-export const StepsGalleryHeader = ({
-  activeStepIndex,
-  stepsCount,
-  onChangeActiveStep,
-  groupAriaLabel,
-  stepDescriptionFunc
-}) => {
+export const StepsGalleryHeader = ({ activeStepIndex, stepsCount, onChangeActiveStep, stepDescriptionFunc }) => {
   const defaultStepDescriptionFunc = useCallback(stepIndex => `Step number ${stepIndex}`, []);
   const galleryDots = useMemo(() => {
     const dots = [];
@@ -27,7 +21,7 @@ export const StepsGalleryHeader = ({
       );
     }
     return dots;
-  }, [activeStepIndex, onChangeActiveStep, stepsCount]);
+  }, [activeStepIndex, defaultStepDescriptionFunc, onChangeActiveStep, stepDescriptionFunc, stepsCount]);
 
   return (
     <div role="group" className={CSS_BASE_CLASS}>

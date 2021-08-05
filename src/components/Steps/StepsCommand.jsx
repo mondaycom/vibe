@@ -13,7 +13,7 @@ import NavigationChevronLeft from "../Icon/Icons/components/NavigationChevronLef
 import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../Icon/Icon";
 import { useChangeStepFunction } from "./hooks/useChangeStepFunction";
-import { Button } from "../index";
+import Button from "../Button/Button";
 import { NOOP } from "../../utils/function-utils";
 
 const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-command`;
