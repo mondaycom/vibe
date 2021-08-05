@@ -74,7 +74,7 @@ ExpandCollapse.propTypes = {
   /**
    * The expand icon font size
    */
-  iconSize: PropTypes.string | PropTypes.number,
+  iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Should be open or closed by default (when rendered)
    */

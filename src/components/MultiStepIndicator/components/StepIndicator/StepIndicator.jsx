@@ -126,12 +126,12 @@ StepIndicator.propTypes = {
   subtitleText: PropTypes.string,
   stepNumber: PropTypes.number.isRequired,
   stepComponentClassName: PropTypes.string,
-  type: PropTypes.oneOf(
+  type: PropTypes.oneOf([
     MULTI_STEP_TYPES.PRIMARY,
     MULTI_STEP_TYPES.SUCCESS,
     MULTI_STEP_TYPES.DANGER,
     MULTI_STEP_TYPES.DARK
-  ),
+  ]),
   fulfilledStepIcon: PropTypes.func,
   fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT])
 };

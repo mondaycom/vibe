@@ -175,7 +175,7 @@ const dropdownIndicator = ({ size }) => (provided, { selectProps }) => {
     color: getCSSVar("icon-color"),
     ":hover, :active": {
       backgroundColor: getCSSVar("primary-background-hover-color"),
-      color: getCSSVar("icon-color"),
+      color: getCSSVar("icon-color")
     }
   };
 };

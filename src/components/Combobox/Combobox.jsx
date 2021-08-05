@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useRef, useState, forwardRef, useMemo, useCallback, useEffect } from "react";
+import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
@@ -55,7 +55,7 @@ const Combobox = forwardRef(
         setActiveItemIndex(index);
         if (mouseClick) {
           // set focus on input again
-          inputRef.current.focus();
+          inputRef.current?.focus();
         }
         setIsActiveByKeyboard(!mouseClick);
       },
@@ -210,7 +210,7 @@ Combobox.propTypes = {
   optionsListHeight: PropTypes.number,
   autoFocus: PropTypes.bool,
   onAddNew: PropTypes.func,
-  addNewLabel: PropTypes.string
+  addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 Combobox.defaultProps = {
   className: "",

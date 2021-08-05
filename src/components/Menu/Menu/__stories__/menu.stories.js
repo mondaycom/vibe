@@ -204,7 +204,7 @@ export const Sizes = () => {
 export const menuKeyboardNavigationWithoutFocus = () => {
   const inputRef = useRef();
   useEffect(() => {
-    inputRef.current.focus();
+    inputRef.current?.focus();
   }, [inputRef]);
 
   return (

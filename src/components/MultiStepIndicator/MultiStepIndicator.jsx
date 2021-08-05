@@ -63,15 +63,17 @@ MultiStepIndicator.propTypes = {
     MultiStepIndicator.types.DARK
   ]),
   /** Array of objects of the specified format. */
-  steps: PropTypes.arrayOf({
-    titleText: PropTypes.string,
-    subtitleText: PropTypes.string,
-    status: PropTypes.oneOf([
-      MultiStepIndicator.stepStatuses.PENDING,
-      MultiStepIndicator.stepStatuses.ACTIVE,
-      MultiStepIndicator.stepStatuses.FULFILLED
-    ])
-  }).isRequired,
+  steps: PropTypes.arrayOf(
+    PropTypes.shape({
+      titleText: PropTypes.string,
+      subtitleText: PropTypes.string,
+      status: PropTypes.oneOf([
+        MultiStepIndicator.stepStatuses.PENDING,
+        MultiStepIndicator.stepStatuses.ACTIVE,
+        MultiStepIndicator.stepStatuses.FULFILLED
+      ])
+    })
+  ).isRequired,
   /** For overriding the styles of the step component - container of number/check and texts. */
   stepComponentClassName: PropTypes.string,
   /** For overriding the step-dividers styles. */
