@@ -5,6 +5,20 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Status",
+      file: "Status.svg",
+      description: "Status icon",
+      tags: "status, done, status category"
+  },
+
+  {
+      name: "Subitems",
+      file: "Subitems.svg",
+      description: "Subitems icon",
+      tags: "subitems, subitems category"
+  },
+
+  {
     name: "Gantt",
     file: "Gantt.svg",
     description: "Gantt icon",
