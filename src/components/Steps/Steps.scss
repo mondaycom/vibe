@@ -7,8 +7,17 @@
   transform: scale(1.3);
 }
 .monday-style-steps {
+  &--content-on-top {
+    .monday-style-steps-header {
+      margin-top: $spacing-small;
+    }
+  }
+  &--content-on-bottom {
+    .monday-style-steps-header {
+      margin-bottom: $spacing-small;
+    }
+  }
   &-header {
-    margin-bottom: $spacing-small;
     display: flex;
     align-items: center;
 

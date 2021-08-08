@@ -10,6 +10,7 @@
   &-wrapper {
     min-width: 100px;
     min-height: 40px;
+    padding: $spacing-medium;
   }
 
   &_header {
@@ -25,9 +26,5 @@
 
   &_title {
     @include tipseen-title;
-  }
-
-  &_content {
-
   }
 }

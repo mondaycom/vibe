@@ -2,8 +2,8 @@ import React, { useCallback, useMemo } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import {
-  FORWARD_DESCRIPTION,
-  BACKWARD_DESCRIPTION,
+  NEXT_DESCRIPTION,
+  BACK_DESCRIPTION,
   STEPS_CSS_BASE_CLASS,
   BACK_COMMAND_TEST_ID,
   NEXT_COMMAND_TEST_ID
@@ -19,7 +19,7 @@ const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-command`;
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export const StepsCommand = ({
-  isForward,
+  isNext,
   onChangeActiveStep,
   activeStepIndex,
   stepsCount,
@@ -30,18 +30,18 @@ export const StepsCommand = ({
   const { children: buttonChildren, ...otherButtonProps } = buttonProps;
   const description = useMemo(() => {
     if (buttonChildren) return buttonChildren;
-    return isForward ? FORWARD_DESCRIPTION : BACKWARD_DESCRIPTION;
-  }, [isForward, buttonChildren]);
+    return isNext ? NEXT_DESCRIPTION : BACK_DESCRIPTION;
+  }, [isNext, buttonChildren]);
   const buttonBaseColor = isOnPrimary ? Button.colors.ON_PRIMARY_COLOR : undefined;
-  const newStepIndex = isForward ? activeStepIndex + 1 : activeStepIndex - 1;
+  const newStepIndex = isNext ? activeStepIndex + 1 : activeStepIndex - 1;
   const onClick = useCallback(e => onChangeActiveStep(e, newStepIndex), [newStepIndex, onChangeActiveStep]);
-  const isDisable = (isForward && activeStepIndex === stepsCount - 1) || (!isForward && activeStepIndex === 0);
+  const isDisable = (isNext && activeStepIndex === stepsCount - 1) || (!isNext && activeStepIndex === 0);
 
-  const icon = isForward ? NavigationChevronRight : NavigationChevronLeft;
+  const icon = isNext ? NavigationChevronRight : NavigationChevronLeft;
   return (
     <Button
-      className={cx(CSS_BASE_CLASS, bemHelper({ state: isForward ? "forward" : "backward" }))}
-      dataTestId={isForward ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
+      className={cx(CSS_BASE_CLASS, bemHelper({ state: isNext ? "forward" : "backward" }))}
+      dataTestId={isNext ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
       kind={Button.kinds.TERTIARY}
       onClick={onClick}
       disabled={isDisable}
@@ -55,7 +55,7 @@ export const StepsCommand = ({
 };
 
 StepsCommand.propTyps = {
-  isForward: PropTypes.bool,
+  isNext: PropTypes.bool,
   onChangeActiveStep: PropTypes.func,
   activeStepIndex: PropTypes.number.isRequired,
   stepsCount: PropTypes.number.isRequired,
@@ -64,7 +64,7 @@ StepsCommand.propTyps = {
   isOnPrimary: PropTypes.bool
 };
 StepsCommand.defaultProps = {
-  isForward: false,
+  isNext: false,
   onChangeActiveStep: NOOP,
   isIconHidden: false,
   isOnPrimary: false,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import cx from "classnames";
 import StoryTitle from "../../storybook-helpers/story-title/story-title";
 import { text, boolean, number, select } from "@storybook/addon-knobs";
@@ -14,9 +14,26 @@ import {
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import TipseenContent from "../TipseenContent";
 import "./tipseen.stories.scss";
+import { TipseenWizard } from "../TipseenWizard";
 export const States = () => {
+  const [step, setStep] = useState();
+  const onChangeStep = useCallback((e, index) => setStep(index), [setStep]);
+  const tipseenWizard = useMemo(() => {
+    const content = [
+      <div>Popover message will appear here loremipsum dolor samet…</div>,
+      <div>Popover message will appear here loremipsum dolor samet…</div>,
+      <div>Popover message will appear here loremipsum dolor samet…</div>
+    ];
+    return <TipseenWizard steps={content} onChangeActiveStep={onChangeStep} activeStepIndex={step} />;
+  });
   return (
     <StoryWrapper>
+      <StoryTitle text="Tipseen with a wizard" />
+      <StoryStateRow componentClassName="monday-style-story-tipseen_container">
+        <Tipseen position={Tipseen.positions.RIGHT} content={tipseenWizard}>
+          <div className={"tooltip-empty-element"} />
+        </Tipseen>
+      </StoryStateRow>
       <StoryTitle text="Empty tipseen" />
       <StoryStateRow componentClassName="monday-style-story-tipseen_container">
         <Tipseen position={Tipseen.positions.RIGHT}>
@@ -38,7 +55,6 @@ export const States = () => {
           <div className={"tooltip-empty-element"} />
         </Tipseen>
       </StoryStateRow>
-      <StoryTitle text="Tipseen with a wizard" />
       <StoryTitle text="Tipseen with graphic assets" />
     </StoryWrapper>
   );

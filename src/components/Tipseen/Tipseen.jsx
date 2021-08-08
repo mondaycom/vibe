@@ -12,20 +12,6 @@ import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import "./Tipseen.scss";
 import { TOOLTIP_JUSTIFY_TYPES } from "../Tooltip/TooltipConstants";
 
-/**
- *  hoverContent,
- justify,
- getContainer,
- moveBy,
- hideTrigger,
- showTrigger,
- animationType,
- shouldShowOnMount,
- theme,
- wrapperClassName,
- * @type {string}
- */
-
 const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
 const bemHelper = BEMClass(TIPSEEN_BASE_CSS_CLASS);
 

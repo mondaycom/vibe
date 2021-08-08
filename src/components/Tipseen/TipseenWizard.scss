@@ -1,0 +1,13 @@
+@import "./Tipseen";
+
+.monday-style-tipseen-wizard {
+  display: flex;
+  flex-direction: column;
+  &_title {
+    @include tipseen-title;
+  }
+  &_wizard {
+    margin-top: $spacing-small;
+    width: 100%;
+  }
+}
