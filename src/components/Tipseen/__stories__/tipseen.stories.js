@@ -15,6 +15,7 @@ import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper
 import TipseenContent from "../TipseenContent";
 import "./tipseen.stories.scss";
 import { TipseenWizard } from "../TipseenWizard";
+import TipseenImage from "../TipseenImage";
 export const States = () => {
   const [step, setStep] = useState();
   const onChangeStep = useCallback((e, index) => setStep(index), [setStep]);
@@ -55,7 +56,26 @@ export const States = () => {
           <div className={"tooltip-empty-element"} />
         </Tipseen>
       </StoryStateRow>
-      <StoryTitle text="Tipseen with graphic assets" />
+      <StoryTitle text="Tipseen with image" />
+      <StoryStateRow componentClassName="monday-style-story-tipseen_container">
+        <Tipseen
+          position={Tipseen.positions.RIGHT}
+          content={
+            <>
+              <TipseenImage
+                src={"https://www.israel21c.org/wp-content/uploads/2018/07/israel-sunset-ashkelon-september.jpg"}
+              />
+              <TipseenContent
+                isDismissHidden={false}
+                title="title"
+                content="Popover message will appear here loremipsum dolor samet… "
+              />
+            </>
+          }
+        >
+          <div className={"tooltip-empty-element"} />
+        </Tipseen>
+      </StoryStateRow>
     </StoryWrapper>
   );
 };

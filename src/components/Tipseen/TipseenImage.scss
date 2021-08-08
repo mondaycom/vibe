@@ -1,5 +1,9 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+@import "../../styles/global-css-settings.scss";
+
 .monday-style-tipseen-image {
   object-fit: cover;
   border: solid 2px;
-  @include theme-prop(border-color, )
+  @include theme-prop(border-color, primary-color);
 }
