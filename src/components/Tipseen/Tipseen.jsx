@@ -42,7 +42,7 @@ const Tipseen = forwardRef(
     const tooltipContent = useMemo(
       () => (
         <div className={TIPSEEN_BASE_CSS_CLASS}>
-          <div className={bemHelper({ element: "header" })}>
+          <div data-testid={TIPSEEN_CLOSE_BUTTON_TEST_ID} className={bemHelper({ element: "header" })}>
             <Button
               className={bemHelper({ element: "close-button" })}
               onClick={onClose}

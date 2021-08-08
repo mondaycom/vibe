@@ -3,6 +3,7 @@ import { fireEvent, render, cleanup } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import Tipseen from "../tipseen";
 import renderer from "react-test-renderer";
+import { TIPSEEN_CLOSE_BUTTON_TEST_ID } from "../TipseenConstants";
 
 jest.useFakeTimers();
 const renderComponent = ({ ...props }) => {
@@ -52,14 +53,13 @@ describe("Tipseen tests", () => {
 
     it("call onClose function when click on close button", () => {
       const onClickMock = jest.fn();
-      const steps = renderComponent({
-        onChangeActiveStep: onClickMock,
-        activeStepIndex: stepsContent.length - 1
+      const tipseen = renderComponent({
+        onClose: onClickMock
       });
-      const backwardButton = steps.getByTestId(BACK_COMMAND_TEST_ID);
+      const closeButton = tipseen.getByTestId(TIPSEEN_CLOSE_BUTTON_TEST_ID);
 
       act(() => {
-        fireEvent.click(backwardButton);
+        fireEvent.click(closeButton);
       });
       expect(onClickMock.mock.calls.length).toBe(1);
     });
