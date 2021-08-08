@@ -68,22 +68,7 @@
 
 @mixin focus-style-css-on-primary($focus-radius: 4px) {
   @include focus-style-base($focus-radius);
-  border: 1px solid var(--text-color-on-primary);
-  box-shadow: none;
-  position: relative;
-
-  &:before {
-    content: " ";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0.4;
-    box-shadow: 0 0 0 4px var(--text-color-on-primary);
-    border-radius: $focus-radius;
-  }
+  box-shadow: 0 0 0 3px var(--text-color-on-primary-with-opacity), 0 0 0 1px var(--text-color-on-primary) inset;
 }
 
 
