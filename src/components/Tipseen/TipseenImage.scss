@@ -6,4 +6,7 @@
   object-fit: cover;
   border: solid 2px;
   @include theme-prop(border-color, primary-color);
+  width: 100%;
+  margin-right: -16px;
+  margin-top: -16px;
 }

@@ -2,11 +2,15 @@
 @import "../../styles/typography.scss";
 @import "../../styles/global-css-settings.scss";
 
+@mixin tipseen-content-padding{
+  padding: $spacing-medium;
+}
+
 .monday-style-tipseen {
   &-wrapper {
     min-width: 100px;
     min-height: 40px;
-    padding: $spacing-medium;
+    padding: 0;
   }
 
   &_header {
