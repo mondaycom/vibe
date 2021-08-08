@@ -1,0 +1,8 @@
+@import "../../../styles/global-css-settings.scss";
+@import "../../../styles/typography.scss";
+@import "../../../styles/themes.scss";
+
+.monday-style-story-steps-on-primary-wrapper{
+  @include theme-prop(background, primary-color);
+  padding: $spacing-medium;
+}
