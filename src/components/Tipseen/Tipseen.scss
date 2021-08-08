@@ -2,9 +2,15 @@
 @import "../../styles/typography.scss";
 @import "../../styles/global-css-settings.scss";
 
+@mixin tipseen-title {
+  @include font-paragraph-bold;
+  color: var(--text-color-on-primary);
+}
 .monday-style-tipseen {
-  margin: $spacing-small;
-  min-width: 400px;
+  &-wrapper {
+    min-width: 100px;
+    min-height: 40px;
+  }
 
   &_header {
     display: flex;
@@ -18,8 +24,7 @@
   }
 
   &_title {
-    @include font-paragraph-bold;
-    color: var(--text-color-on-primary);
+    @include tipseen-title;
   }
 
   &_content {

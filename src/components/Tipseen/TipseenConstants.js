@@ -1,3 +1,2 @@
-export const TIPSEEN_ARROW_POSITION = {};
-
-export const TIPSEEN_ANIMATION_TYPE = {};
+export const SUBMIT_BUTTON_TEXT = "Submit";
+export const DISMISS_BUTTON_TEXT = "Dismiss";

@@ -6,7 +6,7 @@ import Dialog from "../Dialog/Dialog";
 import "./Tooltip.scss";
 import { DialogPositions } from "../../constants/sizes";
 import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
-import { TOOLTIPS_THEMES } from "./TooltipConstants";
+import { TOOLTIP_JUSTIFY_TYPES, TOOLTIP_THEMES } from "./TooltipConstants";
 
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -128,15 +128,16 @@ export default class Tooltip extends React.PureComponent {
   }
 }
 
-Tooltip.arrowPositions = DialogPositions;
+Tooltip.positions = DialogPositions;
 Tooltip.animationTypes = DIALOG_ANIMATION_TYPES;
-Tooltip.themes = TOOLTIPS_THEMES;
+Tooltip.themes = TOOLTIP_THEMES;
+Tooltip.justifyTypes = TOOLTIP_JUSTIFY_TYPES;
 Tooltip.defaultProps = {
   arrowPosition: "center", // begin, center, end
   moveBy: { main: 4, secondary: 0 },
-  theme: "dark",
-  position: "top",
-  justify: "center",
+  theme: Tooltip.themes.Dark,
+  position: Tooltip.positions.TOP,
+  justify: Tooltip.justifyTypes.CENTER,
   hideDelay: 0,
   showDelay: 300,
   disableDialogSlide: true,

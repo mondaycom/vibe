@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useMemo } from "react";
+import { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -10,6 +10,7 @@ import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../Icon/Icon";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import "./Tipseen.scss";
+import { TOOLTIP_JUSTIFY_TYPES } from "../Tooltip/TooltipConstants";
 
 /**
  *  hoverContent,
@@ -43,6 +44,7 @@ const Tipseen = forwardRef(
       closeAriaLabel,
       children,
       content,
+      justify,
       isCloseButtonOnImage,
       containerSelector
     },
@@ -70,12 +72,13 @@ const Tipseen = forwardRef(
           <div className={bemHelper({ element: "content" })}>{content}</div>
         </div>
       ),
-      [children, isCloseButtonHidden, onClose, overrideCloseAriaLabel, title]
+      [content, isCloseButtonHidden, isCloseButtonOnImage, onClose, overrideCloseAriaLabel, title]
     );
 
     return (
-      <div ref={mergedRef} className={cx(`${TIPSEEN_BASE_CSS_CLASS}--wrapper`, className)} id={id}>
+      <div ref={mergedRef} id={id}>
         <Tooltip
+          className={cx(`${TIPSEEN_BASE_CSS_CLASS}-wrapper`, className)}
           shouldShowOnMount
           position={position}
           animationType={animationType}
@@ -85,6 +88,7 @@ const Tipseen = forwardRef(
           theme={Tooltip.themes.Primary}
           showTrigger={["click"]}
           hideTrigger={["click"]}
+          justify={justify}
           containerSelector={containerSelector}
         >
           {children}
@@ -96,6 +100,7 @@ const Tipseen = forwardRef(
 
 Tipseen.positions = DialogPositions;
 Tipseen.animationTypes = DIALOG_ANIMATION_TYPES;
+Tipseen.justifyTypes = TOOLTIP_JUSTIFY_TYPES;
 Tipseen.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
@@ -119,7 +124,8 @@ Tipseen.propTypes = {
   title: PropTypes.string,
   isCloseButtonHidden: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-  containerSelector: PropTypes.string
+  containerSelector: PropTypes.string,
+  justify: PropTypes.oneOf([Tipseen.justifyTypes.START, Tipseen.justifyTypes.CENTER, Tipseen.justifyTypes.END])
 };
 Tipseen.defaultProps = {
   className: "",
@@ -131,7 +137,8 @@ Tipseen.defaultProps = {
   title: undefined,
   isCloseButtonHidden: false,
   children: null,
-  containerSelector: undefined
+  containerSelector: undefined,
+  justify: Tipseen.justifyTypes.CENTER
 };
 
 export default Tipseen;
