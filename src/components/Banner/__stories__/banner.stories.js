@@ -7,7 +7,7 @@ import Banner from "../Banner";
 import { StoryStateRow, StoryStateColumn } from "../../storybook-helpers";
 
 const EXAMPLE_IMAGE =
-  "https://cdn.icon-icons.com/icons2/2699/PNG/512/monday_logo_icon_168967.png";
+  "https://www.monday.com/blog/wp-content/uploads/2018/02/22852120_1266763086768693_6004893502123596052_n.png";
 
 export const Sandbox = () => (
   <section>
