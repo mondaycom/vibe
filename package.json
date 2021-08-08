@@ -54,7 +54,7 @@
     "autosize": "4.0.2",
     "classnames": "^2.2.6",
     "lodash": "^4.17.21",
-    "monday-ui-style": "0.1.27",
+    "monday-ui-style": "0.1.29",
     "prop-types": "^15.7.2",
     "react-inlinesvg": "^2.1.1",
     "react-popper": "^2.2.3",
