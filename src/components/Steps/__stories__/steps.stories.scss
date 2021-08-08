@@ -3,6 +3,6 @@
 @import "../../../styles/themes.scss";
 
 .monday-style-story-steps-on-primary-wrapper{
-  background: var(--primary-color);
+  @include theme-prop(background, primary-color);
   padding: $spacing-medium;
 }
