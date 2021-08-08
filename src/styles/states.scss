@@ -44,11 +44,46 @@
   }
 }
 
-@mixin focus-style-css($focus-radius: 4px) {
+@mixin focus-style-on-primary($focus-radius: 4px) {
+  &:focus:not(.focus-visible) {
+    outline: none;
+  }
+  &:focus-visible,
+  &.focus-visible {
+    @include focus-style-css-on-primary($focus-radius);
+  }
+}
+
+@mixin focus-style-base($focus-radius: 4px) {
   outline: none;
-  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5), 0px 0px 0px 1px var(--primary-hover-color) inset;
   z-index: 11;
   border-radius: $focus-radius;
+}
+
+@mixin focus-style-css($focus-radius: 4px) {
+  @include focus-style-base($focus-radius);
+  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5), 0px 0px 0px 1px var(--primary-hover-color) inset;
+}
+
+
+@mixin focus-style-css-on-primary($focus-radius: 4px) {
+  @include focus-style-base($focus-radius);
+  border: 1px solid var(--text-color-on-primary);
+  box-shadow: none;
+  position: relative;
+
+  &:before {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.4;
+    box-shadow: 0 0 0 4px var(--text-color-on-primary);
+    border-radius: $focus-radius;
+  }
 }
 
 

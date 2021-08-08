@@ -1,0 +1,105 @@
+@import "../../styles/typography.scss";
+@import "../../styles/themes.scss";
+@import "../../styles/states.scss";
+
+@mixin active-step-dot {
+  background: var(--primary-color);
+  transform: scale(1.3);
+}
+.monday-style-steps {
+  &-header {
+    margin-bottom: $spacing-small;
+    display: flex;
+    align-items: center;
+
+    &_numbers {
+     margin: 0 $spacing-small;
+     @include font-default;
+    }
+
+    &_gallery {
+      margin: 0 $spacing-small;
+      display: flex;
+      align-items: center;
+
+      .monday-style-steps-header_dot {
+        margin-right: $spacing-small;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &_dot {
+      @include reset-button;
+      width: 6px;
+      height: 6px;
+      cursor: pointer;
+      border-radius: 50%;
+      @include theme-prop(background, ui-border-color);
+      @include focus-style;
+      transform-origin: center;
+      transform: scale(1);
+      transition: transform 0.2s $expand-animation-timing, background 0.2s $expand-animation-timing;
+      &:hover {
+        transform: scale(1.3);
+      }
+
+      &--is-active {
+        @include active-step-dot;
+      }
+    }
+  }
+  &-command {
+    display: flex;
+    align-items: center;
+
+    &--backward {
+      margin-right: $spacing-small;
+      flex-direction: row-reverse;
+      .monday-style-steps-command_icon {
+        margin-right: $spacing-small-medium;
+      }
+    }
+
+    &--forward {
+      margin-left: $spacing-small;
+      .monday-style-steps-command_icon {
+        margin-left: $spacing-small-medium;
+      }
+    }
+
+    &_icon {
+      @include theme-prop(color, icon-color);
+      width: 15.5px;
+      height: 15.5px;
+    }
+  }
+  &--on-primary {
+    .monday-style-steps {
+      &-header {
+        &_numbers {
+          @include theme-prop(color, text-color-on-primary);
+        }
+
+        &_dot {
+          @include theme-prop(background, primary-hover-color);
+          @include focus-style-on-primary;
+
+          &:hover {
+            @include theme-prop(background, primary-hover-color);
+          }
+
+          &--is-active {
+            @include theme-prop(background, text-color-on-primary);
+          }
+        }
+      }
+      &-command{
+        &_icon {
+          @include theme-prop(color, text-color-on-primary);
+        }
+      }
+    }
+  }
+}

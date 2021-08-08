@@ -58,5 +58,6 @@ export { default as Combobox } from "./Combobox/Combobox";
 export { default as Toggle } from "./Toggle/Toggle";
 export { default as Skeleton } from "./Skeleton/Skeleton";
 export { default as Avatar } from "./Avatar/Avatar";
+export { default as Steps } from "./Steps/Steps";
 
 export { default as Tipseen } from "./Tipseen/Tipseen";

@@ -4,7 +4,8 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
-	Tipseen: "/src/components/Tipseen/Tipseen.jsx",
+  Tipseen: "/src/components/Tipseen/Tipseen.jsx",
+  Steps: "/src/components/Steps/Steps.jsx",
   Combobox: "/src/components/Combobox/Combobox.jsx",
   TabPanels: "/src/components/Tabs/TabPanels/TabPanels.jsx",
   TabsContext: "/src/components/Tabs/TabsContext/TabsContext.jsx",
