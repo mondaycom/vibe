@@ -60,6 +60,7 @@ export const States = () => {
       <StoryStateRow componentClassName="monday-style-story-tipseen_container">
         <Tipseen
           position={Tipseen.positions.RIGHT}
+          isCloseButtonOnImage
           content={
             <>
               <TipseenImage

@@ -4,7 +4,7 @@ import { BEMClass } from "../../helpers/bem-helper";
 import { NOOP } from "../../utils/function-utils";
 import { Button } from "../index";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "./TipseenConstants";
-import TipseenTitle from "./TipseenTitle";
+import TipseenBasicContent from "./TipseenBasicContent";
 import "./TipseenContent.scss";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-content";
@@ -14,8 +14,7 @@ const TipseenContent = ({ title, content, isDismissHidden, isSubmitHidden, dismi
   const { content: dismissContent, className: dismissClassName, ...otherDismissButtonProps } = dismissButtonProps;
   const { content: submitContent, className: submitClassName, ...otherSubmitButtonProps } = submitButtonProps;
   return (
-    <div className={BASE_CSS_CLASS}>
-      <TipseenTitle text={title} />
+    <TipseenBasicContent title={title} className={BASE_CSS_CLASS}>
       {content ? <span className={bemHelper({ element: "content" })}>{content}</span> : null}
       <div className={bemHelper({ element: "buttons" })}>
         {isDismissHidden ? null : (
@@ -41,7 +40,7 @@ const TipseenContent = ({ title, content, isDismissHidden, isSubmitHidden, dismi
           </Button>
         )}
       </div>
-    </div>
+    </TipseenBasicContent>
   );
 };
 

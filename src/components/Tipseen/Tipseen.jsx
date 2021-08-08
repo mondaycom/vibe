@@ -32,7 +32,6 @@ const Tipseen = forwardRef(
       children,
       content,
       justify,
-      isCloseButtonOnImage,
       containerSelector
     },
     ref
@@ -49,7 +48,7 @@ const Tipseen = forwardRef(
               onClick={onClose}
               size={Button.sizes.SMALL}
               kind={Button.kinds.TERTIARY}
-              color={isCloseButtonOnImage ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
+              color={Button.colors.ON_PRIMARY_COLOR}
               ariaLabel={overrideCloseAriaLabel}
             >
               {isCloseButtonHidden ? null : <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />}
@@ -59,7 +58,7 @@ const Tipseen = forwardRef(
           <div className={bemHelper({ element: "content" })}>{content}</div>
         </div>
       ),
-      [content, isCloseButtonHidden, isCloseButtonOnImage, onClose, overrideCloseAriaLabel, title]
+      [content, isCloseButtonHidden, onClose, overrideCloseAriaLabel, title]
     );
 
     return (

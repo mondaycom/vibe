@@ -4,9 +4,6 @@
 @import "./Tipseen.scss";
 
 .monday-style-tipseen-content {
-  @include tipseen-content-padding;
-  display: flex;
-  flex-direction: column;
   &_buttons {
     margin-top: $spacing-small;
     display: flex;
