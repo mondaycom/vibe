@@ -3,6 +3,7 @@ import cx from "classnames";
 import Steps from "../Steps/Steps";
 import Button from "../Button/Button";
 import { BEMClass } from "../../helpers/bem-helper";
+import TipseenTitle from "./TipseenTitle";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-wizard";
 const bemHelper = BEMClass(BASE_CSS_CLASS);
@@ -23,7 +24,7 @@ export const TipseenWizard = ({ title, className, ...stepsProps }) => {
   );
   return (
     <div className={cx(BASE_CSS_CLASS, className)}>
-      {title ? <span className={bemHelper({ element: "title" })}>{title}</span> : null}
+      <TipseenTitle text={title} />
       <Steps
         className={bemHelper({ element: "wizard" })}
         isOnPrimary

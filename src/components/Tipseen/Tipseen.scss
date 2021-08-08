@@ -2,10 +2,6 @@
 @import "../../styles/typography.scss";
 @import "../../styles/global-css-settings.scss";
 
-@mixin tipseen-title {
-  @include font-paragraph-bold;
-  color: var(--text-color-on-primary);
-}
 .monday-style-tipseen {
   &-wrapper {
     min-width: 100px;
@@ -18,13 +14,14 @@
     justify-content: flex-start;
   }
 
+  &_content {
+    @include font-default;
+    @include theme-prop(color, text-color-on-primary);
+  }
+
   &_close-button {
     position: absolute;
     top: $spacing-xs;
     right: $spacing-xs;
-  }
-
-  &_title {
-    @include tipseen-title;
   }
 }

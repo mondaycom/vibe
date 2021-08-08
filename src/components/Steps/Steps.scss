@@ -20,6 +20,7 @@
   &-header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     &_numbers {
      margin: 0 $spacing-small;
@@ -94,10 +95,6 @@
         &_dot {
           @include theme-prop(background, primary-hover-color);
           @include focus-style-on-primary;
-
-          &:hover {
-            @include theme-prop(background, primary-hover-color);
-          }
 
           &--is-active {
             @include theme-prop(background, text-color-on-primary);

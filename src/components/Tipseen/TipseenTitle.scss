@@ -1,0 +1,6 @@
+@import "../../styles/typography.scss";
+
+.monday-style-tipseen-title {
+  @include font-paragraph-bold;
+  @include theme-prop(color, text-color-on-primary);
+}

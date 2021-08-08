@@ -1,0 +1,5 @@
+.monday-style-tipseen-image {
+  object-fit: cover;
+  border: solid 2px;
+  @include theme-prop(border-color, )
+}

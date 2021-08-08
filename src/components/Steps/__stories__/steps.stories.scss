@@ -2,7 +2,11 @@
 @import "../../../styles/typography.scss";
 @import "../../../styles/themes.scss";
 
-.monday-style-story-steps-on-primary-wrapper{
+.monday-style-story-steps-wrapper {
+  width: 400px;
+}
+.monday-style-story-steps-on-primary-wrapper {
+  width: 400px;
   background: var(--primary-color);
   padding: $spacing-medium;
 }

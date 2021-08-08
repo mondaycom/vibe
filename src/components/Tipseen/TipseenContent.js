@@ -6,6 +6,7 @@ import { NOOP } from "../../utils/function-utils";
 import { Button } from "../index";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "./TipseenConstants";
 import "./TipseenContent.scss";
+import TipseenTitle from "./TipseenTitle";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-content";
 
@@ -15,7 +16,7 @@ const TipseenContent = ({ title, content, isDismissHidden, isSubmitHidden, dismi
   const { content: submitContent, className: submitClassName, ...otherSubmitButtonProps } = submitButtonProps;
   return (
     <div className={BASE_CSS_CLASS}>
-      {title ? <span className={bemHelper({ element: "title" })}>{title}</span> : null}
+      <TipseenTitle text={title} />
       {content ? <span className={bemHelper({ element: "content" })}>{content}</span> : null}
       <div className={bemHelper({ element: "buttons" })}>
         {isDismissHidden ? null : (

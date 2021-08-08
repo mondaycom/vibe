@@ -6,11 +6,12 @@ import { DialogPositions } from "../../constants/sizes";
 import Tooltip from "../Tooltip/Tooltip";
 import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
 import Button from "../Button/Button";
+import TipseenTitle from "./TipseenTitle";
 import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../Icon/Icon";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
-import "./Tipseen.scss";
 import { TOOLTIP_JUSTIFY_TYPES } from "../Tooltip/TooltipConstants";
+import "./Tipseen.scss";
 
 const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
 const bemHelper = BEMClass(TIPSEEN_BASE_CSS_CLASS);
@@ -39,7 +40,7 @@ const Tipseen = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideCloseAriaLabel = closeAriaLabel || "Close";
-    const tipseenContent = useMemo(
+    const tooltipContent = useMemo(
       () => (
         <div className={TIPSEEN_BASE_CSS_CLASS}>
           <div className={bemHelper({ element: "header" })}>
@@ -53,7 +54,7 @@ const Tipseen = forwardRef(
             >
               {isCloseButtonHidden ? null : <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />}
             </Button>
-            {title ? <span className={bemHelper({ element: "title" })}>{title}</span> : null}
+            <TipseenTitle text={title} />
           </div>
           <div className={bemHelper({ element: "content" })}>{content}</div>
         </div>
@@ -70,7 +71,7 @@ const Tipseen = forwardRef(
           animationType={animationType}
           hideDelay={hideDelay}
           showDelay={showDelay}
-          content={tipseenContent}
+          content={tooltipContent}
           theme={Tooltip.themes.Primary}
           showTrigger={["click"]}
           hideTrigger={["click"]}

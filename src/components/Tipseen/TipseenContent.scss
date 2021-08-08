@@ -3,9 +3,6 @@
 .monday-style-tipseen-content {
   display: flex;
   flex-direction: column;
-  &_title {
-    @include tipseen-title;
-  }
   &_buttons {
     margin-top: $spacing-small;
     display: flex;

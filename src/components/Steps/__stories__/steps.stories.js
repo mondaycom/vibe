@@ -22,12 +22,25 @@ export const States = () => {
   return (
     <StoryWrapper>
       <StoryTitle text="Regular mode - steps with number view" />
-      <Steps steps={steps} type={STEPS_NUMBERS_TYPE} activeStepIndex={numbersIndex} onChangeActiveStep={changeIndex} />
+      <Steps
+        className="monday-style-story-steps-wrapper"
+        steps={steps}
+        type={STEPS_NUMBERS_TYPE}
+        activeStepIndex={numbersIndex}
+        onChangeActiveStep={changeIndex}
+      />
       <StoryTitle text="Regular mode - steps with gallery view" />
-      <Steps steps={steps} type={STEPS_GALLERY_TYPE} activeStepIndex={numbersIndex} onChangeActiveStep={changeIndex} />
+      <Steps
+        className="monday-style-story-steps-wrapper"
+        steps={steps}
+        type={STEPS_GALLERY_TYPE}
+        activeStepIndex={numbersIndex}
+        onChangeActiveStep={changeIndex}
+      />
       <StoryTitle text="On primary mode - steps with dots only" />
       <Steps
         steps={steps}
+        className="monday-style-story-steps-wrapper"
         type={STEPS_GALLERY_TYPE}
         activeStepIndex={numbersIndex}
         onChangeActiveStep={changeIndex}

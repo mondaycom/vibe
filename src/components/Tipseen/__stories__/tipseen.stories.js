@@ -24,7 +24,7 @@ export const States = () => {
       <div>Popover message will appear here loremipsum dolor samet…</div>,
       <div>Popover message will appear here loremipsum dolor samet…</div>
     ];
-    return <TipseenWizard steps={content} onChangeActiveStep={onChangeStep} activeStepIndex={step} />;
+    return <TipseenWizard title="title" steps={content} onChangeActiveStep={onChangeStep} activeStepIndex={step} />;
   });
   return (
     <StoryWrapper>
