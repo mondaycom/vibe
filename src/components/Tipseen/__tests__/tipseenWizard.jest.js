@@ -43,25 +43,5 @@ describe("Tipseen content tests", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("renders correctly without dismiss button", () => {
-      const tree = renderer
-        .create(
-          <TipseenContent content="content" isDismissHidden>
-            <div />
-          </TipseenContent>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-    it("renders correctly without submit button", () => {
-      const tree = renderer
-        .create(
-          <TipseenContent content="content" isSubmitHidden>
-            <div />
-          </TipseenContent>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
-    });
   });
 });

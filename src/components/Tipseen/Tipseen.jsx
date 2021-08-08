@@ -12,6 +12,7 @@ import Icon from "../Icon/Icon";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { TOOLTIP_JUSTIFY_TYPES } from "../Tooltip/TooltipConstants";
 import "./Tipseen.scss";
+import { TIPSEEN_CLOSE_BUTTON_TEST_ID } from "./TipseenConstants";
 
 const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
 const bemHelper = BEMClass(TIPSEEN_BASE_CSS_CLASS);

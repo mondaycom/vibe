@@ -10,12 +10,20 @@ import "./TipseenContent.scss";
 const BASE_CSS_CLASS = "monday-style-tipseen-content";
 
 const bemHelper = BEMClass(BASE_CSS_CLASS);
-const TipseenContent = ({ title, content, isDismissHidden, isSubmitHidden, dismissButtonProps, submitButtonProps }) => {
+const TipseenContent = ({
+  title,
+  children,
+  isDismissHidden,
+  isSubmitHidden,
+  dismissButtonProps,
+  submitButtonProps
+}) => {
+  console.log(children);
   const { content: dismissContent, className: dismissClassName, ...otherDismissButtonProps } = dismissButtonProps;
   const { content: submitContent, className: submitClassName, ...otherSubmitButtonProps } = submitButtonProps;
   return (
     <TipseenBasicContent title={title} className={BASE_CSS_CLASS}>
-      {content ? <span className={bemHelper({ element: "content" })}>{content}</span> : null}
+      {children ? <span className={bemHelper({ element: "content" })}>{children}</span> : null}
       <div className={bemHelper({ element: "buttons" })}>
         {isDismissHidden ? null : (
           <Button
@@ -46,10 +54,10 @@ const TipseenContent = ({ title, content, isDismissHidden, isSubmitHidden, dismi
 
 TipseenContent.propTypes = {
   title: PropTypes.string,
-  content: PropTypes.oneOf([PropTypes.element, PropTypes.string]),
   onSubmit: PropTypes.func,
   onDismiss: PropTypes.func,
   isDismissHidden: PropTypes.bool,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   isSubmitHidden: PropTypes.bool,
   // eslint-disable-next-line react/forbid-prop-types
   dismissButtonProps: PropTypes.object,
@@ -59,7 +67,7 @@ TipseenContent.propTypes = {
 
 TipseenContent.defaultProps = {
   title: undefined,
-  content: undefined,
+  children: null,
   onSubmit: NOOP,
   onDismiss: NOOP,
   isDismissHidden: true,

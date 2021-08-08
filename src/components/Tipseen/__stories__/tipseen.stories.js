@@ -49,7 +49,7 @@ export const States = () => {
             <TipseenContent
               isDismissHidden={false}
               title="title"
-              content="Popover message will appear here loremipsum dolor samet… "
+              children="Popover message will appear here loremipsum dolor samet… "
             />
           }
         >
@@ -69,7 +69,7 @@ export const States = () => {
               <TipseenContent
                 isDismissHidden={false}
                 title="title"
-                content="Popover message will appear here loremipsum dolor samet… "
+                children="Popover message will appear here loremipsum dolor samet… "
               />
             </>
           }
@@ -95,7 +95,7 @@ export const Sandbox = () => (
         <TipseenContent
           isDismissHidden={false}
           title="title"
-          content="Popover message will appear here loremipsum dolor samet… "
+          children="Popover message will appear here loremipsum dolor samet… "
         />
       }
     >

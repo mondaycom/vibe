@@ -8,11 +8,7 @@ import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT, TIPSEEN_CLOSE_BUTTON_TEST_ID }
 
 jest.useFakeTimers();
 const renderComponent = ({ ...props }) => {
-  return render(
-    <TipseenContent {...props}>
-      <div />
-    </TipseenContent>
-  );
+  return render(<TipseenContent {...props}>content</TipseenContent>);
 };
 
 describe("Tipseen content tests", () => {
@@ -20,8 +16,8 @@ describe("Tipseen content tests", () => {
     it("renders correctly", () => {
       const tree = renderer
         .create(
-          <TipseenContent title="title" content="content" isDismissHidden={false}>
-            <div />
+          <TipseenContent title="title" isDismissHidden={false}>
+            content
           </TipseenContent>
         )
         .toJSON();
@@ -32,30 +28,18 @@ describe("Tipseen content tests", () => {
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without title", () => {
-      const tree = renderer
-        .create(
-          <TipseenContent content="content">
-            <div />
-          </TipseenContent>
-        )
-        .toJSON();
+      const tree = renderer.create(<TipseenContent>content</TipseenContent>).toJSON();
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without dismiss button", () => {
-      const tree = renderer
-        .create(
-          <TipseenContent content="content" isDismissHidden>
-            <div />
-          </TipseenContent>
-        )
-        .toJSON();
+      const tree = renderer.create(<TipseenContent isDismissHidden>content</TipseenContent>).toJSON();
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without submit button", () => {
       const tree = renderer
         .create(
-          <TipseenContent content="content" isSubmitHidden>
-            <div />
+          <TipseenContent children="content" isSubmitHidden>
+            content
           </TipseenContent>
         )
         .toJSON();
@@ -69,10 +53,15 @@ describe("Tipseen content tests", () => {
 
     it("call onDismiss function when click on dismiss button", () => {
       const onClickMock = jest.fn();
-      const tipseen = renderComponent({
-        onClose: onClickMock
+      const dismissButtonProps = {
+        onClick: onClickMock
+      };
+
+      const tipseenContent = renderComponent({
+        isDismissHidden: false,
+        dismissButtonProps
       });
-      const dismissButton = tipseen.getByLabelText(DISMISS_BUTTON_TEXT);
+      const dismissButton = tipseenContent.getByText(DISMISS_BUTTON_TEXT);
 
       act(() => {
         fireEvent.click(dismissButton);
@@ -82,10 +71,13 @@ describe("Tipseen content tests", () => {
 
     it("call onSubmit function when click on dismiss button", () => {
       const onClickMock = jest.fn();
-      const tipseen = renderComponent({
-        onClose: onClickMock
+      const submitButtonProps = {
+        onClick: onClickMock
+      };
+      const tipseenContent = renderComponent({
+        submitButtonProps
       });
-      const submitButton = tipseen.getByLabelText(SUBMIT_BUTTON_TEXT);
+      const submitButton = tipseenContent.getByText(SUBMIT_BUTTON_TEXT);
 
       act(() => {
         fireEvent.click(submitButton);

@@ -1,9 +1,10 @@
 import React from "react";
 import { fireEvent, render, cleanup } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
-import Tipseen from "../tipseen";
+import Tipseen from "../Tipseen";
 import renderer from "react-test-renderer";
 import { TIPSEEN_CLOSE_BUTTON_TEST_ID } from "../TipseenConstants";
+import { StoryStateRow } from "../../storybook-helpers";
 
 jest.useFakeTimers();
 const renderComponent = ({ ...props }) => {
@@ -15,11 +16,11 @@ const renderComponent = ({ ...props }) => {
 };
 describe("Tipseen tests", () => {
   describe("Snapshot Tests", () => {
-    it("renders correctly with empty props", () => {
+    it("renders correctly", () => {
       const tree = renderer
         .create(
-          <Tipseen>
-            <div />
+          <Tipseen position={Tipseen.positions.RIGHT}>
+            <div className={"tooltip-empty-element"} />
           </Tipseen>
         )
         .toJSON();
@@ -27,7 +28,13 @@ describe("Tipseen tests", () => {
     });
 
     it("renders correctly with title", () => {
-      const tree = renderer.create(<Tipseen title="mock title" />).toJSON();
+      const tree = renderer
+        .create(
+          <Tipseen title="mock title">
+            <div />
+          </Tipseen>
+        )
+        .toJSON();
       expect(tree).toMatchSnapshot();
     });
     it("renders correctly without close button", () => {
