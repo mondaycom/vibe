@@ -31,5 +31,34 @@ describe("MultiStepIndicator", () => {
       const tree = renderer.create(<MultiStepIndicator type={MultiStepIndicator.types.SUCCESS} steps={exampleSteps} />);
       expect(tree).toMatchSnapshot();
     });
+
+    it("Render correctly with clickable steps", () => {
+      const exampleSteps = [
+        {
+          status: MultiStepIndicator.stepStatuses.FULFILLED,
+          titleText: "Title",
+          subtitleText: "Subtitle"
+        },
+        {
+          status: MultiStepIndicator.stepStatuses.ACTIVE,
+          titleText: "Active",
+          subtitleText: "Active Subtitle"
+        },
+        {
+          status: MultiStepIndicator.stepStatuses.PENDING,
+          titleText: "Pending",
+          subtitleText: "Pending Subtitle"
+        }
+      ];
+
+      const callback = () => {
+        console.log("test");
+      };
+
+      const tree = renderer.create(
+        <MultiStepIndicator type={MultiStepIndicator.types.SUCCESS} steps={exampleSteps} onClick={callback} />
+      );
+      expect(tree).toMatchSnapshot();
+    });
   });
 });

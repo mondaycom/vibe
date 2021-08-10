@@ -20,7 +20,8 @@ const StepIndicator = ({
   subtitleText,
   type,
   fulfilledStepIcon,
-  fulfilledStepIconType
+  fulfilledStepIconType,
+  onClick
 }) => {
   // Animations state
   const [statusChangeAnimationState, setStatusChangeAnimationState] = useState(false);
@@ -39,6 +40,10 @@ const StepIndicator = ({
   }, [setStatusChangeAnimationState]);
 
   const isStatusTransition = useCallback(() => prevStatusRef.current !== status, [prevStatusRef]);
+
+  const handleClick = () => {
+    if (onClick) onClick(stepNumber);
+  };
 
   // Event listeners for removing animation.
   useEventListener({
@@ -89,9 +94,11 @@ const StepIndicator = ({
   return (
     <li
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
-        [baseClassNameWithAnimation]: statusChangeAnimationState
+        [baseClassNameWithAnimation]: statusChangeAnimationState,
+        clickable: onClick
       })}
       aria-label={ariaLabel}
+      onClick={handleClick}
     >
       <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef}>
         <SwitchTransition mode="out-in">
@@ -132,7 +139,8 @@ StepIndicator.propTypes = {
     MULTI_STEP_TYPES.DARK
   ),
   fulfilledStepIcon: PropTypes.func,
-  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT])
+  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
+  onClick: PropTypes.func
 };
 
 StepIndicator.defaultProps = {
@@ -143,7 +151,8 @@ StepIndicator.defaultProps = {
   subtitleText: "Subtitle text",
   type: MULTI_STEP_TYPES.PRIMARY,
   fulfilledStepIcon: Check,
-  fulfilledStepIconType: Icon.type.SVG
+  fulfilledStepIconType: Icon.type.SVG,
+  onClick: null
 };
 
 export default StepIndicator;
