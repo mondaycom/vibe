@@ -39,7 +39,7 @@ const StepIndicator = ({
     setStatusChangeAnimationState(false);
   }, [setStatusChangeAnimationState]);
 
-  const isStatusTransition = useCallback(() => prevStatusRef.current !== status, [prevStatusRef]);
+  const isStatusTransition = useCallback(() => prevStatusRef.current !== status, [prevStatusRef, status]);
 
   const handleClick = () => {
     if (onClick) onClick(stepNumber);
@@ -57,7 +57,7 @@ const StepIndicator = ({
     if (isStatusTransition()) {
       enableStatusChangeAnimation();
     }
-  }, [status]);
+  }, [status, isStatusTransition, enableStatusChangeAnimation]);
 
   // Effect - updating previous status ref value (for animation) after component update.
   useEffect(() => {
@@ -66,7 +66,7 @@ const StepIndicator = ({
 
   const ariaLabel = useMemo(() => {
     return `Step ${stepNumber}: ${titleText} - ${subtitleText}, status: ${status}`;
-  }, [status]);
+  }, [status, titleText, stepNumber, subtitleText]);
 
   const baseClassNameWithType = `${baseClassName}--type-${type}`;
   const baseClassNameWithStatus = `${baseClassName}--status-${status}`;
@@ -85,6 +85,7 @@ const StepIndicator = ({
         iconType={fulfilledStepIconType}
         ignoreFocusStyle
         clickable={false}
+        ariaHidden={true}
       />
     ) : (
       stepNumber
@@ -132,12 +133,12 @@ StepIndicator.propTypes = {
   subtitleText: PropTypes.string,
   stepNumber: PropTypes.number.isRequired,
   stepComponentClassName: PropTypes.string,
-  type: PropTypes.oneOf(
+  type: PropTypes.oneOf([
     MULTI_STEP_TYPES.PRIMARY,
     MULTI_STEP_TYPES.SUCCESS,
     MULTI_STEP_TYPES.DANGER,
     MULTI_STEP_TYPES.DARK
-  ),
+  ]),
   fulfilledStepIcon: PropTypes.func,
   fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   onClick: PropTypes.func

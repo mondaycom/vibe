@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/en/configuration.html
  */
 
+const JEST_END_FILES = process.env.TEST_END_FILES || "jest";
+
 module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
@@ -71,14 +73,15 @@ module.exports = {
   // ],
 
   // An array of file extensions your modules use
-  // moduleFileExtensions: [
-  //   "js",
-  //   "json",
-  //   "jsx",
-  //   "ts",
-  //   "tsx",
-  //   "node"
-  // ],
+  moduleFileExtensions: [
+    "js",
+    "json",
+    "jsx",
+    "ts",
+    "tsx",
+    "node",
+    "mdx"
+  ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
@@ -139,7 +142,7 @@ module.exports = {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  // testEnvironment: "jest-environment-jsdom",
+  testEnvironment: "jsdom",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -148,7 +151,7 @@ module.exports = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ["**/__tests__/**/*.jest.[jt]s?(x)"]
+  testMatch: [`**/__tests__/**/*.${JEST_END_FILES}.[jt]s?(x)`],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
@@ -171,13 +174,16 @@ module.exports = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    "^.+\\.[tj]sx?$": "babel-jest",
+    "^.+\\.mdx?$": "@storybook/addon-docs/jest-transform-mdx"
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  // transformIgnorePatterns: [
-  //   "/node_modules/",
-  //   "\\.pnp\\.[^\\/]+$"
-  // ],
+  transformIgnorePatterns: [
+    "node_modules/(?!monday-ui-style)/"
+    // "\\.pnp\\.[^\\/]+$"
+  ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

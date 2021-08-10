@@ -1,6 +1,6 @@
 import React from "react";
 import "./Reference.scss";
-import Button from "../../../button/button";
+import Button from "../../../Button/Button";
 
 const ReferenceComponent = ({ title }) => {
   return (

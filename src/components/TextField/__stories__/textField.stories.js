@@ -10,11 +10,8 @@ export const Sandbox = () => {
   return (
     <div style={{ width: "35%", margin: "0 auto" }}>
       <TextField
-        autoFocus={boolean("Autofocus", true)}
         placeholder={text("Placeholder", "default placeholder")}
         debounceRate={number("Debounce Rate (see console log)", 0)}
-        onChange={value => console.log(value)}
-        value={text("Initial Value", "")}
         iconsNames={{ primary: "Primary Icon - could be any icon" }}
         iconName={text("Primary Icon Name", "fa-circle")}
         secondaryIconName={text("Secondary Icon Name", "")}
@@ -34,7 +31,7 @@ export const Sandbox = () => {
         size={select(
           "Size",
           { Small: TextField.sizes.SMALL, Medium: TextField.sizes.MEDIUM, Large: TextField.sizes.LARGE },
-          "md"
+          TextField.sizes.MEDIUM
         )}
         clearOnIconClick={boolean("clear data in icon click", true)}
         labelIconName={text("FieldLabel Icon Name", "fa-envelope")}

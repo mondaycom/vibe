@@ -1,44 +1,18 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
+@import "../../styles/states.scss";
 
 .editable-heading--wrapper {
   width: 100%;
   min-width: 0;
   border: 1px solid transparent;
+  border-radius: $border-radius-small;
+  @include focus-style();
   &:focus,
   &:active {
     outline: none;
-    border: 1px solid;
-    border-radius: $border-radius-small;
-    @include theme-prop(border-color, primary-color);
   }
   .heading-component {
     margin: 0;
-  }
-
-  .editable-heading-input {
-    &.heading-element-type-h1 {
-      @include font-main();
-
-      &.size-small,
-      &.size-medium {
-        @include font-title();
-      }
-    }
-    &.heading-element-type-h2 {
-      @include font-title();
-      &.size-small,
-      &.size-medium {
-        @include font-subtitle();
-      }
-    }
-    &.heading-element-type-h3 {
-      @include font-subtitle();
-    }
-
-    &.heading-element-type-h4,
-    &.heading-element-type-h5 {
-      @include font-default();
-    }
   }
 }

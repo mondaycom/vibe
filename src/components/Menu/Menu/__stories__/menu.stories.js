@@ -10,6 +10,8 @@ import { selectIcon } from "../../../storybook-helpers";
 import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
 import { withPerformance } from "storybook-addon-performance";
 
+const DISABLE_REASON = "You can't click me";
+
 const renderMenuItems = () => {
   return [
     <MenuItem
@@ -73,6 +75,7 @@ const renderMenuItems = () => {
       title={"When disabled"}
       icon={"fa fa-star-o"}
       disabled={true}
+      disableReason={DISABLE_REASON}
       onClick={() => {
         alert("7");
       }}
@@ -87,6 +90,7 @@ const renderMenuItem = index => {
       title={text(`MenuItem ${index} name`, "item")}
       icon={selectIcon(`MenuItem ${index} icon`, "Activity")}
       disabled={boolean(`MenuItem ${index} disabled`, false)}
+      disableReason={DISABLE_REASON}
       onClick={() => {
         alert(index);
       }}
@@ -200,7 +204,7 @@ export const Sizes = () => {
 export const menuKeyboardNavigationWithoutFocus = () => {
   const inputRef = useRef();
   useEffect(() => {
-    inputRef.current.focus();
+    inputRef.current?.focus();
   }, [inputRef]);
 
   return (

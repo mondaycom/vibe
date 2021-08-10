@@ -43,6 +43,7 @@ const BreadcrumbItem = ({ className, text, isDisabled, isClickable, link, onClic
           onClick={onClick}
           text={text}
           icon={icon}
+          isCurrent={isCurrent}
         />
       </li>
     </Tooltip>
@@ -64,7 +65,7 @@ BreadcrumbItem.propTypes = {
   /** Should be the current Item - mainly effects the item`s style. */
   isCurrent: PropTypes.bool,
   /** An Icon - If no icon needed then should be left empty. */
-  icon: PropTypes.string
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 BreadcrumbItem.defaultProps = {

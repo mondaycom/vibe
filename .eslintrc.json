@@ -5,8 +5,9 @@
     "mocha": true
   },
   "parser": "babel-eslint",
+  "ignorePatterns": ["*test.js", "*.jest.js", "*.stories*.js"],
   "extends": ["airbnb", "plugin:prettier/recommended", "plugin:react-hooks/recommended"],
-  "plugins": ["only-warn", "import", "react", "jsx-a11y", "json", "markdown", "mocha", "react-hooks"],
+  "plugins": ["import", "react", "jsx-a11y", "json", "markdown", "mocha", "react-hooks"],
   "rules": {
     "global-require": "off",
     "no-unused-expressions": "off",
@@ -30,10 +31,29 @@
     "react/no-danger": "off",
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": 0,
+    "react/forbid-prop-types": ["warn"],
+    "react/require-default-props": ["warn"],
+    "jsx-a11y/anchor-is-valid": ["warn"],
+    "react/jsx-props-no-spreading": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "jsx-a11y/no-static-element-interactions": "off",
-    "jsx-a11y/alt-text": "off",
-    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/alt-text": "error",
+    "jsx-a11y/no-noninteractive-element-interactions": [
+      "warn",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
+    "jsx-a11y/role-has-required-aria-props": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/label-has-associated-control": "warn",
+    "react/default-props-match-prop-types": "warn",
+    "jsx-a11y/aria-activedescendant-has-tabindex": "warn",
+    "react/button-has-type": "warn",
+    "jsx-a11y/interactive-supports-focus": "warn",
+    "jsx-a11y/no-noninteractive-tabindex": "warn",
     "react/jsx-boolean-value": "off"
   }
 }

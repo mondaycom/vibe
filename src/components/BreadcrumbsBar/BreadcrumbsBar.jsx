@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRight";
@@ -16,10 +16,10 @@ const BreadcrumbsBar = ({ className, children, type }) => (
         React.Children.map(children, (child, index) =>
           React.isValidElement(child)
             ? [
-                index > 0 && <NavigationChevronRight className="sparatorIcon" size={"14"} aria-hidden="true" />,
+                index > 0 && <NavigationChevronRight className="sparatorIcon" size="14" aria-hidden="true" />,
                 React.cloneElement(child, {
                   ...child?.props,
-                  isClickable: type === BREADCRUMBS_BAR_TYPE.INDICATION ? false : true
+                  isClickable: type !== BREADCRUMBS_BAR_TYPE.INDICATION
                 })
               ]
             : null

@@ -6,6 +6,7 @@ import useOnClickOutside from "../../../hooks/useClickOutside";
 import { chainFunctions } from "../../../utils/function-utils";
 import "./DialogContent.scss";
 import useKeyEvent from "../../../hooks/useKeyEvent";
+import { HIDE_SHOW_EVENTS } from "../consts/dialog-show-hide-event";
 
 const transitionOptions = {};
 const NOOP = () => {};
@@ -36,7 +37,7 @@ export const DialogContent = React.forwardRef(
     const onOutSideClick = useCallback(
       event => {
         if (isOpen) {
-          return onClickOutside(event);
+          return onClickOutside(event, HIDE_SHOW_EVENTS.CLICK_OUTSIDE);
         }
       },
       [isOpen, onClickOutside]

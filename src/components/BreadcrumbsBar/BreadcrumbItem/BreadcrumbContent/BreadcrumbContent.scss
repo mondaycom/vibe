@@ -14,7 +14,7 @@
 
   .breadcrumb-text {
     color: inherit;
-    margin: 0px 4px;
+    margin: 0 4px;
     line-height: 22px;
 
     overflow: hidden;
@@ -45,5 +45,6 @@
 
   &.disabled {
     @include disabled;
+    pointer-events: none;
   }
 }

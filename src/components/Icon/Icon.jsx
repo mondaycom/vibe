@@ -25,11 +25,14 @@ const Icon = forwardRef(
     },
     ref
   ) => {
-    const { tabindex, onClickCallback, computedClassName, iconRef, role } = useIconProps({
+    const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
       onClick,
+      iconLabel,
       clickable,
       className,
-      ignoreFocusStyle
+      isDecorationOnly: ariaHidden,
+      ignoreFocusStyle,
+      externalTabIndex
     });
 
     const mergedRef = useMergeRefs({ refs: [ref, iconRef] });
@@ -38,30 +41,26 @@ const Icon = forwardRef(
       return null;
     }
 
-    if (iconType === ICON_TYPES.SVG || typeof icon === "function") {
+    if (iconType === ICON_TYPES.SVG || typeof icon === "function" || typeof icon === "object") {
       const IconComponent = icon;
       return (
         <IconComponent
-          aria-hidden={ariaHidden}
+          {...screenReaderAccessProps}
+          ref={mergedRef}
           size={iconSize.toString()}
           onClick={onClick}
-          tabIndex={externalTabIndex ?? tabindex}
           className={computedClassName}
-          role={role}
         />
       );
     }
 
     return (
       <FontIcon
-        ariaHidden={ariaHidden}
+        {...screenReaderAccessProps}
         className={cx(computedClassName)}
         onClick={onClickCallback}
         ref={mergedRef}
-        iconLabel={iconLabel}
-        tabIndex={externalTabIndex ?? tabindex}
         icon={icon}
-        role={role}
       />
     );
   }
@@ -92,11 +91,11 @@ Icon.defaultProps = {
   className: "",
   icon: "",
   clickable: true,
-  iconLabel: "",
+  iconLabel: undefined,
   iconType: ICON_TYPES.SVG,
   iconSize: 16,
   ignoreFocusStyle: false,
-  ariaHidden: false
+  ariaHidden: undefined
 };
 
 export default Icon;

@@ -10,7 +10,7 @@ export const Sandbox = () => (
 );
 
 export default {
-  title: "Components/HiddenText",
+  title: "A11y|HiddenText",
   component: HiddenText,
   decorators: [withPerformance]
 };

@@ -20,14 +20,14 @@
   }
 
   &--popover {
-    @include box-shadow-medium();
+    @include theme-prop(box-shadow, box-shadow-mediun);
     border-radius: $border-radius-medium;
-    @include theme-prop(background-color, dialog-background-color);
+    @include theme-prop(background-color, secondary-background-color);
   }
 
   &--modal {
-    @include box-shadow-large();
+    @include theme-prop(box-shadow, box-shadow-large);
     border-radius: $border-radius-big;
-    @include theme-prop(background-color, modal-background-color);
+    @include theme-prop(background-color, primary-background-color);
   }
 }

@@ -3,21 +3,24 @@
 exports[`ExpandCollapse renders correctly with empty props 1`] = `
 <div
   className="expand-collapse--wrapper"
+  id=""
 >
   <div
     className="expand-collapse"
   >
-    <div
-      className="expand-collapse__header expand-collapse__section false"
+    <button
+      aria-controls="-controls"
+      aria-expanded={false}
+      className="expand-collapse__header expand-collapse__section"
       onClickCapture={[Function]}
     >
       <svg
-        aria-hidden={false}
+        aria-hidden={true}
         className="icon_component animate-icon-close"
         fill="currentColor"
         height="24"
         onClick={[Function]}
-        role=""
+        role="img"
         tabIndex="-1"
         viewBox="0 0 20 20"
         width="24"
@@ -29,7 +32,7 @@ exports[`ExpandCollapse renders correctly with empty props 1`] = `
           fillRule="evenodd"
         />
       </svg>
-    </div>
+    </button>
   </div>
 </div>
 `;

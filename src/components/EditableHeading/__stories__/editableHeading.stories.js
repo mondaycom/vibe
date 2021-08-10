@@ -1,13 +1,16 @@
 import React from "react";
 import { withPerformance } from "storybook-addon-performance";
 import EditableHeading from "../EditableHeading";
+import Icon from "../../Icon/Icon";
 import { TYPES } from "../../Heading/HeadingConstants";
 
 export const Sandbox = () => (
-  <div style={{ width: "200px", height: "500px", padding: "16px", border: "1px solid" }}>
+  <div style={{ width: "200px", height: "500px", padding: "16px", border: "1px solid var(--layout-border-color)" }}>
     <div style={{ display: "flex", alignItems: "center" }}>
       <EditableHeading type={TYPES.h1} value="Edit H1 Long text test" />
-      <div style={{ flex: "0 0 30px" }}>icon</div>
+      <div style={{ flex: "0 0 30px", color: "var(--icon-color)" }}>
+        <Icon iconType={Icon.type.ICON_FONT} icon="fa fa-star" />
+      </div>
     </div>
     <br />
     <EditableHeading type={TYPES.h2} value="Edit H2 tooltip" tooltip="Click to edit" />
@@ -28,6 +31,7 @@ export const Sandbox = () => (
       type={TYPES.h2}
       value="In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form"
       ellipsisMaxLines={2}
+      inputAriaLabel="Edit header"
     />
   </div>
 );

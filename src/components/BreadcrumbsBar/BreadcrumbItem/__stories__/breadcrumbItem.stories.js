@@ -8,14 +8,14 @@ import StoryLine from "../../../../StoryBookComponents/StoryLink/StoryLine";
 import { FlexLayout } from "../../../storybook-helpers";
 
 export const Sandbox = () => (
-  <div style={{ width: "500px" }}>    
-      <BreadcrumbItem
-        text={text("Breadcrumb text", "Workspace")}
-        icon={boolean("Has icon", true) ? WorkspaceIcon : null}
-        link="https://www.google.com"
-        isDisabled={boolean("Is disabled", false)}
-        isCurrent={boolean("Is current", false)}
-      />
+  <div style={{ width: "500px" }}>
+    <BreadcrumbItem
+      text={text("Breadcrumb text", "Workspace")}
+      icon={boolean("Has icon", true) ? WorkspaceIcon : null}
+      link="https://www.google.com"
+      isDisabled={boolean("Is disabled", false)}
+      isCurrent={boolean("Is current", false)}
+    />
   </div>
 );
 

@@ -1,0 +1,20 @@
+@import "../../../styles/states.scss";
+
+.container {
+  border: 1px solid;
+  padding: 16px;
+
+  .custom-icon {
+    width: 20px;
+    height: 20px;
+    background-color: yellow;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.categories-container {
+  width: 300px;
+}

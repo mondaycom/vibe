@@ -4,8 +4,99 @@
   @include theme-prop(border-color, disabled-background-color);
   @include theme-prop(color, disabled-text-color);
   cursor: not-allowed;
-  pointer-events: none;
   &:hover {
     background-color: transparent;
   }
+}
+
+@mixin reset-button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+
+  @include focus-style();
+}
+
+@mixin focus-style($focus-radius: 4px) {
+  &:focus:not(.focus-visible) {
+    outline: none;
+  }
+  &:focus-visible,
+  &.focus-visible {
+    @include focus-style-css($focus-radius);
+  }
+}
+
+@mixin focus-style-on-primary($focus-radius: 4px) {
+  &:focus:not(.focus-visible) {
+    outline: none;
+  }
+  &:focus-visible,
+  &.focus-visible {
+    @include focus-style-css-on-primary($focus-radius);
+  }
+}
+
+@mixin focus-style-base($focus-radius: 4px) {
+  outline: none;
+  z-index: 11;
+  border-radius: $focus-radius;
+}
+
+@mixin focus-style-css($focus-radius: 4px) {
+  @include focus-style-base($focus-radius);
+  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5), 0px 0px 0px 1px var(--primary-hover-color) inset;
+}
+
+
+@mixin focus-style-css-on-primary($focus-radius: 4px) {
+  @include focus-style-base($focus-radius);
+  border: 1px solid var(--text-color-on-primary);
+  box-shadow: none;
+  position: relative;
+
+  &:before {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.4;
+    box-shadow: 0 0 0 4px var(--text-color-on-primary);
+    border-radius: $focus-radius;
+  }
+}
+
+
+@mixin _scrollerThumb($color) {
+  &::-webkit-scrollbar-thumb {
+    background-color: $color;
+    border-radius: 4px;
+  }
+}
+@mixin scroller($width: 4px, $color: var(--ui-border-color)) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+
+  @include _scrollerThumb($color);
 }

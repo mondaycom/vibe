@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders correctly with aria label 1`] = `
+<input
+  ariaLabel="Edit input"
+  autoComplete="on"
+  className="editable-input--wrapper"
+  dir="auto"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  placeholder=""
+/>
+`;
+
 exports[`renders correctly with empty props 1`] = `
 <input
   autoComplete="on"

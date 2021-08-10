@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { withPerformance } from "storybook-addon-performance";
 import ResponsiveList from "../ResponsiveList";
 import "./responsiveListStory.scss";
@@ -16,11 +16,13 @@ import {
   Alert,
   Broom,
   Search as SearchIcon,
-  CloseSmall
+  CloseSmall,
+  MoreActions
 } from "../../Icon/Icons";
 import { MenuItem } from "../../index";
 import Menu from "../../Menu/Menu/Menu";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
+import { boolean, number } from "@storybook/addon-knobs";
 
 function SecondaryContentComponent() {
   return (
@@ -31,50 +33,96 @@ function SecondaryContentComponent() {
   );
 }
 
-export const Sandbox = () => (
-  <div style={{ width: "100%" }}>
+const DefaultExampleTemplate = (responseListProps) => {
+  const { lessItems } = responseListProps;
+  return <ResponsiveList id="Knobs" className="responsive-story" menuButtonSize={ResponsiveList.menuButtonSizes.MEDIUM} {...responseListProps}>
+    <SplitButton size={SplitButton.sizes.MAIN} marginRight secondaryDialogContent={<SecondaryContentComponent />}>
+      Add Item
+    </SplitButton>
+    <div className="responsive-lst-search" responsiveListPlaceholder={<Search
+      id={"search-icon-inside"}
+      size={Search.sizes.MEDIUM}
+      placeholder="search for content"
+      iconName={() => <SearchIcon />}
+      secondaryIconName={() => <CloseSmall />}
+    />}>
+      <Search
+        size={Search.sizes.MEDIUM}
+        placeholder="search for content"
+        iconName={() => <SearchIcon />}
+        secondaryIconName={() => <CloseSmall />}
+      />
+    </div>
+    {!lessItems && <Button kind={Button.kinds.TERTIARY} marginLeft>
+      <Icon icon={Broom} ignoreFocusStyle className="responsive-icon-margin" />
+      Clean
+    </Button>}
+    {!lessItems && <Button kind={Button.kinds.TERTIARY} marginLeft>
+      <Icon icon={Group} ignoreFocusStyle />
+    </Button>}
+    {!lessItems && <Button kind={Button.kinds.TERTIARY} marginLeft>
+      <Icon icon={Moon} ignoreFocusStyle />
+    </Button>}
+    {!lessItems && <Button kind={Button.kinds.TERTIARY} marginLeft>
+      <Icon icon={API} ignoreFocusStyle />
+    </Button>}
+    <Button kind={Button.kinds.TERTIARY} marginLeft>
+      <Icon icon={Sun} ignoreFocusStyle />
+    </Button>
+    <Button kind={Button.kinds.TERTIARY} marginLeft>
+      <Icon icon={Bolt} ignoreFocusStyle />
+    </Button>
+  </ResponsiveList>
+}
+
+export const Sandbox = () => {
+  const lessItems = boolean("Less iitems", false);
+
+  return <div style={{ width: "100%" }}>
     <DescriptionLabel>
       Use this component when you want to collapse elements into a menu button which appends to the end of the row. The
-      list wraps the element with <code>display: flex;</code> property and <code>overflow: hidden</code> in order to
+      list wraps the element with <code>display: flex;</code> property in order to
       calculate the
     </DescriptionLabel>
     <br />
     <div style={{ width: "80%" }}>
-      <ResponsiveList id="Knobs" className="responsive-story" menuButtonSize={ResponsiveList.menuButtonSizes.MEDIUM}>
-        <SplitButton size={SplitButton.sizes.MAIN} marginRight secondaryDialogContent={<SecondaryContentComponent />}>
-          Add Item
-        </SplitButton>
-        <div className="responsive-lst-search">
-          <Search
-            size={Search.sizes.MEDIUM}
-            placeholder="search for content"
-            iconName={() => <SearchIcon />}
-            secondaryIconName={() => <CloseSmall />}
-          />
-        </div>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
-          <Icon icon={Broom} ignoreFocusStyle className="responsive-icon-margin" />
-          Clean
-        </Button>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
-          <Icon icon={Group} ignoreFocusStyle />
-        </Button>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
-          <Icon icon={Moon} ignoreFocusStyle />
-        </Button>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
-          <Icon icon={API} ignoreFocusStyle />
-        </Button>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
-          <Icon icon={Sun} ignoreFocusStyle />
-        </Button>
-        <Button kind={Button.kinds.TERTIARY} marginLeft>
-          <Icon icon={Bolt} ignoreFocusStyle />
-        </Button>
-      </ResponsiveList>
+      <DefaultExampleTemplate lessItems={lessItems} />
     </div>
   </div>
-);
+};
+
+export const SandboxWithDifferentIcon = () => {
+  return <div style={{ width: "100%" }}>
+    <DescriptionLabel>
+      You can also override the MenuButton props. Here's an example of how to use it with MoreActions icon
+    </DescriptionLabel>
+    <br />
+    <div style={{ width: "80%" }}>
+      <DefaultExampleTemplate menuButtonProps={{component: MoreActions}} />
+    </div>
+  </div>
+}
+
+
+export const ChangeChildrenCheck = () => {
+  const width = number("width", 300)
+  const knobLessItems = boolean("less items", false);
+  const [lessItems, setLessItems] = useState(true);
+  setTimeout(() => {
+    setLessItems(false);
+  }, 100);
+  return <div style={{ width: "100%" }}>
+    <DescriptionLabel>
+      This is a story to reproduce a case where the items in the list are changed,
+      it should still be able to recalculate their size.
+      It adds some items at the beginning of the story, and it should be able to calculate the new items size although they weren't drawn yet.
+    </DescriptionLabel>
+    <br />
+    <div style={{ width: width }}>
+      <DefaultExampleTemplate menuButtonProps={{component: MoreActions}} lessItems={lessItems || knobLessItems} />
+    </div>
+  </div>
+}
 
 export default {
   title: "Components/ResponsiveList",

@@ -26,11 +26,11 @@
       &--selected-hover .monday-style-checkbox__input:checked + .monday-style-checkbox__checkbox {
         @include hover-selected;
       }
-
     }
   }
 
   &__sandbox-wrapper {
+    color: var(--primary-text-color);
     margin: 15px;
     width: 70%;
   }

@@ -12,6 +12,8 @@ import Icon from "../../../Icon/Icon";
 
 import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
 
+const DISABLE_REASON = "You can't click me";
+
 const subSubMenuRenderer = () => {
   return (
     <Menu tabIndex={0} id="menu-level-3" size={Menu.sizes.SMALL}>
@@ -103,6 +105,7 @@ const renderMenuItems = ({ withSubSubMenu = false } = {}) => {
       title={"When disabled"}
       icon={"fa fa-star-o"}
       disabled={true}
+      disableReason={DISABLE_REASON}
       onClick={() => {
         alert("7");
       }}
@@ -121,6 +124,7 @@ export const Sandbox = () => {
           title={text("title", "My item")}
           icon={icon}
           disabled={boolean("disabled", false)}
+          disableReason={DISABLE_REASON}
           selected={boolean("selected", false)}
           onClick={() => alert("hello")}
         />
@@ -148,7 +152,13 @@ export const States = () => (
     <FlexLayout>
       <StoryLine title="Disabled menu item">
         <Menu size={Menu.sizes.SMALL}>
-          <MenuItem id="menu-item" title={"Disabled item"} icon={"fa fa-star-o"} disabled={true} />
+          <MenuItem
+            id="menu-item"
+            title={"Disabled item"}
+            icon={"fa fa-star-o"}
+            disabled={true}
+            disableReason={DISABLE_REASON}
+          />
         </Menu>
       </StoryLine>
     </FlexLayout>
@@ -167,6 +177,7 @@ export const subMenu = () => {
             title={text("title", " b Hover me to see the sub menu")}
             icon={icon}
             disabled={boolean("disabled", false)}
+            disableReason={DISABLE_REASON}
             onClick={() => alert("hello")}
           >
             <Menu tabIndex={0} id="sub-menu" size={Menu.sizes.SMALL}>
@@ -185,7 +196,7 @@ export const subSubMenu = () => {
   return (
     <div>
       <div style={{ width: "260px" }}>
-        <Menu tabIndex={0} id="menu-level-1" size={Menu.sizes.SMALL} tabIndex="0">
+        <Menu tabIndex={0} id="menu-level-1" size={Menu.sizes.SMALL}>
           <MenuItem title={"Hover me to see the sub menu"} icon={icon} onClick={() => alert("hello")}>
             <Menu size={Menu.sizes.SMALL}>{renderMenuItems({ withSubSubMenu: true })}</Menu>
           </MenuItem>
@@ -210,6 +221,7 @@ export const overflowMenuItem = () => {
             title="short text"
             icon={icon}
             disabled={boolean("disabled", false)}
+            disableReason={DISABLE_REASON}
             onClick={() => alert("hello")}
           />
 
@@ -218,6 +230,7 @@ export const overflowMenuItem = () => {
             title="long text - bla bla bla bla bla bla bla bla bla bla bla"
             icon={icon}
             disabled={boolean("disabled", false)}
+            disableReason={DISABLE_REASON}
             onClick={() => alert("hello")}
           />
 
@@ -226,6 +239,7 @@ export const overflowMenuItem = () => {
             title="long text with sub menu - bla bla bla bla bla bla bla bla bla bla bla"
             icon={icon}
             disabled={boolean("disabled", false)}
+            disableReason={DISABLE_REASON}
             onClick={() => alert("hello")}
           >
             <Menu tabIndex={0} id="sub-menu" size={Menu.sizes.SMALL}>

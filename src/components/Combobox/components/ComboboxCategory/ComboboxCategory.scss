@@ -1,0 +1,8 @@
+@import "../../../../styles/themes.scss";
+@import "../../../../styles/typography.scss";
+@import "../../../../styles/states.scss";
+
+.combobox-category {
+  @include theme-prop(color, placeholder-color);
+  padding-bottom: 4px;
+}

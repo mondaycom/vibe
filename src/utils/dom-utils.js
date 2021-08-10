@@ -1,5 +1,3 @@
-import "./dom-polyfill";
-
 export function isInsideClass(domElement, classOrClassesName) {
   if (!classOrClassesName) return false;
   let selector;

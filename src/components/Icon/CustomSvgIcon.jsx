@@ -4,12 +4,17 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import SVG from "react-inlinesvg";
 import "./CustomSvgIcon.scss";
+import useIconScreenReaderAccessProps from "../../hooks/useIconScreenReaderAccessProps";
 
-const CustomSvgIcon = ({ className, src, onClick, clickable, ...props }) => {
-  const tabIndex = clickable ? 0 : -1;
+const CustomSvgIcon = ({ className, src, onClick, clickable, ariaLabel, ariaHidden, ...props }) => {
+  const screenReaderAccessProps = useIconScreenReaderAccessProps({
+    isClickable: clickable,
+    label: ariaLabel,
+    isDecorationOnly: ariaHidden
+  });
   return (
     <SVG
-      tabIndex={tabIndex}
+      {...screenReaderAccessProps}
       onClick={onClick}
       src={src}
       className={cx("monday-style-custom-svg-icon--wrapper", className)}
@@ -18,13 +23,17 @@ const CustomSvgIcon = ({ className, src, onClick, clickable, ...props }) => {
   );
 };
 
-CustomSvgIcon.defaultProps = {
-  className: PropTypes.string,
-  src: PropTypes.string
-};
 CustomSvgIcon.propTypes = {
+  className: PropTypes.string,
+  src: PropTypes.string,
+  ariaLabel: PropTypes.string,
+  ariaHidden: PropTypes.bool
+};
+CustomSvgIcon.defaultProps = {
   className: "",
-  src: ""
+  src: "",
+  ariaLabel: undefined,
+  ariaHidden: undefined
 };
 
 export default CustomSvgIcon;

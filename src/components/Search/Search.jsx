@@ -47,6 +47,8 @@ const Search = forwardRef(
       id,
       validation,
       inputAriaLabel,
+      searchResultsContainerId,
+      activeDescendant,
       iconNames
     },
     ref
@@ -75,6 +77,8 @@ const Search = forwardRef(
         clearOnIconClick
         validation={validation}
         inputAriaLabel={inputAriaLabel}
+        searchResultsContainerId={searchResultsContainerId}
+        activeDescendant={activeDescendant}
         iconsNames={iconNames}
         type="search"
         role="search"
@@ -112,6 +116,8 @@ Search.propTypes = {
     text: PropTypes.string
   }),
   inputAriaLabel: PropTypes.string,
+  searchResultsContainerId: PropTypes.string,
+  activeDescendant: PropTypes.string,
   /*  Icon names labels for a11y */
   iconNames: PropTypes.shape({
     layout: PropTypes.string,
@@ -140,7 +146,9 @@ Search.defaultProps = {
   className: "",
   id: "search",
   validation: null,
-  inputAriaLabel: "",
+  inputAriaLabel: undefined,
+  searchResultsContainerId: "",
+  activeDescendant: "",
   iconNames: ICON_NAMES
 };
 

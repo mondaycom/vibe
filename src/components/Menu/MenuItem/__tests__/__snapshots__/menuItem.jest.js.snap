@@ -13,6 +13,7 @@ exports[`Snapshots renders correctly when disabled 1`] = `
   >
     my item
   </div>
+  
   <div
     className="monday-style-menu-item__popover"
     style={
@@ -40,6 +41,7 @@ exports[`Snapshots renders correctly when selected 1`] = `
   >
     my item
   </div>
+  
   <div
     className="monday-style-menu-item__popover"
     style={
@@ -67,6 +69,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
   >
     
   </div>
+  
   <div
     className="monday-style-menu-item__popover"
     style={
@@ -94,6 +97,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
   >
     
   </div>
+  
   <div
     className="monday-style-menu-item__popover"
     style={
@@ -120,12 +124,11 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
     className="monday-style-menu-item__icon-wrapper"
   >
     <span
-      aria-hidden={false}
+      aria-hidden={true}
       aria-label="my item"
       className="icon_component monday-style-menu-item__icon icon_component--no-focus-style fa fa fa-star"
       onClick={[Function]}
-      role=""
-      tabIndex={-1}
+      role="img"
     />
   </div>
   <div
@@ -133,6 +136,7 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
   >
     my item
   </div>
+  
   <div
     className="monday-style-menu-item__popover"
     style={
