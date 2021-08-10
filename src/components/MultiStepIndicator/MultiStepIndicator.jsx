@@ -110,7 +110,9 @@ MultiStepIndicator.propTypes = {
   /** For overriding the 'fulfilled' step's icon type. Necessary when passing a string in the "fulfilledStepIcon" prop. */
   fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   /** Callback for clicking each step. Function's parameter is the step's number. */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /** When true, steps will be aligned vertically */
+  hasVerticalSteps: PropTypes.bool
 };
 
 MultiStepIndicator.defaultProps = {
@@ -121,7 +123,8 @@ MultiStepIndicator.defaultProps = {
   steps: [],
   fulfilledStepIcon: Check,
   fulfilledStepIconType: Icon.type.SVG,
-  onClick: null
+  onClick: null,
+  hasVerticalSteps: false
 };
 
 export default MultiStepIndicator;
