@@ -4,9 +4,11 @@ import PropTypes from "prop-types";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import useEventListener from "../../../../hooks/useEventListener";
+import useKeyEvent from "../../../../hooks/useKeyEvent";
 import Icon from "../../../Icon/Icon";
 import Check from "../../../Icon/Icons/components/Check";
 
+import { keyCodes } from "../../../../constants/KeyCodes";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
@@ -49,6 +51,14 @@ const StepIndicator = ({
   useEventListener({
     eventName: "animationend",
     callback: disableStatusChangeAnimation,
+    ref: componentRef
+  });
+
+  const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
+
+  useKeyEvent({
+    keys: KEYS,
+    callback: handleClick,
     ref: componentRef
   });
 
@@ -100,6 +110,8 @@ const StepIndicator = ({
       })}
       aria-label={ariaLabel}
       onClick={handleClick}
+      ref={componentRef}
+      tabIndex="0"
     >
       <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef}>
         <SwitchTransition mode="out-in">
