@@ -4,10 +4,12 @@ import PropTypes from "prop-types";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import useEventListener from "../../../../hooks/useEventListener";
+import useKeyEvent from "../../../../hooks/useKeyEvent";
 import Icon from "../../../Icon/Icon";
 import Check from "../../../Icon/Icons/components/Check";
 import Divider from "../../../Divider/Divider";
 
+import { keyCodes } from "../../../../constants/KeyCodes";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./VerticalStepIndicatorConstants";
 import "./VerticalStepIndicator.scss";
@@ -52,6 +54,14 @@ const VerticalStepIndicator = ({
   useEventListener({
     eventName: "animationend",
     callback: disableStatusChangeAnimation,
+    ref: componentRef
+  });
+
+  const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
+
+  useKeyEvent({
+    keys: KEYS,
+    callback: handleClick,
     ref: componentRef
   });
 
@@ -105,7 +115,7 @@ const VerticalStepIndicator = ({
       onClick={handleClick}
     >
       <div className={cx(...getClassNamesWithSuffix("__number-divider-container"))}>
-        <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef}>
+        <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef} tabIndex="0">
           <SwitchTransition mode="out-in">
             <CSSTransition
               classNames={`${baseClassName}--swap`}

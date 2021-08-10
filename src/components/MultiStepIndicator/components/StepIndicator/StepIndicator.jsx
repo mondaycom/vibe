@@ -110,10 +110,8 @@ const StepIndicator = ({
       })}
       aria-label={ariaLabel}
       onClick={handleClick}
-      ref={componentRef}
-      tabIndex="0"
     >
-      <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef}>
+      <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef} tabIndex="0">
         <SwitchTransition mode="out-in">
           <CSSTransition
             classNames={`${baseClassName}--swap`}
