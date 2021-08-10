@@ -8,7 +8,7 @@ import Icon from "../../../Icon/Icon";
 import Check from "../../../Icon/Icons/components/Check";
 import Divider from "../../../Divider/Divider";
 
-import { MULTI_STEP_TYPES, STEP_STATUSES } from "../MultiVerticalStepConstants";
+import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./VerticalStepIndicatorConstants";
 import "./VerticalStepIndicator.scss";
 import HiddenText from "../../../HiddenText/HiddenText";

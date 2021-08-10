@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import { select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import MultiStepIndicator from "../MultiStepIndicator";
-import MultiVerticalStepIndicator from "../MultiVerticalStepIndicator/MultiVerticalStepIndicator";
 import { StoryStateRow, ComponentStateDescription, StoryStateColumn } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import { STEP_STATUSES } from "../MultiStepConstants";
@@ -70,7 +69,7 @@ export const Sandbox = () => {
 export const MultiVerticalStepIndicatorType = () => {
   return (
     <div>
-      <MultiVerticalStepIndicator
+      <MultiStepIndicator
         id="multi-vertical-step-indicator"
         type={select("type", {
           Primary: MultiStepIndicator.types.PRIMARY,
@@ -79,6 +78,7 @@ export const MultiVerticalStepIndicatorType = () => {
           Dark: MultiStepIndicator.types.DARK
         })}
         steps={exampleSteps}
+        hasVerticalSteps
       />
     </div>
   );
