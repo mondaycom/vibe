@@ -78,7 +78,7 @@ export const MultiVerticalStepIndicatorType = () => {
           Dark: MultiStepIndicator.types.DARK
         })}
         steps={exampleSteps}
-        hasVerticalSteps
+        textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
       />
     </div>
   );

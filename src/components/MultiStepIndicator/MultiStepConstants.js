@@ -10,3 +10,8 @@ export const STEP_STATUSES = {
   ACTIVE: "active",
   FULFILLED: "fulfilled"
 };
+
+export const TEXT_PLACEMENTS = {
+  HORIZONTAL: "horizontal",
+  VERTICAL: "vertical"
+};

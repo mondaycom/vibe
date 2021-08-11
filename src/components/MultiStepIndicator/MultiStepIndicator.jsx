@@ -7,7 +7,7 @@ import Check from "../Icon/Icons/components/Check";
 import Divider from "../Divider/Divider";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
 import VerticalStepIndicator from "./components/VerticalStepIndicator/VerticalStepIndicator";
-import { MULTI_STEP_TYPES, STEP_STATUSES } from "./MultiStepConstants";
+import { MULTI_STEP_TYPES, STEP_STATUSES, TEXT_PLACEMENTS } from "./MultiStepConstants";
 import "./MultiStepIndicator.scss";
 
 const MultiStepIndicator = forwardRef(
@@ -21,7 +21,7 @@ const MultiStepIndicator = forwardRef(
       fulfilledStepIcon,
       fulfilledStepIconType,
       onClick,
-      hasVerticalSteps
+      textPlacement
     },
     ref
   ) => {
@@ -65,13 +65,12 @@ const MultiStepIndicator = forwardRef(
       );
     };
 
+    const stepRenderer =
+      textPlacement === TEXT_PLACEMENTS.VERTICAL ? renderVerticalStepIndicator : renderHorizontalStepIndicator;
+
     return (
       <ol ref={mergedRef} className={cx(baseClassName, className)}>
-        {steps.map((step, index) => {
-          return hasVerticalSteps
-            ? renderVerticalStepIndicator(step, index)
-            : renderHorizontalStepIndicator(step, index);
-        })}
+        {steps.map(stepRenderer)}
       </ol>
     );
   }
@@ -79,6 +78,7 @@ const MultiStepIndicator = forwardRef(
 
 MultiStepIndicator.types = MULTI_STEP_TYPES;
 MultiStepIndicator.stepStatuses = STEP_STATUSES;
+MultiStepIndicator.textPlacements = TEXT_PLACEMENTS;
 
 MultiStepIndicator.propTypes = {
   /** For overriding the container class styles. */
@@ -109,10 +109,13 @@ MultiStepIndicator.propTypes = {
   fulfilledStepIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   /** For overriding the 'fulfilled' step's icon type. Necessary when passing a string in the "fulfilledStepIcon" prop. */
   fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
-  /** Callback for clicking each step. Function's parameter is the step's number. */
+  /** Callback for clicking each step. The callback is sent one parameter - the step's number. */
   onClick: PropTypes.func,
-  /** When true, steps will be aligned vertically */
-  hasVerticalSteps: PropTypes.bool
+  /** Determines the step's text placement. */
+  textPlacement: PropTypes.oneOf([
+    MultiStepIndicator.textPlacements.HORIZONTAL,
+    MultiStepIndicator.textPlacements.VERTICAL
+  ])
 };
 
 MultiStepIndicator.defaultProps = {
@@ -124,7 +127,7 @@ MultiStepIndicator.defaultProps = {
   fulfilledStepIcon: Check,
   fulfilledStepIconType: Icon.type.SVG,
   onClick: null,
-  hasVerticalSteps: false
+  textPlacement: MultiStepIndicator.textPlacements.HORIZONTAL
 };
 
 export default MultiStepIndicator;
