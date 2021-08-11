@@ -111,7 +111,7 @@ MultiStepIndicator.propTypes = {
   fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   /** Callback for clicking each step. The callback is sent one parameter - the step's number. */
   onClick: PropTypes.func,
-  /** Determines the step's text placement. */
+  /** Determines the step's text placement. Either to the left of the indicator(horizontal) or under it(vertical). */
   textPlacement: PropTypes.oneOf([
     MultiStepIndicator.textPlacements.HORIZONTAL,
     MultiStepIndicator.textPlacements.VERTICAL
