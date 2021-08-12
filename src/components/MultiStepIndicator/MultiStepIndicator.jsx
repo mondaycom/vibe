@@ -8,6 +8,7 @@ import Divider from "../Divider/Divider";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
 import VerticalStepIndicator from "./components/VerticalStepIndicator/VerticalStepIndicator";
 import { MULTI_STEP_TYPES, STEP_STATUSES, TEXT_PLACEMENTS } from "./MultiStepConstants";
+import { NOOP } from "../../utils/function-utils";
 import "./MultiStepIndicator.scss";
 
 const MultiStepIndicator = forwardRef(
@@ -49,19 +50,17 @@ const MultiStepIndicator = forwardRef(
 
     const renderVerticalStepIndicator = (step, index) => {
       return (
-        <>
-          <VerticalStepIndicator
-            {...step}
-            stepNumber={index + 1}
-            type={type}
-            stepComponentClassName={stepComponentClassName}
-            fulfilledStepIcon={fulfilledStepIcon}
-            fulfilledStepIconType={fulfilledStepIconType}
-            onClick={onClick}
-            isFollowedByDivider={index !== steps.length - 1}
-            stepDividerClassName={cx(defaultDividerClassName, dividerComponentClassName)}
-          />
-        </>
+        <VerticalStepIndicator
+          {...step}
+          stepNumber={index + 1}
+          type={type}
+          stepComponentClassName={stepComponentClassName}
+          fulfilledStepIcon={fulfilledStepIcon}
+          fulfilledStepIconType={fulfilledStepIconType}
+          onClick={onClick}
+          isFollowedByDivider={index !== steps.length - 1}
+          stepDividerClassName={cx(defaultDividerClassName, dividerComponentClassName)}
+        />
       );
     };
 
@@ -126,7 +125,7 @@ MultiStepIndicator.defaultProps = {
   steps: [],
   fulfilledStepIcon: Check,
   fulfilledStepIconType: Icon.type.SVG,
-  onClick: null,
+  onClick: NOOP,
   textPlacement: MultiStepIndicator.textPlacements.HORIZONTAL
 };
 

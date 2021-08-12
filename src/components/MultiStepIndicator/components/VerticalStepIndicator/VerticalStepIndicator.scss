@@ -157,24 +157,3 @@
     }
   }
 }
-
-// Fixes unreadability for light colored text inside active/fulfilled steps, in dark mode.
-.dark-app-theme {
-  .monday-style-vertical-step-indicator-component {
-    &--type {
-      &-dark {
-        &__number-container {
-          @include theme-prop(color, dark-color);
-        }
-      }
-    }
-
-    &--status {
-      &-pending {
-        &__number-container {
-          @include theme-prop(color, primary-text-color);
-        }
-      }
-    }
-  }
-}

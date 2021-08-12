@@ -10,10 +10,13 @@ import Check from "../../../Icon/Icons/components/Check";
 import Divider from "../../../Divider/Divider";
 
 import { keyCodes } from "../../../../constants/KeyCodes";
+import { NOOP } from "../../../../utils/function-utils";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./VerticalStepIndicatorConstants";
 import "./VerticalStepIndicator.scss";
 import HiddenText from "../../../HiddenText/HiddenText";
+
+const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
 const VerticalStepIndicator = ({
   stepComponentClassName,
@@ -56,8 +59,6 @@ const VerticalStepIndicator = ({
     callback: disableStatusChangeAnimation,
     ref: componentRef
   });
-
-  const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
   useKeyEvent({
     keys: KEYS,
@@ -115,7 +116,12 @@ const VerticalStepIndicator = ({
       onClick={handleClick}
     >
       <div className={cx(...getClassNamesWithSuffix("__number-divider-container"))}>
-        <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef} tabIndex="0">
+        <div
+          className={cx(...getClassNamesWithSuffix("__number-container"))}
+          ref={componentRef}
+          tabIndex="0"
+          role="button"
+        >
           <SwitchTransition mode="out-in">
             <CSSTransition
               classNames={`${baseClassName}--swap`}
@@ -169,7 +175,7 @@ VerticalStepIndicator.defaultProps = {
   type: MULTI_STEP_TYPES.PRIMARY,
   fulfilledStepIcon: Check,
   fulfilledStepIconType: Icon.type.SVG,
-  onClick: null
+  onClick: NOOP
 };
 
 export default VerticalStepIndicator;
