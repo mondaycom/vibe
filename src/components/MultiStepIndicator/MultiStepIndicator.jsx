@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef } from "react";
+import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -64,8 +64,10 @@ const MultiStepIndicator = forwardRef(
       );
     };
 
-    const stepRenderer =
-      textPlacement === TEXT_PLACEMENTS.VERTICAL ? renderVerticalStepIndicator : renderHorizontalStepIndicator;
+    const stepRenderer = useMemo(
+      () => (textPlacement === TEXT_PLACEMENTS.VERTICAL ? renderVerticalStepIndicator : renderHorizontalStepIndicator),
+      [textPlacement, renderVerticalStepIndicator, renderHorizontalStepIndicator]
+    );
 
     return (
       <ol ref={mergedRef} className={cx(baseClassName, className)}>
