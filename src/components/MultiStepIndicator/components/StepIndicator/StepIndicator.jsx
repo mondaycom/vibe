@@ -9,10 +9,13 @@ import Icon from "../../../Icon/Icon";
 import Check from "../../../Icon/Icons/components/Check";
 
 import { keyCodes } from "../../../../constants/KeyCodes";
+import { NOOP } from "../../../../utils/function-utils";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
 import HiddenText from "../../../HiddenText/HiddenText";
+
+const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
 const StepIndicator = ({
   stepComponentClassName,
@@ -53,8 +56,6 @@ const StepIndicator = ({
     callback: disableStatusChangeAnimation,
     ref: componentRef
   });
-
-  const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
   useKeyEvent({
     keys: KEYS,
@@ -111,7 +112,12 @@ const StepIndicator = ({
       aria-label={ariaLabel}
       onClick={handleClick}
     >
-      <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef} tabIndex="0">
+      <div
+        className={cx(...getClassNamesWithSuffix("__number-container"))}
+        ref={componentRef}
+        tabIndex="0"
+        role="button"
+      >
         <SwitchTransition mode="out-in">
           <CSSTransition
             classNames={`${baseClassName}--swap`}
@@ -163,7 +169,7 @@ StepIndicator.defaultProps = {
   type: MULTI_STEP_TYPES.PRIMARY,
   fulfilledStepIcon: Check,
   fulfilledStepIconType: Icon.type.SVG,
-  onClick: null
+  onClick: NOOP
 };
 
 export default StepIndicator;

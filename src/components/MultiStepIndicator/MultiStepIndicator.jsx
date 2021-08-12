@@ -6,6 +6,7 @@ import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import Divider from "../Divider/Divider";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
+import { NOOP } from "../../utils/function-utils";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "./MultiStepConstants";
 import "./MultiStepIndicator.scss";
 
@@ -96,7 +97,7 @@ MultiStepIndicator.defaultProps = {
   steps: [],
   fulfilledStepIcon: Check,
   fulfilledStepIconType: Icon.type.SVG,
-  onClick: null
+  onClick: NOOP
 };
 
 export default MultiStepIndicator;
