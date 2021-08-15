@@ -4,13 +4,18 @@ import PropTypes from "prop-types";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import useEventListener from "../../../../hooks/useEventListener";
+import useKeyEvent from "../../../../hooks/useKeyEvent";
 import Icon from "../../../Icon/Icon";
 import Check from "../../../Icon/Icons/components/Check";
 
+import { keyCodes } from "../../../../constants/KeyCodes";
+import { NOOP } from "../../../../utils/function-utils";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
 import HiddenText from "../../../HiddenText/HiddenText";
+
+const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
 const StepIndicator = ({
   stepComponentClassName,
@@ -20,7 +25,8 @@ const StepIndicator = ({
   subtitleText,
   type,
   fulfilledStepIcon,
-  fulfilledStepIconType
+  fulfilledStepIconType,
+  onClick
 }) => {
   // Animations state
   const [statusChangeAnimationState, setStatusChangeAnimationState] = useState(false);
@@ -40,10 +46,20 @@ const StepIndicator = ({
 
   const isStatusTransition = useCallback(() => prevStatusRef.current !== status, [prevStatusRef, status]);
 
+  const handleClick = useCallback(() => {
+    if (onClick) onClick(stepNumber);
+  }, [onClick, stepNumber]);
+
   // Event listeners for removing animation.
   useEventListener({
     eventName: "animationend",
     callback: disableStatusChangeAnimation,
+    ref: componentRef
+  });
+
+  useKeyEvent({
+    keys: KEYS,
+    callback: handleClick,
     ref: componentRef
   });
 
@@ -90,11 +106,18 @@ const StepIndicator = ({
   return (
     <li
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
-        [baseClassNameWithAnimation]: statusChangeAnimationState
+        [baseClassNameWithAnimation]: statusChangeAnimationState,
+        clickable: onClick
       })}
       aria-label={ariaLabel}
+      onClick={handleClick}
     >
-      <div className={cx(...getClassNamesWithSuffix("__number-container"))} ref={componentRef}>
+      <div
+        className={cx(...getClassNamesWithSuffix("__number-container"))}
+        ref={componentRef}
+        tabIndex="0"
+        role="button"
+      >
         <SwitchTransition mode="out-in">
           <CSSTransition
             classNames={`${baseClassName}--swap`}
@@ -133,7 +156,8 @@ StepIndicator.propTypes = {
     MULTI_STEP_TYPES.DARK
   ]),
   fulfilledStepIcon: PropTypes.func,
-  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT])
+  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
+  onClick: PropTypes.func
 };
 
 StepIndicator.defaultProps = {
@@ -144,7 +168,8 @@ StepIndicator.defaultProps = {
   subtitleText: "Subtitle text",
   type: MULTI_STEP_TYPES.PRIMARY,
   fulfilledStepIcon: Check,
-  fulfilledStepIconType: Icon.type.SVG
+  fulfilledStepIconType: Icon.type.SVG,
+  onClick: NOOP
 };
 
 export default StepIndicator;

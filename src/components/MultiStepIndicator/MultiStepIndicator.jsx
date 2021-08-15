@@ -6,6 +6,7 @@ import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import Divider from "../Divider/Divider";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
+import { NOOP } from "../../utils/function-utils";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "./MultiStepConstants";
 import "./MultiStepIndicator.scss";
 
@@ -18,7 +19,8 @@ const MultiStepIndicator = forwardRef(
       stepComponentClassName,
       dividerComponentClassName,
       fulfilledStepIcon,
-      fulfilledStepIconType
+      fulfilledStepIconType,
+      onClick
     },
     ref
   ) => {
@@ -38,6 +40,7 @@ const MultiStepIndicator = forwardRef(
                 stepComponentClassName={stepComponentClassName}
                 fulfilledStepIcon={fulfilledStepIcon}
                 fulfilledStepIconType={fulfilledStepIconType}
+                onClick={onClick}
               />
               {index !== steps.length - 1 && (
                 <Divider classname={cx(defaultDividerClassName, dividerComponentClassName)} />
@@ -81,7 +84,9 @@ MultiStepIndicator.propTypes = {
   /** For overriding the 'fulfilled' step's icon. Is passed directly to an Icon component. */
   fulfilledStepIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   /** For overriding the 'fulfilled' step's icon type. Necessary when passing a string in the "fulfilledStepIcon" prop. */
-  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT])
+  fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
+  /** Callback for clicking each step. Function's parameter is the step's number. */
+  onClick: PropTypes.func
 };
 
 MultiStepIndicator.defaultProps = {
@@ -91,7 +96,8 @@ MultiStepIndicator.defaultProps = {
   type: MultiStepIndicator.types.PRIMARY,
   steps: [],
   fulfilledStepIcon: Check,
-  fulfilledStepIconType: Icon.type.SVG
+  fulfilledStepIconType: Icon.type.SVG,
+  onClick: NOOP
 };
 
 export default MultiStepIndicator;
