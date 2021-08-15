@@ -46,9 +46,9 @@ const StepIndicator = ({
 
   const isStatusTransition = useCallback(() => prevStatusRef.current !== status, [prevStatusRef, status]);
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     if (onClick) onClick(stepNumber);
-  };
+  }, [onClick, stepNumber]);
 
   // Event listeners for removing animation.
   useEventListener({
