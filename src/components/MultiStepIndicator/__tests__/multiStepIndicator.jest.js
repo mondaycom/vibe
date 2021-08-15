@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import StepIndicator from "../components/StepIndicator/StepIndicator";
+import { fireEvent, render } from "@testing-library/react";
+import { act } from "@testing-library/react-hooks";
 import MultiStepIndicator from "../MultiStepIndicator";
 
 describe("MultiStepIndicator", () => {
@@ -59,6 +60,38 @@ describe("MultiStepIndicator", () => {
         <MultiStepIndicator type={MultiStepIndicator.types.SUCCESS} steps={exampleSteps} onClick={callback} />
       );
       expect(tree).toMatchSnapshot();
+    });
+
+    it("onClick works and is called once", () => {
+      const exampleSteps = [
+        {
+          status: MultiStepIndicator.stepStatuses.FULFILLED,
+          titleText: "Title",
+          subtitleText: "Subtitle"
+        },
+        {
+          status: MultiStepIndicator.stepStatuses.ACTIVE,
+          titleText: "Active",
+          subtitleText: "Active Subtitle"
+        }
+      ];
+
+      const stepClickMock = jest.fn();
+
+      const multiStepIndicatorComponent = render(
+        <MultiStepIndicator type={MultiStepIndicator.types.SUCCESS} steps={exampleSteps} onClick={stepClickMock} />
+      );
+
+      const step = multiStepIndicatorComponent.getByText("Title");
+
+      act(() => {
+        fireEvent.mouseOver(step);
+        jest.advanceTimersByTime(1000);
+        fireEvent.click(step);
+      });
+
+      jest.advanceTimersByTime(1000);
+      expect(stepClickMock.mock.calls.length).toBe(1);
     });
   });
 });
