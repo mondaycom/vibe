@@ -37,6 +37,8 @@ $icon-margin: 4px;
 
   .option-label {
     flex: 1 1 auto;
+
+    @include ellipsis();
   }
 
   .option-icon {

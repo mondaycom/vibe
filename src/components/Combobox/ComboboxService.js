@@ -1,5 +1,5 @@
 export const getOptionsByCategories = (options, categories, filterValue) => {
-  return options.reduce((result, option) => {
+  const optionsByCategories = options.reduce((result, option) => {
     const categoryId = option.categoryId;
     // skipping if the option doesn't have a category
     if (!categoryId) return result;
@@ -11,6 +11,14 @@ export const getOptionsByCategories = (options, categories, filterValue) => {
       // eslint-disable-next-line no-param-reassign
       result[categoryId] = [option];
     }
+
+    return result;
+  }, {});
+
+  // reorder the keys according to the categories order
+  return Object.keys(categories).reduce((result, categoryId) => {
+    // eslint-disable-next-line no-param-reassign
+    if (optionsByCategories[categoryId]) result[categoryId] = optionsByCategories[categoryId];
 
     return result;
   }, {});

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import cx from "classnames";
 import Icon from "../../../Icon/Icon";
+import Tooltip from "../../../Tooltip/Tooltip";
+import useIsOverflowing from "../../../../hooks/useIsOverflowing";
 import "./ComboboxOption.scss";
 
 const ComboboxOption = ({
@@ -26,6 +28,10 @@ const ComboboxOption = ({
   } = option;
 
   const ref = useRef(null);
+  const labelRef = useRef();
+
+  const isOptionOverflowing = useIsOverflowing({ ref: labelRef });
+
   useEffect(() => {
     const element = ref.current;
     if (isActive && element) {
@@ -52,26 +58,30 @@ const ComboboxOption = ({
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <div
-      ref={ref}
-      key={id || label}
-      role="option"
-      ariaLabel={ariaLabel || label}
-      id={`combobox-item-${index}`}
-      onMouseEnter={!disabled && onOptionHover}
-      onClick={event => onOptionClick(event, index, option, true)}
-      className={cx("combobox-option", {
-        disabled,
-        selected,
-        active: isActive,
-        "active-outline": isActiveByKeyboard && isActive
-      })}
-      style={{ height: optionLineHeight }}
-    >
-      {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
-      <div className="option-label">{label}</div>
-      {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
-    </div>
+    <Tooltip content={isOptionOverflowing ? label : null}>
+      <div
+        ref={ref}
+        key={id || label}
+        role="option"
+        ariaLabel={ariaLabel || label}
+        id={`combobox-item-${index}`}
+        onMouseEnter={!disabled && onOptionHover}
+        onClick={event => onOptionClick(event, index, option, true)}
+        className={cx("combobox-option", {
+          disabled,
+          selected,
+          active: isActive,
+          "active-outline": isActiveByKeyboard && isActive
+        })}
+        style={{ height: optionLineHeight }}
+      >
+        {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
+        <div ref={labelRef} className="option-label">
+          {label}
+        </div>
+        {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
+      </div>
+    </Tooltip>
   );
 };
 
