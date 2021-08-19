@@ -142,6 +142,14 @@ export const CustomRender = () => (
   </section>
 );
 
+export const insidePopupInsideOverflowHidden = () => {
+  return <div id={"dropdown-popup"} style={{position: "fixed", width: "100%", height: "100%"}}>
+    <div id="dropdown-cropped" style={{overflow: "hidden", height: "100px"}}>
+      <Dropdown menuPortalTarget={document.querySelector("#dropdown-popup")} options={mockColorOptions} />
+    </div>
+  </div>
+}
+
 export const sizes = () => (
   <section>
     <StoryStateRow>
