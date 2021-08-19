@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { boolean, select, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import Dropdown from "../Dropdown";
@@ -143,9 +143,11 @@ export const CustomRender = () => (
 );
 
 export const insidePopupInsideOverflowHidden = () => {
-  return <div id={"dropdown-popup"} style={{position: "fixed", width: "100%", height: "100%"}}>
+  const [isContainerReady, setContaienr] = useState(null);
+
+  return <div id={"dropdown-popup"} style={{position: "fixed", width: "100%", height: "100%", top: 200}} ref={setContaienr}>
     <div id="dropdown-cropped" style={{overflow: "hidden", height: "100px"}}>
-      <Dropdown menuPortalTarget={document.querySelector("#dropdown-popup")} options={mockColorOptions} />
+      {isContainerReady ? <Dropdown menuPortalTarget={document.querySelector("#dropdown-popup")} options={mockColorOptions} /> : null}
     </div>
   </div>
 }
