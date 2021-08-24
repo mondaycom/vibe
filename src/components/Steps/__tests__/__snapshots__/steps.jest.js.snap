@@ -2,7 +2,7 @@
 
 exports[`Steps tests Snapshot Tests renders correctly with empty props 1`] = `
 <div
-  className="monday-style-steps"
+  className="monday-style-steps monday-style-steps--content-on-bottom"
   id=""
 >
   <div
@@ -10,7 +10,7 @@ exports[`Steps tests Snapshot Tests renders correctly with empty props 1`] = `
   >
     <button
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
-      disabled={false}
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -76,7 +76,7 @@ exports[`Steps tests Snapshot Tests renders correctly with empty props 1`] = `
 
 exports[`Steps tests Snapshot Tests renders correctly with gallery view when viewing first step 1`] = `
 <div
-  className="monday-style-steps"
+  className="monday-style-steps monday-style-steps--content-on-bottom"
   id=""
 >
   <div
@@ -168,7 +168,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
 
 exports[`Steps tests Snapshot Tests renders correctly with gallery view when viewing last step 1`] = `
 <div
-  className="monday-style-steps"
+  className="monday-style-steps monday-style-steps--content-on-bottom"
   id=""
 >
   <div
@@ -260,7 +260,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
 
 exports[`Steps tests Snapshot Tests renders correctly with gallery view with regular props 1`] = `
 <div
-  className="monday-style-steps"
+  className="monday-style-steps monday-style-steps--content-on-bottom"
   id=""
 >
   <div
@@ -268,7 +268,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view with reg
   >
     <button
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
-      disabled={false}
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -300,21 +300,21 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view with reg
       role="group"
     >
       <button
-        aria-current={false}
+        aria-current="step"
         aria-label="Step number 0"
-        className="monday-style-steps-header_dot"
+        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
         onClick={[Function]}
       />
       <button
-        aria-current="step"
+        aria-current={false}
         aria-label="Step number 1"
-        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+        className="monday-style-steps-header_dot"
         onClick={[Function]}
       />
     </div>
     <button
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
-      disabled={true}
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -343,16 +343,16 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view with reg
     </button>
   </div>
   <div
-    data-testid="second-step"
+    data-testid="first-step"
   >
-    second
+    first
   </div>
 </div>
 `;
 
 exports[`Steps tests Snapshot Tests renders correctly with numbers view when viewing first step 1`] = `
 <div
-  className="monday-style-steps"
+  className="monday-style-steps monday-style-steps--content-on-bottom"
   id=""
 >
   <div
@@ -432,7 +432,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
 
 exports[`Steps tests Snapshot Tests renders correctly with numbers view when viewing last step 1`] = `
 <div
-  className="monday-style-steps"
+  className="monday-style-steps monday-style-steps--content-on-bottom"
   id=""
 >
   <div
@@ -512,7 +512,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
 
 exports[`Steps tests Snapshot Tests renders correctly with numbers view with regular props 1`] = `
 <div
-  className="monday-style-steps"
+  className="monday-style-steps monday-style-steps--content-on-bottom"
   id=""
 >
   <div
@@ -520,7 +520,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view with reg
   >
     <button
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
-      disabled={false}
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -550,11 +550,11 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view with reg
     <div
       className="monday-style-steps-header_numbers"
     >
-      2 \\ 2
+      1 \\ 2
     </div>
     <button
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
-      disabled={true}
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -583,9 +583,9 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view with reg
     </button>
   </div>
   <div
-    data-testid="second-step"
+    data-testid="first-step"
   >
-    second
+    first
   </div>
 </div>
 `;
