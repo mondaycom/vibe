@@ -355,7 +355,6 @@ export default class Dialog extends PureComponent {
                   ref={ref}
                   onClick={this.onContentClick}
                 >
-                  {contentRendered}
                   {tooltip && (
                     <div
                       style={arrowProps.style}
@@ -364,6 +363,7 @@ export default class Dialog extends PureComponent {
                       data-placement={placement}
                     />
                   )}
+                  {contentRendered}
                 </DialogContent>
               );
             }}

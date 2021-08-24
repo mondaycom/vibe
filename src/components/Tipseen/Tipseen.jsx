@@ -73,10 +73,9 @@ const Tipseen = forwardRef(
           showDelay={showDelay}
           content={tooltipContent}
           theme={Tooltip.themes.Primary}
-          showTrigger={["click"]}
-          hideTrigger={["click"]}
           justify={justify}
           containerSelector={containerSelector}
+          disableDialogSlide={false}
         >
           {children}
         </Tooltip>
@@ -112,6 +111,10 @@ Tipseen.propTypes = {
   isCloseButtonHidden: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   containerSelector: PropTypes.string,
+  // eslint-disable-next-line react/no-unused-prop-types
+  hideTrigger: PropTypes.array,
+  // eslint-disable-next-line react/no-unused-prop-types
+  showTrigger: PropTypes.array,
   justify: PropTypes.oneOf([Tipseen.justifyTypes.START, Tipseen.justifyTypes.CENTER, Tipseen.justifyTypes.END])
 };
 Tipseen.defaultProps = {
@@ -125,6 +128,8 @@ Tipseen.defaultProps = {
   isCloseButtonHidden: false,
   children: null,
   containerSelector: undefined,
+  hideTrigger: [],
+  showTrigger: [],
   justify: Tipseen.justifyTypes.CENTER
 };
 

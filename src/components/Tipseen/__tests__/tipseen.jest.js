@@ -4,7 +4,6 @@ import { act } from "@testing-library/react-hooks";
 import Tipseen from "../Tipseen";
 import renderer from "react-test-renderer";
 import { TIPSEEN_CLOSE_BUTTON_TEST_ID } from "../TipseenConstants";
-import { StoryStateRow } from "../../storybook-helpers";
 
 jest.useFakeTimers();
 const renderComponent = ({ ...props }) => {

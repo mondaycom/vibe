@@ -4,13 +4,7 @@ import StoryTitle from "../../storybook-helpers/story-title/story-title";
 import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import Tipseen from "../Tipseen";
-import {
-  StoryStateRow,
-  StoryStateColumn,
-  ComponentStateDescription,
-  FlexLayout,
-  Divider
-} from "../../storybook-helpers";
+import { StoryStateRow } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import TipseenContent from "../TipseenContent";
 import "./tipseen.stories.scss";
@@ -29,20 +23,14 @@ export const States = () => {
   });
   return (
     <StoryWrapper>
-      <StoryTitle text="Tipseen with a wizard" />
-      <StoryStateRow componentClassName="monday-style-story-tipseen_container">
-        <Tipseen position={Tipseen.positions.RIGHT} content={tipseenWizard}>
-          <div className={"tooltip-empty-element"} />
-        </Tipseen>
-      </StoryStateRow>
       <StoryTitle text="Empty tipseen" />
-      <StoryStateRow componentClassName="monday-style-story-tipseen_container">
+      <StoryStateRow componentClassName>
         <Tipseen position={Tipseen.positions.RIGHT}>
-          <div className={"tooltip-empty-element"} />
+          <div className="monday-style-story-empty-tipseen_container" />
         </Tipseen>
       </StoryStateRow>
       <StoryTitle text="Basic tipseen" />
-      <StoryStateRow componentClassName="monday-style-story-tipseen_container">
+      <StoryStateRow componentClassName="monday-style-story-tipseen--large">
         <Tipseen
           position={Tipseen.positions.RIGHT}
           content={
@@ -53,17 +41,31 @@ export const States = () => {
             />
           }
         >
-          <div className={"tooltip-empty-element"} />
+          <div className={"monday-style-story-tipseen_container"} />
         </Tipseen>
       </StoryStateRow>
+      <StoryTitle text="Tipseen with a wizard" />
+      <StoryStateRow componentClassName="monday-style-story-tipseen_container monday-style-story-tipseen--large">
+        <Tipseen position={Tipseen.positions.RIGHT} content={tipseenWizard}>
+          <div className={"monday-style-story-tipseen_container"} />
+        </Tipseen>
+      </StoryStateRow>
+    </StoryWrapper>
+  );
+};
+
+export const tipseenWithImage = () => {
+  return (
+    <>
       <StoryTitle text="Tipseen with image" />
-      <StoryStateRow componentClassName="monday-style-story-tipseen_container">
+      <StoryStateRow componentClassName="monday-style-story-tipseen_containe monday-style-story-tipseen--extra-large">
         <Tipseen
-          position={Tipseen.positions.RIGHT}
+          position={Tipseen.positions.BOTTOM}
           isCloseButtonOnImage
           content={
             <>
               <TipseenImage
+                className="monday-style-story-tipseen_image"
                 src={"https://www.israel21c.org/wp-content/uploads/2018/07/israel-sunset-ashkelon-september.jpg"}
               />
               <TipseenContent
@@ -74,13 +76,12 @@ export const States = () => {
             </>
           }
         >
-          <div className={"tooltip-empty-element"} />
+          <div />
         </Tipseen>
       </StoryStateRow>
-    </StoryWrapper>
+    </>
   );
 };
-
 export const Sandbox = () => (
   <div>
     <Tipseen
@@ -99,7 +100,7 @@ export const Sandbox = () => (
         />
       }
     >
-      <div className={"tooltip-empty-element"} />
+      <div />
     </Tipseen>
   </div>
 );
