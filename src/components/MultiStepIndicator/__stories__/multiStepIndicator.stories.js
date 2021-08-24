@@ -66,6 +66,24 @@ export const Sandbox = () => {
   );
 };
 
+export const MultiVerticalStepIndicatorType = () => {
+  return (
+    <div>
+      <MultiStepIndicator
+        id="multi-vertical-step-indicator"
+        type={select("type", {
+          Primary: MultiStepIndicator.types.PRIMARY,
+          Success: MultiStepIndicator.types.SUCCESS,
+          Danger: MultiStepIndicator.types.DANGER,
+          Dark: MultiStepIndicator.types.DARK
+        })}
+        steps={exampleSteps}
+        textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
+      />
+    </div>
+  );
+};
+
 export const Types = () => {
   return (
     <StoryWrapper>

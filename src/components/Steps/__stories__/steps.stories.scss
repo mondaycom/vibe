@@ -7,6 +7,6 @@
 }
 .monday-style-story-steps-on-primary-wrapper {
   width: 400px;
-  background: var(--primary-color);
+  @include theme-prop(background, primary-color);
   padding: $spacing-medium;
 }

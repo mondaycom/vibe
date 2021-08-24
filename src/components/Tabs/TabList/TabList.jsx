@@ -18,7 +18,8 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
   }
 
   const onTabClick = useCallback(
-    tabId => {
+    (tabId, tabCallbackFunc) => {
+      if (tabCallbackFunc) tabCallbackFunc(tabId);
       onTabSelect(tabId);
       setFocusTab(-1);
     },
@@ -71,7 +72,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
             value: index,
             active: activeTab === index,
             focus: focusTab === index,
-            onClick: onTabClick
+            onClick: value => onTabClick(value, child.props.onClick)
           });
         })}
       </ul>

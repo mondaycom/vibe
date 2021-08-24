@@ -11,8 +11,6 @@ import "./steps.stories.scss";
 export const States = () => {
   const [numbersIndex, setNumberIndex] = useState(0);
   const changeIndex = (e, active) => {
-    // eslint-disable-next-line no-debugger
-    debugger;
     setNumberIndex(active);
   };
   const steps = useMemo(
