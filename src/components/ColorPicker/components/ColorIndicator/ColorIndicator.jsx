@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const ColorIndicator = ({ size, ...props }) => (
-  <svg viewBox={`0 0 ${size} ${size}`} fill="currentColor" width={size} height={size} {...props}>
+const ColorIndicator = ({ size = 20 }) => (
+  <svg viewBox="0 0 20 20" fill="currentColor" width={size} height={size}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -34,6 +34,6 @@ ColorIndicator.propTypes = {
   size: PropTypes.string
 };
 ColorIndicator.defaultProps = {
-  size: "20"
+  size: 20
 };
 export default ColorIndicator;

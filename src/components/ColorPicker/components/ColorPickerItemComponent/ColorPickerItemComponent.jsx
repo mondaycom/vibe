@@ -9,10 +9,10 @@ const ColorPickerItemComponent = ({ color, onValueChange, value, mode = "full" }
     if (!itemRef || !itemRef.current || mode !== "full") return;
     const item = itemRef.current;
     const onHover = e => {
-      e.target.style.backgroundColor = color.replace("-selected", "");
+      e.target.style.background = color.replace("-selected", "");
     };
     const onMouseLeave = e => {
-      e.target.style.backgroundColor = color;
+      e.target.style.background = color;
     };
     item.addEventListener("mouseenter", onHover, false);
     item.addEventListener("mouseleave", onMouseLeave, false);

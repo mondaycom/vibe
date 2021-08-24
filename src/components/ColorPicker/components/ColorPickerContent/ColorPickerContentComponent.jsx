@@ -1,11 +1,11 @@
 import cx from "classnames";
 import PropTypes from "prop-types";
 import React, { useCallback } from "react";
-import { contentColors } from "../../../../general-stories/colors/colors-vars-map";
+import { getMondayColorAsStyle } from "../../../../general-stories/colors/colors-vars-map";
 import Button from "../../../Button/Button";
 import NoColor from "../../../Icon/Icons/components/NoColor";
-import "./ColorPickerContentComponent.scss";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
+import "./ColorPickerContentComponent.scss";
 
 const ColorPickerContentComponent = ({ className, onValueChange, value, colors, defaultColorText, mode }) => {
   const onClearButton = useCallback(() => {
@@ -52,8 +52,8 @@ ColorPickerContentComponent.defaultProps = {
   className: "",
   onValueChange: () => {},
   value: "",
-  colors: contentColors,
-  defaultColorText: "TODO - default-text ========================",
+  colors: getMondayColorAsStyle("selected"),
+  defaultColorText: "TODO - default-text",
   mode: "full"
 };
 

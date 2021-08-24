@@ -1,7 +1,7 @@
 import cx from "classnames";
 import PropTypes from "prop-types";
 import React, { forwardRef, useCallback, useRef } from "react";
-import { contentColors } from "../../general-stories/colors/colors-vars-map";
+import { getMondayColorAsStyle } from "../../general-stories/colors/colors-vars-map";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import "./ColorPicker.scss";
@@ -15,7 +15,7 @@ const ColorPicker = forwardRef(({ className, onSave, value, colors, defaultColor
 
   return (
     <div ref={mergedRef} className={cx("color-picker--wrapper", className)}>
-      <DialogContentContainer className="quill-toolbar-color-dialog-content">
+      <DialogContentContainer className={cx("color-picker-dialog-content")}>
         <ColorPickerContentComponent
           onValueChange={onChange}
           value={value}
@@ -41,8 +41,8 @@ ColorPicker.defaultProps = {
   className: "",
   onSave: () => {},
   value: "",
-  colors: contentColors,
-  defaultColorText: "TODO - default-text ========================",
+  colors: getMondayColorAsStyle("selected"),
+  defaultColorText: "TODO - default-text",
   mode: "full"
 };
 

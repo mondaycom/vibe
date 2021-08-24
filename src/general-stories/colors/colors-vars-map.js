@@ -126,6 +126,12 @@ export const contentColors = [
   "brown"
 ];
 
+export function getMondayColorAsStyle(mode = "regular", withVar = true) {
+  return contentColors.map(
+    color => `${withVar ? "var(" : ""}--color-${color}${mode !== "regular" ? `-${mode}` : ""}${withVar ? ")" : ""}`
+  );
+}
+
 export const contentColorsByName = {
   GRASS_GREEN: "grass_green",
   DONE_GREEN: "done-green",
