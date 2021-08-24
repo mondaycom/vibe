@@ -5,6 +5,17 @@ import Tipseen from "../Tipseen";
 import renderer from "react-test-renderer";
 import { TIPSEEN_CLOSE_BUTTON_TEST_ID } from "../TipseenConstants";
 
+jest.mock("react-transition-group", () => {
+  const FakeTransition = jest.fn(({ children }) => children);
+  const FakeSwitchTransition = jest.fn(({ children }) => children);
+  const FakeCSSTransition = jest.fn(({ children }) => children);
+  return {
+    CSSTransition: FakeCSSTransition,
+    Transition: FakeTransition,
+    SwitchTransition: FakeSwitchTransition
+  };
+});
+
 jest.useFakeTimers();
 const renderComponent = ({ ...props }) => {
   return render(
