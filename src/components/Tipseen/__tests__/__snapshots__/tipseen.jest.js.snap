@@ -5,7 +5,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly 1`] = `
   id=""
 >
   <div
-    className="tooltip-empty-element"
+    className=""
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -26,11 +26,11 @@ exports[`Tipseen tests Snapshot Tests renders correctly 1`] = `
     }
   >
     <div
-      className="monday-style-dialog-content-component right edge-center"
+      className="monday-style-dialog-content-component bottom edge-center"
     >
       <div
         className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
-        data-placement="right"
+        data-placement="bottom"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         style={
@@ -49,7 +49,6 @@ exports[`Tipseen tests Snapshot Tests renders correctly 1`] = `
         >
           <div
             className="monday-style-tipseen_header"
-            data-testid="close-tipseen"
           >
             <button
               aria-label="Close"
@@ -140,7 +139,6 @@ exports[`Tipseen tests Snapshot Tests renders correctly with title 1`] = `
         >
           <div
             className="monday-style-tipseen_header"
-            data-testid="close-tipseen"
           >
             <button
               aria-label="Close"
@@ -236,7 +234,6 @@ exports[`Tipseen tests Snapshot Tests renders correctly without close button 1`]
         >
           <div
             className="monday-style-tipseen_header"
-            data-testid="close-tipseen"
           >
             <button
               aria-label="Close"
@@ -258,10 +255,4 @@ exports[`Tipseen tests Snapshot Tests renders correctly without close button 1`]
     </div>
   </span>
 </div>
-`;
-
-exports[`Tipseen tests Snapshot Tests renders correctly without title 1`] = `
-<div
-  id=""
-/>
 `;

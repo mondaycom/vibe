@@ -3,7 +3,7 @@ import { fireEvent, render, cleanup } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import Tipseen from "../Tipseen";
 import renderer from "react-test-renderer";
-import { TIPSEEN_CLOSE_BUTTON_TEST_ID } from "../TipseenConstants";
+import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "../TipseenConstants";
 
 jest.mock("react-transition-group", () => {
   const FakeTransition = jest.fn(({ children }) => children);
@@ -17,7 +17,7 @@ jest.mock("react-transition-group", () => {
 });
 
 jest.useFakeTimers();
-const renderComponent = ({ ...props }) => {
+const renderComponent = props => {
   return render(
     <Tipseen {...props}>
       <div />
@@ -29,8 +29,8 @@ describe("Tipseen tests", () => {
     it("renders correctly", () => {
       const tree = renderer
         .create(
-          <Tipseen position={Tipseen.positions.RIGHT}>
-            <div className={"tooltip-empty-element"} />
+          <Tipseen>
+            <div />
           </Tipseen>
         )
         .toJSON();
@@ -57,10 +57,6 @@ describe("Tipseen tests", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("renders correctly without title", () => {
-      const tree = renderer.create(<Tipseen />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
   });
 
   describe("Integration Tests", () => {
@@ -71,9 +67,11 @@ describe("Tipseen tests", () => {
     it("call onClose function when click on close button", () => {
       const onClickMock = jest.fn();
       const tipseen = renderComponent({
-        onClose: onClickMock
+        onClose: onClickMock,
+        isCloseButtonHidden: true
       });
-      const closeButton = tipseen.getByTestId(TIPSEEN_CLOSE_BUTTON_TEST_ID);
+      const closeButton = tipseen.getByLabelText(TIPSEEN_CLOSE_BUTTON_ARIA_LABEL);
+      console.error(closeButton);
 
       act(() => {
         fireEvent.click(closeButton);

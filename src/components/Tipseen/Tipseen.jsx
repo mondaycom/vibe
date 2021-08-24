@@ -12,7 +12,7 @@ import Icon from "../Icon/Icon";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { TOOLTIP_JUSTIFY_TYPES } from "../Tooltip/TooltipConstants";
 import "./Tipseen.scss";
-import { TIPSEEN_CLOSE_BUTTON_TEST_ID } from "./TipseenConstants";
+import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
 
 const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
 const bemHelper = BEMClass(TIPSEEN_BASE_CSS_CLASS);
@@ -39,11 +39,11 @@ const Tipseen = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const overrideCloseAriaLabel = closeAriaLabel || "Close";
+    const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
     const tooltipContent = useMemo(
       () => (
         <div className={TIPSEEN_BASE_CSS_CLASS}>
-          <div data-testid={TIPSEEN_CLOSE_BUTTON_TEST_ID} className={bemHelper({ element: "header" })}>
+          <div className={bemHelper({ element: "header" })}>
             <Button
               className={bemHelper({ element: "close-button" })}
               onClick={onClose}
