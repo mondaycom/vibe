@@ -7,17 +7,18 @@ import useEventListener from "../../../../hooks/useEventListener";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 import Icon from "../../../Icon/Icon";
 import Check from "../../../Icon/Icons/components/Check";
+import Divider from "../../../Divider/Divider";
 
 import { keyCodes } from "../../../../constants/KeyCodes";
 import { NOOP } from "../../../../utils/function-utils";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
-import { baseClassName } from "./StepIndicatorConstants";
-import "./StepIndicator.scss";
+import { baseClassName } from "./VerticalStepIndicatorConstants";
+import "./VerticalStepIndicator.scss";
 import HiddenText from "../../../HiddenText/HiddenText";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
-const StepIndicator = ({
+const VerticalStepIndicator = ({
   stepComponentClassName,
   stepNumber,
   status,
@@ -26,7 +27,9 @@ const StepIndicator = ({
   type,
   fulfilledStepIcon,
   fulfilledStepIconType,
-  onClick
+  onClick,
+  isFollowedByDivider,
+  stepDividerClassName
 }) => {
   // Animations state
   const [statusChangeAnimationState, setStatusChangeAnimationState] = useState(false);
@@ -112,25 +115,28 @@ const StepIndicator = ({
       aria-label={ariaLabel}
       onClick={handleClick}
     >
-      <div
-        className={cx(...getClassNamesWithSuffix("__number-container"))}
-        ref={componentRef}
-        tabIndex="0"
-        role="button"
-      >
-        <SwitchTransition mode="out-in">
-          <CSSTransition
-            classNames={`${baseClassName}--swap`}
-            addEndListener={(node, done) => {
-              node.addEventListener("transitionend", done, false);
-            }}
-            key={status}
-          >
-            <span className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
-              <StepCircleDisplay />
-            </span>
-          </CSSTransition>
-        </SwitchTransition>
+      <div className={cx(...getClassNamesWithSuffix("__number-divider-container"))}>
+        <div
+          className={cx(...getClassNamesWithSuffix("__number-container"))}
+          ref={componentRef}
+          tabIndex="0"
+          role="button"
+        >
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              classNames={`${baseClassName}--swap`}
+              addEndListener={(node, done) => {
+                node.addEventListener("transitionend", done, false);
+              }}
+              key={status}
+            >
+              <span className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
+                <StepCircleDisplay />
+              </span>
+            </CSSTransition>
+          </SwitchTransition>
+        </div>
+        {isFollowedByDivider && <Divider classname={stepDividerClassName} />}
       </div>
       <div className={cx(...getClassNamesWithSuffix("__text-container"))}>
         <div className={cx(...getClassNamesWithSuffix("__text-container__title"))}>
@@ -143,7 +149,7 @@ const StepIndicator = ({
   );
 };
 
-StepIndicator.propTypes = {
+VerticalStepIndicator.propTypes = {
   status: PropTypes.oneOf([STEP_STATUSES.PENDING, STEP_STATUSES.ACTIVE, STEP_STATUSES.FULFILLED]).isRequired,
   titleText: PropTypes.string.isRequired,
   subtitleText: PropTypes.string,
@@ -160,7 +166,7 @@ StepIndicator.propTypes = {
   onClick: PropTypes.func
 };
 
-StepIndicator.defaultProps = {
+VerticalStepIndicator.defaultProps = {
   stepComponentClassName: "",
   stepNumber: 1,
   status: STEP_STATUSES.PENDING,
@@ -172,4 +178,4 @@ StepIndicator.defaultProps = {
   onClick: NOOP
 };
 
-export default StepIndicator;
+export default VerticalStepIndicator;

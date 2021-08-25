@@ -13,12 +13,17 @@
   }
 
   &--size {
-    &-small,
+    &-small {
+      @include font-caption();
+      min-width: 18px;
+      line-height: 18px;
+      padding: 0 $spacing-xs;
+    }
     &-medium {
       @include font-caption();
       min-width: 18px;
       line-height: 18px;
-      padding: 0 $spacing-xs-small;
+      padding: 0 $spacing-xs;
     }
 
     &-large {
@@ -79,7 +84,7 @@
     }
 
     &-line {
-      border: 1px solid currentColor;
+      box-shadow: 0 0 0 1px currentColor inset;
       &.monday-style-counter {
         &--color {
           &-primary {
