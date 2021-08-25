@@ -170,7 +170,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly with title 1`] = `
               </svg>
             </button>
             <span
-              className="monday-style-tipseen-title"
+              className="monday-style-tipseen-title monday-style-tipseen_title"
             >
               mock title
             </span>
