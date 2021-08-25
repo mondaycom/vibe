@@ -98,8 +98,6 @@ describe("Steps tests", () => {
         fireEvent.click(backwardButton);
       });
 
-      console.log(onClickMock, onClickMock.mock);
-
       expect(onClickMock.mock.calls.length).toBe(0);
     });
     it("does not call onChangeIndexCallback when click on next button when in last page", () => {
