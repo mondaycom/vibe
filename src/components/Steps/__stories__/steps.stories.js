@@ -88,14 +88,18 @@ export const Sandbox = () => {
     return retval;
   }, [stepsNumber]);
   return (
-    <Steps
-      steps={steps}
-      className={isOnPrimary ? "monday-style-story-steps-on-primary-wrapper" : undefined}
-      type={select("Type", [Steps.types.GALLERY, Steps.types.NUMBERS])}
-      activeStepIndex={number("Active step index", 0)}
-      areNavigationButtonsHidden={boolean("Are navigation buttons hidden")}
-      isOnPrimary={isOnPrimary}
-    />
+    <div style={{ width: "300px" }}>
+      <Steps
+        steps={steps}
+        className={isOnPrimary ? "monday-style-story-steps-on-primary-wrapper" : undefined}
+        type={select("Type", [Steps.types.GALLERY, Steps.types.NUMBERS])}
+        activeStepIndex={number("Active step index", 0)}
+        areNavigationButtonsHidden={boolean("Are navigation buttons hidden")}
+        isOnPrimary={isOnPrimary}
+        isContentOnTop={boolean("Is content on top", false)}
+        areButtonsIconsHidden={boolean("Are button icons hidden", false)}
+      />
+    </div>
   );
 };
 
