@@ -47,7 +47,7 @@ const ColorPickerItemComponent = ({
         ref={itemRef}
         className={cx("color-item", { "color-item-text-mode": mode !== "full" })}
         style={{ background: mode === "full" ? colorAsStyle : "transparent" }}
-        onClick={() => onValueChange && onValueChange(colorAsStyle)}
+        onClick={() => onValueChange && onValueChange(color)}
         onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
       >
         {mode === "full" ? (
