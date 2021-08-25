@@ -19,6 +19,10 @@
     justify-content: flex-start;
   }
 
+  &_title {
+    padding: $spacing-medium $spacing-medium 0 $spacing-medium;
+  }
+
   &_content {
     @include font-default;
     @include theme-prop(color, text-color-on-primary);

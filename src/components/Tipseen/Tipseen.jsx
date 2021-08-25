@@ -54,7 +54,7 @@ const Tipseen = forwardRef(
             >
               {isCloseButtonHidden ? null : <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />}
             </Button>
-            <TipseenTitle text={title} />
+            <TipseenTitle text={title} className={bemHelper({ element: "title" })} />
           </div>
           <div className={bemHelper({ element: "content" })}>{content}</div>
         </div>
@@ -84,7 +84,12 @@ const Tipseen = forwardRef(
   }
 );
 
-Tipseen.positions = DialogPositions;
+Tipseen.positions = {
+  LEFT: DialogPositions.LEFT,
+  RIGHT: DialogPositions.RIGHT,
+  TOP: DialogPositions.TOP,
+  BOTTOM: DialogPositions.BOTTOM
+};
 Tipseen.animationTypes = DIALOG_ANIMATION_TYPES;
 Tipseen.justifyTypes = TOOLTIP_JUSTIFY_TYPES;
 Tipseen.propTypes = {
@@ -92,17 +97,9 @@ Tipseen.propTypes = {
   id: PropTypes.string,
   position: PropTypes.oneOf([
     Tipseen.positions.LEFT,
-    Tipseen.positions.LEFT_START,
-    Tipseen.positions.LEFT_END,
     Tipseen.positions.RIGHT,
-    Tipseen.positions.RIGHT_START,
-    Tipseen.positions.RIGHT_END,
     Tipseen.positions.TOP,
-    Tipseen.positions.TOP_START,
-    Tipseen.positions.TOP_END,
-    Tipseen.positions.BOTTOM,
-    Tipseen.positions.BOTTOM_START,
-    Tipseen.positions.BOTTOM_END
+    Tipseen.positions.BOTTOM
   ]),
   animationType: PropTypes.oneOf([Tipseen.animationTypes.EXPAND, Tipseen.animationTypes.OPACITY_AND_SLIDE]),
   hideDelay: PropTypes.number,

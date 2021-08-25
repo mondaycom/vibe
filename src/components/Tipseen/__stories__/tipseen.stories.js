@@ -1,5 +1,4 @@
 import React, { useCallback, useMemo, useState } from "react";
-import cx from "classnames";
 import StoryTitle from "../../storybook-helpers/story-title/story-title";
 import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
@@ -10,17 +9,7 @@ import TipseenContent from "../TipseenContent";
 import "./tipseen.stories.scss";
 import { TipseenWizard } from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
-export const States = () => {
-  const [step, setStep] = useState();
-  const onChangeStep = useCallback((e, index) => setStep(index), [setStep]);
-  const tipseenWizard = useMemo(() => {
-    const content = [
-      <div>Popover message will appear here loremipsum dolor samet…</div>,
-      <div>Popover message will appear here loremipsum dolor samet…</div>,
-      <div>Popover message will appear here loremipsum dolor samet…</div>
-    ];
-    return <TipseenWizard title="title" steps={content} onChangeActiveStep={onChangeStep} activeStepIndex={step} />;
-  });
+export const BasicTipseen = () => {
   return (
     <StoryWrapper>
       <StoryTitle text="Empty tipseen" />
@@ -44,6 +33,22 @@ export const States = () => {
           <div className={"monday-style-story-tipseen_container"} />
         </Tipseen>
       </StoryStateRow>
+    </StoryWrapper>
+  );
+};
+export const WizardTipseen = () => {
+  const [step, setStep] = useState();
+  const onChangeStep = useCallback((e, index) => setStep(index), [setStep]);
+  const tipseenWizard = useMemo(() => {
+    const content = [
+      <div>Popover message will appear here loremipsum dolor samet…</div>,
+      <div>Popover message will appear here loremipsum dolor samet…</div>,
+      <div>Popover message will appear here loremipsum dolor samet…</div>
+    ];
+    return <TipseenWizard title="title" steps={content} onChangeActiveStep={onChangeStep} activeStepIndex={step} />;
+  });
+  return (
+    <StoryWrapper>
       <StoryTitle text="Tipseen with a wizard" />
       <StoryStateRow componentClassName="monday-style-story-tipseen_container monday-style-story-tipseen--large">
         <Tipseen position={Tipseen.positions.RIGHT} content={tipseenWizard}>
@@ -53,12 +58,11 @@ export const States = () => {
     </StoryWrapper>
   );
 };
-
 export const tipseenWithImage = () => {
   return (
-    <>
+    <StoryWrapper>
       <StoryTitle text="Tipseen with image" />
-      <StoryStateRow componentClassName="monday-style-story-tipseen_containe monday-style-story-tipseen--extra-large">
+      <StoryStateRow componentClassName="monday-style-story-tipseen_container monday-style-story-tipseen--large">
         <Tipseen
           position={Tipseen.positions.BOTTOM}
           isCloseButtonOnImage
@@ -70,7 +74,7 @@ export const tipseenWithImage = () => {
               />
               <TipseenContent
                 isDismissHidden={false}
-                title="title"
+                title="Title"
                 children="Popover message will appear here loremipsum dolor samet… "
               />
             </>
@@ -79,28 +83,25 @@ export const tipseenWithImage = () => {
           <div />
         </Tipseen>
       </StoryStateRow>
-    </>
+    </StoryWrapper>
   );
 };
 export const Sandbox = () => (
-  <div>
+  <div className="monday-style-story-sandbox-tipseen">
     <Tipseen
-      id="Knobs"
-      title={text("Text", "Test knob value")}
-      content="Popover message will appear here loremipsum dolor samet… "
-    >
-      <div className={cx("tooltip-empty-element")} />
-    </Tipseen>
-    <Tipseen
+      title={text("Title", "Title")}
+      position={select("Position", Tipseen.positions)}
+      animationTypes={select("Animation types", Tipseen.animationTypes)}
+      justify={select("justify", Tipseen.justifyTypes)}
+      isCloseButtonHidden={boolean("Is close button hidden", false)}
       content={
         <TipseenContent
-          isDismissHidden={false}
-          title="title"
-          children="Popover message will appear here loremipsum dolor samet… "
+          isDismissHidden={boolean("Is dismiss hidden", false)}
+          children={text("Tipseen content text", "Popover message will appear here loremipsum dolor samet…")}
         />
       }
     >
-      <div />
+      <div className="monday-style-story-sandbox-tipseen_container" />
     </Tipseen>
   </div>
 );
