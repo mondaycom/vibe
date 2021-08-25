@@ -27,7 +27,11 @@ const ColorPicker = forwardRef(
 
     return (
       <div ref={mergedRef} className={cx("color-picker--wrapper", className)}>
-        <DialogContentContainer className={cx("color-picker-dialog-content")}>
+        <DialogContentContainer
+          className={cx("color-picker-dialog-content")}
+          ariaLabelledby="Color Picker Dialog"
+          ariaDescribedby="Pick color"
+        >
           <ColorPickerContentComponent
             onValueChange={onChange}
             value={value}
