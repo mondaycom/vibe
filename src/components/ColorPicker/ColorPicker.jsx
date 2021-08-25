@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import React, { forwardRef, useCallback, useRef } from "react";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
+import { COLOR_STYLES } from "../../general-stories/colors/colors-vars-map";
 import "./ColorPicker.scss";
 import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
 
-const ColorPicker = forwardRef(({ className, onSave, value, defaultColorText, mode }, ref) => {
+const ColorPicker = forwardRef(({ className, onSave, value, defaultColorText, mode, colorStyle }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -20,6 +21,7 @@ const ColorPicker = forwardRef(({ className, onSave, value, defaultColorText, mo
           value={value}
           defaultColorText={defaultColorText}
           mode={mode}
+          colorStyle={colorStyle}
         />
       </DialogContentContainer>
     </div>
@@ -30,6 +32,7 @@ ColorPicker.propTypes = {
   className: PropTypes.string,
   onSave: PropTypes.func,
   value: PropTypes.string,
+  colorStyle: PropTypes.string,
   defaultColorText: PropTypes.string,
   mode: PropTypes.string
 };
@@ -38,6 +41,7 @@ ColorPicker.defaultProps = {
   className: "",
   onSave: () => {},
   value: "",
+  colorStyle: COLOR_STYLES.REGULAR,
   defaultColorText: "TODO - default-text",
   mode: "full"
 };

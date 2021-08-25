@@ -14,6 +14,7 @@ const ColorPickerItemComponent = ({
 }) => {
   const colorAsStyle = getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
+
   useEffect(() => {
     if (!itemRef || !itemRef.current || mode !== "full") return;
     const item = itemRef.current;
@@ -34,7 +35,8 @@ const ColorPickerItemComponent = ({
       item.removeEventListener("mouseenter", onHover);
       item.removeEventListener("mouseleave", onMouseLeave);
     };
-  }, [color, itemRef, mode]);
+  }, [color, colorAsStyle, colorStyle, itemRef, mode]);
+
   return (
     <div
       className={cx("color-item-wrapper", {

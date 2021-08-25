@@ -1,14 +1,19 @@
-import { number } from "@storybook/addon-knobs";
+import { number, optionsKnob } from "@storybook/addon-knobs";
 import React from "react";
 import { withPerformance } from "storybook-addon-performance";
-import { contentColors, getMondayColorAsStyle } from "../../../general-stories/colors/colors-vars-map";
+import { COLOR_STYLES } from "../../../general-stories/colors/colors-vars-map";
 import ColorPicker from "../ColorPicker";
 
-export const Sandbox = () => (
-  <div style={{ width: number("external wrapper width", 240) }}>
-    <ColorPicker />
-  </div>
-);
+export const Sandbox = () => {
+  const colorStyle = optionsKnob("Color style", COLOR_STYLES, COLOR_STYLES.REGULAR, {
+    display: "inline-radio"
+  });
+  return (
+    <div style={{ width: number("external wrapper width", 240) }}>
+      <ColorPicker colorStyle={colorStyle} />
+    </div>
+  );
+};
 
 export default {
   title: "Components/ColorPicker",
