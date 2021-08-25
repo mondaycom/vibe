@@ -47,7 +47,7 @@ ColorPicker.defaultProps = {
   ColorIndicatorComponentRenderer: undefined,
   value: "",
   colorStyle: COLOR_STYLES.REGULAR,
-  noColorText: "TODO - default-text",
+  noColorText: undefined,
   mode: "full"
 };
 
