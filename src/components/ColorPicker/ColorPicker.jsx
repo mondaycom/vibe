@@ -48,7 +48,7 @@ ColorPicker.defaultProps = {
   value: "",
   colorStyle: COLOR_STYLES.REGULAR,
   noColorText: undefined,
-  mode: "full"
+  mode: ColorPickerContentComponent.MODES.FULL
 };
 
 export default ColorPicker;

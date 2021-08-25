@@ -53,6 +53,9 @@ const ColorPickerContentComponent = ({
 };
 
 ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
+ColorPickerContentComponent.MODES = {
+  FULL: "full"
+};
 
 ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
@@ -71,7 +74,7 @@ ColorPickerContentComponent.defaultProps = {
   colorStyle: COLOR_STYLES.REGULAR,
   value: "",
   noColorText: undefined,
-  mode: "full"
+  mode: ColorPickerContentComponent.MODES.FULL
 };
 
 export default ColorPickerContentComponent;

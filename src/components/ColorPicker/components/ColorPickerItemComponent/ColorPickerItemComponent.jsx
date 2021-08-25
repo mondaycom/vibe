@@ -9,7 +9,7 @@ const ColorPickerItemComponent = ({
   onValueChange,
   value,
   colorStyle = COLOR_STYLES.REGULAR,
-  mode = "full",
+  mode,
   ColorIndicatorComponentRenderer
 }) => {
   const colorAsStyle = getMondayColorAsStyle(color, colorStyle);
