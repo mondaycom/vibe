@@ -71,7 +71,6 @@ describe("Tipseen tests", () => {
         isCloseButtonHidden: true
       });
       const closeButton = tipseen.getByLabelText(TIPSEEN_CLOSE_BUTTON_ARIA_LABEL);
-      console.error(closeButton);
 
       act(() => {
         fireEvent.click(closeButton);
