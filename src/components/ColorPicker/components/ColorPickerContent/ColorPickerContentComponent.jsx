@@ -11,7 +11,7 @@ const ColorPickerContentComponent = ({
   className,
   onValueChange,
   value,
-  defaultColorText,
+  noColorText,
   mode,
   colorStyle,
   ColorIndicatorComponentRenderer
@@ -37,15 +37,17 @@ const ColorPickerContentComponent = ({
           );
         })}
       </div>
-      <Button
-        size={Button.sizes.SMALL}
-        kind={Button.kinds.TERTIARY}
-        onClick={onClearButton}
-        className="clear-color-button"
-      >
-        <NoColor size="16" className="clear-color-icon" />
-        {defaultColorText}
-      </Button>
+      {noColorText && (
+        <Button
+          size={Button.sizes.SMALL}
+          kind={Button.kinds.TERTIARY}
+          onClick={onClearButton}
+          className="clear-color-button"
+        >
+          <NoColor size="16" className="clear-color-icon" />
+          {noColorText}
+        </Button>
+      )}
     </div>
   );
 };
@@ -58,7 +60,7 @@ ColorPickerContentComponent.propTypes = {
   ColorIndicatorComponentRenderer: PropTypes.func,
   colorStyle: PropTypes.string,
   value: PropTypes.string,
-  defaultColorText: PropTypes.string,
+  noColorText: PropTypes.string,
   mode: PropTypes.string
 };
 
@@ -68,7 +70,7 @@ ColorPickerContentComponent.defaultProps = {
   ColorIndicatorComponentRenderer: undefined,
   colorStyle: COLOR_STYLES.REGULAR,
   value: "",
-  defaultColorText: "TODO - default-text",
+  noColorText: "TODO - default-text",
   mode: "full"
 };
 

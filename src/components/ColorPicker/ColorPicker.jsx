@@ -8,7 +8,7 @@ import "./ColorPicker.scss";
 import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
 
 const ColorPicker = forwardRef(
-  ({ className, onSave, value, defaultColorText, mode, colorStyle, ColorIndicatorComponentRenderer }, ref) => {
+  ({ className, onSave, value, noColorText, mode, colorStyle, ColorIndicatorComponentRenderer }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -20,7 +20,7 @@ const ColorPicker = forwardRef(
           <ColorPickerContentComponent
             onValueChange={onChange}
             value={value}
-            defaultColorText={defaultColorText}
+            noColorText={noColorText}
             mode={mode}
             colorStyle={colorStyle}
             ColorIndicatorComponentRenderer={ColorIndicatorComponentRenderer}
@@ -37,7 +37,7 @@ ColorPicker.propTypes = {
   ColorIndicatorComponentRenderer: PropTypes.func,
   value: PropTypes.string,
   colorStyle: PropTypes.string,
-  defaultColorText: PropTypes.string,
+  noColorText: PropTypes.string,
   mode: PropTypes.string
 };
 
@@ -47,7 +47,7 @@ ColorPicker.defaultProps = {
   ColorIndicatorComponentRenderer: undefined,
   value: "",
   colorStyle: COLOR_STYLES.REGULAR,
-  defaultColorText: "TODO - default-text",
+  noColorText: "TODO - default-text",
   mode: "full"
 };
 

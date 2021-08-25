@@ -1,4 +1,4 @@
-import { number, optionsKnob } from "@storybook/addon-knobs";
+import { number, optionsKnob, text } from "@storybook/addon-knobs";
 import React from "react";
 import { withPerformance } from "storybook-addon-performance";
 import { COLOR_STYLES } from "../../../general-stories/colors/colors-vars-map";
@@ -9,9 +9,10 @@ export const Sandbox = () => {
   const colorStyle = optionsKnob("Color style", COLOR_STYLES, COLOR_STYLES.REGULAR, {
     display: "inline-radio"
   });
+  const noColorText = text("no color text", undefined);
   return (
     <div style={{ width: number("external wrapper width", 240) }}>
-      <ColorPicker colorStyle={colorStyle} />
+      <ColorPicker colorStyle={colorStyle} noColorText={noColorText} />
     </div>
   );
 };
