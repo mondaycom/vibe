@@ -7,7 +7,15 @@ import NoColor from "../../../Icon/Icons/components/NoColor";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import "./ColorPickerContentComponent.scss";
 
-const ColorPickerContentComponent = ({ className, onValueChange, value, defaultColorText, mode, colorStyle }) => {
+const ColorPickerContentComponent = ({
+  className,
+  onValueChange,
+  value,
+  defaultColorText,
+  mode,
+  colorStyle,
+  ColorIndicatorComponentRenderer
+}) => {
   const colors = contentColors;
   const onClearButton = useCallback(() => {
     onValueChange(null);
@@ -24,6 +32,7 @@ const ColorPickerContentComponent = ({ className, onValueChange, value, defaultC
               value={value}
               mode={mode}
               colorStyle={colorStyle}
+              ColorIndicatorComponentRenderer={ColorIndicatorComponentRenderer}
             />
           );
         })}
@@ -46,6 +55,7 @@ ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
 ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
   onValueChange: PropTypes.func,
+  ColorIndicatorComponentRenderer: PropTypes.func,
   colorStyle: PropTypes.string,
   value: PropTypes.string,
   defaultColorText: PropTypes.string,
@@ -55,6 +65,7 @@ ColorPickerContentComponent.propTypes = {
 ColorPickerContentComponent.defaultProps = {
   className: "",
   onValueChange: () => {},
+  ColorIndicatorComponentRenderer: undefined,
   colorStyle: COLOR_STYLES.REGULAR,
   value: "",
   defaultColorText: "TODO - default-text",

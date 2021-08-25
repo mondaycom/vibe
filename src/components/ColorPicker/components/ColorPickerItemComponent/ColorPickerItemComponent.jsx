@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import cx from "classnames";
 import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
 import { getMondayColorAsStyle } from "../../../../utils/colors-utils";
-import ColorIndicator from "../ColorIndicator/ColorIndicator";
 import "./ColorPickerItemComponent.scss";
 
 const ColorPickerItemComponent = ({
@@ -10,7 +9,8 @@ const ColorPickerItemComponent = ({
   onValueChange,
   value,
   colorStyle = COLOR_STYLES.REGULAR,
-  mode = "full"
+  mode = "full",
+  ColorIndicatorComponentRenderer
 }) => {
   const colorAsStyle = getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
@@ -51,10 +51,12 @@ const ColorPickerItemComponent = ({
         onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
       >
         {mode === "full" ? (
-          <div className="color-indicator-wrapper">{ColorIndicator({})}</div>
+          <div className="color-indicator-wrapper">
+            {ColorIndicatorComponentRenderer && ColorIndicatorComponentRenderer()}
+          </div>
         ) : (
           <div className="color-indicator-wrapper" style={{ color: colorAsStyle }}>
-            {ColorIndicator({})}
+            {ColorIndicatorComponentRenderer && ColorIndicatorComponentRenderer()}
           </div>
         )}
       </div>
