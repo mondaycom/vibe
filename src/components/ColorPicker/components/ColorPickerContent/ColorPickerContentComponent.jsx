@@ -12,9 +12,9 @@ const ColorPickerContentComponent = ({
   onValueChange,
   value,
   noColorText,
-  mode,
   colorStyle,
-  ColorIndicatorComponentRenderer
+  ColorIndicatorComponentRenderer,
+  shouldRenderIndicatorWithoutBackground
 }) => {
   const colors = contentColors;
   const onClearButton = useCallback(() => {
@@ -30,7 +30,9 @@ const ColorPickerContentComponent = ({
               color={color}
               onValueChange={onValueChange}
               value={value}
-              mode={mode}
+              shouldRenderIndicatorWithoutBackground={
+                ColorIndicatorComponentRenderer && shouldRenderIndicatorWithoutBackground
+              }
               colorStyle={colorStyle}
               ColorIndicatorComponentRenderer={ColorIndicatorComponentRenderer}
             />
@@ -53,9 +55,6 @@ const ColorPickerContentComponent = ({
 };
 
 ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
-ColorPickerContentComponent.MODES = {
-  FULL: "full"
-};
 
 ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
@@ -64,7 +63,7 @@ ColorPickerContentComponent.propTypes = {
   colorStyle: PropTypes.string,
   value: PropTypes.string,
   noColorText: PropTypes.string,
-  mode: PropTypes.string
+  shouldRenderIndicatorWithoutBackground: PropTypes.bool
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -74,7 +73,7 @@ ColorPickerContentComponent.defaultProps = {
   colorStyle: COLOR_STYLES.REGULAR,
   value: "",
   noColorText: undefined,
-  mode: ColorPickerContentComponent.MODES.FULL
+  shouldRenderIndicatorWithoutBackground: false
 };
 
 export default ColorPickerContentComponent;
