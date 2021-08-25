@@ -8,4 +8,6 @@
   @include theme-prop(border-color, primary-color);
   width: 100%;
   border-radius: $border-radius-medium;
+  position: relative;
+  z-index: 1;
 }
