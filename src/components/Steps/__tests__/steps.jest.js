@@ -33,6 +33,32 @@ describe("Steps tests", () => {
           .toJSON();
         expect(tree).toMatchSnapshot();
       });
+      it("when hide navigations icons", () => {
+        const tree = renderer
+          .create(
+            <Steps
+              type={Steps.types.NUMBERS}
+              steps={stepsContent}
+              activeStepIndex={stepsContent.length - 1}
+              areButtonsIconsHidden
+            />
+          )
+          .toJSON();
+        expect(tree).toMatchSnapshot();
+      });
+      it("when steps content is on top", () => {
+        const tree = renderer
+          .create(
+            <Steps
+              type={Steps.types.NUMBERS}
+              steps={stepsContent}
+              activeStepIndex={stepsContent.length - 1}
+              isContentOnTop
+            />
+          )
+          .toJSON();
+        expect(tree).toMatchSnapshot();
+      });
     });
     describe("renders correctly with gallery view", () => {
       it("with regular props", () => {
@@ -49,6 +75,45 @@ describe("Steps tests", () => {
         const tree = renderer.create(
           <Steps type={Steps.types.GALLERY} steps={stepsContent} activeStepIndex={stepsContent.length - 1} />
         );
+        expect(tree).toMatchSnapshot();
+      });
+      it("when hide navigations icons", () => {
+        const tree = renderer
+          .create(
+            <Steps
+              type={Steps.types.GALLERY}
+              steps={stepsContent}
+              activeStepIndex={stepsContent.length - 1}
+              areButtonsIconsHidden
+            />
+          )
+          .toJSON();
+        expect(tree).toMatchSnapshot();
+      });
+      it("when steps content is on top", () => {
+        const tree = renderer
+          .create(
+            <Steps
+              type={Steps.types.GALLERY}
+              steps={stepsContent}
+              activeStepIndex={stepsContent.length - 1}
+              isContentOnTop
+            />
+          )
+          .toJSON();
+        expect(tree).toMatchSnapshot();
+      });
+      it("when navigation buttons are hidden", () => {
+        const tree = renderer
+          .create(
+            <Steps
+              type={Steps.types.GALLERY}
+              steps={stepsContent}
+              activeStepIndex={stepsContent.length - 1}
+              areNavigationButtonsHidden
+            />
+          )
+          .toJSON();
         expect(tree).toMatchSnapshot();
       });
     });

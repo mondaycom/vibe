@@ -74,6 +74,190 @@ exports[`Steps tests Snapshot Tests renders correctly with empty props 1`] = `
 </div>
 `;
 
+exports[`Steps tests Snapshot Tests renders correctly with gallery view when hide navigations icons 1`] = `
+<div
+  className="monday-style-steps monday-style-steps--content-on-bottom"
+  id=""
+>
+  <div
+    className="monday-style-steps-header monday-style-steps-header--gallery"
+  >
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Back
+    </button>
+    <div
+      className="monday-style-steps-header_gallery"
+      role="group"
+    >
+      <button
+        aria-current={false}
+        aria-label="Step number 0"
+        className="monday-style-steps-header_dot"
+        onClick={[Function]}
+      />
+      <button
+        aria-current="step"
+        aria-label="Step number 1"
+        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+        onClick={[Function]}
+      />
+    </div>
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      disabled={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Next
+    </button>
+  </div>
+  <div
+    data-testid="second-step"
+  >
+    second
+  </div>
+</div>
+`;
+
+exports[`Steps tests Snapshot Tests renders correctly with gallery view when navigation buttons are hidden 1`] = `
+<div
+  className="monday-style-steps monday-style-steps--content-on-bottom"
+  id=""
+>
+  <div
+    className="monday-style-steps-header monday-style-steps-header--gallery"
+  >
+    <div
+      className="monday-style-steps-header_gallery"
+      role="group"
+    >
+      <button
+        aria-current={false}
+        aria-label="Step number 0"
+        className="monday-style-steps-header_dot"
+        onClick={[Function]}
+      />
+      <button
+        aria-current="step"
+        aria-label="Step number 1"
+        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    data-testid="second-step"
+  >
+    second
+  </div>
+</div>
+`;
+
+exports[`Steps tests Snapshot Tests renders correctly with gallery view when steps content is on top 1`] = `
+<div
+  className="monday-style-steps monday-style-steps--content-on-top"
+  id=""
+>
+  <div
+    data-testid="second-step"
+  >
+    second
+  </div>
+  <div
+    className="monday-style-steps-header monday-style-steps-header--gallery"
+  >
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Back
+      <svg
+        aria-hidden={true}
+        className="icon_component monday-style-steps-command_icon"
+        fill="currentColor"
+        height="16"
+        onClick={[Function]}
+        role="img"
+        viewBox="0 0 20 20"
+        width="16"
+      >
+        <path
+          clipRule="evenodd"
+          d="M5.46967 10.5303L6 10L5.46967 9.46967C5.17678 9.76256 5.17678 10.2374 5.46967 10.5303ZM7.06066 10L13.5303 3.53033C13.8232 3.23744 13.8232 2.76256 13.5303 2.46967C13.2374 2.17678 12.7626 2.17678 12.4697 2.46967L5.46967 9.46967L6 10L5.46967 10.5303L12.4697 17.5303C12.7626 17.8232 13.2374 17.8232 13.5303 17.5303C13.8232 17.2374 13.8232 16.7626 13.5303 16.4697L7.06066 10Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+    <div
+      className="monday-style-steps-header_gallery"
+      role="group"
+    >
+      <button
+        aria-current={false}
+        aria-label="Step number 0"
+        className="monday-style-steps-header_dot"
+        onClick={[Function]}
+      />
+      <button
+        aria-current="step"
+        aria-label="Step number 1"
+        className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+        onClick={[Function]}
+      />
+    </div>
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      disabled={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Next
+      <svg
+        aria-hidden={true}
+        className="icon_component monday-style-steps-command_icon"
+        fill="currentColor"
+        height="16"
+        onClick={[Function]}
+        role="img"
+        viewBox="0 0 20 20"
+        width="16"
+      >
+        <path
+          clipRule="evenodd"
+          d="M13.5303 9.46967L13 10L13.5303 10.5303C13.8232 10.2374 13.8232 9.76256 13.5303 9.46967ZM11.9393 10L5.46967 16.4697C5.17678 16.7626 5.17678 17.2374 5.46967 17.5303C5.76256 17.8232 6.23744 17.8232 6.53033 17.5303L13.5303 10.5303L13 10L13.5303 9.46967L6.53033 2.46967C6.23744 2.17678 5.76256 2.17678 5.46967 2.46967C5.17678 2.76256 5.17678 3.23744 5.46967 3.53033L11.9393 10Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Steps tests Snapshot Tests renders correctly with gallery view when viewing first step 1`] = `
 <div
   className="monday-style-steps monday-style-steps--content-on-bottom"
@@ -346,6 +530,132 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view with reg
     data-testid="first-step"
   >
     first
+  </div>
+</div>
+`;
+
+exports[`Steps tests Snapshot Tests renders correctly with numbers view when hide navigations icons 1`] = `
+<div
+  className="monday-style-steps monday-style-steps--content-on-bottom"
+  id=""
+>
+  <div
+    className="monday-style-steps-header monday-style-steps-header--numbers"
+  >
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Back
+    </button>
+    <div
+      className="monday-style-steps-header_numbers"
+    >
+      2 \\ 2
+    </div>
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      disabled={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Next
+    </button>
+  </div>
+  <div
+    data-testid="second-step"
+  >
+    second
+  </div>
+</div>
+`;
+
+exports[`Steps tests Snapshot Tests renders correctly with numbers view when steps content is on top 1`] = `
+<div
+  className="monday-style-steps monday-style-steps--content-on-top"
+  id=""
+>
+  <div
+    data-testid="second-step"
+  >
+    second
+  </div>
+  <div
+    className="monday-style-steps-header monday-style-steps-header--numbers"
+  >
+    <button
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Back
+      <svg
+        aria-hidden={true}
+        className="icon_component monday-style-steps-command_icon"
+        fill="currentColor"
+        height="16"
+        onClick={[Function]}
+        role="img"
+        viewBox="0 0 20 20"
+        width="16"
+      >
+        <path
+          clipRule="evenodd"
+          d="M5.46967 10.5303L6 10L5.46967 9.46967C5.17678 9.76256 5.17678 10.2374 5.46967 10.5303ZM7.06066 10L13.5303 3.53033C13.8232 3.23744 13.8232 2.76256 13.5303 2.46967C13.2374 2.17678 12.7626 2.17678 12.4697 2.46967L5.46967 9.46967L6 10L5.46967 10.5303L12.4697 17.5303C12.7626 17.8232 13.2374 17.8232 13.5303 17.5303C13.8232 17.2374 13.8232 16.7626 13.5303 16.4697L7.06066 10Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
+    <div
+      className="monday-style-steps-header_numbers"
+    >
+      2 \\ 2
+    </div>
+    <button
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      disabled={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Next
+      <svg
+        aria-hidden={true}
+        className="icon_component monday-style-steps-command_icon"
+        fill="currentColor"
+        height="16"
+        onClick={[Function]}
+        role="img"
+        viewBox="0 0 20 20"
+        width="16"
+      >
+        <path
+          clipRule="evenodd"
+          d="M13.5303 9.46967L13 10L13.5303 10.5303C13.8232 10.2374 13.8232 9.76256 13.5303 9.46967ZM11.9393 10L5.46967 16.4697C5.17678 16.7626 5.17678 17.2374 5.46967 17.5303C5.76256 17.8232 6.23744 17.8232 6.53033 17.5303L13.5303 10.5303L13 10L13.5303 9.46967L6.53033 2.46967C6.23744 2.17678 5.76256 2.17678 5.46967 2.46967C5.17678 2.76256 5.17678 3.23744 5.46967 3.53033L11.9393 10Z"
+          fill="currentColor"
+          fillRule="evenodd"
+        />
+      </svg>
+    </button>
   </div>
 </div>
 `;
