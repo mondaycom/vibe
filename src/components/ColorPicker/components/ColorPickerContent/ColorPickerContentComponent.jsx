@@ -1,13 +1,21 @@
 import cx from "classnames";
 import PropTypes from "prop-types";
 import React, { useCallback } from "react";
-import { getMondayColorAsStyle } from "../../../../general-stories/colors/colors-vars-map";
+import { contentColors, COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
 import Button from "../../../Button/Button";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import "./ColorPickerContentComponent.scss";
 
-const ColorPickerContentComponent = ({ className, onValueChange, value, colors, defaultColorText, mode }) => {
+const ColorPickerContentComponent = ({
+  className,
+  onValueChange,
+  value,
+  defaultColorText,
+  mode,
+  colorStyle = COLOR_STYLES.REGULAR
+}) => {
+  const colors = contentColors;
   const onClearButton = useCallback(() => {
     onValueChange(null);
   }, [onValueChange]);
@@ -22,6 +30,7 @@ const ColorPickerContentComponent = ({ className, onValueChange, value, colors, 
               onValueChange={onValueChange}
               value={value}
               mode={mode}
+              colorStyle={colorStyle}
             />
           );
         })}
@@ -39,11 +48,12 @@ const ColorPickerContentComponent = ({ className, onValueChange, value, colors, 
   );
 };
 
+ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
+
 ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
   onValueChange: PropTypes.func,
   value: PropTypes.string,
-  colors: PropTypes.arrayOf(PropTypes.string),
   defaultColorText: PropTypes.string,
   mode: PropTypes.string
 };
@@ -52,7 +62,6 @@ ColorPickerContentComponent.defaultProps = {
   className: "",
   onValueChange: () => {},
   value: "",
-  colors: getMondayColorAsStyle("selected"),
   defaultColorText: "TODO - default-text",
   mode: "full"
 };

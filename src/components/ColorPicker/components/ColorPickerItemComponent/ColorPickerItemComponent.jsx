@@ -1,18 +1,31 @@
 import React, { useEffect, useRef } from "react";
 import cx from "classnames";
+import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
+import { getMondayColorAsStyle } from "../../../../utils/colors-utils";
 import ColorIndicator from "../ColorIndicator/ColorIndicator";
 import "./ColorPickerItemComponent.scss";
 
-const ColorPickerItemComponent = ({ color, onValueChange, value, mode = "full" }) => {
+const ColorPickerItemComponent = ({
+  color,
+  onValueChange,
+  value,
+  colorStyle = COLOR_STYLES.REGULAR,
+  mode = "full"
+}) => {
+  const colorAsStyle = getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
   useEffect(() => {
     if (!itemRef || !itemRef.current || mode !== "full") return;
     const item = itemRef.current;
     const onHover = e => {
-      e.target.style.background = color.replace("-selected", "");
+      if (colorStyle === COLOR_STYLES.SELECTED) {
+        e.target.style.background = getMondayColorAsStyle(color, COLOR_STYLES.REGULAR);
+      } else {
+        e.target.style.background = getMondayColorAsStyle(color, COLOR_STYLES.SELECTED);
+      }
     };
     const onMouseLeave = e => {
-      e.target.style.background = color;
+      e.target.style.background = colorAsStyle;
     };
     item.addEventListener("mouseenter", onHover, false);
     item.addEventListener("mouseleave", onMouseLeave, false);
@@ -25,20 +38,20 @@ const ColorPickerItemComponent = ({ color, onValueChange, value, mode = "full" }
   return (
     <div
       className={cx("color-item-wrapper", {
-        "selected-color": value === color
+        "selected-color": value === colorAsStyle
       })}
     >
       <div
         ref={itemRef}
         className={cx("color-item", { "color-item-text-mode": mode !== "full" })}
-        style={{ background: mode === "full" ? color : "transparent" }}
-        onClick={() => onValueChange && onValueChange(color)}
+        style={{ background: mode === "full" ? colorAsStyle : "transparent" }}
+        onClick={() => onValueChange && onValueChange(colorAsStyle)}
         onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
       >
         {mode === "full" ? (
           <div className="color-indicator-wrapper">{ColorIndicator({})}</div>
         ) : (
-          <div className="color-indicator-wrapper" style={{ color }}>
+          <div className="color-indicator-wrapper" style={{ color: colorAsStyle }}>
             {ColorIndicator({})}
           </div>
         )}
