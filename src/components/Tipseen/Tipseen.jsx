@@ -33,7 +33,9 @@ const Tipseen = forwardRef(
       children,
       content,
       justify,
-      containerSelector
+      containerSelector,
+      hideTrigger,
+      showTrigger
     },
     ref
   ) => {
@@ -71,6 +73,8 @@ const Tipseen = forwardRef(
           animationType={animationType}
           hideDelay={hideDelay}
           showDelay={showDelay}
+          hideTrigger={hideTrigger}
+          showTrigger={showTrigger}
           content={tooltipContent}
           theme={Tooltip.themes.Primary}
           justify={justify}

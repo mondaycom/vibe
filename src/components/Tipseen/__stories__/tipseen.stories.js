@@ -90,9 +90,9 @@ export const Sandbox = () => (
   <div className="monday-style-story-sandbox-tipseen">
     <Tipseen
       title={text("Title", "Title")}
-      position={select("Position", Tipseen.positions)}
-      animationTypes={select("Animation types", Tipseen.animationTypes)}
-      justify={select("justify", Tipseen.justifyTypes)}
+      position={select("Position", Tipseen.positions, Tipseen.positions.RIGHT)}
+      animationTypes={select("Animation types", Tipseen.animationTypes, Tipseen.animationTypes.EXPAND)}
+      justify={select("justify", Tipseen.justifyTypes, Tipseen.justifyTypes.CENTER)}
       isCloseButtonHidden={boolean("Is close button hidden", false)}
       content={
         <TipseenContent
