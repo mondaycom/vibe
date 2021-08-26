@@ -106,7 +106,6 @@ const MenuButton = ({
     if (removeTabCloseTrigger) {
       triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
     }
-
     const childrenArr = React.Children.toArray(children);
     const cloned = childrenArr.map(child => {
       if (!React.isValidElement(child)) return null;
@@ -127,7 +126,7 @@ const MenuButton = ({
   }, [children, onMenuDidClose, closeDialogOnContentClick, removeTabCloseTrigger]);
 
   const content = useMemo(() => {
-    if (!clonedChildren.length === 0) return <div />;
+    if (clonedChildren.length === 0) return <div />;
     return (
       <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
         {clonedChildren}
