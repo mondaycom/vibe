@@ -9,6 +9,7 @@
   "extends": ["airbnb", "plugin:prettier/recommended", "plugin:react-hooks/recommended"],
   "plugins": ["import", "react", "jsx-a11y", "json", "markdown", "mocha", "react-hooks"],
   "rules": {
+    "no-debugger": "warn",
     "global-require": "off",
     "no-unused-expressions": "off",
     "no-console": "off",
@@ -28,7 +29,7 @@
     "react/react-in-jsx-scope": 0,
     "react/no-did-update-set-state": "off",
     "arrow-body-style": "off",
-    "react/no-danger": "off",
+    "react/no-danger": "warn",
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": 0,
     "react/forbid-prop-types": ["warn"],
