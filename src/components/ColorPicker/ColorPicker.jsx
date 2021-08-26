@@ -6,10 +6,20 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 import { COLOR_STYLES } from "../../general-stories/colors/colors-vars-map";
 import "./ColorPicker.scss";
 import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
+import NoColor from "../Icon/Icons/components/NoColor";
 
 const ColorPicker = forwardRef(
   (
-    { className, onSave, value, noColorText, colorStyle, ColorIndicatorIcon, shouldRenderIndicatorWithoutBackground },
+    {
+      className,
+      onSave,
+      value,
+      noColorText,
+      colorStyle,
+      ColorIndicatorIcon,
+      shouldRenderIndicatorWithoutBackground,
+      NoColorIcon
+    },
     ref
   ) => {
     const componentRef = useRef(null);
@@ -31,6 +41,7 @@ const ColorPicker = forwardRef(
           shouldRenderIndicatorWithoutBackground={ColorIndicatorIcon && shouldRenderIndicatorWithoutBackground}
           colorStyle={colorStyle}
           ColorIndicatorIcon={ColorIndicatorIcon}
+          NoColorIcon={NoColorIcon}
         />
       </DialogContentContainer>
     );
@@ -46,7 +57,8 @@ ColorPicker.propTypes = {
   value: PropTypes.string,
   colorStyle: PropTypes.oneOf([ColorPicker.COLOR_STYLES.REGULAR, ColorPicker.COLOR_STYLES.SELECTED]),
   noColorText: PropTypes.string,
-  shouldRenderIndicatorWithoutBackground: PropTypes.bool
+  shouldRenderIndicatorWithoutBackground: PropTypes.bool,
+  NoColorIcon: PropTypes.func
 };
 
 ColorPicker.defaultProps = {
@@ -56,7 +68,8 @@ ColorPicker.defaultProps = {
   value: "",
   colorStyle: COLOR_STYLES.REGULAR,
   noColorText: undefined,
-  shouldRenderIndicatorWithoutBackground: false
+  shouldRenderIndicatorWithoutBackground: false,
+  NoColorIcon: NoColor
 };
 
 export default ColorPicker;

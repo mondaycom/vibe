@@ -14,7 +14,8 @@ const ColorPickerContentComponent = ({
   noColorText,
   colorStyle,
   ColorIndicatorIcon,
-  shouldRenderIndicatorWithoutBackground
+  shouldRenderIndicatorWithoutBackground,
+  NoColorIcon
 }) => {
   const onClearButton = useCallback(() => {
     onValueChange(null);
@@ -43,7 +44,7 @@ const ColorPickerContentComponent = ({
           onClick={onClearButton}
           className="clear-color-button"
         >
-          <NoColor size="16" className="clear-color-icon" />
+          <NoColorIcon size="16" className="clear-color-icon" />
           {noColorText}
         </Button>
       )}
@@ -63,7 +64,8 @@ ColorPickerContentComponent.propTypes = {
   ]),
   value: PropTypes.string,
   noColorText: PropTypes.string,
-  shouldRenderIndicatorWithoutBackground: PropTypes.bool
+  shouldRenderIndicatorWithoutBackground: PropTypes.bool,
+  NoColorIcon: PropTypes.func
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -73,7 +75,8 @@ ColorPickerContentComponent.defaultProps = {
   colorStyle: ColorPickerContentComponent.COLOR_STYLES.REGULAR,
   value: "",
   noColorText: undefined,
-  shouldRenderIndicatorWithoutBackground: false
+  shouldRenderIndicatorWithoutBackground: false,
+  NoColorIcon: NoColor
 };
 
 export default ColorPickerContentComponent;
