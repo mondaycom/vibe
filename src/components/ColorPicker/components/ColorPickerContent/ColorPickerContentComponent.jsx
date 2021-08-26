@@ -13,7 +13,7 @@ const ColorPickerContentComponent = ({
   value,
   noColorText,
   colorStyle,
-  ColorIndicatorComponentRenderer,
+  ColorIndicatorIcon,
   shouldRenderIndicatorWithoutBackground
 }) => {
   const colors = contentColors;
@@ -30,11 +30,9 @@ const ColorPickerContentComponent = ({
               color={color}
               onValueChange={onValueChange}
               value={value}
-              shouldRenderIndicatorWithoutBackground={
-                ColorIndicatorComponentRenderer && shouldRenderIndicatorWithoutBackground
-              }
+              shouldRenderIndicatorWithoutBackground={ColorIndicatorIcon && shouldRenderIndicatorWithoutBackground}
               colorStyle={colorStyle}
-              ColorIndicatorComponentRenderer={ColorIndicatorComponentRenderer}
+              ColorIndicatorIcon={ColorIndicatorIcon}
             />
           );
         })}
@@ -59,7 +57,7 @@ ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
 ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
   onValueChange: PropTypes.func,
-  ColorIndicatorComponentRenderer: PropTypes.func,
+  ColorIndicatorIcon: PropTypes.func,
   colorStyle: PropTypes.string,
   value: PropTypes.string,
   noColorText: PropTypes.string,
@@ -69,7 +67,7 @@ ColorPickerContentComponent.propTypes = {
 ColorPickerContentComponent.defaultProps = {
   className: "",
   onValueChange: () => {},
-  ColorIndicatorComponentRenderer: undefined,
+  ColorIndicatorIcon: undefined,
   colorStyle: COLOR_STYLES.REGULAR,
   value: "",
   noColorText: undefined,

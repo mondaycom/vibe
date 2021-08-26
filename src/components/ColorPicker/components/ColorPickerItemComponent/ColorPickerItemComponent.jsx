@@ -3,6 +3,7 @@ import cx from "classnames";
 import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
 import { getMondayColorAsStyle } from "../../../../utils/colors-utils";
 import "./ColorPickerItemComponent.scss";
+import Icon from "../../../Icon/Icon";
 
 const ColorPickerItemComponent = ({
   color,
@@ -10,7 +11,7 @@ const ColorPickerItemComponent = ({
   value,
   colorStyle = COLOR_STYLES.REGULAR,
   shouldRenderIndicatorWithoutBackground,
-  ColorIndicatorComponentRenderer
+  ColorIndicatorIcon
 }) => {
   const colorAsStyle = getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
@@ -52,12 +53,10 @@ const ColorPickerItemComponent = ({
       >
         {shouldRenderIndicatorWithoutBackground ? (
           <div className="color-indicator-wrapper" style={{ color: colorAsStyle }}>
-            {ColorIndicatorComponentRenderer && ColorIndicatorComponentRenderer()}
+            {ColorIndicatorIcon && <Icon icon={ColorIndicatorIcon} />}
           </div>
         ) : (
-          <div className="color-indicator-wrapper">
-            {ColorIndicatorComponentRenderer && ColorIndicatorComponentRenderer()}
-          </div>
+          <div className="color-indicator-wrapper">{ColorIndicatorIcon && <Icon icon={ColorIndicatorIcon} />}</div>
         )}
       </div>
     </div>

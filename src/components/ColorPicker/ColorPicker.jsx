@@ -9,15 +9,7 @@ import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPi
 
 const ColorPicker = forwardRef(
   (
-    {
-      className,
-      onSave,
-      value,
-      noColorText,
-      colorStyle,
-      ColorIndicatorComponentRenderer,
-      shouldRenderIndicatorWithoutBackground
-    },
+    { className, onSave, value, noColorText, colorStyle, ColorIndicatorIcon, shouldRenderIndicatorWithoutBackground },
     ref
   ) => {
     const componentRef = useRef(null);
@@ -36,11 +28,9 @@ const ColorPicker = forwardRef(
           onValueChange={onChange}
           value={value}
           noColorText={noColorText}
-          shouldRenderIndicatorWithoutBackground={
-            ColorIndicatorComponentRenderer && shouldRenderIndicatorWithoutBackground
-          }
+          shouldRenderIndicatorWithoutBackground={ColorIndicatorIcon && shouldRenderIndicatorWithoutBackground}
           colorStyle={colorStyle}
-          ColorIndicatorComponentRenderer={ColorIndicatorComponentRenderer}
+          ColorIndicatorIcon={ColorIndicatorIcon}
         />
       </DialogContentContainer>
     );
@@ -52,7 +42,7 @@ ColorPicker.COLOR_STYLES = COLOR_STYLES;
 ColorPicker.propTypes = {
   className: PropTypes.string,
   onSave: PropTypes.func,
-  ColorIndicatorComponentRenderer: PropTypes.func,
+  ColorIndicatorIcon: PropTypes.func,
   value: PropTypes.string,
   colorStyle: PropTypes.oneOf([ColorPicker.COLOR_STYLES.REGULAR, ColorPicker.COLOR_STYLES.SELECTED]),
   noColorText: PropTypes.string,
@@ -62,7 +52,7 @@ ColorPicker.propTypes = {
 ColorPicker.defaultProps = {
   className: "",
   onSave: () => {},
-  ColorIndicatorComponentRenderer: undefined,
+  ColorIndicatorIcon: undefined,
   value: "",
   colorStyle: COLOR_STYLES.REGULAR,
   noColorText: undefined,

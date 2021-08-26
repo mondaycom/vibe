@@ -1,8 +1,9 @@
-import React from "react";
+/* eslint-disable */
+/* tslint:disable */
 import PropTypes from "prop-types";
-
-const ColorIndicator = ({ size = 20 }) => (
-  <svg viewBox="0 0 20 20" fill="currentColor" width={size} height={size}>
+import React from "react";
+const TextColorIndicator = ({ size, ...props }) => (
+  <svg viewBox="0 0 20 20" fill="currentColor" width={size || "20"} height={size || "20"} {...props}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -29,11 +30,10 @@ const ColorIndicator = ({ size = 20 }) => (
     />
   </svg>
 );
-ColorIndicator.displayName = "ColorIndicator";
-ColorIndicator.propTypes = {
+TextColorIndicator.displayName = "TextColorIndicator";
+TextColorIndicator.propTypes = {
   size: PropTypes.string
 };
-ColorIndicator.defaultProps = {
-  size: 20
-};
-export default ColorIndicator;
+export default TextColorIndicator;
+/* tslint:enable */
+/* eslint-enable */
