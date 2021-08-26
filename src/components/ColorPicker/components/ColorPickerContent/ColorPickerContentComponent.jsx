@@ -16,14 +16,13 @@ const ColorPickerContentComponent = ({
   ColorIndicatorIcon,
   shouldRenderIndicatorWithoutBackground
 }) => {
-  const colors = contentColors;
   const onClearButton = useCallback(() => {
     onValueChange(null);
   }, [onValueChange]);
   return (
     <div className={cx("color-picker-content--wrapper", className)}>
       <div className={cx("color-picker")}>
-        {colors.map(color => {
+        {contentColors.map(color => {
           return (
             <ColorPickerItemComponent
               key={color}
@@ -58,7 +57,10 @@ ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
   onValueChange: PropTypes.func,
   ColorIndicatorIcon: PropTypes.func,
-  colorStyle: PropTypes.string,
+  colorStyle: PropTypes.oneOf([
+    ColorPickerContentComponent.COLOR_STYLES.REGULAR,
+    ColorPickerContentComponent.COLOR_STYLES.SELECTED
+  ]),
   value: PropTypes.string,
   noColorText: PropTypes.string,
   shouldRenderIndicatorWithoutBackground: PropTypes.bool
@@ -68,7 +70,7 @@ ColorPickerContentComponent.defaultProps = {
   className: "",
   onValueChange: () => {},
   ColorIndicatorIcon: undefined,
-  colorStyle: COLOR_STYLES.REGULAR,
+  colorStyle: ColorPickerContentComponent.COLOR_STYLES.REGULAR,
   value: "",
   noColorText: undefined,
   shouldRenderIndicatorWithoutBackground: false

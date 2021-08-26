@@ -33,8 +33,8 @@ const ColorPickerItemComponent = ({
     item.addEventListener("mouseleave", onMouseLeave, false);
 
     return () => {
-      item.removeEventListener("mouseenter", onHover);
-      item.removeEventListener("mouseleave", onMouseLeave);
+      item.removeEventListener("mouseenter", onHover, false);
+      item.removeEventListener("mouseleave", onMouseLeave, false);
     };
   }, [color, colorAsStyle, colorStyle, itemRef, shouldRenderIndicatorWithoutBackground]);
 
