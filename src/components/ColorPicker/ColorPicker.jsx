@@ -26,34 +26,35 @@ const ColorPicker = forwardRef(
     const onChange = useCallback(onSave, [onSave]);
 
     return (
-      <div ref={mergedRef} className={cx("color-picker--wrapper", className)}>
-        <DialogContentContainer
-          className={cx("color-picker-dialog-content")}
-          ariaLabelledby="Color Picker Dialog"
-          ariaDescribedby="Pick color"
-        >
-          <ColorPickerContentComponent
-            onValueChange={onChange}
-            value={value}
-            noColorText={noColorText}
-            shouldRenderIndicatorWithoutBackground={
-              ColorIndicatorComponentRenderer && shouldRenderIndicatorWithoutBackground
-            }
-            colorStyle={colorStyle}
-            ColorIndicatorComponentRenderer={ColorIndicatorComponentRenderer}
-          />
-        </DialogContentContainer>
-      </div>
+      <DialogContentContainer
+        ref={mergedRef}
+        className={cx("color-picker--wrapper", "color-picker-dialog-content", className)}
+        ariaLabelledby="Color Picker Dialog"
+        ariaDescribedby="Pick color"
+      >
+        <ColorPickerContentComponent
+          onValueChange={onChange}
+          value={value}
+          noColorText={noColorText}
+          shouldRenderIndicatorWithoutBackground={
+            ColorIndicatorComponentRenderer && shouldRenderIndicatorWithoutBackground
+          }
+          colorStyle={colorStyle}
+          ColorIndicatorComponentRenderer={ColorIndicatorComponentRenderer}
+        />
+      </DialogContentContainer>
     );
   }
 );
+
+ColorPicker.COLOR_STYLES = COLOR_STYLES;
 
 ColorPicker.propTypes = {
   className: PropTypes.string,
   onSave: PropTypes.func,
   ColorIndicatorComponentRenderer: PropTypes.func,
   value: PropTypes.string,
-  colorStyle: PropTypes.string,
+  colorStyle: PropTypes.oneOf([ColorPicker.COLOR_STYLES.REGULAR, ColorPicker.COLOR_STYLES.SELECTED]),
   noColorText: PropTypes.string,
   shouldRenderIndicatorWithoutBackground: PropTypes.bool
 };
