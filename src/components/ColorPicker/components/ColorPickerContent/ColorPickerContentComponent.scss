@@ -1,9 +1,9 @@
 .color-picker-content--wrapper {
   .clear-color-icon {
-    margin-right: 8px;
+    margin-right: $spacing-small;
   }
   .clear-color-button {
-    margin-top: 8px;
+    margin-top: $spacing-small;
   }
   .color-picker {
     display: flex;
