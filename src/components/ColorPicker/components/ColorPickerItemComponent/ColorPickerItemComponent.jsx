@@ -46,6 +46,7 @@ const ColorPickerItemComponent = ({
     >
       <div
         ref={itemRef}
+        aria-label={color}
         className={cx("color-item", { "color-item-text-mode": shouldRenderIndicatorWithoutBackground })}
         style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
         onClick={() => onValueChange && onValueChange(color)}

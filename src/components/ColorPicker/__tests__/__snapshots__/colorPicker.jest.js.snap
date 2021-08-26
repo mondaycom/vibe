@@ -17,6 +17,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="grass_green"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -35,6 +36,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="done-green"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -53,6 +55,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="bright-green"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -71,6 +74,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="saladish"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -89,6 +93,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="egg_yolk"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -107,6 +112,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="working_orange"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -125,6 +131,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="dark-orange"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -143,6 +150,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="peach"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -161,6 +169,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="sunset"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -179,6 +188,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="stuck-red"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -197,6 +207,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="dark-red"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -215,6 +226,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="sofia_pink"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -233,6 +245,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="lipstick"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -251,6 +264,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="bubble"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -269,6 +283,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="purple"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -287,6 +302,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="dark_purple"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -305,6 +321,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="berry"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -323,6 +340,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="dark_indigo"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -341,6 +359,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="indigo"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -359,6 +378,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="navy"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -377,6 +397,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="bright-blue"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -395,6 +416,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="dark-blue"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -413,6 +435,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="aquamarine"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -431,6 +454,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="chili-blue"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -449,6 +473,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="river"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -467,6 +492,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="winter"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -485,6 +511,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="explosive"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -503,6 +530,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="american_gray"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -521,6 +549,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="blackish"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
@@ -539,6 +568,7 @@ exports[`renders correctly with empty props 1`] = `
         className="color-item-wrapper"
       >
         <div
+          aria-label="brown"
           className="color-item"
           onClick={[Function]}
           onMouseDown={[Function]}
