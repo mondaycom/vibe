@@ -1,0 +1,32 @@
+.color-item-wrapper {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+
+  &.selected-color {
+    .color-item {
+      border: 2px solid var(--primary-color);
+    }
+  }
+  .color-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: 15%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+
+    .color-indicator-wrapper {
+      margin-top: 3px;
+    }
+  }
+
+  .color-item-text-mode:hover {
+    background-color: var(--primary-background-hover-color) !important;
+  }
+}

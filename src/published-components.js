@@ -4,6 +4,7 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  ColorPicker: "/src/components/ColorPicker/ColorPicker.jsx",
   Steps: "/src/components/Steps/Steps.jsx",
   Combobox: "/src/components/Combobox/Combobox.jsx",
   TabPanels: "/src/components/Tabs/TabPanels/TabPanels.jsx",

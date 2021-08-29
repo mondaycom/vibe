@@ -126,6 +126,11 @@ export const contentColors = [
   "brown"
 ];
 
+export const COLOR_STYLES = {
+  REGULAR: "regular",
+  SELECTED: "selected"
+};
+
 export const contentColorsByName = {
   GRASS_GREEN: "grass_green",
   DONE_GREEN: "done-green",
