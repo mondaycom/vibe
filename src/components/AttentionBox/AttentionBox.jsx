@@ -31,16 +31,18 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text })
   return (
     <aside className={cx(baseClassName, classNameWithType, componentClassName)} role={role}>
       <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
-        <Icon
-          iconType={iconType}
-          ariaHidden
-          clickable={false}
-          icon={icon}
-          className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
-          ignoreFocusStyle
-          iconSize="24"
-          iconLabel={iconLabel}
-        />
+        {icon ? (
+          <Icon
+            iconType={iconType}
+            ariaHidden
+            clickable={false}
+            icon={icon}
+            className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
+            ignoreFocusStyle
+            iconSize="24"
+            iconLabel={iconLabel}
+          />
+        ) : null}
         <span
           className={cx(`${baseClassName}__title-container__title`, `${classNameWithType}__title-container__title`)}
         >

@@ -1,0 +1,15 @@
+@import "../../styles/global-css-settings.scss";
+
+//font family
+$header-primary-font: "Sofia Pro", Roboto, sans-serif;
+$text-primary-font: Roboto, sans-serif;
+
+// sizes
+$h1-font-size: 40px;
+$h2-font-size: 28px;
+$h3-font-size: 24px;
+$text-font-size: 16px;
+
+@mixin basic-text {
+  @include theme-prop(color, primary-text-color);
+}

@@ -1,12 +1,16 @@
 import { addParameters, configure } from "@storybook/react";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
-
+import { SubHeader, Title } from "../src/storybook-components";
 import { loadFoundationsStories } from "../src/general-stories/foundations-stories";
 
 addParameters({
   docs: {
     container: DocsContainer,
-    page: DocsPage
+    page: DocsPage,
+    components: {
+      h2: SubHeader,
+      h3: Title
+    }
   },
   themes: [
     { name: "Light", class: "light-app-them", color: "#ffffff", default: true },

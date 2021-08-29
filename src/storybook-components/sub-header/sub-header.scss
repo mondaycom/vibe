@@ -1,0 +1,21 @@
+@import "../styles/typography.scss";
+@import "../../styles/global-css-settings.scss";
+
+.monday-storybook-sub-header {
+  @include basic-text;
+  font-family: $header-primary-font;
+  font-size: $h2-font-size;
+  line-height: 33px;
+  letter-spacing: -1px;
+  text-align: left;
+  display: grid;
+
+  &:after {
+    content: "";
+    margin-top: $spacing-small;
+    @include theme-prop(background, primary-text-color);
+    height: 2px;
+    width: 100%;
+    max-width: 890px;
+  }
+}
