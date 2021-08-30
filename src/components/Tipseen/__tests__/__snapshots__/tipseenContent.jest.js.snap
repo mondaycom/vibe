@@ -5,7 +5,9 @@ exports[`Tipseen content tests Snapshot Tests renders correctly 1`] = `
   className="monday-style-tipseen-basic-content monday-style-tipseen-content"
 >
   <span
+    aria-level="3"
     className="monday-style-tipseen-title"
+    role="heading"
   >
     title
   </span>

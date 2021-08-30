@@ -3,7 +3,6 @@ import { fireEvent, render, cleanup } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import TipseenContent from "../TipseenContent";
 import renderer from "react-test-renderer";
-import Tipseen from "../Tipseen";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT, TIPSEEN_CLOSE_BUTTON_TEST_ID } from "../TipseenConstants";
 
 jest.useFakeTimers();
