@@ -2,6 +2,8 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Search.scss";
+import SearchIcon from "../Icon/Icons/components/Search";
+import CloseIcon from "../Icon/Icons/components/Close";
 import TextField from "../TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { TYPES } from "./SearchConstats";
@@ -127,8 +129,8 @@ Search.propTypes = {
 };
 
 Search.defaultProps = {
-  secondaryIconName: "icon-dapulse-close",
-  iconName: "icon-v2-search",
+  secondaryIconName: CloseIcon,
+  iconName: SearchIcon,
   onChange: NOOP,
   autoFocus: false,
   underline: false,

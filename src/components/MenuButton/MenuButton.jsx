@@ -13,7 +13,6 @@ function BEMClass(className) {
 }
 
 const TOOLTIP_SHOW_TRIGGER = [Dialog.hideShowTriggers.MOUSE_ENTER];
-const TOOLTIP_HIDE_TRIGGER = [Dialog.hideShowTriggers.MOUSE_LEAVE];
 
 const showTrigger = ["click", "enter"];
 const EMPTY_ARRAY = [];
@@ -39,6 +38,7 @@ const MenuButton = ({
   disabled,
   text,
   disabledReason,
+  tooltipTriggers,
   startingEdge,
   removeTabCloseTrigger
 }) => {
@@ -106,7 +106,6 @@ const MenuButton = ({
     if (removeTabCloseTrigger) {
       triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
     }
-
     const childrenArr = React.Children.toArray(children);
     const cloned = childrenArr.map(child => {
       if (!React.isValidElement(child)) return null;
@@ -127,7 +126,7 @@ const MenuButton = ({
   }, [children, onMenuDidClose, closeDialogOnContentClick, removeTabCloseTrigger]);
 
   const content = useMemo(() => {
-    if (!clonedChildren.length === 0) return <div />;
+    if (clonedChildren.length === 0) return <div />;
     return (
       <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
         {clonedChildren}
@@ -152,12 +151,7 @@ const MenuButton = ({
   const Icon = component;
   const iconSize = size - 4;
   return (
-    <Tooltip
-      content={disabledReason}
-      position="right"
-      showTrigger={TOOLTIP_SHOW_TRIGGER}
-      hideTrigger={TOOLTIP_HIDE_TRIGGER}
-    >
+    <Tooltip content={disabledReason} position="right" showTrigger={TOOLTIP_SHOW_TRIGGER} hideTrigger={tooltipTriggers}>
       <Dialog
         wrapperClassName={dialogClassName}
         position={dialogPosition}
@@ -224,6 +218,7 @@ const DialogPositions = {
 MenuButton.sizes = MenuButtonSizes;
 MenuButton.paddingSizes = DialogContentContainer.sizes;
 MenuButton.dialogPositions = DialogPositions;
+MenuButton.hideTriggers = Dialog.hideShowTriggers;
 
 MenuButton.propTypes = {
   /*
@@ -303,10 +298,16 @@ MenuButton.propTypes = {
    * Disabled tooltip text
    */
   disabledReason: PropTypes.string,
-  /*
+  /**
     Remove "Tab" key from the hide trigger
    */
-  removeTabCloseTrigger: PropTypes.bool
+  removeTabCloseTrigger: PropTypes.bool,
+  /**
+    is an array with the content of types:
+      CLICK, CLICK_OUTSIDE, ESCAPE_KEY, TAB_KEY, MOUSE_ENTER, MOUSE_LEAVE,
+      ENTER, MOUSE_DOWN, FOCUS, BLUR, CONTENT_CLICK
+   */
+  tooltipTriggers: PropTypes.array
 };
 MenuButton.defaultProps = {
   id: undefined,
@@ -328,7 +329,8 @@ MenuButton.defaultProps = {
   disabled: false,
   text: undefined,
   disabledReason: undefined,
-  removeTabCloseTrigger: false
+  removeTabCloseTrigger: false,
+  tooltipTriggers: [MenuButton.hideTriggers.MOUSE_LEAVE]
 };
 
 export default MenuButton;
