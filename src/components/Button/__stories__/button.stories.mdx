@@ -1,13 +1,26 @@
 import Button from "../Button";
-import { Meta, Preview, ArgsTable } from "@storybook/addon-docs";
+import { Meta, Preview, ArgsTable, Story, Canvas } from "@storybook/addon-docs";
+import Calendar from "../../Icon/Icons/components/Calendar";
+import { ComponentRules } from "../../../storybook-components/component-rules/component-rules";
 
-<Meta title="Components/Button" component={Button} />
+<Meta
+  title="Components/Button"
+  component={Button}
+  argTypes={{
+    kind: {
+      description: "check"
+    }
+  }}
+/>
 
 # tbd: title
 ## Overview
 Buttons allow users take actions with a single click.
 They should be clear indications that they triggering an action, buttons should be easy to find among other UI.
-tbd:basic example
+
+<Preview>
+  <Button>Button</Button>
+</Preview>
 
 ## Props
 <ArgsTable of={Button} />
@@ -23,28 +36,72 @@ tbd:basic example
 
 ➡️  Use only one primary button, and any remaining calls to action should be represented as lower emphasis buttons.
 
-tbd: tip
+
+<Tip>Not sure what button size to use? Medium is our defualt size!</Tip>
 
 ## Variants
 ### Button types
 There can be more than one button in a screen, but to create the hierarchy of actions we need to use button types
-tbd: examples
+<Preview>
+  <Button>Primary</Button>
+  <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
+  <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+</Preview>
+
 
 ### Sizes
 We have 3 button sizes to emphasise the action importance
-tbd: examples
+<Canvas>
+  <Story name="Sizes">
+    <Button size={Button.sizes.LARGE}>Large</Button>
+    <Button size={Button.sizes.MEDIUM}>Medium</Button>
+    <Button size={Button.sizes.SMALL}>Small</Button>
+  </Story>
+</Canvas>
 
 ### States
-tbd: examples
+<Canvas>
+  <Story name="States">
+    <Button>Regular</Button>
+    <Button>Hover</Button>
+    <Button>Active</Button>
+    <Button disabled>Disabled</Button>
+  </Story>
+</Canvas>
 
 ### Error and success
-tbd: examples
+<Canvas>
+  <Story name="Error and success">
+      <Button color={Button.colors.POSITIVE}>Positive</Button>
+      <Button color={Button.colors.NEGATIVE}>Negative</Button>
+  </Story>
+</Canvas>
 
 ### Icons
-tbd: examples
+<Canvas>
+  <Story name="Icons">
+    <Button rightIcon={Calendar}>Right icon</Button>
+    <Button leftIcon={Calendar}>Left icon</Button>
+  </Story>
+</Canvas>
 
 ## Do’s and Don’ts
-tbd: do and do not
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:<Button>Get started</Button>,
+        explanation:"Use 1 or 2 words, no longer than 4 words, with fewer than 20 characters including spaces."
+      },
+      negative: {
+        component:<Button>Get started and enjoy discount!</Button>,
+        explanation:"Don’t use punctuation marks such as periods or exclamation points. Also don’t wrap text."
+      }
+    }
+  ]}
+/>
+
+
 
 ## Use cases and examples
 ### Button with icon

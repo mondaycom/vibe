@@ -1,0 +1,52 @@
+@import "../../styles/themes.scss";
+@import "../../styles/global-css-settings.scss";
+@import "../styles/typography.scss";
+
+@mixin rule-text {
+  @include basic-text;
+  font-size: $text-font-size;
+  line-height: 24px;
+}
+
+.monday-storybook-component-rule {
+  &_component {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    height: 200px;
+    @include theme-prop(background, dark-background-on-secondary-color);
+    border-radius: $border-radius-medium;
+  }
+  &--recommended {
+    .monday-storybook-component-rule_component {
+      box-shadow: inset 0 3px 0 var(--positive-color);
+    }
+  }
+
+  &--not-recommended {
+    .monday-storybook-component-rule_component {
+      box-shadow: inset 0 3px 0 var(--negative-color);
+    }
+  }
+
+  &_title {
+    @include rule-text;
+    margin-top: $spacing-small;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+
+  &_icon {
+    width: 13px;
+    height: 13px;
+    margin-right: $spacing-small-medium;
+  }
+
+  &_explanation {
+    @include rule-text;
+    font-weight: 400;
+  }
+}

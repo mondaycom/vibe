@@ -1,6 +1,6 @@
 import { addParameters, configure } from "@storybook/react";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
-import { SubHeader, Title } from "../src/storybook-components";
+import { SubHeader, Title, Tip, ComponentRules } from "../src/storybook-components";
 import { loadFoundationsStories } from "../src/general-stories/foundations-stories";
 
 addParameters({
@@ -9,7 +9,9 @@ addParameters({
     page: DocsPage,
     components: {
       h2: SubHeader,
-      h3: Title
+      h3: Title,
+      Tip,
+      ComponentRules
     }
   },
   themes: [
