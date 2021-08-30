@@ -35,6 +35,7 @@ const Tipseen = forwardRef(
       justify,
       containerSelector,
       hideTrigger,
+      isCloseButtonOnImage,
       showTrigger
     },
     ref
@@ -47,11 +48,13 @@ const Tipseen = forwardRef(
         <div className={TIPSEEN_BASE_CSS_CLASS}>
           <div className={bemHelper({ element: "header" })}>
             <Button
-              className={bemHelper({ element: "close-button" })}
+              className={cx(bemHelper({ element: "close-button" }), {
+                [bemHelper({ element: "close-button", state: "on-image" })]: isCloseButtonOnImage
+              })}
               onClick={onClose}
               size={Button.sizes.SMALL}
               kind={Button.kinds.TERTIARY}
-              color={Button.colors.ON_PRIMARY_COLOR}
+              color={isCloseButtonOnImage ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
               ariaLabel={overrideCloseAriaLabel}
             >
               {isCloseButtonHidden ? null : <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />}

@@ -1,6 +1,5 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { TipseenWizard } from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
 
 jest.useFakeTimers();

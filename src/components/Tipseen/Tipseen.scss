@@ -32,5 +32,9 @@
     position: absolute;
     top: $spacing-xs;
     right: $spacing-xs;
+
+    &--on-image {
+      z-index: 2;
+    }
   }
 }
