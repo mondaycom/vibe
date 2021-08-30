@@ -62,3 +62,4 @@ export { default as Avatar } from "./Avatar/Avatar";
 export { default as Steps } from "./Steps/Steps";
 
 export { default as ColorPicker } from "./ColorPicker/ColorPicker";
+export { default as VirtualizedList } from "./VirtualizedList/VirtualizedList";
