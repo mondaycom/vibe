@@ -89,13 +89,13 @@ export const tipseenWithImage = () => {
 export const Sandbox = () => (
   <div className="monday-style-story-sandbox-tipseen">
     <Tipseen
-      title={text("Title", "Title")}
       position={select("Position", Tipseen.positions, Tipseen.positions.RIGHT)}
       animationTypes={select("Animation types", Tipseen.animationTypes, Tipseen.animationTypes.EXPAND)}
       justify={select("justify", Tipseen.justifyTypes, Tipseen.justifyTypes.CENTER)}
       isCloseButtonHidden={boolean("Is close button hidden", false)}
       content={
         <TipseenContent
+          title={text("Title", "Title")}
           isDismissHidden={boolean("Is dismiss hidden", false)}
           children={text("Tipseen content text", "Popover message will appear here loremipsum dolor samet…")}
         />

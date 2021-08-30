@@ -18,7 +18,6 @@ const TipseenContent = ({
   dismissButtonProps,
   submitButtonProps
 }) => {
-  console.log(children);
   const { content: dismissContent, className: dismissClassName, ...otherDismissButtonProps } = dismissButtonProps;
   const { content: submitContent, className: submitClassName, ...otherSubmitButtonProps } = submitButtonProps;
   return (
@@ -59,8 +58,12 @@ TipseenContent.propTypes = {
   isDismissHidden: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   isSubmitHidden: PropTypes.bool,
+  // An object that contains all the props that will be passed to the dismiss button in order to
+  // override its default settings - support all button props with the same syntax
   // eslint-disable-next-line react/forbid-prop-types
   dismissButtonProps: PropTypes.object,
+  // An object that contains all the props that will be passed to the submit button in order to
+  // override its default settings - support all button props with the same syntax
   // eslint-disable-next-line react/forbid-prop-types
   submitButtonProps: PropTypes.object
 };

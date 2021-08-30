@@ -29,17 +29,6 @@ exports[`Tipseen tests Snapshot Tests renders correctly 1`] = `
       className="monday-style-dialog-content-component bottom edge-center"
     >
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
-        data-placement="bottom"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        style={
-          Object {
-            "position": "absolute",
-          }
-        }
-      />
-      <div
         className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined monday-style-tipseen-wrapper"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -85,6 +74,17 @@ exports[`Tipseen tests Snapshot Tests renders correctly 1`] = `
           />
         </div>
       </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        data-placement="bottom"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
     </div>
   </span>
 </div>
@@ -118,17 +118,6 @@ exports[`Tipseen tests Snapshot Tests renders correctly with title 1`] = `
     <div
       className="monday-style-dialog-content-component bottom edge-center"
     >
-      <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
-        data-placement="bottom"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        style={
-          Object {
-            "position": "absolute",
-          }
-        }
-      />
       <div
         className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined monday-style-tipseen-wrapper"
         onMouseEnter={[Function]}
@@ -170,7 +159,9 @@ exports[`Tipseen tests Snapshot Tests renders correctly with title 1`] = `
               </svg>
             </button>
             <span
+              aria-level="3"
               className="monday-style-tipseen-title monday-style-tipseen_title"
+              role="heading"
             >
               mock title
             </span>
@@ -180,6 +171,17 @@ exports[`Tipseen tests Snapshot Tests renders correctly with title 1`] = `
           />
         </div>
       </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        data-placement="bottom"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
     </div>
   </span>
 </div>
@@ -214,17 +216,6 @@ exports[`Tipseen tests Snapshot Tests renders correctly without close button 1`]
       className="monday-style-dialog-content-component bottom edge-center"
     >
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
-        data-placement="bottom"
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        style={
-          Object {
-            "position": "absolute",
-          }
-        }
-      />
-      <div
         className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined monday-style-tipseen-wrapper"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -252,6 +243,17 @@ exports[`Tipseen tests Snapshot Tests renders correctly without close button 1`]
           />
         </div>
       </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-primary padding-size-undefined"
+        data-placement="bottom"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
     </div>
   </span>
 </div>

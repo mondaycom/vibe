@@ -17,7 +17,7 @@ const renderComponent = ({ ...props }) => {
   );
 };
 
-describe("Tipseen content tests", () => {
+describe("Tipseen wizard tests", () => {
   describe("Snapshot Tests", () => {
     it("renders correctly", () => {
       const tree = renderer
