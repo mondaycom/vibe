@@ -103,6 +103,22 @@ const VirtualizedList = forwardRef(
       [animationData, animateScroll]
     );
 
+    const rowRenderer = useCallback(
+      ({ index, style }) => {
+        const item = items[index];
+        return itemRenderer(item, index, style);
+      },
+      [items, itemRenderer]
+    );
+
+    const calcItemHeight = useCallback(
+      index => {
+        const item = items[index];
+        return getItemHeight(item, index);
+      },
+      [items, getItemHeight]
+    );
+
     const onItemsRenderedCB = useThrottledCallback(
       ({ visibleStartIndex, visibleStopIndex }) => {
         if (!onItemsRendered) return;
@@ -130,16 +146,6 @@ const VirtualizedList = forwardRef(
         item && startScrollAnimation(item);
       }
     }, [scrollToId, startScrollAnimation, normalizedItems]);
-
-    const rowRenderer = ({ index, style }) => {
-      const item = items[index];
-      return itemRenderer(item, index, style);
-    };
-
-    const calcItemHeight = index => {
-      const item = items[index];
-      return getItemHeight(item, index);
-    };
 
     return (
       <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id}>
