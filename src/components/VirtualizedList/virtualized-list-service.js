@@ -33,7 +33,38 @@ export const getMaxOffset = (offsetHeight, normalizedItems) => {
   return maxOffset;
 };
 
-export function easeInOutQuint(time) {
+export const easeInOutQuint = time => {
   let t = time;
   return t < 0.5 ? 16 * t * t * t * t * t : 1 + 16 * --t * t * t * t * t;
+};
+
+function findItemAtOffset(items, normalizedItems, idGetter, fromIndex, offset) {
+  for (let i = fromIndex; i < items.length; i++) {
+    const itemId = idGetter(items[i]);
+    const normailzedItem = normalizedItems[itemId];
+    const { height, offsetTop } = normailzedItem;
+    if (height + offsetTop > offset) {
+      return itemId;
+    }
+  }
+  return null;
 }
+
+export const getOnItemsRenderedData = (
+  items,
+  normalizedItems,
+  idGetter,
+  visibleStartIndex,
+  visibleStopIndex,
+  listHeight,
+  currentOffsetTop
+) => {
+  const firstVisibleItem = items[visibleStartIndex];
+  const lastVisibleItem = items[visibleStopIndex];
+  const firstItemId = idGetter(firstVisibleItem);
+  const lastItemId = idGetter(lastVisibleItem);
+  const centerOffset = currentOffsetTop + listHeight / 2;
+  const centerItemId = findItemAtOffset(items, normalizedItems, idGetter, visibleStartIndex, centerOffset);
+
+  return { firstItemId, lastItemId, centerItemId };
+};

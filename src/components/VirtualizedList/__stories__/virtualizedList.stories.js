@@ -47,7 +47,8 @@ const VirtualizedListWrapper = () => {
   const [scrollToDisabled, setScrollToDisabled] = useState(false);
   const [lastScrolledId, setLastScrolledId] = useState(null);
   const [nextScrollToId, setNextScrollToId] = useState(9999);
-  const items = useMemo(() => generateItems());
+  const [visibleItems, setVisibleItems] = useState(null);
+  const items = useMemo(() => generateItems(), []);
   const onClickToScroll = useCallback(() => {
     setScrollToId(nextScrollToId);
     setLastScrolledId("");
@@ -58,6 +59,12 @@ const VirtualizedListWrapper = () => {
     setNextScrollToId(Math.round(Math.random() * items.length));
     setScrollToDisabled(false);
   }, [nextScrollToId, items, setNextScrollToId, setLastScrolledId]);
+  const onItemsRendered = useCallback(
+    data => {
+      setVisibleItems(data);
+    },
+    [setVisibleItems]
+  );
 
   return (
     <div
@@ -78,6 +85,7 @@ const VirtualizedListWrapper = () => {
           id="Knobs"
           scrollDuration={number("scrollDuration", 300)}
           onScrollToFinished={onScrollToFinished}
+          onItemsRendered={onItemsRendered}
         />
       </div>
 
@@ -91,6 +99,13 @@ const VirtualizedListWrapper = () => {
           {`Scroll to Item ${nextScrollToId}`}
         </Button>
         <div style={{ marginTop: 16, opacity: lastScrolledId ? 1 : 0 }}>{`Scrolled to Item ${lastScrolledId}`}</div>
+        {visibleItems && (
+          <div style={{ display: "flex", flexDirection: "column", marginTop: 30 }}>
+            <div>{`First item: ${visibleItems.firstItemId}`}</div>
+            <div>{`Center item: ${visibleItems.centerItemId}`}</div>
+            <div>{`Last   item: ${visibleItems.lastItemId}`}</div>
+          </div>
+        )}
       </div>
     </div>
   );
