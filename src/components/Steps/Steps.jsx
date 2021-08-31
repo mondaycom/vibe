@@ -12,7 +12,20 @@ const bemHelper = BEMClass(STEPS_CSS_BASE_CLASS);
 
 const Steps = forwardRef(
   (
-    { className, id, steps, activeStepIndex, type, onChangeActiveStep, isOnPrimary, areNavigationButtonsHidden },
+    {
+      className,
+      id,
+      steps,
+      activeStepIndex,
+      type,
+      onChangeActiveStep,
+      isOnPrimary,
+      areNavigationButtonsHidden,
+      isContentOnTop,
+      backButtonProps,
+      nextButtonProps,
+      areButtonsIconsHidden
+    },
     ref
   ) => {
     const componentRef = useRef(null);
@@ -20,9 +33,14 @@ const Steps = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(STEPS_CSS_BASE_CLASS, className, { [bemHelper({ state: "on-primary" })]: isOnPrimary })}
+        className={cx(STEPS_CSS_BASE_CLASS, className, {
+          [bemHelper({ state: "on-primary" })]: isOnPrimary,
+          [bemHelper({ state: "content-on-top" })]: isContentOnTop,
+          [bemHelper({ state: "content-on-bottom" })]: !isContentOnTop
+        })}
         id={id}
       >
+        {isContentOnTop && steps[activeStepIndex]}
         <StepsHeader
           onChangeActiveStep={onChangeActiveStep}
           type={type}
@@ -30,8 +48,11 @@ const Steps = forwardRef(
           stepsCount={steps.length}
           areNavigationButtonsHidden={areNavigationButtonsHidden}
           isOnPrimary={isOnPrimary}
+          backButtonProps={backButtonProps}
+          nextButtonProps={nextButtonProps}
+          areButtonsIconsHidden={areButtonsIconsHidden}
         />
-        {steps[activeStepIndex]}
+        {!isContentOnTop && steps[activeStepIndex]}
       </div>
     );
   }
@@ -47,18 +68,22 @@ Steps.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   type: PropTypes.oneOf([Steps.types.GALLERY, Steps.types.NUMBERS]),
-  isOnPrimary: PropTypes.bool
+  isOnPrimary: PropTypes.bool,
+  isContentOnTop: PropTypes.bool,
+  areButtonsIconsHidden: PropTypes.bool
 };
 
 Steps.defaultProps = {
-  activeStepIndex: 1,
+  activeStepIndex: 0,
   isOnPrimary: false,
   steps: [],
   className: "",
   id: "",
   onChangeActiveStep: NOOP,
   areNavigationButtonsHidden: false,
-  type: STEPS_GALLERY_TYPE
+  type: STEPS_GALLERY_TYPE,
+  isContentOnTop: false,
+  areButtonsIconsHidden: false
 };
 
 export default Steps;

@@ -11,6 +11,7 @@ import "./Dialog.scss";
 import { Refable } from "../Refable/Refable";
 import { HIDE_SHOW_EVENTS } from "./consts/dialog-show-hide-event";
 import { DialogPositions } from "../../constants/sizes";
+import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
 
 const NOOP = () => {};
 
@@ -376,6 +377,7 @@ export default class Dialog extends PureComponent {
 
 Dialog.hideShowTriggers = HIDE_SHOW_EVENTS;
 Dialog.positions = DialogPositions;
+Dialog.animationTypes = DIALOG_ANIMATION_TYPES;
 Dialog.defaultProps = {
   referenceWrapperClassName: "",
   position: "top",

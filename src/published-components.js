@@ -6,6 +6,7 @@ const publishedComponents = {
   // plop_marker:published-components
   VirtualizedList: "/src/components/VirtualizedList/VirtualizedList.jsx",
   ColorPicker: "/src/components/ColorPicker/ColorPicker.jsx",
+  Tipseen: "/src/components/Tipseen/Tipseen.jsx",
   Steps: "/src/components/Steps/Steps.jsx",
   Combobox: "/src/components/Combobox/Combobox.jsx",
   TabPanels: "/src/components/Tabs/TabPanels/TabPanels.jsx",
