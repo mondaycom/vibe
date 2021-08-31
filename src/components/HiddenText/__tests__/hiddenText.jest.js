@@ -4,7 +4,7 @@ import { render } from "@testing-library/react";
 import HiddenText from "../HiddenText";
 
 it("renders correctly with empty props", () => {
-  const tree = renderer.create(<HiddenText />).toJSON();
+  const tree = renderer.create(<HiddenText text={"This text is hidden"} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
