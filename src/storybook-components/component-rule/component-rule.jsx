@@ -8,7 +8,7 @@ import Icon from "../../components/Icon/Icon";
 import "./component-rule.scss";
 
 const bemHelper = BEMClass(COMPONENT_RULE_BASE_CSS_CLASS);
-export const ComponentRule = ({ component, explanation, isRecommended }) => {
+export const ComponentRule = ({ component, description, isRecommended }) => {
   const stateDescription = isRecommended ? "recommended" : "not-recommended";
   const titleIcon = isRecommended ? Check : CloseSmall;
   const title = isRecommended ? RECOMMENDED_TITLE : NOT_RECOMMENDED_TITLE;
@@ -19,19 +19,19 @@ export const ComponentRule = ({ component, explanation, isRecommended }) => {
         <Icon icon={titleIcon} className={bemHelper({ element: "icon" })} clickable={false} />
         {title}
       </h4>
-      <article className={bemHelper({ element: "explanation" })}>{explanation}</article>
+      <section className={bemHelper({ element: "description" })}>{description}</section>
     </section>
   );
 };
 
 ComponentRule.propTypes = {
   component: PropTypes.element,
-  explanation: PropTypes.string,
+  description: PropTypes.string,
   isRecommended: PropTypes.bool
 };
 
 ComponentRule.defaultProps = {
   isRecommended: false,
   component: undefined,
-  explanation: ""
+  description: ""
 };

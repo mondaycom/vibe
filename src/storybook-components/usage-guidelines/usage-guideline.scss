@@ -1,5 +1,13 @@
+@import "../../styles/global-css-settings.scss";
+
 .monday-storybook-usage-guidelines{
+  margin: $spacing-medium 0;
   &_guideline {
     display: flex;
+    align-items: center;
+  }
+
+  &_icon {
+    margin-right: $spacing-small;
   }
 }

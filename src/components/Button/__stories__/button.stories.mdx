@@ -2,6 +2,9 @@ import Button from "../Button";
 import { Meta, Preview, ArgsTable, Story, Canvas } from "@storybook/addon-docs";
 import Calendar from "../../Icon/Icons/components/Calendar";
 import "./button.stories.scss";
+import SplitButton from "../../SplitButton/SplitButton";
+import ButtonGroup from "../../ButtonGroup/ButtonGroup";
+import Tooltip from "../../Tooltip/Tooltip";
 
 <Meta
   title="Components/Button"
@@ -88,41 +91,41 @@ We have 3 button sizes to emphasise the action importance
     {
       positive: {
         component:<Button>Get started</Button>,
-        explanation:"Use 1 or 2 words, no longer than 4 words, with fewer than 20 characters including spaces."
+        description:"Use 1 or 2 words, no longer than 4 words, with fewer than 20 characters including spaces."
       },
       negative: {
         component:<Button>Get started and enjoy discount!</Button>,
-        explanation:"Don’t use punctuation marks such as periods or exclamation points."
+        description:"Don’t use punctuation marks such as periods or exclamation points."
       }
     },
     {
       positive: {
         component:<Button>Get started</Button>,
-        explanation:"Use sentence-case capitalization."
+        description:"Use sentence-case capitalization."
       },
       negative: {
         component:[<Button>Get Started</Button>, <Button>GET STARTED</Button>],
-        explanation:"Don’t use title case captalization or all caps."
+        description:"Don’t use title case captalization or all caps."
       }
     },
     {
       positive: {
         component:[<Button kind={Button.kinds.TERTIARY}>Cancel</Button>, <Button>Get started</Button>],
-        explanation:"Use primary button as the main action , put the tertiary as the second option."
+        description:"Use primary button as the main action , put the tertiary as the second option."
       },
       negative: {
         component:[<Button>Get started</Button>, <Button kind={Button.kinds.SECONDARY}>Cancel</Button>],
-        explanation:"Use primary button next to secondary."
+        description:"Use primary button next to secondary."
       }
     },
     {
       positive: {
         component:[<Button kind={Button.kinds.TERTIARY}>Cancel</Button>, <Button>Get started</Button>],
-        explanation:"Use active verbs or phrases that clearly indicate action."
+        description:"Use active verbs or phrases that clearly indicate action."
       },
       negative: {
         component:[<Button kind={Button.kinds.TERTIARY}>Yes</Button>, <Button>No</Button>],
-        explanation:"Use vague and generic labels that make the user read the dialog before taking action."
+        description:"Use vague and generic labels that make the user read the dialog before taking action."
       }
     },
   ]}
@@ -131,19 +134,34 @@ We have 3 button sizes to emphasise the action importance
 
 
 ## Use cases and examples
-### Button with icon
-Icons can be used in buttons when additional clarity is required and the icon is highly relevant to the action.
-Icons should not be used for decoration. Don’t use two icons in the same button
-tbd: example
+
 ### Loading state
 In some cases, a button can apear one above each other
 tbd: example
 
 ## Related components
-tbd: example
-
-## Change log
-tbd: change log
+<RelatedComponents componentsData={[
+  {
+    component: <SplitButton>Button</SplitButton>,
+    title: "Split button",
+    description: "Dual-function menu button offers a default action and a secondary action"
+  },
+  {
+    component: <ButtonGroup groupAriaLabel="button group aria label"
+                            options={[
+                              { value: 1, text: "Option 1"},
+                              { value: 2, text: "Option 2" },
+                              { value: 3, text: "Option 3" }
+                            ]}/>,
+    title: "Tooltip",
+    description: "Displays information related to an element over it"
+  },
+  {
+    component: <Tooltip/>,
+    title: "Split button",
+    description: "Dual-function menu button offers a default action and a secondary action"
+  }
+]}/>
 
 ## Feedback
 Help us improve this pattern by providing feedback, asking questions, and leaving any other comments on [this form](https://forms.monday.com/forms/213ebddcb0d423ae5b6178fb6e8f7b3d?r=use1).

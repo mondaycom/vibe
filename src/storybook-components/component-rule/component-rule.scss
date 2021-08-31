@@ -2,12 +2,6 @@
 @import "../../styles/global-css-settings.scss";
 @import "../styles/typography.scss";
 
-@mixin rule-text {
-  @include basic-text;
-  font-size: $text-font-size;
-  line-height: 24px;
-}
-
 .monday-storybook-component-rule {
   width: 50%;
 
@@ -49,7 +43,7 @@
   }
 
   &_title {
-    @include rule-text;
+    @include content-text;
     margin-top: $spacing-small;
     font-weight: 700;
     display: flex;
@@ -64,8 +58,8 @@
     @include theme-prop(color, text-color-on-primary);
   }
 
-  &_explanation {
-    @include rule-text;
+  &_description {
+    @include content-text;
     font-weight: 400;
   }
 }

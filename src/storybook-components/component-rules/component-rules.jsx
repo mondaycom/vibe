@@ -15,12 +15,12 @@ export const ComponentRules = ({ rules }) => {
           <section className={bemHelper({ element: "pair" })}>
             <ComponentRule
               component={rule.positive?.component}
-              explanation={rule.positive?.explanation}
+              description={rule.positive?.description}
               isRecommended
             />
             <ComponentRule
               component={rule.negative?.component}
-              explanation={rule.negative?.explanation}
+              description={rule.negative?.description}
               isRecommended={false}
             />
           </section>
@@ -37,11 +37,11 @@ ComponentRules.propTypes = {
     PropTypes.shape({
       positive: PropTypes.shape({
         component: PropTypes.element,
-        explanation: PropTypes.string
+        description: PropTypes.string
       }),
       negative: PropTypes.shape({
         component: PropTypes.element,
-        explanation: PropTypes.string
+        description: PropTypes.string
       })
     })
   )
@@ -49,10 +49,4 @@ ComponentRules.propTypes = {
 
 ComponentRules.defaultProps = {
   rules: []
-};
-
-ComponentRules.defaultProps = {
-  isRecommended: false,
-  component: undefined,
-  explanation: ""
 };
