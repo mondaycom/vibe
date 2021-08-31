@@ -2,32 +2,32 @@ import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./{{properCase componentName}}.scss";
+import "./ListTitle.scss";
 
-const {{properCase componentName}} = forwardRef(({ className, id }, ref) => {
+const ListTitle = forwardRef(({ className, id, children }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
   return (
-    <div ref={mergedRef} className={cx("{{dashCase componentName}}--wrapper", className)} id={id}>
-      My awesome new component
+    <div aria-level="3" role="heading" ref={mergedRef} className={cx("list-title", className)} id={id}>
+      {children}
     </div>
   );
 });
 
-{{properCase componentName}}.propTypes = {
-   /**
+ListTitle.propTypes = {
+  /**
    * class name to be add to the wrapper
    */
   className: PropTypes.string,
   /**
-   * id to be add to the wrapper
+   * id to be added to the wrapper
    */
   id: PropTypes.string
 };
-{{properCase componentName}}.defaultProps = {
+ListTitle.defaultProps = {
   className: "",
   id: undefined
 };
 
-export default {{properCase componentName}};
+export default ListTitle;
