@@ -1,0 +1,10 @@
+@import "../../styles/themes.scss";
+@import "../../styles/states.scss";
+@import "../../styles/typography.scss";
+
+.monday-style-list {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  @include scroller();
+}

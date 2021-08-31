@@ -4,6 +4,10 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  List: "/src/components/List/List.jsx",
+  ListTitle: "/src/components/ListTitle/ListTitle.jsx",
+  ListItemIcon: "/src/components/ListItemIcon/ListItemIcon.jsx",
+  ListItem: "/src/components/ListItem/ListItem.jsx",
   VirtualizedList: "/src/components/VirtualizedList/VirtualizedList.jsx",
   ColorPicker: "/src/components/ColorPicker/ColorPicker.jsx",
   Tipseen: "/src/components/Tipseen/Tipseen.jsx",
