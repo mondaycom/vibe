@@ -24,8 +24,7 @@ HiddenText.propTypes = {
 };
 HiddenText.defaultProps = {
   className: "",
-  id: "hiddenText",
-  text: "This text is hidden"
+  id: "hiddenText"
 };
 
 export default HiddenText;
