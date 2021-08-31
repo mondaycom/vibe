@@ -3,7 +3,7 @@ import { fireEvent, render, cleanup } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import Steps from "../Steps";
 import renderer from "react-test-renderer";
-import { FORWARD_DESCRIPTION, BACKWARD_DESCRIPTION } from "../StepsConstants";
+import { NEXT_DESCRIPTION, BACK_DESCRIPTION } from "../StepsConstants";
 
 jest.useFakeTimers();
 const stepsContent = [<div data-testid="first-step">first</div>, <div data-testid="second-step">second</div>];
@@ -33,6 +33,32 @@ describe("Steps tests", () => {
           .toJSON();
         expect(tree).toMatchSnapshot();
       });
+      it("when hide navigations icons", () => {
+        const tree = renderer
+          .create(
+            <Steps
+              type={Steps.types.NUMBERS}
+              steps={stepsContent}
+              activeStepIndex={stepsContent.length - 1}
+              areButtonsIconsHidden
+            />
+          )
+          .toJSON();
+        expect(tree).toMatchSnapshot();
+      });
+      it("when steps content is on top", () => {
+        const tree = renderer
+          .create(
+            <Steps
+              type={Steps.types.NUMBERS}
+              steps={stepsContent}
+              activeStepIndex={stepsContent.length - 1}
+              isContentOnTop
+            />
+          )
+          .toJSON();
+        expect(tree).toMatchSnapshot();
+      });
     });
     describe("renders correctly with gallery view", () => {
       it("with regular props", () => {
@@ -51,6 +77,45 @@ describe("Steps tests", () => {
         );
         expect(tree).toMatchSnapshot();
       });
+      it("when hide navigations icons", () => {
+        const tree = renderer
+          .create(
+            <Steps
+              type={Steps.types.GALLERY}
+              steps={stepsContent}
+              activeStepIndex={stepsContent.length - 1}
+              areButtonsIconsHidden
+            />
+          )
+          .toJSON();
+        expect(tree).toMatchSnapshot();
+      });
+      it("when steps content is on top", () => {
+        const tree = renderer
+          .create(
+            <Steps
+              type={Steps.types.GALLERY}
+              steps={stepsContent}
+              activeStepIndex={stepsContent.length - 1}
+              isContentOnTop
+            />
+          )
+          .toJSON();
+        expect(tree).toMatchSnapshot();
+      });
+      it("when navigation buttons are hidden", () => {
+        const tree = renderer
+          .create(
+            <Steps
+              type={Steps.types.GALLERY}
+              steps={stepsContent}
+              activeStepIndex={stepsContent.length - 1}
+              areNavigationButtonsHidden
+            />
+          )
+          .toJSON();
+        expect(tree).toMatchSnapshot();
+      });
     });
   });
 
@@ -65,7 +130,7 @@ describe("Steps tests", () => {
         onChangeActiveStep: onClickMock,
         activeStepIndex: stepsContent.length - 1
       });
-      const backwardButton = steps.getByText(BACKWARD_DESCRIPTION);
+      const backwardButton = steps.getByText(BACK_DESCRIPTION);
 
       act(() => {
         fireEvent.click(backwardButton);
@@ -78,7 +143,7 @@ describe("Steps tests", () => {
         onChangeActiveStep: onClickMock,
         activeStepIndex: 0
       });
-      const forwardButton = steps.getByText(FORWARD_DESCRIPTION);
+      const forwardButton = steps.getByText(NEXT_DESCRIPTION);
 
       act(() => {
         fireEvent.click(forwardButton);
@@ -92,13 +157,11 @@ describe("Steps tests", () => {
         onChangeActiveStep: onClickMock,
         activeStepIndex: 0
       });
-      const backwardButton = steps.getByText(BACKWARD_DESCRIPTION);
+      const backwardButton = steps.getByText(BACK_DESCRIPTION);
 
       act(() => {
         fireEvent.click(backwardButton);
       });
-
-      console.log(onClickMock, onClickMock.mock);
 
       expect(onClickMock.mock.calls.length).toBe(0);
     });
@@ -108,7 +171,7 @@ describe("Steps tests", () => {
         onChangeActiveStep: onClickMock,
         activeStepIndex: stepsContent.length - 1
       });
-      const forwardButton = steps.getByText(FORWARD_DESCRIPTION);
+      const forwardButton = steps.getByText(NEXT_DESCRIPTION);
 
       act(() => {
         fireEvent.click(forwardButton);
