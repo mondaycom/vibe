@@ -12,7 +12,7 @@
   line-height: 18px;
   font-weight: 400;
   cursor: pointer;
-  @include focus-style();
+  @include focus-style-inset();
 
   &:hover {
     background-color: var(--primary-background-hover-color);
