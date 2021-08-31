@@ -43,7 +43,7 @@ export const ListItemWithIcon = () => {
 };
 
 export default {
-  title: "Components/List/ListItem",
+  title: "Components|List/ListItem",
   component: ListItem,
   decorators: [withPerformance]
 };

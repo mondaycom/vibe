@@ -83,7 +83,7 @@ export const ListWithScroll = () => (
 );
 
 export default {
-  title: "Components/List/List",
+  title: "Components|List/List",
   component: List,
   decorators: [withPerformance]
 };

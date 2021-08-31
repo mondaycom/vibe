@@ -38,7 +38,7 @@ export const Sandbox = () => {
 };
 
 export default {
-  title: "Components/List/ListItemIcon",
+  title: "Components|List/ListItemIcon",
   component: ListItemIcon,
   decorators: [withPerformance]
 };

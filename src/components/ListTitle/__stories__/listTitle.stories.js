@@ -23,7 +23,7 @@ export const Sandbox = () => {
 };
 
 export default {
-  title: "Components/List/ListTitle",
+  title: "Components|List/ListTitle",
   component: ListTitle,
   decorators: [withPerformance]
 };
