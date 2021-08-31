@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useMemo } from "react";
 import { BEMClass } from "../../helpers/bem-helper";
-import { ComponentRule } from "..";
+import { ComponentRule } from "../component-rule/component-rule";
 import "./component-rules.scss";
 
 const CSS_BASE_CLASS = "monday-storybook-component-rules";

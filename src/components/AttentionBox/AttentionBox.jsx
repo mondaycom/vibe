@@ -6,7 +6,17 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { baseClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
-const AttentionBox = ({ componentClassName, type, icon, iconType, title, text }) => {
+const AttentionBox = ({
+  componentClassName,
+  type,
+  icon,
+  iconType,
+  title,
+  text,
+  ariaLevel,
+  textClassName,
+  titleClassName
+}) => {
   const role = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
@@ -30,7 +40,11 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text })
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
     <aside className={cx(baseClassName, classNameWithType, componentClassName)} role={role}>
-      <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
+      <div
+        className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}
+        role="heading"
+        aria-level={ariaLevel}
+      >
         {icon ? (
           <Icon
             iconType={iconType}
@@ -44,12 +58,18 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text })
           />
         ) : null}
         <span
-          className={cx(`${baseClassName}__title-container__title`, `${classNameWithType}__title-container__title`)}
+          className={cx(
+            `${baseClassName}__title-container__title`,
+            `${classNameWithType}__title-container__title`,
+            titleClassName
+          )}
         >
           {title}
         </span>
-      </h2>
-      <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`)}>{text}</div>
+      </div>
+      {text ? (
+        <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`, textClassName)}>{text}</div>
+      ) : null}
     </aside>
   );
 };
@@ -70,7 +90,8 @@ AttentionBox.propTypes = {
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
+  ariaLevel: PropTypes.number
 };
 
 AttentionBox.defaultProps = {
@@ -79,7 +100,8 @@ AttentionBox.defaultProps = {
   icon: AlertIcon,
   iconType: Icon.type.SVG,
   title: "",
-  text: ""
+  text: "",
+  ariaLevel: 2
 };
 
 export default AttentionBox;

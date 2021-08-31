@@ -60,7 +60,6 @@
     display: flex;
     align-items: center;
     margin-top: 0;
-    margin-bottom: $spacing-medium;
 
     &__icon {
       height: 24px;
@@ -72,5 +71,9 @@
       font-size: 18px;
       font-weight: 500;
     }
+  }
+
+  &__text {
+    margin-top: $spacing-medium;
   }
 }

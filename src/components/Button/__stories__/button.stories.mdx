@@ -1,7 +1,6 @@
 import Button from "../Button";
 import { Meta, Preview, ArgsTable, Story, Canvas } from "@storybook/addon-docs";
 import Calendar from "../../Icon/Icons/components/Calendar";
-import { ComponentRules } from "../../../storybook-components/component-rules/component-rules";
 import "./button.stories.scss";
 
 <Meta
@@ -14,7 +13,7 @@ import "./button.stories.scss";
   }}
 />
 
-# tbd: title
+# Button
 ## Overview
 Buttons allow users take actions with a single click.
 They should be clear indications that they triggering an action, buttons should be easy to find among other UI.
@@ -27,16 +26,13 @@ They should be clear indications that they triggering an action, buttons should 
 <ArgsTable of={Button} />
 
 ## Usage
-➡️  Buttons may contain icon, on the left or the right side
-
-➡️  Use 8 px spacing between buttons.
-
-➡️  Replace text with a loader if action is submitted, but still processing.
-
-➡️  Button width is set by it’s content, avoid changing it width
-
-➡️  Use only one primary button, and any remaining calls to action should be represented as lower emphasis buttons.
-
+<UsageGuidelines guidelines={[
+  "Buttons may contain icon, on the left or the right side",
+  "Use 8 px spacing between buttons",
+  "Replace text with a loader if action is submitted, but still processing",
+  "Button width is set by it’s content, avoid changing it width",
+  "Use only one primary button, and any remaining calls to action should be represented as lower emphasis buttons"
+]}/>
 
 <Tip>Not sure what button size to use? Medium is our defualt size!</Tip>
 
