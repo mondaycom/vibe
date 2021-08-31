@@ -83,7 +83,7 @@ const VirtualizedListWrapper = () => {
           itemRenderer={itemRenderer}
           scrollToId={scrollToId}
           id="Knobs"
-          scrollDuration={number("scrollDuration", 300)}
+          scrollDuration={number("scrollDuration", 200)}
           onScrollToFinished={onScrollToFinished}
           onItemsRendered={onItemsRendered}
         />

@@ -129,9 +129,8 @@ const VirtualizedList = forwardRef(
     // Effects
     useEffect(() => {
       // scroll to specific item
-      if (scrollToId && listRef.current) {
+      if (scrollToId) {
         const item = normalizedItems[scrollToId];
-        // listRef.current.scrollToItem(item.index, "center");
         item && startScrollAnimation(item);
       }
     }, [scrollToId, startScrollAnimation, normalizedItems]);
@@ -150,9 +149,7 @@ const VirtualizedList = forwardRef(
       <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id}>
         <AutoSizer>
           {({ height, width }) => {
-            if (listHeight !== height) {
-              setListHeight(height);
-            }
+            setListHeight(height);
             return (
               <List
                 ref={listRef}
@@ -194,7 +191,7 @@ VirtualizedList.defaultProps = {
   getItemId: (item, _index) => item.id,
   onScrollToFinished: () => {},
   overscanCount: 0,
-  scrollDuration: 300,
+  scrollDuration: 200,
   onItemsRendered: null,
   onItemsRenderedThrottleMs: 200
 };
