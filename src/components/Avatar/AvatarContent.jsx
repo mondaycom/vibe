@@ -56,5 +56,5 @@ AvatarContent.defaultProps = {
   role: undefined,
   ariaLabel: undefined,
   size: AVATAR_SIZES.LARGE,
-  text: ""
+  text: undefined
 };
