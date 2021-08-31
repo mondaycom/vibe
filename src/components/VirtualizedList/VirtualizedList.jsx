@@ -125,9 +125,11 @@ const VirtualizedList = forwardRef(
     const updateListSize = useCallback(
       (width, height) => {
         if (height !== listHeight || width !== listWidth) {
-          setListHeight(height);
-          setListWidth(width);
-          onSizeUpdate(width, height);
+          setTimeout(() => {
+            setListHeight(height);
+            setListWidth(width);
+            onSizeUpdate(width, height);
+          }, 0);
         }
       },
       [listHeight, listWidth, onSizeUpdate]
