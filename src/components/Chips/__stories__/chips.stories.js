@@ -74,7 +74,7 @@ const ChipsWrapper = () => {
 };
 
 export default {
-  title: "Components/Chips",
+  title: "Components|Chips",
   component: Chips,
   decorators: [withPerformance]
 };

@@ -114,7 +114,7 @@ const VirtualizedListWrapper = () => {
 export const Sandbox = () => <VirtualizedListWrapper />;
 
 export default {
-  title: "Components/VirtualizedList",
+  title: "Components|VirtualizedList",
   component: VirtualizedList,
   decorators: [withPerformance]
 };

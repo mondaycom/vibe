@@ -55,7 +55,7 @@ export const States = () => {
 };
 
 export default {
-  title: "Components/Toggle",
+  title: "Components|Toggle",
   component: Toggle,
   decorators: [withPerformance]
 };

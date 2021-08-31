@@ -125,7 +125,7 @@ export const ChangeChildrenCheck = () => {
 }
 
 export default {
-  title: "Components/ResponsiveList",
+  title: "Components|ResponsiveList",
   component: ResponsiveList,
   decorators: [withPerformance]
 };

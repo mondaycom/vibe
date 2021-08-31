@@ -72,7 +72,7 @@ export const Types = () => (
 );
 
 export default {
-    title: "Components/Tabs/TabList",
+    title: "Components|Tabs/TabList",
     component: TabList,
     decorators: [withPerformance]
 };

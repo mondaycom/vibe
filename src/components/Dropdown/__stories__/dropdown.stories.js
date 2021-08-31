@@ -274,6 +274,6 @@ export const async = () => {
 };
 
 export default {
-  title: "Components/Dropdown",
+  title: "Components|Dropdown",
   component: Dropdown
 };

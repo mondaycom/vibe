@@ -104,7 +104,7 @@ export const Sandbox = () => {
 };
 
 export default {
-  title: "Components/Steps",
+  title: "Components|Steps",
   component: Steps,
   decorators: [withPerformance]
 };

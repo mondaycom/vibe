@@ -153,7 +153,7 @@ export const TextSkeletonSandbox = () => {
 };
 
 export default {
-  title: "Components/Skeleton",
+  title: "Components|Skeleton",
   component: Skeleton,
   decorators: [withPerformance]
 };

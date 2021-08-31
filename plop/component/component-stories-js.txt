@@ -18,7 +18,7 @@ export const Sandbox = () => (
 );
 
 export default {
-    title: "Components/{{properCase componentName}}",
+    title: "Components|{{properCase componentName}}",
     component: {{properCase componentName}},
     decorators: [withPerformance]
 

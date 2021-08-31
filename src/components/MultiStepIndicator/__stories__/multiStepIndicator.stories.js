@@ -267,7 +267,7 @@ export const StepTransitionManualExample = () => {
 };
 
 export default {
-  title: "Components/MultiStepIndicator",
+  title: "Components|MultiStepIndicator",
   component: MultiStepIndicator,
   decorators: [withPerformance]
 };

@@ -107,7 +107,7 @@ export const Sandbox = () => (
 );
 
 export default {
-  title: "Components/Tipseen",
+  title: "Components|Tipseen",
   component: Tipseen,
   decorators: [withPerformance]
 };

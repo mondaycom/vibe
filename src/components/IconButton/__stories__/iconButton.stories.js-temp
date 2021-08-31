@@ -23,7 +23,7 @@ export const Sandbox = () => (
 );
 
 export default {
-  title: "Components/IconButton",
+  title: "Components|IconButton",
   component: IconButton,
   decorators: [withPerformance]
 };

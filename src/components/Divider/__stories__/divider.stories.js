@@ -47,7 +47,7 @@ export const Directions = () => (
 );
 
 export default {
-  title: "Components/Divider",
+  title: "Components|Divider",
   component: Divider,
   decorators: [withPerformance]
 };
