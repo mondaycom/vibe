@@ -67,10 +67,6 @@ const VirtualizedList = forwardRef(
       [onScroll, scrollTopRef, animationData]
     );
 
-    const onAnimationComplete = useCallback(() => {
-      onScrollToFinished && onScrollToFinished();
-    }, [onScrollToFinished]);
-
     const animateScroll = useCallback(() => {
       requestAnimationFrame(() => {
         const now = performance.now();
@@ -87,10 +83,10 @@ const VirtualizedList = forwardRef(
         } else {
           animationData.animationStartTime = undefined;
           animationData.scrollOffsetInitial = animationData.scrollOffsetFinal;
-          onAnimationComplete();
+          onScrollToFinished && onScrollToFinished();
         }
       });
-    }, [scrollDuration, animationData, listRef, maxListOffset, onAnimationComplete]);
+    }, [scrollDuration, animationData, listRef, maxListOffset, onScrollToFinished]);
 
     const startScrollAnimation = useCallback(
       item => {
