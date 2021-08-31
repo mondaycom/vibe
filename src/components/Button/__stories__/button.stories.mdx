@@ -2,6 +2,7 @@ import Button from "../Button";
 import { Meta, Preview, ArgsTable, Story, Canvas } from "@storybook/addon-docs";
 import Calendar from "../../Icon/Icons/components/Calendar";
 import { ComponentRules } from "../../../storybook-components/component-rules/component-rules";
+import "./button.stories.scss";
 
 <Meta
   title="Components/Button"
@@ -78,7 +79,7 @@ We have 3 button sizes to emphasise the action importance
 </Canvas>
 
 ### Icons
-<Canvas>
+<Canvas className="check">
   <Story name="Icons">
     <Button rightIcon={Calendar}>Right icon</Button>
     <Button leftIcon={Calendar}>Left icon</Button>
@@ -95,9 +96,39 @@ We have 3 button sizes to emphasise the action importance
       },
       negative: {
         component:<Button>Get started and enjoy discount!</Button>,
-        explanation:"Don’t use punctuation marks such as periods or exclamation points. Also don’t wrap text."
+        explanation:"Don’t use punctuation marks such as periods or exclamation points."
       }
-    }
+    },
+    {
+      positive: {
+        component:<Button>Get started</Button>,
+        explanation:"Use sentence-case capitalization."
+      },
+      negative: {
+        component:[<Button>Get Started</Button>, <Button>GET STARTED</Button>],
+        explanation:"Don’t use title case captalization or all caps."
+      }
+    },
+    {
+      positive: {
+        component:[<Button kind={Button.kinds.TERTIARY}>Cancel</Button>, <Button>Get started</Button>],
+        explanation:"Use primary button as the main action , put the tertiary as the second option."
+      },
+      negative: {
+        component:[<Button>Get started</Button>, <Button kind={Button.kinds.SECONDARY}>Cancel</Button>],
+        explanation:"Use primary button next to secondary."
+      }
+    },
+    {
+      positive: {
+        component:[<Button kind={Button.kinds.TERTIARY}>Cancel</Button>, <Button>Get started</Button>],
+        explanation:"Use active verbs or phrases that clearly indicate action."
+      },
+      negative: {
+        component:[<Button kind={Button.kinds.TERTIARY}>Yes</Button>, <Button>No</Button>],
+        explanation:"Use vague and generic labels that make the user read the dialog before taking action."
+      }
+    },
   ]}
 />
 

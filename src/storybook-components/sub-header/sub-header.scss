@@ -15,7 +15,5 @@
     margin-top: $spacing-small;
     @include theme-prop(background, primary-text-color);
     height: 2px;
-    width: 100%;
-    max-width: 890px;
   }
 }

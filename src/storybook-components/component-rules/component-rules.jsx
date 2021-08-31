@@ -1,25 +1,35 @@
 import PropTypes from "prop-types";
 import { useMemo } from "react";
+import { BEMClass } from "../../helpers/bem-helper";
 import { ComponentRule } from "..";
 import "./component-rules.scss";
+
+const CSS_BASE_CLASS = "monday-storybook-component-rules";
+const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export const ComponentRules = ({ rules }) => {
   const componentRulesElements = useMemo(
     () =>
       rules
-        .map(rule => [
-          <ComponentRule component={rule.positive?.component} explanation={rule.positive?.explanation} isRecommended />,
-          <ComponentRule
-            component={rule.negative?.component}
-            explanation={rule.negative?.explanation}
-            isRecommended={false}
-          />
-        ])
+        .map(rule => (
+          <section className={bemHelper({ element: "pair" })}>
+            <ComponentRule
+              component={rule.positive?.component}
+              explanation={rule.positive?.explanation}
+              isRecommended
+            />
+            <ComponentRule
+              component={rule.negative?.component}
+              explanation={rule.negative?.explanation}
+              isRecommended={false}
+            />
+          </section>
+        ))
         .flat(1),
     [rules]
   );
 
-  return <article className="monday-storybook-component-rules">{componentRulesElements}</article>;
+  return <article className={CSS_BASE_CLASS}>{componentRulesElements}</article>;
 };
 
 ComponentRules.propTypes = {

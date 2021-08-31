@@ -1,7 +1,12 @@
 .monday-storybook-component-rules {
-  height: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  &_pair {
+    display: flex;
+    margin-bottom: 45px;
+  }
+
   .monday-storybook-component-rule--recommended {
     margin-right: 43px;
   }
