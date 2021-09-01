@@ -21,23 +21,20 @@ const TextWithHighlight = forwardRef(({ className, id, text, highlightTerm, limi
 
   const textWithHighlights = useMemo(() => {
     if (!text || !highlightTerm || limit === 0) return text;
-    const tokens = text.split(new RegExp(highlightTerm, "i")); // ignore case
+    const tokens = text.split(new RegExp(`(${highlightTerm})`, "i")); // ignore case
     const parts = [];
-    // First token should be added as is (if not empty)
-    let key = 0;
-    if (tokens[0]) {
-      parts.push(getTextPart(tokens[0], key++, false));
-    }
-    // From second tokens - we need to add highlight term part before each tokens
+    // Tokens include the term search (in odd indices)
     let highlightTermsCount = 0;
-    for (let i = 1; i < tokens.length; i++) {
-      // adding highlightend part
-      const shouldHighlight = !limit || limit < 0 || highlightTermsCount < limit;
-      parts.push(getTextPart(highlightTerm, key++, shouldHighlight));
-      highlightTermsCount++;
-
-      // Adding the regular part
-      parts.push(getTextPart(tokens[i], key++, false));
+    let key = 0;
+    for (let i = 0; i < tokens.length; i++) {
+      // skip empty tokens
+      if (tokens[i]) {
+        // adding highlightend part
+        const isTermPart = i % 2 === 1;
+        const shouldHighlight = isTermPart && (!limit || limit < 0 || highlightTermsCount < limit);
+        parts.push(getTextPart(tokens[i], key++, shouldHighlight));
+        if (isTermPart) highlightTermsCount++;
+      }
     }
 
     return parts;
