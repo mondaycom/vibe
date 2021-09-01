@@ -1,0 +1,11 @@
+@import "../../styles/themes.scss";
+@import "../../styles/typography.scss";
+
+.text-with-highlight--wrapper {
+  display: inline-block;
+  em.highlight-text {
+    @include theme-prop(background-color, primary-selected-color);
+    @include theme-prop(color, primary-text-color);
+    border-radius: 2px;
+  }
+}
