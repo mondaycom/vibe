@@ -163,6 +163,13 @@ const VirtualizedList = forwardRef(
       }
     }, [scrollToId, startScrollAnimation, normalizedItems]);
 
+    useEffect(() => {
+      // recalculate row heights
+      if (listRef.current) {
+        listRef.current.resetAfterIndex(0);
+      }
+    }, [normalizedItems]);
+
     return (
       <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id}>
         <AutoSizer>

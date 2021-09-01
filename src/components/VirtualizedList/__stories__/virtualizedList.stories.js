@@ -14,10 +14,10 @@ import {
 import DarkThemeContainer from "../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 
-const generateItems = () => {
+const generateItems = (defaultItemHeight = 30) => {
   const items = [];
   for (let i = 0; i < 10000; i++) {
-    const height = (i > 0 && i % 15) === 0 ? 60 : 30;
+    const height = (i > 0 && i % 15) === 0 ? 60 : defaultItemHeight;
     items.push({ value: `Item ${i}`, height, id: i });
   }
   return items;
@@ -42,13 +42,13 @@ const itemRenderer = (item, index, style) => {
   );
 };
 
-const VirtualizedListWrapper = () => {
+const VirtualizedListWrapper = ({ defaultItemHeight }) => {
   const [scrollToId, setScrollToId] = useState(null);
   const [scrollToDisabled, setScrollToDisabled] = useState(false);
   const [lastScrolledId, setLastScrolledId] = useState(null);
   const [nextScrollToId, setNextScrollToId] = useState(9999);
   const [visibleItems, setVisibleItems] = useState(null);
-  const items = useMemo(() => generateItems(), []);
+  const items = useMemo(() => generateItems(defaultItemHeight), [defaultItemHeight]);
   const onClickToScroll = useCallback(() => {
     setScrollToId(nextScrollToId);
     setLastScrolledId("");
@@ -111,7 +111,7 @@ const VirtualizedListWrapper = () => {
   );
 };
 
-export const Sandbox = () => <VirtualizedListWrapper />;
+export const Sandbox = () => <VirtualizedListWrapper defaultItemHeight={number("itemHeight", 30)} />;
 
 export default {
   title: "Components|VirtualizedList",
