@@ -15,10 +15,10 @@ export const ComponentRule = ({ component, description, isRecommended }) => {
   return (
     <section className={cx(COMPONENT_RULE_BASE_CSS_CLASS, bemHelper({ state: stateDescription }))}>
       <figure className={bemHelper({ element: "component" })}>{component}</figure>
-      <h4 className={bemHelper({ element: "title" })}>
+      <h5 className={bemHelper({ element: "title" })}>
         <Icon icon={titleIcon} className={bemHelper({ element: "icon" })} clickable={false} />
         {title}
-      </h4>
+      </h5>
       <section className={bemHelper({ element: "description" })}>{description}</section>
     </section>
   );

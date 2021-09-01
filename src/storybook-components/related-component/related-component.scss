@@ -18,7 +18,8 @@
 
   }
 
-  &_descriptio {
+  &_description {
     @include content-text;
+    font-size: $small-text-font-size;
   }
 }

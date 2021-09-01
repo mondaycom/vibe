@@ -8,7 +8,7 @@ export const RelatedComponent = ({ component, title, description }) => {
   return (
     <section className={BASE_CSS_CLASS}>
       <figure className={bemHelper({ element: "component" })}>{component}</figure>
-      <header className={bemHelper({ element: "title" })}>{title}</header>
+      <h5 className={bemHelper({ element: "title" })}>{title}</h5>
       <section className={bemHelper({ element: "description" })}>{description}</section>
     </section>
   );

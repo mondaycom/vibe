@@ -44,7 +44,8 @@
 
   &_title {
     @include content-text;
-    margin-top: $spacing-small;
+    margin-bottom: $spacing-small;
+    margin-top: $spacing-medium;
     font-weight: 700;
     display: flex;
     align-items: center;

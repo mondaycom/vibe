@@ -1,10 +1,15 @@
 @import "../../styles/global-css-settings.scss";
+@import "../styles/content-spacing";
 
 .monday-storybook-usage-guidelines{
-  margin: $spacing-medium 0;
+  margin-top: $spacing-between-section-items;
   &_guideline {
+    margin: $spacing-medium 0;
     display: flex;
     align-items: center;
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   &_icon {

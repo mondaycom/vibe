@@ -1,7 +1,10 @@
 @import "../styles/typography.scss";
 @import "../../styles/global-css-settings.scss";
+@import "../styles/content-spacing";
 
 .monday-storybook-title {
+  margin-top: $spacing-between-section-items;
+  margin-bottom: 0;
   font-family: $text-primary-font;
   @include basic-text;
   font-size: $h3-font-size;

@@ -49,7 +49,7 @@ const buildConfig = config => {
 };
 
 module.exports = {
-  stories: ["../src/**/*.stories.mdx"],
+  stories: ["../src/**/*.stories.(js|mdx)"],
   webpackFinal: async config => {
     return buildConfig(config);
   },
