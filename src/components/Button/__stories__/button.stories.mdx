@@ -5,15 +5,12 @@ import "./button.stories.scss";
 import SplitButton from "../../SplitButton/SplitButton";
 import ButtonGroup from "../../ButtonGroup/ButtonGroup";
 import Tooltip from "../../Tooltip/Tooltip";
+import { Add, Remove } from "../../Icon/Icons";
+
 
 <Meta
   title="Components/Button"
   component={Button}
-  argTypes={{
-    kind: {
-      description: "check"
-    }
-  }}
 />
 
 # Button
@@ -37,17 +34,29 @@ They should be clear indications that they triggering an action, buttons should 
   "Use only one primary button, and any remaining calls to action should be represented as lower emphasis buttons"
 ]}/>
 
-<Tip>Not sure what button size to use? Medium is our defualt size!</Tip>
+<Tip title="Not what you were looking for?">If you need to use icon as button with no text, check out Icon button component</Tip>
 
 ## Variants
 ### Button types
 There can be more than one button in a screen, but to create the hierarchy of actions we need to use button types
-<Preview>
-  <Button>Primary</Button>
-  <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
-  <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-</Preview>
 
+<Canvas>
+  <Story name="Button types">
+    <Button>Primary</Button>
+    <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
+    <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+  </Story>
+</Canvas>
+
+### Disabled
+Set disable button for something that isn’t usable. Use a tooltip on hover in order to indicate the reason of the disabled action.
+<Canvas>
+  <Story name="Disabled">
+    <Button disabled>Primary</Button>
+    <Button kind={Button.kinds.SECONDARY} disabled>Secondary</Button>
+    <Button kind={Button.kinds.TERTIARY} disabled>Tertiary</Button>
+  </Story>
+</Canvas>
 
 ### Sizes
 We have 3 button sizes to emphasise the action importance
@@ -78,7 +87,7 @@ We have 3 button sizes to emphasise the action importance
 </Canvas>
 
 ### Icons
-<Canvas className="check">
+<Canvas>
   <Story name="Icons">
     <Button rightIcon={Calendar}>Right icon</Button>
     <Button leftIcon={Calendar}>Left icon</Button>
@@ -136,8 +145,31 @@ We have 3 button sizes to emphasise the action importance
 ## Use cases and examples
 
 ### Loading state
-In some cases, a button can apear one above each other
-tbd: example
+tbd
+
+### Adjacment buttons
+When one action is selected, the other is disabled
+
+<Canvas>
+  <Story name="Adjacent buttons">
+    <Button
+      rightFlat
+      kind={Button.kinds.SECONDARY}
+      size={Button.sizes.SMALL}
+      ariaLabel="decrease zoom level"
+    >
+      <Remove />
+    </Button>
+    <Button
+      leftFlat
+      kind={Button.kinds.SECONDARY}
+      size={Button.sizes.SMALL}
+      ariaLabel="increase zoom level"
+    >
+      <Add />
+    </Button>
+  </Story>
+</Canvas>
 
 ## Related components
 <RelatedComponents componentsData={[
@@ -153,13 +185,13 @@ tbd: example
                               { value: 2, text: "Option 2" },
                               { value: 3, text: "Option 3" }
                             ]}/>,
-    title: "Tooltip",
-    description: "Displays information related to an element over it"
+    title: "Split button",
+    description: "Dual-function menu button offers a default action and a secondary action"
   },
   {
     component: <Tooltip/>,
-    title: "Split button",
-    description: "Dual-function menu button offers a default action and a secondary action"
+    title: "Tooltip",
+    description: "Displays information related to an element over it"
   }
 ]}/>
 

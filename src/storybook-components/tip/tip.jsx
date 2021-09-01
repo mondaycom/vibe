@@ -1,15 +1,28 @@
+import PropTypes from "prop-types";
 import cx from "classnames";
 import CoreAttentionBox from "../../components/AttentionBox/AttentionBox";
 import "./tip.scss";
 
-export const Tip = ({ className, children }) => {
+export const Tip = ({ className, title, children }) => {
   return (
     <CoreAttentionBox
       icon={null}
       type={CoreAttentionBox.types.DARK}
       componentClassName={cx("monday-storybook-tip", className)}
-      title="🤓 Tip"
+      title={`🤓 ${title}`}
       text={children}
     />
   );
+};
+
+Tip.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.oneOf(PropTypes.string, PropTypes.element),
+  className: PropTypes.string
+};
+
+Tip.defaultProps = {
+  title: "Tip",
+  children: undefined,
+  className: ""
 };
