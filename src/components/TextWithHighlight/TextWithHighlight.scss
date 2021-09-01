@@ -3,6 +3,10 @@
 
 .text-with-highlight--wrapper {
   display: inline-block;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
   em.highlight-text {
     @include theme-prop(background-color, primary-selected-color);
     @include theme-prop(color, primary-text-color);

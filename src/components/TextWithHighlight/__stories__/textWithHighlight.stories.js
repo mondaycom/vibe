@@ -29,6 +29,7 @@ export const Sandbox = () => (
       text={text("Text", "The quick brown fox jumps over the lazy dog")}
       highlightTerm={text("highlightTerm", "the")}
       limit={number("limit", null)}
+      linesToClamp={2}
     />
   </div>
 );

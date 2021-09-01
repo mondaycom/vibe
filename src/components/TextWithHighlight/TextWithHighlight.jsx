@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useMemo } from "react";
+import React, { useRef, forwardRef, useMemo, useEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -15,7 +15,7 @@ const getTextPart = (text, key, shouldHighlight) => {
   return <span key={key}>{text}</span>;
 };
 
-const TextWithHighlight = forwardRef(({ className, id, text, highlightTerm, limit }, ref) => {
+const TextWithHighlight = forwardRef(({ className, id, text, highlightTerm, limit, linesToClamp }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -40,6 +40,11 @@ const TextWithHighlight = forwardRef(({ className, id, text, highlightTerm, limi
     return parts;
   }, [text, highlightTerm, limit]);
 
+  useEffect(() => {
+    if (!componentRef.current) return;
+    componentRef.current.style.setProperty("-webkit-line-clamp", linesToClamp);
+  }, [componentRef, linesToClamp]);
+
   return (
     <div ref={mergedRef} className={cx("text-with-highlight--wrapper", className)} id={id}>
       {textWithHighlights}
@@ -52,7 +57,8 @@ TextWithHighlight.propTypes = {
   id: PropTypes.string,
   text: PropTypes.string,
   highlightTerm: PropTypes.string,
-  limit: PropTypes.number
+  limit: PropTypes.number,
+  linesToClamp: PropTypes.number
 };
 
 TextWithHighlight.defaultProps = {
@@ -60,7 +66,8 @@ TextWithHighlight.defaultProps = {
   id: undefined,
   text: "",
   highlightTerm: null,
-  limit: null
+  limit: null,
+  linesToClamp: 3
 };
 
 export default TextWithHighlight;
