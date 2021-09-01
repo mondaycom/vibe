@@ -1,2 +1,15 @@
-.monday-storybook-button{
+@import "../../../styles/themes.scss";
+
+.monday-storybook-button {
+  &_icons {
+    display: flex;
+  }
+
+  &_on-color-button {
+    @include theme-prop(background, primary-color);
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
