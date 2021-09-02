@@ -1,5 +1,5 @@
 import Button from "../Button";
-import { Meta, Props, Story, Canvas } from "@storybook/addon-docs";
+import { Meta, ArgsTable, Story, Canvas } from "@storybook/addon-docs";
 import "./button.stories.scss";
 import SplitButton from "../../SplitButton/SplitButton";
 import ButtonGroup from "../../ButtonGroup/ButtonGroup";
@@ -31,7 +31,7 @@ They should be clear indications that they triggering an action, buttons should 
 </Canvas>
 
 ## Props
-<Props />
+<ArgsTable of={Button}/>
 
 ## Usage
 <UsageGuidelines guidelines={[
@@ -85,10 +85,7 @@ We have 3 button sizes to emphasise the action importance
 </Canvas>
 
 ### Icons
-<Canvas>
-  <Button rightIcon={Calendar}>Right icon</Button>
-  <Button leftIcon={Calendar}>Left icon</Button>
-</Canvas>
+tbd
 
 ## Do’s and Don’ts
 <ComponentRules
@@ -188,6 +185,3 @@ When one action is selected, the other is disabled
     description: "Displays information related to an element over it"
   }
 ]}/>
-
-## Feedback
-Help us improve this pattern by providing feedback, asking questions, and leaving any other comments on [this form](https://forms.monday.com/forms/213ebddcb0d423ae5b6178fb6e8f7b3d?r=use1).

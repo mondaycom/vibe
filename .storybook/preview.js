@@ -8,13 +8,19 @@ import {
   ComponentRules,
   Header,
   UsageGuidelines,
-  RelatedComponents
+  RelatedComponents,
+  DocFooter
 } from "../src/storybook-components";
 import { loadFoundationsStories } from "../src/general-stories/foundations-stories";
 
 addParameters({
   docs: {
-    container: DocsContainer,
+    container: ({ children, context }) => (
+      <DocsContainer context={context}>
+        {children}
+        {<DocFooter />}{" "}
+      </DocsContainer>
+    ),
     page: DocsPage,
     components: {
       h1: Header,
@@ -27,6 +33,7 @@ addParameters({
       RelatedComponents
     }
   },
+  viewMode: "docs",
   themes: [
     { name: "Light", class: "light-app-them", color: "#ffffff", default: true },
     { name: "Dark", class: "dark-app-theme", color: "#1C1F3B" },
