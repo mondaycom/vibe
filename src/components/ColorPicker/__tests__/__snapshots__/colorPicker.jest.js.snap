@@ -583,6 +583,177 @@ exports[`renders correctly with empty props 1`] = `
           />
         </div>
       </div>
+      <div
+        className="color-item-wrapper"
+      >
+        <div
+          aria-label="orchid"
+          className="color-item"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-orchid)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        className="color-item-wrapper"
+      >
+        <div
+          aria-label="tan"
+          className="color-item"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-tan)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        className="color-item-wrapper"
+      >
+        <div
+          aria-label="sky"
+          className="color-item"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-sky)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        className="color-item-wrapper"
+      >
+        <div
+          aria-label="coffee"
+          className="color-item"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-coffee)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        className="color-item-wrapper"
+      >
+        <div
+          aria-label="royal"
+          className="color-item"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-royal)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        className="color-item-wrapper"
+      >
+        <div
+          aria-label="teal"
+          className="color-item"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-teal)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        className="color-item-wrapper"
+      >
+        <div
+          aria-label="lavender"
+          className="color-item"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-lavender)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        className="color-item-wrapper"
+      >
+        <div
+          aria-label="steel"
+          className="color-item"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-steel)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+          />
+        </div>
+      </div>
+      <div
+        className="color-item-wrapper"
+      >
+        <div
+          aria-label="lilac"
+          className="color-item"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-lilac)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>
