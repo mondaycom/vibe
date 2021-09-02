@@ -61,3 +61,4 @@ export { default as ListItemIcon } from "./ListItemIcon/ListItemIcon";
 export { default as ListTitle } from "./ListTitle/ListTitle";
 export { default as List } from "./List/List";
 export { default as VirtualizedList } from "./VirtualizedList/VirtualizedList";
+export { default as TextWithHighlight } from "./TextWithHighlight/TextWithHighlight";

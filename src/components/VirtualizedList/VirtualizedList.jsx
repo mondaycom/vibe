@@ -1,5 +1,6 @@
 import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import NOOP from "lodash/noop";
 import cx from "classnames";
 import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
@@ -23,12 +24,14 @@ const VirtualizedList = forwardRef(
       scrollDuration,
       onScrollToFinished,
       onItemsRendered,
-      onItemsRenderedThrottleMs
+      onItemsRenderedThrottleMs,
+      onSizeUpdate
     },
     ref
   ) => {
     // states
     const [listHeight, setListHeight] = useState(0);
+    const [listWidth, setListWidth] = useState(0);
 
     // Refs
     const componentRef = useRef(null);
@@ -119,6 +122,19 @@ const VirtualizedList = forwardRef(
       [items, getItemHeight]
     );
 
+    const updateListSize = useCallback(
+      (width, height) => {
+        if (height !== listHeight || width !== listWidth) {
+          setTimeout(() => {
+            setListHeight(height);
+            setListWidth(width);
+            onSizeUpdate(width, height);
+          }, 0);
+        }
+      },
+      [listHeight, listWidth, onSizeUpdate]
+    );
+
     const onItemsRenderedCB = useThrottledCallback(
       ({ visibleStartIndex, visibleStopIndex }) => {
         if (!onItemsRendered) return;
@@ -147,11 +163,18 @@ const VirtualizedList = forwardRef(
       }
     }, [scrollToId, startScrollAnimation, normalizedItems]);
 
+    useEffect(() => {
+      // recalculate row heights
+      if (listRef.current) {
+        listRef.current.resetAfterIndex(0);
+      }
+    }, [normalizedItems]);
+
     return (
       <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id}>
         <AutoSizer>
           {({ height, width }) => {
-            setListHeight(height);
+            updateListSize(width, height);
             return (
               <List
                 ref={listRef}
@@ -183,7 +206,8 @@ VirtualizedList.propTypes = {
   overscanCount: PropTypes.number,
   scrollDuration: PropTypes.number,
   onItemsRendered: PropTypes.func,
-  onItemsRenderedThrottleMs: PropTypes.number
+  onItemsRenderedThrottleMs: PropTypes.number,
+  onSizeUpdate: PropTypes.func
 };
 VirtualizedList.defaultProps = {
   className: "",
@@ -191,11 +215,12 @@ VirtualizedList.defaultProps = {
   items: [],
   getItemHeight: (item, _index) => item.height,
   getItemId: (item, _index) => item.id,
-  onScrollToFinished: () => {},
+  onScrollToFinished: NOOP,
   overscanCount: 0,
   scrollDuration: 200,
   onItemsRendered: null,
-  onItemsRenderedThrottleMs: 200
+  onItemsRenderedThrottleMs: 200,
+  onSizeUpdate: NOOP
 };
 
 export default VirtualizedList;
