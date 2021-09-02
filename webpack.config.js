@@ -58,7 +58,7 @@ module.exports = options => {
                 transformers: [
                   {
                     extensions: [".json"],
-                    transform: function(rawFile) {
+                    transform(rawFile) {
                       return jsonToSass.convert(rawFile);
                     }
                   }
@@ -76,11 +76,11 @@ module.exports = options => {
     },
     externals: [nodeExternals()],
     entry: {
-      main: __dirname + "/src/index.js",
+      main: `${__dirname}/src/index.js`,
       ...getPublishedComponents(__dirname)
     },
     output: {
-      path: __dirname + "/dist/",
+      path: `${__dirname}/dist/`,
       filename: "[name].js",
       library: "monday-style",
       libraryTarget: "umd",

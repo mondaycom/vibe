@@ -1,4 +1,5 @@
-import { addParameters, configure } from "@storybook/react";
+import { parameters } from "@storybook/addon-docs/dist/esm/frameworks/react/config";
+import { addParameters } from "@storybook/react";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
 import {
   SubHeader,
@@ -11,10 +12,10 @@ import {
   RelatedComponents,
   DocFooter
 } from "../src/storybook-components";
-import { loadFoundationsStories } from "../src/general-stories/foundations-stories";
 
 addParameters({
   docs: {
+    ...parameters.docs,
     container: ({ children, context }) => (
       <DocsContainer context={context}>
         {children}
@@ -41,6 +42,3 @@ addParameters({
   ]
 });
 
-const storiesLoaderFunction = () => [...loadFoundationsStories()];
-
-configure(storiesLoaderFunction, module);

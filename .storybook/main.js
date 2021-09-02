@@ -16,14 +16,19 @@ const getProjectConfigRules = () => {
 const getDocsConfigRules = () => {
   return [
     {
-      test: /\.(stories|story)\.mdx$/,
+      test: /\.(stories|story)\.(mdx|jsx)$/,
       use: [
         {
           loader: "babel-loader",
           options: {
             plugins: ["@babel/plugin-transform-react-jsx"]
           }
-        },
+        }
+      ]
+    },
+    {
+      test: /\.(stories|story)\.mdx$/,
+      use: [
         {
           loader: "@mdx-js/loader",
           options: {
@@ -33,7 +38,7 @@ const getDocsConfigRules = () => {
       ]
     },
     {
-      test: /\.(stories|story)\.[tj]sx?$/,
+      test: /\.(stories|story)\.jsx?$/,
       loader: require.resolve("@storybook/source-loader"),
       exclude: [/node_modules/],
       enforce: "pre"
@@ -49,7 +54,7 @@ const buildConfig = config => {
 };
 
 module.exports = {
-  stories: ["../src/**/*.stories.(jsx|mdx)"],
+  stories: ["../src/**/*.stories.jsx"],
   webpackFinal: async config => {
     return buildConfig(config);
   },

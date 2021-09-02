@@ -60,18 +60,19 @@
     "react-popper": "^2.2.3",
     "react-select": "^3.1.0",
     "react-transition-group": "^4.4.1",
-    "react-windowed-select": "^2.0.4"
+    "react-windowed-select": "^2.0.4",
+    "storybook-addon-react-docgen": "^1.2.42"
   },
   "devDependencies": {
     "@babel/core": "^7.10.0",
     "@babel/plugin-proposal-class-properties": "^7.10.0",
     "@babel/plugin-transform-modules-commonjs": "^7.14.5",
-    "@babel/plugin-transform-react-jsx": "^7.10.0",
+    "@babel/plugin-transform-react-jsx": "^7.14.9",
     "@babel/preset-env": "^7.10.0",
     "@babel/preset-react": "^7.10.0",
     "@hot-loader/react-dom": "^16.13.0",
     "@jest/transform": "^27.0.6",
-    "@mdx-js/loader": "^1.5.5",
+    "@mdx-js/loader": "^2.0.0-next.9",
     "@mdx-js/mdx": "^1.6.22",
     "@storybook/addon-a11y": "^6.3.7",
     "@storybook/addon-actions": "^6.3.7",
