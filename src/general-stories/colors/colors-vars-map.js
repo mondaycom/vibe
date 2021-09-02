@@ -123,7 +123,16 @@ export const contentColors = [
   "explosive",
   "american_gray",
   "blackish",
-  "brown"
+  "brown",
+  "orchid",
+  "tan",
+  "sky",
+  "coffee",
+  "royal",
+  "teal",
+  "lavender",
+  "steel",
+  "lilac"
 ];
 
 export const COLOR_STYLES = {
@@ -161,7 +170,16 @@ export const contentColorsByName = {
   EXPLOSIVE: "explosive",
   AMERICAN_GRAY: "american_gray",
   BLACKISH: "blackish",
-  BROWN: "brown"
+  BROWN: "brown",
+  ORCHID: "orchid",
+  TAN: "tan",
+  SKY: "sky",
+  COFFEE: "coffee",
+  ROYAL: "royal",
+  TEAL: "teal",
+  LAVENDER: "lavender",
+  STEEL: "steel",
+  LILAC: "lilac"
 };
 
 export const stateSelectedColors = {
