@@ -6,6 +6,7 @@ import NOOP from "lodash/noop";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./ListItem.scss";
 import { SIZES } from "../../constants/sizes";
+import { keyCodes } from "../../constants/KeyCodes";
 
 const BEM_BASE_CLASS = "list-item";
 
@@ -25,6 +26,17 @@ const ListItem = forwardRef(({ className, id, onClick, selected, disabled, size,
     [disabled, onClick, id]
   );
 
+  const onKeyDown = useCallback(
+    event => {
+      if (disabled) return;
+      const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
+      if (KEYS.includes(event.key)) {
+        onClick(event, id);
+      }
+    },
+    [disabled, onClick, id]
+  );
+
   return (
     <div
       ref={mergedRef}
@@ -35,6 +47,7 @@ const ListItem = forwardRef(({ className, id, onClick, selected, disabled, size,
       id={id}
       aria-disabled={disabled}
       onClick={componentOnClick}
+      onKeyDown={onKeyDown}
       role="listitem"
       tabIndex={disabled ? "-1" : tabIndex}
     >

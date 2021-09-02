@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Search.scss";
 import SearchIcon from "../Icon/Icons/components/Search";
-import CloseIcon from "../Icon/Icons/components/Close";
+import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import TextField from "../TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { TYPES } from "./SearchConstats";

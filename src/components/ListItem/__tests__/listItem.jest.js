@@ -41,6 +41,20 @@ describe("BDD List Item", () => {
     expect(onClick.mock.calls.length).toBe(1);
   });
 
+  it("should call on key down (Enter)", () => {
+    const { getByText } = render(<ListItem onClick={onClick}>{itemText}</ListItem>);
+    const element = getByText(itemText);
+    fireEvent.keyDown(element, { key: "Enter", code: "Enter", charCode: "13" });
+    expect(onClick.mock.calls.length).toBe(1);
+  });
+
+  it("should call on key down (Space)", () => {
+    const { getByText } = render(<ListItem onClick={onClick}>{itemText}</ListItem>);
+    const element = getByText(itemText);
+    fireEvent.keyDown(element, { key: " ", code: "Space", charCode: "32" });
+    expect(onClick.mock.calls.length).toBe(1);
+  });
+
   it("should call onClick", () => {
     const { getByText } = render(
       <ListItem disabled onClick={onClick}>

@@ -17,20 +17,20 @@ import ListTitle from "../../ListTitle/ListTitle";
 import ListItem from "../../ListItem/ListItem";
 import { Battery, Board, DueDate, Robot, Team, ThumbsUp, Time, Upgrade, Widgets } from "../../Icon/Icons";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
-
+const onClick = e => action(e);
 export const Sandbox = () => (
   <div style={{ width: 220, border: "1px solid var(--ui-border-color)", borderRadius: "4px" }}>
     <List>
       <ListTitle>Categories</ListTitle>
-      <ListItem>
+      <ListItem onClick={console.log}>
         <ListItemIcon icon={Board} />
         Board Power up
       </ListItem>
-      <ListItem>
+      <ListItem onClick={console.log}>
         <ListItemIcon icon={Team} />
         Team Power up
       </ListItem>
-      <ListItem>
+      <ListItem onClick={console.log}>
         <ListItemIcon icon={ThumbsUp} />
         Essentials
       </ListItem>
