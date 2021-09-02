@@ -17,8 +17,12 @@ const ColorPicker = forwardRef(
       noColorText,
       colorStyle,
       ColorIndicatorIcon,
+      SelectedIndicatorIcon,
       shouldRenderIndicatorWithoutBackground,
-      NoColorIcon
+      NoColorIcon,
+      isBlackListMode,
+      colorsList,
+      isMultiselect
     },
     ref
   ) => {
@@ -41,7 +45,11 @@ const ColorPicker = forwardRef(
           shouldRenderIndicatorWithoutBackground={ColorIndicatorIcon && shouldRenderIndicatorWithoutBackground}
           colorStyle={colorStyle}
           ColorIndicatorIcon={ColorIndicatorIcon}
+          SelectedIndicatorIcon={SelectedIndicatorIcon}
           NoColorIcon={NoColorIcon}
+          colorsList={colorsList}
+          isBlackListMode={isBlackListMode}
+          isMultiselect={isMultiselect}
         />
       </DialogContentContainer>
     );
@@ -54,22 +62,30 @@ ColorPicker.propTypes = {
   className: PropTypes.string,
   onSave: PropTypes.func,
   ColorIndicatorIcon: PropTypes.func,
-  value: PropTypes.string,
+  SelectedIndicatorIcon: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   colorStyle: PropTypes.oneOf([ColorPicker.COLOR_STYLES.REGULAR, ColorPicker.COLOR_STYLES.SELECTED]),
   noColorText: PropTypes.string,
   shouldRenderIndicatorWithoutBackground: PropTypes.bool,
-  NoColorIcon: PropTypes.func
+  NoColorIcon: PropTypes.func,
+  isBlackListMode: PropTypes.bool,
+  colorsList: PropTypes.array,
+  isMultiselect: PropTypes.bool
 };
 
 ColorPicker.defaultProps = {
   className: "",
   onSave: () => {},
   ColorIndicatorIcon: undefined,
+  SelectedIndicatorIcon: undefined,
   value: "",
   colorStyle: COLOR_STYLES.REGULAR,
   noColorText: undefined,
   shouldRenderIndicatorWithoutBackground: false,
-  NoColorIcon: NoColor
+  NoColorIcon: NoColor,
+  isBlackListMode: true,
+  colorsList: [],
+  isMultiselect: false
 };
 
 export default ColorPicker;

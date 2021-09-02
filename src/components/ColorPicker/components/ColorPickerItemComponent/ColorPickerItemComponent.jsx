@@ -11,7 +11,10 @@ const ColorPickerItemComponent = ({
   value,
   colorStyle = COLOR_STYLES.REGULAR,
   shouldRenderIndicatorWithoutBackground,
-  ColorIndicatorIcon
+  ColorIndicatorIcon,
+  SelectedIndicatorIcon,
+  isMultiselect,
+  isSelected
 }) => {
   const colorAsStyle = getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
@@ -54,10 +57,16 @@ const ColorPickerItemComponent = ({
       >
         {shouldRenderIndicatorWithoutBackground ? (
           <div className="color-indicator-wrapper" style={{ color: colorAsStyle }}>
-            {ColorIndicatorIcon && <Icon icon={ColorIndicatorIcon} />}
+            {((isMultiselect && isSelected) || ColorIndicatorIcon) && (
+              <Icon icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon} />
+            )}
           </div>
         ) : (
-          <div className="color-indicator-wrapper">{ColorIndicatorIcon && <Icon icon={ColorIndicatorIcon} />}</div>
+          <div className="color-indicator-wrapper">
+            {((isMultiselect && isSelected) || ColorIndicatorIcon) && (
+              <Icon icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon} />
+            )}
+          </div>
         )}
       </div>
     </div>
