@@ -1,5 +1,5 @@
 const LAST_ITEM_ID = "~~~lastItem~~~";
-
+const EMPTY_OBJECT = {};
 export const getNormalizedItems = (items, idGetter, heightGetter) => {
   const normalizedItems = {};
   let offsetTop = 0;
@@ -29,8 +29,7 @@ export const getMaxOffset = (offsetHeight, normalizedItems) => {
   const lastItem = normalizedItems[LAST_ITEM_ID];
   if (!lastItem) return 0;
   const { height, offsetTop } = lastItem;
-  const maxOffset = offsetTop + height - offsetHeight;
-  return maxOffset;
+  return offsetTop + height - offsetHeight; // max offset
 };
 
 export const easeInOutQuint = time => {
@@ -41,8 +40,8 @@ export const easeInOutQuint = time => {
 function findItemAtOffset(items, normalizedItems, idGetter, fromIndex, offset) {
   for (let i = fromIndex; i < items.length; i++) {
     const itemId = idGetter(items[i]);
-    const normailzedItem = normalizedItems[itemId];
-    const { height, offsetTop } = normailzedItem;
+    const normalizedItem = normalizedItems[itemId];
+    const { height, offsetTop } = normalizedItem || EMPTY_OBJECT;
     if (height + offsetTop > offset) {
       return itemId;
     }
@@ -59,8 +58,8 @@ export const getOnItemsRenderedData = (
   listHeight,
   currentOffsetTop
 ) => {
-  const firstVisibleItem = items[visibleStartIndex];
-  const lastVisibleItem = items[visibleStopIndex];
+  const firstVisibleItem = items[visibleStartIndex] || EMPTY_OBJECT;
+  const lastVisibleItem = items[visibleStopIndex] || EMPTY_OBJECT;
   const firstItemId = idGetter(firstVisibleItem);
   const lastItemId = idGetter(lastVisibleItem);
   const centerOffset = currentOffsetTop + listHeight / 2;
