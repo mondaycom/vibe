@@ -1,4 +1,4 @@
-import { boolean, number, optionsKnob, text } from "@storybook/addon-knobs";
+import { boolean, number, optionsKnob, text, array } from "@storybook/addon-knobs";
 import React from "react";
 import { withPerformance } from "storybook-addon-performance";
 import { COLOR_STYLES } from "../../../general-stories/colors/colors-vars-map";
