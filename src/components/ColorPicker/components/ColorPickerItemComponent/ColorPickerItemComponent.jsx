@@ -41,6 +41,7 @@ const ColorPickerItemComponent = ({
     };
   }, [color, colorAsStyle, colorStyle, itemRef, shouldRenderIndicatorWithoutBackground]);
   const shouldRenderSelectedIcon = isSelected && isMultiselect;
+  const shouldRenderIcon = (isMultiselect && isSelected) || ColorIndicatorIcon;
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
   return (
     <div
@@ -57,9 +58,7 @@ const ColorPickerItemComponent = ({
         onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
       >
         <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
-          {((isMultiselect && isSelected) || ColorIndicatorIcon) && (
-            <Icon icon={shouldRenderSelectedIcon ? SelectedIndicatorIcon : ColorIndicatorIcon} />
-          )}
+          {shouldRenderIcon && <Icon icon={shouldRenderSelectedIcon ? SelectedIndicatorIcon : ColorIndicatorIcon} />}
         </div>
       </div>
     </div>
