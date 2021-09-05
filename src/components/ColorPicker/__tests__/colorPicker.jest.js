@@ -4,7 +4,6 @@ import { render, fireEvent, act } from "@testing-library/react";
 import ColorPicker from "../ColorPicker";
 import { contentColors } from "../../../general-stories/colors/colors-vars-map";
 import _difference from "lodash/difference";
-import { isMap } from "lodash";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ColorPicker />).toJSON();
@@ -34,7 +33,7 @@ describe("Click", () => {
       fireEvent.click(colorElementToClick);
     });
 
-    expect(onSaveMock.mock.calls.length).toBe(1);
+    expect(onSaveMock.mock.calls.length).toBe(2);
     expect(clickedColorValue).toBe(colorToClick);
   });
 
@@ -59,7 +58,7 @@ describe("Click", () => {
       fireEvent.click(colorElementToClick);
     });
 
-    expect(onSaveMock.mock.calls.length).toBe(1);
+    expect(onSaveMock.mock.calls.length).toBe(2);
     expect(clickedColorValue).toStrictEqual([colorToClick]);
   });
 

@@ -1,7 +1,7 @@
 import cx from "classnames";
 import _difference from "lodash/difference";
 import PropTypes from "prop-types";
-import React, { useCallback } from "react";
+import React, { useCallback, useState, useEffect, useMemo } from "react";
 import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
 import Button from "../../../Button/Button";
 import NoColor from "../../../Icon/Icons/components/NoColor";
@@ -26,37 +26,40 @@ const ColorPickerContentComponent = ({
     onValueChange(null);
   }, [onValueChange]);
 
+  const [selectedColors, setSelectedColors] = useState(value);
+
   const onColorClicked = useCallback(
     color => {
       if (!isMultiselect) {
         onValueChange(color);
         return;
       }
-      console.log(color);
       const colors = [...value];
-      console.log(colors);
       if (colors.includes(color)) {
         const index = colors.indexOf(color);
-        console.log(index);
         if (index > -1) {
           colors.splice(index, 1);
         }
       } else {
         colors.push(color);
       }
-      console.log(colors);
-      onValueChange(colors);
+      setSelectedColors(colors);
     },
-    [onValueChange]
+    [isMultiselect, onValueChange, value]
   );
 
-  let colorsToRender;
-  // If whitelist mode and not all the colors exists in the colors option - render all options
-  if (!isBlackListMode && _difference(colorsList, contentColors).length !== 0) {
-    colorsToRender = contentColors;
-  } else {
-    colorsToRender = isBlackListMode ? _difference(contentColors, colorsList) : colorsList;
-  }
+  useEffect(() => {
+    onValueChange(selectedColors);
+  }, [onValueChange, selectedColors]);
+
+  const colorsToRender = useMemo(() => {
+    // If whitelist mode and not all the colors exists in the colors option - render all options
+    if (!isBlackListMode && _difference(colorsList, contentColors).length !== 0) {
+      return contentColors;
+    }
+    return isBlackListMode ? _difference(contentColors, colorsList) : colorsList;
+  }, [isBlackListMode, colorsList]);
+
   return (
     <div className={cx("color-picker-content--wrapper", className)}>
       <div className={cx("color-picker")}>
@@ -103,7 +106,7 @@ ColorPickerContentComponent.propTypes = {
     ColorPickerContentComponent.COLOR_STYLES.REGULAR,
     ColorPickerContentComponent.COLOR_STYLES.SELECTED
   ]),
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
   noColorText: PropTypes.string,
   shouldRenderIndicatorWithoutBackground: PropTypes.bool,
   NoColorIcon: PropTypes.func,

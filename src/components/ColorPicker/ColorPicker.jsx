@@ -63,7 +63,7 @@ ColorPicker.propTypes = {
   onSave: PropTypes.func,
   ColorIndicatorIcon: PropTypes.func,
   SelectedIndicatorIcon: PropTypes.func,
-  value: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
   colorStyle: PropTypes.oneOf([ColorPicker.COLOR_STYLES.REGULAR, ColorPicker.COLOR_STYLES.SELECTED]),
   noColorText: PropTypes.string,
   shouldRenderIndicatorWithoutBackground: PropTypes.bool,

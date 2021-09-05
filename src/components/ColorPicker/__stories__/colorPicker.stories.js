@@ -62,35 +62,6 @@ export const NoColorIcons = () => {
   );
 };
 
-export const MultiSelect = () => {
-  const colorStyle = optionsKnob("Color style", COLOR_STYLES, COLOR_STYLES.REGULAR, {
-    display: "inline-radio"
-  });
-  const noColorText = text("no color text", "no color");
-  const shouldRenderIndicatorWithoutBackground = boolean("shouldRenderIndicatorWithoutBackground", false);
-  const colorsList = array("colors list", ["grass_green", "done-green", "bright-green"]);
-  const isBlackListMode = boolean("isBlackListMode", true);
-  const isMultiselect = boolean("isMultiselect", false);
-  const value = array("value", ["done-green"]);
-
-  return (
-    <div style={{ width: number("external wrapper width", 240) }}>
-      <ColorPicker
-        colorStyle={colorStyle}
-        ColorIndicatorIcon={TextColorIndicator}
-        SelectedIndicatorIcon={Check}
-        noColorText={noColorText}
-        shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
-        NoColorIcon={Send}
-        colorsList={colorsList}
-        isBlackListMode={isBlackListMode}
-        isMultiselect={isMultiselect}
-        value={value}
-      />
-    </div>
-  );
-};
-
 export default {
   title: "Components|ColorPicker",
   component: ColorPicker,
