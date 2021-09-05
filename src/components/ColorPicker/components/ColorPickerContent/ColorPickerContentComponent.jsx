@@ -31,7 +31,7 @@ const ColorPickerContentComponent = ({
   const onColorClicked = useCallback(
     color => {
       if (!isMultiselect) {
-        onValueChange(color);
+        setSelectedColors(color);
         return;
       }
       const colors = [...value];
