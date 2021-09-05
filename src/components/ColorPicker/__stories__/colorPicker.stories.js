@@ -6,7 +6,6 @@ import Send from "../../Icon/Icons/components/Send";
 import TextColorIndicator from "../../Icon/Icons/components/TextColorIndicator";
 import Check from "../../Icon/Icons/components/Check";
 import ColorPicker from "../ColorPicker";
-import ColorPickerWrapper from "../ColorPickerWrapper";
 
 export const Sandbox = () => {
   const colorStyle = optionsKnob("Color style", COLOR_STYLES, COLOR_STYLES.REGULAR, {
