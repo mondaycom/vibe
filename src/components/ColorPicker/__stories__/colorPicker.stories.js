@@ -4,7 +4,6 @@ import { withPerformance } from "storybook-addon-performance";
 import { COLOR_STYLES } from "../../../general-stories/colors/colors-vars-map";
 import Send from "../../Icon/Icons/components/Send";
 import TextColorIndicator from "../../Icon/Icons/components/TextColorIndicator";
-import Check from "../../Icon/Icons/components/Check";
 import ColorPicker from "../ColorPicker";
 
 export const Sandbox = () => {
