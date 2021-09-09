@@ -1,5 +1,6 @@
 import cx from "classnames";
 import _difference from "lodash/difference";
+import _intersection from "lodash/intersection";
 import PropTypes from "prop-types";
 import React, { useCallback, useState, useEffect, useMemo } from "react";
 import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
@@ -49,15 +50,13 @@ const ColorPickerContentComponent = ({
   );
 
   useEffect(() => {
-    onValueChange(selectedColors);
-  }, [onValueChange, selectedColors]);
+    if (selectedColors !== value) {
+      onValueChange(selectedColors);
+    }
+  }, [onValueChange, selectedColors, value]);
 
   const colorsToRender = useMemo(() => {
-    // If whitelist mode and not all the colors exists in the colors option - render all options
-    if (!isBlackListMode && _difference(colorsList, contentColors).length !== 0) {
-      return contentColors;
-    }
-    return isBlackListMode ? _difference(contentColors, colorsList) : colorsList;
+    return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);
   }, [isBlackListMode, colorsList]);
 
   return (
