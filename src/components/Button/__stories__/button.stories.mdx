@@ -1,5 +1,5 @@
 import Button from "../Button";
-import { Meta, ArgsTable, Story, Canvas } from "@storybook/addon-docs";
+import { ArgsTable, Story, Canvas } from "@storybook/addon-docs";
 import "./button.stories.scss";
 import SplitButton from "../../SplitButton/SplitButton";
 import ButtonGroup from "../../ButtonGroup/ButtonGroup";
@@ -10,7 +10,7 @@ import { Add, Remove } from "../../Icon/Icons";
 
 - [Overview](#overview)
 - [Props](#props)
-- [Uasge](#uasge)
+- [Usage](#usage)
 - [Variants](#variants)
 - [Do’s and don’ts](#component-rules)
 - [Use cases and examples](#Use-cases-and-examples)
@@ -22,7 +22,9 @@ Buttons allow users take actions with a single click.
 They should be clear indications that they triggering an action, buttons should be easy to find among other UI.
 
 <Canvas>
-  <Button>Button</Button>
+  <Story name="overview">
+    <Button>Button</Button>
+  </Story>
 </Canvas>
 
 ## Props
@@ -44,43 +46,53 @@ They should be clear indications that they triggering an action, buttons should 
 There can be more than one button in a screen, but to create the hierarchy of actions we need to use button types
 
 <Canvas>
-    <Button>Primary</Button>
-    <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
-    <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+  <Story name="button-types">
+      <Button>Primary</Button>
+      <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
+      <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+  </Story>
 </Canvas>
 
 ### Disabled
 Set disable button for something that isn’t usable. Use a tooltip on hover in order to indicate the reason of the disabled action.
 <Canvas>
+  <Story name="disabled">
     <Button disabled>Primary</Button>
     <Button kind={Button.kinds.SECONDARY} disabled>Secondary</Button>
     <Button kind={Button.kinds.TERTIARY} disabled>Tertiary</Button>
+  </Story>
 </Canvas>
 
 ### Sizes
 We have 3 button sizes to emphasise the action importance
 <Canvas>
-    <Button size={Button.sizes.LARGE}>Large</Button>
-    <Button size={Button.sizes.MEDIUM}>Medium</Button>
-    <Button size={Button.sizes.SMALL}>Small</Button>
+  <Story name="sizes">
+      <Button size={Button.sizes.LARGE}>Large</Button>
+      <Button size={Button.sizes.MEDIUM}>Medium</Button>
+      <Button size={Button.sizes.SMALL}>Small</Button>
+  </Story>
 </Canvas>
 
 ### States
 <Canvas>
-  <Button>Regular</Button>
-  <Button>Hover</Button>
-  <Button>Active</Button>
-  <Button disabled>Disabled</Button>
+  <Story name="states">
+    <Button>Regular</Button>
+    <Button>Hover</Button>
+    <Button>Active</Button>
+    <Button disabled>Disabled</Button>
+  </Story>
 </Canvas>
 
 ### Error and success
 <Canvas>
+  <Story name="error-and-success">
     <Button color={Button.colors.POSITIVE}>Positive</Button>
     <Button color={Button.colors.NEGATIVE}>Negative</Button>
+  </Story>
 </Canvas>
 
 ### Icons
-tbd
+<Story id="components-button--icons"/>
 
 ## Do’s and Don’ts
 <ComponentRules
@@ -129,32 +141,36 @@ tbd
 />
 
 
-
 ## Use cases and examples
 
 ### Loading state
-tbd
+<Story id="components-button--loading-state"/>
+
+### On color state
+<Story id="components-button--on-color-button-state"/>
 
 ### Adjacment buttons
 When one action is selected, the other is disabled
 
 <Canvas>
-    <Button
-      rightFlat
-      kind={Button.kinds.SECONDARY}
-      size={Button.sizes.SMALL}
-      ariaLabel="decrease zoom level"
-    >
-      <Remove />
-    </Button>
-    <Button
-      leftFlat
-      kind={Button.kinds.SECONDARY}
-      size={Button.sizes.SMALL}
-      ariaLabel="increase zoom level"
-    >
-      <Add />
-    </Button>
+  <story name="adjacment-buttons">
+      <Button
+        rightFlat
+        kind={Button.kinds.SECONDARY}
+        size={Button.sizes.SMALL}
+        ariaLabel="decrease zoom level"
+      >
+        <Remove />
+      </Button>
+      <Button
+        leftFlat
+        kind={Button.kinds.SECONDARY}
+        size={Button.sizes.SMALL}
+        ariaLabel="increase zoom level"
+      >
+        <Add />
+      </Button>
+  </story>
 </Canvas>
 
 ## Related components
