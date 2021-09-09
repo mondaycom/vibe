@@ -1,8 +1,9 @@
 import React from "react";
 import Label from "../Label";
-import { select, text } from "@storybook/addon-knobs";
+import { boolean, select, text } from "@storybook/addon-knobs";
 import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
 import { withPerformance } from "storybook-addon-performance";
+import { bool } from "prop-types";
 
 export const Sandbox = () => (
   <div>
@@ -11,6 +12,8 @@ export const Sandbox = () => (
       text={text("Text", "New")}
       color={select("Color", Object.values(Label.colors), Label.colors.PRIMARY)}
       kind={select("Kind", Object.values(Label.kinds), Label.kinds.FILL)}
+      isAnimationDisabled={boolean("Is Animation Disabled", false)}
+      isLegIncluded={boolean("Is Leg Included", false)}
     />
   </div>
 );
