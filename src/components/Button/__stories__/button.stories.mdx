@@ -4,13 +4,13 @@ import "./button.stories.scss";
 import SplitButton from "../../SplitButton/SplitButton";
 import ButtonGroup from "../../ButtonGroup/ButtonGroup";
 import Tooltip from "../../Tooltip/Tooltip";
-import { Add, Remove } from "../../Icon/Icons";
 
 # Button
 
+## check
 - [Overview](#overview)
 - [Props](#props)
-- [Usage](#usage)
+- [Uasge](#uasge)
 - [Variants](#variants)
 - [Do’s and don’ts](#component-rules)
 - [Use cases and examples](#Use-cases-and-examples)
@@ -21,11 +21,7 @@ import { Add, Remove } from "../../Icon/Icons";
 Buttons allow users take actions with a single click.
 They should be clear indications that they triggering an action, buttons should be easy to find among other UI.
 
-<Canvas>
-  <Story name="overview">
-    <Button>Button</Button>
-  </Story>
-</Canvas>
+<Story id="components-button--overview"/>
 
 ## Props
 <ArgsTable of={Button} />
@@ -46,54 +42,34 @@ They should be clear indications that they triggering an action, buttons should 
 There can be more than one button in a screen, but to create the hierarchy of actions we need to use button types
 
 <Canvas>
-  <Story name="button-types">
-      <Button>Primary</Button>
-      <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
-      <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-  </Story>
+  <Story id="components-button--button-types"/>
 </Canvas>
 
 ### Disabled
 Set disable button for something that isn’t usable. Use a tooltip on hover in order to indicate the reason of the disabled action.
 <Canvas>
-  <Story name="disabled">
-    <Button disabled>Primary</Button>
-    <Button kind={Button.kinds.SECONDARY} disabled>Secondary</Button>
-    <Button kind={Button.kinds.TERTIARY} disabled>Tertiary</Button>
-  </Story>
+  <Story id="components-button--disabled"/>
 </Canvas>
-
 ### Sizes
 We have 3 button sizes to emphasise the action importance
 <Canvas>
-  <Story name="sizes">
-      <Button size={Button.sizes.LARGE}>Large</Button>
-      <Button size={Button.sizes.MEDIUM}>Medium</Button>
-      <Button size={Button.sizes.SMALL}>Small</Button>
-  </Story>
+  <Story id="components-button--sizes"/>
 </Canvas>
 
 ### States
 <Canvas>
-  <Story name="states">
-    <Button>Regular</Button>
-    <Button>Hover</Button>
-    <Button>Active</Button>
-    <Button disabled>Disabled</Button>
-  </Story>
+<Story id="components-button--states"/>
 </Canvas>
 
 ### Error and success
 <Canvas>
-  <Story name="error-and-success">
-    <Button color={Button.colors.POSITIVE}>Positive</Button>
-    <Button color={Button.colors.NEGATIVE}>Negative</Button>
-  </Story>
+  <Story id="components-button--error-and-success"/>
 </Canvas>
 
 ### Icons
-<Story id="components-button--icons"/>
-
+<Canvas>
+  <Story id="components-button--icons"/>
+</Canvas>
 ## Do’s and Don’ts
 <ComponentRules
   rules={[
@@ -136,7 +112,7 @@ We have 3 button sizes to emphasise the action importance
         component:[<Button kind={Button.kinds.TERTIARY}>Yes</Button>, <Button>No</Button>],
         description:"Use vague and generic labels that make the user read the dialog before taking action."
       }
-    },
+    }
   ]}
 />
 
@@ -144,33 +120,20 @@ We have 3 button sizes to emphasise the action importance
 ## Use cases and examples
 
 ### Loading state
-<Story id="components-button--loading-state"/>
+<Canvas>
+  <Story id="components-button--loading-state"/>
+</Canvas>
 
 ### On color state
-<Story id="components-button--on-color-button-state"/>
+<Canvas>
+  <Story id="components-button--on-color-button-state"/>
+</Canvas>
 
 ### Adjacment buttons
 When one action is selected, the other is disabled
 
 <Canvas>
-  <story name="adjacment-buttons">
-      <Button
-        rightFlat
-        kind={Button.kinds.SECONDARY}
-        size={Button.sizes.SMALL}
-        ariaLabel="decrease zoom level"
-      >
-        <Remove />
-      </Button>
-      <Button
-        leftFlat
-        kind={Button.kinds.SECONDARY}
-        size={Button.sizes.SMALL}
-        ariaLabel="increase zoom level"
-      >
-        <Add />
-      </Button>
-  </story>
+   <Story id="components-button--adjacment-buttons"/>
 </Canvas>
 
 ## Related components

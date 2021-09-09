@@ -9,8 +9,8 @@ const bemHelper = BEMClass(CSS_BASE_CLASS);
 export const UsageGuidelines = ({ guidelines }) => {
   const guidelinesElements = useMemo(
     () =>
-      guidelines.map(guideline => (
-        <span className={bemHelper({ element: "guideline" })}>
+      guidelines.map((guideline, index) => (
+        <span id={index} className={bemHelper({ element: "guideline" })}>
           <div className={bemHelper({ element: "icon" })}>➡️</div>
           {guideline}
         </span>

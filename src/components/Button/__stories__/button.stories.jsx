@@ -1,8 +1,66 @@
 import React, { useState, useCallback } from "react";
 import Button from "../Button";
-import { Check, Calendar } from "../../Icon/Icons";
+import { Check, Calendar, Add, Remove } from "../../Icon/Icons";
 import mdx from "./button.stories.mdx";
 import "./button.stories.scss";
+
+export const overview = () => {
+  return <Button>Button</Button>;
+};
+
+export const ButtonTypes = () => {
+  return (
+    <>
+      <Button>Primary</Button>
+      <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
+      <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+    </>
+  );
+};
+
+export const Disabled = () => {
+  return (
+    <>
+      <Button disabled>Primary</Button>
+      <Button kind={Button.kinds.SECONDARY} disabled>
+        Secondary
+      </Button>
+      <Button kind={Button.kinds.TERTIARY} disabled>
+        Tertiary
+      </Button>
+    </>
+  );
+};
+
+export const Sizes = () => {
+  return (
+    <>
+      <Button size={Button.sizes.LARGE}>Large</Button>
+      <Button size={Button.sizes.MEDIUM}>Medium</Button>
+      <Button size={Button.sizes.SMALL}>Small</Button>
+    </>
+  );
+};
+
+export const States = () => {
+  return (
+    <>
+      <Button>Regular</Button>
+      <Button>Hover</Button>
+      <Button>Active</Button>
+      <Button disabled>Disabled</Button>
+    </>
+  );
+};
+
+export const ErrorAndSuccess = () => {
+  return (
+    <>
+      <Button color={Button.colors.POSITIVE}>Positive</Button>
+      <Button color={Button.colors.NEGATIVE}>Negative</Button>
+    </>
+  );
+};
 
 export const Icons = () => {
   return (
@@ -23,6 +81,19 @@ export const LoadingState = () => {
     <Button loading={loading} onClick={onClick}>
       Click here for loading
     </Button>
+  );
+};
+
+export const adjacmentButtons = () => {
+  return (
+    <>
+      <Button rightFlat kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="decrease zoom level">
+        <Remove />
+      </Button>
+      <Button leftFlat kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="increase zoom level">
+        <Add />
+      </Button>
+    </>
   );
 };
 
