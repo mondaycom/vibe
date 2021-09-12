@@ -5,13 +5,21 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: $border-radius-small $border-radius-small $border-radius-small 0;
-  animation: label-pop 200ms;
+  border-radius: $border-radius-small;
+
   @include font-input();
   padding: 0 $spacing-small;
-  transform-origin: bottom left;
-  animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
   position: relative;
+
+  &--with-leg {
+    border-radius: $border-radius-small $border-radius-small $border-radius-small 0;
+  }
+
+  &--with-animation {
+    animation: label-pop 200ms;
+    transform-origin: bottom left;
+    animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
+  }
   
   &__leg-wrapper {
     position: absolute;

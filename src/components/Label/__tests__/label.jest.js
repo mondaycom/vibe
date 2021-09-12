@@ -78,5 +78,15 @@ describe("Snapshots", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+
+    it("without animation", () => {
+      const tree = renderer.create(<Label text={"Test"} isAnimationDisabled />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it("with leg", () => {
+      const tree = renderer.create(<Label text={"Test"} isLegIncluded />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 });
