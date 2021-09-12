@@ -41,12 +41,13 @@ const Icon = forwardRef(
       return null;
     }
 
-    if (iconType === ICON_TYPES.SVG || typeof icon === "function" || typeof icon === "object") {
+    const isIconFunctionType = typeof icon === "function";
+    if (iconType === ICON_TYPES.SVG || isIconFunctionType || typeof icon === "object") {
       const IconComponent = icon;
       return (
         <IconComponent
           {...screenReaderAccessProps}
-          ref={mergedRef}
+          ref={isIconFunctionType ? undefined : mergedRef}
           size={iconSize.toString()}
           onClick={onClick}
           className={computedClassName}
