@@ -28,18 +28,17 @@ Label.propTypes = {
   wrapperClassName: PropTypes.string,
   text: PropTypes.string,
   color: PropTypes.oneOf([LABEL_COLORS.PRIMARY, LABEL_COLORS.DARK, LABEL_COLORS.POSITIVE, LABEL_COLORS.NEGATIVE]),
+  kind: PropTypes.oneOf([LABEL_TYPES.FILL, LABEL_TYPES.LINE]),
   isAnimationDisabled: PropTypes.bool,
-  isLegIncluded: PropTypes.bool,
-  kind: PropTypes.oneOf([LABEL_TYPES.FILL, LABEL_TYPES.LINE])
+  isLegIncluded: PropTypes.bool
 };
-
 Label.defaultProps = {
   wrapperClassName: "",
   text: "",
   color: LABEL_COLORS.PRIMARY,
+  kind: LABEL_TYPES.FILL,
   isAnimationDisabled: false,
-  isLegIncluded: false,
-  kind: LABEL_TYPES.FILL
+  isLegIncluded: false
 };
 
 Label.colors = LABEL_COLORS;
