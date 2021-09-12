@@ -1,34 +1,30 @@
 import { useMemo } from "react";
 import PropTypes from "prop-types";
 import { BEMClass } from "../../helpers/bem-helper";
-import { RelatedComponent } from "../related-component/related-component";
 import "./related-components.scss";
+import { descriptionTypesMap } from "./component-description-map";
 
 const CSS_BASE_CLASS = "monday-storybook-related-components";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-export const RelatedComponents = ({ componentsData }) => {
+export const RelatedComponents = ({ componentsNames }) => {
   const componentsDataElements = useMemo(
     () =>
-      componentsData
-        .map(componentData => (
-          <section className={bemHelper({ element: "component-data" })}>
-            <RelatedComponent
-              component={componentData.component}
-              title={componentData.title}
-              description={componentData.description}
-              isRecommended
-            />
+      componentsNames.map((componentName, index) => {
+        const key = `${componentName}_${index}`;
+        return (
+          <section key={key} className={bemHelper({ element: "component-data" })}>
+            {descriptionTypesMap.get(componentName)}
           </section>
-        ))
-        .flat(1),
-    [componentsData]
+        );
+      }),
+    [componentsNames]
   );
   return <article className="monday-storybook-related-components">{componentsDataElements}</article>;
 };
 
 RelatedComponents.propTypes = {
-  componentsData: PropTypes.shape({
+  componentsNames: PropTypes.shape({
     component: PropTypes.element,
     title: PropTypes.string,
     description: PropTypes.string
@@ -36,5 +32,5 @@ RelatedComponents.propTypes = {
 };
 
 RelatedComponents.defaultProps = {
-  componentsData: []
+  componentsNames: []
 };

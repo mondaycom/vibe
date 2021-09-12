@@ -4,6 +4,7 @@ import "./button.stories.scss";
 import SplitButton from "../../SplitButton/SplitButton";
 import ButtonGroup from "../../ButtonGroup/ButtonGroup";
 import Tooltip from "../../Tooltip/Tooltip";
+import { BUTTON_GROUP, SPLIT_BUTTON } from "../../../storybook-components/related-components/component-description-map";
 
 # Button
 
@@ -137,25 +138,4 @@ When one action is selected, the other is disabled
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsData={[
-  {
-    component: <SplitButton>Button</SplitButton>,
-    title: "Split button",
-    description: "Dual-function menu button offers a default action and a secondary action"
-  },
-  {
-    component: <ButtonGroup groupAriaLabel="button group aria label"
-                            options={[
-                              { value: 1, text: "Option 1"},
-                              { value: 2, text: "Option 2" },
-                              { value: 3, text: "Option 3" }
-                            ]}/>,
-    title: "Split button",
-    description: "Dual-function menu button offers a default action and a secondary action"
-  },
-  {
-    component: <Tooltip/>,
-    title: "Tooltip",
-    description: "Displays information related to an element over it"
-  }
-]}/>
+<RelatedComponents componentsNames={[SPLIT_BUTTON, BUTTON_GROUP, BUTTON_GROUP]}/>
