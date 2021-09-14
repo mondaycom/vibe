@@ -10,7 +10,8 @@ import {
   Header,
   UsageGuidelines,
   RelatedComponents,
-  DocFooter
+  DocFooter,
+  ComponentStory
 } from "../src/storybook-components";
 
 addParameters({
@@ -31,7 +32,8 @@ addParameters({
       Tip,
       ComponentRules,
       UsageGuidelines,
-      RelatedComponents
+      RelatedComponents,
+      ComponentStory
     }
   },
   viewMode: "docs",
@@ -41,4 +43,3 @@ addParameters({
     { name: "Black", class: "black-app-theme", color: "#111111" }
   ]
 });
-

@@ -7,5 +7,17 @@ import { UsageGuidelines } from "./usage-guidelines/usage-guidelines";
 import { RelatedComponents } from "./related-components/related-components";
 import { AnchorListItem } from "./anchor-list-item/anchor-list-item";
 import { DocFooter } from "./doc-footer/doc-footer";
+import { ComponentStory } from "./component-story/component-story";
 
-export { SubHeader, Title, Tip, ComponentRules, Header, UsageGuidelines, RelatedComponents, AnchorListItem, DocFooter };
+export {
+  SubHeader,
+  Title,
+  Tip,
+  ComponentRules,
+  Header,
+  UsageGuidelines,
+  RelatedComponents,
+  AnchorListItem,
+  DocFooter,
+  ComponentStory
+};
