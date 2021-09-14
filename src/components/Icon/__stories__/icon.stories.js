@@ -16,7 +16,7 @@ export const Icons = () => {
     <>
       <FlexLayout className="main-icon-story">
         <div className="single-icon-wrapper" style={{ color: "var(--primary-color)" }}>
-          <Icon iconType={Icon.type.SVG} icon={() => <Bolt />} iconLabel="my bolt svg icon" clickable iconSize={16} />
+          <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" clickable iconSize={16} />
         </div>
         <DescriptionLabel>SVG Icon</DescriptionLabel>
       </FlexLayout>
@@ -36,7 +36,14 @@ export const Icons = () => {
             className="icon-story-custom-icon"
           />
         </div>
-        <DescriptionLabel className="icon-story-inline-style">Custom SVG Icon</DescriptionLabel>
+        <DescriptionLabel className="icon-story-inline-style">
+          SVG Icon custom -{" "}
+          <Link
+            componentClassName={"icon-story-link"}
+            href="https://github.com/gilbarbara/react-inlinesvg"
+            text="react-inlinesvg"
+          />
+        </DescriptionLabel>
       </FlexLayout>
       <FlexLayout className="main-icon-story">
         <div className="single-icon-wrapper">
@@ -47,7 +54,7 @@ export const Icons = () => {
           />
         </div>
         <DescriptionLabel className="icon-story-inline-style">
-          Deprecated custom -{" "}
+          Deprecated SVG Icon custom -{" "}
           <Link
             componentClassName={"icon-story-link"}
             href="https://github.com/gilbarbara/react-inlinesvg"
