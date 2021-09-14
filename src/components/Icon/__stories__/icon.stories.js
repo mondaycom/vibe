@@ -16,7 +16,7 @@ export const Icons = () => {
     <>
       <FlexLayout className="main-icon-story">
         <div className="single-icon-wrapper" style={{ color: "var(--primary-color)" }}>
-          <Icon iconType={Icon.type.SVG} icon={Bolt} iconLabel="my bolt svg icon" clickable iconSize={16} />
+          <Icon iconType={Icon.type.SVG} icon={() => <Bolt />} iconLabel="my bolt svg icon" clickable iconSize={16} />
         </div>
         <DescriptionLabel>SVG Icon</DescriptionLabel>
       </FlexLayout>
@@ -28,9 +28,11 @@ export const Icons = () => {
       </FlexLayout>
       <FlexLayout className="main-icon-story">
         <div className="single-icon-wrapper">
-          <CustomSvgIcon
-            src="https://cdn.worldvectorlogo.com/logos/monday-1.svg"
+          <Icon
+            iconType={Icon.type.SRC}
+            icon="https://cdn.worldvectorlogo.com/logos/monday-1.svg"
             clickable
+            iconLabel="my src awesome icon"
             className="icon-story-custom-icon"
           />
         </div>
@@ -42,6 +44,12 @@ export const Icons = () => {
             text="react-inlinesvg"
           />
         </DescriptionLabel>
+      </FlexLayout>
+      <FlexLayout className="main-icon-story">
+        <div className="single-icon-wrapper">
+          <Icon src="https://cdn.worldvectorlogo.com/logos/monday-1.svg" clickable className="icon-story-custom-icon" />
+        </div>
+        <DescriptionLabel className="icon-story-inline-style">Custom SVG Icon</DescriptionLabel>
       </FlexLayout>
     </>
   );
