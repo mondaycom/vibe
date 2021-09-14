@@ -36,20 +36,24 @@ export const Icons = () => {
             className="icon-story-custom-icon"
           />
         </div>
+        <DescriptionLabel className="icon-story-inline-style">Custom SVG Icon</DescriptionLabel>
+      </FlexLayout>
+      <FlexLayout className="main-icon-story">
+        <div className="single-icon-wrapper">
+          <CustomSvgIcon
+            src="https://cdn.worldvectorlogo.com/logos/monday-1.svg"
+            clickable
+            className="icon-story-custom-icon"
+          />
+        </div>
         <DescriptionLabel className="icon-story-inline-style">
-          Custom SVG Icon -{" "}
+          Deprecated custom -{" "}
           <Link
             componentClassName={"icon-story-link"}
             href="https://github.com/gilbarbara/react-inlinesvg"
             text="react-inlinesvg"
           />
         </DescriptionLabel>
-      </FlexLayout>
-      <FlexLayout className="main-icon-story">
-        <div className="single-icon-wrapper">
-          <Icon src="https://cdn.worldvectorlogo.com/logos/monday-1.svg" clickable className="icon-story-custom-icon" />
-        </div>
-        <DescriptionLabel className="icon-story-inline-style">Custom SVG Icon</DescriptionLabel>
       </FlexLayout>
     </>
   );
