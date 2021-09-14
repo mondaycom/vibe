@@ -7,8 +7,6 @@ import Tooltip from "../../Tooltip/Tooltip";
 import { BUTTON_GROUP, SPLIT_BUTTON } from "../../../storybook-components/related-components/component-description-map";
 
 # Button
-
-## check
 - [Overview](#overview)
 - [Props](#props)
 - [Uasge](#uasge)
@@ -21,8 +19,7 @@ import { BUTTON_GROUP, SPLIT_BUTTON } from "../../../storybook-components/relate
 ## Overview
 Buttons allow users take actions with a single click.
 They should be clear indications that they triggering an action, buttons should be easy to find among other UI.
-
-<Story id="components-button--overview"/>
+<ComponentStory storyId="components-button--overview"/>
 
 ## Props
 <ArgsTable of={Button} />
@@ -41,36 +38,27 @@ They should be clear indications that they triggering an action, buttons should 
 ## Variants
 ### Button types
 There can be more than one button in a screen, but to create the hierarchy of actions we need to use button types
-
-<Canvas>
-  <Story id="components-button--button-types"/>
-</Canvas>
+<ComponentStory storyId="components-button--button-types"/>
 
 ### Disabled
 Set disable button for something that isn’t usable. Use a tooltip on hover in order to indicate the reason of the disabled action.
-<Canvas>
-  <Story id="components-button--disabled"/>
-</Canvas>
+<ComponentStory storyId="components-button--disabled"/>
+
 ### Sizes
 We have 3 button sizes to emphasise the action importance
-<Canvas>
-  <Story id="components-button--sizes"/>
-</Canvas>
+<ComponentStory storyId="components-button--sizes"/>
+
 
 ### States
-<Canvas>
-<Story id="components-button--states"/>
-</Canvas>
+<ComponentStory storyId="components-button--states"/>
 
 ### Error and success
-<Canvas>
-  <Story id="components-button--error-and-success"/>
-</Canvas>
+<ComponentStory storyId="components-button--error-and-success"/>
+
 
 ### Icons
-<Canvas>
-  <Story id="components-button--icons"/>
-</Canvas>
+<ComponentStory storyId="components-button--icons"/>
+
 ## Do’s and Don’ts
 <ComponentRules
   rules={[
@@ -124,16 +112,11 @@ We have 3 button sizes to emphasise the action importance
 <ComponentStory storyId="components-button--loading-state"/>
 
 ### On color state
-<Canvas>
-  <Story id="components-button--on-color-button-state"/>
-</Canvas>
+<ComponentStory storyId="components-button--on-color-button-state"/>
 
 ### Adjacment buttons
 When one action is selected, the other is disabled
-
-<Canvas>
-   <Story id="components-button--adjacment-buttons"/>
-</Canvas>
+<ComponentStory storyId="components-button--adjacment-buttons"/>
 
 ## Related components
 <RelatedComponents componentsNames={[SPLIT_BUTTON, BUTTON_GROUP, BUTTON_GROUP]}/>

@@ -4,8 +4,11 @@ import { Check, Calendar, Add, Remove } from "../../Icon/Icons";
 import mdx from "./button.stories.mdx";
 import "./button.stories.scss";
 
-export const overview = () => {
-  return <Button>Button</Button>;
+const ButtonTemplate = args => <Button {...args} />;
+
+export const Overview = ButtonTemplate.bind({});
+Overview.args = {
+  children: "Button"
 };
 
 export const ButtonTypes = () => {
