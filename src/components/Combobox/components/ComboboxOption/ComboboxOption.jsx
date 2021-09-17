@@ -63,7 +63,7 @@ const ComboboxOption = ({
         ref={ref}
         key={id || label}
         role="option"
-        ariaLabel={ariaLabel || label}
+        aria-label={ariaLabel || label}
         id={`combobox-item-${index}`}
         onMouseEnter={!disabled && onOptionHover}
         onClick={event => onOptionClick(event, index, option, true)}
