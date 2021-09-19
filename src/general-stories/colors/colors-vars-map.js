@@ -132,7 +132,8 @@ export const contentColors = [
   "teal",
   "lavender",
   "steel",
-  "lilac"
+  "lilac",
+  "pecan"
 ];
 
 export const COLOR_STYLES = {
@@ -179,7 +180,8 @@ export const contentColorsByName = {
   TEAL: "teal",
   LAVENDER: "lavender",
   STEEL: "steel",
-  LILAC: "lilac"
+  LILAC: "lilac",
+  PECAN: "pecan"
 };
 
 export const stateSelectedColors = {

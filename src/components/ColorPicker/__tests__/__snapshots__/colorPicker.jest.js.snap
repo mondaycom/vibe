@@ -793,6 +793,26 @@ exports[`renders correctly with empty props 1`] = `
           />
         </div>
       </div>
+      <div
+        className="color-item-wrapper"
+      >
+        <div
+          aria-label="pecan"
+          className="color-item"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-pecan)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>
