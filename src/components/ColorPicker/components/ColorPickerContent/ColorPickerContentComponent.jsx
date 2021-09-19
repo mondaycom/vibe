@@ -46,7 +46,7 @@ const ColorPickerContentComponent = ({
       }
       setSelectedColors(colors);
     },
-    [isMultiselect, onValueChange, value]
+    [isMultiselect, value]
   );
 
   useEffect(() => {
