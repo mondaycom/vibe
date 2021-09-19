@@ -28,6 +28,25 @@ export const Icons = () => {
       </FlexLayout>
       <FlexLayout className="main-icon-story">
         <div className="single-icon-wrapper">
+          <Icon
+            iconType={Icon.type.SRC}
+            icon="https://cdn.worldvectorlogo.com/logos/monday-1.svg"
+            clickable
+            iconLabel="my src awesome icon"
+            className="icon-story-custom-icon"
+          />
+        </div>
+        <DescriptionLabel className="icon-story-inline-style">
+          SVG Icon custom -{" "}
+          <Link
+            componentClassName={"icon-story-link"}
+            href="https://github.com/gilbarbara/react-inlinesvg"
+            text="react-inlinesvg"
+          />
+        </DescriptionLabel>
+      </FlexLayout>
+      <FlexLayout className="main-icon-story">
+        <div className="single-icon-wrapper">
           <CustomSvgIcon
             src="https://cdn.worldvectorlogo.com/logos/monday-1.svg"
             clickable
@@ -35,7 +54,7 @@ export const Icons = () => {
           />
         </div>
         <DescriptionLabel className="icon-story-inline-style">
-          Custom SVG Icon -{" "}
+          Deprecated SVG Icon custom -{" "}
           <Link
             componentClassName={"icon-story-link"}
             href="https://github.com/gilbarbara/react-inlinesvg"
