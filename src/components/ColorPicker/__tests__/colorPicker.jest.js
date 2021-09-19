@@ -33,7 +33,7 @@ describe("Click", () => {
       fireEvent.click(colorElementToClick);
     });
 
-    expect(onSaveMock.mock.calls.length).toBe(2);
+    expect(onSaveMock.mock.calls.length).toBe(1);
     expect(clickedColorValue).toBe(colorToClick);
   });
 
@@ -58,7 +58,7 @@ describe("Click", () => {
       fireEvent.click(colorElementToClick);
     });
 
-    expect(onSaveMock.mock.calls.length).toBe(2);
+    expect(onSaveMock.mock.calls.length).toBe(1);
     expect(clickedColorValue).toStrictEqual([colorToClick]);
   });
 
