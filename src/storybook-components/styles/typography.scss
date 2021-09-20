@@ -24,3 +24,10 @@ $text-line-height: 24px;
   font-size: $text-font-size;
   line-height: $text-line-height;
 }
+
+@mixin paragraph-text {
+  @include basic-text;
+  font-size: $small-text-font-size;
+  font-weight: 300;
+  line-height: $text-line-height;
+}

@@ -8,6 +8,7 @@ import { RelatedComponents } from "./related-components/related-components";
 import { AnchorListItem } from "./anchor-list-item/anchor-list-item";
 import { DocFooter } from "./doc-footer/doc-footer";
 import { ComponentStory } from "./component-story/component-story";
+import { Paragraph } from "./paragraph/paragraph";
 
 export {
   SubHeader,
@@ -19,5 +20,6 @@ export {
   RelatedComponents,
   AnchorListItem,
   DocFooter,
-  ComponentStory
+  ComponentStory,
+  Paragraph
 };

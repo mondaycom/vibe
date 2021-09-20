@@ -15,7 +15,8 @@
   &_title {
     @include content-text;
     font-weight: bold;
-
+    margin-bottom: $spacing-xs;
+    margin-top: $spacing-xs;
   }
 
   &_description {

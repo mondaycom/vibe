@@ -11,7 +11,8 @@ import {
   UsageGuidelines,
   RelatedComponents,
   DocFooter,
-  ComponentStory
+  ComponentStory,
+  Paragraph
 } from "../src/storybook-components";
 
 addParameters({
@@ -29,6 +30,7 @@ addParameters({
       h2: SubHeader,
       h3: Title,
       li: AnchorListItem,
+      p: Paragraph,
       Tip,
       ComponentRules,
       UsageGuidelines,

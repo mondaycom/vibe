@@ -1,0 +1,7 @@
+@import "../styles/typography.scss";
+@import "../styles/content-spacing";
+
+.monday-storybook_paragraph {
+  @include paragraph-text;
+  margin-top: $spacing-between-section-items;
+}
