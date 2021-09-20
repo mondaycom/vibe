@@ -11,69 +11,34 @@ Overview.args = {
   children: "Button"
 };
 
-export const ButtonTypes = () => {
-  return (
-    <>
-      <Button>Primary</Button>
-      <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
-      <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
-    </>
-  );
+export const ButtonPrimaryType = () => <Button>Primary</Button>;
+
+export const ButtonSecondaryType = () => <Button kind={Button.kinds.SECONDARY}>Secondary</Button>;
+
+export const ButtonTertiaryType = () => {
+  return <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>;
 };
 
-export const Disabled = () => {
-  return (
-    <>
-      <Button disabled>Primary</Button>
-      <Button kind={Button.kinds.SECONDARY} disabled>
-        Secondary
-      </Button>
-      <Button kind={Button.kinds.TERTIARY} disabled>
-        Tertiary
-      </Button>
-    </>
-  );
-};
+export const DisabledPrimary = () => <Button disabled>Primary</Button>;
 
-export const Sizes = () => {
-  return (
-    <>
-      <Button size={Button.sizes.LARGE}>Large</Button>
-      <Button size={Button.sizes.MEDIUM}>Medium</Button>
-      <Button size={Button.sizes.SMALL}>Small</Button>
-    </>
-  );
-};
+export const DisabledSecondary = () => (
+  <Button kind={Button.kinds.SECONDARY} disabled>
+    Secondary
+  </Button>
+);
 
-export const States = () => {
-  return (
-    <>
-      <Button>Regular</Button>
-      <Button>Hover</Button>
-      <Button>Active</Button>
-      <Button disabled>Disabled</Button>
-    </>
-  );
-};
-
-export const ErrorAndSuccess = () => {
-  return (
-    <>
-      <Button color={Button.colors.POSITIVE}>Positive</Button>
-      <Button color={Button.colors.NEGATIVE}>Negative</Button>
-    </>
-  );
-};
-
-export const Icons = () => {
-  return (
-    <div className="monday-storybook-button_icons">
-      <Button rightIcon={Calendar}>Right icon</Button>
-      <Button leftIcon={Calendar}>Left icon</Button>
-    </div>
-  );
-};
-
+export const DisabledTertiary = () => (
+  <Button kind={Button.kinds.TERTIARY} disabled>
+    Tertiary
+  </Button>
+);
+export const SizeLarge = () => <Button size={Button.sizes.LARGE}>Large</Button>;
+export const SizeMedium = () => <Button size={Button.sizes.MEDIUM}>Medium</Button>;
+export const SizeSmall = () => <Button size={Button.sizes.SMALL}>Small</Button>;
+export const SuccessColor = () => <Button color={Button.colors.POSITIVE}>Positive</Button>;
+export const ErrorColor = () => <Button color={Button.colors.NEGATIVE}>Negative</Button>;
+export const rightIcon = () => <Button rightIcon={Calendar}>Right icon</Button>;
+export const LeftIcon = () => <Button leftIcon={Calendar}>Left icon</Button>;
 export const LoadingState = () => {
   const [loading, setLoading] = useState(false);
   const onClick = useCallback(() => {
@@ -86,8 +51,7 @@ export const LoadingState = () => {
     </Button>
   );
 };
-
-export const adjacmentButtons = () => {
+export const AdjacmentButtons = () => {
   return (
     <>
       <Button rightFlat kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="decrease zoom level">
