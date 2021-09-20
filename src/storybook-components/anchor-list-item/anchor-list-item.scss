@@ -1,3 +1,4 @@
+@import "../../styles/global-css-settings.scss";
 @import "../styles/typography";
 
 .monday-storybook-anchor-list-item {
@@ -5,6 +6,10 @@
   font-weight: 300;
   font-size: $anchor-font-size;
   line-height: $text-line-height;
+
+  &:not(:last-child) {
+    margin-bottom: $spacing-small;
+  }
 
   a {
     @include theme-prop(color, link-color);

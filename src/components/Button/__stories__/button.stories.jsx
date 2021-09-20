@@ -3,6 +3,7 @@ import Button from "../Button";
 import { Check, Calendar, Add, Remove } from "../../Icon/Icons";
 import mdx from "./button.stories.mdx";
 import "./button.stories.scss";
+import { MultipleStoryElementsWrapper } from "../../../storybook-components/multiple-story-elements-wrapper/multiple-story-elements-wrapper";
 
 const ButtonTemplate = args => <Button {...args} />;
 
@@ -11,34 +12,69 @@ Overview.args = {
   children: "Button"
 };
 
-export const ButtonPrimaryType = () => <Button>Primary</Button>;
-
-export const ButtonSecondaryType = () => <Button kind={Button.kinds.SECONDARY}>Secondary</Button>;
-
-export const ButtonTertiaryType = () => {
-  return <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>;
+export const ButtonTypes = () => {
+  return (
+    <MultipleStoryElementsWrapper>
+      <Button>Primary</Button>
+      <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
+      <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+    </MultipleStoryElementsWrapper>
+  );
 };
 
-export const DisabledPrimary = () => <Button disabled>Primary</Button>;
+export const Disabled = () => {
+  return (
+    <MultipleStoryElementsWrapper>
+      <Button disabled>Primary</Button>
+      <Button kind={Button.kinds.SECONDARY} disabled>
+        Secondary
+      </Button>
+      <Button kind={Button.kinds.TERTIARY} disabled>
+        Tertiary
+      </Button>
+    </MultipleStoryElementsWrapper>
+  );
+};
 
-export const DisabledSecondary = () => (
-  <Button kind={Button.kinds.SECONDARY} disabled>
-    Secondary
-  </Button>
-);
+export const Sizes = () => {
+  return (
+    <MultipleStoryElementsWrapper>
+      <Button size={Button.sizes.LARGE}>Large</Button>
+      <Button size={Button.sizes.MEDIUM}>Medium</Button>
+      <Button size={Button.sizes.SMALL}>Small</Button>
+    </MultipleStoryElementsWrapper>
+  );
+};
 
-export const DisabledTertiary = () => (
-  <Button kind={Button.kinds.TERTIARY} disabled>
-    Tertiary
-  </Button>
-);
-export const SizeLarge = () => <Button size={Button.sizes.LARGE}>Large</Button>;
-export const SizeMedium = () => <Button size={Button.sizes.MEDIUM}>Medium</Button>;
-export const SizeSmall = () => <Button size={Button.sizes.SMALL}>Small</Button>;
-export const SuccessColor = () => <Button color={Button.colors.POSITIVE}>Positive</Button>;
-export const ErrorColor = () => <Button color={Button.colors.NEGATIVE}>Negative</Button>;
-export const rightIcon = () => <Button rightIcon={Calendar}>Right icon</Button>;
-export const LeftIcon = () => <Button leftIcon={Calendar}>Left icon</Button>;
+export const States = () => {
+  return (
+    <MultipleStoryElementsWrapper>
+      <Button>Regular</Button>
+      <Button>Hover</Button>
+      <Button>Active</Button>
+      <Button disabled>Disabled</Button>
+    </MultipleStoryElementsWrapper>
+  );
+};
+
+export const ErrorAndSuccess = () => {
+  return (
+    <MultipleStoryElementsWrapper>
+      <Button color={Button.colors.POSITIVE}>Positive</Button>
+      <Button color={Button.colors.NEGATIVE}>Negative</Button>
+    </MultipleStoryElementsWrapper>
+  );
+};
+
+export const Icons = () => {
+  return (
+    <MultipleStoryElementsWrapper className="monday-storybook-button_icons">
+      <Button rightIcon={Calendar}>Right icon</Button>
+      <Button leftIcon={Calendar}>Left icon</Button>
+    </MultipleStoryElementsWrapper>
+  );
+};
+
 export const LoadingState = () => {
   const [loading, setLoading] = useState(false);
   const onClick = useCallback(() => {
@@ -51,7 +87,8 @@ export const LoadingState = () => {
     </Button>
   );
 };
-export const AdjacmentButtons = () => {
+
+export const adjacmentButtons = () => {
   return (
     <>
       <Button rightFlat kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="decrease zoom level">
@@ -79,7 +116,7 @@ export const SuccessState = () => {
 
 export const OnColorButtonState = () => {
   return (
-    <div className="monday-storybook-button_on-color-button">
+    <MultipleStoryElementsWrapper className="monday-storybook-button_on-color-button">
       <Button color={Button.colors.ON_PRIMARY_COLOR}>Primary on color</Button>
       <Button color={Button.colors.ON_PRIMARY_COLOR} kind={Button.kinds.SECONDARY}>
         Secondary on color
@@ -87,7 +124,7 @@ export const OnColorButtonState = () => {
       <Button color={Button.colors.ON_PRIMARY_COLOR} kind={Button.kinds.TERTIARY}>
         Tertiary on color
       </Button>
-    </div>
+    </MultipleStoryElementsWrapper>
   );
 };
 export default {
