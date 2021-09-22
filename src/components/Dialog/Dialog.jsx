@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import React, { PureComponent } from "react";
 import { createPortal } from "react-dom";
+import PropTypes from "prop-types";
 import { Manager, Reference, Popper } from "react-popper";
 import cx from "classnames";
 import isFunction from "lodash/isFunction";
@@ -378,6 +379,121 @@ export default class Dialog extends PureComponent {
 Dialog.hideShowTriggers = HIDE_SHOW_EVENTS;
 Dialog.positions = DialogPositions;
 Dialog.animationTypes = DIALOG_ANIMATION_TYPES;
+
+Dialog.propTypes = {
+  /**
+   * A Classname to be added to <spam> element which wraps the children
+   */
+  referenceWrapperClassName: PropTypes.string,
+  /**
+   * Where the dialog should be in reference to the children,
+   * Top, Left, Right, Bottom ...
+   */
+  position: PropTypes.oneOf([...Object.values(Dialog.positions)]),
+  /**
+   * PopperJS Modifiers type
+   * https://popper.js.org/docs/v2/modifiers/
+   */
+  modifiers: PropTypes.array,
+  startingEdge: PropTypes.string,
+  /**
+   * How much to move the dialog in relative to children
+   * main is the axis in which the position is aligned to
+   * secondary is the vertical axes to the position
+   */
+  moveBy: PropTypes.shape({
+    main: PropTypes.number,
+    secondary: PropTypes.number
+  }),
+  /**
+   * how much delay should the Dialog wait until it should trigger the show in MS
+   */
+  showDelay: PropTypes.number,
+  /**
+   * how much delay should the Dialog wait until it should trigger the hide in MS
+   */
+  hideDelay: PropTypes.number,
+  /**
+   * an array of hide/show trigger -
+   * Dialog.hideShowTriggers
+   */
+  showTrigger: PropTypes.oneOf([...Object.values(Dialog.hideShowTriggers)]),
+
+  /**
+   * an array of hide/show trigger -
+   * Dialog.hideShowTriggers
+   */
+  hideTrigger: PropTypes.oneOf([...Object.values(Dialog.hideShowTriggers)]),
+
+  showOnDialogEnter: PropTypes.bool,
+  /**
+   * Show the Dialog when the children is mounting
+   */
+  shouldShowOnMount: PropTypes.bool,
+  /**
+   * disable the opening of the dialog
+   */
+  disable: PropTypes.bool,
+  /**
+   * open is a controlled prop to open the dialog
+   */
+  open: PropTypes.bool,
+  /**
+   * if this class exists on the children the show trigger will be ignored
+   */
+  showTriggerIgnoreClass: PropTypes.string,
+  /**
+   * if this class exists on the children the hide trigger will be ignored
+   */
+  hideTriggerIgnoreClass: PropTypes.string,
+  /**
+   * Dialog animation type
+   */
+  animationType: PropTypes.oneOf([Dialog.animationTypes.EXPAND, Dialog.animationTypes.OPACITY_AND_SLIDE]),
+  /**
+   * Classname to be added to the content container
+   */
+  wrapperClassName: PropTypes.string,
+  /**
+   * Prevent Animation
+   */
+  preventAnimationOnMount: PropTypes.bool,
+  /**
+   * the container selector in which to append the dialog
+   * for examples: "body" , ".my-class", "#my-id"
+   */
+  containerSelector: PropTypes.string,
+  /**
+   * should position the tooltip element
+   * https://popper.js.org/docs/v2/modifiers/arrow/
+   */
+  tooltip: PropTypes.bool,
+  /**
+   * class name to add to the tooltip element
+   */
+  tooltipClassName: PropTypes.string,
+  /**
+   * callback to be called when the dialog is shown
+   */
+  onDialogDidShow: PropTypes.func,
+  /**
+   * callback to be called when the dialog is hidden
+   */
+  onDialogDidHide: PropTypes.func,
+  /**
+   * callback to be called when click outside is being triggered
+   */
+  onClickOutside: PropTypes.func,
+  /**
+   * callback to be called when click on the content is being triggered
+   */
+  onContentClick: PropTypes.func,
+  /**
+   * z-index to add to the dialog
+   */
+  zIndex: PropTypes.number
+};
+
 Dialog.defaultProps = {
   referenceWrapperClassName: "",
   position: "top",
@@ -386,33 +502,25 @@ Dialog.defaultProps = {
   moveBy: { main: 0, secondary: 0 },
   showDelay: 100,
   hideDelay: 100,
-  showTrigger: HIDE_SHOW_EVENTS.MOUSE_ENTER,
-  hideTrigger: HIDE_SHOW_EVENTS.MOUSE_LEAVE,
+  showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
+  hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE,
   showOnDialogEnter: false,
   shouldShowOnMount: false,
   disable: false,
   open: false,
   showTriggerIgnoreClass: null,
   hideTriggerIgnoreClass: null,
-  disableDialogSlide: false,
-  dialogSlideFactor: 20,
-  animationType: "expand",
+  animationType: Dialog.animationTypes.EXPAND,
   wrapperClassName: null,
   preventAnimationOnMount: false,
-  onReposition: null,
-  getScrollableContainer: null,
   containerSelector: "body",
-  shouldAdjustVerticalPosition: false,
   tooltip: false,
   tooltipClassName: "",
-  onEsc: NOOP,
   onDialogDidShow: NOOP,
   onDialogDidHide: NOOP,
   onClickOutside: NOOP,
   onContentClick: NOOP,
-  closeOnClickInside: false,
-  zIndex: null,
-  useDerivedStateFromProps: false
+  zIndex: null
 };
 
 function chainOnPropsAndInstance(name, instance, props) {
