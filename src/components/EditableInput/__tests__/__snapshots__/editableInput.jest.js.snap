@@ -2,7 +2,7 @@
 
 exports[`renders correctly with aria label 1`] = `
 <input
-  ariaLabel="Edit input"
+  aria-label="Edit input"
   autoComplete="on"
   className="editable-input--wrapper"
   dir="auto"
