@@ -417,13 +417,13 @@ Dialog.propTypes = {
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers
    */
-  showTrigger: PropTypes.oneOf([...Object.values(Dialog.hideShowTriggers)]),
+  showTrigger: PropTypes.any,
 
   /**
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers
    */
-  hideTrigger: PropTypes.oneOf([...Object.values(Dialog.hideShowTriggers)]),
+  hideTrigger: PropTypes.any,
 
   showOnDialogEnter: PropTypes.bool,
   /**
