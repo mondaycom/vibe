@@ -1,5 +1,5 @@
 import React, { useRef, forwardRef, useCallback } from "react";
-// import NOOP from "lodash/noop";
+import NOOP from "lodash/noop";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -52,7 +52,7 @@ Clickable.defaultProps = {
   className: "",
   id: undefined,
   role: "button",
-  onClick: () => console.log("ff"),
+  onClick: () => NOOP,
   children: undefined
 };
 
