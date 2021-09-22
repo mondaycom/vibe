@@ -56,6 +56,7 @@ export { default as Avatar } from "./Avatar/Avatar";
 export { default as Steps } from "./Steps/Steps";
 export { default as Tipseen } from "./Tipseen/Tipseen";
 export { default as ColorPicker } from "./ColorPicker/ColorPicker";
+export { default as ColorPickerContent } from "./ColorPicker/components/ColorPickerContent/ColorPickerContentComponent";
 export { default as ListItem } from "./ListItem/ListItem";
 export { default as ListItemIcon } from "./ListItemIcon/ListItemIcon";
 export { default as ListTitle } from "./ListTitle/ListTitle";
