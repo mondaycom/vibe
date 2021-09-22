@@ -491,7 +491,8 @@ Dialog.propTypes = {
   /**
    * z-index to add to the dialog
    */
-  zIndex: PropTypes.number
+  zIndex: PropTypes.number,
+  useDerivedStateFromProps: PropTypes.bool
 };
 
 Dialog.defaultProps = {
@@ -520,7 +521,8 @@ Dialog.defaultProps = {
   onDialogDidHide: NOOP,
   onClickOutside: NOOP,
   onContentClick: NOOP,
-  zIndex: null
+  zIndex: null,
+  useDerivedStateFromProps: false
 };
 
 function chainOnPropsAndInstance(name, instance, props) {
