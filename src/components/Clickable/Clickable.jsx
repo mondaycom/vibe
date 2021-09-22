@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useCallback } from "react";
+import React, { useRef, forwardRef } from "react";
 import NOOP from "lodash/noop";
 import PropTypes from "prop-types";
 import cx from "classnames";
