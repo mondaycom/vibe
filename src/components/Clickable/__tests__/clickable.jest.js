@@ -10,7 +10,12 @@ it("renders correctly with empty props", () => {
 it("renders correctly with props", () => {
   const tree = renderer
     .create(
-      <Clickable onClick={() => console.log("test")} className="monday-style_tests-class" role="banner">
+      <Clickable
+        onClick={() => console.log("test")}
+        className="monday-style_tests-class"
+        role="banner"
+        enableTextSelection
+      >
         Children text
       </Clickable>
     )

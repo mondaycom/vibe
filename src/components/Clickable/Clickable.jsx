@@ -4,11 +4,14 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Clickable.scss";
+import { BEMClass } from "../../helpers/bem-helper";
 
 const KEYDOWN_SPACE_EVENT = 32;
 const KEYDOWN_ENTER_EVENT = 13;
+const CSS_BASE_CLASS = "monday-style-clickable";
+const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-const Clickable = forwardRef(({ className, id, children, role, onClick }, ref) => {
+const Clickable = forwardRef(({ className, id, children, role, onClick, enableTextSelection }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
   const onKeyDown = useCallback(
@@ -23,7 +26,9 @@ const Clickable = forwardRef(({ className, id, children, role, onClick }, ref) =
   return (
     <div
       ref={mergedRef}
-      className={cx("monday-style-clickable", className)}
+      className={cx(CSS_BASE_CLASS, className, {
+        [bemHelper({ state: "disable-text-selection" })]: !enableTextSelection
+      })}
       role={role}
       onClick={onClick}
       id={id}
@@ -46,14 +51,16 @@ Clickable.propTypes = {
   id: PropTypes.string,
   role: PropTypes.string,
   onClick: PropTypes.func,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  enableTextSelection: PropTypes.bool
 };
 Clickable.defaultProps = {
   className: "",
   id: undefined,
   role: "button",
   onClick: NOOP,
-  children: undefined
+  children: undefined,
+  enableTextSelection: false
 };
 
 export default Clickable;

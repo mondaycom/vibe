@@ -2,7 +2,7 @@
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  className="monday-style-clickable"
+  className="monday-style-clickable monday-style-clickable--disable-text-selection"
   onClick={[Function]}
   onKeyDown={[Function]}
   role="button"
