@@ -4,8 +4,6 @@
 
 .monday-style-clickable {
   @include focus-style;
-  max-width: fit-content;
-  max-width: -moz-fit-content;
   cursor: pointer;
 
   &--disable-text-selection {
