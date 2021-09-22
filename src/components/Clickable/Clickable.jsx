@@ -5,23 +5,15 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Clickable.scss";
 import { BEMClass } from "../../helpers/bem-helper";
+import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
 
-const KEYDOWN_SPACE_EVENT = 32;
-const KEYDOWN_ENTER_EVENT = 13;
 const CSS_BASE_CLASS = "monday-style-clickable";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 const Clickable = forwardRef(({ className, id, children, role, onClick, enableTextSelection }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-  const onKeyDown = useCallback(
-    e => {
-      if (e.keyCode === KEYDOWN_SPACE_EVENT || e.keyCode === KEYDOWN_ENTER_EVENT) {
-        onClick(e);
-      }
-    },
-    [onClick]
-  );
+  const onKeyDown = useKeyboardButtonPressedFunc(onClick);
 
   return (
     <div
