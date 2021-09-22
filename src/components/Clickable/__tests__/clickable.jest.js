@@ -6,3 +6,14 @@ it("renders correctly with empty props", () => {
   const tree = renderer.create(<Clickable />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it("renders correctly with props", () => {
+  const tree = renderer
+    .create(
+      <Clickable onClick={() => console.log("test")} className="monday-style_tests-class" role="banner">
+        Children text
+      </Clickable>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});

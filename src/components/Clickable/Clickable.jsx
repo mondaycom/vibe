@@ -52,7 +52,7 @@ Clickable.defaultProps = {
   className: "",
   id: undefined,
   role: "button",
-  onClick: () => NOOP,
+  onClick: NOOP,
   children: undefined
 };
 
