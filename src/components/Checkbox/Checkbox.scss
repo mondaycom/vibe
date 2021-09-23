@@ -99,7 +99,7 @@ $checkbox-size: 16px;
       }
     }
 
-    &:checked {
+    &:checked, &:indeterminate {
       &:focus + .monday-style-checkbox__checkbox:after {
         @include theme-prop(background-color, primary-hover-color);
       }

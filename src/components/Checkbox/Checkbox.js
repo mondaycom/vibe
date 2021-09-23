@@ -1,10 +1,11 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import NOOP from "lodash/noop";
 import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
+import Remove from "../Icon/Icons/components/Remove";
 import "./Checkbox.scss";
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
@@ -15,6 +16,7 @@ export const Checkbox = ({
   ariaLabelledBy,
   onChange,
   checked,
+  indeterminate,
   disabled,
   defaultChecked,
   value,
@@ -43,6 +45,10 @@ export const Checkbox = ({
     overrideDefaultChecked = false;
   }
 
+  useEffect(() => {
+    inputRef.current.indeterminate = indeterminate;
+  }, [indeterminate]);
+
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <label
@@ -68,7 +74,7 @@ export const Checkbox = ({
         <Icon
           className={`${BASE_CLASS_NAME}__icon`}
           iconType={Icon.type.SVG}
-          icon={Check}
+          icon={indeterminate ? Remove : Check}
           ignoreFocusStyle
           clickable={false}
           ariaHidden={true}
@@ -88,6 +94,7 @@ Checkbox.propTypes = {
   onChange: PropTypes.func,
   checked: PropTypes.bool,
   defaultChecked: PropTypes.bool,
+  indeterminate: PropTypes.bool,
   value: PropTypes.string,
   disabled: PropTypes.bool,
   name: PropTypes.string
@@ -103,6 +110,7 @@ Checkbox.defaultProps = {
   value: "",
   ariaLabelledBy: undefined,
   checked: undefined,
+  indeterminate: false,
   defaultChecked: undefined
 };
 
