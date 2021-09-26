@@ -59,9 +59,9 @@ module.exports = {
     return buildConfig(config);
   },
   addons: [
+    "@storybook/addon-controls",
     "storybook-addon-themes",
     "@storybook/addon-a11y",
-    "storybook-addon-performance/register",
-    "@storybook/addon-controls"
+    "storybook-addon-performance/register"
   ]
 };
