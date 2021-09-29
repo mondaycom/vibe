@@ -2,12 +2,12 @@ import { parameters } from "@storybook/addon-docs/dist/esm/frameworks/react/conf
 import { addParameters } from "@storybook/react";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
 import {
-  SubHeader,
+  SectionName,
   Title,
   Tip,
   AnchorListItem,
   ComponentRules,
-  Header,
+  ComponentName,
   UsageGuidelines,
   RelatedComponents,
   DocFooter,
@@ -25,8 +25,8 @@ addParameters({
     ),
     page: DocsPage,
     components: {
-      h1: Header,
-      h2: SubHeader,
+      h1: ComponentName,
+      h2: SectionName,
       h3: Title,
       li: AnchorListItem,
       Tip,

@@ -1,11 +1,11 @@
 import { AttentionBox } from "../../components";
 import { BEMClass } from "../../helpers/bem-helper";
-import "./header.scss";
+import "./component-name.scss";
 
-const CSS_BASE_CLASS = "monday-storybook-header";
+const CSS_BASE_CLASS = "monday-storybook-component-name";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-export const Header = ({ children }) => {
+export const ComponentName = ({ children }) => {
   return (
     <AttentionBox
       icon={null}

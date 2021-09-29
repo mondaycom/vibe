@@ -1,4 +1,4 @@
-import { SubHeader } from "../sub-header/sub-header";
+import { SectionName } from "../section-name/section-name";
 import { BEMClass } from "../../helpers/bem-helper";
 import "./doc-footer.scss";
 
@@ -7,7 +7,7 @@ const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export const DocFooter = () => (
   <div className={CSS_BASE_CLASS}>
-    <SubHeader>Feedback</SubHeader>
+    <SectionName>Feedback</SectionName>
     <div className={bemHelper({ element: "text" })}>
       Help us improve this pattern by providing feedback, asking questions, and leaving any other comments on
       <a

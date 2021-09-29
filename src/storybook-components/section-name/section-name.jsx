@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import cx from "classnames";
-import "./sub-header.scss";
+import "./section-name.scss";
 import { useMemo } from "react";
 
-export const SubHeader = ({ className, children, ...props }) => {
+export const SectionName = ({ className, children, ...props }) => {
   const id = useMemo(
     () =>
       children
@@ -14,12 +14,12 @@ export const SubHeader = ({ className, children, ...props }) => {
   );
   // eslint-disable-next-line jsx-a11y/heading-has-content
   return (
-    <h2 id={id} className={cx("monday-storybook-sub-header", className)} {...props}>
+    <h2 id={id} className={cx("monday-storybook-section-name", className)} {...props}>
       {children}
     </h2>
   );
 };
 
-SubHeader.propTypes = {
+SectionName.propTypes = {
   children: PropTypes.string.isRequired
 };

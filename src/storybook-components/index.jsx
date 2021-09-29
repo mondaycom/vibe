@@ -1,5 +1,5 @@
-import { Header } from "./header/header";
-import { SubHeader } from "./sub-header/sub-header";
+import { ComponentName } from "./component-name/component-name";
+import { SectionName } from "./section-name/section-name";
 import { Title } from "./title/title";
 import { Tip } from "./tip/tip";
 import { ComponentRules } from "./component-rules/component-rules";
@@ -10,11 +10,11 @@ import { DocFooter } from "./doc-footer/doc-footer";
 import { ComponentStory } from "./component-story/component-story";
 
 export {
-  SubHeader,
+  SectionName,
   Title,
   Tip,
   ComponentRules,
-  Header,
+  ComponentName,
   UsageGuidelines,
   RelatedComponents,
   AnchorListItem,

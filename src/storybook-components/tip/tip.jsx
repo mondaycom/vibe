@@ -23,6 +23,7 @@ Tip.propTypes = {
 
 Tip.defaultProps = {
   title: "Tip",
+  // The content of the tip
   children: undefined,
   className: ""
 };

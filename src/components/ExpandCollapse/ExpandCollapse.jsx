@@ -60,7 +60,7 @@ ExpandCollapse.propTypes = {
    */
   id: PropTypes.string,
   /**
-   * Component as parameter to be rendered as header
+   * Component as parameter to be rendered as component-name
    */
   headerComponentRenderer: PropTypes.func,
   /**

@@ -6,7 +6,7 @@ export const typographyList = [
     size: "32px",
     lineheight: "52px",
     spacing: -1,
-    comments: "Main header on a page <h1>"
+    comments: "Main component-name on a page <h1>"
   },
 
   {
@@ -16,7 +16,7 @@ export const typographyList = [
     size: "24px",
     lineheight: "32px",
     spacing: -0.2,
-    comments: "Secondary header <h2>"
+    comments: "Secondary component-name <h2>"
   },
 
   {
