@@ -9,7 +9,6 @@ We will direct the readers to the most appropriate component to use for the case
 - A tip will always be placed at the end of a section.
 
 ## Props
-not relevant for mdx files
 
 Prop | Description
 --- | ---

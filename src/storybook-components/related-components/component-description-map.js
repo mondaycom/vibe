@@ -1,5 +1,5 @@
-import { SplitButtonDescription } from "./split-button-description";
-import { ButtonGroupDescription } from "./button-group-description";
+import { SplitButtonDescription } from "./descriptions/split-button-description";
+import { ButtonGroupDescription } from "./descriptions/button-group-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";

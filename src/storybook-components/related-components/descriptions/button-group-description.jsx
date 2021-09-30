@@ -1,6 +1,6 @@
 import { useMemo } from "react";
-import { RelatedComponent } from "../related-component/related-component";
-import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
+import { RelatedComponent } from "../../related-component/related-component";
+import ButtonGroup from "../../../components/ButtonGroup/ButtonGroup";
 
 export const ButtonGroupDescription = () => {
   const component = useMemo(

@@ -24,11 +24,7 @@ export const RelatedComponents = ({ componentsNames }) => {
 };
 
 RelatedComponents.propTypes = {
-  componentsNames: PropTypes.shape({
-    component: PropTypes.element,
-    title: PropTypes.string,
-    description: PropTypes.string
-  })
+  componentsNames: PropTypes.string
 };
 
 RelatedComponents.defaultProps = {
