@@ -1,0 +1,98 @@
+import {{properCase componentName}} from "../{{properCase componentName}}";
+import { ArgsTable, Story, Canvas } from "@storybook/addon-docs";
+import "./{{properCase componentName}}.stories.scss";
+
+# {{properCase componentName}}
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#do’s-and-don’ts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+<ComponentStory storyId="components-{{properCase componentName}}--overview"/>
+
+## Props
+<ArgsTable of={{{properCase componentName}}} />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Usage guideline 1",
+  "Usage guideline 2",
+  "Usage guideline 3",
+]}/>
+
+<Tip title="Not what you were looking for?">Tip content</Tip>
+
+## Variants
+### Story title 1
+Description of story 1
+<ComponentStory storyId="components-{{properCase componentName}}--story-1"/>
+
+### Story title 2
+Description of story 2
+<ComponentStory storyId="components-{{properCase componentName}}--story-2"/>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:<{{properCase componentName}}/>,
+        description:"Best practice description."
+      },
+      negative: {
+        component:<{{properCase componentName}}/>,
+        description:"Bad practice description."
+      }
+    },
+    {
+      positive: {
+        component:<{{properCase componentName}}/>,
+        description:"Best practice description."
+      },
+      negative: {
+        component:<{{properCase componentName}}/>,
+        description:"Bad practice description."
+      }
+    },
+    {
+      positive: {
+        component:<{{properCase componentName}}/>,
+        description:"Best practice description."
+      },
+      negative: {
+        component:<{{properCase componentName}}/>,
+        description:"Bad practice description."
+      }
+    },
+    {
+      positive: {
+        component:<{{properCase componentName}}/>,
+        description:"Best practice description."
+      },
+      negative: {
+        component:<{{properCase componentName}}/>,
+        description:"Bad practice description."
+      }
+    },
+  ]}
+/>
+
+
+## Use cases and examples
+
+### Story title 3
+Description of story 3
+<ComponentStory storyId="components-{{properCase componentName}}--story-3"/>
+
+## Story title 3
+ Description of story 3
+ <ComponentStory storyId="components-{{properCase componentName}}--story-3"/>
+
+
+## Related components
+<RelatedComponents componentsNames={[]}/>
