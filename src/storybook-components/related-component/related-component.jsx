@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { BEMClass } from "../../helpers/bem-helper";
 import "./related-component.scss";
 
@@ -12,4 +13,16 @@ export const RelatedComponent = ({ component, title, description }) => {
       <section className={bemHelper({ element: "description" })}>{description}</section>
     </section>
   );
+};
+
+RelatedComponent.propTypes = {
+  component: PropTypes.element,
+  title: PropTypes.string,
+  description: PropTypes.string
+};
+
+RelatedComponent.defaultProps = {
+  component: null,
+  title: "",
+  description: ""
 };

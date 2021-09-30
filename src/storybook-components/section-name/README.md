@@ -2,7 +2,7 @@
 A name of a section in the component storybook documentation MDX file.
 
 ## Guidelines
-- In MDX documents, you can create a section name by using this syntax: #section name.
+- In MDX documents, you can create a section name by using this syntax: `##section name`.
 - Each section title in a component MDX file must be linked to an anchor with the same name in the table of contents.
 - For creating an item in the table of contents in an MDX file, which is called "Section name" and linked to a section name with the same value, please look at the anchor list item documentation.
 - Each story should contain only these sections in the order described:

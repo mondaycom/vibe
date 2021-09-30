@@ -3,7 +3,7 @@ A list of components are similar in appearance or functionality to the documente
 
 ## Guidelines
 - There is no unique syntax for creating a RelatedComponents component in MDX files. Therefore, use the component as you would in a regular JSX file.
-- Write down between three and five guidelines (technical or “copy”).
+- Each instance of RelatedComponents should contain descriptions of only three components.
 
 
 ## Props
