@@ -199,6 +199,10 @@ export const NotificationCounter = () => (
   </div>
 );
 
+export const CounterWithPrefix = () => (
+    <Counter id="Knobs" count={13} prefix="+" />
+);
+
 export default {
   title: "Components|Counter",
   component: Counter,
