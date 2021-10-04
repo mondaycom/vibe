@@ -14,7 +14,7 @@ import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 
 import "./Counter.scss";
 
-const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits, ariaLabeledBy, ariaLabel, id }) => {
+const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits, ariaLabeledBy, ariaLabel, id, prefix }) => {
   // State
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
@@ -79,7 +79,7 @@ const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits, ariaLa
             }}
             key={countText}
           >
-            <span id={`counter-${id}`}>{countText}</span>
+            <span id={`counter-${id}`}>{prefix + countText}</span>
           </CSSTransition>
         </SwitchTransition>
       </div>
@@ -104,7 +104,8 @@ Counter.propTypes = {
   color: PropTypes.oneOf([Counter.colors.PRIMARY, Counter.colors.DARK, Counter.colors.NEGATIVE]),
   kind: PropTypes.oneOf([Counter.kinds.FILL, Counter.kinds.LINE]),
   /** maximum number of digits to display (see relevant story) */
-  maxDigits: PropTypes.number
+  maxDigits: PropTypes.number,
+  prefix: PropTypes.string
 };
 Counter.defaultProps = {
   id: "",
@@ -115,7 +116,8 @@ Counter.defaultProps = {
   kind: COUNTER_TYPES.FILL,
   maxDigits: 3,
   ariaLabeledBy: "",
-  ariaLabel: ""
+  ariaLabel: "",
+  prefix: ""
 };
 
 export default Counter;
