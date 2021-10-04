@@ -13,10 +13,10 @@ import "./{{properCase componentName}}.stories.scss";
 - [Feedback](#feedback)
 
 ## Overview
-<ComponentStory storyId="components-{{properCase componentName}}--overview"/>
+<ComponentStory storyId="components-{{dashCase componentName}}--overview"/>
 
 ## Props
-<ArgsTable of={{{properCase componentName}}} />
+<ArgsTable of={ {{properCase componentName}} } />
 
 ## Usage
 <UsageGuidelines guidelines={[
@@ -30,11 +30,11 @@ import "./{{properCase componentName}}.stories.scss";
 ## Variants
 ### Story title 1
 Description of story 1
-<ComponentStory storyId="components-{{properCase componentName}}--story-1"/>
+<ComponentStory storyId="components-{{dashCase componentName}}--story-1"/>
 
 ### Story title 2
 Description of story 2
-<ComponentStory storyId="components-{{properCase componentName}}--story-2"/>
+<ComponentStory storyId="components-{{dashCase componentName}}--story-2"/>
 
 ## Do’s and Don’ts
 <ComponentRules
@@ -87,11 +87,11 @@ Description of story 2
 
 ### Story title 3
 Description of story 3
-<ComponentStory storyId="components-{{properCase componentName}}--story-3"/>
+<ComponentStory storyId="components-{{dashCase componentName}}--story-3"/>
 
-## Story title 3
- Description of story 3
- <ComponentStory storyId="components-{{properCase componentName}}--story-3"/>
+### Story title 4
+ Description of story 4
+ <ComponentStory storyId="components-{{dashCase componentName}}--story-4"/>
 
 
 ## Related components

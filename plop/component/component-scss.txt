@@ -1,6 +1,5 @@
 @import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
 
-.{{dashCase componentName}}--wrapper {
+.monday-style-{{dashCase componentName}} {
 
 }

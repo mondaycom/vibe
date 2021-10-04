@@ -1,19 +1,19 @@
-import React, { useState, useCallback } from "react";
+import React from "react";
 import {{properCase componentName}} from "../{{properCase componentName}}";
+import { MultipleStoryElementsWrapper } from "../../../storybook-components/multiple-story-elements-wrapper/multiple-story-elements-wrapper";
 import mdx from "./{{properCase componentName}}.stories.mdx";
 import "./{{properCase componentName}}.stories.scss";
-import { MultipleStoryElementsWrapper } from "../../../storybook-components/multiple-story-elements-wrapper/multiple-story-elements-wrapper";
 
-const {{lowerCase componentName}}Template = args => <{{properCase componentName}} {...args} />;
+const {{camelCase componentName}}Template = args => <{{properCase componentName}} {...args} />;
 
-export const Overview = {{lowerCase componentName}}Template.bind({});
+export const Overview = {{camelCase componentName}}Template.bind({});
 Overview.args = {
 };
 
 export const Story1 = () => {
   return (
     <MultipleStoryElementsWrapper>
-      <{{properCase componentName}}/>
+      <{{properCase componentName}} />
     </MultipleStoryElementsWrapper>
   );
 };
@@ -21,7 +21,7 @@ export const Story1 = () => {
 export const Story2 = () => {
   return (
     <MultipleStoryElementsWrapper>
-      <{{properCase componentName}}/>
+      <{{properCase componentName}} />
     </MultipleStoryElementsWrapper>
   );
 };
@@ -29,7 +29,7 @@ export const Story2 = () => {
 export const Story3 = () => {
   return (
     <MultipleStoryElementsWrapper>
-      <{{properCase componentName}}/>
+      <{{properCase componentName}} />
     </MultipleStoryElementsWrapper>
   );
 };
@@ -37,13 +37,13 @@ export const Story3 = () => {
 export const Story4 = () => {
   return (
     <MultipleStoryElementsWrapper>
-      <{{properCase componentName}}/>
+      <{{properCase componentName}} />
     </MultipleStoryElementsWrapper>
   );
 };
 
 export default {
-  title: "Components/{{properCase componentName}}",
+  title: "Components/{{titleCase componentName}}",
   component: {{properCase componentName}},
   parameters: {
     docs: {
