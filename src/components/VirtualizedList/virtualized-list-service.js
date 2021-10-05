@@ -59,11 +59,15 @@ export const getOnItemsRenderedData = (
   currentOffsetTop
 ) => {
   const firstVisibleItem = items[visibleStartIndex] || EMPTY_OBJECT;
+  const secondVisibleItem = items[visibleStartIndex + 1] || EMPTY_OBJECT;
   const lastVisibleItem = items[visibleStopIndex] || EMPTY_OBJECT;
   const firstItemId = idGetter(firstVisibleItem);
+  const secondItemId = idGetter(secondVisibleItem);
   const lastItemId = idGetter(lastVisibleItem);
   const centerOffset = currentOffsetTop + listHeight / 2;
+  const { offsetTop: firstItemIdOffsetTop, height: firstItemHeight } = normalizedItems[firstItemId];
+  const firstItemOffsetEnd = firstItemIdOffsetTop + firstItemHeight;
   const centerItemId = findItemAtOffset(items, normalizedItems, idGetter, visibleStartIndex, centerOffset);
 
-  return { firstItemId, lastItemId, centerItemId };
+  return { firstItemId, secondItemId, lastItemId, centerItemId, firstItemOffsetEnd };
 };
