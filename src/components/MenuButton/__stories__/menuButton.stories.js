@@ -52,7 +52,7 @@ export const Sandbox = () => (
 
 export const Disabled = () => (
   <div style={{ width: "32px" }}>
-    <MenuButton disabled={true} disabledReason="Something is not right" ariaLabel="chevron menu icon menu button">
+    <MenuButton disabled={true} disabledReason="Something is not right" ariaLabel="chevron menu icon menu button" tooltipReferenceClassName="tooltip-on-span">
       <MenuButtonContent />
     </MenuButton>
   </div>

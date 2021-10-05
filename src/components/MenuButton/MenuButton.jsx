@@ -42,7 +42,8 @@ const MenuButton = ({
   tooltipTriggers,
   tooltipPosition,
   startingEdge,
-  removeTabCloseTrigger
+  removeTabCloseTrigger,
+  tooltipReferenceClassName
 }) => {
   const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
@@ -158,6 +159,7 @@ const MenuButton = ({
       position={tooltipPosition}
       showTrigger={TOOLTIP_SHOW_TRIGGER}
       hideTrigger={tooltipTriggers}
+      referenceWrapperClassName={tooltipReferenceClassName}
     >
       <Dialog
         wrapperClassName={dialogClassName}
@@ -318,7 +320,11 @@ MenuButton.propTypes = {
   /**
    * the disabled/tooltip position of the menu button - one of the MenuButton.dialogPositions
    */
-  tooltipPosition: PropTypes.oneOf(Object.values(MenuButton.dialogPositions))
+  tooltipPosition: PropTypes.oneOf(Object.values(MenuButton.dialogPositions)),
+  /**
+   * Tooltip Element Wrapper ClassName
+   */
+  tooltipReferenceClassName: PropTypes.string
 };
 MenuButton.defaultProps = {
   id: undefined,
@@ -342,7 +348,8 @@ MenuButton.defaultProps = {
   disabledReason: undefined,
   removeTabCloseTrigger: false,
   tooltipTriggers: [MenuButton.hideTriggers.MOUSE_LEAVE],
-  tooltipPosition: MenuButton.dialogPositions.RIGHT
+  tooltipPosition: MenuButton.dialogPositions.RIGHT,
+  tooltipReferenceClassName: undefined
 };
 
 export default MenuButton;
