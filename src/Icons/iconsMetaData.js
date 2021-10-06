@@ -5,6 +5,36 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "TextCopy",
+      file: "TextCopy.svg",
+      description: "Copy Text",
+      tags: "copy,text,t"
+  },
+  {
+      name: "Open",
+      file: "Open.svg",
+      description: "Open",
+      tags: "open"
+  },
+  {
+      name: "Expand",
+      file: "Expand.svg",
+      description: "Expand",
+      tags: "expand"
+  },
+  {
+      name: "ConverToSubitem",
+      file: "ConverToSubitem.svg",
+      description: "Convert To Subitem",
+      tags: "convert, subitem"
+  },
+  {
+      name: "Clear",
+      file: "Clear.svg",
+      description: "Clear",
+      tags: "clear"
+  },
+  {
       name: "TextColorIndicator",
       file: "TextColorIndicator.svg",
       description: "",
