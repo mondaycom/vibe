@@ -94,8 +94,14 @@ const VirtualizedList = forwardRef(
     const startScrollAnimation = useCallback(
       item => {
         const { offsetTop } = item;
-        if (animationData.animationStartTime || animationData.scrollOffsetFinal === offsetTop) {
-          // animation already in progress or final offset equals to item offset
+        if (animationData.animationStartTime) {
+          // animation already in progress
+          animationData.scrollOffsetFinal = offsetTop;
+          return;
+        }
+        if (animationData.scrollOffsetFinal === offsetTop) {
+          // final offset equals to item offset
+          onScrollToFinished && onScrollToFinished();
           return;
         }
 
@@ -103,7 +109,7 @@ const VirtualizedList = forwardRef(
         animationData.animationStartTime = performance.now();
         animateScroll();
       },
-      [animationData, animateScroll]
+      [animationData, animateScroll, onScrollToFinished]
     );
 
     const rowRenderer = useCallback(
@@ -138,7 +144,6 @@ const VirtualizedList = forwardRef(
     const onItemsRenderedCB = useThrottledCallback(
       ({ visibleStartIndex, visibleStopIndex }) => {
         if (!onItemsRendered) return;
-        // data = { firstItemId, lastItemId, centerItemId }
         const data = getOnItemsRenderedData(
           items,
           normalizedItems,
