@@ -85,7 +85,6 @@ const VirtualizedList = forwardRef(
           animateScroll();
         } else {
           animationData.animationStartTime = undefined;
-          animationData.scrollOffsetInitial = animationData.scrollOffsetFinal;
           onScrollToFinished && onScrollToFinished();
         }
       });
@@ -99,8 +98,8 @@ const VirtualizedList = forwardRef(
           animationData.scrollOffsetFinal = offsetTop;
           return;
         }
-        if (animationData.scrollOffsetFinal === offsetTop) {
-          // final offset equals to item offset
+        if (animationData.scrollOffsetInitial === offsetTop) {
+          // offset already equals to item offset
           onScrollToFinished && onScrollToFinished();
           return;
         }
