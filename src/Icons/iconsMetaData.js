@@ -23,8 +23,8 @@ export const iconsMetaData = [
       tags: "expand"
   },
   {
-      name: "ConverToSubitem",
-      file: "ConverToSubitem.svg",
+      name: "ConvertToSubitem",
+      file: "ConvertToSubitem.svg",
       description: "Convert To Subitem",
       tags: "convert, subitem"
   },
