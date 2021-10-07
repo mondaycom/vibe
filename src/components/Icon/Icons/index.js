@@ -55,6 +55,7 @@ export {default as Divider} from './components/Divider';
 export {default as Doc} from './components/Doc';
 export {default as DocPrivate} from './components/DocPrivate';
 export {default as DocShareable} from './components/DocShareable';
+export {default as DocTemplate} from './components/DocTemplate';
 export {default as DoubleCheck} from './components/DoubleCheck';
 export {default as Download} from './components/Download';
 export {default as Drag} from './components/Drag';
