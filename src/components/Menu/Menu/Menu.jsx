@@ -88,6 +88,10 @@ const Menu = forwardRef(
     );
     useMouseLeave(resetOpenSubMenuIndex, hasOpenSubMenu, ref, onSetActiveItemIndexCallback);
 
+    const onMouseMove = useCallback(() => {
+      setIsInitialSelectedState(true);
+    }, [setIsInitialSelectedState]);
+
     useLayoutEffect(() => {
       if (hasOpenSubMenu || useDocumentEventListeners) return;
       if (activeItemIndex > -1) {
@@ -124,6 +128,7 @@ const Menu = forwardRef(
         role="menu"
         aria-activedescendant={`${id}-${activeItemIndex}`}
         aria-describedby={ariaDescribedBy}
+        onMouseOver={onMouseMove}
       >
         {children &&
           React.Children.map(children, (child, index) => {
