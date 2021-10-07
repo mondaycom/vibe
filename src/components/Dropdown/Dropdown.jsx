@@ -13,7 +13,7 @@ import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import { defaultCustomStyles } from "./DropdownConstants";
 import { SIZES } from "../../constants/sizes";
-import styles, { customTheme } from "./Dropdown.styles";
+import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 
 const Dropdown = ({
@@ -71,7 +71,16 @@ const Dropdown = ({
     [setOpen, onMenuClose]
   );
 
-  const customStyles = useMemo(() => extraStyles(styles({ size, rtl })), [size, rtl, extraStyles]);
+  const styles = useMemo(() => {
+    const baseStyles = generateBaseStyles({
+      size,
+      rtl,
+      overrides: extraStyles({}) // Backwards compatibility, basically all we wanna get are the overridden parts.
+    });
+
+    return baseStyles;
+  }, [size, rtl, extraStyles]);
+  // const customStyles = extraStyles(styles({ size, rtl }));
 
   const Menu = useCallback(props => <MenuComponent {...props} isOpen={isOpen} Renderer={menuRenderer} />, [
     isOpen,
@@ -134,7 +143,7 @@ const Dropdown = ({
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}
       isRtl={rtl}
-      styles={customStyles}
+      styles={styles}
       theme={customTheme}
       menuPortalTarget={menuPortalTarget}
       menuIsOpen={menuIsOpen}
