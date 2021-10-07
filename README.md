@@ -39,7 +39,7 @@ This functionality basically overrides the npm mapping between package name to i
 
 
   
-go to the project's directory and run:
+Go to the project's directory and run:
 ```
 nvm use
 npm unlink
@@ -55,7 +55,7 @@ We support theming from the library to the component level using css variables -
 
 ## Release
 Perform the following steps to **release** a **new version**:
-* bump the version in `package.json`
-* merge into `origin/master`
-* [release](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository) the new version in the [monday-ui-react-core
+* Bump the version in `package.json`
+* Merge into `origin/master`
+* [Release](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/managing-releases-in-a-repository) the new version in the [monday-ui-react-core
 ](https://github.com/mondaycom/monday-ui-react-core)
