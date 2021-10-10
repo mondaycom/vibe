@@ -10,7 +10,7 @@ import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPress
 const CSS_BASE_CLASS = "monday-style-clickable";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-const Clickable = forwardRef(({ className, id, children, role, onClick, enableTextSelection }, ref) => {
+const Clickable = forwardRef(({ className, id, children, role, onClick, enableTextSelection, ariaLabel }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
   const onKeyDown = useKeyboardButtonPressedFunc(onClick);
@@ -26,6 +26,7 @@ const Clickable = forwardRef(({ className, id, children, role, onClick, enableTe
       id={id}
       onKeyDown={onKeyDown}
       tabIndex={0}
+      aria-label={ariaLabel}
     >
       {children}
     </div>
@@ -42,6 +43,7 @@ Clickable.propTypes = {
    */
   id: PropTypes.string,
   role: PropTypes.string,
+  ariaLabel: PropTypes.string,
   onClick: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   enableTextSelection: PropTypes.bool
@@ -50,6 +52,7 @@ Clickable.defaultProps = {
   className: "",
   id: undefined,
   role: "button",
+  ariaLabel: undefined,
   onClick: NOOP,
   children: undefined,
   enableTextSelection: false
