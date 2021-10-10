@@ -280,7 +280,10 @@ export const extraStyles = () => (
         <Dropdown
           className="dropdown-story"
           options={mockColorOptions}
-          extraStyles={(baseStyles) => {console.log("baseStyles:", baseStyles); return { ...baseStyles, menu: base => {console.log("menu:", { ...base, width: 310 }); return ({ ...base, width: 310 })} }}}
+          extraStyles={baseStyles => ({
+            ...baseStyles,
+            menu: base => ({ ...base, width: 310 })
+          })}
         />
       </StoryStateColumn>
     </StoryStateRow>

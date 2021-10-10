@@ -72,15 +72,29 @@ const Dropdown = ({
   );
 
   const styles = useMemo(() => {
+    // We first want to get the default stylized groups (e.g. "container", "menu").
     const baseStyles = generateBaseStyles({
       size,
-      rtl,
-      overrides: extraStyles({}) // Backwards compatibility, basically all we wanna get are the overridden parts.
+      rtl
     });
 
-    return baseStyles;
+    // Then we want to run the consumer's root-level custom styles with our "base" override groups.
+    const customStyles = extraStyles(baseStyles);
+
+    // Lastly, we create a style groups object that makes sure we run each custom group with our basic overrides.
+    const mergedStyles = Object.entries(customStyles).reduce((accumulator, [stylesGroup, stylesFn]) => {
+      return {
+        ...accumulator,
+        [stylesGroup]: (provided, state) => {
+          const baseStylesResult = baseStyles[stylesGroup](provided, state);
+
+          return stylesFn(baseStylesResult, state);
+        }
+      };
+    }, {});
+
+    return mergedStyles;
   }, [size, rtl, extraStyles]);
-  // const customStyles = extraStyles(styles({ size, rtl }));
 
   const Menu = useCallback(props => <MenuComponent {...props} isOpen={isOpen} Renderer={menuRenderer} />, [
     isOpen,

@@ -102,7 +102,7 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
   };
 };
 
-const container = ({ size, overrides }) => (provided, { isDisabled }) => {
+const container = ({ size }) => (provided, { isDisabled }) => {
   delete provided.pointerEvents;
   return {
     ...provided,
@@ -120,12 +120,11 @@ const container = ({ size, overrides }) => (provided, { isDisabled }) => {
     ":active, :focus-within": {
       borderColor: getCSSVar("color-basic_blue")
     },
-    ...disabledContainerStyle(isDisabled),
-    ...(overrides.container || {})
+    ...disabledContainerStyle(isDisabled)
   };
 };
 
-const control = ({ size, overrides }) => (provided, { isDisabled }) => ({
+const control = ({ size }) => (provided, { isDisabled }) => ({
   ...provided,
   ...getInnerSize(size),
   ...getColor(),
@@ -139,29 +138,26 @@ const control = ({ size, overrides }) => (provided, { isDisabled }) => ({
     }
   }),
   cursor: "pointer",
-  ...disabledContainerStyle(isDisabled),
-  ...(overrides.control || {})
+  ...disabledContainerStyle(isDisabled)
 });
 
-const placeholder = ({ overrides }) => provided => ({
+const placeholder = () => provided => ({
   ...provided,
   ...getFont(),
   color: getCSSVar("secondary-text-color"),
-  fontWeight: 400,
-  ...(overrides.placeholder || {})
+  fontWeight: 400
 });
 
-const indicatorsContainer = ({ size, overrides }) => (provided, { isDisabled }) => ({
+const indicatorsContainer = ({ size }) => (provided, { isDisabled }) => ({
   ...provided,
   ...getFont(),
   ...getColor(),
   borderRadius: getCSSVar("border-radius-small"),
   ...disabledContainerStyle(isDisabled),
-  ...getInnerSize(size),
-  ...(overrides.indicatorsContainer || {})
+  ...getInnerSize(size)
 });
 
-const dropdownIndicator = ({ size, overrides }) => (provided, { selectProps }) => {
+const dropdownIndicator = ({ size }) => (provided, { selectProps }) => {
   return {
     ...provided,
     display: "flex",
@@ -180,12 +176,11 @@ const dropdownIndicator = ({ size, overrides }) => (provided, { selectProps }) =
     ":hover, :active": {
       backgroundColor: getCSSVar("primary-background-hover-color"),
       color: getCSSVar("icon-color")
-    },
-    ...(overrides.dropdownIndicator || {})
+    }
   };
 };
 
-const clearIndicator = ({ size, overrides }) => () => ({
+const clearIndicator = ({ size }) => () => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -195,19 +190,17 @@ const clearIndicator = ({ size, overrides }) => () => ({
   ...getIndicatorBoxSize(size),
   ":hover": {
     backgroundColor: getCSSVar("primary-background-hover-color")
-  },
-  ...(overrides.clearIndicator || {})
+  }
 });
 
-const singleValue = ({ overrides }) => (provided, { isDisabled }) => ({
+const singleValue = () => (provided, { isDisabled }) => ({
   ...provided,
   ...getFont(),
   ...getColor(),
   ...disabledContainerStyle(isDisabled),
   display: "flex",
   alignItems: "center",
-  height: "100%",
-  ...(overrides.singleValue || {})
+  height: "100%"
 });
 
 function getSingleValueTextSize(size) {
@@ -222,14 +215,13 @@ function getSingleValueTextSize(size) {
   }
 }
 
-const input = ({ overrides }) => provided => ({
+const input = () => provided => ({
   ...provided,
   ...getFont(),
   ...getColor(),
   display: "flex",
   alignItems: "center",
-  textIndent: "-2px",
-  ...(overrides.input || {})
+  textIndent: "-2px"
 });
 
 const getCenterContentStyle = rtl => {
@@ -240,35 +232,31 @@ const getCenterContentStyle = rtl => {
   };
 };
 
-const valueContainer = ({ size, rtl, overrides }) => (provided, { isDisabled }) => ({
+const valueContainer = ({ size, rtl }) => (provided, { isDisabled }) => ({
   ...provided,
   ...getCenterContentStyle(rtl),
   ...getFont(),
   ...getColor(),
   ...getInnerSize(size),
   ...disabledContainerStyle(isDisabled),
-  borderRadius: getCSSVar("border-radius-small"),
-  ...(overrides.valueContainer || {})
+  borderRadius: getCSSVar("border-radius-small")
 });
 
-const menu = ({ overrides }) => provided => ({
+const menu = () => provided => ({
   ...provided,
   ...getFont(),
   color: getCSSVar("primary-text-color"),
   backgroundColor: getCSSVar("dialog-background-color"),
-  boxShadow: getCSSVar("box-shadow-small"),
-  ...(overrides.menu || {})
+  boxShadow: getCSSVar("box-shadow-small")
 });
 
-const option = ({ overrides }) => (provided, state) => ({
+const option = () => (provided, state) => ({
   ...getFont(),
-  ...getOptionStyle(provided, state),
-  ...(overrides.option || {})
+  ...getOptionStyle(provided, state)
 });
 
-const indicatorSeparator = ({ overrides }) => () => ({
-  display: "none",
-  ...(overrides.indicatorSeparator || {})
+const indicatorSeparator = () => () => ({
+  display: "none"
 });
 
 export const getIndicatorSize = size => {
