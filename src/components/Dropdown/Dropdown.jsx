@@ -13,7 +13,7 @@ import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import { defaultCustomStyles } from "./DropdownConstants";
 import { SIZES } from "../../constants/sizes";
-import styles, { customTheme } from "./Dropdown.styles";
+import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 
 const Dropdown = ({
@@ -71,7 +71,30 @@ const Dropdown = ({
     [setOpen, onMenuClose]
   );
 
-  const customStyles = useMemo(() => extraStyles(styles({ size, rtl })), [size, rtl, extraStyles]);
+  const styles = useMemo(() => {
+    // We first want to get the default stylized groups (e.g. "container", "menu").
+    const baseStyles = generateBaseStyles({
+      size,
+      rtl
+    });
+
+    // Then we want to run the consumer's root-level custom styles with our "base" override groups.
+    const customStyles = extraStyles(baseStyles);
+
+    // Lastly, we create a style groups object that makes sure we run each custom group with our basic overrides.
+    const mergedStyles = Object.entries(customStyles).reduce((accumulator, [stylesGroup, stylesFn]) => {
+      return {
+        ...accumulator,
+        [stylesGroup]: (provided, state) => {
+          const baseStylesResult = baseStyles[stylesGroup](provided, state);
+
+          return stylesFn(baseStylesResult, state);
+        }
+      };
+    }, {});
+
+    return mergedStyles;
+  }, [size, rtl, extraStyles]);
 
   const Menu = useCallback(props => <MenuComponent {...props} isOpen={isOpen} Renderer={menuRenderer} />, [
     isOpen,
@@ -134,7 +157,7 @@ const Dropdown = ({
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}
       isRtl={rtl}
-      styles={customStyles}
+      styles={styles}
       theme={customTheme}
       menuPortalTarget={menuPortalTarget}
       menuIsOpen={menuIsOpen}
