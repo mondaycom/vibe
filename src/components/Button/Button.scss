@@ -17,6 +17,12 @@
   align-items: center;
   justify-content: center;
 
+  // Prevent selection of the buttons text
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
   // will be updated dynamically after render by js
   --element-width: 32;
   --element-height: 32;
