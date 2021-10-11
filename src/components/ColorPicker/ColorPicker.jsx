@@ -1,6 +1,7 @@
 import cx from "classnames";
 import PropTypes from "prop-types";
 import React, { forwardRef, useCallback, useRef } from "react";
+import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import { COLOR_STYLES } from "../../general-stories/colors/colors-vars-map";
@@ -22,7 +23,8 @@ const ColorPicker = forwardRef(
       NoColorIcon,
       isBlackListMode,
       colorsList,
-      isMultiselect
+      isMultiselect,
+      colorSize
     },
     ref
   ) => {
@@ -50,6 +52,7 @@ const ColorPicker = forwardRef(
           colorsList={colorsList}
           isBlackListMode={isBlackListMode}
           isMultiselect={isMultiselect}
+          colorSize={colorSize}
         />
       </DialogContentContainer>
     );
@@ -57,6 +60,7 @@ const ColorPicker = forwardRef(
 );
 
 ColorPicker.COLOR_STYLES = COLOR_STYLES;
+ColorPicker.sizes = SIZES;
 
 ColorPicker.propTypes = {
   className: PropTypes.string,
@@ -70,7 +74,8 @@ ColorPicker.propTypes = {
   NoColorIcon: PropTypes.func,
   isBlackListMode: PropTypes.bool,
   colorsList: PropTypes.array,
-  isMultiselect: PropTypes.bool
+  isMultiselect: PropTypes.bool,
+  colorSize: PropTypes.oneOf([ColorPicker.sizes.SMALL, ColorPicker.sizes.MEDIUM, ColorPicker.sizes.LARGE])
 };
 
 ColorPicker.defaultProps = {
@@ -85,7 +90,8 @@ ColorPicker.defaultProps = {
   NoColorIcon: NoColor,
   isBlackListMode: true,
   colorsList: [],
-  isMultiselect: false
+  isMultiselect: false,
+  colorSize: ColorPicker.sizes.MEDIUM
 };
 
 export default ColorPicker;

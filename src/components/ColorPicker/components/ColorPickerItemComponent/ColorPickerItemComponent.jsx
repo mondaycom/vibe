@@ -14,7 +14,8 @@ const ColorPickerItemComponent = ({
   ColorIndicatorIcon,
   SelectedIndicatorIcon,
   isMultiselect,
-  isSelected
+  isSelected,
+  colorSize
 }) => {
   const colorAsStyle = getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
@@ -52,7 +53,7 @@ const ColorPickerItemComponent = ({
       <div
         ref={itemRef}
         aria-label={color}
-        className={cx("color-item", { "color-item-text-mode": shouldRenderIndicatorWithoutBackground })}
+        className={cx("color-item", colorSize, { "color-item-text-mode": shouldRenderIndicatorWithoutBackground })}
         style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
         onClick={() => onValueChange && onValueChange(color)}
         onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection

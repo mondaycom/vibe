@@ -10,6 +10,9 @@ export const Sandbox = () => {
   const colorStyle = optionsKnob("Color style", COLOR_STYLES, COLOR_STYLES.REGULAR, {
     display: "inline-radio"
   });
+  const colorSize = optionsKnob("Color size", ColorPicker.sizes, ColorPicker.sizes.MEDIUM, {
+    display: "inline-radio"
+  });
   const noColorText = text("no color text", undefined);
   const shouldRenderIndicatorWithoutBackground = boolean("shouldRenderIndicatorWithoutBackground", false);
   return (
@@ -18,6 +21,7 @@ export const Sandbox = () => {
         colorStyle={colorStyle}
         noColorText={noColorText}
         shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
+        colorSize={colorSize}
       />
     </div>
   );

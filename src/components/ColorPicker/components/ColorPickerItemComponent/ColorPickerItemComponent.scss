@@ -1,10 +1,7 @@
 .color-item-wrapper {
-  width: 32px;
-  height: 32px;
+  margin: 2px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
+  border-radius: 2px;
 
   &.selected-color {
     .color-item {
@@ -13,16 +10,27 @@
   }
   .color-item {
     display: flex;
-    justify-content: center;
-    align-items: center;
     border: 2px solid transparent;
-    border-radius: 15%;
-    width: 28px;
-    height: 28px;
+    border-radius: 2px;
     cursor: pointer;
 
     .color-indicator-wrapper {
       margin-top: 3px;
+    }
+
+    &.small{
+      width: 24px;
+      height: 24px;
+    }
+  
+    &.medium {
+      width: 32px;
+      height: 32px;
+    }
+  
+    &.large {
+      width: 40px;
+      height: 40px;
     }
   }
 

@@ -3,6 +3,7 @@ import _difference from "lodash/difference";
 import _intersection from "lodash/intersection";
 import PropTypes from "prop-types";
 import React, { useCallback, useState, useEffect, useMemo } from "react";
+import { SIZES } from "../../../../constants/sizes";
 import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
 import Button from "../../../Button/Button";
 import NoColor from "../../../Icon/Icons/components/NoColor";
@@ -21,7 +22,8 @@ const ColorPickerContentComponent = ({
   NoColorIcon,
   isBlackListMode,
   colorsList,
-  isMultiselect
+  isMultiselect,
+  colorSize
 }) => {
   const onClearButton = useCallback(() => {
     onValueChange(null);
@@ -75,6 +77,7 @@ const ColorPickerContentComponent = ({
               SelectedIndicatorIcon={SelectedIndicatorIcon}
               isSelected={isMultiselect ? value.includes(color) : value === color}
               isMultiselect={isMultiselect}
+              colorSize={colorSize}
             />
           );
         })}
@@ -95,6 +98,7 @@ const ColorPickerContentComponent = ({
 };
 
 ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
+ColorPickerContentComponent.sizes = SIZES;
 
 ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
@@ -110,7 +114,12 @@ ColorPickerContentComponent.propTypes = {
   shouldRenderIndicatorWithoutBackground: PropTypes.bool,
   NoColorIcon: PropTypes.func,
   isBlackListMode: PropTypes.bool,
-  colorsList: PropTypes.array
+  colorsList: PropTypes.array,
+  colorSize: PropTypes.oneOf([
+    ColorPickerContentComponent.sizes.SMALL,
+    ColorPickerContentComponent.sizes.MEDIUM,
+    ColorPickerContentComponent.sizes.LARGE
+  ])
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -124,7 +133,8 @@ ColorPickerContentComponent.defaultProps = {
   shouldRenderIndicatorWithoutBackground: false,
   NoColorIcon: NoColor,
   isBlackListMode: true,
-  colorsList: []
+  colorsList: [],
+  colorSize: ColorPickerContentComponent.sizes.MEDIUM
 };
 
 export default ColorPickerContentComponent;
