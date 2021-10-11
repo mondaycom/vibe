@@ -420,6 +420,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Lines",
+    file: "Lines.svg",
+    description: "Lines",
+    tags: "Lines, Rows",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Link",
     file: "Link.svg",
     description: "Link",
@@ -514,6 +522,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Mute",
+    file: "Mute.svg",
+    description: "Mute",
+    tags: "Mute",
+    category: [PLATFORM],
+  },
+
+  {
     name: "NavigationChevronDown",
     file: "NavigationChevronDown.svg",
     description: "Navigation Chevron Down",
@@ -568,6 +584,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Pause",
+    file: "Pause.svg",
+    description: "Pause",
+    tags: "Pause, Hold",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Person",
     file: "Person.svg",
     description: "Person",
@@ -580,6 +604,14 @@ export const iconsMetaData = [
     file: "Pin.svg",
     description: "Pin",
     tags: "Pin",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Play",
+    file: "Play.svg",
+    description: "Play",
+    tags: "Play, Start",
     category: [PLATFORM],
   },
 
