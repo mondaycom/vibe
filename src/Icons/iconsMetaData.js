@@ -880,6 +880,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Lines",
+    file: "Lines.svg",
+    description: "Lines",
+    tags: "Lines, Rows",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Link",
     file: "Link.svg",
     description: "Link",
@@ -998,6 +1006,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Mute",
+    file: "Mute.svg",
+    description: "Mute",
+    tags: "Mute",
+    category: [PLATFORM]
+  },
+    
+  {
     name: "MyWeek",
     file: "MyWeek.svg",
     description: "My week",
@@ -1088,6 +1104,14 @@ export const iconsMetaData = [
     tags: "Paste, Design",
     category: [PLATFORM],
   },
+    
+  {
+    name: "Pause",
+    file: "Pause.svg",
+    description: "Pause",
+    tags: "Pause, Hold",
+    category: [PLATFORM],
+  },
 
   {
     name: "Person",
@@ -1102,6 +1126,14 @@ export const iconsMetaData = [
     file: "Pin.svg",
     description: "Pin",
     tags: "Pin",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Play",
+    file: "Play.svg",
+    description: "Play",
+    tags: "Play, Start",
     category: [PLATFORM],
   },
 
@@ -1241,6 +1273,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Sound",
+    file: "Sound.svg",
+    description: "Sound",
+    tags: "Sound, Audio, Speaker",
+    category: [PLATFORM],
+  },
+  
+  {
     name: "StrikethroughS",
     file: "StrikethroughS.svg",
     description: "Strike Through",
@@ -1255,6 +1295,7 @@ export const iconsMetaData = [
     tags: "Strike Through, Text, Design",
     category: [PLATFORM],
   },
+  
   {
     name: "Sun",
     file: "Sun.svg",
@@ -1432,7 +1473,7 @@ export const iconsMetaData = [
     name: "Workspace",
     file: "Workspace.svg",
     description: "Workspace",
-    tags: "Workspace",
+    tags: "Workspace, Grid",
     category: [PLATFORM],
   },
 ];
