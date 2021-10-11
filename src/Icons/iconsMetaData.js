@@ -810,7 +810,7 @@ export const iconsMetaData = [
     name: "Workspace",
     file: "Workspace.svg",
     description: "Workspace",
-    tags: "Workspace",
+    tags: "Workspace, Grid",
     category: [PLATFORM],
   },
 ];
