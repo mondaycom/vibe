@@ -32,6 +32,10 @@ export const WithIndicator = () => {
     display: "inline-radio"
   });
   const noColorText = text("no color text", undefined);
+  const colorSize = optionsKnob("Color size", ColorPicker.sizes, ColorPicker.sizes.MEDIUM, {
+    display: "inline-radio"
+  });
+  const numberOfColorsInLine = number("Number of colors in line");
   const shouldRenderIndicatorWithoutBackground = boolean("shouldRenderIndicatorWithoutBackground", false);
   return (
     <ColorPicker
@@ -39,6 +43,8 @@ export const WithIndicator = () => {
       ColorIndicatorIcon={TextColorIndicator}
       noColorText={noColorText}
       shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
+      colorSize={colorSize}
+      numberOfColorsInLine={numberOfColorsInLine}
     />
   );
 };
