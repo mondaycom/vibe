@@ -22,6 +22,7 @@ exports[`Tipseen wizard tests Snapshot Tests renders correctly 1`] = `
       className="monday-style-steps-header monday-style-steps-header--gallery"
     >
       <button
+        aria-disabled={true}
         className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
         disabled={true}
         onBlur={[Function]}
@@ -57,6 +58,7 @@ exports[`Tipseen wizard tests Snapshot Tests renders correctly 1`] = `
         />
       </div>
       <button
+        aria-disabled={false}
         className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
         disabled={false}
         onBlur={[Function]}
@@ -85,6 +87,7 @@ exports[`Tipseen wizard tests Snapshot Tests renders correctly with empty props 
       className="monday-style-steps-header monday-style-steps-header--gallery"
     >
       <button
+        aria-disabled={true}
         className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
         disabled={true}
         onBlur={[Function]}
@@ -101,6 +104,7 @@ exports[`Tipseen wizard tests Snapshot Tests renders correctly with empty props 
         role="group"
       />
       <button
+        aria-disabled={false}
         className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
         disabled={false}
         onBlur={[Function]}
@@ -132,6 +136,7 @@ exports[`Tipseen wizard tests Snapshot Tests renders correctly without title 1`]
       className="monday-style-steps-header monday-style-steps-header--gallery"
     >
       <button
+        aria-disabled={true}
         className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
         disabled={true}
         onBlur={[Function]}
@@ -167,6 +172,7 @@ exports[`Tipseen wizard tests Snapshot Tests renders correctly without title 1`]
         />
       </div>
       <button
+        aria-disabled={false}
         className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
         disabled={false}
         onBlur={[Function]}

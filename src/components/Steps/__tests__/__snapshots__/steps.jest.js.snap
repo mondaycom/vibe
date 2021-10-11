@@ -9,6 +9,7 @@ exports[`Steps tests Snapshot Tests renders correctly with empty props 1`] = `
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -42,6 +43,7 @@ exports[`Steps tests Snapshot Tests renders correctly with empty props 1`] = `
       role="group"
     />
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}
@@ -83,6 +85,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when hid
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}
@@ -112,6 +115,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when hid
       />
     </div>
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -180,6 +184,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when ste
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}
@@ -226,6 +231,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when ste
       />
     </div>
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -267,6 +273,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -313,6 +320,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
       />
     </div>
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}
@@ -359,6 +367,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}
@@ -405,6 +414,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
       />
     </div>
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -451,6 +461,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view with reg
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -497,6 +508,7 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view with reg
       />
     </div>
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}
@@ -543,6 +555,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when hid
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}
@@ -560,6 +573,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when hid
       2 \\ 2
     </div>
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -594,6 +608,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when ste
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}
@@ -628,6 +643,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when ste
       2 \\ 2
     </div>
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -669,6 +685,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -703,6 +720,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
       1 \\ 2
     </div>
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}
@@ -749,6 +767,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}
@@ -783,6 +802,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view when vie
       2 \\ 2
     </div>
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -829,6 +849,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view with reg
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
     <button
+      aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={true}
       onBlur={[Function]}
@@ -863,6 +884,7 @@ exports[`Steps tests Snapshot Tests renders correctly with numbers view with reg
       1 \\ 2
     </div>
     <button
+      aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       disabled={false}
       onBlur={[Function]}

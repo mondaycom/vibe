@@ -73,6 +73,7 @@ exports[`Toast tests Snapshot Tests renders correctly with button 1`] = `
     className="monday-style-toast-action"
   >
     <button
+      aria-disabled={false}
       className="monday-style-toast-action_button monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
       disabled={false}
       onBlur={[Function]}
@@ -88,6 +89,7 @@ exports[`Toast tests Snapshot Tests renders correctly with button 1`] = `
     </button>
   </div>
   <button
+    aria-disabled={false}
     aria-label="close-toast"
     className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     disabled={false}
@@ -171,6 +173,7 @@ exports[`Toast tests Snapshot Tests renders correctly with button and link 1`] =
     className="monday-style-toast-action"
   >
     <button
+      aria-disabled={false}
       className="monday-style-toast-action_button monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
       disabled={false}
       onBlur={[Function]}
@@ -186,6 +189,7 @@ exports[`Toast tests Snapshot Tests renders correctly with button and link 1`] =
     </button>
   </div>
   <button
+    aria-disabled={false}
     aria-label="close-toast"
     className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     disabled={false}
@@ -269,6 +273,7 @@ exports[`Toast tests Snapshot Tests renders correctly with link 1`] = `
     className="monday-style-toast-action"
   />
   <button
+    aria-disabled={false}
     aria-label="close-toast"
     className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     disabled={false}
@@ -335,6 +340,7 @@ exports[`Toast tests Snapshot Tests renders toast when open is true 1`] = `
     Something Happened
   </div>
   <button
+    aria-disabled={false}
     aria-label="close-toast"
     className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     disabled={false}
