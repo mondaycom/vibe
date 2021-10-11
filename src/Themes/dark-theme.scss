@@ -1,48 +1,268 @@
 .dark-app-theme {
   // primary coloring
-  --primary-color: #339dff;
-  --primary-on-secondary-color: #43adff;
-  --primary-hover-color: #578edb;
-  --primary-hover-on-secondary-color: #72a0e1;
-  --primary-selected-color: #4b4e69;
-  --primary-selected-on-secondary-color: #4b4e69;
-  --primary-text-color: var(--color-ui_grey);
-  --primary-text-on-secondary-color: var(--color-ui_grey);
-  --primary-background-color: #1c1f3b;
-  --primary-background-color-rgb: 28, 31, 59;
+  --primary-color: var(--color-basic_blue);
+  --primary-on-secondary-color: var(--color-basic_blue);
+  --primary-hover-color: #0060b9;
+  --primary-hover-on-secondary-color: #0060b9;
+  --primary-selected-color: #133774;
+  --primary-selected-on-secondary-color: #133774;
+  --primary-text-color: #d5d8df;
+  --primary-text-on-secondary-color: #d5d8df;
+
+  --primary-background-color: #181b34;
+  --primary-background-color-rgb: 24, 27, 52;
+
   --primary-background-hover-color: #4b4e69;
   --primary-background-hover-on-secondary-color: #4b4e69;
+  --grey-background-color: #181b34;
 
-  --inverted-color-background: var(--color-riverstone_gray);
+  --inverted-color-background: #ffffff;
   --text-color-on-inverted: var(--color-mud_black);
+  --modal-background-color: #181b34;
+
+  // states
+  --positive-color: var(--color-success);
+  --positive-color-hover: var(--color-success-hover);
+  --positive-color-selected: #26503e;
+  --negative-color: var(--color-error);
+  --negative-color-hover: var(--color-error-hover);
+  --negative-color-selected: #642830;
+  --private-color: var(--color-private);
+  --shareable-color: #a358df;
+
   // borders
   --ui-border-color: #797e93;
   --ui-border-on-secondary-color: #797e93;
-  --layout-border-color: #4B4E69;
-  --layout-border-on-secondary-color: #4B4E69;
+  --layout-border-color: #4b4e69;
+  --layout-border-on-secondary-color: #4b4e69;
 
-  --placeholder-color: var(--color-jaco_gray);
-  --placeholder-on-secondary-color: var(--color-jaco_gray);
+  --placeholder-color: var(--color-wolf_gray);
+  --placeholder-color-with-opacity: var(--color-wolf_gray-with-opacity);
+  --placeholder-on-secondary-color: var(--color-wolf_gray);
   --icon-color: var(--color-wolf_gray);
   --icon-on-secondary-color: var(--color-wolf_gray);
 
   // disabled
-  --disabled-background-color: #4b4e69;
+  --disabled-background-color: #4B4E69;
   --disabled-background-on-secondary-color: #4b4e69;
   --disabled-text-color: rgba(197, 199, 208, 0.75);
   --disabled-text-on-secondary-color: rgba(197, 199, 208, 0.75);
 
   --dark-background-color: #393b53;
   --dark-background-on-secondary-color: #4b4e69;
-  --modal-background-color: #1c1f3b;
-  --secondary-background-color: #393b53;
+  --secondary-background-color: #30324e;
   //deprecated - use secondary-background-color
-  --dialog-background-color: #393b53;
+  --dialog-background-color: #30324e;
 
   --label-background-color: #404b69;
   --label-background-on-secondary-color: #404b69;
   --secondary-text-color: var(--color-jaco_gray);
   --secondary-text-on-secondary-color: var(--color-jaco_gray);
-  --link-color: #6191c9;
-  --link-on-secondary-color: #7aa3d2;
+  --link-color: #69a7ef;
+  --link-on-secondary-color: #69a7ef;
+
+  // green grass
+  --color-grass_green: #359970;
+  --color-grass_green-hover: #116846;
+  --color-grass_green-selected: #0f4f43;
+
+  // done green
+  --color-done-green: #33d391;
+  --color-done-green-hover: #0f9b63;
+  --color-done-green-selected: #0e7358;
+
+  // Bright Green
+  --color-bright-green: #b0dc51;
+  --color-bright-green-hover: #7ca32b;
+  --color-bright-green-selected: #5c7930;
+
+  // Saladish
+  --color-saladish: #d5c567;
+  --color-saladish-hover: #9d8f3e;
+  --color-saladish-selected: #736a3e;
+
+  // Egg Yolk
+  --color-egg_yolk: #ffd533;
+  --color-egg_yolk-hover: #c29e11;
+  --color-egg_yolk-selected: #8D751E;
+
+  // Working on it
+  --color-working_orange: #fdbc64;
+  --color-working_orange-hover: #c0873c;
+  --color-working_orange-selected: #8c653c;
+
+  // Dark orange
+  --color-dark-orange: #ff7b4d;
+  --color-dark-orange-hover: #c25531;
+  --color-dark-orange-selected: #8d4134;
+
+  // Peach Color
+  --color-peach: #ffbdbd;
+  --color-peach-hover: #c2888a;
+  --color-peach-selected: #8d6674;
+
+  // Sunset Color
+  --color-sunset: #ff9191;
+  --color-sunset-hover: #c26163;
+  --color-sunset-selected: #8d4a58;
+
+  // Stuck red
+  --color-stuck-red: #e8697d;
+  --color-stuck-red-hover: #ad3f51;
+  --color-stuck-red-selected: #7f314b;
+
+  // Dark red
+  --color-dark-red: #c95c76;
+  --color-dark-red-hover: #92334c;
+  --color-dark-red-selected: #6b2947;
+
+  // Sofia
+  --color-sofia_pink: #ff44a1;
+  --color-sofia_pink-hover: #c21e71;
+  --color-sofia_pink-selected: #8d1a62;
+
+  // Lipstick color
+  --color-lipstick: #ff7bd0;
+  --color-lipstick-hover: #c24e9a;
+  --color-lipstick-selected: #8d3c7f;
+
+  // Bubble
+  --color-bubble: #fbb4f4;
+  --color-bubble-hover: #be80ba;
+  --color-bubble-selected: #8b6096;
+
+  // Purple
+  --color-purple: #b57de3;
+  --color-purple-hover: #8050ab;
+  --color-purple-selected: #5f3e8b;
+
+  // Dark purple
+  --color-dark_purple: #936fda;
+  --color-dark_purple-hover: #6344a3;
+  --color-dark_purple-selected: #4a3586;
+
+  // Berry
+  --color-berry: #6645a9;
+  --color-berry-hover: #673971;
+  --color-berry-selected: #4d2d62;
+
+  // Dark indigo
+  --color-dark_indigo: #401694;
+  --color-dark_indigo-hover: #3c1f78;
+  --color-dark_indigo-selected: #2e1b67;
+
+  // Indigo
+  --color-indigo: #777ae5;
+  --color-indigo-hover: #4b4ead;
+  --color-indigo-selected: #383c8d;
+
+  // Navy
+  --color-navy: #4e73a7;
+  --color-navy-hover: #274776;
+  --color-navy-selected: #1f3866;
+
+  // Light Blue
+  --color-bright-blue: #79affd;
+  --color-bright-blue-hover: #4c7cc1;
+  --color-bright-blue-selected: #395d9b;
+
+  // Dark blue
+  --color-dark-blue: #339ecd;
+  --color-dark-blue-hover: #0f6d97;
+  --color-dark-blue-selected: #0e527e;
+
+  // Aquamarine
+  --color-aquamarine: #71d6d1;
+  --color-aquamarine-hover: #469e9b;
+  --color-aquamarine-selected: #357580;
+
+  // Chili Blue
+  --color-chili-blue: #85d6ff;
+  --color-chili-blue-hover: #569ec3;
+  --color-chili-blue-selected: #41759d;
+
+  // River
+  --color-river: #86b4ca;
+  --color-river-hover: #588095;
+  --color-river-selected: #42607c;
+
+  // winter
+  --color-winter: #aebdca;
+  --color-winter-hover: #7b8895;
+  --color-winter-selected: #5b667c;
+
+  // Explosive
+  --color-explosive: #d0d0d0;
+  --color-explosive-hover: #98999a;
+  --color-explosive-selected: #70717f;
+
+  // American Grey
+  --color-american_gray: #999999;
+  --color-american_gray-hover: #69696a;
+  --color-american_gray-selected: #4e505e;
+
+  // Blackish
+  --color-blackish: #5c5c5c;
+  --color-blackish-hover: #222222;
+  --color-blackish-selected: #272937;
+
+  // Brown
+  --color-brown: #99756c;
+  --color-brown-hover: #684943;
+  --color-brown-selected: #4d3941;
+
+   // Orchid
+   --color-orchid: #E190C0;
+   --color-orchid-hover: #B4739A;
+   --color-orchid-selected: #B4739A;
+   
+   // Tan
+   --color-tan: #BDAB95;
+   --color-tan-hover: #978977;
+   --color-tan-selected: #716863;
+   
+   // Sky
+   --color-sky: #B4E9F8;
+   --color-sky-hover: #90BAC6;
+   --color-sky-selected: #6C8A9A;
+   
+   // Coffee
+   --color-coffee: #CA9A8B;
+   --color-coffee-hover: #A27B6F;
+   --color-coffee-selected: #795E5D;
+   
+   // Royal
+   --color-royal: #5591EA;
+   --color-royal-hover: #4474BB;
+   --color-royal-selected: #375993;
+ 
+   // Teal
+   --color-teal: #457B82;
+   --color-teal-hover: #376268;
+   --color-teal-selected: #2E4D58;
+   
+   // Lavender
+   --color-lavender: #CAB9FA;
+   --color-lavender-hover: #A294C8;
+   --color-lavender-selected: #85597B;
+   
+   // Steel
+   --color-steel: #BACBED;
+   --color-steel-hover: #95A2BE;
+   --color-steel-selected: #707A95;
+   
+   // Lilac
+   --color-lilac: #B1ADC7;
+   --color-lilac-hover: #8E8A9F;
+   --color-lilac-selected: #6B697F;
+
+  // Pecan
+  --color-pecan: #786565;
+  --color-pecan-hover: #605151;
+  --color-pecan-selected: #4A4148;
+
+  // Shadows
+  --box-shadow-small: 0px 4px 8px rgba(9, 11, 25, 0.5);
+  --box-shadow-mediun: 0px 6px 20px rgba(9, 11, 25, 0.5);
+  --box-shadow-large: 0px 15px 50px rgba(9, 11, 25, 0.5);
 }

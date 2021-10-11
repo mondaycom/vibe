@@ -11,10 +11,13 @@
   --primary-text-color: var(--color-mud_black);
   --primary-text-on-secondary-color: var(--color-mud_black);
   --text-color-on-primary: var(--color-snow_white);
+  --text-color-on-primary-with-opacity: var(--color-snow_white-with-opacity);
   --primary-background-color: var(--color-snow_white);
   --primary-background-color-rgb: 255, 255, 255;
   --primary-background-hover-color: var(--color-ui_grey);
   --primary-background-hover-on-secondary-color: var(--color-ui_grey);
+  --grey-background-color: var(--color-riverstone_gray);
+  --modal-background-color: var(--color-snow_white);
 
   --inverted-color-background: var(--color-mud_black);
   --text-color-on-inverted: var(--color-snow_white);
@@ -36,6 +39,7 @@
   --layout-border-on-secondary-color: var(--color-ui_grey);
 
   --placeholder-color: var(--color-asphalt);
+  --placeholder-color-with-opacity: var(--color-asphalt-with-opacity);
   --placeholder-on-secondary-color: var(--color-asphalt);
   --icon-color: var(--color-asphalt);
   --icon-on-secondary-color: var(--color-asphalt);
@@ -43,12 +47,11 @@
   // disabled
   --disabled-background-color: var(--color-ui_grey);
   --disabled-background-on-secondary-color: var(--color-ui_grey);
-  --disabled-text-color: rgba(103, 104, 121, 0.75);
-  --disabled-text-on-secondary-color: rgba(103, 104, 121, 0.75);
+  --disabled-text-color: #676879;
+  --disabled-text-on-secondary-color: #676879;
 
   --dark-background-color: var(--color-riverstone_gray);
   --dark-background-on-secondary-color: var(--color-riverstone_gray);
-  --modal-background-color: var(--color-snow_white);
   --secondary-background-color: var(--color-snow_white);
   //deprecated - use secondary-background-color
   --dialog-background-color: var(--color-snow_white);
@@ -59,4 +62,9 @@
   --secondary-text-on-secondary-color: var(--color-asphalt);
   --link-color: var(--color-link_color);
   --link-on-secondary-color: var(--color-link_color);
+
+  // Shadows
+  --box-shadow-small: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  --box-shadow-mediun: 0px 6px 20px rgba(0, 0, 0, 0.2);
+  --box-shadow-large: 0px 15px 50px rgba(0, 0, 0, 0.3);
 }

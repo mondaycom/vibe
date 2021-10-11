@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-style",
-  "version": "0.0.23",
+  "version": "0.1.40",
   "description": "Monday UI CSS Foundations",
   "main": "dist/index.css",
   "scripts": {
@@ -8,6 +8,8 @@
     "auto:bump-minor": "node scripts/autobump_minor.js",
     "auto:bump-major": "node scripts/autobump_major.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "validate-icons": "node scripts/validate-meta.js",
+    "generate-meta": "node scripts/generate-meta.js",
     "compile-styles": "node-sass --output-style expanded --precision 6 ./src/index.scss dist/index.css",
     "css-minify": "cleancss --level 1 --format breaksWith=lf --output dist/index.min.css dist/index.css",
     "build": "npm run compile-styles && npm run css-minify",
@@ -37,6 +39,7 @@
   "homepage": "https://github.com/mondaycom/monday-ui-style#readme",
   "devDependencies": {
     "clean-css-cli": "^4.3.0",
+    "node-plop": "^0.26.2",
     "node-sass": "^4.14.1",
     "plop": "^2.7.4",
     "prettier": "^2.0.5"

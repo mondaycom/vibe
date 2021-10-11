@@ -34,8 +34,17 @@ import IconName from "monday-ui-style/src/Icons/IconName.svg";
 ## Icons
 
 ### Adding a new icon
+In order to add a new icon you will need to for and open a PR - https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
 
 When adding a new icon please make sure that there isn't a similar icon - if so either replace the icon or make sure that we need another version of it
+
+### Metadata file
+
+We are maintaining a metadata file on the icons, it helps our icon library to be more readable and search able when you want to search for a relevant icon
+
+How to add a new icon?
+Add the icon in SVG format under src/Icons folder (size 20x20) 
+then run `npm run generate-meta` and fill in the relevant information
 
 ### Icon colors
 
@@ -47,12 +56,6 @@ In some rare occasions when you want to preserve a color within the icon please 
 - `currentColor` might change according to position and theming
 - this is an open source library so brand colors might change
 - please be aware that we will add a monochrome version of that icon as well
-
-### Metadata file
-
-We are maintaining a metadata file on the icons, it helps our icon library to be more readable and search able when you want to search for a relevant icon
-
-When adding a new icon please run `npm run plop` and fill in the relevant information
 
 ## New icon request
 
