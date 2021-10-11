@@ -6,7 +6,6 @@ import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import Divider from "../Divider/Divider";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
-import VerticalStepIndicator from "./components/VerticalStepIndicator/VerticalStepIndicator";
 import { MULTI_STEP_TYPES, STEP_STATUSES, TEXT_PLACEMENTS } from "./MultiStepConstants";
 import { NOOP } from "../../utils/function-utils";
 import "./MultiStepIndicator.scss";
@@ -50,7 +49,7 @@ const MultiStepIndicator = forwardRef(
 
     const renderVerticalStepIndicator = (step, index) => {
       return (
-        <VerticalStepIndicator
+        <StepIndicator
           {...step}
           stepNumber={index + 1}
           type={type}
@@ -60,6 +59,7 @@ const MultiStepIndicator = forwardRef(
           onClick={onClick}
           isFollowedByDivider={index !== steps.length - 1}
           stepDividerClassName={cx(defaultDividerClassName, dividerComponentClassName)}
+          isVertical={true}
         />
       );
     };

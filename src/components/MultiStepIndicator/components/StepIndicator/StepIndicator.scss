@@ -10,6 +10,33 @@
   text-indent: 0;
   list-style-type: none;
 
+  &.vertical {
+    margin: 8px;
+    flex-direction: column;
+    flex: 1 1 0px;
+
+    .monday-style-step-indicator-component {
+      &__text-container {
+        margin-left: 0px;
+        margin-top: 8px;
+      }
+
+      &__number-divider-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+
+        .monday-style-divider {
+          @include theme-prop(background-color, ui-border-color);
+          margin: 16px 0 16px 16px;
+          height: 1px;
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+
   &.clickable {
     cursor: pointer;
   }
@@ -95,29 +122,112 @@
     &-primary {
       &__number-container {
         @include theme-prop(background-color, primary-color);
+
+        &:hover {
+          @include theme-prop(background-color, primary-hover-color);
+        }
       }
     }
     &-danger {
       &__number-container {
         @include theme-prop(background-color, negative-color);
+
+        &:hover {
+          @include theme-prop(background-color, negative-color-hover);
+        }
       }
     }
     &-success {
       &__number-container {
         @include theme-prop(background-color, positive-color);
+
+        &:hover {
+          @include theme-prop(background-color, positive-color-hover);
+        }
       }
     }
     &-dark {
       &__number-container {
-        @include theme-prop(background-color, primary-text-color);
+        @include theme-prop(background-color, inverted-color-background);
+        @include theme-prop(color, text-color-on-inverted);
+
+        &:hover {
+          @include theme-prop(background-color, secondary-text-color);
+        }
       }
     }
   }
 
   &--status {
+    &-active {
+      &__number-container {
+        box-shadow: 0 0 0 4px var(--primary-background-color), 0 0 0 6px var(--primary-color);
+
+        &.monday-style-step-indicator-component {
+          &--type {
+            &-danger {
+              &__number-container {
+                box-shadow: 0 0 0 4px var(--primary-background-color), 0 0 0 6px var(--negative-color);
+              }
+            }
+
+            &-success {
+              &__number-container {
+                box-shadow: 0 0 0 4px var(--primary-background-color), 0 0 0 6px var(--positive-color);
+              }
+            }
+
+            &-dark {
+              &__number-container {
+                box-shadow: 0 0 0 4px var(--primary-background-color), 0 0 0 6px var(--primary-text-color);
+              }
+            }
+          }
+        }
+      }
+    }
+
     &-pending {
       &__number-container {
-        @include theme-prop(background-color, disabled-background-color);
+        @include theme-prop(background-color, primary-background-color);
+        @include theme-prop(color, primary-text-color);
+        @include theme-prop(border-color, ui-border-color, true);
+        border: 1px solid;
+
+        &:hover {
+          @include theme-prop(background-color, primary-color);
+          @include theme-prop(color, text-color-on-primary);
+          border: none;
+        }
+
+        &.monday-style-step-indicator-component {
+          &--type {
+            &-danger {
+              &__number-container {
+                &:hover {
+                  @include theme-prop(background-color, negative-color);
+                }
+              }
+            }
+
+            &-success {
+              &__number-container {
+                &:hover {
+                  @include theme-prop(background-color, positive-color);
+                }
+              }
+            }
+
+            &-dark {
+              &__number-container {
+                &:hover {
+                  @include theme-prop(background-color, primary-text-color);
+                  @include theme-prop(color, text-color-on-inverted);
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

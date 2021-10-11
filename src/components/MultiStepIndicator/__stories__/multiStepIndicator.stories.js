@@ -5,6 +5,8 @@ import MultiStepIndicator from "../MultiStepIndicator";
 import { StoryStateRow, ComponentStateDescription, StoryStateColumn } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import { STEP_STATUSES } from "../MultiStepConstants";
+import Check from "../../Icon/Icons/components/Check";
+import Featured from "../../Icon/Icons/components/Featured";
 
 export const DefaultStory = () => {
   const steps = [
@@ -61,24 +63,18 @@ export const Sandbox = () => {
           Dark: MultiStepIndicator.types.DARK
         })}
         steps={exampleSteps}
-      />
-    </div>
-  );
-};
-
-export const MultiVerticalStepIndicatorType = () => {
-  return (
-    <div>
-      <MultiStepIndicator
-        id="multi-vertical-step-indicator"
-        type={select("type", {
-          Primary: MultiStepIndicator.types.PRIMARY,
-          Success: MultiStepIndicator.types.SUCCESS,
-          Danger: MultiStepIndicator.types.DANGER,
-          Dark: MultiStepIndicator.types.DARK
+        textPlacement={select("textPlacement", {
+          Horizontal: MultiStepIndicator.textPlacements.HORIZONTAL,
+          Vertical: MultiStepIndicator.textPlacements.VERTICAL
         })}
-        steps={exampleSteps}
-        textPlacement={MultiStepIndicator.textPlacements.VERTICAL}
+        fulfilledStepIcon={select(
+          "fulfilledStepIcon",
+          {
+            "Default (Check)": Check,
+            "No icon (number)": null
+          },
+          Check
+        )}
       />
     </div>
   );
@@ -102,6 +98,44 @@ export const Types = () => {
       <StoryStateRow>
         <ComponentStateDescription title="dark" />
         <MultiStepIndicator steps={exampleSteps} type={MultiStepIndicator.types.DARK} />
+      </StoryStateRow>
+    </StoryWrapper>
+  );
+};
+
+export const TextPlacements = () => {
+  return (
+    <StoryWrapper>
+      <StoryStateRow>
+        <ComponentStateDescription title="Horizontal" />
+        <div style={{ width: "100%" }}>
+          <MultiStepIndicator steps={exampleSteps} />
+        </div>
+      </StoryStateRow>
+      <StoryStateRow>
+        <ComponentStateDescription title="Vertical" />
+        <div style={{ width: "100%" }}>
+          <MultiStepIndicator steps={exampleSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />
+        </div>
+      </StoryStateRow>
+    </StoryWrapper>
+  );
+};
+
+export const FullfiledIcons = () => {
+  return (
+    <StoryWrapper>
+      <StoryStateRow>
+        <ComponentStateDescription title="Default (check)" />
+        <MultiStepIndicator steps={exampleSteps} />
+      </StoryStateRow>
+      <StoryStateRow>
+        <ComponentStateDescription title="No icon (number)" />
+        <MultiStepIndicator steps={exampleSteps} fulfilledStepIcon={null} />
+      </StoryStateRow>
+      <StoryStateRow>
+        <ComponentStateDescription title="Custom (featured)" />
+        <MultiStepIndicator steps={exampleSteps} fulfilledStepIcon={Featured} />
       </StoryStateRow>
     </StoryWrapper>
   );
