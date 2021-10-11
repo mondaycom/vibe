@@ -119,9 +119,15 @@ class DropdownDriver {
   }
 }
 
-jest.useFakeTimers();
 
 describe("Dropdown", () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  })
   const mockOptions = [
     { value: "ocean", label: "Ocean", isFixed: true },
     { value: "blue", label: "Blue", isDisabled: true },
