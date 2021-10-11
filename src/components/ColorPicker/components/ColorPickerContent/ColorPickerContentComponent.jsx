@@ -64,7 +64,7 @@ const ColorPickerContentComponent = ({
     return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);
   }, [isBlackListMode, colorsList]);
 
-  const width = calculateColorPickerWidth(numberOfColorsInLine);
+  const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
 
   return (
     <div className={cx("color-picker-content--wrapper", className)} style={{ width }}>

@@ -10,6 +10,8 @@
   }
   .color-item {
     display: flex;
+    justify-content: center;
+    align-items: center;
     border: 2px solid transparent;
     border-radius: 2px;
     cursor: pointer;

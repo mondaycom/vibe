@@ -36,7 +36,7 @@ const ColorPicker = forwardRef(
 
     const onChange = useCallback(onSave, [onSave]);
 
-    const width = calculateColorPickerDialogWidth(numberOfColorsInLine);
+    const width = calculateColorPickerDialogWidth(colorSize, numberOfColorsInLine);
 
     return (
       <DialogContentContainer

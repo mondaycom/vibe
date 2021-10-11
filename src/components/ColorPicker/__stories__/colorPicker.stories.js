@@ -1,4 +1,4 @@
-import { boolean, number, optionsKnob, text, array } from "@storybook/addon-knobs";
+import { boolean, number, optionsKnob, text } from "@storybook/addon-knobs";
 import React from "react";
 import { withPerformance } from "storybook-addon-performance";
 import { COLOR_STYLES } from "../../../general-stories/colors/colors-vars-map";
@@ -13,6 +13,7 @@ export const Sandbox = () => {
   const colorSize = optionsKnob("Color size", ColorPicker.sizes, ColorPicker.sizes.MEDIUM, {
     display: "inline-radio"
   });
+  const numberOfColorsInLine = number("Number of colors in line");
   const noColorText = text("no color text", undefined);
   const shouldRenderIndicatorWithoutBackground = boolean("shouldRenderIndicatorWithoutBackground", false);
   return (
@@ -21,6 +22,7 @@ export const Sandbox = () => {
       noColorText={noColorText}
       shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
       colorSize={colorSize}
+      numberOfColorsInLine={numberOfColorsInLine}
     />
   );
 };
