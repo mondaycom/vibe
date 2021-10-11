@@ -22,7 +22,7 @@ const DIALOG_SIZES = {
 const bemHelper = BEMClass("dialog-content-container");
 
 const DialogContentContainer = forwardRef(
-  ({ className, ariaLabelledby, ariaDescribedby, type, size, children }, ref) => {
+  ({ className, ariaLabelledby, ariaDescribedby, type, size, children, style }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -32,6 +32,7 @@ const DialogContentContainer = forwardRef(
         aria-labelledby={ariaLabelledby}
         aria-describedby={ariaDescribedby}
         ref={mergedRef}
+        style={style}
         className={cx("dialog-content-container", className, bemHelper({ state: type }), bemHelper({ state: size }))}
       >
         {children}
