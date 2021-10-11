@@ -16,14 +16,12 @@ export const Sandbox = () => {
   const noColorText = text("no color text", undefined);
   const shouldRenderIndicatorWithoutBackground = boolean("shouldRenderIndicatorWithoutBackground", false);
   return (
-    <div style={{ width: number("external wrapper width", 240) }}>
-      <ColorPicker
-        colorStyle={colorStyle}
-        noColorText={noColorText}
-        shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
-        colorSize={colorSize}
-      />
-    </div>
+    <ColorPicker
+      colorStyle={colorStyle}
+      noColorText={noColorText}
+      shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
+      colorSize={colorSize}
+    />
   );
 };
 
@@ -34,14 +32,12 @@ export const WithIndicator = () => {
   const noColorText = text("no color text", undefined);
   const shouldRenderIndicatorWithoutBackground = boolean("shouldRenderIndicatorWithoutBackground", false);
   return (
-    <div style={{ width: number("external wrapper width", 240) }}>
-      <ColorPicker
-        colorStyle={colorStyle}
-        ColorIndicatorIcon={TextColorIndicator}
-        noColorText={noColorText}
-        shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
-      />
-    </div>
+    <ColorPicker
+      colorStyle={colorStyle}
+      ColorIndicatorIcon={TextColorIndicator}
+      noColorText={noColorText}
+      shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
+    />
   );
 };
 
@@ -52,15 +48,13 @@ export const NoColorIcons = () => {
   const noColorText = text("no color text", "no color");
   const shouldRenderIndicatorWithoutBackground = boolean("shouldRenderIndicatorWithoutBackground", false);
   return (
-    <div style={{ width: number("external wrapper width", 240) }}>
-      <ColorPicker
-        colorStyle={colorStyle}
-        ColorIndicatorIcon={TextColorIndicator}
-        noColorText={noColorText}
-        shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
-        NoColorIcon={Send}
-      />
-    </div>
+    <ColorPicker
+      colorStyle={colorStyle}
+      ColorIndicatorIcon={TextColorIndicator}
+      noColorText={noColorText}
+      shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
+      NoColorIcon={Send}
+    />
   );
 };
 

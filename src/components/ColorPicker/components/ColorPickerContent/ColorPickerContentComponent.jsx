@@ -8,6 +8,8 @@ import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/
 import Button from "../../../Button/Button";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
+import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import "./ColorPickerContentComponent.scss";
 
 const ColorPickerContentComponent = ({
@@ -23,7 +25,8 @@ const ColorPickerContentComponent = ({
   isBlackListMode,
   colorsList,
   isMultiselect,
-  colorSize
+  colorSize,
+  numberOfColorsInLine
 }) => {
   const onClearButton = useCallback(() => {
     onValueChange(null);
@@ -61,8 +64,10 @@ const ColorPickerContentComponent = ({
     return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);
   }, [isBlackListMode, colorsList]);
 
+  const width = calculateColorPickerWidth(numberOfColorsInLine);
+
   return (
-    <div className={cx("color-picker-content--wrapper", className)}>
+    <div className={cx("color-picker-content--wrapper", className)} style={{ width }}>
       <div className={cx("color-picker")}>
         {colorsToRender.map(color => {
           return (
@@ -119,7 +124,8 @@ ColorPickerContentComponent.propTypes = {
     ColorPickerContentComponent.sizes.SMALL,
     ColorPickerContentComponent.sizes.MEDIUM,
     ColorPickerContentComponent.sizes.LARGE
-  ])
+  ]),
+  numberOfColorsInLine: PropTypes.number
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -134,7 +140,8 @@ ColorPickerContentComponent.defaultProps = {
   NoColorIcon: NoColor,
   isBlackListMode: true,
   colorsList: [],
-  colorSize: ColorPickerContentComponent.sizes.MEDIUM
+  colorSize: ColorPickerContentComponent.sizes.MEDIUM,
+  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE
 };
 
 export default ColorPickerContentComponent;
