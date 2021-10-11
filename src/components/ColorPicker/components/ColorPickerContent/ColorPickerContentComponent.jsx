@@ -2,7 +2,7 @@ import cx from "classnames";
 import _difference from "lodash/difference";
 import _intersection from "lodash/intersection";
 import PropTypes from "prop-types";
-import React, { useCallback, useState, useEffect, useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import { SIZES } from "../../../../constants/sizes";
 import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
 import Button from "../../../Button/Button";
@@ -32,12 +32,10 @@ const ColorPickerContentComponent = ({
     onValueChange(null);
   }, [onValueChange]);
 
-  const [selectedColors, setSelectedColors] = useState(value);
-
   const onColorClicked = useCallback(
     color => {
       if (!isMultiselect) {
-        setSelectedColors(color);
+        onValueChange([color]);
         return;
       }
       const colors = [...value];
@@ -49,16 +47,10 @@ const ColorPickerContentComponent = ({
       } else {
         colors.push(color);
       }
-      setSelectedColors(colors);
+      onValueChange(colors);
     },
-    [isMultiselect, value]
+    [isMultiselect, onValueChange, value]
   );
-
-  useEffect(() => {
-    if (selectedColors !== value) {
-      onValueChange(selectedColors);
-    }
-  }, [onValueChange, selectedColors, value]);
 
   const colorsToRender = useMemo(() => {
     return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);

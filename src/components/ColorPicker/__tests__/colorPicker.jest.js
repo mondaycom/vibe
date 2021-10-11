@@ -34,7 +34,7 @@ describe("Click", () => {
     });
 
     expect(onSaveMock.mock.calls.length).toBe(1);
-    expect(clickedColorValue).toBe(colorToClick);
+    expect(clickedColorValue).toStrictEqual([colorToClick]);
   });
 
   it("Should call onSave with multiselect colors clicked values", () => {

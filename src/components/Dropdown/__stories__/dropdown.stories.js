@@ -282,7 +282,8 @@ export const extraStyles = () => (
           options={mockColorOptions}
           extraStyles={baseStyles => ({
             ...baseStyles,
-            menu: base => ({ ...base, width: 310 })
+            menu: base => ({ ...base, width: 310 }),
+            menuList: base => ({ ...base, zIndex: 9999999 })
           })}
         />
       </StoryStateColumn>

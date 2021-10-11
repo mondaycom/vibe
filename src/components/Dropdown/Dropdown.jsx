@@ -85,10 +85,10 @@ const Dropdown = ({
     const mergedStyles = Object.entries(customStyles).reduce((accumulator, [stylesGroup, stylesFn]) => {
       return {
         ...accumulator,
-        [stylesGroup]: (provided, state) => {
-          const baseStylesResult = baseStyles[stylesGroup](provided, state);
+        [stylesGroup]: (defaultStyles, state) => {
+          const provided = baseStyles[stylesGroup] ? baseStyles[stylesGroup](defaultStyles, state) : defaultStyles;
 
-          return stylesFn(baseStylesResult, state);
+          return stylesFn(provided, state);
         }
       };
     }, {});
