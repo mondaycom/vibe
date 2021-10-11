@@ -10,5 +10,4 @@ Checklist of detailed technical and “copy” guidelines that we are expecting 
 
 Prop | Description
 --- | ---
-title | the tip title
 guidelines | An array of strings so that each string is a guideline
