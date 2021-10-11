@@ -720,6 +720,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Sound",
+    file: "Sound.svg",
+    description: "Sound",
+    tags: "Sound, Audio, Speaker",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Sun",
     file: "Sun.svg",
     description: "Sun",
