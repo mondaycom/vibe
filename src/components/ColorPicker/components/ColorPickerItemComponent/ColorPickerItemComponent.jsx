@@ -46,7 +46,7 @@ const ColorPickerItemComponent = ({
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
   return (
     <div
-      className={cx("color-item-wrapper", {
+      className={cx("monday-style-color-item-wrapper", {
         "selected-color": value === colorAsStyle
       })}
     >
