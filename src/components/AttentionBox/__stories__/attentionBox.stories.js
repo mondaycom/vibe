@@ -1,5 +1,5 @@
 import React from "react";
-import { text, select } from "@storybook/addon-knobs";
+import { text, select, boolean } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import AttentionBox from "../AttentionBox";
 import { StoryStateRow, ComponentStateDescription } from "../../storybook-helpers";
@@ -26,6 +26,7 @@ export const Sandbox = () => {
           },
           ATTENTION_BOX_TYPES.PRIMARY
         )}
+        isIconHidden={boolean("isIconHidden", false)}
       />
     </StoryWrapper>
   );
