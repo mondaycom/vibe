@@ -6,6 +6,7 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { baseClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
+// check
 const AttentionBox = ({ componentClassName, type, icon, iconType, title, text }) => {
   const role = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
