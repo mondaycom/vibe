@@ -8,5 +8,5 @@ export const COLOR_SIZES = {
   [SIZES.LARGE]: 40
 };
 
-export const COLOR_PADDING = 4;
-export const DIALOG_WIDTH_PADDING = 16;
+export const COLOR_PADDING = 8;
+export const DIALOG_WIDTH_PADDING = 24;

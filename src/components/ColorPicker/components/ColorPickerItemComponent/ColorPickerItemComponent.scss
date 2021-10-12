@@ -1,7 +1,7 @@
 .color-item-wrapper {
-  margin: 2px;
+  margin: 4px;
   display: flex;
-  border-radius: 2px;
+  border-radius: 4px;
 
   &.selected-color {
     .color-item {
@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     border: 2px solid transparent;
-    border-radius: 2px;
+    border-radius: 4px;
     cursor: pointer;
 
     .color-indicator-wrapper {
