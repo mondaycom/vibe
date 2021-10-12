@@ -40,6 +40,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly 1`] = `
             className="monday-style-tipseen_header"
           >
             <button
+              aria-disabled={false}
               aria-label="Close"
               className="monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
               disabled={false}
@@ -130,6 +131,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly with title 1`] = `
             className="monday-style-tipseen_header"
           >
             <button
+              aria-disabled={false}
               aria-label="Close"
               className="monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
               disabled={false}
@@ -227,6 +229,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly without close button 1`]
             className="monday-style-tipseen_header"
           >
             <button
+              aria-disabled={false}
               aria-label="Close"
               className="monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
               disabled={false}
