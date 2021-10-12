@@ -9,7 +9,7 @@ export function getIconScreenReaderAccessProps({ isClickable, isDecorationOnly, 
       isKeyboardAccessible
     });
   return {
-    role: "img",
+    role: overrideIsDecorationOnly ? undefined : "img",
     "aria-hidden": overrideIsDecorationOnly,
     tabIndex: undefined,
     "aria-label": isDecorationOnly ? undefined : label
