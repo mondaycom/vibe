@@ -3,10 +3,13 @@ import _difference from "lodash/difference";
 import _intersection from "lodash/intersection";
 import PropTypes from "prop-types";
 import React, { useCallback, useMemo } from "react";
+import { SIZES } from "../../../../constants/sizes";
 import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
 import Button from "../../../Button/Button";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
+import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import "./ColorPickerContentComponent.scss";
 
 const ColorPickerContentComponent = ({
@@ -21,7 +24,9 @@ const ColorPickerContentComponent = ({
   NoColorIcon,
   isBlackListMode,
   colorsList,
-  isMultiselect
+  isMultiselect,
+  colorSize,
+  numberOfColorsInLine
 }) => {
   const onClearButton = useCallback(() => {
     onValueChange(null);
@@ -50,8 +55,11 @@ const ColorPickerContentComponent = ({
   const colorsToRender = useMemo(() => {
     return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);
   }, [isBlackListMode, colorsList]);
+
+  const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
+
   return (
-    <div className={cx("color-picker-content--wrapper", className)}>
+    <div className={cx("color-picker-content--wrapper", className)} style={{ width }}>
       <div className={cx("color-picker")}>
         {colorsToRender.map(color => {
           return (
@@ -66,6 +74,7 @@ const ColorPickerContentComponent = ({
               SelectedIndicatorIcon={SelectedIndicatorIcon}
               isSelected={isMultiselect ? value.includes(color) : value === color}
               isMultiselect={isMultiselect}
+              colorSize={colorSize}
             />
           );
         })}
@@ -86,6 +95,7 @@ const ColorPickerContentComponent = ({
 };
 
 ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
+ColorPickerContentComponent.sizes = SIZES;
 
 ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
@@ -101,7 +111,13 @@ ColorPickerContentComponent.propTypes = {
   shouldRenderIndicatorWithoutBackground: PropTypes.bool,
   NoColorIcon: PropTypes.func,
   isBlackListMode: PropTypes.bool,
-  colorsList: PropTypes.array
+  colorsList: PropTypes.array,
+  colorSize: PropTypes.oneOf([
+    ColorPickerContentComponent.sizes.SMALL,
+    ColorPickerContentComponent.sizes.MEDIUM,
+    ColorPickerContentComponent.sizes.LARGE
+  ]),
+  numberOfColorsInLine: PropTypes.number
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -115,7 +131,9 @@ ColorPickerContentComponent.defaultProps = {
   shouldRenderIndicatorWithoutBackground: false,
   NoColorIcon: NoColor,
   isBlackListMode: true,
-  colorsList: []
+  colorsList: [],
+  colorSize: ColorPickerContentComponent.sizes.MEDIUM,
+  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE
 };
 
 export default ColorPickerContentComponent;

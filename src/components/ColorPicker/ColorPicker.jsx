@@ -1,12 +1,15 @@
 import cx from "classnames";
 import PropTypes from "prop-types";
 import React, { forwardRef, useCallback, useRef } from "react";
+import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import { COLOR_STYLES } from "../../general-stories/colors/colors-vars-map";
-import "./ColorPicker.scss";
-import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
 import NoColor from "../Icon/Icons/components/NoColor";
+import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
+import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
+import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
+import "./ColorPicker.scss";
 
 const ColorPicker = forwardRef(
   (
@@ -22,7 +25,9 @@ const ColorPicker = forwardRef(
       NoColorIcon,
       isBlackListMode,
       colorsList,
-      isMultiselect
+      isMultiselect,
+      colorSize,
+      numberOfColorsInLine
     },
     ref
   ) => {
@@ -31,12 +36,15 @@ const ColorPicker = forwardRef(
 
     const onChange = useCallback(onSave, [onSave]);
 
+    const width = calculateColorPickerDialogWidth(colorSize, numberOfColorsInLine);
+
     return (
       <DialogContentContainer
         ref={mergedRef}
         className={cx("color-picker--wrapper", "color-picker-dialog-content", className)}
         ariaLabelledby="Color Picker Dialog"
         ariaDescribedby="Pick color"
+        style={{ width }}
       >
         <ColorPickerContentComponent
           onValueChange={onChange}
@@ -50,6 +58,8 @@ const ColorPicker = forwardRef(
           colorsList={colorsList}
           isBlackListMode={isBlackListMode}
           isMultiselect={isMultiselect}
+          colorSize={colorSize}
+          numberOfColorsInLine={numberOfColorsInLine}
         />
       </DialogContentContainer>
     );
@@ -57,6 +67,7 @@ const ColorPicker = forwardRef(
 );
 
 ColorPicker.COLOR_STYLES = COLOR_STYLES;
+ColorPicker.sizes = SIZES;
 
 ColorPicker.propTypes = {
   className: PropTypes.string,
@@ -70,7 +81,9 @@ ColorPicker.propTypes = {
   NoColorIcon: PropTypes.func,
   isBlackListMode: PropTypes.bool,
   colorsList: PropTypes.array,
-  isMultiselect: PropTypes.bool
+  isMultiselect: PropTypes.bool,
+  colorSize: PropTypes.oneOf([ColorPicker.sizes.SMALL, ColorPicker.sizes.MEDIUM, ColorPicker.sizes.LARGE]),
+  numberOfColorsInLine: PropTypes.number
 };
 
 ColorPicker.defaultProps = {
@@ -85,7 +98,9 @@ ColorPicker.defaultProps = {
   NoColorIcon: NoColor,
   isBlackListMode: true,
   colorsList: [],
-  isMultiselect: false
+  isMultiselect: false,
+  colorSize: ColorPicker.sizes.MEDIUM,
+  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE
 };
 
 export default ColorPicker;
