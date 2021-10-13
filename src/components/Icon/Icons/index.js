@@ -81,6 +81,7 @@ export {default as Filter} from './components/Filter';
 export {default as Folder} from './components/Folder';
 export {default as Fullscreen} from './components/Fullscreen';
 export {default as FullscreenClose} from './components/FullscreenClose';
+export {default as Gallery} from './components/Gallery';
 export {default as Gantt} from './components/Gantt';
 export {default as Gif} from './components/Gif';
 export {default as Globe} from './components/Globe';
