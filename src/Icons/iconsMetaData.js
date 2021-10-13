@@ -730,6 +730,13 @@ export const iconsMetaData = [
     category: [PLATFORM],
   },
   {
+        name: "Gallery",
+        file: "Gallery.svg",
+        description: "Gallery",
+        tags: "Gallery, Files, Image gallery",
+        category: [PLATFORM],
+  },
+  {
     name: "GIF",
     file: "Gif.svg",
     description: "Gif",
