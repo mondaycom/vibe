@@ -20,6 +20,7 @@ const MultiStepIndicator = forwardRef(
       dividerComponentClassName,
       fulfilledStepIcon,
       fulfilledStepIconType,
+      isFulfilledStepDisplayNumber,
       onClick,
       textPlacement
     },
@@ -41,6 +42,7 @@ const MultiStepIndicator = forwardRef(
             fulfilledStepIcon={fulfilledStepIcon}
             fulfilledStepIconType={fulfilledStepIconType}
             onClick={onClick}
+            isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
           />
           {index !== steps.length - 1 && <Divider classname={cx(defaultDividerClassName, dividerComponentClassName)} />}
         </>
@@ -60,6 +62,7 @@ const MultiStepIndicator = forwardRef(
           isFollowedByDivider={index !== steps.length - 1}
           stepDividerClassName={cx(defaultDividerClassName, dividerComponentClassName)}
           isVertical={true}
+          isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
         />
       );
     };
@@ -110,6 +113,8 @@ MultiStepIndicator.propTypes = {
   fulfilledStepIcon: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   /** For overriding the 'fulfilled' step's icon type. Necessary when passing a string in the "fulfilledStepIcon" prop. */
   fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
+  /** For showing the number instead of the fulfilled step icon */
+  isFulfilledStepDisplayNumber: PropTypes.bool,
   /** Callback for clicking each step. The callback is sent one parameter - the step's number. */
   onClick: PropTypes.func,
   /** Determines the step's text placement. Either to the left of the indicator(horizontal) or under it(vertical). */
@@ -127,6 +132,7 @@ MultiStepIndicator.defaultProps = {
   steps: [],
   fulfilledStepIcon: Check,
   fulfilledStepIconType: Icon.type.SVG,
+  isFulfilledStepDisplayNumber: false,
   onClick: NOOP,
   textPlacement: MultiStepIndicator.textPlacements.HORIZONTAL
 };

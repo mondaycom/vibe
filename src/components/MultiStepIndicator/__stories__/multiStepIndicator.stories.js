@@ -67,14 +67,7 @@ export const Sandbox = () => {
           Horizontal: MultiStepIndicator.textPlacements.HORIZONTAL,
           Vertical: MultiStepIndicator.textPlacements.VERTICAL
         })}
-        fulfilledStepIcon={select(
-          "fulfilledStepIcon",
-          {
-            "Default (Check)": Check,
-            "No icon (number)": null
-          },
-          Check
-        )}
+        isFulfilledStepDisplayNumber={select("isFulfilledStepDisplayNumber", { False: false, True: true })}
       />
     </div>
   );
@@ -130,8 +123,8 @@ export const FullfiledIcons = () => {
         <MultiStepIndicator steps={exampleSteps} />
       </StoryStateRow>
       <StoryStateRow>
-        <ComponentStateDescription title="No icon (number)" />
-        <MultiStepIndicator steps={exampleSteps} fulfilledStepIcon={null} />
+        <ComponentStateDescription title="Number instead of icon" />
+        <MultiStepIndicator steps={exampleSteps} isFulfilledStepDisplayNumber={true} />
       </StoryStateRow>
       <StoryStateRow>
         <ComponentStateDescription title="Custom (featured)" />

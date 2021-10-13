@@ -27,6 +27,7 @@ const StepIndicator = ({
   type,
   fulfilledStepIcon,
   fulfilledStepIconType,
+  isFulfilledStepDisplayNumber,
   onClick,
   isFollowedByDivider,
   stepDividerClassName,
@@ -92,7 +93,7 @@ const StepIndicator = ({
   };
 
   const StepCircleDisplay = () => {
-    return status === STEP_STATUSES.FULFILLED && fulfilledStepIcon ? (
+    return status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
       <Icon
         icon={fulfilledStepIcon}
         className={`${baseClassName}__number-container__text__check-icon`}
@@ -112,7 +113,7 @@ const StepIndicator = ({
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
         [baseClassNameWithAnimation]: statusChangeAnimationState,
         clickable: onClick,
-        vertical: isVertical
+        [`${baseClassName}--text-placement-vertical`]: isVertical
       })}
       aria-label={ariaLabel}
       onClick={handleClick}
@@ -165,6 +166,7 @@ StepIndicator.propTypes = {
   ]),
   fulfilledStepIcon: PropTypes.func,
   fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
+  isFulfilledStepDisplayNumber: PropTypes.bool,
   onClick: PropTypes.func,
   isVertical: PropTypes.bool
 };
@@ -178,6 +180,7 @@ StepIndicator.defaultProps = {
   type: MULTI_STEP_TYPES.PRIMARY,
   fulfilledStepIcon: Check,
   fulfilledStepIconType: Icon.type.SVG,
+  isFulfilledStepDisplayNumber: false,
   onClick: NOOP,
   isVertical: false
 };
