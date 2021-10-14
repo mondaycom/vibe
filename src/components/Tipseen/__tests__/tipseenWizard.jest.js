@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { TipseenWizard } from "../TipseenWizard";
+import TipseenWizard from "../TipseenWizard";
 
 const steps = [
   <div>Popover message will appear here loremipsum dolor samet…</div>,

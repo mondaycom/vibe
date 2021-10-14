@@ -7,7 +7,7 @@ import { StoryStateRow } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import TipseenContent from "../TipseenContent";
 import "./tipseen.stories.scss";
-import { TipseenWizard } from "../TipseenWizard";
+import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
 export const BasicTipseen = () => {
   return (
