@@ -7,14 +7,6 @@ import { baseClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
 const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, isIconHidden }) => {
-  const role = useMemo(() => {
-    if (type === ATTENTION_BOX_TYPES.DANGER) {
-      return "alert";
-    }
-
-    return "complementary";
-  }, [type]);
-
   const iconLabel = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
