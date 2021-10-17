@@ -10,7 +10,7 @@ describe("ExpandCollapse", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should render component-name component", function() {
+  it("Should render header component", function() {
     render(<ExpandCollapse headerComponentRenderer={() => <h1>Some Header</h1>} />);
 
     expect(screen.getByText("Some Header")).toBeInTheDocument();
@@ -30,7 +30,7 @@ describe("ExpandCollapse", () => {
     expect(screen.queryByText("Child 2")).toBeNull();
   });
 
-  it("Should render component-name and child components when defaultOpenState = true", function() {
+  it("Should render header and child components when defaultOpenState = true", function() {
     render(
       <ExpandCollapse defaultOpenState={true} headerComponentRenderer={() => <h1>Some Header</h1>}>
         <h1>Child 1</h1>
