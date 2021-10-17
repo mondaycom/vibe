@@ -7,14 +7,6 @@ import { baseClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
 const AttentionBox = ({ componentClassName, type, icon, iconType, title, text }) => {
-  const role = useMemo(() => {
-    if (type === ATTENTION_BOX_TYPES.DANGER) {
-      return "alert";
-    }
-
-    return "complementary";
-  }, [type]);
-
   const iconLabel = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
@@ -29,7 +21,7 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text })
 
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
-    <aside className={cx(baseClassName, classNameWithType, componentClassName)} role={role}>
+    <aside className={cx(baseClassName, classNameWithType, componentClassName)} role="alert">
       <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
         <Icon
           iconType={iconType}
