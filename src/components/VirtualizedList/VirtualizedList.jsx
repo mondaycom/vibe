@@ -75,6 +75,17 @@ const VirtualizedList = forwardRef(
       [getItemId]
     );
 
+    // Memos
+    // Creates object of itemId => { item, index, height, offsetTop}
+    const normalizedItems = useMemo(() => {
+      return getNormalizedItems(items, idGetter, heightGetter);
+    }, [items, idGetter, heightGetter]);
+
+    const maxListOffset = useMemo(() => {
+      return getMaxOffset(listHeight, normalizedItems);
+    }, [listHeight, normalizedItems]);
+
+    // Callbacks
     const onScrollCB = useCallback(
       ({ scrollDirection, scrollOffset, scrollUpdateWasRequested }) => {
         scrollTopRef.current = scrollOffset;
@@ -173,16 +184,6 @@ const VirtualizedList = forwardRef(
       { wait: onItemsRenderedThrottleMs, trailing: true },
       [onItemsRendered, items, normalizedItems, idGetter, listHeight]
     );
-
-    // Memos
-    // Creates object of itemId => { item, index, height, offsetTop}
-    const normalizedItems = useMemo(() => {
-      return getNormalizedItems(items, idGetter, heightGetter);
-    }, [items, idGetter, heightGetter]);
-
-    const maxListOffset = useMemo(() => {
-      return getMaxOffset(listHeight, normalizedItems);
-    }, [listHeight, normalizedItems]);
 
     // Effects
     useEffect(() => {
