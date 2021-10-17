@@ -56,6 +56,7 @@ const VirtualizedListWrapper = ({ defaultItemHeight }) => {
   }, [setScrollToId, setScrollToDisabled, items, nextScrollToId]);
   const onScrollToFinished = useCallback(() => {
     setLastScrolledId(nextScrollToId);
+    setScrollToId(null);
     setNextScrollToId(Math.round(Math.random() * items.length));
     setScrollToDisabled(false);
   }, [nextScrollToId, items, setNextScrollToId, setLastScrolledId]);
