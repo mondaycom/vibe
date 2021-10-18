@@ -7,10 +7,30 @@ import {{properCase componentName}} from "../{{properCase componentName}}";
  We do not want changes to the additional components to fail our component snapshot's test.
  Therefore, we will replace the instances of the other external components in the snapshot test with mock/stub components in these cases.
  */
-jest.mock("external library name", () => {
-  // We return here the instance of the mock / stub component
-});
 
+/** example for external library
+ jest.mock("react-transition-group", () => {
+  const FakeTransition = jest.fn(({ children }) => children);
+  const FakeSwitchTransition = jest.fn(({ children }) => children);
+  const FakeCSSTransition = jest.fn(({ children }) => children);
+
+  // We return here the instance of the mock / stub library object content
+  return {
+    CSSTransition: FakeCSSTransition,
+    Transition: FakeTransition,
+    SwitchTransition: FakeSwitchTransition
+  };
+});
+ **/
+
+/** example for internal component
+jest.mock("../../Button/Button", () => {
+  // We return here the instance of the mock / stub component
+  return ({ onClick }) => (
+    <div data-testid="cancel-button" {...(onClick && { "data-onclick": "onclick-provided" })} />
+  );
+});
+**/
 
 describe("{{properCase componentName}} renders correctly", () => {
     it("with empty props", () => {
