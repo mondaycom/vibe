@@ -258,7 +258,8 @@ VirtualizedList.propTypes = {
   scrollDuration: PropTypes.number,
   onItemsRendered: PropTypes.func,
   onItemsRenderedThrottleMs: PropTypes.number,
-  onSizeUpdate: PropTypes.func
+  onSizeUpdate: PropTypes.func,
+  onVerticalScrollbarVisiblityChange: PropTypes.func
 };
 VirtualizedList.defaultProps = {
   className: "",
@@ -272,7 +273,8 @@ VirtualizedList.defaultProps = {
   scrollDuration: 200,
   onItemsRendered: null,
   onItemsRenderedThrottleMs: 200,
-  onSizeUpdate: NOOP
+  onSizeUpdate: NOOP,
+  onVerticalScrollbarVisiblityChange: null
 };
 
 export default VirtualizedList;
