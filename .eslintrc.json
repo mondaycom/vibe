@@ -57,5 +57,11 @@
     "jsx-a11y/interactive-supports-focus": "warn",
     "jsx-a11y/no-noninteractive-tabindex": "warn",
     "react/jsx-boolean-value": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["scripts/**/*.js"],
+      "rules": { "import/no-extraneous-dependencies": ["error", { "devDependencies": true }] }
+    }
+  ]
 }
