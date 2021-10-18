@@ -12,6 +12,10 @@
     min-height: 40px;
     padding: 0;
     border-radius: $border-radius-medium;
+
+    &--without-custom-width {
+      max-width: 320px;
+    }
   }
 
   &_header {
