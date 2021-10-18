@@ -104,6 +104,7 @@ export {default as Italic} from './components/Italic';
 export {default as Item} from './components/Item';
 export {default as Keyboard} from './components/Keyboard';
 export {default as Labs} from './components/Labs';
+export {default as Layout} from './components/Layout';
 export {default as Lines} from './components/Lines';
 export {default as Link} from './components/Link';
 export {default as Location} from './components/Location';
