@@ -104,6 +104,7 @@ const MenuButton = ({
 
     if (closeDialogOnContentClick) {
       triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
+      triggers.add(Dialog.hideShowTriggers.ENTER);
     }
 
     if (removeTabCloseTrigger) {
