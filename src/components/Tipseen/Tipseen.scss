@@ -9,10 +9,13 @@
 .monday-style-tipseen {
   &-wrapper {
     min-width: 100px;
-    max-width: 320px;
     min-height: 40px;
     padding: 0;
     border-radius: $border-radius-medium;
+
+    &--without-custom-width {
+      max-width: 320px;
+    }
   }
 
   &_header {
