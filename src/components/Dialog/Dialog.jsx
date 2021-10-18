@@ -51,9 +51,19 @@ export default class Dialog extends PureComponent {
     if (!isOpen) {
       return;
     }
-    if (event.key === "Escape") this.hideDialogIfNeeded(event, HIDE_SHOW_EVENTS.ESCAPE_KEY);
-    if (event.key === "Tab") this.handleEvent(HIDE_SHOW_EVENTS.TAB_KEY, event);
-    if (event.key === "Enter") this.handleEvent(HIDE_SHOW_EVENTS.ENTER, event);
+    switch (event.key) {
+      case "Escape":
+        this.hideDialogIfNeeded(event, HIDE_SHOW_EVENTS.ESCAPE_KEY);
+        break;
+      case "Tab":
+        this.handleEvent(HIDE_SHOW_EVENTS.TAB_KEY, event);
+        break;
+      case "Enter":
+        this.handleEvent(HIDE_SHOW_EVENTS.ENTER, event);
+        break;
+      default:
+        break;
+    }
   }
 
   componentDidMount() {
