@@ -4,7 +4,13 @@ import NOOP from "lodash/noop";
 import cx from "classnames";
 import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
-import { getNormalizedItems, easeInOutQuint, getMaxOffset, getOnItemsRenderedData } from "./virtualized-list-service";
+import {
+  getNormalizedItems,
+  easeInOutQuint,
+  getMaxOffset,
+  getOnItemsRenderedData,
+  isVerticalScrollbarVisible
+} from "./virtualized-list-service";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -26,7 +32,8 @@ const VirtualizedList = forwardRef(
       onScrollToFinished,
       onItemsRendered,
       onItemsRenderedThrottleMs,
-      onSizeUpdate
+      onSizeUpdate,
+      onVerticalScrollbarVisiblityChange
     },
     ref
   ) => {
@@ -39,6 +46,7 @@ const VirtualizedList = forwardRef(
 
     // Refs
     const componentRef = useRef(null);
+    const isVerticalScrollbarVisibleRef = useRef(null);
     const listRef = useRef(null);
     const scrollTopRef = useRef(0);
     const animationDataRef = useRef({});
@@ -200,6 +208,17 @@ const VirtualizedList = forwardRef(
         listRef.current.resetAfterIndex(0);
       }
     }, [normalizedItems]);
+
+    useEffect(() => {
+      // update vertical scrollbar visibility
+      if (onVerticalScrollbarVisiblityChange) {
+        const isVisible = isVerticalScrollbarVisible(items, normalizedItems, idGetter, listHeight);
+        if (isVerticalScrollbarVisibleRef.current !== isVisible) {
+          isVerticalScrollbarVisibleRef.current = isVisible;
+          onVerticalScrollbarVisiblityChange(isVisible);
+        }
+      }
+    }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, listHeight, idGetter]);
 
     return (
       <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id}>

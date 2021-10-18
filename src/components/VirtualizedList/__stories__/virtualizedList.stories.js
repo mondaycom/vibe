@@ -14,9 +14,9 @@ import {
 import DarkThemeContainer from "../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 
-const generateItems = (defaultItemHeight = 30) => {
+const generateItems = (defaultItemHeight = 30, itemsCount) => {
   const items = [];
-  for (let i = 0; i < 10000; i++) {
+  for (let i = 0; i < itemsCount; i++) {
     const height = (i > 0 && i % 15) === 0 ? 60 : defaultItemHeight;
     items.push({ value: `Item ${i}`, height, id: i });
   }
@@ -42,13 +42,14 @@ const itemRenderer = (item, index, style) => {
   );
 };
 
-const VirtualizedListWrapper = ({ defaultItemHeight }) => {
+const VirtualizedListWrapper = ({ defaultItemHeight, itemsCount = 10000 }) => {
   const [scrollToId, setScrollToId] = useState(null);
+  const [verticalScrollbarVisible, setVerticalScrollbarVisible] = useState(null);
   const [scrollToDisabled, setScrollToDisabled] = useState(false);
   const [lastScrolledId, setLastScrolledId] = useState(null);
-  const [nextScrollToId, setNextScrollToId] = useState(9999);
+  const [nextScrollToId, setNextScrollToId] = useState(itemsCount - 1);
   const [visibleItems, setVisibleItems] = useState(null);
-  const items = useMemo(() => generateItems(defaultItemHeight), [defaultItemHeight]);
+  const items = useMemo(() => generateItems(defaultItemHeight, itemsCount), [defaultItemHeight, itemsCount]);
   const onClickToScroll = useCallback(() => {
     setScrollToId(nextScrollToId);
     setLastScrolledId("");
@@ -67,11 +68,18 @@ const VirtualizedListWrapper = ({ defaultItemHeight }) => {
     [setVisibleItems]
   );
 
+  const onVerticalScrollbarVisiblityChange = useCallback(
+    isVisible => {
+      setVerticalScrollbarVisible(isVisible);
+    },
+    [setVerticalScrollbarVisible]
+  );
+
   return (
     <div
       style={{
         width: 430,
-        height: number("containerHeight", 300),
+        height: number("Container Height", 300),
         border: "1px solid black",
         overflow: "hidden",
         display: "flex",
@@ -84,9 +92,10 @@ const VirtualizedListWrapper = ({ defaultItemHeight }) => {
           itemRenderer={itemRenderer}
           scrollToId={scrollToId}
           id="Knobs"
-          scrollDuration={number("scrollDuration", 200)}
+          scrollDuration={number("Scroll Duration", 200)}
           onScrollToFinished={onScrollToFinished}
           onItemsRendered={onItemsRendered}
+          onVerticalScrollbarVisiblityChange={onVerticalScrollbarVisiblityChange}
         />
       </div>
 
@@ -105,6 +114,7 @@ const VirtualizedListWrapper = ({ defaultItemHeight }) => {
             <div>{`First item: ${visibleItems.firstItemId}`}</div>
             <div>{`Center item: ${visibleItems.centerItemId}`}</div>
             <div>{`Last   item: ${visibleItems.lastItemId}`}</div>
+            <div>{`Vertical scrollbar: ${verticalScrollbarVisible ? "Visible" : "Hidden"}`}</div>
           </div>
         )}
       </div>
@@ -112,7 +122,9 @@ const VirtualizedListWrapper = ({ defaultItemHeight }) => {
   );
 };
 
-export const Sandbox = () => <VirtualizedListWrapper defaultItemHeight={number("itemHeight", 30)} />;
+export const Sandbox = () => (
+  <VirtualizedListWrapper defaultItemHeight={number("Item Height", 30)} itemsCount={number("Items Count", 10000)} />
+);
 
 export default {
   title: "Components|VirtualizedList",
