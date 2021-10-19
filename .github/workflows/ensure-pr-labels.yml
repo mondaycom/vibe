@@ -12,8 +12,9 @@ jobs:
     steps:
       - name: Check PR labels action step
         id: check_pr_labels
-        run: echo '::set-output name=result::"${{ github.event.label.name }}" = "PR: Internal 🏠"'
-          # "PR: Bugfix 🐛", "PR: New Feature 🕹", "PR: Dependencies 🛠", "PR: Documentation 📖",
+        run: echo '::set-output name=result::"${{ github.event.label.name == "PR:\ Internal 🏠"}}"'
+        # run: echo '::set-output name=result::"${{ github.event.label.name }}" = "PR: Internal 🏠"'
+        # "PR: Bugfix 🐛", "PR: New Feature 🕹", "PR: Dependencies 🛠", "PR: Documentation 📖",
       - name: Find Comment
         uses: peter-evans/find-comment@v1
         id: fc
