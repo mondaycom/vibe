@@ -26,14 +26,14 @@ jobs:
           comment-author: "github-actions[bot]"
           body-includes: Your PR should include one of the following labels111
       - name: Delete comment
-        if: ${{ steps.check_pr_labels.outputs.result == 'true' }}
+        if: ${{ steps.check_pr_labels.outcome == 'success' }}
         uses: jungwinter/comment@v1
         with:
           type: delete
           comment_id: ${{ steps.fc.outputs.comment-id }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Create or update comment
-        if: ${{ steps.check_pr_labels.outputs.result == 'false' }}
+        if: ${{ steps.check_pr_labels.outcome == 'failure' }}
         uses: peter-evans/create-or-update-comment@v1
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
