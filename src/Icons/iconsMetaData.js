@@ -529,6 +529,13 @@ export const iconsMetaData = [
     category: [PLATFORM],
   },
   {
+    name: "DisabledUser",
+    file: "DisabledUser.svg",
+    description: "Disabled User",
+    tags: "Disabled User, Remove User",
+    category: [PLATFORM],
+  },
+  {
     name: "Divider",
     file: "Divider.svg",
     description: "Divider",
