@@ -33,7 +33,7 @@ const Avatar = ({
 }) => {
   const backgroundColorStyle = useMemo(() => {
     return src ? undefined : { backgroundColor: getElementColor(backgroundColor) };
-  }, [backgroundColor]);
+  }, [src, backgroundColor]);
 
   const badgesContainer = useMemo(() => {
     const badges = [];
@@ -79,7 +79,7 @@ const Avatar = ({
     }
 
     return badges.length > 0 ? <div className={cx(bemHelper({ element: "badges" }))}>{badges}</div> : null;
-  }, [topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
+  }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
   return (
     <div className={cx(AVATAR_CSS_BASE_CLASS, className)}>

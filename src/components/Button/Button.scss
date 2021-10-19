@@ -17,7 +17,13 @@
   align-items: center;
   justify-content: center;
 
-  // will be updated dynamically after render by js
+  // Prevent text selection
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  // Will be updated dynamically after render by js
   --element-width: 32;
   --element-height: 32;
 

@@ -1,0 +1,829 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  aria-describedby="Pick color"
+  aria-labelledby="Color Picker Dialog"
+  className="dialog-content-container color-picker--wrapper color-picker-dialog-content dialog-content-container--popover dialog-content-container--medium"
+  role="dialog"
+  style={
+    Object {
+      "width": 224,
+    }
+  }
+>
+  <div
+    className="color-picker-content--wrapper"
+    style={
+      Object {
+        "width": 200,
+      }
+    }
+  >
+    <div
+      className="color-picker"
+    >
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="grass_green"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-grass_green)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="done-green"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-done-green)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="bright-green"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-bright-green)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="saladish"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-saladish)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="egg_yolk"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-egg_yolk)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="working_orange"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-working_orange)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="dark-orange"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-dark-orange)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="peach"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-peach)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="sunset"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-sunset)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="stuck-red"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-stuck-red)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="dark-red"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-dark-red)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="sofia_pink"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-sofia_pink)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="lipstick"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-lipstick)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="bubble"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-bubble)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="purple"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-purple)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="dark_purple"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-dark_purple)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="berry"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-berry)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="dark_indigo"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-dark_indigo)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="indigo"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-indigo)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="navy"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-navy)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="bright-blue"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-bright-blue)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="dark-blue"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-dark-blue)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="aquamarine"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-aquamarine)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="chili-blue"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-chili-blue)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="river"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-river)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="winter"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-winter)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="explosive"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-explosive)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="american_gray"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-american_gray)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="blackish"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-blackish)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="brown"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-brown)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="orchid"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-orchid)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="tan"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-tan)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="sky"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-sky)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="coffee"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-coffee)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="royal"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-royal)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="teal"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-teal)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="lavender"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-lavender)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="steel"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-steel)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="lilac"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-lilac)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+      <div
+        className="monday-style-color-item-wrapper"
+      >
+        <div
+          aria-label="pecan"
+          className="color-item color-item-size-medium"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "background": "var(--color-pecan)",
+            }
+          }
+        >
+          <div
+            className="color-indicator-wrapper"
+            style={Object {}}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

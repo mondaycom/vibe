@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "0.3.88",
+  "version": "0.3.156",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
@@ -55,12 +55,14 @@
     "autosize": "4.0.2",
     "classnames": "^2.2.6",
     "lodash": "^4.17.21",
-    "monday-ui-style": "0.1.30",
+    "monday-ui-style": "0.1.46",
     "prop-types": "^15.7.2",
     "react-inlinesvg": "^2.1.1",
     "react-popper": "^2.2.3",
     "react-select": "^3.1.0",
     "react-transition-group": "^4.4.1",
+    "react-virtualized-auto-sizer": "^1.0.6",
+    "react-window": "^1.8.6",
     "react-windowed-select": "^2.0.4",
     "storybook-addon-react-docgen": "^1.2.42"
   },

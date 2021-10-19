@@ -273,7 +273,25 @@ export const async = () => {
   );
 };
 
+export const extraStyles = () => (
+  <section>
+    <StoryStateRow>
+      <StoryStateColumn title="Extending styles with a custom width" centerize>
+        <Dropdown
+          className="dropdown-story"
+          options={mockColorOptions}
+          extraStyles={baseStyles => ({
+            ...baseStyles,
+            menu: base => ({ ...base, width: 310 }),
+            menuList: base => ({ ...base, zIndex: 9999999 })
+          })}
+        />
+      </StoryStateColumn>
+    </StoryStateRow>
+  </section>
+);
+
 export default {
-  title: "Components/Dropdown",
+  title: "Components|Dropdown",
   component: Dropdown
 };

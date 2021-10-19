@@ -27,7 +27,7 @@ export const DefaultStory = () => (
 );
 
 export default {
-    title: "Components/Tabs/TabsContext",
+    title: "Components|Tabs/TabsContext",
     component: TabsContext,
     decorators: [withPerformance]
 

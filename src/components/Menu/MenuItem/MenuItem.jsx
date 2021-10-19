@@ -56,7 +56,7 @@ const MenuItem = ({
   if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
     menuChild = submenuChild;
   } else if (submenuChild) {
-    console.Error(
+    console.error(
       "menu item can accept only menu element as first level child, this element is not valid: ",
       submenuChild
     );

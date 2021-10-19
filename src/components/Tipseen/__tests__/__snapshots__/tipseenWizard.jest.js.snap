@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tipseen wizard tests Snapshot Tests renders correctly 1`] = `
+<div
+  className="monday-style-tipseen-basic-content monday-style-tipseen-wizard mock-class-name"
+>
+  <span
+    aria-level="3"
+    className="monday-style-tipseen-title"
+    role="heading"
+  >
+    title
+  </span>
+  <div
+    className="monday-style-steps monday-style-tipseen-wizard_wizard monday-style-steps--on-primary monday-style-steps--content-on-top"
+    id=""
+  >
+    <div>
+      Popover message will appear here loremipsum dolor samet…
+    </div>
+    <div
+      className="monday-style-steps-header monday-style-steps-header--gallery"
+    >
+      <button
+        aria-disabled={true}
+        className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        type="button"
+      >
+        Back
+      </button>
+      <div
+        className="monday-style-steps-header_gallery"
+        role="group"
+      >
+        <button
+          aria-current="step"
+          aria-label="Step number 0"
+          className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+          onClick={[Function]}
+        />
+        <button
+          aria-current={false}
+          aria-label="Step number 1"
+          className="monday-style-steps-header_dot"
+          onClick={[Function]}
+        />
+        <button
+          aria-current={false}
+          aria-label="Step number 2"
+          className="monday-style-steps-header_dot"
+          onClick={[Function]}
+        />
+      </div>
+      <button
+        aria-disabled={false}
+        className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        type="button"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tipseen wizard tests Snapshot Tests renders correctly with empty props 1`] = `
+<div
+  className="monday-style-tipseen-basic-content monday-style-tipseen-wizard"
+>
+  <div
+    className="monday-style-steps monday-style-tipseen-wizard_wizard monday-style-steps--on-primary monday-style-steps--content-on-top"
+    id=""
+  >
+    <div
+      className="monday-style-steps-header monday-style-steps-header--gallery"
+    >
+      <button
+        aria-disabled={true}
+        className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        type="button"
+      >
+        Back
+      </button>
+      <div
+        className="monday-style-steps-header_gallery"
+        role="group"
+      />
+      <button
+        aria-disabled={false}
+        className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        type="button"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tipseen wizard tests Snapshot Tests renders correctly without title 1`] = `
+<div
+  className="monday-style-tipseen-basic-content monday-style-tipseen-wizard"
+>
+  <div
+    className="monday-style-steps monday-style-tipseen-wizard_wizard monday-style-steps--on-primary monday-style-steps--content-on-top"
+    id=""
+  >
+    <div>
+      Popover message will appear here loremipsum dolor samet…
+    </div>
+    <div
+      className="monday-style-steps-header monday-style-steps-header--gallery"
+    >
+      <button
+        aria-disabled={true}
+        className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        type="button"
+      >
+        Back
+      </button>
+      <div
+        className="monday-style-steps-header_gallery"
+        role="group"
+      >
+        <button
+          aria-current="step"
+          aria-label="Step number 0"
+          className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
+          onClick={[Function]}
+        />
+        <button
+          aria-current={false}
+          aria-label="Step number 1"
+          className="monday-style-steps-header_dot"
+          onClick={[Function]}
+        />
+        <button
+          aria-current={false}
+          aria-label="Step number 2"
+          className="monday-style-steps-header_dot"
+          onClick={[Function]}
+        />
+      </div>
+      <button
+        aria-disabled={false}
+        className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+        onMouseUp={[Function]}
+        type="button"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+`;

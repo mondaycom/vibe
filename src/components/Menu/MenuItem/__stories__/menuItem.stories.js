@@ -253,6 +253,6 @@ export const overflowMenuItem = () => {
 };
 
 export default {
-  title: "Components/Menu/MenuItem",
+  title: "Components|Menu/MenuItem",
   component: MenuItem
 };

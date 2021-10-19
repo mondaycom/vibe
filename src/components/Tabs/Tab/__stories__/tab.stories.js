@@ -70,7 +70,7 @@ export const Icons = () => (
 );
 
 export default {
-    title: "Components/Tabs/Tab",
+    title: "Components|Tabs/Tab",
     component: Tab,
     decorators: [withPerformance]
 

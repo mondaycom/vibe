@@ -69,6 +69,6 @@ export const AlertBannerWithButtons = () => {
 };
 
 export default {
-  title: "Components|AlertBanner/AlertBanner",
+  title: "Components|AlertBanner",
   component: AlertBanner
 };

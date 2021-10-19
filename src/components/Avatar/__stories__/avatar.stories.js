@@ -247,7 +247,7 @@ export const Sandbox = () => {
   );
 };
 export default {
-  title: "Components/Avatar",
+  title: "Components|Avatar",
   component: Avatar,
   decorators: [withPerformance]
 };

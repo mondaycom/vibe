@@ -4,6 +4,9 @@ import classnames from "classnames";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
 import "./Tooltip.scss";
+import { DialogPositions } from "../../constants/sizes";
+import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
+import { TOOLTIP_JUSTIFY_TYPES, TOOLTIP_THEMES } from "./TooltipConstants";
 
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -30,7 +33,7 @@ export default class Tooltip extends React.PureComponent {
   }
 
   renderTooltipContent() {
-    const { theme, content, paddingSize, className } = this.props;
+    const { theme, content, paddingSize, className, style } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -49,6 +52,7 @@ export default class Tooltip extends React.PureComponent {
     }
     return (
       <div
+        style={style}
         className={classnames(
           `monday-style-tooltip monday-style-tooltip-${theme} padding-size-${paddingSize}`,
           className
@@ -125,12 +129,17 @@ export default class Tooltip extends React.PureComponent {
   }
 }
 
+Tooltip.positions = DialogPositions;
+Tooltip.animationTypes = DIALOG_ANIMATION_TYPES;
+Tooltip.themes = TOOLTIP_THEMES;
+Tooltip.justifyTypes = TOOLTIP_JUSTIFY_TYPES;
 Tooltip.defaultProps = {
+  style: undefined,
   arrowPosition: "center", // begin, center, end
   moveBy: { main: 4, secondary: 0 },
-  theme: "dark",
-  position: "top",
-  justify: "center",
+  theme: Tooltip.themes.Dark,
+  position: Tooltip.positions.TOP,
+  justify: Tooltip.justifyTypes.CENTER,
   hideDelay: 0,
   showDelay: 300,
   disableDialogSlide: true,

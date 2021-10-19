@@ -145,7 +145,7 @@ const ComboboxWithCategoriesWrapper = () => {
 };
 
 export default {
-  title: "Components/Combobox",
+  title: "Components|Combobox",
   component: Combobox,
   decorators: [withPerformance]
 };

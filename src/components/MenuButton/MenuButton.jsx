@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React, { useCallback, useState, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -39,8 +40,10 @@ const MenuButton = ({
   text,
   disabledReason,
   tooltipTriggers,
+  tooltipPosition,
   startingEdge,
-  removeTabCloseTrigger
+  removeTabCloseTrigger,
+  tooltipReferenceClassName
 }) => {
   const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
@@ -151,7 +154,13 @@ const MenuButton = ({
   const Icon = component;
   const iconSize = size - 4;
   return (
-    <Tooltip content={disabledReason} position="right" showTrigger={TOOLTIP_SHOW_TRIGGER} hideTrigger={tooltipTriggers}>
+    <Tooltip
+      content={disabledReason}
+      position={tooltipPosition}
+      showTrigger={TOOLTIP_SHOW_TRIGGER}
+      hideTrigger={tooltipTriggers}
+      referenceWrapperClassName={tooltipReferenceClassName}
+    >
       <Dialog
         wrapperClassName={dialogClassName}
         position={dialogPosition}
@@ -307,7 +316,15 @@ MenuButton.propTypes = {
       CLICK, CLICK_OUTSIDE, ESCAPE_KEY, TAB_KEY, MOUSE_ENTER, MOUSE_LEAVE,
       ENTER, MOUSE_DOWN, FOCUS, BLUR, CONTENT_CLICK
    */
-  tooltipTriggers: PropTypes.array
+  tooltipTriggers: PropTypes.array,
+  /**
+   * the disabled/tooltip position of the menu button - one of the MenuButton.dialogPositions
+   */
+  tooltipPosition: PropTypes.oneOf(Object.values(MenuButton.dialogPositions)),
+  /**
+   * Tooltip Element Wrapper ClassName
+   */
+  tooltipReferenceClassName: PropTypes.string
 };
 MenuButton.defaultProps = {
   id: undefined,
@@ -330,7 +347,9 @@ MenuButton.defaultProps = {
   text: undefined,
   disabledReason: undefined,
   removeTabCloseTrigger: false,
-  tooltipTriggers: [MenuButton.hideTriggers.MOUSE_LEAVE]
+  tooltipTriggers: [MenuButton.hideTriggers.MOUSE_LEAVE],
+  tooltipPosition: MenuButton.dialogPositions.RIGHT,
+  tooltipReferenceClassName: undefined
 };
 
 export default MenuButton;

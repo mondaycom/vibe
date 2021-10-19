@@ -16,8 +16,9 @@ For example: `feat: add new TextArea component`
 9. Enjoy your change after merge!
 
 
-##Information about the project
-## Plop
+## Information about the project
+
+### Plop
 Every new component in this repository should be created using [plops](https://plopjs.com/) with `npm run plop` command.
 Plop will automatically generate all required files for your new component. Plop template will always be up to date and by using it, you can be sure that your component will be created with the latest recommended structure.
 
