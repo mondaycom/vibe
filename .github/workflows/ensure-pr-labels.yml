@@ -21,17 +21,17 @@ jobs:
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          comment-author: 'github-actions[bot]'
+          comment-author: "github-actions[bot]"
           body-includes: Build output
       - name: Delete comment
-        if: '${{ steps.check_pr_labels.outputs.result }}' == 'true'
+        if: ${{ steps.check_pr_labels.outputs.result == 'true' }}
         uses: jungwinter/comment@v1
         with:
           type: delete
           comment_id: ${{ steps.fc.outputs.comment-id }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Create or update comment
-        if: '${{ steps.check_pr_labels.outputs.result }}' == 'false'
+        if: ${{ steps.check_pr_labels.outputs.result == 'false' }}
         uses: peter-evans/create-or-update-comment@v1
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
@@ -45,6 +45,5 @@ jobs:
               - PR: Internal 🏠
           edit-mode: replace
       - name: Fail
-        if: '${{ steps.check_pr_labels.outputs.result }}' == 'false'
+        if: ${{ steps.check_pr_labels.outputs.result == 'false' }}
         run: exit 1
-
