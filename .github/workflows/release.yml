@@ -21,7 +21,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run release
-      - run: if [ $(npm view monday-ui-react-core version) = $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish; else echo ""; fi # Compare the latest version and the current version and publish only if the version changed
+      - run: npm run build && npm publish
+        if: $(npm view monday-ui-react-core version) = $(node -e "console.log(require('./package.json').version)") # Compare the latest version and the current version and publish only if the version changed
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - uses: "marvinpinto/action-automatic-releases@latest"
