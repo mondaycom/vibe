@@ -118,7 +118,8 @@ function validateGithubAuthToken() {
     console.log();
     console.log(
       boxt(chalk.dim("$ GITHUB_AUTH=... npm run release"), {
-        color: "white"
+        color: "white",
+        minWidth: "full"
       })
     );
     process.exit(0);
