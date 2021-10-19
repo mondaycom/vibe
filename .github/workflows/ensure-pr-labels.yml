@@ -16,7 +16,7 @@ jobs:
         with:
           one_of: "PR: Internal 🏠,PR: Bugfix 🐛" # , "PR: New Feature 🕹", "PR: Dependencies 🛠", "PR: Documentation 📖"
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo "${{ steps.check_pr_labels.outputs }}"
+      - run: echo "${{ join(steps.check_pr_labels.outputs.*, '\n') }}"
       # - name: Check PR labels action step
       #   id: check_pr_labels
       #   run: if [ "${{ github.event.label.name }}" = "PR:Internal" ]; then npm run build && npm publish; else echo ""; fi
