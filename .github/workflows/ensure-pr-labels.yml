@@ -2,17 +2,16 @@
 
 name: PR labeling for release
 
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, synchronize]
 
 jobs:
   ensure-label:
     runs-on: ubuntu-latest
     steps:
       - name: Check PR labels action step
-        id: check_pr_labels
-        uses: shioyang/check-pr-labels-on-push-action@v1.0.3
+        uses: NathanielHill/check-pr-label-action@v4.0.0
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          labels: '["PR: Bugfix 🐛", "PR: New Feature 🕹", "PR: Dependencies 🛠", "PR: Documentation 📖", "PR: Internal 🏠"]'
-      - name: See result
-        run: echo "${{ steps.check_pr_labels.outputs.result }}"
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+          valid-labels: '"PR: Bugfix 🐛", "PR: New Feature 🕹", "PR: Dependencies 🛠", "PR: Documentation 📖", "PR: Internal 🏠"'
