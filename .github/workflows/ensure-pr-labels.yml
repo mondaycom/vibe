@@ -14,10 +14,8 @@ jobs:
         id: check_pr_labels
         uses: docker://agilepathway/pull-request-label-checker:latest
         with:
-          one_of: "nah"
-          # one_of: "PR: Internal 🏠,PR: Bugfix 🐛,PR: New Feature 🕹,PR: Dependencies 🛠,PR: Documentation 📖"
+          one_of: "PR: Internal 🏠,PR: Bugfix 🐛,PR: New Feature 🕹,PR: Dependencies 🛠,PR: Documentation 📖"
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-      - run: echo "${{ steps.check_pr_labels.outcome }}"
       - name: Find Comment
         if: always()
         uses: peter-evans/find-comment@v1
@@ -25,7 +23,7 @@ jobs:
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: "github-actions[bot]"
-          body-includes: Your PR should include one of the following labels111
+          body-includes: Your PR should include one (and only one) of the following labels
       - name: Delete comment
         uses: jungwinter/comment@v1
         with:
@@ -39,7 +37,7 @@ jobs:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Your PR should include one of the following labels:
+            Your PR should include one (and only one) of the following labels:
               - PR: Bugfix 🐛
               - PR: New Feature 🕹
               - PR: Dependencies 🛠
