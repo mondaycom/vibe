@@ -181,7 +181,8 @@
       "PR: Bugfix 🐛": "Bug Fixes",
       "PR: New Feature 🕹": "New Features",
       "PR: Dependencies 🛠": "Dependency Upgrades",
-      "PR: Documentation 📖": "Documentation"
+      "PR: Documentation 📖": "Documentation",
+      "PR: Internal 🏠": "Internal Changes"
     }
   }
 }

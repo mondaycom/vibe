@@ -6,12 +6,13 @@ on: [pull_request]
 
 jobs:
   ensure-label:
-    if: github.event.label != 'test'
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Check PR labels action step
+        id: check_pr_labels
+        uses: shioyang/check-pr-labels-on-push-action@v1.0.3
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          automatic_release_tag: latest
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: '["PR: Bugfix 🐛", "PR: New Feature 🕹", "PR: Dependencies 🛠", "PR: Documentation 📖", "PR: Internal 🏠"]'
+      - name: See result
+        run: echo "${{ steps.check_pr_labels.outputs.result }}"
