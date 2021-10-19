@@ -1,14 +1,6 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+name: Release new version
 
-name: Node.js Package
-
-on:
-  release:
-    types: [created]
-  push:
-    branches:
-      - master
+on: workflow_dispatch
 
 jobs:
   publish-npm:
@@ -19,9 +11,25 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm run release
-      - run: npm run build && npm publish
+      - name: Install dependencies
+        run: npm ci
+      - name: Prepare changes
+        run: npm run release
+        env:
+          GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up git credentials
+        run: |
+          git config --global user.name 'ci'
+          git config --global user.email 'deploy@monday.com'
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Release version $(node -e "console.log(require('./package.json').version)"
+          git push
+      - name: Publish the new version to npm
+        run: |
+          npm run build
+          npm publish
         if: $(npm view monday-ui-react-core version) = $(node -e "console.log(require('./package.json').version)") # Compare the latest version and the current version and publish only if the version changed
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

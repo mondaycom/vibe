@@ -35,7 +35,6 @@ function release() {
   bumpVersion(newVersionStrategy);
   const newChangelogSection = formatChanges(rawChangesText);
   updateChangelog(newChangelogSection);
-  commitAndPush();
 }
 
 function updateChangelog(newChangelogSection) {
@@ -73,14 +72,6 @@ function buildChangelogSinceLastVersion() {
   }
 }
 
-function commitAndPush() {
-  const version = getCurrentVersion();
-
-  execa.sync("git", ["add", "."]);
-  execa.sync("git", ["commit", "-m", `Release version ${version}`]);
-  execa.sync("git", ["push"]);
-}
-
 function getNewVersionStrategy(changelogText) {
   if (changelogText.includes(CHANGELOG_HEADERS.NEW_FEATURES)) {
     return VERSION_STRATEGIES.MINOR;
@@ -105,7 +96,7 @@ function bumpVersion(strategy) {
 
 function logNothingToDo() {
   console.log("It seems like there's no need to release a new version, exiting");
-  process.exit(0);
+  process.exit(1);
 }
 
 function validateGithubAuthToken() {
