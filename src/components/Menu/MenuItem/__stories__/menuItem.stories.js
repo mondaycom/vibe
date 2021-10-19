@@ -209,6 +209,27 @@ export const subSubMenu = () => {
   );
 };
 
+export function MenuItemColoredIcon() {
+  return (
+    <Menu tabIndex={0} id="menu-item-color" size={Menu.sizes.SMALL}>
+      <MenuTitle caption="My title" />
+      <MenuDivider />
+      <MenuItem
+        title="My Item (stuck red)"
+        icon={Activity}
+        iconType={Icon.type.SVG}
+        iconBackgroundColor="var(--color-stuck-red)"
+      />
+      <MenuItem
+          title="My Item (done green)"
+          icon={Activity}
+          iconType={Icon.type.SVG}
+          iconBackgroundColor="var(--color-done-green)"
+      />
+    </Menu>
+  );
+}
+
 export const overflowMenuItem = () => {
   const iconType = select("icon type", { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG }, Icon.type.SVG);
   const icon = iconType === Icon.type.SVG ? selectIcon("SVG icon", "Activity") : text("font icon", "fa fa-star");

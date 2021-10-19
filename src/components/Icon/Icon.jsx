@@ -22,7 +22,8 @@ const Icon = forwardRef(
       iconSize,
       ignoreFocusStyle,
       tabindex: externalTabIndex,
-      ariaHidden
+      ariaHidden,
+      style
     },
     ref
   ) => {
@@ -52,6 +53,7 @@ const Icon = forwardRef(
           size={iconSize.toString()}
           onClick={onClick}
           className={computedClassName}
+          style={style}
         />
       );
     }
@@ -62,6 +64,7 @@ const Icon = forwardRef(
           {...screenReaderAccessProps}
           className={cx(computedClassName)}
           onClick={onClickCallback}
+          style={style}
         />
       );
     }
@@ -72,6 +75,7 @@ const Icon = forwardRef(
         onClick={onClickCallback}
         ref={mergedRef}
         icon={icon}
+        style={style}
       />
     );
   }

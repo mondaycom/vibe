@@ -104,12 +104,14 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when hid
         aria-label="Step number 0"
         className="monday-style-steps-header_dot"
         onClick={[Function]}
+        type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
         className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
         onClick={[Function]}
+        type="button"
       />
     </div>
     <button
@@ -151,12 +153,14 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when nav
         aria-label="Step number 0"
         className="monday-style-steps-header_dot"
         onClick={[Function]}
+        type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
         className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
         onClick={[Function]}
+        type="button"
       />
     </div>
   </div>
@@ -219,12 +223,14 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when ste
         aria-label="Step number 0"
         className="monday-style-steps-header_dot"
         onClick={[Function]}
+        type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
         className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
         onClick={[Function]}
+        type="button"
       />
     </div>
     <button
@@ -306,12 +312,14 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
         aria-label="Step number 0"
         className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
         onClick={[Function]}
+        type="button"
       />
       <button
         aria-current={false}
         aria-label="Step number 1"
         className="monday-style-steps-header_dot"
         onClick={[Function]}
+        type="button"
       />
     </div>
     <button
@@ -398,12 +406,14 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view when vie
         aria-label="Step number 0"
         className="monday-style-steps-header_dot"
         onClick={[Function]}
+        type="button"
       />
       <button
         aria-current="step"
         aria-label="Step number 1"
         className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
         onClick={[Function]}
+        type="button"
       />
     </div>
     <button
@@ -490,12 +500,14 @@ exports[`Steps tests Snapshot Tests renders correctly with gallery view with reg
         aria-label="Step number 0"
         className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
         onClick={[Function]}
+        type="button"
       />
       <button
         aria-current={false}
         aria-label="Step number 1"
         className="monday-style-steps-header_dot"
         onClick={[Function]}
+        type="button"
       />
     </div>
     <button

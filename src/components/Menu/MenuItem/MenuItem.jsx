@@ -28,6 +28,7 @@ const MenuItem = ({
   icon,
   menuRef,
   iconType,
+  iconBackgroundColor,
   disabled,
   disableReason,
   selected,
@@ -141,6 +142,15 @@ const MenuItem = ({
     );
   };
 
+  const [iconWrapperStyle, iconStyle] = useMemo(() => {
+    return iconBackgroundColor
+      ? [
+          { backgroundColor: iconBackgroundColor, borderRadius: "4px", width: 20, height: 20 },
+          { color: "var(--text-color-on-primary)" }
+        ]
+      : [undefined, undefined];
+  }, [iconBackgroundColor]);
+
   const renderMenuItemIconIfNeeded = () => {
     if (!icon) return null;
 
@@ -150,7 +160,7 @@ const MenuItem = ({
     }
 
     return (
-      <div className="monday-style-menu-item__icon-wrapper">
+      <div className="monday-style-menu-item__icon-wrapper" style={iconWrapperStyle}>
         <Icon
           iconType={finalIconType}
           clickable={false}
@@ -158,6 +168,7 @@ const MenuItem = ({
           iconLabel={title}
           className="monday-style-menu-item__icon"
           ignoreFocusStyle
+          style={iconStyle}
         />
       </div>
     );
@@ -237,6 +248,7 @@ MenuItem.defaultProps = {
   label: "",
   icon: "",
   iconType: undefined,
+  iconBackgroundColor: undefined,
   disabled: false,
   disableReason: undefined,
   selected: false,
@@ -259,6 +271,7 @@ MenuItem.propTypes = {
   label: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
+  iconBackgroundColor: PropTypes.string,
   disabled: PropTypes.bool,
   disableReason: PropTypes.string,
   selected: PropTypes.bool,
