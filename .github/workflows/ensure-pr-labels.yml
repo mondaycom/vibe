@@ -6,7 +6,7 @@ on: [pull_request]
 
 jobs:
   ensure-label:
-    if: github.event.label != "test"
+    if: github.event.label != 'test'
     runs-on: ubuntu-latest
     steps:
       - run: exit 1
