@@ -20,13 +20,9 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm version patch --no-git-tag-version
-      - run: git config --global user.name 'ci' && git config --global user.email 'deploy@monday.com'
-      - run: git add package.json package-lock.json
-      - run: git commit -m "version bump"
-      - run: git push
-      - run: npm run build
-      - run: npm publish
+      - run: npm run release
+      - run: npm run build && npm publish
+        if: $(npm view monday-ui-react-core version) = $(node -e "console.log(require('./package.json').version)") # Compare the latest version and the current version and publish only if the version changed
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
       - uses: "marvinpinto/action-automatic-releases@latest"
