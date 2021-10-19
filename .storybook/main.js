@@ -16,7 +16,7 @@ const getProjectConfigRules = () => {
 const getDocsConfigRules = () => {
   return [
     {
-      test: /\.(stories|story)\.(mdx|jsx)$/,
+      test: /\.(stories|story)\.(mdx)$/,
       use: [
         {
           loader: "babel-loader",
@@ -54,7 +54,7 @@ const buildConfig = config => {
 };
 
 module.exports = {
-  stories: ["../src/**/*.stories.jsx"],
+  stories: ["../src/**/*.stories.mdx"],
   webpackFinal: async config => {
     return buildConfig(config);
   },
