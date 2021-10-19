@@ -14,43 +14,38 @@ jobs:
         id: check_pr_labels
         uses: docker://agilepathway/pull-request-label-checker:latest
         with:
-          one_of: "PR: Internal 🏠,PR: Bugfix 🐛" # , "PR: New Feature 🕹", "PR: Dependencies 🛠", "PR: Documentation 📖"
+          one_of: "nah"
+          # one_of: "PR: Internal 🏠,PR: Bugfix 🐛,PR: New Feature 🕹,PR: Dependencies 🛠,PR: Documentation 📖"
           repo_token: ${{ secrets.GITHUB_TOKEN }}
       - run: echo "${{ steps.check_pr_labels.outcome }}"
-      # - name: Check PR labels action step
-      #   id: check_pr_labels
-      #   run: if [ "${{ github.event.label.name }}" = "PR:Internal" ]; then npm run build && npm publish; else echo ""; fi
-      # echo ::set-output name=result::"${{ github.event.label.name }} = "PR:\ Internal 🏠""
-      # run: echo '::set-output name=result::"${{ github.event.label.name }}" = "PR: Internal 🏠"'
-      # "PR: Bugfix 🐛", "PR: New Feature 🕹", "PR: Dependencies 🛠", "PR: Documentation 📖",
-      # - name: Find Comment
-      #   uses: peter-evans/find-comment@v1
-      #   id: fc
-      #   with:
-      #     issue-number: ${{ github.event.pull_request.number }}
-      #     comment-author: "github-actions[bot]"
-      #     body-includes: Your PR should include one of the following labels
-      # - name: Delete comment
-      #   if: ${{ steps.check_pr_labels.outputs.result == 'true' }}
-      #   uses: jungwinter/comment@v1
-      #   with:
-      #     type: delete
-      #     comment_id: ${{ steps.fc.outputs.comment-id }}
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Create or update comment
-      #   if: ${{ steps.check_pr_labels.outputs.result == 'false' }}
-      #   uses: peter-evans/create-or-update-comment@v1
-      #   with:
-      #     comment-id: ${{ steps.fc.outputs.comment-id }}
-      #     issue-number: ${{ github.event.pull_request.number }}
-      #     body: |
-      #       Your PR should include one of the following labels:
-      #         - PR: Bugfix 🐛
-      #         - PR: New Feature 🕹
-      #         - PR: Dependencies 🛠
-      #         - PR: Documentation 📖
-      #         - PR: Internal 🏠
-      #     edit-mode: replace
+      - name: Find Comment
+        uses: peter-evans/find-comment@v1
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
+          body-includes: Your PR should include one of the following labels111
+      - name: Delete comment
+        if: ${{ steps.check_pr_labels.outputs.result == 'true' }}
+        uses: jungwinter/comment@v1
+        with:
+          type: delete
+          comment_id: ${{ steps.fc.outputs.comment-id }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create or update comment
+        if: ${{ steps.check_pr_labels.outputs.result == 'false' }}
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Your PR should include one of the following labels:
+              - PR: Bugfix 🐛
+              - PR: New Feature 🕹
+              - PR: Dependencies 🛠
+              - PR: Documentation 📖
+              - PR: Internal 🏠
+          edit-mode: replace
       # - name: Fail
       #   if: ${{ steps.check_pr_labels.outputs.result == 'false' }}
       #   run: echo '${{ steps.check_pr_labels.outputs.result }}' && exit 1
