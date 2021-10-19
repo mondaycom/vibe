@@ -24,7 +24,7 @@ jobs:
           comment-author: "github-actions[bot]"
           body-includes: "Your PR should include one (and only one) of the following labels"
       - name: Delete comment
-        if: ${{ steps.fc.outputs.comment-id }}
+        if: ${{ steps.fc.outputs.comment-id }} # Otherwise it fails the workflow
         uses: jungwinter/comment@v1
         with:
           type: delete
