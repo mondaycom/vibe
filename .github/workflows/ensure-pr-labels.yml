@@ -47,3 +47,4 @@ jobs:
       - name: Fail
         if: '${{ steps.check_pr_labels.outputs.result }}' == 'false'
         run: exit 1
+
