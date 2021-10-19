@@ -1,0 +1,17 @@
+# This workflow will ensure all PRs are labeled so we can later create releases
+
+name: PR labeling for release
+
+on: [pull_request]
+
+jobs:
+  ensure-label:
+    if: github.event.label != "test"
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 1
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          automatic_release_tag: latest
