@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: docker://agilepathway/pull-request-label-checker:latest
         with:
-          one_of: "PR: Internal 🏠"
+          one_of: "PR: Internal 🏠", "PR: Bugfix 🐛", "PR: New Feature 🕹", "PR: Dependencies 🛠", "PR: Documentation 📖"
           repo_token: ${{ secrets.GITHUB_TOKEN }}
       # - name: Check PR labels action step
       #   id: check_pr_labels
