@@ -22,7 +22,7 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, i
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
     <aside className={cx(baseClassName, classNameWithType, componentClassName)} role="alert">
-      {title !== "" && (
+      {title && (
         <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
           {isIconHidden ? null : (
             <Icon
