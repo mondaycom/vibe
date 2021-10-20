@@ -12,6 +12,57 @@ export const iconsMetaData = [
   },
 
   {
+      name: "Layout",
+      file: "Layout.svg",
+      description: "Layout",
+      tags: "Layout, Grid"
+  },
+
+  {
+      name: "DocTemplate",
+      file: "DocTemplate.svg",
+      description: "Template Doc",
+      tags: "Template, Doc"
+  },
+
+  {
+      name: "ConvertToItem",
+      file: "ConvertToItem.svg",
+      description: "ConvertToItem",
+      tags: "convert,item"
+  },
+
+  {
+      name: "TextCopy",
+      file: "TextCopy.svg",
+      description: "Copy Text",
+      tags: "copy,text,t"
+  },
+  {
+      name: "Open",
+      file: "Open.svg",
+      description: "Open",
+      tags: "open"
+  },
+  {
+      name: "Expand",
+      file: "Expand.svg",
+      description: "Expand",
+      tags: "expand"
+  },
+  {
+      name: "ConvertToSubitem",
+      file: "ConvertToSubitem.svg",
+      description: "Convert To Subitem",
+      tags: "convert, subitem"
+  },
+  {
+      name: "Clear",
+      file: "Clear.svg",
+      description: "Clear",
+      tags: "clear"
+  },
+  {
       name: "TextColorIndicator",
       file: "TextColorIndicator.svg",
       description: "",
@@ -485,6 +536,13 @@ export const iconsMetaData = [
     category: [PLATFORM],
   },
   {
+    name: "DisabledUser",
+    file: "DisabledUser.svg",
+    description: "Disabled User",
+    tags: "Disabled User, Remove User",
+    category: [PLATFORM],
+  },
+  {
     name: "Divider",
     file: "Divider.svg",
     description: "Divider",
@@ -693,6 +751,13 @@ export const iconsMetaData = [
     category: [PLATFORM],
   },
   {
+        name: "Gallery",
+        file: "Gallery.svg",
+        description: "Gallery",
+        tags: "Gallery, Files, Image gallery",
+        category: [PLATFORM],
+  },
+  {
     name: "GIF",
     file: "Gif.svg",
     description: "Gif",
@@ -843,6 +908,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Lines",
+    file: "Lines.svg",
+    description: "Lines",
+    tags: "Lines, Rows",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Link",
     file: "Link.svg",
     description: "Link",
@@ -961,6 +1034,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Mute",
+    file: "Mute.svg",
+    description: "Mute",
+    tags: "Mute",
+    category: [PLATFORM]
+  },
+
+  {
     name: "MyWeek",
     file: "MyWeek.svg",
     description: "My week",
@@ -1053,6 +1134,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Pause",
+    file: "Pause.svg",
+    description: "Pause",
+    tags: "Pause, Hold",
+    category: [PLATFORM],
+  },
+
+  {
     name: "Person",
     file: "Person.svg",
     description: "Person",
@@ -1065,6 +1154,14 @@ export const iconsMetaData = [
     file: "Pin.svg",
     description: "Pin",
     tags: "Pin",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Play",
+    file: "Play.svg",
+    description: "Play",
+    tags: "Play, Start",
     category: [PLATFORM],
   },
 
@@ -1204,6 +1301,14 @@ export const iconsMetaData = [
   },
 
   {
+    name: "Sound",
+    file: "Sound.svg",
+    description: "Sound",
+    tags: "Sound, Audio, Speaker",
+    category: [PLATFORM],
+  },
+
+  {
     name: "StrikethroughS",
     file: "StrikethroughS.svg",
     description: "Strike Through",
@@ -1218,6 +1323,7 @@ export const iconsMetaData = [
     tags: "Strike Through, Text, Design",
     category: [PLATFORM],
   },
+
   {
     name: "Sun",
     file: "Sun.svg",
@@ -1395,7 +1501,7 @@ export const iconsMetaData = [
     name: "Workspace",
     file: "Workspace.svg",
     description: "Workspace",
-    tags: "Workspace",
+    tags: "Workspace, Grid",
     category: [PLATFORM],
   },
 ];
