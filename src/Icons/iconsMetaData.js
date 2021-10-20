@@ -10,24 +10,28 @@ export const iconsMetaData = [
       description: "minimize",
       tags: "minimize,close,collapse"
   },
+
   {
       name: "Layout",
       file: "Layout.svg",
       description: "Layout",
       tags: "Layout, Grid"
   },
+
   {
       name: "DocTemplate",
       file: "DocTemplate.svg",
       description: "Template Doc",
       tags: "Template, Doc"
   },
+
   {
       name: "ConvertToItem",
       file: "ConvertToItem.svg",
       description: "ConvertToItem",
       tags: "convert,item"
   },
+
   {
       name: "TextCopy",
       file: "TextCopy.svg",
@@ -259,7 +263,6 @@ export const iconsMetaData = [
     tags: "Add, Plus",
     category: [BASIC],
   },
-
   {
     name: "AddSmall",
     file: "AddSmall.svg",
@@ -267,7 +270,6 @@ export const iconsMetaData = [
     tags: "Add, Plus",
     category: [BASIC],
   },
-
   {
     name: "AddUpdate",
     file: "AddUpdate.svg",
@@ -275,7 +277,6 @@ export const iconsMetaData = [
     tags: "Add, Plus, Update",
     category: [PLATFORM],
   },
-
   {
     name: "Alert",
     file: "Alert.svg",
@@ -283,7 +284,6 @@ export const iconsMetaData = [
     tags: "Alert, Warning, Danger",
     category: [BASIC],
   },
-
   {
     name: "Announcement",
     file: "Announcement.svg",
@@ -305,7 +305,6 @@ export const iconsMetaData = [
     tags: "Archive, Box",
     category: [PLATFORM],
   },
-
   {
     name: "Attach",
     file: "Attach.svg",
@@ -313,7 +312,6 @@ export const iconsMetaData = [
     tags: "Attach, Clip, Add Files",
     category: [PLATFORM],
   },
-
   {
     name: "BlockQuote",
     file: "BlockQuote.svg",
@@ -321,7 +319,6 @@ export const iconsMetaData = [
     tags: "Blockquote, Block, Quote, Text, Design",
     category: [PLATFORM],
   },
-
   {
     name: "Board",
     file: "Board.svg",
