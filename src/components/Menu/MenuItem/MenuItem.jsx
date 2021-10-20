@@ -46,7 +46,9 @@ const MenuItem = ({
   useDocumentEventListeners,
   tooltipPosition,
   tooltipShowDelay,
-  isInitialSelectedState
+  isInitialSelectedState,
+  onMouseEnter,
+  onMouseLeave
 }) => {
   const isActive = activeItemIndex === index;
   const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -204,6 +206,8 @@ const MenuItem = ({
         onClick={onClickCallback}
         role="menuitem"
         aria-current={isActive}
+        onMouseLeave={onMouseLeave}
+        onMouseEnter={onMouseEnter}
       >
         {renderMenuItemIconIfNeeded()}
 
@@ -262,7 +266,9 @@ MenuItem.defaultProps = {
   resetOpenSubMenuIndex: undefined,
   useDocumentEventListeners: false,
   tooltipPosition: MenuItem.tooltipPositions.RIGHT,
-  tooltipShowDelay: 300
+  tooltipShowDelay: 300,
+  onMouseLeave: undefined,
+  onMouseEnter: undefined
 };
 
 MenuItem.propTypes = {
@@ -290,7 +296,9 @@ MenuItem.propTypes = {
     MenuItem.tooltipPositions.TOP,
     MenuItem.tooltipPositions.BOTTOM
   ]),
-  tooltipShowDelay: PropTypes.number
+  tooltipShowDelay: PropTypes.number,
+  onMouseLeave: PropTypes.func,
+  onMouseEnter: PropTypes.func
 };
 
 MenuItem.isSelectable = true;
