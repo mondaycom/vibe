@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "0.3.159",
+  "version": "0.3.161",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
@@ -54,7 +54,7 @@
     "autosize": "4.0.2",
     "classnames": "^2.2.6",
     "lodash": "^4.17.21",
-    "monday-ui-style": "0.1.47",
+    "monday-ui-style": "0.1.48",
     "prop-types": "^15.7.2",
     "react-inlinesvg": "^2.1.1",
     "react-popper": "^2.2.3",
