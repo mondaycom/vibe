@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Minimize",
+      file: "Minimize.svg",
+      description: "minimize",
+      tags: "minimize,close,collapse"
+  },
+
+  {
       name: "Layout",
       file: "Layout.svg",
       description: "Layout",
@@ -256,7 +263,6 @@ export const iconsMetaData = [
     tags: "Add, Plus",
     category: [BASIC],
   },
-
   {
     name: "AddSmall",
     file: "AddSmall.svg",
@@ -264,7 +270,6 @@ export const iconsMetaData = [
     tags: "Add, Plus",
     category: [BASIC],
   },
-
   {
     name: "AddUpdate",
     file: "AddUpdate.svg",
@@ -272,7 +277,6 @@ export const iconsMetaData = [
     tags: "Add, Plus, Update",
     category: [PLATFORM],
   },
-
   {
     name: "Alert",
     file: "Alert.svg",
@@ -280,7 +284,6 @@ export const iconsMetaData = [
     tags: "Alert, Warning, Danger",
     category: [BASIC],
   },
-
   {
     name: "Announcement",
     file: "Announcement.svg",
@@ -302,7 +305,6 @@ export const iconsMetaData = [
     tags: "Archive, Box",
     category: [PLATFORM],
   },
-
   {
     name: "Attach",
     file: "Attach.svg",
@@ -310,7 +312,6 @@ export const iconsMetaData = [
     tags: "Attach, Clip, Add Files",
     category: [PLATFORM],
   },
-
   {
     name: "BlockQuote",
     file: "BlockQuote.svg",
@@ -318,7 +319,6 @@ export const iconsMetaData = [
     tags: "Blockquote, Block, Quote, Text, Design",
     category: [PLATFORM],
   },
-
   {
     name: "Board",
     file: "Board.svg",
@@ -1033,7 +1033,7 @@ export const iconsMetaData = [
     tags: "Mute",
     category: [PLATFORM]
   },
-    
+
   {
     name: "MyWeek",
     file: "MyWeek.svg",
@@ -1125,7 +1125,7 @@ export const iconsMetaData = [
     tags: "Paste, Design",
     category: [PLATFORM],
   },
-    
+
   {
     name: "Pause",
     file: "Pause.svg",
@@ -1300,7 +1300,7 @@ export const iconsMetaData = [
     tags: "Sound, Audio, Speaker",
     category: [PLATFORM],
   },
-  
+
   {
     name: "StrikethroughS",
     file: "StrikethroughS.svg",
@@ -1316,7 +1316,7 @@ export const iconsMetaData = [
     tags: "Strike Through, Text, Design",
     category: [PLATFORM],
   },
-  
+
   {
     name: "Sun",
     file: "Sun.svg",
