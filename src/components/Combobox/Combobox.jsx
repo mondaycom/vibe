@@ -13,6 +13,9 @@ import ComboboxCategory from "./components/ComboboxCategory/ComboboxCategory";
 import { getOptionsByCategories } from "./ComboboxService";
 import "./Combobox.scss";
 
+const defaultFilter = (filterValue, options) =>
+  options.filter(({ label }) => !filterValue || label.toLowerCase().includes(filterValue.toLowerCase()));
+
 const Combobox = forwardRef(
   (
     {
@@ -29,7 +32,8 @@ const Combobox = forwardRef(
       noResultsMessage,
       onAddNew,
       addNewLabel,
-      onClick
+      onClick,
+      filter
     },
     ref
   ) => {
@@ -69,9 +73,7 @@ const Combobox = forwardRef(
       [setActiveItemIndex]
     );
 
-    const filterdOptions = useMemo(() => {
-      return options.filter(({ label }) => !filterValue || label.toLowerCase().includes(filterValue.toLowerCase()));
-    }, [options, categories, filterValue]);
+    const filterdOptions = useMemo(() => filter(filterValue, options), [options, categories, filterValue]);
 
     const renderedItems = useMemo(() => {
       if (categories) {
@@ -210,7 +212,8 @@ Combobox.propTypes = {
   optionsListHeight: PropTypes.number,
   autoFocus: PropTypes.bool,
   onAddNew: PropTypes.func,
-  addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+  addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  filter: PropTypes.func
 };
 Combobox.defaultProps = {
   className: "",
@@ -225,7 +228,8 @@ Combobox.defaultProps = {
   optionsListHeight: undefined,
   autoFocus: false,
   onAddNew: undefined,
-  addNewLabel: "Add new"
+  addNewLabel: "Add new",
+  filter: defaultFilter
 };
 
 export default Combobox;
