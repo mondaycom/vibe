@@ -10,28 +10,24 @@ export const iconsMetaData = [
       description: "minimize",
       tags: "minimize,close,collapse"
   },
-
   {
       name: "Layout",
       file: "Layout.svg",
       description: "Layout",
       tags: "Layout, Grid"
   },
-
   {
       name: "DocTemplate",
       file: "DocTemplate.svg",
       description: "Template Doc",
       tags: "Template, Doc"
   },
-
   {
       name: "ConvertToItem",
       file: "ConvertToItem.svg",
       description: "ConvertToItem",
       tags: "convert,item"
   },
-
   {
       name: "TextCopy",
       file: "TextCopy.svg",
