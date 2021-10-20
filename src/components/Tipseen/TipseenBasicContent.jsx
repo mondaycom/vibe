@@ -15,7 +15,8 @@ const TipseenBasicContent = ({ title, children, className }) => {
 };
 
 TipseenBasicContent.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  children: PropTypes.any
 };
 
 TipseenBasicContent.defaultProps = {

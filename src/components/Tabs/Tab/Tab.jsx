@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */
 import React, { useRef, forwardRef } from "react";
 import NOOP from "lodash/noop";
 import PropTypes from "prop-types";

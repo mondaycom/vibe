@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { baseClassName } from "./RadioButtonConstants";
+import Clickable from "../Clickable/Clickable";
 import "./RadioButton.scss";
 
 const RadioButton = forwardRef(
@@ -43,9 +44,9 @@ const RadioButton = forwardRef(
         </span>
         {text && <span className={`${baseClassName}__radio-label`}>{text}</span>}
         {children && (
-          <div className="radio-children-wrapper" onClick={onChildClick}>
+          <Clickable className="radio-children-wrapper" onClick={onChildClick}>
             {children}
-          </div>
+          </Clickable>
         )}
       </label>
     );

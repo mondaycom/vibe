@@ -36,7 +36,8 @@ const Tipseen = forwardRef(
       containerSelector,
       hideTrigger,
       isCloseButtonOnImage,
-      showTrigger
+      showTrigger,
+      width
     },
     ref
   ) => {
@@ -64,13 +65,16 @@ const Tipseen = forwardRef(
           <div className={bemHelper({ element: "content" })}>{content}</div>
         </div>
       ),
-      [content, isCloseButtonHidden, onClose, overrideCloseAriaLabel, title]
+      [content, isCloseButtonHidden, isCloseButtonOnImage, onClose, overrideCloseAriaLabel, title]
     );
 
     return (
       <div ref={mergedRef} id={id}>
         <Tooltip
-          className={cx(`${TIPSEEN_BASE_CSS_CLASS}-wrapper`, className)}
+          className={cx(`${TIPSEEN_BASE_CSS_CLASS}-wrapper`, className, {
+            [`${TIPSEEN_BASE_CSS_CLASS}-wrapper--without-custom-width`]: !width
+          })}
+          style={width ? { width } : undefined}
           shouldShowOnMount
           position={position}
           animationType={animationType}
@@ -119,7 +123,8 @@ Tipseen.propTypes = {
   hideTrigger: PropTypes.array,
   // eslint-disable-next-line react/no-unused-prop-types
   showTrigger: PropTypes.array,
-  justify: PropTypes.oneOf([Tipseen.justifyTypes.START, Tipseen.justifyTypes.CENTER, Tipseen.justifyTypes.END])
+  justify: PropTypes.oneOf([Tipseen.justifyTypes.START, Tipseen.justifyTypes.CENTER, Tipseen.justifyTypes.END]),
+  width: PropTypes.number
 };
 Tipseen.defaultProps = {
   className: "",
@@ -134,7 +139,8 @@ Tipseen.defaultProps = {
   containerSelector: undefined,
   hideTrigger: [],
   showTrigger: [],
-  justify: Tipseen.justifyTypes.CENTER
+  justify: Tipseen.justifyTypes.CENTER,
+  width: undefined
 };
 
 export default Tipseen;
