@@ -23,7 +23,8 @@ const Icon = forwardRef(
       ignoreFocusStyle,
       tabindex: externalTabIndex,
       ariaHidden,
-      style
+      style,
+      useCurrentColor
     },
     ref
   ) => {
@@ -65,6 +66,7 @@ const Icon = forwardRef(
           className={cx(computedClassName)}
           onClick={onClickCallback}
           style={style}
+          replaceToCurrentColor={useCurrentColor}
         />
       );
     }
@@ -98,7 +100,8 @@ Icon.propTypes = {
   iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** remove focus style */
   ignoreFocusStyle: PropTypes.bool,
-  ariaHidden: PropTypes.bool
+  ariaHidden: PropTypes.bool,
+  useCurrentColor: PropTypes.bool
 };
 
 Icon.defaultProps = {
@@ -110,7 +113,8 @@ Icon.defaultProps = {
   iconType: ICON_TYPES.SVG,
   iconSize: 16,
   ignoreFocusStyle: false,
-  ariaHidden: undefined
+  ariaHidden: undefined,
+  useCurrentColor: false
 };
 
 export default Icon;
