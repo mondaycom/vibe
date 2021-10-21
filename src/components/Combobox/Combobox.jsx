@@ -33,7 +33,10 @@ const Combobox = forwardRef(
       onAddNew,
       addNewLabel,
       onClick,
-      filter
+      filter,
+      disableFilter,
+      onFilterChanged,
+      loading
     },
     ref
   ) => {
@@ -73,7 +76,12 @@ const Combobox = forwardRef(
       [setActiveItemIndex]
     );
 
-    const filterdOptions = useMemo(() => filter(filterValue, options), [options, categories, filterValue]);
+    const filterdOptions = useMemo(() => {
+      if (disableFilter) {
+        return options;
+      }
+      return filter(filterValue, options);
+    }, [options, categories, filterValue, filter, disableFilter]);
 
     const renderedItems = useMemo(() => {
       if (categories) {
@@ -120,6 +128,9 @@ const Combobox = forwardRef(
 
     const onChangeCallback = useCallback(
       value => {
+        if (onFilterChanged) {
+          onFilterChanged(value);
+        }
         setFilterValue(value);
       },
       [setFilterValue]
@@ -186,15 +197,20 @@ const Combobox = forwardRef(
           disabled={disabled}
           onChange={onChangeCallback}
           autoFocus={autoFocus}
+          loading={loading}
         />
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           {renderedItems}
         </div>
-        {hasFilter && !hasResults && renderNoResults()}
+        {!loading && hasFilter && !hasResults && renderNoResults()}
       </div>
     );
   }
 );
+
+// Locate loading next to search icon
+// color it with --secondary-text-color
+// size it like the icon - we think it's 16px - make sure it's not fat
 
 Combobox.sizes = SIZES;
 Combobox.iconTypes = ComboboxOption.iconTypes;
@@ -213,7 +229,10 @@ Combobox.propTypes = {
   autoFocus: PropTypes.bool,
   onAddNew: PropTypes.func,
   addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  filter: PropTypes.func
+  filter: PropTypes.func,
+  disableFilter: PropTypes.bool,
+  onFilterChanged: PropTypes.func,
+  loading: PropTypes.bool
 };
 Combobox.defaultProps = {
   className: "",
@@ -229,7 +248,10 @@ Combobox.defaultProps = {
   autoFocus: false,
   onAddNew: undefined,
   addNewLabel: "Add new",
-  filter: defaultFilter
+  filter: defaultFilter,
+  disableFilter: false,
+  onFilterChanged: undefined,
+  loading: false
 };
 
 export default Combobox;
