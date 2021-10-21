@@ -251,6 +251,7 @@ Combobox.defaultProps = {
   filter: defaultFilter,
   disableFilter: false,
   onFilterChanged: undefined,
+  /** shows loading animation */
   loading: false
 };
 

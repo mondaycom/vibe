@@ -155,6 +155,7 @@ Search.defaultProps = {
   searchResultsContainerId: "",
   activeDescendant: "",
   iconNames: ICON_NAMES,
+  /** shows loading animation */
   loading: false
 };
 

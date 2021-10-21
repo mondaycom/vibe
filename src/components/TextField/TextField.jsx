@@ -266,6 +266,7 @@ TextField.propTypes = {
   role: PropTypes.string,
   /** adds required to the input element */
   required: PropTypes.bool,
+  /** shows loading animation */
   loading: PropTypes.bool
 };
 
