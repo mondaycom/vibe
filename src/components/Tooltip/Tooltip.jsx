@@ -33,7 +33,7 @@ export default class Tooltip extends React.PureComponent {
   }
 
   renderTooltipContent() {
-    const { theme, content, paddingSize, className } = this.props;
+    const { theme, content, paddingSize, className, style } = this.props;
     if (!content) {
       // don't render empty tooltip
       return null;
@@ -52,6 +52,7 @@ export default class Tooltip extends React.PureComponent {
     }
     return (
       <div
+        style={style}
         className={classnames(
           `monday-style-tooltip monday-style-tooltip-${theme} padding-size-${paddingSize}`,
           className
@@ -133,6 +134,7 @@ Tooltip.animationTypes = DIALOG_ANIMATION_TYPES;
 Tooltip.themes = TOOLTIP_THEMES;
 Tooltip.justifyTypes = TOOLTIP_JUSTIFY_TYPES;
 Tooltip.defaultProps = {
+  style: undefined,
   arrowPosition: "center", // begin, center, end
   moveBy: { main: 4, secondary: 0 },
   theme: Tooltip.themes.Dark,

@@ -49,6 +49,19 @@ function findItemAtOffset(items, normalizedItems, idGetter, fromIndex, offset) {
   return null;
 }
 
+export const isVerticalScrollbarVisible = (items, normalizedItems, idGetter, listHeight) => {
+  const lastExistingItem = items[items.length - 1] || EMPTY_OBJECT;
+  const lastExistingItemId = idGetter(lastExistingItem);
+  const normalizedItem = normalizedItems[lastExistingItemId];
+  if (!normalizedItem) return false;
+  const { offsetTop: lastExistingItemIdOffsetTop, height: lastExistingItemHeight } = normalizedItems[
+    lastExistingItemId
+  ];
+  const maxOffset = lastExistingItemIdOffsetTop + lastExistingItemHeight;
+  const isVisible = maxOffset > listHeight;
+  return isVisible;
+};
+
 export const getOnItemsRenderedData = (
   items,
   normalizedItems,
@@ -65,9 +78,16 @@ export const getOnItemsRenderedData = (
   const secondItemId = idGetter(secondVisibleItem);
   const lastItemId = idGetter(lastVisibleItem);
   const centerOffset = currentOffsetTop + listHeight / 2;
-  const { offsetTop: firstItemIdOffsetTop, height: firstItemHeight } = normalizedItems[firstItemId] || EMPTY_OBJECT;
-  const firstItemOffsetEnd = firstItemIdOffsetTop + firstItemHeight;
+  const { offsetTop: firstItemOffsetTop, height: firstItemHeight } = normalizedItems[firstItemId] || EMPTY_OBJECT;
+  const firstItemOffsetEnd = firstItemOffsetTop + firstItemHeight;
   const centerItemId = findItemAtOffset(items, normalizedItems, idGetter, visibleStartIndex, centerOffset);
 
-  return { firstItemId, secondItemId, lastItemId, centerItemId, firstItemOffsetEnd, currentOffsetTop };
+  return {
+    firstItemId,
+    secondItemId,
+    lastItemId,
+    centerItemId,
+    firstItemOffsetEnd,
+    currentOffsetTop
+  };
 };

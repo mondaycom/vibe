@@ -25,7 +25,7 @@ export const Sandbox = () => (
       <MenuButton
         id="Knobs"
         size={select("Size", MenuButton.sizes, MenuButton.sizes.MEDIUM)}
-        closeDialogOnContentClick={boolean("Close Dialog On Content Click", false)}
+        closeDialogOnContentClick={boolean("Close Dialog On Content Click or Enter", false)}
         disabled={boolean("Menu Button Disabled", false)}
         dialogPaddingSize={select("Dialog Padding Size", MenuButton.paddingSizes, MenuButton.paddingSizes.MEDIUM)}
         dialogPosition={select(

@@ -43,18 +43,21 @@ exports[`Tipseen wizard tests Snapshot Tests renders correctly 1`] = `
           aria-label="Step number 0"
           className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
           onClick={[Function]}
+          type="button"
         />
         <button
           aria-current={false}
           aria-label="Step number 1"
           className="monday-style-steps-header_dot"
           onClick={[Function]}
+          type="button"
         />
         <button
           aria-current={false}
           aria-label="Step number 2"
           className="monday-style-steps-header_dot"
           onClick={[Function]}
+          type="button"
         />
       </div>
       <button
@@ -157,18 +160,21 @@ exports[`Tipseen wizard tests Snapshot Tests renders correctly without title 1`]
           aria-label="Step number 0"
           className="monday-style-steps-header_dot monday-style-steps-header_dot--is-active"
           onClick={[Function]}
+          type="button"
         />
         <button
           aria-current={false}
           aria-label="Step number 1"
           className="monday-style-steps-header_dot"
           onClick={[Function]}
+          type="button"
         />
         <button
           aria-current={false}
           aria-label="Step number 2"
           className="monday-style-steps-header_dot"
           onClick={[Function]}
+          type="button"
         />
       </div>
       <button

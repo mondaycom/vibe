@@ -12,10 +12,13 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
   const [activeTab, setActiveTab] = useState(activeTabId);
   const [focusTab, setFocusTab] = useState(-1);
 
-  function onTabSelect(tabId) {
-    setActiveTab(tabId);
-    onTabChange && onTabChange(tabId);
-  }
+  const onTabSelect = useCallback(
+    tabId => {
+      setActiveTab(tabId);
+      onTabChange && onTabChange(tabId);
+    },
+    [onTabChange]
+  );
 
   const onTabClick = useCallback(
     (tabId, tabCallbackFunc) => {
@@ -94,7 +97,8 @@ TabList.defaultProps = {
   id: "",
   onTabChange: () => {},
   activeTabId: 0,
-  tabType: "Compact"
+  tabType: "Compact",
+  size: undefined
 };
 
 TabList.isTabList = true;
