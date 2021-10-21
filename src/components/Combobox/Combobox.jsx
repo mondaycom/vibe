@@ -10,7 +10,7 @@ import Button from "../Button/Button";
 import useListKeyboardNavigation from "../../hooks/useListKeyboardNavigation";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "./components/ComboboxCategory/ComboboxCategory";
-import { getOptionsByCategories } from "./ComboboxService";
+import { getOptionsByCategories, defaultFilter } from "./ComboboxService";
 import "./Combobox.scss";
 
 const Combobox = forwardRef(
@@ -29,7 +29,11 @@ const Combobox = forwardRef(
       noResultsMessage,
       onAddNew,
       addNewLabel,
-      onClick
+      onClick,
+      filter,
+      disableFilter,
+      onFilterChanged,
+      loading
     },
     ref
   ) => {
@@ -70,8 +74,11 @@ const Combobox = forwardRef(
     );
 
     const filterdOptions = useMemo(() => {
-      return options.filter(({ label }) => !filterValue || label.toLowerCase().includes(filterValue.toLowerCase()));
-    }, [options, categories, filterValue]);
+      if (disableFilter) {
+        return options;
+      }
+      return filter(filterValue, options);
+    }, [options, categories, filterValue, filter, disableFilter]);
 
     const renderedItems = useMemo(() => {
       if (categories) {
@@ -118,9 +125,12 @@ const Combobox = forwardRef(
 
     const onChangeCallback = useCallback(
       value => {
+        if (onFilterChanged) {
+          onFilterChanged(value);
+        }
         setFilterValue(value);
       },
-      [setFilterValue]
+      [setFilterValue, onFilterChanged]
     );
 
     const isChildSelectable = useCallback(option => {
@@ -184,6 +194,7 @@ const Combobox = forwardRef(
           disabled={disabled}
           onChange={onChangeCallback}
           autoFocus={autoFocus}
+          loading={loading}
         />
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           {renderedItems}
@@ -193,6 +204,10 @@ const Combobox = forwardRef(
     );
   }
 );
+
+// Locate loading next to search icon
+// color it with --secondary-text-color
+// size it like the icon - we think it's 16px - make sure it's not fat
 
 Combobox.sizes = SIZES;
 Combobox.iconTypes = ComboboxOption.iconTypes;
@@ -210,7 +225,11 @@ Combobox.propTypes = {
   optionsListHeight: PropTypes.number,
   autoFocus: PropTypes.bool,
   onAddNew: PropTypes.func,
-  addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+  addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  filter: PropTypes.func,
+  disableFilter: PropTypes.bool,
+  onFilterChanged: PropTypes.func,
+  loading: PropTypes.bool
 };
 Combobox.defaultProps = {
   className: "",
@@ -225,7 +244,12 @@ Combobox.defaultProps = {
   optionsListHeight: undefined,
   autoFocus: false,
   onAddNew: undefined,
-  addNewLabel: "Add new"
+  addNewLabel: "Add new",
+  filter: defaultFilter,
+  disableFilter: false,
+  onFilterChanged: undefined,
+  /** shows loading animation */
+  loading: false
 };
 
 export default Combobox;
