@@ -7,7 +7,7 @@ import Icon from "../Icon/Icon";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 
 const ExpandCollapse = forwardRef(
-  ({ children, headerComponentRenderer, className, defaultOpenState, iconSize, id }, ref) => {
+  ({ children, headerComponentRenderer, className, defaultOpenState, iconSize, id, open, onClick }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -16,21 +16,22 @@ const ExpandCollapse = forwardRef(
     const toogleExpand = () => {
       setIsOpen(!isOpen);
     };
+    const isExpanded = open == null ? isOpen : open;
 
     return (
       <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)} id={id}>
         <div className="expand-collapse">
           <button
             className={cx("expand-collapse__header", "expand-collapse__section", {
-              "expand-collapse__header--open": isOpen
+              "expand-collapse__header--open": isExpanded
             })}
-            onClickCapture={toogleExpand}
-            aria-expanded={isOpen}
+            onClickCapture={onClick || toogleExpand}
+            aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
           >
             {headerComponentRenderer && headerComponentRenderer()}
             <Icon
-              className={isOpen ? "animate-icon-open" : "animate-icon-close"}
+              className={isExpanded ? "animate-icon-open" : "animate-icon-close"}
               iconType={Icon.type.SVG}
               icon={DropdownChevronDown}
               iconSize={iconSize}
@@ -38,9 +39,9 @@ const ExpandCollapse = forwardRef(
               clickable={false}
             />
           </button>
-          {isOpen && (
+          {isExpanded && (
             <div
-              className={`expand-collapse__content expand-collapse__section ${isOpen &&
+              className={`expand-collapse__content expand-collapse__section ${isExpanded &&
                 "animate-expand-collapse__content"}`}
               id={`${id}-controls`}
               role="region"
@@ -78,13 +79,18 @@ ExpandCollapse.propTypes = {
   /**
    * Should be open or closed by default (when rendered)
    */
-  defaultOpenState: PropTypes.bool
+  defaultOpenState: PropTypes.bool,
+  open: PropTypes.bool,
+  onClick: PropTypes.func
 };
+
 ExpandCollapse.defaultProps = {
   id: "",
   className: "",
   defaultOpenState: false,
-  iconSize: 24
+  iconSize: 24,
+  onClick: null,
+  open: false
 };
 
 export default ExpandCollapse;

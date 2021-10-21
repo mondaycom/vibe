@@ -4,7 +4,8 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
-	Accordion: "/src/components/Accordion/Accordion.jsx",
+  AccordionItem: "/src/components/Accordion/AccordionItem/AccordionItem.jsx",
+  Accordion: "/src/components/Accordion/Accordion/Accordion.jsx",
   TextWithHighlight: "/src/components/TextWithHighlight/TextWithHighlight.jsx",
   List: "/src/components/List/List.jsx",
   ListTitle: "/src/components/ListTitle/ListTitle.jsx",

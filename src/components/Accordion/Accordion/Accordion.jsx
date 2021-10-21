@@ -1,14 +1,14 @@
-import React, { useRef, forwardRef } from "react";
+import React, { useMemo, forwardRef, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./Accordion.scss";
 
-const Accordion = forwardRef(({ children: originalChildren, allowMultiple, className, id }, ref) => {
+const Accordion = forwardRef(({ children: originalChildren, allowMultiple, index, className, id }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-  const [expandedItems, setExpandedItems] = useState([]);
+  const [expandedItems, setExpandedItems] = useState(index);
 
   const children = useMemo(() => {
     const allChildren = React.Children.toArray(originalChildren);
@@ -22,34 +22,36 @@ const Accordion = forwardRef(({ children: originalChildren, allowMultiple, class
     });
   }, [originalChildren]);
 
-  const isChildExpanded = index => {
-    return expandedItems.contains(index);
+  const isChildExpanded = itemIndex => {
+    return expandedItems.includes(itemIndex);
   };
 
-  const onChildClick = index => {
+  const onChildClick = itemIndex => {
     if (allowMultiple) {
-      if (isChildExpanded(index)) {
-        openItemsIndex.pop(index);
+      const newExpandedItems = expandedItems;
+      if (isChildExpanded(itemIndex)) {
+        newExpandedItems.pop(itemIndex);
       } else {
-        openItemsIndex.push(index);
+        newExpandedItems.push(itemIndex);
       }
-      setExpandedItems(openItemsIndex);
+      setExpandedItems(newExpandedItems);
       return;
     }
-    setExpandedItems([index]);
+
+    setExpandedItems(isChildExpanded(itemIndex) ? [] : [itemIndex]);
   };
 
   return (
     <div ref={mergedRef} className={cx("accordion--wrapper", className)} id={id}>
       {children &&
-        React.Children.map(children, (child, index) => {
+        React.Children.map(children, (child, itemIndex) => {
           return React.isValidElement(child)
             ? React.cloneElement(child, {
                 ...child?.props,
                 onClick: () => {
-                  onChildClick(index);
+                  onChildClick(itemIndex);
                 },
-                open: isChildExpanded(index)
+                open: isChildExpanded(itemIndex)
               })
             : null;
         })}
@@ -69,13 +71,23 @@ Accordion.propTypes = {
   /**
    * is allowed multiple opened accordion items
    */
-  allowMultiple: PropTypes.bool
+  allowMultiple: PropTypes.bool,
+  /**
+   * Array of initial expanded indexes
+   */
+  index: PropTypes.array,
+  /**
+   * The value of the expandable section
+   */
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
 
 Accordion.defaultProps = {
   className: "",
   id: undefined,
-  allowMultiple: false
+  allowMultiple: false,
+  children: null,
+  index: []
 };
 
 export default Accordion;
