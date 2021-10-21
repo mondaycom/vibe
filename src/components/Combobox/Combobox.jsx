@@ -130,7 +130,7 @@ const Combobox = forwardRef(
         }
         setFilterValue(value);
       },
-      [setFilterValue]
+      [setFilterValue, onFilterChanged]
     );
 
     const isChildSelectable = useCallback(option => {
