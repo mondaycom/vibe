@@ -14,36 +14,7 @@ const getProjectConfigRules = () => {
   return projectConfig.module.rules;
 };
 const getDocsConfigRules = () => {
-  return [
-    {
-      test: /\.(stories|story)\.(mdx)$/,
-      use: [
-        {
-          loader: "babel-loader",
-          options: {
-            plugins: ["@babel/plugin-transform-react-jsx"]
-          }
-        }
-      ]
-    },
-    {
-      test: /\.(stories|story)\.mdx$/,
-      use: [
-        {
-          loader: "@mdx-js/loader",
-          options: {
-            compilers: [createCompiler({})]
-          }
-        }
-      ]
-    },
-    {
-      test: /\.(stories|story)\.jsx?$/,
-      loader: require.resolve("@storybook/source-loader"),
-      exclude: [/node_modules/],
-      enforce: "pre"
-    }
-  ];
+  return [];
 };
 
 const buildConfig = config => {
@@ -62,6 +33,7 @@ module.exports = {
     "@storybook/addon-controls",
     "storybook-addon-themes",
     "@storybook/addon-a11y",
-    "storybook-addon-performance/register"
+    "storybook-addon-performance/register",
+    "@storybook/addon-docs"
   ]
 };
