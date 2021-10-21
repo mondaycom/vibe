@@ -110,6 +110,7 @@ const TextField = forwardRef(
           "input-component--disabled": disabled
         })}
         role={role}
+        aria-busy={loading}
       >
         <div className="input-component__label--wrapper">
           <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
