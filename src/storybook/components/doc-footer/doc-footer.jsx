@@ -1,5 +1,5 @@
 import { SectionName } from "../section-name/section-name";
-import { BEMClass } from "../../helpers/bem-helper";
+import { BEMClass } from "../../../helpers/bem-helper";
 import "./doc-footer.scss";
 
 const CSS_BASE_CLASS = "monday-storybook-footer";

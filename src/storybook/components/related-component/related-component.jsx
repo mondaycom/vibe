@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { BEMClass } from "../../helpers/bem-helper";
+import { BEMClass } from "../../../helpers/bem-helper";
 import "./related-component.scss";
 
 const BASE_CSS_CLASS = "monday-storybook-related-component";

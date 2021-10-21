@@ -1,5 +1,5 @@
-import { AttentionBox } from "../../components";
-import { BEMClass } from "../../helpers/bem-helper";
+import { AttentionBox } from "../../../components";
+import { BEMClass } from "../../../helpers/bem-helper";
 import "./component-name.scss";
 
 const CSS_BASE_CLASS = "monday-storybook-component-name";

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { RelatedComponent } from "../../related-component/related-component";
-import SplitButton from "../../../components/SplitButton/SplitButton";
+import SplitButton from "../../../../components/SplitButton/SplitButton";
 
 export const SplitButtonDescription = () => {
   const component = useMemo(() => <SplitButton>Button</SplitButton>, []);

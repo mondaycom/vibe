@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import PropTypes from "prop-types";
-import { BEMClass } from "../../helpers/bem-helper";
+import { BEMClass } from "../../../helpers/bem-helper";
 import "./related-components.scss";
 import { descriptionTypesMap } from "./component-description-map";
 
