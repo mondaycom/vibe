@@ -202,7 +202,7 @@ const Combobox = forwardRef(
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           {renderedItems}
         </div>
-        {!loading && hasFilter && !hasResults && renderNoResults()}
+        {hasFilter && !hasResults && renderNoResults()}
       </div>
     );
   }
