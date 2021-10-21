@@ -308,7 +308,7 @@ TextField.defaultProps = {
   trim: false,
   role: "",
   required: false,
-  loading: true
+  loading: false
 };
 
 export const ARIA_LABELS = {
