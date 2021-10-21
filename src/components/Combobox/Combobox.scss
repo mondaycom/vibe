@@ -52,16 +52,4 @@
     overflow: auto;
     @include scroller;
   }
-
-  .monday-style-button-loader--wrapper{
-    width: 32px;
-    height: 32px;
-    align-self: center;
-    margin-top: 4px;
-
-    .monday-style-combobox-loader{
-      width: 32px;
-      height: 32px;
-    }
-  }
 }
