@@ -10,11 +10,8 @@ import Button from "../Button/Button";
 import useListKeyboardNavigation from "../../hooks/useListKeyboardNavigation";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "./components/ComboboxCategory/ComboboxCategory";
-import { getOptionsByCategories } from "./ComboboxService";
+import { getOptionsByCategories, defaultFilter } from "./ComboboxService";
 import "./Combobox.scss";
-
-const defaultFilter = (filterValue, options) =>
-  options.filter(({ label }) => !filterValue || label.toLowerCase().includes(filterValue.toLowerCase()));
 
 const Combobox = forwardRef(
   (

@@ -23,3 +23,6 @@ export const getOptionsByCategories = (options, categories, filterValue) => {
     return result;
   }, {});
 };
+
+export const defaultFilter = (filterValue, options) =>
+  options.filter(({ label }) => !filterValue || label.toLowerCase().includes(filterValue.toLowerCase()));
