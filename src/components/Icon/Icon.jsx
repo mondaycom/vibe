@@ -87,20 +87,38 @@ Icon.type = ICON_TYPES;
 
 Icon.propTypes = {
   onClick: PropTypes.func,
+  /**
+   * class name to be added to icon
+   */
   className: PropTypes.string,
-  /** the type of the component - svg, font or custom svg (using react-inlinesvg) */
+  /**
+   *  the type of the component - svg, font or custom svg (using react-inlinesvg)
+   */
   iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT, ICON_TYPES.SRC]),
-  /** we support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component */
+  /**
+   * we support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
+   */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  /** is in used for tabIndex */
+  /**
+   * is in used for tabIndex
+   */
   clickable: PropTypes.bool,
-  /** icon aria label support */
+  /**
+   * icon aria label support
+   */
   iconLabel: PropTypes.string,
-  /** size for font icon */
+  /**
+   * size for font icon
+   */
   iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /** remove focus style */
+  /**
+   * remove focus style
+   */
   ignoreFocusStyle: PropTypes.bool,
   ariaHidden: PropTypes.bool,
+  /**
+   * when using svg from src (Icon.type.SRC) this boolean will transform the "fill" property to "currentColor"
+   */
   useCurrentColor: PropTypes.bool
 };
 
