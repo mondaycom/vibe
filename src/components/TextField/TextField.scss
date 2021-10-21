@@ -202,13 +202,17 @@
     .input-component__loader--container{
       position: absolute;
       top: 50%;
-      right: 32px;
+      right: 4px;
       width: 24px;
       height: 24px;
       transform: translateY(-50%);
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &.input-component__loader--container-has-icon{
+        right: 32px;
+      }
 
       .input-component__loader{
         width: 16px;

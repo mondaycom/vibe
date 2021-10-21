@@ -143,7 +143,11 @@ const TextField = forwardRef(
               required={required}
             />
             {loading && (
-              <div className="input-component__loader--container">
+              <div
+                className={classNames("input-component__loader--container", {
+                  "input-component__loader--container-has-icon": hasIcon
+                })}
+              >
                 <div className={"input-component__loader"}>
                   <Loader svgClassName="input-component__loader-svg" />
                 </div>
@@ -304,7 +308,7 @@ TextField.defaultProps = {
   trim: false,
   role: "",
   required: false,
-  loading: false
+  loading: true
 };
 
 export const ARIA_LABELS = {
