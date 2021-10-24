@@ -1,17 +1,7 @@
 import React, { useState, useCallback } from "react";
-import { action } from "@storybook/addon-actions";
 import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import Combobox from "../Combobox";
-import {
-  StoryStateRow,
-  StoryStateColumn,
-  ComponentStateDescription,
-  FlexLayout,
-  Divider
-} from "../../storybook-helpers";
-import DarkThemeContainer from "../../../StoryBookComponents/DarkThemeContainer/DarkThemeContainer";
-import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import cx from "classnames";
 import "./combobox.stories.scss";
 
@@ -78,6 +68,8 @@ const ComboboxWrapper = () => {
           console.log("Clicked on ", option.label);
           setSelectedId(option.id);
         }}
+        onOptionLeave={(...props) => console.log('props:', props) }
+        onOptionHover={(...props) => console.log('props:', props) }
         options={getOptions(selectedId, addedItems)}
         size={select(
           "size",

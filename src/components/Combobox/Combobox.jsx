@@ -35,7 +35,7 @@ const Combobox = forwardRef(
       disableFilter,
       onFilterChanged,
       loading,
-      opOptionHover,
+      onOptionHover,
       onOptionLeave
     },
     ref
@@ -72,9 +72,9 @@ const Combobox = forwardRef(
     const onOptionEnter = useCallback(
       (event, index, option) => {
         setActiveItemIndex(-1);
-        opOptionHover(event, index, option);
+        onOptionHover(event, index, option);
       },
-      [setActiveItemIndex, opOptionHover]
+      [setActiveItemIndex, onOptionHover]
     );
 
     const filterdOptions = useMemo(() => {
@@ -236,7 +236,7 @@ Combobox.propTypes = {
   disableFilter: PropTypes.bool,
   onFilterChanged: PropTypes.func,
   loading: PropTypes.bool,
-  opOptionHover: PropTypes.func,
+  onOptionHover: PropTypes.func,
   onOptionLeave: PropTypes.func
 };
 Combobox.defaultProps = {
@@ -258,7 +258,7 @@ Combobox.defaultProps = {
   onFilterChanged: undefined,
   /** shows loading animation */
   loading: false,
-  opOptionHover: NOOP,
+  onOptionHover: NOOP,
   onOptionLeave: NOOP
 };
 
