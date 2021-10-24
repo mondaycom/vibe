@@ -24,7 +24,8 @@ const Icon = forwardRef(
       tabindex: externalTabIndex,
       ariaHidden,
       style,
-      useCurrentColor
+      useCurrentColor,
+      customColor
     },
     ref
   ) => {
@@ -67,6 +68,7 @@ const Icon = forwardRef(
           onClick={onClickCallback}
           style={style}
           replaceToCurrentColor={useCurrentColor}
+          customColor={customColor}
         />
       );
     }
@@ -119,7 +121,11 @@ Icon.propTypes = {
   /**
    * when using svg from src (Icon.type.SRC) this boolean will transform the "fill" property to "currentColor"
    */
-  useCurrentColor: PropTypes.bool
+  useCurrentColor: PropTypes.bool,
+  /**
+   * If you want to override to coloring of currentColor
+   */
+  customColor: PropTypes.string
 };
 
 Icon.defaultProps = {
@@ -132,7 +138,8 @@ Icon.defaultProps = {
   iconSize: 16,
   ignoreFocusStyle: false,
   ariaHidden: undefined,
-  useCurrentColor: false
+  useCurrentColor: false,
+  customColor: undefined
 };
 
 export default Icon;

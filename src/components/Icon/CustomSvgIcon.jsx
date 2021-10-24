@@ -6,6 +6,10 @@ import SVG from "react-inlinesvg";
 import "./CustomSvgIcon.scss";
 import useIconScreenReaderAccessProps from "../../hooks/useIconScreenReaderAccessProps";
 
+function modifySvgCode(svg, color = "currentColor") {
+  return svg.replace(/fill=".*?"/g, `fill="${color}"`);
+}
+
 const CustomSvgIcon = ({
   className,
   src,
@@ -14,6 +18,7 @@ const CustomSvgIcon = ({
   ariaLabel,
   ariaHidden,
   replaceToCurrentColor,
+  customColor,
   ...props
 }) => {
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
@@ -24,10 +29,11 @@ const CustomSvgIcon = ({
 
   const svgProcessor = useCallback(
     svg => {
-      if (!replaceToCurrentColor) return svg;
-      return svg.replace(/fill=".*?"/g, 'fill="currentColor"');
+      if (replaceToCurrentColor) return modifySvgCode(svg, "currentColor");
+      if (customColor) return modifySvgCode(svg, customColor);
+      return svg;
     },
-    [replaceToCurrentColor]
+    [replaceToCurrentColor, customColor]
   );
 
   return (
@@ -47,14 +53,16 @@ CustomSvgIcon.propTypes = {
   src: PropTypes.string,
   ariaLabel: PropTypes.string,
   ariaHidden: PropTypes.bool,
-  replaceToCurrentColor: PropTypes.bool
+  replaceToCurrentColor: PropTypes.bool,
+  customColor: PropTypes.string
 };
 CustomSvgIcon.defaultProps = {
   className: "",
   src: "",
   ariaLabel: undefined,
   ariaHidden: undefined,
-  replaceToCurrentColor: false
+  replaceToCurrentColor: false,
+  customColor: undefined
 };
 
 export default CustomSvgIcon;
