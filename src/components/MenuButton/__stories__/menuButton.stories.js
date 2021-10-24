@@ -27,6 +27,7 @@ export const Sandbox = () => (
         size={select("Size", MenuButton.sizes, MenuButton.sizes.MEDIUM)}
         closeDialogOnContentClick={boolean("Close Dialog On Content Click or Enter", false)}
         disabled={boolean("Menu Button Disabled", false)}
+        open={boolean("Open", false)}
         dialogPaddingSize={select("Dialog Padding Size", MenuButton.paddingSizes, MenuButton.paddingSizes.MEDIUM)}
         dialogPosition={select(
           "Dialog Opening Position",

@@ -209,6 +209,7 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
       id="combobox-item-0"
       onClick={[Function]}
       onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="option"
       style={
         Object {
@@ -336,6 +337,7 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
         id="combobox-item-0"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="option"
         style={
           Object {
@@ -368,6 +370,7 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
         id="combobox-item-1"
         onClick={[Function]}
         onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="option"
         style={
           Object {

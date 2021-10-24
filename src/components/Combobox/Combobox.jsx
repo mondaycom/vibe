@@ -2,6 +2,7 @@
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
+import NOOP from "lodash/noop";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
@@ -33,7 +34,9 @@ const Combobox = forwardRef(
       filter,
       disableFilter,
       onFilterChanged,
-      loading
+      loading,
+      opOptionHover,
+      onOptionLeave
     },
     ref
   ) => {
@@ -66,11 +69,12 @@ const Combobox = forwardRef(
       [onClick]
     );
 
-    const onOptionHover = useCallback(
-      _event => {
+    const onOptionEnter = useCallback(
+      (event, index, option) => {
         setActiveItemIndex(-1);
+        opOptionHover(event, index, option);
       },
-      [setActiveItemIndex]
+      [setActiveItemIndex, opOptionHover]
     );
 
     const filterdOptions = useMemo(() => {
@@ -78,7 +82,7 @@ const Combobox = forwardRef(
         return options;
       }
       return filter(filterValue, options);
-    }, [options, categories, filterValue, filter, disableFilter]);
+    }, [options, filterValue, filter, disableFilter]);
 
     const renderedItems = useMemo(() => {
       if (categories) {
@@ -97,7 +101,8 @@ const Combobox = forwardRef(
                     isActive={activeItemIndex === index}
                     isActiveByKeyboard={isActiveByKeyboard}
                     onOptionClick={onOptionClick}
-                    onOptionHover={onOptionHover}
+                    onOptionHover={onOptionEnter}
+                    onOptionLeave={onOptionLeave}
                     optionLineHeight={optionLineHeight}
                   />
                 );
@@ -116,12 +121,13 @@ const Combobox = forwardRef(
             isActive={activeItemIndex === index}
             isActiveByKeyboard={isActiveByKeyboard}
             onOptionClick={onOptionClick}
-            onOptionHover={onOptionHover}
+            onOptionHover={onOptionEnter}
+            onOptionLeave={onOptionLeave}
             optionLineHeight={optionLineHeight}
           />
         );
       });
-    }, [filterdOptions, categories, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionHover]);
+    }, [filterdOptions, categories, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionEnter]);
 
     const onChangeCallback = useCallback(
       value => {
@@ -229,7 +235,9 @@ Combobox.propTypes = {
   filter: PropTypes.func,
   disableFilter: PropTypes.bool,
   onFilterChanged: PropTypes.func,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  opOptionHover: PropTypes.func,
+  onOptionLeave: PropTypes.func
 };
 Combobox.defaultProps = {
   className: "",
@@ -249,7 +257,9 @@ Combobox.defaultProps = {
   disableFilter: false,
   onFilterChanged: undefined,
   /** shows loading animation */
-  loading: false
+  loading: false,
+  opOptionHover: NOOP,
+  onOptionLeave: NOOP
 };
 
 export default Combobox;

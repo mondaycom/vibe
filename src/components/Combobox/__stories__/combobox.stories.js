@@ -137,6 +137,8 @@ const ComboboxWithCategoriesWrapper = () => {
           console.log("Clicked on ", option.label);
           setSelectedId(option.id);
         }}
+        onOptionLeave={(...props) => console.log('props:', props) }
+        onOptionHover={(...props) => console.log('props:', props) }
         options={options}
         categories={categories}
       />
