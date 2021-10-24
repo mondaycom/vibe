@@ -66,12 +66,6 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly with empty title pr
 </aside>
 `;
 
-exports[`AttentionBox Tests Snapshot Tests renders correctly with undefined title prop 1`] = `
-<aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary dummy-class-name"
-  role="alert"
->
-  
 exports[`AttentionBox Tests Snapshot Tests renders correctly with no icon 1`] = `
 <aside
   className="monday-style-attention-box-component monday-style-attention-box-component--type-primary dummy-class-name-no-icon"
