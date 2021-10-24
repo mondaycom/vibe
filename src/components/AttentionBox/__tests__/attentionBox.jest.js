@@ -19,7 +19,7 @@ describe("AttentionBox Tests", () => {
 
     it("renders correctly with no icon", () => {
       const tree = renderer
-        .create(<AttentionBox componentClassName="dummy-class-name-no-icon" title="Title" text="Text" isIconHidden />)
+        .create(<AttentionBox componentClassName="dummy-class-name-no-icon" title="Title" text="Text" withoutIcon />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });

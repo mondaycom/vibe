@@ -6,7 +6,7 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { baseClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
-const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, isIconHidden }) => {
+const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, withoutIcon }) => {
   const iconLabel = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
@@ -23,7 +23,7 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, i
   return (
     <aside className={cx(baseClassName, classNameWithType, componentClassName)} role="alert">
       <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
-        {isIconHidden ? null : (
+        {!withoutIcon && (
           <Icon
             iconType={iconType}
             ariaHidden
@@ -63,7 +63,7 @@ AttentionBox.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string,
   text: PropTypes.string,
-  isIconHidden: PropTypes.bool
+  withoutIcon: PropTypes.bool
 };
 
 AttentionBox.defaultProps = {
@@ -73,7 +73,7 @@ AttentionBox.defaultProps = {
   iconType: Icon.type.SVG,
   title: "",
   text: "",
-  isIconHidden: false
+  withoutIcon: false
 };
 
 export default AttentionBox;
