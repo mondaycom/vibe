@@ -17,6 +17,7 @@ const CHANGELOG_HEADERS = {
   UNRELEASED_VERSION: "## Unreleased",
   BUGS: "#### Bug Fixes",
   NEW_FEATURES: "#### New Features",
+  ICONS: "#### New Icons",
   COMMITTERS: "#### Committers"
 };
 
@@ -77,7 +78,7 @@ function getNewVersionStrategy(changelogText) {
     return VERSION_STRATEGIES.MINOR;
   }
 
-  if (changelogText.includes(CHANGELOG_HEADERS.BUGS)) {
+  if ([CHANGELOG_HEADERS.ICONS, CHANGELOG_HEADERS.BUGS].includes(changelogText)) {
     return VERSION_STRATEGIES.PATCH;
   }
 

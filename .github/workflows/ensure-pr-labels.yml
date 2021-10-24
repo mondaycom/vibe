@@ -13,7 +13,7 @@ jobs:
       - name: Check Labels
         uses: docker://agilepathway/pull-request-label-checker:latest
         with:
-          one_of: "PR: Internal 🏠,PR: Bugfix 🐛,PR: New Feature 🕹,PR: Dependencies 🛠,PR: Documentation 📖"
+          one_of: "PR: Internal 🏠,PR: Bugfix 🐛,PR: New Feature 🕹,PR: Dependencies 🛠,PR: Documentation 📖,PR: Icon 💎,PR: Breaking Changes 💥"
           repo_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Find Comment
         if: always()
@@ -43,4 +43,6 @@ jobs:
               - PR: Dependencies 🛠
               - PR: Documentation 📖
               - PR: Internal 🏠
+              - PR: Breaking Changes 💥
+              - PR: Icon 💎
           edit-mode: replace

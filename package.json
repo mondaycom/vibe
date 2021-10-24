@@ -182,7 +182,9 @@
       "PR: New Feature 🕹": "New Features",
       "PR: Dependencies 🛠": "Dependency Upgrades",
       "PR: Documentation 📖": "Documentation",
-      "PR: Internal 🏠": "Internal Changes"
+      "PR: Internal 🏠": "Internal Changes",
+      "PR: Breaking Changes 💥": "Breaking Changes",
+      "PR: Icon 💎": "New Icons"
     }
   }
 }
