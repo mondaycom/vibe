@@ -63,7 +63,7 @@ const Accordion = forwardRef(({ children: originalChildren, allowMultiple, index
 
   return (
     <div ref={mergedRef} className={cx("accordion", className)} id={id}>
-      {children && renderChildElements()}
+      {children && renderChildElements}
     </div>
   );
 });

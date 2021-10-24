@@ -4,8 +4,6 @@ import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
 
-import "./AccordionItem.scss";
-
 const AccordionItem = forwardRef(
   ({ children, headerComponentRenderer, className, iconSize, id, open, onClick }, ref) => {
     const componentRef = useRef(null);
