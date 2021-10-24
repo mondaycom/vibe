@@ -26,7 +26,7 @@ jobs:
       - name: Commit and push changes
         run: |
           git add .
-          git commit -m "Release version $(node -e "console.log(require('./package.json').version))"
+          git commit -m "Release version $(node -e "console.log(require('./package.json').version)")"
           git push
       - name: Publish the new version to npm
         run: | # Compare the latest version and the current version and publish only if the version changed
