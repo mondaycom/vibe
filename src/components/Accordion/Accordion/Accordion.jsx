@@ -1,4 +1,4 @@
-import React, { useMemo, forwardRef, useState, useRef } from "react";
+import React, { useMemo, forwardRef, useState, useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
@@ -22,39 +22,48 @@ const Accordion = forwardRef(({ children: originalChildren, allowMultiple, index
     });
   }, [originalChildren]);
 
-  const isChildExpanded = itemIndex => {
-    return expandedItems.includes(itemIndex);
-  };
+  const isChildExpanded = useCallback(
+    itemIndex => {
+      return expandedItems.includes(itemIndex);
+    },
+    [expandedItems]
+  );
 
-  const onChildClick = itemIndex => {
-    if (allowMultiple) {
-      const newExpandedItems = expandedItems;
-      if (isChildExpanded(itemIndex)) {
-        newExpandedItems.pop(itemIndex);
-      } else {
-        newExpandedItems.push(itemIndex);
+  const onChildClick = useCallback(
+    itemIndex => {
+      if (allowMultiple) {
+        const newExpandedItems = expandedItems;
+        if (isChildExpanded(itemIndex)) {
+          newExpandedItems.pop(itemIndex);
+        } else {
+          newExpandedItems.push(itemIndex);
+        }
+        setExpandedItems(newExpandedItems);
+        return;
       }
-      setExpandedItems(newExpandedItems);
-      return;
-    }
 
-    setExpandedItems(isChildExpanded(itemIndex) ? [] : [itemIndex]);
-  };
+      setExpandedItems(isChildExpanded(itemIndex) ? [] : [itemIndex]);
+    },
+    [isChildExpanded, expandedItems, allowMultiple]
+  );
+
+  const renderChildElements = useMemo(() => {
+    const childElements = React.Children.map(children, (child, itemIndex) => {
+      return React.cloneElement(child, {
+        ...child?.props,
+        onClick: () => {
+          onChildClick(itemIndex);
+        },
+        open: isChildExpanded(itemIndex)
+      });
+    });
+
+    return childElements;
+  }, [isChildExpanded, onChildClick, children]);
 
   return (
-    <div ref={mergedRef} className={cx("accordion--wrapper", className)} id={id}>
-      {children &&
-        React.Children.map(children, (child, itemIndex) => {
-          return React.isValidElement(child)
-            ? React.cloneElement(child, {
-                ...child?.props,
-                onClick: () => {
-                  onChildClick(itemIndex);
-                },
-                open: isChildExpanded(itemIndex)
-              })
-            : null;
-        })}
+    <div ref={mergedRef} className={cx("accordion", className)} id={id}>
+      {children && renderChildElements()}
     </div>
   );
 });

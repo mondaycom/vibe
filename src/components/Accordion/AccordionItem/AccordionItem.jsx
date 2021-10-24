@@ -12,7 +12,7 @@ const AccordionItem = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     return (
-      <div ref={mergedRef} className={cx("accordion-item--wrapper", className)} id={id}>
+      <div ref={mergedRef} className={cx("accordion-item", className)} id={id}>
         <ExpandCollapse
           headerComponentRenderer={headerComponentRenderer}
           iconSize={iconSize}
