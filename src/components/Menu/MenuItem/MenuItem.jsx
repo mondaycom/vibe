@@ -12,7 +12,6 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
-import useIsMouseOver from "../../../hooks/useIsMouseOver";
 import usePopover from "../../../hooks/usePopover";
 
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
@@ -74,8 +73,7 @@ const MenuItem = ({
   const referenceElement = referenceElementRef.current;
   const childElement = childRef.current;
 
-  const isTitleHovered = useIsMouseOver({ ref: titleRef });
-  const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: isTitleHovered && titleRef });
+  const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
   const { styles, attributes } = usePopover(referenceElement, popperElement, {
     isOpen: isSubMenuOpen
@@ -147,7 +145,13 @@ const MenuItem = ({
   const [iconWrapperStyle, iconStyle] = useMemo(() => {
     return iconBackgroundColor
       ? [
-          { backgroundColor: iconBackgroundColor, borderRadius: "4px", width: 20, height: 20 },
+          {
+            backgroundColor: iconBackgroundColor,
+            borderRadius: "4px",
+            width: 20,
+            height: 20,
+            opacity: disabled ? 0.4 : 1
+          },
           { color: "var(--text-color-on-primary)" }
         ]
       : [undefined, undefined];
@@ -188,59 +192,59 @@ const MenuItem = ({
   const tooltipContent = disabled ? disableReason : title;
 
   return (
-    <Tooltip
-      content={shouldShowTooltip ? tooltipContent : null}
-      position={tooltipPosition}
-      showDelay={tooltipShowDelay}
+    <li
+      id={`${menuId}-${index}`}
+      {...a11yProps}
+      className={cx("monday-style-menu-item", classname, {
+        "monday-style-menu-item--disabled": disabled,
+        "monday-style-menu-item--focused": isActive,
+        "monday-style-menu-item--selected": selected,
+        "monday-style-menu-item-initial-selected": isInitialSelectedState
+      })}
+      ref={mergedRef}
+      onClick={onClickCallback}
+      role="menuitem"
+      aria-current={isActive}
+      onMouseLeave={onMouseLeave}
+      onMouseEnter={onMouseEnter}
     >
-      <li
-        id={`${menuId}-${index}`}
-        {...a11yProps}
-        className={cx("monday-style-menu-item", classname, {
-          "monday-style-menu-item--disabled": disabled,
-          "monday-style-menu-item--focused": isActive,
-          "monday-style-menu-item--selected": selected,
-          "monday-style-menu-item-initial-selected": isInitialSelectedState
-        })}
-        ref={mergedRef}
-        onClick={onClickCallback}
-        role="menuitem"
-        aria-current={isActive}
-        onMouseLeave={onMouseLeave}
-        onMouseEnter={onMouseEnter}
-      >
-        {renderMenuItemIconIfNeeded()}
+      {renderMenuItemIconIfNeeded()}
 
+      <Tooltip
+        content={shouldShowTooltip ? tooltipContent : null}
+        position={tooltipPosition}
+        showDelay={tooltipShowDelay}
+      >
         <div ref={titleRef} className="monday-style-menu-item__title">
           {title}
         </div>
-        {label && (
-          <div ref={titleRef} className="monday-style-menu-item__label">
-            {label}
-          </div>
-        )}
-        {renderSubMenuIconIfNeeded()}
-        <div
-          style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...attributes.popper}
-          className="monday-style-menu-item__popover"
-          ref={popperElementRef}
-        >
-          {menuChild && shouldShowSubMenu && (
-            <DialogContentContainer>
-              {React.cloneElement(menuChild, {
-                ...menuChild?.props,
-                isVisible: shouldShowSubMenu,
-                isSubMenu: true,
-                onClose: closeSubMenu,
-                ref: childRef
-              })}
-            </DialogContentContainer>
-          )}
+      </Tooltip>
+      {label && (
+        <div ref={titleRef} className="monday-style-menu-item__label">
+          {label}
         </div>
-      </li>
-    </Tooltip>
+      )}
+      {renderSubMenuIconIfNeeded()}
+      <div
+        style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...attributes.popper}
+        className="monday-style-menu-item__popover"
+        ref={popperElementRef}
+      >
+        {menuChild && shouldShowSubMenu && (
+          <DialogContentContainer>
+            {React.cloneElement(menuChild, {
+              ...menuChild?.props,
+              isVisible: shouldShowSubMenu,
+              isSubMenu: true,
+              onClose: closeSubMenu,
+              ref: childRef
+            })}
+          </DialogContentContainer>
+        )}
+      </div>
+    </li>
   );
 };
 
