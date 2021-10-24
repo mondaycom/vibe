@@ -22,25 +22,27 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
     <aside className={cx(baseClassName, classNameWithType, componentClassName)} role="alert">
-      <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
-        {!withoutIcon && (
-          <Icon
-            iconType={iconType}
-            ariaHidden
-            clickable={false}
-            icon={icon}
-            className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
-            ignoreFocusStyle
-            iconSize="24"
-            iconLabel={iconLabel}
-          />
-        )}
-        <span
-          className={cx(`${baseClassName}__title-container__title`, `${classNameWithType}__title-container__title`)}
-        >
-          {title}
-        </span>
-      </h2>
+      {title && (
+        <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
+          {!withoutIcon && (
+            <Icon
+              iconType={iconType}
+              ariaHidden
+              clickable={false}
+              icon={icon}
+              className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
+              ignoreFocusStyle
+              iconSize="24"
+              iconLabel={iconLabel}
+            />
+          )}
+          <span
+            className={cx(`${baseClassName}__title-container__title`, `${classNameWithType}__title-container__title`)}
+          >
+            {title}
+          </span>
+        </h2>
+      )}
       <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`)}>{text}</div>
     </aside>
   );
