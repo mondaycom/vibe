@@ -7,7 +7,6 @@ import { UsageGuidelines } from "./usage-guidelines/usage-guidelines";
 import { RelatedComponents } from "./related-components/related-components";
 import { AnchorListItem } from "./anchor-list-item/anchor-list-item";
 import { DocFooter } from "./doc-footer/doc-footer";
-import { ComponentStory } from "./component-story/component-story";
 import { MultipleStoryElementsWrapper } from "./multiple-story-elements-wrapper/multiple-story-elements-wrapper";
 
 export {
@@ -20,6 +19,5 @@ export {
   RelatedComponents,
   AnchorListItem,
   DocFooter,
-  ComponentStory,
   MultipleStoryElementsWrapper
 };

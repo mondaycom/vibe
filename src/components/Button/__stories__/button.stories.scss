@@ -7,10 +7,6 @@
 
   &_on-color-button {
     @include theme-prop(background, primary-color);
-    height: 150px;
-    margin-right: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 16px;
   }
 }

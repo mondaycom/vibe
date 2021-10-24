@@ -11,8 +11,8 @@ import {
   UsageGuidelines,
   RelatedComponents,
   DocFooter,
-  ComponentStory
-} from "../src/storybook-components";
+  MultipleStoryElementsWrapper
+} from "../src/storybook/components";
 
 addParameters({
   docs: {
@@ -32,8 +32,7 @@ addParameters({
       Tip,
       ComponentRules,
       UsageGuidelines,
-      RelatedComponents,
-      ComponentStory
+      RelatedComponents
     }
   },
   viewMode: "docs",
@@ -49,3 +48,14 @@ addParameters({
     { name: "Black", class: "black-app-theme", color: "#111111" }
   ]
 });
+
+export const decorators = [
+  (Story, { className, ...otherProps }) => {
+    debugger;
+    return (
+      <MultipleStoryElementsWrapper className={className}>
+        <Story />
+      </MultipleStoryElementsWrapper>
+    );
+  }
+];
