@@ -64,7 +64,12 @@ function formatChanges(changelogText) {
 }
 
 function buildChangelogSinceLastVersion() {
-  const { stdout } = execa.sync("lerna-changelog");
+  const { stdout } = execa.sync("npx", [
+    "lerna-changelog",
+    "--from",
+    `v${require("../package.json").version}`,
+    "--next-version-from-metadata"
+  ]);
 
   return stdout;
 }
