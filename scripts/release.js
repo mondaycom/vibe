@@ -64,12 +64,7 @@ function formatChanges(changelogText) {
 }
 
 function buildChangelogSinceLastVersion() {
-  const { stdout } = execa.sync("npx", [
-    "lerna-changelog",
-    "--from",
-    `v${require("../package.json").version}`,
-    "--next-version-from-metadata"
-  ]);
+  const { stdout } = execa.sync("npx", ["lerna-changelog", "--from", require("../package.json").version]);
 
   return stdout;
 }
@@ -93,7 +88,7 @@ function getCurrentVersion() {
 }
 
 function bumpVersion(strategy) {
-  execa.sync("npm", ["version", strategy, "--git-tag-version=false"]);
+  execa.sync("npm", ["version", strategy]);
 }
 
 function logNothingToDo() {
