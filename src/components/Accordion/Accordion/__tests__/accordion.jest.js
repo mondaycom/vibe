@@ -8,6 +8,19 @@ it("renders correctly with empty props", () => {
   expect(tree).toMatchSnapshot();
 });
 
+it("renders correctly with accordion items", () => {
+  const tree = renderer
+    .create(
+      <Accordion>
+        <AccordionItem />
+        <AccordionItem />
+        <AccordionItem />
+      </Accordion>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 it("renders correctly with index prop", () => {
   const tree = renderer
     .create(
