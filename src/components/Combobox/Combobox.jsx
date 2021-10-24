@@ -2,6 +2,7 @@
 import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
+import NOOP from "lodash/noop";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
@@ -10,7 +11,7 @@ import Button from "../Button/Button";
 import useListKeyboardNavigation from "../../hooks/useListKeyboardNavigation";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "./components/ComboboxCategory/ComboboxCategory";
-import { getOptionsByCategories } from "./ComboboxService";
+import { getOptionsByCategories, defaultFilter } from "./ComboboxService";
 import "./Combobox.scss";
 
 const Combobox = forwardRef(
@@ -29,7 +30,13 @@ const Combobox = forwardRef(
       noResultsMessage,
       onAddNew,
       addNewLabel,
-      onClick
+      onClick,
+      filter,
+      disableFilter,
+      onFilterChanged,
+      loading,
+      onOptionHover,
+      onOptionLeave
     },
     ref
   ) => {
@@ -62,16 +69,20 @@ const Combobox = forwardRef(
       [onClick]
     );
 
-    const onOptionHover = useCallback(
-      _event => {
+    const onOptionEnter = useCallback(
+      (event, index, option) => {
         setActiveItemIndex(-1);
+        onOptionHover(event, index, option);
       },
-      [setActiveItemIndex]
+      [setActiveItemIndex, onOptionHover]
     );
 
     const filterdOptions = useMemo(() => {
-      return options.filter(({ label }) => !filterValue || label.toLowerCase().includes(filterValue.toLowerCase()));
-    }, [options, categories, filterValue]);
+      if (disableFilter) {
+        return options;
+      }
+      return filter(filterValue, options);
+    }, [options, filterValue, filter, disableFilter]);
 
     const renderedItems = useMemo(() => {
       if (categories) {
@@ -90,7 +101,8 @@ const Combobox = forwardRef(
                     isActive={activeItemIndex === index}
                     isActiveByKeyboard={isActiveByKeyboard}
                     onOptionClick={onOptionClick}
-                    onOptionHover={onOptionHover}
+                    onOptionHover={onOptionEnter}
+                    onOptionLeave={onOptionLeave}
                     optionLineHeight={optionLineHeight}
                   />
                 );
@@ -109,18 +121,22 @@ const Combobox = forwardRef(
             isActive={activeItemIndex === index}
             isActiveByKeyboard={isActiveByKeyboard}
             onOptionClick={onOptionClick}
-            onOptionHover={onOptionHover}
+            onOptionHover={onOptionEnter}
+            onOptionLeave={onOptionLeave}
             optionLineHeight={optionLineHeight}
           />
         );
       });
-    }, [filterdOptions, categories, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionHover]);
+    }, [filterdOptions, categories, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionEnter]);
 
     const onChangeCallback = useCallback(
       value => {
+        if (onFilterChanged) {
+          onFilterChanged(value);
+        }
         setFilterValue(value);
       },
-      [setFilterValue]
+      [setFilterValue, onFilterChanged]
     );
 
     const isChildSelectable = useCallback(option => {
@@ -184,6 +200,7 @@ const Combobox = forwardRef(
           disabled={disabled}
           onChange={onChangeCallback}
           autoFocus={autoFocus}
+          loading={loading}
         />
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           {renderedItems}
@@ -193,6 +210,10 @@ const Combobox = forwardRef(
     );
   }
 );
+
+// Locate loading next to search icon
+// color it with --secondary-text-color
+// size it like the icon - we think it's 16px - make sure it's not fat
 
 Combobox.sizes = SIZES;
 Combobox.iconTypes = ComboboxOption.iconTypes;
@@ -210,7 +231,13 @@ Combobox.propTypes = {
   optionsListHeight: PropTypes.number,
   autoFocus: PropTypes.bool,
   onAddNew: PropTypes.func,
-  addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+  addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  filter: PropTypes.func,
+  disableFilter: PropTypes.bool,
+  onFilterChanged: PropTypes.func,
+  loading: PropTypes.bool,
+  onOptionHover: PropTypes.func,
+  onOptionLeave: PropTypes.func
 };
 Combobox.defaultProps = {
   className: "",
@@ -225,7 +252,14 @@ Combobox.defaultProps = {
   optionsListHeight: undefined,
   autoFocus: false,
   onAddNew: undefined,
-  addNewLabel: "Add new"
+  addNewLabel: "Add new",
+  filter: defaultFilter,
+  disableFilter: false,
+  onFilterChanged: undefined,
+  /** shows loading animation */
+  loading: false,
+  onOptionHover: NOOP,
+  onOptionLeave: NOOP
 };
 
 export default Combobox;

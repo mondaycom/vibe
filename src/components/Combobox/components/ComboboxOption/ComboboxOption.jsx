@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import cx from "classnames";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
@@ -11,6 +11,7 @@ const ComboboxOption = ({
   isActive,
   isActiveByKeyboard,
   onOptionClick,
+  onOptionLeave,
   onOptionHover,
   optionLineHeight
 }) => {
@@ -56,6 +57,29 @@ const ComboboxOption = ({
     );
   };
 
+  const onClick = useCallback(
+    event => {
+      onOptionClick(event, index, option, true);
+    },
+    [index, option, onOptionClick]
+  );
+
+  const onMouseLEave = useCallback(
+    event => {
+      if (disabled) return;
+      onOptionLeave(event, index, option, true);
+    },
+    [index, option, onOptionLeave, disabled]
+  );
+
+  const onMouseEnter = useCallback(
+    event => {
+      if (disabled) return;
+      onOptionHover(event, index, option, true);
+    },
+    [index, option, onOptionHover, disabled]
+  );
+
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <Tooltip content={isOptionOverflowing ? label : null}>
@@ -65,8 +89,9 @@ const ComboboxOption = ({
         role="option"
         aria-label={ariaLabel || label}
         id={`combobox-item-${index}`}
-        onMouseEnter={!disabled && onOptionHover}
-        onClick={event => onOptionClick(event, index, option, true)}
+        onMouseEnter={onMouseEnter}
+        onClick={onClick}
+        onMouseLeave={onMouseLEave}
         className={cx("combobox-option", {
           disabled,
           selected,

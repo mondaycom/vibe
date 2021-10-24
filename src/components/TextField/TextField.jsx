@@ -5,6 +5,7 @@ import classNames from "classnames";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
 import "./TextField.scss";
 import Icon from "../Icon/Icon";
+import Loader from "../Loader/Loader";
 import { FEEDBACK_CLASSES, FEEDBACK_STATES, sizeMapper } from "./TextFieldHelpers";
 import FieldLabel from "../FieldLabel/FieldLabel";
 import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
@@ -50,7 +51,8 @@ const TextField = forwardRef(
       maxLength,
       trim,
       role,
-      required
+      required,
+      loading
     },
     ref
   ) => {
@@ -108,6 +110,7 @@ const TextField = forwardRef(
           "input-component--disabled": disabled
         })}
         role={role}
+        aria-busy={loading}
       >
         <div className="input-component__label--wrapper">
           <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
@@ -139,6 +142,17 @@ const TextField = forwardRef(
               aria-activedescendant={activeDescendant}
               required={required}
             />
+            {loading && (
+              <div
+                className={classNames("input-component__loader--container", {
+                  "input-component__loader--container-has-icon": hasIcon
+                })}
+              >
+                <div className={"input-component__loader"}>
+                  <Loader svgClassName="input-component__loader-svg" />
+                </div>
+              </div>
+            )}
             <div
               className={classNames("input-component__icon--container", {
                 "input-component__icon--container-has-icon": hasIcon,
@@ -223,14 +237,17 @@ TextField.propTypes = {
   title: PropTypes.string,
   /** SIZES is exposed on the component itself */
   size: PropTypes.oneOf([TextField.sizes.SMALL, TextField.sizes.MEDIUM, TextField.sizes.LARGE]),
-  validation: PropTypes.oneOfType([PropTypes.shape({
-    /** Don't provide status for plain assistant text */
-    status: PropTypes.oneOf(["error", "success"]),
+  validation: PropTypes.oneOfType([
+    PropTypes.shape({
+      /** Don't provide status for plain assistant text */
+      status: PropTypes.oneOf(["error", "success"]),
 
-    text: PropTypes.string
-  }), PropTypes.shape({
-    text: PropTypes.string
-  })]),
+      text: PropTypes.string
+    }),
+    PropTypes.shape({
+      text: PropTypes.string
+    })
+  ]),
   wrapperClassName: PropTypes.string,
   onIconClick: PropTypes.func,
   clearOnIconClick: PropTypes.bool,
@@ -252,7 +269,9 @@ TextField.propTypes = {
   /** ARIA role for container landmark */
   role: PropTypes.string,
   /** adds required to the input element */
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  /** shows loading animation */
+  loading: PropTypes.bool
 };
 
 TextField.defaultProps = {
@@ -288,7 +307,8 @@ TextField.defaultProps = {
   maxLength: null,
   trim: false,
   role: "",
-  required: false
+  required: false,
+  loading: false
 };
 
 export const ARIA_LABELS = {

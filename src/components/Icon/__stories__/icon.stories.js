@@ -30,10 +30,11 @@ export const Icons = () => {
         <div className="single-icon-wrapper">
           <Icon
             iconType={Icon.type.SRC}
-            icon="https://cdn.worldvectorlogo.com/logos/monday-1.svg"
+            icon="https://cdn.monday.com/images/apps/custom-icons/Form.svg"
             clickable
             iconLabel="my src awesome icon"
             className="icon-story-custom-icon"
+            useCurrentColor
           />
         </div>
         <DescriptionLabel className="icon-story-inline-style">

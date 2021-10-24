@@ -27,6 +27,9 @@ describe("AttentionBox Tests", () => {
     it("renders correctly with undefined title prop", () => {
       const tree = renderer
         .create(<AttentionBox componentClassName="dummy-class-name" text="Text" />)
+    it("renders correctly with no icon", () => {
+      const tree = renderer
+        .create(<AttentionBox componentClassName="dummy-class-name-no-icon" title="Title" text="Text" withoutIcon />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
