@@ -4,6 +4,7 @@ import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map
 import { getMondayColorAsStyle } from "../../../../utils/colors-utils";
 import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
+import Tooltip from "../../../Tooltip/Tooltip";
 
 const ColorPickerItemComponent = ({
   color,
@@ -15,7 +16,8 @@ const ColorPickerItemComponent = ({
   SelectedIndicatorIcon,
   isMultiselect,
   isSelected,
-  colorSize
+  colorSize,
+  tooltipContent
 }) => {
   const colorAsStyle = getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
@@ -45,26 +47,28 @@ const ColorPickerItemComponent = ({
   const shouldRenderIcon = (isMultiselect && isSelected) || ColorIndicatorIcon;
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
   return (
-    <div
-      className={cx("monday-style-color-item-wrapper", {
-        "selected-color": value === colorAsStyle
-      })}
-    >
+    <Tooltip content={tooltipContent}>
       <div
-        ref={itemRef}
-        aria-label={color}
-        className={cx("color-item", `color-item-size-${colorSize}`, {
-          "color-item-text-mode": shouldRenderIndicatorWithoutBackground
+        className={cx("monday-style-color-item-wrapper", {
+          "selected-color": value === colorAsStyle
         })}
-        style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
-        onClick={() => onValueChange && onValueChange(color)}
-        onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
       >
-        <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
-          {shouldRenderIcon && <Icon icon={shouldRenderSelectedIcon ? SelectedIndicatorIcon : ColorIndicatorIcon} />}
+        <div
+          ref={itemRef}
+          aria-label={color}
+          className={cx("color-item", `color-item-size-${colorSize}`, {
+            "color-item-text-mode": shouldRenderIndicatorWithoutBackground
+          })}
+          style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
+          onClick={() => onValueChange && onValueChange(color)}
+          onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
+        >
+          <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
+            {shouldRenderIcon && <Icon icon={shouldRenderSelectedIcon ? SelectedIndicatorIcon : ColorIndicatorIcon} />}
+          </div>
         </div>
       </div>
-    </div>
+    </Tooltip>
   );
 };
 

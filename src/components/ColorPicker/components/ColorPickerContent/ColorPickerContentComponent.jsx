@@ -26,7 +26,8 @@ const ColorPickerContentComponent = ({
   colorsList,
   isMultiselect,
   colorSize,
-  numberOfColorsInLine
+  numberOfColorsInLine,
+  tooltipContentByColor
 }) => {
   const onClearButton = useCallback(() => {
     onValueChange(null);
@@ -75,6 +76,7 @@ const ColorPickerContentComponent = ({
               isSelected={isMultiselect ? value.includes(color) : value === color}
               isMultiselect={isMultiselect}
               colorSize={colorSize}
+              tooltipContent={tooltipContentByColor[color]}
             />
           );
         })}
@@ -133,7 +135,8 @@ ColorPickerContentComponent.defaultProps = {
   isBlackListMode: true,
   colorsList: [],
   colorSize: ColorPickerContentComponent.sizes.MEDIUM,
-  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE
+  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
+  tooltipContentByColor: {}
 };
 
 export default ColorPickerContentComponent;
