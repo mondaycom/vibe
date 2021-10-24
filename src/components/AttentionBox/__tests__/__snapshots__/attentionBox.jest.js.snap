@@ -75,3 +75,25 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly with empty props 1`
   </div>
 </aside>
 `;
+
+exports[`AttentionBox Tests Snapshot Tests renders correctly with no icon 1`] = `
+<aside
+  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary dummy-class-name-no-icon"
+  role="complementary"
+>
+  <h2
+    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+  >
+    <span
+      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+    >
+      Title
+    </span>
+  </h2>
+  <div
+    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+  >
+    Text
+  </div>
+</aside>
+`;
