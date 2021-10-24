@@ -64,13 +64,9 @@ function formatChanges(changelogText) {
 }
 
 function buildChangelogSinceLastVersion() {
-  try {
-    const { stdout } = execa.sync("lerna-changelog", ["--from=latest"]);
+  const { stdout } = execa.sync("lerna-changelog");
 
-    return stdout;
-  } catch (e) {
-    console.log("e:", e);
-  }
+  return stdout;
 }
 
 function getNewVersionStrategy(changelogText) {
