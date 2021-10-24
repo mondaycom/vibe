@@ -121,13 +121,7 @@ exports[`renders correctly with accordion items 1`] = `
 </div>
 `;
 
-exports[`renders correctly with empty props 1`] = `
-<div
-  className="accordion"
-/>
-`;
-
-exports[`renders correctly with index prop 1`] = `
+exports[`renders correctly with defaultIndex prop 1`] = `
 <div
   className="accordion"
 >
@@ -256,4 +250,10 @@ exports[`renders correctly with index prop 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  className="accordion"
+/>
 `;

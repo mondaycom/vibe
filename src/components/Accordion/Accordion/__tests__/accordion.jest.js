@@ -21,10 +21,10 @@ it("renders correctly with accordion items", () => {
   expect(tree).toMatchSnapshot();
 });
 
-it("renders correctly with index prop", () => {
+it("renders correctly with defaultIndex prop", () => {
   const tree = renderer
     .create(
-      <Accordion index={[0, 2]}>
+      <Accordion defaultIndex={[0, 2]}>
         <AccordionItem />
         <AccordionItem />
         <AccordionItem />

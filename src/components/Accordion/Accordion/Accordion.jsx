@@ -4,11 +4,11 @@ import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./Accordion.scss";
 
-const Accordion = forwardRef(({ children: originalChildren, allowMultiple, index, className, id }, ref) => {
+const Accordion = forwardRef(({ children: originalChildren, allowMultiple, defaultIndex, className, id }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-  const [expandedItems, setExpandedItems] = useState(index);
+  const [expandedItems, setExpandedItems] = useState(defaultIndex);
 
   const children = useMemo(() => {
     const allChildren = React.Children.toArray(originalChildren);
@@ -84,7 +84,7 @@ Accordion.propTypes = {
   /**
    * Array of initial expanded indexes
    */
-  index: PropTypes.array,
+  defaultIndex: PropTypes.array,
   /**
    * The value of the expandable section
    */
@@ -96,7 +96,7 @@ Accordion.defaultProps = {
   id: undefined,
   allowMultiple: false,
   children: null,
-  index: []
+  defaultIndex: []
 };
 
 export default Accordion;
