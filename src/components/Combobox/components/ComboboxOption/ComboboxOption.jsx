@@ -13,7 +13,8 @@ const ComboboxOption = ({
   onOptionClick,
   onOptionLeave,
   onOptionHover,
-  optionLineHeight
+  optionLineHeight,
+  shouldScrollWhenActive
 }) => {
   const {
     id,
@@ -35,7 +36,7 @@ const ComboboxOption = ({
 
   useEffect(() => {
     const element = ref.current;
-    if (isActive && element) {
+    if (isActive && element && shouldScrollWhenActive) {
       element.scrollIntoView({ behaviour: "smooth" });
     }
   }, [ref, isActive]);
@@ -113,6 +114,10 @@ const ComboboxOption = ({
 ComboboxOption.iconTypes = {
   DEFAULT: "default",
   RENDERER: "renderer"
+};
+
+ComboboxOption.defaultProps = {
+  shouldScrollWhenActive: true
 };
 
 export default ComboboxOption;

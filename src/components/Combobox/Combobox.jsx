@@ -36,7 +36,8 @@ const Combobox = forwardRef(
       onFilterChanged,
       loading,
       onOptionHover,
-      onOptionLeave
+      onOptionLeave,
+      shouldScrollToSelectedItem
     },
     ref
   ) => {
@@ -104,6 +105,7 @@ const Combobox = forwardRef(
                     onOptionHover={onOptionEnter}
                     onOptionLeave={onOptionLeave}
                     optionLineHeight={optionLineHeight}
+                    shouldScrollWhenActive={shouldScrollToSelectedItem}
                   />
                 );
                 index++;
@@ -237,7 +239,8 @@ Combobox.propTypes = {
   onFilterChanged: PropTypes.func,
   loading: PropTypes.bool,
   onOptionHover: PropTypes.func,
-  onOptionLeave: PropTypes.func
+  onOptionLeave: PropTypes.func,
+  shouldScrollToSelectedItem: PropTypes.bool
 };
 Combobox.defaultProps = {
   className: "",
@@ -259,7 +262,8 @@ Combobox.defaultProps = {
   /** shows loading animation */
   loading: false,
   onOptionHover: NOOP,
-  onOptionLeave: NOOP
+  onOptionLeave: NOOP,
+  shouldScrollToSelectedItem: true
 };
 
 export default Combobox;
