@@ -4,25 +4,18 @@ import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
 
-const AccordionItem = forwardRef(
-  ({ children, headerComponentRenderer, className, iconSize, id, open, onClick }, ref) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+const AccordionItem = forwardRef(({ children, title, className, iconSize, id, open, onClick }, ref) => {
+  const componentRef = useRef(null);
+  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-    return (
-      <div ref={mergedRef} className={cx("accordion-item", className)} id={id}>
-        <ExpandCollapse
-          headerComponentRenderer={headerComponentRenderer}
-          iconSize={iconSize}
-          open={open}
-          onClick={onClick}
-        >
-          {children}
-        </ExpandCollapse>
-      </div>
-    );
-  }
-);
+  return (
+    <div ref={mergedRef} className={cx("accordion-item", className)} id={id}>
+      <ExpandCollapse title={title} iconSize={iconSize} open={open} onClick={onClick}>
+        {children}
+      </ExpandCollapse>
+    </div>
+  );
+});
 
 AccordionItem.propTypes = {
   /**
@@ -34,9 +27,9 @@ AccordionItem.propTypes = {
    */
   id: PropTypes.string,
   /**
-   * Component as parameter to be rendered as header
+   * Header title
    */
-  headerComponentRenderer: PropTypes.func,
+  title: PropTypes.string,
   /**
    * The value of the expandable section
    */
@@ -52,7 +45,8 @@ AccordionItem.isAccordionChild = true;
 AccordionItem.defaultProps = {
   className: "",
   id: undefined,
-  iconSize: 24
+  iconSize: 24,
+  title: ""
 };
 
 export default AccordionItem;

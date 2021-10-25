@@ -1,22 +1,27 @@
-import React, { useState, useRef, forwardRef } from "react";
+import React, { useState, useRef, forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./ExpandCollapse.scss";
 import Icon from "../Icon/Icon";
+import Heading from "../Heading/Heading";
+import { TYPES } from "../Heading/HeadingConstants";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 
 const ExpandCollapse = forwardRef(
-  ({ children, headerComponentRenderer, className, defaultOpenState, iconSize, id, open, onClick }, ref) => {
+  ({ children, headerComponentRenderer, title, className, defaultOpenState, iconSize, id, open, onClick }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const [isOpen, setIsOpen] = useState(defaultOpenState);
+    const isExpanded = open == null ? isOpen : open;
 
     const toogleExpand = () => {
       setIsOpen(!isOpen);
     };
-    const isExpanded = open == null ? isOpen : open;
+    const renderHeader = useCallback(() => {
+      return <Heading type={TYPES.h5} value={title} className="expand-collapse__header-content" />;
+    }, [title]);
 
     return (
       <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)} id={id}>
@@ -29,7 +34,7 @@ const ExpandCollapse = forwardRef(
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
           >
-            {headerComponentRenderer && headerComponentRenderer()}
+            {title.length !== 0 ? renderHeader() : headerComponentRenderer && headerComponentRenderer()}
             <Icon
               className={isExpanded ? "animate-icon-open" : "animate-icon-close"}
               iconType={Icon.type.SVG}
@@ -65,6 +70,10 @@ ExpandCollapse.propTypes = {
    */
   headerComponentRenderer: PropTypes.func,
   /**
+   * Header title
+   */
+  title: PropTypes.string,
+  /**
    * The value of the expandable section
    */
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
@@ -90,7 +99,8 @@ ExpandCollapse.defaultProps = {
   defaultOpenState: false,
   iconSize: 24,
   onClick: null,
-  open: false
+  open: false,
+  title: ""
 };
 
 export default ExpandCollapse;

@@ -12,13 +12,13 @@ export const Sandbox = () => {
   return (
     <div style={{ width, height }}>
       <Accordion id="Knobs" index={[0]}>
-        <AccordionItem headerComponentRenderer={() => <span>I can be anything</span>}>
+        <AccordionItem title={"I can be anything"}>
           <h3>Any component you want</h3>
         </AccordionItem>
-        <AccordionItem headerComponentRenderer={() => <span>I can be anything</span>}>
+        <AccordionItem title={"I can be anything"}>
           <Icon iconType={Icon.type.SVG} icon={Robot} iconSize={"52px"} tabindex="-1" clickable={true} />
         </AccordionItem>
-        <AccordionItem headerComponentRenderer={() => <span>I can be anything</span>}></AccordionItem>
+        <AccordionItem title={"I can be anything"}></AccordionItem>
       </Accordion>
     </div>
   );

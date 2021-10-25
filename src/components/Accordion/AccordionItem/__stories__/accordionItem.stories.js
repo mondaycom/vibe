@@ -15,12 +15,7 @@ export const Sandbox = () => {
 
   return (
     <div style={{ width, height }}>
-      <AccordionItem
-        id="Knobs"
-        open={isOpen}
-        onClick={onClick}
-        headerComponentRenderer={() => <span>I can be anything</span>}
-      >
+      <AccordionItem id="Knobs" open={isOpen} onClick={onClick} title={"I can be anything"}>
         <h3>Any component you want</h3>
       </AccordionItem>
     </div>
