@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.1 (2021-10-25)
+
+#### Bug Fixes
+* [#299](https://github.com/mondaycom/monday-ui-react-core/pull/299) amitha/feature/combobox-prevent-scroll ([@amit-hanoch](https://github.com/amit-hanoch))
+
+#### Internal Changes
+* [#298](https://github.com/mondaycom/monday-ui-react-core/pull/298) Push tags on release script and update CONTRIBUTING.md ([@sahariko](https://github.com/sahariko))
+
 ## 0.4.0 (2021-10-24)
 
 #### Bug Fixes
