@@ -14,7 +14,7 @@ const ExpandCollapse = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const [isOpen, setIsOpen] = useState(defaultOpenState);
-    const isExpanded = open == null ? isOpen : open;
+    const isExpanded = open === undefined ? isOpen : open;
 
     const toogleExpand = () => {
       setIsOpen(!isOpen);
@@ -99,7 +99,6 @@ ExpandCollapse.defaultProps = {
   defaultOpenState: false,
   iconSize: 24,
   onClick: null,
-  open: false,
   title: ""
 };
 

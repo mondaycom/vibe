@@ -11,7 +11,7 @@ export const Sandbox = () => {
 
   return (
     <div style={{ width, height }}>
-      <Accordion id="Knobs" index={[0]}>
+      <Accordion id="Knobs" defaultIndex={[0]}>
         <AccordionItem title={"I can be anything"}>
           <h3>Any component you want</h3>
         </AccordionItem>
