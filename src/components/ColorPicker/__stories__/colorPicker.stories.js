@@ -1,4 +1,4 @@
-import { boolean, number, optionsKnob, text, array } from "@storybook/addon-knobs";
+import { boolean, number, optionsKnob, text } from "@storybook/addon-knobs";
 import React from "react";
 import { withPerformance } from "storybook-addon-performance";
 import { COLOR_STYLES } from "../../../general-stories/colors/colors-vars-map";
@@ -10,16 +10,20 @@ export const Sandbox = () => {
   const colorStyle = optionsKnob("Color style", COLOR_STYLES, COLOR_STYLES.REGULAR, {
     display: "inline-radio"
   });
+  const colorSize = optionsKnob("Color size", ColorPicker.sizes, ColorPicker.sizes.MEDIUM, {
+    display: "inline-radio"
+  });
+  const numberOfColorsInLine = number("Number of colors in line");
   const noColorText = text("no color text", undefined);
   const shouldRenderIndicatorWithoutBackground = boolean("shouldRenderIndicatorWithoutBackground", false);
   return (
-    <div style={{ width: number("external wrapper width", 240) }}>
-      <ColorPicker
-        colorStyle={colorStyle}
-        noColorText={noColorText}
-        shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
-      />
-    </div>
+    <ColorPicker
+      colorStyle={colorStyle}
+      noColorText={noColorText}
+      shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
+      colorSize={colorSize}
+      numberOfColorsInLine={numberOfColorsInLine}
+    />
   );
 };
 
@@ -28,16 +32,20 @@ export const WithIndicator = () => {
     display: "inline-radio"
   });
   const noColorText = text("no color text", undefined);
+  const colorSize = optionsKnob("Color size", ColorPicker.sizes, ColorPicker.sizes.MEDIUM, {
+    display: "inline-radio"
+  });
+  const numberOfColorsInLine = number("Number of colors in line");
   const shouldRenderIndicatorWithoutBackground = boolean("shouldRenderIndicatorWithoutBackground", false);
   return (
-    <div style={{ width: number("external wrapper width", 240) }}>
-      <ColorPicker
-        colorStyle={colorStyle}
-        ColorIndicatorIcon={TextColorIndicator}
-        noColorText={noColorText}
-        shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
-      />
-    </div>
+    <ColorPicker
+      colorStyle={colorStyle}
+      ColorIndicatorIcon={TextColorIndicator}
+      noColorText={noColorText}
+      shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
+      colorSize={colorSize}
+      numberOfColorsInLine={numberOfColorsInLine}
+    />
   );
 };
 
@@ -48,15 +56,13 @@ export const NoColorIcons = () => {
   const noColorText = text("no color text", "no color");
   const shouldRenderIndicatorWithoutBackground = boolean("shouldRenderIndicatorWithoutBackground", false);
   return (
-    <div style={{ width: number("external wrapper width", 240) }}>
-      <ColorPicker
-        colorStyle={colorStyle}
-        ColorIndicatorIcon={TextColorIndicator}
-        noColorText={noColorText}
-        shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
-        NoColorIcon={Send}
-      />
-    </div>
+    <ColorPicker
+      colorStyle={colorStyle}
+      ColorIndicatorIcon={TextColorIndicator}
+      noColorText={noColorText}
+      shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
+      NoColorIcon={Send}
+    />
   );
 };
 

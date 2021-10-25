@@ -206,7 +206,7 @@ const EditableInput = forwardRef(
         autoComplete={autoComplete ? "on" : "off"}
         rows={rows}
         maxLength={maxLength}
-        ariaLabel={ariaLabel}
+        aria-label={ariaLabel}
       />
     );
   }

@@ -6,15 +6,7 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { baseClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
-const AttentionBox = ({ componentClassName, type, icon, iconType, title, text }) => {
-  const role = useMemo(() => {
-    if (type === ATTENTION_BOX_TYPES.DANGER) {
-      return "alert";
-    }
-
-    return "complementary";
-  }, [type]);
-
+const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, withoutIcon }) => {
   const iconLabel = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
@@ -29,24 +21,28 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text })
 
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
-    <aside className={cx(baseClassName, classNameWithType, componentClassName)} role={role}>
-      <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
-        <Icon
-          iconType={iconType}
-          ariaHidden
-          clickable={false}
-          icon={icon}
-          className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
-          ignoreFocusStyle
-          iconSize="24"
-          iconLabel={iconLabel}
-        />
-        <span
-          className={cx(`${baseClassName}__title-container__title`, `${classNameWithType}__title-container__title`)}
-        >
-          {title}
-        </span>
-      </h2>
+    <aside className={cx(baseClassName, classNameWithType, componentClassName)} role="alert">
+      {title && (
+        <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
+          {!withoutIcon && (
+            <Icon
+              iconType={iconType}
+              ariaHidden
+              clickable={false}
+              icon={icon}
+              className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
+              ignoreFocusStyle
+              iconSize="24"
+              iconLabel={iconLabel}
+            />
+          )}
+          <span
+            className={cx(`${baseClassName}__title-container__title`, `${classNameWithType}__title-container__title`)}
+          >
+            {title}
+          </span>
+        </h2>
+      )}
       <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`)}>{text}</div>
     </aside>
   );
@@ -68,7 +64,8 @@ AttentionBox.propTypes = {
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
+  withoutIcon: PropTypes.bool
 };
 
 AttentionBox.defaultProps = {
@@ -77,7 +74,8 @@ AttentionBox.defaultProps = {
   icon: AlertIcon,
   iconType: Icon.type.SVG,
   title: "",
-  text: ""
+  text: "",
+  withoutIcon: false
 };
 
 export default AttentionBox;

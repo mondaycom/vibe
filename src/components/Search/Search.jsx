@@ -51,7 +51,8 @@ const Search = forwardRef(
       inputAriaLabel,
       searchResultsContainerId,
       activeDescendant,
-      iconNames
+      iconNames,
+      loading
     },
     ref
   ) => {
@@ -84,6 +85,7 @@ const Search = forwardRef(
         iconsNames={iconNames}
         type="search"
         role="search"
+        loading={loading}
       />
     );
   }
@@ -125,7 +127,8 @@ Search.propTypes = {
     layout: PropTypes.string,
     primary: PropTypes.string,
     secondary: PropTypes.string
-  })
+  }),
+  loading: PropTypes.bool
 };
 
 Search.defaultProps = {
@@ -151,7 +154,9 @@ Search.defaultProps = {
   inputAriaLabel: undefined,
   searchResultsContainerId: "",
   activeDescendant: "",
-  iconNames: ICON_NAMES
+  iconNames: ICON_NAMES,
+  /** shows loading animation */
+  loading: false
 };
 
 export default Search;

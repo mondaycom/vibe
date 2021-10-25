@@ -1,21 +1,34 @@
-import React, { useRef, forwardRef, useState, useCallback } from "react";
+import React, { useRef, forwardRef, useState, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { useFocusWithin, useKeyboard } from "@react-aria/interactions";
 import useMergeRefs from "../../../hooks/useMergeRefs";
+import usePrevious from "../../../hooks/usePrevious";
 import "./TabList.scss";
 
 const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, size, children }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-  const [activeTab, setActiveTab] = useState(activeTabId);
+  const [activeTabState, setActiveTabState] = useState(activeTabId);
   const [focusTab, setFocusTab] = useState(-1);
 
-  function onTabSelect(tabId) {
-    setActiveTab(tabId);
-    onTabChange && onTabChange(tabId);
-  }
+  const prevActiveTabIdProp = usePrevious(activeTabId);
+
+  useEffect(() => {
+    // Update active tab if changed from props
+    if (activeTabId !== prevActiveTabIdProp && activeTabId !== activeTabState) {
+      setActiveTabState(activeTabId);
+    }
+  }, [activeTabId, prevActiveTabIdProp, activeTabState, setActiveTabState]);
+
+  const onTabSelect = useCallback(
+    tabId => {
+      setActiveTabState(tabId);
+      onTabChange && onTabChange(tabId);
+    },
+    [onTabChange]
+  );
 
   const onTabClick = useCallback(
     (tabId, tabCallbackFunc) => {
@@ -31,7 +44,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     if (keyCode === 37 || keyCode === 39) {
       // left or right arrow
       if (newFocusTab < 0) {
-        newFocusTab = activeTab;
+        newFocusTab = activeTabState;
       }
     }
 
@@ -56,7 +69,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
 
   const { focusWithinProps } = useFocusWithin({
     onFocusWithin: () => {
-      setFocusTab(activeTab);
+      setFocusTab(activeTabState);
     },
 
     onBlurWithin: () => {
@@ -70,7 +83,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
         {React.Children.map(children, (child, index) => {
           return React.cloneElement(child, {
             value: index,
-            active: activeTab === index,
+            active: activeTabState === index,
             focus: focusTab === index,
             onClick: value => onTabClick(value, child.props.onClick)
           });
@@ -94,7 +107,8 @@ TabList.defaultProps = {
   id: "",
   onTabChange: () => {},
   activeTabId: 0,
-  tabType: "Compact"
+  tabType: "Compact",
+  size: undefined
 };
 
 TabList.isTabList = true;

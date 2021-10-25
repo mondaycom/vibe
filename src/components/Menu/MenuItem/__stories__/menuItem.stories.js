@@ -10,7 +10,7 @@ import StoryLine from "../../../../StoryBookComponents/StoryLink/StoryLine";
 
 import Icon from "../../../Icon/Icon";
 
-import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
+import { Activity, Archive, Settings, Invite, Bolt } from "../../../Icon/Icons";
 
 const DISABLE_REASON = "You can't click me";
 
@@ -208,6 +208,43 @@ export const subSubMenu = () => {
     </div>
   );
 };
+
+export function MenuItemColoredIcon() {
+  return (
+    <Menu tabIndex={0} id="menu-item-color" size={Menu.sizes.SMALL}>
+      <MenuTitle caption="My title" />
+      <MenuDivider />
+      <MenuItem
+        title="My Item (stuck red)"
+        icon={Settings}
+        iconType={Icon.type.SVG}
+        iconBackgroundColor="var(--color-stuck-red)"
+      />
+      <MenuItem
+        title="My Item (done green)"
+        icon={Activity}
+        iconType={Icon.type.SVG}
+        iconBackgroundColor="var(--color-done-green)"
+      />
+      <MenuItem
+        disabled
+        title="My Item (indigo)"
+        icon={Bolt}
+        iconType={Icon.type.SVG}
+        iconBackgroundColor="var(--color-indigo)"
+      />
+    </Menu>
+  );
+}
+
+export const DisabledMenuItem = () => (
+  <Menu tabIndex={0} id="menu-item-disabled" size={Menu.sizes.SMALL}>
+    <MenuTitle caption="My title" />
+    <MenuDivider />
+    <MenuItem disabled title="You can't click me" icon={Activity} iconType={Icon.type.SVG} />
+    <MenuItem disabled title="Because my state is disabled" icon={Settings} iconType={Icon.type.SVG} />
+  </Menu>
+);
 
 export const overflowMenuItem = () => {
   const iconType = select("icon type", { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG }, Icon.type.SVG);

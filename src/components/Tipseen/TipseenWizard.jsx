@@ -9,7 +9,7 @@ import TipseenBasicContent from "./TipseenBasicContent";
 const BASE_CSS_CLASS = "monday-style-tipseen-wizard";
 const bemHelper = BEMClass(BASE_CSS_CLASS);
 
-export const TipseenWizard = ({ title, className, ...stepsProps }) => {
+const TipseenWizard = ({ title, className, ...stepsProps }) => {
   const nextButtonProps = useMemo(
     () => ({
       kind: Button.kinds.PRIMARY,
@@ -37,3 +37,4 @@ export const TipseenWizard = ({ title, className, ...stepsProps }) => {
     </TipseenBasicContent>
   );
 };
+export default TipseenWizard;

@@ -4,7 +4,14 @@ import NOOP from "lodash/noop";
 import cx from "classnames";
 import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
-import { getNormalizedItems, easeInOutQuint, getMaxOffset, getOnItemsRenderedData } from "./virtualized-list-service";
+import {
+  getNormalizedItems,
+  easeInOutQuint,
+  getMaxOffset,
+  getOnItemsRenderedData,
+  isVerticalScrollbarVisible
+} from "./virtualized-list-service";
+import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./VirtualizedList.scss";
@@ -25,7 +32,8 @@ const VirtualizedList = forwardRef(
       onScrollToFinished,
       onItemsRendered,
       onItemsRenderedThrottleMs,
-      onSizeUpdate
+      onSizeUpdate,
+      onVerticalScrollbarVisiblityChange
     },
     ref
   ) => {
@@ -33,8 +41,12 @@ const VirtualizedList = forwardRef(
     const [listHeight, setListHeight] = useState(0);
     const [listWidth, setListWidth] = useState(0);
 
+    // prevs
+    const prevScrollToId = usePrevious(scrollToId);
+
     // Refs
     const componentRef = useRef(null);
+    const isVerticalScrollbarVisibleRef = useRef(null);
     const listRef = useRef(null);
     const scrollTopRef = useRef(0);
     const animationDataRef = useRef({});
@@ -48,11 +60,34 @@ const VirtualizedList = forwardRef(
       animationData.animationStartTime = 0;
     }
 
+    // Callbacks
+    const heightGetter = useCallback(
+      (item, index) => {
+        const height = getItemHeight(item, index);
+        if (height === undefined) {
+          console.error("Couldn't get height for item: ", item);
+        }
+        return height;
+      },
+      [getItemHeight]
+    );
+
+    const idGetter = useCallback(
+      (item, index) => {
+        const itemId = getItemId(item, index);
+        if (itemId === undefined) {
+          console.error("Couldn't get id for item: ", item);
+        }
+        return itemId;
+      },
+      [getItemId]
+    );
+
     // Memos
     // Creates object of itemId => { item, index, height, offsetTop}
     const normalizedItems = useMemo(() => {
-      return getNormalizedItems(items, getItemId, getItemHeight);
-    }, [items, getItemId, getItemHeight]);
+      return getNormalizedItems(items, idGetter, heightGetter);
+    }, [items, idGetter, heightGetter]);
 
     const maxListOffset = useMemo(() => {
       return getMaxOffset(listHeight, normalizedItems);
@@ -85,7 +120,6 @@ const VirtualizedList = forwardRef(
           animateScroll();
         } else {
           animationData.animationStartTime = undefined;
-          animationData.scrollOffsetInitial = animationData.scrollOffsetFinal;
           onScrollToFinished && onScrollToFinished();
         }
       });
@@ -94,8 +128,14 @@ const VirtualizedList = forwardRef(
     const startScrollAnimation = useCallback(
       item => {
         const { offsetTop } = item;
-        if (animationData.animationStartTime || animationData.scrollOffsetFinal === offsetTop) {
-          // animation already in progress or final offset equals to item offset
+        if (animationData.animationStartTime) {
+          // animation already in progress
+          animationData.scrollOffsetFinal = offsetTop;
+          return;
+        }
+        if (animationData.scrollOffsetInitial === offsetTop) {
+          // offset already equals to item offset
+          onScrollToFinished && onScrollToFinished();
           return;
         }
 
@@ -103,7 +143,7 @@ const VirtualizedList = forwardRef(
         animationData.animationStartTime = performance.now();
         animateScroll();
       },
-      [animationData, animateScroll]
+      [animationData, animateScroll, onScrollToFinished]
     );
 
     const rowRenderer = useCallback(
@@ -117,9 +157,9 @@ const VirtualizedList = forwardRef(
     const calcItemHeight = useCallback(
       index => {
         const item = items[index];
-        return getItemHeight(item, index);
+        return heightGetter(item, index);
       },
-      [items, getItemHeight]
+      [items, heightGetter]
     );
 
     const updateListSize = useCallback(
@@ -138,11 +178,10 @@ const VirtualizedList = forwardRef(
     const onItemsRenderedCB = useThrottledCallback(
       ({ visibleStartIndex, visibleStopIndex }) => {
         if (!onItemsRendered) return;
-        // data = { firstItemId, lastItemId, centerItemId }
         const data = getOnItemsRenderedData(
           items,
           normalizedItems,
-          getItemId,
+          idGetter,
           visibleStartIndex,
           visibleStopIndex,
           listHeight,
@@ -151,17 +190,17 @@ const VirtualizedList = forwardRef(
         onItemsRendered(data);
       },
       { wait: onItemsRenderedThrottleMs, trailing: true },
-      [onItemsRendered, items, normalizedItems, getItemId, listHeight]
+      [onItemsRendered, items, normalizedItems, idGetter, listHeight]
     );
 
     // Effects
     useEffect(() => {
       // scroll to specific item
-      if (scrollToId) {
+      if (scrollToId && prevScrollToId !== scrollToId) {
         const item = normalizedItems[scrollToId];
         item && startScrollAnimation(item);
       }
-    }, [scrollToId, startScrollAnimation, normalizedItems]);
+    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems]);
 
     useEffect(() => {
       // recalculate row heights
@@ -169,6 +208,17 @@ const VirtualizedList = forwardRef(
         listRef.current.resetAfterIndex(0);
       }
     }, [normalizedItems]);
+
+    useEffect(() => {
+      // update vertical scrollbar visibility
+      if (onVerticalScrollbarVisiblityChange) {
+        const isVisible = isVerticalScrollbarVisible(items, normalizedItems, idGetter, listHeight);
+        if (isVerticalScrollbarVisibleRef.current !== isVisible) {
+          isVerticalScrollbarVisibleRef.current = isVisible;
+          onVerticalScrollbarVisiblityChange(isVisible);
+        }
+      }
+    }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, listHeight, idGetter]);
 
     return (
       <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id}>
@@ -200,6 +250,7 @@ VirtualizedList.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   items: PropTypes.arrayOf(PropTypes.object),
+  itemRenderer: PropTypes.func,
   getItemHeight: PropTypes.func,
   getItemId: PropTypes.func,
   onScrollToFinished: PropTypes.func,
@@ -207,12 +258,14 @@ VirtualizedList.propTypes = {
   scrollDuration: PropTypes.number,
   onItemsRendered: PropTypes.func,
   onItemsRenderedThrottleMs: PropTypes.number,
-  onSizeUpdate: PropTypes.func
+  onSizeUpdate: PropTypes.func,
+  onVerticalScrollbarVisiblityChange: PropTypes.func
 };
 VirtualizedList.defaultProps = {
   className: "",
   id: "",
   items: [],
+  itemRenderer: (item, _index, _style) => item,
   getItemHeight: (item, _index) => item.height,
   getItemId: (item, _index) => item.id,
   onScrollToFinished: NOOP,
@@ -220,7 +273,8 @@ VirtualizedList.defaultProps = {
   scrollDuration: 200,
   onItemsRendered: null,
   onItemsRenderedThrottleMs: 200,
-  onSizeUpdate: NOOP
+  onSizeUpdate: NOOP,
+  onVerticalScrollbarVisiblityChange: null
 };
 
 export default VirtualizedList;

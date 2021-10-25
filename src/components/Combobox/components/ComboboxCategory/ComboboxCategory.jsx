@@ -10,7 +10,7 @@ const ComboboxCategory = ({ category }) => {
     <div
       key={id}
       role="presentation"
-      ariaLabel={ariaLabel || label}
+      aria-label={ariaLabel || label}
       id={`combobox-category-${id}`}
       className="combobox-category"
     >

@@ -25,8 +25,9 @@ export const Sandbox = () => (
       <MenuButton
         id="Knobs"
         size={select("Size", MenuButton.sizes, MenuButton.sizes.MEDIUM)}
-        closeDialogOnContentClick={boolean("Close Dialog On Content Click", false)}
+        closeDialogOnContentClick={boolean("Close Dialog On Content Click or Enter", false)}
         disabled={boolean("Menu Button Disabled", false)}
+        open={boolean("Open", false)}
         dialogPaddingSize={select("Dialog Padding Size", MenuButton.paddingSizes, MenuButton.paddingSizes.MEDIUM)}
         dialogPosition={select(
           "Dialog Opening Position",
@@ -52,7 +53,7 @@ export const Sandbox = () => (
 
 export const Disabled = () => (
   <div style={{ width: "32px" }}>
-    <MenuButton disabled={true} disabledReason="Something is not right" ariaLabel="chevron menu icon menu button">
+    <MenuButton disabled={true} disabledReason="Something is not right" ariaLabel="chevron menu icon menu button" tooltipReferenceClassName="tooltip-on-span">
       <MenuButtonContent />
     </MenuButton>
   </div>

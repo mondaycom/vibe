@@ -1,5 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { useCallback, useState, useMemo, useRef } from "react";
+import React, { useCallback, useState, useMemo, useRef, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -42,8 +42,10 @@ const MenuButton = ({
   tooltipTriggers,
   tooltipPosition,
   startingEdge,
-  removeTabCloseTrigger
+  removeTabCloseTrigger,
+  tooltipReferenceClassName
 }) => {
+  console.log("open:", open);
   const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
   // const onClick = useCallback(
@@ -65,6 +67,7 @@ const MenuButton = ({
   const onMenuDidClose = useCallback(
     event => {
       if (event && event.key === "Escape") {
+        console.log("did close");
         setIsOpen(false);
         const button = buttonRef.current;
         window.requestAnimationFrame(() => {
@@ -77,6 +80,7 @@ const MenuButton = ({
 
   const onDialogDidHide = useCallback(
     (event, hideEvent) => {
+      console.log("did hide");
       setIsOpen(false);
       onMenuHide();
       const button = buttonRef.current;
@@ -90,6 +94,7 @@ const MenuButton = ({
   );
 
   const onDialogDidShow = useCallback(() => {
+    console.log("did show");
     setIsOpen(true);
     onMenuShow();
   }, [setIsOpen, onMenuShow]);
@@ -103,6 +108,7 @@ const MenuButton = ({
 
     if (closeDialogOnContentClick) {
       triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
+      triggers.add(Dialog.hideShowTriggers.ENTER);
     }
 
     if (removeTabCloseTrigger) {
@@ -152,12 +158,20 @@ const MenuButton = ({
 
   const Icon = component;
   const iconSize = size - 4;
+
+  useLayoutEffect(() => {
+    console.log("use effect");
+    console.log("use effect", open);
+    setIsOpen(open);
+  }, [open, setIsOpen]);
+
   return (
     <Tooltip
       content={disabledReason}
       position={tooltipPosition}
       showTrigger={TOOLTIP_SHOW_TRIGGER}
       hideTrigger={tooltipTriggers}
+      referenceWrapperClassName={tooltipReferenceClassName}
     >
       <Dialog
         wrapperClassName={dialogClassName}
@@ -318,7 +332,11 @@ MenuButton.propTypes = {
   /**
    * the disabled/tooltip position of the menu button - one of the MenuButton.dialogPositions
    */
-  tooltipPosition: PropTypes.oneOf(Object.values(MenuButton.dialogPositions))
+  tooltipPosition: PropTypes.oneOf(Object.values(MenuButton.dialogPositions)),
+  /**
+   * Tooltip Element Wrapper ClassName
+   */
+  tooltipReferenceClassName: PropTypes.string
 };
 MenuButton.defaultProps = {
   id: undefined,
@@ -342,7 +360,8 @@ MenuButton.defaultProps = {
   disabledReason: undefined,
   removeTabCloseTrigger: false,
   tooltipTriggers: [MenuButton.hideTriggers.MOUSE_LEAVE],
-  tooltipPosition: MenuButton.dialogPositions.RIGHT
+  tooltipPosition: MenuButton.dialogPositions.RIGHT,
+  tooltipReferenceClassName: undefined
 };
 
 export default MenuButton;
