@@ -14,7 +14,7 @@ const ComboboxOption = ({
   onOptionLeave,
   onOptionHover,
   optionLineHeight,
-  shouldScrollWhenActive = true
+  shouldScrollWhenActive
 }) => {
   const {
     id,
@@ -114,6 +114,10 @@ const ComboboxOption = ({
 ComboboxOption.iconTypes = {
   DEFAULT: "default",
   RENDERER: "renderer"
+};
+
+ComboboxOption.defaultProps = {
+  shouldScrollWhenActive: true
 };
 
 export default ComboboxOption;
