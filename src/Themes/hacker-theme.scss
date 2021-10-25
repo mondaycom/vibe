@@ -8,6 +8,7 @@ $primary_color: #fe78c6;
   --primary-hover-color: #{darken($primary_color, 6%)};
   --primary-hover-on-secondary-color: #{darken($primary_color, 6%)};
   --primary-selected-color: #9f4077;
+  --primary-selected-color-rgb: 159, 64, 119;
   --primary-selected-on-secondary-color: #9f4077;
   --primary-text-color: #d5d8df;
   --primary-text-on-secondary-color: #d5d8df;
