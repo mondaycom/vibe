@@ -74,7 +74,7 @@ function getNewVersionStrategy(changelogText) {
     return VERSION_STRATEGIES.MINOR;
   }
 
-  if ([CHANGELOG_HEADERS.ICONS, CHANGELOG_HEADERS.BUGS].includes(changelogText)) {
+  if (changelogText.includes(CHANGELOG_HEADERS.ICONS) || changelogText.includes(CHANGELOG_HEADERS.BUGS)) {
     return VERSION_STRATEGIES.PATCH;
   }
 
