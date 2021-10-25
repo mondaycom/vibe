@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.0 (2021-10-25)
+
+#### New Features
+* [#291](https://github.com/mondaycom/monday-ui-react-core/pull/291) Add support for accordion component  ([@adirhaz1z](https://github.com/adirhaz1z))
+
 ## 0.4.1 (2021-10-25)
 
 #### Bug Fixes
