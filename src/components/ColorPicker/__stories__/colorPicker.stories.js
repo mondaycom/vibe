@@ -66,6 +66,7 @@ export const NoColorIcons = () => {
   );
 };
 
+
 export default {
   title: "Components|ColorPicker",
   component: ColorPicker,
