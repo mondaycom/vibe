@@ -46,10 +46,10 @@ We are using [Semantic commits](https://gist.github.com/joshbuchea/6f47e86d2510b
 
 ### Releasing
 
-To release a new version, you'll have to first generate a Github API token, with the `repo` property.
+To release a new version, you can run the ["Release new version" workflow](https://github.com/mondaycom/monday-ui-react-core/actions/workflows/release.yml).
 
-Now you can run:
+If you want to run it locally, you can do so with [Github's CLI](https://cli.github.com/):
 
 ```
-GITHUB_AUTH=your_github_token npm run release
+$ gh workflow run "Release new version"
 ```
