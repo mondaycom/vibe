@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.1 (2021-10-25)
+
+#### Bug Fixes
+* [#300](https://github.com/mondaycom/monday-ui-react-core/pull/300) fix master tests ([@hadasfa](https://github.com/hadasfa))
+
 ## 0.5.0 (2021-10-25)
 
 #### New Features
