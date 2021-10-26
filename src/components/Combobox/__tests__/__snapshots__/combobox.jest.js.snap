@@ -58,12 +58,9 @@ exports[`<Combobox /> renders correctly with empty props 1`] = `
           <span
             aria-hidden={true}
             aria-label="Search"
-            className="monday-style-clickable icon_component input-component__icon icon_component--no-focus-style fa fa-search monday-style-clickable--disable-text-selection"
+            className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
             onClick={[Function]}
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
             role="img"
-            tabIndex="0"
           />
         </div>
         <div
@@ -86,12 +83,9 @@ exports[`<Combobox /> renders correctly with empty props 1`] = `
           <span
             aria-hidden={true}
             aria-label="Clear Search"
-            className="monday-style-clickable icon_component input-component__icon icon_component--no-focus-style fa fa-close monday-style-clickable--disable-text-selection"
+            className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
             onClick={[Function]}
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
             role="img"
-            tabIndex="0"
           />
         </div>
       </div>
@@ -167,12 +161,9 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
           <span
             aria-hidden={true}
             aria-label="Search"
-            className="monday-style-clickable icon_component input-component__icon icon_component--no-focus-style fa fa-search monday-style-clickable--disable-text-selection"
+            className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
             onClick={[Function]}
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
             role="img"
-            tabIndex="0"
           />
         </div>
         <div
@@ -195,12 +186,9 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
           <span
             aria-hidden={true}
             aria-label="Clear Search"
-            className="monday-style-clickable icon_component input-component__icon icon_component--no-focus-style fa fa-close monday-style-clickable--disable-text-selection"
+            className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
             onClick={[Function]}
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
             role="img"
-            tabIndex="0"
           />
         </div>
       </div>
@@ -300,12 +288,9 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
           <span
             aria-hidden={true}
             aria-label="Search"
-            className="monday-style-clickable icon_component input-component__icon icon_component--no-focus-style fa fa-search monday-style-clickable--disable-text-selection"
+            className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
             onClick={[Function]}
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
             role="img"
-            tabIndex="0"
           />
         </div>
         <div
@@ -328,12 +313,9 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
           <span
             aria-hidden={true}
             aria-label="Clear Search"
-            className="monday-style-clickable icon_component input-component__icon icon_component--no-focus-style fa fa-close monday-style-clickable--disable-text-selection"
+            className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
             onClick={[Function]}
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
             role="img"
-            tabIndex="0"
           />
         </div>
       </div>

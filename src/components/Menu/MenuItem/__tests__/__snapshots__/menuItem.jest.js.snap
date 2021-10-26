@@ -126,12 +126,9 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
     <span
       aria-hidden={true}
       aria-label="my item"
-      className="monday-style-clickable icon_component monday-style-menu-item__icon icon_component--no-focus-style fa fa fa-star monday-style-clickable--disable-text-selection"
+      className="icon_component monday-style-menu-item__icon icon_component--no-focus-style fa fa fa-star"
       onClick={[Function]}
-      onKeyDown={[Function]}
-      onMouseDown={[Function]}
       role="img"
-      tabIndex="0"
     />
   </div>
   <div

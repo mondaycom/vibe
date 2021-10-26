@@ -1,7 +1,6 @@
 import React, { forwardRef } from "react";
 import "./FontIcon.scss";
 import classNames from "classnames";
-import Clickable from "../../Clickable/Clickable";
 
 const FontIcon = forwardRef(
   (
@@ -11,18 +10,18 @@ const FontIcon = forwardRef(
     const isIconFunction = typeof icon === "function";
     const iconClassName = isIconFunction ? "" : icon;
     return (
-      <Clickable
-        elementType="span"
-        ariaHidden={ariaHidden}
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+      <span
+        aria-hidden={ariaHidden}
         className={classNames(className, "fa", iconClassName)}
         onClick={onClick}
         ref={iconRef}
-        ariaLabel={iconLabel}
+        aria-label={iconLabel}
         tabIndex={tabIndex}
         role={role}
       >
         {isIconFunction && icon()}
-      </Clickable>
+      </span>
     );
   }
 );
