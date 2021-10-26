@@ -129,7 +129,18 @@ const Combobox = forwardRef(
           />
         );
       });
-    }, [filterdOptions, categories, activeItemIndex, isActiveByKeyboard, onOptionClick, onOptionEnter]);
+    }, [
+      shouldScrollToSelectedItem,
+      optionLineHeight,
+      filterValue,
+      filterdOptions,
+      categories,
+      activeItemIndex,
+      isActiveByKeyboard,
+      onOptionClick,
+      onOptionEnter,
+      onOptionLeave
+    ]);
 
     const onChangeCallback = useCallback(
       value => {

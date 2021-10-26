@@ -1,3 +1,4 @@
+/* eslint-disable react/default-props-match-prop-types,react/require-default-props */
 import React, { useMemo, useState, useRef, useCallback, useEffect } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
@@ -15,6 +16,7 @@ import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
 import HiddenText from "../../../HiddenText/HiddenText";
+import Clickable from "../../../Clickable/Clickable";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
@@ -109,7 +111,8 @@ const StepIndicator = ({
   };
 
   return (
-    <li
+    <Clickable
+      elementType="li"
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
         [baseClassNameWithAnimation]: statusChangeAnimationState,
         clickable: onClick,
@@ -148,7 +151,7 @@ const StepIndicator = ({
         </div>
         <span className={cx(...getClassNamesWithSuffix("__text-container__subtitle__text"))}>{subtitleText}</span>
       </div>
-    </li>
+    </Clickable>
   );
 };
 

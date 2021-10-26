@@ -1,10 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useCallback } from "react";
+import PropTypes from "prop-types";
 import cx from "classnames";
+import NOOP from "lodash/noop";
 import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
 import { getMondayColorAsStyle } from "../../../../utils/colors-utils";
 import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
+import Clickable from "../../../Clickable/Clickable";
 
 const ColorPickerItemComponent = ({
   color,
@@ -21,6 +24,9 @@ const ColorPickerItemComponent = ({
 }) => {
   const colorAsStyle = getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
+
+  const onMouseDown = useCallback(e => e.preventDefault(), []);
+  const onClick = useCallback(() => onValueChange(color), [onValueChange, color]);
 
   useEffect(() => {
     if (!itemRef || !itemRef.current || shouldRenderIndicatorWithoutBackground) return;
@@ -53,23 +59,31 @@ const ColorPickerItemComponent = ({
           "selected-color": value === colorAsStyle
         })}
       >
-        <div
+        <Clickable
           ref={itemRef}
           aria-label={color}
           className={cx("color-item", `color-item-size-${colorSize}`, {
             "color-item-text-mode": shouldRenderIndicatorWithoutBackground
           })}
           style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
-          onClick={() => onValueChange && onValueChange(color)}
-          onMouseDown={e => e.preventDefault()} // this is for quill to not lose the selection
+          onClick={onClick}
+          onMouseDown={onMouseDown} // this is for quill to not lose the selection
         >
           <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
             {shouldRenderIcon && <Icon icon={shouldRenderSelectedIcon ? SelectedIndicatorIcon : ColorIndicatorIcon} />}
           </div>
-        </div>
+        </Clickable>
       </div>
     </Tooltip>
   );
+};
+
+ColorPickerItemComponent.propTypes = {
+  onValueChange: PropTypes.func
+};
+
+ColorPickerItemComponent.defaultProps = {
+  onValueChange: NOOP
 };
 
 export default ColorPickerItemComponent;

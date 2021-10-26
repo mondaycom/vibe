@@ -4,6 +4,7 @@ import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing";
 import "./ComboboxOption.scss";
+import { keyCodes } from "../../../../constants/KeyCodes";
 
 const ComboboxOption = ({
   index,
@@ -39,7 +40,7 @@ const ComboboxOption = ({
     if (isActive && element && shouldScrollWhenActive) {
       element.scrollIntoView({ behaviour: "smooth" });
     }
-  }, [ref, isActive]);
+  }, [ref, isActive, shouldScrollWhenActive]);
 
   const renderIcon = (icon, iconType, className) => {
     if (iconType === ComboboxOption.iconTypes.RENDERER) {
@@ -81,6 +82,15 @@ const ComboboxOption = ({
     [index, option, onOptionHover, disabled]
   );
 
+  const onKeyDown = useCallback(
+    event => {
+      if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
+        onOptionClick(event, index, option, false);
+      }
+    },
+    [onOptionClick, index, option]
+  );
+
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <Tooltip content={isOptionOverflowing ? label : null}>
@@ -88,10 +98,13 @@ const ComboboxOption = ({
         ref={ref}
         key={id || label}
         role="option"
+        aria-selected={isActive}
+        tabIndex="-1"
         aria-label={ariaLabel || label}
         id={`combobox-item-${index}`}
         onMouseEnter={onMouseEnter}
         onClick={onClick}
+        onKeyDown={onKeyDown}
         onMouseLeave={onMouseLEave}
         className={cx("combobox-option", {
           disabled,

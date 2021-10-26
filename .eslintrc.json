@@ -45,7 +45,8 @@
       {
         "required": {
           "some": ["nesting", "id"]
-        }
+        },
+        "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
       }
     ],
     "jsx-a11y/role-has-required-aria-props": "warn",

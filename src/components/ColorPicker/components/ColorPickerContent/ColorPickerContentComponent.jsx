@@ -119,7 +119,8 @@ ColorPickerContentComponent.propTypes = {
     ColorPickerContentComponent.sizes.MEDIUM,
     ColorPickerContentComponent.sizes.LARGE
   ]),
-  numberOfColorsInLine: PropTypes.number
+  numberOfColorsInLine: PropTypes.number,
+  tooltipContentByColor: PropTypes.object
 };
 
 ColorPickerContentComponent.defaultProps = {
