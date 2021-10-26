@@ -233,11 +233,12 @@ const input = () => provided => ({
   textIndent: "-2px"
 });
 
+// 12px - because we have inner 4px
 const getCenterContentStyle = rtl => {
   return {
     display: "flex",
     alignItems: "center",
-    [`padding${rtl ? "Right" : "Left"}`]: "10px"
+    [`padding${rtl ? "Right" : "Left"}`]: "12px"
   };
 };
 
