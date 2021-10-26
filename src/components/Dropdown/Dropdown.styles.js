@@ -193,11 +193,20 @@ const clearIndicator = ({ size }) => () => ({
   }
 });
 
-const singleValue = () => (provided, { isDisabled }) => ({
+const menuOpenOpacity = ({ menuIsOpen }) => {
+  if (menuIsOpen) {
+    return {
+      opacity: 0.6
+    };
+  }
+};
+
+const singleValue = () => (provided, { isDisabled, selectProps }) => ({
   ...provided,
   ...getFont(),
   ...getColor(),
   ...disabledContainerStyle(isDisabled),
+  ...menuOpenOpacity(selectProps),
   display: "flex",
   alignItems: "center",
   height: "100%"
@@ -224,11 +233,12 @@ const input = () => provided => ({
   textIndent: "-2px"
 });
 
+// 12px - because we have inner 4px
 const getCenterContentStyle = rtl => {
   return {
     display: "flex",
     alignItems: "center",
-    [`padding${rtl ? "Right" : "Left"}`]: "16px"
+    [`padding${rtl ? "Right" : "Left"}`]: "12px"
   };
 };
 

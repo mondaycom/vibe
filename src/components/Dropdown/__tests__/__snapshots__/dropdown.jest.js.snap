@@ -24,7 +24,7 @@ exports[`Dropdown should open menu on click if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-q81peh-Component"
+        class=" css-1ht1nal-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
@@ -163,7 +163,7 @@ exports[`Dropdown should open menu on focus if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-q81peh-Component"
+        class=" css-1ht1nal-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
@@ -237,7 +237,7 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
       class=" css-ng27sg-control"
     >
       <div
-        class=" css-1k4v80n-Component"
+        class=" css-rxqqti-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
@@ -311,7 +311,7 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
       class=" css-132xx32-control"
     >
       <div
-        class=" css-q81peh-Component"
+        class=" css-1ht1nal-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
@@ -385,7 +385,7 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
       class=" css-veeint-control"
     >
       <div
-        class=" css-qq27oj-Component"
+        class=" css-18qqyiw-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
@@ -459,7 +459,7 @@ exports[`Dropdown should render correctly with empty props 1`] = `
       class=" css-132xx32-control"
     >
       <div
-        class=" css-q81peh-Component"
+        class=" css-1ht1nal-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
@@ -548,7 +548,7 @@ exports[`Dropdown should use async if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-q81peh-Component"
+        class=" css-1ht1nal-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
@@ -651,7 +651,7 @@ exports[`Dropdown should use virtualization if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-q81peh-Component"
+        class=" css-1ht1nal-Component"
       >
         <div
           class=" css-1dtegfv-placeholder"
