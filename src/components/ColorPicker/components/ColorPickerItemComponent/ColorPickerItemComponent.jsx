@@ -61,7 +61,7 @@ const ColorPickerItemComponent = ({
       >
         <Clickable
           ref={itemRef}
-          aria-label={color}
+          ariaLabel={color}
           className={cx("color-item", `color-item-size-${colorSize}`, {
             "color-item-text-mode": shouldRenderIndicatorWithoutBackground
           })}
