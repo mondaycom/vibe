@@ -71,7 +71,7 @@ const ColorPickerItemComponent = ({
           onMouseDown={onMouseDown} // this is for quill to not lose the selection
         >
           <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
-            {shouldRenderIcon && <Icon icon={shouldRenderSelectedIcon ? SelectedIndicatorIcon : ColorIndicatorIcon} />}
+            {shouldRenderIcon && <Icon icon={shouldRenderSelectedIcon ? SelectedIndicatorIcon : ColorIndicatorIcon} ignoreFocusStyle/>}
           </div>
         </Clickable>
       </div>
