@@ -13,7 +13,20 @@ const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 const Clickable = forwardRef(
   (
-    { elementType, className, id, children, role, onClick, enableTextSelection, ariaLabel, onMouseDown, ariaHidden },
+    {
+      elementType,
+      className,
+      id,
+      children,
+      role,
+      onClick,
+      enableTextSelection,
+      ariaLabel,
+      onMouseDown,
+      ariaHidden,
+      tabIndex,
+      style
+    },
     ref
   ) => {
     const componentRef = useRef(null);
@@ -30,10 +43,11 @@ const Clickable = forwardRef(
         onClick={onClick}
         id={id}
         onKeyDown={onKeyDown}
-        tabIndex={0}
+        tabIndex={tabIndex}
         aria-label={ariaLabel}
         aria-hidden={ariaHidden}
         onMouseDown={onMouseDown}
+        style={style}
       >
         {children}
       </Element>
@@ -57,7 +71,9 @@ Clickable.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   enableTextSelection: PropTypes.bool,
   elementType: PropTypes.string,
-  ariaHidden: PropTypes.bool
+  ariaHidden: PropTypes.bool,
+  tabIndex: PropTypes.string,
+  style: PropTypes.object
 };
 Clickable.defaultProps = {
   className: "",
@@ -69,7 +85,9 @@ Clickable.defaultProps = {
   children: undefined,
   enableTextSelection: false,
   elementType: "div",
-  ariaHidden: undefined
+  ariaHidden: undefined,
+  tabIndex: "0",
+  style: undefined
 };
 
 export default Clickable;

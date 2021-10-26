@@ -112,6 +112,7 @@ const StepIndicator = ({
 
   return (
     <Clickable
+      tabIndex="-1"
       elementType="li"
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
         [baseClassNameWithAnimation]: statusChangeAnimationState,

@@ -67,6 +67,7 @@ const ColorPickerItemComponent = ({
           })}
           style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
           onClick={onClick}
+          tabIndex="-1"
           onMouseDown={onMouseDown} // this is for quill to not lose the selection
         >
           <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
