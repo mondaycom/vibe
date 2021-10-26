@@ -10,7 +10,7 @@ exports[`MultiStepIndicator Render tests Render correctly with clickable steps 1
     onKeyDown={[Function]}
     onMouseDown={[Function]}
     role="button"
-    tabIndex={0}
+    tabIndex="-1"
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
@@ -77,7 +77,7 @@ exports[`MultiStepIndicator Render tests Render correctly with clickable steps 1
     onKeyDown={[Function]}
     onMouseDown={[Function]}
     role="button"
-    tabIndex={0}
+    tabIndex="-1"
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
@@ -129,7 +129,7 @@ exports[`MultiStepIndicator Render tests Render correctly with clickable steps 1
     onKeyDown={[Function]}
     onMouseDown={[Function]}
     role="button"
-    tabIndex={0}
+    tabIndex="-1"
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
@@ -191,7 +191,7 @@ exports[`MultiStepIndicator Render tests Renders correctly with non-default prop
     onKeyDown={[Function]}
     onMouseDown={[Function]}
     role="button"
-    tabIndex={0}
+    tabIndex="-1"
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
@@ -258,7 +258,7 @@ exports[`MultiStepIndicator Render tests Renders correctly with non-default prop
     onKeyDown={[Function]}
     onMouseDown={[Function]}
     role="button"
-    tabIndex={0}
+    tabIndex="-1"
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
@@ -310,7 +310,7 @@ exports[`MultiStepIndicator Render tests Renders correctly with non-default prop
     onKeyDown={[Function]}
     onMouseDown={[Function]}
     role="button"
-    tabIndex={0}
+    tabIndex="-1"
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
