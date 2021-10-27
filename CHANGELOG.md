@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.4 (2021-10-27)
+
+#### Bug Fixes
+* [#304](https://github.com/mondaycom/monday-ui-react-core/pull/304) fix: clean lint erros and remove not needed component ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 0.5.3 (2021-10-26)
 
 #### Bug Fixes
