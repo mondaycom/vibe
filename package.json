@@ -164,18 +164,6 @@
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [ci-skip]"
   },
-  "browserslist": [
-    "last 4 versions and >0.1%",
-    "Firefox ESR",
-    "not IE 11",
-    "Edge 18",
-    "not dead",
-    "not Samsung > 0",
-    "not op_mini all",
-    "not and_ff > 0",
-    "not and_qq > 0",
-    "not and_uc > 0"
-  ],
   "changelog": {
     "labels": {
       "PR: Bugfix 🐛": "Bug Fixes",
