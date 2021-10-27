@@ -46,7 +46,8 @@ AccordionItem.defaultProps = {
   className: "",
   id: undefined,
   iconSize: 24,
-  title: ""
+  title: "",
+  children: null
 };
 
 export default AccordionItem;

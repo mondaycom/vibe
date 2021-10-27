@@ -27,6 +27,7 @@ const ExpandCollapse = forwardRef(
       <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)} id={id}>
         <div className="expand-collapse">
           <button
+            type="button"
             className={cx("expand-collapse__header", "expand-collapse__section", {
               "expand-collapse__header--open": isExpanded
             })}
@@ -99,7 +100,10 @@ ExpandCollapse.defaultProps = {
   defaultOpenState: false,
   iconSize: 24,
   onClick: null,
-  title: ""
+  title: "",
+  headerComponentRenderer: null,
+  children: null,
+  open: undefined
 };
 
 export default ExpandCollapse;

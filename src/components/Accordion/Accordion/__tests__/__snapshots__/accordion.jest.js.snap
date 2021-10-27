@@ -19,6 +19,7 @@ exports[`Accordion snapshot tests renders correctly with accordion items 1`] = `
           aria-expanded={false}
           className="expand-collapse__header expand-collapse__section"
           onClickCapture={[Function]}
+          type="button"
         >
           <svg
             aria-hidden={true}
@@ -56,6 +57,7 @@ exports[`Accordion snapshot tests renders correctly with accordion items 1`] = `
           aria-expanded={false}
           className="expand-collapse__header expand-collapse__section"
           onClickCapture={[Function]}
+          type="button"
         >
           <svg
             aria-hidden={true}
@@ -93,6 +95,7 @@ exports[`Accordion snapshot tests renders correctly with accordion items 1`] = `
           aria-expanded={false}
           className="expand-collapse__header expand-collapse__section"
           onClickCapture={[Function]}
+          type="button"
         >
           <svg
             aria-hidden={true}
@@ -137,6 +140,7 @@ exports[`Accordion snapshot tests renders correctly with defaultIndex prop 1`] =
           aria-expanded={true}
           className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
+          type="button"
         >
           <svg
             aria-hidden={true}
@@ -179,6 +183,7 @@ exports[`Accordion snapshot tests renders correctly with defaultIndex prop 1`] =
           aria-expanded={false}
           className="expand-collapse__header expand-collapse__section"
           onClickCapture={[Function]}
+          type="button"
         >
           <svg
             aria-hidden={true}
@@ -216,6 +221,7 @@ exports[`Accordion snapshot tests renders correctly with defaultIndex prop 1`] =
           aria-expanded={true}
           className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
+          type="button"
         >
           <svg
             aria-hidden={true}

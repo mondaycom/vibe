@@ -7,8 +7,10 @@ const FontIcon = forwardRef(
     { className, onClick, "aria-label": iconLabel, tabIndex, icon, role = "img", "aria-hidden": ariaHidden },
     iconRef
   ) => {
-    const iconClassName = typeof icon === "function" ? "" : icon;
+    const isIconFunction = typeof icon === "function";
+    const iconClassName = isIconFunction ? "" : icon;
     return (
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <span
         aria-hidden={ariaHidden}
         className={classNames(className, "fa", iconClassName)}
@@ -18,7 +20,7 @@ const FontIcon = forwardRef(
         tabIndex={tabIndex}
         role={role}
       >
-        {typeof icon === "function" && icon()}
+        {isIconFunction && icon()}
       </span>
     );
   }

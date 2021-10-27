@@ -28,14 +28,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="grass_green"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-grass_green)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -48,14 +51,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="done-green"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-done-green)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -68,14 +74,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="bright-green"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-bright-green)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -88,14 +97,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="saladish"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-saladish)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -108,14 +120,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="egg_yolk"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-egg_yolk)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -128,14 +143,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="working_orange"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-working_orange)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -148,14 +166,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="dark-orange"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-dark-orange)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -168,14 +189,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="peach"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-peach)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -188,14 +212,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="sunset"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-sunset)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -208,14 +235,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="stuck-red"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-stuck-red)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -228,14 +258,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="dark-red"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-dark-red)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -248,14 +281,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="sofia_pink"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-sofia_pink)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -268,14 +304,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="lipstick"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-lipstick)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -288,14 +327,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="bubble"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-bubble)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -308,14 +350,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="purple"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-purple)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -328,14 +373,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="dark_purple"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-dark_purple)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -348,14 +396,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="berry"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-berry)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -368,14 +419,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="dark_indigo"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-dark_indigo)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -388,14 +442,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="indigo"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-indigo)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -408,14 +465,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="navy"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-navy)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -428,14 +488,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="bright-blue"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-bright-blue)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -448,14 +511,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="dark-blue"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-dark-blue)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -468,14 +534,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="aquamarine"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-aquamarine)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -488,14 +557,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="chili-blue"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-chili-blue)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -508,14 +580,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="river"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-river)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -528,14 +603,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="winter"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-winter)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -548,14 +626,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="explosive"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-explosive)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -568,14 +649,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="american_gray"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-american_gray)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -588,14 +672,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="blackish"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-blackish)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -608,14 +695,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="brown"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-brown)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -628,14 +718,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="orchid"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-orchid)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -648,14 +741,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="tan"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-tan)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -668,14 +764,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="sky"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-sky)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -688,14 +787,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="coffee"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-coffee)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -708,14 +810,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="royal"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-royal)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -728,14 +833,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="teal"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-teal)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -748,14 +856,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="lavender"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-lavender)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -768,14 +879,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="steel"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-steel)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -788,14 +902,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="lilac"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-lilac)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"
@@ -808,14 +925,17 @@ exports[`renders correctly with empty props 1`] = `
       >
         <div
           aria-label="pecan"
-          className="color-item color-item-size-medium"
+          className="monday-style-clickable color-item color-item-size-medium monday-style-clickable--disable-text-selection"
           onClick={[Function]}
+          onKeyDown={[Function]}
           onMouseDown={[Function]}
+          role="button"
           style={
             Object {
               "background": "var(--color-pecan)",
             }
           }
+          tabIndex="-1"
         >
           <div
             className="color-indicator-wrapper"

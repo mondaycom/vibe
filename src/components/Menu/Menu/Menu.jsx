@@ -117,6 +117,7 @@ const Menu = forwardRef(
     });
 
     return (
+      // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
       <ul
         onFocus={focusWithinProps.onFocus}
         onBlur={focusWithinProps.onBlur}
