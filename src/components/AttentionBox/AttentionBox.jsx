@@ -2,11 +2,12 @@ import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
+import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
-import { baseClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
+import { baseClassName, dismissClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
-const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, withoutIcon }) => {
+const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, withoutIcon, onDismiss, compact }) => {
   const iconLabel = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
@@ -21,7 +22,16 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
 
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
-    <aside className={cx(baseClassName, classNameWithType, componentClassName)} role="alert">
+    <aside
+      className={cx(
+        baseClassName,
+        classNameWithType,
+        { [compactClassName]: compact },
+        { [dismissClassName]: onDismiss },
+        componentClassName
+      )}
+      role="alert"
+    >
       {title && (
         <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
           {!withoutIcon && (
@@ -44,6 +54,16 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
         </h2>
       )}
       <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`)}>{text}</div>
+      {onDismiss && (
+        <Icon
+          iconType={Icon.type.SVG}
+          icon={CloseSmall}
+          className={cx(`${baseClassName}__dissmiss-icon`, { [compactClassName]: compact })}
+          ignoreFocusStyle
+          onClick={onDismiss}
+          iconSize="24"
+        />
+      )}
     </aside>
   );
 };
@@ -65,7 +85,9 @@ AttentionBox.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string,
   text: PropTypes.string,
-  withoutIcon: PropTypes.bool
+  withoutIcon: PropTypes.bool,
+  compact: PropTypes.bool,
+  onDismiss: PropTypes.func
 };
 
 AttentionBox.defaultProps = {
@@ -75,7 +97,9 @@ AttentionBox.defaultProps = {
   iconType: Icon.type.SVG,
   title: "",
   text: "",
-  withoutIcon: false
+  withoutIcon: false,
+  compact: false,
+  onDismiss: () => {}
 };
 
 export default AttentionBox;

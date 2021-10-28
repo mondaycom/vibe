@@ -2,6 +2,7 @@
 @import "../../styles/typography.scss";
 
 .monday-style-attention-box-component {
+  position: relative;
   padding: $spacing-large;
   border-radius: $border-radius-medium;
   font-size: $font-size-input;
@@ -71,6 +72,20 @@
     &__title {
       font-size: 18px;
       font-weight: 500;
+    }
+  }
+
+  &.with-dismiss {
+    padding: $spacing-large $spacing-xxl $spacing-large $spacing-large;
+  }
+
+  &__dissmiss-icon {
+    position: absolute;
+    top: $spacing-small-medium;
+    right: $spacing-small-medium;
+
+    &.compact{
+      top: calc(50% - 12px);
     }
   }
 }

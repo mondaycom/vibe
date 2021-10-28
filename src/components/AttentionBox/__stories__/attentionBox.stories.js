@@ -26,7 +26,9 @@ export const Sandbox = () => {
           },
           ATTENTION_BOX_TYPES.PRIMARY
         )}
-        withoutIcon ={boolean("Without icon", false)}
+        withoutIcon={boolean("Without icon", false)}
+        compact={boolean("Compact", false)}
+        onDismiss={boolean("Does have onDismiss callback", false)}
       />
     </StoryWrapper>
   );
