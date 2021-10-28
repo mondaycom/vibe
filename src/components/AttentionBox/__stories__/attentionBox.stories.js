@@ -30,7 +30,7 @@ export const Sandbox = () => {
         )}
         withoutIcon={boolean("Without icon", false)}
         compact={boolean("Compact", false)}
-        onDismiss={shouldOnDismiss && (() => {})}
+        onDismiss={shouldOnDismiss ? () => {} : undefined}
       />
     </StoryWrapper>
   );
