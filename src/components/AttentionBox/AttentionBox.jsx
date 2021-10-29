@@ -1,12 +1,25 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
+import { NOOP } from "../../utils/function-utils";
+import Close from "../Icon/Icons/components/Close";
 import AlertIcon from "../Icon/Icons/components/Alert";
+import Button from "../Button/Button";
 import { baseClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
-const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, withoutIcon }) => {
+const AttentionBox = ({
+  componentClassName,
+  type,
+  icon,
+  iconType,
+  title,
+  text,
+  withoutIcon,
+  withHideIcon,
+  onHideIconClick
+}) => {
   const iconLabel = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
@@ -19,9 +32,34 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
     return "attention";
   }, [type]);
 
+  const renderHideButton = useCallback(() => {
+    if (!withHideIcon) return null;
+
+    return (
+      <Button
+        className={`${baseClassName}__close-button`}
+        onClick={onHideIconClick}
+        size={Button.sizes.SMALL}
+        kind={Button.kinds.TERTIARY}
+        ariaLabel="hide"
+      >
+        <Icon
+          iconType={Icon.type.SVG}
+          ariaHidden
+          clickable={false}
+          icon={Close}
+          ignoreFocusStyle
+          iconSize="16"
+          iconLabel={iconLabel}
+        />
+      </Button>
+    );
+  }, [iconLabel, onHideIconClick, withHideIcon]);
+
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
     <aside className={cx(baseClassName, classNameWithType, componentClassName)} role="alert">
+      {renderHideButton()}
       {title && (
         <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
           {!withoutIcon && (
@@ -65,7 +103,9 @@ AttentionBox.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string,
   text: PropTypes.string,
-  withoutIcon: PropTypes.bool
+  withoutIcon: PropTypes.bool,
+  withHideIcon: PropTypes.bool,
+  onHideIconClick: PropTypes.func
 };
 
 AttentionBox.defaultProps = {
@@ -75,7 +115,9 @@ AttentionBox.defaultProps = {
   iconType: Icon.type.SVG,
   title: "",
   text: "",
-  withoutIcon: false
+  withoutIcon: false,
+  withHideIcon: false,
+  onHideIconClick: NOOP
 };
 
 export default AttentionBox;

@@ -8,6 +8,8 @@
   width: fit-content;
   height: fit-content;
   @include theme-prop(color, dark-color);
+  position: relative;
+
   &__text,
   &__title-container {
     @include theme-prop(color, primary-text-color);
@@ -72,5 +74,11 @@
       font-size: 18px;
       font-weight: 500;
     }
+  }
+
+  &__close-button {
+    position: absolute;
+    right: 8px;
+    top: 8px;
   }
 }

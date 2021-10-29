@@ -27,6 +27,7 @@ export const Sandbox = () => {
           ATTENTION_BOX_TYPES.PRIMARY
         )}
         withoutIcon ={boolean("Without icon", false)}
+        withHideIcon ={boolean("With hide icon", false)}
       />
     </StoryWrapper>
   );
