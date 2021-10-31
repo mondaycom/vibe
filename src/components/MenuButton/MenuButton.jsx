@@ -323,6 +323,7 @@ MenuButton.propTypes = {
    */
   text: PropTypes.string,
   disabled: PropTypes.bool,
+  tooltipContent: PropTypes.string,
   /**
     Remove "Tab" key from the hide trigger
    */
@@ -361,6 +362,7 @@ MenuButton.defaultProps = {
   onMenuHide: NOOP,
   disabled: false,
   text: undefined,
+  tooltipContent: undefined,
   removeTabCloseTrigger: false,
   tooltipTriggers: [MenuButton.hideTriggers.MOUSE_LEAVE],
   tooltipPosition: MenuButton.dialogPositions.RIGHT,
