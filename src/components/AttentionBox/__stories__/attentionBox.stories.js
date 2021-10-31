@@ -11,7 +11,7 @@ const ATTENTION_BOX_TITLE = "Attention box title";
 const ATTENTION_BOX_TEXT = "Studies show that 100% of people who celebrate birthdays, will eventually die.";
 
 export const Sandbox = () => {
-  const shouldOnDismiss = boolean("Does have onDismiss callback", false);
+  const shouldOnClose = boolean("Does have onClose callback", false);
 
   return (
     <StoryWrapper>
@@ -30,7 +30,7 @@ export const Sandbox = () => {
         )}
         withoutIcon={boolean("Without icon", false)}
         compact={boolean("Compact", false)}
-        onClose={shouldOnDismiss ? () => {} : undefined}
+        onClose={shouldOnClose ? () => {} : undefined}
       />
     </StoryWrapper>
   );

@@ -4,7 +4,7 @@ import cx from "classnames";
 import Icon from "../Icon/Icon";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
-import { baseClassName, dismissClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
+import { baseClassName, closeClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
 const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, withoutIcon, onClose, compact }) => {
@@ -27,7 +27,7 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
         baseClassName,
         classNameWithType,
         { [compactClassName]: compact },
-        { [dismissClassName]: onClose },
+        { [closeClassName]: onClose },
         componentClassName
       )}
       role="alert"
@@ -59,7 +59,7 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
           iconType={Icon.type.SVG}
           iconLabel="Close"
           icon={CloseSmall}
-          className={cx(`${baseClassName}__dissmiss-icon`, { [compactClassName]: compact })}
+          className={cx(`${baseClassName}__close-icon`, { [compactClassName]: compact })}
           ignoreFocusStyle
           onClick={onClose}
           iconSize="24"
@@ -100,7 +100,7 @@ AttentionBox.defaultProps = {
   text: "",
   withoutIcon: false,
   compact: false,
-  onClose: () => {}
+  onClose: undefined
 };
 
 export default AttentionBox;

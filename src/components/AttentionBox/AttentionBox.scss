@@ -75,11 +75,11 @@
     }
   }
 
-  &.with-dismiss {
+  &.with-close {
     padding: $spacing-large $spacing-xxl $spacing-large $spacing-large;
   }
 
-  &__dissmiss-icon {
+  &__close-icon {
     position: absolute;
     top: $spacing-small-medium;
     right: $spacing-small-medium;
