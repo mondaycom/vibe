@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.5.4 (2021-10-27)
+
+#### Bug Fixes
+* [#304](https://github.com/mondaycom/monday-ui-react-core/pull/304) fix: clean lint erros and remove not needed component ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 0.5.3 (2021-10-26)
+
+#### Bug Fixes
+* [#303](https://github.com/mondaycom/monday-ui-react-core/pull/303) opacity and padding fix ([@ronachmany-monday](https://github.com/ronachmany-monday))
+
+#### Internal Changes
+* [#302](https://github.com/mondaycom/monday-ui-react-core/pull/302) Bump patch version for dependency upgrades ([@sahariko](https://github.com/sahariko))
+
+## 0.5.2 (2021-10-26)
+
+#### New Icons
+* [#301](https://github.com/mondaycom/monday-ui-react-core/pull/301) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 0.5.1 (2021-10-25)
+
+#### Bug Fixes
+* [#300](https://github.com/mondaycom/monday-ui-react-core/pull/300) fix master tests ([@hadasfa](https://github.com/hadasfa))
+
 ## 0.5.0 (2021-10-25)
 
 #### New Features

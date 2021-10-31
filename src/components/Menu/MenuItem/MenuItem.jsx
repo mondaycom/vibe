@@ -155,7 +155,7 @@ const MenuItem = ({
           { color: "var(--text-color-on-primary)" }
         ]
       : [undefined, undefined];
-  }, [iconBackgroundColor]);
+  }, [iconBackgroundColor, disabled]);
 
   const renderMenuItemIconIfNeeded = () => {
     if (!icon) return null;
@@ -192,6 +192,7 @@ const MenuItem = ({
   const tooltipContent = disabled ? disableReason : title;
 
   return (
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <li
       id={`${menuId}-${index}`}
       {...a11yProps}

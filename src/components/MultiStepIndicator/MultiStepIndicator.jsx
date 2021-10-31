@@ -1,4 +1,5 @@
-import React, { useRef, forwardRef, useMemo } from "react";
+/* eslint-disable react/require-default-props */
+import React, { useRef, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -31,9 +32,42 @@ const MultiStepIndicator = forwardRef(
     const baseClassName = "multi-step-indicator--wrapper";
     const defaultDividerClassName = `${baseClassName}__divider`;
 
-    const renderHorizontalStepIndicator = (step, index) => {
-      return (
-        <>
+    const renderHorizontalStepIndicator = useCallback(
+      (step, index) => {
+        return (
+          <>
+            <StepIndicator
+              {...step}
+              stepNumber={index + 1}
+              type={type}
+              stepComponentClassName={stepComponentClassName}
+              fulfilledStepIcon={fulfilledStepIcon}
+              fulfilledStepIconType={fulfilledStepIconType}
+              onClick={onClick}
+              isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
+            />
+            {index !== steps.length - 1 && (
+              <Divider classname={cx(defaultDividerClassName, dividerComponentClassName)} />
+            )}
+          </>
+        );
+      },
+      [
+        onClick,
+        isFulfilledStepDisplayNumber,
+        type,
+        stepComponentClassName,
+        fulfilledStepIcon,
+        fulfilledStepIconType,
+        dividerComponentClassName,
+        defaultDividerClassName,
+        steps.length
+      ]
+    );
+
+    const renderVerticalStepIndicator = useCallback(
+      (step, index) => {
+        return (
           <StepIndicator
             {...step}
             stepNumber={index + 1}
@@ -42,30 +76,25 @@ const MultiStepIndicator = forwardRef(
             fulfilledStepIcon={fulfilledStepIcon}
             fulfilledStepIconType={fulfilledStepIconType}
             onClick={onClick}
+            isFollowedByDivider={index !== steps.length - 1}
+            stepDividerClassName={cx(defaultDividerClassName, dividerComponentClassName)}
+            isVertical={true}
             isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
           />
-          {index !== steps.length - 1 && <Divider classname={cx(defaultDividerClassName, dividerComponentClassName)} />}
-        </>
-      );
-    };
-
-    const renderVerticalStepIndicator = (step, index) => {
-      return (
-        <StepIndicator
-          {...step}
-          stepNumber={index + 1}
-          type={type}
-          stepComponentClassName={stepComponentClassName}
-          fulfilledStepIcon={fulfilledStepIcon}
-          fulfilledStepIconType={fulfilledStepIconType}
-          onClick={onClick}
-          isFollowedByDivider={index !== steps.length - 1}
-          stepDividerClassName={cx(defaultDividerClassName, dividerComponentClassName)}
-          isVertical={true}
-          isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
-        />
-      );
-    };
+        );
+      },
+      [
+        onClick,
+        isFulfilledStepDisplayNumber,
+        type,
+        stepComponentClassName,
+        fulfilledStepIcon,
+        fulfilledStepIconType,
+        dividerComponentClassName,
+        defaultDividerClassName,
+        steps.length
+      ]
+    );
 
     const stepRenderer = useMemo(
       () => (textPlacement === TEXT_PLACEMENTS.VERTICAL ? renderVerticalStepIndicator : renderHorizontalStepIndicator),
@@ -129,6 +158,7 @@ MultiStepIndicator.defaultProps = {
   stepComponentClassName: "",
   dividerComponentClassName: "",
   type: MultiStepIndicator.types.PRIMARY,
+  // eslint-disable-next-line react/default-props-match-prop-types
   steps: [],
   fulfilledStepIcon: Check,
   fulfilledStepIconType: Icon.type.SVG,

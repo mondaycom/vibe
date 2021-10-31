@@ -50,29 +50,12 @@ const MenuButton = ({
   removeTabCloseTrigger,
   tooltipReferenceClassName
 }) => {
-  console.log("open:", open);
   const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
-  // const onClick = useCallback(
-  //   event => {
-  //     if (disabled) {
-  //       return;
-  //     }
-  //
-  //     if (isOpen) {
-  //       event.preventDefault();
-  //       event.stopPropagation();
-  //       return;
-  //     }
-  //     setIsOpen(true);
-  //   },
-  //   [setIsOpen, isOpen, disabled]
-  // );
 
   const onMenuDidClose = useCallback(
     event => {
       if (event && event.key === "Escape") {
-        console.log("did close");
         setIsOpen(false);
         const button = buttonRef.current;
         window.requestAnimationFrame(() => {
@@ -85,7 +68,6 @@ const MenuButton = ({
 
   const onDialogDidHide = useCallback(
     (event, hideEvent) => {
-      console.log("did hide");
       setIsOpen(false);
       onMenuHide();
       const button = buttonRef.current;
@@ -99,7 +81,6 @@ const MenuButton = ({
   );
 
   const onDialogDidShow = useCallback(() => {
-    console.log("did show");
     setIsOpen(true);
     onMenuShow();
   }, [setIsOpen, onMenuShow]);
@@ -165,8 +146,6 @@ const MenuButton = ({
   const iconSize = size - 4;
 
   useLayoutEffect(() => {
-    console.log("use effect");
-    console.log("use effect", open);
     setIsOpen(open);
   }, [open, setIsOpen]);
 

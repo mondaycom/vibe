@@ -18,10 +18,14 @@ const CHANGELOG_HEADERS = {
   BUGS: "#### Bug Fixes",
   NEW_FEATURES: "#### New Features",
   ICONS: "#### New Icons",
+  DEPENDENCIES: "#### Dependency Upgrades",
   COMMITTERS: "#### Committers"
 };
 
 const CHANGELOG_PATH = path.join(__dirname, "..", "CHANGELOG.md");
+
+const CHANGES_THAT_BUMP_MINOR = [CHANGELOG_HEADERS.NEW_FEATURES];
+const CHANGES_THAT_BUMP_PATCH = [CHANGELOG_HEADERS.BUGS, CHANGELOG_HEADERS.ICONS, CHANGELOG_HEADERS.DEPENDENCIES];
 
 function release() {
   validateGithubAuthToken();
@@ -70,11 +74,11 @@ function buildChangelogSinceLastVersion() {
 }
 
 function getNewVersionStrategy(changelogText) {
-  if (changelogText.includes(CHANGELOG_HEADERS.NEW_FEATURES)) {
+  if (CHANGES_THAT_BUMP_MINOR.some(header => changelogText.includes(header))) {
     return VERSION_STRATEGIES.MINOR;
   }
 
-  if (changelogText.includes(CHANGELOG_HEADERS.ICONS) || changelogText.includes(CHANGELOG_HEADERS.BUGS)) {
+  if (CHANGES_THAT_BUMP_PATCH.some(header => changelogText.includes(header))) {
     return VERSION_STRATEGIES.PATCH;
   }
 

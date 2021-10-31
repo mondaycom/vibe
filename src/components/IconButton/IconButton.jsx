@@ -57,7 +57,10 @@ IconButton.propTypes = {
 
 IconButton.defaultProps = {
   className: "",
-  id: ""
+  id: "",
+  icon: undefined,
+  size: IconButton.sizes.MEDIUM,
+  tooltipContent: undefined
 };
 
 export default IconButton;
