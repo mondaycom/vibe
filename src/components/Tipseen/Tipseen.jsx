@@ -37,7 +37,8 @@ const Tipseen = forwardRef(
       hideTrigger,
       isCloseButtonOnImage,
       showTrigger,
-      width
+      width,
+      moveBy
     },
     ref
   ) => {
@@ -89,6 +90,7 @@ const Tipseen = forwardRef(
           justify={justify}
           containerSelector={containerSelector}
           disableDialogSlide={false}
+          moveBy={moveBy}
         >
           {children}
         </Tooltip>
@@ -126,7 +128,11 @@ Tipseen.propTypes = {
   // eslint-disable-next-line react/no-unused-prop-types
   showTrigger: PropTypes.array,
   justify: PropTypes.oneOf([Tipseen.justifyTypes.START, Tipseen.justifyTypes.CENTER, Tipseen.justifyTypes.END]),
-  width: PropTypes.number
+  width: PropTypes.number,
+  moveBy: PropTypes.shape({
+    main: PropTypes.number,
+    secondary: PropTypes.number
+  })
 };
 Tipseen.defaultProps = {
   className: "",
@@ -142,7 +148,8 @@ Tipseen.defaultProps = {
   hideTrigger: [],
   showTrigger: [],
   justify: Tipseen.justifyTypes.CENTER,
-  width: undefined
+  width: undefined,
+  moveBy: undefined
 };
 
 export default Tipseen;
