@@ -1,21 +1,28 @@
-import React, { useRef, forwardRef } from "react";
+import React, { useRef, useCallback, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import ExpandCollapse from "../../ExpandCollapse/ExpandCollapse";
 
-const AccordionItem = forwardRef(({ children, title, className, iconSize, id, open, onClick }, ref) => {
-  const componentRef = useRef(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+const AccordionItem = forwardRef(
+  ({ children, title, className, iconSize, id, open, onClickCallback, onClickAccordionCallback }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-  return (
-    <div ref={mergedRef} className={cx("accordion-item", className)} id={id}>
-      <ExpandCollapse title={title} iconSize={iconSize} open={open} onClick={onClick}>
-        {children}
-      </ExpandCollapse>
-    </div>
-  );
-});
+    const onClick = useCallback(() => {
+      onClickAccordionCallback();
+      onClickCallback();
+    }, [onClickAccordionCallback, onClickCallback]);
+
+    return (
+      <div ref={mergedRef} className={cx("accordion-item", className)} id={id}>
+        <ExpandCollapse title={title} iconSize={iconSize} open={open} onClick={onClick}>
+          {children}
+        </ExpandCollapse>
+      </div>
+    );
+  }
+);
 
 AccordionItem.propTypes = {
   /**
@@ -37,7 +44,11 @@ AccordionItem.propTypes = {
   /**
    * The expand icon font size
    */
-  iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+  iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  /**
+   * On click callback
+   */
+  onClickCallback: PropTypes.func
 };
 
 AccordionItem.isAccordionChild = true;
@@ -47,6 +58,7 @@ AccordionItem.defaultProps = {
   id: undefined,
   iconSize: 24,
   title: "",
+  onClickCallback: undefined,
   children: null
 };
 
