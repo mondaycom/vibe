@@ -48,18 +48,20 @@ const Tipseen = forwardRef(
       () => (
         <div className={TIPSEEN_BASE_CSS_CLASS}>
           <div className={bemHelper({ element: "header" })}>
-            <Button
-              className={cx(bemHelper({ element: "close-button" }), {
-                [bemHelper({ element: "close-button", state: "on-image" })]: isCloseButtonOnImage
-              })}
-              onClick={onClose}
-              size={Button.sizes.SMALL}
-              kind={Button.kinds.TERTIARY}
-              color={isCloseButtonOnImage ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
-              ariaLabel={overrideCloseAriaLabel}
-            >
-              {isCloseButtonHidden ? null : <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />}
-            </Button>
+            {isCloseButtonHidden ? null : (
+              <Button
+                className={cx(bemHelper({ element: "close-button" }), {
+                  [bemHelper({ element: "close-button", state: "on-image" })]: isCloseButtonOnImage
+                })}
+                onClick={onClose}
+                size={Button.sizes.SMALL}
+                kind={Button.kinds.TERTIARY}
+                color={isCloseButtonOnImage ? Button.colors.ON_INVERTED_BACKGROUND : Button.colors.ON_PRIMARY_COLOR}
+                ariaLabel={overrideCloseAriaLabel}
+              >
+                <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />
+              </Button>
+            )}
             <TipseenTitle text={title} className={bemHelper({ element: "title" })} />
           </div>
           <div className={bemHelper({ element: "content" })}>{content}</div>
