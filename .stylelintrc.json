@@ -1,0 +1,19 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "scss/at-import-partial-extension": null,
+    "scss/no-global-function-names": [true, {"severity": "warning"}],
+    "scss/operator-no-unspaced": [true, {"severity": "warning"}],
+    "scss/at-mixin-pattern": null,
+    "selector-class-pattern": null,
+    "no-descending-specificity": [true, {"severity": "warning"}],
+    "block-closing-brace-newline-before": null,
+    "selector-id-pattern": null,
+    "declaration-block-no-duplicate-properties": [true, {"severity": "warning"}],
+    "no-empty-source": [true, {"severity": "warning"}],
+    "keyframes-name-pattern": null,
+    "max-line-length": [140, {"severity": "error"}],
+    "function-calc-no-unspaced-operator": null,
+    "no-duplicate-selectors": [true, {"severity": "warning"}]
+  }
+}
