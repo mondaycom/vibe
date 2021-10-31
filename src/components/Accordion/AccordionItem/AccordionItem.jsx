@@ -10,8 +10,8 @@ const AccordionItem = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const onClick = useCallback(() => {
-      onClickAccordionCallback();
-      onClickCallback();
+      onClickAccordionCallback && onClickAccordionCallback();
+      onClickCallback && onClickCallback();
     }, [onClickAccordionCallback, onClickCallback]);
 
     return (

@@ -42,7 +42,7 @@ const Accordion = forwardRef(({ children: originalChildren, allowMultiple, defau
         return;
       }
 
-      setExpandedItems(isChildExpanded(itemIndex) ? [] : [itemIndex]);
+      setExpandedItems([itemIndex]);
     },
     [isChildExpanded, expandedItems, allowMultiple]
   );
