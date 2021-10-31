@@ -320,20 +320,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly without close button 1`]
         >
           <div
             className="monday-style-tipseen_header"
-          >
-            <button
-              aria-disabled={false}
-              aria-label="Close"
-              className="monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
-              disabled={false}
-              onBlur={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onMouseDown={[Function]}
-              onMouseUp={[Function]}
-              type="button"
-            />
-          </div>
+          />
           <div
             className="monday-style-tipseen_content"
           />

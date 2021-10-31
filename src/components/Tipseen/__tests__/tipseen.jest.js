@@ -77,8 +77,7 @@ describe("Tipseen tests", () => {
     it("call onClose function when click on close button", () => {
       const onClickMock = jest.fn();
       const tipseen = renderComponent({
-        onClose: onClickMock,
-        isCloseButtonHidden: true
+        onClose: onClickMock
       });
       const closeButton = tipseen.getByLabelText(TIPSEEN_CLOSE_BUTTON_ARIA_LABEL);
 
