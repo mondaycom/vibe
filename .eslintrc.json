@@ -9,7 +9,7 @@
   "extends": ["airbnb", "plugin:prettier/recommended", "plugin:react-hooks/recommended"],
   "plugins": ["import", "react", "jsx-a11y", "json", "markdown", "mocha", "react-hooks"],
   "rules": {
-    "no-debugger": "warn",
+    "no-debugger": "error",
     "global-require": "off",
     "no-unused-expressions": "off",
     "react/forbid-foreign-prop-types": "off",
@@ -30,18 +30,18 @@
     "react/react-in-jsx-scope": 0,
     "react/no-did-update-set-state": "off",
     "arrow-body-style": "off",
-    "react/no-danger": "warn",
+    "react/no-danger": "error",
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": 0,
     "react/forbid-prop-types": "off",
-    "react/require-default-props": ["warn"],
-    "jsx-a11y/anchor-is-valid": ["warn"],
+    "react/require-default-props": ["error"],
+    "jsx-a11y/anchor-is-valid": ["error"],
     "react/jsx-props-no-spreading": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/alt-text": "error",
     "jsx-a11y/no-noninteractive-element-interactions": [
-      "warn",
+      "error",
       {
         "required": {
           "some": ["nesting", "id"]
@@ -49,14 +49,14 @@
         "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
       }
     ],
-    "jsx-a11y/role-has-required-aria-props": "warn",
-    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/role-has-required-aria-props": "error",
+    "jsx-a11y/click-events-have-key-events": "error",
     "jsx-a11y/label-has-associated-control": "off",
-    "react/default-props-match-prop-types": "warn",
-    "jsx-a11y/aria-activedescendant-has-tabindex": "warn",
-    "react/button-has-type": "warn",
-    "jsx-a11y/interactive-supports-focus": "warn",
-    "jsx-a11y/no-noninteractive-tabindex": "warn",
+    "react/default-props-match-prop-types": "error",
+    "jsx-a11y/aria-activedescendant-has-tabindex": "error",
+    "react/button-has-type": "error",
+    "jsx-a11y/interactive-supports-focus": "error",
+    "jsx-a11y/no-noninteractive-tabindex": "error",
     "react/jsx-boolean-value": "off"
   },
   "overrides": [
