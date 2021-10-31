@@ -8,6 +8,7 @@ import Menu from "../Icon/Icons/components/Menu";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import "./MenuButton.scss";
 import Tooltip from "../Tooltip/Tooltip";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
@@ -21,6 +22,8 @@ const MOVE_BY = { main: 0, secondary: -6 };
 
 const MenuButton = ({
   id,
+  className,
+  // Backward compatibility for props naming
   componentClassName,
   openDialogComponentClassName,
   children,
@@ -38,6 +41,8 @@ const MenuButton = ({
   onMenuShow,
   disabled,
   text,
+  tooltipContent,
+  // Backward compatibility for props naming
   disabledReason,
   tooltipTriggers,
   tooltipPosition,
@@ -165,9 +170,12 @@ const MenuButton = ({
     setIsOpen(open);
   }, [open, setIsOpen]);
 
+  const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
+  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
+
   return (
     <Tooltip
-      content={disabledReason}
+      content={overrideTooltipContent}
       position={tooltipPosition}
       showTrigger={TOOLTIP_SHOW_TRIGGER}
       hideTrigger={tooltipTriggers}
@@ -193,7 +201,7 @@ const MenuButton = ({
           id={id}
           ref={buttonRef}
           type="button"
-          className={cx("menu-button--wrapper", componentClassName, BEMClass(`size-${size}`), {
+          className={cx("menu-button--wrapper", overrideClassName, BEMClass(`size-${size}`), {
             [BEMClass("open")]: isOpen,
             [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
             [BEMClass("disabled")]: disabled,
@@ -246,7 +254,7 @@ MenuButton.propTypes = {
     Id for the menu button
    */
   id: PropTypes.string,
-  componentClassName: PropTypes.string,
+  className: PropTypes.string,
   /*
     Class name to add to the button when the dialog is open
    */
@@ -316,10 +324,6 @@ MenuButton.propTypes = {
   text: PropTypes.string,
   disabled: PropTypes.bool,
   /**
-   * Disabled tooltip text
-   */
-  disabledReason: PropTypes.string,
-  /**
     Remove "Tab" key from the hide trigger
    */
   removeTabCloseTrigger: PropTypes.bool,
@@ -340,7 +344,7 @@ MenuButton.propTypes = {
 };
 MenuButton.defaultProps = {
   id: undefined,
-  componentClassName: "",
+  className: "",
   component: Menu,
   size: MenuButtonSizes.SMALL,
   open: false,
@@ -357,7 +361,6 @@ MenuButton.defaultProps = {
   onMenuHide: NOOP,
   disabled: false,
   text: undefined,
-  disabledReason: undefined,
   removeTabCloseTrigger: false,
   tooltipTriggers: [MenuButton.hideTriggers.MOUSE_LEAVE],
   tooltipPosition: MenuButton.dialogPositions.RIGHT,
