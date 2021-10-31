@@ -7,7 +7,7 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { baseClassName, dismissClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
-const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, withoutIcon, onDismiss, compact }) => {
+const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, withoutIcon, onClose, compact }) => {
   const iconLabel = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
@@ -27,7 +27,7 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
         baseClassName,
         classNameWithType,
         { [compactClassName]: compact },
-        { [dismissClassName]: onDismiss },
+        { [dismissClassName]: onClose },
         componentClassName
       )}
       role="alert"
@@ -54,13 +54,14 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
         </h2>
       )}
       <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`)}>{text}</div>
-      {onDismiss && (
+      {onClose && (
         <Icon
           iconType={Icon.type.SVG}
+          iconLabel="Close"
           icon={CloseSmall}
           className={cx(`${baseClassName}__dissmiss-icon`, { [compactClassName]: compact })}
           ignoreFocusStyle
-          onClick={onDismiss}
+          onClick={onClose}
           iconSize="24"
         />
       )}
@@ -87,7 +88,7 @@ AttentionBox.propTypes = {
   text: PropTypes.string,
   withoutIcon: PropTypes.bool,
   compact: PropTypes.bool,
-  onDismiss: PropTypes.func
+  onClose: PropTypes.func
 };
 
 AttentionBox.defaultProps = {
@@ -99,7 +100,7 @@ AttentionBox.defaultProps = {
   text: "",
   withoutIcon: false,
   compact: false,
-  onDismiss: () => {}
+  onClose: () => {}
 };
 
 export default AttentionBox;
