@@ -6,6 +6,7 @@ exports[`<Combobox /> renders correctly with empty props 1`] = `
   id=""
 >
   <div
+    aria-busy={false}
     className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
     role="search"
   >
@@ -108,6 +109,7 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
   id=""
 >
   <div
+    aria-busy={false}
     className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
     role="search"
   >
@@ -202,17 +204,21 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
     }
   >
     <div
-      ariaLabel="Test"
+      aria-label="Test"
+      aria-selected={false}
       className="combobox-option"
       id="combobox-item-0"
       onClick={[Function]}
+      onKeyDown={[Function]}
       onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       role="option"
       style={
         Object {
           "height": 32,
         }
       }
+      tabIndex="-1"
     >
       <div
         className="option-label"
@@ -230,6 +236,7 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
   id=""
 >
   <div
+    aria-busy={false}
     className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
     role="search"
   >
@@ -328,17 +335,21 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
       role="group"
     >
       <div
-        ariaLabel="Test"
+        aria-label="Test"
+        aria-selected={false}
         className="combobox-option"
         id="combobox-item-0"
         onClick={[Function]}
+        onKeyDown={[Function]}
         onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="option"
         style={
           Object {
             "height": 32,
           }
         }
+        tabIndex="-1"
       >
         <div
           className="option-label"
@@ -352,7 +363,7 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
       role="group"
     >
       <div
-        ariaLabel="category2"
+        aria-label="category2"
         className="combobox-category"
         id="combobox-category-category2"
         role="presentation"
@@ -360,17 +371,21 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
         category2
       </div>
       <div
-        ariaLabel="Test2"
+        aria-label="Test2"
+        aria-selected={false}
         className="combobox-option"
         id="combobox-item-1"
         onClick={[Function]}
+        onKeyDown={[Function]}
         onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         role="option"
         style={
           Object {
             "height": 32,
           }
         }
+        tabIndex="-1"
       >
         <div
           className="option-label"

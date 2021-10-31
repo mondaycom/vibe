@@ -1,11 +1,15 @@
 import cx from "classnames";
 import _difference from "lodash/difference";
+import _intersection from "lodash/intersection";
 import PropTypes from "prop-types";
-import React, { useCallback, useState, useEffect, useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
+import { SIZES } from "../../../../constants/sizes";
 import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
 import Button from "../../../Button/Button";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
+import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import "./ColorPickerContentComponent.scss";
 
 const ColorPickerContentComponent = ({
@@ -20,18 +24,19 @@ const ColorPickerContentComponent = ({
   NoColorIcon,
   isBlackListMode,
   colorsList,
-  isMultiselect
+  isMultiselect,
+  colorSize,
+  numberOfColorsInLine,
+  tooltipContentByColor
 }) => {
   const onClearButton = useCallback(() => {
     onValueChange(null);
   }, [onValueChange]);
 
-  const [selectedColors, setSelectedColors] = useState(value);
-
   const onColorClicked = useCallback(
     color => {
       if (!isMultiselect) {
-        setSelectedColors(color);
+        onValueChange([color]);
         return;
       }
       const colors = [...value];
@@ -43,25 +48,19 @@ const ColorPickerContentComponent = ({
       } else {
         colors.push(color);
       }
-      setSelectedColors(colors);
+      onValueChange(colors);
     },
     [isMultiselect, onValueChange, value]
   );
 
-  useEffect(() => {
-    onValueChange(selectedColors);
-  }, [onValueChange, selectedColors]);
-
   const colorsToRender = useMemo(() => {
-    // If whitelist mode and not all the colors exists in the colors option - render all options
-    if (!isBlackListMode && _difference(colorsList, contentColors).length !== 0) {
-      return contentColors;
-    }
-    return isBlackListMode ? _difference(contentColors, colorsList) : colorsList;
+    return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);
   }, [isBlackListMode, colorsList]);
 
+  const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
+
   return (
-    <div className={cx("color-picker-content--wrapper", className)}>
+    <div className={cx("color-picker-content--wrapper", className)} style={{ width }}>
       <div className={cx("color-picker")}>
         {colorsToRender.map(color => {
           return (
@@ -76,6 +75,8 @@ const ColorPickerContentComponent = ({
               SelectedIndicatorIcon={SelectedIndicatorIcon}
               isSelected={isMultiselect ? value.includes(color) : value === color}
               isMultiselect={isMultiselect}
+              colorSize={colorSize}
+              tooltipContent={tooltipContentByColor[color]}
             />
           );
         })}
@@ -96,6 +97,7 @@ const ColorPickerContentComponent = ({
 };
 
 ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
+ColorPickerContentComponent.sizes = SIZES;
 
 ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
@@ -111,7 +113,14 @@ ColorPickerContentComponent.propTypes = {
   shouldRenderIndicatorWithoutBackground: PropTypes.bool,
   NoColorIcon: PropTypes.func,
   isBlackListMode: PropTypes.bool,
-  colorsList: PropTypes.array
+  colorsList: PropTypes.array,
+  colorSize: PropTypes.oneOf([
+    ColorPickerContentComponent.sizes.SMALL,
+    ColorPickerContentComponent.sizes.MEDIUM,
+    ColorPickerContentComponent.sizes.LARGE
+  ]),
+  numberOfColorsInLine: PropTypes.number,
+  tooltipContentByColor: PropTypes.object
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -125,7 +134,10 @@ ColorPickerContentComponent.defaultProps = {
   shouldRenderIndicatorWithoutBackground: false,
   NoColorIcon: NoColor,
   isBlackListMode: true,
-  colorsList: []
+  colorsList: [],
+  colorSize: ColorPickerContentComponent.sizes.MEDIUM,
+  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
+  tooltipContentByColor: {}
 };
 
 export default ColorPickerContentComponent;

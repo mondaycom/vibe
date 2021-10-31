@@ -20,6 +20,7 @@ exports[`Tipseen content tests Snapshot Tests renders correctly 1`] = `
     className="monday-style-tipseen-content_buttons"
   >
     <button
+      aria-disabled={false}
       className="monday-style-tipseen-content_dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       disabled={false}
       onBlur={[Function]}
@@ -32,6 +33,7 @@ exports[`Tipseen content tests Snapshot Tests renders correctly 1`] = `
       Dismiss
     </button>
     <button
+      aria-disabled={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
       disabled={false}
       onBlur={[Function]}
@@ -55,6 +57,7 @@ exports[`Tipseen content tests Snapshot Tests renders correctly with empty props
     className="monday-style-tipseen-content_buttons"
   >
     <button
+      aria-disabled={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
       disabled={false}
       onBlur={[Function]}
@@ -83,6 +86,7 @@ exports[`Tipseen content tests Snapshot Tests renders correctly without dismiss 
     className="monday-style-tipseen-content_buttons"
   >
     <button
+      aria-disabled={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
       disabled={false}
       onBlur={[Function]}
@@ -126,6 +130,7 @@ exports[`Tipseen content tests Snapshot Tests renders correctly without title 1`
     className="monday-style-tipseen-content_buttons"
   >
     <button
+      aria-disabled={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
       disabled={false}
       onBlur={[Function]}

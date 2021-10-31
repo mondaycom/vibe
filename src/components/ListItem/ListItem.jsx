@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/role-supports-aria-props */
+/* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import React, { useRef, forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";

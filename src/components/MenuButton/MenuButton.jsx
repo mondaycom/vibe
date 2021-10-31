@@ -1,5 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { useCallback, useState, useMemo, useRef } from "react";
+import React, { useCallback, useState, useMemo, useRef, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -42,25 +42,11 @@ const MenuButton = ({
   tooltipTriggers,
   tooltipPosition,
   startingEdge,
-  removeTabCloseTrigger
+  removeTabCloseTrigger,
+  tooltipReferenceClassName
 }) => {
   const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
-  // const onClick = useCallback(
-  //   event => {
-  //     if (disabled) {
-  //       return;
-  //     }
-  //
-  //     if (isOpen) {
-  //       event.preventDefault();
-  //       event.stopPropagation();
-  //       return;
-  //     }
-  //     setIsOpen(true);
-  //   },
-  //   [setIsOpen, isOpen, disabled]
-  // );
 
   const onMenuDidClose = useCallback(
     event => {
@@ -103,6 +89,7 @@ const MenuButton = ({
 
     if (closeDialogOnContentClick) {
       triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
+      triggers.add(Dialog.hideShowTriggers.ENTER);
     }
 
     if (removeTabCloseTrigger) {
@@ -152,12 +139,18 @@ const MenuButton = ({
 
   const Icon = component;
   const iconSize = size - 4;
+
+  useLayoutEffect(() => {
+    setIsOpen(open);
+  }, [open, setIsOpen]);
+
   return (
     <Tooltip
       content={disabledReason}
       position={tooltipPosition}
       showTrigger={TOOLTIP_SHOW_TRIGGER}
       hideTrigger={tooltipTriggers}
+      referenceWrapperClassName={tooltipReferenceClassName}
     >
       <Dialog
         wrapperClassName={dialogClassName}
@@ -318,7 +311,11 @@ MenuButton.propTypes = {
   /**
    * the disabled/tooltip position of the menu button - one of the MenuButton.dialogPositions
    */
-  tooltipPosition: PropTypes.oneOf(Object.values(MenuButton.dialogPositions))
+  tooltipPosition: PropTypes.oneOf(Object.values(MenuButton.dialogPositions)),
+  /**
+   * Tooltip Element Wrapper ClassName
+   */
+  tooltipReferenceClassName: PropTypes.string
 };
 MenuButton.defaultProps = {
   id: undefined,
@@ -342,7 +339,8 @@ MenuButton.defaultProps = {
   disabledReason: undefined,
   removeTabCloseTrigger: false,
   tooltipTriggers: [MenuButton.hideTriggers.MOUSE_LEAVE],
-  tooltipPosition: MenuButton.dialogPositions.RIGHT
+  tooltipPosition: MenuButton.dialogPositions.RIGHT,
+  tooltipReferenceClassName: undefined
 };
 
 export default MenuButton;

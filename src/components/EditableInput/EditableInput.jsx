@@ -178,6 +178,7 @@ const EditableInput = forwardRef(
       if (shouldFocusOnMount) focus();
       autosizeIfNeeded();
       selectOnMount ? select() : moveCaretAtEnd();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
@@ -206,7 +207,7 @@ const EditableInput = forwardRef(
         autoComplete={autoComplete ? "on" : "off"}
         rows={rows}
         maxLength={maxLength}
-        ariaLabel={ariaLabel}
+        aria-label={ariaLabel}
       />
     );
   }

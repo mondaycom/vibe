@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { forwardRef, useCallback } from "react";
 import "./BreadcrumbContent.scss";
 

@@ -40,12 +40,15 @@
 .icon-story-custom-icon {
   width: 20px;
   height: 16px;
+  color: var(--primary-text-color);
+  border-radius: 4px;
 }
 
 .single-icon-wrapper {
   display: flex;
   justify-self: center;
   align-items: center;
+
 }
 .icon-story-search-component {
   width: 50% !important;

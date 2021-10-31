@@ -1,0 +1,48 @@
+# This workflow will ensure all PRs are labeled so we can later create releases
+
+name: PR labeling for release
+
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, synchronize]
+
+jobs:
+  ensure-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Labels
+        uses: docker://agilepathway/pull-request-label-checker:latest
+        with:
+          one_of: "PR: Internal 🏠,PR: Bugfix 🐛,PR: New Feature 🕹,PR: Dependencies 🛠,PR: Documentation 📖,PR: Icon 💎,PR: Breaking Changes 💥"
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Find Comment
+        if: always()
+        uses: peter-evans/find-comment@v1
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: "github-actions[bot]"
+          body-includes: "Your PR should include one (and only one) of the following labels"
+      - name: Delete comment
+        if: ${{ steps.fc.outputs.comment-id }} # Otherwise it fails the workflow
+        uses: jungwinter/comment@v1
+        with:
+          type: delete
+          comment_id: ${{ steps.fc.outputs.comment-id }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create or update comment
+        if: failure()
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |
+            Your PR should include one (and only one) of the following labels:
+              - PR: Bugfix 🐛
+              - PR: New Feature 🕹
+              - PR: Dependencies 🛠
+              - PR: Documentation 📖
+              - PR: Internal 🏠
+              - PR: Breaking Changes 💥
+              - PR: Icon 💎
+          edit-mode: replace

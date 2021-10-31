@@ -58,7 +58,8 @@ AccordionItem.defaultProps = {
   id: undefined,
   iconSize: 24,
   title: "",
-  onClickCallback: undefined
+  onClickCallback: undefined,
+  children: null
 };
 
 export default AccordionItem;

@@ -1,20 +1,21 @@
 import React, { useCallback, useMemo, useState } from "react";
 import StoryTitle from "../../storybook-helpers/story-title/story-title";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import Tipseen from "../Tipseen";
 import { StoryStateRow } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import TipseenContent from "../TipseenContent";
 import "./tipseen.stories.scss";
-import { TipseenWizard } from "../TipseenWizard";
+import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
+import { boolean, number, select, text } from "@storybook/addon-knobs";
+
 export const BasicTipseen = () => {
   return (
     <StoryWrapper>
       <StoryTitle text="Empty tipseen" />
       <StoryStateRow componentClassName>
-        <Tipseen position={Tipseen.positions.RIGHT}>
+        <Tipseen position={Tipseen.positions.RIGHT} width={number("Width", undefined)}>
           <div className="monday-style-story-empty-tipseen_container" />
         </Tipseen>
       </StoryStateRow>

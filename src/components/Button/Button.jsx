@@ -174,6 +174,7 @@ const Button = forwardRef(
         onFocus,
         onBlur,
         onMouseDown: onMouseDownClicked,
+        "aria-disabled": disabled,
         "aria-labelledby": ariaLabeledBy,
         "aria-label": ariaLabel,
         "aria-busy": loading ? "true" : undefined,

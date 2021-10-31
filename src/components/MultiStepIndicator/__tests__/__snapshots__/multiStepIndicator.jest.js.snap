@@ -5,36 +5,42 @@ exports[`MultiStepIndicator Render tests Render correctly with clickable steps 1
   className="multi-step-indicator--wrapper"
 >
   <li
-    aria-label="Step 1: Title - Subtitle, status: fulfilled"
-    className="monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-fulfilled clickable"
+    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
     onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    role="button"
+    tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
-      role="button"
-      tabIndex="0"
+      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
     >
-      <span
-        className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
+      <div
+        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
+        role="button"
+        tabIndex="0"
       >
-        <svg
-          aria-hidden={true}
-          className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
-          fill="currentColor"
-          height="16"
-          onClick={[Function]}
-          role="img"
-          viewBox="0 0 20 20"
-          width="16"
+        <span
+          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
         >
-          <path
-            clipRule="evenodd"
-            d="M8.53033 14.2478L8 13.7175L7.46967 14.2478C7.76256 14.5407 8.23744 14.5407 8.53033 14.2478ZM8 12.6569L4.53033 9.18718C4.23744 8.89429 3.76256 8.89429 3.46967 9.18718C3.17678 9.48008 3.17678 9.95495 3.46967 10.2478L7.46967 14.2478L8 13.7175L8.53033 14.2478L16.2478 6.53033C16.5407 6.23743 16.5407 5.76256 16.2478 5.46967C15.955 5.17677 15.4801 5.17677 15.1872 5.46967L8 12.6569Z"
+          <svg
+            aria-hidden={true}
+            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
             fill="currentColor"
-            fillRule="evenodd"
-          />
-        </svg>
-      </span>
+            height="16"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="16"
+          >
+            <path
+              clipRule="evenodd"
+              d="M8.53033 14.2478L8 13.7175L7.46967 14.2478C7.76256 14.5407 8.23744 14.5407 8.53033 14.2478ZM8 12.6569L4.53033 9.18718C4.23744 8.89429 3.76256 8.89429 3.46967 9.18718C3.17678 9.48008 3.17678 9.95495 3.46967 10.2478L7.46967 14.2478L8 13.7175L8.53033 14.2478L16.2478 6.53033C16.5407 6.23743 16.5407 5.76256 16.2478 5.46967C15.955 5.17677 15.4801 5.17677 15.1872 5.46967L8 12.6569Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
     </div>
     <div
       className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-success__text-container monday-style-step-indicator-component--status-fulfilled__text-container"
@@ -66,20 +72,27 @@ exports[`MultiStepIndicator Render tests Render correctly with clickable steps 1
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    aria-label="Step 2: Active - Active Subtitle, status: active"
-    className="monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-active clickable"
+    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
     onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    role="button"
+    tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-active__number-container"
-      role="button"
-      tabIndex="0"
+      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
     >
-      <span
-        className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+      <div
+        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-active__number-container"
+        role="button"
+        tabIndex="0"
       >
-        2
-      </span>
+        <span
+          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+        >
+          2
+        </span>
+      </div>
     </div>
     <div
       className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-success__text-container monday-style-step-indicator-component--status-active__text-container"
@@ -111,20 +124,27 @@ exports[`MultiStepIndicator Render tests Render correctly with clickable steps 1
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
-    className="monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-pending clickable"
+    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
     onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    role="button"
+    tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-pending__number-container"
-      role="button"
-      tabIndex="0"
+      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
     >
-      <span
-        className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+      <div
+        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-pending__number-container"
+        role="button"
+        tabIndex="0"
       >
-        3
-      </span>
+        <span
+          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+        >
+          3
+        </span>
+      </div>
     </div>
     <div
       className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-success__text-container monday-style-step-indicator-component--status-pending__text-container"
@@ -166,36 +186,42 @@ exports[`MultiStepIndicator Render tests Renders correctly with non-default prop
   className="multi-step-indicator--wrapper"
 >
   <li
-    aria-label="Step 1: Title - Subtitle, status: fulfilled"
-    className="monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-fulfilled clickable"
+    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
     onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    role="button"
+    tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
-      role="button"
-      tabIndex="0"
+      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
     >
-      <span
-        className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
+      <div
+        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
+        role="button"
+        tabIndex="0"
       >
-        <svg
-          aria-hidden={true}
-          className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
-          fill="currentColor"
-          height="16"
-          onClick={[Function]}
-          role="img"
-          viewBox="0 0 20 20"
-          width="16"
+        <span
+          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
         >
-          <path
-            clipRule="evenodd"
-            d="M8.53033 14.2478L8 13.7175L7.46967 14.2478C7.76256 14.5407 8.23744 14.5407 8.53033 14.2478ZM8 12.6569L4.53033 9.18718C4.23744 8.89429 3.76256 8.89429 3.46967 9.18718C3.17678 9.48008 3.17678 9.95495 3.46967 10.2478L7.46967 14.2478L8 13.7175L8.53033 14.2478L16.2478 6.53033C16.5407 6.23743 16.5407 5.76256 16.2478 5.46967C15.955 5.17677 15.4801 5.17677 15.1872 5.46967L8 12.6569Z"
+          <svg
+            aria-hidden={true}
+            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
             fill="currentColor"
-            fillRule="evenodd"
-          />
-        </svg>
-      </span>
+            height="16"
+            onClick={[Function]}
+            viewBox="0 0 20 20"
+            width="16"
+          >
+            <path
+              clipRule="evenodd"
+              d="M8.53033 14.2478L8 13.7175L7.46967 14.2478C7.76256 14.5407 8.23744 14.5407 8.53033 14.2478ZM8 12.6569L4.53033 9.18718C4.23744 8.89429 3.76256 8.89429 3.46967 9.18718C3.17678 9.48008 3.17678 9.95495 3.46967 10.2478L7.46967 14.2478L8 13.7175L8.53033 14.2478L16.2478 6.53033C16.5407 6.23743 16.5407 5.76256 16.2478 5.46967C15.955 5.17677 15.4801 5.17677 15.1872 5.46967L8 12.6569Z"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        </span>
+      </div>
     </div>
     <div
       className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-success__text-container monday-style-step-indicator-component--status-fulfilled__text-container"
@@ -227,20 +253,27 @@ exports[`MultiStepIndicator Render tests Renders correctly with non-default prop
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    aria-label="Step 2: Active - Active Subtitle, status: active"
-    className="monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-active clickable"
+    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
     onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    role="button"
+    tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-active__number-container"
-      role="button"
-      tabIndex="0"
+      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
     >
-      <span
-        className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+      <div
+        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-active__number-container"
+        role="button"
+        tabIndex="0"
       >
-        2
-      </span>
+        <span
+          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+        >
+          2
+        </span>
+      </div>
     </div>
     <div
       className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-success__text-container monday-style-step-indicator-component--status-active__text-container"
@@ -272,20 +305,27 @@ exports[`MultiStepIndicator Render tests Renders correctly with non-default prop
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    aria-label="Step 3: Pending - Pending Subtitle, status: pending"
-    className="monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-pending clickable"
+    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-success monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
     onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    role="button"
+    tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-pending__number-container"
-      role="button"
-      tabIndex="0"
+      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-success__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
     >
-      <span
-        className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+      <div
+        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-success__number-container monday-style-step-indicator-component--status-pending__number-container"
+        role="button"
+        tabIndex="0"
       >
-        3
-      </span>
+        <span
+          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-success__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+        >
+          3
+        </span>
+      </div>
     </div>
     <div
       className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-success__text-container monday-style-step-indicator-component--status-pending__text-container"

@@ -57,6 +57,16 @@ describe("Tipseen tests", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+    it("renders correctly with custom width", () => {
+      const tree = renderer
+        .create(
+          <Tipseen width={100}>
+            <div />
+          </Tipseen>
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 
   describe("Integration Tests", () => {

@@ -24,7 +24,6 @@ exports[`Checkbox Tests Snapshot Tests renders correctly 1`] = `
       fill="currentColor"
       height="16"
       onClick={[Function]}
-      role="img"
       viewBox="0 0 20 20"
       width="16"
     >
@@ -67,7 +66,6 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when checked 1`] = `
       fill="currentColor"
       height="16"
       onClick={[Function]}
-      role="img"
       viewBox="0 0 20 20"
       width="16"
     >
@@ -108,7 +106,6 @@ exports[`Checkbox Tests Snapshot Tests renders correctly when disabled 1`] = `
       fill="currentColor"
       height="16"
       onClick={[Function]}
-      role="img"
       viewBox="0 0 20 20"
       width="16"
     >
@@ -149,7 +146,6 @@ exports[`Checkbox Tests Snapshot Tests renders correctly with empty props 1`] = 
       fill="currentColor"
       height="16"
       onClick={[Function]}
-      role="img"
       viewBox="0 0 20 20"
       width="16"
     >
