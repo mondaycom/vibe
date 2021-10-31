@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { select, boolean, number } from "@storybook/addon-knobs";
+import { select, boolean, number, text } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import MenuButton from "../MenuButton";
 import { ComponentStateDescription, FlexLayout, StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
@@ -28,6 +28,7 @@ export const Sandbox = () => (
         closeDialogOnContentClick={boolean("Close Dialog On Content Click or Enter", false)}
         disabled={boolean("Menu Button Disabled", false)}
         open={boolean("Open", false)}
+        tooltipContent={text("Tooltip content", "Tooltip content")}
         dialogPaddingSize={select("Dialog Padding Size", MenuButton.paddingSizes, MenuButton.paddingSizes.MEDIUM)}
         dialogPosition={select(
           "Dialog Opening Position",
@@ -53,7 +54,12 @@ export const Sandbox = () => (
 
 export const Disabled = () => (
   <div style={{ width: "32px" }}>
-    <MenuButton disabled={true} disabledReason="Something is not right" ariaLabel="chevron menu icon menu button" tooltipReferenceClassName="tooltip-on-span">
+    <MenuButton
+      disabled={true}
+      disabledReason="Something is not right"
+      ariaLabel="chevron menu icon menu button"
+      tooltipReferenceClassName="tooltip-on-span"
+    >
       <MenuButtonContent />
     </MenuButton>
   </div>
