@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.6.0 (2021-10-31)
+
+#### Bug Fixes
+* [#312](https://github.com/mondaycom/monday-ui-react-core/pull/312) fix bug on tipseen "isCloseButtonHidden" prop ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#308](https://github.com/mondaycom/monday-ui-react-core/pull/308) add support on menu button "tooltip content" and "class name" props and tipseen "move by" ([@hadasfa](https://github.com/hadasfa))
+* [#306](https://github.com/mondaycom/monday-ui-react-core/pull/306) amitha/feature/attention-box-close-icon ([@amit-hanoch](https://github.com/amit-hanoch))
+
 ## 0.5.4 (2021-10-27)
 
 #### Bug Fixes
