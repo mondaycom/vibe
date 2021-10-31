@@ -37,6 +37,7 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly 1`] = `
   </div>
   <svg
     aria-hidden={false}
+    aria-label="Close"
     className="icon_component monday-style-attention-box-component__dissmiss-icon icon_component--clickable icon_component--no-focus-style"
     fill="currentColor"
     height="24"
@@ -69,6 +70,7 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly with empty props 1`
   </div>
   <svg
     aria-hidden={false}
+    aria-label="Close"
     className="icon_component monday-style-attention-box-component__dissmiss-icon icon_component--clickable icon_component--no-focus-style"
     fill="currentColor"
     height="24"
@@ -101,6 +103,7 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly with empty title pr
   </div>
   <svg
     aria-hidden={false}
+    aria-label="Close"
     className="icon_component monday-style-attention-box-component__dissmiss-icon icon_component--clickable icon_component--no-focus-style"
     fill="currentColor"
     height="24"
@@ -141,6 +144,7 @@ exports[`AttentionBox Tests Snapshot Tests renders correctly with no icon 1`] = 
   </div>
   <svg
     aria-hidden={false}
+    aria-label="Close"
     className="icon_component monday-style-attention-box-component__dissmiss-icon icon_component--clickable icon_component--no-focus-style"
     fill="currentColor"
     height="24"
