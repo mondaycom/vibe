@@ -324,7 +324,7 @@ MenuButton.propTypes = {
 };
 MenuButton.defaultProps = {
   id: undefined,
-  className: "",
+  className: undefined,
   component: Menu,
   size: MenuButtonSizes.SMALL,
   open: false,
