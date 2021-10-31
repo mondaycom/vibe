@@ -4,5 +4,6 @@
   height: 48px;
   line-height: 48px;
   font-size: 2.5rem;
+
   @include theme-prop(color, primary-text-color);
 }

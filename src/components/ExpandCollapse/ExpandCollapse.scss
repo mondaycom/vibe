@@ -8,16 +8,20 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
     @include theme-prop(color, primary-text-color);
+
     background-color: transparent;
     border: 1px solid;
+
     @include theme-prop(border-color, ui-border-color);
+
     box-sizing: border-box;
     border-radius: $border-radius-small;
   }
 
   .expand-collapse__header {
-    @include reset-button();
+    @include reset-button;
 
     padding: $spacing-medium;
     display: flex;
@@ -31,12 +35,13 @@
     }
 
     .expand-collapse__header-content {
-      margin: 0px;
+      margin: 0;
     }
   }
 
   .expand-collapse__header--open {
     border-bottom: 1px solid;
+
     @include theme-prop(border-color, ui-border-color);
   }
 
@@ -64,13 +69,14 @@
 
   @keyframes expandContentAnimation {
     0% {
-      opacity: 0;
+      opacity: 0%;
       transform: translateY(-75px);
       transform: translateY(var(--dropdown-menu-fadinY, -75px));
     }
+
     100% {
-      opacity: 1;
-      transform: translateY(0px);
+      opacity: 100%;
+      transform: translateY(0);
     }
   }
 }

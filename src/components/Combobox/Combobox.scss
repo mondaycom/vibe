@@ -6,7 +6,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  @include font-general-text();
+
+  @include font-general-text;
 
   &.empty {
     max-height: 200px;
@@ -30,8 +31,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       .message {
-        @include ellipsis();
+        @include ellipsis;
       }
     }
 
@@ -41,7 +43,7 @@
       margin-bottom: 8px;
 
       .button-label {
-        @include ellipsis();
+        @include ellipsis;
       }
     }
   }
@@ -50,6 +52,7 @@
     flex: 1 1 auto;
     padding: 8px 4px;
     overflow: auto;
+
     @include scroller;
   }
 }

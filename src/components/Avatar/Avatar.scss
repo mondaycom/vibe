@@ -7,6 +7,7 @@ $avatar-size-small: 28px;
 
 .monday-style-avatar {
   position: relative;
+
   &_circle {
     position: relative;
     border: 1px solid;
@@ -15,10 +16,12 @@ $avatar-size-small: 28px;
     display: flex;
     justify-content: center;
     align-items: center;
+
     @include theme-prop(color, text-color-on-primary);
 
     &:focus {
       outline: none;
+
       @include focus-style(50%);
     }
 
@@ -46,21 +49,24 @@ $avatar-size-small: 28px;
     }
 
     &--is-disabled {
-      &:before {
+      &::before {
         content: "";
         height: 100%;
         width: 100%;
         position: absolute;
         top: 0;
-        opacity: 0.7;
+        opacity: 70%;
+
         @include theme-prop(background, primary-background-color);
       }
     }
 
     &--is-square {
       border-radius: $border-radius-small;
+
       &:focus {
         outline: none;
+
         @include focus-style($border-radius-small);
       }
     }
@@ -68,7 +74,7 @@ $avatar-size-small: 28px;
 
   &_badges {
     position: absolute;
-    top:50%;
+    top: 50%;
     left: 50%; /* position the left edge of the element at the middle of the parent */
     transform: translate(-50%, -50%);
     display: grid;
@@ -80,6 +86,7 @@ $avatar-size-small: 28px;
 
     .monday-style-avatar_badge {
       display: flex;
+
       &--top-left {
         grid-row: 1;
         grid-column: 1;

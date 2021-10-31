@@ -8,25 +8,30 @@
   padding-right: 1px;
   border-top: 1px solid transparent;
   border-bottom: 2px solid;
+
   @include theme-prop(border-bottom-color, primary-background-hover-color);
   @include theme-prop(color, primary-text-color);
+
   text-align: center;
   height: 100%;
 
-  &:after {
+  &::after {
     display: block;
     position: absolute;
     left: 0;
     right: 0;
-    content: '';
+    content: "";
     border-bottom: solid 2px;
+
     @include theme-prop(border-bottom-color, primary-color);
+
     transform: scaleX(0);
     z-index: 0;
   }
 
   .tab-inner {
     $margin-bottom: 1px;
+
     height: calc(100% - #{$margin-bottom});
     display: flex;
     align-items: center;
@@ -45,6 +50,7 @@
 
     .tab-icon {
       @include theme-prop(color, icon-color);
+
       margin-right: 8px;
 
       &.right {
@@ -57,7 +63,7 @@
   &.focus-visible {
     position: relative;
 
-    :after {
+    ::after {
       content: "";
       position: absolute;
       left: -1px;
@@ -65,7 +71,9 @@
       top: -1px;
       bottom: -3px;
       border: 1px solid;
+
       @include theme-prop(border-color, primary-color);
+
       box-sizing: border-box;
       border-radius: 1px;
       padding-left: 0;
@@ -73,23 +81,25 @@
       z-index: 1;
     }
 
-    :before {
+    ::before {
       content: "";
       position: absolute;
       top: -4px;
       left: -4px;
       right: -4px;
       bottom: -6px;
-      opacity: 0.4;
+      opacity: 40%;
       border: 3px solid;
+
       @include theme-prop(border-color, primary-color);
+
       border-radius: 4px;
       z-index: 1;
     }
   }
 
   &.active {
-    &:after {
+    &::after {
       transform: scaleX(1);
       transition: transform 100ms cubic-bezier(0, 0, 0.35, 1);
     }
@@ -107,6 +117,7 @@
     .tab-inner {
       &:hover {
         border-radius: 4px;
+
         @include theme-prop(background-color, primary-background-hover-color);
       }
     }

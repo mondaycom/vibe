@@ -13,6 +13,7 @@
 
   .monday-style-radio-button-component__radio-input-container__radio-control {
     border: 0.1em solid !important;
+
     @include theme-prop(border-color, ui-border-color, true);
     @include theme-prop(background-color, primary-background-color, true);
   }
@@ -23,6 +24,7 @@
 
   .monday-style-radio-button-component__radio-input-container__radio-control {
     border: 0.1em solid !important;
+
     @include theme-prop(border-color, primary-text-color, true);
     @include theme-prop(background-color, primary-background-color, true);
   }
@@ -33,6 +35,7 @@
 
   .monday-style-radio-button-component__radio-input-container__radio-control {
     border: 0.3em solid !important;
+
     @include theme-prop(border-color, primary-color, true);
     @include theme-prop(background-color, primary-background-color, true);
   }
@@ -43,6 +46,7 @@
 
   .monday-style-radio-button-component__radio-input-container__radio-control {
     border: 0.3em solid !important;
+
     @include theme-prop(border-color, primary-hover-color, true);
     @include theme-prop(background-color, primary-background-color, true);
   }

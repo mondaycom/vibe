@@ -5,7 +5,9 @@
   .fast-option {
     display: flex;
     align-content: center;
+
     @include theme-prop(color, primary-text-color);
+
     cursor: pointer;
     border-radius: $border-radius-small;
     margin: 0 8px;
@@ -14,19 +16,24 @@
 
     &:disabled {
       background-color: transparent;
+
       @include theme-prop(color, disabled-text-color);
+
       cursor: not-allowed;
     }
 
     &-disabled {
       background-color: transparent;
+
       @include theme-prop(color, disabled-text-color);
+
       cursor: not-allowed;
     }
 
     &-focused {
       @include theme-prop(color, primary-text-color);
       @include theme-prop(background-color, primary-selected-color);
+
       user-select: none;
       box-sizing: border-box;
 
@@ -39,8 +46,8 @@
     &-selected {
       @include theme-prop(color, primary-color);
       @include theme-prop(background-color, primary-selected-color);
+
       cursor: pointer;
     }
   }
 }
-

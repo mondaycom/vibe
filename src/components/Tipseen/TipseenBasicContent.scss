@@ -5,6 +5,7 @@
 
 .monday-style-tipseen-basic-content {
   @include tipseen-content-padding;
+
   display: flex;
   flex-direction: column;
 }

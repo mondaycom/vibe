@@ -6,7 +6,7 @@
   border-radius: $border-radius-small;
   min-width: 0;
 
-  @include heading-padding();
+  @include heading-padding;
 
   &.heading-element-ellipsis {
     @include line-clamp(var(--heading-clamp-lines));
@@ -16,6 +16,7 @@
     &:hover {
       cursor: text;
       border: 1px solid;
+
       @include theme-prop(border-color, ui-border-color);
     }
   }

@@ -6,14 +6,15 @@
 
 @keyframes fadeIn {
   0% {
-    opacity: 0;
+    opacity: 0%;
     z-index: -10000;
     transform: translateY(-75px);
     transform: translateY(var(--dropdown-menu-fadinY, -75px));
   }
+
   100% {
-    opacity: 1;
+    opacity: 100%;
     z-index: 999;
-    transform: translateY(0px);
+    transform: translateY(0);
   }
 }

@@ -5,10 +5,11 @@
   padding-bottom: 20px;
 
   &.disabled {
-    opacity: 0;
+    opacity: 0%;
     height: 0;
     padding-bottom: 5px;
     pointer-events: none;
+
     .tabs-list {
       .tab--wrapper {
         .tab-inner:hover {

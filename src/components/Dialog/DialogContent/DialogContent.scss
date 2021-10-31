@@ -1,13 +1,11 @@
 @import "../../../styles/themes.scss";
 
-
-
 .monday-style-dialog-content-wrapper {
   outline: 0;
 }
 
 .monday-style-animation-opacity-slide-appear {
-  opacity: 0;
+  opacity: 0%;
 
   &.top {
     transform: translateY($spacing-medium);
@@ -28,7 +26,7 @@
 
 .monday-style-animation-opacity-slide-appear-active {
   transition: opacity 0.2s ease, transform 0.2s ease-out;
-  opacity: 1;
+  opacity: 100%;
   pointer-events: none;
 
   &.top,
@@ -45,14 +43,17 @@
 .monday-style-animation-expand-appear,
 .monday-style-animation-expand-exit {
   transition: transform 0.1s $expand-animation-timing;
+
   &.top,
   &.top-start,
   &.top-end {
     transform-origin: bottom center;
     transform: scale(0.8);
+
     &.edge-bottom {
       transform-origin: bottom left;
     }
+
     &.edge-top {
       transform-origin: bottom right;
     }
@@ -63,9 +64,11 @@
   &.right-end {
     transform-origin: left;
     transform: scale(0.8);
+
     &.edge-bottom {
       transform-origin: top left;
     }
+
     &.edge-top {
       transform-origin: bottom left;
     }
@@ -76,9 +79,11 @@
   &.bottom-end {
     transform-origin: top;
     transform: scale(0.8);
+
     &.edge-bottom {
       transform-origin: top left;
     }
+
     &.edge-top {
       transform-origin: top right;
     }
@@ -89,9 +94,11 @@
   &.left-end {
     transform-origin: right;
     transform: scale(0.8);
+
     &.edge-bottom {
       transform-origin: top right;
     }
+
     &.edge-top {
       transform-origin: bottom right;
     }
@@ -117,7 +124,7 @@
   &.right-end,
   &.left,
   &.left-start,
-  &.left-end{
+  &.left-end {
     transform: scale(1);
   }
 }

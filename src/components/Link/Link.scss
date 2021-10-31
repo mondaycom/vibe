@@ -6,20 +6,26 @@
 .monday-style-link {
   display: flex;
   align-items: center;
+
   @include theme-prop(color, link-color);
-  @include font-link();
+  @include font-link;
+
   text-decoration: none;
   writing-mode: horizontal-tb;
-  @include focus-style();
+
+  @include focus-style;
+
   &:hover {
     .monday-style-link--text {
       text-decoration: underline;
     }
   }
+
   &--icon-start {
     line-height: 24px;
     margin-right: $spacing-small;
   }
+
   &--icon-end {
     line-height: 24px;
     margin-left: $spacing-small;
@@ -33,6 +39,7 @@
       margin-right: 0;
       margin-inline-end: $spacing-small;
     }
+
     &--icon-end {
       line-height: 24px;
       margin-left: 0;

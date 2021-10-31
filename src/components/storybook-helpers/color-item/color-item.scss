@@ -5,9 +5,11 @@
   display: flex;
   flex-direction: column;
   width: 180px;
+
   &:first-child {
     padding-left: 0;
   }
+
   &:last-child {
     padding-right: 0;
   }
@@ -20,14 +22,17 @@
     align-items: center;
     justify-content: center;
     border-radius: $border-radius-small;
+
     &.half-size {
       height: 30px;
     }
+
     &:hover {
       .color-code-name {
         display: flex;
       }
     }
+
     .color-code-name {
       display: none;
       color: var(--color-snow_white);
@@ -41,11 +46,13 @@
     color: var(--primary-text-color);
     font-size: 16px;
   }
+
   .color-value,
   .theme-name {
     font-size: 14px;
     color: var(--secondary-text-color);
   }
+
   .theme-name {
     margin-top: $spacing-xs;
   }

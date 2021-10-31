@@ -3,6 +3,7 @@
 
 .monday-style-step-indicator-component {
   @include theme-prop(color, text-color-on-primary);
+
   font-size: $font-size-input;
   display: flex;
   margin: 0;
@@ -17,7 +18,7 @@
 
     .monday-style-step-indicator-component {
       &__text-container {
-        margin-left: 0px;
+        margin-left: 0;
         margin-top: 8px;
       }
 
@@ -29,6 +30,7 @@
 
         .monday-style-divider {
           @include theme-prop(background-color, ui-border-color);
+
           margin: 16px 0 16px 16px;
           height: 1px;
           flex-grow: 1;
@@ -48,13 +50,13 @@
   &--swap {
     /* New state enters */
     &-enter {
-      opacity: 0;
+      opacity: 0%;
       transform: translateY(15px);
     }
 
     &-enter-active {
       position: relative;
-      opacity: 1;
+      opacity: 100%;
       transition: transform 150ms cubic-bezier(0, 0, 0.35, 1), opacity 70ms;
       transform: translateY(0);
     }
@@ -62,13 +64,13 @@
     /* Old state leaves */
     &-exit {
       position: relative;
-      opacity: 1;
+      opacity: 100%;
       transform: translateY(0);
     }
 
     &-exit-active {
       position: relative;
-      opacity: 0;
+      opacity: 0%;
       transform: translateY(-15px);
       transition: transform 150ms cubic-bezier(0, 0, 0.35, 1), opacity 70ms;
     }
@@ -101,12 +103,13 @@
 
     &__title {
       width: 100%;
+
       .visually-hidden {
         display: none;
       }
 
       &__text {
-        @include font-paragraph();
+        @include font-paragraph;
         @include theme-prop(color, primary-text-color);
       }
     }
@@ -114,6 +117,7 @@
     &__subtitle__text {
       width: 100%;
       font-size: $font-size-default;
+
       @include theme-prop(color, disabled-text-color);
     }
   }
@@ -128,6 +132,7 @@
         }
       }
     }
+
     &-danger {
       &__number-container {
         @include theme-prop(background-color, negative-color);
@@ -137,6 +142,7 @@
         }
       }
     }
+
     &-success {
       &__number-container {
         @include theme-prop(background-color, positive-color);
@@ -146,6 +152,7 @@
         }
       }
     }
+
     &-dark {
       &__number-container {
         @include theme-prop(background-color, inverted-color-background);
@@ -192,11 +199,13 @@
         @include theme-prop(background-color, primary-background-color);
         @include theme-prop(color, primary-text-color);
         @include theme-prop(border-color, ui-border-color, true);
+
         border: 1px solid;
 
         &:hover {
           @include theme-prop(background-color, primary-color);
           @include theme-prop(color, text-color-on-primary);
+
           border: none;
         }
 

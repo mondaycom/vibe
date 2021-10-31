@@ -37,11 +37,10 @@ $theme: (
   "dark-background-on-secondary-color": $riverstone_gray,
   "dialog-background-color": $snow_white,
   "modal-background-color": $snow_white,
-  "box-shadow-small": 0px 4px 8px rgba(0, 0, 0, 0.2),
-  "box-shadow-mediun": 0px 6px 20px rgba(0, 0, 0, 0.2),
-  "box-shadow-large": 0px 15px 50px rgba(0, 0, 0, 0.3)
+  "box-shadow-small": 0 4px 8px rgb(0 0 0 / 20%),
+  "box-shadow-mediun": 0 6px 20px rgb(0 0 0 / 20%),
+  "box-shadow-large": 0 15px 50px rgb(0 0 0 / 30%)
 );
-
 $theme-var: (
   "primary-color": var(--primary-color),
   "primary-text-on-primary": var(--primary-text-on-primary),

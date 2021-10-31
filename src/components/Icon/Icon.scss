@@ -3,14 +3,16 @@
 .icon_component {
   position: relative;
 
-  &:before {
+  &::before {
     text-decoration: none !important;
   }
+
   &--no-focus-style {
     &:focus {
       outline: none;
     }
   }
+
   &--clickable {
     cursor: pointer;
   }

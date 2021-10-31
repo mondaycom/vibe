@@ -2,14 +2,11 @@
 @import "../../styles/typography.scss";
 
 $tooltip-z-index: 9999999999999999;
-
 $white-theme-bg-color: #fff;
 $white-theme-font-color: #333;
 $white-theme-border: 1px solid #f1f1f1;
-
 $surface-theme-bg-color: #5b607a;
 $surface-theme-font-color: #fff;
-
 $arrow-size: 12px;
 $arrow-size-md: 16px;
 
@@ -18,15 +15,18 @@ $arrow-size-md: 16px;
   display: inline-block;
   border-radius: $border-radius-small;
   padding: $spacing-small $spacing-medium;
+
   @include theme-prop(box-shadow, box-shadow-medium);
-  @include font-input();
+  @include font-input;
+
   max-width: 50vw;
   word-break: break-word;
 
   &.padding-size-md {
     border-radius: $border-radius-medium;
     padding: $spacing-medium;
-    @include font-input();
+
+    @include font-input;
   }
 
   a.tooltip-white-link {
@@ -44,7 +44,9 @@ $arrow-size-md: 16px;
 .monday-style-arrow-white {
   background-color: $white-theme-bg-color;
   color: $white-theme-font-color;
+
   @include theme-prop(box-shadow, box-shadow-medium);
+
   border: $white-theme-border;
 }
 
@@ -95,12 +97,15 @@ $arrow-size-md: 16px;
   &[data-placement*="bottom"] {
     top: 1px;
   }
+
   &[data-placement*="top"] {
     bottom: 1px;
   }
+
   &[data-placement*="left"] {
     right: 1px;
   }
+
   &[data-placement*="right"] {
     left: 1px;
   }

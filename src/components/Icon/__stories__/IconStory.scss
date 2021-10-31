@@ -4,6 +4,7 @@
 .icon-story-inline-style {
   display: flex;
   align-items: center;
+
   .icon-story-link {
     margin-left: 4px;
   }
@@ -16,10 +17,11 @@
 }
 
 .icon-story-component {
-  width: Max(250px, 20%);
+  width: max(250px, 20%);
   color: var(--icon-color);
   align-items: center;
   justify-content: flex-start;
+
   &:last-of-type {
     justify-self: flex-start;
   }
@@ -34,7 +36,8 @@
 
 .icon-story-description {
   margin: $spacing-large 0;
-  @include font-paragraph-bold();
+
+  @include font-paragraph-bold;
 }
 
 .icon-story-custom-icon {
@@ -48,8 +51,8 @@
   display: flex;
   justify-self: center;
   align-items: center;
-
 }
+
 .icon-story-search-component {
   width: 50% !important;
 }

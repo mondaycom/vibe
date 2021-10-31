@@ -11,12 +11,12 @@
     .monday-style-story-checkbox__state {
       position: relative;
 
-      &:after {
+      &::after {
         content: " ";
         position: absolute;
         width: 100%;
         height: 100%;
-        opacity: 0;
+        opacity: 0%;
       }
 
       &--hover .monday-style-checkbox__checkbox {

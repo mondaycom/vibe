@@ -4,27 +4,32 @@
 
 @mixin active-step-dot {
   @include theme-prop(background, primary-color);
+
   transform: scale(1.3);
 }
+
 .monday-style-steps {
   &--content-on-top {
     .monday-style-steps-header {
       margin-top: $spacing-medium;
     }
   }
+
   &--content-on-bottom {
     .monday-style-steps-header {
       margin-bottom: $spacing-small;
     }
   }
+
   &-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     &_numbers {
-     margin: 0 $spacing-small;
-     @include font-default;
+      margin: 0 $spacing-small;
+
+      @include font-default;
     }
 
     &_gallery {
@@ -34,6 +39,7 @@
 
       .monday-style-steps-header_dot {
         margin-right: $spacing-small;
+
         &:last-child {
           margin-right: 0;
         }
@@ -42,15 +48,19 @@
 
     &_dot {
       @include reset-button;
+
       width: 6px;
       height: 6px;
       cursor: pointer;
       border-radius: 50%;
+
       @include theme-prop(background, ui-border-color);
       @include focus-style;
+
       transform-origin: center;
       transform: scale(1);
       transition: transform 0.2s $expand-animation-timing, background 0.2s $expand-animation-timing;
+
       &:hover {
         transform: scale(1.3);
       }
@@ -60,6 +70,7 @@
       }
     }
   }
+
   &-command {
     display: flex;
     align-items: center;
@@ -67,6 +78,7 @@
     &--backward {
       margin-right: $spacing-small;
       flex-direction: row-reverse;
+
       .monday-style-steps-command_icon {
         margin-right: $spacing-small-medium;
       }
@@ -74,6 +86,7 @@
 
     &--forward {
       margin-left: $spacing-small;
+
       .monday-style-steps-command_icon {
         margin-left: $spacing-small-medium;
       }
@@ -81,10 +94,12 @@
 
     &_icon {
       @include theme-prop(color, icon-color);
+
       width: 15.5px;
       height: 15.5px;
     }
   }
+
   &--on-primary {
     .monday-style-steps {
       &-header {
@@ -101,7 +116,8 @@
           }
         }
       }
-      &-command{
+
+      &-command {
         &_icon {
           @include theme-prop(color, text-color-on-primary);
         }

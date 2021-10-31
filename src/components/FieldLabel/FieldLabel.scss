@@ -5,14 +5,17 @@
   display: flex;
   padding-bottom: $spacing-small;
   align-items: center;
+
   .label-component--icon {
     margin: 0 $spacing-small 0 $spacing-xs;
     line-height: 24px;
     font-size: $font-size-input;
+
     @include theme-prop(color, icon-color);
   }
+
   .label-component--text {
-    @include font-paragraph-bold();
+    @include font-paragraph-bold;
     @include theme-prop(color, primary-text-color);
   }
 }

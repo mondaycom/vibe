@@ -5,9 +5,12 @@
   display: inline-flex;
   margin: 16px;
   padding: 8px;
+
   @include theme-prop(background-color, primary-color);
   @include theme-prop(color, text-color-on-primary);
+
   border-radius: 100%;
+
   .counter-tag {
     position: absolute;
     top: 0;

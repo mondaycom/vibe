@@ -3,7 +3,9 @@
 @mixin disabled {
   @include theme-prop(border-color, disabled-background-color);
   @include theme-prop(color, disabled-text-color);
+
   cursor: not-allowed;
+
   &:hover {
     background-color: transparent;
   }
@@ -15,7 +17,6 @@
   padding: 0;
   width: auto;
   overflow: visible;
-
   background: transparent;
 
   /* inherit font & color from ancestor */
@@ -28,34 +29,40 @@
   /* Corrects font smoothing for webkit */
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
-  /* Corrects inability to style clickable `input` types in iOS */
-  -webkit-appearance: none;
 
-  @include focus-style();
+  /* Corrects inability to style clickable `input` types in iOS */
+  appearance: none;
+
+  @include focus-style;
 }
 
 @mixin focus-style($focus-radius: 4px) {
   &:focus:not(.focus-visible) {
     outline: none;
   }
+
   &:focus-visible,
   &.focus-visible {
     @include focus-style-css($focus-radius);
   }
 }
+
 @mixin focus-style-inset($focus-radius: 4px) {
   &:focus:not(.focus-visible) {
     outline: none;
   }
+
   &:focus-visible,
   &.focus-visible {
     @include focus-style-css-inset($focus-radius);
   }
 }
+
 @mixin focus-style-on-primary($focus-radius: 4px) {
   &:focus:not(.focus-visible) {
     outline: none;
   }
+
   &:focus-visible,
   &.focus-visible {
     @include focus-style-css-on-primary($focus-radius);
@@ -70,20 +77,21 @@
 
 @mixin focus-style-css($focus-radius: 4px) {
   @include focus-style-base($focus-radius);
-  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5), 0 0 0 1px var(--primary-hover-color) inset;
+
+  box-shadow: 0 0 0 3px hsl(209deg 100% 50% / 50%), 0 0 0 1px var(--primary-hover-color) inset;
 }
 
 @mixin focus-style-css-inset($focus-radius: 4px) {
   @include focus-style-base($focus-radius);
-  box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5) inset, 0 0 0 1px var(--primary-hover-color) inset;
-}
 
+  box-shadow: 0 0 0 3px hsl(209deg 100% 50% / 50%) inset, 0 0 0 1px var(--primary-hover-color) inset;
+}
 
 @mixin focus-style-css-on-primary($focus-radius: 4px) {
   @include focus-style-base($focus-radius);
+
   box-shadow: 0 0 0 3px var(--text-color-on-primary-with-opacity), 0 0 0 1px var(--text-color-on-primary) inset;
 }
-
 
 @mixin _scrollerThumb($color) {
   &::-webkit-scrollbar-thumb {
@@ -91,6 +99,7 @@
     border-radius: 4px;
   }
 }
+
 @mixin scroller($width: 4px, $color: var(--ui-border-color)) {
   &::-webkit-scrollbar {
     width: $width;

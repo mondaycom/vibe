@@ -3,7 +3,9 @@
 
 .monday-style-menu-item-button {
   margin: unset;
+
   @include font-default;
+
   display: flex;
   flex-direction: row;
   padding: $spacing-xs 0;

@@ -8,6 +8,7 @@
       border: 2px solid var(--primary-color);
     }
   }
+
   .color-item {
     display: flex;
     justify-content: center;
@@ -20,16 +21,16 @@
       margin-top: 3px;
     }
 
-    &.color-item-size-small{
+    &.color-item-size-small {
       width: 24px;
       height: 24px;
     }
-  
+
     &.color-item-size-medium {
       width: 32px;
       height: 32px;
     }
-  
+
     &.color-item-size-large {
       width: 40px;
       height: 40px;
