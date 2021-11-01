@@ -34,7 +34,10 @@ module.exports = options => {
       }
     }
   ];
+  const devtool = options.storybook ? "eval-cheap-module-source-map" : false;
+
   return {
+    devtool,
     resolve: {
       modules: [__dirname, "node_modules"],
       extensions: [".js", ".jsx"]

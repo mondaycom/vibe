@@ -18,10 +18,12 @@ export default function useIsOverflowing({ ref }) {
   const callback = useCallback(() => {
     setIsOverflowing(checkOverflow(ref.current));
   }, [ref, setIsOverflowing]);
+
   useResizeObserver({
     ref,
     callback,
     debounceTime: 0
   });
+
   return isOverflowing;
 }

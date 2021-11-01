@@ -10,7 +10,7 @@ export const DefaultStory = () => (
 );
 
 export default {
-    title: "Components/Tabs/TabPanel",
+    title: "Components|Tabs/TabPanel",
     component: TabPanel,
     decorators: [withPerformance]
 

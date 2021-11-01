@@ -12,7 +12,6 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
-import useIsMouseOver from "../../../hooks/useIsMouseOver";
 import usePopover from "../../../hooks/usePopover";
 
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
@@ -28,6 +27,7 @@ const MenuItem = ({
   icon,
   menuRef,
   iconType,
+  iconBackgroundColor,
   disabled,
   disableReason,
   selected,
@@ -45,7 +45,9 @@ const MenuItem = ({
   useDocumentEventListeners,
   tooltipPosition,
   tooltipShowDelay,
-  isInitialSelectedState
+  isInitialSelectedState,
+  onMouseEnter,
+  onMouseLeave
 }) => {
   const isActive = activeItemIndex === index;
   const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -56,7 +58,7 @@ const MenuItem = ({
   if (submenuChild && submenuChild.type && submenuChild.type.isMenu) {
     menuChild = submenuChild;
   } else if (submenuChild) {
-    console.Error(
+    console.error(
       "menu item can accept only menu element as first level child, this element is not valid: ",
       submenuChild
     );
@@ -71,8 +73,7 @@ const MenuItem = ({
   const referenceElement = referenceElementRef.current;
   const childElement = childRef.current;
 
-  const isTitleHovered = useIsMouseOver({ ref: titleRef });
-  const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: isTitleHovered && titleRef });
+  const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
   const { styles, attributes } = usePopover(referenceElement, popperElement, {
     isOpen: isSubMenuOpen
@@ -141,6 +142,21 @@ const MenuItem = ({
     );
   };
 
+  const [iconWrapperStyle, iconStyle] = useMemo(() => {
+    return iconBackgroundColor
+      ? [
+          {
+            backgroundColor: iconBackgroundColor,
+            borderRadius: "4px",
+            width: 20,
+            height: 20,
+            opacity: disabled ? 0.4 : 1
+          },
+          { color: "var(--text-color-on-primary)" }
+        ]
+      : [undefined, undefined];
+  }, [iconBackgroundColor, disabled]);
+
   const renderMenuItemIconIfNeeded = () => {
     if (!icon) return null;
 
@@ -150,7 +166,7 @@ const MenuItem = ({
     }
 
     return (
-      <div className="monday-style-menu-item__icon-wrapper">
+      <div className="monday-style-menu-item__icon-wrapper" style={iconWrapperStyle}>
         <Icon
           iconType={finalIconType}
           clickable={false}
@@ -158,6 +174,7 @@ const MenuItem = ({
           iconLabel={title}
           className="monday-style-menu-item__icon"
           ignoreFocusStyle
+          style={iconStyle}
         />
       </div>
     );
@@ -175,57 +192,60 @@ const MenuItem = ({
   const tooltipContent = disabled ? disableReason : title;
 
   return (
-    <Tooltip
-      content={shouldShowTooltip ? tooltipContent : null}
-      position={tooltipPosition}
-      showDelay={tooltipShowDelay}
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+    <li
+      id={`${menuId}-${index}`}
+      {...a11yProps}
+      className={cx("monday-style-menu-item", classname, {
+        "monday-style-menu-item--disabled": disabled,
+        "monday-style-menu-item--focused": isActive,
+        "monday-style-menu-item--selected": selected,
+        "monday-style-menu-item-initial-selected": isInitialSelectedState
+      })}
+      ref={mergedRef}
+      onClick={onClickCallback}
+      role="menuitem"
+      aria-current={isActive}
+      onMouseLeave={onMouseLeave}
+      onMouseEnter={onMouseEnter}
     >
-      <li
-        id={`${menuId}-${index}`}
-        {...a11yProps}
-        className={cx("monday-style-menu-item", classname, {
-          "monday-style-menu-item--disabled": disabled,
-          "monday-style-menu-item--focused": isActive,
-          "monday-style-menu-item--selected": selected,
-          "monday-style-menu-item-initial-selected": isInitialSelectedState
-        })}
-        ref={mergedRef}
-        onClick={onClickCallback}
-        role="menuitem"
-        aria-current={isActive}
-      >
-        {renderMenuItemIconIfNeeded()}
+      {renderMenuItemIconIfNeeded()}
 
+      <Tooltip
+        content={shouldShowTooltip ? tooltipContent : null}
+        position={tooltipPosition}
+        showDelay={tooltipShowDelay}
+      >
         <div ref={titleRef} className="monday-style-menu-item__title">
           {title}
         </div>
-        {label && (
-          <div ref={titleRef} className="monday-style-menu-item__label">
-            {label}
-          </div>
-        )}
-        {renderSubMenuIconIfNeeded()}
-        <div
-          style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          {...attributes.popper}
-          className="monday-style-menu-item__popover"
-          ref={popperElementRef}
-        >
-          {menuChild && shouldShowSubMenu && (
-            <DialogContentContainer>
-              {React.cloneElement(menuChild, {
-                ...menuChild?.props,
-                isVisible: shouldShowSubMenu,
-                isSubMenu: true,
-                onClose: closeSubMenu,
-                ref: childRef
-              })}
-            </DialogContentContainer>
-          )}
+      </Tooltip>
+      {label && (
+        <div ref={titleRef} className="monday-style-menu-item__label">
+          {label}
         </div>
-      </li>
-    </Tooltip>
+      )}
+      {renderSubMenuIconIfNeeded()}
+      <div
+        style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...attributes.popper}
+        className="monday-style-menu-item__popover"
+        ref={popperElementRef}
+      >
+        {menuChild && shouldShowSubMenu && (
+          <DialogContentContainer>
+            {React.cloneElement(menuChild, {
+              ...menuChild?.props,
+              isVisible: shouldShowSubMenu,
+              isSubMenu: true,
+              onClose: closeSubMenu,
+              ref: childRef
+            })}
+          </DialogContentContainer>
+        )}
+      </div>
+    </li>
   );
 };
 
@@ -237,6 +257,7 @@ MenuItem.defaultProps = {
   label: "",
   icon: "",
   iconType: undefined,
+  iconBackgroundColor: undefined,
   disabled: false,
   disableReason: undefined,
   selected: false,
@@ -250,7 +271,9 @@ MenuItem.defaultProps = {
   resetOpenSubMenuIndex: undefined,
   useDocumentEventListeners: false,
   tooltipPosition: MenuItem.tooltipPositions.RIGHT,
-  tooltipShowDelay: 300
+  tooltipShowDelay: 300,
+  onMouseLeave: undefined,
+  onMouseEnter: undefined
 };
 
 MenuItem.propTypes = {
@@ -259,6 +282,7 @@ MenuItem.propTypes = {
   label: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
+  iconBackgroundColor: PropTypes.string,
   disabled: PropTypes.bool,
   disableReason: PropTypes.string,
   selected: PropTypes.bool,
@@ -277,7 +301,9 @@ MenuItem.propTypes = {
     MenuItem.tooltipPositions.TOP,
     MenuItem.tooltipPositions.BOTTOM
   ]),
-  tooltipShowDelay: PropTypes.number
+  tooltipShowDelay: PropTypes.number,
+  onMouseLeave: PropTypes.func,
+  onMouseEnter: PropTypes.func
 };
 
 MenuItem.isSelectable = true;

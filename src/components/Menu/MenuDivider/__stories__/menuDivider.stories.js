@@ -29,7 +29,7 @@ export const Submenu = () => (
 );
 
 export default {
-  title: "Components/Menu/MenuDivider",
+  title: "Components|Menu/MenuDivider",
   component: MenuDivider,
   decorators: [withPerformance]
 };

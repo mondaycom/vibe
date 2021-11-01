@@ -4,6 +4,21 @@ const fs = require("fs");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  AccordionItem: "/src/components/Accordion/AccordionItem/AccordionItem.jsx",
+  Accordion: "/src/components/Accordion/Accordion/Accordion.jsx",
+  Clickable: "/src/components/Clickable/Clickable.jsx",
+  TextWithHighlight: "/src/components/TextWithHighlight/TextWithHighlight.jsx",
+  List: "/src/components/List/List.jsx",
+  ListTitle: "/src/components/ListTitle/ListTitle.jsx",
+  ListItemIcon: "/src/components/ListItemIcon/ListItemIcon.jsx",
+  ListItem: "/src/components/ListItem/ListItem.jsx",
+  VirtualizedList: "/src/components/VirtualizedList/VirtualizedList.jsx",
+  ColorPicker: "/src/components/ColorPicker/ColorPicker.jsx",
+  ColorPickerContent: "/src/components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx",
+  Tipseen: "/src/components/Tipseen/Tipseen.jsx",
+  TipseenContent: "/src/components/Tipseen/TipseenContent.jsx",
+  TipseenWizard: "/src/components/Tipseen/TipseenWizard.jsx",
+  TipseenImage: "/src/components/Tipseen/TipseenImage.jsx",
   Steps: "/src/components/Steps/Steps.jsx",
   Combobox: "/src/components/Combobox/Combobox.jsx",
   TabPanels: "/src/components/Tabs/TabPanels/TabPanels.jsx",

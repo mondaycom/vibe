@@ -2,6 +2,7 @@
 @import "../../styles/typography.scss";
 
 .monday-style-attention-box-component {
+  position: relative;
   padding: $spacing-large;
   border-radius: $border-radius-medium;
   font-size: $font-size-input;
@@ -60,6 +61,7 @@
     display: flex;
     align-items: center;
     margin-top: 0;
+    margin-bottom: $spacing-medium;
 
     &__icon {
       height: 24px;
@@ -73,7 +75,17 @@
     }
   }
 
-  &__text {
-    margin-top: $spacing-medium;
+  &.with-close {
+    padding: $spacing-large $spacing-xxl $spacing-large $spacing-large;
+  }
+
+  &__close-icon {
+    position: absolute;
+    top: $spacing-small-medium;
+    right: $spacing-small-medium;
+
+    &.compact{
+      top: calc(50% - 12px);
+    }
   }
 }

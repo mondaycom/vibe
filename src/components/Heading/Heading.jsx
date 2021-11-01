@@ -68,7 +68,7 @@ Heading.propTypes = {
 };
 Heading.defaultProps = {
   className: "",
-  type: TYPES.H1,
+  type: TYPES.h1,
   ariaLabel: "",
   value: "",
   id: "",

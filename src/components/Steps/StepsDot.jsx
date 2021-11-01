@@ -10,6 +10,7 @@ const bemHelper = BEMClass(CSS_BASE_CLASS);
 export const StepsDot = ({ isActive, onClick, ariaCurrent, ariaLabel }) => {
   return (
     <button
+      type="button"
       aria-label={ariaLabel}
       aria-current={isActive ? ariaCurrent : false}
       className={cx(bemHelper({ element: "dot" }), {

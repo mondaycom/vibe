@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import cx from "classnames";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing";
 import "./ComboboxOption.scss";
+import { keyCodes } from "../../../../constants/KeyCodes";
 
 const ComboboxOption = ({
   index,
@@ -11,8 +12,10 @@ const ComboboxOption = ({
   isActive,
   isActiveByKeyboard,
   onOptionClick,
+  onOptionLeave,
   onOptionHover,
-  optionLineHeight
+  optionLineHeight,
+  shouldScrollWhenActive
 }) => {
   const {
     id,
@@ -34,10 +37,10 @@ const ComboboxOption = ({
 
   useEffect(() => {
     const element = ref.current;
-    if (isActive && element) {
+    if (isActive && element && shouldScrollWhenActive) {
       element.scrollIntoView({ behaviour: "smooth" });
     }
-  }, [ref, isActive]);
+  }, [ref, isActive, shouldScrollWhenActive]);
 
   const renderIcon = (icon, iconType, className) => {
     if (iconType === ComboboxOption.iconTypes.RENDERER) {
@@ -56,6 +59,38 @@ const ComboboxOption = ({
     );
   };
 
+  const onClick = useCallback(
+    event => {
+      onOptionClick(event, index, option, true);
+    },
+    [index, option, onOptionClick]
+  );
+
+  const onMouseLEave = useCallback(
+    event => {
+      if (disabled) return;
+      onOptionLeave(event, index, option, true);
+    },
+    [index, option, onOptionLeave, disabled]
+  );
+
+  const onMouseEnter = useCallback(
+    event => {
+      if (disabled) return;
+      onOptionHover(event, index, option, true);
+    },
+    [index, option, onOptionHover, disabled]
+  );
+
+  const onKeyDown = useCallback(
+    event => {
+      if (event.key === keyCodes.ENTER || event.key === keyCodes.SPACE) {
+        onOptionClick(event, index, option, false);
+      }
+    },
+    [onOptionClick, index, option]
+  );
+
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <Tooltip content={isOptionOverflowing ? label : null}>
@@ -63,10 +98,14 @@ const ComboboxOption = ({
         ref={ref}
         key={id || label}
         role="option"
-        ariaLabel={ariaLabel || label}
+        aria-selected={isActive}
+        tabIndex="-1"
+        aria-label={ariaLabel || label}
         id={`combobox-item-${index}`}
-        onMouseEnter={!disabled && onOptionHover}
-        onClick={event => onOptionClick(event, index, option, true)}
+        onMouseEnter={onMouseEnter}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        onMouseLeave={onMouseLEave}
         className={cx("combobox-option", {
           disabled,
           selected,
@@ -88,6 +127,10 @@ const ComboboxOption = ({
 ComboboxOption.iconTypes = {
   DEFAULT: "default",
   RENDERER: "renderer"
+};
+
+ComboboxOption.defaultProps = {
+  shouldScrollWhenActive: true
 };
 
 export default ComboboxOption;

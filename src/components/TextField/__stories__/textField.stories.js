@@ -68,6 +68,12 @@ export const States = () => {
         </div>
       </FlexLayout>
       <FlexLayout>
+        <ComponentStateDescription title="Loading" />
+        <div className="width-35">
+          <TextField id="_5" loading placeholder="Placeholder text" size={TextField.sizes.MEDIUM} />
+        </div>
+      </FlexLayout>
+      <FlexLayout>
         <ComponentStateDescription title="With Icon" />
         <div className="width-35">
           <TextField

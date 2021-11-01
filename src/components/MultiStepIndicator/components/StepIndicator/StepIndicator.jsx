@@ -1,3 +1,4 @@
+/* eslint-disable react/default-props-match-prop-types,react/require-default-props */
 import React, { useMemo, useState, useRef, useCallback, useEffect } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
@@ -7,6 +8,7 @@ import useEventListener from "../../../../hooks/useEventListener";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 import Icon from "../../../Icon/Icon";
 import Check from "../../../Icon/Icons/components/Check";
+import Divider from "../../../Divider/Divider";
 
 import { keyCodes } from "../../../../constants/KeyCodes";
 import { NOOP } from "../../../../utils/function-utils";
@@ -14,6 +16,7 @@ import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
 import HiddenText from "../../../HiddenText/HiddenText";
+import Clickable from "../../../Clickable/Clickable";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
@@ -26,7 +29,11 @@ const StepIndicator = ({
   type,
   fulfilledStepIcon,
   fulfilledStepIconType,
-  onClick
+  isFulfilledStepDisplayNumber,
+  onClick,
+  isFollowedByDivider,
+  stepDividerClassName,
+  isVertical
 }) => {
   // Animations state
   const [statusChangeAnimationState, setStatusChangeAnimationState] = useState(false);
@@ -88,7 +95,7 @@ const StepIndicator = ({
   };
 
   const StepCircleDisplay = () => {
-    return status === STEP_STATUSES.FULFILLED ? (
+    return status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
       <Icon
         icon={fulfilledStepIcon}
         className={`${baseClassName}__number-container__text__check-icon`}
@@ -104,33 +111,39 @@ const StepIndicator = ({
   };
 
   return (
-    <li
+    <Clickable
+      tabIndex="-1"
+      elementType="li"
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
         [baseClassNameWithAnimation]: statusChangeAnimationState,
-        clickable: onClick
+        clickable: onClick,
+        [`${baseClassName}--text-placement-vertical`]: isVertical
       })}
       aria-label={ariaLabel}
       onClick={handleClick}
     >
-      <div
-        className={cx(...getClassNamesWithSuffix("__number-container"))}
-        ref={componentRef}
-        tabIndex="0"
-        role="button"
-      >
-        <SwitchTransition mode="out-in">
-          <CSSTransition
-            classNames={`${baseClassName}--swap`}
-            addEndListener={(node, done) => {
-              node.addEventListener("transitionend", done, false);
-            }}
-            key={status}
-          >
-            <span className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
-              <StepCircleDisplay />
-            </span>
-          </CSSTransition>
-        </SwitchTransition>
+      <div className={cx(...getClassNamesWithSuffix("__number-divider-container"))}>
+        <div
+          className={cx(...getClassNamesWithSuffix("__number-container"))}
+          ref={componentRef}
+          tabIndex="0"
+          role="button"
+        >
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              classNames={`${baseClassName}--swap`}
+              addEndListener={(node, done) => {
+                node.addEventListener("transitionend", done, false);
+              }}
+              key={status}
+            >
+              <span className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
+                <StepCircleDisplay />
+              </span>
+            </CSSTransition>
+          </SwitchTransition>
+        </div>
+        {isFollowedByDivider && isVertical && <Divider classname={stepDividerClassName} />}
       </div>
       <div className={cx(...getClassNamesWithSuffix("__text-container"))}>
         <div className={cx(...getClassNamesWithSuffix("__text-container__title"))}>
@@ -139,7 +152,7 @@ const StepIndicator = ({
         </div>
         <span className={cx(...getClassNamesWithSuffix("__text-container__subtitle__text"))}>{subtitleText}</span>
       </div>
-    </li>
+    </Clickable>
   );
 };
 
@@ -157,7 +170,9 @@ StepIndicator.propTypes = {
   ]),
   fulfilledStepIcon: PropTypes.func,
   fulfilledStepIconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
-  onClick: PropTypes.func
+  isFulfilledStepDisplayNumber: PropTypes.bool,
+  onClick: PropTypes.func,
+  isVertical: PropTypes.bool
 };
 
 StepIndicator.defaultProps = {
@@ -169,7 +184,9 @@ StepIndicator.defaultProps = {
   type: MULTI_STEP_TYPES.PRIMARY,
   fulfilledStepIcon: Check,
   fulfilledStepIconType: Icon.type.SVG,
-  onClick: NOOP
+  isFulfilledStepDisplayNumber: false,
+  onClick: NOOP,
+  isVertical: false
 };
 
 export default StepIndicator;

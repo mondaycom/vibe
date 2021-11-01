@@ -26,7 +26,7 @@ export const Types = () => (
 );
 
 export default {
-  title: "Components/DialogContentContainer",
+  title: "Components|DialogContentContainer",
   component: DialogContentContainer,
   decorators: [withPerformance]
 };

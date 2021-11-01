@@ -42,7 +42,18 @@ it("renders correctly with Bolt Icon", () => {
 it("renders correctly with Bolt Icon", () => {
   const tree = renderer
     .create(
-      <MenuButton componentClassName="dummy-class-name">
+      <MenuButton className="dummy-class-name">
+        <div>Menu</div>
+      </MenuButton>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders correctly with tooltip content", () => {
+  const tree = renderer
+    .create(
+      <MenuButton tooltipContent="tooltip content">
         <div>Menu</div>
       </MenuButton>
     )
@@ -76,4 +87,36 @@ describe("Click", () => {
     const menu = await screen.findByText("Menu");
     expect(menu).toBeTruthy();
   });
+});
+
+describe("Enter", () => {
+  it.each`
+    closeDialogOnContentClick | expected
+    ${true}                   | ${"close"}
+    ${false}                  | ${"not close"}
+  `(
+    "should $expected menu after clicking enter when closeDialogOnContentClick is $closeDialogOnContentClick",
+    async ({ closeDialogOnContentClick }) => {
+      const { getByLabelText } = render(
+        <MenuButton ariaLabel="Menu Button" closeDialogOnContentClick={closeDialogOnContentClick}>
+          <div>Menu</div>
+        </MenuButton>
+      );
+      const button = getByLabelText("Menu Button");
+      act(() => {
+        fireEvent.click(button);
+        jest.advanceTimersByTime(1000);
+      });
+      expect(await screen.findByText("Menu")).toBeTruthy();
+      act(() => {
+        fireEvent.keyDown(button, { key: "Enter", code: "Enter", charCode: 13 });
+        jest.advanceTimersByTime(1000);
+      });
+      if (closeDialogOnContentClick) {
+        expect(await screen.queryByText("Menu")).toBeFalsy();
+      } else {
+        expect(await screen.queryByText("Menu")).toBeTruthy();
+      }
+    }
+  );
 });

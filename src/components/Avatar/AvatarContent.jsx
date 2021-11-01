@@ -51,10 +51,10 @@ AvatarContent.propTypes = {
 
 AvatarContent.defaultProps = {
   src: undefined,
-  className: "",
   icon: undefined,
   type: AVATAR_TYPES.TEXT,
   role: undefined,
   ariaLabel: undefined,
-  size: AVATAR_SIZES.LARGE
+  size: AVATAR_SIZES.LARGE,
+  text: undefined
 };

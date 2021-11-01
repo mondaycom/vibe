@@ -37,3 +37,22 @@ exports[`Snapshots renders correctly with count below the limit 1`] = `
   </div>
 </span>
 `;
+
+exports[`Snapshots renders correctly with the prefix 1`] = `
+<span
+  aria-label=" 13"
+  aria-labelledby=""
+  className=""
+>
+  <div
+    aria-label={13}
+    className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary"
+  >
+    <span
+      id="counter-"
+    >
+      +13
+    </span>
+  </div>
+</span>
+`;

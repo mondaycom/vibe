@@ -84,7 +84,7 @@ export const Icon = () => (
 );
 
 export default {
-  title: "Components/BreadcrumbsBar/BreadcrumbItem",
+  title: "Components|BreadcrumbsBar/BreadcrumbItem",
   component: BreadcrumbItem,
   decorators: [withPerformance]
 };

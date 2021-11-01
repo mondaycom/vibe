@@ -37,7 +37,7 @@ export const Sandbox = () => (
 );
 
 export default {
-  title: "Components/EditableHeading",
+  title: "Components|EditableHeading",
   component: EditableHeading,
   decorators: [withPerformance]
 };

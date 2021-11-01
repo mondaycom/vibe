@@ -222,7 +222,7 @@ export const menuKeyboardNavigationWithoutFocus = () => {
 };
 
 export default {
-  title: "Components/Menu/Menu",
+  title: "Components|Menu/Menu",
   component: Menu,
   decorators: [withPerformance]
 };

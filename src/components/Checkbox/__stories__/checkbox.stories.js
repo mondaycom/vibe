@@ -27,7 +27,6 @@ export const States = () => {
           value="1"
           label="Option"
           name="selected"
-          defaultChecked={true}
           disabled={false}
           componentClassName="monday-style-selected"
         />
@@ -74,6 +73,16 @@ export const States = () => {
       <StoryStateRow componentDescription="Disabled selected" componentClassName="monday-style-story-checkbox__state">
         <Checkbox value="1" label="Option" name="disabledSelected" disabled={true} defaultChecked={true} />
       </StoryStateRow>
+
+      <StoryStateRow componentDescription="Indeterminate" componentClassName="monday-style-story-checkbox__state">
+        <Checkbox
+          value="1"
+          label="Option"
+          name="indeterminate"
+          indeterminate={true}
+          componentClassName="monday-style-selected"
+        />
+      </StoryStateRow>
     </StoryWrapper>
   );
 };
@@ -106,7 +115,7 @@ export const RTLSupport = () => [
 ];
 
 export default {
-  title: "Components/Checkbox",
+  title: "Components|Checkbox",
   component: Checkbox,
   argTypes: { onClick: { action: "onChange" } },
   decorators: [withPerformance]

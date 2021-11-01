@@ -2,29 +2,12 @@ import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
+import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
-import { baseClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
+import { baseClassName, closeClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 
-const AttentionBox = ({
-  componentClassName,
-  type,
-  icon,
-  iconType,
-  title,
-  text,
-  ariaLevel,
-  textClassName,
-  titleClassName
-}) => {
-  const role = useMemo(() => {
-    if (type === ATTENTION_BOX_TYPES.DANGER) {
-      return "alert";
-    }
-
-    return "complementary";
-  }, [type]);
-
+const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, withoutIcon, onClose, compact }) => {
   const iconLabel = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
@@ -39,37 +22,49 @@ const AttentionBox = ({
 
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
-    <aside className={cx(baseClassName, classNameWithType, componentClassName)} role={role}>
-      <div
-        className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}
-        role="heading"
-        aria-level={ariaLevel}
-      >
-        {icon ? (
-          <Icon
-            iconType={iconType}
-            ariaHidden
-            clickable={false}
-            icon={icon}
-            className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
-            ignoreFocusStyle
-            iconSize="24"
-            iconLabel={iconLabel}
-          />
-        ) : null}
-        <span
-          className={cx(
-            `${baseClassName}__title-container__title`,
-            `${classNameWithType}__title-container__title`,
-            titleClassName
+    <aside
+      className={cx(
+        baseClassName,
+        classNameWithType,
+        { [compactClassName]: compact },
+        { [closeClassName]: onClose },
+        componentClassName
+      )}
+      role="alert"
+    >
+      {title && (
+        <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
+          {!withoutIcon && (
+            <Icon
+              iconType={iconType}
+              ariaHidden
+              clickable={false}
+              icon={icon}
+              className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
+              ignoreFocusStyle
+              iconSize="24"
+              iconLabel={iconLabel}
+            />
           )}
-        >
-          {title}
-        </span>
-      </div>
-      {text ? (
-        <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`, textClassName)}>{text}</div>
-      ) : null}
+          <span
+            className={cx(`${baseClassName}__title-container__title`, `${classNameWithType}__title-container__title`)}
+          >
+            {title}
+          </span>
+        </h2>
+      )}
+      <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`)}>{text}</div>
+      {onClose && (
+        <Icon
+          iconType={Icon.type.SVG}
+          iconLabel="Close"
+          icon={CloseSmall}
+          className={cx(`${baseClassName}__close-icon`, { [compactClassName]: compact })}
+          ignoreFocusStyle
+          onClick={onClose}
+          iconSize="24"
+        />
+      )}
     </aside>
   );
 };
@@ -91,7 +86,9 @@ AttentionBox.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string,
   text: PropTypes.string,
-  ariaLevel: PropTypes.number
+  withoutIcon: PropTypes.bool,
+  compact: PropTypes.bool,
+  onClose: PropTypes.func
 };
 
 AttentionBox.defaultProps = {
@@ -101,7 +98,9 @@ AttentionBox.defaultProps = {
   iconType: Icon.type.SVG,
   title: "",
   text: "",
-  ariaLevel: 2
+  withoutIcon: false,
+  compact: false,
+  onClose: undefined
 };
 
 export default AttentionBox;

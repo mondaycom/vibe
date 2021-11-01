@@ -123,8 +123,23 @@ export const contentColors = [
   "explosive",
   "american_gray",
   "blackish",
-  "brown"
+  "brown",
+  "orchid",
+  "tan",
+  "sky",
+  "coffee",
+  "royal",
+  "teal",
+  "lavender",
+  "steel",
+  "lilac",
+  "pecan"
 ];
+
+export const COLOR_STYLES = {
+  REGULAR: "regular",
+  SELECTED: "selected"
+};
 
 export const contentColorsByName = {
   GRASS_GREEN: "grass_green",
@@ -156,7 +171,17 @@ export const contentColorsByName = {
   EXPLOSIVE: "explosive",
   AMERICAN_GRAY: "american_gray",
   BLACKISH: "blackish",
-  BROWN: "brown"
+  BROWN: "brown",
+  ORCHID: "orchid",
+  TAN: "tan",
+  SKY: "sky",
+  COFFEE: "coffee",
+  ROYAL: "royal",
+  TEAL: "teal",
+  LAVENDER: "lavender",
+  STEEL: "steel",
+  LILAC: "lilac",
+  PECAN: "pecan"
 };
 
 export const stateSelectedColors = {

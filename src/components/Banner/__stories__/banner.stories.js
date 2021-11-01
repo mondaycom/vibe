@@ -202,7 +202,7 @@ export const Empty = () => {
 };
 
 export default {
-  title: "Components/Banner",
+  title: "Components|Banner",
   component: Banner,
   decorators: [withPerformance]
 };

@@ -53,7 +53,7 @@ export const Animations = () => (
 );
 
 export default {
-  title: "Components/Tabs/TabPanels",
+  title: "Components|Tabs/TabPanels",
   component: TabPanels,
   decorators: [withPerformance]
 };

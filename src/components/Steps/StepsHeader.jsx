@@ -14,9 +14,9 @@ export const StepsHeader = ({
   onChangeActiveStep,
   stepsCount,
   areNavigationButtonsHidden,
-  backwardButtonProps,
-  forwardButtonProps,
-  areIconsHidden,
+  backButtonProps,
+  nextButtonProps,
+  areButtonsIconsHidden,
   isOnPrimary
 }) => {
   const SubHeaderComponent = type === STEPS_GALLERY_TYPE ? StepsGalleryHeader : StepsNumbersHeader;
@@ -25,12 +25,12 @@ export const StepsHeader = ({
     <div className={cx(CSS_BASE_CLASS, bemHelper({ state: type }))}>
       {areNavigationButtonsHidden ? null : (
         <StepsCommand
-          isForward={false}
-          isIconHidden={areIconsHidden}
+          isNext={false}
+          isIconHidden={areButtonsIconsHidden}
           onChangeActiveStep={onChangeActiveStep}
           activeStepIndex={activeStepIndex}
           stepsCount={stepsCount}
-          buttonProps={backwardButtonProps}
+          buttonProps={backButtonProps}
           isOnPrimary={isOnPrimary}
         />
       )}
@@ -41,12 +41,12 @@ export const StepsHeader = ({
       />
       {areNavigationButtonsHidden ? null : (
         <StepsCommand
-          isForward
-          isIconHidden={areIconsHidden}
+          isNext
+          isIconHidden={areButtonsIconsHidden}
           activeStepIndex={activeStepIndex}
           onChangeActiveStep={onChangeActiveStep}
           stepsCount={stepsCount}
-          buttonProps={forwardButtonProps}
+          buttonProps={nextButtonProps}
           isOnPrimary={isOnPrimary}
         />
       )}

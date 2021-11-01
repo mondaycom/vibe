@@ -235,6 +235,6 @@ export const States = () => (
 );
 
 export default {
-  title: "Components/Menu/MenuItemButton",
+  title: "Components|Menu/MenuItemButton",
   component: MenuItemButton
 };

@@ -2,6 +2,8 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Search.scss";
+import SearchIcon from "../Icon/Icons/components/Search";
+import CloseIcon from "../Icon/Icons/components/CloseSmall";
 import TextField from "../TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { TYPES } from "./SearchConstats";
@@ -49,7 +51,8 @@ const Search = forwardRef(
       inputAriaLabel,
       searchResultsContainerId,
       activeDescendant,
-      iconNames
+      iconNames,
+      loading
     },
     ref
   ) => {
@@ -82,6 +85,7 @@ const Search = forwardRef(
         iconsNames={iconNames}
         type="search"
         role="search"
+        loading={loading}
       />
     );
   }
@@ -123,12 +127,13 @@ Search.propTypes = {
     layout: PropTypes.string,
     primary: PropTypes.string,
     secondary: PropTypes.string
-  })
+  }),
+  loading: PropTypes.bool
 };
 
 Search.defaultProps = {
-  secondaryIconName: "icon-dapulse-close",
-  iconName: "icon-v2-search",
+  secondaryIconName: CloseIcon,
+  iconName: SearchIcon,
   onChange: NOOP,
   autoFocus: false,
   underline: false,
@@ -149,7 +154,9 @@ Search.defaultProps = {
   inputAriaLabel: undefined,
   searchResultsContainerId: "",
   activeDescendant: "",
-  iconNames: ICON_NAMES
+  iconNames: ICON_NAMES,
+  /** shows loading animation */
+  loading: false
 };
 
 export default Search;

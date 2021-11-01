@@ -12,6 +12,7 @@
     "no-debugger": "warn",
     "global-require": "off",
     "no-unused-expressions": "off",
+    "react/forbid-foreign-prop-types": "off",
     "no-console": "off",
     "consistent-return": "off",
     "no-use-before-define": "off",
@@ -32,7 +33,7 @@
     "react/no-danger": "warn",
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": 0,
-    "react/forbid-prop-types": ["warn"],
+    "react/forbid-prop-types": "off",
     "react/require-default-props": ["warn"],
     "jsx-a11y/anchor-is-valid": ["warn"],
     "react/jsx-props-no-spreading": 0,
@@ -44,17 +45,24 @@
       {
         "required": {
           "some": ["nesting", "id"]
-        }
+        },
+        "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
       }
     ],
     "jsx-a11y/role-has-required-aria-props": "warn",
     "jsx-a11y/click-events-have-key-events": "warn",
-    "jsx-a11y/label-has-associated-control": "warn",
+    "jsx-a11y/label-has-associated-control": "off",
     "react/default-props-match-prop-types": "warn",
     "jsx-a11y/aria-activedescendant-has-tabindex": "warn",
     "react/button-has-type": "warn",
     "jsx-a11y/interactive-supports-focus": "warn",
     "jsx-a11y/no-noninteractive-tabindex": "warn",
     "react/jsx-boolean-value": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["scripts/**/*.js"],
+      "rules": { "import/no-extraneous-dependencies": ["error", { "devDependencies": true }] }
+    }
+  ]
 }

@@ -121,7 +121,7 @@ export const ButtonGroupWithTooltip = () => (
 );
 
 export default {
-  title: "Components/ButtonGroup",
+  title: "Components|ButtonGroup",
   component: ButtonGroup,
   decorators: [withPerformance]
 };

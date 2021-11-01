@@ -199,6 +199,31 @@
         border-radius: 0 !important;
       }
     }
+    .input-component__loader--container{
+      position: absolute;
+      top: 50%;
+      right: 4px;
+      width: 24px;
+      height: 24px;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.input-component__loader--container-has-icon{
+        right: 32px;
+      }
+
+      .input-component__loader{
+        width: 16px;
+        height: 16px;
+        
+        .input-component__loader-svg{
+          @include theme-prop(color, secondary-text-color);
+        }
+      }
+    }
+    
     .input-component__icon--container {
       position: absolute;
       top: 50%;

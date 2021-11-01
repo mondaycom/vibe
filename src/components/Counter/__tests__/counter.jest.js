@@ -73,4 +73,8 @@ describe("Snapshots", () => {
     const tree = renderer.create(<Counter count={1000} maxDigits={3} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+  it("renders correctly with the prefix", () => {
+    const tree = renderer.create(<Counter count={13} prefix="+" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
