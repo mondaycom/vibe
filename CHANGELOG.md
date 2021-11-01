@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.0 (2021-11-01)
+
+#### New Features
+* [#315](https://github.com/mondaycom/monday-ui-react-core/pull/315) add autoFocus to dropdown ([@ronachmany-monday](https://github.com/ronachmany-monday))
+* [#314](https://github.com/mondaycom/monday-ui-react-core/pull/314) amitha/feature/combobox-no-results ([@amit-hanoch](https://github.com/amit-hanoch))
+
 ## 0.6.0 (2021-10-31)
 
 #### Bug Fixes
