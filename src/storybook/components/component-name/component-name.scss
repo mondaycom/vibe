@@ -5,14 +5,16 @@
 .monday-storybook-component-name {
   width: 100%;
   margin-bottom: $spacing-between-section-items;
-  &_title {
-    @include basic-text;
-    font-family: $header-primary-font;
-    font-size: $h1-font-size;
-    line-height: 48px;
-    font-weight: 600;
-    letter-spacing: -0.24px;
-    text-align: left;
-    display: grid;
-  }
+  @include theme-prop(background-color, primary-selected-color);
+  @include basic-text;
+  font-family: $header-primary-font;
+  font-size: $h1-font-size;
+  line-height: 48px;
+  font-weight: 600;
+  letter-spacing: -0.24px;
+  text-align: left;
+  display: grid;
+  border-radius: $border-radius-small;
+  padding: 40px 24px;
+
 }
