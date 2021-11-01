@@ -7,7 +7,7 @@ import "./{{properCase componentName}}.stories.scss";
 - [Props](#props)
 - [Usage](#usage)
 - [Variants](#variants)
-- [Do’s and don’ts](#do’s-and-don’ts)
+- [Do’s and don’ts](#dos-and-donts)
 - [Use cases and examples](#use-cases-and-examples)
 - [Related components](#related-components)
 - [Feedback](#feedback)
