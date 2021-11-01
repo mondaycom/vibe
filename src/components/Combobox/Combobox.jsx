@@ -37,7 +37,8 @@ const Combobox = forwardRef(
       loading,
       onOptionHover,
       onOptionLeave,
-      shouldScrollToSelectedItem
+      shouldScrollToSelectedItem,
+      noResultsRenderer
     },
     ref
   ) => {
@@ -182,6 +183,10 @@ const Combobox = forwardRef(
     }
 
     function renderNoResults() {
+      if (noResultsRenderer) {
+        return noResultsRenderer();
+      }
+
       return (
         <div className="combobox--wrapper-no-results">
           <div className="message-wrapper">
@@ -251,7 +256,8 @@ Combobox.propTypes = {
   loading: PropTypes.bool,
   onOptionHover: PropTypes.func,
   onOptionLeave: PropTypes.func,
-  shouldScrollToSelectedItem: PropTypes.bool
+  shouldScrollToSelectedItem: PropTypes.bool,
+  noResultsRenderer: PropTypes.func
 };
 Combobox.defaultProps = {
   className: "",
@@ -274,7 +280,8 @@ Combobox.defaultProps = {
   loading: false,
   onOptionHover: NOOP,
   onOptionLeave: NOOP,
-  shouldScrollToSelectedItem: true
+  shouldScrollToSelectedItem: true,
+  noResultsRenderer: undefined
 };
 
 export default Combobox;
