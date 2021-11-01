@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.1 (2021-11-01)
+
+#### Bug Fixes
+* [#313](https://github.com/mondaycom/monday-ui-react-core/pull/313) Added onClick callback support for AccordionItem ([@adirhaz1z](https://github.com/adirhaz1z))
+
 ## 0.7.0 (2021-11-01)
 
 #### New Features
