@@ -2,6 +2,17 @@ import {{properCase componentName}} from "../{{properCase componentName}}";
 import { ArgsTable, Story, Canvas } from "@storybook/addon-docs";
 import "./{{properCase componentName}}.stories.scss";
 
+<Meta
+  title="Components/{{properCase componentName}}/{{properCase componentName}}"
+  component={{{properCase componentName}}}
+/>
+
+<!--- Component template -->
+
+export const {{camelCase componentName}}Template = createComponentTemplate({{properCase componentName}});
+
+<!--- Component documentation -->
+
 # {{properCase componentName}}
 - [Overview](#overview)
 - [Props](#props)
@@ -13,7 +24,14 @@ import "./{{properCase componentName}}.stories.scss";
 - [Feedback](#feedback)
 
 ## Overview
-<ComponentStory storyId="components-{{dashCase componentName}}--overview"/>
+Please write here the component description
+
+<Canvas>
+  <Story name="Overview"
+         args={{}}>
+    {{{camelCase componentName}}Template.bind({})}
+  </Story>
+</Canvas>
 
 ## Props
 <ArgsTable of={ {{properCase componentName}} } />
@@ -30,11 +48,21 @@ import "./{{properCase componentName}}.stories.scss";
 ## Variants
 ### Story title 1
 Description of story 1
-<ComponentStory storyId="components-{{dashCase componentName}}--story-1"/>
+<Canvas>
+  <Story name="Story title 1">
+    <{{properCase componentName}} />
+    <{{properCase componentName}} />
+  </Story>
+</Canvas>
 
 ### Story title 2
 Description of story 2
-<ComponentStory storyId="components-{{dashCase componentName}}--story-2"/>
+<Canvas>
+  <Story name="Story title 1">
+    <{{properCase componentName}} />
+    <{{properCase componentName}} />
+  </Story>
+</Canvas>
 
 ## Do’s and Don’ts
 <ComponentRules
@@ -78,7 +106,7 @@ Description of story 2
         component:<{{properCase componentName}}/>,
         description:"Bad practice description."
       }
-    },
+    }
   ]}
 />
 
@@ -87,12 +115,21 @@ Description of story 2
 
 ### Story title 3
 Description of story 3
-<ComponentStory storyId="components-{{dashCase componentName}}--story-3"/>
+<Canvas>
+  <Story name="Story title 3">
+    <{{properCase componentName}} />
+    <{{properCase componentName}} />
+  </Story>
+</Canvas>
 
 ### Story title 4
- Description of story 4
- <ComponentStory storyId="components-{{dashCase componentName}}--story-4"/>
-
+Description of story 4
+<Canvas>
+  <Story name="Story title 4">
+    <{{properCase componentName}} />
+    <{{properCase componentName}} />
+  </Story>
+</Canvas>
 
 ## Related components
 <RelatedComponents componentsNames={[]}/>

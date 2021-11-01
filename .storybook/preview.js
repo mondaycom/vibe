@@ -51,8 +51,7 @@ addParameters({
 });
 
 export const decorators = [
-  (Story, { className, ...otherProps }) => {
-    debugger;
+  (Story, { className }) => {
     return (
       <MultipleStoryElementsWrapper className={className}>
         <Story />
