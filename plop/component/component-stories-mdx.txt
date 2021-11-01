@@ -59,7 +59,7 @@ Description of story 1
 ### Story title 2
 Description of story 2
 <Canvas>
-  <Story name="Story title 1">
+  <Story name="Story title 2">
     <{{properCase componentName}} />
     <{{properCase componentName}} />
   </Story>
