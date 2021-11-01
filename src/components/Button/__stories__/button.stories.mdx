@@ -21,9 +21,9 @@ export const buttonTemplate = createComponentTemplate(Button);
 # Button
 - [Overview](#overview)
 - [Props](#props)
-- [Usage](#uasge)
+- [Usage](#usage)
 - [Variants](#variants)
-- [Do’s and don’ts](#do’s-and-don’ts)
+- [Do’s and don’ts](#dos-and-donts)
 - [Use cases and examples](#use-cases-and-examples)
 - [Related components](#related-components)
 - [Feedback](#feedback)
@@ -221,8 +221,8 @@ When one action is selected, the other is disabled
 <Canvas>
   <Story name="Adjacent buttons">
     <div>
-      <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="decrease zoom level"><Remove /></Button>
-      <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="increase zoom level"><Add /></Button>
+      <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="decrease zoom level" rightFlat><Remove /></Button>
+      <Button kind={Button.kinds.SECONDARY} size={Button.sizes.SMALL} ariaLabel="increase zoom level" leftFlat><Add /></Button>
     </div>
   </Story>
 </Canvas>
