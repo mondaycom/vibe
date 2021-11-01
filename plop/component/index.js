@@ -21,11 +21,6 @@ module.exports = plop => {
       },
       {
         type: "add",
-        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.jsx",
-        templateFile: "plop/component/component-stories-jsx.txt"
-      },
-      {
-        type: "add",
         path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.mdx",
         templateFile: "plop/component/component-stories-mdx.txt"
       },

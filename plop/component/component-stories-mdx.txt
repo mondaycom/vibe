@@ -1,10 +1,11 @@
 import {{properCase componentName}} from "../{{properCase componentName}}";
-import { ArgsTable, Story, Canvas } from "@storybook/addon-docs";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import "./{{properCase componentName}}.stories.scss";
 
 <Meta
   title="Components/{{properCase componentName}}/{{properCase componentName}}"
-  component={{{properCase componentName}}}
+  component={ {{properCase componentName}} }
 />
 
 <!--- Component template -->
@@ -28,8 +29,8 @@ Please write here the component description
 
 <Canvas>
   <Story name="Overview"
-         args={{}}>
-    {{{camelCase componentName}}Template.bind({})}
+         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+    { {{camelCase componentName}}Template.bind({}) }
   </Story>
 </Canvas>
 
@@ -69,41 +70,41 @@ Description of story 2
   rules={[
     {
       positive: {
-        component:<{{properCase componentName}}/>,
+        component:<{{properCase componentName}} />,
         description:"Best practice description."
       },
       negative: {
-        component:<{{properCase componentName}}/>,
+        component:<{{properCase componentName}} />,
         description:"Bad practice description."
       }
     },
     {
       positive: {
-        component:<{{properCase componentName}}/>,
+        component:<{{properCase componentName}} />,
         description:"Best practice description."
       },
       negative: {
-        component:<{{properCase componentName}}/>,
+        component:<{{properCase componentName}} />,
         description:"Bad practice description."
       }
     },
     {
       positive: {
-        component:<{{properCase componentName}}/>,
+        component:<{{properCase componentName}} />,
         description:"Best practice description."
       },
       negative: {
-        component:<{{properCase componentName}}/>,
+        component:<{{properCase componentName}} />,
         description:"Bad practice description."
       }
     },
     {
       positive: {
-        component:<{{properCase componentName}}/>,
+        component:<{{properCase componentName}} />,
         description:"Best practice description."
       },
       negative: {
-        component:<{{properCase componentName}}/>,
+        component:<{{properCase componentName}} />,
         description:"Bad practice description."
       }
     }
@@ -132,4 +133,4 @@ Description of story 4
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[]}/>
+<RelatedComponents componentsNames={[]} />
