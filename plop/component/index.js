@@ -1,6 +1,6 @@
 module.exports = plop => {
   plop.setGenerator("Component", {
-    description: "New Monday Component",
+    description: "New monday component",
     prompts: [
       {
         type: "input",
@@ -22,23 +22,23 @@ module.exports = plop => {
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.mdx",
-        templateFile: "plop/component/component-stories-mdx.txt"
+        templateFile: "plop/general/component-stories-mdx.txt"
       },
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.scss",
-        templateFile: "plop/component/component-stories-scss.txt"
+        templateFile: "plop/general/component-stories-scss.txt"
       },
       {
         type: "add",
         path:
           "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-snapshot-tests.jest.js",
-        templateFile: "plop/component/component-snapshot-tests-jest.txt"
+        templateFile: "plop/general/component-snapshot-tests-jest.txt"
       },
       {
         type: "add",
         path: "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-tests.jest.js",
-        templateFile: "plop/component/component-tests-jest.txt"
+        templateFile: "plop/general/component-tests-jest.txt"
       },
       {
         type: "append",
