@@ -10,25 +10,23 @@ const bemHelper = BEMClass(CSS_BASE_CLASS);
 export const ComponentRules = ({ rules }) => {
   const componentRulesElements = useMemo(
     () =>
-      rules
-        .map((rule, index) => {
-          const key = `rule-${index}`;
-          return (
-            <section className={bemHelper({ element: "pair" })} key={key}>
-              <ComponentRule
-                component={rule.positive?.component}
-                description={rule.positive?.description}
-                isRecommended
-              />
-              <ComponentRule
-                component={rule.negative?.component}
-                description={rule.negative?.description}
-                isRecommended={false}
-              />
-            </section>
-          );
-        })
-        .flat(1),
+      rules.map((rule, index) => {
+        const key = `rule-${index}`;
+        return (
+          <section className={bemHelper({ element: "pair" })} key={key}>
+            <ComponentRule
+              component={rule.positive?.component}
+              description={rule.positive?.description}
+              isRecommended
+            />
+            <ComponentRule
+              component={rule.negative?.component}
+              description={rule.negative?.description}
+              isRecommended={false}
+            />
+          </section>
+        );
+      }),
     [rules]
   );
 
