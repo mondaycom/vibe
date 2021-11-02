@@ -1,8 +1,0 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import {{properCase componentName}} from "../{{properCase componentName}}";
-
-it("renders correctly with empty props", () => {
-  const tree = renderer.create(<{{properCase componentName}} />).toJSON();
-  expect(tree).toMatchSnapshot();
-});
