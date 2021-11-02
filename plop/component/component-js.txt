@@ -12,7 +12,7 @@ const {{properCase componentName}} = forwardRef(({ className, id }, ref) => {
     <div ref={mergedRef} className={cx("{{dashCase componentName}}--wrapper", className)} id={id}>
       My awesome new component
     </div>
-    );
+  );
 });
 
 {{properCase componentName}}.propTypes = {
