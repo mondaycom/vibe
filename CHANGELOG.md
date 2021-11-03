@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.7.2 (2021-11-03)
+
+#### Bug Fixes
+* [#319](https://github.com/mondaycom/monday-ui-react-core/pull/319) Fix typo ([@MosheZemah](https://github.com/MosheZemah))
+* [#318](https://github.com/mondaycom/monday-ui-react-core/pull/318) Combobox sticky categories and search width ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Documentation
+* [#317](https://github.com/mondaycom/monday-ui-react-core/pull/317) Plop/hadas/tests ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#320](https://github.com/mondaycom/monday-ui-react-core/pull/320) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 0.7.1 (2021-11-01)
 
 #### Bug Fixes
