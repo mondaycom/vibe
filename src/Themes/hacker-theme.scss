@@ -269,6 +269,9 @@ $primary_color: #fe78c6;
 
   // Shadows
   --box-shadow-small: 0px 4px 8px #000000;
-  --box-shadow-mediun: 0px 6px 20px #000000;
+  --box-shadow-medium: 0px 6px 20px #000000;
   --box-shadow-large: 0px 15px 50px #000000;
+  // Legacy
+  --box-shadow-mediun: 0px 6px 20px #000000;
+
 }
