@@ -264,6 +264,8 @@
 
   // Shadows
   --box-shadow-small: 0px 4px 8px rgba(9, 11, 25, 0.5);
-  --box-shadow-mediun: 0px 6px 20px rgba(9, 11, 25, 0.5);
+  --box-shadow-medium: 0px 6px 20px rgba(9, 11, 25, 0.5);
   --box-shadow-large: 0px 15px 50px rgba(9, 11, 25, 0.5);
+  // Legacy
+  --box-shadow-mediun: 0px 6px 20px rgba(9, 11, 25, 0.5);
 }
