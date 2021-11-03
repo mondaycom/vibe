@@ -180,6 +180,7 @@ export default class Dialog extends PureComponent {
   isShown() {
     const { isOpen } = this.state;
     const { open } = this.props;
+
     return isOpen || open;
   }
 
@@ -346,10 +347,15 @@ export default class Dialog extends PureComponent {
               ...modifiers
             ]}
           >
-            {({ placement, style, ref, arrowProps }) => {
+            {({ placement, style, ref, arrowProps, isReferenceHidden }) => {
               if (!this.isShown() && placement) {
                 return null;
               }
+
+              if (isReferenceHidden) {
+                this.hideDialog();
+              }
+
               return (
                 <DialogContent
                   onMouseEnter={this.onDialogEnter}
