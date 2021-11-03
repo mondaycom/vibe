@@ -38,7 +38,7 @@ $theme: (
   "dialog-background-color": $snow_white,
   "modal-background-color": $snow_white,
   "box-shadow-small": 0px 4px 8px rgba(0, 0, 0, 0.2),
-  "box-shadow-mediun": 0px 6px 20px rgba(0, 0, 0, 0.2),
+  "box-shadow-medium": 0px 6px 20px rgba(0, 0, 0, 0.2),
   "box-shadow-large": 0px 15px 50px rgba(0, 0, 0, 0.3)
 );
 
@@ -77,7 +77,7 @@ $theme-var: (
   "dialog-background-color": var(--dialog-background-color),
   "modal-background-color": var(--modal-background-color),
   "box-shadow-small": var(--box-shadow-small),
-  "box-shadow-medium": var(--box-shadow-mediun),
+  "box-shadow-medium": var(--box-shadow-medium),
   "box-shadow-large": var(--box-shadow-large)
 );
 
