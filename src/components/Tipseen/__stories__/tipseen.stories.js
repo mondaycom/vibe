@@ -94,6 +94,7 @@ export const Sandbox = () => (
       animationTypes={select("Animation types", Tipseen.animationTypes, Tipseen.animationTypes.EXPAND)}
       justify={select("justify", Tipseen.justifyTypes, Tipseen.justifyTypes.CENTER)}
       isCloseButtonHidden={boolean("Is close button hidden", false)}
+      hideWhenReferenceHidden={boolean("Hide when reference hidden", false)}
       content={
         <TipseenContent
           title={text("Title", "Title")}

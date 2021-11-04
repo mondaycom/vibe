@@ -17,9 +17,9 @@ const TipseenContent = ({
   isDismissHidden,
   isSubmitHidden,
   submitButtonText,
-  submitButtonOnClick,
+  onSubmit,
   dismissButtonText,
-  dismissButtonOnClick,
+  onDismiss,
   // Backward compatibility for props naming
   dismissButtonProps,
   // Backward compatibility for props naming
@@ -36,10 +36,7 @@ const TipseenContent = ({
     [dismissButtonText, dismissContent],
     DISMISS_BUTTON_TEXT
   );
-  const overrideDismissOnClick = backwardCompatibilityForProperties(
-    [dismissButtonOnClick, dismissDeprecatedOnClick],
-    NOOP
-  );
+  const overrideDismissOnClick = backwardCompatibilityForProperties([onDismiss, dismissDeprecatedOnClick], NOOP);
   const {
     content: submitContent,
     className: submitClassName,
@@ -50,10 +47,7 @@ const TipseenContent = ({
     [submitButtonText, submitContent],
     SUBMIT_BUTTON_TEXT
   );
-  const overrideSubmitOnClick = backwardCompatibilityForProperties(
-    [submitButtonOnClick, submitDeprecatedOnClick],
-    NOOP
-  );
+  const overrideSubmitOnClick = backwardCompatibilityForProperties([onSubmit, submitDeprecatedOnClick], NOOP);
   return (
     <TipseenBasicContent title={title} className={BASE_CSS_CLASS}>
       {children ? <span className={bemHelper({ element: "content" })}>{children}</span> : null}
@@ -89,28 +83,24 @@ const TipseenContent = ({
 
 TipseenContent.propTypes = {
   title: PropTypes.string,
-  onSubmit: PropTypes.func,
-  onDismiss: PropTypes.func,
   isDismissHidden: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   isSubmitHidden: PropTypes.bool,
   submitButtonText: PropTypes.string,
-  submitButtonOnClick: PropTypes.func,
+  onSubmit: PropTypes.func,
   dismissButtonText: PropTypes.string,
-  dismissButtonOnClick: PropTypes.func
+  onDismiss: PropTypes.func
 };
 
 TipseenContent.defaultProps = {
   title: undefined,
   children: null,
-  onSubmit: NOOP,
-  onDismiss: NOOP,
   isDismissHidden: true,
   isSubmitHidden: false,
   submitButtonText: undefined,
-  submitButtonOnClick: NOOP,
+  onSubmit: NOOP,
   dismissButtonText: undefined,
-  dismissButtonOnClick: NOOP
+  onDismiss: NOOP
 };
 
 export default TipseenContent;
