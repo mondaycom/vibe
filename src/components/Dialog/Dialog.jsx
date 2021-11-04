@@ -354,7 +354,8 @@ export default class Dialog extends PureComponent {
               }
 
               if (hideWhenReferenceHidden && isReferenceHidden) {
-                document.body.click();
+                const event = new CustomEvent("onReferenceHidden");
+                this.hideDialog(event, "onReferenceHidden");
               }
 
               return (
