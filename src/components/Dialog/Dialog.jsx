@@ -180,6 +180,7 @@ export default class Dialog extends PureComponent {
   isShown() {
     const { isOpen } = this.state;
     const { open } = this.props;
+
     return isOpen || open;
   }
 
@@ -270,7 +271,8 @@ export default class Dialog extends PureComponent {
       tooltip,
       tooltipClassName,
       referenceWrapperClassName,
-      zIndex
+      zIndex,
+      hideWhenReferenceHidden
     } = this.props;
     const { preventAnimation } = this.state;
 
@@ -346,12 +348,19 @@ export default class Dialog extends PureComponent {
               ...modifiers
             ]}
           >
-            {({ placement, style, ref, arrowProps }) => {
+            {({ placement, style, ref, arrowProps, isReferenceHidden }) => {
               if (!this.isShown() && placement) {
                 return null;
               }
+
+              if (hideWhenReferenceHidden && isReferenceHidden) {
+                const event = new CustomEvent("onReferenceHidden");
+                this.hideDialog(event, "onReferenceHidden");
+              }
+
               return (
                 <DialogContent
+                  isReferenceHidden={hideWhenReferenceHidden && isReferenceHidden}
                   onMouseEnter={this.onDialogEnter}
                   onMouseLeave={this.onDialogLeave}
                   disableOnClickOutside={disableOnClickOutside}
@@ -503,7 +512,8 @@ Dialog.propTypes = {
    * z-index to add to the dialog
    */
   zIndex: PropTypes.number,
-  useDerivedStateFromProps: PropTypes.bool
+  useDerivedStateFromProps: PropTypes.bool,
+  hideWhenReferenceHidden: PropTypes.bool
 };
 
 Dialog.defaultProps = {
@@ -533,7 +543,8 @@ Dialog.defaultProps = {
   onClickOutside: NOOP,
   onContentClick: NOOP,
   zIndex: null,
-  useDerivedStateFromProps: false
+  useDerivedStateFromProps: false,
+  hideWhenReferenceHidden: false
 };
 
 function chainOnPropsAndInstance(name, instance, props) {
