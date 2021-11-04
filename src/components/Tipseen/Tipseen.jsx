@@ -135,7 +135,7 @@ Tipseen.propTypes = {
     main: PropTypes.number,
     secondary: PropTypes.number
   }),
-  hideWhenReferenceHidden: false
+  hideWhenReferenceHidden: PropTypes.bool
 };
 Tipseen.defaultProps = {
   className: "",
