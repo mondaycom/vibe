@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.3 (2021-11-04)
+
+#### Bug Fixes
+* [#322](https://github.com/mondaycom/monday-ui-react-core/pull/322) amitha/feature/dialog-is-reference-hidden ([@amit-hanoch](https://github.com/amit-hanoch))
+
 ## 0.7.2 (2021-11-03)
 
 #### Bug Fixes
