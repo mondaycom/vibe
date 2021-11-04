@@ -83,7 +83,7 @@ describe("Tipseen content tests", () => {
     it("call onSubmit function when click on dismiss button", () => {
       const onSubmitMock = jest.fn();
       const tipseenContent = renderComponent({
-        onSubmitButton: onSubmitMock
+        onSubmit: onSubmitMock
       });
       const submitButton = tipseenContent.getByText(SUBMIT_BUTTON_TEXT);
 
