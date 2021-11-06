@@ -305,7 +305,7 @@ Dropdown.propTypes = {
    */
   menuPortalTarget: PropTypes.oneOfType(PropTypes.element, PropTypes.object),
   /**
-   * Custom function to override existing styles, ex: base => {...base, ...myCustomOverrides}
+   * Custom function to override existing styles(similar to react select's style prop), ex: base => {...base, ...myCustomOverrides} here base is the component's default styles and myCustomOverrides is the component's current state
    */
   extraStyles: PropTypes.func,
 
