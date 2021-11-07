@@ -38,7 +38,8 @@ const Tipseen = forwardRef(
       isCloseButtonOnImage,
       showTrigger,
       width,
-      moveBy
+      moveBy,
+      hideWhenReferenceHidden
     },
     ref
   ) => {
@@ -91,6 +92,7 @@ const Tipseen = forwardRef(
           containerSelector={containerSelector}
           disableDialogSlide={false}
           moveBy={moveBy}
+          hideWhenReferenceHidden={hideWhenReferenceHidden}
         >
           {children}
         </Tooltip>
@@ -132,7 +134,8 @@ Tipseen.propTypes = {
   moveBy: PropTypes.shape({
     main: PropTypes.number,
     secondary: PropTypes.number
-  })
+  }),
+  hideWhenReferenceHidden: PropTypes.bool
 };
 Tipseen.defaultProps = {
   className: "",
@@ -149,7 +152,8 @@ Tipseen.defaultProps = {
   showTrigger: [],
   justify: Tipseen.justifyTypes.CENTER,
   width: undefined,
-  moveBy: undefined
+  moveBy: undefined,
+  hideWhenReferenceHidden: false
 };
 
 export default Tipseen;

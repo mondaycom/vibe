@@ -94,11 +94,14 @@ export const Sandbox = () => (
       animationTypes={select("Animation types", Tipseen.animationTypes, Tipseen.animationTypes.EXPAND)}
       justify={select("justify", Tipseen.justifyTypes, Tipseen.justifyTypes.CENTER)}
       isCloseButtonHidden={boolean("Is close button hidden", false)}
+      hideWhenReferenceHidden={boolean("Hide when reference hidden", false)}
       content={
         <TipseenContent
           title={text("Title", "Title")}
-          isDismissHidden={boolean("Is dismiss hidden", false)}
+          isDismissHidden={boolean("Is dismiss hidden", true)}
           children={text("Tipseen content text", "Popover message will appear here loremipsum dolor samet…")}
+          submitButtonText={text("Submit button text", "Submit button text")}
+          dismissButtonText={text("Dismiss button text", "Dismiss button text")}
         />
       }
     >
