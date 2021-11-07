@@ -25,7 +25,6 @@ const TipseenContent = ({
   // Backward compatibility for props naming
   submitButtonProps
 }) => {
-  debugger;
   const {
     content: dismissContent,
     className: dismissClassName,
