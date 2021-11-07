@@ -9,8 +9,9 @@ import "./TipseenContent.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-content";
-
 const bemHelper = BEMClass(BASE_CSS_CLASS);
+const EMPTY_OBJECT = {};
+
 const TipseenContent = ({
   title,
   children,
@@ -30,7 +31,7 @@ const TipseenContent = ({
     className: dismissClassName,
     onClick: dismissDeprecatedOnClick,
     ...otherDismissButtonProps
-  } = dismissButtonProps || {};
+  } = dismissButtonProps || EMPTY_OBJECT;
   const overrideDismissContent = backwardCompatibilityForProperties(
     [dismissButtonText, dismissContent],
     DISMISS_BUTTON_TEXT
@@ -41,7 +42,7 @@ const TipseenContent = ({
     className: submitClassName,
     onClick: submitDeprecatedOnClick,
     ...otherSubmitButtonProps
-  } = submitButtonProps || {};
+  } = submitButtonProps || EMPTY_OBJECT;
   const overrideSubmitContent = backwardCompatibilityForProperties(
     [submitButtonText, submitContent],
     SUBMIT_BUTTON_TEXT
