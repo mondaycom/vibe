@@ -19,7 +19,7 @@ const IconButton = forwardRef(({ className, id, icon, size, tooltipContent, aria
   const iconSize = useMemo(() => {
     if (size === IconButton.sizes.SMALL) return 16;
     if (size === IconButton.sizes.MEDIUM) return 24;
-    if (size === IconButton.sizes.LARGE) return 32;
+    if (size === IconButton.sizes.LARGE) return 24;
     return 24;
   }, [size]);
 
