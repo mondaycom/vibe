@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.0 (2021-11-07)
+
+#### New Features
+* [#321](https://github.com/mondaycom/monday-ui-react-core/pull/321) Adding tooltip content option to combobox item ([@samitc](https://github.com/samitc))
+* [#323](https://github.com/mondaycom/monday-ui-react-core/pull/323) Add support in tipseen component for: submitButtonText & submitButtonOnClick & dismissButtonText & dismissButtonOnClick & hideWhenReferenceHidden ([@hadasfa](https://github.com/hadasfa))
+
 ## 0.7.3 (2021-11-04)
 
 #### Bug Fixes
