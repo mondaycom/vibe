@@ -102,7 +102,7 @@
     "boxt": "^1.1.1",
     "chai": "^4.2.0",
     "chalk": "^4.1.2",
-    "chromatic": "^5.8.3",
+    "chromatic": "^6.0.5",
     "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^3.2.0",
     "eslint": "^7.3.1",
