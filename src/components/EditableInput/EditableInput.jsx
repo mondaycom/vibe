@@ -69,7 +69,9 @@ const EditableInput = forwardRef(
 
     const focus = useCallback(() => {
       if (componentRef.current) {
-        componentRef.current.focus();
+        requestAnimationFrame(() => {
+          componentRef.current.focus();
+        });
       }
     }, [componentRef]);
 
@@ -178,7 +180,6 @@ const EditableInput = forwardRef(
       if (shouldFocusOnMount) focus();
       autosizeIfNeeded();
       selectOnMount ? select() : moveCaretAtEnd();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
