@@ -7,13 +7,13 @@ import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import "./IconButton.scss";
 
-const IconButton = forwardRef(({ className, id, icon, size, tooltipContent, ariaLabel }, ref) => {
+const IconButton = forwardRef(({ className, id, icon, size, tooltipContent, ariaLabel, kind, active }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
   const buttonAriaLabel = useMemo(() => {
     if (ariaLabel) return ariaLabel;
     if (typeof tooltipContent === "string") return tooltipContent;
-    return "";
+    return undefined;
   }, [ariaLabel, tooltipContent]);
 
   const iconSize = useMemo(() => {
@@ -23,16 +23,32 @@ const IconButton = forwardRef(({ className, id, icon, size, tooltipContent, aria
     return 24;
   }, [size]);
 
+  const overrideStyle = useMemo(() => {
+    const style = {};
+    if (active && kind !== IconButton.kinds.PRIMARY) {
+      style.background = "var(--primary-selected-color)";
+    }
+
+    if (active && kind === IconButton.kinds.SECONDARY) {
+      style.borderColor = "var(--primary-color";
+    }
+
+    if (!Object.keys(style).length) return;
+    return style;
+  }, [active, kind]);
+
   return (
     <ToolTip content={tooltipContent}>
       <Button
         size={size}
-        kind={Button.kinds.TERTIARY}
+        kind={kind}
         ariaLabel={buttonAriaLabel}
         ref={mergedRef}
         id={id}
         className={cx(className)}
         noSidePadding
+        active={active}
+        style={overrideStyle}
       >
         <Icon
           icon={icon}
@@ -47,12 +63,14 @@ const IconButton = forwardRef(({ className, id, icon, size, tooltipContent, aria
 });
 
 IconButton.sizes = Button.sizes;
+IconButton.kinds = Button.kinds;
 IconButton.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   icon: PropTypes.string,
   size: PropTypes.string,
-  tooltipContent: PropTypes.string
+  tooltipContent: PropTypes.string,
+  kind: PropTypes.oneOf([IconButton.kinds.PRIMARY, IconButton.kinds.SECONDARY, IconButton.kinds.TERTIARY])
 };
 
 IconButton.defaultProps = {
@@ -60,7 +78,8 @@ IconButton.defaultProps = {
   id: "",
   icon: undefined,
   size: IconButton.sizes.MEDIUM,
-  tooltipContent: undefined
+  tooltipContent: undefined,
+  kind: Button.kinds.TERTIARY
 };
 
 export default IconButton;
