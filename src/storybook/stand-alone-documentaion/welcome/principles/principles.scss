@@ -6,9 +6,4 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: $spacing-large;
-
-  &_visual-element {
-    background-color: var(--color-dark_purple);
-    border-radius: $border-radius-small;
-  }
 }
