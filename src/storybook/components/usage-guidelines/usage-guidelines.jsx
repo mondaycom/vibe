@@ -11,7 +11,7 @@ export const UsageGuidelines = ({ guidelines }) => {
     () =>
       guidelines.map((guideline, index) => (
         <span id={index} className={bemHelper({ element: "guideline" })}>
-          <div className={bemHelper({ element: "icon" })}>➡️</div>
+          <span className={bemHelper({ element: "icon" })}>➡️</span>
           {guideline}
         </span>
       )),

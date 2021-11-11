@@ -86,8 +86,17 @@ Please write here the component description
   </Story>
 </Canvas>
 
+### Disabled
 
-
+<Canvas>
+  <Story name="Disabled">
+      <div style={{ display: "flex", justifyContent:"space-evenly", alignItems: "center" , width: "100%"}}>
+        <IconButton icon={Doc} kind={IconButton.kinds.PRIMARY} ariaLabel="My small disabled IconButton" disabled disabledReason="This function is not available"/>
+        <IconButton icon={Doc} kind={IconButton.kinds.SECONDARY} ariaLabel="My disabled medium IconButton" disabled disabledReason="This function is not available" />
+        <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My disabled large IconButton" disabled disabledReason="This function is not available" />
+      </div>
+  </Story>
+</Canvas>
 
 ## Related components
 <RelatedComponents componentsNames={[BUTTON_GROUP, SPLIT_BUTTON, BUTTON_GROUP]} />

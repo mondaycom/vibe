@@ -4,9 +4,12 @@
 .monday-storybook-usage-guidelines{
   margin-top: $spacing-between-section-items;
   &_guideline {
-    margin: $spacing-medium 0;
+    color: var(--primary-text-color);
+    margin: var(--spacing-medium) var(--spacing-small);
     display: flex;
     align-items: center;
+    font-size: 16px;
+    line-height: 21px;
     font-weight: 300;
     &:first-child {
       margin-top: 0;
@@ -14,6 +17,10 @@
   }
 
   &_icon {
-    margin-right: $spacing-small;
+    font-size: 16px;
+    line-height: 21px;
+    margin-right: var(--spacing-medium);
+    display: flex;
+    align-items: center;
   }
 }
