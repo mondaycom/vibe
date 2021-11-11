@@ -1,14 +1,15 @@
 import React from "react";
-import { render, fireEvent, cleanup, act } from "@testing-library/react";
-import { sinon, expect } from "../../test/test-helpers";
-import Button from "./Button";
+import { render, fireEvent, cleanup } from "@testing-library/react";
+import { sinon, expect } from "../../../test/test-helpers";
+import Button from "../Button";
 
-describe("<Buttoon />", () => {
+describe("Button tests", () => {
   let clickActionStub;
   let onMouseDownStub;
   let buttonComponent;
   const text = "Click Me!";
   const className = "test-class";
+
   beforeEach(() => {
     clickActionStub = sinon.stub();
     onMouseDownStub = sinon.stub();
@@ -23,6 +24,7 @@ describe("<Buttoon />", () => {
     clickActionStub.reset();
     cleanup();
   });
+
   describe("click", () => {
     it("should call the click callback when clicked", () => {
       const { container } = buttonComponent;
@@ -75,6 +77,7 @@ describe("<Buttoon />", () => {
       });
     });
   });
+
   describe("mouse down", () => {
     it("should call the click callback when clicked", () => {
       const { container } = buttonComponent;
@@ -82,6 +85,7 @@ describe("<Buttoon />", () => {
       expect(onMouseDownStub).to.be.calledOnce;
     });
   });
+
   describe("adding classnames", () => {
     it("should should add class name when provided", () => {
       const { container } = buttonComponent;
@@ -89,6 +93,7 @@ describe("<Buttoon />", () => {
       expect(classNameQuery).to.be.ok;
     });
   });
+
   describe("a11y", () => {
     it("should add the aria label", () => {
       const ariaLabel = "Icon Name";
@@ -101,11 +106,13 @@ describe("<Buttoon />", () => {
       expect(buttonElement).to.be.ok;
     });
   });
+
   describe("sizes", () => {
     beforeEach(() => {
       const { unmount } = buttonComponent;
       unmount();
     });
+
     it("small size should add the relevant class small", () => {
       const { getByText } = render(
         <Button className={className} size={Button.sizes.SMALL}>
@@ -136,16 +143,19 @@ describe("<Buttoon />", () => {
       expect(buttonElement.classList.contains(`monday-style-button--size-${Button.sizes.LARGE}`)).to.equal(true);
     });
   });
+  
   describe("colors", () => {
     beforeEach(() => {
       const { unmount } = buttonComponent;
       unmount();
     });
+
     it("should add primary color", () => {
       const { getByText } = render(<Button className={className}>{text}</Button>);
       const buttonElement = getByText(text);
       expect(buttonElement.classList.contains(`monday-style-button--color-${Button.colors.PRIMARY}`)).to.equal(true);
     });
+
     it("should add primary positive", () => {
       const { getByText } = render(
         <Button className={className} color={Button.colors.POSITIVE}>
@@ -155,6 +165,7 @@ describe("<Buttoon />", () => {
       const buttonElement = getByText(text);
       expect(buttonElement.classList.contains(`monday-style-button--color-${Button.colors.POSITIVE}`)).to.equal(true);
     });
+
     it("should add primary negative", () => {
       const { getByText } = render(
         <Button className={className} color={Button.colors.NEGATIVE}>
@@ -164,6 +175,7 @@ describe("<Buttoon />", () => {
       const buttonElement = getByText(text);
       expect(buttonElement.classList.contains(`monday-style-button--color-${Button.colors.NEGATIVE}`)).to.equal(true);
     });
+    
     it("should add primary on-primary", () => {
       const { getByText } = render(
         <Button className={className} color={Button.colors.ON_PRIMARY_COLOR}>
