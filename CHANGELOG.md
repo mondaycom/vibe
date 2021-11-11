@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.1 (2021-11-11)
+
+#### Bug Fixes
+* [#327](https://github.com/mondaycom/monday-ui-react-core/pull/327) editable input focus in animation frame ([@barcohen2](https://github.com/barcohen2))
+
 ## 0.8.0 (2021-11-07)
 
 #### New Features
