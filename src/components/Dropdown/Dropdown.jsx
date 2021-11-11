@@ -48,7 +48,8 @@ const Dropdown = ({
   extraStyles,
   menuIsOpen,
   tabIndex,
-  id
+  id,
+  autoFocus
 }) => {
   const [isOpen, setOpen] = useState(false);
 
@@ -163,6 +164,7 @@ const Dropdown = ({
       menuIsOpen={menuIsOpen}
       tabIndex={tabIndex}
       id={id}
+      autoFocus={autoFocus}
       {...asyncAdditions}
       {...additions}
     />
@@ -187,7 +189,8 @@ Dropdown.defaultProps = {
   size: SIZES.MEDIUM,
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
-  id: undefined
+  id: undefined,
+  autoFocus: false
 };
 
 Dropdown.propTypes = {
@@ -313,7 +316,11 @@ Dropdown.propTypes = {
   /**
    * ID for the select container
    */
-  id: PropTypes.string
+  id: PropTypes.string,
+  /**
+   * focusAuto when component mount
+   */
+  autoFocus: PropTypes.bool
 };
 
 export default Dropdown;

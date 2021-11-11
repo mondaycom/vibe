@@ -4,6 +4,11 @@
 
 .monday-style-dialog-content-wrapper {
   outline: 0;
+
+  &[data-popper-reference-hidden='true']{
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .monday-style-animation-opacity-slide-appear {
