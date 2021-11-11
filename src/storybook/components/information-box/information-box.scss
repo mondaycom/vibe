@@ -4,11 +4,7 @@
 .monday-storybook-information-box {
   &_component {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 174px;
-    @include theme-prop(background, dark-background-on-secondary-color);
     margin: 0 0 $spacing-medium;
   }
 

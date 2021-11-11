@@ -3,7 +3,13 @@ import { InformationBox } from "../information-box/information-box";
 import "./related-component.scss";
 
 export const RelatedComponent = ({ component, title, description }) => {
-  return <InformationBox component={component} title={title} description={description} />;
+  return (
+    <InformationBox
+      component={<div className="monday-storybook-related-component_component">{component}</div>}
+      title={title}
+      description={description}
+    />
+  );
 };
 
 RelatedComponent.propTypes = {

@@ -79,7 +79,7 @@ Chips.propTypes = {
   disabled: PropTypes.bool,
   readOnly: PropTypes.bool,
   /** Icon to place on the right */
-  rightIcon: PropTypes.node,
+  rightIcon: PropTypes.func,
   /** Icon to place on the left */
   leftIcon: PropTypes.node,
   color: PropTypes.oneOf(Object.keys(Chips.colors)),

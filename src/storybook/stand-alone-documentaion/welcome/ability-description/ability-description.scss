@@ -7,8 +7,7 @@
   border: 1px solid;
   @include theme-prop(border-color, layout-border-color);
   padding: $spacing-large;
-  width: 281px;
-
+  width: 100%;
   &_title {
     font-weight: 400;
     font-size: 18px;
