@@ -29,7 +29,8 @@ export const DialogContent = React.forwardRef(
       onClickOutside = NOOP,
       onClick = NOOP,
       showDelay,
-      styleObject = EMPTY_OBJECT
+      styleObject = EMPTY_OBJECT,
+      isReferenceHidden
     },
     forwardRef
   ) => {
@@ -54,6 +55,7 @@ export const DialogContent = React.forwardRef(
         ref={forwardRef}
         style={styleObject}
         onClickCapture={onClick}
+        data-popper-reference-hidden={isReferenceHidden}
       >
         <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
           <div

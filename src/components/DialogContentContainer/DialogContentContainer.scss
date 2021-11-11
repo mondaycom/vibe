@@ -20,7 +20,7 @@
   }
 
   &--popover {
-    @include theme-prop(box-shadow, box-shadow-mediun);
+    @include theme-prop(box-shadow, box-shadow-medium);
     border-radius: $border-radius-medium;
     @include theme-prop(background-color, secondary-background-color);
   }

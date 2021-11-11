@@ -2,7 +2,7 @@ const fs = require("fs");
 
 module.exports = plop => {
   plop.setGenerator("Tests", {
-    description: "New tests files fore existing component",
+    description: "New tests files for existing component",
     prompts: [
       {
         type: "input",

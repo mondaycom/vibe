@@ -8,8 +8,40 @@
   flex-direction: column;
   @include font-general-text();
 
+  &.sticky-category {
+    .combobox-category {
+      position: sticky;
+      z-index: 10;
+      background-color: var(--primary-background-color);
+    }
+
+    // Relative to Search height
+    &.size-small {
+      .combobox-category {
+        top: 32px;
+      }
+    }
+    &.size-medium {
+      .combobox-category {
+        top: 40px;
+      }
+    }
+    &.size-large {
+      .combobox-category {
+        top: 48px;
+      }
+    }
+  }
+
   &.empty {
     max-height: 200px;
+  }
+
+  &-search-wrapper {
+    position: sticky;
+    top: 0;
+    background-color: var(--primary-background-color);
+    z-index: 12;
   }
 
   &-search {
@@ -48,7 +80,7 @@
 
   &-list {
     flex: 1 1 auto;
-    padding: 8px 4px;
+    padding: 0 4px 8px 4px;
     overflow: auto;
     @include scroller;
   }
