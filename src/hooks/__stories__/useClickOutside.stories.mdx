@@ -1,0 +1,48 @@
+import { useCallback, useRef } from "react";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import useClickOutside from "../useClickOutside";
+import UseClickOutSide from "../../hooksDummyComponents/UseClickOutSide";
+
+<Meta title="Hooks/useClickOutside" component={UseClickOutSide} />
+
+# useClickOutside
+
+- [Overview](#overview)
+- [Props](#props)
+- [Feedback](#feedback)
+
+## Overview
+
+this hook is sued when you want to capture events outside of your components
+
+<Canvas>
+  <Story name="Overview">
+    {() => {
+      const onClick = useCallback(() => {
+        console.log("clicked out side");
+      });
+      const ref = useRef(null);
+      useClickOutside({ ref, callback: onClick });
+      const style = {
+        width: 150,
+        color: "var(--primary-text-color)",
+        border: "1px solid var(--ui-border-color)",
+        background: "var(--secondary-background-color)",
+        height: 50,
+        borderRadius: 4,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
+      };
+      return (
+        <div style={style} ref={ref}>
+          Click out side of me
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={UseClickOutSide} />
