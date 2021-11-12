@@ -32,7 +32,7 @@ Please write here the component description
 
 <Canvas>
   <Story name="Overview"
-         args={ { icon: Activity } }>
+         args={{}}>
     { iconButtonTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -67,9 +67,11 @@ Please write here the component description
 <Canvas>
   <Story name="Sizes">
       <div style={{ display: "flex", justifyContent:"space-evenly", alignItems: "center" , width: "100%"}}>
-        <IconButton icon={Robot} size={IconButton.sizes.SMALL} ariaLabel="My small IconButton"/>
-        <IconButton icon={Robot} size={IconButton.sizes.MEDIUM} ariaLabel="My medium IconButton"/>
-        <IconButton icon={Robot} size={IconButton.sizes.LARGE} ariaLabel="My large IconButton"/>
+        <IconButton key="xxs" icon={Robot} size={IconButton.sizes.XXS} ariaLabel="My small IconButton"/>
+        <IconButton key="xs" icon={Robot} size={IconButton.sizes.XS} ariaLabel="My small IconButton"/>
+        <IconButton key="small" icon={Robot} size={IconButton.sizes.SMALL} ariaLabel="My small IconButton"/>
+        <IconButton key="medium" icon={Robot} size={IconButton.sizes.MEDIUM} ariaLabel="My medium IconButton"/>
+        <IconButton key="large" icon={Robot} size={IconButton.sizes.LARGE} ariaLabel="My large IconButton"/>
       </div>
   </Story>
 </Canvas>

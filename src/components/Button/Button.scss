@@ -80,6 +80,21 @@
   }
 
   &--size {
+
+    &-xxs {
+      @include font-input();
+      padding: $spacing-xxs $spacing-xs;
+      height: 16px;
+      line-height: 16px;
+    }
+
+    &-xs {
+      @include font-input();
+      padding: $spacing-xs $spacing-small;
+      height: 24px;
+      line-height: 21px;
+    }
+
     &-small {
       @include font-input();
       padding: $spacing-xs $spacing-small;

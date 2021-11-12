@@ -5,6 +5,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import ToolTip from "../Tooltip/Tooltip";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
+import Add from "../Icon/Icons/components/AddSmall";
 import "./IconButton.scss";
 
 const IconButton = forwardRef(
@@ -18,9 +19,11 @@ const IconButton = forwardRef(
     }, [ariaLabel, tooltipContent]);
 
     const iconSize = useMemo(() => {
+      if (size === IconButton.sizes.XXS) return 16;
+      if (size === IconButton.sizes.XS) return 16;
       if (size === IconButton.sizes.SMALL) return 16;
       if (size === IconButton.sizes.MEDIUM) return 24;
-      if (size === IconButton.sizes.LARGE) return 32;
+      if (size === IconButton.sizes.LARGE) return 24;
       return 24;
     }, [size]);
 
@@ -72,9 +75,15 @@ IconButton.kinds = Button.kinds;
 IconButton.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  icon: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.element]),
   ariaLabel: PropTypes.string,
-  size: PropTypes.oneOf([IconButton.sizes.SMALL, IconButton.sizes.MEDIUM, IconButton.kinds.LARGE]),
+  size: PropTypes.oneOf([
+    IconButton.sizes.XXS,
+    IconButton.sizes.XS,
+    IconButton.sizes.SMALL,
+    IconButton.sizes.MEDIUM,
+    IconButton.kinds.LARGE
+  ]),
   tooltipContent: PropTypes.string,
   kind: PropTypes.oneOf([IconButton.kinds.PRIMARY, IconButton.kinds.SECONDARY, IconButton.kinds.TERTIARY]),
   disabled: PropTypes.bool,
@@ -84,7 +93,7 @@ IconButton.propTypes = {
 IconButton.defaultProps = {
   className: "",
   id: "",
-  icon: undefined,
+  icon: Add,
   ariaLabel: undefined,
   size: IconButton.sizes.MEDIUM,
   tooltipContent: undefined,
