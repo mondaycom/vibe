@@ -147,5 +147,6 @@ Tooltip.defaultProps = {
   withoutDialog: false,
   containerSelector: "#tooltips-container",
   immediateShowDelay: null,
-  tip: true
+  tip: true,
+  hideWhenReferenceHidden: false
 };

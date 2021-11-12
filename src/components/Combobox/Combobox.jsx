@@ -38,7 +38,8 @@ const Combobox = forwardRef(
       onOptionHover,
       onOptionLeave,
       shouldScrollToSelectedItem,
-      noResultsRenderer
+      noResultsRenderer,
+      stickyCategories
     },
     ref
   ) => {
@@ -93,12 +94,13 @@ const Combobox = forwardRef(
         let index = 0;
         return Object.keys(optionsByCategories).map(categoryId => {
           return (
-            <div role="group" aria-labelledby={`combox-category-${categoryId}`}>
+            <div role="group" aria-labelledby={`combox-category-${categoryId}`} key={categoryId}>
               <ComboboxCategory category={categories[categoryId]} />
               {optionsByCategories[categoryId].map(option => {
                 const renderedOption = (
                   <ComboboxOption
                     index={index}
+                    key={option.id || index}
                     option={option}
                     isActive={activeItemIndex === index}
                     isActiveByKeyboard={isActiveByKeyboard}
@@ -120,6 +122,7 @@ const Combobox = forwardRef(
         return (
           <ComboboxOption
             index={index}
+            key={option.id || index}
             option={option}
             isActive={activeItemIndex === index}
             isActiveByKeyboard={isActiveByKeyboard}
@@ -203,24 +206,31 @@ const Combobox = forwardRef(
 
     return (
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
-      <div ref={mergedRef} className={cx("combobox--wrapper", className, { empty: !hasResults })} id={id}>
-        <Search
-          ref={inputRef}
-          wrapperClassName="combobox--wrapper-search-wrapper"
-          className="combobox--wrapper-search"
-          inputAriaLabel="Search for content"
-          activeDescendant={`combobox-item-${activeItemIndex}`}
-          id="combobox-search"
-          iconName="fa-search"
-          secondaryIconName="fa-close"
-          placeholder={placeholder}
-          size={size}
-          disabled={disabled}
-          onChange={onChangeCallback}
-          autoFocus={autoFocus}
-          loading={loading}
-        />
+      <div
+        ref={mergedRef}
+        className={cx("combobox--wrapper", className, `size-${size}`, {
+          empty: !hasResults,
+          "sticky-category": stickyCategories
+        })}
+        id={id}
+      >
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
+          <Search
+            ref={inputRef}
+            wrapperClassName="combobox--wrapper-search-wrapper"
+            className="combobox--wrapper-search"
+            inputAriaLabel="Search for content"
+            activeDescendant={`combobox-item-${activeItemIndex}`}
+            id="combobox-search"
+            iconName="fa-search"
+            secondaryIconName="fa-close"
+            placeholder={placeholder}
+            size={size}
+            disabled={disabled}
+            onChange={onChangeCallback}
+            autoFocus={autoFocus}
+            loading={loading}
+          />
           {renderedItems}
         </div>
         {hasFilter && !hasResults && renderNoResults()}
@@ -257,7 +267,8 @@ Combobox.propTypes = {
   onOptionHover: PropTypes.func,
   onOptionLeave: PropTypes.func,
   shouldScrollToSelectedItem: PropTypes.bool,
-  noResultsRenderer: PropTypes.func
+  noResultsRenderer: PropTypes.func,
+  stickyCategories: PropTypes.bool
 };
 Combobox.defaultProps = {
   className: "",
@@ -281,7 +292,8 @@ Combobox.defaultProps = {
   onOptionHover: NOOP,
   onOptionLeave: NOOP,
   shouldScrollToSelectedItem: true,
-  noResultsRenderer: undefined
+  noResultsRenderer: undefined,
+  stickyCategories: false
 };
 
 export default Combobox;
