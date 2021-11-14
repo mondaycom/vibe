@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.3 (2021-11-14)
+
+#### Bug Fixes
+* [#331](https://github.com/mondaycom/monday-ui-react-core/pull/331) successIconSize property to determine function success icon size ([@yardenli](https://github.com/yardenli))
+
 ## 0.8.2 (2021-11-14)
 
 #### Bug Fixes
