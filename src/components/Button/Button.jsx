@@ -221,6 +221,13 @@ const Button = forwardRef(
       return "24";
     }, [rightIcon, size]);
 
+    const successIconSize = useMemo(() => {
+      if (typeof successIcon !== "function") return;
+      if (size === SIZES.SMALL) return "20";
+      if (size === SIZES.MEDIUM) return "24";
+      return "24";
+    }, [successIcon, size]);
+
     if (loading) {
       return (
         <button {...buttonProps}>
@@ -239,6 +246,7 @@ const Button = forwardRef(
               iconType={Icon.type.ICON_FONT}
               clickable={false}
               icon={successIcon}
+              iconSize={successIconSize}
               className={cx({
                 "monday-style-button--left-icon": !!successText
               })}
