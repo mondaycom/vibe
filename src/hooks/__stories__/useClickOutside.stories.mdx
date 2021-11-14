@@ -1,50 +1,41 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import useClickOutside from "../useClickOutside";
 import UseClickOutSide from "../../hooksDummyComponents/UseClickOutSide";
+import "./general-hooks-stories.scss"
 
 <Meta title="Hooks/useClickOutside" component={UseClickOutSide} />
 
 # useClickOutside
 
 - [Overview](#overview)
-- [Props](#props)
+- [Arguments](#arguments)
 - [Usage](#usage)
 - [Feedback](#feedback)
 
 ## Overview
 
-this hook is sued when you want to capture events outside of your components
+this hook is used when you want to capture click events outside of your component
 
 <Canvas>
   <Story name="Overview">
     {() => {
-      const onClick = useCallback(() => {
-        console.log("clicked out side");
-      });
+      const [counter, setCounter] = useState(0);
       const ref = useRef(null);
+      const onClick = useCallback(() => {
+       setCounter(currentCounter => {debugger; return currentCounter + 1})
+      }, [setCounter]);
       useClickOutside({ ref, callback: onClick });
-      const style = {
-        width: 150,
-        color: "var(--primary-text-color)",
-        border: "1px solid var(--ui-border-color)",
-        background: "var(--secondary-background-color)",
-        height: 50,
-        borderRadius: 4,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      };
       return (
-        <div style={style} ref={ref}>
-          Click out side of me
+        <div className="hooks-reference-element" ref={ref}>
+          Click outside {counter}
         </div>
       );
     }}
   </Story>
 </Canvas>
 
-## Props
+## Arguments
 
 <ArgsTable of={UseClickOutSide} />
 
