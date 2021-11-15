@@ -15,12 +15,12 @@ describe("Chips renders correctly", () => {
   });
   
   it("renders correctly disabled chip", () => {
-    const tree = renderer.create(<Chips disabled={true} />).toJSON();
+    const tree = renderer.create(<Chips disabled />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly without close button", () => {
-    const tree = renderer.create(<Chips readOnly={true} />).toJSON();
+    const tree = renderer.create(<Chips readOnly />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
