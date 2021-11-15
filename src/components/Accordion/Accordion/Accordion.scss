@@ -2,11 +2,12 @@
 @import "../../../styles/typography.scss";
 
 .accordion {
+  height: fit-content;
   border: 1px solid;
   @include theme-prop(border-color, ui-border-color);
   box-sizing: border-box;
   border-radius: $border-radius-small;
-
+  
   .accordion-item {
     .expand-collapse--wrapper {
       .expand-collapse {

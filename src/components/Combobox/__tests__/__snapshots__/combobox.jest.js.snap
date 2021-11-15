@@ -2,95 +2,9 @@
 
 exports[`<Combobox /> renders correctly with empty props 1`] = `
 <div
-  className="combobox--wrapper empty"
+  className="combobox--wrapper size-medium empty"
   id=""
 >
-  <div
-    aria-busy={false}
-    className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
-    role="search"
-  >
-    <div
-      className="input-component__label--wrapper"
-    >
-      <div
-        className="input-component__input-wrapper input-component__input-wrapper--size-medium"
-      >
-        <input
-          aria-activedescendant="combobox-item--1"
-          aria-invalid={null}
-          aria-label="Search for content"
-          aria-owns=""
-          autoComplete="off"
-          autoFocus={false}
-          className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
-          disabled={false}
-          id="combobox-search"
-          maxLength={null}
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          placeholder=""
-          readOnly={false}
-          required={false}
-          role=""
-          type="search"
-          value=""
-        />
-        <div
-          className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
-          onClick={[Function]}
-          onDragStart={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="button"
-          tabIndex="-1"
-        >
-          <span
-            aria-hidden={true}
-            aria-label="Search"
-            className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
-            onClick={[Function]}
-            role="img"
-          />
-        </div>
-        <div
-          className="input-component__icon--container input-component__icon--container-has-icon"
-          onClick={[Function]}
-          onDragStart={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="button"
-          tabIndex="-1"
-        >
-          <span
-            aria-hidden={true}
-            aria-label="Clear Search"
-            className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
-            onClick={[Function]}
-            role="img"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
   <div
     className="combobox--wrapper-list"
     role="listbox"
@@ -99,101 +13,102 @@ exports[`<Combobox /> renders correctly with empty props 1`] = `
         "maxHeight": undefined,
       }
     }
-  />
+  >
+    <div
+      aria-busy={false}
+      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      role="search"
+    >
+      <div
+        className="input-component__label--wrapper"
+      >
+        <div
+          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+        >
+          <input
+            aria-activedescendant="combobox-item--1"
+            aria-invalid={null}
+            aria-label="Search for content"
+            aria-owns=""
+            autoComplete="off"
+            autoFocus={false}
+            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            disabled={false}
+            id="combobox-search"
+            maxLength={null}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder=""
+            readOnly={false}
+            required={false}
+            role=""
+            type="search"
+            value=""
+          />
+          <div
+            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            onClick={[Function]}
+            onDragStart={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex="-1"
+          >
+            <span
+              aria-hidden={true}
+              aria-label="Search"
+              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              onClick={[Function]}
+              role="img"
+            />
+          </div>
+          <div
+            className="input-component__icon--container input-component__icon--container-has-icon"
+            onClick={[Function]}
+            onDragStart={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex="-1"
+          >
+            <span
+              aria-hidden={true}
+              aria-label="Clear Search"
+              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              onClick={[Function]}
+              role="img"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`<Combobox /> renders correctly with one option 1`] = `
 <div
-  className="combobox--wrapper"
+  className="combobox--wrapper size-medium"
   id=""
 >
-  <div
-    aria-busy={false}
-    className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
-    role="search"
-  >
-    <div
-      className="input-component__label--wrapper"
-    >
-      <div
-        className="input-component__input-wrapper input-component__input-wrapper--size-medium"
-      >
-        <input
-          aria-activedescendant="combobox-item--1"
-          aria-invalid={null}
-          aria-label="Search for content"
-          aria-owns=""
-          autoComplete="off"
-          autoFocus={false}
-          className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
-          disabled={false}
-          id="combobox-search"
-          maxLength={null}
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          placeholder=""
-          readOnly={false}
-          required={false}
-          role=""
-          type="search"
-          value=""
-        />
-        <div
-          className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
-          onClick={[Function]}
-          onDragStart={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="button"
-          tabIndex="-1"
-        >
-          <span
-            aria-hidden={true}
-            aria-label="Search"
-            className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
-            onClick={[Function]}
-            role="img"
-          />
-        </div>
-        <div
-          className="input-component__icon--container input-component__icon--container-has-icon"
-          onClick={[Function]}
-          onDragStart={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="button"
-          tabIndex="-1"
-        >
-          <span
-            aria-hidden={true}
-            aria-label="Clear Search"
-            className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
-            onClick={[Function]}
-            role="img"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
   <div
     className="combobox--wrapper-list"
     role="listbox"
@@ -204,9 +119,95 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
     }
   >
     <div
+      aria-busy={false}
+      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      role="search"
+    >
+      <div
+        className="input-component__label--wrapper"
+      >
+        <div
+          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+        >
+          <input
+            aria-activedescendant="combobox-item--1"
+            aria-invalid={null}
+            aria-label="Search for content"
+            aria-owns=""
+            autoComplete="off"
+            autoFocus={false}
+            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            disabled={false}
+            id="combobox-search"
+            maxLength={null}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder=""
+            readOnly={false}
+            required={false}
+            role=""
+            type="search"
+            value=""
+          />
+          <div
+            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            onClick={[Function]}
+            onDragStart={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex="-1"
+          >
+            <span
+              aria-hidden={true}
+              aria-label="Search"
+              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              onClick={[Function]}
+              role="img"
+            />
+          </div>
+          <div
+            className="input-component__icon--container input-component__icon--container-has-icon"
+            onClick={[Function]}
+            onDragStart={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex="-1"
+          >
+            <span
+              aria-hidden={true}
+              aria-label="Clear Search"
+              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              onClick={[Function]}
+              role="img"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
       aria-label="Test"
       aria-selected={false}
-      className="combobox-option"
+      className="combobox-option first"
       id="combobox-item-0"
       onClick={[Function]}
       onKeyDown={[Function]}
@@ -232,95 +233,9 @@ exports[`<Combobox /> renders correctly with one option 1`] = `
 
 exports[`<Combobox /> renders correctly with options and categories 1`] = `
 <div
-  className="combobox--wrapper"
+  className="combobox--wrapper size-medium"
   id=""
 >
-  <div
-    aria-busy={false}
-    className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
-    role="search"
-  >
-    <div
-      className="input-component__label--wrapper"
-    >
-      <div
-        className="input-component__input-wrapper input-component__input-wrapper--size-medium"
-      >
-        <input
-          aria-activedescendant="combobox-item--1"
-          aria-invalid={null}
-          aria-label="Search for content"
-          aria-owns=""
-          autoComplete="off"
-          autoFocus={false}
-          className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
-          disabled={false}
-          id="combobox-search"
-          maxLength={null}
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          placeholder=""
-          readOnly={false}
-          required={false}
-          role=""
-          type="search"
-          value=""
-        />
-        <div
-          className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
-          onClick={[Function]}
-          onDragStart={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="button"
-          tabIndex="-1"
-        >
-          <span
-            aria-hidden={true}
-            aria-label="Search"
-            className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
-            onClick={[Function]}
-            role="img"
-          />
-        </div>
-        <div
-          className="input-component__icon--container input-component__icon--container-has-icon"
-          onClick={[Function]}
-          onDragStart={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          role="button"
-          tabIndex="-1"
-        >
-          <span
-            aria-hidden={true}
-            aria-label="Clear Search"
-            className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
-            onClick={[Function]}
-            role="img"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
   <div
     className="combobox--wrapper-list"
     role="listbox"
@@ -331,13 +246,99 @@ exports[`<Combobox /> renders correctly with options and categories 1`] = `
     }
   >
     <div
+      aria-busy={false}
+      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      role="search"
+    >
+      <div
+        className="input-component__label--wrapper"
+      >
+        <div
+          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+        >
+          <input
+            aria-activedescendant="combobox-item--1"
+            aria-invalid={null}
+            aria-label="Search for content"
+            aria-owns=""
+            autoComplete="off"
+            autoFocus={false}
+            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            disabled={false}
+            id="combobox-search"
+            maxLength={null}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder=""
+            readOnly={false}
+            required={false}
+            role=""
+            type="search"
+            value=""
+          />
+          <div
+            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            onClick={[Function]}
+            onDragStart={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex="-1"
+          >
+            <span
+              aria-hidden={true}
+              aria-label="Search"
+              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              onClick={[Function]}
+              role="img"
+            />
+          </div>
+          <div
+            className="input-component__icon--container input-component__icon--container-has-icon"
+            onClick={[Function]}
+            onDragStart={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            role="button"
+            tabIndex="-1"
+          >
+            <span
+              aria-hidden={true}
+              aria-label="Clear Search"
+              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              onClick={[Function]}
+              role="img"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
       aria-labelledby="combox-category-category1"
       role="group"
     >
       <div
         aria-label="Test"
         aria-selected={false}
-        className="combobox-option"
+        className="combobox-option first"
         id="combobox-item-0"
         onClick={[Function]}
         onKeyDown={[Function]}

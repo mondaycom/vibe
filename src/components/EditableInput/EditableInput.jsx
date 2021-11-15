@@ -69,7 +69,9 @@ const EditableInput = forwardRef(
 
     const focus = useCallback(() => {
       if (componentRef.current) {
-        componentRef.current.focus();
+        requestAnimationFrame(() => {
+          componentRef.current.focus();
+        });
       }
     }, [componentRef]);
 

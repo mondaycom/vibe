@@ -1,5 +1,54 @@
 # Changelog
 
+## 0.8.3 (2021-11-14)
+
+#### Bug Fixes
+* [#331](https://github.com/mondaycom/monday-ui-react-core/pull/331) successIconSize property to determine function success icon size ([@yardenli](https://github.com/yardenli))
+
+## 0.8.2 (2021-11-14)
+
+#### Bug Fixes
+* [#330](https://github.com/mondaycom/monday-ui-react-core/pull/330) Fix button initial loading state ([@MosheZemah](https://github.com/MosheZemah))
+
+## 0.8.1 (2021-11-11)
+
+#### Bug Fixes
+* [#327](https://github.com/mondaycom/monday-ui-react-core/pull/327) editable input focus in animation frame ([@barcohen2](https://github.com/barcohen2))
+
+## 0.8.0 (2021-11-07)
+
+#### New Features
+* [#321](https://github.com/mondaycom/monday-ui-react-core/pull/321) Adding tooltip content option to combobox item ([@samitc](https://github.com/samitc))
+* [#323](https://github.com/mondaycom/monday-ui-react-core/pull/323) Add support in tipseen component for: submitButtonText & submitButtonOnClick & dismissButtonText & dismissButtonOnClick & hideWhenReferenceHidden ([@hadasfa](https://github.com/hadasfa))
+
+## 0.7.3 (2021-11-04)
+
+#### Bug Fixes
+* [#322](https://github.com/mondaycom/monday-ui-react-core/pull/322) amitha/feature/dialog-is-reference-hidden ([@amit-hanoch](https://github.com/amit-hanoch))
+
+## 0.7.2 (2021-11-03)
+
+#### Bug Fixes
+* [#319](https://github.com/mondaycom/monday-ui-react-core/pull/319) Fix typo ([@MosheZemah](https://github.com/MosheZemah))
+* [#318](https://github.com/mondaycom/monday-ui-react-core/pull/318) Combobox sticky categories and search width ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Documentation
+* [#317](https://github.com/mondaycom/monday-ui-react-core/pull/317) Plop/hadas/tests ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#320](https://github.com/mondaycom/monday-ui-react-core/pull/320) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 0.7.1 (2021-11-01)
+
+#### Bug Fixes
+* [#313](https://github.com/mondaycom/monday-ui-react-core/pull/313) Added onClick callback support for AccordionItem ([@adirhaz1z](https://github.com/adirhaz1z))
+
+## 0.7.0 (2021-11-01)
+
+#### New Features
+* [#315](https://github.com/mondaycom/monday-ui-react-core/pull/315) add autoFocus to dropdown ([@ronachmany-monday](https://github.com/ronachmany-monday))
+* [#314](https://github.com/mondaycom/monday-ui-react-core/pull/314) amitha/feature/combobox-no-results ([@amit-hanoch](https://github.com/amit-hanoch))
+
 ## 0.6.0 (2021-10-31)
 
 #### Bug Fixes

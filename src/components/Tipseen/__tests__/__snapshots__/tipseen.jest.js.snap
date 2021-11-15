@@ -16,6 +16,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly 1`] = `
   />
   <span
     className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
       Object {
@@ -106,6 +107,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly with custom width 1`] = 
   />
   <span
     className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
       Object {
@@ -201,6 +203,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly with title 1`] = `
   />
   <span
     className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
       Object {
@@ -298,6 +301,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly without close button 1`]
   />
   <span
     className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
       Object {
