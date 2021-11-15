@@ -3,7 +3,7 @@ import { RelatedComponent } from "../../related-component/related-component";
 import RadioButton from "../../../../components/RadioButton/RadioButton";
 
 export const RadioButtonDescription = () => {
-  const component = useMemo(() => <RadioButton text="Selection" checked={true} />, []);
+  const component = useMemo(() => <RadioButton text="Selection" checked />, []);
   return (
     <RelatedComponent
       component={component}

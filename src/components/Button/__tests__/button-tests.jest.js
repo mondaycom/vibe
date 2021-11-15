@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent, cleanup } from "@testing-library/react";
-import { sinon, expect } from "../../../test/test-helpers";
-import Button from "../Button";
+import { sinon, expect } from "../../test/test-helpers";
+import Button from "./Button";
 
 describe("Button tests", () => {
   let clickActionStub;

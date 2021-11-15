@@ -1,5 +1,5 @@
-import renderer from "react-test-renderer";
 import React from "react";
+import renderer from "react-test-renderer";
 import Avatar from "../Avatar";
 import { WhatsNew } from "../../Icon/Icons";
 
@@ -60,6 +60,7 @@ describe("Avatar renders correctly", () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+  
   it("renders correctly with damaged src badges", () => {
     const tree = renderer
       .create(

@@ -2,7 +2,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Toggle from "../Toggle";
 
-
 describe("Toggle renders correctly", () => {
   it("renders correctly with empty props", () => {
     const tree = renderer.create(<Toggle />).toJSON();
@@ -31,6 +30,26 @@ describe("Toggle renders correctly", () => {
 
   it("renders correctly when disabled", () => {
     const tree = renderer.create(<Toggle isDisabled />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with not default onOverrideText", () => {
+    const tree = renderer.create(<Toggle onOverrideText="TestOn" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with not default offOverrideText", () => {
+    const tree = renderer.create(<Toggle offOverrideText="TestOff" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly when labels are hidden", () => {
+    const tree = renderer.create(<Toggle areLabelsHidden />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with aria controls", () => {
+    const tree = renderer.create(<Toggle ariaControls="aria controls" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

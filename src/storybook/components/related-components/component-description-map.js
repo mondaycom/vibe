@@ -13,7 +13,7 @@ export const LABEL = "label";
 export const CHECKBOX = "checkbox";
 export const RADIO_BUTTON = "radio-button";
 export const COUNTER = "counter";
-export const CHIPS = "chips";
+export const CHIP = "chips";
 export const TOOLTIP = "tooltip";
 
 export const descriptionTypesMap = new Map();
@@ -24,5 +24,5 @@ descriptionTypesMap.set(LABEL, <LabelDescription />);
 descriptionTypesMap.set(CHECKBOX, <CheckboxDescription />);
 descriptionTypesMap.set(RADIO_BUTTON, <RadioButtonDescription />);
 descriptionTypesMap.set(COUNTER, <CounterDescription />);
-descriptionTypesMap.set(CHIPS, <ChipsDescription />);
+descriptionTypesMap.set(CHIP, <ChipsDescription />);
 descriptionTypesMap.set(TOOLTIP, <TooltipDescription />);

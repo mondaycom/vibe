@@ -3,11 +3,11 @@ import Avatar from "../Avatar";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { Calendar, Remove, Add, Check } from "../../Icon/Icons";
-import { TOOLTIP, LABEL, CHIPS } from "../../../storybook/components/related-components/component-description-map";
-import "./avatar.stories.scss";
+import { TOOLTIP, LABEL, CHIP } from "../../../storybook/components/related-components/component-description-map";
 import { WhatsNew, Home, Person } from "../../Icon/Icons";
 import { MultipleStoryElementsWrapper } from "../../../storybook/components";
 import { home, guest, minus, person1, person2, person3, maleIcon, femaleIcon, owner } from "./assets";
+import "./avatar.stories.scss";
 
 <Meta 
   title="Components/Avatar" 
@@ -98,7 +98,6 @@ Use for non-person avatars, such as a workspace or team.
     <Avatar
       size={Avatar.sizes.MEDIUM}
       type={Avatar.types.ICON}
-      text="RM"
       icon={WhatsNew}
       backgroundColor={Avatar.colors.AQUAMARINE}
       isSquare
@@ -119,20 +118,20 @@ Use for non-person avatars, such as a workspace or team.
     {
       positive: {
         component: 
-          <MultipleStoryElementsWrapper className="monday-style-story-avatar_multiplue-reverse">
+          <div className="monday-style-story-avatar_multiplue-reverse">
             <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
             <Avatar size={Avatar.sizes.LARGE} src={person2} type={Avatar.types.IMG} />
             <Avatar size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
-          </MultipleStoryElementsWrapper>,
+          </div>,
         description:"Use consistent avatar sizes for common use cases to convey their purpose."
       },
       negative: {
         component:
-          <MultipleStoryElementsWrapper className="monday-style-story-avatar_multiplue-reverse">
+          <div className="monday-style-story-avatar_multiplue-reverse">
             <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
             <Avatar size={Avatar.sizes.MEDIUM} src={person2} type={Avatar.types.IMG} />
             <Avatar size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
-          </MultipleStoryElementsWrapper>,
+          </div>,
         description:"Avoid using a mix of avatar sizes that display together and create design imbalance."
       }
     },
@@ -202,4 +201,4 @@ Use to indicate the status of a user such as: Working from home, out of office e
 </Canvas> 
 
 ## Related components
-<RelatedComponents componentsNames={[TOOLTIP, LABEL, CHIPS]}/>
+<RelatedComponents componentsNames={[TOOLTIP, LABEL, CHIP]}/>

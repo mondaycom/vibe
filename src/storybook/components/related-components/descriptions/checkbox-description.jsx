@@ -3,7 +3,7 @@ import { RelatedComponent } from "../../related-component/related-component";
 import { Checkbox } from "../../../../components/Checkbox/Checkbox";
 
 export const CheckboxDescription = () => {
-  const component = useMemo(() => <Checkbox label="Selected" checked={true} />, []);
+  const component = useMemo(() => <Checkbox label="Selected" checked />, []);
   return (
     <RelatedComponent
       component={component}

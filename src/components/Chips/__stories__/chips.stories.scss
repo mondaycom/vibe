@@ -1,4 +1,7 @@
-.monday-style-story-avatar {
+@import "../../../styles/themes.scss";
+@import "../../../styles/typography.scss";
+
+.monday-style-story-chips {
   &_search-bar {
     display: flex;
     flex-direction: column;
@@ -31,11 +34,15 @@
     gap: 8px;
   }
 
+  &_chip-padding {
+    padding: 0 24px;
+   }
+
   &_name {
     font-size: 14px;
 
     span {
-      color: #676879;
+      @include theme-prop(color, disabled-text-color);
     }
   }
 }

@@ -44,6 +44,40 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
 </label>
 `;
 
+exports[`Toggle renders correctly renders correctly when labels are hidden 1`] = `
+<label
+  className="monday-style-toggle_wrapper"
+>
+  <input
+    aria-checked={true}
+    checked={true}
+    className="monday-style-toggle_input"
+    disabled={false}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onClick={[Function]}
+    onDragStart={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchCancel={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <div
+    aria-hidden="true"
+    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+  />
+</label>
+`;
+
 exports[`Toggle renders correctly renders correctly when selection defined by default selected (off)  1`] = `
 <label
   className="monday-style-toggle_wrapper"
@@ -220,6 +254,96 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
 </label>
 `;
 
+exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
+<label
+  className="monday-style-toggle_wrapper"
+>
+  <span
+    className="monday-style-toggle_text"
+  >
+    Off
+  </span>
+  <input
+    aria-checked={true}
+    aria-controls="aria controls"
+    checked={true}
+    className="monday-style-toggle_input"
+    disabled={false}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onClick={[Function]}
+    onDragStart={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchCancel={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <div
+    aria-hidden="true"
+    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+  />
+  <span
+    className="monday-style-toggle_text"
+  >
+    On
+  </span>
+</label>
+`;
+
+exports[`Toggle renders correctly renders correctly with aria label 1`] = `
+<label
+  className="monday-style-toggle_wrapper"
+>
+  <span
+    className="monday-style-toggle_text"
+  >
+    Off
+  </span>
+  <input
+    aria-checked={true}
+    aria-label="aria label"
+    checked={true}
+    className="monday-style-toggle_input"
+    disabled={false}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onClick={[Function]}
+    onDragStart={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchCancel={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    role="switch"
+    type="checkbox"
+  />
+  <div
+    aria-hidden="true"
+    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+  />
+  <span
+    className="monday-style-toggle_text"
+  >
+    On
+  </span>
+</label>
+`;
+
 exports[`Toggle renders correctly renders correctly with empty props 1`] = `
 <label
   className="monday-style-toggle_wrapper"
@@ -264,14 +388,14 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
 </label>
 `;
 
-exports[`Toggle renders correctly with empty props 1`] = `
+exports[`Toggle renders correctly renders correctly with not default offOverrideText 1`] = `
 <label
   className="monday-style-toggle_wrapper"
 >
   <span
     className="monday-style-toggle_text"
   >
-    Off
+    TestOff
   </span>
   <input
     aria-checked={true}
@@ -308,7 +432,7 @@ exports[`Toggle renders correctly with empty props 1`] = `
 </label>
 `;
 
-exports[`Toggle renders correctly with x 1`] = `
+exports[`Toggle renders correctly renders correctly with not default onOverrideText 1`] = `
 <label
   className="monday-style-toggle_wrapper"
 >
@@ -347,51 +471,7 @@ exports[`Toggle renders correctly with x 1`] = `
   <span
     className="monday-style-toggle_text"
   >
-    On
-  </span>
-</label>
-`;
-
-exports[`Toggle renders correctly with y 1`] = `
-<label
-  className="monday-style-toggle_wrapper"
->
-  <span
-    className="monday-style-toggle_text"
-  >
-    Off
-  </span>
-  <input
-    aria-checked={true}
-    checked={true}
-    className="monday-style-toggle_input"
-    disabled={false}
-    onBlur={[Function]}
-    onChange={[Function]}
-    onClick={[Function]}
-    onDragStart={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    onMouseUp={[Function]}
-    onTouchCancel={[Function]}
-    onTouchEnd={[Function]}
-    onTouchMove={[Function]}
-    onTouchStart={[Function]}
-    role="switch"
-    type="checkbox"
-  />
-  <div
-    aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
-  />
-  <span
-    className="monday-style-toggle_text"
-  >
-    On
+    TestOn
   </span>
 </label>
 `;
