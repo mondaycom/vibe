@@ -9,11 +9,11 @@ export const Tip = ({ className, title, children }) => {
       icon={null}
       type={CoreAttentionBox.types.DARK}
       componentClassName={cx("monday-storybook-tip", className)}
-      title={(
+      title={
         <span>
           <span style={{ marginRight: 4 }}>🤓</span> {title}
         </span>
-      )}
+      }
       text={children}
     />
   );
