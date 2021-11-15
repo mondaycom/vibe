@@ -74,14 +74,6 @@ module.exports = options => {
           test: /\.css$/,
           include: [path.resolve(__dirname, "not_exist_path")],
           use: styleLoaders
-        },
-        {
-          test: /\.(png|jpe?g|svg)$/i,
-          use: [
-            {
-              loader: "file-loader"
-            }
-          ]
         }
       ]
     },

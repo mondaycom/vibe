@@ -15,7 +15,7 @@
     "start": "npm run build-react-icons && webpack --mode production --watch --config webpack/default.config.js",
     "build": "npm run build-react-icons && webpack --mode production --config webpack/default.config.js",
     "storybook": "start-storybook -p 7007",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "link-local": "npm link && npm start",
     "plop": "plop",

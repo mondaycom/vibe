@@ -8,6 +8,11 @@
   @include theme-prop(border-color, layout-border-color);
   padding: $spacing-large;
   width: 100%;
+  &_image {
+    height: 48px;
+    width: 48px;
+  }
+
   &_title {
     font-weight: 400;
     font-size: 18px;
