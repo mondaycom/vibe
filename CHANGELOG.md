@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.4 (2021-11-15)
+
+#### Bug Fixes
+* [#333](https://github.com/mondaycom/monday-ui-react-core/pull/333) amitha/fix/text-field-focus-animation-in-dialog ([@amit-hanoch](https://github.com/amit-hanoch))
+* [#332](https://github.com/mondaycom/monday-ui-react-core/pull/332) Combobox: fix the space between the search box to the first option ([@amit-hanoch](https://github.com/amit-hanoch))
+
 ## 0.8.3 (2021-11-14)
 
 #### Bug Fixes
