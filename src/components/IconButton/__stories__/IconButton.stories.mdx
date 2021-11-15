@@ -31,9 +31,8 @@ export const iconButtonTemplate = createComponentTemplate(IconButton);
 Please write here the component description
 
 <Canvas>
-  <Story name="Overview"
-         args={{}}>
-    { iconButtonTemplate.bind({}) }
+  <Story name="Overview" args={{}}>
+    <IconButton ariaLabel="Add Button"/>
   </Story>
 </Canvas>
 
@@ -42,12 +41,14 @@ Please write here the component description
 
 ## Usage
 <UsageGuidelines guidelines={[
-  "Always provide aria label to the IconButton component",
-  "Use IconButton in conjunction to other IconButtons",
-  "Use IconButton when you want to display an active state of a button",
+  "Icon button will always appear with a tooltip while hovering, defining the icon’s meaning.",
+  "Use an icon button when a user can perform an inline action on this page and there's no room for a default button.",
+  "Use icon button when you want to display an active state of a button.",
+  "Use a Primary icon button when it's the most important action to take.",
+  "Icon buttons are often used when there are 2 or 3 adjacent icons buttons that perform actions on a single item presented in a row."
 ]}/>
 
-<Tip title="Not what you were looking for?">Maybe try our Button</Tip>
+<Tip title="Check yourself">To display icons that do not have actions associated with them, use the Icon component.</Tip>
 
 ## Variants
 ### Kinds
@@ -67,11 +68,11 @@ Please write here the component description
 <Canvas>
   <Story name="Sizes">
       <div style={{ display: "flex", justifyContent:"space-evenly", alignItems: "center" , width: "100%"}}>
-        <IconButton key="xxs" icon={Robot} size={IconButton.sizes.XXS} ariaLabel="My small IconButton"/>
-        <IconButton key="xs" icon={Robot} size={IconButton.sizes.XS} ariaLabel="My small IconButton"/>
-        <IconButton key="small" icon={Robot} size={IconButton.sizes.SMALL} ariaLabel="My small IconButton"/>
-        <IconButton key="medium" icon={Robot} size={IconButton.sizes.MEDIUM} ariaLabel="My medium IconButton"/>
-        <IconButton key="large" icon={Robot} size={IconButton.sizes.LARGE} ariaLabel="My large IconButton"/>
+        <IconButton key="xxs" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.XXS} ariaLabel="My xxs IconButton"/>
+        <IconButton key="xs" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.XS} ariaLabel="My xs IconButton"/>
+        <IconButton key="small" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} ariaLabel="My small IconButton"/>
+        <IconButton key="medium" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.MEDIUM} ariaLabel="My medium IconButton"/>
+        <IconButton key="large" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.LARGE} ariaLabel="My large IconButton"/>
       </div>
   </Story>
 </Canvas>

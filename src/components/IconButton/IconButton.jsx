@@ -6,6 +6,7 @@ import ToolTip from "../Tooltip/Tooltip";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import Add from "../Icon/Icons/components/AddSmall";
+import { getWidthHeight } from "./services/IconButton-helpers";
 import "./IconButton.scss";
 
 const IconButton = forwardRef(
@@ -28,7 +29,12 @@ const IconButton = forwardRef(
     }, [size]);
 
     const overrideStyle = useMemo(() => {
-      const style = {};
+      let style = {
+        display: "inline-fllex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 0
+      };
       if (active && kind !== IconButton.kinds.PRIMARY) {
         style.background = "var(--primary-selected-color)";
       }
@@ -37,11 +43,17 @@ const IconButton = forwardRef(
         style.borderColor = "var(--primary-color";
       }
 
-      if (!Object.keys(style).length) return;
+      if (size) {
+        style = { ...style, ...getWidthHeight(size) };
+      }
       return style;
-    }, [active, kind]);
+    }, [active, kind, size]);
 
-    const content = disabled && disabledReason ? disabledReason : tooltipContent;
+    const content = useMemo(() => {
+      if (disabled && disabledReason) return disabledReason;
+      if (tooltipContent) return tooltipContent;
+      return ariaLabel;
+    }, [disabled, disabledReason, tooltipContent, ariaLabel]);
 
     return (
       <ToolTip content={content}>
