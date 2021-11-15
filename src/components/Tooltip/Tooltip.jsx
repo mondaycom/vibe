@@ -159,7 +159,7 @@ Tooltip.defaultProps = {
 };
 
 Tooltip.propTypes = {
-  style: PropTypes.string,
+  style: PropTypes.object,
   arrowPosition: PropTypes.string,
   moveBy: PropTypes.shape({ main: PropTypes.number, secondary: PropTypes.number }),
   theme: PropTypes.string,
