@@ -107,7 +107,8 @@ const TextField = forwardRef(
 
     useEffect(() => {
       if (inputRef.current && autoFocus) {
-        requestAnimationFrame(() => inputRef.current.focus());
+        const animationFrame = requestAnimationFrame(() => inputRef.current.focus());
+        return () => cancelAnimationFrame(animationFrame);
       }
     }, [inputRef, autoFocus]);
 
