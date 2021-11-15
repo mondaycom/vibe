@@ -10,7 +10,6 @@ const IMG_SRC =
   "https://files.monday.com/use1/photos/16447897/small/16447897-Hadas_Farhi_photo_2020_10_04_10_14_06.png?1601806446";
 const BADGE_SRC = "https://cdn7.monday.com/images/working-status/wfh.svg";
 
-
 describe("Avatar renders correctly", () => {
   it("renders correctly with empty props", () => {
     const tree = renderer.create(<Avatar />).toJSON();
