@@ -4,12 +4,17 @@ import CoreAttentionBox from "../../../components/AttentionBox/AttentionBox";
 import "./tip.scss";
 
 export const Tip = ({ className, title, children }) => {
+  const titleComposition = (
+    <span>
+      <span style={{ marginRight: 4 }}>🤓</span> {title}
+    </span>
+  );
   return (
     <CoreAttentionBox
       icon={null}
       type={CoreAttentionBox.types.DARK}
       componentClassName={cx("monday-storybook-tip", className)}
-      title={`🤓 ${title}`}
+      title={titleComposition}
       text={children}
     />
   );

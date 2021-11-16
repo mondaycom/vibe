@@ -10,6 +10,7 @@ export default function useTimeout({ time = 0, callback, ignoreZeroTime = false 
     }
     clearTimeout(timeoutId.current);
   }, [timeoutId]);
+
   useEffect(() => {
     if (ignoreTimeout) {
       return () => {};
