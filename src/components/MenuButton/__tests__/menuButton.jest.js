@@ -42,7 +42,18 @@ it("renders correctly with Bolt Icon", () => {
 it("renders correctly with Bolt Icon", () => {
   const tree = renderer
     .create(
-      <MenuButton componentClassName="dummy-class-name">
+      <MenuButton className="dummy-class-name">
+        <div>Menu</div>
+      </MenuButton>
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+it("renders correctly with tooltip content", () => {
+  const tree = renderer
+    .create(
+      <MenuButton tooltipContent="tooltip content">
         <div>Menu</div>
       </MenuButton>
     )

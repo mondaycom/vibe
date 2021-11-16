@@ -49,6 +49,64 @@ exports[`Tipseen content tests Snapshot Tests renders correctly 1`] = `
 </div>
 `;
 
+exports[`Tipseen content tests Snapshot Tests renders correctly when override dismiss button text 1`] = `
+<div
+  className="monday-style-tipseen-basic-content monday-style-tipseen-content"
+>
+  <span
+    className="monday-style-tipseen-content_content"
+  >
+    content
+  </span>
+  <div
+    className="monday-style-tipseen-content_buttons"
+  >
+    <button
+      aria-disabled={false}
+      className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Tipseen content tests Snapshot Tests renders correctly when override submit button text 1`] = `
+<div
+  className="monday-style-tipseen-basic-content monday-style-tipseen-content"
+>
+  <span
+    className="monday-style-tipseen-content_content"
+  >
+    content
+  </span>
+  <div
+    className="monday-style-tipseen-content_buttons"
+  >
+    <button
+      aria-disabled={false}
+      className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      type="button"
+    >
+      submit button text
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Tipseen content tests Snapshot Tests renders correctly with empty props 1`] = `
 <div
   className="monday-style-tipseen-basic-content monday-style-tipseen-content"

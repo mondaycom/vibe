@@ -37,6 +37,12 @@ module.exports = api => {
           loose: true
         }
       ],
+      [
+        "@babel/plugin-proposal-private-property-in-object",
+        {
+          loose: true
+        }
+      ],
       "react-docgen"
     ]
   };

@@ -1,5 +1,6 @@
 @import "../../../../styles/themes.scss";
 @import "../../../../styles/typography.scss";
+@import "../../../../styles/global-css-settings.scss";
 @import "../../../../styles/states.scss";
 
 $icon-margin: 4px;
@@ -33,6 +34,10 @@ $icon-margin: 4px;
     &.active-outline {
       @include focus-style-css();
     }
+  }
+
+  &.first {
+    margin-top: $spacing-small;
   }
 
   .option-label {

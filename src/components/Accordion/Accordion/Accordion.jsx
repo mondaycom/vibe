@@ -42,7 +42,7 @@ const Accordion = forwardRef(({ children: originalChildren, allowMultiple, defau
         return;
       }
 
-      setExpandedItems(isChildExpanded(itemIndex) ? [] : [itemIndex]);
+      setExpandedItems([itemIndex]);
     },
     [isChildExpanded, expandedItems, allowMultiple]
   );
@@ -51,7 +51,7 @@ const Accordion = forwardRef(({ children: originalChildren, allowMultiple, defau
     const childElements = React.Children.map(children, (child, itemIndex) => {
       return React.cloneElement(child, {
         ...child?.props,
-        onClick: () => {
+        onClickAccordionCallback: () => {
           onChildClick(itemIndex);
         },
         open: isChildExpanded(itemIndex)
