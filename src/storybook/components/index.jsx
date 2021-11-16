@@ -8,6 +8,7 @@ import { RelatedComponents } from "./related-components/related-components";
 import { AnchorListItem } from "./anchor-list-item/anchor-list-item";
 import { DocFooter } from "./doc-footer/doc-footer";
 import { MultipleStoryElementsWrapper } from "./multiple-story-elements-wrapper/multiple-story-elements-wrapper";
+import { Link } from "./link/link";
 
 export {
   SectionName,
@@ -19,5 +20,6 @@ export {
   RelatedComponents,
   AnchorListItem,
   DocFooter,
-  MultipleStoryElementsWrapper
+  MultipleStoryElementsWrapper,
+  Link
 };

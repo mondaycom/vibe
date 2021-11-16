@@ -38,11 +38,11 @@ ComponentRules.propTypes = {
     PropTypes.shape({
       positive: PropTypes.shape({
         component: PropTypes.element,
-        description: PropTypes.string
+        description: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
       }),
       negative: PropTypes.shape({
         component: PropTypes.element,
-        description: PropTypes.string
+        description: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
       })
     })
   )

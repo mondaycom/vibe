@@ -11,12 +11,15 @@ import {
   UsageGuidelines,
   RelatedComponents,
   DocFooter,
-  MultipleStoryElementsWrapper
+  MultipleStoryElementsWrapper,
+  Link
 } from "../src/storybook/components";
+import LinkComponent from "../src/storybook/components/link-component/link-component";
 
 addParameters({
   docs: {
     ...parameters.docs,
+    inlineStories: true,
     container: ({ children, context }) => (
       <DocsContainer context={context}>
         {children}
@@ -29,10 +32,12 @@ addParameters({
       h2: SectionName,
       h3: Title,
       li: AnchorListItem,
+      a: LinkComponent,
       Tip,
       ComponentRules,
       UsageGuidelines,
-      RelatedComponents
+      RelatedComponents,
+      Link
     }
   },
   viewMode: "docs",
@@ -42,12 +47,15 @@ addParameters({
     },
     canvas: { title: "Sandbox" }
   },
-  themes: [
-    { name: "Light", class: "light-app-them", color: "#ffffff", default: true },
-    { name: "Dark", class: "dark-app-theme", color: "#1C1F3B" },
-    { name: "Black", class: "black-app-theme", color: "#111111" },
-    { name: "Hacker", class: "hacker_theme-app-theme", color: "#282a36" }
-  ]
+  themes: {
+    default: "Light",
+    list: [
+      { name: "Light", class: "light-app-them", color: "#ffffff" },
+      { name: "Dark", class: "dark-app-theme", color: "#1C1F3B" },
+      { name: "Black", class: "black-app-theme", color: "#111111" },
+      { name: "Hacker", class: "hacker_theme-app-theme", color: "#282a36" }
+    ]
+  }
 });
 
 export const decorators = [

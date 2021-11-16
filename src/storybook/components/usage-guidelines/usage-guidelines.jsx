@@ -11,7 +11,7 @@ export const UsageGuidelines = ({ guidelines }) => {
     () =>
       guidelines.map((guideline, index) => (
         <span id={index} className={bemHelper({ element: "guideline" })}>
-          <div className={bemHelper({ element: "icon" })}>➡️</div>
+          <span className={bemHelper({ element: "icon" })}>➡️</span>
           {guideline}
         </span>
       )),
@@ -22,7 +22,7 @@ export const UsageGuidelines = ({ guidelines }) => {
 };
 
 UsageGuidelines.propTypes = {
-  guidelines: PropTypes.arrayOf(PropTypes.string)
+  guidelines: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.element]))
 };
 
 UsageGuidelines.defaultProps = {
