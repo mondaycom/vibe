@@ -7,13 +7,14 @@ import { BEMClass } from "../../../helpers/bem-helper";
 const BASE_CLASS = "monday-storybook-link";
 const bemHelper = BEMClass(BASE_CLASS);
 
-export const Link = ({ children, href, size }) => (
+export const Link = ({ children, href, size, withoutSpacing }) => (
   <CoreLink
     text={children}
     href={href}
     componentClassName={cx(BASE_CLASS, {
       [bemHelper({ state: "small" })]: size === Link.sizes.SMALL,
-      [bemHelper({ state: "medium" })]: size === Link.sizes.MEDIUM
+      [bemHelper({ state: "medium" })]: size === Link.sizes.MEDIUM,
+      [bemHelper({ state: "with-spacing" })]: !withoutSpacing
     })}
   />
 );
@@ -26,11 +27,13 @@ Link.sizes = {
 Link.defaultProps = {
   children: undefined,
   href: undefined,
-  size: Link.sizes.SMALL
+  size: Link.sizes.MEDIUM,
+  withoutSpacing: false
 };
 
 Link.propTypes = {
   children: PropTypes.string,
   href: PropTypes.string,
-  size: PropTypes.oneOf([Link.sizes.SMALL, Link.sizes.MEDIUM])
+  size: PropTypes.oneOf([Link.sizes.SMALL, Link.sizes.MEDIUM]),
+  withoutSpacing: PropTypes.bool
 };
