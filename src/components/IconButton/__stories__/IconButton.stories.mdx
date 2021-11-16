@@ -1,0 +1,137 @@
+import IconButton from "../IconButton";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import { Bolt, Activity, Robot, Doc, Pin, Show, HighlightColorBucket, Broom, Add } from "../../Icon/Icons"
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { BUTTON_GROUP, SPLIT_BUTTON } from "../../../storybook/components/related-components/component-description-map";
+
+import "./IconButton.stories.scss";
+
+<Meta
+  title="Components/IconButton"
+  component={ IconButton }
+/>
+
+<!--- Component template -->
+
+export const iconButtonTemplate = createComponentTemplate(IconButton);
+
+<!--- Component documentation -->
+
+# IconButton
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+Please write here the component description
+
+<Canvas>
+  <Story name="Overview" args={{}}>
+    <IconButton ariaLabel="Add Button"/>
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ IconButton } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Icon button will always appear with a tooltip while hovering, defining the icon’s meaning.",
+  "Use an icon button when a user can perform an inline action on this page and there's no room for a default button.",
+  "Use icon button when you want to display an active state of a button.",
+  "Use a Primary icon button when it's the most important action to take.",
+  "Icon buttons are often used when there are 2 or 3 adjacent icons buttons that perform actions on a single item presented in a row."
+]}/>
+
+<Tip title="Check yourself">To display icons that do not have actions associated with them, use the Icon component.</Tip>
+
+## Variants
+### Kinds
+
+<Canvas>
+  <Story name="Kinds">
+      <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" , width: "100%" }}>
+        <IconButton icon={Bolt} kind={IconButton.kinds.PRIMARY} ariaLabel="My primary IconButton"/>
+        <IconButton icon={Bolt} kind={IconButton.kinds.SECONDARY} ariaLabel="My secondary IconButton"/>
+        <IconButton icon={Bolt} kind={IconButton.kinds.TERTIARY} ariaLabel="My tertiary IconButton"/>
+      </div>
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+      <div style={{ display: "flex", justifyContent:"space-evenly", alignItems: "center" , width: "100%"}}>
+        <IconButton key="xxs" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.XXS} ariaLabel="My xxs IconButton"/>
+        <IconButton key="xs" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.XS} ariaLabel="My xs IconButton"/>
+        <IconButton key="small" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.SMALL} ariaLabel="My small IconButton"/>
+        <IconButton key="medium" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.MEDIUM} ariaLabel="My medium IconButton"/>
+        <IconButton key="large" icon={Robot} kind={IconButton.kinds.SECONDARY} size={IconButton.sizes.LARGE} ariaLabel="My large IconButton"/>
+      </div>
+  </Story>
+</Canvas>
+
+### Active
+
+<Canvas>
+  <Story name="Active">
+      <div style={{ display: "flex", justifyContent:"space-evenly", alignItems: "center" , width: "100%"}}>
+        <IconButton icon={Doc} kind={IconButton.kinds.PRIMARY} ariaLabel="My small active IconButton" active/>
+        <IconButton icon={Doc} kind={IconButton.kinds.SECONDARY} ariaLabel="My active medium IconButton" active/>
+        <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My active large IconButton" active/>
+      </div>
+  </Story>
+</Canvas>
+
+### Disabled
+
+<Canvas>
+  <Story name="Disabled">
+      <div style={{ display: "flex", justifyContent:"space-evenly", alignItems: "center" , width: "100%"}}>
+        <IconButton icon={Doc} kind={IconButton.kinds.PRIMARY} ariaLabel="My small disabled IconButton" disabled disabledReason="This function is not available"/>
+        <IconButton icon={Doc} kind={IconButton.kinds.SECONDARY} ariaLabel="My disabled medium IconButton" disabled disabledReason="This function is not available" />
+        <IconButton icon={Doc} kind={IconButton.kinds.TERTIARY} ariaLabel="My disabled large IconButton" disabled disabledReason="This function is not available" />
+      </div>
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <DialogContentContainer>
+            <IconButton icon={Pin} ariaLabel="Pin to top" />
+            <IconButton icon={Show} ariaLabel="Show all"/>
+            <IconButton icon={HighlightColorBucket} ariaLabel="Show color"/>
+            <IconButton icon={Broom} ariaLabel="Clear style"/>
+        </DialogContentContainer>,
+        description: "Use Icon button when action is lower priority than a regular action or there’s no space available to place a button."
+      },
+      negative: {
+        component:<IconButton icon={Add} kind={IconButton.kinds.PRIMARY} ariaLabel="Add item" />,
+        description:"Don’t use Icon button as the main action on the page. Instead, use the Button component with an icon."
+      }
+    },
+    {
+      positive: {
+        component: <IconButton icon={Bolt}  ariaLabel="Quick Search" />,
+        description: "Always provide ariaLabel or tooltipContent"
+      },
+      negative: {
+        component:<IconButton icon={Bolt} />,
+        description: "Don’t use icon button without adding a tooltip while hovering."
+      }
+    }
+  ]}
+/>
+
+## Related components
+<RelatedComponents componentsNames={[BUTTON_GROUP, SPLIT_BUTTON, BUTTON_GROUP]} />
