@@ -22,7 +22,7 @@ export const UsageGuidelines = ({ guidelines }) => {
 };
 
 UsageGuidelines.propTypes = {
-  guidelines: PropTypes.arrayOf(PropTypes.string)
+  guidelines: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.element]))
 };
 
 UsageGuidelines.defaultProps = {

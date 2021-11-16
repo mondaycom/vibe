@@ -11,7 +11,8 @@ import {
   UsageGuidelines,
   RelatedComponents,
   DocFooter,
-  MultipleStoryElementsWrapper
+  MultipleStoryElementsWrapper,
+  Link
 } from "../src/storybook/components";
 import LinkComponent from "../src/storybook/components/link-component/link-component";
 
@@ -35,7 +36,8 @@ addParameters({
       Tip,
       ComponentRules,
       UsageGuidelines,
-      RelatedComponents
+      RelatedComponents,
+      Link
     }
   },
   viewMode: "docs",

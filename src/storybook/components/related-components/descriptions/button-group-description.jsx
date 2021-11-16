@@ -8,13 +8,13 @@ export const ButtonGroupDescription = () => {
       <ButtonGroup
         groupAriaLabel="button group aria label"
         options={[
-          { value: 1, text: "Option 1" },
-          { value: 2, text: "Option 2" },
-          { value: 3, text: "Option 3" }
+          { value: 1, text: "Alpha" },
+          { value: 2, text: "Beta" },
+          { value: 3, text: "Delta" }
         ]}
       />
     ),
     []
   );
-  return <RelatedComponent component={component} title="Button group" description="tbd" />;
+  return <RelatedComponent component={component} title="Button group" description="Used to group related options." />;
 };

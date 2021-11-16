@@ -1,14 +1,15 @@
-@import "../../../styles/themes.scss";
-
-#monday-style-story-toggle__controlled-area {
-  @include theme-prop(color, text-color-on-primary)
-}
-.monday-style-story-toggle__controlled-area {
-  &--selected {
-    @include theme-prop(background-color, positive-color);
+.monday-style-story-toggle {
+  &_column {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: flex-start;
   }
 
-  &--not-selected {
-    @include theme-prop(background-color, negative-color);
+  &_row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 25px;
   }
 }
