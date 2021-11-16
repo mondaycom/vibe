@@ -1,0 +1,11 @@
+@import "../styles/typography.scss";
+
+.monday-storybook-link {
+  display: inline-flex;
+  &--small {
+    @include paragraph-text-without-color;
+  }
+  &--medium {
+    @include content-text-without-color;
+  }
+}

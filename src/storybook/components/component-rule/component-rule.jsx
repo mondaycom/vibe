@@ -26,7 +26,7 @@ export const ComponentRule = ({ component, description, isRecommended }) => {
 
 ComponentRule.propTypes = {
   component: PropTypes.element,
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   isRecommended: PropTypes.bool
 };
 
