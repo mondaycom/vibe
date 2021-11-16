@@ -39,6 +39,24 @@ jobs:
         run: |
           npm run eslint
 
+  stylelint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install
+        run: |
+          npm install
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      - name: Test
+        if: success()
+        run: |
+          npm run stylelint
+
   build-storybook-test:
     runs-on: ubuntu-latest
     steps:
