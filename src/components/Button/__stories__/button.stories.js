@@ -378,14 +378,14 @@ const LoadingButtonWrapper = ({ size, kind }) => {
 
 export const Loading = () => (
   <StoryStateRow>
-    <StoryStateColumn title="Left Icon Large">
-      <LoadingButtonWrapper size={Button.sizes.MEDIUM} kind={Button.kinds.PRIMARY} />
+    <StoryStateColumn title="Primary Large">
+      <LoadingButtonWrapper size={Button.sizes.LARGE} kind={Button.kinds.PRIMARY} />
     </StoryStateColumn>
-    <StoryStateColumn title="Left Icon Medium">
+    <StoryStateColumn title="Secondary Medium">
       <LoadingButtonWrapper size={Button.sizes.MEDIUM} kind={Button.kinds.SECONDARY} />
     </StoryStateColumn>
-    <StoryStateColumn title="Left Icon Small">
-      <LoadingButtonWrapper size={Button.sizes.MEDIUM} kind={Button.kinds.TERTIARY} />
+    <StoryStateColumn title="Tertiary Small">
+      <LoadingButtonWrapper size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY} />
     </StoryStateColumn>
   </StoryStateRow>
 );

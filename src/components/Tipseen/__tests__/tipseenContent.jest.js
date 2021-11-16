@@ -44,6 +44,18 @@ describe("Tipseen content tests", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+    it("renders correctly when override submit button text", () => {
+      const tree = renderer
+        .create(<TipseenContent submitButtonText="submit button text">content</TipseenContent>)
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+    it("renders correctly when override dismiss button text", () => {
+      const tree = renderer
+        .create(<TipseenContent dismissButtonText="dismiss button text">content</TipseenContent>)
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
   describe("Integration Tests", () => {
     afterEach(() => {
@@ -51,37 +63,34 @@ describe("Tipseen content tests", () => {
     });
 
     it("call onDismiss function when click on dismiss button", () => {
-      const onClickMock = jest.fn();
-      const dismissButtonProps = {
-        onClick: onClickMock
+      const onDismissMock = jest.fn();
+      const onDismissButtonProps = {
+        onClick: onDismissMock
       };
 
       const tipseenContent = renderComponent({
         isDismissHidden: false,
-        dismissButtonProps
+        onDismiss: onDismissMock
       });
       const dismissButton = tipseenContent.getByText(DISMISS_BUTTON_TEXT);
 
       act(() => {
         fireEvent.click(dismissButton);
       });
-      expect(onClickMock.mock.calls.length).toBe(1);
+      expect(onDismissMock.mock.calls.length).toBe(1);
     });
 
     it("call onSubmit function when click on dismiss button", () => {
-      const onClickMock = jest.fn();
-      const submitButtonProps = {
-        onClick: onClickMock
-      };
+      const onSubmitMock = jest.fn();
       const tipseenContent = renderComponent({
-        submitButtonProps
+        onSubmit: onSubmitMock
       });
       const submitButton = tipseenContent.getByText(SUBMIT_BUTTON_TEXT);
 
       act(() => {
         fireEvent.click(submitButton);
       });
-      expect(onClickMock.mock.calls.length).toBe(1);
+      expect(onSubmitMock.mock.calls.length).toBe(1);
     });
   });
 });

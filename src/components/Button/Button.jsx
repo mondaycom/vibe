@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading,react/button-has-type */
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useResizeObserver from "../../hooks/useResizeObserver";
@@ -59,6 +59,7 @@ const Button = forwardRef(
     ref
   ) => {
     const buttonRef = useRef(null);
+    const [hasSizeStyle, setHasSizeStyle] = useState(false);
 
     const updateCssVariables = useMemo(() => {
       return ({ borderBoxSize }) => {
@@ -68,6 +69,7 @@ const Button = forwardRef(
         if (!buttonRef.current) return;
         buttonRef.current.style.setProperty("--element-width", `${width}px`);
         buttonRef.current.style.setProperty("--element-height", `${height}px`);
+        setHasSizeStyle(true);
       };
     }, [buttonRef]);
 
@@ -132,6 +134,7 @@ const Button = forwardRef(
         `monday-style-button--kind-${kind}`,
         `monday-style-button--color-${calculatedColor}`,
         {
+          "has-style-size": hasSizeStyle,
           "monday-style-button--loading": loading,
           [`monday-style-button--color-${calculatedColor}-active`]: active,
           "monday-style-button--margin-right": marginRight,
@@ -155,7 +158,8 @@ const Button = forwardRef(
       noSidePadding,
       preventClickAnimation,
       leftFlat,
-      rightFlat
+      rightFlat,
+      hasSizeStyle
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
@@ -217,6 +221,13 @@ const Button = forwardRef(
       return "24";
     }, [rightIcon, size]);
 
+    const successIconSize = useMemo(() => {
+      if (typeof successIcon !== "function") return;
+      if (size === SIZES.SMALL) return "20";
+      if (size === SIZES.MEDIUM) return "24";
+      return "24";
+    }, [successIcon, size]);
+
     if (loading) {
       return (
         <button {...buttonProps}>
@@ -235,6 +246,7 @@ const Button = forwardRef(
               iconType={Icon.type.ICON_FONT}
               clickable={false}
               icon={successIcon}
+              iconSize={successIconSize}
               className={cx({
                 "monday-style-button--left-icon": !!successText
               })}

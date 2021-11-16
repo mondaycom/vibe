@@ -29,6 +29,7 @@ const ComboboxOption = ({
     selected,
     ariaLabel
   } = option;
+  let { tooltipContent } = option;
 
   const ref = useRef(null);
   const labelRef = useRef();
@@ -90,10 +91,13 @@ const ComboboxOption = ({
     },
     [onOptionClick, index, option]
   );
+  if (!tooltipContent) {
+    tooltipContent = isOptionOverflowing ? label : null;
+  }
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <Tooltip content={isOptionOverflowing ? label : null}>
+    <Tooltip content={tooltipContent}>
       <div
         ref={ref}
         key={id || label}
@@ -110,7 +114,8 @@ const ComboboxOption = ({
           disabled,
           selected,
           active: isActive,
-          "active-outline": isActiveByKeyboard && isActive
+          "active-outline": isActiveByKeyboard && isActive,
+          first: index === 0
         })}
         style={{ height: optionLineHeight }}
       >
