@@ -8,10 +8,10 @@ import Rotem from "./Rotem.png";
 import Sahar from "./Sahar.png";
 import speed from "./speed.png";
 import path from "./path.png";
-import headerBanner from "./header-banner.jpg";
+import headerBanner from "./header-banner.png";
 import gettingStarted from "./getting-started.png";
-import components from "./components.svg";
-import foundations from "./foundations.svg";
+import components from "./components.png";
+import foundations from "./foundations.png";
 
 export {
   clarity,
