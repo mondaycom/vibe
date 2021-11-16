@@ -4,6 +4,7 @@
 
 .monday-style-link.monday-style-alert-banner-link {
   @include theme-prop(color, text-color-on-primary);
+
   text-decoration: underline;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;

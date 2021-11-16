@@ -7,6 +7,7 @@ $checkbox-size: 16px;
 
 @mixin hover-selected {
   @include theme-prop(background-color, primary-hover-color);
+
   border-color: transparent;
 }
 
@@ -30,7 +31,9 @@ $checkbox-size: 16px;
     height: $checkbox-size;
     width: $checkbox-size;
     border: 1px solid;
+
     @include theme-prop(border-color, ui-border-color);
+
     border-radius: $border-radius-extra-small;
     transition: transform 50ms $expand-animation-timing;
     position: relative;
@@ -54,7 +57,9 @@ $checkbox-size: 16px;
 
   &__icon {
     width: 100%;
+
     @include theme-prop(color, text-color-on-primary);
+
     visibility: hidden;
   }
 
@@ -66,9 +71,11 @@ $checkbox-size: 16px;
 
   &__label {
     @include font-input();
+
     cursor: pointer;
     user-select: none;
     margin-inline-start: $spacing-small;
+
     @include theme-prop(color, primary-text-color);
   }
 
@@ -89,17 +96,21 @@ $checkbox-size: 16px;
         @include hover-selected;
       }
     }
+
     &:focus-visible {
       & + .monday-style-checkbox__checkbox {
         outline: none;
         border: 1px solid;
+
         @include theme-prop(border-color, primary-color);
-        box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
+
+        box-shadow: 0 0 0 3px hsla(209deg, 100%, 50%, 0.5);
         border-radius: 2px;
       }
     }
 
-    &:checked, &:indeterminate {
+    &:checked,
+    &:indeterminate {
       &:focus + .monday-style-checkbox__checkbox:after {
         @include theme-prop(background-color, primary-hover-color);
       }
@@ -107,10 +118,13 @@ $checkbox-size: 16px;
       & + .monday-style-checkbox {
         &__checkbox {
           animation: checkbox-grow-animation 50ms;
+
           &__prevent-animation {
             animation-duration: 0ms;
           }
+
           @include theme-prop(background-color, primary-color);
+
           border-color: transparent;
 
           &:hover {
@@ -123,7 +137,9 @@ $checkbox-size: 16px;
 
           &:after {
             content: " ";
+
             @include theme-prop(background-color, primary-color);
+
             height: $checkbox-size;
             transform: scaleX(0);
             transition: transform 200ms;
@@ -143,6 +159,7 @@ $checkbox-size: 16px;
         }
       }
     }
+
     &:disabled {
       & + .monday-style-checkbox {
         &__checkbox,

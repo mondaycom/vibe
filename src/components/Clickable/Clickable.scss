@@ -4,6 +4,7 @@
 
 .monday-style-clickable {
   @include focus-style;
+
   cursor: pointer;
 
   &--disable-text-selection {

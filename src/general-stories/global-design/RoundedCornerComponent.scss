@@ -3,6 +3,7 @@
 
 .rounded-corner-component {
   @include font-paragraph-bold();
+
   color: var(--primary-text-color);
   display: flex;
   justify-content: center;

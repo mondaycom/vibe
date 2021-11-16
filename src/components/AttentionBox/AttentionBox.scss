@@ -8,11 +8,14 @@
   font-size: $font-size-input;
   width: fit-content;
   height: fit-content;
+
   @include theme-prop(color, dark-color);
+
   &__text,
   &__title-container {
     @include theme-prop(color, primary-text-color);
   }
+
   &--type {
     &-primary {
       @include theme-prop(color, primary-text-color);
@@ -84,7 +87,7 @@
     top: $spacing-small-medium;
     right: $spacing-small-medium;
 
-    &.compact{
+    &.compact {
       top: calc(50% - 12px);
     }
   }

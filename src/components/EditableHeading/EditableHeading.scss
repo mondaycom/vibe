@@ -7,11 +7,14 @@
   min-width: 0;
   border: 1px solid transparent;
   border-radius: $border-radius-small;
+
   @include focus-style();
+
   &:focus,
   &:active {
     outline: none;
   }
+
   .heading-component {
     margin: 0;
   }

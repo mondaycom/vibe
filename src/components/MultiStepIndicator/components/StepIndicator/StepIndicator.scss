@@ -3,6 +3,7 @@
 
 .monday-style-step-indicator-component {
   @include theme-prop(color, text-color-on-primary);
+
   font-size: $font-size-input;
   display: flex;
   margin: 0;
@@ -29,6 +30,7 @@
 
         .monday-style-divider {
           @include theme-prop(background-color, ui-border-color);
+
           margin: 16px 0 16px 16px;
           height: 1px;
           flex-grow: 1;
@@ -101,6 +103,7 @@
 
     &__title {
       width: 100%;
+
       .visually-hidden {
         display: none;
       }
@@ -114,6 +117,7 @@
     &__subtitle__text {
       width: 100%;
       font-size: $font-size-default;
+
       @include theme-prop(color, disabled-text-color);
     }
   }
@@ -128,6 +132,7 @@
         }
       }
     }
+
     &-danger {
       &__number-container {
         @include theme-prop(background-color, negative-color);
@@ -137,6 +142,7 @@
         }
       }
     }
+
     &-success {
       &__number-container {
         @include theme-prop(background-color, positive-color);
@@ -146,6 +152,7 @@
         }
       }
     }
+
     &-dark {
       &__number-container {
         @include theme-prop(background-color, inverted-color-background);
@@ -192,11 +199,13 @@
         @include theme-prop(background-color, primary-background-color);
         @include theme-prop(color, primary-text-color);
         @include theme-prop(border-color, ui-border-color, true);
+
         border: 1px solid;
 
         &:hover {
           @include theme-prop(background-color, primary-color);
           @include theme-prop(color, text-color-on-primary);
+
           border: none;
         }
 

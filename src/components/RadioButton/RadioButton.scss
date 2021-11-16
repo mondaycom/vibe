@@ -26,7 +26,9 @@
       width: 1em;
       height: 1em;
       border: 0.1em solid;
+
       @include theme-prop(border-color, ui-border-color);
+
       border-radius: 50%;
       transition: border-width 100ms $expand-animation-timing;
     }
@@ -36,18 +38,23 @@
       animation-duration: 100ms;
       animation-timing-function: $expand-animation-timing;
       animation-fill-mode: forwards;
+
       @include theme-prop(border-color, primary-color);
+
       border-width: 0.3em;
     }
 
     input:disabled + &__radio-control {
       border: 0.5em solid;
+
       @include theme-prop(border-color, disabled-background-color);
+
       border-radius: 50%;
     }
 
     input:checked:disabled + &__radio-control {
       border: 0.3em solid;
+
       @include theme-prop(border-color, disabled-background-color);
       @include theme-prop(background-color, secondary-text-color);
     }
@@ -56,11 +63,13 @@
   &__radio-label {
     line-height: 21px;
     font-weight: 400;
+
     @include theme-prop(color, primary-text-color);
   }
 
   &.disabled {
     cursor: not-allowed;
+
     .monday-style-radio-button-component__radio-label {
       @include theme-prop(color, disabled-text-color);
     }
@@ -77,8 +86,10 @@
 
   &__radio-input-container input:focus-visible + &__radio-input-container__radio-control {
     outline: none;
+
     @include theme-prop(border-color, primary-color);
-    box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
+
+    box-shadow: 0 0 0 3px hsla(209deg, 100%, 50%, 0.5);
     border-radius: 50%;
   }
 }
@@ -88,10 +99,12 @@
     height: 1em;
     width: 1em;
   }
+
   50% {
     height: 0.8em;
     width: 0.8em;
   }
+
   100% {
     height: 1em;
     width: 1em;

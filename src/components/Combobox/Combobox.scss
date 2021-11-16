@@ -6,6 +6,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+
   @include font-general-text();
 
   &.sticky-category {
@@ -21,11 +22,13 @@
         top: 32px;
       }
     }
+
     &.size-medium {
       .combobox-category {
         top: 40px;
       }
     }
+
     &.size-large {
       .combobox-category {
         top: 48px;
@@ -62,6 +65,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
       .message {
         @include ellipsis();
       }
@@ -80,8 +84,9 @@
 
   &-list {
     flex: 1 1 auto;
-    padding: 0 4px 8px 4px;
+    padding: 0 4px 8px;
     overflow: auto;
+
     @include scroller;
   }
 }

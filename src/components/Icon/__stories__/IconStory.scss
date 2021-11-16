@@ -4,6 +4,7 @@
 .icon-story-inline-style {
   display: flex;
   align-items: center;
+
   .icon-story-link {
     margin-left: 4px;
   }
@@ -20,6 +21,7 @@
   color: var(--icon-color);
   align-items: center;
   justify-content: flex-start;
+
   &:last-of-type {
     justify-self: flex-start;
   }
@@ -34,6 +36,7 @@
 
 .icon-story-description {
   margin: $spacing-large 0;
+
   @include font-paragraph-bold();
 }
 
@@ -48,8 +51,8 @@
   display: flex;
   justify-self: center;
   align-items: center;
-
 }
+
 .icon-story-search-component {
   width: 50% !important;
 }

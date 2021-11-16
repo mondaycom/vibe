@@ -8,8 +8,8 @@
 
     .tab-panel--wrapper {
       height: 100%;
-
       padding: 8px;
+
       @include theme-prop(background-color, primary-background-hover-color);
     }
   }

@@ -8,7 +8,9 @@
   width: 80px;
   height: 80px;
   background-color: var(--primary-background-hover-color);
+
   @include font-paragraph-bold();
+
   color: var(--primary-text-color);
   margin: 0 $spacing-medium $spacing-large;
   border-radius: $border-radius-small;

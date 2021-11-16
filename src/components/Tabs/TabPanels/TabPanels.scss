@@ -17,8 +17,8 @@
 
     &.active {
       display: block;
-      animation: panel-slide-in 150ms forwards cubic-bezier(0,0,0.35,1);
-      -webkit-animation: panel-slide-in 150ms forwards cubic-bezier(0,0,0.35,1);
+      animation: panel-slide-in 150ms forwards cubic-bezier(0, 0, 0.35, 1);
+      -webkit-animation: panel-slide-in 150ms forwards cubic-bezier(0, 0, 0.35, 1);
     }
   }
 
@@ -26,7 +26,7 @@
     100% { transform: translateX(0%); }
   }
 
-  @-webkit-keyframes panel-slide-in {
+  @keyframes panel-slide-in {
     100% { -webkit-transform: translateX(0%); }
   }
 }

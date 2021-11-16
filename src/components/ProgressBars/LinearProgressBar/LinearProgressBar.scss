@@ -9,6 +9,7 @@
   width: 100%;
   font-family: $primary-font;
   font-size: $font-size-input;
+
   @include theme-prop(color, secondary-text-color);
 
   .linear-progress-bar__label {
@@ -33,7 +34,9 @@
   .linear-progress-bar__container {
     position: relative;
     width: 100%;
+
     @include theme-prop(background-color, primary-background-hover-color);
+
     border-radius: $border-radius-small;
 
     .linear-progress-bar__secondary,

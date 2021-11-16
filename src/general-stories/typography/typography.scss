@@ -15,6 +15,7 @@
   width: 100%;
   display: flex;
   align-items: center;
+
   &.typo-row-header {
     background-color: var(--label-background-color);
     font-size: 14px;
@@ -22,10 +23,12 @@
     height: 50px;
     line-height: 22px;
     font-weight: 300;
+
     .style {
       padding-left: 8px;
     }
   }
+
   .style,
   .weight,
   .size,
@@ -33,9 +36,11 @@
   .spacing {
     width: 14%;
   }
+
   .comments {
     width: 28%;
   }
+
   .weight,
   .size,
   .line-height,

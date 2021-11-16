@@ -6,12 +6,13 @@
   @include font-paragraph();
   @include box-shadow-medium();
   @include theme-prop(color, text-color-on-primary);
+
   margin: $spacing-medium;
   position: fixed;
   top: 0;
   left: 50%;
   right: auto;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   padding: $spacing-small;
   align-items: center;
   display: flex;
@@ -29,6 +30,7 @@
     line-height: 22px;
     font-size: 14px;
     flex-grow: 1;
+
     &-no-icon {
       padding-left: $spacing-small;
     }
@@ -37,7 +39,9 @@
   &-action {
     margin-left: $spacing-medium;
     display: flex;
-    &_button, &_link {
+
+    &_button,
+    &_link {
       margin-left: $spacing-small;
     }
   }
@@ -46,20 +50,24 @@
     &-normal {
       @include theme-prop(background-color, primary-color);
     }
+
     &-positive {
       @include theme-prop(background-color, positive-color);
     }
+
     &-negative {
       @include theme-prop(background-color, negative-color);
     }
   }
 
   &-animation {
-    &-enter-active, &-exit-active {
+    &-enter-active,
+    &-exit-active {
       animation-iteration-count: 1;
       animation-direction: forwards;
       animation-fill-mode: forwards;
     }
+
     &-enter-active {
       animation-duration: 400ms;
       animation-name: toast-pop-in;
@@ -78,35 +86,36 @@
 
 @keyframes toast-pop-in {
   0% {
-    transform: translate(-50%,-115px);
+    transform: translate(-50%, -115px);
   }
+
   25% {
     // down 130 px
-    transform: translate(-50%,15px);
-    animation-timing-function: cubic-bezier(0,0,0.35,1);
+    transform: translate(-50%, 15px);
+    animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
   }
-  
+
   66% {
     // up 20 px
-    transform: translate(-50%,-5px);
-    animation-timing-function: cubic-bezier(0.4,0,1,1);
+    transform: translate(-50%, -5px);
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
   }
-  
+
   100% {
     // down 5 px
-    transform: translate(-50%,0px);
-    animation-timing-function: cubic-bezier(0.4,0,1,1);
+    transform: translate(-50%, 0px);
+    animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
   }
 }
 
-
 @keyframes toast-pop-out {
   0% {
-    transform: translate(-50%,0);
+    transform: translate(-50%, 0);
   }
+
   100% {
     // up 130 px
-    transform: translate(-50%,-130px);
-    animation-timing-function: cubic-bezier(0,0,0.35,1);
+    transform: translate(-50%, -130px);
+    animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
   }
 }

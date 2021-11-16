@@ -15,12 +15,15 @@
   &--size {
     &-small {
       @include font-caption();
+
       min-width: 18px;
       line-height: 18px;
       padding: 0 $spacing-xs;
     }
+
     &-medium {
       @include font-caption();
+
       min-width: 18px;
       line-height: 18px;
       padding: 0 $spacing-xs;
@@ -28,6 +31,7 @@
 
     &-large {
       @include font-input();
+
       line-height: 24px;
       min-width: 24px;
       padding: 0 $spacing-small;
@@ -71,10 +75,12 @@
             @include theme-prop(color, text-color-on-primary);
             @include theme-prop(background-color, primary-color);
           }
+
           &-dark {
             @include theme-prop(color, text-color-on-inverted);
             @include theme-prop(background-color, inverted-color-background);
           }
+
           &-negative {
             @include theme-prop(color, text-color-on-primary);
             @include theme-prop(background-color, negative-color);
@@ -85,14 +91,17 @@
 
     &-line {
       box-shadow: 0 0 0 1px currentColor inset;
+
       &.monday-style-counter {
         &--color {
           &-primary {
             @include theme-prop(color, primary-color);
           }
+
           &-dark {
             @include theme-prop(color, inverted-color-background);
           }
+
           &-negative {
             @include theme-prop(color, negative-color);
           }

@@ -24,14 +24,20 @@ $icon-margin: 4px;
     &.left {
       margin-right: $icon-margin;
     }
+
     &.right {
       margin-left: $icon-margin;
     }
+
     &.close {
       margin-left: $icon-margin;
+
       @include focus-style();
+
       cursor: pointer;
+
       @include theme-prop(color, primary-text-color);
+
       border-radius: 4px;
 
       &:hover {
@@ -44,6 +50,7 @@ $icon-margin: 4px;
     .chip-icon {
       @include theme-prop(color, disabled-text-color);
     }
+
     .label {
       @include theme-prop(color, disabled-text-color);
     }

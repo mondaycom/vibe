@@ -4,6 +4,7 @@
 .global-design-story-container {
   display: flex;
 }
+
 .space-between {
   justify-content: space-between;
 }
@@ -18,12 +19,16 @@
   align-items: flex-end;
   height: 50px;
   margin: 0 $spacing-medium $spacing-xl;
+
   .title {
     color: var(--primary-text-color);
+
     @include font-paragraph-bold();
   }
+
   .secondary {
     color: var(--secondary-text-color);
+
     @include font-caption();
   }
 }

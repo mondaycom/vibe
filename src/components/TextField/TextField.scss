@@ -11,6 +11,7 @@
   & * {
     box-sizing: border-box;
   }
+
   .input-component__label--wrapper {
     width: 100%;
   }
@@ -18,18 +19,23 @@
   &.input-component--disabled {
     .input-component__input-wrapper {
       cursor: not-allowed;
+
       .input-component__input {
         user-select: none;
         border: none;
         pointer-events: none;
+
         @include theme-prop(background-color, disabled-background-color);
+
         cursor: not-allowed;
       }
+
       .input-component__icon--container.input-component__icon--container-has-icon {
         &:hover {
           background-color: transparent;
         }
       }
+
       .input-component__icon {
         cursor: not-allowed;
       }
@@ -39,60 +45,75 @@
   .input-component__input-wrapper {
     width: 100%;
     position: relative;
+
     &.input-component__input--error-validation {
       &:hover {
         .input-component__input {
           @include theme-prop(border-color, negative-color);
         }
       }
+
       .input-component__input {
         @include theme-prop(border-color, negative-color);
+
         &:focus,
         &:active {
           @include theme-prop(border-color, negative-color);
         }
       }
+
       .input-component__icon--container .input-component__icon {
         @include theme-prop(color, negative-color);
+
         &:hover {
           @include theme-prop(color, negative-color);
         }
       }
+
       + .input-component__sub-text-container {
         .input-component__sub-text-container-status {
           @include theme-prop(color, negative-color);
         }
       }
     }
+
     &.input-component__input--success-validation {
       &:hover {
         .input-component__input {
           @include theme-prop(border-color, positive-color);
         }
       }
+
       .input-component__input {
         @include theme-prop(border-color, positive-color);
+
         &:focus,
         &:active {
           @include theme-prop(border-color, positive-color);
         }
       }
+
       .input-component__icon--container .input-component__icon {
         @include theme-prop(color, positive-color);
+
         &:hover {
           @include theme-prop(color, positive-color);
         }
       }
+
       + .input-component__sub-text-container {
         .input-component__sub-text-container-status {
           @include theme-prop(color, positive-color);
         }
       }
     }
+
     &.input-component__input-wrapper--size-small {
       height: 32px;
+
       .input-component__input {
         @include font-input();
+
         &.input-component__input--has-icon {
           &.input-component__input--only-underline {
             padding-left: $spacing-xs;
@@ -100,41 +121,53 @@
         }
       }
     }
+
     &.input-component__input-wrapper--size-medium {
       height: 40px;
+
       .input-component__input {
         @include font-paragraph();
+
         &.input-component__input--has-icon {
           padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
+
           &.input-component__input--only-underline {
             padding-left: 4px;
           }
         }
       }
+
       .input-component__icon--container {
         pointer-events: none;
         height: 32px;
         width: 32px;
         outline: none;
+
         .input-component__icon {
           font-size: $font-size-paragraph;
         }
       }
     }
+
     &.input-component__input-wrapper--size-large {
       height: 48px;
+
       .input-component__input {
         @include font-paragraph();
+
         &.input-component__input--has-icon {
           padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
+
           &.input-component__input--only-underline {
             padding-left: $spacing-xs;
           }
         }
       }
+
       .input-component__icon--container {
         height: 40px;
         width: 40px;
+
         .input-component__icon {
           font-size: $font-size-paragraph;
         }
@@ -159,17 +192,22 @@
       outline: 0;
       background-color: transparent;
       border: 1px solid;
+
       @include theme-prop(border-color, ui-border-color);
+
       border-radius: $border-radius-small;
       transition: border-color 0.1s ease-in;
       padding: $spacing-small $spacing-medium;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+
       @include theme-prop(color, primary-text-color);
+
       &.input-component__input--hover {
         @include theme-prop(border-color, primary-text-color);
       }
+
       &:focus,
       &:active,
       &.input-component__input--active {
@@ -178,6 +216,7 @@
 
       &::placeholder {
         @include theme-prop(color, secondary-text-color);
+
         font-weight: 400;
       }
 
@@ -188,9 +227,11 @@
       &.input-component__input--round {
         border-radius: 50px;
       }
+
       &.input-component__input--square {
         border-radius: 0;
       }
+
       &.input-component__input--only-underline {
         border-left: none;
         border-right: none;
@@ -199,7 +240,8 @@
         border-radius: 0 !important;
       }
     }
-    .input-component__loader--container{
+
+    .input-component__loader--container {
       position: absolute;
       top: 50%;
       right: 4px;
@@ -210,20 +252,20 @@
       justify-content: center;
       align-items: center;
 
-      &.input-component__loader--container-has-icon{
+      &.input-component__loader--container-has-icon {
         right: 32px;
       }
 
-      .input-component__loader{
+      .input-component__loader {
         width: 16px;
         height: 16px;
-        
-        .input-component__loader-svg{
+
+        .input-component__loader-svg {
           @include theme-prop(color, secondary-text-color);
         }
       }
     }
-    
+
     .input-component__icon--container {
       position: absolute;
       top: 50%;
@@ -237,12 +279,15 @@
       border-radius: $border-radius-small;
       opacity: 0;
       pointer-events: none;
+
       &:active,
       &:focus,
       &:focus-visible {
         outline: none;
+
         @include theme-prop(background-color, primary-background-hover-color);
       }
+
       -webkit-appearance: none;
 
       &.input-component__icon--container-active {
@@ -250,20 +295,26 @@
           pointer-events: all;
           cursor: pointer;
         }
+
         opacity: 1;
+
         .input-component__icon {
           opacity: 1;
           pointer-events: all;
           transform: rotate(0) scale(1);
         }
       }
+
       &.input-component__icon--container-has-icon:hover,
       &.input-component__icon--container-has-icon:focus-within {
         @include theme-prop(background-color, primary-background-hover-color);
       }
+
       .input-component__icon {
         transform: rotate(90deg) scale(0.8);
+
         @include theme-prop(color, icon-color);
+
         will-change: transform;
         pointer-events: none;
         transition: color 0.1s $expand-animation-timing, transform 0.1s $expand-animation-timing;
@@ -271,12 +322,13 @@
       }
     }
   }
+
   .input-component__sub-text-container {
     display: flex;
+
     @include font-input();
     @include theme-prop(color, secondary-text-color);
-    .input-component__sub-text-container-status {
-    }
+
     .input-component__sub-text-container-counter {
       margin-left: auto;
     }

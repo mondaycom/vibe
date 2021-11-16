@@ -12,22 +12,27 @@
   line-height: 18px;
   font-weight: 400;
   cursor: pointer;
+
   @include focus-style-inset();
 
   &:hover {
     background-color: var(--primary-background-hover-color);
   }
+
   &--disabled {
     cursor: not-allowed;
     color: var(--disabled-text-color);
     opacity: 0.4;
   }
+
   &--selected {
     background-color: var(--primary-selected-color);
+
     &:hover {
       background-color: var(--primary-selected-color);
     }
   }
+
   &--small {
     height: 32px;
   }

@@ -5,7 +5,9 @@
 .monday-style-tipseen-image {
   object-fit: cover;
   border: solid 2px;
+
   @include theme-prop(border-color, primary-color);
+
   width: 100%;
   border-radius: $border-radius-medium;
   position: relative;

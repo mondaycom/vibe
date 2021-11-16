@@ -16,6 +16,7 @@ $icon-margin: 4px;
 
   &.disabled {
     cursor: not-allowed;
+
     @include disabled;
   }
 
@@ -31,6 +32,7 @@ $icon-margin: 4px;
 
   &.active {
     position: relative;
+
     &.active-outline {
       @include focus-style-css();
     }
@@ -48,6 +50,7 @@ $icon-margin: 4px;
 
   .option-icon {
     flex: 0 0 auto;
+
     &.left {
       margin-right: $icon-margin;
     }

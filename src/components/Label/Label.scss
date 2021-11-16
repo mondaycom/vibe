@@ -8,13 +8,14 @@
   border-radius: $border-radius-small;
 
   @include font-input();
+
   padding: 0 $spacing-small;
   position: relative;
 
   &--with-leg {
     border-radius: $border-radius-small $border-radius-small $border-radius-small 0;
   }
-  
+
   &__leg-wrapper {
     position: absolute;
     height: 8px;
@@ -28,7 +29,7 @@
     transform-origin: bottom left;
     animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
   }
-  
+
   &--kind {
     &-fill {
       &.monday-style-label {
@@ -36,33 +37,40 @@
           &-primary {
             @include theme-prop(color, text-color-on-primary);
             @include theme-prop(background-color, primary-color);
+
             svg {
               path {
                 @include theme-prop(fill, primary-color);
               }
             }
           }
+
           &-dark {
             @include theme-prop(color, text-color-on-inverted);
             @include theme-prop(background-color, inverted-color-background);
+
             svg {
               path {
                 @include theme-prop(fill, inverted-color-background);
               }
             }
           }
+
           &-negative {
             @include theme-prop(color, text-color-on-primary);
             @include theme-prop(background-color, negative-color);
+
             svg {
               path {
                 @include theme-prop(fill, negative-color);
               }
             }
           }
+
           &-positive {
             @include theme-prop(color, text-color-on-primary);
             @include theme-prop(background-color, positive-color);
+
             svg {
               path {
                 @include theme-prop(fill, positive-color);
@@ -75,38 +83,47 @@
 
     &-line {
       border: 1px solid currentColor;
-      .monday-style-label__leg-wrapper { 
+
+      .monday-style-label__leg-wrapper {
         left: -1px;
         top: calc(100% + 1px);
       }
+
       &.monday-style-label {
         &--color {
           &-primary {
             @include theme-prop(color, primary-color);
+
             svg {
               path {
                 @include theme-prop(fill, primary-color);
               }
             }
           }
+
           &-dark {
             @include theme-prop(color, inverted-color-background);
+
             svg {
               path {
                 @include theme-prop(fill, inverted-color-background);
               }
             }
           }
+
           &-negative {
             @include theme-prop(color, negative-color);
+
             svg {
               path {
                 @include theme-prop(fill, negative-color);
               }
             }
           }
+
           &-positive {
             @include theme-prop(color, positive-color);
+
             svg {
               path {
                 @include theme-prop(fill, positive-color);
@@ -123,7 +140,7 @@
       transform: scale(0.8) rotate(25deg);
       opacity: 0;
     }
-    
+
     70% {
       transform: rotate(-5deg);
       opacity: 1;

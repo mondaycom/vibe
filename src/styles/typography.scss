@@ -1,6 +1,6 @@
 @import "./themes.scss";
 
-$primary-font: Roboto, sans-serif;
+$primary-font: roboto, sans-serif;
 $font-weight-bold: 500;
 $font-weight-normal: 400;
 $font-weight-light: 300;
@@ -19,7 +19,6 @@ $line-height-for-size-32: 52px;
 $line-height-for-size-24: 32px;
 $line-height-for-size-18: 21px;
 $font-size-default: 14px;
-
 $h1-empty-state-height: 32px;
 $h2-empty-state-height: 24px;
 $h3-empty-state-height: 24px;
@@ -38,6 +37,7 @@ $small-empty-state-height: 12px;
   font-size: $font-size-header;
   letter-spacing: -1px;
   line-height: $line-height-for-size-32;
+
   @include theme-prop(color, primary-text-color);
 }
 
@@ -50,6 +50,7 @@ $small-empty-state-height: 12px;
   font-size: $font-size-secondary;
   letter-spacing: -0.2px;
   line-height: $line-height-for-size-24;
+
   @include theme-prop(color, primary-text-color);
 }
 
@@ -62,6 +63,7 @@ $small-empty-state-height: 12px;
   font-size: $font-size-secondary;
   letter-spacing: -0.2px;
   line-height: $line-height-for-size-24;
+
   @include theme-prop(color, primary-text-color);
 }
 
@@ -73,6 +75,7 @@ $small-empty-state-height: 12px;
   font-weight: $font-weight-bold;
   font-size: $font-size-subtitle;
   line-height: 24px;
+
   @include theme-prop(color, primary-text-color);
 }
 
@@ -84,6 +87,7 @@ $small-empty-state-height: 12px;
   font-size: $font-size-paragraph;
   font-weight: $font-weight-bold;
   line-height: 24px;
+
   @include theme-prop(color, primary-text-color);
 }
 
@@ -95,6 +99,7 @@ $small-empty-state-height: 12px;
   font-weight: $font-weight-normal;
   font-size: $font-size-text;
   line-height: 24px;
+
   @include theme-prop(color, primary-text-color);
 }
 
@@ -106,6 +111,7 @@ $small-empty-state-height: 12px;
   font-weight: $font-weight-normal;
   font-size: $font-size-paragraph;
   line-height: 24px;
+
   @include theme-prop(color, primary-text-color);
 }
 
@@ -116,7 +122,9 @@ $small-empty-state-height: 12px;
   font-family: $primary-font;
   font-size: $font-size-caption;
   font-weight: $font-weight-normal;
+
   @include theme-prop(color, secondary-text-color);
+
   line-height: 18px;
 }
 
@@ -127,6 +135,7 @@ $small-empty-state-height: 12px;
   font-size: $font-size-input;
   font-weight: $font-weight-normal;
   line-height: 22px;
+
   @include theme-prop(color, primary-text-color);
 }
 
@@ -138,6 +147,7 @@ $small-empty-state-height: 12px;
   font-weight: $font-weight-normal;
   line-height: 22px;
   text-decoration: none;
+
   @include theme-prop(color, link-color);
 }
 
@@ -148,11 +158,12 @@ $small-empty-state-height: 12px;
   font-size: $font-size-input;
   font-weight: $font-weight-normal;
   line-height: 22px;
+
   @include theme-prop(color, primary-text-color);
 }
 
 @mixin line-clamp($lines: 1) {
-  display: -webkit-box;
+  display: box;
   -webkit-line-clamp: $lines;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -172,6 +183,7 @@ $small-empty-state-height: 12px;
 // Override tags styles
 .element-type-h1 {
   @include font-main();
+
   &.size-small,
   &.size-medium {
     @include font-title();
@@ -180,13 +192,16 @@ $small-empty-state-height: 12px;
 
 .element-type-h2 {
   @include font-title();
+
   &.size-small,
   &.size-medium {
     @include font-subtitle();
   }
 }
+
 .element-type-h3 {
   @include font-title-secondary();
+
   &.size-small,
   &.size-medium {
     @include font-subtitle();

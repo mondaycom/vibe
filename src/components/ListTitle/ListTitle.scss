@@ -3,6 +3,7 @@
 
 .list-title {
   @include font-paragraph-bold();
+
   padding: 24px 16px 8px;
   border-radius: 4px;
 }
