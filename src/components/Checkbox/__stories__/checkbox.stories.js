@@ -23,25 +23,13 @@ export const States = () => {
         <Checkbox value="1" label="Option" name="regular" disabled={false} />
       </StoryStateRow>
       <StoryStateRow componentDescription="Selected" componentClassName="monday-style-story-checkbox__state">
-        <Checkbox
-          value="1"
-          label="Option"
-          name="selected"
-          disabled={false}
-          componentClassName="monday-style-selected"
-        />
+        <Checkbox value="1" label="Option" name="selected" disabled={false} className="monday-style-selected" />
       </StoryStateRow>
       <StoryStateRow
         componentDescription="Hover"
         componentClassName="monday-style-story-checkbox__state monday-style-story-checkbox__state--hover"
       >
-        <Checkbox
-          value="1"
-          label="Option"
-          name="selected"
-          disabled={false}
-          componentClassName="monday-style-story-selected"
-        />
+        <Checkbox value="1" label="Option" name="selected" disabled={false} className="monday-style-story-selected" />
       </StoryStateRow>
       <StoryStateRow
         componentDescription="Hover selected"
@@ -53,7 +41,7 @@ export const States = () => {
           name="selected"
           defaultChecked={true}
           disabled={false}
-          componentClassName="monday-style-selected"
+          className="monday-style-selected"
         />
       </StoryStateRow>
       <StoryStateRow componentDescription="Selected" componentClassName="monday-style-story-checkbox__state">
@@ -63,7 +51,7 @@ export const States = () => {
           name="selected"
           defaultChecked={true}
           disabled={false}
-          componentClassName="monday-style-selected"
+          className="monday-style-selected"
         />
       </StoryStateRow>
 
@@ -80,7 +68,7 @@ export const States = () => {
           label="Option"
           name="indeterminate"
           indeterminate={true}
-          componentClassName="monday-style-selected"
+          className="monday-style-selected"
         />
       </StoryStateRow>
     </StoryWrapper>

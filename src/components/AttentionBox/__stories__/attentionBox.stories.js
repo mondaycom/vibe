@@ -62,9 +62,7 @@ export const States = () => {
 const renderAttentionBox = type => {
   const customClass = "monday-style-attention-box-component-custom-class";
 
-  return (
-    <AttentionBox type={type} title={ATTENTION_BOX_TITLE} text={ATTENTION_BOX_TEXT} componentClassName={customClass} />
-  );
+  return <AttentionBox type={type} title={ATTENTION_BOX_TITLE} text={ATTENTION_BOX_TEXT} className={customClass} />;
 };
 
 export default {
