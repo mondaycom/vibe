@@ -8,4 +8,7 @@
   &--medium {
     @include content-text-without-color;
   }
+  &--with-spacing {
+    margin: 0 $spacing-xs;
+  }
 }
