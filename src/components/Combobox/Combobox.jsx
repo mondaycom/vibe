@@ -130,6 +130,7 @@ const Combobox = forwardRef(
             onOptionHover={onOptionEnter}
             onOptionLeave={onOptionLeave}
             optionLineHeight={optionLineHeight}
+            shouldScrollWhenActive={shouldScrollToSelectedItem}
           />
         );
       });
