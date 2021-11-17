@@ -7,7 +7,7 @@ describe("Chips tests", () => {
   const className = "test-class";
   let onDeletedMock;
   let chipComponent;
-
+  
   beforeEach(() => {
     onDeletedMock = jest.fn();
     chipComponent = render(
