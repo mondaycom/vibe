@@ -1,0 +1,22 @@
+@import "../../../../styles/global-css-settings.scss";
+
+.monday-storybook-welcome-header {
+  position: relative;
+  width: 100%;
+  height: 294px;
+  display: flex;
+  align-items: center;
+  @include theme-prop(background-color, primary-background-hover-color);
+  min-width: 650px;
+  padding-left: 40px;
+
+  &_text {
+    width: 461px;
+    z-index: 1;
+    align-content: center;
+  }
+  &_image {
+    right: 0;
+    position: absolute;
+  }
+}

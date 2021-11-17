@@ -65,7 +65,7 @@ const Combobox = forwardRef(
         setActiveItemIndex(index);
         if (mouseClick) {
           // set focus on input again
-          inputRef.current?.focus();
+          requestAnimationFrame(() => inputRef.current?.focus());
         }
         setIsActiveByKeyboard(!mouseClick);
       },
@@ -130,6 +130,7 @@ const Combobox = forwardRef(
             onOptionHover={onOptionEnter}
             onOptionLeave={onOptionLeave}
             optionLineHeight={optionLineHeight}
+            shouldScrollWhenActive={shouldScrollToSelectedItem}
           />
         );
       });

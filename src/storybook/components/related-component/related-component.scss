@@ -1,26 +1,13 @@
 @import "../../../styles/global-css-settings.scss";
-@import "../styles/typography.scss";
+@import "../../styles/typography.scss";
 
 .monday-storybook-related-component {
   &_component {
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 174px;
     @include theme-prop(background, dark-background-on-secondary-color);
-    margin: 0 0 $spacing-medium;
-  }
-
-  &_title {
-    @include content-text;
-    font-weight: bold;
-    margin-bottom: $spacing-xs;
-    margin-top: $spacing-xs;
-  }
-
-  &_description {
-    @include content-text;
-    font-size: $small-text-font-size;
   }
 }

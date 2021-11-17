@@ -7,7 +7,7 @@ describe("Checkbox Tests", () => {
   describe("Snapshot Tests", () => {
     it("renders correctly", () => {
       const tree = renderer
-        .create(<Checkbox componentClassName="dummy-class-name" label="Option 1" name="checkbox" value="option1" />)
+        .create(<Checkbox className="dummy-class-name" label="Option 1" name="checkbox" value="option1" />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });

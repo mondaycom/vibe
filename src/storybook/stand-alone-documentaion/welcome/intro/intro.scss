@@ -1,0 +1,5 @@
+@import "../../../components/title/title.scss";
+
+.monday-storybook-intro {
+  @include title-appearance;
+}

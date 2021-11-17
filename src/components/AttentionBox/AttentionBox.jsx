@@ -6,8 +6,21 @@ import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import AlertIcon from "../Icon/Icons/components/Alert";
 import { baseClassName, closeClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
-const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, withoutIcon, onClose, compact }) => {
+const AttentionBox = ({
+  className,
+  // Backward compatibility for props naming
+  componentClassName,
+  type,
+  icon,
+  iconType,
+  title,
+  text,
+  withoutIcon,
+  onClose,
+  compact
+}) => {
   const iconLabel = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
       return "alert";
@@ -20,6 +33,7 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
     return "attention";
   }, [type]);
 
+  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const classNameWithType = `${baseClassName}--type-${type}`;
   return (
     <aside
@@ -28,7 +42,7 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
         classNameWithType,
         { [compactClassName]: compact },
         { [closeClassName]: onClose },
-        componentClassName
+        overrideClassName
       )}
       role="alert"
     >
@@ -72,7 +86,7 @@ const AttentionBox = ({ componentClassName, type, icon, iconType, title, text, w
 AttentionBox.types = ATTENTION_BOX_TYPES;
 
 AttentionBox.propTypes = {
-  componentClassName: PropTypes.string,
+  className: PropTypes.string,
   /** we support 4 types of attention boxes */
   type: PropTypes.oneOf([
     ATTENTION_BOX_TYPES.PRIMARY,
@@ -92,7 +106,7 @@ AttentionBox.propTypes = {
 };
 
 AttentionBox.defaultProps = {
-  componentClassName: "",
+  className: undefined,
   type: ATTENTION_BOX_TYPES.PRIMARY,
   icon: AlertIcon,
   iconType: Icon.type.SVG,
