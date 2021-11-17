@@ -1,0 +1,10 @@
+@import "../../../../styles/global-css-settings.scss";
+@import "../../../styles/content-spacing.scss";
+
+.monday-storybook-welcome-contributors {
+  margin-top: 68px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: $spacing-large;
+  grid-row-gap: 90px;
+}
