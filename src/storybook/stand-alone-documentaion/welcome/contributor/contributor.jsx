@@ -9,17 +9,13 @@ export const Contributor = ({ imgSrc, color, fullName, title }) => {
     return { backgroundColor: getElementColor(color) };
   }, [color]);
 
-  return (
-    <InformationBox
-      component={
-        <div className={`${BASE_CLASS}_visual-element`} style={backgroundColorStyle}>
-          <img src={imgSrc} alt="" className={`${BASE_CLASS}_image`} />
-        </div>
-      }
-      title={fullName}
-      description={title}
-    />
+  const contributorVisualImage = (
+    <div className={`${BASE_CLASS}_visual-element`} style={backgroundColorStyle}>
+      <img src={imgSrc} alt="" className={`${BASE_CLASS}_image`} />
+    </div>
   );
+
+  return <InformationBox component={contributorVisualImage} title={fullName} description={title} />;
 };
 
 Contributor.colors = elementColorsNames;
