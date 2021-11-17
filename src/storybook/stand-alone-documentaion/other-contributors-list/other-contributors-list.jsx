@@ -26,7 +26,7 @@ export const OtherContributorsList = () => {
       return contributorsJson
         .filter(contributor => !excludedDevelopers.has(contributor.id))
         .map(contributor => (
-          <Link href={contributor.url} className={`${BASE_CLASS}_developer`}>
+          <Link href={contributor.html_url} size={Link.sizes.SMALL} className={`${BASE_CLASS}_developer`}>
             {contributor.login}
           </Link>
         ));
