@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "0.8.3",
+  "version": "0.9.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
@@ -25,6 +25,8 @@
     "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx}\"",
     "eslint": "eslint \"./src/**/*.{js,jsx}\"",
     "eslint-fix": "eslint \"./src/**/*.{js,jsx}\" --fix",
+    "stylelint": "stylelint \"**/*.scss\"",
+    "stylelint-fix": "stylelint \"**/*.scss\" --fix",
     "release": "./scripts/release.js"
   },
   "repository": {
@@ -154,6 +156,9 @@
     "storybook-addon-performance": "^0.16.1",
     "storybook-addon-themes": "^6.1.0",
     "style-loader": "^1.0.0",
+    "stylelint": "^14.0.1",
+    "stylelint-config-standard": "^23.0.0",
+    "stylelint-config-standard-scss": "^2.0.0",
     "svg2react-icon": "^3.1.174",
     "terser-webpack-plugin": "^4.1.0",
     "vue": "^2.6.11",

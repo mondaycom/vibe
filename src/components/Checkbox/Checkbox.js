@@ -6,11 +6,14 @@ import cx from "classnames";
 import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import Remove from "../Icon/Icons/components/Remove";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import "./Checkbox.scss";
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
 export const Checkbox = ({
+  className,
+  // Backward compatibility for props naming
   componentClassName,
   label,
   ariaLabelledBy,
@@ -25,6 +28,7 @@ export const Checkbox = ({
 }) => {
   const iconContainerRef = useRef(null);
   const inputRef = useRef(null);
+  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const onMouseUpCallback = useCallback(() => {
     const input = inputRef.current;
     if (!input) return;
@@ -54,7 +58,7 @@ export const Checkbox = ({
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <label
-      className={cx(BASE_CLASS_NAME, componentClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
+      className={cx(BASE_CLASS_NAME, overrideClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
       onMouseUp={onMouseUpCallback}
       htmlFor={id}
     >
@@ -90,7 +94,7 @@ export const Checkbox = ({
 
 Checkbox.propTypes = {
   id: PropTypes.string,
-  componentClassName: PropTypes.string,
+  className: PropTypes.string,
   label: PropTypes.string,
   ariaLabelledBy: PropTypes.string,
   onChange: PropTypes.func,
@@ -104,7 +108,7 @@ Checkbox.propTypes = {
 
 Checkbox.defaultProps = {
   id: undefined,
-  componentClassName: "",
+  className: undefined,
   label: undefined,
   onChange: NOOP,
   disabled: false,

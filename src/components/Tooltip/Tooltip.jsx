@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
+import PropTypes from "prop-types";
 import classnames from "classnames";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
@@ -65,16 +66,20 @@ export default class Tooltip extends React.PureComponent {
 
   onTooltipShow() {
     if (!this.wasShown) {
+      const { onTooltipShow } = this.props;
       globalState.openTooltipsCount++;
       this.wasShown = true;
+      onTooltipShow && onTooltipShow();
     }
   }
 
   onTooltipHide() {
     if (this.wasShown) {
+      const { onTooltipHide } = this.props;
       globalState.lastTooltipHideTS = Date.now();
       globalState.openTooltipsCount--;
       this.wasShown = false;
+      onTooltipHide && onTooltipHide();
     }
   }
 
@@ -148,5 +153,27 @@ Tooltip.defaultProps = {
   containerSelector: "#tooltips-container",
   immediateShowDelay: null,
   tip: true,
-  hideWhenReferenceHidden: false
+  hideWhenReferenceHidden: false,
+  onTooltipHide: null,
+  onTooltipShow: null
+};
+
+Tooltip.propTypes = {
+  style: PropTypes.object,
+  arrowPosition: PropTypes.string,
+  moveBy: PropTypes.shape({ main: PropTypes.number, secondary: PropTypes.number }),
+  theme: PropTypes.string,
+  position: PropTypes.string,
+  justify: PropTypes.string,
+  hideDelay: PropTypes.number,
+  showDelay: PropTypes.number,
+  disableDialogSlide: PropTypes.bool,
+  animationType: PropTypes.string,
+  withoutDialog: PropTypes.bool,
+  containerSelector: PropTypes.string,
+  immediateShowDelay: PropTypes.number,
+  tip: PropTypes.bool,
+  hideWhenReferenceHidden: PropTypes.bool,
+  onTooltipHide: PropTypes.func,
+  onTooltipShow: PropTypes.func
 };

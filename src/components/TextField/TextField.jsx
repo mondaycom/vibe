@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { forwardRef, useRef, useMemo, useCallback } from "react";
+import React, { forwardRef, useRef, useMemo, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
@@ -13,7 +13,8 @@ import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { useButton } from "@react-aria/button";
 
-const NOOP = () => {};
+const NOOP = () => {
+};
 
 const EMPTY_OBJECT = { primary: "", secondary: "", label: "" };
 const TextField = forwardRef(
@@ -104,6 +105,13 @@ const TextField = forwardRef(
       elementType: "div"
     });
 
+    useEffect(() => {
+      if (inputRef.current && autoFocus) {
+        const animationFrame = requestAnimationFrame(() => inputRef.current.focus());
+        return () => cancelAnimationFrame(animationFrame);
+      }
+    }, [inputRef, autoFocus]);
+
     return (
       <div
         className={classNames("input-component", wrapperClassName, {
@@ -128,7 +136,6 @@ const TextField = forwardRef(
               disabled={disabled}
               readOnly={readonly}
               ref={mergedRef}
-              autoFocus={autoFocus}
               type={type}
               id={id}
               onBlur={onBlur}

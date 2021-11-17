@@ -5,9 +5,7 @@ import AttentionBox from "../AttentionBox";
 describe("AttentionBox Tests", () => {
   describe("Snapshot Tests", () => {
     it("renders correctly", () => {
-      const tree = renderer
-        .create(<AttentionBox componentClassName="dummy-class-name" title="Title" text="Text" />)
-        .toJSON();
+      const tree = renderer.create(<AttentionBox className="dummy-class-name" title="Title" text="Text" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
@@ -17,19 +15,17 @@ describe("AttentionBox Tests", () => {
     });
 
     it("renders correctly with empty title prop", () => {
-      const tree = renderer
-        .create(<AttentionBox componentClassName="dummy-class-name" title="" text="Text" />)
-        .toJSON();
+      const tree = renderer.create(<AttentionBox className="dummy-class-name" title="" text="Text" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
     it("renders correctly with undefined title prop", () => {
-      const tree = renderer.create(<AttentionBox componentClassName="dummy-class-name" text="Text" />);
+      const tree = renderer.create(<AttentionBox className="dummy-class-name" text="Text" />);
     });
 
     it("renders correctly with no icon", () => {
       const tree = renderer
-        .create(<AttentionBox componentClassName="dummy-class-name-no-icon" title="Title" text="Text" withoutIcon />)
+        .create(<AttentionBox className="dummy-class-name-no-icon" title="Title" text="Text" withoutIcon />)
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
