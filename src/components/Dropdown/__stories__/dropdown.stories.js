@@ -21,16 +21,6 @@ const mockColorOptions = [
 const mockVirtualizedOptions = new Array(10000).fill(null).map((_, i) => ({ value: i + 1, label: (i + 1).toString() }));
 
 export const Sandbox = () => {
-  const mockColorOptions = [
-    { value: "English", label: "English", isFixed: true },
-    { value: "ocean", label: "Ocean", isFixed: true },
-    { value: "blue", label: "Blue", isDisabled: true },
-    { value: "purple", label: "Purple" },
-    { value: "red", label: "Red", isFixed: true },
-    { value: "orange", label: "Orange" },
-    { value: "yellow", label: "Yellow" }
-  ];
-
   const mockDefaultOptions = mockColorOptions.slice(0, 2);
 
   const isAsync = boolean("Async options - Promise or Callback", false, "Async");

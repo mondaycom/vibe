@@ -1,18 +1,12 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import cx from "classnames";
 import { components } from "react-select";
 import "./menu.scss";
 
 const Menu = props => {
-  const { isOpen, children, Renderer } = props;
+  const { children, Renderer } = props;
   return (
-    <components.Menu
-      {...props}
-      className={cx("menu", {
-        "dropdown-wrapper__menu--open": isOpen
-      })}
-    >
+    <components.Menu {...props} className={cx("menu", "dropdown-menu-wrapper")}>
       {Renderer && Renderer(props)}
       {!Renderer && children}
     </components.Menu>

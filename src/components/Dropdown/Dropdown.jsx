@@ -1,5 +1,5 @@
-/* eslint-disable react/jsx-props-no-spreading,react/require-default-props,react/forbid-prop-types */
-import React, { useCallback, useMemo, useState } from "react";
+/* eslint-disable react/require-default-props,react/forbid-prop-types */
+import React, { useCallback, useMemo } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
 import NOOP from "lodash/noop";
@@ -37,6 +37,7 @@ const Dropdown = ({
   optionRenderer,
   ValueRenderer,
   valueRenderer,
+  multiValueRenderer,
   menuRenderer,
   rtl,
   size,
@@ -51,26 +52,8 @@ const Dropdown = ({
   id,
   autoFocus
 }) => {
-  const [isOpen, setOpen] = useState(false);
-
   const finalOptionRenderer = optionRenderer || OptionRenderer;
   const finalValueRenderer = valueRenderer || ValueRenderer;
-
-  const handleMenuOpen = useCallback(
-    data => {
-      onMenuOpen(data);
-      setOpen(true);
-    },
-    [onMenuOpen, setOpen]
-  );
-
-  const handleMenuClose = useCallback(
-    data => {
-      onMenuClose(data);
-      setOpen(false);
-    },
-    [setOpen, onMenuClose]
-  );
 
   const styles = useMemo(() => {
     // We first want to get the default stylized groups (e.g. "container", "menu").
@@ -97,10 +80,7 @@ const Dropdown = ({
     return mergedStyles;
   }, [size, rtl, extraStyles]);
 
-  const Menu = useCallback(props => <MenuComponent {...props} isOpen={isOpen} Renderer={menuRenderer} />, [
-    isOpen,
-    menuRenderer
-  ]);
+  const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
@@ -127,7 +107,8 @@ const Dropdown = ({
   };
 
   const additions = {
-    ...(!asyncOptions && { options })
+    ...(!asyncOptions && { options }),
+    ...(multiValueRenderer && { isMulti: true })
   };
 
   return (
@@ -140,6 +121,7 @@ const Dropdown = ({
         Input,
         ...(finalOptionRenderer && { Option }),
         ...(finalValueRenderer && { SingleValue }),
+        ...(multiValueRenderer && { MultiValue: multiValueRenderer }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
       size={size}
@@ -150,8 +132,8 @@ const Dropdown = ({
       isSearchable={searchable}
       defaultValue={defaultValue}
       value={value}
-      onMenuOpen={handleMenuOpen}
-      onMenuClose={handleMenuClose}
+      onMenuOpen={onMenuOpen}
+      onMenuClose={onMenuClose}
       onFocus={onFocus}
       onBlur={onBlur}
       onChange={onChange}
