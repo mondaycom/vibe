@@ -1,5 +1,6 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "../../components";
+import "./other-contributors-list.scss";
 
 const BASE_CLASS = "monday-other-contributors-list";
 
@@ -12,19 +13,27 @@ excludedDevelopers.add(41898282); // github-actions[bot]
 excludedDevelopers.add(49699333); // dependabot[bot]
 
 export const OtherContributorsList = () => {
+  const [contributorsJson, setContributorsJson] = useState();
+  useEffect(() => {
+    fetch("https://api.github.com/repos/mondaycom/monday-ui-react-core/contributors")
+      .then(response => response.json())
+      .then(data => setContributorsJson(data));
+  }, []);
+
   const contributors = useMemo(() => {
-    let contributorsJson = fetch("https://api.github.com/repos/mondaycom/monday-ui-react-core/contributors");
     if (contributorsJson) {
       console.log(contributorsJson);
-      contributorsJson = JSON.parse(contributorsJson)
-        .filter(contributor => excludedDevelopers.has(contributor.id))
+      return contributorsJson
+        .filter(contributor => !excludedDevelopers.has(contributor.id))
         .map(contributor => (
           <Link href={contributor.url} className={`${BASE_CLASS}_developer`}>
             {contributor.login}
           </Link>
         ));
     }
-  }, []);
+  }, [contributorsJson]);
 
-  return <span className={BASE_CLASS}>Thanks to all of our contributors {contributors}</span>;
+  return (
+    <span className={BASE_CLASS}>{contributors ? <>Thanks to all of our contributors {contributors}</> : null}</span>
+  );
 };
