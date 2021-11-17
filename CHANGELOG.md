@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.9.0 (2021-11-17)
+
+#### Bug Fixes
+* [#339](https://github.com/mondaycom/monday-ui-react-core/pull/339) amitha/fix/combobox-disable-active-scroll-without-categories ([@amit-hanoch](https://github.com/amit-hanoch))
+* [#328](https://github.com/mondaycom/monday-ui-react-core/pull/328) Add support on className to Checkbox&AttentionBox instead of componentClassName ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#335](https://github.com/mondaycom/monday-ui-react-core/pull/335) Tooltip add show/hide events ([@ronachmany-monday](https://github.com/ronachmany-monday))
+
+#### Internal Changes
+* [#310](https://github.com/mondaycom/monday-ui-react-core/pull/310) stylelint rules ([@mentaman](https://github.com/mentaman))
+* [#309](https://github.com/mondaycom/monday-ui-react-core/pull/309) change fixed eslint to error ([@mentaman](https://github.com/mentaman))
+
 ## 0.8.4 (2021-11-15)
 
 #### Bug Fixes
