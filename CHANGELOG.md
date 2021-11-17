@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.1 (2021-11-17)
+
+#### Bug Fixes
+* [#341](https://github.com/mondaycom/monday-ui-react-core/pull/341) fix: callback on mount when should show on mount ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 0.9.0 (2021-11-17)
 
 #### Bug Fixes
