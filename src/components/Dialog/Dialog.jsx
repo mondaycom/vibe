@@ -67,7 +67,12 @@ export default class Dialog extends PureComponent {
   }
 
   componentDidMount() {
+    const { callbackOnMount, onDialogDidShow } = this.props;
+    const { isOpen } = this.state;
     document.addEventListener("keyup", this.closeDialogOnEscape);
+    if (callbackOnMount && isOpen) {
+      onDialogDidShow && onDialogDidShow();
+    }
   }
 
   componentWillUnmount() {
@@ -513,7 +518,8 @@ Dialog.propTypes = {
    */
   zIndex: PropTypes.number,
   useDerivedStateFromProps: PropTypes.bool,
-  hideWhenReferenceHidden: PropTypes.bool
+  hideWhenReferenceHidden: PropTypes.bool,
+  callbackOnMount: PropTypes.bool
 };
 
 Dialog.defaultProps = {
@@ -544,7 +550,8 @@ Dialog.defaultProps = {
   onContentClick: NOOP,
   zIndex: null,
   useDerivedStateFromProps: false,
-  hideWhenReferenceHidden: false
+  hideWhenReferenceHidden: false,
+  callbackOnMount: false
 };
 
 function chainOnPropsAndInstance(name, instance, props) {
