@@ -104,7 +104,8 @@ Checkbox.propTypes = {
   indeterminate: PropTypes.bool,
   value: PropTypes.string,
   disabled: PropTypes.bool,
-  name: PropTypes.string
+  name: PropTypes.string,
+  ariaLabel: PropTypes.string
 };
 
 Checkbox.defaultProps = {
@@ -118,7 +119,8 @@ Checkbox.defaultProps = {
   ariaLabelledBy: undefined,
   checked: undefined,
   indeterminate: false,
-  defaultChecked: undefined
+  defaultChecked: undefined,
+  ariaLabel: undefined
 };
 
 export default Checkbox;
