@@ -117,6 +117,7 @@ export {default as Mention} from './components/Mention';
 export {default as Menu} from './components/Menu';
 export {default as Microphone} from './components/Microphone';
 export {default as Minimize} from './components/Minimize';
+export {default as Mirror} from './components/Mirror';
 export {default as Mobile} from './components/Mobile';
 export {default as MondayLogoOutline} from './components/MondayLogoOutline';
 export {default as Moon} from './components/Moon';
