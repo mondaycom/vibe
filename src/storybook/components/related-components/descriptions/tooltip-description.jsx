@@ -12,7 +12,7 @@ export const TooltipDescription = () => {
         <TooltipLineWrapper justify="end" />
       </div>
     ),
-    []
+    [style]
   );
   return (
     <RelatedComponent
