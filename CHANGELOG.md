@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.9.2 (2021-11-18)
+
+#### Bug Fixes
+* [#349](https://github.com/mondaycom/monday-ui-react-core/pull/349) Prevent editable heading from being empty ([@MosheZemah](https://github.com/MosheZemah))
+* [#346](https://github.com/mondaycom/monday-ui-react-core/pull/346) Rename ButtonContstants file to ButtonConstants file ([@KarelVerschraegen](https://github.com/KarelVerschraegen))
+* [#344](https://github.com/mondaycom/monday-ui-react-core/pull/344) fix: safari useReszieObserver ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#345](https://github.com/mondaycom/monday-ui-react-core/pull/345) Fix typo in useForceUpdate ([@KarelVerschraegen](https://github.com/KarelVerschraegen))
+
+#### New Icons
+* [#347](https://github.com/mondaycom/monday-ui-react-core/pull/347) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 0.9.1 (2021-11-17)
 
 #### Bug Fixes
