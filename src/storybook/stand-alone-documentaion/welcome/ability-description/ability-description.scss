@@ -20,7 +20,7 @@
   }
 
   &_content {
-    @include paragraph-text;
+    @include small-text;
     margin-bottom: $spacing-large;
   }
 }

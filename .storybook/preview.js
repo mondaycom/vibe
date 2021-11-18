@@ -12,7 +12,8 @@ import {
   RelatedComponents,
   DocFooter,
   MultipleStoryElementsWrapper,
-  Link
+  Link,
+  Paragraph
 } from "../src/storybook/components";
 import LinkComponent from "../src/storybook/components/link-component/link-component";
 
@@ -33,6 +34,7 @@ addParameters({
       h3: Title,
       li: AnchorListItem,
       a: LinkComponent,
+      p: Paragraph,
       Tip,
       ComponentRules,
       UsageGuidelines,

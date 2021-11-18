@@ -3,8 +3,7 @@
 @import "../../styles/content-spacing";
 
 @mixin title-appearance{
-  margin-top: $spacing-between-section-items;
-  margin-bottom: 0;
+  margin-bottom: $spacing-between-title-to-content;
   font-family: $text-primary-font;
   @include basic-text;
   font-size: $h3-font-size;

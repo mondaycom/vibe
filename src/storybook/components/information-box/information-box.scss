@@ -4,7 +4,7 @@
 .monday-storybook-information-box {
   &_component {
     width: 100%;
-    height: 174px;
+    height: fit-content;
     margin: 0 0 $spacing-medium;
   }
 
