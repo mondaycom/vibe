@@ -8,8 +8,11 @@
 
   @include heading-padding();
 
-  &.heading-element-ellipsis {
+  &.heading-element-ellipsis-many {
     @include line-clamp(var(--heading-clamp-lines));
+  }
+  &.heading-element-ellipsis-one {
+    @include line-clamp(1);
   }
 
   &.suggest-edit-on-hover {
