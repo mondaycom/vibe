@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Mirror",
+      file: "Mirror.svg",
+      description: "mirror",
+      tags: "mirror,connect"
+  },
+
+  {
       name: "Minimize",
       file: "Minimize.svg",
       description: "minimize",
