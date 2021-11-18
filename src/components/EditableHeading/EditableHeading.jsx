@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback, useEffect, useMemo } from "react";
+import React, { useRef, useState, useCallback, useEffect, useMemo, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { useButton } from "@react-aria/button";
@@ -79,6 +79,13 @@ const EditableHeading = props => {
   useEffect(() => {
     // Update value if changed from props
     if (!editing && value !== prevValue && value !== valueState) {
+      setValueState(value);
+    }
+  }, [editing, value, prevValue, valueState, setValueState]);
+
+  useLayoutEffect(() => {
+    if (!editing && !valueState && value) {
+      // When user entered empty value - rollback to value from props
       setValueState(value);
     }
   }, [editing, value, prevValue, valueState, setValueState]);
