@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.3 (2021-11-18)
+
+#### Bug Fixes
+* [#350](https://github.com/mondaycom/monday-ui-react-core/pull/350) Fix heading ellipsis issue with 1 line ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 0.9.2 (2021-11-18)
 
 #### Bug Fixes
