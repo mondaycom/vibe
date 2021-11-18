@@ -26,8 +26,8 @@ const Heading = ({
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines)
   );
   const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
-    "heading-element-ellipsis-many": ellipsis && ellipsisMaxLines > 1,
-    "heading-element-ellipsis-one": ellipsis && ellipsisMaxLines <= 1,
+    "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
+    "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
     "suggest-edit-on-hover": suggestEditOnHover
   });
   const Element = React.createElement(
