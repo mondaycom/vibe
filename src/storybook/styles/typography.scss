@@ -22,6 +22,7 @@ $text-line-height: 24px;
 @mixin content-text-without-color {
   font-size: $text-font-size;
   line-height: $text-line-height;
+  font-weight: 400;
 }
 
 @mixin content-text {
@@ -29,13 +30,13 @@ $text-line-height: 24px;
   @include basic-text;
 }
 
-@mixin paragraph-text-without-color {
+@mixin small-text-without-color {
   font-size: $small-text-font-size;
   font-weight: 300;
   line-height: $text-line-height;
 }
 
-@mixin paragraph-text {
+@mixin small-text {
   @include basic-text;
-  @include paragraph-text-without-color;
+  @include small-text-without-color;
 }

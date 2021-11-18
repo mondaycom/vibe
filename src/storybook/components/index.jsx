@@ -9,6 +9,7 @@ import { AnchorListItem } from "./anchor-list-item/anchor-list-item";
 import { DocFooter } from "./doc-footer/doc-footer";
 import { MultipleStoryElementsWrapper } from "./multiple-story-elements-wrapper/multiple-story-elements-wrapper";
 import { Link } from "./link/link";
+import { Paragraph } from "./paragraph/paragraph";
 
 export {
   SectionName,
@@ -21,5 +22,6 @@ export {
   AnchorListItem,
   DocFooter,
   MultipleStoryElementsWrapper,
-  Link
+  Link,
+  Paragraph
 };
