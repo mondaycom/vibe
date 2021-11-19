@@ -17,11 +17,10 @@ const AlertBanner = forwardRef(
     }, [className, backgroundColor]);
 
     const isDarkBackground = backgroundColor === AlertBanner.backgroundColors.DARK;
-
     const children = useMemo(() => {
       const allChildren = React.Children.toArray(originalChildren);
       const filteredChildren = allChildren.filter(child => {
-        if (child.type.isAlertBannerItem) return true;
+        if (child.type.isAlertBannerItem || child.type.displayName === "MDXCreateElement") return true;
         console.error(
           "Alert banner child is not supported. Please use AlertBannerText, AlertBannerLink or AlertBannerButton.",
           child
