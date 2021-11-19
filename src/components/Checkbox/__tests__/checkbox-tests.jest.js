@@ -1,6 +1,5 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
-import { expect as sinonExpect } from "../../../test/test-helpers";
 import Checkbox from "../Checkbox";
 
 describe("Checkbox tests", () => {
@@ -14,14 +13,26 @@ describe("Checkbox tests", () => {
   const option3Value = "3";
   const option3Text = "Option 3";
 
-  let onChangedMock;
+  let onChangeMock1;
+  let onChangeMock2;
+  let onChangeMock3;
+
   beforeEach(() => {
-    onChangedMock = jest.fn();
+    onChangeMock1 = jest.fn();
+    onChangeMock2 = jest.fn();
+    onChangeMock3 = jest.fn();
+
     render(
       <form name={formName}>
-        <Checkbox name={checkboxName} value={option1Value} label={option1Text} defaultChecked={true} />
-        <Checkbox name={checkboxName} value={option2Value} label={option2Text} onChange={onChangedMock} />
-        <Checkbox name={checkboxName} value={option3Value} label={option3Text} />
+        <Checkbox
+          name={checkboxName}
+          value={option1Value}
+          label={option1Text}
+          defaultChecked={true}
+          onChange={onChangeMock1}
+        />
+        <Checkbox name={checkboxName} value={option2Value} label={option2Text} onChange={onChangeMock2} />
+        <Checkbox name={checkboxName} value={option3Value} label={option3Text} onChange={onChangeMock3} />
       </form>
     );
   });
@@ -59,20 +70,29 @@ describe("Checkbox tests", () => {
     expect(option3.checked).toBeFalsy();
   });
 
-  it("should call the onchange callback when clicked", () => {
+  it("should call the onChange callback when clicked", () => {
+    const option1 = screen.getByLabelText(option1Text);
     const option2 = screen.getByLabelText(option2Text);
+    fireEvent.click(option1);
     fireEvent.click(option2);
-    expect(onChangedMock.mock.calls.length).toBe(1);
+    expect(onChangeMock1.mock.calls.length).toBe(1);
+    expect(onChangeMock2.mock.calls.length).toBe(1);
+    expect(onChangeMock3.mock.calls.length).toBe(0);
   });
 
   describe("a11y", () => {
     it("should add the label", () => {
       const ariaLabel = "Lable Name";
-      const { getByLabelText } = render(
-        <Checkbox label={ariaLabel} />
-      );
+      const { getByLabelText } = render(<Checkbox label={ariaLabel} />);
       const checkboxComponent = getByLabelText(ariaLabel);
-      sinonExpect(checkboxComponent).to.be.ok;
-    }); 
+      expect(checkboxComponent).toBeTruthy();
+    });
+
+    it("should be the same text", () => {
+      const ariaLabel = "Lable Name";
+      const { getByText } = render(<Checkbox label={ariaLabel} />);
+      const checkboxComponentText = getByText(ariaLabel);
+      expect(checkboxComponentText).toBeTruthy();
+    });
   });
 });

@@ -166,6 +166,23 @@ exports[`Label renders correctly line with leg 1`] = `
 </span>
 `;
 
+exports[`Label renders correctly line with wrapperClassName 1`] = `
+<span
+  className="test"
+>
+  <div
+    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-primary monday-style-label--with-animation"
+  >
+    <span>
+      
+    </span>
+    <span
+      className="monday-style-label__leg-wrapper"
+    />
+  </div>
+</span>
+`;
+
 exports[`Label renders correctly line without animation 1`] = `
 <span
   className=""
@@ -184,40 +201,6 @@ exports[`Label renders correctly line without animation 1`] = `
 `;
 
 exports[`Label renders correctly with empty props 1`] = `
-<span
-  className=""
->
-  <div
-    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-primary monday-style-label--with-animation"
-  >
-    <span>
-      
-    </span>
-    <span
-      className="monday-style-label__leg-wrapper"
-    />
-  </div>
-</span>
-`;
-
-exports[`Label renders correctly with x 1`] = `
-<span
-  className=""
->
-  <div
-    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-primary monday-style-label--with-animation"
-  >
-    <span>
-      
-    </span>
-    <span
-      className="monday-style-label__leg-wrapper"
-    />
-  </div>
-</span>
-`;
-
-exports[`Label renders correctly with y 1`] = `
 <span
   className=""
 >

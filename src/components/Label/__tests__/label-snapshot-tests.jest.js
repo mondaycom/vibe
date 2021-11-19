@@ -72,5 +72,10 @@ describe("Label renders correctly", () => {
       const tree = renderer.create(<Label text={"Test"} isLegIncluded />).toJSON();
       expect(tree).toMatchSnapshot();
     });
+
+    it("with wrapperClassName", () => {
+      const tree = renderer.create(<Label wrapperClassName="test" />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 });

@@ -67,36 +67,36 @@ Radio buttons have 3 states: regular, selected, and disabled.
       positive: {
         component:
           <DialogContentContainer className="monday-style-radio-buttons_wrapper">
-            <RadioButton text="Item 1" />
-            <RadioButton text="Item 2" checked />
+            <RadioButton text="Item 1" name="Item 1" />
+            <RadioButton text="Item 2" name="Item 2" checked />
           </DialogContentContainer>,
         description:"Use radio buttons when only one item can be selected from a list."
       },
       negative: {
         component:
           <DialogContentContainer className="monday-style-radio-buttons_wrapper">
-            <RadioButton text="Item 1" checked />
-            <RadioButton text="Item 2" checked />
+            <RadioButton text="Item 1" name="Item 2" checked />
+            <RadioButton text="Item 2" name="Item 1" checked />
           </DialogContentContainer>,
-        description:<>Don't use <Link href="/?path=/docs/components-checkbox--overview" withoutSpacing>checkboxes</Link> when only one item can be selected from a list. Use radio buttons instead.</>
+        description:<>Don't use radio buttons when only one item can be selected from a list. Use <Link href="/?path=/docs/components-checkbox--overview" withoutSpacing>checkbox</Link> instead.</>
       }
     },
     {
       positive: {
         component:
         <DialogContentContainer className="monday-style-radio-buttons_wrapper">
-            <RadioButton text="Item 1" checked />
-            <RadioButton text="Item 2" />
-            <RadioButton text="Item 3" />
+            <RadioButton text="Item 1" name="Item 1" checked />
+            <RadioButton text="Item 2" name="Item 2" />
+            <RadioButton text="Item 3" name="Item 3" />
           </DialogContentContainer>,
         description:"Mark the first item as selected, and make sure it’s the most common or popular action."
       },
       negative: {
         component:     
         <DialogContentContainer className="monday-style-radio-buttons_wrapper">
-            <RadioButton text="Item 1" />
-            <RadioButton text="Item 2" />
-            <RadioButton text="Item 3" />
+            <RadioButton text="Item 1" name="Item 1" />
+            <RadioButton text="Item 2" name="Item 2" />
+            <RadioButton text="Item 3" name="Item 3" />
         </DialogContentContainer>,
         description:<>Don’t leave all radio buttons unselcted. If you can’t offer a smart default, consider using the <Link href="/?path=/docs/components-dropdown--overview" withoutSpacing>dropdown component.</Link></>
       }

@@ -41,9 +41,9 @@ Checkboxes allow users to select one or more items from a set of options.
 
 ## Usage
 <UsageGuidelines guidelines={[
-  <span class="monday-style-story-checkbox_list">Use checkboxes to:
-    <span class="monday-style-story-checkbox_list-item">1. Select one or more options from a list</span>
-    <span class="monday-style-story-checkbox_list-item">2. Turn an item on or off in a desktop environment</span>
+  <span className="monday-style-story-checkbox_list">Use checkboxes to:
+    <span className="monday-style-story-checkbox_list-item">1. Select one or more options from a list</span>
+    <span className="monday-style-story-checkbox_list-item">2. Turn an item on or off in a desktop environment</span>
   </span>,
   "Use checkboxes independently from each other: selecting one checkbox shouldn’t change the selection status of another checkbox in the list. The exception is when a checkbox is used to make a bulk selection.",
   "Ensure both label and input are clickable to select the checkbox field. ",
@@ -98,7 +98,7 @@ Has 4 states: regular, hover, selected, and disabled.
       negative: {
         component: [
           <div className="monday-style-story-checkbox_border">
-            <Checkbox componentClassName="monday-style-story-checkbox_minus-margin" checked />
+            <Checkbox className="monday-style-story-checkbox_minus-margin" checked />
           </div>,
           <div className="monday-style-story-checkbox_border">Option</div>
         ],
@@ -120,15 +120,15 @@ Has 4 states: regular, hover, selected, and disabled.
           <DialogContentContainer className="monday-style-story-checkbox_wrapper">
             <div className="monday-style-story-checkbox_inline-wrapper">
               <span>Item 1</span>
-              <Checkbox componentClassName="monday-style-story-checkbox_minus-margin" />
+              <Checkbox className="monday-style-story-checkbox_minus-margin" />
             </div>
             <div className="monday-style-story-checkbox_inline-wrapper">
               <span>Item 2</span>
-              <Checkbox componentClassName="monday-style-story-checkbox_minus-margin" checked />
+              <Checkbox className="monday-style-story-checkbox_minus-margin" checked />
             </div>
             <div className="monday-style-story-checkbox_inline-wrapper">
               <span>Item 3</span>
-              <Checkbox componentClassName="monday-style-story-checkbox_minus-margin" checked />
+              <Checkbox className="monday-style-story-checkbox_minus-margin" checked />
             </div>
           </DialogContentContainer>,
         description:"Don’t change the position of the checkbox. Keep it to the left side of the label."

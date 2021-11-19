@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px dashed grey;
+    border: 1px dashed var(--ui-border-color);
     padding: 0 8px;
     height: 38px;
     margin-right: 3px;
@@ -36,7 +36,9 @@
   
   &_list {
     display: flexbox;
+    padding-top: 40px;
   }
+  
   &_list-item {
     display: inline-block;
     width: 100%;

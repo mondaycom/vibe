@@ -92,16 +92,16 @@ exports[`RadioButton renders correctly when unchecked 1`] = `
 </label>
 `;
 
-exports[`RadioButton renders correctly whend default checked 1`] = `
+exports[`RadioButton renders correctly with componentClassName 1`] = `
 <label
-  className="monday-style-radio-button-component"
+  className="monday-style-radio-button-component test-classname"
 >
   <span
     className="monday-style-radio-button-component__radio-input-container"
   >
     <input
       className="monday-style-radio-button-component__radio-input-container__radio-input"
-      defaultChecked={true}
+      defaultChecked={false}
       disabled={false}
       name=""
       type="radio"
@@ -149,7 +149,7 @@ exports[`RadioButton renders correctly with name 1`] = `
       className="monday-style-radio-button-component__radio-input-container__radio-input"
       defaultChecked={false}
       disabled={false}
-      name="radios"
+      name="radiosName"
       type="radio"
       value=""
     />
@@ -161,7 +161,7 @@ exports[`RadioButton renders correctly with name 1`] = `
 </label>
 `;
 
-exports[`RadioButton renders correctly with name 2`] = `
+exports[`RadioButton renders correctly with text 1`] = `
 <label
   className="monday-style-radio-button-component"
 >
@@ -172,7 +172,7 @@ exports[`RadioButton renders correctly with name 2`] = `
       className="monday-style-radio-button-component__radio-input-container__radio-input"
       defaultChecked={false}
       disabled={false}
-      name="radiosName"
+      name=""
       type="radio"
       value=""
     />
@@ -180,7 +180,11 @@ exports[`RadioButton renders correctly with name 2`] = `
       className="monday-style-radio-button-component__radio-input-container__radio-control"
     />
   </span>
-  
+  <span
+    className="monday-style-radio-button-component__radio-label"
+  >
+    test text
+  </span>
 </label>
 `;
 
