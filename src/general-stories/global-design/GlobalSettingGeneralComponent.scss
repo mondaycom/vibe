@@ -2,8 +2,6 @@
 @import "../../styles/typography.scss";
 
 .global-settings-general-component {
-  .global-settings-child-container {
-  }
   .global-settings-list {
     .global-settings-list-header {
       @include font-paragraph-bold();

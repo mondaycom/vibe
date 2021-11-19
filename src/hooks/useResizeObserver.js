@@ -28,7 +28,7 @@ export default function useResizeObserver({ ref, callback, debounceTime = 200 })
         animationFrameId = borderBoxSizeCallback(borderBoxSize);
       } else if (entry.contentRect) {
         // handle safari (entry.contentRect)
-        const borderBoxSize = { blockSize: entry.contentRect.height };
+        const borderBoxSize = { blockSize: entry.contentRect.height, inlineSize: entry?.contentRect?.width || 0 };
         animationFrameId = borderBoxSizeCallback(borderBoxSize);
       } else {
         return () => {};

@@ -1,5 +1,68 @@
 # Changelog
 
+## 0.9.3 (2021-11-18)
+
+#### Bug Fixes
+* [#350](https://github.com/mondaycom/monday-ui-react-core/pull/350) Fix heading ellipsis issue with 1 line ([@MosheZemah](https://github.com/MosheZemah))
+
+## 0.9.2 (2021-11-18)
+
+#### Bug Fixes
+* [#349](https://github.com/mondaycom/monday-ui-react-core/pull/349) Prevent editable heading from being empty ([@MosheZemah](https://github.com/MosheZemah))
+* [#346](https://github.com/mondaycom/monday-ui-react-core/pull/346) Rename ButtonContstants file to ButtonConstants file ([@KarelVerschraegen](https://github.com/KarelVerschraegen))
+* [#344](https://github.com/mondaycom/monday-ui-react-core/pull/344) fix: safari useReszieObserver ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#345](https://github.com/mondaycom/monday-ui-react-core/pull/345) Fix typo in useForceUpdate ([@KarelVerschraegen](https://github.com/KarelVerschraegen))
+
+#### New Icons
+* [#347](https://github.com/mondaycom/monday-ui-react-core/pull/347) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 0.9.1 (2021-11-17)
+
+#### Bug Fixes
+* [#341](https://github.com/mondaycom/monday-ui-react-core/pull/341) fix: callback on mount when should show on mount ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 0.9.0 (2021-11-17)
+
+#### Bug Fixes
+* [#339](https://github.com/mondaycom/monday-ui-react-core/pull/339) amitha/fix/combobox-disable-active-scroll-without-categories ([@amit-hanoch](https://github.com/amit-hanoch))
+* [#328](https://github.com/mondaycom/monday-ui-react-core/pull/328) Add support on className to Checkbox&AttentionBox instead of componentClassName ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#335](https://github.com/mondaycom/monday-ui-react-core/pull/335) Tooltip add show/hide events ([@ronachmany-monday](https://github.com/ronachmany-monday))
+
+#### Internal Changes
+* [#310](https://github.com/mondaycom/monday-ui-react-core/pull/310) stylelint rules ([@mentaman](https://github.com/mentaman))
+* [#309](https://github.com/mondaycom/monday-ui-react-core/pull/309) change fixed eslint to error ([@mentaman](https://github.com/mentaman))
+
+## 0.8.4 (2021-11-15)
+
+#### Bug Fixes
+* [#333](https://github.com/mondaycom/monday-ui-react-core/pull/333) amitha/fix/text-field-focus-animation-in-dialog ([@amit-hanoch](https://github.com/amit-hanoch))
+* [#332](https://github.com/mondaycom/monday-ui-react-core/pull/332) Combobox: fix the space between the search box to the first option ([@amit-hanoch](https://github.com/amit-hanoch))
+
+## 0.8.3 (2021-11-14)
+
+#### Bug Fixes
+* [#331](https://github.com/mondaycom/monday-ui-react-core/pull/331) successIconSize property to determine function success icon size ([@yardenli](https://github.com/yardenli))
+
+## 0.8.2 (2021-11-14)
+
+#### Bug Fixes
+* [#330](https://github.com/mondaycom/monday-ui-react-core/pull/330) Fix button initial loading state ([@MosheZemah](https://github.com/MosheZemah))
+
+## 0.8.1 (2021-11-11)
+
+#### Bug Fixes
+* [#327](https://github.com/mondaycom/monday-ui-react-core/pull/327) editable input focus in animation frame ([@barcohen2](https://github.com/barcohen2))
+
+## 0.8.0 (2021-11-07)
+
+#### New Features
+* [#321](https://github.com/mondaycom/monday-ui-react-core/pull/321) Adding tooltip content option to combobox item ([@samitc](https://github.com/samitc))
+* [#323](https://github.com/mondaycom/monday-ui-react-core/pull/323) Add support in tipseen component for: submitButtonText & submitButtonOnClick & dismissButtonText & dismissButtonOnClick & hideWhenReferenceHidden ([@hadasfa](https://github.com/hadasfa))
+
 ## 0.7.3 (2021-11-04)
 
 #### Bug Fixes

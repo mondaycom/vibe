@@ -31,11 +31,18 @@ const getOptions = (selectedId, additionalOptions = []) => {
     { id: "1", label: "with left icon", leftIcon: "fa fa-star-o" },
     { id: "2", label: "with right icon", rightIcon: "fa fa-star-o" },
     { id: "3", label: "disabled", disabled: true, rightIcon: "fa fa-star-o" },
-    { id: "4", label: "custom left icon", leftIcon: iconRenderer, leftIconType: Combobox.iconTypes.RENDERER },
-    { id: "5", label: "custom right icon", rightIcon: iconRenderer, rightIconType: Combobox.iconTypes.RENDERER },
-    { id: "6", label: "no icon" },
-    { id: "7", label: "with left icon and a very very long name", leftIcon: "fa fa-star-o" },
-    { id: "8", label: "with right icon and a very very long name", rightIcon: "fa fa-star-o" }
+    {
+      id: "4",
+      label: "disabled with tooltip",
+      disabled: true,
+      tooltipContent: "this option is disable",
+      rightIcon: "fa fa-star-o"
+    },
+    { id: "5", label: "custom left icon", leftIcon: iconRenderer, leftIconType: Combobox.iconTypes.RENDERER },
+    { id: "6", label: "custom right icon", rightIcon: iconRenderer, rightIconType: Combobox.iconTypes.RENDERER },
+    { id: "7", label: "no icon" },
+    { id: "8", label: "with left icon and a very very long name", leftIcon: "fa fa-star-o" },
+    { id: "9", label: "with right icon and a very very long name", rightIcon: "fa fa-star-o" }
   ].concat(additionalOptions);
 
   options.forEach(option => {
