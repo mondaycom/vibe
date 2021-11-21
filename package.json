@@ -10,6 +10,7 @@
     "test:jest": "jest",
     "test:jest:stories": "testing=storybook TEST_END_FILES=jest-story jest",
     "test:jest:update": "npm run test:jest -- -u",
+    "test:jest:coverage": "npm run test:jest -- --coverage",
     "test": "./node_modules/karma/bin/karma start",
     "test-ci": "./node_modules/karma/bin/karma start --single-run",
     "start": "npm run build-react-icons && webpack --mode production --watch --config webpack/default.config.js",
