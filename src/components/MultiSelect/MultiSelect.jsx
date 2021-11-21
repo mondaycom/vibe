@@ -1,48 +1,21 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
-import Chips from "../Chips/Chips";
-import Counter from "../Counter/Counter";
-import classes from "./MultiSelect.module.scss";
+import ValueContainer from "./ValueContainer";
+import Chip from "./Chip";
 
 const addHeightAuto = styles => ({ ...styles, height: "auto" });
 
-const Container = ({ selectedOptions, multiValueRenderer, children }) => {
-  const [ref, setRef] = useState();
-
-  if (!selectedOptions.length) {
-    return <div className={classes["value-container"]}>{children}</div>;
-  }
-
-  let overflowingChildren = 0;
-
-  if (ref) {
-    const { bottom: parentBottom } = ref.getBoundingClientRect();
-
-    ref.children.forEach(child => {
-      const { bottom: childBottom } = child.getBoundingClientRect();
-
-      if (childBottom > parentBottom) {
-        overflowingChildren++;
-      }
-    });
-  }
-
-  return (
-    <div className={classes["value-container"]}>
-      <div className={classes["value-container-chips"]} ref={newRef => setRef(newRef)}>
-        {selectedOptions.map(data => multiValueRenderer({ data }))}
-      </div>
-      <div className={classes["value-container-counter"]}>
-        {!!overflowingChildren && <Counter kind={Counter.kinds.LINE} prefix="+" count={overflowingChildren} />}
-      </div>
-    </div>
-  );
-};
-
-const MultiSelect = ({ value, options, onChange, onOptionRemove, ...rest }) => {
-  const [selectedOptions, setSelectedOptions] = useState([]);
+const MultiSelect = ({
+  multiline,
+  value,
+  options,
+  onChange: customOnChange,
+  onOptionRemove: customOnOptionRemove,
+  ...rest
+}) => {
+  const [selected, setSelected] = useState([]);
   const isControlled = !!value;
-  const _selectedOptions = value ?? selectedOptions;
+  const selectedOptions = value ?? selected;
   const optionsMap = useMemo(
     () =>
       options.reduce(
@@ -54,39 +27,25 @@ const MultiSelect = ({ value, options, onChange, onOptionRemove, ...rest }) => {
       ),
     [options]
   );
-  const filteredOptions = useMemo(() => options.filter(option => !_selectedOptions.includes(option.value)), [
+  const filteredOptions = useMemo(() => options.filter(option => !selectedOptions.includes(option.value)), [
     options,
-    _selectedOptions
+    selectedOptions
   ]);
 
-  const _onOptionRemove =
-    onOptionRemove ??
-    function(optionValue, e) {
-      setSelectedOptions(selectedOptions.filter(selectedOption => selectedOption !== optionValue));
+  const onOptionRemove = useMemo(
+    () =>
+      customOnOptionRemove ??
+      function(optionValue, e) {
+        setSelected(selected.filter(selectedOption => selectedOption !== optionValue));
 
-      e.stopPropagation();
-    };
+        e.stopPropagation();
+      },
+    [customOnOptionRemove, selected]
+  );
 
-  const multiValueRenderer = ({ data: optionValue }) => {
-    const label = optionsMap[optionValue].label;
-
-    return (
-      <Chips
-        className={classes["multiselect-chip"]}
-        noAnimation
-        id={optionValue}
-        label={label}
-        onDelete={_onOptionRemove}
-        onMouseDown={e => {
-          e.stopPropagation();
-        }}
-      />
-    );
-  };
-
-  const _onChange = (option, event) => {
-    if (onChange) {
-      onChange(event);
+  const onChange = (option, event) => {
+    if (customOnChange) {
+      customOnChange(event);
     }
 
     if (isControlled) {
@@ -95,29 +54,48 @@ const MultiSelect = ({ value, options, onChange, onOptionRemove, ...rest }) => {
 
     switch (event.action) {
       case "select-option":
-        setSelectedOptions([...selectedOptions, option.value || event.option.value]);
+        setSelected([...selected, option.value || event.option.value]);
         break;
       case "clear":
-        setSelectedOptions([]);
+        setSelected([]);
         break;
     }
   };
 
+  const valueContainerRenderer = useCallback(
+    props => (
+      <ValueContainer
+        selectedOptions={selectedOptions.map(option => optionsMap[option])}
+        onSelectedDelete={onOptionRemove}
+        {...props}
+      />
+    ),
+    [selectedOptions, onOptionRemove, optionsMap]
+  );
+
+  const multiValueRenderer = useCallback(({ data }) => <Chip {...optionsMap[data]} onDelete={onOptionRemove} />, [
+    onOptionRemove,
+    optionsMap
+  ]);
+
+  const extraProps = multiline
+    ? {
+        extraStyles: provided => ({
+          ...provided,
+          container: addHeightAuto,
+          control: addHeightAuto,
+          valueContainer: addHeightAuto
+        })
+      }
+    : { valueContainerRenderer };
+
   return (
     <Dropdown
       options={filteredOptions}
-      value={_selectedOptions}
-      onChange={_onChange}
-      // extraStyles={provided => ({
-      //   ...provided,
-      //   container: addHeightAuto,
-      //   control: addHeightAuto,
-      //   valueContainer: addHeightAuto
-      // })}
+      value={selectedOptions}
+      onChange={onChange}
       multiValueRenderer={multiValueRenderer}
-      valueContainerRenderer={p => (
-        <Container selectedOptions={_selectedOptions} multiValueRenderer={multiValueRenderer} {...p} />
-      )}
+      {...extraProps}
       {...rest}
     />
   );
