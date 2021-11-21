@@ -1,12 +1,48 @@
 import React, { useMemo, useState } from "react";
 import Dropdown from "../Dropdown/Dropdown";
 import Chips from "../Chips/Chips";
-import "./MultiSelect.scss";
+import Counter from "../Counter/Counter";
+import classes from "./MultiSelect.module.scss";
 
-const MultiSelect = ({ value, options, onChange, onOptionRemove, ...props }) => {
+const addHeightAuto = styles => ({ ...styles, height: "auto" });
+
+const Container = ({ selectedOptions, multiValueRenderer, children }) => {
+  const [ref, setRef] = useState();
+
+  if (!selectedOptions.length) {
+    return <div className={classes["value-container"]}>{children}</div>;
+  }
+
+  let overflowingChildren = 0;
+
+  if (ref) {
+    const { bottom: parentBottom } = ref.getBoundingClientRect();
+
+    ref.children.forEach(child => {
+      const { bottom: childBottom } = child.getBoundingClientRect();
+
+      if (childBottom > parentBottom) {
+        overflowingChildren++;
+      }
+    });
+  }
+
+  return (
+    <div className={classes["value-container"]}>
+      <div className={classes["value-container-chips"]} ref={newRef => setRef(newRef)}>
+        {selectedOptions.map(data => multiValueRenderer({ data }))}
+      </div>
+      <div className={classes["value-container-counter"]}>
+        {!!overflowingChildren && <Counter kind={Counter.kinds.LINE} prefix="+" count={overflowingChildren} />}
+      </div>
+    </div>
+  );
+};
+
+const MultiSelect = ({ value, options, onChange, onOptionRemove, ...rest }) => {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const isControlled = !!value;
-  const _value = value ?? selectedOptions;
+  const _selectedOptions = value ?? selectedOptions;
   const optionsMap = useMemo(
     () =>
       options.reduce(
@@ -18,7 +54,10 @@ const MultiSelect = ({ value, options, onChange, onOptionRemove, ...props }) => 
       ),
     [options]
   );
-  const filteredOptions = useMemo(() => options.filter(option => !_value.includes(option.value)), [options, _value]);
+  const filteredOptions = useMemo(() => options.filter(option => !_selectedOptions.includes(option.value)), [
+    options,
+    _selectedOptions
+  ]);
 
   const _onOptionRemove =
     onOptionRemove ??
@@ -33,6 +72,7 @@ const MultiSelect = ({ value, options, onChange, onOptionRemove, ...props }) => 
 
     return (
       <Chips
+        className={classes["multiselect-chip"]}
         noAnimation
         id={optionValue}
         label={label}
@@ -44,23 +84,41 @@ const MultiSelect = ({ value, options, onChange, onOptionRemove, ...props }) => 
     );
   };
 
-  const _onChange = (_, event) => {
+  const _onChange = (option, event) => {
     if (onChange) {
       onChange(event);
     }
 
-    if (!isControlled && event.action === "select-option") {
-      setSelectedOptions([...selectedOptions, event.option.value]);
+    if (isControlled) {
+      return;
+    }
+
+    switch (event.action) {
+      case "select-option":
+        setSelectedOptions([...selectedOptions, option.value || event.option.value]);
+        break;
+      case "clear":
+        setSelectedOptions([]);
+        break;
     }
   };
 
   return (
     <Dropdown
       options={filteredOptions}
-      value={_value}
+      value={_selectedOptions}
       onChange={_onChange}
+      // extraStyles={provided => ({
+      //   ...provided,
+      //   container: addHeightAuto,
+      //   control: addHeightAuto,
+      //   valueContainer: addHeightAuto
+      // })}
       multiValueRenderer={multiValueRenderer}
-      {...props}
+      valueContainerRenderer={p => (
+        <Container selectedOptions={_selectedOptions} multiValueRenderer={multiValueRenderer} {...p} />
+      )}
+      {...rest}
     />
   );
 };

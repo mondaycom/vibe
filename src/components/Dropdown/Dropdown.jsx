@@ -11,6 +11,7 @@ import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownI
 import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
+import ValueContainerComponent from "./components/ValueContainer/ValueContainer";
 import { defaultCustomStyles } from "./DropdownConstants";
 import { SIZES } from "../../constants/sizes";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
@@ -38,6 +39,7 @@ const Dropdown = ({
   ValueRenderer,
   valueRenderer,
   multiValueRenderer,
+  valueContainerRenderer,
   menuRenderer,
   rtl,
   size,
@@ -96,6 +98,11 @@ const Dropdown = ({
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
+  const ValueContainer = useCallback(
+    props => <ValueContainerComponent Renderer={valueContainerRenderer} {...props} />,
+    [valueContainerRenderer]
+  );
+
   const DropDownComponent = asyncOptions ? AsyncSelect : Select;
 
   const asyncAdditions = {
@@ -122,6 +129,7 @@ const Dropdown = ({
         ...(finalOptionRenderer && { Option }),
         ...(finalValueRenderer && { SingleValue }),
         ...(multiValueRenderer && { MultiValue: multiValueRenderer }),
+        ...(valueContainerRenderer && { ValueContainer }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
       size={size}
