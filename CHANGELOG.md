@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.4 (2021-11-21)
+
+#### Bug Fixes
+* [#348](https://github.com/mondaycom/monday-ui-react-core/pull/348) add aria label support for checkbox ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#325](https://github.com/mondaycom/monday-ui-react-core/pull/325) docs : improve documentation for extra styles in <dropdown> ([@Muskan777](https://github.com/Muskan777))
+
 ## 0.9.3 (2021-11-18)
 
 #### Bug Fixes
