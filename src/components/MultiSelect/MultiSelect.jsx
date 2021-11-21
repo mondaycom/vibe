@@ -5,14 +5,7 @@ import Chip from "./Chip";
 
 const addHeightAuto = styles => ({ ...styles, height: "auto" });
 
-const MultiSelect = ({
-  multiline,
-  value,
-  options,
-  onChange: customOnChange,
-  onOptionRemove: customOnOptionRemove,
-  ...rest
-}) => {
+const MultiSelect = ({ multiline, value, options, onClear, onAdd, onRemove, ...rest }) => {
   const [selected, setSelected] = useState([]);
   const isControlled = !!value;
   const selectedOptions = value ?? selected;
@@ -34,30 +27,38 @@ const MultiSelect = ({
 
   const onOptionRemove = useMemo(
     () =>
-      customOnOptionRemove ??
+      onRemove ??
       function(optionValue, e) {
         setSelected(selected.filter(selectedOption => selectedOption !== optionValue));
 
         e.stopPropagation();
       },
-    [customOnOptionRemove, selected]
+    [onRemove, selected]
   );
 
-  const onChange = (option, event) => {
-    if (customOnChange) {
-      customOnChange(event);
-    }
-
-    if (isControlled) {
-      return;
-    }
-
+  const onChange = (_, event) => {
     switch (event.action) {
-      case "select-option":
-        setSelected([...selected, option.value || event.option.value]);
+      case "select-option": {
+        const { value: optionValue } = event.option;
+
+        if (onAdd) {
+          onAdd(optionValue);
+        }
+
+        if (!isControlled) {
+          setSelected([...selected, optionValue]);
+        }
         break;
+      }
+
       case "clear":
-        setSelected([]);
+        if (onClear) {
+          onClear();
+        }
+
+        if (!isControlled) {
+          setSelected([]);
+        }
         break;
     }
   };

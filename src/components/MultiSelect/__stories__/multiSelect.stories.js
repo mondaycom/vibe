@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { text, boolean, number } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
@@ -17,14 +17,21 @@ const mockColorOptions = [
 ];
 
 export const Sandbox = () => {
-  const radiosCount = number("radiosCount", 5);
+  const [options, setOptions] = useState(["ocean", "blue"]);
+  const onAdd = value => setOptions([...options, value]);
+  const onRemove = value => setOptions(options.filter(val => val !== value));
+  const onClear = () => setOptions([]);
+
   return (
     <StoryWrapper>
       <FlexLayout direction="column">
         <MultiSelect
           className="multiselect-story"
           options={mockColorOptions}
-          // value={["ocean", "blue"]}
+          value={options}
+          onAdd={onAdd}
+          onRemove={onRemove}
+          onClear={onClear}
         />
       </FlexLayout>
     </StoryWrapper>

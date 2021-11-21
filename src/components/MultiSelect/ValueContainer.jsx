@@ -6,12 +6,9 @@ import classes from "./MultiSelect.module.scss";
 export default function Container({ selectedOptions, children, onSelectedDelete }) {
   const [ref, setRef] = useState();
 
-  if (!selectedOptions.length) {
-    return <div className={classes["value-container"]}>{children}</div>;
-  }
+  const clickHandler = children[1];
 
   let overflowingChildren = 0;
-
   if (ref) {
     const { bottom: parentBottom } = ref.getBoundingClientRect();
 
@@ -31,6 +28,7 @@ export default function Container({ selectedOptions, children, onSelectedDelete 
           <Chip key={option.value} {...option} onDelete={onSelectedDelete} />
         ))}
       </div>
+      {clickHandler}
       <div className={classes["value-container-counter"]}>
         {!!overflowingChildren && <Counter kind={Counter.kinds.LINE} prefix="+" count={overflowingChildren} />}
       </div>
