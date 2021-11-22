@@ -2,6 +2,8 @@ import ButtonGroup from "../ButtonGroup";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import { Mobile } from "../../Icon/Icons";
+import { BUTTON } from "../../../storybook/components/related-components/component-description-map";
+import { Link } from "../../../storybook/components";
 import "./buttonGroup.stories.scss";
 
 <Meta
@@ -49,11 +51,11 @@ Please write here the component description
   "Use when all the actions in the group take place immediately in one click. If one or more actions does not immediately happen in one click, either use a different component, or remove those actions from the group.",
   "Only should be used in groups of up to six buttons if the buttons contain an icon with no text.",
   "The main action of a button group will be in selected mode.",
-  "Keep the content short and actionable. For longer actions, use the Dropdown component.",
-  "Button group is used to diplay the same content in diffrent view, if you need to present diffrent content, use Tabs.",
+  <>Keep the content short and actionable. For longer actions, use the <Link href="/?path=/docs/components-dropdown--overview">Dropdown</Link> component.</>,
+  <>Button group is used to diplay the same content in diffrent view, if you need to present diffrent content, use <Link href="/?path=/docs/components-tabs--overview">Tabs.</Link></>,
 ]}/>
 
-<Tip title="Check yourself">Button group will always have one button selected. If you need to display addjacent buttons without selected mode, use  the Button component with “Flat” props. </Tip>
+<Tip title="Check yourself">Button group will always have one button selected. If you need to display addjacent buttons without selected mode, use  the <Link href="/?path=/docs/components-button--overview" size={Link.sizes.SMALL} withoutSpacing>Button</Link> component> with “Flat” props. </Tip>
 
 ## Variants
 ### Default
@@ -61,6 +63,7 @@ Please write here the component description
   <Story name="Default">
     <ButtonGroup
       groupAriaLabel="button group aria label"
+      value={1}
       options={[
         { value: 1, text: "Alpha" },
         { value: 2, text: "Beta" },
@@ -76,6 +79,7 @@ Please write here the component description
   <Story name="Tertiary">
     <ButtonGroup
       groupAriaLabel="button group aria label"
+      value={1}
       kind={ButtonGroup.kinds.TERTIARY}
       options={[
         { value: 1, text: "Alpha" },
@@ -111,6 +115,7 @@ Please write here the component description
       <ButtonGroup
         groupAriaLabel="button group aria label"
         size={ButtonGroup.sizes.MEDIUM}
+        value={1}
         options={[
           { value: 1, text: "Alpha" },
           { value: 2, text: "Beta" },
@@ -124,6 +129,7 @@ Please write here the component description
       <ButtonGroup
         groupAriaLabel="button group aria label"
         size={ButtonGroup.sizes.SMALL}
+        value={1}
         options={[
           { value: 1, text: "Alpha" },
           { value: 2, text: "Beta" },
@@ -143,6 +149,7 @@ Please write here the component description
         component:    
          <ButtonGroup
             groupAriaLabel="button group aria label"
+            value={1}
             options={[
               { value: 1, text: "Month" },
               { value: 2, text: "Week" },
@@ -155,13 +162,14 @@ Please write here the component description
         component:
         <ButtonGroup
           groupAriaLabel="button group aria label"
+          value={1}
           options={[
             { value: 1, text: "Main table" },
             { value: 2, text: "Hada’s view" },
             { value: 3, text: "Chart view" },
           ]} 
         />,
-        description:"Don’t use a button group when switching between content or object pages. Use Tabs instead."
+        description:<>Don’t use a button group when switching between content or object pages. Use <Link href="/?path=/docs/components-tabs--overview" withoutSpacing>Tabs</Link> instead.</>
       }
     },
     {
@@ -171,6 +179,7 @@ Please write here the component description
           <ButtonGroup
             groupAriaLabel="button group aria label"
             size={ButtonGroup.sizes.MEDIUM}
+            value={1}
             options={[
               { value: 1, icon: "fa fa-desktop" },
               { value: 2, icon: "fa fa-mobile" }
@@ -179,6 +188,7 @@ Please write here the component description
           <ButtonGroup
             groupAriaLabel="button group aria label"
             size={ButtonGroup.sizes.MEDIUM}
+            value={1}
             options={[
               { value: 1, text: "Desktop" },
               { value: 2, text: "Mobile" },
@@ -187,6 +197,7 @@ Please write here the component description
           <ButtonGroup
             groupAriaLabel="button group aria label"
             size={ButtonGroup.sizes.MEDIUM}
+            value={1}
             options={[
               { value: 1, text: "Desktop", leftIcon: "fa fa-desktop" },
               { value: 2, text: "Mobile", leftIcon: Mobile },
@@ -200,6 +211,7 @@ Please write here the component description
         <ButtonGroup
             groupAriaLabel="button group aria label"
             size={ButtonGroup.sizes.MEDIUM}
+            value={1}
             options={[
               { value: 1, text: "Desktop" },
               { value: 2, icon: Mobile },
@@ -213,6 +225,7 @@ Please write here the component description
         component:
           <ButtonGroup
             groupAriaLabel="button group aria label"
+            value={1}
             options={[
               { value: 1, text: "Yearly plan" },
               { value: 2, text: "Monthly plan" },
@@ -225,6 +238,7 @@ Please write here the component description
         component:
           <ButtonGroup
             groupAriaLabel="button group aria label"
+            value={1}
             options={[
               { value: 1, text: "Yearly" },
               { value: 2, text: "Monthly" },
@@ -247,6 +261,7 @@ For example: on the views setttings you can choose only 1 option.
       <ButtonGroup
         groupAriaLabel="button group aria label"
         size={ButtonGroup.sizes.SMALL}
+        value={1}
         options={[
           { value: 1, text: "Sum" },
           { value: 2, text: "Average" },
@@ -258,12 +273,13 @@ For example: on the views setttings you can choose only 1 option.
   </Story>
 </Canvas>
 
-### Button group as togglex
+### Button group as toggle
 Use button group as toggle for change the view between two states. For on and off actions, use the Toggle component. 
 <Canvas>
   <Story name="Button group as togglex">
     <ButtonGroup
       groupAriaLabel="button group aria label"
+      value={1}
       options={[
         { value: 1, text: "Grid" },
         { value: 2, text: "List" },
@@ -272,6 +288,5 @@ Use button group as toggle for change the view between two states. For on and of
   </Story>
 </Canvas>
 
-
-
-
+## Related components
+<RelatedComponents componentsNames={[BUTTON, BUTTON, BUTTON]}/>
