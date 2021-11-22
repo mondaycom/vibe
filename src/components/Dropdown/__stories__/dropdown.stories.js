@@ -183,9 +183,9 @@ export const rtl = () => (
 );
 
 export const multiselect = () => {
-  const [options, setOptions] = useState(["ocean", "blue", "purple"]);
+  const [options, setOptions] = useState([mockColorOptions[1], mockColorOptions[2], mockColorOptions[3]]);
   const onAdd = value => setOptions([...options, value]);
-  const onRemove = value => setOptions(options.filter(val => val !== value));
+  const onRemove = option => setOptions(options.filter(({ value }) => option.value !== value));
   const onClear = () => setOptions([]);
 
   return (
@@ -208,10 +208,21 @@ export const multiselect = () => {
       </StoryStateRow>
       <StoryStateRow>
         <StoryStateColumn title="Limited width + single line" centerize>
-          <Dropdown className="dropdown-story dropdown-limited-width" options={mockColorOptions} multi />
+          <Dropdown
+            className="dropdown-story dropdown-limited-width"
+            options={mockColorOptions}
+            multi
+            defaultValue={[mockColorOptions[1], mockColorOptions[2], mockColorOptions[3], mockColorOptions[4]]}
+          />
         </StoryStateColumn>
         <StoryStateColumn title="Limited width + multiline" centerize>
-          <Dropdown className="dropdown-story dropdown-limited-width" options={mockColorOptions} multi />
+          <Dropdown
+            className="dropdown-story dropdown-limited-width"
+            options={mockColorOptions}
+            multi
+            multiline
+            defaultValue={[mockColorOptions[1], mockColorOptions[2], mockColorOptions[3], mockColorOptions[4]]}
+          />
         </StoryStateColumn>
       </StoryStateRow>
     </section>

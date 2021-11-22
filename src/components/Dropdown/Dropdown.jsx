@@ -12,10 +12,15 @@ import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import ValueContainer from "./components/ValueContainer/ValueContainer";
-import { defaultCustomStyles } from "./DropdownConstants";
+import { defaultCustomStyles, ADD_AUTO_HEIGHT_COMPONENTS } from "./DropdownConstants";
 import { SIZES } from "../../constants/sizes";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
+
+const addAutoHeight = provided => ({
+  ...provided,
+  height: "auto"
+});
 
 const Dropdown = ({
   className,
@@ -51,31 +56,22 @@ const Dropdown = ({
   tabIndex,
   id,
   autoFocus,
-  multi,
+  multi = false,
+  multiline = false,
   onOptionRemove: customOnOptionRemove,
   onOptionSelect,
   onClear
 }) => {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState(defaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
   const finalOptionRenderer = optionRenderer || OptionRenderer;
   const finalValueRenderer = valueRenderer || ValueRenderer;
   const isControlled = !!value;
   const selectedOptions = value ?? selected;
-  const optionsMap = useMemo(
-    () =>
-      options.reduce(
-        (acc, option) => ({
-          ...acc,
-          [option.value]: option
-        }),
-        []
-      ),
-    [options]
-  );
-  const filteredOptions = useMemo(() => options.filter(option => !selectedOptions.includes(option.value)), [
+  const selectedOptionsSet = useMemo(() => new Set(selectedOptions.map(option => option.value)), [selectedOptions]);
+  const filteredOptions = useMemo(() => options.filter(option => !selectedOptionsSet.has(option.value)), [
     options,
-    selectedOptions
+    selectedOptionsSet
   ]);
 
   const styles = useMemo(() => {
@@ -100,8 +96,14 @@ const Dropdown = ({
       };
     }, {});
 
+    if (multi && multiline) {
+      ADD_AUTO_HEIGHT_COMPONENTS.forEach(component => {
+        mergedStyles[component] = addAutoHeight;
+      });
+    }
+
     return mergedStyles;
-  }, [size, rtl, extraStyles]);
+  }, [size, rtl, extraStyles, multi, multiline]);
 
   const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
@@ -123,7 +125,7 @@ const Dropdown = ({
     () =>
       customOnOptionRemove ??
       function(optionValue, e) {
-        setSelected(selected.filter(selectedOption => selectedOption !== optionValue));
+        setSelected(selected.filter(option => option.value !== optionValue));
 
         e.stopPropagation();
       },
@@ -136,7 +138,7 @@ const Dropdown = ({
     props => (
       <components.ValueContainer {...props}>
         <ValueContainer
-          selectedOptions={selectedOptions.map(option => optionsMap[option])}
+          selectedOptions={selectedOptions}
           onSelectedDelete={onOptionRemove}
           setIsDialogShown={setIsDialogShown}
           isDialogShown={isDialogShown}
@@ -145,7 +147,7 @@ const Dropdown = ({
         />
       </components.ValueContainer>
     ),
-    [selectedOptions, onOptionRemove, optionsMap, isDialogShown, hideDialog]
+    [selectedOptions, onOptionRemove, isDialogShown, hideDialog]
   );
 
   const onChange = (option, event) => {
@@ -155,14 +157,14 @@ const Dropdown = ({
 
     switch (event.action) {
       case "select-option": {
-        const optionValue = multi ? event.option.value : option.value;
+        const selectedOption = multi ? event.option : option;
 
         if (onOptionSelect) {
-          onOptionSelect(optionValue);
+          onOptionSelect(selectedOption);
         }
 
         if (!isControlled) {
-          setSelected([...selected, optionValue]);
+          setSelected([...selected, selectedOption]);
         }
         break;
       }
@@ -341,7 +343,34 @@ Dropdown.propTypes = {
   /**
    * Set default selected value
    */
-  defaultValue: PropTypes.object,
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired
+      })
+    ),
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired
+    })
+  ]),
+  /**
+   * The component's value.
+   * When passed, makes this a [controlled](https://reactjs.org/docs/forms.html#controlled-components) component.
+   */
+  value: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired
+      })
+    ),
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired
+    })
+  ]),
   /**
    * Select menu size from `Dropdown.size` - Dropdown.size.LARGE | Dropdown.size.MEDIUM | Dropdown.size.SMALL
    */
@@ -388,7 +417,17 @@ Dropdown.propTypes = {
   /**
    * focusAuto when component mount
    */
-  autoFocus: PropTypes.bool
+  autoFocus: PropTypes.bool,
+  /**
+   * If set to true, the dropdown will be in multi-select mode.
+   * When in multi-select mode, the selected value will be an array,
+   * and it will be displayed as our [`<Chips>`](/?path=/docs/components-chips--sandbox) component.
+   */
+  multi: PropTypes.bool,
+  /**
+   * If set to true together with `multi`, it will make the dropdown expand to multiple lines when new values are selected.
+   */
+  multiline: PropTypes.bool
 };
 
 export default Dropdown;
