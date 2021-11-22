@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
 import NOOP from "lodash/noop";
@@ -11,7 +11,7 @@ import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownI
 import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
-import ValueContainerComponent from "./components/ValueContainer/ValueContainer";
+import ValueContainer from "./components/ValueContainer/ValueContainer";
 import { defaultCustomStyles } from "./DropdownConstants";
 import { SIZES } from "../../constants/sizes";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
@@ -25,7 +25,7 @@ const Dropdown = ({
   onMenuClose,
   onFocus,
   onBlur,
-  onChange,
+  onChange: customOnChange,
   searchable,
   options,
   defaultValue,
@@ -38,8 +38,6 @@ const Dropdown = ({
   optionRenderer,
   ValueRenderer,
   valueRenderer,
-  multiValueRenderer,
-  valueContainerRenderer,
   menuRenderer,
   rtl,
   size,
@@ -52,10 +50,33 @@ const Dropdown = ({
   menuIsOpen,
   tabIndex,
   id,
-  autoFocus
+  autoFocus,
+  multi,
+  onOptionRemove: customOnOptionRemove,
+  onOptionSelect,
+  onClear
 }) => {
+  const [selected, setSelected] = useState([]);
+  const [isDialogShown, setIsDialogShown] = useState(false);
   const finalOptionRenderer = optionRenderer || OptionRenderer;
   const finalValueRenderer = valueRenderer || ValueRenderer;
+  const isControlled = !!value;
+  const selectedOptions = value ?? selected;
+  const optionsMap = useMemo(
+    () =>
+      options.reduce(
+        (acc, option) => ({
+          ...acc,
+          [option.value]: option
+        }),
+        []
+      ),
+    [options]
+  );
+  const filteredOptions = useMemo(() => options.filter(option => !selectedOptions.includes(option.value)), [
+    options,
+    selectedOptions
+  ]);
 
   const styles = useMemo(() => {
     // We first want to get the default stylized groups (e.g. "container", "menu").
@@ -98,10 +119,65 @@ const Dropdown = ({
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
-  const ValueContainer = useCallback(
-    props => <ValueContainerComponent Renderer={valueContainerRenderer} {...props} />,
-    [valueContainerRenderer]
+  const onOptionRemove = useMemo(
+    () =>
+      customOnOptionRemove ??
+      function(optionValue, e) {
+        setSelected(selected.filter(selectedOption => selectedOption !== optionValue));
+
+        e.stopPropagation();
+      },
+    [customOnOptionRemove, selected]
   );
+
+  const hideDialog = useCallback(() => setIsDialogShown(false), []);
+
+  const valueContainerRenderer = useCallback(
+    props => (
+      <components.ValueContainer {...props}>
+        <ValueContainer
+          selectedOptions={selectedOptions.map(option => optionsMap[option])}
+          onSelectedDelete={onOptionRemove}
+          setIsDialogShown={setIsDialogShown}
+          isDialogShown={isDialogShown}
+          onCounterHide={hideDialog}
+          {...props}
+        />
+      </components.ValueContainer>
+    ),
+    [selectedOptions, onOptionRemove, optionsMap, isDialogShown, hideDialog]
+  );
+
+  const onChange = (option, event) => {
+    if (customOnChange) {
+      customOnChange(option, event);
+    }
+
+    switch (event.action) {
+      case "select-option": {
+        const optionValue = multi ? event.option.value : option.value;
+
+        if (onOptionSelect) {
+          onOptionSelect(optionValue);
+        }
+
+        if (!isControlled) {
+          setSelected([...selected, optionValue]);
+        }
+        break;
+      }
+
+      case "clear":
+        if (onClear) {
+          onClear();
+        }
+
+        if (!isControlled) {
+          setSelected([]);
+        }
+        break;
+    }
+  };
 
   const DropDownComponent = asyncOptions ? AsyncSelect : Select;
 
@@ -114,8 +190,8 @@ const Dropdown = ({
   };
 
   const additions = {
-    ...(!asyncOptions && { options }),
-    ...(multiValueRenderer && { isMulti: true })
+    ...(!asyncOptions && { options: multi ? filteredOptions : options }),
+    ...(multi && { isMulti: true })
   };
 
   return (
@@ -128,8 +204,10 @@ const Dropdown = ({
         Input,
         ...(finalOptionRenderer && { Option }),
         ...(finalValueRenderer && { SingleValue }),
-        ...(multiValueRenderer && { MultiValue: multiValueRenderer }),
-        ...(valueContainerRenderer && { ValueContainer }),
+        ...(multi && {
+          MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
+          ValueContainer: valueContainerRenderer
+        }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
       size={size}
