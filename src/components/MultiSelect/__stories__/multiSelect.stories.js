@@ -17,7 +17,7 @@ const mockColorOptions = [
 ];
 
 export const Sandbox = () => {
-  const [options, setOptions] = useState(["ocean", "blue"]);
+  const [options, setOptions] = useState(["ocean", "blue", "purple"]);
   const onAdd = value => setOptions([...options, value]);
   const onRemove = value => setOptions(options.filter(val => val !== value));
   const onClear = () => setOptions([]);
