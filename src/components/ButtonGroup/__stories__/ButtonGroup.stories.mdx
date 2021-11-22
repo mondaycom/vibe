@@ -15,7 +15,7 @@ export const buttonGroupTemplate = createComponentTemplate(ButtonGroup);
 
 <!--- Component documentation -->
 
-# ButtonGroup
+# Button Group
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -106,28 +106,32 @@ Please write here the component description
 ### Size
 <Canvas>
   <Story name="Size">
-    <>Medium</>
-    <ButtonGroup
-      groupAriaLabel="button group aria label"
-      size={ButtonGroup.sizes.MEDIUM}
-      options={[
-        { value: 1, text: "Alpha" },
-        { value: 2, text: "Beta" },
-        { value: 3, text: "Gamma" },
-        { value: 4, text: "Delta" },
-      ]} 
-    />
-    <div>Small</div>
-    <ButtonGroup
-      groupAriaLabel="button group aria label"
-      size={ButtonGroup.sizes.SMALL}
-      options={[
-        { value: 1, text: "Alpha" },
-        { value: 2, text: "Beta" },
-        { value: 3, text: "Gamma" },
-        { value: 4, text: "Delta" },
-      ]} 
-    />
+    <div className="monday-storybook-button-group_column">
+      <>Medium</>
+      <ButtonGroup
+        groupAriaLabel="button group aria label"
+        size={ButtonGroup.sizes.MEDIUM}
+        options={[
+          { value: 1, text: "Alpha" },
+          { value: 2, text: "Beta" },
+          { value: 3, text: "Gamma" },
+          { value: 4, text: "Delta" },
+        ]} 
+      />
+    </div>
+    <div className="monday-storybook-button-group_column">
+      <>Small</>
+      <ButtonGroup
+        groupAriaLabel="button group aria label"
+        size={ButtonGroup.sizes.SMALL}
+        options={[
+          { value: 1, text: "Alpha" },
+          { value: 2, text: "Beta" },
+          { value: 3, text: "Gamma" },
+          { value: 4, text: "Delta" },
+        ]} 
+      />
+    </div>
   </Story>
 </Canvas>
 
@@ -238,16 +242,19 @@ Please write here the component description
 For example: on the views setttings you can choose only 1 option.
 <Canvas>
   <Story name="Button group in settings">
-    <ButtonGroup
-      groupAriaLabel="button group aria label"
-      size={ButtonGroup.sizes.SMALL}
-      options={[
-        { value: 1, text: "Sum" },
-        { value: 2, text: "Average" },
-        { value: 3, text: "Median" },
-        { value: 4, text: "Min" },
-      ]} 
-    />
+    <div className="monday-storybook-button-group_column">
+      <>Function</>
+      <ButtonGroup
+        groupAriaLabel="button group aria label"
+        size={ButtonGroup.sizes.SMALL}
+        options={[
+          { value: 1, text: "Sum" },
+          { value: 2, text: "Average" },
+          { value: 3, text: "Median" },
+          { value: 4, text: "Min" },
+        ]} 
+      />
+    </div>
   </Story>
 </Canvas>
 
