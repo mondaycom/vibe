@@ -74,18 +74,18 @@ Has 4 states: regular, hover, selected, and disabled.
       positive: {
         component:
           <DialogContentContainer className="monday-style-story-checkbox_wrapper">
-            <Checkbox label="Item 1" />
-            <Checkbox label="Item 2" checked />
-            <Checkbox label="Item 3" checked />
+            <Checkbox label="Item 1" name="Item 1" />
+            <Checkbox label="Item 2" name="Item 2" checked />
+            <Checkbox label="Item 3" name="Item 3" checked />
           </DialogContentContainer>,
         description:"Use checkboxes when one or more items can be selected."
       },
       negative: {
         component: 
           <DialogContentContainer className="monday-style-story-checkbox_wrapper">
-            <Checkbox label="Item 1" checked />
-            <Checkbox label="Item 2" disabled />
-            <Checkbox label="Item 3" disabled />
+            <Checkbox label="Item 1" name="Item 1" checked />
+            <Checkbox label="Item 2" name="Item 2" disabled />
+            <Checkbox label="Item 3" name="Item 3" disabled />
           </DialogContentContainer>,
         description:"Don't use checkboxes when only one item can be selected from a list. Use radio buttons instead."
       }
@@ -109,9 +109,9 @@ Has 4 states: regular, hover, selected, and disabled.
       positive: {
         component:
           <DialogContentContainer className="monday-style-story-checkbox_wrapper">
-            <Checkbox label="Item 1" />
-            <Checkbox label="Item 2" checked />
-            <Checkbox label="Item 3" checked />
+            <Checkbox label="Item 1" name="Item 1" />
+            <Checkbox label="Item 2" name="Item 2" checked />
+            <Checkbox label="Item 3" name="Item 3" checked />
           </DialogContentContainer>,
         description:"Place the checkbox on the left side of the label."
       },

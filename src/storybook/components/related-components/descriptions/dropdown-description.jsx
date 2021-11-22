@@ -3,17 +3,16 @@ import { RelatedComponent } from "../../related-component/related-component";
 import Dropdown from "../../../../components/Dropdown/Dropdown";
 
 export const DropdownDescription = () => {
-  const style = {
-    width: "60%"
-  };
-  const component = useMemo(
-    () => (
+  const component = useMemo(() => {
+    const style = {
+      width: "60%"
+    };
+    return (
       <div style={style}>
         <Dropdown placeholder="Placeholder text here" size={Dropdown.size.MEDIUM} />
       </div>
-    ),
-    []
-  );
+    );
+  }, []);
   return (
     <RelatedComponent
       component={component}
