@@ -64,11 +64,33 @@ describe("Button renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("renders correctly with props change ui", () => {
+    const tree = renderer
+      .create(
+        <Button noSidePadding rightFlat leftFlat marginLeft marginRight active>
+          Button
+        </Button>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   describe("a11y", () => {
-    it("renders correctly with a11y props", () => {
+    it("renders correctly with a11y props (false)", () => {
       const tree = renderer
         .create(
           <Button ariaLabel="text" ariaControls="area" ariaExpanded={false} ariaLabeledBy="id" ariaHasPopup={false}>
+            Button
+          </Button>
+        )
+        .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it("renders correctly with a11y props (true)", () => {
+      const tree = renderer
+        .create(
+          <Button ariaLabel="text" ariaControls="area" ariaExpanded={true} ariaLabeledBy="id" ariaHasPopup={true}>
             Button
           </Button>
         )

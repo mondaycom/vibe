@@ -67,17 +67,33 @@ describe("<Buttoon />", () => {
         expect(clickActionStub.mock.calls.length).toEqual(0);
       });
 
-      it("should not call the callback if success", () => {
-        const { rerender, getByText } = buttonComponent;
-        const successText = "Done!";
-        rerender(
-          <Button onClick={clickActionStub} success successText={successText}>
-            {text}
-          </Button>
-        );
-        fireEvent.click(getByText(successText));
-        expect(clickActionStub.mock.calls.length).toEqual(0);
+      describe("Success", () => {
+        it("should not display the successText if not success", () => {
+          const { rerender, queryByText } = buttonComponent;
+          const successText = "Done!";
+          rerender(
+              <Button onClick={clickActionStub} successText={successText}>
+                {text}
+              </Button>
+          );
+          const element = queryByText(successText);
+          expect(element).toEqual(null);
+        });
+
+        it("should not call the callback if success", () => {
+          const { rerender, getByText } = buttonComponent;
+          const successText = "Done!";
+          rerender(
+              <Button onClick={clickActionStub} success successText={successText}>
+                {text}
+              </Button>
+          );
+          fireEvent.click(getByText(successText));
+          expect(clickActionStub.mock.calls.length).toEqual(0);
+        });
       });
+
+
     });
   });
 
@@ -88,6 +104,16 @@ describe("<Buttoon />", () => {
     const button = getByText(text);
     fireEvent.blur(button);
     expect(onBlur.mock.calls.length).toEqual(1);
+  });
+
+  it("should call do blur on mouseup", () => {
+    const onBlur = jest.fn();
+    cleanup();
+    const { getByText } = renderComponent({ onBlur, blurOnMouseUp: false });
+    const button = getByText(text);
+    fireEvent.focus(button);
+    fireEvent.mouseUp(button);
+    expect(button).not.toHaveFocus;
   });
 
   it("should call on focus", () => {
