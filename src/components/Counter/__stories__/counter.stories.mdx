@@ -1,0 +1,140 @@
+import Counter from "../Counter";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { TOOLTIP, LABEL, CHIP } from "../../../storybook/components/related-components/component-description-map";
+import Avatar from "../../Avatar/Avatar.jsx"
+import { Notifications, AddUpdate, Update } from "../../Icon/Icons"
+import Icon from "../../Icon/Icon.jsx"
+import "./counter.stories.scss";
+
+<Meta
+  title="Components/Counter"
+  component={ Counter }
+/>
+
+<!--- Component template -->
+
+export const counterTemplate = createComponentTemplate(Counter);
+
+<!--- Component documentation -->
+
+# Counter
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+Please write here the component description
+
+<Canvas>
+  <Story name="Overview"
+         args={ {count: 5} }>
+    { counterTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ Counter } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Counters are usually placed after the label of the item they're quantifying, such as the number of notifications. They should only be used to represent a number.",
+  <>The element the counter refers to should include Tooltip, where necessary, to enhance user understanding. For example, a badge is used in conjunction with an icon.</>,
+]}/>
+
+<Tip title="Check yourself">Need to indicate information that is not numeric? Use the Label component instead.</Tip>
+
+## Variants
+### Sizes
+There are two sizes of counters
+<Canvas>
+  <Story name="Sizes">
+    <Counter count={5} />
+    <Counter count={5} size={Counter.sizes.SMALL} />
+  </Story>
+</Canvas>
+
+### Colors
+<Canvas>
+  <Story name="Colors">
+    <Counter count={5} />
+    <Counter count={5} color={Counter.colors.NEGATIVE} />
+    <Counter count={5} color={Counter.colors.DARK} />
+  </Story>
+</Canvas>
+
+### Outline 
+<Canvas>
+  <Story name="Outline">
+    <Counter count={5} kind={Counter.kinds.LINE} />
+    <Counter count={5} color={Counter.colors.NEGATIVE} kind={Counter.kinds.LINE} />
+    <Counter count={5} color={Counter.colors.DARK} kind={Counter.kinds.LINE} />
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:<Counter count={15} />,
+        description:"Use counter to notify the number of items, such as notifications, updates, or inbox alerts."
+      },
+      negative: {
+        component:<Counter count="New" />,
+        description:"Don’t include any text. If you need a text label, use a Label."
+      }
+    },
+    {
+      positive: {
+        component:<Counter count={1000}/>,
+        description:"Only use a maximum of 3 digits in a counter."
+      },
+      negative: {
+        component:<Counter count={1050} maxDigits={4} />,
+        description:"Don’t use more than 3 digits in a caounter."
+      }
+    }
+  ]}
+/>
+
+
+## Use cases and examples
+### Notification counter
+Used on the notification icon to indicate the number of new notifications.
+<Canvas>
+  <Story name="Notification counter">
+    <Avatar type={Avatar.types.ICON} icon={Notifications} topRightBadgeProps={ <Counter />} />
+    
+  </Story>
+</Canvas>
+
+### Counter on inbox filters
+The counter represents the number of items on each topic.
+<Canvas>
+  <Story name="Counter on inbox filters">
+    <span>UX Writing & microcopy Re... <Counter count={195} color={Counter.colors.DARK} /></span>
+    <span>Mobile Data- Iteration Plan...<Counter count={141} color={Counter.colors.DARK} /></span>
+    <span>Q Plans <Counter count={99} color={Counter.colors.DARK} /></span>
+  </Story>
+</Canvas>
+
+### Count the number of updates
+The counter represents the number of items on each topic.
+<Canvas>
+  <Story name="Count the number of updates">
+    <Icon icon={AddUpdate} iconSize="24" />
+    <Icon icon={Update} iconSize="24" />
+    <Icon icon={Update} iconSize="24" />
+    <Counter count={5} />
+    <Counter count={5} color={Counter.colors.DARK} />
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[LABEL,TOOLTIP,CHIP]} />

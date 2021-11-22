@@ -1,0 +1,11 @@
+@import "../../../styles/themes.scss";
+
+.monday-storybook-button-group {
+  &_column {
+    width: 400px;
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
