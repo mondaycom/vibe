@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Counter from "../Counter/Counter";
 import Chip from "./Chip";
 import classes from "./MultiSelect.module.scss";
@@ -8,29 +8,44 @@ export default function Container({ selectedOptions, children, onSelectedDelete 
 
   const clickHandler = children[1];
 
-  let overflowingChildren = 0;
-  if (ref) {
-    const { bottom: parentBottom } = ref.getBoundingClientRect();
+  const overflowingIndex = useMemo(() => {
+    let index = -1;
+    if (ref) {
+      const { bottom: parentBottom } = ref.getBoundingClientRect();
 
-    ref.children.forEach(child => {
-      const { bottom: childBottom } = child.getBoundingClientRect();
+      for (let i = 0; i < ref.children.length; i++) {
+        const child = ref.children[i];
+        const { bottom: childBottom } = child.getBoundingClientRect();
 
-      if (childBottom > parentBottom) {
-        overflowingChildren++;
+        if (childBottom > parentBottom) {
+          index = i;
+          break;
+        }
       }
-    });
-  }
+    }
+    return index;
+  }, [ref]);
+
+  const isOverflowCalculated = overflowingIndex > -1;
+  const overflowingChildren = isOverflowCalculated
+    ? selectedOptions.slice(overflowingIndex, selectedOptions.length)
+    : [];
 
   return (
     <div className={classes["value-container"]}>
       <div className={classes["value-container-chips"]} ref={newRef => setRef(newRef)}>
-        {selectedOptions.map(option => (
-          <Chip key={option.value} {...option} onDelete={onSelectedDelete} />
-        ))}
+        {selectedOptions.map((option, index) =>
+          isOverflowCalculated && index >= overflowingIndex ? null : (
+            <Chip key={option.value} {...option} onDelete={onSelectedDelete} />
+          )
+        )}
+        {clickHandler}
       </div>
-      {clickHandler}
+
       <div className={classes["value-container-counter"]}>
-        {!!overflowingChildren && <Counter kind={Counter.kinds.LINE} prefix="+" count={overflowingChildren} />}
+        {!!overflowingChildren.length && (
+          <Counter kind={Counter.kinds.LINE} prefix="+" count={overflowingChildren.length} />
+        )}
       </div>
     </div>
   );
