@@ -78,7 +78,7 @@ Has 4 states: regular, hover, selected, and disabled.
             <Checkbox label="Item 2" name="Item 2" checked />
             <Checkbox label="Item 3" name="Item 3" checked />
           </DialogContentContainer>,
-        description:"Use checkboxes when one or more items can be selected."
+        description: "Use checkboxes when one or more items can be selected."
       },
       negative: {
         component: 
@@ -87,13 +87,13 @@ Has 4 states: regular, hover, selected, and disabled.
             <Checkbox label="Item 2" name="Item 2" disabled />
             <Checkbox label="Item 3" name="Item 3" disabled />
           </DialogContentContainer>,
-        description:"Don't use checkboxes when only one item can be selected from a list. Use radio buttons instead."
+        description: <>Don't use checkboxes when only one item can be selected from a list. Use <Link href="/?path=/docs/components-radio-button--overview" withoutSpacing>radio buttons</Link> instead.</>
       }
     },
     {
       positive: {
         component:<div className="monday-style-story-checkbox_border"><Checkbox label="Option" checked /></div>,
-        description:"Use the checkbox label’s prop to describe the option purpse."
+        description: "Use the checkbox label’s prop to describe the option purpse."
       },
       negative: {
         component: [
@@ -102,7 +102,7 @@ Has 4 states: regular, hover, selected, and disabled.
           </div>,
           <div className="monday-style-story-checkbox_border">Option</div>
         ],
-        description:"Don’t use a separte div which is not related to the Checkbox component."
+        description: "Don’t use a separte div which is not related to the Checkbox component."
       }
     },
     {
@@ -113,7 +113,7 @@ Has 4 states: regular, hover, selected, and disabled.
             <Checkbox label="Item 2" name="Item 2" checked />
             <Checkbox label="Item 3" name="Item 3" checked />
           </DialogContentContainer>,
-        description:"Place the checkbox on the left side of the label."
+        description: "Place the checkbox on the left side of the label."
       },
       negative: {
         component: 
@@ -140,14 +140,14 @@ Has 4 states: regular, hover, selected, and disabled.
           <DialogContentContainer className="monday-style-story-checkbox_wrapper">
             <Checkbox label="Only show incomplete items" checked />
           </DialogContentContainer>,
-        description:"Always keep a positive tone of voice."
+        description: "Always keep a positive tone of voice."
       },
       negative: {
         component:         
           <DialogContentContainer className="monday-style-story-checkbox_wrapper">
             <Checkbox label="Hide done items" checked />
           </DialogContentContainer>,
-        description:"Avoid negative language that makes the user check the box in order for something not to happen."
+        description: "Avoid negative language that makes the user check the box in order for something not to happen."
       }
     }
   ]}
