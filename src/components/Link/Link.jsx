@@ -70,16 +70,47 @@ Link.propTypes = {
 };
 
 Link.defaultProps = {
-  componentClassName: "",
-  href: "",
-  text: "",
-  rel: "noreferrer",
-  onClick: NOOP,
-  target: Link.target.NEW_WINDOW,
-  ariaLabelDescription: "",
-  icon: "",
-  iconPosition: Link.position.START,
+  /**
+   * Id to add to the
+   */
   id: "",
+  /**
+   * Classname to be added to the component container
+   */
+  componentClassName: "",
+  /**
+   * the href to link the component to
+   */
+  href: "",
+  /**
+   * the link text
+   */
+  text: "",
+  /**
+   * The rel attribute defines the relationship between a linked resource and the current document
+   */
+  rel: "noreferrer",
+  /**
+   * on link click callback
+   */
+  onClick: NOOP,
+  /**
+   * the target window where the link should be open
+   */
+  target: Link.target.NEW_WINDOW,
+  /**
+   * Aria label
+   */
+  ariaLabelDescription: "",
+  /**
+   * icon to add to the link
+   */
+  icon: "",
+  /**
+   * where the icon should be located
+   */
+  iconPosition: Link.position.START,
+
   ariaLabeledBy: ""
 };
 
