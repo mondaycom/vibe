@@ -1,11 +1,14 @@
-import React, { useMemo, useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Counter from "../Counter/Counter";
+import Dialog from "../Dialog/Dialog";
+import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import Chip from "./Chip";
 import classes from "./MultiSelect.module.scss";
 
 const EMPTY_ARRAY = [];
+const CLICK_EVENT = "click";
 
-export default function Container({ selectedOptions, children, onSelectedDelete }) {
+export default function Container({ selectedOptions, children, onSelectedDelete, isDialogShown, setIsDialogShown }) {
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
@@ -23,6 +26,8 @@ export default function Container({ selectedOptions, children, onSelectedDelete 
       ),
     [selectedOptions, onSelectedDelete]
   );
+
+  const hide = useCallback(() => setIsDialogShown(false), [setIsDialogShown]);
 
   useEffect(() => {
     let index = -1;
@@ -54,6 +59,14 @@ export default function Container({ selectedOptions, children, onSelectedDelete 
     setIsCounterShown(!!overflowingChildren.length);
   }, [overflowingChildren.length]);
 
+  useEffect(() => {
+    document.addEventListener(CLICK_EVENT, hide);
+
+    return () => {
+      document.removeEventListener(CLICK_EVENT, hide);
+    };
+  });
+
   return (
     <div className={classes["value-container"]}>
       <div className={classes["value-container-chips"]} ref={newRef => setRef(newRef)}>
@@ -72,8 +85,30 @@ export default function Container({ selectedOptions, children, onSelectedDelete 
       </div>
 
       <div>
-        {!!overflowingChildren.length && (
-          <Counter kind={Counter.kinds.LINE} prefix="+" count={overflowingChildren.length} />
+        {isCounterShown && (
+          <Dialog
+            content={() => (
+              <DialogContentContainer className={classes["value-container-dialog-content"]}>
+                {renderOptions(overflowingIndex)}
+              </DialogContentContainer>
+            )}
+            tooltip
+            showTrigger={Dialog.hideShowTriggers.CLICK}
+            hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
+            open={isDialogShown}
+            onClick={() => setIsDialogShown(true)}
+            onClickOutside={() => setIsDialogShown(false)}
+          >
+            <Counter
+              kind={Counter.kinds.LINE}
+              prefix="+"
+              count={overflowingChildren.length}
+              onMouseDown={e => {
+                e.stopPropagation();
+              }}
+              noAnimation
+            />
+          </Dialog>
         )}
       </div>
     </div>

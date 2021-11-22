@@ -7,6 +7,7 @@ const addHeightAuto = styles => ({ ...styles, height: "auto" });
 
 const MultiSelect = ({ multiline, value, options, onClear, onAdd, onRemove, ...rest }) => {
   const [selected, setSelected] = useState([]);
+  const [isDialogShown, setIsDialogShown] = useState(false);
   const isControlled = !!value;
   const selectedOptions = value ?? selected;
   const optionsMap = useMemo(
@@ -63,15 +64,20 @@ const MultiSelect = ({ multiline, value, options, onClear, onAdd, onRemove, ...r
     }
   };
 
+  const hide = useCallback(() => setIsDialogShown(false), []);
+
   const valueContainerRenderer = useCallback(
     props => (
       <ValueContainer
         selectedOptions={selectedOptions.map(option => optionsMap[option])}
         onSelectedDelete={onOptionRemove}
+        setIsDialogShown={setIsDialogShown}
+        isDialogShown={isDialogShown}
+        onCounterHide={hide}
         {...props}
       />
     ),
-    [selectedOptions, onOptionRemove, optionsMap]
+    [selectedOptions, onOptionRemove, optionsMap, isDialogShown, hide]
   );
 
   const multiValueRenderer = useCallback(({ data }) => <Chip {...optionsMap[data]} onDelete={onOptionRemove} />, [

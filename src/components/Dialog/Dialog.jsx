@@ -181,7 +181,7 @@ export default class Dialog extends PureComponent {
     const { isOpen } = this.state;
     const { open } = this.props;
 
-    return isOpen || open;
+    return typeof open !== "undefined" ? open : isOpen;
   }
 
   isShowTrigger(event) {
@@ -375,6 +375,7 @@ export default class Dialog extends PureComponent {
                   styleObject={style}
                   ref={ref}
                   onClick={this.onContentClick}
+                  hasTooltip={!!tooltip}
                 >
                   {contentRendered}
                   {tooltip && (
@@ -529,7 +530,7 @@ Dialog.defaultProps = {
   showOnDialogEnter: false,
   shouldShowOnMount: false,
   disable: false,
-  open: false,
+  open: undefined,
   showTriggerIgnoreClass: null,
   hideTriggerIgnoreClass: null,
   animationType: Dialog.animationTypes.EXPAND,
