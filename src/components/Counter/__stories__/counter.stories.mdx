@@ -54,26 +54,50 @@ Please write here the component description
 There are two sizes of counters
 <Canvas>
   <Story name="Sizes">
-    <Counter count={5} />
-    <Counter count={5} size={Counter.sizes.SMALL} />
+    <div className="storybook-counter_column">
+      <Counter count={5} />
+      <>Big</>
+    </div>
+    <div className="storybook-counter_column">
+      <Counter count={5} size={Counter.sizes.SMALL} />
+      <>Small</>
+    </div>
   </Story>
 </Canvas>
 
 ### Colors
 <Canvas>
   <Story name="Colors">
-    <Counter count={5} />
-    <Counter count={5} color={Counter.colors.NEGATIVE} />
-    <Counter count={5} color={Counter.colors.DARK} />
+    <div className="storybook-counter_column">
+      <Counter count={5} />
+      <>Primary </>
+    </div>
+    <div className="storybook-counter_column">
+      <Counter count={5} color={Counter.colors.NEGATIVE} />
+      <>Negative or notification</>
+    </div>
+    <div className="storybook-counter_column">
+      <Counter count={5} color={Counter.colors.DARK} />
+      <>Dark</>
+    </div>
   </Story>
 </Canvas>
 
 ### Outline 
 <Canvas>
   <Story name="Outline">
-    <Counter count={5} kind={Counter.kinds.LINE} />
-    <Counter count={5} color={Counter.colors.NEGATIVE} kind={Counter.kinds.LINE} />
-    <Counter count={5} color={Counter.colors.DARK} kind={Counter.kinds.LINE} />
+    <div className="storybook-counter_column">
+      <Counter count={5} kind={Counter.kinds.LINE} />
+      <>Primary </>
+    </div>
+    <div className="storybook-counter_column">
+      <Counter count={5} color={Counter.colors.NEGATIVE} kind={Counter.kinds.LINE} />
+      <>Primary </>
+    </div>
+    <div className="storybook-counter_column">
+      <Counter count={5} color={Counter.colors.DARK} kind={Counter.kinds.LINE} />
+      <>Primary </>
+    </div>
   </Story>
 </Canvas>
 
@@ -118,9 +142,16 @@ Used on the notification icon to indicate the number of new notifications.
 The counter represents the number of items on each topic.
 <Canvas>
   <Story name="Counter on inbox filters">
-    <span>UX Writing & microcopy Re... <Counter count={195} color={Counter.colors.DARK} /></span>
-    <span>Mobile Data- Iteration Plan...<Counter count={141} color={Counter.colors.DARK} /></span>
-    <span>Q Plans <Counter count={99} color={Counter.colors.DARK} /></span>
+    <div className="storybook-counter_wrapper">
+      <span>UX Writing & microcopy Re...</span>
+      <span>Mobile Data- Iteration Plan...</span>
+      <span>Q Plans.</span>
+    </div> 
+    <div className="storybook-counter_wrapper">
+      <Counter count={195} color={Counter.colors.DARK} />
+      <Counter count={141} color={Counter.colors.DARK} />
+      <Counter count={99} color={Counter.colors.DARK} />
+    </div>
   </Story>
 </Canvas>
 
