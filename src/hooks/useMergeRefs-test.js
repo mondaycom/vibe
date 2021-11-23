@@ -31,17 +31,17 @@ describe("useMergeRefs", () => {
     });
 
     it("should be able to set internal ref", () => {
-      expect(internalRef).to.eq(null);
+      expect(internalRef).toBeNull();
       render(<Component />);
-      expect(internalRef.current.innerText).to.eq("Lorem ipsum dolor sit amet");
+      expect(internalRef.current.innerText).toBe("Lorem ipsum dolor sit amet");
     });
 
     it("should be able to set object prop ref", () => {
       const propRef = {};
-      expect(internalRef).to.eq(null);
+      expect(internalRef).toBeNull();
       render(<Component ref={propRef} />);
-      expect(internalRef.current.innerText).to.eq("Lorem ipsum dolor sit amet");
-      expect(propRef.current.innerText).to.eq("Lorem ipsum dolor sit amet");
+      expect(internalRef.current.innerText).toBe("Lorem ipsum dolor sit amet");
+      expect(propRef.current.innerText).toBe("Lorem ipsum dolor sit amet");
     });
 
     it("should be able to set function prop ref", () => {
@@ -50,10 +50,10 @@ describe("useMergeRefs", () => {
         state._ref = ref;
       };
 
-      expect(internalRef).to.eq(null);
+      expect(internalRef).toBeNull();
       render(<Component ref={propRef} />);
-      expect(internalRef.current.innerText).to.eq("Lorem ipsum dolor sit amet");
-      expect(state._ref.innerText).to.eq("Lorem ipsum dolor sit amet");
+      expect(internalRef.current.innerText).toBe("Lorem ipsum dolor sit amet");
+      expect(state._ref.innerText).toBe("Lorem ipsum dolor sit amet");
     });
   });
 

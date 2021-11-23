@@ -27,19 +27,19 @@ describe("useDebounceEvent", () => {
 
   describe("return types", () => {
     it("should give a callback function", () => {
-      expect(typeof hookResult.result.current.onEventChanged).to.equal("function");
+      expect(typeof hookResult.result.current.onEventChanged).toBe("function");
     });
 
     it("should give a clear function", () => {
-      expect(typeof hookResult.result.current.clearValue).to.equal("function");
+      expect(typeof hookResult.result.current.clearValue).toBe("function");
     });
 
     it("should give a update function", () => {
-      expect(typeof hookResult.result.current.updateValue).to.equal("function");
+      expect(typeof hookResult.result.current.updateValue).toBe("function");
     });
 
     it("should give the value ", () => {
-      expect(typeof hookResult.result.current.inputValue).to.equal("string");
+      expect(typeof hookResult.result.current.inputValue).toBe("string");
     });
   });
   describe("updating the value with input event", () => {
@@ -51,7 +51,7 @@ describe("useDebounceEvent", () => {
         onEventChanged(getEventObject(newInputValue));
       });
 
-      expect(hookResult.result.current.inputValue).to.equal(newInputValue);
+      expect(hookResult.result.current.inputValue).toBe(newInputValue);
     });
 
     it("should trim the value", () => {
@@ -69,7 +69,7 @@ describe("useDebounceEvent", () => {
       act(() => {
         onEventChanged(getEventObject(newInputValue));
       });
-      expect(hookRes.result.current.inputValue).to.equal(newInputValue.trim());
+      expect(hookRes.result.current.inputValue).toBe(newInputValue.trim());
     });
 
     it("should clear the value", () => {
@@ -79,7 +79,7 @@ describe("useDebounceEvent", () => {
         clearValue();
       });
 
-      expect(hookResult.result.current.inputValue).to.equal("");
+      expect(hookResult.result.current.inputValue).toBe("");
     });
 
     it("should call onChange with the correct value", () => {

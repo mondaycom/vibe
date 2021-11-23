@@ -47,14 +47,12 @@ const FormattedNumber = forwardRef(
 FormattedNumber.formatNumber = formatNumber;
 FormattedNumber.localFallBack = formatNumberConsts.DEFAULT_LOCAL;
 
-const { range } = customPropTypes;
-
 FormattedNumber.propTypes = {
   /**
    * A numeric value to format.
    */
   // eslint-disable-next-line react/require-default-props
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /**
    * Add external styling. Will be added to the main container.
    */
@@ -74,7 +72,7 @@ FormattedNumber.propTypes = {
   /**
    * Determines the number of decimal numbers (0 ~ 20).
    */
-  decimalPrecision: range(MIN_PRECISION, MAX_PRECISION),
+  decimalPrecision: PropTypes.number,
   /**
    * Format number into compact number and initial (if required).
    */
