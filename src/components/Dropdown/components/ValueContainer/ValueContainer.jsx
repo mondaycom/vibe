@@ -8,7 +8,14 @@ import classes from "./ValueContainer.module.scss";
 const EMPTY_ARRAY = [];
 const CLICK_EVENT = "click";
 
-export default function Container({ selectedOptions, children, onSelectedDelete, isDialogShown, setIsDialogShown }) {
+export default function Container({
+  selectedOptions,
+  children,
+  onSelectedDelete,
+  isDialogShown,
+  setIsDialogShown,
+  isMultiline
+}) {
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
@@ -18,6 +25,7 @@ export default function Container({ selectedOptions, children, onSelectedDelete,
   const overflowingChildren = isOverflowCalculated
     ? selectedOptions.slice(overflowingIndex, selectedOptions.length)
     : EMPTY_ARRAY;
+  const chipClassName = isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"];
 
   const renderOptions = useCallback(
     (from = 0, to = selectedOptions.length) =>
@@ -26,7 +34,7 @@ export default function Container({ selectedOptions, children, onSelectedDelete,
           <Chips
             data-testid="value-container-chip"
             key={option.value}
-            className={classes["multiselect-chip"]}
+            className={chipClassName}
             noAnimation
             id={option.value}
             label={option.label}
@@ -37,7 +45,7 @@ export default function Container({ selectedOptions, children, onSelectedDelete,
           />
         ) : null
       ),
-    [selectedOptions, onSelectedDelete]
+    [selectedOptions, onSelectedDelete, chipClassName]
   );
 
   const hide = useCallback(() => setIsDialogShown(false), [setIsDialogShown]);
@@ -51,7 +59,7 @@ export default function Container({ selectedOptions, children, onSelectedDelete,
 
       for (let i = 0; i < ref.children.length; i++) {
         const child = ref.children[i];
-        const isChip = child.classList.contains(classes["multiselect-chip"]);
+        const isChip = child.classList.contains(chipClassName);
         const { bottom: childBottom } = child.getBoundingClientRect();
 
         if (isChip) {
@@ -66,7 +74,7 @@ export default function Container({ selectedOptions, children, onSelectedDelete,
     }
 
     setOverflowingIndex(index);
-  }, [ref, isCounterShown]);
+  }, [ref, isCounterShown, chipClassName]);
 
   useEffect(() => {
     setIsCounterShown(!!overflowingChildren.length);

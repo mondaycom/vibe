@@ -17,11 +17,6 @@ import { SIZES } from "../../constants/sizes";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 
-const addAutoHeight = provided => ({
-  ...provided,
-  height: "auto"
-});
-
 const Dropdown = ({
   className,
   placeholder,
@@ -34,7 +29,7 @@ const Dropdown = ({
   searchable,
   options,
   defaultValue,
-  value,
+  value: customValue,
   noOptionsMessage,
   openMenuOnFocus,
   openMenuOnClick,
@@ -66,13 +61,13 @@ const Dropdown = ({
   const [isDialogShown, setIsDialogShown] = useState(false);
   const finalOptionRenderer = optionRenderer || OptionRenderer;
   const finalValueRenderer = valueRenderer || ValueRenderer;
-  const isControlled = !!value;
-  const selectedOptions = value ?? selected;
-  const selectedOptionsSet = useMemo(() => new Set(selectedOptions.map(option => option.value)), [selectedOptions]);
-  const filteredOptions = useMemo(() => options.filter(option => !selectedOptionsSet.has(option.value)), [
-    options,
-    selectedOptionsSet
-  ]);
+  const isControlled = !!customValue;
+  const selectedOptions = customValue ?? selected;
+  const selectedOptionsMap = useMemo(
+    () => selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {}),
+    [selectedOptions]
+  );
+  const value = multi ? selectedOptions : customValue;
 
   const styles = useMemo(() => {
     // We first want to get the default stylized groups (e.g. "container", "menu").
@@ -96,9 +91,21 @@ const Dropdown = ({
       };
     }, {});
 
-    if (multi && multiline) {
-      ADD_AUTO_HEIGHT_COMPONENTS.forEach(component => {
-        mergedStyles[component] = addAutoHeight;
+    if (multi) {
+      if (multiline) {
+        ADD_AUTO_HEIGHT_COMPONENTS.forEach(component => {
+          const original = mergedStyles[component];
+          mergedStyles[component] = (provided, state) => ({
+            ...original(provided, state),
+            height: "auto"
+          });
+        });
+      }
+
+      const originalValueContainer = mergedStyles.valueContainer;
+      mergedStyles.valueContainer = (provided, state) => ({
+        ...originalValueContainer(provided, state),
+        paddingLeft: 6
       });
     }
 
@@ -123,16 +130,15 @@ const Dropdown = ({
 
   const onOptionRemove = useMemo(
     () =>
-      customOnOptionRemove ??
-      function(optionValue, e) {
-        setSelected(selected.filter(option => option.value !== optionValue));
+      customOnOptionRemove
+        ? (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e)
+        : function(optionValue, e) {
+            setSelected(selected.filter(option => option.value !== optionValue));
 
-        e.stopPropagation();
-      },
-    [customOnOptionRemove, selected]
+            e.stopPropagation();
+          },
+    [customOnOptionRemove, selected, selectedOptionsMap]
   );
-
-  const hideDialog = useCallback(() => setIsDialogShown(false), []);
 
   const valueContainerRenderer = useCallback(
     props => (
@@ -142,12 +148,12 @@ const Dropdown = ({
           onSelectedDelete={onOptionRemove}
           setIsDialogShown={setIsDialogShown}
           isDialogShown={isDialogShown}
-          onCounterHide={hideDialog}
+          isMultiline={multiline}
           {...props}
         />
       </components.ValueContainer>
     ),
-    [selectedOptions, onOptionRemove, isDialogShown, hideDialog]
+    [selectedOptions, onOptionRemove, isDialogShown, multiline]
   );
 
   const onChange = (option, event) => {
@@ -192,8 +198,11 @@ const Dropdown = ({
   };
 
   const additions = {
-    ...(!asyncOptions && { options: multi ? filteredOptions : options }),
-    ...(multi && { isMulti: true })
+    ...(!asyncOptions && { options }),
+    ...(multi && {
+      isMulti: true,
+      filterOption: option => !selectedOptionsMap[option.value]
+    })
   };
 
   return (
