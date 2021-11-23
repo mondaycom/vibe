@@ -7,7 +7,7 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { baseClassName, closeClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { useA11yNotificationProps } from "../../hooks/useA11yNotificationProps";
+import { useA11yNotification } from "../../hooks/useA11yNotification";
 
 const AttentionBox = ({
   className,
@@ -37,7 +37,7 @@ const AttentionBox = ({
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const classNameWithType = `${baseClassName}--type-${type}`;
-  const a11yProps = useA11yNotificationProps({
+  const a11yProps = useA11yNotification({
     isUrgent: type === AttentionBox.types.NEGATIVE,
     isAriaLiveHandledOutside: ariaLiveHandledOutside
   });

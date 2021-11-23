@@ -13,7 +13,7 @@ import Info from "../Icon/Icons/components/Info";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { TOAST_TYPES, TOAST_ACTION_TYPES } from "./ToastConstants";
 import "./Toast.scss";
-import { useA11yNotificationProps } from "../../hooks/useA11yNotificationProps";
+import { useA11yNotification } from "../../hooks/useA11yNotification";
 
 const defaultIconMap = {
   [TOAST_TYPES.NORMAL]: Info,
@@ -51,6 +51,7 @@ const Toast = ({
   className,
   ariaLiveHandledOutside
 }) => {
+  const ref = useRef(null);
   const toastLinks = useMemo(() => {
     return actions
       ? actions
@@ -99,9 +100,11 @@ const Toast = ({
     };
   }, [open, autoHideDuration, setAutoHideTimer]);
   const iconElement = !hideIcon && getIcon(type, icon);
-  const a11yProps = useA11yNotificationProps({
+  const a11yProps = useA11yNotification({
     isUrgent: type === Toast.types.NEGATIVE,
-    isAriaLiveHandledOutside: ariaLiveHandledOutside
+    isAriaLiveHandledOutside: ariaLiveHandledOutside,
+    ref,
+    isIncludeActions: (actions && actions.length > 0) || !!deprecatedAction
   });
 
   return (
