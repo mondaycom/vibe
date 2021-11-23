@@ -1,30 +1,14 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import Label from "../Label";
 
-const getComponentToRender = ({ ...props } = {}) => {
-  return <Label {...props} />;
-};
+describe("Label renders correctly", () => {
+    it("with empty props", () => {
+      const tree = renderer.create(<Label />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
 
-const renderComponent = ({ ...props } = {}) => {
-  return render(getComponentToRender(props));
-};
-
-describe("<Label />", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
-  it("Shows the right text", () => {
-    const counterComponent = renderComponent({ text: "Test" });
-    const counterText = counterComponent.getByText("Test");
-    expect(counterText).toBeTruthy();
-  });
-});
-
-describe("Snapshots", () => {
-  describe("fill", () => {
+ describe("fill", () => {
     it("primary", () => {
       const tree = renderer
         .create(<Label text={"Test"} kind={Label.kinds.FILL} color={Label.colors.PRIMARY} />)
@@ -86,6 +70,11 @@ describe("Snapshots", () => {
 
     it("with leg", () => {
       const tree = renderer.create(<Label text={"Test"} isLegIncluded />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it("with wrapperClassName", () => {
+      const tree = renderer.create(<Label wrapperClassName="test" />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

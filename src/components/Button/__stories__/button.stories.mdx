@@ -4,7 +4,7 @@ import { createComponentTemplate } from "../../../storybook/functions/create-com
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { Calendar, Remove, Add, Check } from "../../Icon/Icons";
 import { BUTTON_GROUP, SPLIT_BUTTON, CHIP } from "../../../storybook/components/related-components/component-description-map";
-import { MultipleStoryElementsWrapper } from "../../../storybook/components";
+import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
 import "./button.stories.scss";
 
 <Meta
@@ -51,7 +51,7 @@ They should be clear indications that they triggering an action, buttons should 
   "Use only one primary button, and any remaining calls to action should be represented as lower emphasis buttons"
 ]}/>
 
-<Tip title="Not what you were looking for?">If you need to use icon as button with no text, check out <a href="/docs/components-buttons-icon-button--overview">Icon button</a> component</Tip>
+<Tip title="Not what you were looking for?">If you need to use icon as button with no text, check out <Link href="/?path=/docs/components-iconbutton--overview" size={Link.sizes.SMALL} withoutSpacing>Icon button</Link> component</Tip>
 
 ## Variants
 ### Button kinds
@@ -60,7 +60,7 @@ There can be more than one button in a screen, but to create the hierarchy of ac
   <Story name="Button kinds">
     <Button>Primary</Button>
     <Button kind={Button.kinds.SECONDARY}>Secondary</Button>
-    <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+    <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>                                                                     
   </Story>
 </Canvas>
 

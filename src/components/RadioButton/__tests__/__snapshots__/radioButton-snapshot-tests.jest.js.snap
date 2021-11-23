@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton renders correctly when checked 1`] = `
+<label
+  className="monday-style-radio-button-component"
+>
+  <span
+    className="monday-style-radio-button-component__radio-input-container"
+  >
+    <input
+      checked={true}
+      className="monday-style-radio-button-component__radio-input-container__radio-input"
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="monday-style-radio-button-component__radio-input-container__radio-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly when default checked 1`] = `
+<label
+  className="monday-style-radio-button-component"
+>
+  <span
+    className="monday-style-radio-button-component__radio-input-container"
+  >
+    <input
+      className="monday-style-radio-button-component__radio-input-container__radio-input"
+      defaultChecked={true}
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="monday-style-radio-button-component__radio-input-container__radio-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly when disabled 1`] = `
+<label
+  className="monday-style-radio-button-component disabled"
+>
+  <span
+    className="monday-style-radio-button-component__radio-input-container"
+  >
+    <input
+      className="monday-style-radio-button-component__radio-input-container__radio-input"
+      defaultChecked={false}
+      disabled={true}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="monday-style-radio-button-component__radio-input-container__radio-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly when unchecked 1`] = `
+<label
+  className="monday-style-radio-button-component"
+>
+  <span
+    className="monday-style-radio-button-component__radio-input-container"
+  >
+    <input
+      checked={false}
+      className="monday-style-radio-button-component__radio-input-container__radio-input"
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="monday-style-radio-button-component__radio-input-container__radio-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly with componentClassName 1`] = `
+<label
+  className="monday-style-radio-button-component test-classname"
+>
+  <span
+    className="monday-style-radio-button-component__radio-input-container"
+  >
+    <input
+      className="monday-style-radio-button-component__radio-input-container__radio-input"
+      defaultChecked={false}
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="monday-style-radio-button-component__radio-input-container__radio-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly with empty props 1`] = `
+<label
+  className="monday-style-radio-button-component"
+>
+  <span
+    className="monday-style-radio-button-component__radio-input-container"
+  >
+    <input
+      className="monday-style-radio-button-component__radio-input-container__radio-input"
+      defaultChecked={false}
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="monday-style-radio-button-component__radio-input-container__radio-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly with name 1`] = `
+<label
+  className="monday-style-radio-button-component"
+>
+  <span
+    className="monday-style-radio-button-component__radio-input-container"
+  >
+    <input
+      className="monday-style-radio-button-component__radio-input-container__radio-input"
+      defaultChecked={false}
+      disabled={false}
+      name="radiosName"
+      type="radio"
+      value=""
+    />
+    <span
+      className="monday-style-radio-button-component__radio-input-container__radio-control"
+    />
+  </span>
+  
+</label>
+`;
+
+exports[`RadioButton renders correctly with text 1`] = `
+<label
+  className="monday-style-radio-button-component"
+>
+  <span
+    className="monday-style-radio-button-component__radio-input-container"
+  >
+    <input
+      className="monday-style-radio-button-component__radio-input-container__radio-input"
+      defaultChecked={false}
+      disabled={false}
+      name=""
+      type="radio"
+      value=""
+    />
+    <span
+      className="monday-style-radio-button-component__radio-input-container__radio-control"
+    />
+  </span>
+  <span
+    className="monday-style-radio-button-component__radio-label"
+  >
+    test text
+  </span>
+</label>
+`;
+
+exports[`RadioButton renders correctly with value 1`] = `
+<label
+  className="monday-style-radio-button-component"
+>
+  <span
+    className="monday-style-radio-button-component__radio-input-container"
+  >
+    <input
+      className="monday-style-radio-button-component__radio-input-container__radio-input"
+      defaultChecked={false}
+      disabled={false}
+      name=""
+      type="radio"
+      value="optionValue"
+    />
+    <span
+      className="monday-style-radio-button-component__radio-input-container__radio-control"
+    />
+  </span>
+  
+</label>
+`;

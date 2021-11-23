@@ -42,7 +42,7 @@ describe("Toggle renders correctly", () => {
     const tree = renderer.create(<Toggle offOverrideText="TestOff" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-
+  
   it("renders correctly when labels are hidden", () => {
     const tree = renderer.create(<Toggle areLabelsHidden />).toJSON();
     expect(tree).toMatchSnapshot();
