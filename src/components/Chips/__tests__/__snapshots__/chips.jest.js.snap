@@ -4,6 +4,7 @@ exports[`renders correctly with empty props 1`] = `
 <div
   className="chips--wrapper with-close"
   id=""
+  onMouseDown={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -18,6 +19,7 @@ exports[`renders correctly with empty props 1`] = `
   <svg
     aria-hidden={false}
     className="icon_component chip-icon close icon_component--clickable"
+    data-testid="undefined-close"
     fill="currentColor"
     height="18"
     onClick={[Function]}
