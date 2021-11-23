@@ -23,7 +23,8 @@ const Chips = forwardRef(
       iconSize,
       onDelete,
       onMouseDown,
-      noAnimation
+      noAnimation,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -56,6 +57,7 @@ const Chips = forwardRef(
         id={id}
         style={backgroundColorStyle}
         onMouseDown={onMouseDown}
+        data-testid={dataTestId}
       >
         {leftIcon ? (
           <Icon
@@ -87,6 +89,7 @@ const Chips = forwardRef(
             icon={CloseSmall}
             iconSize={18}
             onClick={onDeleteCallback}
+            data-testid={`${dataTestId}-close`}
           />
         )}
       </div>

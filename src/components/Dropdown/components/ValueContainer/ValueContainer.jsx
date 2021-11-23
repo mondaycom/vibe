@@ -24,6 +24,7 @@ export default function Container({ selectedOptions, children, onSelectedDelete,
       selectedOptions.map((option, index) =>
         index >= from && index < to ? (
           <Chips
+            data-testid="value-container-chip"
             key={option.value}
             className={classes["multiselect-chip"]}
             noAnimation
@@ -81,7 +82,11 @@ export default function Container({ selectedOptions, children, onSelectedDelete,
 
   return (
     <div className={classes["value-container"]}>
-      <div className={classes["value-container-chips"]} ref={newRef => setRef(newRef)}>
+      <div
+        className={classes["value-container-chips"]}
+        ref={newRef => setRef(newRef)}
+        data-testid="value-container-chips"
+      >
         {isCounterShown ? (
           <>
             {renderOptions(0, overflowingIndex)}

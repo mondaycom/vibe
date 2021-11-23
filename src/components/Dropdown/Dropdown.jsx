@@ -400,7 +400,7 @@ Dropdown.propTypes = {
   /**
    * Whether the menu should use a portal, and where it should attach
    */
-  menuPortalTarget: PropTypes.oneOfType(PropTypes.element, PropTypes.object),
+  menuPortalTarget: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
   /**
    * Custom function to override existing styles, ex: base => {...base, ...myCustomOverrides}
    */
