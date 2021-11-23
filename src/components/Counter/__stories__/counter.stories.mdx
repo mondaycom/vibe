@@ -5,6 +5,7 @@ import { TOOLTIP, LABEL, CHIP } from "../../../storybook/components/related-comp
 import Avatar from "../../Avatar/Avatar.jsx"
 import { Notifications, AddUpdate, Update } from "../../Icon/Icons"
 import Icon from "../../Icon/Icon.jsx"
+import { Link } from "../../../storybook/components";
 import "./counter.stories.scss";
 
 <Meta
@@ -29,7 +30,7 @@ export const counterTemplate = createComponentTemplate(Counter);
 - [Feedback](#feedback)
 
 ## Overview
-Please write here the component description
+Counters show the count of some adjacent data.
 
 <Canvas>
   <Story name="Overview"
@@ -44,10 +45,10 @@ Please write here the component description
 ## Usage
 <UsageGuidelines guidelines={[
   "Counters are usually placed after the label of the item they're quantifying, such as the number of notifications. They should only be used to represent a number.",
-  <>The element the counter refers to should include Tooltip, where necessary, to enhance user understanding. For example, a badge is used in conjunction with an icon.</>,
+  <>The element the counter refers to should include <Link href="/?path=/docs/components-tooltip--overview" withoutSpacing>Tooltip,</Link> where necessary, to enhance user understanding. For example, a badge is used in conjunction with an icon.</>,
 ]}/>
 
-<Tip title="Check yourself">Need to indicate information that is not numeric? Use the Label component instead.</Tip>
+<Tip title="Check yourself">Need to indicate information that is not numeric? Use the <Link href="/?path=/docs/components-label--overview" size={Link.sizes.SMALL} withoutSpacing>Label</Link> component instead.</Tip>
 
 ## Variants
 ### Sizes
@@ -133,8 +134,10 @@ There are two sizes of counters
 Used on the notification icon to indicate the number of new notifications.
 <Canvas>
   <Story name="Notification counter">
-    <Avatar type={Avatar.types.ICON} icon={Notifications} topRightBadgeProps={ <Counter />} />
-    
+    <div className="storybook-counter_position">
+      <Avatar type={Avatar.types.ICON} icon={Notifications} backgroundColor={Avatar.colors.LIPSTICK} />
+      <Counter count={5} color={Counter.colors.NEGATIVE} wrapperClassName="storybook-counter_counter-position-top" />
+    </div>
   </Story>
 </Canvas>
 
@@ -159,11 +162,21 @@ The counter represents the number of items on each topic.
 The counter represents the number of items on each topic.
 <Canvas>
   <Story name="Count the number of updates">
-    <Icon icon={AddUpdate} iconSize="24" />
-    <Icon icon={Update} iconSize="24" />
-    <Icon icon={Update} iconSize="24" />
-    <Counter count={5} />
-    <Counter count={5} color={Counter.colors.DARK} />
+    <div className="storybook-counter_icon-wrapper">
+      <Icon icon={AddUpdate} iconSize="36" />
+      <div className="storybook-counter_line"></div>
+      <div className="storybook-counter_position">
+        <Icon icon={Update} iconSize="36" />
+        <Counter count={5} size="sm" wrapperClassName="storybook-counter_counter-position-bot" />
+      </div>
+      <div className="storybook-counter_line"></div>
+       <div className="storybook-counter_position">
+        <Icon icon={Update} iconSize="36" />
+        <Counter count={5} color={Counter.colors.DARK} size="sm" wrapperClassName="storybook-counter_counter-position-bot" />
+      </div>
+    </div>
+   
+   
   </Story>
 </Canvas>
 
