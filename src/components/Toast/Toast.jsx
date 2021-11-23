@@ -13,6 +13,7 @@ import Info from "../Icon/Icons/components/Info";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { TOAST_TYPES, TOAST_ACTION_TYPES } from "./ToastConstants";
 import "./Toast.scss";
+import { useA11yNotificationProps } from "../../hooks/useA11yNotificationProps";
 
 const defaultIconMap = {
   [TOAST_TYPES.NORMAL]: Info,
@@ -47,7 +48,8 @@ const Toast = ({
   children,
   closeable,
   onClose,
-  className
+  className,
+  ariaLiveHandledOutside
 }) => {
   const toastLinks = useMemo(() => {
     return actions
@@ -97,10 +99,14 @@ const Toast = ({
     };
   }, [open, autoHideDuration, setAutoHideTimer]);
   const iconElement = !hideIcon && getIcon(type, icon);
+  const a11yProps = useA11yNotificationProps({
+    isUrgent: type === Toast.types.NEGATIVE,
+    isAriaLiveHandledOutside: ariaLiveHandledOutside
+  });
 
   return (
     <CSSTransition in={open} classNames="monday-style-toast-animation" timeout={400} unmountOnExit>
-      <div className={classNames} role="alert" aria-live="polite">
+      <div className={classNames} {...a11yProps}>
         {iconElement && <div className="monday-style-toast-icon">{iconElement}</div>}
         <div
           className={cx("monday-style-toast-content", {
@@ -151,10 +157,15 @@ Toast.propTypes = {
   /** The number of milliseconds to wait before
    * automatically closing the Toast
    * (0 or null cancels this behaviour) */
-  autoHideDuration: PropTypes.number
+  autoHideDuration: PropTypes.number,
+  /**
+   * Is the app contains separate region for aria live messages (screen reader) or should we treat the toast as region
+   */
+  ariaLiveHandledOutside: PropTypes.bool
 };
 
 Toast.defaultProps = {
+  ariaLiveHandledOutside: false,
   type: TOAST_TYPES.NORMAL,
   className: "",
   open: false,

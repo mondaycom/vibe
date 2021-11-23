@@ -7,6 +7,7 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { baseClassName, closeClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { useA11yNotificationProps } from "../../hooks/useA11yNotificationProps";
 
 const AttentionBox = ({
   className,
@@ -19,7 +20,8 @@ const AttentionBox = ({
   text,
   withoutIcon,
   onClose,
-  compact
+  compact,
+  ariaLiveHandledOutside
 }) => {
   const iconLabel = useMemo(() => {
     if (type === ATTENTION_BOX_TYPES.DANGER) {
@@ -35,6 +37,10 @@ const AttentionBox = ({
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const classNameWithType = `${baseClassName}--type-${type}`;
+  const a11yProps = useA11yNotificationProps({
+    isUrgent: type === AttentionBox.types.NEGATIVE,
+    isAriaLiveHandledOutside: ariaLiveHandledOutside
+  });
   return (
     <aside
       className={cx(
@@ -44,7 +50,7 @@ const AttentionBox = ({
         { [closeClassName]: onClose },
         overrideClassName
       )}
-      role="alert"
+      {...a11yProps}
     >
       {title && (
         <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
@@ -102,11 +108,14 @@ AttentionBox.propTypes = {
   text: PropTypes.string,
   withoutIcon: PropTypes.bool,
   compact: PropTypes.bool,
-  onClose: PropTypes.func
+  onClose: PropTypes.func,
+  /** Is the app contains separate region for aria live messages (screen reader) or should we treat the toast as region */
+  ariaLiveHandledOutside: PropTypes.bool
 };
 
 AttentionBox.defaultProps = {
   className: undefined,
+  ariaLiveHandledOutside: false,
   type: ATTENTION_BOX_TYPES.PRIMARY,
   icon: AlertIcon,
   iconType: Icon.type.SVG,
