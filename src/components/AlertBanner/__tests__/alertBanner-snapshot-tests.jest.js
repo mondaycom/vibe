@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import renderer from "react-test-renderer";
 import AlertBanner from "../AlertBanner";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
@@ -7,25 +6,7 @@ import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import { NOOP } from "../../../utils/function-utils";
 
-jest.mock("../../Button/Button", () => {
-  const Button = ({ onClick }) => (
-    <div data-testid="cancel-button" {...(onClick && { "data-onclick": "onclick-provided" })} />
-  );
-
-  Button.sizes = {};
-  Button.kinds = {};
-  Button.colors = {};
-  Button.propTypes = {};
-  Button.defaultProps = {};
-
-  return Button;
-});
-
 describe("AlertBanner", () => {
-  const mockText = "mock title";
-  const mockLinkText = "mock Subtitle";
-  const mockLinkHref = "https://monday.com/mocklink?a=1";
-
   it("should render correctly without props", () => {
     const tree = renderer.create(<AlertBanner />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -59,7 +40,7 @@ describe("AlertBanner", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should render with correctly with text and link", () => {
+  it("should render with correctly with text and button", () => {
     const tree = renderer
       .create(
         <AlertBanner onClose={NOOP}>
@@ -87,6 +68,11 @@ describe("AlertBanner", () => {
 
   it("should render correctly with hidden close button", () => {
     const tree = renderer.create(<AlertBanner isCloseHidden></AlertBanner>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("should render correctly with background color", () => {
+    const tree = renderer.create(<AlertBanner backgroundColor={AlertBanner.backgroundColors.POSITIVE}></AlertBanner>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

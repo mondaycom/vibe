@@ -4,12 +4,16 @@ import Checkbox from "../Checkbox";
 
 describe("Checkbox tests", () => {
   const formName = "myForm";
-  const checkboxName = "checkbox";
 
+  const checkbox1Name = "checkbox1";
   const option1Value = "1";
   const option1Text = "Option 1";
+  
+  const checkbox2Name = "checkbox2";
   const option2Value = "2";
   const option2Text = "Option 2";
+
+  const checkbox3Name = "checkbox3";
   const option3Value = "3";
   const option3Text = "Option 3";
 
@@ -25,14 +29,14 @@ describe("Checkbox tests", () => {
     render(
       <form name={formName}>
         <Checkbox
-          name={checkboxName}
+          name={checkbox1Name}
           value={option1Value}
           label={option1Text}
           defaultChecked={true}
           onChange={onChangeMock1}
         />
-        <Checkbox name={checkboxName} value={option2Value} label={option2Text} onChange={onChangeMock2} />
-        <Checkbox name={checkboxName} value={option3Value} label={option3Text} onChange={onChangeMock3} />
+        <Checkbox name={checkbox2Name} value={option2Value} label={option2Text} onChange={onChangeMock2} />
+        <Checkbox name={checkbox3Name} value={option3Value} label={option3Text} onChange={onChangeMock3} />
       </form>
     );
   });

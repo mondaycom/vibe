@@ -12,6 +12,9 @@ import { ButtonDescription } from "./descriptions/button-description";
 import { TabsDescription } from "./descriptions/tab-description";
 import { BreadcrumbsDescription } from "./descriptions/breadcrumbs-description";
 import { MenuDescription } from "./descriptions/menu-description";
+import { AttentionBoxDescription } from "./descriptions/attention-box-description";
+import { AlertBannerDescription } from "./descriptions/alert-banner-description";
+import { ToastDescription } from "./descriptions/toast-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -27,6 +30,9 @@ export const BUTTON = "button";
 export const TAB = "tab";
 export const BREADCRUBMS = "breadcrumbs";
 export const MENU = "menu";
+export const ATTENTION_BOX = "attention-box";
+export const ALERT_BANNER = "alert-banner";
+export const TOAST = "toast";
 
 export const descriptionTypesMap = new Map();
 
@@ -40,6 +46,9 @@ descriptionTypesMap.set(TOOLTIP, <TooltipDescription />);
 descriptionTypesMap.set(TOGGLE, <ToggleDescription />);
 descriptionTypesMap.set(DROPDAWN, <DropdownDescription />);
 descriptionTypesMap.set(CHIP, <ChipsDescription />);
+descriptionTypesMap.set(ATTENTION_BOX, <AttentionBoxDescription />);
+descriptionTypesMap.set(ALERT_BANNER, <AlertBannerDescription />);
+descriptionTypesMap.set(TOAST, <ToastDescription />);
 descriptionTypesMap.set(BUTTON, <ButtonDescription />);
 descriptionTypesMap.set(TAB, <TabsDescription />);
 descriptionTypesMap.set(BREADCRUBMS, <BreadcrumbsDescription />);
