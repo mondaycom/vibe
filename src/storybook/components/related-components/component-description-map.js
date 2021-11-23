@@ -8,6 +8,10 @@ import { ChipsDescription } from "./descriptions/chips-description";
 import { TooltipDescription } from "./descriptions/tooltip-description";
 import { ToggleDescription } from "./descriptions/toggle-description";
 import { DropdownDescription } from "./descriptions/dropdown-description";
+import { ButtonDescription } from "./descriptions/button-description";
+import { TabsDescription } from "./descriptions/tab-description";
+import { BreadcrumbsDescription } from "./descriptions/breadcrumbs-description";
+import { MenuDescription } from "./descriptions/menu-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -19,6 +23,10 @@ export const TOOLTIP = "tooltip";
 export const TOGGLE = "toggle";
 export const DROPDAWN = "dropdawn";
 export const CHIP = "chips";
+export const BUTTON = "button";
+export const TAB = "tab";
+export const BREADCRUBMS = "breadcrumbs";
+export const MENU = "menu";
 
 export const descriptionTypesMap = new Map();
 
@@ -32,3 +40,7 @@ descriptionTypesMap.set(TOOLTIP, <TooltipDescription />);
 descriptionTypesMap.set(TOGGLE, <ToggleDescription />);
 descriptionTypesMap.set(DROPDAWN, <DropdownDescription />);
 descriptionTypesMap.set(CHIP, <ChipsDescription />);
+descriptionTypesMap.set(BUTTON, <ButtonDescription />);
+descriptionTypesMap.set(TAB, <TabsDescription />);
+descriptionTypesMap.set(BREADCRUBMS, <BreadcrumbsDescription />);
+descriptionTypesMap.set(MENU, <MenuDescription />);
