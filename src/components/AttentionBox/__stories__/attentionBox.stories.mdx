@@ -1,0 +1,162 @@
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import AttentionBox from "../AttentionBox";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { ATTENTION_BOX_TYPES } from "../AttentionBoxConstants";
+import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import { Info, Invite } from "../../Icon/Icons";
+import Button from "../../Button/Button.jsx";
+import Icon from "../../Icon/Icon";
+import Search  from "../../Search/Search";
+import Avatar from "../../Avatar/Avatar";
+import { TOOLTIP, ALERT_BANNER, TOAST } from "../../../storybook/components/related-components/component-description-map";
+import person from "./assets/person.png"
+import "./attentionBox.stories.scss";
+
+<Meta
+  title="Components/AttentionBox"
+  component={ AttentionBox }
+/>
+
+<!--- Component template -->
+
+export const attentionBoxTemplate = createComponentTemplate(AttentionBox);
+
+<!--- Component documentation -->
+
+# Attention Box
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+Attention box lets users know important information within content areas, as close as possible to the content it’s about.
+<Canvas>
+  <Story name="Overview"
+         args={{ title: "Attention box title", text: "Studies show that 100% of people who celebrate birthdays, will eventually die.", componentClassName: "monday-style-attention-box_box" }}>
+    { attentionBoxTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ AttentionBox } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Use attention box if there is crucial information for user to finish or be acknowledged about a task.",
+  "Attention box do not dismiss automatically. They persist on the page until the user dismisses them or takes action that resolves the notification.",
+  "The width of attention box is based on content and layout. They can expand to the fill the container or content area they relate to.",
+  "Their height is based on the content length, which should not exceed two lines of text.",
+]}/>
+
+<Tip title="Check yourself">If the information about a component isn’t critical for the user, use a <Link href="/?path=/docs/components-tooltip--overview" size={Link.sizes.SMALL} withoutSpacing>Tooltip</Link> instead.</Tip>
+
+## Variants
+### States
+There are 4 types of attention boxes: Primary, success, danger, and dark (natural).
+<Canvas>
+  <Story name="States">
+    <MultipleStoryElementsWrapper className="monday-style-attention-box_column-wrapper">
+      <AttentionBox title="Primary" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." componentClassName="monday-style-attention-box_box" />
+      <AttentionBox title="Success" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." type={ATTENTION_BOX_TYPES.SUCCESS} componentClassName="monday-style-attention-box_box" />
+      <AttentionBox title="Danger" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." type={ATTENTION_BOX_TYPES.DANGER} componentClassName="monday-style-attention-box_box" />
+      <AttentionBox title="Dark" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." type={ATTENTION_BOX_TYPES.DARK} componentClassName="monday-style-attention-box_box" />
+    </MultipleStoryElementsWrapper>
+</Story>
+</Canvas>
+
+### Dismissable 
+<Canvas>
+  <Story name="Dismissable ">
+    <div className="monday-style-attention-box_row-wrapper">
+      <AttentionBox title="Regular attention box" text="Dismissable attention box with two lines of content." onClose componentClassName="monday-style-attention-box_box" />
+      <AttentionBox text="Attention box in compact mode" onClose compact componentClassName="monday-style-attention-box_box" />
+    </div>
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <AttentionBox title="Attention box title" text="Studies show that 100% of people who celebrate birthdays, will eventually die." componentClassName="monday-style-attention-box_box"/>,
+        description: "Provide a short and brief title, and explanation related to the title."
+      },
+      negative: {
+        component: <AttentionBox title="Attention box title" />,
+        description: "Don’t use only a title to explain something."
+      }
+    },
+    {
+      positive: {
+        component:
+          <div>
+            <span className="monday-style-attention-box_title">Inbox</span>
+            <span className="monday-style-attention-box_text" >Catch up on updates from all your boards.</span>
+            <AttentionBox text={<span className="monday-style-attention-box_info">Get your monday.com notifications<Link>Learn More</Link></span>} componentClassName="monday-style-attention-box_att-box"  />
+          </div>,
+        description: "Use when you are speaking directly to a piece of content and the notification can be positioned close to the content."
+      },
+      negative: {
+        component:
+          <div>
+            <span className="monday-style-attention-box_title">Inbox</span>
+            <span className="monday-style-attention-box_text" >Catch up on updates from all your boards.</span>
+            <AttentionBox text={<span className="monday-style-attention-box_info">7 days left on your free trial <Link>Learn More</Link></span>} compact componentClassName="monday-style-attention-box_att-box" />
+          </div>,
+        description: <>Don’t use when a message applies at a system level, does not apply to a specific piece of content, or needs to alert all users. On those cases, use <Link href="?path=/docs/components-alertbanner--overview" withoutSpacing>Alert banner.</Link></>
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+### Natural attention box
+Provides additional information about an action or section.
+<Canvas>
+  <Story name="Natural attention box">
+    <div className="monday-style-attention-box_wrapper">
+      <span className="monday-style-attention-box_title">Cross-Account Copier</span>
+      <span className="monday-style-attention-box_text" >Copy boards and dashboards to another account</span>
+      <AttentionBox 
+        text={<span className="monday-style-attention-box_inline-wrapper"><Icon icon={Info} iconSize="18" />First, move the content you want to copy into folder. Only main boards and dashboards can be copied.<Link href="#" size={Link.sizes.SMALL} withoutSpacing>Learn more.</Link></span>}
+        type={ATTENTION_BOX_TYPES.DARK}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+### Attention box inside a dialog/ combo box
+Provides cotextual and related information.
+<Canvas>
+  <Story name="Attention box inside a dialog/ combo box">
+    <DialogContentContainer className="monday-style-attention-box_search-bar">
+      <Search placeholder="Search by name, role, team, or email" />
+      <div className="monday-style-attention-box_lable">Suggested people</div>
+      <div className="monday-style-attention-box_search">
+        <div className="monday-style-attention-box_inline-container">
+          <Avatar size={Avatar.sizes.MEDIUM} src={person} type={Avatar.types.IMG} />
+          <span className="monday-style-attention-box_name">May Kishon<span>(UX/UI Product Designer)</span></span>
+        </div>
+        <div className="monday-style-attention-box_inline-container">
+          <Icon iconSize="24" icon={Invite} className="monday-style-attention-box_icon" />
+          <span className="monday-style-attention-box_name">Invite new board member by email</span>
+        </div>
+         <AttentionBox 
+        text={<span>Hold ⌘ to select more than one person or team</span>}
+        compact
+        onClose
+      />
+      </div>
+    </DialogContentContainer>
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[ALERT_BANNER, TOAST, TOOLTIP]} />
