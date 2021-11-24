@@ -135,6 +135,7 @@ export {default as NavigationChevronLeft} from './components/NavigationChevronLe
 export {default as NavigationChevronRight} from './components/NavigationChevronRight';
 export {default as NavigationChevronUp} from './components/NavigationChevronUp';
 export {default as NewTab} from './components/NewTab';
+export {default as Night} from './components/Night';
 export {default as NoColor} from './components/NoColor';
 export {default as Note} from './components/Note';
 export {default as Notifications} from './components/Notifications';
