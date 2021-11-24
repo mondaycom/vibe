@@ -1,6 +1,6 @@
 import React from "react";
-import { cleanup, fireEvent, render, screen, act } from "@testing-library/react";
-import renderer from "react-test-renderer";
+import { fireEvent, render, cleanup, screen } from "@testing-library/react";
+import { act } from 'react-dom/test-utils';
 import SplitButton, { SECONDARY_BUTTON_ARIA_LABEL } from "../SplitButton";
 
 jest.useFakeTimers();
@@ -19,16 +19,11 @@ const renderComponent = ({ ...props } = {}) => {
   );
 };
 
-describe("<SplitButton />", () => {
-  afterEach(cleanup);
-
+describe("SplitButton tests", () => {
   it("opens the secondary content dialog on click", async () => {
     const splitButtonComponent = renderComponent();
     const arrowButton = splitButtonComponent.getByLabelText(ArrowButtonLabel);
-    act(() => {
-      fireEvent.click(arrowButton.parentElement);
-      jest.advanceTimersByTime(1000);
-    });
+    fireEvent.click(arrowButton.parentElement);
     const expectedSecondaryDialog = await screen.findByText(secondaryContentText);
     expect(expectedSecondaryDialog).toBeTruthy();
   });
@@ -36,10 +31,7 @@ describe("<SplitButton />", () => {
   it("doesn't open the secondary content dialog on click", () => {
     const splitButtonComponent = renderComponent({ disabled: true });
     const arrowButton = splitButtonComponent.getByLabelText(ArrowButtonLabel);
-    act(() => {
-      fireEvent.click(arrowButton.parentElement);
-      jest.advanceTimersByTime(1000);
-    });
+    fireEvent.click(arrowButton.parentElement);
     const expectedSecondaryDialog = screen.queryByText(secondaryContentText);
     expect(expectedSecondaryDialog).toBeFalsy();
   });
@@ -51,7 +43,6 @@ describe("<SplitButton />", () => {
         onSecondaryDialogDidShow
       });
       const arrowButton = splitButtonComponent.getByLabelText(ArrowButtonLabel);
-
       act(() => {
         fireEvent.click(arrowButton);
         jest.advanceTimersByTime(1000);
@@ -65,7 +56,7 @@ describe("<SplitButton />", () => {
         onSecondaryDialogDidHide: onSecondaryDialogDidHideMock
       });
       const arrowButton = splitButtonComponent.getByLabelText(ArrowButtonLabel);
-
+  
       act(() => {
         fireEvent.click(arrowButton);
         jest.advanceTimersByTime(1000);
@@ -77,21 +68,3 @@ describe("<SplitButton />", () => {
   });
 });
 
-describe("Snapshots", () => {
-  it("renders correctly with only required props", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-  it("renders correctly with disabled", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} disabled={true} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-  it("renders correctly with tertiary button", () => {
-    const tree = renderer
-      .create(
-        <SplitButton secondaryDialogContent={secondaryContent} kind={SplitButton.kinds.TERTIARY} disabled={true} />
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
