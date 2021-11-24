@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Night",
+      file: "Night.svg",
+      description: "Night",
+      tags: "night, stars, dark"
+  },
+
+  {
       name: "Mirror",
       file: "Mirror.svg",
       description: "mirror",
