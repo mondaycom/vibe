@@ -94,7 +94,7 @@ The split button has three variants: primary, secondary, and tertiary.
         description: "Use split button if there are more than one action within the menu."
       },
       negative: {
-        component: <SplitButton children="New Item" secondaryDialogContent={SplitButtonExampleDialog}/>,
+        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({})}/>,
         description: "Don’t use split button if there’s only one option within the menu. Use Button instead."
       }
     },
