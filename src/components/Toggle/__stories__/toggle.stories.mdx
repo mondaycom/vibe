@@ -1,9 +1,8 @@
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import Toggle from "../Toggle";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { BUTTON_GROUP, RADIO_BUTTON, CHECKBOX } from "../../../storybook/components/related-components/component-description-map";
-import { MultipleStoryElementsWrapper } from "../../../storybook/components";
-import LinkTo from '@storybook/addon-links/react';
+import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
 import "./toggle.stories.scss";
 
 <Meta 
@@ -42,12 +41,12 @@ Allow users to turn an single option on or off. They are usually used to activat
 <UsageGuidelines guidelines={[
   "Use toggles when your intent is to turn something on or off instantly.",
   "Let users know what happens when the toggle is switched by using a tooltip.",
-  "Toggle can either be selected or not selected. They cannot be in an indeterminate state (unlike checkboxes).",
+  <>Toggle can either be selected or not selected. They cannot be in an indeterminate state (unlike <Link href="/?path=/docs/components-checkbox--overview">checkboxes</Link>).</>,
   "Use labels such as “on” and “off” or “enable” and “disable” to communicate the state of the toggle."
 ]}/>
 
 <Tip>
-  If the user needs to choose an item from a set of options, use <a href="/docs/components-buttons-radio-button--overview">Radio button</a> or <a href="/docs/components-buttons-chekboxes--overview">Checkboxes</a> instead.
+  If the user needs to choose an item from a set of options, use <Link href="/?path=/docs/components-radio-button--overview" size={Link.sizes.SMALL} withoutSpacing>Radio button</Link> or <Link href="/?path=/docs/components-checkbox--overview" size={Link.sizes.SMALL} withoutSpacing>Checkboxes</Link> instead.
 </Tip>
 
 ## Variants
@@ -56,7 +55,7 @@ Allow users to turn an single option on or off. They are usually used to activat
   <Story name="States">
     <MultipleStoryElementsWrapper className="monday-style-story-toggle_column">
       <Toggle isDefaultSelected={false} />
-      <Toggle />
+      <Toggle  />
       </MultipleStoryElementsWrapper>
   </Story>
 </Canvas>
@@ -87,7 +86,7 @@ Allow users to turn an single option on or off. They are usually used to activat
           <div className="monday-style-story-toggle_row"> 
             Theme <Toggle offOverrideText="Light mode" onOverrideText="Dark mode" />
           </div>,
-        description:"Don’t use toggle for configurations. Instead, use Checkboxes or Radio buttons."
+        description:<>Don’t use toggle for configurations. Instead, use <Link href="/?path=/docs/components-checkbox--overview" withoutSpacing>Checkboxes</Link> or <Link href="/?path=/docs/components-radio-button--overview" withoutSpacing>Radio buttons.</Link></>
       }
     },
     {
