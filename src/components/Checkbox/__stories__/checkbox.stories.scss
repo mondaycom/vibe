@@ -1,37 +1,46 @@
 @import "../Checkbox.scss";
 
 .monday-style-story-checkbox {
-  &__directions-wrapper {
+  &_border {
     display: flex;
+    align-items: center;
     justify-content: center;
-    margin: 10px;
-  }
-
-  &__state-wrapper {
-    .monday-style-story-checkbox__state {
-      position: relative;
-
-      &:after {
-        content: " ";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-      }
-
-      &--hover .monday-style-checkbox__checkbox {
-        @include hover-unselected;
-      }
-
-      &--selected-hover .monday-style-checkbox__input:checked + .monday-style-checkbox__checkbox {
-        @include hover-selected;
-      }
+    border: 1px dashed var(--ui-border-color);
+    padding: 0 8px;
+    height: 38px;
+    margin-right: 3px;
+    &:nth-child(2){
+      margin-left: 11px;
+      font-size: 14px;
+      line-height: 22px;
     }
   }
 
-  &__sandbox-wrapper {
-    color: var(--primary-text-color);
-    margin: 15px;
-    width: 70%;
+  &_wrapper {
+    padding: 14px 16px;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+  
+  &_inline-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_minus-margin {
+    margin-right: -8px;
+  }
+  
+  &_list {
+    display: flexbox;
+    padding-top: 40px;
+  }
+  
+  &_list-item {
+    display: inline-block;
+    width: 100%;
   }
 }

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "../../components";
+import { Link, Paragraph } from "../../components";
 import "./other-contributors-list.scss";
 
 const BASE_CLASS = "monday-other-contributors-list";
@@ -26,7 +26,7 @@ export const OtherContributorsList = () => {
       return contributorsJson
         .filter(contributor => !excludedDevelopers.has(contributor.id))
         .map(contributor => (
-          <Link href={contributor.html_url} size={Link.sizes.SMALL} className={`${BASE_CLASS}_developer`}>
+          <Link href={contributor.html_url} className={`${BASE_CLASS}_developer`}>
             {contributor.login}
           </Link>
         ));
@@ -34,6 +34,8 @@ export const OtherContributorsList = () => {
   }, [contributorsJson]);
 
   return (
-    <span className={BASE_CLASS}>{contributors ? <>Thanks to all of our contributors {contributors}</> : null}</span>
+    <Paragraph className={BASE_CLASS}>
+      {contributors ? <>Thanks to all of our contributors {contributors}</> : null}
+    </Paragraph>
   );
 };

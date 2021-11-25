@@ -4,7 +4,7 @@
 
 .monday-storybook-section-name {
   margin-top: $spacing-between-sections;
-  margin-bottom: 0;
+  margin-bottom: $spacing-between-section-items;
   @include basic-text;
   font-family: $header-primary-font;
   font-weight: 500;

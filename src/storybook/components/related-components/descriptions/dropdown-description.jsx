@@ -1,23 +1,23 @@
 import { useMemo } from "react";
 import { RelatedComponent } from "../../related-component/related-component";
-import TooltipLineWrapper from "../../../../components/Tooltip/__stories__/TooltipLineWrapper";
+import Dropdown from "../../../../components/Dropdown/Dropdown";
 
-export const TooltipDescription = () => {
+export const DropdownDescription = () => {
   const component = useMemo(() => {
     const style = {
-      marginTop: "40px"
+      width: "60%"
     };
     return (
       <div style={style}>
-        <TooltipLineWrapper justify="end" />
+        <Dropdown placeholder="Placeholder text here" size={Dropdown.size.MEDIUM} />
       </div>
     );
   }, []);
   return (
     <RelatedComponent
       component={component}
-      title="Tooltip"
-      description="Displays information related to an element over it."
+      title="Dropdown"
+      description="Compact elements that represent an input, attribute, or action."
     />
   );
 };

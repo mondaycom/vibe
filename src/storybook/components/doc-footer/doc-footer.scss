@@ -5,7 +5,6 @@
 .monday-storybook-footer {
   &_text {
     @include content-text;
-    margin-top: $spacing-between-section-items;
   }
 
   &_link {

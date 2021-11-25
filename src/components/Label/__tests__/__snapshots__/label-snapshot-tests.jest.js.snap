@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshots fill dark 1`] = `
+exports[`Label renders correctly fill dark 1`] = `
 <span
   className=""
 >
@@ -17,7 +17,7 @@ exports[`Snapshots fill dark 1`] = `
 </span>
 `;
 
-exports[`Snapshots fill negative 1`] = `
+exports[`Label renders correctly fill negative 1`] = `
 <span
   className=""
 >
@@ -34,7 +34,7 @@ exports[`Snapshots fill negative 1`] = `
 </span>
 `;
 
-exports[`Snapshots fill positive 1`] = `
+exports[`Label renders correctly fill positive 1`] = `
 <span
   className=""
 >
@@ -51,7 +51,7 @@ exports[`Snapshots fill positive 1`] = `
 </span>
 `;
 
-exports[`Snapshots fill primary 1`] = `
+exports[`Label renders correctly fill primary 1`] = `
 <span
   className=""
 >
@@ -68,7 +68,7 @@ exports[`Snapshots fill primary 1`] = `
 </span>
 `;
 
-exports[`Snapshots line dark 1`] = `
+exports[`Label renders correctly line dark 1`] = `
 <span
   className=""
 >
@@ -85,7 +85,7 @@ exports[`Snapshots line dark 1`] = `
 </span>
 `;
 
-exports[`Snapshots line negative 1`] = `
+exports[`Label renders correctly line negative 1`] = `
 <span
   className=""
 >
@@ -102,7 +102,7 @@ exports[`Snapshots line negative 1`] = `
 </span>
 `;
 
-exports[`Snapshots line positive 1`] = `
+exports[`Label renders correctly line positive 1`] = `
 <span
   className=""
 >
@@ -119,7 +119,7 @@ exports[`Snapshots line positive 1`] = `
 </span>
 `;
 
-exports[`Snapshots line primary 1`] = `
+exports[`Label renders correctly line primary 1`] = `
 <span
   className=""
 >
@@ -136,7 +136,7 @@ exports[`Snapshots line primary 1`] = `
 </span>
 `;
 
-exports[`Snapshots line with leg 1`] = `
+exports[`Label renders correctly line with leg 1`] = `
 <span
   className=""
 >
@@ -166,7 +166,24 @@ exports[`Snapshots line with leg 1`] = `
 </span>
 `;
 
-exports[`Snapshots line without animation 1`] = `
+exports[`Label renders correctly line with wrapperClassName 1`] = `
+<span
+  className="test"
+>
+  <div
+    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-primary monday-style-label--with-animation"
+  >
+    <span>
+      
+    </span>
+    <span
+      className="monday-style-label__leg-wrapper"
+    />
+  </div>
+</span>
+`;
+
+exports[`Label renders correctly line without animation 1`] = `
 <span
   className=""
 >
@@ -175,6 +192,23 @@ exports[`Snapshots line without animation 1`] = `
   >
     <span>
       Test
+    </span>
+    <span
+      className="monday-style-label__leg-wrapper"
+    />
+  </div>
+</span>
+`;
+
+exports[`Label renders correctly with empty props 1`] = `
+<span
+  className=""
+>
+  <div
+    className="monday-style-label monday-style-label--kind-fill monday-style-label--color-primary monday-style-label--with-animation"
+  >
+    <span>
+      
     </span>
     <span
       className="monday-style-label__leg-wrapper"

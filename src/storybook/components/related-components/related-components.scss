@@ -2,7 +2,6 @@
 @import "../../styles/content-spacing";
 
 .monday-storybook-related-components {
-  margin-top: $spacing-between-section-items;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: $spacing-large;
