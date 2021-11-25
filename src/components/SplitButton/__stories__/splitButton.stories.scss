@@ -11,10 +11,11 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: left;
+    padding: 13px 16px;
 
     &_option {
-      padding-bottom: 6px;
-      padding-top: 6px;
+      padding-bottom: 8px;
+      padding-top: 8px;
       display: flex;
 
       &:first-child {

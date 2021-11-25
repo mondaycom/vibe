@@ -91,21 +91,21 @@ The split button has three variants: primary, secondary, and tertiary.
     },
     {
       positive: {
-        component: <SplitButton dialogPaddingSize={SplitButton.dialogPaddingSizes.LARGE} children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}, {text: "New board"}] })}/>,
+        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}, {text: "New board"}] })}/>,
         description: "Use split button if there are more than one action within the menu."
       },
       negative: {
-        component: <SplitButton dialogPaddingSize={SplitButton.dialogPaddingSizes.LARGE} children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}] })}/>,
+        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}] })}/>,
         description: <>Don’t use split button if there’s only one option within the menu. Use <Link href="/?path=/docs/components-button--overview" withoutSpacing>Button</Link> instead.</>
       }
     },
     {
       positive: {
-        component: <SplitButton dialogPaddingSize={SplitButton.dialogPaddingSizes.LARGE} children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ icon: Group, text: "New group"}, { icon: Upload, text: "New board"}] })}/>,
+        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ icon: Group, text: "New group"}, { icon: Upload, text: "New board"}] })}/>,
         description: "Use a split button to display an action with related actions. The main action should be the most common."
       },
       negative: {
-        component: <SplitButton dialogPaddingSize={SplitButton.dialogPaddingSizes.MEDIUM} children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ icon: Print, text: "Print board"}, { icon: Sort, text: "Sort items"}] })}/>,
+        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ icon: Print, text: "Print board"}, { icon: Sort, text: "Sort items"}] })}/>,
         description: "Don’t use a split button just to group actions."
       }
     }
@@ -120,7 +120,6 @@ Use template is the main action.
     <SplitButton 
       className="monday-storybook-split-button_spacing"
       children="Use template"
-      dialogPaddingSize={SplitButton.dialogPaddingSizes.LARGE}
       secondaryPositions={SplitButton.secondaryPositions.BOTTOM_END}
       secondaryDialogContent={() => SplitButtonExampleDialog({ options: [{icon: Download, text: "Import template"}, { icon: Upload, text: "Export template"}] }) } 
     />
@@ -135,7 +134,6 @@ When there’s already a primary button in the view, use a secondary split butto
       <SplitButton 
         children="Export to CSV"
         kind={SplitButton.kinds.SECONDARY}
-        dialogPaddingSize={SplitButton.dialogPaddingSizes.LARGE}
         secondaryPositions={SplitButton.secondaryPositions.BOTTOM_MIDDLE}
         secondaryDialogContent={() => SplitButtonExampleDialog({ options: [{text: "Export to PDF"}, {text: "Export to Doc.x"}, {text: "Export to Excel"} ] }) } 
       />
