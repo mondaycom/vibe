@@ -5,6 +5,7 @@ import { createComponentTemplate } from "../../../storybook/functions/create-com
 import { Check, Search, Filter, Download, Group, Upload, Print, Sort } from "../../Icon/Icons";
 import { BUTTON_GROUP, BUTTON, MENU } from "../../../storybook/components/related-components/component-description-map";
 import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
+import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
 import "./splitButton.stories.scss";
 
 <Meta
@@ -42,14 +43,14 @@ A split button is a dual-function menu button that offers a default action as we
 
 ## Usage
 <UsageGuidelines guidelines={[
-  "A split button is a hybrid between a button and a menu: it groups related commands together into a dropdown, but also offers one-click access to a default choice that doesn’t require opening the menu.",
+  <>A split button is a hybrid between a button and a menu: it groups related commands together into a <Link href="/?path=/docs/components-dropdown--overview" withoutSpacing>dropdown,</Link> but also offers one-click access to a default choice that doesn’t require opening the menu.</>,
   "Limit the overall number of choices within the menu to less than four.",
   "Order the items within the menu by popularity for a small number of items, or alphabetically for a larger number of items.",
   "Avoid submenus within split button menu.",
   "Split button contains two actions: One primary action and a list of secondary actions."
 ]}/>
 
-<Tip>If the actions in the menu are not related to each other, consider using a Menu component.</Tip>
+<Tip>If the actions in the menu are not related to each other, consider using a <Link href="/?path=/docs/components-menu--overview" size={Link.sizes.SMALL} withoutSpacing>Menu</Link> component.</Tip>
 
 ## Variants
 ### Button types
@@ -90,27 +91,26 @@ The split button has three variants: primary, secondary, and tertiary.
     },
     {
       positive: {
-        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}, {text: "New board"}] })}/>,
+        component: <SplitButton dialogPaddingSize={SplitButton.dialogPaddingSizes.LARGE} children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}, {text: "New board"}] })}/>,
         description: "Use split button if there are more than one action within the menu."
       },
       negative: {
-        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}] })}/>,
-        description: "Don’t use split button if there’s only one option within the menu. Use Button instead."
+        component: <SplitButton dialogPaddingSize={SplitButton.dialogPaddingSizes.LARGE} children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}] })}/>,
+        description: <>Don’t use split button if there’s only one option within the menu. Use <Link href="/?path=/docs/components-button--overview" withoutSpacing>Button</Link> instead.</>
       }
     },
     {
       positive: {
-        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ icon: Group, text: "New group"}, { icon: Upload, text: "New board"}] })}/>,
+        component: <SplitButton dialogPaddingSize={SplitButton.dialogPaddingSizes.LARGE} children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ icon: Group, text: "New group"}, { icon: Upload, text: "New board"}] })}/>,
         description: "Use a split button to display an action with related actions. The main action should be the most common."
       },
       negative: {
-        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ icon: Print, text: "Print board"}, { icon: Sort, text: "Sort items"}] })}/>,
+        component: <SplitButton dialogPaddingSize={SplitButton.dialogPaddingSizes.MEDIUM} children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ icon: Print, text: "Print board"}, { icon: Sort, text: "Sort items"}] })}/>,
         description: "Don’t use a split button just to group actions."
       }
     }
   ]}
 />
-
 
 ## Use cases and examples
 ### Split button as the primary action
@@ -118,9 +118,11 @@ Use template is the main action.
 <Canvas>
   <Story name="Split button as the primary action">
     <SplitButton 
-      children="Use template" 
+      className="monday-storybook-split-button_spacing"
+      children="Use template"
+      dialogPaddingSize={SplitButton.dialogPaddingSizes.LARGE}
       secondaryPositions={SplitButton.secondaryPositions.BOTTOM_END}
-      secondaryDialogContent={() => SplitButtonExampleDialog({ options: [{icon: Download, text: "Import template"}, { text: "Export template"}] }) } 
+      secondaryDialogContent={() => SplitButtonExampleDialog({ options: [{icon: Download, text: "Import template"}, { icon: Upload, text: "Export template"}] }) } 
     />
   </Story>
 </Canvas>
@@ -129,13 +131,16 @@ Use template is the main action.
 When there’s already a primary button in the view, use a secondary split button.
 <Canvas>
   <Story name="Seocndary split button">
-    <SplitButton 
-      children="Export to CSV"
-      kind={SplitButton.kinds.SECONDARY}
-      secondaryPositions={SplitButton.secondaryPositions.BOTTOM_MIDDLE}
-      secondaryDialogContent={() => SplitButtonExampleDialog({ options: [{text: "Export to PDF"}, {text: "Export to Doc.x"}, {text: "Export to Excel"} ] }) } 
-    />
-    <Button>New item</Button>
+    <MultipleStoryElementsWrapper className="monday-storybook-split-button_spacing"> 
+      <SplitButton 
+        children="Export to CSV"
+        kind={SplitButton.kinds.SECONDARY}
+        dialogPaddingSize={SplitButton.dialogPaddingSizes.LARGE}
+        secondaryPositions={SplitButton.secondaryPositions.BOTTOM_MIDDLE}
+        secondaryDialogContent={() => SplitButtonExampleDialog({ options: [{text: "Export to PDF"}, {text: "Export to Doc.x"}, {text: "Export to Excel"} ] }) } 
+      />
+      <Button>New item</Button>
+    </MultipleStoryElementsWrapper>
   </Story>
 </Canvas>
 

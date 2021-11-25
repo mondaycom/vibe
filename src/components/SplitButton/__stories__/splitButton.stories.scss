@@ -6,20 +6,32 @@
 
 .monday-storybook-split-button {
   &_dialog {
-    padding: 4px;
-    min-width: 160px;
+    min-width: 176px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: left;
-    
+
     &_option {
-      padding: 4px;
-   
+      padding-bottom: 6px;
+      padding-top: 6px;
+      display: flex;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
 
     &_icon-spacing {
       margin-right: $spacing-small;
     }
+  }
+
+  &_spacing {
+    padding-bottom: 120px;
   }
 }
