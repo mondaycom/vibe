@@ -9,11 +9,13 @@
     padding: 4px;
     min-width: 160px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: left;
     
     &_option {
       padding: 4px;
+   
     }
 
     &_icon-spacing {
