@@ -15,6 +15,6 @@ describe("<MenuItemButton />", () => {
   it("should be able to render menu item text", () => {
     const { container } = render(<MenuItemButton icon="fa fa-star">my item title</MenuItemButton>);
     const MenuItemButtonElement = container.querySelector(".monday-style-menu-item-button");
-    expect(MenuItemButtonElement.innerText).to.eq("my item title");
+    expect(MenuItemButtonElement.innerText).toBe("my item title");
   });
 });

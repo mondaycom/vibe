@@ -57,7 +57,7 @@ describe("Toggle tests", () => {
         <Toggle ariaLabel={ariaLabel} />
       );
       const toggleComponent = getByLabelText(ariaLabel);
-      sinonExpect(toggleComponent).to.be.ok;
+      sinonExpect(toggleComponent).toBeTruthy();
     }); 
   });
 
