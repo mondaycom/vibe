@@ -1,25 +1,13 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 
-export function useA11yNotification({
-  isUrgent = false,
-  isAriaLiveHandledOutside = false,
-  isIncludeActions = false,
-  ref
-}) {
-  // If notification include actions, focus need to pass move to the notification itself
-  useEffect(() => {
-    if (isIncludeActions && ref && ref.current) {
-      ref.current.focus();
-    }
-  }, [isIncludeActions, ref]);
+export function useA11yNotification({ isUrgent = false, isAriaLiveHandledOutside = false }) {
   return useMemo(
     () =>
-      isAriaLiveHandledOutside || (isIncludeActions && !isUrgent)
-        ? { ref }
+      isAriaLiveHandledOutside
+        ? {}
         : {
-            role: isUrgent ? "alert" : "status",
-            ref
+            role: isUrgent ? "alert" : "status"
           },
-    [ref, isAriaLiveHandledOutside, isIncludeActions, isUrgent]
+    [isAriaLiveHandledOutside, isUrgent]
   );
 }
