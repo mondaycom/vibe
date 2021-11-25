@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from "react";
 import Counter from "../Counter";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
@@ -102,6 +103,24 @@ There are two sizes of counters
   </Story>
 </Canvas>
 
+### Limits 
+<Canvas>
+  <Story name="Limits">
+    <div className="storybook-counter_column">
+      <Counter count={10} maxDigits={1} />
+      <>One digit limit</>
+    </div>
+    <div className="storybook-counter_column">
+      <Counter count={100} maxDigits={2} />
+      <>Two digits limit</>
+    </div>
+    <div className="storybook-counter_column">
+      <Counter count={1000} />
+      <>Three digits limit</>
+    </div>
+  </Story>
+</Canvas>
+
 ## Do’s and Don’ts
 <ComponentRules
   rules={[
@@ -112,7 +131,7 @@ There are two sizes of counters
       },
       negative: {
         component:<Counter count="New" />,
-        description:"Don’t include any text. If you need a text label, use a Label."
+        description:<>Don’t include any text. If you need a text label, use a <Link href="/?path=/docs/components-label--overview" withoutSpacing>Label.</Link></>
       }
     },
     {
@@ -128,16 +147,40 @@ There are two sizes of counters
   ]}
 />
 
-
 ## Use cases and examples
 ### Notification counter
 Used on the notification icon to indicate the number of new notifications.
 <Canvas>
   <Story name="Notification counter">
-    <div className="storybook-counter_position">
-      <Avatar type={Avatar.types.ICON} icon={Notifications} backgroundColor={Avatar.colors.ROYAL} />
-      <Counter count={5} color={Counter.colors.NEGATIVE} wrapperClassName="storybook-counter_counter-position-top" />
-    </div>
+    {() => {
+      const [count, setCount] = useState(4);
+      const maxCount = 10;
+      const initialCount = 4;
+      const changeCountCallback = useCallback(() => {
+        const newCount = count === maxCount ? initialCount : count + 1;
+        setCount(newCount);
+      }, [count, setCount]);
+      useEffect(() => {
+        setCount(initialCount);
+      }, [initialCount, setCount]);
+      useEffect(() => {
+        const interval = setInterval(changeCountCallback, 1000);
+        return () => {
+          clearInterval(interval);
+        };
+      }, [changeCountCallback]);
+      return (
+        <div className="storybook-counter_position">
+          <Avatar type={Avatar.types.ICON} icon={Notifications} backgroundColor={Avatar.colors.ROYAL} />
+          <Counter 
+            count={count} 
+            maxDigits={1}
+            color={Counter.colors.NEGATIVE} 
+            wrapperClassName="storybook-counter_counter-position-top"
+          />
+        </div>
+      )
+    }}
   </Story>
 </Canvas>
 
