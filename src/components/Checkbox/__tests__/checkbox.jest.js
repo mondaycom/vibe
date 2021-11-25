@@ -2,6 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import { Checkbox } from "../Checkbox";
+import { expect as sinonExpect } from "../../../test/test-helpers";
 
 describe("Checkbox Tests", () => {
   describe("Snapshot Tests", () => {
@@ -26,6 +27,11 @@ describe("Checkbox Tests", () => {
       const tree = renderer.create(<Checkbox disabled />).toJSON();
       expect(tree).toMatchSnapshot();
     });
+
+    it("renders correctly with aria label", () => {
+      const tree = renderer.create(<Checkbox label="label" ariaLabel="aria label" />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
   describe("Integration Tests", () => {
     const formName = "myForm";
@@ -39,12 +45,17 @@ describe("Checkbox Tests", () => {
     const option3Value = "3";
     const option3Text = "Option 3";
 
+    const option4Value = "4";
+    const option4Text = "Option 4";
+    const option4AriaLabel = "Option 4 aria label";
+
     beforeEach(() => {
       render(
         <form name={formName}>
           <Checkbox name={checkboxName} value={option1Value} label={option1Text} defaultChecked={true} />
           <Checkbox name={checkboxName} value={option2Value} label={option2Text} />
           <Checkbox name={checkboxName} value={option3Value} label={option3Text} />
+          <Checkbox name={checkboxName} value={option4Value} label={option4Text} ariaLabel={option4AriaLabel} />
         </form>
       );
     });
@@ -80,6 +91,11 @@ describe("Checkbox Tests", () => {
       expect(option1.checked).toBeTruthy();
       expect(option2.checked).toBeTruthy();
       expect(option3.checked).toBeFalsy();
+    });
+
+    it("should find checkbox element by label when ariaLabel defined", () => {
+      const option4 = screen.getByLabelText(option4AriaLabel);
+      sinonExpect(option4).to.be.ok;
     });
   });
 });

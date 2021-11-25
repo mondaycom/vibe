@@ -5,7 +5,7 @@ import cx from "classnames";
 import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Button.scss";
-import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize } from "./ButtonContstants";
+import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize } from "./ButtonConstants";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
