@@ -5,17 +5,12 @@ import AttentionBox from "../AttentionBox";
 describe("AttentionBox tests", () => {
   const title = "title";
   const text = "text";
-  let onCloseMock;
-  let attentionBoxComponent;
-  
-  beforeEach(() => {
-    onCloseMock = jest.fn();
-    attentionBoxComponent = render(
+
+  it("should call onClose callback when close button clicked", () => {
+    const onCloseMock = jest.fn();
+    const attentionBoxComponent = render(
       <AttentionBox onClose={onCloseMock} title={title} text={text}  />
     );
-  });
-
-  it("should call the click callback when clicked", () => {
     fireEvent.click(screen.getByLabelText('Close'));
     expect(onCloseMock.mock.calls.length).toBe(1);
   })

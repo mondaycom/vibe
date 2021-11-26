@@ -4,21 +4,18 @@ import AlertBanner from "../../../../components/AlertBanner/AlertBanner";
 import AlertBannerText from "../../../../components/AlertBanner/AlertBannerText/AlertBannerText";
 
 export const AlertBannerDescription = () => {
-  const style = {
-    width: "90%"
-  };
-
-  const component = useMemo(
-    () => (
+  const component = useMemo(() => {
+    const style = {
+      width: "90%"
+    };
+    return (
       <div style={style}>
         <AlertBanner>
           <AlertBannerText text="Alert banner message" />
         </AlertBanner>
       </div>
-    ),
-    []
-  );
-  
+    );
+  }, []);
   return (
     <RelatedComponent
       component={component}
