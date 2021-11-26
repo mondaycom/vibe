@@ -1,5 +1,18 @@
 @import "../../../styles/themes.scss";
 
 .monday-storybook-breadcrumbs-bar {
-
+  &_inline-wrapper {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid red;
+  }
+  &_column-wrapper {
+    display: flex;
+    flex-direction: column;
+    ol {
+      padding-inline-start: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
 }

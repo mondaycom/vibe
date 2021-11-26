@@ -5,7 +5,7 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import { Workspace, Folder, Board, Group } from "../../Icon/Icons"
-import person1 from "./assets/person1.png"
+import person3 from "./assets/person3.png"
 import "./BreadcrumbsBar.stories.scss";
 
 <Meta
@@ -106,16 +106,18 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
     {
       positive: {
         component:
-          <DialogContentContainer>
-            <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} />
-            <div className="">
-              <h5>Rotem Dekel</h5>
-              <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
-                <BreadcrumbItem text="User research" icon={Board} />
-                <BreadcrumbItem text="Video sessions" icon={Group} />
-              </BreadcrumbsBar>
-            </div>
-          </DialogContentContainer>,
+        <div className="monday-storybook-breadcrumbs-bar_inline-wrapper" >
+            <DialogContentContainer>
+              <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
+              <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
+                <span>Rotem Dekel</span>
+                <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+                  <BreadcrumbItem text="User research" icon={Board} />
+                  <BreadcrumbItem text="Video sessions" icon={Group} />
+                </BreadcrumbsBar>
+              </div>
+            </DialogContentContainer>
+          </div>,
         description:"Use breadcrumbs when there is more than two levels of hierarchy."
       },
       negative: {
