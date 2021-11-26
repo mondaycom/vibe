@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { ATTENTION_BOX_TYPES } from "../AttentionBoxConstants";
-import Icon from "../../Icon/Icon"
+import Icon from "../../Icon/Icon";
 import AttentionBox from "../AttentionBox";
 
 describe("AttentionBox renders correctly", () => {
@@ -40,7 +40,9 @@ describe("AttentionBox renders correctly", () => {
   });
 
   it("renders with icon font type", () => {
-    const tree = renderer.create(<AttentionBox title="Title" text="Text" iconType={Icon.type.ICON_FONT} />).toJSON();
+    const tree = renderer
+      .create(<AttentionBox title="Title" text="Text" iconType={Icon.type.ICON_FONT} icon="fa fa-star" />)
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -50,7 +52,7 @@ describe("AttentionBox renders correctly", () => {
   });
 
   it("renders correctly with onClose", () => {
-    const tree = renderer.create(<AttentionBox title="Title" text="Text" onClose={() => null} />).toJSON();
+    const tree = renderer.create(<AttentionBox title="Title" text="Text" onClose={() => {}} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

@@ -9,10 +9,6 @@ const renderComponent = props => {
 };
 
 describe("Toast tests", () => {
-  afterEach(() => {
-    cleanup();
-  });
-
   it("calls onClose when click on close button", () => {
     const onCloseMock = jest.fn();
     const toast = renderComponent({
