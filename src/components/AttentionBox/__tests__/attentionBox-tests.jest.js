@@ -15,7 +15,7 @@ describe("AttentionBox tests", () => {
     );
   });
 
-  it("should call the click callback when clicked", () => {
+  it("should call onClose callback when close button clicked", () => {
     fireEvent.click(screen.getByLabelText('Close'));
     expect(onCloseMock.mock.calls.length).toBe(1);
   })

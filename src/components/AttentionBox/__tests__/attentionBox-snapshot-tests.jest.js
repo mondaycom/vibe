@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { ATTENTION_BOX_TYPES } from "../AttentionBoxConstants";
+import Icon from "../../Icon/Icon"
 import AttentionBox from "../AttentionBox";
 
 describe("AttentionBox renders correctly", () => {
@@ -24,23 +25,32 @@ describe("AttentionBox renders correctly", () => {
   });
 
   it("renders correctly with no icon", () => {
-    const tree = renderer
-      .create(<AttentionBox title="Title" text="Text" withoutIcon />)
-      .toJSON();
+    const tree = renderer.create(<AttentionBox title="Title" text="Text" withoutIcon />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly when compact", () => {
-    const tree = renderer
-      .create(<AttentionBox title="Title" text="Text" compact />)
-      .toJSON();
+    const tree = renderer.create(<AttentionBox title="Title" text="Text" compact />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly dark type", () => {
-    const tree = renderer
-      .create(<AttentionBox title="Title" text="Text" type={ATTENTION_BOX_TYPES.DARK} />)
-      .toJSON();
+    const tree = renderer.create(<AttentionBox title="Title" text="Text" type={ATTENTION_BOX_TYPES.DARK} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders with icon font type", () => {
+    const tree = renderer.create(<AttentionBox title="Title" text="Text" iconType={Icon.type.ICON_FONT} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly className", () => {
+    const tree = renderer.create(<AttentionBox title="Title" text="Text" className="test-classNmae" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with onClose", () => {
+    const tree = renderer.create(<AttentionBox title="Title" text="Text" onClose={() => null} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
