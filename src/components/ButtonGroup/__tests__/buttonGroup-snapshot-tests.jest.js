@@ -39,5 +39,4 @@ describe("ButtonGroup renders correctly", () => {
       const tree = renderer.create(<ButtonGroup groupAriaLabel="as" options={option} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
-
 });
