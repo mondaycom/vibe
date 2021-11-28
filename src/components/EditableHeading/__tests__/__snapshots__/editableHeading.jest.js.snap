@@ -22,7 +22,7 @@ exports[`renders correctly with empty props 1`] = `
 >
   <h1
     aria-label=""
-    className="heading-component element-type-h1 size-large heading-element-ellipsis suggest-edit-on-hover"
+    className="heading-component element-type-h1 size-large single-line-ellipsis suggest-edit-on-hover"
     id=""
   >
     
