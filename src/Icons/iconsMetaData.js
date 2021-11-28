@@ -1511,4 +1511,39 @@ export const iconsMetaData = [
     tags: "Workspace, Grid",
     category: [PLATFORM],
   },
+
+  {
+      name: "Deactivate",
+      file: "Deactivate.svg",
+      description: "Deactivate",
+      tags: "deactivate, active"
+  },
+
+  {
+      name: "AddToTeam",
+      file: "AddToTeam.svg",
+      description: "Add to team",
+      tags: "user, users, team, add"
+  },
+
+  {
+      name: "PersonRound",
+      file: "PersonRound.svg",
+      description: "Person round",
+      tags: "person, user"
+  },
+
+  {
+      name: "UserDomain",
+      file: "UserDomain.svg",
+      description: "User domain",
+      tags: "user, domain, email"
+  },
+
+  {
+      name: "UserStatus",
+      file: "UserStatus.svg",
+      description: "User status",
+      tags: "user, status"
+  }
 ];
