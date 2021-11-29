@@ -1,4 +1,5 @@
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs"
+import { useMemo } from "react";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button"
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
@@ -117,28 +118,38 @@ The split button has three variants: primary, secondary, and tertiary.
 Use template is the main action.
 <Canvas>
   <Story name="Split button as the primary action">
-    <SplitButton 
-      className="monday-storybook-split-button_spacing"
-      children="Use template"
-      secondaryPositions={SplitButton.secondaryPositions.BOTTOM_END}
-      secondaryDialogContent={() => SplitButtonExampleDialog({ options: [{icon: Download, text: "Import template"}, { icon: Upload, text: "Export template"}] }) } 
-    />
+    {() => {
+      const secondaryDialogContent = useMemo(() => SplitButtonExampleDialog({ options: [{icon: Download, text: "Import template"}, { icon: Upload, text: "Export template"}] }), []);
+      return (
+         <SplitButton 
+            className="monday-storybook-split-button_spacing"
+            children="Use template"
+            secondaryPositions={SplitButton.secondaryPositions.BOTTOM_END}
+            secondaryDialogContent={secondaryDialogContent} 
+          />
+      )
+    }}
   </Story>
 </Canvas>
 
-### Seocndary split button 
+### Secondary split button 
 When there’s already a primary button in the view, use a secondary split button.
 <Canvas>
-  <Story name="Seocndary split button">
-    <MultipleStoryElementsWrapper className="monday-storybook-split-button_spacing"> 
-      <SplitButton 
-        children="Export to CSV"
-        kind={SplitButton.kinds.SECONDARY}
-        secondaryPositions={SplitButton.secondaryPositions.BOTTOM_MIDDLE}
-        secondaryDialogContent={() => SplitButtonExampleDialog({ options: [{text: "Export to PDF"}, {text: "Export to Doc.x"}, {text: "Export to Excel"} ] }) } 
-      />
-      <Button>New item</Button>
-    </MultipleStoryElementsWrapper>
+  <Story name="Secondary split button">
+    {() => {
+      const secondaryDialogContent = useMemo(() => SplitButtonExampleDialog({ options: [{text: "Export to PDF"}, {text: "Export to Doc.x"}, {text: "Export to Excel"}] }), []);
+      return (
+        <MultipleStoryElementsWrapper className="monday-storybook-split-button_spacing"> 
+          <SplitButton 
+            children="Export to CSV"
+            kind={SplitButton.kinds.SECONDARY}
+            secondaryPositions={SplitButton.secondaryPositions.BOTTOM_MIDDLE}
+            secondaryDialogContent={secondaryDialogContent} 
+          />
+          <Button>New item</Button>
+        </MultipleStoryElementsWrapper>
+      )
+    }}
   </Story>
 </Canvas>
 

@@ -12,7 +12,7 @@ describe("SplitButton renders correctly", () => {
   });
 
   it("with disabled", () => {
-    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} disabled={true} />).toJSON();
+    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} disabled />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
