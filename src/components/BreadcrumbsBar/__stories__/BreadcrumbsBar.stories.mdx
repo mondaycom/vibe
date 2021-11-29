@@ -40,7 +40,9 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
 
 <Canvas>
   <Story name="Overview"
-         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+         args={ {
+           items: [{text: "Workspace" , icon: Workspace },{text: "Folder" , icon: Folder },{text: "Board" , icon: Board },{text: "Group" , icon: Group }],
+         } }>
     { breadcrumbsBarTemplate.bind({}) }
   </Story>
 </Canvas>
