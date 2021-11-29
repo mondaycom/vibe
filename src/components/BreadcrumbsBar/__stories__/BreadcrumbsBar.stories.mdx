@@ -1,8 +1,9 @@
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import BreadcrumbsBar from "../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem/BreadcrumbItem.jsx"
 import Avatar from "../../Avatar/Avatar.jsx"
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import Icon from "../../Icon/Icon"
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import { Workspace, Folder, Board, Group } from "../../Icon/Icons"
 import person3 from "./assets/person3.png"
@@ -15,7 +16,12 @@ import "./BreadcrumbsBar.stories.scss";
 
 <!--- Component template -->
 
-export const breadcrumbsBarTemplate = createComponentTemplate(BreadcrumbsBar);
+export const breadcrumbsBarTemplate = (args) => { 
+  return (
+    <BreadcrumbsBar {...args}> 
+      {args.items && args.items.map((item) => <BreadcrumbItem key={item.text} text={item.text} icon={item.icon} />)}
+    </BreadcrumbsBar>);
+}
 
 <!--- Component documentation -->
 
@@ -106,22 +112,29 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
     {
       positive: {
         component:
-        <div className="monday-storybook-breadcrumbs-bar_inline-wrapper" >
-            <DialogContentContainer>
-              <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
-              <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
-                <span>Rotem Dekel</span>
-                <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
-                  <BreadcrumbItem text="User research" icon={Board} />
-                  <BreadcrumbItem text="Video sessions" icon={Group} />
-                </BreadcrumbsBar>
-              </div>
-            </DialogContentContainer>
-          </div>,
+          <DialogContentContainer className="monday-storybook-breadcrumbs-bar_inline-wrapper">
+            <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
+            <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
+              <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
+              <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+                <BreadcrumbItem text="User research" icon={Board} />
+                <BreadcrumbItem text="Video sessions" icon={Group} />
+              </BreadcrumbsBar>
+            </div>
+          </DialogContentContainer>,
         description:"Use breadcrumbs when there is more than two levels of hierarchy."
       },
       negative: {
-        component:<BreadcrumbsBar />,
+        component:
+          <DialogContentContainer className="monday-storybook-breadcrumbs-bar_inline-wrapper">
+            <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
+            <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
+              <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
+              <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+                <BreadcrumbItem text="User research" icon={Board} />
+              </BreadcrumbsBar>
+            </div>
+          </DialogContentContainer>,
         description:"Don’t use breadcrumbs when there is only one level of navigation or hierachy."
       }
     },
@@ -134,8 +147,16 @@ Breadcrumbs allow users to keep track and maintain awareness of their location a
 Use when there’s a need for a context and item’s location.
 <Canvas>
   <Story name="Indicative ">
-    <BreadcrumbsBar />
-    <BreadcrumbsBar />
+     <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
+        <div className="monday-storybook-breadcrumbs-bar_line" >
+          <Icon icon={Board} />
+          <span className="monday-storybook-breadcrumbs-bar_title">Weekly to-do</span>
+        </div>
+        <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+          <BreadcrumbItem text="Rotem Dekel" />
+          <BreadcrumbItem text="Marketing team planing" />
+        </BreadcrumbsBar>
+      </div>
   </Story>
 </Canvas>
 
@@ -143,8 +164,16 @@ Use when there’s a need for a context and item’s location.
 Use when breadcrumbs are clickable and are used for information and navigation
 <Canvas>
   <Story name="Navigatable breadcrumbs">
-    <BreadcrumbsBar />
-    <BreadcrumbsBar />
+    <div className="monday-storybook-breadcrumbs-bar_inline-wrapper">
+      <Avatar size={Avatar.sizes.MEDIUM} src={person3} type={Avatar.types.IMG} />
+      <div className="monday-storybook-breadcrumbs-bar_column-wrapper">
+        <span className="monday-storybook-breadcrumbs-bar_title">Rotem Dekel</span>
+        <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
+          <BreadcrumbItem text="User research" icon={Board} />
+          <BreadcrumbItem text="Video sessions" icon={Group} />
+        </BreadcrumbsBar>
+      </div>
+    </div>
   </Story>
 </Canvas>
 
