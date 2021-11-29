@@ -126,22 +126,22 @@ There are two sizes of counters
   rules={[
     {
       positive: {
-        component:<Counter count={15} />,
-        description:"Use counter to notify the number of items, such as notifications, updates, or inbox alerts."
+        component: <Counter count={15} />,
+        description: "Use counter to notify the number of items, such as notifications, updates, or inbox alerts."
       },
       negative: {
-        component:<Counter count="New" />,
-        description:<>Don’t include any text. If you need a text label, use a <Link href="/?path=/docs/components-label--overview" withoutSpacing>Label.</Link></>
+        component: <Counter count="New" />,
+        description: <>Don’t include any text. If you need a text label, use a <Link href="/?path=/docs/components-label--overview" withoutSpacing>Label.</Link></>
       }
     },
     {
       positive: {
-        component:<Counter count={1000}/>,
-        description:"Only use a maximum of 3 digits in a counter."
+        component: <Counter count={1000} />,
+        description: "Only use a maximum of 3 digits in a counter."
       },
       negative: {
-        component:<Counter count={1050} maxDigits={4} />,
-        description:"Don’t use more than 3 digits in a caounter."
+        component: <Counter count={1050} maxDigits={4} />,
+        description: "Don’t use more than 3 digits in a caounter."
       }
     }
   ]}
@@ -153,9 +153,9 @@ Used on the notification icon to indicate the number of new notifications.
 <Canvas>
   <Story name="Notification counter">
     {() => {
-      const [count, setCount] = useState(4);
       const maxCount = 10;
       const initialCount = 4;
+      const [count, setCount] = useState(4);
       const changeCountCallback = useCallback(() => {
         const newCount = count === maxCount ? initialCount : count + 1;
         setCount(newCount);
