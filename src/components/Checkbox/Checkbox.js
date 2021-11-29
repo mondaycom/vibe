@@ -15,6 +15,7 @@ export const Checkbox = ({
   className,
   // Backward compatibility for props naming
   componentClassName,
+  ariaLabel,
   label,
   ariaLabelledBy,
   onChange,
@@ -72,7 +73,7 @@ export const Checkbox = ({
         onChange={onChange}
         defaultChecked={overrideDefaultChecked}
         disabled={disabled}
-        aria-label={label}
+        aria-label={ariaLabel || label}
         aria-labelledby={ariaLabelledBy}
         checked={checked}
       />
@@ -103,7 +104,8 @@ Checkbox.propTypes = {
   indeterminate: PropTypes.bool,
   value: PropTypes.string,
   disabled: PropTypes.bool,
-  name: PropTypes.string
+  name: PropTypes.string,
+  ariaLabel: PropTypes.string
 };
 
 Checkbox.defaultProps = {
@@ -117,7 +119,8 @@ Checkbox.defaultProps = {
   ariaLabelledBy: undefined,
   checked: undefined,
   indeterminate: false,
-  defaultChecked: undefined
+  defaultChecked: undefined,
+  ariaLabel: undefined
 };
 
 export default Checkbox;
