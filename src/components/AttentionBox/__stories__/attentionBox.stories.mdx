@@ -12,7 +12,6 @@ import Search  from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import { TOOLTIP, ALERT_BANNER, TOAST } from "../../../storybook/components/related-components/component-description-map";
 import person from "./assets/person.png";
-import Lamp from "./assets/Lamp.js";
 import "./attentionBox.stories.scss";
 
 <Meta
@@ -88,7 +87,7 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
         text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." 
         type={ATTENTION_BOX_TYPES.DARK} 
         className="monday-style-attention-box_box"
-        icon={Lamp}
+        icon={Info} 
       />
     </MultipleStoryElementsWrapper>
 </Story>
@@ -166,11 +165,11 @@ Provides additional information about an action or section.
       <span className="monday-style-attention-box_text" >Copy boards and dashboards to another account</span>
       <AttentionBox 
         text={
-          <span className="monday-style-attention-box_inline-wrapper">
+          <>
             <Icon icon={Info} iconSize="18" />
             First, move the content you want to copy into folder. Only main boards and dashboards can be copied.
             <Link href="#" size={Link.sizes.SMALL} withoutSpacing>Learn more.</Link>
-          </span>
+          </>
         }
         type={ATTENTION_BOX_TYPES.DARK}
       />
