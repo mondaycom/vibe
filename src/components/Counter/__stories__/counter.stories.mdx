@@ -58,11 +58,11 @@ There are two sizes of counters
   <Story name="Sizes">
     <div className="storybook-counter_column">
       <Counter count={5} />
-      <>Big</>
+      Big
     </div>
     <div className="storybook-counter_column">
       <Counter count={5} size={Counter.sizes.SMALL} />
-      <>Small</>
+      Small
     </div>
   </Story>
 </Canvas>
@@ -72,15 +72,15 @@ There are two sizes of counters
   <Story name="Colors">
     <div className="storybook-counter_column">
       <Counter count={5} />
-      <>Primary </>
+      Primary
     </div>
     <div className="storybook-counter_column">
       <Counter count={5} color={Counter.colors.NEGATIVE} />
-      <>Negative or notification</>
+      Negative or notification
     </div>
     <div className="storybook-counter_column">
       <Counter count={5} color={Counter.colors.DARK} />
-      <>Dark</>
+      Dark
     </div>
   </Story>
 </Canvas>
@@ -90,15 +90,15 @@ There are two sizes of counters
   <Story name="Outline">
     <div className="storybook-counter_column">
       <Counter count={5} kind={Counter.kinds.LINE} />
-      <>Primary </>
+      Primary
     </div>
     <div className="storybook-counter_column">
       <Counter count={5} color={Counter.colors.NEGATIVE} kind={Counter.kinds.LINE} />
-      <>Primary </>
+      Negative or notification
     </div>
     <div className="storybook-counter_column">
       <Counter count={5} color={Counter.colors.DARK} kind={Counter.kinds.LINE} />
-      <>Primary </>
+       Dark
     </div>
   </Story>
 </Canvas>
@@ -108,15 +108,15 @@ There are two sizes of counters
   <Story name="Limits">
     <div className="storybook-counter_column">
       <Counter count={10} maxDigits={1} />
-      <>One digit limit</>
+      One digit limit
     </div>
     <div className="storybook-counter_column">
       <Counter count={100} maxDigits={2} />
-      <>Two digits limit</>
+      Two digits limit
     </div>
     <div className="storybook-counter_column">
       <Counter count={1000} />
-      <>Three digits limit</>
+      Three digits limit
     </div>
   </Story>
 </Canvas>
@@ -189,9 +189,9 @@ The counter represents the number of items on each topic.
 <Canvas>
   <Story name="Counter on inbox filters">
     <div className="storybook-counter_wrapper">
-      <span>UX Writing & microcopy Re...</span>
-      <span>Mobile Data- Iteration Plan...</span>
-      <span>Q Plans.</span>
+      <span className="a">UX Writing & microcopy Re...</span>
+      <span className="a"> Mobile Data- Iteration Plan...</span>
+      <span className="a">Q Plans.</span>
     </div> 
     <div className="storybook-counter_wrapper">
       <Counter count={195} color={Counter.colors.DARK} />
@@ -218,8 +218,6 @@ The counter represents the number of items on each topic.
         <Counter count={5} color={Counter.colors.DARK} size={Counter.sizes.SMALL} wrapperClassName="storybook-counter_counter-position-bot" />
       </div>
     </div>
-   
-   
   </Story>
 </Canvas>
 

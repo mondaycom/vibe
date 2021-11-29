@@ -19,25 +19,6 @@ exports[`Counter renders correctly with ariaLabeledBy 1`] = `
 </span>
 `;
 
-exports[`Counter renders correctly with bigger limit 1`] = `
-<span
-  aria-label=" 1050"
-  aria-labelledby=""
-  className=""
->
-  <div
-    aria-label={1050}
-    className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary"
-  >
-    <span
-      id="counter-"
-    >
-      1050
-    </span>
-  </div>
-</span>
-`;
-
 exports[`Counter renders correctly with count above limit 1`] = `
 <span
   aria-label=" 999+"
@@ -52,6 +33,25 @@ exports[`Counter renders correctly with count above limit 1`] = `
       id="counter-"
     >
       999+
+    </span>
+  </div>
+</span>
+`;
+
+exports[`Counter renders correctly with count above limit 2`] = `
+<span
+  aria-label=" 1050"
+  aria-labelledby=""
+  className=""
+>
+  <div
+    aria-label={1050}
+    className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary"
+  >
+    <span
+      id="counter-"
+    >
+      1050
     </span>
   </div>
 </span>

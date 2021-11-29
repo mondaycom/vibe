@@ -15,9 +15,11 @@
   &_wrapper {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    justify-content: space-between;
     margin-right: 28px;
-    justify-content: center;
+    height: 105px;
+    gap: 16px;
+
   }
 
   &_icon-wrapper {
@@ -33,7 +35,6 @@
     @include theme-prop(background-color, icon-color-hover);
   }
 
-  
   &_position {
     position: relative;
   }

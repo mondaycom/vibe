@@ -7,20 +7,26 @@ describe("ButtonGroup tests", () => {
     { value: 1, text: "Alpha" },
     { value: 2, text: "Beta" },
     { value: 3, text: "Gamma" },
-    { value: 4, text: "Delta" },
-  ]
+    { value: 4, text: "Delta" }
+  ];
   let onSelectMock;
-  let buttonGroupCimponent
-  
+  let buttonGroupCimponent;
+  let label;
+
   beforeEach(() => {
     onSelectMock = jest.fn();
-    buttonGroupCimponent = render(
-      <ButtonGroup  options={option} onSelect={onSelectMock}  />
-    );
+    label = "label";
+    buttonGroupCimponent = render(<ButtonGroup options={option} onSelect={onSelectMock} groupAriaLabel={label} />);
   });
 
   it("should call the click callback when clicked", () => {
-    fireEvent.click(screen.getByText('Delta'));
+    fireEvent.click(screen.getByText("Delta"));
     expect(onSelectMock.mock.calls.length).toBe(1);
-  })
+  });
+
+  describe("a11y", () => {
+    it("should add the label", () => {
+      expect(screen.getByLabelText(label)).toBeTruthy();
+    });
+  });
 });

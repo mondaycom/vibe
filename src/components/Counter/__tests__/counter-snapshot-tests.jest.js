@@ -9,7 +9,7 @@ describe("Counter renders correctly", () => {
   });
 
   it("with count above limit", () => {
-    const tree = renderer.create(<Counter count={1000} />).toJSON();
+    const tree = renderer.create(<Counter count={1000} maxDigits={3} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -28,7 +28,7 @@ describe("Counter renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with bigger limit", () => {
+  it("with count above limit", () => {
     const tree = renderer.create(<Counter maxDigits={4} count={1050} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
