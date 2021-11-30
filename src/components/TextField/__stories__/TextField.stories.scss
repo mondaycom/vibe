@@ -1,0 +1,20 @@
+@import "../../../styles/themes.scss";
+
+.monday-storybook-text-field {
+  &_wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &_column-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 16px;
+    margin-right: 32px;
+  }
+
+  &_size {
+    width: 300px;
+  }
+}
