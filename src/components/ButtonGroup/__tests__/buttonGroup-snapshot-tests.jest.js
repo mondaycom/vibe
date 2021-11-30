@@ -11,7 +11,7 @@ const option = [
 
 describe("ButtonGroup renders correctly", () => {
   it("with value", () => {
-    const tree = renderer.create(<ButtonGroup value="1" options={option} />).toJSON();
+    const tree = renderer.create(<ButtonGroup value={1} options={option} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
