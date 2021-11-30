@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "NavigationDoubleChevronLeft",
+      file: "NavigationDoubleChevronLeft.svg",
+      description: "Navigation double chevron left",
+      tags: "nagivation,double,chevron,left,history"
+  },
+
+  {
       name: "Night",
       file: "Night.svg",
       description: "Night",
