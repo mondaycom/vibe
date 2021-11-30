@@ -35,8 +35,8 @@
   }
   
   &_list {
-    display: flexbox;
-    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
   }
   
   &_list-item {
