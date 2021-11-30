@@ -32,7 +32,7 @@ describe("Toast renders correctly", () => {
   it("with button", () => {
     const tree = renderer
       .create(
-        <Toast open actions={[{ type: Toast.actionTypes.BUTTON, content: "Undo 5" }]}>
+        <Toast open actions={[{ type: Toast.actionTypes.BUTTON, content: "Undo 5", key: 1 }]}>
           Something Happened
         </Toast>
       )
@@ -45,7 +45,7 @@ describe("Toast renders correctly", () => {
       .create(
         <Toast
           open
-          actions={[{ type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com" }]}
+          actions={[{ type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com", key: 1 }]}
         >
           Something Happened
         </Toast>
@@ -60,8 +60,8 @@ describe("Toast renders correctly", () => {
         <Toast
           open
           actions={[
-            { type: Toast.actionTypes.BUTTON, content: "Undo 5" },
-            { type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com" }
+            { type: Toast.actionTypes.BUTTON, content: "Undo 5", key: 1 },
+            { type: Toast.actionTypes.LINK, text: "Lorem ipsum", href: "https://monday.com", key: 2 }
           ]}
         >
           Something Happened

@@ -39,7 +39,7 @@ Alert banners show pressing and high-signal messages, such as system alerts. The
 
 <Canvas>
   <Story name="Overview"
-         args={{ bannerText: "Alert banner message", linkText: "this is a CTA", className: "monday-storybook-alert-banner_container" }}>
+         args={{ bannerText: "Alert banner message", linkText: "this is a CTA", className: "monday-storybook-alert-banner_big-container" }}>
     { alertBannerTemplate.bind({ }) }
   </Story>
 </Canvas>
@@ -58,10 +58,10 @@ Alert banners show pressing and high-signal messages, such as system alerts. The
 
 ## Variants
 ### Types
-There are 4 types of alert banners: primary, negative, positive, and inverted.
+There are four types of alert banners: primary, negative, positive, and inverted.
 <Canvas>
   <Story name="Types">
-    <div className="monday-storybook-alert-banner_column-wrapper monday-storybook-alert-banner_container">
+    <div className="monday-storybook-alert-banner_column-wrapper monday-storybook-alert-banner_big-container">
       <AlertBanner>
         <AlertBannerText text="Alert banner message" />
         <AlertBannerLink text="this is a CTA" href="https://monday.com" />
@@ -85,8 +85,8 @@ There are 4 types of alert banners: primary, negative, positive, and inverted.
 ### Alert Banner with button
 <Canvas>
   <Story name="Alert Banner with button">
-    <AlertBanner className="monday-storybook-alert-banner_container">
-        <AlertBannerText text="ALorem ipsum dolor sit amet" />
+    <AlertBanner className="monday-storybook-alert-banner_big-container">
+        <AlertBannerText text="Lorem ipsum dolor sit amet" />
       <AlertBannerButton>Lorem Ipsum</AlertBannerButton>
     </AlertBanner>
   </Story>
@@ -95,7 +95,7 @@ There are 4 types of alert banners: primary, negative, positive, and inverted.
 ### Alert Banner with link
 <Canvas>
   <Story name="Alert Banner with link">
-    <AlertBanner className="monday-storybook-alert-banner_container">
+    <AlertBanner className="monday-storybook-alert-banner_big-container">
       <AlertBannerText text="Alert banner message" />
       <AlertBannerLink text="this is a CTA" href="https://monday.com" />
     </AlertBanner>
@@ -175,7 +175,7 @@ There are 4 types of alert banners: primary, negative, positive, and inverted.
 Use when you’d like to notify about an event or cross-company announcment.
 <Canvas>
   <Story name="Alert banner as an announcement">
-    <AlertBanner backgroundColor={AlertBanner.backgroundColors.DARK} className="monday-storybook-alert-banner_container">
+    <AlertBanner backgroundColor={AlertBanner.backgroundColors.DARK} className="monday-storybook-alert-banner_big-container">
       <AlertBannerText text="Join us at Elevate 2022" />
       <AlertBannerLink text="RSVP now" href="https://monday.com" />
     </AlertBanner>
@@ -186,7 +186,7 @@ Use when you’d like to notify about an event or cross-company announcment.
 Use to show a trial user the number of remaining free days to use the platform.
 <Canvas>
   <Story name="Alert banner as an opportunity to upgrade">
-    <AlertBanner className="monday-storybook-alert-banner_container">
+    <AlertBanner className="monday-storybook-alert-banner_big-container">
       <AlertBannerText text="7 days left on your monday CRM trial" />
       <AlertBannerLink text="Upgrade now" href="https://monday.com" />
     </AlertBanner>

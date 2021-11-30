@@ -1,5 +1,51 @@
 # Changelog
 
+## 0.9.7 (2021-11-28)
+
+#### New Icons
+* [#360](https://github.com/mondaycom/monday-ui-react-core/pull/360) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 0.9.6 (2021-11-28)
+
+#### Bug Fixes
+* [#358](https://github.com/mondaycom/monday-ui-react-core/pull/358) fix: export Icon component ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 0.9.5 (2021-11-24)
+
+#### New Icons
+* [#357](https://github.com/mondaycom/monday-ui-react-core/pull/357) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 0.9.4 (2021-11-21)
+
+#### Bug Fixes
+* [#348](https://github.com/mondaycom/monday-ui-react-core/pull/348) add aria label support for checkbox ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#325](https://github.com/mondaycom/monday-ui-react-core/pull/325) docs : improve documentation for extra styles in <dropdown> ([@Muskan777](https://github.com/Muskan777))
+
+## 0.9.3 (2021-11-18)
+
+#### Bug Fixes
+* [#350](https://github.com/mondaycom/monday-ui-react-core/pull/350) Fix heading ellipsis issue with 1 line ([@MosheZemah](https://github.com/MosheZemah))
+
+## 0.9.2 (2021-11-18)
+
+#### Bug Fixes
+* [#349](https://github.com/mondaycom/monday-ui-react-core/pull/349) Prevent editable heading from being empty ([@MosheZemah](https://github.com/MosheZemah))
+* [#346](https://github.com/mondaycom/monday-ui-react-core/pull/346) Rename ButtonContstants file to ButtonConstants file ([@KarelVerschraegen](https://github.com/KarelVerschraegen))
+* [#344](https://github.com/mondaycom/monday-ui-react-core/pull/344) fix: safari useReszieObserver ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#345](https://github.com/mondaycom/monday-ui-react-core/pull/345) Fix typo in useForceUpdate ([@KarelVerschraegen](https://github.com/KarelVerschraegen))
+
+#### New Icons
+* [#347](https://github.com/mondaycom/monday-ui-react-core/pull/347) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 0.9.1 (2021-11-17)
+
+#### Bug Fixes
+* [#341](https://github.com/mondaycom/monday-ui-react-core/pull/341) fix: callback on mount when should show on mount ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 0.9.0 (2021-11-17)
 
 #### Bug Fixes
