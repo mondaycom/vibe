@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.0 (2021-11-30)
+
+#### New Features
+* [#361](https://github.com/mondaycom/monday-ui-react-core/pull/361) support onclick without navigation ([@etaylib](https://github.com/etaylib))
+
+#### New Icons
+* [#363](https://github.com/mondaycom/monday-ui-react-core/pull/363) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 0.9.7 (2021-11-28)
 
 #### New Icons
