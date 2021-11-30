@@ -20,6 +20,7 @@ $text-line-height: 24px;
 }
 
 @mixin content-text-without-color {
+  font-family: $text-primary-font;
   font-size: $text-font-size;
   line-height: $text-line-height;
   font-weight: 400;
