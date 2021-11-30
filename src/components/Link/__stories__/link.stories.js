@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { text, select } from "@storybook/addon-knobs";
 import Link from "../Link";
 import "./link-story.scss";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
 import StoryLine from "../../../StoryBookComponents/StoryLink/StoryLine";
 import { FlexLayout } from "../../storybook-helpers";
-import { LINK_TARGET } from "../LinkConsts";
 import { withPerformance } from "storybook-addon-performance";
+import Toast from "../../Toast/Toast";
 
 export const Sandbox = () => (
   <div className="width-35">
@@ -107,6 +107,33 @@ export const RTLSupport = () => {
             href="https://www.monday.com"
             icon="fa fa-link"
             ariaLabelDescription="Read more about monday,con"
+          />
+        </StoryLine>
+      </FlexLayout>
+    </div>
+  );
+};
+
+export const onClickWithoutNavigation = () => {
+  const [clicked, setClicked] = useState();
+  const onClick = () => {
+    setClicked(state => !state);
+  };
+
+  return (
+    <div>
+      <FlexLayout>
+        <StoryLine wrapperClassName="links-story-on-click-without-navigation">
+            <Toast open={clicked} onClose={setClicked}>
+              Link was clicked
+            </Toast>
+          <Link
+            id="normal-rtl"
+            text="Click me for onClick without navigation"
+            iconPosition={Link.position.START}
+            onClick={onClick}
+            ariaLabelDescription="click me for onClick without navigation"
+            disableNavigation
           />
         </StoryLine>
       </FlexLayout>

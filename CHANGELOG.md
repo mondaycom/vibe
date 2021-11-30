@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.9.7 (2021-11-28)
+
+#### New Icons
+* [#360](https://github.com/mondaycom/monday-ui-react-core/pull/360) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 0.9.6 (2021-11-28)
+
+#### Bug Fixes
+* [#358](https://github.com/mondaycom/monday-ui-react-core/pull/358) fix: export Icon component ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 0.9.5 (2021-11-24)
 
 #### New Icons
