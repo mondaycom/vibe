@@ -8,8 +8,13 @@
 
   @include heading-padding();
 
-  &.heading-element-ellipsis {
+  &.multi-line-ellipsis {
     @include line-clamp(var(--heading-clamp-lines));
+  }
+
+  // This is needed to support ellipsis in the middle of the word
+  &.single-line-ellipsis {
+    @include ellipsis();
   }
 
   &.suggest-edit-on-hover {
