@@ -1,124 +1,7 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, act } from "@testing-library/react";
 import Dropdown from "../Dropdown";
-
-const MOCK_OPTIONS = [
-  { value: "ocean", label: "Ocean", isFixed: true },
-  { value: "blue", label: "Blue", isDisabled: true },
-  { value: "purple", label: "Purple" },
-  { value: "red", label: "Red", isFixed: true },
-  { value: "orange", label: "Orange" },
-  { value: "yellow", label: "Yellow" }
-];
-
-class DropdownDriver {
-  constructor() {
-    this.props = { className: "dropdown-story" };
-
-    return this;
-  }
-
-  render() {
-    this.renderResult = render(<Dropdown {...this.props} />);
-  }
-
-  get snapshot() {
-    if (!this.renderResult) {
-      this.render();
-    }
-
-    return this.renderResult.asFragment();
-  }
-
-  get dropdownMenu() {
-    return this.renderResult.container.querySelector(".menu");
-  }
-
-  get noOptionsMessage() {
-    return this.renderResult.queryByText("No options");
-  }
-
-  focusInput() {
-    this.render();
-
-    const inputElement = this.renderResult.getByLabelText("Dropdown input");
-    inputElement.focus();
-
-    jest.advanceTimersByTime(2000);
-  }
-
-  clickInput() {
-    this.render();
-
-    const inputElement = this.renderResult.getByLabelText("Dropdown input");
-    inputElement.focus();
-    fireEvent.mouseDown(inputElement);
-
-    jest.advanceTimersByTime(2000);
-  }
-
-  withOptions(options = MOCK_OPTIONS) {
-    this.props.options = options;
-
-    return this;
-  }
-
-  withVirtualizedOptions() {
-    this.props.options = new Array(10000).fill(null).map((_, i) => ({ value: i + 1, label: (i + 1).toString() }));
-    this.props.isVirtualized = true;
-
-    return this;
-  }
-
-  withAsyncOptions() {
-    this.props.asyncOptions = inputValue => {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          resolve(MOCK_OPTIONS.filter(({ label }) => label.toLowerCase().includes(inputValue.toLowerCase())));
-        }, 1000);
-      });
-    };
-
-    return this;
-  }
-
-  withDefaultOptions() {
-    this.props.defaultOptions = true;
-
-    return this;
-  }
-
-  withPlaceholder(placeHolder = "placeHolder") {
-    this.props.placeHolder = placeHolder;
-
-    return this;
-  }
-
-  withSize(size) {
-    this.props.size = size;
-
-    return this;
-  }
-
-  withOpenMenuOnClick() {
-    this.props.openMenuOnClick = true;
-
-    return this;
-  }
-
-  withOpenMenuOnFocus() {
-    this.props.openMenuOnFocus = true;
-
-    return this;
-  }
-
-  withExtraStyles(extraStyles) {
-    this.props.extraStyles = extraStyles;
-
-    return this;
-  }
-}
-
+import DropdownDriver from "./driver";
 
 describe("Dropdown", () => {
   beforeEach(() => {
@@ -127,7 +10,7 @@ describe("Dropdown", () => {
 
   afterEach(() => {
     jest.useRealTimers();
-  })
+  });
   const mockOptions = [
     { value: "ocean", label: "Ocean", isFixed: true },
     { value: "blue", label: "Blue", isDisabled: true },
@@ -187,7 +70,7 @@ describe("Dropdown", () => {
   });
 
   describe("extraStyles", () => {
-    it("Should support extending style groups with monday defaults", async () => {
+    it("Should support extending style groups with monday defaults", () => {
       const expectedWidth = 310;
       const component = new DropdownDriver()
         .withOptions()
@@ -201,7 +84,7 @@ describe("Dropdown", () => {
       expect(getComputedStyle(component.dropdownMenu).width).toBe(`${expectedWidth}px`);
     });
 
-    it("Should support extending style groupd that don't have monday defaults", async () => {
+    it("Should support extending style groupd that don't have monday defaults", () => {
       const expectedZIndex = "9999999";
       const component = new DropdownDriver().withOpenMenuOnFocus().withExtraStyles(() => ({
         noOptionsMessage: base => ({ ...base, zIndex: expectedZIndex })
@@ -210,6 +93,79 @@ describe("Dropdown", () => {
       component.focusInput();
 
       expect(getComputedStyle(component.noOptionsMessage).zIndex).toBe(expectedZIndex);
+    });
+  });
+
+  describe("multi", () => {
+    let component;
+
+    beforeEach(() => {
+      component = new DropdownDriver().withOptions().withMulti();
+    });
+
+    it("Should support selecting multiple options", () => {
+      component.selectOption(0);
+      component.selectOption(2);
+      component.selectOption(3);
+
+      expect(component.chips.values).toEqual(["ocean", "purple", "red"]);
+    });
+
+    it("Should support removing selected options", () => {
+      component.selectOption(0);
+      component.selectOption(2);
+      component.selectOption(3);
+
+      component.removeOption(0);
+
+      expect(component.chips.values).toEqual(["purple", "red"]);
+    });
+
+    it("Should support clearing options", () => {
+      component.selectOption(0);
+
+      component.clearOptions();
+      component.rerender();
+
+      expect(component.chips.values).toEqual([]);
+    });
+
+    describe("Controlled", () => {
+      let options;
+
+      beforeEach(() => {
+        options = [component.options[0], component.options[2]];
+        component.withValue(options);
+      });
+
+      it("Should support selecting multiple options", () => {
+        component.withOnOptionSelect(option => options.push(option));
+
+        component.selectOption(3);
+        component.rerender();
+
+        expect(component.chips.values).toEqual(["ocean", "purple", "red"]);
+      });
+
+      it("Should support removing options", () => {
+        component.withOnOptionRemove(() => options.pop());
+
+        component.removeOption(2);
+        component.rerender();
+
+        expect(component.chips.values).toEqual(["ocean"]);
+      });
+
+      it("Should support clearing options", () => {
+        component.withOnClear(() => {
+          options.length = 0;
+        });
+
+        component.clearOptions();
+        component.rerender();
+
+        expect(component.chips.values).toEqual([]);
+      });
     });
   });
 });

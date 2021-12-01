@@ -27,7 +27,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly 1`] = `
     }
   >
     <div
-      className="monday-style-dialog-content-component bottom edge-center"
+      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined monday-style-tipseen-wrapper monday-style-tipseen-wrapper--without-custom-width"
@@ -118,7 +118,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly with custom width 1`] = 
     }
   >
     <div
-      className="monday-style-dialog-content-component bottom edge-center"
+      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined monday-style-tipseen-wrapper"
@@ -214,7 +214,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly with title 1`] = `
     }
   >
     <div
-      className="monday-style-dialog-content-component bottom edge-center"
+      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined monday-style-tipseen-wrapper monday-style-tipseen-wrapper--without-custom-width"
@@ -312,7 +312,7 @@ exports[`Tipseen tests Snapshot Tests renders correctly without close button 1`]
     }
   >
     <div
-      className="monday-style-dialog-content-component bottom edge-center"
+      className="monday-style-dialog-content-component bottom edge-center has-tooltip"
     >
       <div
         className="monday-style-tooltip monday-style-tooltip-primary padding-size-undefined monday-style-tipseen-wrapper monday-style-tipseen-wrapper--without-custom-width"

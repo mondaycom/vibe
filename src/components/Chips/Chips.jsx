@@ -10,7 +10,24 @@ import { elementColorsNames, getElementColor } from "../../general-stories/color
 import "./Chips.scss";
 
 const Chips = forwardRef(
-  ({ className, id, label, leftIcon, rightIcon, disabled, readOnly, color, iconSize, onDelete }, ref) => {
+  (
+    {
+      className,
+      id,
+      label,
+      leftIcon,
+      rightIcon,
+      disabled,
+      readOnly,
+      color,
+      iconSize,
+      onDelete,
+      onMouseDown,
+      noAnimation,
+      "data-testid": dataTestId
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -18,20 +35,29 @@ const Chips = forwardRef(
       return { backgroundColor: disabled ? getCSSVar("disabled-background-color") : getElementColor(color, true) };
     }, [disabled, color]);
 
-    const onDeleteCallback = useCallback(() => {
-      if (onDelete) {
-        onDelete(id);
-      }
-    }, [id, onDelete]);
+    const onDeleteCallback = useCallback(
+      e => {
+        if (onDelete) {
+          onDelete(id, e);
+        }
+      },
+      [id, onDelete]
+    );
 
     const hasCloseButton = !readOnly && !disabled;
 
     return (
       <div
         ref={mergedRef}
-        className={cx("chips--wrapper", className, { disabled, "with-close": hasCloseButton })}
+        className={cx("chips--wrapper", className, {
+          disabled,
+          "with-close": hasCloseButton,
+          "no-animation": noAnimation
+        })}
         id={id}
         style={backgroundColorStyle}
+        onMouseDown={onMouseDown}
+        data-testid={dataTestId}
       >
         {leftIcon ? (
           <Icon
@@ -63,6 +89,7 @@ const Chips = forwardRef(
             icon={CloseSmall}
             iconSize={18}
             onClick={onDeleteCallback}
+            data-testid={`${dataTestId}-close`}
           />
         )}
       </div>
@@ -85,7 +112,15 @@ Chips.propTypes = {
   color: PropTypes.oneOf(Object.keys(Chips.colors)),
   /** size for font icon */
   iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  onDelete: PropTypes.func
+  onDelete: PropTypes.func,
+  /**
+   * Disables the Chips's entry animation
+   */
+  noAnimation: PropTypes.bool,
+  /**
+   * Callback function to be called when the user clicks the component.
+   */
+  onMouseDown: PropTypes.func
 };
 Chips.defaultProps = {
   className: "",
@@ -97,7 +132,9 @@ Chips.defaultProps = {
   leftIcon: null,
   color: Chips.colors.PRIMARY,
   iconSize: 16,
-  onDelete: NOOP
+  onDelete: NOOP,
+  onMouseDown: NOOP,
+  noAnimation: false
 };
 
 export default Chips;

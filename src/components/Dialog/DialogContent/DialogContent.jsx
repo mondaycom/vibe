@@ -30,7 +30,8 @@ export const DialogContent = React.forwardRef(
       onClick = NOOP,
       showDelay,
       styleObject = EMPTY_OBJECT,
-      isReferenceHidden
+      isReferenceHidden,
+      hasTooltip = false
     },
     forwardRef
   ) => {
@@ -60,7 +61,8 @@ export const DialogContent = React.forwardRef(
         <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
           <div
             className={classNames("monday-style-dialog-content-component", position, {
-              [`edge-${startingEdge}`]: startingEdge
+              [`edge-${startingEdge}`]: startingEdge,
+              "has-tooltip": hasTooltip
             })}
             ref={ref}
           >

@@ -5,6 +5,7 @@ exports[`Snapshots renders correctly with count above limit 1`] = `
   aria-label=" 999+"
   aria-labelledby=""
   className=""
+  onMouseDown={[Function]}
 >
   <div
     aria-label="999+"
@@ -24,6 +25,7 @@ exports[`Snapshots renders correctly with count below the limit 1`] = `
   aria-label=" 1"
   aria-labelledby=""
   className=""
+  onMouseDown={[Function]}
 >
   <div
     aria-label={1}
@@ -43,6 +45,7 @@ exports[`Snapshots renders correctly with the prefix 1`] = `
   aria-label=" 13"
   aria-labelledby=""
   className=""
+  onMouseDown={[Function]}
 >
   <div
     aria-label={13}

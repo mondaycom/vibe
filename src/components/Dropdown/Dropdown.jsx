@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading,react/require-default-props,react/forbid-prop-types */
+/* eslint-disable react/require-default-props,react/forbid-prop-types */
 import React, { useCallback, useMemo, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
@@ -11,7 +11,8 @@ import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownI
 import OptionComponent from "./components/option/option";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
-import { defaultCustomStyles } from "./DropdownConstants";
+import ValueContainer from "./components/ValueContainer/ValueContainer";
+import { defaultCustomStyles, ADD_AUTO_HEIGHT_COMPONENTS } from "./DropdownConstants";
 import { SIZES } from "../../constants/sizes";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
@@ -24,11 +25,11 @@ const Dropdown = ({
   onMenuClose,
   onFocus,
   onBlur,
-  onChange,
+  onChange: customOnChange,
   searchable,
   options,
   defaultValue,
-  value,
+  value: customValue,
   noOptionsMessage,
   openMenuOnFocus,
   openMenuOnClick,
@@ -49,28 +50,24 @@ const Dropdown = ({
   menuIsOpen,
   tabIndex,
   id,
-  autoFocus
+  autoFocus,
+  multi = false,
+  multiline = false,
+  onOptionRemove: customOnOptionRemove,
+  onOptionSelect,
+  onClear
 }) => {
-  const [isOpen, setOpen] = useState(false);
-
+  const [selected, setSelected] = useState(defaultValue || []);
+  const [isDialogShown, setIsDialogShown] = useState(false);
   const finalOptionRenderer = optionRenderer || OptionRenderer;
   const finalValueRenderer = valueRenderer || ValueRenderer;
-
-  const handleMenuOpen = useCallback(
-    data => {
-      onMenuOpen(data);
-      setOpen(true);
-    },
-    [onMenuOpen, setOpen]
+  const isControlled = !!customValue;
+  const selectedOptions = customValue ?? selected;
+  const selectedOptionsMap = useMemo(
+    () => selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {}),
+    [selectedOptions]
   );
-
-  const handleMenuClose = useCallback(
-    data => {
-      onMenuClose(data);
-      setOpen(false);
-    },
-    [setOpen, onMenuClose]
-  );
+  const value = multi ? selectedOptions : customValue;
 
   const styles = useMemo(() => {
     // We first want to get the default stylized groups (e.g. "container", "menu").
@@ -94,13 +91,28 @@ const Dropdown = ({
       };
     }, {});
 
-    return mergedStyles;
-  }, [size, rtl, extraStyles]);
+    if (multi) {
+      if (multiline) {
+        ADD_AUTO_HEIGHT_COMPONENTS.forEach(component => {
+          const original = mergedStyles[component];
+          mergedStyles[component] = (provided, state) => ({
+            ...original(provided, state),
+            height: "auto"
+          });
+        });
+      }
 
-  const Menu = useCallback(props => <MenuComponent {...props} isOpen={isOpen} Renderer={menuRenderer} />, [
-    isOpen,
-    menuRenderer
-  ]);
+      const originalValueContainer = mergedStyles.valueContainer;
+      mergedStyles.valueContainer = (provided, state) => ({
+        ...originalValueContainer(provided, state),
+        paddingLeft: 6
+      });
+    }
+
+    return mergedStyles;
+  }, [size, rtl, extraStyles, multi, multiline]);
+
+  const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
@@ -116,6 +128,65 @@ const Dropdown = ({
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
+  const onOptionRemove = useMemo(
+    () =>
+      customOnOptionRemove
+        ? (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e)
+        : function(optionValue, e) {
+            setSelected(selected.filter(option => option.value !== optionValue));
+
+            e.stopPropagation();
+          },
+    [customOnOptionRemove, selected, selectedOptionsMap]
+  );
+
+  const valueContainerRenderer = useCallback(
+    props => (
+      <components.ValueContainer {...props}>
+        <ValueContainer
+          selectedOptions={selectedOptions}
+          onSelectedDelete={onOptionRemove}
+          setIsDialogShown={setIsDialogShown}
+          isDialogShown={isDialogShown}
+          isMultiline={multiline}
+          {...props}
+        />
+      </components.ValueContainer>
+    ),
+    [selectedOptions, onOptionRemove, isDialogShown, multiline]
+  );
+
+  const onChange = (option, event) => {
+    if (customOnChange) {
+      customOnChange(option, event);
+    }
+
+    switch (event.action) {
+      case "select-option": {
+        const selectedOption = multi ? event.option : option;
+
+        if (onOptionSelect) {
+          onOptionSelect(selectedOption);
+        }
+
+        if (!isControlled) {
+          setSelected([...selected, selectedOption]);
+        }
+        break;
+      }
+
+      case "clear":
+        if (onClear) {
+          onClear();
+        }
+
+        if (!isControlled) {
+          setSelected([]);
+        }
+        break;
+    }
+  };
+
   const DropDownComponent = asyncOptions ? AsyncSelect : Select;
 
   const asyncAdditions = {
@@ -127,7 +198,11 @@ const Dropdown = ({
   };
 
   const additions = {
-    ...(!asyncOptions && { options })
+    ...(!asyncOptions && { options }),
+    ...(multi && {
+      isMulti: true,
+      filterOption: option => !selectedOptionsMap[option.value]
+    })
   };
 
   return (
@@ -140,6 +215,10 @@ const Dropdown = ({
         Input,
         ...(finalOptionRenderer && { Option }),
         ...(finalValueRenderer && { SingleValue }),
+        ...(multi && {
+          MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
+          ValueContainer: valueContainerRenderer
+        }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
       size={size}
@@ -150,8 +229,8 @@ const Dropdown = ({
       isSearchable={searchable}
       defaultValue={defaultValue}
       value={value}
-      onMenuOpen={handleMenuOpen}
-      onMenuClose={handleMenuClose}
+      onMenuOpen={onMenuOpen}
+      onMenuClose={onMenuClose}
       onFocus={onFocus}
       onBlur={onBlur}
       onChange={onChange}
@@ -273,7 +352,34 @@ Dropdown.propTypes = {
   /**
    * Set default selected value
    */
-  defaultValue: PropTypes.object,
+  defaultValue: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired
+      })
+    ),
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired
+    })
+  ]),
+  /**
+   * The component's value.
+   * When passed, makes this a [controlled](https://reactjs.org/docs/forms.html#controlled-components) component.
+   */
+  value: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired
+      })
+    ),
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired
+    })
+  ]),
   /**
    * Select menu size from `Dropdown.size` - Dropdown.size.LARGE | Dropdown.size.MEDIUM | Dropdown.size.SMALL
    */
@@ -303,7 +409,7 @@ Dropdown.propTypes = {
   /**
    * Whether the menu should use a portal, and where it should attach
    */
-  menuPortalTarget: PropTypes.oneOfType(PropTypes.element, PropTypes.object),
+  menuPortalTarget: PropTypes.oneOfType([PropTypes.element, PropTypes.object]),
   /**
    * Custom function to override existing styles (similar to `react-select`'s `style` prop), for example: `base => ({...base, color: 'red'})`, where `base` is the component's default styles
    */
@@ -320,7 +426,17 @@ Dropdown.propTypes = {
   /**
    * focusAuto when component mount
    */
-  autoFocus: PropTypes.bool
+  autoFocus: PropTypes.bool,
+  /**
+   * If set to true, the dropdown will be in multi-select mode.
+   * When in multi-select mode, the selected value will be an array,
+   * and it will be displayed as our [`<Chips>`](/?path=/docs/components-chips--sandbox) component.
+   */
+  multi: PropTypes.bool,
+  /**
+   * If set to true together with `multi`, it will make the dropdown expand to multiple lines when new values are selected.
+   */
+  multiline: PropTypes.bool
 };
 
 export default Dropdown;
