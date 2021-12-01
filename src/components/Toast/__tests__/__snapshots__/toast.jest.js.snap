@@ -2,9 +2,8 @@
 
 exports[`Toast tests Snapshot Tests don't renders close button if closeable=false 1`] = `
 <div
-  aria-live="polite"
   className="monday-style-toast monday-style-toast--type-normal"
-  role="alert"
+  role="status"
 >
   <div
     className="monday-style-toast-icon"
@@ -38,9 +37,8 @@ exports[`Toast tests Snapshot Tests renders correctly (renders nothing) with emp
 
 exports[`Toast tests Snapshot Tests renders correctly with button 1`] = `
 <div
-  aria-live="polite"
   className="monday-style-toast monday-style-toast--type-normal"
-  role="alert"
+  role="status"
 >
   <div
     className="monday-style-toast-icon"
@@ -120,9 +118,8 @@ exports[`Toast tests Snapshot Tests renders correctly with button 1`] = `
 
 exports[`Toast tests Snapshot Tests renders correctly with button and link 1`] = `
 <div
-  aria-live="polite"
   className="monday-style-toast monday-style-toast--type-normal"
-  role="alert"
+  role="status"
 >
   <div
     className="monday-style-toast-icon"
@@ -218,9 +215,8 @@ exports[`Toast tests Snapshot Tests renders correctly with button and link 1`] =
 
 exports[`Toast tests Snapshot Tests renders correctly with link 1`] = `
 <div
-  aria-live="polite"
   className="monday-style-toast monday-style-toast--type-normal"
-  role="alert"
+  role="status"
 >
   <div
     className="monday-style-toast-icon"
@@ -302,9 +298,8 @@ exports[`Toast tests Snapshot Tests renders nothing when open is false 1`] = `nu
 
 exports[`Toast tests Snapshot Tests renders toast when open is true 1`] = `
 <div
-  aria-live="polite"
   className="monday-style-toast monday-style-toast--type-normal"
-  role="alert"
+  role="status"
 >
   <div
     className="monday-style-toast-icon"
