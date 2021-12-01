@@ -52,5 +52,4 @@ describe("Search renders correctly", () => {
     const tree = renderer.create(<Search value="value" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-
 });
