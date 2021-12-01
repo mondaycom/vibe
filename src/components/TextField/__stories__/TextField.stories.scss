@@ -17,4 +17,15 @@
   &_size {
     width: 300px;
   }
+
+  &_box {
+    padding: 4px;
+    width: 264px;
+
+    &_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
 }

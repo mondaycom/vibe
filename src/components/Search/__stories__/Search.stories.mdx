@@ -4,7 +4,9 @@ import { createComponentTemplate } from "../../../storybook/functions/create-com
 import Dropdown from "../../Dropdown/Dropdown.jsx";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Add, Filter, Search as SearchIcon } from "../../Icon/Icons";
+import { Link } from "../../../storybook/components";
 import Icon from "../../Icon/Icon.jsx";
+import { DROPDAWN, TEXT_FIELD, COMBOBOX } from "../../../storybook/components/related-components/component-description-map";
 import "./Search.stories.scss";
 
 <Meta
@@ -50,7 +52,7 @@ Search lets users quickly find relevant content. A search field allows a user to
   "If used as filter, position the search field above and in context to the list of filterable items",
 ]}/>
 
-<Tip title="Not what you were looking for?">If you need to filter results from a long list, consider using the Combobox component.</Tip>
+<Tip title="Not what you were looking for?">If you need to filter results from a long list, consider using the <Link href="/?path=/docs/components-combobox--overview" size={Link.sizes.SMALL} withoutSpacing>Combobox</Link> component.</Tip>
 
 ## Variants
 ### Sizes
@@ -65,7 +67,7 @@ There are three sizes available: Small (32px), Medium (40px), and Large (48px).
   </Story>
 </Canvas>
 
-<Tip title="Missing something?">If you’re looking for search states, go to Canvas and play with Knobs.</Tip>
+<Tip title="Missing something?">If you’re looking for search states, go to <Link href="/?path=/docs/components-canvas--overview" size={Link.sizes.SMALL} withoutSpacing>Canvas</Link> and play with Knobs.</Tip>
 
 ## Do’s and Don’ts
 <ComponentRules
@@ -118,4 +120,4 @@ There are three sizes available: Small (32px), Medium (40px), and Large (48px).
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[]} />
+<RelatedComponents componentsNames={[DROPDAWN, TEXT_FIELD, COMBOBOX]} /> 

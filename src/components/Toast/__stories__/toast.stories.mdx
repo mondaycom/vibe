@@ -188,20 +188,12 @@ After a user has done an action, provide feedback to close the loop. For example
       const actions = useMemo(() => [{ type: Toast.actionTypes.BUTTON, content: "Undo" }], []);
       return useMemo(() =>
         <>
-<<<<<<< HEAD
-          <Button leftIcon={Delete} onClick={() => onClickCallback()}>Delete item</Button>
-=======
           <Button leftIcon={Delete} onClick={onClickCallback}>Delete item</Button>
->>>>>>> 9751a755946c23efbe87a088017e6f1946f486f8
           <Toast
             open={toastOpen} 
             type={Toast.types.POSITIVE} 
             actions={actions}
-<<<<<<< HEAD
-            onClose={() => onCloseCallback()}
-=======
             onClose={onCloseCallback}
->>>>>>> 9751a755946c23efbe87a088017e6f1946f486f8
             autoHideDuration={5000}
             className="monday-storybook-toast_box"
           >

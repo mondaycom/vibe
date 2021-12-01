@@ -2,6 +2,7 @@ import TextField from "../TextField";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import { Email, CloseSmall, Check } from "../../Icon/Icons";
+import { DROPDAWN, SEARCH, COMBOBOX } from "../../../storybook/components/related-components/component-description-map";
 import "./TextField.stories.scss";
 
 <Meta
@@ -120,9 +121,9 @@ There are three sizes available: Small (32px), Medium (40px) and Large (48px).
 Users can insert text.
 <Canvas>
   <Story name="Text field in a form">
-    <div>
-      <h3>Dark Mode Feedback From</h3>
-      <div>
+    <div className="monday-storybook-text-field_box">
+      <h1>Dark Mode Feedback From</h1>
+      <div className="monday-storybook-text-field_box_wrapper">
       <TextField 
         title="Your Name" 
         size={TextField.sizes.MEDIUM}
@@ -151,4 +152,4 @@ Users can insert text.
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[]} />
+<RelatedComponents componentsNames={[DROPDAWN, SEARCH, COMBOBOX]} />

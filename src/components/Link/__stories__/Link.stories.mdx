@@ -1,8 +1,9 @@
-import Link from "../Link";
+import Link from "../../Link/Link.jsx";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import { ExternalPage, Gallery } from "../../Icon/Icons"
-import { BUTTON, CHIP, } from "../../../storybook/components/related-components/component-description-map";
+import { BUTTON, CHIP, BREADCRUBMS } from "../../../storybook/components/related-components/component-description-map";
+import { Link as StorybookLink } from "../../../storybook/components";
 import "./Link.stories.scss";
 
 <Meta
@@ -105,7 +106,7 @@ Presents a classic menu or equivalent picker
   rules={[
     {
       positive: { 
-        component:<Link text="Read more" href="https://www.monday.com" />,
+        component:<Link href="https://www.monday.com">Read more</Link>,
         description:"Keep the copy short and to the point."
       },
       negative: {
@@ -147,7 +148,7 @@ Presents a classic menu or equivalent picker
 Use this menu to allow a user to either select one or more items from the list.
 <Canvas>
   <Story name="Reference link">
-    <>Lorem Ipsum has been the industry's <Link text="standard" href="https://www.monday.com" />standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </>
+    <>Lorem Ipsum has been the industry's <Link text="standard" href="https://www.monday.com" /> dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </>
   </Story>
 </Canvas>
 
@@ -160,4 +161,4 @@ Use read more to shorten long paragraphs of text
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[BUTTON, BUTTON, CHIP]} />
+<RelatedComponents componentsNames={[BUTTON, BREADCRUBMS, CHIP]} />
