@@ -6,7 +6,6 @@ import Chips from "../../../Chips/Chips";
 import classes from "./ValueContainer.module.scss";
 
 const EMPTY_ARRAY = [];
-const CLICK_EVENT = "click";
 
 export default function Container({
   selectedOptions,
@@ -48,8 +47,6 @@ export default function Container({
     [selectedOptions, onSelectedDelete, chipClassName]
   );
 
-  const hide = useCallback(() => setIsDialogShown(false), [setIsDialogShown]);
-
   useEffect(() => {
     let index = -1;
 
@@ -79,14 +76,6 @@ export default function Container({
   useEffect(() => {
     setIsCounterShown(!!overflowingChildren.length);
   }, [overflowingChildren.length]);
-
-  useEffect(() => {
-    document.addEventListener(CLICK_EVENT, hide);
-
-    return () => {
-      document.removeEventListener(CLICK_EVENT, hide);
-    };
-  });
 
   return (
     <div className={classes["value-container"]}>
