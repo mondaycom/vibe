@@ -30,6 +30,7 @@ const MenuButton = ({
   component,
   size,
   open,
+  onClick,
   zIndex,
   ariaLabel,
   closeDialogOnContentClick,
@@ -122,7 +123,7 @@ const MenuButton = ({
   }, [children, onMenuDidClose, closeDialogOnContentClick, removeTabCloseTrigger]);
 
   const content = useMemo(() => {
-    if (clonedChildren.length === 0) return <div />;
+    if (clonedChildren.length === 0) return null;
     return (
       <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
         {clonedChildren}
@@ -141,7 +142,9 @@ const MenuButton = ({
   const onMouseUp = event => {
     if (disabled) {
       event.currentTarget.blur();
+      return;
     }
+    onClick();
   };
 
   const Icon = component;
@@ -254,6 +257,7 @@ MenuButton.propTypes = {
     MenuButtonSizes.LARGE
   ]),
   open: PropTypes.bool,
+  onClick: PropTypes.func,
   zIndex: PropTypes.number,
   ariaLabel: PropTypes.string,
   closeDialogOnContentClick: PropTypes.bool,
@@ -334,6 +338,7 @@ MenuButton.defaultProps = {
   component: Menu,
   size: MenuButtonSizes.SMALL,
   open: false,
+  onClick: NOOP,
   zIndex: null,
   ariaLabel: "Menu",
   startingEdge: "bottom",
