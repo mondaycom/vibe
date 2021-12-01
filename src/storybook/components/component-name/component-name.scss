@@ -4,6 +4,7 @@
 
 .monday-storybook-component-name {
   width: 100%;
+  margin-top: 0;
   margin-bottom: $spacing-between-section-items;
   @include theme-prop(background-color, primary-selected-color);
   @include basic-text;
