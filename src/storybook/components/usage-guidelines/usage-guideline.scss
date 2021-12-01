@@ -1,5 +1,6 @@
 @import "../../../styles/global-css-settings.scss";
 @import "../../styles/content-spacing";
+@import "../../styles/typography";
 
 .monday-storybook-usage-guidelines{
   &_guideline {
@@ -7,9 +8,7 @@
     margin: var(--spacing-medium) var(--spacing-small);
     display: flex;
     align-items: center;
-    font-size: 16px;
-    line-height: 21px;
-    font-weight: 300;
+    @include content-text;
     &:first-child {
       margin-top: 0;
     }
@@ -20,6 +19,7 @@
     line-height: 21px;
     margin-right: var(--spacing-medium);
     display: flex;
-    align-items: center;
+    align-self: flex-start;
+    margin-top: 2px;
   }
 }
