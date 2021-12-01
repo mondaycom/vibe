@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.1 (2021-12-01)
+
+#### Bug Fixes
+* [#366](https://github.com/mondaycom/monday-ui-react-core/pull/366) pass event to onclick ([@etaylib](https://github.com/etaylib))
+
+#### New Icons
+* [#365](https://github.com/mondaycom/monday-ui-react-core/pull/365) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 0.10.0 (2021-11-30)
 
 #### New Features
