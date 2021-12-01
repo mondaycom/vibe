@@ -37,6 +37,8 @@ const MenuButton = ({
   dialogPosition,
   dialogClassName,
   dialogPaddingSize,
+  dialogShowTriggerIgnoreClass,
+  dialogHideTriggerIgnoreClass,
   onMenuHide,
   onMenuShow,
   disabled,
@@ -169,6 +171,8 @@ const MenuButton = ({
         moveBy={computedDialogOffset}
         showTrigger={disabled ? EMPTY_ARRAY : showTrigger}
         hideTrigger={hideTrigger}
+        showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
+        hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
         useDerivedStateFromProps={true}
         onDialogDidShow={onDialogDidShow}
         onDialogDidHide={onDialogDidHide}
@@ -284,6 +288,8 @@ MenuButton.propTypes = {
     MenuButton.dialogPositions.TOP_END,
     MenuButton.dialogPositions.TOP_START
   ]),
+  dialogShowTriggerIgnoreClass: PropTypes.string,
+  dialogHideTriggerIgnoreClass: PropTypes.string,
 
   /**
    * Dialog Alignment
@@ -337,6 +343,8 @@ MenuButton.defaultProps = {
   dialogOffset: MOVE_BY,
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM,
   dialogPosition: MenuButton.dialogPositions.BOTTOM_START,
+  dialogShowTriggerIgnoreClass: undefined,
+  dialogHideTriggerIgnoreClass: undefined,
   onMenuShow: NOOP,
   onMenuHide: NOOP,
   disabled: false,
