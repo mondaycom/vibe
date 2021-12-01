@@ -3,7 +3,6 @@ import React, { useCallback, useState, useMemo, useRef, useLayoutEffect } from "
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
-import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
@@ -141,9 +140,9 @@ const MenuButton = ({
   const onMouseUp = event => {
     if (disabled) {
       event.currentTarget.blur();
-    } else {
-      isFunction(onClick) && onClick();
+      return;
     }
+    onClick();
   };
 
   const Icon = component;
@@ -333,7 +332,7 @@ MenuButton.defaultProps = {
   component: Menu,
   size: MenuButtonSizes.SMALL,
   open: false,
-  onClick: undefined,
+  onClick: NOOP,
   zIndex: null,
   ariaLabel: "Menu",
   startingEdge: "bottom",
