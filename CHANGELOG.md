@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.11.0 (2021-12-01)
+
+#### Bug Fixes
+* [#370](https://github.com/mondaycom/monday-ui-react-core/pull/370) fix package lock ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#369](https://github.com/mondaycom/monday-ui-react-core/pull/369) add MenuButton onClick prop ([@shalomscott](https://github.com/shalomscott))
+* [#367](https://github.com/mondaycom/monday-ui-react-core/pull/367) add MenuButton props to control dialog hide/show trigger ignore class ([@shalomscott](https://github.com/shalomscott))
+
+#### New Icons
+* [#368](https://github.com/mondaycom/monday-ui-react-core/pull/368) Update icons ([@darbentov](https://github.com/darbentov))
+
 ## 0.10.1 (2021-12-01)
 
 #### Bug Fixes
