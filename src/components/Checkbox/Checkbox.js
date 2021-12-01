@@ -96,7 +96,7 @@ export const Checkbox = ({
 Checkbox.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   ariaLabelledBy: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,
