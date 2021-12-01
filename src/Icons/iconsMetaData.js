@@ -5,10 +5,10 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "TextMed",
-      file: "TextMed.svg",
+      name: "TextMedium",
+      file: "TextMedium.svg",
       description: "Text Medium",
-      tags: "Med,Text,Design,Font,Text Medium",
+      tags: "Medium,Text,Design,Font,Text Medium",
       category: [BASIC],
   },
 
