@@ -5,6 +5,14 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "TextMedium",
+      file: "TextMedium.svg",
+      description: "Text Medium",
+      tags: "Medium,Text,Design,Font,Text Medium",
+      category: [BASIC],
+  },
+
+  {
       name: "NavigationDoubleChevronLeft",
       file: "NavigationDoubleChevronLeft.svg",
       description: "Navigation double chevron left",
