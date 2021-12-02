@@ -31,7 +31,7 @@ An input field includes a label and a text field users can type text into. They 
 
 <Canvas>
   <Story name="Overview"
-         args={ {title: "name", iconName: "fa fa-square", validation: {text: "success"}, wrapperClassName: "monday-storybook-text-field_size", showCharCount: true, placeholder: "Placeholder text here"  } }>
+         args={ {title: "name", iconName: "fa fa-square", validation: {text: "Helper text"}, wrapperClassName: "monday-storybook-text-field_size", showCharCount: true, placeholder: "Placeholder text here"  } }>
     { textFieldTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -63,10 +63,9 @@ There are three sizes available: Small (32px), Medium (40px) and Large (48px).
 <Canvas>
   <Story name="States">
     <div className="monday-storybook-text-field_wrapper">
-      <div className="monday-storybook-text-field_column-wrapper">
+      <div className="monday-storybook-text-field_column-wrapper monday-storybook-text-field_spacing">
         <TextField placeholder="Disabled" size={TextField.sizes.MEDIUM} disabled />
         <TextField placeholder="With icon" iconName={Email} size={TextField.sizes.MEDIUM} />
-        <TextField placeholder="Active" autoFocus size={TextField.sizes.MEDIUM} />
       </div>
       <div className="monday-storybook-text-field_column-wrapper">
         <TextField placeholder="With field label" title="Name" size={TextField.sizes.MEDIUM} />
@@ -100,7 +99,7 @@ There are three sizes available: Small (32px), Medium (40px) and Large (48px).
       positive: {
         component:
         <div className="monday-storybook-text-field_size">
-          <TextField title="Email" size={TextField.sizes.MEDIUM} />
+          <TextField placeholder="Placeholder text here" title="Email" size={TextField.sizes.MEDIUM} />
         </div>,
         description:"Use the help text description to convey requirements or to show any formatting examples that would help user comprehension."
       },
@@ -127,10 +126,12 @@ Users can insert text.
       <TextField 
         title="Your Name" 
         size={TextField.sizes.MEDIUM}
+        placeholder="Placeholder text here"
       />
       <TextField 
         title="Email" 
         size={TextField.sizes.MEDIUM}
+        placeholder="Placeholder text here"
       />
       </div>
     </div>

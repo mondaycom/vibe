@@ -3,7 +3,6 @@
 .monday-storybook-text-field {
   &_wrapper {
     display: flex;
-    align-items: flex-end;
   }
 
   &_column-wrapper {
@@ -12,6 +11,7 @@
     width: 300px;
     gap: 16px;
     margin-right: 32px;
+
   }
 
   &_size {
@@ -27,5 +27,9 @@
       flex-direction: column;
       gap: 16px;
     }
+  }
+
+  &_spacing {
+    padding-top: 32px
   }
 }

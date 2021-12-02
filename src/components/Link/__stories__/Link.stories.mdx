@@ -58,10 +58,6 @@ Presents a classic menu or equivalent picker
       text="Default"
       href="https://www.monday.com"
     />
-    <Link
-      text="Disabled"
-      href="https://www.monday.com"
-    />
   </Story>
 </Canvas>
 
@@ -120,7 +116,7 @@ Presents a classic menu or equivalent picker
         description:"Use icon from the left or right side of the link"
       },
       negative: {
-        component:<Link />,
+        component:[<Link icon={Gallery} iconPosition={Link.position.END} />, <Link icon={ExternalPage} text="Read more" iconPosition={Link.position.END} /> ],
         description:"Don’t use two icons for one link."
       }
     },
@@ -131,12 +127,12 @@ Presents a classic menu or equivalent picker
       },
       negative: {
         component:
-          <>
-            <Link text="Read this" href="https://www.monday.com" />
-            or
-            <Link text="or this" href="https://www.monday.com" />
-            <Link text="Nice article" href="https://www.monday.com" />
-          </>,
+         [
+            <Link text="Read this" href="https://www.monday.com" />,
+            <span className="text">or </span>,
+            <Link text="this" href="https://www.monday.com" />,
+            <Link text="Nice article" href="https://www.monday.com" />,
+         ],
         description:"Don’t use multiple links near rach other"
       }
     }

@@ -1,5 +1,24 @@
 @import "../../../styles/themes.scss";
 
 .monday-storybook-link {
+  &_inline-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    height: 40px;
+    width: max-content;
+    padding-top: 20px;
+  }
+}
+
+
+.text {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    padding-bottom: 3px;
+    padding-right: 6px;
 
 }
