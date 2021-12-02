@@ -63,7 +63,7 @@ describe("TextField renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
   
-  it("with  labelIconName", () => {
+  it("with labelIconName", () => {
     const tree = renderer.create(<TextField labelIconName="fa-star" />).toJSON();
     expect(tree).toMatchSnapshot();
   });

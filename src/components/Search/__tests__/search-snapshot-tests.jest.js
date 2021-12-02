@@ -43,13 +43,13 @@ describe("Search renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with value", () => {
-    const tree = renderer.create(<Search value="value" />).toJSON();
+  it("with loading", () => {
+    const tree = renderer.create(<Search loading />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("with value", () => {
-    const tree = renderer.create(<Search value="value" />).toJSON();
+  it("with underline type", () => {
+    const tree = renderer.create(<Search type={Search.types.UNDERLINE} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

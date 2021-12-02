@@ -61,7 +61,12 @@ describe("TextField tests", () => {
     const value = "Value of input";
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
     fireEvent.change(input, { target: { value } });
-    jest.advanceTimersByTime(250);
+    jest.useFakeTimers()
+
+    act(() => {
+      jest.advanceTimersByTime(debounceTime) // forward setTimeout's timer
+    })
+    
     expect(onChangeStub.mock.calls.length).toBe(1);
   });
 
