@@ -31,7 +31,7 @@ An input field includes a label and a text field users can type text into. They 
 
 <Canvas>
   <Story name="Overview"
-         args={ {title: "Name", iconName: "fa fa-square", validation: {text: "Helper text"}, wrapperClassName: "monday-storybook-text-field_size", showCharCount: true, placeholder: "Placeholder text here"  } }>
+         args={{ title: "Name", iconName: "fa fa-square", validation: {text: "Helper text"}, wrapperClassName: "monday-storybook-text-field_size", showCharCount: true, placeholder: "Placeholder text here" }}>
     { textFieldTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -82,34 +82,34 @@ There are three sizes available: Small (32px), Medium (40px) and Large (48px).
     {
       positive: {
         component:
-        <div className="monday-storybook-text-field_size">
-          <TextField placeholder="johndoe@gmail.com" title="Email" size={TextField.sizes.MEDIUM} />
-        </div>,
-        description:"Make sure your text field has a short, descriptive label above it that describes what the user should type into the box below."
+          <div className="monday-storybook-text-field_size">
+            <TextField placeholder="johndoe@gmail.com" title="Email" size={TextField.sizes.MEDIUM} />
+          </div>,
+        description: "Make sure your text field has a short, descriptive label above it that describes what the user should type into the box below."
       },
       negative: {
         component:
-        <div className="monday-storybook-text-field_size">
-          <TextField placeholder="What is your email address?" size={TextField.sizes.MEDIUM} />
-        </div>,
-        description:"Avoid phrasing your labels as questions. Keep in mind that your label shouldn’t contain instructions. Reserve those for the helper text."
+          <div className="monday-storybook-text-field_size">
+            <TextField placeholder="What is your email address?" size={TextField.sizes.MEDIUM} />
+          </div>,
+        description: "Avoid phrasing your labels as questions. Keep in mind that your label shouldn’t contain instructions. Reserve those for the helper text."
       }
     },
     {
       positive: {
         component:
-        <div className="monday-storybook-text-field_size">
-          <TextField placeholder="Placeholder text here" title="Email" size={TextField.sizes.MEDIUM} />
-        </div>,
-        description:"Use the help text description to convey requirements or to show any formatting examples that would help user comprehension."
+          <div className="monday-storybook-text-field_size">
+            <TextField placeholder="Placeholder text here" title="Email" size={TextField.sizes.MEDIUM} />
+          </div>,
+        description: "Use the help text description to convey requirements or to show any formatting examples that would help user comprehension."
       },
       negative: {
         component:
-        <div className="monday-storybook-text-field_size">
-          <TextField placeholder="email@monday.com" title="Email" size={TextField.sizes.MEDIUM} />
-          For example: email@monday.com
-        </div>,
-        description:"Avoid repeating the field label. If the field label provides sufficient context for completing the action, then you likely don’t need to add help text."
+          <div className="monday-storybook-text-field_size">
+            <TextField placeholder="email@monday.com" title="Email" size={TextField.sizes.MEDIUM} />
+            For example: email@monday.com
+          </div>,
+        description: "Avoid repeating the field label. If the field label provides sufficient context for completing the action, then you likely don’t need to add help text."
       }
     }
   ]}

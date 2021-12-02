@@ -7,8 +7,10 @@ describe("Link", () => {
   const ariaLabel = "Read more about the interesting article";
   const text = "Read More";
   const href = "https://www.monday.com";
+  
   let linkComponent;
   let onClickMock;
+
   beforeEach(() => {
     onClickMock = jest.fn();
     linkComponent = render(<Link text={text} onClick={onClickMock} href={href} ariaLabelDescription={ariaLabel} />);

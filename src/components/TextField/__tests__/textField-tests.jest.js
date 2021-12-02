@@ -10,6 +10,7 @@ describe("TextField tests", () => {
   let defaultPlaceHolder = "Place Holder Text";
   let clock;
   let ref;
+  
   beforeEach(() => {
     cleanup();
     ref = {};
