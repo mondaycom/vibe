@@ -38,8 +38,7 @@ addParameters({
       Tip,
       ComponentRules,
       UsageGuidelines,
-      RelatedComponents,
-      Link
+      RelatedComponents
     }
   },
   viewMode: "docs",

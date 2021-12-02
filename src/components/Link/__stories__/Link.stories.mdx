@@ -1,4 +1,4 @@
-import Link from "../../Link/Link.jsx";
+import Link from "../Link.jsx";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import { ExternalPage, Gallery } from "../../Icon/Icons"
@@ -106,7 +106,7 @@ Presents a classic menu or equivalent picker
   rules={[
     {
       positive: { 
-        component:<Link href="https://www.monday.com">Read more</Link>,
+        component:<Link text="Read more" href="https://www.monday.com" />,
         description:"Keep the copy short and to the point."
       },
       negative: {
