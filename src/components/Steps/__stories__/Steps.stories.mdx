@@ -5,6 +5,8 @@ import Icon from "../../Icon/Icon.jsx"
 import { NavigationChevronLeft, NavigationChevronRight } from "../../Icon/Icons"
 import Tipseen from "../../Tipseen/Tipseen.jsx"
 import TipseenContent from "../../Tipseen/TipseenBasicContent.jsx"
+import TipseenWizard from "../../Tipseen/TipseenWizard";
+import TipseenImage from "../../Tipseen/TipseenImage";
 import "./steps.stories.scss";
 
 <Meta
@@ -34,7 +36,7 @@ Steppers display progress through a sequence of logical and numbered steps. They
 
 <Canvas>
   <Story name="Overview"
-         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+         args={ {steps: steps, activeStepIndex: 2} }>
     { stepsTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -98,11 +100,32 @@ Steps with a number view or gallery view.
 When needed for onboarding, use the tipseen as steps.
 <Canvas>
   <Story name="Stepper inside a tipseen">
-    <Tipseen title="This is a title">
-      <TipseenContent
-          title="sad"
-        />
-    </Tipseen>
+    {() => {
+      const content = [
+        <div>Popover message will appear here loremipsum dolor samet…</div>,
+        <div>Popover message will appear here loremipsum dolor samet…</div>,
+        <div>Popover message will appear here loremipsum dolor samet…</div>,
+        <div>Popover message will appear here loremipsum dolor samet…</div>,
+        <div>Popover message will appear here loremipsum dolor samet…</div>
+      ];
+      return (
+        <div className="monday-style-story-steps_block">
+          <Tipseen 
+            position={Tipseen.positions.LEFT} 
+            content={
+              <TipseenWizard
+                animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
+                title="This is a title"
+                steps={content}
+                activeStepIndex={2}
+              />
+            }
+          >
+            <div className="monday-style-story-steps_container" />
+        </Tipseen>
+      </div>
+      )
+    }}
   </Story>
 </Canvas>
 
