@@ -1,7 +1,8 @@
 import React from "react";
-import { fireEvent, render, cleanup, screen } from "@testing-library/react";
+import { fireEvent, render, cleanup, screen, waitFor } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 import { act } from "@testing-library/react-hooks";
-import TextField, { ARIA_LABELS } from "../TextField";
+import TextField from "../TextField";
 
 describe("TextField tests", () => {
   let inputComponent;
@@ -52,22 +53,16 @@ describe("TextField tests", () => {
     expect(ref.current.className).toMatch("input-component__input");
   });
 
-  it("should call the debounced function after time passed (fake timers)", () => {
+  it("should call the debounced function after time passed (fake timers)", async () => {
     const { rerender } = inputComponent;
     const debounceTime = 200;
     inputComponent = rerender(
       <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={debounceTime} />
     );
-    const value = "Value of input";
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
-    fireEvent.change(input, { target: { value } });
-    jest.useFakeTimers()
-
-    act(() => {
-      jest.advanceTimersByTime(debounceTime) // forward setTimeout's timer
-    })
-    
-    expect(onChangeStub.mock.calls.length).toBe(1);
+    userEvent.type(input, 'A');
+    expect(onChangeStub).not.toHaveBeenCalledWith('A'); 
+    await waitFor(() => expect(onChangeStub).toHaveBeenCalledWith('A'), { timeout: debounceTime });
   });
 
   it("should be disabled", () => {
@@ -115,5 +110,14 @@ describe("TextField tests", () => {
     const value = "Value of input      ";
     fireEvent.change(input, { target: { value } });
     expect(input.value).toBe(value.trim());
+  });
+
+  describe("a11y", () => {
+    it("should add the aria label", () => {
+      const ariaLabel = "aria label"
+      const { getByLabelText } = render(<TextField inputAriaLabel={ariaLabel} />);
+      const element = getByLabelText(ariaLabel);
+      expect(element).toBeTruthy();
+    });
   });
 });
