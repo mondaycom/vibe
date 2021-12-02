@@ -1,5 +1,5 @@
-import Link from "../Link.jsx";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import Link from "../Link.jsx";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import { ExternalPage, Gallery } from "../../Icon/Icons"
 import { BUTTON, CHIP, BREADCRUBMS } from "../../../storybook/components/related-components/component-description-map";
@@ -32,7 +32,7 @@ Link is an actionable text componet with connection to another web pages.
 
 <Canvas>
   <Story name="Overview"
-         args={ {text: "Read more", href: "https://www.monday.com"} }>
+         args={{ text: "Read more", href: "https://www.monday.com" }}>
     { linkTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -102,38 +102,42 @@ Presents a classic menu or equivalent picker
   rules={[
     {
       positive: { 
-        component:<Link text="Read more" href="https://www.monday.com" />,
-        description:"Keep the copy short and to the point."
+        component: <Link text="Read more" href="https://www.monday.com" />,
+        description: "Keep the copy short and to the point."
       },
       negative: {
-        component:<Link text="Go to this url and read all about it" href="https://www.monday.com" />,
-        description:"Don’t write long messages that are clickable."
+        component: <Link text="Go to this url and read all about it" href="https://www.monday.com" />,
+        description: "Don’t write long messages that are clickable."
       }
     },
     {
       positive: {
-        component:<Link text="Read more" iconPosition={Link.position.START} href="https://www.monday.com" icon={ExternalPage} />,
-        description:"Use icon from the left or right side of the link"
+        component: <Link text="Read more" iconPosition={Link.position.START} href="https://www.monday.com" icon={ExternalPage} />,
+        description: "Use icon from the left or right side of the link"
       },
       negative: {
-        component:[<Link icon={Gallery} iconPosition={Link.position.END} />, <Link icon={ExternalPage} text="Read more" iconPosition={Link.position.END} /> ],
-        description:"Don’t use two icons for one link."
+        component: 
+        [
+          <Link icon={Gallery} iconPosition={Link.position.END} />, 
+          <Link icon={ExternalPage} text="Read more" iconPosition={Link.position.END} /> 
+        ],
+        description: "Don’t use two icons for one link."
       }
     },
     {
       positive: {
-        component:<Link text="Read more" href="https://www.monday.com" />,
-        description:"Use only one link in context in text"
+        component: <Link text="Read more" href="https://www.monday.com" />,
+        description: "Use only one link in context in text"
       },
       negative: {
         component:
          [
-            <Link text="Read this" href="https://www.monday.com" />,
-            <span className="text">or </span>,
+            <Link text="Read this" href="https://www.monday.com"/>,
+            <span class="monday-storybook-link_text">or</span>,
             <Link text="this" href="https://www.monday.com" />,
             <Link text="Nice article" href="https://www.monday.com" />,
          ],
-        description:"Don’t use multiple links near rach other"
+        description: "Don’t use multiple links near rach other"
       }
     }
   ]}
