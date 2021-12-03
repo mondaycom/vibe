@@ -5,6 +5,8 @@ import TipseenContent from "../TipseenContent";
 import TipseenWizard from "../TipseenWizard";
 import TipseenImage from "../TipseenImage";
 import picture1 from "./assets/picture1.png"
+import Icon from "../../Icon/Icon.jsx";
+import { BoardPrivate, Board } from "../../Icon/Icons"
 import "./tipseen.stories.scss";
 
 <Meta
@@ -43,12 +45,12 @@ Please write here the component description
 
 ## Usage
 <UsageGuidelines guidelines={[
-  "Usage guideline 1",
-  "Usage guideline 2",
-  "Usage guideline 3",
+  "Use for onboarding screens, new features, or any guidance a user needs.",
+  "Use when the user is not yet familiar with the system’s UI or ready to learn about it.",
+  "The tip will appear until closed by an X button or call to action button.",
 ]}/>
 
-<Tip title="Not what you were looking for?">Tip content</Tip>
+<Tip title="Check yourself">If you need to provide additional information about a component, use the Tooltip or Attention box.</Tip>
 
 ## Variants
 ### Default
@@ -141,65 +143,130 @@ Use when the tip is too long or when you want to teach something in steps.
   rules={[
     {
       positive: {
-        component:<Tipseen />,
-        description:"Best practice description."
+        component:
+        <>
+          <div className="a">
+            <div className="d">
+              <Icon icon={Board} iconSize="24" /><span>💫 Research tasks</span>
+            </div>
+            <Tipseen 
+              className="c"
+              position={Tipseen.positions.RIGHT} 
+              content={
+                <TipseenContent
+                  isDismissHidden={false}
+                  title="Step1 of 7"
+                  isDismissHidden
+                  children="Click on the “Sales” board to get started"
+                />
+              }
+            >
+              <div className="d q">  
+                <Icon icon={Board} iconSize="24" /><span>Sales Pipeline</span>
+              </div>
+            </Tipseen>
+            <div className="d">
+              <Icon icon={BoardPrivate} iconSize="24" /><span>Marketing</span>
+            </div>
+          </div>
+          <div className="b"></div>
+          </>,
+        description:"Use tipseen in order to guide the user through a new feature or a place they’re not familiar with in the system."
       },
       negative: {
-        component:<Tipseen />,
-        description:"Bad practice description."
+        component:
+          <div className="monday-style-story-tipseen_column-wrapper">
+            <div className="t"></div>
+            <Tipseen 
+              position={Tipseen.positions.BOTTOM} 
+              content={
+                <>
+                  <TipseenContent
+                    children="You still have 14 days on your Pro trial, Enjoy it!"
+                  />
+                </>
+              }
+            >
+              <div className={"monday-style-story-tipseen_containera"} />
+            </Tipseen>
+          </div>,
+        description:"Don’t use tipseen to provide additional information on a familiar UI. Use a Tooltip or Attention box instead."
       }
     },
     {
       positive: {
-        component:<Tipseen />,
-        description:"Best practice description."
+        component:
+          <>
+            <div className="a">
+              <Tipseen 
+                className="c"
+                position={Tipseen.positions.RIGHT} 
+                content={
+                  <TipseenContent
+                    isDismissHidden={false}
+                    title="Step1 of 7"
+                    isDismissHidden
+                    children="Click on the “Sales” board to get started"
+                  />
+                }
+              >
+                <div className="d q">  
+                  <Icon icon={Board} iconSize="24" /><span>Sales Pipeline</span>
+                </div>
+              </Tipseen>
+            </div>
+            <div className="b"></div>
+          </>,
+        description:"Add a pointer to indicate where the tipseen comes from."
       },
       negative: {
-        component:<Tipseen />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<Tipseen />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<Tipseen />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<Tipseen />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<Tipseen />,
-        description:"Bad practice description."
+        component:
+          <>
+            <div className="a">
+              <Tipseen 
+                className="c"
+                position={Tipseen.positions.RIGHT} 
+                content={
+                  <TipseenContent
+                    withoutDialog
+                    isDismissHidden={false}
+                    title="Step1 of 7"
+                    isDismissHidden
+                    children="Click on the “Sales” board to get started"
+                  />
+                }
+              >
+                <div className="d q">  
+                  <Icon icon={Board} iconSize="24" /><span>Sales Pipeline</span>
+                </div>
+              </Tipseen>
+            </div>
+            <div className="b"></div>
+          </>,
+        description:"Don’t use a tipseen without a pointer."
       }
     }
   ]}
 />
 
-
 ## Use cases and examples
-
-### Story title 3
-Description of story 3
+### Onboarding tipseen
+After creating the first board, several tips are shown.
 <Canvas>
-  <Story name="Story title 3">
-    <Tipseen />
-    <Tipseen />
-  </Story>
-</Canvas>
-
-### Story title 4
-Description of story 4
-<Canvas>
-  <Story name="Story title 4">
-    <Tipseen />
-    <Tipseen />
+  <Story name="Onboarding tipseen">
+    <Tipseen 
+      position={Tipseen.positions.BOTTOM} 
+      content={
+        <>
+          <TipseenContent
+            title="This is a title"
+            children="Add your first item. An item can be a task, a campaign, lead, feature or anything you deifne."
+          />
+        </>
+      }
+    >
+      <div className={"monday-style-story-tipseen_containera"} />
+    </Tipseen>
   </Story>
 </Canvas>
 
