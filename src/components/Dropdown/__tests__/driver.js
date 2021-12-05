@@ -24,10 +24,6 @@ export default class DropdownDriver {
     this.renderResult = render(<Dropdown {...this.props} />);
   }
 
-  rerender() {
-    this.renderResult = this.renderResult.rerender();
-  }
-
   ensureRendered() {
     if (!this.renderResult) {
       this.render();
@@ -63,6 +59,10 @@ export default class DropdownDriver {
         html: []
       }
     );
+  }
+
+  get singleValueText() {
+    return this.renderResult.container.querySelector("[class*='singleValue']").innerHTML;
   }
 
   focusInput() {
@@ -182,6 +182,10 @@ export default class DropdownDriver {
 
   withValue(value) {
     return this.setProp("value", value);
+  }
+
+  withOnChange(onChange) {
+    return this.setProp("onChange", onChange);
   }
 
   withOnOptionSelect(onOptionSelect) {
