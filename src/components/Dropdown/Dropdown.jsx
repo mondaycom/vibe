@@ -64,7 +64,10 @@ const Dropdown = ({
   const isControlled = !!customValue;
   const selectedOptions = customValue ?? selected;
   const selectedOptionsMap = useMemo(
-    () => selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {}),
+    () =>
+      Array.isArray(selectedOptions)
+        ? selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {})
+        : {},
     [selectedOptions]
   );
   const value = multi ? selectedOptions : customValue;
