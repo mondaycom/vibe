@@ -6,8 +6,8 @@ export const getNormalizedItems = (items, idGetter, heightGetter) => {
 
   const lastIndex = items.length - 1;
   items.forEach((item, index) => {
-    const height = heightGetter(item);
-    const uniqueId = idGetter(item);
+    const height = heightGetter(item, index);
+    const uniqueId = idGetter(item, index);
     normalizedItems[uniqueId] = { item, index, height, offsetTop };
     if (lastIndex === index) {
       normalizedItems[LAST_ITEM_ID] = normalizedItems[uniqueId];
