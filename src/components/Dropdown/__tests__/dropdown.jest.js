@@ -96,7 +96,7 @@ describe("Dropdown", () => {
     });
   });
 
-  describe.only("Controlled", () => {
+  describe("Controlled", () => {
     let component;
 
     beforeEach(() => {
