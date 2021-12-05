@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.12.1 (2021-12-05)
+
+#### Bug Fixes
+* [#374](https://github.com/mondaycom/monday-ui-react-core/pull/374) Fix `<Dropdown>` multi-value bug ([@sahariko](https://github.com/sahariko))
+* [#375](https://github.com/mondaycom/monday-ui-react-core/pull/375) passing index to getter in virtualized list ([@etaylib](https://github.com/etaylib))
+
 ## 0.12.0 (2021-12-05)
 
 #### New Features
