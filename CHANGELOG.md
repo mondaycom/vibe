@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.12.0 (2021-12-05)
+
+#### New Features
+* [#354](https://github.com/mondaycom/monday-ui-react-core/pull/354) Multiselect component ([@sahariko](https://github.com/sahariko))
+
+#### New Icons
+* [#373](https://github.com/mondaycom/monday-ui-react-core/pull/373) feat: icons ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 0.11.0 (2021-12-01)
 
 #### Bug Fixes
