@@ -3,7 +3,8 @@ import TooltipReference from "./TooltipReference";
 import TooltipLineWrapper from "./TooltipLineWrapper";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
-import { Hide } from "../../Icon/Icons"
+import { Hide, Subitems } from "../../Icon/Icons"
+import Icon from "../../Icon/Icon.jsx"
 import "./Tooltip.stories.scss";
 
 <Meta
@@ -54,9 +55,14 @@ Tooltips show contextual help or information about specific components when a us
 An icon tooltip is used to clarify the action or name of an interactive icon button. Provide tooltips for all unlabelled icons.
 <Canvas>
   <Story name="Icon tooltip">
-    <Icon icon={Hide} />
-    <TooltipLineWrapper position="top" theme="dark" />
-    <TooltipLineWrapper position="top" theme="dark" />
+    <div>
+      <Tooltip
+        content="Hidden columns"
+        shouldShowOnMount
+      >
+        <Icon icon={Hide} />
+      </Tooltip>
+    </div>
   </Story>
 </Canvas>
 
@@ -64,10 +70,50 @@ An icon tooltip is used to clarify the action or name of an interactive icon but
 Tooltip’s arrow can appear from top, bottom, left or right.
 <Canvas>
   <Story name="Positions">
-    <TooltipLineWrapper position="bottom" theme="dark" />
-    <TooltipLineWrapper position="top" theme="dark" />
-    <TooltipLineWrapper position="right" theme="dark" />
-    <TooltipLineWrapper position="left" theme="dark" />
+    <div style={{ width: "90px", height: "2px" }}>
+      <Tooltip
+        content="right"
+        shouldShowOnMount
+        disableDialogSlide
+        renderTooltipContent
+        position="top"
+      >
+        <div className="right" />
+      </Tooltip>
+    </div>
+    <div style={{ width: "90px", height: "2px" }}>
+      <Tooltip
+        content="right"
+        shouldShowOnMount
+        disableDialogSlide
+        position="bottom"
+        
+      >
+        <div className="tooltip-empty-element right" />
+      </Tooltip>
+    </div>
+    <div style={{ width: "90px", height: "2px" }}>
+      <Tooltip
+        content="right"
+        shouldShowOnMount
+        disableDialogSlide
+        position="left"
+        
+      >
+        <div className="right" />
+      </Tooltip>
+    </div>
+    <div style={{ width: "90px", height: "2px" }}>
+      <Tooltip
+        content="right"
+        shouldShowOnMount
+        disableDialogSlide
+        position="right"
+        
+      >
+        <div className="right" />
+      </Tooltip>
+    </div>
   </Story>
 </Canvas>
 
@@ -75,8 +121,13 @@ Tooltip’s arrow can appear from top, bottom, left or right.
 The definition tooltip provides additional help or defines an item or term. It may be used on the label of a UI element, or on a word embedded in a paragraph.
 <Canvas>
   <Story name="Definition tooltip">
-    <TooltipLineWrapper title="Regular" position="top" theme="dark" />
-        <TooltipLineWrapper title="Surface" position="top" theme="surface" />
+    <Tooltip
+      content="Hidden columns"
+      shouldShowOnMount
+      disableDialogSlide
+    >
+      <Icon icon={Hide} />
+    </Tooltip>
   </Story>
 </Canvas>
 
@@ -111,7 +162,16 @@ The definition tooltip provides additional help or defines an item or term. It m
 The definition tooltip provides additional help or defines an item or term. It may be used on the label of a UI element, or on a word embedded in a paragraph.
 <Canvas>
   <Story name="Definition">
-    <TooltipLineWrapper title="Regular" position="top" theme="dark" />
+    <div className="monday-storybook-tooltip_box">
+      <Tooltip
+        content="Item name: Bottom sheets"
+      >
+        <div className="monday-storybook-tooltip_icon-wrapper">
+          <Icon icon={Subitems} /> 
+          <span>Subitem</span>
+        </div>
+      </Tooltip>
+    </div>
   </Story>
 </Canvas>
 
@@ -120,7 +180,23 @@ The definition tooltip provides additional help or defines an item or term. It m
 Immediately show when another is shown. The 2 left tooltips uses the immediate show prop, the right one ignores it and should always have show delay.
 <Canvas>
   <Story name="Immediate tooltips">
-    <TooltipLineWrapper title="Regular" position="top" theme="dark" />
+    <div className="monday-storybook-tooltip_box">
+      <Tooltip
+        content="I'm a tooltip"
+      >
+        <TooltipReference />
+      </Tooltip>
+      <Tooltip
+        content="I'm a tooltip"
+      >
+        <TooltipReference />
+      </Tooltip>
+      <Tooltip
+        content="I'm a tooltip"
+      >
+        <TooltipReference />
+      </Tooltip>
+    </div>
   </Story>
 </Canvas>
 
