@@ -13,8 +13,22 @@ import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 
 import "./Counter.scss";
+import { NOOP } from "../../utils/function-utils";
 
-const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits, ariaLabeledBy, ariaLabel, id, prefix }) => {
+const Counter = ({
+  count,
+  size,
+  kind,
+  color,
+  wrapperClassName,
+  maxDigits,
+  ariaLabeledBy,
+  ariaLabel,
+  id,
+  prefix,
+  onMouseDown,
+  noAnimation
+}) => {
   // State
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
@@ -67,21 +81,31 @@ const Counter = ({ count, size, kind, color, wrapperClassName, maxDigits, ariaLa
   }, [size, kind, color, countChangeAnimationState]);
 
   const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : count;
+  const counter = <span id={`counter-${id}`}>{prefix + countText}</span>;
 
   return (
-    <span className={wrapperClassName} aria-label={`${ariaLabel} ${countText}`} aria-labelledby={ariaLabeledBy}>
+    <span
+      className={wrapperClassName}
+      aria-label={`${ariaLabel} ${countText}`}
+      aria-labelledby={ariaLabeledBy}
+      onMouseDown={onMouseDown}
+    >
       <div className={classNames} aria-label={countText} ref={ref}>
-        <SwitchTransition mode="out-in">
-          <CSSTransition
-            classNames="monday-style-counter--fade"
-            addEndListener={(node, done) => {
-              node.addEventListener("transitionend", done, false);
-            }}
-            key={countText}
-          >
-            <span id={`counter-${id}`}>{prefix + countText}</span>
-          </CSSTransition>
-        </SwitchTransition>
+        {noAnimation ? (
+          counter
+        ) : (
+          <SwitchTransition mode="out-in">
+            <CSSTransition
+              classNames="monday-style-counter--fade"
+              addEndListener={(node, done) => {
+                node.addEventListener("transitionend", done, false);
+              }}
+              key={countText}
+            >
+              <span id={`counter-${id}`}>{prefix + countText}</span>
+            </CSSTransition>
+          </SwitchTransition>
+        )}
       </div>
     </span>
   );
@@ -105,7 +129,15 @@ Counter.propTypes = {
   kind: PropTypes.oneOf([Counter.kinds.FILL, Counter.kinds.LINE]),
   /** maximum number of digits to display (see relevant story) */
   maxDigits: PropTypes.number,
-  prefix: PropTypes.string
+  prefix: PropTypes.string,
+  /**
+   * Callback to be called when the counter is clicked.
+   */
+  onMouseDown: PropTypes.func,
+  /**
+   * Disables the component's animation.
+   */
+  noAnimation: PropTypes.bool
 };
 Counter.defaultProps = {
   id: "",
@@ -117,7 +149,9 @@ Counter.defaultProps = {
   maxDigits: 3,
   ariaLabeledBy: "",
   ariaLabel: "",
-  prefix: ""
+  prefix: "",
+  onMouseDown: NOOP,
+  noAnimation: false
 };
 
 export default Counter;

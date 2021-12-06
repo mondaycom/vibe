@@ -30,6 +30,7 @@ const MenuButton = ({
   component,
   size,
   open,
+  onClick,
   zIndex,
   ariaLabel,
   closeDialogOnContentClick,
@@ -37,6 +38,8 @@ const MenuButton = ({
   dialogPosition,
   dialogClassName,
   dialogPaddingSize,
+  dialogShowTriggerIgnoreClass,
+  dialogHideTriggerIgnoreClass,
   onMenuHide,
   onMenuShow,
   disabled,
@@ -120,7 +123,7 @@ const MenuButton = ({
   }, [children, onMenuDidClose, closeDialogOnContentClick, removeTabCloseTrigger]);
 
   const content = useMemo(() => {
-    if (clonedChildren.length === 0) return <div />;
+    if (clonedChildren.length === 0) return null;
     return (
       <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
         {clonedChildren}
@@ -139,7 +142,9 @@ const MenuButton = ({
   const onMouseUp = event => {
     if (disabled) {
       event.currentTarget.blur();
+      return;
     }
+    onClick();
   };
 
   const Icon = component;
@@ -169,6 +174,8 @@ const MenuButton = ({
         moveBy={computedDialogOffset}
         showTrigger={disabled ? EMPTY_ARRAY : showTrigger}
         hideTrigger={hideTrigger}
+        showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
+        hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
         useDerivedStateFromProps={true}
         onDialogDidShow={onDialogDidShow}
         onDialogDidHide={onDialogDidHide}
@@ -250,6 +257,7 @@ MenuButton.propTypes = {
     MenuButtonSizes.LARGE
   ]),
   open: PropTypes.bool,
+  onClick: PropTypes.func,
   zIndex: PropTypes.number,
   ariaLabel: PropTypes.string,
   closeDialogOnContentClick: PropTypes.bool,
@@ -284,6 +292,8 @@ MenuButton.propTypes = {
     MenuButton.dialogPositions.TOP_END,
     MenuButton.dialogPositions.TOP_START
   ]),
+  dialogShowTriggerIgnoreClass: PropTypes.string,
+  dialogHideTriggerIgnoreClass: PropTypes.string,
 
   /**
    * Dialog Alignment
@@ -328,6 +338,7 @@ MenuButton.defaultProps = {
   component: Menu,
   size: MenuButtonSizes.SMALL,
   open: false,
+  onClick: NOOP,
   zIndex: null,
   ariaLabel: "Menu",
   startingEdge: "bottom",
@@ -337,6 +348,8 @@ MenuButton.defaultProps = {
   dialogOffset: MOVE_BY,
   dialogPaddingSize: DialogContentContainer.sizes.MEDIUM,
   dialogPosition: MenuButton.dialogPositions.BOTTOM_START,
+  dialogShowTriggerIgnoreClass: undefined,
+  dialogHideTriggerIgnoreClass: undefined,
   onMenuShow: NOOP,
   onMenuHide: NOOP,
   disabled: false,

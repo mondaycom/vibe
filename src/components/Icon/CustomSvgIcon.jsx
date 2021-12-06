@@ -19,6 +19,7 @@ const CustomSvgIcon = ({
   ariaHidden,
   replaceToCurrentColor,
   customColor,
+  "data-testid": dataTestId,
   ...props
 }) => {
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
@@ -44,6 +45,7 @@ const CustomSvgIcon = ({
       className={cx("monday-style-custom-svg-icon--wrapper", className)}
       preProcessor={svgProcessor}
       {...props}
+      data-testid={dataTestId}
     />
   );
 };
