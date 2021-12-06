@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip renders correctly with empty props 1`] = `null`;
+
+exports[`Tooltip renders correctly with end arrowPosition 1`] = `null`;
+
+exports[`Tooltip renders correctly with justify 1`] = `null`;
+
+exports[`Tooltip renders correctly with position 1`] = `null`;
+
+exports[`Tooltip renders correctly with theme 1`] = `null`;
+
+exports[`Tooltip renders correctly with withoutDialog 1`] = `null`;
+
+exports[`Tooltip renders correctly with y 1`] = `null`;
+
+exports[`Tooltip renders correctly with y 2`] = `null`;
+
+exports[`Tooltip renders correctly without arrow 1`] = `null`;
