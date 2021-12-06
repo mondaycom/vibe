@@ -380,6 +380,7 @@ export default class Dialog extends PureComponent {
                   styleObject={style}
                   ref={ref}
                   onClick={this.onContentClick}
+                  hasTooltip={!!tooltip}
                 >
                   {contentRendered}
                   {tooltip && (

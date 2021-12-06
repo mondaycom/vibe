@@ -4,7 +4,16 @@ import classNames from "classnames";
 
 const FontIcon = forwardRef(
   (
-    { className, onClick, "aria-label": iconLabel, tabIndex, icon, role = "img", "aria-hidden": ariaHidden },
+    {
+      className,
+      onClick,
+      "aria-label": iconLabel,
+      tabIndex,
+      icon,
+      role = "img",
+      "aria-hidden": ariaHidden,
+      "data-testid": dataTestId
+    },
     iconRef
   ) => {
     const isIconFunction = typeof icon === "function";
@@ -19,6 +28,7 @@ const FontIcon = forwardRef(
         aria-label={iconLabel}
         tabIndex={tabIndex}
         role={role}
+        data-testid={dataTestId}
       >
         {isIconFunction && icon()}
       </span>
