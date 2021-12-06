@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.13.0 (2021-12-06)
+
+#### Bug Fixes
+* [#376](https://github.com/mondaycom/monday-ui-react-core/pull/376) added indexes for other idGetter usages ([@etaylib](https://github.com/etaylib))
+
+#### New Features
+* [#377](https://github.com/mondaycom/monday-ui-react-core/pull/377) add modifiers support to tipseen and tooltip ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#378](https://github.com/mondaycom/monday-ui-react-core/pull/378) Fix `<Dropdown>` test driver ([@sahariko](https://github.com/sahariko))
+
 ## 0.12.1 (2021-12-05)
 
 #### Bug Fixes
