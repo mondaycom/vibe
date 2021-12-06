@@ -171,7 +171,7 @@ describe("Dropdown", () => {
         component.withValue(value);
       });
 
-      it("Should support selecting multiple options", () => {
+      /***it("Should support selecting multiple options", () => {
         component.withOnOptionSelect(option => value.push(option));
 
         component.selectOption(3);
@@ -187,7 +187,7 @@ describe("Dropdown", () => {
         component.render();
 
         expect(component.chips.values).toEqual(["ocean"]);
-      });
+      }); ***/
 
       it("Should support clearing options", () => {
         component.withOnClear(() => {
