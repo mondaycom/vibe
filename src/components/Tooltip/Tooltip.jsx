@@ -178,8 +178,7 @@ Tooltip.propTypes = {
   onTooltipHide: PropTypes.func,
   onTooltipShow: PropTypes.func,
   /**
-   * PopperJS Modifiers type
-   * https://popper.js.org/docs/v2/modifiers/
+   * [PopperJS Modifiers](https://popper.js.org/docs/v2/modifiers/) type.
    */
   modifiers: PropTypes.array
 };
