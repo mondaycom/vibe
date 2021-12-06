@@ -26,7 +26,18 @@ module.exports = options => {
             hmr: false
           }
         },
-    "css-loader",
+    {
+      loader: "css-loader",
+      options: {
+        modules: {
+          mode: "local",
+          auto: true,
+          localIdentName: "[path][name]__[local]--[hash:base64:5]",
+          context: path.resolve(__dirname, "src"),
+          exportGlobals: false
+        }
+      }
+    },
     {
       loader: "postcss-loader",
       options: {
@@ -61,9 +72,7 @@ module.exports = options => {
                 transformers: [
                   {
                     extensions: [".json"],
-                    transform(rawFile) {
-                      return jsonToSass.convert(rawFile);
-                    }
+                    transform: rawFile => jsonToSass.convert(rawFile)
                   }
                 ]
               }
@@ -79,11 +88,11 @@ module.exports = options => {
     },
     externals: [nodeExternals()],
     entry: {
-      main: `${__dirname}/src/index.js`,
+      main: path.join(__dirname, "/src/index.js"),
       ...getPublishedComponents(__dirname)
     },
     output: {
-      path: `${__dirname}/dist/`,
+      path: path.join(__dirname, "/dist/"),
       filename: "[name].js",
       library: "monday-style",
       libraryTarget: "umd",

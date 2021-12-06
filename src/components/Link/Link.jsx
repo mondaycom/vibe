@@ -31,7 +31,7 @@ const Link = forwardRef(
         if (disableNavigation) {
           e.preventDefault();
         }
-        onClick && onClick();
+        onClick && onClick(e);
       },
       [disableNavigation, onClick]
     );

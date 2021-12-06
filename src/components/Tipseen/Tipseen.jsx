@@ -39,7 +39,8 @@ const Tipseen = forwardRef(
       showTrigger,
       width,
       moveBy,
-      hideWhenReferenceHidden
+      hideWhenReferenceHidden,
+      modifiers
     },
     ref
   ) => {
@@ -93,6 +94,7 @@ const Tipseen = forwardRef(
           disableDialogSlide={false}
           moveBy={moveBy}
           hideWhenReferenceHidden={hideWhenReferenceHidden}
+          modifiers={modifiers}
         >
           {children}
         </Tooltip>
@@ -135,7 +137,12 @@ Tipseen.propTypes = {
     main: PropTypes.number,
     secondary: PropTypes.number
   }),
-  hideWhenReferenceHidden: PropTypes.bool
+  hideWhenReferenceHidden: PropTypes.bool,
+  /**
+   * PopperJS Modifiers type
+   * https://popper.js.org/docs/v2/modifiers/
+   */
+  modifiers: PropTypes.array
 };
 Tipseen.defaultProps = {
   className: "",
@@ -153,7 +160,8 @@ Tipseen.defaultProps = {
   justify: Tipseen.justifyTypes.CENTER,
   width: undefined,
   moveBy: undefined,
-  hideWhenReferenceHidden: false
+  hideWhenReferenceHidden: false,
+  modifiers: []
 };
 
 export default Tipseen;

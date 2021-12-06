@@ -1,11 +1,9 @@
 @import "../../../styles/themes.scss";
 
-
-
 .monday-style-dialog-content-wrapper {
   outline: 0;
 
-  &[data-popper-reference-hidden='true']{
+  &[data-popper-reference-hidden="true"] {
     visibility: hidden;
     pointer-events: none;
   }
@@ -122,7 +120,17 @@
   &.right-end,
   &.left,
   &.left-start,
-  &.left-end{
+  &.left-end {
     transform: scale(1);
+  }
+}
+
+.monday-style-dialog-content-component {
+  &:focus {
+    outline: none;
+  }
+
+  &.has-tooltip {
+    padding: 6px;
   }
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { boolean, select, text } from "@storybook/addon-knobs";
 import { action } from "@storybook/addon-actions";
 import Dropdown from "../Dropdown";
@@ -21,16 +21,6 @@ const mockColorOptions = [
 const mockVirtualizedOptions = new Array(10000).fill(null).map((_, i) => ({ value: i + 1, label: (i + 1).toString() }));
 
 export const Sandbox = () => {
-  const mockColorOptions = [
-    { value: "English", label: "English", isFixed: true },
-    { value: "ocean", label: "Ocean", isFixed: true },
-    { value: "blue", label: "Blue", isDisabled: true },
-    { value: "purple", label: "Purple" },
-    { value: "red", label: "Red", isFixed: true },
-    { value: "orange", label: "Orange" },
-    { value: "yellow", label: "Yellow" }
-  ];
-
   const mockDefaultOptions = mockColorOptions.slice(0, 2);
 
   const isAsync = boolean("Async options - Promise or Callback", false, "Async");
@@ -191,6 +181,53 @@ export const rtl = () => (
     </StoryStateRow>
   </section>
 );
+
+export const multiselect = () => {
+  const [options, setOptions] = useState([mockColorOptions[1], mockColorOptions[2], mockColorOptions[3]]);
+  const onAdd = value => setOptions([...options, value]);
+  const onRemove = option => setOptions(options.filter(({ value }) => option.value !== value));
+  const onClear = () => setOptions([]);
+
+  return (
+    <section>
+      <StoryStateRow>
+        <StoryStateColumn title="Uncontrolled" centerize>
+          <Dropdown className="dropdown-story" options={mockColorOptions} multi />
+        </StoryStateColumn>
+        <StoryStateColumn title="Controlled" centerize>
+          <Dropdown
+            className="dropdown-story"
+            options={mockColorOptions}
+            multi
+            value={options}
+            onOptionSelect={onAdd}
+            onOptionRemove={onRemove}
+            onClear={onClear}
+          />
+        </StoryStateColumn>
+      </StoryStateRow>
+      <StoryStateRow>
+        <StoryStateColumn title="Limited width + single line" centerize>
+          <Dropdown
+            className="dropdown-story dropdown-limited-width"
+            options={mockColorOptions}
+            multi
+            defaultValue={[mockColorOptions[1], mockColorOptions[2], mockColorOptions[3], mockColorOptions[4]]}
+          />
+        </StoryStateColumn>
+        <StoryStateColumn title="Limited width + multiline" centerize>
+          <Dropdown
+            className="dropdown-story dropdown-limited-width"
+            options={mockColorOptions}
+            multi
+            multiline
+            defaultValue={[mockColorOptions[1], mockColorOptions[2], mockColorOptions[3], mockColorOptions[4]]}
+          />
+        </StoryStateColumn>
+      </StoryStateRow>
+    </section>
+  );
+};
 
 export const virtualized = () => {
   const mockPromiseOptions = inputValue => {
