@@ -1,7 +1,6 @@
 import React from "react";
 import { render, cleanup, act, screen } from "@testing-library/react";
-import { expect } from "../../../test/test-helpers";
-import LinearProgressBar from "./LinearProgressBar";
+import LinearProgressBar from "../LinearProgressBar";
 
 describe("ProgressBars Tests", () => {
   let component;
@@ -110,13 +109,10 @@ describe("ProgressBars Tests", () => {
       const widthBeforeChange = style.width;
 
       rerender(<LinearProgressBar max={100} id="test" multi multiValues={multiValuesWithChange} />);
-
-      console.log(multiValuesWithChange);
-
       progressBarElements = screen.queryAllByRole("progressbar");
       style = window.getComputedStyle(progressBarElements[2]);
-      expect(Number(style.width.replace("px", ""))).toBeGreaterThan(Number(widthBeforeChange.replace("px", "")));
-      expect(style.backgroundColor).toBe(multiValuesWithChange[0].color);
+
+      expect(style.backgroundColor).toEqual(multiValuesWithChange[0].color);
     });
   });
 });

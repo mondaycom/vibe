@@ -1,7 +1,6 @@
 import React from "react";
-import { sinon, expect } from "../test/test-helpers";
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
-import useDebounceEvent from "./useDebounceEvent";
+import useDebounceEvent from "../useDebounceEvent";
 
 describe("useDebounceEvent", () => {
   const delay = 0;
@@ -10,7 +9,7 @@ describe("useDebounceEvent", () => {
   let hookResult;
 
   beforeEach(() => {
-    onChangeCallbackStub = sinon.stub();
+    onChangeCallbackStub = jest.fn();
     hookResult = renderHook(() =>
       useDebounceEvent({
         delay,
@@ -21,25 +20,24 @@ describe("useDebounceEvent", () => {
   });
 
   afterEach(() => {
-    onChangeCallbackStub.reset();
     cleanup();
   });
 
   describe("return types", () => {
     it("should give a callback function", () => {
-      expect(typeof hookResult.result.current.onEventChanged).toBe("function");
+      expect(typeof hookResult.result.current.onEventChanged).toEqual("function");
     });
 
     it("should give a clear function", () => {
-      expect(typeof hookResult.result.current.clearValue).toBe("function");
+      expect(typeof hookResult.result.current.clearValue).toEqual("function");
     });
 
     it("should give a update function", () => {
-      expect(typeof hookResult.result.current.updateValue).toBe("function");
+      expect(typeof hookResult.result.current.updateValue).toEqual("function");
     });
 
     it("should give the value ", () => {
-      expect(typeof hookResult.result.current.inputValue).toBe("string");
+      expect(typeof hookResult.result.current.inputValue).toEqual("string");
     });
   });
   describe("updating the value with input event", () => {
@@ -51,7 +49,7 @@ describe("useDebounceEvent", () => {
         onEventChanged(getEventObject(newInputValue));
       });
 
-      expect(hookResult.result.current.inputValue).toBe(newInputValue);
+      expect(hookResult.result.current.inputValue).toEqual(newInputValue);
     });
 
     it("should trim the value", () => {
@@ -69,7 +67,7 @@ describe("useDebounceEvent", () => {
       act(() => {
         onEventChanged(getEventObject(newInputValue));
       });
-      expect(hookRes.result.current.inputValue).toBe(newInputValue.trim());
+      expect(hookRes.result.current.inputValue).toEqual(newInputValue.trim());
     });
 
     it("should clear the value", () => {
@@ -79,7 +77,7 @@ describe("useDebounceEvent", () => {
         clearValue();
       });
 
-      expect(hookResult.result.current.inputValue).toBe("");
+      expect(hookResult.result.current.inputValue).toEqual("");
     });
 
     it("should call onChange with the correct value", () => {
@@ -90,14 +88,15 @@ describe("useDebounceEvent", () => {
         onEventChanged(getEventObject(newInputValue));
       });
 
-      expect(onChangeCallbackStub).to.be.calledWith(newInputValue);
+      expect(onChangeCallbackStub.mock.calls[0][0]).toEqual(newInputValue);
     });
   });
   describe("debounced", () => {
     const additionalDelay = 200;
-    let clock;
+
     beforeEach(() => {
-      clock = sinon.useFakeTimers();
+      jest.useFakeTimers("modern");
+
       hookResult = renderHook(() =>
         useDebounceEvent({
           delay: additionalDelay,
@@ -108,7 +107,7 @@ describe("useDebounceEvent", () => {
     });
 
     afterEach(() => {
-      clock.reset();
+      jest.useRealTimers();
     });
 
     it("should not call the onChange immediately ", () => {
@@ -117,7 +116,7 @@ describe("useDebounceEvent", () => {
       act(() => {
         onEventChanged(getEventObject(newInputValue));
       });
-      expect(onChangeCallbackStub).to.not.be.called;
+      expect(onChangeCallbackStub.mock.calls.length).toEqual(0);
     });
 
     it("should not call the onChange before the timer passes ", () => {
@@ -126,19 +125,21 @@ describe("useDebounceEvent", () => {
       act(() => {
         onEventChanged(getEventObject(newInputValue));
       });
-      clock.tick(additionalDelay - 1);
+      jest.advanceTimersByTime(additionalDelay - 1);
 
-      expect(onChangeCallbackStub).to.not.be.called;
+      expect(onChangeCallbackStub.mock.calls.length).toEqual(0);
     });
 
-    it("should not call the onChange immediately ", () => {
+    it("should be called after the timeout ", () => {
       const { onEventChanged } = hookResult.result.current;
       const newInputValue = "input value";
       act(() => {
         onEventChanged(getEventObject(newInputValue));
       });
-      clock.tick(additionalDelay + 1);
-      expect(onChangeCallbackStub).to.be.called;
+
+      jest.runOnlyPendingTimers();
+
+      expect(onChangeCallbackStub.mock.calls.length).toEqual(1);
     });
   });
 });

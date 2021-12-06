@@ -1,7 +1,6 @@
 import React from "react";
-import { sinon, expect } from "../test/test-helpers";
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
-import useEventListener from "./useEventListener";
+import useEventListener from "../useEventListener";
 import { fireEvent } from "@testing-library/react";
 
 describe("useEventListener", () => {
@@ -9,7 +8,7 @@ describe("useEventListener", () => {
   let callbackStub;
   describe("click", () => {
     beforeEach(() => {
-      callbackStub = sinon.stub();
+      callbackStub = jest.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
@@ -23,7 +22,6 @@ describe("useEventListener", () => {
 
     afterEach(() => {
       element.remove();
-      callbackStub.reset();
       cleanup();
     });
 
@@ -31,14 +29,14 @@ describe("useEventListener", () => {
       act(() => {
         fireEvent.click(element);
       });
-      return expect(callbackStub).to.be.calledOnce;
+      return expect(callbackStub.mock.calls.length).toEqual(1);
     });
 
     it("should not call callback on a different (not click) event", () => {
       act(() => {
         fireEvent.keyDown(element);
       });
-      return expect(callbackStub).to.not.be.calledOnce;
+      return expect(callbackStub.mock.calls.length).toEqual(0);
     });
   });
 
@@ -46,7 +44,7 @@ describe("useEventListener", () => {
     const customEventName = "testEvent";
     const differentEventName = "testEvent-different";
     beforeEach(() => {
-      callbackStub = sinon.stub();
+      callbackStub = jest.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
@@ -60,7 +58,6 @@ describe("useEventListener", () => {
 
     afterEach(() => {
       element.remove();
-      callbackStub.reset();
       cleanup();
     });
 
@@ -74,7 +71,7 @@ describe("useEventListener", () => {
           })
         );
       });
-      return expect(callbackStub).to.be.calledOnce;
+      return expect(callbackStub.mock.calls.length).toEqual(1);
     });
 
     it("should not call callback on a different custom event event", () => {
@@ -87,7 +84,7 @@ describe("useEventListener", () => {
           })
         );
       });
-      return expect(callbackStub).to.not.be.calledOnce;
+      return expect(callbackStub.mock.calls.length).toEqual(0);
     });
   });
 });

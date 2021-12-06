@@ -2,11 +2,8 @@ import React from "react";
 import { withPerformance } from "storybook-addon-performance";
 import ButtonGroup from "../ButtonGroup";
 import { StoryStateColumn, StoryStateRow } from "../../storybook-helpers";
-import { FakeXMLHttpRequest } from "sinon";
 import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
-import TextSmall from "../../Icon/Icons/components/TextSmall";
-import Doc from "../../Icon/Icons/components/Doc";
-import { Bolt } from "../../Icon/Icons";
+
 
 export const Sandbox = () => (
   <div
