@@ -155,7 +155,8 @@ Tooltip.defaultProps = {
   tip: true,
   hideWhenReferenceHidden: false,
   onTooltipHide: null,
-  onTooltipShow: null
+  onTooltipShow: null,
+  modifiers: []
 };
 
 Tooltip.propTypes = {
@@ -175,5 +176,10 @@ Tooltip.propTypes = {
   tip: PropTypes.bool,
   hideWhenReferenceHidden: PropTypes.bool,
   onTooltipHide: PropTypes.func,
-  onTooltipShow: PropTypes.func
+  onTooltipShow: PropTypes.func,
+  /**
+   * PopperJS Modifiers type
+   * https://popper.js.org/docs/v2/modifiers/
+   */
+  modifiers: PropTypes.array
 };
