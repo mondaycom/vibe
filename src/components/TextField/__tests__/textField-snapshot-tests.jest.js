@@ -72,4 +72,29 @@ describe("TextField renders correctly", () => {
     const tree = renderer.create(<TextField readonly />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with className", () => {
+    const tree = renderer.create(<TextField className="testClassName" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with role", () => {
+    const tree = renderer.create(<TextField role="testRole" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("when required", () => {
+    const tree = renderer.create(<TextField required />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with secondaryIconName", () => {
+    const tree = renderer.create(<TextField secondaryIconName="fa-star" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with iconsNames", () => {
+    const tree = renderer.create(<TextField iconsNames={{ primary: "primary-label", secondary: "secondary-label", layout: "test" }} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

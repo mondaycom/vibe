@@ -6,6 +6,7 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 import { Add, Filter, Search as SearchIcon } from "../../Icon/Icons";
 import { Link } from "../../../storybook/components";
 import Icon from "../../Icon/Icon.jsx";
+import Combobox from "../../Combobox/Combobox.jsx";
 import { DROPDAWN, TEXT_FIELD, COMBOBOX } from "../../../storybook/components/related-components/component-description-map";
 import "./Search.stories.scss";
 
@@ -67,55 +68,31 @@ There are three sizes available: Small (32px), Medium (40px), and Large (48px).
   </Story>
 </Canvas>
 
-<Tip title="Missing something?">If you’re looking for search states, go to<Link href="/?path=/docs/components-canvas--overview" size={Link.sizes.SMALL}>Canvas</Link>and play with Knobs.</Tip>
-
-## Do’s and Don’ts
-<ComponentRules
-  rules={[
-    {
-      positive: {
-        component:
-        <DialogContentContainer className="monday-storybook-search_wrapper">
-          <Dropdown placeholder="Select" />
-          <div className="monday-storybook-search_column-wrapper">
-            <div className="monday-storybook-search_inline-wrapper"><Icon icon={Add} /> Add</div>
-            <div className="monday-storybook-search_inline-wrapper"><Icon icon={Filter} /> Filters</div>
-            <div className="monday-storybook-search_inline-wrapper"><Icon icon={SearchIcon} /> Search</div>
-          </div>
-        </DialogContentContainer>,
-        description:"Use a single search input per page/section."
-      },
-      negative: {
-        component:
-        <DialogContentContainer className="monday-storybook-search_wrapper">
-          <Search placeholder="Search" />
-          <div className="monday-storybook-search_column-wrapper">
-            <div className="monday-storybook-search_inline-wrapper"><Icon icon={Add} /> Add</div>
-            <div className="monday-storybook-search_inline-wrapper"><Icon icon={Filter} /> Filters</div>
-            <div className="monday-storybook-search_inline-wrapper"><Icon icon={SearchIcon} /> Search</div>
-          </div>
-        </DialogContentContainer>,
-        description:"Avoid using more than one search input field per page, which can confuse users."
-      }
-    }
-  ]}
-/>
-
+<Tip title="Missing something?">If you’re looking for search states, go to<Link href="/?path=/story/components-canvas--overview" size={Link.sizes.SMALL}>Canvas</Link>and play with Knobs.</Tip>
 
 ## Use cases and examples
 ### Filter in combobox
 <Canvas>
   <Story name="Filter in combobox">
-    <DialogContentContainer className="monday-storybook-search_wrapper">
-      <Search placeholder="Placeholder text here" />
-      <div className="monday-storybook-search_item-box">
-        <div>Cheese Cake</div>
-        <div>Muffin</div>
-        <div>Cookie</div>
-        <div>Cup cake</div>
-        <div>Banana lottie</div>
-      </div>
-    </DialogContentContainer>
+    {() => {
+      const option = [
+        { id: "1", label: "Cheese Cake" },
+        { id: "2", label: "Muffin" },
+        { id: "3", label: "Cookie" },
+        { id: "4", label: "Cup cake" },
+        { id: "5", label: "Banana lottie" }
+     ];
+     return (
+       <DialogContentContainer className="monday-storybook-search_wrapper">
+          <Combobox
+            placeholder="Placeholder text here"
+            options={option}
+            size={Combobox.sizes.SMALL}
+            optionLineHeight={28}
+          />
+        </DialogContentContainer>
+     )
+    }}
   </Story>
 </Canvas>
 

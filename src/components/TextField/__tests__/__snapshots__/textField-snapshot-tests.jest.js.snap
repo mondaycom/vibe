@@ -240,6 +240,77 @@ exports[`TextField renders correctly when readonly 1`] = `
 </div>
 `;
 
+exports[`TextField renders correctly when required 1`] = `
+<div
+  aria-busy={false}
+  className="input-component"
+  role=""
+>
+  <div
+    className="input-component__label--wrapper"
+  >
+    <div
+      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input-component__input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={true}
+        role=""
+        type="text"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`TextField renders correctly with another type 1`] = `
 <div
   aria-busy={false}
@@ -382,6 +453,77 @@ exports[`TextField renders correctly with className 1`] = `
 </div>
 `;
 
+exports[`TextField renders correctly with className 2`] = `
+<div
+  aria-busy={false}
+  className="input-component"
+  role=""
+>
+  <div
+    className="input-component__label--wrapper"
+  >
+    <div
+      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="testClassName input-component__input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`TextField renders correctly with icon 1`] = `
 <div
   aria-busy={false}
@@ -441,6 +583,77 @@ exports[`TextField renders correctly with icon 1`] = `
       </div>
       <div
         className="input-component__icon--container input-component__icon--container-has-icon"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with iconsNames 1`] = `
+<div
+  aria-busy={false}
+  className="input-component"
+  role=""
+>
+  <div
+    className="input-component__label--wrapper"
+  >
+    <div
+      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input-component__input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
         onClick={[Function]}
         onDragStart={[Function]}
         onKeyDown={[Function]}
@@ -740,6 +953,156 @@ exports[`TextField renders correctly with placeholder 1`] = `
         role="button"
         tabIndex="-1"
       />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with role 1`] = `
+<div
+  aria-busy={false}
+  className="input-component"
+  role="testRole"
+>
+  <div
+    className="input-component__label--wrapper"
+  >
+    <div
+      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input-component__input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with secondaryIconName 1`] = `
+<div
+  aria-busy={false}
+  className="input-component"
+  role=""
+>
+  <div
+    className="input-component__label--wrapper"
+  >
+    <div
+      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input-component__input input-component__input--has-icon"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="text"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-has-icon"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      >
+        <span
+          aria-hidden={true}
+          aria-label=""
+          className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          onClick={[Function]}
+          role="img"
+        />
+      </div>
     </div>
   </div>
 </div>

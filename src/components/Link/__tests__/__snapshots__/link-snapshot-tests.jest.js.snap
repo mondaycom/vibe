@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Link renders correctly with ariaLabelDescription 1`] = `
+<a
+  aria-label="arialabel link"
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with ariaLabeledBy 1`] = `
+<a
+  aria-label=""
+  aria-labelledby="aria label link"
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
 exports[`Link renders correctly with componentClassName 1`] = `
 <a
   aria-label=""
