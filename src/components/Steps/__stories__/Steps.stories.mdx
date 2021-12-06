@@ -4,9 +4,8 @@ import { createComponentTemplate } from "../../../storybook/functions/create-com
 import Icon from "../../Icon/Icon.jsx"
 import { NavigationChevronLeft, NavigationChevronRight } from "../../Icon/Icons"
 import Tipseen from "../../Tipseen/Tipseen.jsx"
-import TipseenContent from "../../Tipseen/TipseenBasicContent.jsx"
 import TipseenWizard from "../../Tipseen/TipseenWizard";
-import TipseenImage from "../../Tipseen/TipseenImage";
+import { modifiers } from "./helpers.js";
 import "./steps.stories.scss";
 
 <Meta
@@ -67,10 +66,10 @@ Steps with a number view or gallery view.
 ### On primary
 <Canvas>
   <Story name="On primary">
-    <div className="monday-style-story-steps_column-wrapper">
+    <div className="monday-style-story-steps_column-wrapper monday-style-story-steps_color" >
+      <Steps steps={steps} activeStepIndex={2} isOnPrimary type={Steps.types.NUMBERS} />
       <Steps steps={steps} activeStepIndex={2} isOnPrimary />
-      <Steps steps={steps} activeStepIndex={2} />
-      <Steps steps={steps} activeStepIndex={2} />
+      <Steps steps={steps} activeStepIndex={2} isOnPrimary areNavigationButtonsHidden />
     </div>
   </Story>
 </Canvas>
@@ -113,6 +112,7 @@ Our Tipseen component includes support for steps as content.
         <div className="monday-style-story-steps_block">
           <Tipseen 
             position={Tipseen.positions.LEFT} 
+            modifiers={modifiers}
             content={
               <TipseenWizard
                 animationType={Tipseen.animationTypes.OPACITY_AND_SLIDE}
