@@ -5,7 +5,7 @@
 $icon-margin: 4px;
 
 .chips--wrapper {
-  display: flex;
+  display: inline-flex;
   overflow: hidden;
   height: 24px;
   border-radius: 4px;
@@ -15,6 +15,10 @@ $icon-margin: 4px;
   user-select: none;
   animation: chips-enter 100ms;
   animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
+
+  &.no-animation {
+    animation: none;
+  }
 
   &.with-close {
     padding-right: 4px;
