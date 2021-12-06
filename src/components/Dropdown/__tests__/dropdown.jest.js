@@ -96,6 +96,39 @@ describe("Dropdown", () => {
     });
   });
 
+  describe("Controlled", () => {
+    let component;
+
+    beforeEach(() => {
+      component = new DropdownDriver().withOptions().withValue(mockOptions[0]);
+    });
+
+    it("Should display the provided value", () => {
+      component.render();
+
+      expect(component.singleValueText).toBe("Ocean");
+    });
+
+    it("Should not change value internally", () => {
+      component.selectOption(2);
+      component.render();
+
+      expect(component.singleValueText).toBe("Ocean");
+    });
+
+    it("Should change displayed value when passed a new value", () => {
+      component.withOnChange(option => {
+        component.props.value = option;
+      });
+
+      component.render();
+      component.selectOption(2);
+      component.render();
+
+      expect(component.singleValueText).toBe("Purple");
+    });
+  });
+
   describe("multi", () => {
     let component;
 
@@ -125,44 +158,44 @@ describe("Dropdown", () => {
       component.selectOption(0);
 
       component.clearOptions();
-      component.rerender();
+      component.render();
 
       expect(component.chips.values).toEqual([]);
     });
 
     describe("Controlled", () => {
-      let options;
+      let value;
 
       beforeEach(() => {
-        options = [component.options[0], component.options[2]];
-        component.withValue(options);
+        value = [component.options[0], component.options[2]];
+        component.withValue(value);
       });
 
       it("Should support selecting multiple options", () => {
-        component.withOnOptionSelect(option => options.push(option));
+        component.withOnOptionSelect(option => value.push(option));
 
         component.selectOption(3);
-        component.rerender();
+        component.render();
 
         expect(component.chips.values).toEqual(["ocean", "purple", "red"]);
       });
 
       it("Should support removing options", () => {
-        component.withOnOptionRemove(() => options.pop());
+        component.withOnOptionRemove(() => value.pop());
 
         component.removeOption(2);
-        component.rerender();
+        component.render();
 
         expect(component.chips.values).toEqual(["ocean"]);
       });
 
       it("Should support clearing options", () => {
         component.withOnClear(() => {
-          options.length = 0;
+          value.length = 0;
         });
 
         component.clearOptions();
-        component.rerender();
+        component.render();
 
         expect(component.chips.values).toEqual([]);
       });

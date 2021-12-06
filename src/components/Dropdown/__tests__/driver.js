@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, act } from "@testing-library/react";
+import { render, fireEvent, act, cleanup } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 
 const MOCK_OPTIONS = [
@@ -21,11 +21,8 @@ export default class DropdownDriver {
   }
 
   render() {
+    cleanup();
     this.renderResult = render(<Dropdown {...this.props} />);
-  }
-
-  rerender() {
-    this.renderResult = this.renderResult.rerender();
   }
 
   ensureRendered() {
@@ -63,6 +60,10 @@ export default class DropdownDriver {
         html: []
       }
     );
+  }
+
+  get singleValueText() {
+    return this.renderResult.container.querySelector("[class*='singleValue']").innerHTML;
   }
 
   focusInput() {
@@ -182,6 +183,10 @@ export default class DropdownDriver {
 
   withValue(value) {
     return this.setProp("value", value);
+  }
+
+  withOnChange(onChange) {
+    return this.setProp("onChange", onChange);
   }
 
   withOnOptionSelect(onOptionSelect) {
