@@ -12,65 +12,59 @@ const renderComponent = props => {
 };
 
 describe("Steps tests", () => {
-  describe("Integration Tests", () => {
-    afterEach(() => {
-      cleanup();
+  it("call onChangeIndexCallback when click on go back button and it does not disable", () => {
+    const onClickMock = jest.fn();
+    const steps = renderComponent({
+      onChangeActiveStep: onClickMock,
+      activeStepIndex: stepsContent.length - 1
+    });
+    const backwardButton = steps.getByText(BACK_DESCRIPTION);
+
+    act(() => {
+      fireEvent.click(backwardButton);
+    });
+    expect(onClickMock.mock.calls.length).toBe(1);
+  });
+  it("call onChangeIndexCallback when click on go forward button and it does not disable", () => {
+    const onClickMock = jest.fn();
+    const steps = renderComponent({
+      onChangeActiveStep: onClickMock,
+      activeStepIndex: 0
+    });
+    const forwardButton = steps.getByText(NEXT_DESCRIPTION);
+
+    act(() => {
+      fireEvent.click(forwardButton);
     });
 
-    it("call onChangeIndexCallback when click on go back button and it does not disable", () => {
-      const onClickMock = jest.fn();
-      const steps = renderComponent({
-        onChangeActiveStep: onClickMock,
-        activeStepIndex: stepsContent.length - 1
-      });
-      const backwardButton = steps.getByText(BACK_DESCRIPTION);
-
-      act(() => {
-        fireEvent.click(backwardButton);
-      });
-      expect(onClickMock.mock.calls.length).toBe(1);
+    expect(onClickMock.mock.calls.length).toBe(1);
+  });
+  it("does not call onChangeIndexCallback when click on back button and when in first page", () => {
+    const onClickMock = jest.fn();
+    const steps = renderComponent({
+      onChangeActiveStep: onClickMock,
+      activeStepIndex: 0
     });
-    it("call onChangeIndexCallback when click on go forward button and it does not disable", () => {
-      const onClickMock = jest.fn();
-      const steps = renderComponent({
-        onChangeActiveStep: onClickMock,
-        activeStepIndex: 0
-      });
-      const forwardButton = steps.getByText(NEXT_DESCRIPTION);
+    const backwardButton = steps.getByText(BACK_DESCRIPTION);
 
-      act(() => {
-        fireEvent.click(forwardButton);
-      });
-
-      expect(onClickMock.mock.calls.length).toBe(1);
+    act(() => {
+      fireEvent.click(backwardButton);
     });
-    it("does not call onChangeIndexCallback when click on back button and when in first page", () => {
-      const onClickMock = jest.fn();
-      const steps = renderComponent({
-        onChangeActiveStep: onClickMock,
-        activeStepIndex: 0
-      });
-      const backwardButton = steps.getByText(BACK_DESCRIPTION);
 
-      act(() => {
-        fireEvent.click(backwardButton);
-      });
-
-      expect(onClickMock.mock.calls.length).toBe(0);
+    expect(onClickMock.mock.calls.length).toBe(0);
+  });
+  it("does not call onChangeIndexCallback when click on next button when in last page", () => {
+    const onClickMock = jest.fn();
+    const steps = renderComponent({
+      onChangeActiveStep: onClickMock,
+      activeStepIndex: stepsContent.length - 1
     });
-    it("does not call onChangeIndexCallback when click on next button when in last page", () => {
-      const onClickMock = jest.fn();
-      const steps = renderComponent({
-        onChangeActiveStep: onClickMock,
-        activeStepIndex: stepsContent.length - 1
-      });
-      const forwardButton = steps.getByText(NEXT_DESCRIPTION);
+    const forwardButton = steps.getByText(NEXT_DESCRIPTION);
 
-      act(() => {
-        fireEvent.click(forwardButton);
-      });
-
-      expect(onClickMock.mock.calls.length).toBe(0);
+    act(() => {
+      fireEvent.click(forwardButton);
     });
+
+    expect(onClickMock.mock.calls.length).toBe(0);
   });
 });
