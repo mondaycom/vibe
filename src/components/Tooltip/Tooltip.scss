@@ -3,16 +3,6 @@
 
 $tooltip-z-index: 9999999999999999;
 
-$white-theme-bg-color: #fff;
-$white-theme-font-color: #333;
-$white-theme-border: 1px solid #f1f1f1;
-
-$surface-theme-bg-color: #5b607a;
-$surface-theme-font-color: #fff;
-
-$arrow-size: 12px;
-$arrow-size-md: 16px;
-
 .monday-style-tooltip {
   position: relative;
   display: inline-block;
@@ -82,28 +72,6 @@ $arrow-size-md: 16px;
 .monday-style-arrow-error {
   @include theme-prop(background-color, negative-color);
   @include theme-prop(color, text-color-on-primary);
-}
-
-.monday-style-arrow {
-  width: $arrow-size;
-  height: $arrow-size;
-  position: absolute;
-  border-radius: 2px;
-}
-
-.monday-style-tooltip-arrow {
-  &[data-placement*="bottom"] {
-    top: 1px;
-  }
-  &[data-placement*="top"] {
-    bottom: 1px;
-  }
-  &[data-placement*="left"] {
-    right: 1px;
-  }
-  &[data-placement*="right"] {
-    left: 1px;
-  }
 }
 
 .monday-style-dialog-content-component {

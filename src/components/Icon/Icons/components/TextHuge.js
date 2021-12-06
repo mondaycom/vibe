@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 const TextHuge = ({size, ...props}) => (
   <svg viewBox="0 0 20 20" fill="currentColor" width={ size || "20" } height={ size || "20" } {...props}>
-    <path d="M12.5392 13.7404H7.44277L6.37651 17H4L8.96988 3H11.0211L16 17H13.6145L12.5392 13.7404ZM8.08434 11.7788H11.8976L9.99096 5.97115L8.08434 11.7788Z" fill="currentColor"
-      stroke="currentColor" strokeWidth=".5" />
+    <path d="M11.1975 2.75H8.79337L3.646 17.25H6.55779L7.62406 13.9904H12.3584L13.4337 17.25H16.3543L11.1975 2.75ZM11.5524 11.5288H8.42957L9.99099 6.77265L11.5524 11.5288Z"
+      fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
   </svg>
 );
 TextHuge.displayName = 'TextHuge';

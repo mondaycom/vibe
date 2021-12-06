@@ -46,7 +46,7 @@ Counters show the count of some adjacent data.
 ## Usage
 <UsageGuidelines guidelines={[
   "Counters are usually placed after the label of the item they're quantifying, such as the number of notifications. They should only be used to represent a number.",
-  <>The element the counter refers to should include <Link href="/?path=/docs/components-tooltip--overview" withoutSpacing>Tooltip,</Link> where necessary, to enhance user understanding. For example, a badge is used in conjunction with an icon.</>,
+  <div className="monday-storybook-counter_usage-link-line">The element the counter refers to should include <Link href="/?path=/docs/components-tooltip--overview" withoutSpacing>Tooltip,</Link> where necessary, to enhance user understanding. For example, a badge is used in conjunction with an icon.</div>,
 ]}/>
 
 <Tip title="Check yourself">Need to indicate information that is not numeric? Use the <Link href="/?path=/docs/components-label--overview" size={Link.sizes.SMALL} withoutSpacing>Label</Link> component instead.</Tip>
@@ -141,7 +141,7 @@ There are two sizes of counters
       },
       negative: {
         component: <Counter count={1050} maxDigits={4} />,
-        description: "Don’t use more than 3 digits in a caounter."
+        description: "Don’t use more than 3 digits in a counter."
       }
     }
   ]}
