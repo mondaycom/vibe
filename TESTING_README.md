@@ -13,9 +13,6 @@ This library forces us to test according to user behaviour and not implementatio
 #### Jest
 Use our plop which automatically generates the proper folder structure, each file should end with .test.js
 
-#### Karma
-The file should end with `-test.js` and should be located in a `__tests__` folder.
-
 ### React testing 101
 #### Mounting components
 In react testing library we "mount" the entire components and the tests are running against a fully rendered tree in order to simulate the most accurate user environment.
