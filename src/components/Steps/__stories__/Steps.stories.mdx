@@ -17,7 +17,8 @@ import "./steps.stories.scss";
 <!--- Component template -->
 
 export const stepsTemplate = createComponentTemplate(Steps);
-  const steps = [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>];
+  const steps5 = [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>];
+  const steps6 = [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>, <div></div>];
 
 <!--- Component documentation -->
 
@@ -36,7 +37,7 @@ Steppers display progress through a sequence of logical and numbered steps. They
 
 <Canvas>
   <Story name="Overview"
-         args={ {steps: steps, activeStepIndex: 2} }>
+         args={ {steps: steps5, activeStepIndex: 2} }>
     { stepsTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -57,9 +58,9 @@ Steps with a number view or gallery view.
 <Canvas>
   <Story name="Types">
     <div className="monday-style-story-steps_column-wrapper">
-      <Steps type={Steps.types.NUMBERS} steps={steps} activeStepIndex={3} />
-      <Steps steps={steps} activeStepIndex={2} />
-      <Steps steps={steps} activeStepIndex={2} areNavigationButtonsHidden />
+      <Steps type={Steps.types.NUMBERS} steps={steps6} activeStepIndex={4} />
+      <Steps steps={steps5} activeStepIndex={2} />
+      <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden />
     </div>
   </Story>
 </Canvas>
@@ -68,9 +69,9 @@ Steps with a number view or gallery view.
 <Canvas>
   <Story name="On primary">
     <div className="monday-style-story-steps_column-wrapper monday-style-story-steps_color" >
-      <Steps steps={steps} activeStepIndex={2} isOnPrimary type={Steps.types.NUMBERS} />
-      <Steps steps={steps} activeStepIndex={2} isOnPrimary />
-      <Steps steps={steps} activeStepIndex={2} isOnPrimary areNavigationButtonsHidden />
+      <Steps steps={steps6} activeStepIndex={4} isOnPrimary type={Steps.types.NUMBERS} />
+      <Steps steps={steps5} activeStepIndex={2} isOnPrimary />
+      <Steps steps={steps5} activeStepIndex={2} isOnPrimary areNavigationButtonsHidden />
     </div>
   </Story>
 </Canvas>
@@ -80,17 +81,12 @@ Steps with a number view or gallery view.
   rules={[
     {
       positive: {
-        component:<Steps type={Steps.types.NUMBERS} steps={steps} activeStepIndex={3} />,
-        description:"Use a stepper for tabular navigation and access to tasks."
+        component:<Steps type={Steps.types.NUMBERS} steps={steps6} activeStepIndex={4} />,
+        description:"Use steps with numbers type for use cases of steps with more than 5 steps."
       },
       negative: {
-        component:
-        <div className="monday-style-story-steps_inline-wrapper">
-          <Icon icon={NavigationChevronLeft} />
-          <>40%</>
-          <Icon icon={NavigationChevronRight} />
-        </div>,
-        description:"Don't use a stepper just to display progress or data."
+        component:<Steps steps={steps6} activeStepIndex={3} />,
+        description:"Don't use the gallery type steps component for more than 5 steps."
       }
     }
   ]}
