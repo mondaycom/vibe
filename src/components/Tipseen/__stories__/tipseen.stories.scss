@@ -44,3 +44,22 @@
     @include theme-prop(background-color, primary-selected-color);
   }
 }
+
+.related-component-tipseen {
+  width: 300px;
+
+  .monday-style-tooltip-arrow {
+    display: none;
+    border: 1px solid red;
+  }
+
+  .monday-style-arrow {
+    display: none;
+    border: 1px solid red;
+  }
+  
+  .monday-style-arrow-primary {
+    display: none;
+    border: 1px solid red;
+  }
+}

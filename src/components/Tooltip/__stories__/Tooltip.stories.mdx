@@ -7,6 +7,8 @@ import { Hide, Subitems, Bolt } from "../../Icon/Icons"
 import Icon from "../../Icon/Icon.jsx"
 import Button from "../../Button/Button.jsx";
 import { modifiers } from "./helper.js";
+import { Link } from "../../../storybook/components";
+import { CHIP, LABEL, TIPSEEN } from "../../../storybook/components/related-components/component-description-map";
 import "./Tooltip.stories.scss";
 
 <Meta
@@ -61,7 +63,10 @@ Tooltips show contextual help or information about specific components when a us
   "Use when the description content would be too much information to include inline or create too much clutter. For example, when expert users have seen it many times.",
 ]}/>
 
-<Tip>As tooltips only surface from a hover, never include links or buttons in the copy. If your tooltip requires either of these, considers putting your content in a Tipseen or Attention box.</Tip>
+<Tip>As tooltips only surface from a hover, never include links or buttons in the copy. If your tooltip requires either of these, considers putting your content in a
+  <Link href="/?path=/docs/components-tipseen--overview" size={Link.sizes.SMALL} withoutSpacing>Tipseen</Link> or
+   <Link href="/?path=/docs/components-attentionbox--overview" size={Link.sizes.SMALL}>Attention box.</Link>
+</Tip>
 
 ## Variants
 ### Positions
@@ -174,7 +179,6 @@ The definition tooltip provides additional help or defines an item or term. It m
   </Story>
 </Canvas>
 
-
 ### Immediate tooltips
 Immediately show when another is shown. The 2 left tooltips uses the immediate show prop, the right one ignores it and should always have show delay.
 <Canvas>
@@ -200,4 +204,4 @@ Immediately show when another is shown. The 2 left tooltips uses the immediate s
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[]} />
+<RelatedComponents componentsNames={[CHIP, LABEL, TIPSEEN ]} />

@@ -8,6 +8,8 @@ import picture1 from "./assets/picture1.png"
 import Icon from "../../Icon/Icon.jsx";
 import { BoardPrivate, Board } from "../../Icon/Icons"
 import { modifiers } from "./helper.js";
+import { Link } from "../../../storybook/components";
+import { TOOLTIP, ATTENTION_BOX, CHIP } from "../../../storybook/components/related-components/component-description-map";
 import "./tipseen.stories.scss";
 
 <Meta
@@ -75,7 +77,7 @@ Please write here the component description
   "The tip will appear until closed by an X button or call to action button.",
 ]}/>
 
-<Tip title="Check yourself">If you need to provide additional information about a component, use the Tooltip or Attention box.</Tip>
+<Tip title="Check yourself">If you need to provide additional information about a component, use the <Link href="/?path=/docs/components-tipseen--overview" size={Link.sizes.SMALL} withoutSpacing>Tooltip</Link> or <Link href="/?path=/docs/components-attentionbox--overview" size={Link.sizes.SMALL} withoutSpacing>Attention box.</Link></Tip>
 
 ## Variants
 ### Default
@@ -218,11 +220,11 @@ Use when the tip is too long or when you want to teach something in steps.
               <div className="monday-style-story-tipseen_inline-container" />
             </Tipseen>
           </div>,
-        description:"Don’t use tipseen to provide additional information on a familiar UI. Use a Tooltip or Attention box instead."
+        description:<>Don’t use tipseen to provide additional information on a familiar UI. Use a <Link href="/?path=/docs/components-tooltip--overview" withoutSpacing>Tooltip</Link> or <Link href="/?path=/docs/components-attentionbox--overview" withoutSpacing>Attention box</Link> instead.</>
       }
     }
   ]}
 />
 
 ## Related components
-<RelatedComponents componentsNames={[]} />
+<RelatedComponents componentsNames={[TOOLTIP, ATTENTION_BOX, CHIP]} />
