@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders correctly a11y 1`] = `
+<a
+  aria-label="My Link"
+  aria-labelledby="anotherId"
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with className 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link my-classname"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with empty props 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with href 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href="http://somelink.com"
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with id 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id="id"
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with onClick 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with rel 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="something"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with target 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_top"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;

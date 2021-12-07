@@ -31,6 +31,7 @@ module.exports = {
   // coveragePathIgnorePatterns: [
   //   "/node_modules/"
   // ],
+  coveragePathIgnorePatterns: ["node_modules/", "src/components/Icon/Icons/"],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -73,15 +74,7 @@ module.exports = {
   // ],
 
   // An array of file extensions your modules use
-  moduleFileExtensions: [
-    "js",
-    "json",
-    "jsx",
-    "ts",
-    "tsx",
-    "node",
-    "mdx"
-  ],
+  moduleFileExtensions: ["js", "json", "jsx", "ts", "tsx", "node", "mdx"],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
@@ -183,7 +176,7 @@ module.exports = {
   transformIgnorePatterns: [
     "node_modules/(?!monday-ui-style)/"
     // "\\.pnp\\.[^\\/]+$"
-  ],
+  ]
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

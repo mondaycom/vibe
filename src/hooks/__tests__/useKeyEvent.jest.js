@@ -15,6 +15,7 @@ describe("useKeyEvent", () => {
       renderHook(() =>
         useKeyEvent({
           keys,
+          keyEventName: "keyup",
           ref: { current: element },
           callback: callbackStub
         })
@@ -47,7 +48,7 @@ describe("useKeyEvent", () => {
 
     it("should not call on keyDown", () => {
       act(() => {
-        fireEvent.keyUp(element, {
+        fireEvent.keyDown(element, {
           key: keys[0]
         });
       });
