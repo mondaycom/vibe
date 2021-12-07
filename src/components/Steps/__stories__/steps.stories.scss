@@ -30,8 +30,12 @@
     margin: 0 auto;
     width: 270px;
   }
-//??
+
+  &_padding {
+    padding: 15px 103px 20px;
+  }
+
   &_color {
-    background-color: lightblue;
+    @include theme-prop(background-color, primary-color);
   }
 }
