@@ -169,7 +169,9 @@ module.exports = {
   // A map from regular expressions to paths to transformers
   transform: {
     "^.+\\.[tj]sx?$": "babel-jest",
-    "^.+\\.mdx?$": "@storybook/addon-docs/jest-transform-mdx"
+    "^.+\\.mdx?$": "@storybook/addon-docs/jest-transform-mdx",
+    "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+      "<rootDir>/__mocks__/fileMock.js"
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation

@@ -75,7 +75,7 @@ Link.propTypes = {
   ariaLabelDescription: PropTypes.string,
   /** element id to describe the counter accordingly */
   ariaLabeledBy: PropTypes.string,
-  icon: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   iconPosition: PropTypes.oneOf([Link.position.START, Link.position.END]),
   id: PropTypes.string,
   disableNavigation: PropTypes.bool
