@@ -2,7 +2,7 @@
 
 .monday-storybook-tooltip {
   &_box {
-    padding: 20px 30px;
+    padding: 20px 50px;
     display: flex;
     gap: 16px;
   }
@@ -12,6 +12,43 @@
       padding: 6px;
       gap: 8px;
       align-items: center;
-      background-color: var(--color-ui_grey);;
+      background-color: var(--color-ui_grey);
+      cursor: pointer;
   }
+
+  &_icon-box {
+    background-color: var(--color-ui_grey);
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_bottom {
+     margin: 0 auto 48px 0;
+     width: 89px;
+     height: 2px;
+  }
+
+  &_top {
+    width: 89px;
+    height: 2px;
+    margin: 48px auto 0 0;
+  }
+
+  &_left {
+    width: 1px;
+    height: 2px;
+    margin: 20px auto 0 0;
+  }
+
+  &_right {
+    width: 1px;
+    height: 2px;
+    margin: 20px 0 0 120px;
+  }
+
 }
+
+
