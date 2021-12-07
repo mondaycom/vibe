@@ -14,7 +14,7 @@ exports[`Link renders correctly with ariaLabelDescription 1`] = `
   <span
     className="monday-style-link--text"
   >
-
+    
   </span>
 </a>
 `;
@@ -33,7 +33,7 @@ exports[`Link renders correctly with ariaLabeledBy 1`] = `
   <span
     className="monday-style-link--text"
   >
-
+    
   </span>
 </a>
 `;
@@ -52,7 +52,7 @@ exports[`Link renders correctly with componentClassName 1`] = `
   <span
     className="monday-style-link--text"
   >
-
+    
   </span>
 </a>
 `;
@@ -77,7 +77,7 @@ exports[`Link renders correctly with icon 1`] = `
   <span
     className="monday-style-link--text"
   >
-
+    
   </span>
 </a>
 `;
@@ -96,7 +96,7 @@ exports[`Link renders correctly with id 1`] = `
   <span
     className="monday-style-link--text"
   >
-
+    
   </span>
 </a>
 `;
@@ -115,7 +115,7 @@ exports[`Link renders correctly with right icon 1`] = `
   <span
     className="monday-style-link--text"
   >
-
+    
   </span>
   <span
     aria-hidden={true}
