@@ -122,17 +122,13 @@ Link.defaultProps = {
    * where the icon should be located
    */
   iconPosition: Link.position.START,
-    /**
-     * Id to add to the link element
-     */
-  id: "",
-    /**
-     * Aria labeled by to add
-     */
+  /**
+   * Id to add to the link element
+   */
   ariaLabeledBy: "",
-    /**
-     * Disable navigation on click
-     */
+  /**
+   * Disable navigation on click
+   */
   disableNavigation: false
 };
 

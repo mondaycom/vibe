@@ -3,10 +3,8 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { baseClassName } from "./FormattedNumberConsts";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
-import { customPropTypes, validateValue } from "./FormattedNumberHelpers";
+import { validateValue } from "./FormattedNumberHelpers";
 import "./FormattedNumber.scss";
-
-const { MAX_PRECISION, MIN_PRECISION } = formatNumberConsts;
 
 const FormattedNumber = forwardRef(
   ({ value, className, local, prefix, suffix, emptyPlaceHolder, decimalPrecision, compact, rtl }, ref) => {
