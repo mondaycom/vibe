@@ -144,7 +144,7 @@ ButtonGroup.defaultProps = {
 
 ButtonGroup.propTypes = {
   componentClassName: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
   disabled: PropTypes.bool,
   size: PropTypes.oneOf([ButtonGroup.sizes.SMALL, ButtonGroup.sizes.MEDIUM, ButtonGroup.sizes.LARGE]),

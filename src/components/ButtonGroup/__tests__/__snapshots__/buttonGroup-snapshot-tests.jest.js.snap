@@ -408,7 +408,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
   >
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      className="monday-style-button-group-component__option-text selected monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--right-flat monday-style-button--prevent-click-animation"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
