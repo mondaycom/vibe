@@ -16,7 +16,19 @@ import "./Tooltip.stories.scss";
 
 <!--- Component template -->
 
-export const tooltipTemplate = createComponentTemplate(Tooltip);
+export const tooltipTemplate = (args) => {
+  return (
+    <div className="monday-storybook-tooltip_overview">
+      <Tooltip
+        shouldShowOnMount={args.shouldShowOnMount}
+        content={args.content}
+        modifiers={args.modifiers}
+      >
+        <div />
+      </Tooltip>
+    </div>
+  )
+}
 
 <!--- Component documentation -->
 
@@ -35,7 +47,7 @@ Tooltips show contextual help or information about specific components when a us
 
 <Canvas>
   <Story name="Overview"
-         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+         args={ {shouldShowOnMount: true, modifiers: modifiers, content: "I’m a tooltip"} }>
     { tooltipTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -56,57 +68,48 @@ Tooltips show contextual help or information about specific components when a us
 Tooltip’s arrow can appear from top, bottom, left or right.
 <Canvas>
   <Story name="Positions">
-    <div className="width-20">
-      <div style={{ width: "90px", height: "2px" }}>
-        <Tooltip
-          content="top1"
-          shouldShowOnMount
-          position={Tooltip.positions.BOTTOM}
-          modifiers={modifiers}
-          animationType="expand"
-        >
-          <div className="monday-storybook-tooltip_bottom" />
-        </Tooltip>
-      </div>
+    <div className="monday-storybook-tooltip_top">
+      <Tooltip
+        content="Top"
+        shouldShowOnMount
+        position={Tooltip.positions.BOTTOM}
+        modifiers={modifiers}
+        animationType="expand"
+      >
+        <div />
+      </Tooltip>
     </div>
-    <div className="width-20">
-      <div style={{ width: "90px", height: "2px" }}>
-        <Tooltip
-          content="top2"
-          shouldShowOnMount
-          modifiers={modifiers}
-          animationType="expand"
-        >
-          <div className="monday-storybook-tooltip_top" />
-        </Tooltip>
-      </div>
+    <div className="monday-storybook-tooltip_bottom">
+      <Tooltip
+        content="Bottom"
+        shouldShowOnMount
+        modifiers={modifiers}
+        animationType="expand"
+      >
+        <div />
+      </Tooltip>
     </div>
-    <div className="width-20">
-      <div style={{ width: "90px", height: "2px" }}>
-        <Tooltip
-          content="Left"
-          position={Tooltip.positions.RIGHT}
-          shouldShowOnMount
-          modifiers={modifiers}
-          animationType="expand"
-        >
-          <div className="monday-storybook-tooltip_right" />
-        </Tooltip>
-      </div>
+    <div className="monday-storybook-tooltip_right">
+      <Tooltip
+        content="Left"
+        position={Tooltip.positions.RIGHT}
+        shouldShowOnMount
+        modifiers={modifiers}
+        animationType="expand"
+      >
+        <div />
+      </Tooltip>
     </div>
-    <div className="width-20">
-      <div style={{ paddingTop: "4px" }} />
-      <div style={{ width: "90px", height: "2px" }}>
-        <Tooltip
-          content="Right"
-          position={Tooltip.positions.LEFT}
-          shouldShowOnMount
-          modifiers={modifiers}
-          animationType="expand"
-        >
-          <div className="monday-storybook-tooltip_left" />
-        </Tooltip>
-      </div>
+    <div className="monday-storybook-tooltip_left">
+      <Tooltip
+        content="Right"
+        position={Tooltip.positions.LEFT}
+        shouldShowOnMount
+        modifiers={modifiers}
+        animationType="expand"
+      >
+        <div />
+      </Tooltip>
     </div>
   </Story>
 </Canvas>
