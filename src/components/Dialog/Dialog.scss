@@ -1,6 +1,32 @@
+@import "../../styles/themes.scss";
+
+$arrow-size: 12px;
+
 .dialog-node {
   position: absolute;
   top: 0;
   height: 0;
   z-index: 100000;
+}
+
+.monday-style-tooltip-arrow {
+  width: $arrow-size;
+  height: $arrow-size;
+  position: absolute;
+  border-radius: 2px;
+
+  background-color: $white-theme-bg-color;
+
+  &[data-placement*="bottom"] {
+    top: 1px;
+  }
+  &[data-placement*="top"] {
+    bottom: 1px;
+  }
+  &[data-placement*="left"] {
+    right: 1px;
+  }
+  &[data-placement*="right"] {
+    left: 1px;
+  }
 }

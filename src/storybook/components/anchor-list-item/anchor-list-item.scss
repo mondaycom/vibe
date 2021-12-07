@@ -3,7 +3,6 @@
 
 .monday-storybook-anchor-list-item {
   @include theme-prop(color, link-color);
-  font-weight: 300;
   font-size: $anchor-font-size;
   line-height: $text-line-height;
 

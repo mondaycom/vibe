@@ -25,7 +25,8 @@ const Icon = forwardRef(
       ariaHidden,
       style,
       useCurrentColor,
-      customColor
+      customColor,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -56,6 +57,7 @@ const Icon = forwardRef(
           onClick={onClick}
           className={computedClassName}
           style={style}
+          data-testid={dataTestId}
         />
       );
     }
@@ -69,6 +71,7 @@ const Icon = forwardRef(
           style={style}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
+          data-testid={dataTestId}
         />
       );
     }
@@ -80,6 +83,7 @@ const Icon = forwardRef(
         ref={mergedRef}
         icon={icon}
         style={style}
+        data-testid={dataTestId}
       />
     );
   }

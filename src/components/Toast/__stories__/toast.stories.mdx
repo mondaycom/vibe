@@ -1,0 +1,208 @@
+import { useState, useCallback, useMemo } from "react";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import Toast from "../Toast";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import Button from "../../Button/Button.jsx";
+import { Link } from "../../../storybook/components";
+import { TOOLTIP, ATTENTION_BOX, ALERT_BANNER } from "../../../storybook/components/related-components/component-description-map";
+import { Delete } from "../../Icon/Icons"
+import "./toast.stories.scss";
+
+<Meta
+  title="Components/Toast"
+  component={ Toast }
+/>
+
+<!--- Component template -->
+
+export const toastTemplate = createComponentTemplate(Toast);
+
+<!--- Component documentation -->
+
+# Toast
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+A toast notification is a message object that presents timely information, including confirmation of actions, alerts, and errors.
+
+<Canvas>
+  <Story name="Overview"
+         args={ {children: "General message toast", open: true, className: "monday-storybook-toast_wrapper", actions: [{ type: Toast.actionTypes.BUTTON, content: "Button" }]} }>
+    { toastTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ Toast } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Use toast notifications immediately after a specific event such as a user action that does not relate to an object on the page. Toast used as a feedback loop to a user’s action.",
+  "Toasts should appear one at a time, and only disappear when no longer required.",
+  "Always be clear, concise and, where possible, give follow up actions to allow the user to become more informed or resolve the issue.",
+  "Always provide an action button or option to undo.",
+  "Toast should overlay permanent UI elements without blocking important actions.",
+]}/>
+
+<Tip title="Check yourself">Need to inform the user about a system’s action? Use an <Link href="/?path=/docs/components-alertbanner--overview" size={Link.sizes.SMALL} withoutSpacing>Alert banner</Link> instead.</Tip>
+
+## Variants
+### Default with button
+<Canvas>
+  <Story name="Default with button">
+    {() => {
+      const actions = useMemo(() => [{ type: Toast.actionTypes.BUTTON, content: "Button" }], []);
+      return (
+        <Toast 
+          open
+          autoHideDuration={5000} 
+          ctions={actions}
+          className="monday-storybook-toast_wrapper"
+        >
+        General message toast
+      </Toast>);
+    }}
+  </Story>
+</Canvas>
+
+### Toast with link
+<Canvas>
+  <Story name="Toast with link">
+    {() => {
+      const actions = useMemo(() => [{ type: Toast.actionTypes.LINK, text: "Link to action", href: "https://monday.com" }], []);
+      return (
+        <Toast 
+          open
+          actions={actions}
+          autoHideDuration={5000}
+           className="monday-storybook-toast_wrapper"
+        >
+        General message toast
+      </Toast>);
+    }}
+  </Story>
+</Canvas>
+
+### Success message
+Use to providing a feedback loop. For example: Item copied.
+<Canvas>
+  <Story name="Success message">
+    {() => {
+      const actions = useMemo(() => [{ type: Toast.actionTypes.BUTTON, content: "Undo 5" }], []);
+      return (
+        <Toast
+          open
+          type={Toast.types.POSITIVE} 
+          actions={actions}
+          autoHideDuration={5000}
+          className="monday-storybook-toast_wrapper"
+        >
+          Positive message toast
+        </Toast>);
+    }}
+  </Story>
+</Canvas>
+
+### Error message
+Use when something was deleted, a problem has occured, etc.
+<Canvas>
+  <Story name="Error message">
+    {() => {
+     const actions = useMemo(() => [{ type: Toast.actionTypes.BUTTON, content: "Button" }], []);
+      return (
+        <Toast 
+          open
+          actions={actions}
+          type={Toast.types.NEGATIVE}
+          autoHideDuration={5000}
+          className="monday-storybook-toast_wrapper"
+        >
+          Negative message toast
+        </Toast>);
+    }}
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <Toast open className="monday-storybook-toast_wrapper" hideIcon type={Toast.types.POSITIVE}>Duplicating Board</Toast>,
+        description: "Use only one toast on a screen at a time."
+      },
+      negative: {
+        component:
+          <div className="monday-storybook-toast_inline-wrapper">
+            <Toast 
+              type={Toast.types.NEGATIVE}
+              open
+              hideIcon 
+              className="monday-storybook-toast_wrapper monday-storybook-toast_big"
+              actions={[{ type: Toast.actionTypes.LINK, text: "Try again", href: "https://monday.com" }]}
+            >
+              Couldn’t load board items
+            </Toast>
+            <Toast 
+              type={Toast.types.POSITIVE} 
+              className="monday-storybook-toast_wrapper"
+              hideIcon
+              text="Duplicating Board"
+              open
+            >
+              Duplicating Board
+            </Toast>,
+          </div>,
+        description: <>Don’t place more than one toast on a screen at a time.</>
+      }
+    },
+    {
+      positive: {
+        component: <Toast open className="monday-storybook-toast_wrapper" type={Toast.types.POSITIVE} actions={[{ type: Toast.actionTypes.BUTTON, content: "Undo" }]}>We successfully archived 1 item</Toast>,
+        description: "Always offer an option to undo the action. Keep the toast for 60 seconds before auto-removing it."
+      },
+      negative: {
+        component: <Toast open className="monday-storybook-toast_wrapper" type={Toast.types.POSITIVE}>We successfully archived 1 item</Toast>,
+        description: "Don’t offer an action without letting the user undo it."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+### Feedback loop
+After a user has done an action, provide feedback to close the loop. For example, when an item has been deleted, duplicated, etc.
+<Canvas>
+  <Story name="Feedback loop">
+    {() => {
+      const [toastOpen, setToastOpen] = useState(false);
+      const onClickCallback = useCallback(() => setToastOpen(toastOpen => !toastOpen), [setToastOpen]);
+      const onCloseCallback = useCallback(() => setToastOpen(false), [setToastOpen]);
+      const actions = useMemo(() => [{ type: Toast.actionTypes.BUTTON, content: "Undo" }], []);
+      return useMemo(() =>
+        <>
+          <Button leftIcon={Delete} onClick={onClickCallback}>Delete item</Button>
+          <Toast
+            open={toastOpen} 
+            type={Toast.types.POSITIVE} 
+            actions={actions}
+            onClose={onCloseCallback}
+            autoHideDuration={5000}
+            className="monday-storybook-toast_box"
+          >
+            We successfully deleted 1 item
+          </Toast>
+        </>);
+    }}
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[ALERT_BANNER,TOOLTIP,ATTENTION_BOX]} />

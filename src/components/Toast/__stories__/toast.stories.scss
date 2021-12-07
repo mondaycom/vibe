@@ -1,0 +1,37 @@
+@import "../../../styles/themes.scss";
+
+.monday-storybook-toast {
+  &_wrapper {
+    position: static;
+    width: 390px;
+    margin: 0;
+    transform: translate(0, 0);
+  }
+
+  &_inline-wrapper {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &_big {
+    width: 420px;
+    .monday-style-toast-content {
+      justify-content: center;
+    }
+  }
+
+  &_toast-line-wrapper {
+    position: static;
+    left: 0;
+    right: 0;
+    margin: 0;
+    transform: translate(0, 0);
+  }
+
+  &_box {
+    width: 390px;
+  }
+}

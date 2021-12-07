@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -19,11 +19,22 @@ const Link = forwardRef(
       icon,
       iconPosition,
       id,
-      ariaLabeledBy
+      ariaLabeledBy,
+      disableNavigation
     },
     ref
   ) => {
     const isStart = iconPosition === ICON_POSITION.START;
+
+    const onClickWrapper = useCallback(
+      e => {
+        if (disableNavigation) {
+          e.preventDefault();
+        }
+        onClick && onClick(e);
+      },
+      [disableNavigation, onClick]
+    );
 
     return (
       <a
@@ -31,7 +42,7 @@ const Link = forwardRef(
         href={href}
         rel={rel}
         ref={ref}
-        onClick={onClick}
+        onClick={onClickWrapper}
         target={target}
         className={cx("monday-style-link", componentClassName)}
         aria-label={ariaLabelDescription}
@@ -66,7 +77,8 @@ Link.propTypes = {
   ariaLabeledBy: PropTypes.string,
   icon: PropTypes.string,
   iconPosition: PropTypes.oneOf([Link.position.START, Link.position.END]),
-  id: PropTypes.string
+  id: PropTypes.string,
+  disableNavigation: PropTypes.bool
 };
 
 Link.defaultProps = {
@@ -110,8 +122,18 @@ Link.defaultProps = {
    * where the icon should be located
    */
   iconPosition: Link.position.START,
-
-  ariaLabeledBy: ""
+    /**
+     * Id to add to the link element
+     */
+  id: "",
+    /**
+     * Aria labeled by to add
+     */
+  ariaLabeledBy: "",
+    /**
+     * Disable navigation on click
+     */
+  disableNavigation: false
 };
 
 export default Link;

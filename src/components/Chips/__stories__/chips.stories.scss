@@ -31,14 +31,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
   }
 
   &_chip-padding {
     padding: 0 24px;
-   }
+  }
 
   &_name {
+    padding: 0 8px;
     font-size: 14px;
 
     span {

@@ -86,7 +86,7 @@ exports[`Dropdown should open menu on click if set 1`] = `
       </div>
     </div>
     <div
-      class="menu dropdown-wrapper__menu--open css-1ysewv0-menu"
+      class="menu dropdown-menu-wrapper css-1ysewv0-menu"
     >
       <div
         class=" css-bknh9q-Component"
@@ -861,7 +861,7 @@ exports[`Dropdown should use virtualization if set 1`] = `
       </div>
     </div>
     <div
-      class="menu dropdown-wrapper__menu--open css-1ysewv0-menu"
+      class="menu dropdown-menu-wrapper css-1ysewv0-menu"
     >
       <div
         class=""

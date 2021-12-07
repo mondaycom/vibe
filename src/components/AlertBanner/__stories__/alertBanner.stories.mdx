@@ -1,0 +1,208 @@
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import AlertBanner from "../AlertBanner";
+import AlertBannerText from "../AlertBannerText/AlertBannerText";
+import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
+import AlertBannerButton from "../AlertBannerButton/AlertBannerButton.jsx"
+import { Link } from "../../../storybook/components";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { TOOLTIP, ATTENTION_BOX, TOAST } from "../../../storybook/components/related-components/component-description-map";
+import "./alertBanner.stories.scss";
+
+<Meta
+  title="Components/AlertBanner"
+  component={ AlertBanner }
+/>
+
+<!--- Component template -->
+
+export const alertBannerTemplate = (args) => { 
+  return (<AlertBanner {...args}>
+            <AlertBannerText text={ args.bannerText} />
+            <AlertBannerLink text={ args.linkText } href="https://monday.com" />
+          </AlertBanner>);
+}
+
+<!--- Component documentation -->
+
+# Alert Banner
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+Alert banners show pressing and high-signal messages, such as system alerts. They are meant to be noticed and prompt users to take action.
+
+<Canvas>
+  <Story name="Overview"
+         args={{ bannerText: "Alert banner message", linkText: "this is a CTA", className: "monday-storybook-alert-banner_big-container" }}>
+    { alertBannerTemplate.bind({ }) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ AlertBanner } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Alert banners should have call for action and an option to dismiss.",
+  "Don't include more than one call to action in an alert banner.",
+  "Place the banner on the top of the screen, and push all other content below it.",
+]}/>
+
+<Tip>Alert banners should be reserved only for high-signal, system-level alert messages. For in-app notifications use a <Link href="/?path=/docs/components-toast--overview" size={Link.sizes.SMALL} withoutSpacing>Toast.</Link></Tip>
+
+## Variants
+### Types
+There are four types of alert banners: primary, negative, positive, and inverted.
+<Canvas>
+  <Story name="Types">
+    <div className="monday-storybook-alert-banner_column-wrapper monday-storybook-alert-banner_big-container">
+      <AlertBanner>
+        <AlertBannerText text="Alert banner message" />
+        <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+      </AlertBanner>
+      <AlertBanner backgroundColor={AlertBanner.backgroundColors.NEGATIVE}>
+        <AlertBannerText text="Alert banner message" />
+        <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+      </AlertBanner>
+      <AlertBanner backgroundColor={AlertBanner.backgroundColors.POSITIVE}>
+        <AlertBannerText text="Alert banner message" />
+        <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+      </AlertBanner>
+      <AlertBanner backgroundColor={AlertBanner.backgroundColors.DARK}>
+        <AlertBannerText text="Alert banner message" />
+        <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+      </AlertBanner>
+    </div>
+  </Story>
+</Canvas>
+
+### Alert Banner with button
+<Canvas>
+  <Story name="Alert Banner with button">
+    <AlertBanner className="monday-storybook-alert-banner_big-container">
+        <AlertBannerText text="Lorem ipsum dolor sit amet" />
+      <AlertBannerButton>Lorem Ipsum</AlertBannerButton>
+    </AlertBanner>
+  </Story>
+</Canvas>
+
+### Alert Banner with link
+<Canvas>
+  <Story name="Alert Banner with link">
+    <AlertBanner className="monday-storybook-alert-banner_big-container">
+      <AlertBannerText text="Alert banner message" />
+      <AlertBannerLink text="this is a CTA" href="https://monday.com" />
+    </AlertBanner>
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:
+          <AlertBanner className="monday-storybook-alert-banner_medium-container">
+            <AlertBannerText text="Join us at Elevate!" />
+            <AlertBannerLink text="RSVP now" href="https://monday.com" />
+          </AlertBanner>,
+        description: "Use banners for system messages, background processes, and general updates."
+      },
+      negative: {
+        component:
+           <AlertBanner className="monday-storybook-alert-banner_medium-container">
+            <AlertBannerText text="We successfully archived 1 item" />
+          </AlertBanner>,
+        description: <>Don’t use banners for notifying a user of an action they have taken. Instead, provide visual feedback with a <Link href="/?path=/docs/components-toast--overview" withoutSpacing>Toast.</Link></>
+      }
+    },
+    {
+      positive: {
+        component:
+          <AlertBanner className="monday-storybook-alert-banner_medium-container" backgroundColor={AlertBanner.backgroundColors.NEGATIVE}>
+            <AlertBannerText text="No connection" />
+            <AlertBannerLink text="Learn more" href="https://monday.com" />
+            <AlertBannerButton>Try again</AlertBannerButton>
+          </AlertBanner>,
+        description: "If two actions are needed, use two different call to acitons."
+      },
+      negative: {
+        component:
+          <div className="monday-storybook-alert-banner_column-wrapper">
+            <AlertBanner backgroundColor={AlertBanner.backgroundColors.NEGATIVE} className="monday-storybook-alert-banner_medium-container">
+              <AlertBannerText text="No connection" />
+              <AlertBannerLink text="Learn more" href="https://monday.com" />
+              <AlertBannerLink text="Try again" href="https://monday.com" />
+            </AlertBanner>
+            <AlertBanner backgroundColor={AlertBanner.backgroundColors.NEGATIVE} className="monday-storybook-alert-banner_medium-container">
+              <AlertBannerText text="No connection" />
+              <AlertBannerButton>Learn more</AlertBannerButton>
+              <AlertBannerButton>Try again</AlertBannerButton>
+            </AlertBanner>
+          </div>,
+        description: "Don't include more than one action in an alert banner with the same type."
+      }
+    },
+    {
+      positive: {
+        component:
+          <AlertBanner backgroundColor={AlertBanner.backgroundColors.DARK} className="monday-storybook-alert-banner_medium-container">
+            <AlertBannerText text="Join us at Elevate!" />
+            <AlertBannerLink text="RSVP now" href="https://monday.com" />
+          </AlertBanner>,
+        description: "Use only the 4 color types: primary, negative, positive, and inverted."
+      },
+      negative: { 
+        component:
+          <AlertBanner className="monday-storybook-alert-banner_medium-container monday-storybook-alert-banner_pink">
+            <AlertBannerText text="Join us at Elevate!" />
+            <AlertBannerLink text="RSVP now" href="https://monday.com" />
+          </AlertBanner>,
+        description: "Don’t choose other colors for alert banners. Keep it consistent."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+### Alert banner as an announcement
+Use when you’d like to notify about an event or cross-company announcment.
+<Canvas>
+  <Story name="Alert banner as an announcement">
+    <AlertBanner backgroundColor={AlertBanner.backgroundColors.DARK} className="monday-storybook-alert-banner_big-container">
+      <AlertBannerText text="Join us at Elevate 2022" />
+      <AlertBannerLink text="RSVP now" href="https://monday.com" />
+    </AlertBanner>
+  </Story>
+</Canvas>
+
+### Alert banner as an opportunity to upgrade
+Use to show a trial user the number of remaining free days to use the platform.
+<Canvas>
+  <Story name="Alert banner as an opportunity to upgrade">
+    <AlertBanner className="monday-storybook-alert-banner_big-container">
+      <AlertBannerText text="7 days left on your monday CRM trial" />
+      <AlertBannerLink text="Upgrade now" href="https://monday.com" />
+    </AlertBanner>
+  </Story>
+</Canvas>
+
+### Overflow text
+In case that there’s not enough space for the conent, use an ellipses (...).
+<Canvas>
+  <Story name="Overflow text">
+    <AlertBanner className="monday-storybook-alert-banner_small-container">
+      <AlertBannerText text="This is a really long alert..." />
+      <AlertBannerLink text="Call to action" href="https://monday.com" />
+    </AlertBanner>
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[TOAST,ATTENTION_BOX,TOOLTIP]} />

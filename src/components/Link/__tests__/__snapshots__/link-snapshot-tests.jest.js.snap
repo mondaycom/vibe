@@ -1,46 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Link renders correctly a11y 1`] = `
+exports[`Link renders correctly with ariaLabelDescription 1`] = `
 <a
-  aria-label="My Link"
-  aria-labelledby="anotherId"
-  className="monday-style-link"
-  href=""
-  id=""
-  onClick={[Function]}
-  rel="noreferrer"
-  target="_blank"
->
-  <span
-    className="monday-style-link--text"
-  >
-    
-  </span>
-</a>
-`;
-
-exports[`Link renders correctly with className 1`] = `
-<a
-  aria-label=""
-  aria-labelledby=""
-  className="monday-style-link my-classname"
-  href=""
-  id=""
-  onClick={[Function]}
-  rel="noreferrer"
-  target="_blank"
->
-  <span
-    className="monday-style-link--text"
-  >
-    
-  </span>
-</a>
-`;
-
-exports[`Link renders correctly with empty props 1`] = `
-<a
-  aria-label=""
+  aria-label="arialabel link"
   aria-labelledby=""
   className="monday-style-link"
   href=""
@@ -52,17 +14,17 @@ exports[`Link renders correctly with empty props 1`] = `
   <span
     className="monday-style-link--text"
   >
-    
+
   </span>
 </a>
 `;
 
-exports[`Link renders correctly with href 1`] = `
+exports[`Link renders correctly with ariaLabeledBy 1`] = `
 <a
   aria-label=""
-  aria-labelledby=""
+  aria-labelledby="aria label link"
   className="monday-style-link"
-  href="http://somelink.com"
+  href=""
   id=""
   onClick={[Function]}
   rel="noreferrer"
@@ -71,7 +33,51 @@ exports[`Link renders correctly with href 1`] = `
   <span
     className="monday-style-link--text"
   >
-    
+
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with componentClassName 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link testClassName"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with icon 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    aria-hidden={true}
+    className="icon_component monday-style-link--icon-start fa fa fa-star"
+    onClick={[Function]}
+    role="img"
+  />
+  <span
+    className="monday-style-link--text"
+  >
+
   </span>
 </a>
 `;
@@ -82,7 +88,7 @@ exports[`Link renders correctly with id 1`] = `
   aria-labelledby=""
   className="monday-style-link"
   href=""
-  id="id"
+  id="TestId"
   onClick={[Function]}
   rel="noreferrer"
   target="_blank"
@@ -90,12 +96,12 @@ exports[`Link renders correctly with id 1`] = `
   <span
     className="monday-style-link--text"
   >
-    
+
   </span>
 </a>
 `;
 
-exports[`Link renders correctly with onClick 1`] = `
+exports[`Link renders correctly with right icon 1`] = `
 <a
   aria-label=""
   aria-labelledby=""
@@ -109,31 +115,18 @@ exports[`Link renders correctly with onClick 1`] = `
   <span
     className="monday-style-link--text"
   >
-    
-  </span>
-</a>
-`;
 
-exports[`Link renders correctly with rel 1`] = `
-<a
-  aria-label=""
-  aria-labelledby=""
-  className="monday-style-link"
-  href=""
-  id=""
-  onClick={[Function]}
-  rel="something"
-  target="_blank"
->
+  </span>
   <span
-    className="monday-style-link--text"
-  >
-    
-  </span>
+    aria-hidden={true}
+    className="icon_component monday-style-link--icon-end fa fa fa-star"
+    onClick={[Function]}
+    role="img"
+  />
 </a>
 `;
 
-exports[`Link renders correctly with target 1`] = `
+exports[`Link renders correctly with text 1`] = `
 <a
   aria-label=""
   aria-labelledby=""
@@ -142,12 +135,12 @@ exports[`Link renders correctly with target 1`] = `
   id=""
   onClick={[Function]}
   rel="noreferrer"
-  target="_top"
+  target="_blank"
 >
   <span
     className="monday-style-link--text"
   >
-    
+    Link
   </span>
 </a>
 `;

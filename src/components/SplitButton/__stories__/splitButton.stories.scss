@@ -1,9 +1,38 @@
-.split-button-story-content {
-  width: 250px;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-text-color);
-  background-color: var(--primary-selected-color);
+@import "../../../styles/themes.scss";
+@import "../../../styles/global-css-settings.scss";
+@import "../../../styles/typography.scss";
+@import "../../../styles/themes.scss";
+@import "../../../styles/states.scss";
+
+.monday-storybook-split-button {
+  &_dialog {
+    min-width: 176px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+    padding: 13px 16px;
+
+    &_option {
+      padding-bottom: 8px;
+      padding-top: 8px;
+      display: flex;
+
+      &:first-child {
+        padding-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+
+    &_icon-spacing {
+      margin-right: $spacing-small;
+    }
+  }
+
+  &_spacing {
+    padding-bottom: 120px;
+  }
 }

@@ -1,5 +1,68 @@
 # Changelog
 
+## 0.13.0 (2021-12-06)
+
+#### Bug Fixes
+* [#376](https://github.com/mondaycom/monday-ui-react-core/pull/376) added indexes for other idGetter usages ([@etaylib](https://github.com/etaylib))
+
+#### New Features
+* [#377](https://github.com/mondaycom/monday-ui-react-core/pull/377) add modifiers support to tipseen and tooltip ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#378](https://github.com/mondaycom/monday-ui-react-core/pull/378) Fix `<Dropdown>` test driver ([@sahariko](https://github.com/sahariko))
+
+## 0.12.1 (2021-12-05)
+
+#### Bug Fixes
+* [#374](https://github.com/mondaycom/monday-ui-react-core/pull/374) Fix `<Dropdown>` multi-value bug ([@sahariko](https://github.com/sahariko))
+* [#375](https://github.com/mondaycom/monday-ui-react-core/pull/375) passing index to getter in virtualized list ([@etaylib](https://github.com/etaylib))
+
+## 0.12.0 (2021-12-05)
+
+#### New Features
+* [#354](https://github.com/mondaycom/monday-ui-react-core/pull/354) Multiselect component ([@sahariko](https://github.com/sahariko))
+
+#### New Icons
+* [#373](https://github.com/mondaycom/monday-ui-react-core/pull/373) feat: icons ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 0.11.0 (2021-12-01)
+
+#### Bug Fixes
+* [#370](https://github.com/mondaycom/monday-ui-react-core/pull/370) fix package lock ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#369](https://github.com/mondaycom/monday-ui-react-core/pull/369) add MenuButton onClick prop ([@shalomscott](https://github.com/shalomscott))
+* [#367](https://github.com/mondaycom/monday-ui-react-core/pull/367) add MenuButton props to control dialog hide/show trigger ignore class ([@shalomscott](https://github.com/shalomscott))
+
+#### New Icons
+* [#368](https://github.com/mondaycom/monday-ui-react-core/pull/368) Update icons ([@darbentov](https://github.com/darbentov))
+
+## 0.10.1 (2021-12-01)
+
+#### Bug Fixes
+* [#366](https://github.com/mondaycom/monday-ui-react-core/pull/366) pass event to onclick ([@etaylib](https://github.com/etaylib))
+
+#### New Icons
+* [#365](https://github.com/mondaycom/monday-ui-react-core/pull/365) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 0.10.0 (2021-11-30)
+
+#### New Features
+* [#361](https://github.com/mondaycom/monday-ui-react-core/pull/361) support onclick without navigation ([@etaylib](https://github.com/etaylib))
+
+#### New Icons
+* [#363](https://github.com/mondaycom/monday-ui-react-core/pull/363) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 0.9.7 (2021-11-28)
+
+#### New Icons
+* [#360](https://github.com/mondaycom/monday-ui-react-core/pull/360) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 0.9.6 (2021-11-28)
+
+#### Bug Fixes
+* [#358](https://github.com/mondaycom/monday-ui-react-core/pull/358) fix: export Icon component ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 0.9.5 (2021-11-24)
 
 #### New Icons
