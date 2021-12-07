@@ -1,65 +1,46 @@
+@import "../../../styles/themes.scss";
+@import "../../../styles/typography.scss";
+
 .monday-style-story-empty-tipseen_container {
   width: 10px;
-  height: 70px;
+  height: 120px;
 }
 
-.monday-style-story-tipseen_container {
-  width: 10px;
-  height: 300px;
-}
-.monday-style-story-tipseen_containera{
-  width: 300px;
-  height: 1px
-
-}
-
-.monday-style-story-tipseen_image {
-  width: 320px;
-  height: 175px;
-}
-
-.monday-style-story-sandbox-tipseen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px;
-  &_container {
-    background: green;
-    height: 100px;
-    width: 100px;
+.monday-style-story-tipseen {
+  &_big-container {
+    width: 10px;
+    height: 300px;
   }
-}
 
-.a {
-  margin: 100px;
-}
-.b {
-  
-  width: 280px;
-  height: 20px;
-  padding-left: 10px;
-}
+  &_image {
+    width: 320px;
+    height: 175px;
+  }
 
-.c {
-  width: 280px;
-}
+  &_inline-container {
+    width: 300px;
+    height: 20px; 
+  }
 
-.d {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  gap: 10px;
-}
+  &_inline-spacing  {
+    width: 280px;
+    height: 20px;
+    padding-left: 10px;
+  }
 
-.q {
-  background-color: #CCE5FF;
-}
+  &_column-item {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    gap: 10px;
+  }
 
-// .monday-style-tooltip-arrow {
-//   display: none;
-// }
+  &_column-spacing {
+    width: 100px;
+    height: 155px;
+  }
 
-.t {
-  width: 100px;
-  height: 180px;
+  &_hovered {
+    @include theme-prop(background-color, primary-selected-color);
+  }
 }

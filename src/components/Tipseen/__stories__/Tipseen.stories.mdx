@@ -7,6 +7,7 @@ import TipseenImage from "../TipseenImage";
 import picture1 from "./assets/picture1.png"
 import Icon from "../../Icon/Icon.jsx";
 import { BoardPrivate, Board } from "../../Icon/Icons"
+import { modifiers } from "./helper.js";
 import "./tipseen.stories.scss";
 
 <Meta
@@ -16,7 +17,23 @@ import "./tipseen.stories.scss";
 
 <!--- Component template -->
 
-export const tipseenTemplate = createComponentTemplate(Tipseen);
+export const tipseenTemplate = (args) => {
+  return(
+    <Tipseen
+      position={args.position}
+      modifiers={args.modifiers}
+      content={
+        <TipseenContent
+          isDismissHidden={args.isDismissHidden}
+          title={args.title}
+          children={args.children}
+        />
+      }
+    >
+      <div className="monday-style-story-empty-tipseen_container" />
+    </Tipseen>
+  )
+}
 
 <!--- Component documentation -->
 
@@ -35,7 +52,15 @@ Please write here the component description
 
 <Canvas>
   <Story name="Overview"
-         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+         args={ 
+           {
+            title: "title", 
+            children: "Popover message will appear here loremipsum dolor samet…", 
+            position: Tipseen.positions.RIGHT,
+            isDismissHidden: false,
+            modifiers: modifiers
+           } 
+         }>
     { tipseenTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -58,6 +83,7 @@ Please write here the component description
   <Story name="Default">
     <Tipseen 
       position={Tipseen.positions.RIGHT} 
+      modifiers={modifiers}
       content={
         <TipseenContent
           isDismissHidden={false}
@@ -67,7 +93,7 @@ Please write here the component description
         />
       }
     >
-      <div className={"monday-style-story-tipseen_container"} />
+      <div className="monday-style-story-empty-tipseen_container" />
     </Tipseen>
   </Story>
 </Canvas>
@@ -85,7 +111,8 @@ Use when the tip is too long or when you want to teach something in steps.
         <div>Popover message will appear here loremipsum dolor samet…</div>
       ];
       return (
-        <Tipseen 
+        <Tipseen
+          modifiers={modifiers}
           position={Tipseen.positions.RIGHT} 
           content={
             <TipseenWizard 
@@ -95,7 +122,7 @@ Use when the tip is too long or when you want to teach something in steps.
             />
           }
         >
-          <div className={"monday-style-story-tipseen_container"} />
+          <div className="monday-style-story-empty-tipseen_container" />
         </Tipseen>
       )
     }}
@@ -117,6 +144,8 @@ Use when the tip is too long or when you want to teach something in steps.
         <Tipseen 
           position={Tipseen.positions.RIGHT}
           isCloseButtonHidden
+          modifiers={modifiers}
+          isCloseButtonOnImage
           content={
             <>
               <TipseenImage
@@ -131,7 +160,7 @@ Use when the tip is too long or when you want to teach something in steps.
             </>
           }
         >
-          <div className={"monday-style-story-tipseen_container"} />
+          <div className="monday-style-story-tipseen_big-container" />
         </Tipseen>
       )
     }}
@@ -146,11 +175,11 @@ Use when the tip is too long or when you want to teach something in steps.
         component:
         <>
           <div className="a">
-            <div className="d">
+            <div className="monday-style-story-tipseen_column-item">
               <Icon icon={Board} iconSize="24" /><span>💫 Research tasks</span>
             </div>
-            <Tipseen 
-              className="c"
+            <Tipseen
+              modifiers={modifiers}
               position={Tipseen.positions.RIGHT} 
               content={
                 <TipseenContent
@@ -161,114 +190,39 @@ Use when the tip is too long or when you want to teach something in steps.
                 />
               }
             >
-              <div className="d q">  
+              <div className="monday-style-story-tipseen_column-item monday-style-story-tipseen_hovered">  
                 <Icon icon={Board} iconSize="24" /><span>Sales Pipeline</span>
               </div>
             </Tipseen>
-            <div className="d">
+            <div className="monday-style-story-tipseen_column-item">
               <Icon icon={BoardPrivate} iconSize="24" /><span>Marketing</span>
             </div>
           </div>
-          <div className="b"></div>
+          <div className="monday-style-story-tipseen_inline-spacing" />
           </>,
         description:"Use tipseen in order to guide the user through a new feature or a place they’re not familiar with in the system."
       },
       negative: {
         component:
           <div className="monday-style-story-tipseen_column-wrapper">
-            <div className="t"></div>
-            <Tipseen 
-              position={Tipseen.positions.BOTTOM} 
+            <div className="monday-style-story-tipseen_column-spacing"></div>
+            <Tipseen
+              modifiers={modifiers}
+              position={Tipseen.positions.TOP} 
               content={
-                <>
-                  <TipseenContent
-                    children="You still have 14 days on your Pro trial, Enjoy it!"
-                  />
-                </>
+                <TipseenContent
+                  children="You still have 14 days on your Pro trial, Enjoy it!"
+                />
               }
             >
-              <div className={"monday-style-story-tipseen_containera"} />
+              <div className="monday-style-story-tipseen_inline-container" />
             </Tipseen>
           </div>,
         description:"Don’t use tipseen to provide additional information on a familiar UI. Use a Tooltip or Attention box instead."
       }
-    },
-    {
-      positive: {
-        component:
-          <>
-            <div className="a">
-              <Tipseen 
-                className="c"
-                position={Tipseen.positions.RIGHT} 
-                content={
-                  <TipseenContent
-                    isDismissHidden={false}
-                    title="Step1 of 7"
-                    isDismissHidden
-                    children="Click on the “Sales” board to get started"
-                  />
-                }
-              >
-                <div className="d q">  
-                  <Icon icon={Board} iconSize="24" /><span>Sales Pipeline</span>
-                </div>
-              </Tipseen>
-            </div>
-            <div className="b"></div>
-          </>,
-        description:"Add a pointer to indicate where the tipseen comes from."
-      },
-      negative: {
-        component:
-          <>
-            <div className="a">
-              <Tipseen 
-                className="c"
-                position={Tipseen.positions.RIGHT} 
-                content={
-                  <TipseenContent
-                    withoutDialog
-                    isDismissHidden={false}
-                    title="Step1 of 7"
-                    isDismissHidden
-                    children="Click on the “Sales” board to get started"
-                  />
-                }
-              >
-                <div className="d q">  
-                  <Icon icon={Board} iconSize="24" /><span>Sales Pipeline</span>
-                </div>
-              </Tipseen>
-            </div>
-            <div className="b"></div>
-          </>,
-        description:"Don’t use a tipseen without a pointer."
-      }
     }
   ]}
 />
-
-## Use cases and examples
-### Onboarding tipseen
-After creating the first board, several tips are shown.
-<Canvas>
-  <Story name="Onboarding tipseen">
-    <Tipseen 
-      position={Tipseen.positions.BOTTOM} 
-      content={
-        <>
-          <TipseenContent
-            title="This is a title"
-            children="Add your first item. An item can be a task, a campaign, lead, feature or anything you deifne."
-          />
-        </>
-      }
-    >
-      <div className={"monday-style-story-tipseen_containera"} />
-    </Tipseen>
-  </Story>
-</Canvas>
 
 ## Related components
 <RelatedComponents componentsNames={[]} />
