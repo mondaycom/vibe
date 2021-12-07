@@ -20,12 +20,7 @@ export default function useMenuItemKeyboardEvents(
 ) {
   const onClickCallback = useCallback(
     event => {
-      console.log("isActive:", isActive);
-      console.log("isMouseEnter:", isMouseEnter);
-
       if (!isActive && !isMouseEnter) return;
-      console.log("bla!!!");
-
       if (!setActiveItemIndex || !setSubMenuIsOpenByIndex) {
         console.error("MenuItem must be a first level child of a menu");
         return;
@@ -46,7 +41,6 @@ export default function useMenuItemKeyboardEvents(
         onClick(event);
         closeMenu({ propagate: true });
       };
-      console.log("bla!!! 1");
 
       if (isKeyEvent && onClick && !disabled && isActive) {
         if (event.key === "ArrowRight") {
@@ -62,13 +56,9 @@ export default function useMenuItemKeyboardEvents(
             setSubMenuIsOpenByIndex(index, true);
           }
         }
-        console.log("bla!!! 3");
 
         if (!hasChildren) {
-          console.log("bla!!! 2");
-
           // wait for background of menu item to change before trigger click
-
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
               clickCallback();

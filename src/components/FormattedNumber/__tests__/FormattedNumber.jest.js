@@ -62,7 +62,7 @@ describe("FormattedNumber Tests", () => {
 
     it("should format with MIN precision for precision below MIN", () => {
       const expectedText = "987,654,321";
-      const { getByText, debug } = render(
+      const { getByText } = render(
         <FormattedNumber id="test" value={decimalNumber} compact={false} decimalPrecision={-10} />
       );
       expect(getByText(expectedText)).toBeTruthy();
