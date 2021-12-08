@@ -1,7 +1,6 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
-import { expect } from "../../test/test-helpers";
-import FormattedNumber from "./FormattedNumber";
+import FormattedNumber from "../FormattedNumber";
 
 describe("FormattedNumber Tests", () => {
   beforeEach(() => cleanup());
@@ -10,23 +9,23 @@ describe("FormattedNumber Tests", () => {
   describe("emptyPlaceHolder", () => {
     it("no props where provided", () => {
       const { getByText } = render(<FormattedNumber id="test" />);
-      expect(getByText("N/A")).to.be.ok;
+      expect(getByText("N/A")).toBeTruthy();
     });
 
     it("invalid value - empty string", () => {
       const { getByText } = render(<FormattedNumber id="test" value={" "} />);
-      expect(getByText("N/A")).to.be.ok;
+      expect(getByText("N/A")).toBeTruthy();
     });
 
     it("invalid value - mixed content", () => {
       const { getByText } = render(<FormattedNumber id="test" value="a1s2d" />);
-      expect(getByText("N/A")).to.be.ok;
+      expect(getByText("N/A")).toBeTruthy();
     });
 
     it("invalid value - mixed content", () => {
       const emptyPlaceHolderText = "Test";
       const { getByText } = render(<FormattedNumber id="test" emptyPlaceHolder={emptyPlaceHolderText} />);
-      expect(getByText(emptyPlaceHolderText)).to.be.ok;
+      expect(getByText(emptyPlaceHolderText)).toBeTruthy();
     });
   });
 
@@ -38,19 +37,19 @@ describe("FormattedNumber Tests", () => {
     it("should format small number without sign", () => {
       const expectedText = "98";
       const { getByText } = render(<FormattedNumber id="test" value={smallNumber} />);
-      expect(getByText(expectedText)).to.be.ok;
+      expect(getByText(expectedText)).toBeTruthy();
     });
 
     it("should format large number with sign", () => {
       const expectedText = "987.6543M";
       const { getByText } = render(<FormattedNumber id="test" value={largeNumber} decimalPrecision={4} />);
-      expect(getByText(expectedText)).to.be.ok;
+      expect(getByText(expectedText)).toBeTruthy();
     });
 
     it("should format large number without sign", () => {
       const expectedText = "987,654,321";
       const { getByText } = render(<FormattedNumber id="test" value={largeNumber} compact={false} />);
-      expect(getByText(expectedText)).to.be.ok;
+      expect(getByText(expectedText)).toBeTruthy();
     });
 
     it("should format large number without sign and limited decimal numbers", () => {
@@ -58,7 +57,7 @@ describe("FormattedNumber Tests", () => {
       const { getByText } = render(
         <FormattedNumber id="test" value={decimalNumber} compact={false} decimalPrecision={3} />
       );
-      expect(getByText(expectedText)).to.be.ok;
+      expect(getByText(expectedText)).toBeTruthy();
     });
 
     it("should format with MIN precision for precision below MIN", () => {
@@ -66,7 +65,7 @@ describe("FormattedNumber Tests", () => {
       const { getByText } = render(
         <FormattedNumber id="test" value={decimalNumber} compact={false} decimalPrecision={-10} />
       );
-      expect(getByText(expectedText)).to.be.ok;
+      expect(getByText(expectedText)).toBeTruthy();
     });
 
     it("should format with MAX precision for precision above MAX", () => {
@@ -74,7 +73,7 @@ describe("FormattedNumber Tests", () => {
       const { getByText } = render(
         <FormattedNumber id="test" value={decimalNumber} compact={false} decimalPrecision={50} />
       );
-      expect(getByText(expectedText)).to.be.ok;
+      expect(getByText(expectedText)).toBeTruthy();
     });
   });
 
@@ -83,17 +82,16 @@ describe("FormattedNumber Tests", () => {
 
     it("should use handle unsupported local", () => {
       const badLocal = "bad";
-      const { container, getByText } = render(<FormattedNumber id="test" value={value} local={badLocal} />);
-      expect(container).is.ok;
-      expect(getByText("456")).to.be.ok;
+      const { getByText } = render(<FormattedNumber id="test" value={value} local={badLocal} />);
+      expect(getByText("456")).toBeTruthy();
     });
   });
 
   describe("forward ref", () => {
     it("should be able to forward ref", () => {
-      const ref = {};
+      const ref = React.createRef();
       render(<FormattedNumber ref={ref} id="test" className="ref-class-name" value={1248} />);
-      expect(ref.current.className).to.include("ref-class-name");
+      expect(ref.current.classList.contains("ref-class-name")).toEqual(true);
     });
   });
 
@@ -106,9 +104,9 @@ describe("FormattedNumber Tests", () => {
       const { container } = render(<FormattedNumber id="test" value={value} prefix={prefix} suffix={suffix} />);
       const { childNodes } = container.firstChild;
 
-      expect(childNodes.length).to.equal(3);
-      expect(childNodes[0].textContent).to.equal(prefix);
-      expect(childNodes[2].textContent).to.equal(suffix);
+      expect(childNodes.length).toBe(3);
+      expect(childNodes[0].textContent).toBe(prefix);
+      expect(childNodes[2].textContent).toBe(suffix);
     });
 
     it("should render rtl", () => {
@@ -117,9 +115,9 @@ describe("FormattedNumber Tests", () => {
       );
       const { childNodes } = container.firstChild;
 
-      expect(childNodes.length).to.equal(3);
-      expect(childNodes[0].textContent).to.equal(suffix);
-      expect(childNodes[2].textContent).to.equal(prefix);
+      expect(childNodes.length).toBe(3);
+      expect(childNodes[0].textContent).toBe(suffix);
+      expect(childNodes[2].textContent).toBe(prefix);
     });
   });
 });

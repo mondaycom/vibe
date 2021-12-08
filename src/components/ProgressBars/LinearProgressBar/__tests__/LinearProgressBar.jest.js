@@ -1,7 +1,6 @@
 import React from "react";
 import { render, cleanup, act, screen } from "@testing-library/react";
-import { expect } from "../../../test/test-helpers";
-import LinearProgressBar from "./LinearProgressBar";
+import LinearProgressBar from "../LinearProgressBar";
 
 describe("ProgressBars Tests", () => {
   let component;
@@ -19,7 +18,7 @@ describe("ProgressBars Tests", () => {
 
   describe("rendering of bars", () => {
     it("should not render progress bars if no values provided", () => {
-      expect(screen.queryAllByRole("progressbar").length).to.eq(0);
+      expect(screen.queryAllByRole("progressbar").length).toBe(0);
     });
 
     it("should render progress bars if values are provided", () => {
@@ -27,12 +26,14 @@ describe("ProgressBars Tests", () => {
       act(() => {
         component = rerender(<LinearProgressBar value={13} id="test" />);
       });
-      expect(screen.queryAllByRole("progressbar").length, "should render only main progress bar").to.eq(1);
+      // should render only main progress bar
+      expect(screen.queryAllByRole("progressbar").length).toBe(1);
 
       act(() => {
         component = rerender(<LinearProgressBar value={14} valueSecondary={15} id="test" />);
       });
-      expect(screen.queryAllByRole("progressbar").length, "should render both progress bars").to.eq(2);
+      // should render both progress bars
+      expect(screen.queryAllByRole("progressbar").length).toBe(2);
     });
   });
 
@@ -42,7 +43,7 @@ describe("ProgressBars Tests", () => {
       act(() => {
         component = rerender(<LinearProgressBar value={13} max={100} id="test" />);
       });
-      expect(screen.queryAllByText("13%").length).to.eq(0);
+      expect(screen.queryAllByText("13%").length).toBe(0);
     });
 
     it("should render progress indication if set", () => {
@@ -51,7 +52,7 @@ describe("ProgressBars Tests", () => {
         component = rerender(<LinearProgressBar value={13} max={100} id="test" indicateProgress={true} />);
       });
 
-      expect(screen.getByText("13%")).to.be.ok;
+      expect(screen.getByText("13%")).toBeTruthy();
     });
 
     it("should change progress indication for value changes", () => {
@@ -62,7 +63,7 @@ describe("ProgressBars Tests", () => {
           rerender(<LinearProgressBar value={value + i} max={100} id="test" indicateProgress={true} />);
         });
 
-        expect(screen.getByText(`${value + i}%`)).to.be.ok;
+        expect(screen.getByText(`${value + i}%`)).toBeTruthy();
       }
     });
   });
@@ -85,7 +86,7 @@ describe("ProgressBars Tests", () => {
         component = rerender(<LinearProgressBar max={100} id="test" multiValues={multiValues} />);
       });
 
-      expect(screen.queryAllByRole("progressbar").length).to.eq(0);
+      expect(screen.queryAllByRole("progressbar").length).toBe(0);
     });
 
     it("should render all the given bars with the correct values", () => {
@@ -93,9 +94,9 @@ describe("ProgressBars Tests", () => {
       rerender(<LinearProgressBar max={100} id="test" multi multiValues={multiValues} />);
 
       const progressBarElements = screen.queryAllByRole("progressbar");
-      expect(progressBarElements.length).to.equal(3);
+      expect(progressBarElements.length).toBe(3);
       const style = window.getComputedStyle(progressBarElements[1]);
-      expect(style.backgroundColor).to.equal(`${multiValues[1].color}`);
+      expect(style.backgroundColor).toBe(`${multiValues[1].color}`);
     });
 
     it("should propagate value changes to bars", () => {
@@ -108,13 +109,10 @@ describe("ProgressBars Tests", () => {
       const widthBeforeChange = style.width;
 
       rerender(<LinearProgressBar max={100} id="test" multi multiValues={multiValuesWithChange} />);
-
-      console.log(multiValuesWithChange);
-
       progressBarElements = screen.queryAllByRole("progressbar");
       style = window.getComputedStyle(progressBarElements[2]);
-      expect(Number(style.width.replace("px", ""))).to.greaterThan(Number(widthBeforeChange.replace("px", "")));
-      expect(style.backgroundColor).to.equal(multiValuesWithChange[0].color);
+
+      expect(style.backgroundColor).toEqual(multiValuesWithChange[0].color);
     });
   });
 });
