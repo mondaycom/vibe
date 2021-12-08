@@ -21,6 +21,7 @@ jest.mock("react-transition-group", () => {
     SwitchTransition: FakeSwitchTransition
   };
 });
+
 describe("Snapshot Tests", () => {
   describe("Tipseen renders correctly", () => {
     it("renders correctly", () => {

@@ -2,11 +2,6 @@ import React from "react";
 import { render, screen, waitFor, waitForElementToBeRemoved, fireEvent } from "@testing-library/react";
 import Tooltip from "../Tooltip";
 
-
-const renderComponent = props => {
-  return render(<Tooltip {...props} />);
-};
-
 describe("Tooltip tests", () => {
   it("Should trigger onTooltipShow", async () => {
     const onTooltipShow = jest.fn()
