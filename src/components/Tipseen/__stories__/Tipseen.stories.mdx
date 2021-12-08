@@ -32,7 +32,7 @@ export const tipseenTemplate = (args) => {
         />
       }
     >
-      <div className="monday-style-story-empty-tipseen_container" />
+      <div className="monday-style-story-tipseen_container" />
     </Tipseen>
   )
 }
@@ -50,7 +50,7 @@ export const tipseenTemplate = (args) => {
 - [Feedback](#feedback)
 
 ## Overview
-Please write here the component description
+Tipseen is an virtual unboxing experience that helps users get started with the system.
 
 <Canvas>
   <Story name="Overview"
@@ -95,7 +95,7 @@ Please write here the component description
         />
       }
     >
-      <div className="monday-style-story-empty-tipseen_container" />
+      <div className="monday-style-story-tipseen_container" />
     </Tipseen>
   </Story>
 </Canvas>
@@ -124,7 +124,7 @@ Use when the tip is too long or when you want to teach something in steps.
             />
           }
         >
-          <div className="monday-style-story-empty-tipseen_container" />
+          <div className="monday-style-story-tipseen_container" />
         </Tipseen>
       )
     }}
@@ -145,7 +145,6 @@ Use when the tip is too long or when you want to teach something in steps.
       return (
         <Tipseen 
           position={Tipseen.positions.RIGHT}
-          isCloseButtonHidden
           modifiers={modifiers}
           isCloseButtonOnImage
           content={
@@ -176,7 +175,7 @@ Use when the tip is too long or when you want to teach something in steps.
       positive: {
         component:
         <>
-          <div className="a">
+          <div>
             <div className="monday-style-story-tipseen_column-item">
               <Icon icon={Board} iconSize="24" /><span>💫 Research tasks</span>
             </div>

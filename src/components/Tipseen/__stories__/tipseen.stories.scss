@@ -2,14 +2,18 @@
 @import "../../../styles/typography.scss";
 
 .monday-style-story-empty-tipseen_container {
-  width: 10px;
-  height: 120px;
+ 
 }
 
 .monday-style-story-tipseen {
+  &_container {
+    width: 20px;
+    height: 180px;
+  }
+
   &_big-container {
-    width: 10px;
-    height: 300px;
+    width: 20px;
+    height: 400px;
   }
 
   &_image {
@@ -42,24 +46,5 @@
 
   &_hovered {
     @include theme-prop(background-color, primary-selected-color);
-  }
-}
-
-.related-component-tipseen {
-  width: 300px;
-
-  .monday-style-tooltip-arrow {
-    display: none;
-    border: 1px solid red;
-  }
-
-  .monday-style-arrow {
-    display: none;
-    border: 1px solid red;
-  }
-  
-  .monday-style-arrow-primary {
-    display: none;
-    border: 1px solid red;
   }
 }
