@@ -34,6 +34,37 @@ describe("Integration Tests", () => {
       });
     });
   });
- 
+  
+  describe("Tipseen content tests", () => {
+    it("call onDismiss function when click on dismiss button", () => {
+      const onDismissMock = jest.fn();
+      const { getByText } = render(
+        <TipseenContent isDismissHidden={false} onDismiss={onDismissMock}>
+          content
+        </TipseenContent>
+      )
+      const dismissButton = getByText(DISMISS_BUTTON_TEXT);
+
+      act(() => {
+        fireEvent.click(dismissButton);
+      });
+      expect(onDismissMock.mock.calls.length).toBe(1);
+    });
+
+    it("call onSubmit function when click on dismiss button", () => {
+      const onSubmitMock = jest.fn();
+      const { getByText } = render(
+        <TipseenContent onSubmit={onSubmitMock}>
+          content
+        </TipseenContent>
+      )
+      const submitButton = getByText(SUBMIT_BUTTON_TEXT);
+
+      act(() => {
+        fireEvent.click(submitButton);
+      });
+      expect(onSubmitMock.mock.calls.length).toBe(1);
+    });
+  });
 });
 
