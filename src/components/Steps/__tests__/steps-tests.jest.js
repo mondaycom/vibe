@@ -25,6 +25,7 @@ describe("Steps tests", () => {
     });
     expect(onClickMock.mock.calls.length).toBe(1);
   });
+
   it("call onChangeIndexCallback when click on go forward button and it does not disable", () => {
     const onClickMock = jest.fn();
     const steps = renderComponent({
@@ -39,6 +40,7 @@ describe("Steps tests", () => {
 
     expect(onClickMock.mock.calls.length).toBe(1);
   });
+
   it("does not call onChangeIndexCallback when click on back button and when in first page", () => {
     const onClickMock = jest.fn();
     const steps = renderComponent({
@@ -53,6 +55,7 @@ describe("Steps tests", () => {
 
     expect(onClickMock.mock.calls.length).toBe(0);
   });
+  
   it("does not call onChangeIndexCallback when click on next button when in last page", () => {
     const onClickMock = jest.fn();
     const steps = renderComponent({

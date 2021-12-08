@@ -45,6 +45,7 @@ describe("Snapshot Tests", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+
     it("renders correctly without close button", () => {
       const tree = renderer
         .create(
@@ -55,6 +56,7 @@ describe("Snapshot Tests", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+
     it("renders correctly with custom width", () => {
       const tree = renderer
         .create(
@@ -66,6 +68,7 @@ describe("Snapshot Tests", () => {
       expect(tree).toMatchSnapshot();
     });
   });
+
   describe("Tipseen content tests", () => {
     it("renders correctly", () => {
       const tree = renderer
@@ -148,10 +151,12 @@ describe("Snapshot Tests", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
+
     it("renders correctly with empty props", () => {
       const tree = renderer.create(<TipseenWizard />).toJSON();
       expect(tree).toMatchSnapshot();
     });
+    
     it("renders correctly without title", () => {
       const tree = renderer
         .create(
