@@ -4,7 +4,6 @@ export default function useEventListener({ eventName, callback, ref, capture = f
   useEffect(() => {
     const refElement = ref && ref.current;
     if (!refElement) return;
-
     const listenerOptions = { capture };
     refElement.addEventListener(eventName, callback, listenerOptions);
     return () => {
