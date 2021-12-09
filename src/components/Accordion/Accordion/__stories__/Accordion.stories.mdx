@@ -1,0 +1,138 @@
+import Accordion from "../Accordion";
+import AccordionItem from "../../AccordionItem/AccordionItem";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
+import "./Accordion.stories.scss";
+
+<Meta
+  title="Components/Accordion"
+  component={ Accordion }
+/>
+
+<!--- Component template -->
+
+export const accordionTemplate = createComponentTemplate(Accordion);
+
+<!--- Component documentation -->
+
+# Accordion
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+Accordion is a vertically stacked list of items. Each item can be "expanded" or "collapsed" to reveal the content within with that item.
+
+<Canvas>
+  <Story name="Overview"
+         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+    { accordionTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ Accordion } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Use accordion reduce clutter and chunk the information one by one",
+  "Accordion Label must be short clear and understandable to indicate whats inside",
+  "Default state of accordion is closed unless used for navigation",
+  "Accordion content can include icons, radio buttons, and checkboxes.",
+]}/>
+
+<Tip>Use actionable sentences that compel the user to look for the right component. See link</Tip>
+
+## Variants
+### Multi active
+Each section can be expaged without colsing the others
+<Canvas>
+  <Story name="Multi active">
+    <Accordion allowMultiple defaultIndex={[1, 3]}>
+      <AccordionItem title="Notifications" />
+      <AccordionItem title="Setting"></AccordionItem>
+      <AccordionItem title="Connectivity" />
+      <AccordionItem title="Integration"></AccordionItem>
+      <AccordionItem title="Assets" />
+    </Accordion>
+  </Story>
+</Canvas>
+
+### Single active
+Only one section can be open at the time
+<Canvas>
+  <Story name="Single active">
+    <Story name="Multi active">
+     <Accordion defaultIndex={[1]}>
+      <AccordionItem title="Notifications" />
+      <AccordionItem title="Setting"></AccordionItem>
+      <AccordionItem title="Connectivity" />
+      <AccordionItem title="Integration"></AccordionItem>
+      <AccordionItem title="Assets" />
+    </Accordion>
+  </Story>
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:
+          <Accordion>
+            <AccordionItem title="Notifications" />
+            <AccordionItem title="Security" />
+            <AccordionItem title="InfoAssets" />
+          </Accordion>,
+        description:"Use informative short labels."
+      },
+      negative: {
+        component:
+          <Accordion>
+            <AccordionItem title="Notifications" />
+            <AccordionItem title="Security" />
+            <AccordionItem title="InfoAssets" />
+          </Accordion>,
+        description:"Indicate the accordion state with labels."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+### Preferences Accordion
+<Canvas>
+  <Story name="Preferences Accordion">
+    <Accordion />
+    <Accordion />
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[]} />
+
+
+
+
+
+<Canvas>
+  <Story name="Mudddlti active">
+    <Accordion>
+      <AccordionItem title="Notifications" />
+      <AccordionItem title="Setting" />
+      <AccordionItem title="Info" />
+      <AccordionItem title="Profile" />
+      <AccordionItem title="Permisions" />
+      <AccordionItem title="Seurity" />
+      <AccordionItem title="Connectivity" />
+      <AccordionItem title="Integration" />
+      <AccordionItem title="Assets" />
+    </Accordion>
+  </Story>
+</Canvas>
