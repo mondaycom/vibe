@@ -56,22 +56,34 @@ Steppers display progress through a sequence of logical and numbered steps. They
 Steps with a number view or gallery view.
 <Canvas>
   <Story name="Types">
-    <div className="monday-style-story-steps_column-wrapper">
-      <Steps type={Steps.types.NUMBERS} steps={steps6} activeStepIndex={4} />
-      <Steps steps={steps5} activeStepIndex={2} />
-      <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden className="monday-style-story-steps_padding" />
-    </div>
+    {() => {
+      const steps5 = [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>];
+      const steps6 = [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>, <div></div>];
+      return(
+        <div className="monday-style-story-steps_column-wrapper">
+          <Steps type={Steps.types.NUMBERS} steps={steps6} activeStepIndex={4} />
+          <Steps steps={steps5} activeStepIndex={2} />
+          <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden className="monday-style-story-steps_padding" />
+        </div>
+      )
+    }};
   </Story>
 </Canvas>
 
 ### On primary
 <Canvas>
   <Story name="On primary">
-    <div className="monday-style-story-steps_column-wrapper monday-style-story-steps_color" >
-      <Steps steps={steps6} activeStepIndex={4} isOnPrimary type={Steps.types.NUMBERS} />
-      <Steps steps={steps5} activeStepIndex={2} isOnPrimary />
-      <Steps steps={steps5} activeStepIndex={2} isOnPrimary areNavigationButtonsHidden className="monday-style-story-steps_padding" />
-    </div>
+    {() => {
+      const steps5 = [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>];
+      const steps6 = [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>, <div></div>];
+      return(
+        <div className="monday-style-story-steps_column-wrapper monday-style-story-steps_color" >
+          <Steps steps={steps6} activeStepIndex={4} isOnPrimary type={Steps.types.NUMBERS} />
+          <Steps steps={steps5} activeStepIndex={2} isOnPrimary />
+          <Steps steps={steps5} activeStepIndex={2} isOnPrimary areNavigationButtonsHidden className="monday-style-story-steps_padding" />
+        </div>
+      )
+    }};
   </Story>
 </Canvas>
 

@@ -23,13 +23,13 @@ export const TipseenDescription = () => {
       {
         name: "preventOverflow",
         options: {
-          mainAxis: false // true by default
+          mainAxis: false
         }
       },
       {
         name: "flip",
         options: {
-          fallbackPlacements: [] // true by default
+          fallbackPlacements: []
         }
       }
     ];

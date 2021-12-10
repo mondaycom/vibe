@@ -21,9 +21,11 @@ export const tooltipTemplate = (args) => {
   return (
     <div className="monday-storybook-tooltip_overview">
       <Tooltip
+        // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+        // Therefore, there is no need to move this prop in your implementations.
+        modifiers={args.modifiers}
         shouldShowOnMount={args.shouldShowOnMount}
         content={args.content}
-        modifiers={args.modifiers}
       >
         <div />
       </Tooltip>
@@ -73,10 +75,12 @@ Tooltip’s arrow can appear from top, bottom, left or right.
   <Story name="Positions">
     <div className="monday-storybook-tooltip_top">
       <Tooltip
+        // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+        // Therefore, there is no need to move this prop in your implementations.
+        modifiers={modifiers}
         content="Top"
         shouldShowOnMount
         position={Tooltip.positions.BOTTOM}
-        modifiers={modifiers}
         animationType="expand"
       >
         <div />
@@ -84,9 +88,11 @@ Tooltip’s arrow can appear from top, bottom, left or right.
     </div>
     <div className="monday-storybook-tooltip_bottom">
       <Tooltip
+        // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+        // Therefore, there is no need to move this prop in your implementations.
+        modifiers={modifiers}
         content="Bottom"
         shouldShowOnMount
-        modifiers={modifiers}
         animationType="expand"
       >
         <div />
@@ -94,10 +100,12 @@ Tooltip’s arrow can appear from top, bottom, left or right.
     </div>
     <div className="monday-storybook-tooltip_right">
       <Tooltip
+        // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+        // Therefore, there is no need to move this prop in your implementations.
+        modifiers={modifiers}
         content="Left"
         position={Tooltip.positions.RIGHT}
         shouldShowOnMount
-        modifiers={modifiers}
         animationType="expand"
       >
         <div />
@@ -105,10 +113,12 @@ Tooltip’s arrow can appear from top, bottom, left or right.
     </div>
     <div className="monday-storybook-tooltip_left">
       <Tooltip
+        // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+        // Therefore, there is no need to move this prop in your implementations.
+        modifiers={modifiers}
         content="Right"
         position={Tooltip.positions.LEFT}
         shouldShowOnMount
-        modifiers={modifiers}
         animationType="expand"
       >
         <div />
