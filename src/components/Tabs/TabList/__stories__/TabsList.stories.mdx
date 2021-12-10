@@ -1,0 +1,150 @@
+import Tab from "../../Tab/Tab.jsx";
+import TabList from "../../TabList/TabList.jsx";
+import TabPanel from "../../TabPanel/TabPanel.jsx";
+import TabPanels from "../../TabPanels/TabPanels.jsx";
+import Tabcontext from "../../TabsContext/TabsContext.jsx";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
+import "./Tabs.stories.scss";
+
+<Meta
+  title="Components/Tabs/Tabs"
+  component={ Tab }
+/>
+
+<!--- Component template -->
+
+export const tabsTemplate = createComponentTemplate(Tab);
+
+<!--- Component documentation -->
+
+# Tabs
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+Tabs allow users to navigate between related views of content while remaining in context of the page.
+
+<Canvas>
+  <Story name="Overview"
+         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+    { tabsTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ TabPanels } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Tabs organize and allow navigation between groups of content that are related and at the same level of hierarchy.",
+  "Align navigation tabs and content tabs left (in left-to-right languages) and never center within a page or content area.",
+  "The first tab is selected by default. The default tab is most important use case of the page.",
+  "Stick to only one row of tabs.",
+]}/>
+
+<Tip>Use tabs to navigate between deferent contents, if switching between states withing the same 
+content use Button group instead</Tip>
+
+## Variants
+### Story title 1
+Description of story 1
+<Canvas>
+  <Story name="States">
+    <TabList>
+      <Tab>1</Tab>
+      <Tab>2</Tab>
+      <Tab></Tab>
+      <Tab>6</Tab>
+      
+    </TabList>
+  </Story>
+</Canvas>
+
+### Story title 2
+Description of story 2
+<Canvas>
+  <Story name="Story title 2">
+    <TabPanels>
+      <TabPanel>First tab panel</TabPanel>
+      <TabPanel>Second tab panel</TabPanel>
+      <TabPanel>Third tab panel</TabPanel>
+    </TabPanels>
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:<Tab />,
+        description:"Best practice description."
+      },
+      negative: {
+        component:<Tab />,
+        description:"Bad practice description."
+      }
+    },
+    {
+      positive: {
+        component:<Tab />,
+        description:"Best practice description."
+      },
+      negative: {
+        component:<Tab />,
+        description:"Bad practice description."
+      }
+    },
+    {
+      positive: {
+        component:<Tab />,
+        description:"Best practice description."
+      },
+      negative: {
+        component:<Tab />,
+        description:"Bad practice description."
+      }
+    },
+    {
+      positive: {
+        component:<Tab />,
+        description:"Best practice description."
+      },
+      negative: {
+        component:<Tab />,
+        description:"Bad practice description."
+      }
+    }
+  ]}
+/>
+
+
+## Use cases and examples
+
+### Story title 3
+Description of story 3
+<Canvas>
+  <Story name="Story title 3">
+    <Tab />
+    <Tab />
+  </Story>
+</Canvas>
+
+### Story title 4
+Description of story 4
+<Canvas>
+  <Story name="Story title 4">
+    <Tab />
+    <Tab />
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[]} />
