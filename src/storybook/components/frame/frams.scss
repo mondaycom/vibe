@@ -1,0 +1,7 @@
+@import "../../../styles/global-css-settings";
+
+.monday-storybook-frame {
+  border-radius: $border-radius-small;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.19);
+  padding: 32px;
+}

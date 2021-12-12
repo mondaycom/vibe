@@ -18,6 +18,7 @@ import { ToastDescription } from "./descriptions/toast-description";
 import { TextFieldDescription } from "./descriptions/text-field-description";
 import { SearchDescription } from "./descriptions/search-description";
 import { ComboboxDescription } from "./descriptions/combobox-description";
+import { ColorsDescription } from "./descriptions/colors-description/colors-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -39,6 +40,9 @@ export const TOAST = "toast";
 export const TEXT_FIELD = "text-field";
 export const SEARCH = "search";
 export const COMBOBOX = "combobox";
+
+// General description names (not related to specific components)
+export const COLORS = "colors";
 
 export const descriptionTypesMap = new Map();
 
@@ -62,3 +66,6 @@ descriptionTypesMap.set(MENU, <MenuDescription />);
 descriptionTypesMap.set(TEXT_FIELD, <TextFieldDescription />);
 descriptionTypesMap.set(SEARCH, <SearchDescription />);
 descriptionTypesMap.set(COMBOBOX, <ComboboxDescription />);
+
+// General description (not related to specific components)
+descriptionTypesMap.set(COLORS, <ColorsDescription />);

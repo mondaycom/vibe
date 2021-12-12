@@ -1,0 +1,24 @@
+@import "../../../../../styles/global-css-settings";
+
+.monday-storybook-colors-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_color-block {
+    height: 48px;
+    width: 48px;
+
+    &:first-child {
+      @include theme-prop(background-color, primary-color);
+    }
+
+    &:nth-child(2) {
+      @include theme-prop(background-color, primary-hover-color);
+    }
+
+    &:last-child {
+      @include theme-prop(background-color, primary-selected-color);
+    }
+  }
+}
