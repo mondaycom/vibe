@@ -1245,7 +1245,7 @@ export const iconsMetaData = [
     name: "Retry",
     file: "Retry.svg",
     description: "Retry",
-    tags: "Retry, Reload",
+    tags: "Retry, Reload, Refresh",
     category: [PLATFORM],
   },
 
@@ -1254,6 +1254,14 @@ export const iconsMetaData = [
     file: "Robot.svg",
     description: "Robot",
     tags: "Robot, Automations",
+    category: [PLATFORM],
+  },
+
+  {
+    name: "Rotate",
+    file: "Rotate.svg",
+    description: "Rotate",
+    tags: "Rotate, Clockwise retry, Clockwise reload, Clockwise refresh",
     category: [PLATFORM],
   },
 
