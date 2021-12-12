@@ -36,23 +36,3 @@ const itemName = "My item";
 const renderComponent = ({ ...props } = {}) => {
   return render(<MenuItem title={itemName} {...props} />);
 };
-
-describe.skip("<MenuItem />", () => {
-  it("calls onClick when clicking on the menu item", () => {
-    const onClickMock = jest.fn();
-    const menuItemComponent = renderComponent({
-      onClick: onClickMock
-    });
-
-    const item = menuItemComponent.getByText(itemName);
-
-    act(() => {
-      fireEvent.mouseOver(item);
-      jest.advanceTimersByTime(1000);
-      fireEvent.click(item);
-    });
-
-    jest.advanceTimersByTime(1000);
-    expect(onClickMock.mock.calls.length).toBe(1);
-  });
-});

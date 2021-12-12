@@ -1,5 +1,4 @@
 import React, { forwardRef } from "react";
-import "./FontIcon.scss";
 import classNames from "classnames";
 
 const FontIcon = forwardRef(

@@ -21,7 +21,6 @@ export default function useMenuItemKeyboardEvents(
   const onClickCallback = useCallback(
     event => {
       if (!isActive && !isMouseEnter) return;
-
       if (!setActiveItemIndex || !setSubMenuIsOpenByIndex) {
         console.error("MenuItem must be a first level child of a menu");
         return;

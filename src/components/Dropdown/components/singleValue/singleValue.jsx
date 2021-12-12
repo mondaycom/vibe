@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import { components } from "react-select";
-import "./singleValue.scss";
 
 const SingleValue = props => {
   const { Renderer, data } = props;

@@ -1,15 +1,14 @@
 import React from "react";
-import { sinon, expect } from "../test/test-helpers";
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
-import useOnClickOutside from "./useClickOutside";
 import { fireEvent } from "@testing-library/react";
+import useOnClickOutside from "../useClickOutside";
 
 describe("useClickOutside", () => {
   let element;
   let callbackStub;
 
   beforeEach(() => {
-    callbackStub = sinon.stub();
+    callbackStub = jest.fn();
     element = document.createElement("div");
     document.body.appendChild(element);
     renderHook(() => useOnClickOutside({ ref: { current: element }, callback: callbackStub }));
@@ -17,7 +16,6 @@ describe("useClickOutside", () => {
 
   afterEach(() => {
     element.remove();
-    callbackStub.reset();
     cleanup();
   });
   describe("mouseDown", () => {
@@ -25,14 +23,14 @@ describe("useClickOutside", () => {
       act(() => {
         fireEvent.click(document.body);
       });
-      return expect(callbackStub).to.be.calledOnce;
+      return expect(callbackStub.mock.calls.length).toEqual(1);
     });
 
     it("should not call the callback when clicking the element", () => {
       act(() => {
         fireEvent.click(element);
       });
-      return expect(callbackStub).to.not.be.called;
+      return expect(callbackStub.mock.calls.length).toEqual(0);
     });
   });
 
@@ -41,14 +39,14 @@ describe("useClickOutside", () => {
       act(() => {
         fireEvent.touchEnd(document.body);
       });
-      return expect(callbackStub).to.be.calledOnce;
+      return expect(callbackStub.mock.calls.length).toEqual(1);
     });
 
     it("should not call the callback when clicking the element", () => {
       act(() => {
         fireEvent.touchEnd(element);
       });
-      return expect(callbackStub).to.not.be.called;
+      return expect(callbackStub.mock.calls.length).toEqual(0);
     });
   });
 });
