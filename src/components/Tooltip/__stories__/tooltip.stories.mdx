@@ -23,7 +23,7 @@ export const tooltipTemplate = (args) => {
       <Tooltip
         // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
         // Therefore, there is no need to move this prop in your implementations.
-        modifiers={args.modifiers}
+        modifiers={modifiers}
         shouldShowOnMount={args.shouldShowOnMount}
         content={args.content}
       >
@@ -49,7 +49,7 @@ export const tooltipTemplate = (args) => {
 Tooltips show contextual help or information about specific components when a user hovers on them.
 <Canvas>
   <Story name="Overview"
-         args={ {shouldShowOnMount: true, modifiers: modifiers, content: "I’m a tooltip"} }>
+         args={ {shouldShowOnMount: true, content: "I’m a tooltip"} }>
     { tooltipTemplate.bind({}) }
   </Story>
 </Canvas>

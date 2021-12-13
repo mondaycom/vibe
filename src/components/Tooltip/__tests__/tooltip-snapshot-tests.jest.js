@@ -46,12 +46,12 @@ describe("Tooltip renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("without hideWhenReferenceHidden", () => {
+  it("with hideWhenReferenceHidden", () => {
     const tree = renderer.create(<Tooltip hideWhenReferenceHidden content="test" shouldShowOnMount><div /></Tooltip>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("without style", () => {
+  it("with style", () => {
     const tree = renderer.create(<Tooltip style={{width: "200px"}} content="test" shouldShowOnMount><div /></Tooltip>).toJSON();
     expect(tree).toMatchSnapshot();
   });

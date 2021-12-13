@@ -22,8 +22,10 @@ import "./tipseen.stories.scss";
 export const tipseenTemplate = (args) => {
   return(
     <Tipseen
+    // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
+    // Therefore, there is no need to move this prop in your implementations.
+      modifiers={modifiers}
       position={args.position}
-      modifiers={args.modifiers}
       content={
         <TipseenContent
           isDismissHidden={args.isDismissHidden}
@@ -58,8 +60,7 @@ Tipseen is an virtual unboxing experience that helps users get started with the 
             title: "title", 
             children: "Popover message will appear here loremipsum dolor samet…", 
             position: Tipseen.positions.RIGHT,
-            isDismissHidden: false,
-            modifiers: modifiers
+            isDismissHidden: false
            } 
          }>
     { tipseenTemplate.bind({}) }
@@ -187,9 +188,7 @@ Use when the tip is too long or when you want to teach something in steps.
               modifiers={modifiers}
               position={Tipseen.positions.RIGHT} 
               content={
-                <TipseenContent
-                  title="Step1 of 7"
-                >
+                <TipseenContent title="Step1 of 7">
                   Click on the “Sales” board to get started
                 </TipseenContent>
               }
