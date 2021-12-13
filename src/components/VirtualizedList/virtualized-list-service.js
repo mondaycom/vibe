@@ -39,7 +39,7 @@ export const easeInOutQuint = time => {
 
 function findItemAtOffset(items, normalizedItems, idGetter, fromIndex, offset) {
   for (let i = fromIndex; i < items.length; i++) {
-    const itemId = idGetter(items[i]);
+    const itemId = idGetter(items[i], i);
     const normalizedItem = normalizedItems[itemId];
     const { height, offsetTop } = normalizedItem || EMPTY_OBJECT;
     if (height + offsetTop > offset) {
@@ -51,7 +51,7 @@ function findItemAtOffset(items, normalizedItems, idGetter, fromIndex, offset) {
 
 export const isVerticalScrollbarVisible = (items, normalizedItems, idGetter, listHeight) => {
   const lastExistingItem = items[items.length - 1] || EMPTY_OBJECT;
-  const lastExistingItemId = idGetter(lastExistingItem);
+  const lastExistingItemId = idGetter(lastExistingItem, items.length - 1);
   const normalizedItem = normalizedItems[lastExistingItemId];
   if (!normalizedItem) return false;
   const { offsetTop: lastExistingItemIdOffsetTop, height: lastExistingItemHeight } = normalizedItems[
@@ -74,9 +74,9 @@ export const getOnItemsRenderedData = (
   const firstVisibleItem = items[visibleStartIndex] || EMPTY_OBJECT;
   const secondVisibleItem = items[visibleStartIndex + 1] || EMPTY_OBJECT;
   const lastVisibleItem = items[visibleStopIndex] || EMPTY_OBJECT;
-  const firstItemId = idGetter(firstVisibleItem);
-  const secondItemId = idGetter(secondVisibleItem);
-  const lastItemId = idGetter(lastVisibleItem);
+  const firstItemId = idGetter(firstVisibleItem, visibleStartIndex);
+  const secondItemId = idGetter(secondVisibleItem, visibleStartIndex + 1);
+  const lastItemId = idGetter(lastVisibleItem, visibleStopIndex);
   const centerOffset = currentOffsetTop + listHeight / 2;
   const { offsetTop: firstItemOffsetTop, height: firstItemHeight } = normalizedItems[firstItemId] || EMPTY_OBJECT;
   const firstItemOffsetEnd = firstItemOffsetTop + firstItemHeight;

@@ -162,6 +162,7 @@ export {default as Remove} from './components/Remove';
 export {default as Replay} from './components/Replay';
 export {default as Retry} from './components/Retry';
 export {default as Robot} from './components/Robot';
+export {default as Rotate} from './components/Rotate';
 export {default as Search} from './components/Search';
 export {default as Security} from './components/Security';
 export {default as Send} from './components/Send';
