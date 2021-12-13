@@ -1,4 +1,28 @@
+@import "../../../../styles/themes";
+@import "../../../../styles/typography";
+
 .monday-storybook-tabs {
     width: 100px;
 
+}
+
+.spacing {
+    padding-right: 30px;
+    padding-top: 20px;
+}
+
+.c {
+    width: 2000px;
+}
+
+.tab-panel--wrapper {
+    width: 480px;
+    height: 111px;
+    margin-left: 40px;
+    background-color: #E6E9EF;
+}
+
+.a {
+    border: 1px solid red;
+    width: 1000px;
 }

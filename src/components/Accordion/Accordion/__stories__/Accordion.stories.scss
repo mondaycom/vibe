@@ -2,3 +2,25 @@
     width: 10px;
 
 }
+
+
+.small-box {
+    width: 300px;
+    height: 150px;
+}
+
+.big-box {
+    width: 300px;
+    height: 300px;
+}
+
+.wrapper {
+    width: 600px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+}

@@ -5,6 +5,8 @@ import TabPanels from "../../TabPanels/TabPanels.jsx";
 import Tabcontext from "../../TabsContext/TabsContext.jsx";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
+import { Email, Chart, Table, Calendar, NewTab, Gantt, Status, NavigationChevronDown } from "../../../Icon/Icons";
+import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import "./Tabs.stories.scss";
 
 <Meta
@@ -14,7 +16,22 @@ import "./Tabs.stories.scss";
 
 <!--- Component template -->
 
-export const tabsTemplate = createComponentTemplate(Tab);
+export const tabsTemplate = () => {
+  return (
+    <TabsContext activeTabId={1}>
+      <TabList >
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel></TabPanel>
+        <TabPanel></TabPanel>
+        <TabPanel></TabPanel>
+      </TabPanels>
+    </TabsContext>
+  )
+};
 
 <!--- Component documentation -->
 
@@ -39,7 +56,7 @@ Tabs allow users to navigate between related views of content while remaining in
 </Canvas>
 
 ## Props
-<ArgsTable of={ TabPanels } />
+<ArgsTable of={ TabList } />
 
 ## Usage
 <UsageGuidelines guidelines={[
@@ -54,28 +71,58 @@ content use Button group instead</Tip>
 
 ## Variants
 ### Story title 1
-Description of story 1
 <Canvas>
   <Story name="States">
-    <TabList>
-      <Tab>1</Tab>
-      <Tab>2</Tab>
-      <Tab></Tab>
-      <Tab>6</Tab>
-      
-    </TabList>
+    <TabsContext activeTabId={1}>
+      <TabList >
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab>Disabled</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel></TabPanel>
+        <TabPanel></TabPanel>
+        <TabPanel></TabPanel>
+        <TabPanel></TabPanel>
+      </TabPanels>
+    </TabsContext>
   </Story>
 </Canvas>
 
-### Story title 2
-Description of story 2
+### Stretched
+The width of the list is responsive to the screen's width.
 <Canvas>
-  <Story name="Story title 2">
-    <TabPanels>
-      <TabPanel>First tab panel</TabPanel>
-      <TabPanel>Second tab panel</TabPanel>
-      <TabPanel>Third tab panel</TabPanel>
-    </TabPanels>
+  <Story name="Stretched">
+    <TabsContext className="a">
+      <TabList>
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled >Disabled</Tab>
+      </TabList>
+    </TabsContext>
+  </Story>
+</Canvas>
+
+### Motion
+Tabs animation direction
+<Canvas>
+  <Story name="Motion">
+    <TabsContext activeTabId={2}>
+      <TabList >
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
+      </TabList>
+      <TabPanels animationDirection="ltr">
+        <TabPanel>1</TabPanel>
+        <TabPanel>2</TabPanel>
+        <TabPanel>3</TabPanel>
+        <TabPanel>4</TabPanel>
+      </TabPanels>
+    </TabsContext>
   </Story>
 </Canvas>
 
@@ -84,63 +131,72 @@ Description of story 2
   rules={[
     {
       positive: {
-        component:<Tab />,
-        description:"Best practice description."
+        component:
+          <DialogContentContainer className="spacing">
+            <TabList>
+              <Tab icon={NewTab}>Main Table</Tab>
+              <Tab icon={Gantt}>Timeline</Tab>
+              <Tab icon={Status}>Kanban</Tab>
+            </TabList>
+          </DialogContentContainer>,
+        description:"Use either all text labels, all icon labels, or both, across all labels."
       },
       negative: {
-        component:<Tab />,
-        description:"Bad practice description."
+        component:
+          <DialogContentContainer className="spacing">
+            <TabList>
+              <Tab>Main Table</Tab>
+              <Tab icon={Gantt}>d</Tab>
+            </TabList>
+          </DialogContentContainer>,
+        description:"Don’t mix tabs that contain only text, with tabs that contain only icons. "
       }
     },
     {
       positive: {
-        component:<Tab />,
-        description:"Best practice description."
+        component:
+        <DialogContentContainer className="spacing">
+            <TabList>
+              <Tab icon={NewTab}>Main Table</Tab>
+              <Tab icon={Table}>Table</Tab>
+              <Tab icon={NavigationChevronDown} iconSide="right">More</Tab>
+            </TabList>
+          </DialogContentContainer>,
+        description:"When there are too many tabs to fit horizontally across the viewport, use a “More” dropdown."
       },
       negative: {
-        component:<Tab />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<Tab />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<Tab />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<Tab />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<Tab />,
-        description:"Bad practice description."
+        component:
+        <DialogContentContainer className="spacing">
+            <TabList>
+              <Tab>Main...</Tab>
+              <Tab>Table</Tab>
+              <Tab>Time...</Tab>
+              <Tab>Fir...</Tab>
+            </TabList>
+          </DialogContentContainer>,
+        description:"Do not cut the tabs name just to make them fit horizontally."
       }
     }
   ]}
 />
 
-
 ## Use cases and examples
-
-### Story title 3
-Description of story 3
+### Board views tabs
+The tabs are presenting the same content, in a different view. 
 <Canvas>
-  <Story name="Story title 3">
-    <Tab />
-    <Tab />
+  <Story name="Board views tabs">
+    <TabList>
+      <Tab icon={Table}>Main Table</Tab>
+      <Tab icon={Chart}>Chart</Tab>
+      <Tab icon={Calendar}>Calendar</Tab>
+    </TabList>
   </Story>
 </Canvas>
 
-### Story title 4
-Description of story 4
+### Admin section tabs 
+In the admin section tabs used to navigate between the different preferences
 <Canvas>
-  <Story name="Story title 4">
+  <Story name="Admin section tabs">
     <Tab />
     <Tab />
   </Story>

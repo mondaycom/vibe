@@ -6,3 +6,9 @@
   font-size: 2.5rem;
   @include theme-prop(color, primary-text-color);
 }
+
+
+.a {
+  padding: 20px;
+  width: 262px;
+}

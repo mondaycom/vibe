@@ -2,6 +2,7 @@ import Accordion from "../Accordion";
 import AccordionItem from "../../AccordionItem/AccordionItem";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
+import Checkbox from "../../../Checkbox/Checkbox.js";
 import "./Accordion.stories.scss";
 
 <Meta
@@ -11,7 +12,21 @@ import "./Accordion.stories.scss";
 
 <!--- Component template -->
 
-export const accordionTemplate = createComponentTemplate(Accordion);
+export const accordionTemplate = (args) => {
+  return (
+    <Accordion  defaultIndex={[1]}>
+      <AccordionItem title="Notifications" />
+      <AccordionItem title="Setting" />
+      <AccordionItem title="Info" />
+      <AccordionItem title="Profile" />
+      <AccordionItem title="Permisions" />
+      <AccordionItem title="Seurity" />
+      <AccordionItem title="Connectivity" />
+      <AccordionItem title="Integration" />
+      <AccordionItem title="Assets" />
+    </Accordion>
+  )
+}
 
 <!--- Component documentation -->
 
@@ -55,9 +70,9 @@ Each section can be expaged without colsing the others
   <Story name="Multi active">
     <Accordion allowMultiple defaultIndex={[1, 3]}>
       <AccordionItem title="Notifications" />
-      <AccordionItem title="Setting"></AccordionItem>
+      <AccordionItem title="Setting"><div className="small-box" /></AccordionItem>
       <AccordionItem title="Connectivity" />
-      <AccordionItem title="Integration"></AccordionItem>
+      <AccordionItem title="Integration"><div className="small-box" /></AccordionItem>
       <AccordionItem title="Assets" />
     </Accordion>
   </Story>
@@ -67,15 +82,13 @@ Each section can be expaged without colsing the others
 Only one section can be open at the time
 <Canvas>
   <Story name="Single active">
-    <Story name="Multi active">
-     <Accordion defaultIndex={[1]}>
+    <Accordion defaultIndex={[1]}>
       <AccordionItem title="Notifications" />
-      <AccordionItem title="Setting"></AccordionItem>
+      <AccordionItem title="Setting"><div className="big-box" /></AccordionItem>
       <AccordionItem title="Connectivity" />
-      <AccordionItem title="Integration"></AccordionItem>
+      <AccordionItem title="Integration" />
       <AccordionItem title="Assets" />
     </Accordion>
-  </Story>
   </Story>
 </Canvas>
 
@@ -109,30 +122,22 @@ Only one section can be open at the time
 ### Preferences Accordion
 <Canvas>
   <Story name="Preferences Accordion">
-    <Accordion />
-    <Accordion />
+    <div className="wrapper">
+      <Accordion>
+        <AccordionItem title="In monday" open={true} >
+          <div className="checkbox-wrapper">
+            <Checkbox label="Regular" />
+            <Checkbox label="Selected" checked />
+            <Checkbox label="Disabled"  />
+            <Checkbox label="Indeterminate" />
+            <Checkbox label="Indeterminate" />
+            <Checkbox label="Indeterminate" />
+          </div>   
+        </AccordionItem>
+      </Accordion>
+    </div>
   </Story>
 </Canvas>
 
 ## Related components
 <RelatedComponents componentsNames={[]} />
-
-
-
-
-
-<Canvas>
-  <Story name="Mudddlti active">
-    <Accordion>
-      <AccordionItem title="Notifications" />
-      <AccordionItem title="Setting" />
-      <AccordionItem title="Info" />
-      <AccordionItem title="Profile" />
-      <AccordionItem title="Permisions" />
-      <AccordionItem title="Seurity" />
-      <AccordionItem title="Connectivity" />
-      <AccordionItem title="Integration" />
-      <AccordionItem title="Assets" />
-    </Accordion>
-  </Story>
-</Canvas>
