@@ -70,4 +70,4 @@ export { default as TextWithHighlight } from "./TextWithHighlight/TextWithHighli
 export { default as Accordion } from "./Accordion/Accordion/Accordion";
 export { default as AccordionItem } from "./Accordion/AccordionItem/AccordionItem";
 export { default as Clickable } from "./Clickable/Clickable";
-export * from "../utils/colors-utils";
+export * as ColorUtils from "../utils/colors-utils";
