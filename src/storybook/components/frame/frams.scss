@@ -1,7 +1,9 @@
+@import "../../../styles/themes.scss";
 @import "../../../styles/global-css-settings";
 
 .monday-storybook-frame {
-  border-radius: $border-radius-small;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.19);
+  border: var(--layout-border-color) 1px solid;
+  border-radius: $border-radius-medium;
+  @include theme-prop(border-color, layout-border-color);
   padding: 32px;
 }
