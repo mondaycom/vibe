@@ -75,24 +75,60 @@ Link.propTypes = {
   ariaLabelDescription: PropTypes.string,
   /** element id to describe the counter accordingly */
   ariaLabeledBy: PropTypes.string,
-  icon: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   iconPosition: PropTypes.oneOf([Link.position.START, Link.position.END]),
   id: PropTypes.string,
   disableNavigation: PropTypes.bool
 };
 
 Link.defaultProps = {
-  componentClassName: "",
-  href: "",
-  text: "",
-  rel: "noreferrer",
-  onClick: NOOP,
-  target: Link.target.NEW_WINDOW,
-  ariaLabelDescription: "",
-  icon: "",
-  iconPosition: Link.position.START,
+  /**
+   * Id to add to the
+   */
   id: "",
+  /**
+   * Classname to be added to the component container
+   */
+  componentClassName: "",
+  /**
+   * the href to link the component to
+   */
+  href: "",
+  /**
+   * the link text
+   */
+  text: "",
+  /**
+   * The rel attribute defines the relationship between a linked resource and the current document
+   */
+  rel: "noreferrer",
+  /**
+   * on link click callback
+   */
+  onClick: NOOP,
+  /**
+   * the target window where the link should be open
+   */
+  target: Link.target.NEW_WINDOW,
+  /**
+   * Aria label
+   */
+  ariaLabelDescription: "",
+  /**
+   * icon to add to the link
+   */
+  icon: "",
+  /**
+   * where the icon should be located
+   */
+  iconPosition: Link.position.START,
+  /**
+   * Id to add to the link element
+   */
   ariaLabeledBy: "",
+  /**
+   * Disable navigation on click
+   */
   disableNavigation: false
 };
 

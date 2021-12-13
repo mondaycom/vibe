@@ -2,7 +2,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import { Checkbox } from "../Checkbox";
-import { expect as sinonExpect } from "../../../test/test-helpers";
 
 describe("Checkbox Tests", () => {
   describe("Snapshot Tests", () => {
@@ -95,7 +94,7 @@ describe("Checkbox Tests", () => {
 
     it("should find checkbox element by label when ariaLabel defined", () => {
       const option4 = screen.getByLabelText(option4AriaLabel);
-      sinonExpect(option4).to.be.ok;
+      expect(option4).toBeInTheDOM;
     });
   });
 });

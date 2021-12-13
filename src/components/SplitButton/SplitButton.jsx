@@ -255,7 +255,7 @@ SplitButton.defaultProps = {
 
 SplitButton.propTypes = {
   ...Button.propTypes,
-  secondaryDialogContent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
+  secondaryDialogContent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   onSecondaryDialogDidShow: PropTypes.func,
   onSecondaryDialogDidHide: PropTypes.func,
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen, waitFor } from "@testing-library/react";
-import userEvent from '@testing-library/user-event';
+import userEvent from "@testing-library/user-event";
 import { act } from "@testing-library/react-hooks";
 import TextField from "../TextField";
 
@@ -8,15 +8,17 @@ describe("TextField tests", () => {
   let inputComponent;
   let onChangeStub;
   let defaultPlaceHolder = "Place Holder Text";
-  let clock;
   let ref;
-  
+
   beforeEach(() => {
     cleanup();
     ref = {};
     onChangeStub = jest.fn();
-    clock = jest.useFakeTimers();
+    jest.useFakeTimers("modren");
     inputComponent = render(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />);
+  });
+  afterEach(() => {
+    jest.useRealTimers();
   });
 
   it("on input mutate should call the callback stub with the value", () => {
@@ -61,9 +63,9 @@ describe("TextField tests", () => {
       <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={debounceTime} />
     );
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
-    userEvent.type(input, 'A');
-    expect(onChangeStub).not.toHaveBeenCalledWith('A'); 
-    await waitFor(() => expect(onChangeStub).toHaveBeenCalledWith('A'), { timeout: debounceTime });
+    userEvent.type(input, "A");
+    expect(onChangeStub).not.toHaveBeenCalledWith("A");
+    await waitFor(() => expect(onChangeStub).toHaveBeenCalledWith("A"), { timeout: debounceTime });
   });
 
   it("should be disabled", () => {
@@ -115,7 +117,7 @@ describe("TextField tests", () => {
 
   describe("a11y", () => {
     it("should add the aria label", () => {
-      const ariaLabel = "aria label"
+      const ariaLabel = "aria label";
       const { getByLabelText } = render(<TextField inputAriaLabel={ariaLabel} />);
       const element = getByLabelText(ariaLabel);
       expect(element).toBeTruthy();

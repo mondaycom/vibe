@@ -1,8 +1,7 @@
 import React from "react";
-import { renderHook, cleanup, act } from "@testing-library/react-hooks";
+import { renderHook, cleanup, act, waitFor } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
-import useKeyEvent from "./useKeyEvent";
-import { sinon, expect } from "../test/test-helpers";
+import useKeyEvent from "../useKeyEvent";
 
 describe("useKeyEvent", () => {
   let element;
@@ -10,12 +9,13 @@ describe("useKeyEvent", () => {
   describe("single key", () => {
     const keys = ["Enter"];
     beforeEach(() => {
-      callbackStub = sinon.stub();
+      callbackStub = jest.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() =>
         useKeyEvent({
           keys,
+          keyEventName: "keyup",
           ref: { current: element },
           callback: callbackStub
         })
@@ -24,7 +24,6 @@ describe("useKeyEvent", () => {
 
     afterEach(() => {
       element.remove();
-      callbackStub.reset();
       cleanup();
     });
 
@@ -34,7 +33,7 @@ describe("useKeyEvent", () => {
           key: keys[0]
         });
       });
-      expect(callbackStub).to.be.calledOnce;
+      expect(callbackStub.mock.calls.length).toEqual(1);
     });
 
     it(`should not call the callback with a different key`, () => {
@@ -44,28 +43,29 @@ describe("useKeyEvent", () => {
         });
       });
 
-      expect(callbackStub).to.not.be.called;
+      expect(callbackStub.mock.calls.length).toEqual(0);
     });
 
     it("should not call on keyDown", () => {
       act(() => {
-        fireEvent.keyUp(element, {
+        fireEvent.keyDown(element, {
           key: keys[0]
         });
       });
-      expect(callbackStub).to.be.calledOnce;
+      expect(callbackStub.mock.calls.length).toEqual(0);
     });
   });
 
   describe("multiple keys", () => {
     const keys = ["Enter", "Esc", "Escape"];
     beforeEach(() => {
-      callbackStub = sinon.stub();
+      callbackStub = jest.fn();
       element = document.createElement("div");
       document.body.appendChild(element);
       renderHook(() => {
         useKeyEvent({
           keys,
+          keyEventName: "keyup",
           ref: { current: element },
           callback: callbackStub
         });
@@ -74,17 +74,16 @@ describe("useKeyEvent", () => {
 
     afterEach(() => {
       element.remove();
-      callbackStub.reset();
       cleanup();
     });
 
-    it(`should call the callback with the ${keys[0]} key`, () => {
+    it(`should not call the callback with the ${keys[0]} key`, () => {
       act(() => {
         fireEvent.keyUp(element, {
           key: keys[0]
         });
       });
-      expect(callbackStub).to.be.calledOnce;
+      expect(callbackStub.mock.calls.length).toEqual(1);
     });
 
     it(`should call the callback with a different key - ${keys[1]}`, () => {
@@ -94,7 +93,7 @@ describe("useKeyEvent", () => {
         });
       });
 
-      expect(callbackStub).to.be.called;
+      expect(callbackStub.mock.calls.length).toEqual(1);
     });
   });
 });
