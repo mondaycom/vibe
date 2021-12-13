@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.13.1 (2021-12-12)
+
+#### New Icons
+* [#382](https://github.com/mondaycom/monday-ui-react-core/pull/382) Update damaged icons ([@yardenli](https://github.com/yardenli))
+* [#381](https://github.com/mondaycom/monday-ui-react-core/pull/381) added new icons ([@etaylib](https://github.com/etaylib))
+
 ## 0.13.0 (2021-12-06)
 
 #### Bug Fixes
