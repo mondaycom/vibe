@@ -1,6 +1,7 @@
 import LinearProgressBar from "../LinearProgressBar";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
+import colors from "../../../../constants/colors.json";
 import "./linearProgressBar.stories.scss";
 
 <Meta
@@ -48,7 +49,7 @@ Accordion is a vertically stacked list of items. Each item can be "expanded" or 
 <Canvas>
   <Story name="Default">
     <div className="a">
-      <LinearProgressBar value={20} />
+      <LinearProgressBar value={20} size={LinearProgressBar.sizes.LARGE} />
     </div>
   </Story>
 </Canvas>
@@ -57,14 +58,46 @@ Accordion is a vertically stacked list of items. Each item can be "expanded" or 
 <Canvas>
   <Story name="Multi progress bar">
     {() => {
+      const multiValues = [
+        { value: 25, color: "red" },
+        { value: 75, color: "yellow" },
+        { value: 100, color: "green" }
+      ];
       return (
-          <LinearProgressBar 
-            value={25}
-            indicateProgress
-            size={LinearProgressBar.sizes.LARGE}
-          />
+        <LinearProgressBar 
+          value={25}
+          size={LinearProgressBar.sizes.LARGE}
+          indicateProgress
+          multi
+          multiValues={multiValues}
+        />
       )
     }}
   </Story>
 </Canvas>
 
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:[],
+        description:"Use a progress bar only process has start and finish point."
+      },
+      negative: {
+        component:[],
+        description:"Don’t use an infinite scalable indicator."
+      }
+    },
+    {
+      positive: {
+        component:[],
+        description:"Always indincate visually the empty part of the progress bar."
+      },
+      negative: {
+        component:[],
+        description:"Don’t let the user guess where is the end of the progress."
+      }
+    }
+  ]}
+/>
