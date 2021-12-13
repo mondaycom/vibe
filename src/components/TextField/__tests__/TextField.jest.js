@@ -1,6 +1,5 @@
 import React from "react";
-import { sinon, expect } from "../../test/test-helpers";
-import TextField, { ARIA_LABELS } from "./TextField";
+import TextField, { ARIA_LABELS } from "../TextField";
 import { render, fireEvent, cleanup, screen, act } from "@testing-library/react";
 
 describe("TextField Tests", () => {
@@ -11,9 +10,9 @@ describe("TextField Tests", () => {
   let ref;
   beforeEach(() => {
     cleanup();
-    ref = {};
-    onChangeStub = sinon.stub();
-    clock = sinon.useFakeTimers();
+    ref = { current: null };
+    onChangeStub = jest.fn();
+    clock = jest.useFakeTimers("modern");
     act(() => {
       inputComponent = render(
         <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />
@@ -21,13 +20,12 @@ describe("TextField Tests", () => {
     });
   });
   afterEach(() => {
-    onChangeStub.reset();
-    clock.restore();
+    jest.useRealTimers();
     cleanup();
   });
 
   it("should display placeholder", () => {
-    expect(screen.getByPlaceholderText(defaultPlaceHolder)).to.be.ok;
+    expect(screen.getByPlaceholderText(defaultPlaceHolder)).toBeTruthy();
   });
 
   it("on input mutate should call the callback stub with the value", () => {
@@ -36,7 +34,7 @@ describe("TextField Tests", () => {
     act(() => {
       fireEvent.change(input, { target: { value } });
     });
-    expect(input.value).to.equal(value);
+    expect(input.value).toBe(value);
   });
 
   it("on input mutate should call the stub with the value", () => {
@@ -45,7 +43,7 @@ describe("TextField Tests", () => {
     act(() => {
       fireEvent.change(input, { target: { value } });
     });
-    expect(onChangeStub).to.be.calledWith(value);
+    expect(onChangeStub.mock.calls[0][0]).toEqual(value);
   });
 
   it("should not change the value instantly when debounce value is provided", () => {
@@ -62,7 +60,7 @@ describe("TextField Tests", () => {
       fireEvent.change(input, { target: { value } });
     });
 
-    expect(onChangeStub).to.not.be.called;
+    expect(onChangeStub.mock.calls.length).toEqual(0);
   });
 
   it("should be able to forward ref", () => {
@@ -72,7 +70,7 @@ describe("TextField Tests", () => {
         <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} ref={ref} />
       );
     });
-    expect(ref.current.className).to.include("input-component__input");
+    expect(ref.current.classList.contains("input-component__input")).toBeTruthy()
   });
 
   it("should call the debounced function after time passed (fake timers)", () => {
@@ -89,8 +87,8 @@ describe("TextField Tests", () => {
     act(() => {
       fireEvent.change(input, { target: { value } });
     });
-    clock.tick(debounceTime + 1);
-    expect(onChangeStub).to.be.called;
+    jest.advanceTimersByTime(debounceTime + 1)
+    expect(onChangeStub.mock.calls.length).toEqual(1);
   });
 
   it("should be disabled", () => {
@@ -101,7 +99,7 @@ describe("TextField Tests", () => {
       );
     });
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
-    expect(input.disabled).to.be.ok;
+    expect(input).toBeDisabled;
   });
 
   it("title should be available", () => {
@@ -111,7 +109,7 @@ describe("TextField Tests", () => {
       rerender(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" disabled title={title} />);
     });
     const titleElement = getByText(title);
-    expect(titleElement).to.be.ok;
+    expect(titleElement).toBeTruthy();
   });
 
   it("title should not be available", () => {
@@ -121,7 +119,7 @@ describe("TextField Tests", () => {
       rerender(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" disabled />);
     });
     const titleElement = queryByText(title);
-    expect(titleElement).to.not.be.ok;
+    expect(titleElement).toBeFalsy();
   });
 
   it("should display an icon", () => {
@@ -140,7 +138,7 @@ describe("TextField Tests", () => {
     });
 
     const icon = queryByLabelText(iconNames.primary);
-    expect(icon).to.be.ok;
+    expect(icon).toBeTruthy();
   });
 
   it("should not display icon", () => {
@@ -150,7 +148,7 @@ describe("TextField Tests", () => {
     });
 
     const icon = queryByLabelText("test-icon");
-    expect(icon).to.not.be.ok;
+    expect(icon).toBeFalsy();
   });
 
   describe("char count", () => {
@@ -170,7 +168,7 @@ describe("TextField Tests", () => {
       });
 
       const charCount = queryByLabelText(ARIA_LABELS.CHAR);
-      expect(parseInt(charCount.innerText, 10)).to.be.equal(value.length);
+      expect(parseInt(charCount.innerHTML, 10)).toBe(value.length);
     });
 
     it("char count should display correctly after changing value", () => {
@@ -195,7 +193,7 @@ describe("TextField Tests", () => {
       });
 
       const charCount = queryByLabelText(ARIA_LABELS.CHAR);
-      expect(parseInt(charCount.innerText, 10)).to.be.equal(value.length);
+      expect(parseInt(charCount.innerHTML, 10)).toEqual(value.length);
     });
   });
 
@@ -203,14 +201,14 @@ describe("TextField Tests", () => {
     it("should not show validation", () => {
       const { queryByLabelText } = inputComponent;
       const validationTextNode = queryByLabelText(ARIA_LABELS.VALIDATION_TEXT);
-      expect(validationTextNode).to.equal(null);
+      expect(validationTextNode).toBeNull();
     });
   });
 
   describe("types", () => {
     it("default type should be text", () => {
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
-      expect(input.type).to.equal(TextField.types.TEXT);
+      expect(input.type).toBe(TextField.types.TEXT);
     });
 
     it("type should be password", () => {
@@ -226,7 +224,7 @@ describe("TextField Tests", () => {
         );
       });
       const input = screen.getByPlaceholderText(defaultPlaceHolder);
-      expect(input.type).to.equal(TextField.types.PASSWORD);
+      expect(input.type).toBe(TextField.types.PASSWORD);
     });
   });
   describe("autocomplete", () => {
@@ -235,7 +233,7 @@ describe("TextField Tests", () => {
         <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" autoComplete="on" />
       );
       const element = container.querySelector('[autocomplete="on"]');
-      expect(element).to.be.ok;
+      expect(element).toBeTruthy();
     });
 
     it("should add autocomplete attr and set it to off", () => {
@@ -243,7 +241,7 @@ describe("TextField Tests", () => {
         <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" autoComplete="off" />
       );
       const element = container.querySelector('[autocomplete="off"]');
-      expect(element).to.be.ok;
+      expect(element).toBeTruthy();
     });
   });
 
@@ -257,6 +255,6 @@ describe("TextField Tests", () => {
     act(() => {
       fireEvent.change(input, { target: { value } });
     });
-    expect(input.value).to.equal(value.trim());
+    expect(input.value).toBe(value.trim());
   });
 });

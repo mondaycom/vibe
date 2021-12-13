@@ -1,7 +1,6 @@
 import React from "react";
 import userEvent from "@testing-library/user-event";
 import { render, cleanup } from "@testing-library/react";
-import { expect as sinonExpect } from "../../../test/test-helpers";
 import Toggle from "../Toggle";
 
 describe("Toggle tests", () => {
@@ -16,7 +15,7 @@ describe("Toggle tests", () => {
     it("should change state to off when is default selected and clicked", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle isDefaultSelected />
+          <Toggle isDefaultSelected ariaLabel="My Toggle" />
         </form>
       );
 
@@ -28,7 +27,7 @@ describe("Toggle tests", () => {
     it("should change state to on when is default not selected and clicked", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle isDefaultSelected={false} />
+          <Toggle isDefaultSelected={false} ariaLabel="My Toggle"/>
         </form>
       );
       const toggle = getByRole(toggleRole);
@@ -39,7 +38,7 @@ describe("Toggle tests", () => {
     it("should not change state when disabled, default selected and clicked", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle isDisabled isDefaultSelected />
+          <Toggle isDisabled isDefaultSelected ariaLabel="My Toggle"/>
         </form>
       );
 
@@ -56,8 +55,8 @@ describe("Toggle tests", () => {
         <Toggle ariaLabel={ariaLabel} />
       );
       const toggleComponent = getByLabelText(ariaLabel);
-      sinonExpect(toggleComponent).to.be.ok;
-    }); 
+      expect(toggleComponent).toBeTruthy();
+    });
   });
 
   describe("Is selected mode", () => {
@@ -68,7 +67,7 @@ describe("Toggle tests", () => {
     it("should not change state to off when is selected, clicked and prop does not changed", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle isSelected />
+          <Toggle isSelected ariaLabel="My Toggle"/>
         </form>
       );
 
@@ -80,7 +79,7 @@ describe("Toggle tests", () => {
     it("should not change state to on when is not selected, clicked and prop does not changed", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle isSelected={false} />
+          <Toggle isSelected={false} ariaLabel="My Toggle"/>
         </form>
       );
 

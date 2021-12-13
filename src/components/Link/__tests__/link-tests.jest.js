@@ -7,7 +7,7 @@ describe("Link", () => {
   const ariaLabel = "Read more about the interesting article";
   const text = "Read More";
   const href = "https://www.monday.com";
-  
+
   let linkComponent;
   let onClickMock;
 

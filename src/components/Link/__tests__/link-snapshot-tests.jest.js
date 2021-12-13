@@ -32,7 +32,7 @@ describe("Link renders correctly", () => {
     const tree = renderer.create(<Link ariaLabeledBy="aria label link" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-  
+
   it("with ariaLabelDescription", () => {
     const tree = renderer.create(<Link ariaLabelDescription="arialabel link" />).toJSON();
     expect(tree).toMatchSnapshot();

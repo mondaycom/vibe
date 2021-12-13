@@ -4,6 +4,7 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 <div
   className="chips--wrapper disabled"
   id=""
+  onMouseDown={[Function]}
   style={
     Object {
       "backgroundColor": undefined,
@@ -22,6 +23,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
 <div
   className="chips--wrapper with-close"
   id=""
+  onMouseDown={[Function]}
   style={
     Object {
       "backgroundColor": "var(--negative-color-selected)",
@@ -36,6 +38,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
   <svg
     aria-hidden={false}
     className="icon_component chip-icon close icon_component--clickable"
+    data-testid="undefined-close"
     fill="currentColor"
     height="18"
     onClick={[Function]}
@@ -58,6 +61,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
 <div
   className="chips--wrapper with-close"
   id=""
+  onMouseDown={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -72,6 +76,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
   <svg
     aria-hidden={false}
     className="icon_component chip-icon close icon_component--clickable"
+    data-testid="undefined-close"
     fill="currentColor"
     height="18"
     onClick={[Function]}
@@ -94,6 +99,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 <div
   className="chips--wrapper"
   id=""
+  onMouseDown={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -128,6 +134,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 <div
   className="chips--wrapper"
   id=""
+  onMouseDown={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -162,6 +169,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
   className="chips--wrapper with-close"
   id=""
+  onMouseDown={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
@@ -176,6 +184,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
   <svg
     aria-hidden={false}
     className="icon_component chip-icon close icon_component--clickable"
+    data-testid="undefined-close"
     fill="currentColor"
     height="18"
     onClick={[Function]}
@@ -198,6 +207,7 @@ exports[`Chips renders correctly renders correctly without close button 1`] = `
 <div
   className="chips--wrapper"
   id=""
+  onMouseDown={[Function]}
   style={
     Object {
       "backgroundColor": "var(--primary-selected-color)",
