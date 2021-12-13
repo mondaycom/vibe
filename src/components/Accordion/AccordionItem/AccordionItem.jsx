@@ -52,8 +52,6 @@ AccordionItem.propTypes = {
   onClick: PropTypes.func
 };
 
-AccordionItem.isAccordionChild = true;
-
 AccordionItem.defaultProps = {
   className: "",
   id: undefined,
