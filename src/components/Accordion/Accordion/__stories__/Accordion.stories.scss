@@ -1,29 +1,24 @@
 .monday-storybook-accordion {
-    width: 10px;
-
-}
-
-
-.small-box {
-    width: 300px;
+  &_small-box {
     height: 150px;
-}
+  }
 
-.big-box {
-    width: 300px;
+  &_big-box {
     height: 300px;
-}
+  }
 
-.wrapper {
+  &_wrapper {
     width: 600px;
-}
+  }
 
-.checkbox-wrapper {
+  &_checkbox-wrapper {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 15px;
-}
-.small-wrapepr {
+  }
+
+  &_small-wrapepr {
     width: 300px;
+  }
 }

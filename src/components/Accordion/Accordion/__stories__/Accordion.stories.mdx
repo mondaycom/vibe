@@ -14,7 +14,7 @@ import "./Accordion.stories.scss";
 
 export const accordionTemplate = (args) => {
   return (
-    <Accordion  defaultIndex={[1]}>
+    <Accordion defaultIndex={[1]}>
       <AccordionItem title="Notifications" />
       <AccordionItem title="Setting" />
       <AccordionItem title="Info" />
@@ -68,12 +68,12 @@ Accordion is a vertically stacked list of items. Each item can be "expanded" or 
 Each section can be expaged without colsing the others
 <Canvas>
   <Story name="Multi active">
-    <div className="small-wrapepr">
+    <div className="monday-storybook-accordion_small-wrapepr">
       <Accordion allowMultiple defaultIndex={[1, 3]}>
         <AccordionItem title="Notifications" />
-        <AccordionItem title="Setting"><div className="small-box" /></AccordionItem>
+        <AccordionItem title="Setting"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
         <AccordionItem title="Connectivity" />
-        <AccordionItem title="Integration"><div className="small-box" /></AccordionItem>
+        <AccordionItem title="Integration"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
         <AccordionItem title="Assets" />
       </Accordion>
     </div>
@@ -84,10 +84,10 @@ Each section can be expaged without colsing the others
 Only one section can be open at the time
 <Canvas>
   <Story name="Single active">
-    <div className="small-wrapepr">
+    <div className="monday-storybook-accordion_small-wrapepr">
       <Accordion defaultIndex={[1]}>
         <AccordionItem title="Notifications" />
-        <AccordionItem title="Setting"><div className="big-box" /></AccordionItem>
+        <AccordionItem title="Setting"><div className="monday-storybook-accordion_big-box" /></AccordionItem>
         <AccordionItem title="Connectivity" />
         <AccordionItem title="Integration" />
         <AccordionItem title="Assets" />
@@ -126,17 +126,16 @@ Only one section can be open at the time
 ### Preferences Accordion
 <Canvas>
   <Story name="Preferences Accordion">
-    <div className="wrapper">
-      <Accordion>
+    <div className="monday-storybook-accordion_wrapper">
+      <Accordion defaultIndex={[0]}>
         <AccordionItem title="In monday">
-          <div className="checkbox-wrapper">
-            <Checkbox label="Regular" />
-            <Checkbox label="Selected" checked />
-            <Checkbox label="Disabled"  />
-            <Checkbox label="Indeterminate" />
-            <Checkbox label="Indeterminate" />
-            <Checkbox label="Indeterminate" />
-          </div>   
+          <div className="monday-storybook-accordion_checkbox-wrapper">
+            <Checkbox label="Likes my update" checked />
+            <Checkbox label="Replies to my update" />
+            <Checkbox label="Replies or likes a conversation I'm a part of" checked />
+            <Checkbox label="Subscribes me to a Board/Item/Team" checked />
+            <Checkbox label="Writes an update on an items I'm subscribed to" checked />
+          </div>
         </AccordionItem>
       </Accordion>
     </div>
