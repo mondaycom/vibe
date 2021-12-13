@@ -7,6 +7,7 @@ import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
 import { Email, Chart, Table, Calendar, NewTab, Gantt, Status, NavigationChevronDown } from "../../../Icon/Icons";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
+import TextField from "../../../TextField/TextField.jsx";
 import "./Tabs.stories.scss";
 
 <Meta
@@ -16,9 +17,9 @@ import "./Tabs.stories.scss";
 
 <!--- Component template -->
 
-export const tabsTemplate = () => {
+export const tabsTemplate = (args) => {
   return (
-    <TabsContext activeTabId={1}>
+    <TabsContext className={args.className}>
       <TabList >
         <Tab>First</Tab>
         <Tab>Second</Tab>
@@ -50,7 +51,7 @@ Tabs allow users to navigate between related views of content while remaining in
 
 <Canvas>
   <Story name="Overview"
-         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+         args={ {className: "monday-storybook-tabs_bg-color"} }>
     { tabsTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -70,15 +71,15 @@ Tabs allow users to navigate between related views of content while remaining in
 content use Button group instead</Tip>
 
 ## Variants
-### Story title 1
+### Default - compact tabs
 <Canvas>
-  <Story name="States">
-    <TabsContext activeTabId={1}>
+  <Story name="Default">
+    <TabsContext className="monday-storybook-tabs_bg-color">
       <TabList >
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
-        <Tab>Disabled</Tab>
+        <Tab disabled>Disabled</Tab>
       </TabList>
       <TabPanels>
         <TabPanel></TabPanel>
@@ -94,12 +95,12 @@ content use Button group instead</Tip>
 The width of the list is responsive to the screen's width.
 <Canvas>
   <Story name="Stretched">
-    <TabsContext className="a">
+    <TabsContext>
       <TabList>
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
-        <Tab disabled >Disabled</Tab>
+        <Tab disabled>Disabled</Tab>
       </TabList>
     </TabsContext>
   </Story>
@@ -109,14 +110,14 @@ The width of the list is responsive to the screen's width.
 Tabs animation direction
 <Canvas>
   <Story name="Motion">
-    <TabsContext activeTabId={2}>
+    <TabsContext className="monday-storybook-tabs_bg-color">
       <TabList >
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
         <Tab disabled>Disabled</Tab>
       </TabList>
-      <TabPanels animationDirection="ltr">
+      <TabPanels>
         <TabPanel></TabPanel>
         <TabPanel></TabPanel>
         <TabPanel></TabPanel>
@@ -132,21 +133,21 @@ Tabs animation direction
     {
       positive: {
         component:
-          <DialogContentContainer className="spacing">
+          <DialogContentContainer className="monday-storybook-tabs_spacing">
             <TabList>
-              <Tab icon={NewTab}>Main Table</Tab>
-              <Tab icon={Gantt}>Timeline</Tab>
-              <Tab icon={Status}>Kanban</Tab>
+              <Tab icon={Table}>Main Table</Tab>
+              <Tab icon={Chart}>Chart</Tab>
+              <Tab icon={Calendar}>Calendar</Tab>
             </TabList>
           </DialogContentContainer>,
         description:"Use either all text labels, all icon labels, or both, across all labels."
       },
       negative: {
         component:
-          <DialogContentContainer className="spacing">
+          <DialogContentContainer className="monday-storybook-tabs_spacing">
             <TabList>
               <Tab>Main Table</Tab>
-              <Tab icon={Gantt}>d</Tab>
+              <Tab icon={Gantt}> </Tab>
             </TabList>
           </DialogContentContainer>,
         description:"Don’t mix tabs that contain only text, with tabs that contain only icons. "
@@ -155,7 +156,7 @@ Tabs animation direction
     {
       positive: {
         component:
-        <DialogContentContainer className="spacing">
+        <DialogContentContainer className="monday-storybook-tabs_spacing">
             <TabList>
               <Tab icon={NewTab}>Main Table</Tab>
               <Tab icon={Table}>Table</Tab>
@@ -166,7 +167,7 @@ Tabs animation direction
       },
       negative: {
         component:
-        <DialogContentContainer className="spacing">
+        <DialogContentContainer className="monday-storybook-tabs_spacing">
             <TabList>
               <Tab>Main...</Tab>
               <Tab>Table</Tab>
@@ -197,8 +198,22 @@ The tabs are presenting the same content, in a different view.
 In the admin section tabs used to navigate between the different preferences
 <Canvas>
   <Story name="Admin section tabs">
-    <Tab />
-    <Tab />
+    <TabsContext className="monday-storybook-tabs_wrapper">
+      <TabList>
+        <Tab>Profile</Tab>
+        <Tab>Account</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>
+          <h2>Login Details</h2>
+          <TextField title="Profile Name" size={TextField.sizes.MEDIUM} placeholder="Profile Name" />
+        </TabPanel>
+        <TabPanel>
+          <h2>Account Details</h2>
+          <TextField title="Account Name" size={TextField.sizes.MEDIUM} placeholder="Account Name" />
+        </TabPanel>
+      </TabPanels>
+    </TabsContext>
   </Story>
 </Canvas>
 

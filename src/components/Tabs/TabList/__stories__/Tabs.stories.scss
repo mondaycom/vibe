@@ -2,26 +2,30 @@
 @import "../../../../styles/typography";
 
 .monday-storybook-tabs {
-    width: 100px;
+  &_spacing {
+      padding-right: 30px;
+      padding-top: 20px;
+  }
 
+  &_bg-color {
+    .tab-panel--wrapper {
+      width: 480px;
+      height: 111px;
+      margin-left: 40px;
+      background-color: #E6E9EF;
+    }
+  }
+
+  &_wrapper {
+    .tab-panel--wrapper {
+      margin-left: 40px;
+    }
+  }
 }
 
-.spacing {
-    padding-right: 30px;
-    padding-top: 20px;
+
+.c{
+  width: 1000px;
+  border: 1px solid red;
 }
 
-.c {
-    width: 2000px;
-}
-
-.tab-panel--wrapper {
-    width: 480px;
-    height: 111px;
-    margin-left: 40px;
-    background-color: #E6E9EF;
-}
-
-.a {
-    width: 1000px;
-}
