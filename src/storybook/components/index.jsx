@@ -12,6 +12,7 @@ import { Link } from "./link/link";
 import { Paragraph } from "./paragraph/paragraph";
 import { Frame } from "./frame/frame";
 import { VisualDescription } from "./visual-description/visual-description";
+import { ColorsDescription } from "./colors-description/colors-description";
 
 export {
   SectionName,
@@ -27,5 +28,6 @@ export {
   Link,
   Paragraph,
   Frame,
-  VisualDescription
+  VisualDescription,
+  ColorsDescription
 };

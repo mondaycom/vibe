@@ -93,6 +93,12 @@ export const colorsMap = [
   { color: "--secondary-background-color", description: "Secondary background color" }
 ];
 
+export const colorsHashMap = colorsMap.reduce((map, current) => {
+  const newColorName = current.color.substring(2);
+  map.set(newColorName, current.description);
+  return map;
+}, new Map());
+
 export const contentColors = [
   "grass_green",
   "done-green",

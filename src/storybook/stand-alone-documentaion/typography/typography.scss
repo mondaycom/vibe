@@ -1,4 +1,21 @@
 @import "../../styles/content-spacing";
-.monday-storybook-typography_first-image {
-  margin-bottom: $spacing-between-section-items;
+@import "../../styles/mixins";
+
+.monday-storybook-typography {
+  &_image-container{
+    display: flex;
+    justify-content: center;
+    &--first {
+      margin-bottom: $spacing-between-section-items;
+    }
+  }
+
+  &_popup-example {
+    height: 404px;
+  }
+
+  &_timeline-example {
+    height: 179px;
+    width: 527px;
+  }
 }

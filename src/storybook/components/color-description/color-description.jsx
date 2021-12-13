@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { VisualDescription } from "../../../components";
+import { VisualDescription } from "../visual-description/visual-description";
 import "./color-description.scss";
 
 export const ColorDescription = ({ colorName, description, withBorder }) => {

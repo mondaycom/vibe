@@ -1,9 +1,6 @@
-@import "../../../styles/themes.scss";
-@import "../../../styles/global-css-settings";
+@import "../../styles/mixins";
 
 .monday-storybook-frame {
-  border: var(--layout-border-color) 1px solid;
-  border-radius: $border-radius-medium;
-  @include theme-prop(border-color, layout-border-color);
+  @include frame;
   padding: 32px;
 }
