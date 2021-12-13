@@ -6,11 +6,10 @@ import TipseenWizard from "../../../../components/Tipseen/TipseenWizard";
 export const TipseenDescription = () => {
   const component = useMemo(() => {
     const style = {
-      width: "1%",
-      margin: "0 -10px "
-    };
-    const spacingStyle = {
-      width: "300px"
+      width: "95%",
+      margin: "0 -10px",
+      display: "flex",
+      alignItems: "flex-start"
     };
     const content = [
       <div>Popover message will appear here loremipsum dolor samet…</div>,
@@ -23,30 +22,27 @@ export const TipseenDescription = () => {
       {
         name: "preventOverflow",
         options: {
-          mainAxis: false // true by default
+          mainAxis: false
         }
       },
       {
         name: "flip",
         options: {
-          fallbackPlacements: [] // true by default
+          fallbackPlacements: []
         }
       }
     ];
     return (
-      <>
-        <div style={style}>
-          <Tipseen
-            modifiers={modifiers}
-            width={280}
-            position={Tipseen.positions.RIGHT}
-            content={<TipseenWizard title="This is a title" steps={content} activeStepIndex={2} />}
-          >
-            <div />
-          </Tipseen>
-        </div>
-        <div style={spacingStyle} />
-      </>
+      <div style={style}>
+        <Tipseen
+          modifiers={modifiers}
+          width={280}
+          position={Tipseen.positions.RIGHT}
+          content={<TipseenWizard title="This is a title" steps={content} activeStepIndex={2} />}
+        >
+          <div />
+        </Tipseen>
+      </div>
     );
   }, []);
   return (
