@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.14.0 (2021-12-14)
+
+#### Bug Fixes
+* [#386](https://github.com/mondaycom/monday-ui-react-core/pull/386) set default color to tabs titles ([@hadasfa](https://github.com/hadasfa))
+* [#384](https://github.com/mondaycom/monday-ui-react-core/pull/384) fix accordion item type check ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#385](https://github.com/mondaycom/monday-ui-react-core/pull/385) expose colors-utils ([@ofersh-monday](https://github.com/ofersh-monday))
+
 ## 0.13.1 (2021-12-12)
 
 #### New Icons
