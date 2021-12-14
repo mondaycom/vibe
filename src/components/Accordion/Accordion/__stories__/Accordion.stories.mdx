@@ -14,17 +14,19 @@ import "./Accordion.stories.scss";
 
 export const accordionTemplate = (args) => {
   return (
-    <Accordion defaultIndex={[1]}>
-      <AccordionItem title="Notifications" />
-      <AccordionItem title="Setting" />
-      <AccordionItem title="Info" />
-      <AccordionItem title="Profile" />
-      <AccordionItem title="Permisions" />
-      <AccordionItem title="Seurity" />
-      <AccordionItem title="Connectivity" />
-      <AccordionItem title="Integration" />
-      <AccordionItem title="Assets" />
-    </Accordion>
+    <div className="monday-storybook-accordion_small-wrapepr">
+      <Accordion defaultIndex={[1]}>
+        <AccordionItem title="Notifications" />
+        <AccordionItem title="Setting" />
+        <AccordionItem title="Info" />
+        <AccordionItem title="Profile" />
+        <AccordionItem title="Permisions" />
+        <AccordionItem title="Seurity" />
+        <AccordionItem title="Connectivity" />
+        <AccordionItem title="Integration" />
+        <AccordionItem title="Assets" />
+      </Accordion>
+    </div>
   )
 }
 
@@ -45,7 +47,7 @@ Accordion is a vertically stacked list of items. Each item can be "expanded" or 
 
 <Canvas>
   <Story name="Overview"
-         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+         args={ {} }>
     { accordionTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -112,9 +114,9 @@ Only one section can be open at the time
       negative: {
         component:
           <Accordion>
-            <AccordionItem title="Notifications" />
-            <AccordionItem title="Security" />
-            <AccordionItem title="InfoAssets" />
+            <AccordionItem title="Closed" />
+            <AccordionItem title="Closed" />
+            <AccordionItem title="Closed" />
           </Accordion>,
         description:"Indicate the accordion state with labels."
       }
