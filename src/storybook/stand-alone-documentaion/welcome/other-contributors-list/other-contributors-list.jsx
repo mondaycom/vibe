@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, Paragraph } from "../../components";
+import { Link, Paragraph } from "../../../components";
 import "./other-contributors-list.scss";
 
 const BASE_CLASS = "monday-other-contributors-list";

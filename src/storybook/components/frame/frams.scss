@@ -1,0 +1,6 @@
+@import "../../styles/mixins";
+
+.monday-storybook-frame {
+  @include frame;
+  padding: 32px;
+}
