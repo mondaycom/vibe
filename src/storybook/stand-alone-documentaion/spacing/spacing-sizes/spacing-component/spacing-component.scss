@@ -1,0 +1,66 @@
+@import "../../../../../styles/themes.scss";
+@import "../../../../styles/typography.scss";
+
+.spacing-xs {
+  height: $spacing-xs;
+}
+
+.spacing-small {
+  height: $spacing-small;
+}
+
+.spacing-medium {
+  height: $spacing-medium;
+}
+
+.spacing-large {
+  height: $spacing-large;
+}
+
+.spacing-xl {
+  height: $spacing-xl;
+}
+
+.spacing-xxl {
+  height: $spacing-xxl;
+}
+
+.spacing-xxxl {
+  height: $spacing-xxxl;
+}
+
+.spacing-component-visualizer {
+  @include theme-prop(background-color, negative-color-selected);
+  width: 95px;
+}
+
+.spacing-component {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  margin: 0 $spacing-medium;
+  align-items: center;
+
+  &_title-container {
+    display: flex;
+    justify-content: center;
+    padding: $spacing-medium $spacing-xs $spacing-xs $spacing-xs;
+    color: var(--primary-text-color);
+    font-size: $small-text-font-size;
+  }
+
+  &_description {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+
+  &_title {
+    margin-right: $spacing-small;
+  }
+
+  &_variable-name {
+    margin: 0;
+    @include small-text;
+  }
+}
