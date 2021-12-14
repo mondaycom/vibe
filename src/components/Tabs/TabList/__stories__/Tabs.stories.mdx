@@ -2,7 +2,7 @@ import Tab from "../../Tab/Tab.jsx";
 import TabList from "../../TabList/TabList.jsx";
 import TabPanel from "../../TabPanel/TabPanel.jsx";
 import TabPanels from "../../TabPanels/TabPanels.jsx";
-import Tabcontext from "../../TabsContext/TabsContext.jsx";
+import TabsContext from "../../TabsContext/TabsContext.jsx";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
 import { Email, Chart, Table, Calendar, NewTab, Gantt, Status, NavigationChevronDown } from "../../../Icon/Icons";
@@ -95,14 +95,12 @@ content use Button group instead</Tip>
 The width of the list is responsive to the screen's width.
 <Canvas>
   <Story name="Stretched">
-    <TabsContext>
       <TabList>
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
         <Tab disabled>Disabled</Tab>
       </TabList>
-    </TabsContext>
   </Story>
 </Canvas>
 

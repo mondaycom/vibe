@@ -1,14 +1,45 @@
 @import "../../../../styles/themes";
 
-.linear-progress-bar--custom-class {
-  height: 48px;
-  line-height: 48px;
-  font-size: 2.5rem;
-  @include theme-prop(color, primary-text-color);
-}
+.linear-progress-bar {
+  &_small-wrapper {
+    padding: 20px;
+    width: 400px;
+  }
 
+  &_big-wrapper {
+    width: 600px;
+  }
 
-.a {
-  padding: 20px;
-  width: 400px;
+  &_inline-wrapper {
+    display: flex;
+    align-items: space-between;
+    justify-content: space-between;
+    padding: 14px 0 4px;
+  }
+  
+  &_dialog-wrapper {
+    width: 254px;
+    height: 124px;
+    padding: 20px 14px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_box {
+    width: 200px;
+    padding: 0 20px 10px;
+  }
+
+  &_without-bg {
+    .linear-progress-bar__container {
+      @include theme-prop(background-color, primary-text-on-primary);
+    }
+  }
+
+  &_icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
 }
