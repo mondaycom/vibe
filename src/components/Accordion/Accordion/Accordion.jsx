@@ -11,17 +11,7 @@ const Accordion = forwardRef(({ children: originalChildren, allowMultiple, defau
 
   const [expandedItems, setExpandedItems] = useState(defaultIndex);
 
-  const children = useMemo(() => {
-    const allChildren = React.Children.toArray(originalChildren);
-    return allChildren.filter(child => {
-      if (child.type === AccordionItem) return true;
-      console.error(
-        "Accordion child must be a accordionChild item (such as AccordionItem). This child is not supported: ",
-        child
-      );
-      return false;
-    });
-  }, [originalChildren]);
+  const children = useMemo(() => React.Children.toArray(originalChildren), [originalChildren]);
 
   const isChildExpanded = useCallback(
     itemIndex => {
