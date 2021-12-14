@@ -38,6 +38,7 @@
     user-select: none;
     margin-bottom: $margin-bottom;
     cursor: pointer;
+    @include theme-prop(color, primary-text-color);
 
     &:focus {
       outline: none;
