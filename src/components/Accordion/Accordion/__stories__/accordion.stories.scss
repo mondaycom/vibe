@@ -21,4 +21,11 @@
   &_small-wrapepr {
     width: 300px;
   }
+
+  &_box-small {
+    .expand-collapse__header{
+      height: 40px;
+      width: 200px;
+    }
+  }
 }

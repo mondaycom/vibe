@@ -3,7 +3,7 @@ import AccordionItem from "../../AccordionItem/AccordionItem";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
 import Checkbox from "../../../Checkbox/Checkbox.js";
-import { WIZARD, BREADCRUBMS, TOAST } from "../../../../storybook/components/related-components/component-description-map";
+import { WIZARD, BREADCRUBMS, STEPPER } from "../../../../storybook/components/related-components/component-description-map";
 import "./accordion.stories.scss";
 
 <Meta
@@ -105,7 +105,7 @@ Only one section can be open at the time
     {
       positive: {
         component:
-          <Accordion>
+          <Accordion className="monday-storybook-accordion_box-small">
             <AccordionItem title="Notifications" />
             <AccordionItem title="Security" />
             <AccordionItem title="InfoAssets" />
@@ -114,7 +114,7 @@ Only one section can be open at the time
       },
       negative: {
         component:
-          <Accordion>
+          <Accordion className="monday-storybook-accordion_box-small">
             <AccordionItem title="Closed" />
             <AccordionItem title="Closed" />
             <AccordionItem title="Closed" />
@@ -146,4 +146,4 @@ Only one section can be open at the time
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[WIZARD,BREADCRUBMS]} />
+<RelatedComponents componentsNames={[WIZARD,BREADCRUBMS,STEPPER]} />
