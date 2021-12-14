@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./Accordion.scss";
+import AccordionItem from "../AccordionItem/AccordionItem";
 
 const Accordion = forwardRef(({ children: originalChildren, allowMultiple, defaultIndex, className, id }, ref) => {
   const componentRef = useRef(null);
@@ -13,7 +14,7 @@ const Accordion = forwardRef(({ children: originalChildren, allowMultiple, defau
   const children = useMemo(() => {
     const allChildren = React.Children.toArray(originalChildren);
     return allChildren.filter(child => {
-      if (child.type.isAccordionChild) return true;
+      if (child.type === AccordionItem) return true;
       console.error(
         "Accordion child must be a accordionChild item (such as AccordionItem). This child is not supported: ",
         child
