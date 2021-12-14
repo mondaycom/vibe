@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.2 (2021-12-14)
+
+#### Bug Fixes
+* [#388](https://github.com/mondaycom/monday-ui-react-core/pull/388) Fix bug on color utils  ([@hadasfa](https://github.com/hadasfa))
+
 ## 0.14.1 (2021-12-14)
 
 #### Bug Fixes
