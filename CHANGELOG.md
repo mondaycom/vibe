@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.1 (2021-12-14)
+
+#### Bug Fixes
+* [#387](https://github.com/mondaycom/monday-ui-react-core/pull/387) export color utils as default object (for fixing error while trying to create new version) ([@hadasfa](https://github.com/hadasfa))
+
 ## 0.14.0 (2021-12-14)
 
 #### Bug Fixes
