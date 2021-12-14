@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, act } from "@testing-library/react";
+import { render, fireEvent, act, cleanup } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 
 const MOCK_OPTIONS = [
@@ -21,6 +21,7 @@ export default class DropdownDriver {
   }
 
   render() {
+    cleanup();
     this.renderResult = render(<Dropdown {...this.props} />);
   }
 
