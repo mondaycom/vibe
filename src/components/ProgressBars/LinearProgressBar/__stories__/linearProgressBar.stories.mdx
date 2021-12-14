@@ -5,6 +5,8 @@ import colors from "../../../../constants/colors.json";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import { Info } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon.jsx";
+import { TOOLTIP, BREADCRUBMS, CHIP } from "../../../../storybook/components/related-components/component-description-map";
+import { Link } from "../../../../storybook/components";
 import "./linearProgressBar.stories.scss";
 
 <Meta
@@ -51,7 +53,7 @@ Accordion is a vertically stacked list of items. Each item can be "expanded" or 
   "Give users an indication of how much of the task has completed and how much is left."
 ]}/>
 
-<Tip>If you need to lead a user through a progress, use the Stepper instead.</Tip>
+<Tip>If you need to lead a user through a progress, use the <Link href="/?path=/docs/components-stepper--overview" size={Link.sizes.SMALL} withoutSpacing>Stepper</Link> instead.</Tip>
 
 ## Variants
 ### Default
@@ -174,3 +176,6 @@ The user can see in a clear way the number of items used in the account.
     </div>
   </Story>
 </Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[TOOLTIP,BREADCRUBMS,CHIP]} />
