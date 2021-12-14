@@ -8,7 +8,9 @@ import { createComponentTemplate } from "../../../storybook/functions/create-com
 import { Email, Chart, Table, Calendar, NewTab, Gantt, Status, NavigationChevronDown } from "../../Icon/Icons";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import TextField from "../../TextField/TextField.jsx";
-import "./Tabs.stories.scss";
+import { Link } from "../../../storybook/components";
+import { BUTTON_GROUP, BREADCRUBMS, STEPPER } from "../../../storybook/components/related-components/component-description-map";
+import "./tabs.stories.scss";
 
 <Meta
   title="Components/Tabs/Tabs"
@@ -68,7 +70,7 @@ Tabs allow users to navigate between related views of content while remaining in
 ]}/>
 
 <Tip>Use tabs to navigate between deferent contents, if switching between states withing the same 
-content use Button group instead</Tip>
+content use <Link href="/?path=/docs/components-buttongroup--overview" size={Link.sizes.SMALL} withoutSpacing>Button group</Link> instead</Tip>
 
 ## Variants
 ### Default - compact tabs
@@ -95,12 +97,14 @@ content use Button group instead</Tip>
 The width of the list is responsive to the screen's width.
 <Canvas>
   <Story name="Stretched">
-      <TabList>
+    <div style={{width: "100%"}}>
+      <TabList tabType="stretched">
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
         <Tab disabled>Disabled</Tab>
       </TabList>
+    </div>
   </Story>
 </Canvas>
 
@@ -216,4 +220,4 @@ In the admin section tabs used to navigate between the different preferences
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[]} />
+<RelatedComponents componentsNames={[BREADCRUBMS, BUTTON_GROUP, STEPPER ]} />
