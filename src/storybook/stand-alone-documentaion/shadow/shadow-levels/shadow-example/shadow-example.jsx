@@ -1,7 +1,6 @@
 import cx from "classnames";
 import { capitalize } from "lodash";
 import { useMemo } from "react";
-import { element } from "prop-types";
 import { BEMClass } from "../../../../../helpers/bem-helper";
 import "./shadow-example.scss";
 
