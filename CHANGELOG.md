@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.14.3 (2021-12-15)
+
+#### Bug Fixes
+* [#391](https://github.com/mondaycom/monday-ui-react-core/pull/391) quick fix in the index of color utils ([@hadasfa](https://github.com/hadasfa))
+* [#390](https://github.com/mondaycom/monday-ui-react-core/pull/390) Fix bugs on allow multiple on click ([@hadasfa](https://github.com/hadasfa))
+
 ## 0.14.2 (2021-12-14)
 
 #### Bug Fixes
