@@ -28,8 +28,9 @@ export const tipseenTemplate = (args) => {
         <TipseenContent
           isDismissHidden={args.isDismissHidden}
           title={args.title}
-          children={args.children}
-        />
+        >
+          {args.children}
+        </TipseenContent>
       }
     >
       <div className="monday-style-story-tipseen_container" />
