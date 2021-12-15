@@ -1,0 +1,9 @@
+@import "../../../styles/typography.scss";
+
+.monday-other-contributors-list {
+  @include small-text;
+  &_developer:not(:last-child):after {
+    @include small-text;
+    content: ","
+  }
+}

@@ -15,10 +15,13 @@ import { MenuDescription } from "./descriptions/menu-description";
 import { AttentionBoxDescription } from "./descriptions/attention-box-description";
 import { AlertBannerDescription } from "./descriptions/alert-banner-description";
 import { ToastDescription } from "./descriptions/toast-description";
+import { WizardDescription } from "./descriptions/wizard-description";
+import { TipseenDescription } from "./descriptions/tipseen-description";
 import { TextFieldDescription } from "./descriptions/text-field-description";
 import { SearchDescription } from "./descriptions/search-description";
 import { ComboboxDescription } from "./descriptions/combobox-description";
 import { StepperDescription } from "./descriptions/stepper-description";
+import { ColorsDescription } from "./descriptions/colors-description/colors-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -37,10 +40,15 @@ export const MENU = "menu";
 export const ATTENTION_BOX = "attention-box";
 export const ALERT_BANNER = "alert-banner";
 export const TOAST = "toast";
+export const WIZARD = "wizard";
+export const TIPSEEN = "tipseen";
 export const TEXT_FIELD = "text-field";
 export const SEARCH = "search";
 export const COMBOBOX = "combobox";
 export const STEPPER = "stepper";
+
+// General description names (not related to specific components)
+export const COLORS = "colors";
 
 export const descriptionTypesMap = new Map();
 
@@ -61,7 +69,12 @@ descriptionTypesMap.set(BUTTON, <ButtonDescription />);
 descriptionTypesMap.set(TAB, <TabsDescription />);
 descriptionTypesMap.set(BREADCRUBMS, <BreadcrumbsDescription />);
 descriptionTypesMap.set(MENU, <MenuDescription />);
+descriptionTypesMap.set(WIZARD, <WizardDescription />);
+descriptionTypesMap.set(TIPSEEN, <TipseenDescription />);
 descriptionTypesMap.set(TEXT_FIELD, <TextFieldDescription />);
 descriptionTypesMap.set(SEARCH, <SearchDescription />);
 descriptionTypesMap.set(COMBOBOX, <ComboboxDescription />);
 descriptionTypesMap.set(STEPPER, <StepperDescription />);
+
+// General description (not related to specific components)
+descriptionTypesMap.set(COLORS, <ColorsDescription />);
