@@ -3,6 +3,8 @@ import { Frame } from "../../components";
 import { ShadowLevels } from "./shadow-levels/shadow-levels";
 import { shadowsSketch } from "./assets";
 import "./shadow.stories.scss";
+import { CardShadowExample } from "./card-shadow-example/card-shadow-example";
+import { DragShadowExample } from "./drag-shadow-example/drag-shadow-example";
 
 <Meta
   title="Foundations/Shadow"
@@ -35,7 +37,9 @@ Shadows used to create the scenes of hierarchy and elevation withing the UI and 
 
 ### Interactions
 Use shadow to indicate the dragged elements are in the “air”
+<DragShadowExample/>
 
 Use shadow to indicate the card hover is gets closer to the user
+<CardShadowExample/>
 
 ## Up next

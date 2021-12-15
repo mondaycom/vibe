@@ -1,0 +1,29 @@
+@import "../../../../styles/global-css-settings";
+
+.monday-storybook-drag-shadow-example {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &_icon {
+    &:hover {
+      & + .monday-storybook-drag-shadow-example_drag-example {
+        @include box-shadow-medium;
+        transform: rotate(1deg);
+      }
+    }
+  }
+
+  &_drag-example {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: $spacing-xs;
+    border: 1px solid;
+    @include theme-prop(border-color, layout-border-color);
+    border-radius: $border-radius-small;
+    padding: $spacing-small-medium;
+    width: 234px;
+    height: 37px;
+  }
+}
