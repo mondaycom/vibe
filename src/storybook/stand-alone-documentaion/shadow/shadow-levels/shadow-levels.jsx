@@ -1,10 +1,11 @@
 import { Frame } from "../../../components";
 import { ShadowExample } from "./shadow-example/shadow-example";
+import "./shadow-levels.scss";
 
-export const ShadowLevels = ({ size }) => (
-  <Frame>
-    <ShadowExample />
-    <span className="monday-storybook-shadow-level_title">{size}</span>
-    <span className="monday-storybook-shadow-level_code">{size}</span>
+export const ShadowLevels = () => (
+  <Frame className="monday-storybook-shadow-levels">
+    <ShadowExample size={ShadowExample.size.SMALL} />
+    <ShadowExample size={ShadowExample.size.MEDIUM} />
+    <ShadowExample size={ShadowExample.size.LARGE} />
   </Frame>
 );
