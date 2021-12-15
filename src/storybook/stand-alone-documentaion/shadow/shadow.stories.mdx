@@ -1,0 +1,44 @@
+import { Meta } from "@storybook/addon-docs";
+import { Frame } from "../../components";
+import "./shadow.stories.scss";
+
+<Meta
+  title="Foundations/Shadow"
+/>
+
+<!--- Component documentation -->
+
+# Spacing
+- [Overview](#overview)
+- [Shadow levels](#shadow-levels)
+- [Usage and examples](#usage-and-examples)
+- [Feedback](#feedback)
+
+## Overview
+Positioning UI should be with taught including the empty space between components.
+This is what creates relationships and hierarchy withing the visual controls.
+
+## Spacing sizes
+Using the right sizes will create consistency and hierarchy in user interface.
+<SpacingSizes/>
+
+<Tip title="Applying spacing">
+  Elements with more spacing around them perceived as more important because they get more focus on the page,
+  while small spacing makes components look stacked and not stand out.</Tip>
+
+## Usage and examples
+<UsageGuidelines guidelines={[
+  "You can double the sizes to create bigger spacings",
+  "Stay consistent with paddings and sizes across different UI components",
+  "Align all the elements to the same spacing within the components or a page"
+]}/>
+
+<Frame className="monday-storybook-spacing_image-container">
+  <img className="monday-storybook-spacing_image--menu" src={menuExample} alt=""/>
+</Frame>
+<Frame className="monday-storybook-spacing_image-container">
+  <img className="monday-storybook-spacing_image--toolbar" src={toolbarExample} alt=""/>
+</Frame>
+<Frame className="monday-storybook-spacing_image-container ">
+  <img className="monday-storybook-spacing_image--tipseen" src={tipseenExample} alt=""/>
+</Frame>
