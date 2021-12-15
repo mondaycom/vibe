@@ -56,6 +56,11 @@ addParameters({
       { name: "Black", class: "black-app-theme", color: "#111111" },
       { name: "Hacker", class: "hacker_theme-app-theme", color: "#282a36" }
     ]
+  },
+  options: {
+    storySort: {
+      order: ["Welcome", "Foundations", "Buttons", "Inputs", "Data display", "Media", "*", "Hooks"]
+    }
   }
 });
 

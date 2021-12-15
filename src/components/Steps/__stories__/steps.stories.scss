@@ -2,11 +2,40 @@
 @import "../../../styles/typography.scss";
 @import "../../../styles/themes.scss";
 
-.monday-style-story-steps-wrapper {
-  width: 400px;
-}
-.monday-style-story-steps-on-primary-wrapper {
-  width: 400px;
-  @include theme-prop(background, primary-color);
-  padding: $spacing-medium;
+.monday-style-story-steps {
+  &_inline-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+  }
+
+  &_column-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &_spacing {
+    margin-left: 90px;
+  }
+
+  &_container {
+    width: 10px;
+    height: 150px;
+    margin: 0 auto;
+  }
+
+  &_block {
+    margin: 0 auto;
+    width: 270px;
+  }
+
+  &_padding {
+    padding: 15px 103px 20px;
+  }
+
+  &_color {
+    @include theme-prop(background-color, primary-color);
+  }
 }
