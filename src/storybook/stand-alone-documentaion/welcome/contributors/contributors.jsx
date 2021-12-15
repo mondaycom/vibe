@@ -11,13 +11,13 @@ export const Contributors = () => (
       title="Product Designer Lead"
       color={Contributor.colors.AQUAMARINE}
     />
-    <Contributor imgSrc={Moshe} fullName="Moshe Zemah" title="Senior Tech Lead" color={Contributor.colors.INDIGO} />
     <Contributor
       imgSrc={Hadas}
       fullName="Hadas Farhi"
       title="Full Stack Developer"
       color={Contributor.colors.EGG_YOLK}
     />
+    <Contributor imgSrc={Moshe} fullName="Moshe Zemah" title="Senior Tech Lead" color={Contributor.colors.INDIGO} />
     <Contributor imgSrc={Sahar} fullName="Sahar Brodbeker" title="Tech lead" color={Contributor.colors.LIPSTICK} />
     <Contributor imgSrc={Rotem} fullName="Rotem Dekel" title="Product Designer" color={Contributor.colors.STUCK_RED} />
   </div>

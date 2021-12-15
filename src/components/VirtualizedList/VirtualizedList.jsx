@@ -235,6 +235,7 @@ const VirtualizedList = forwardRef(
                 onScroll={onScrollCB}
                 overscanCount={overscanCount}
                 onItemsRendered={onItemsRenderedCB}
+                className="virtualized-list-scrollable-container"
               >
                 {rowRenderer}
               </List>

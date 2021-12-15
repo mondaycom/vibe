@@ -1,0 +1,51 @@
+@import "../../../styles/themes.scss";
+
+.monday-storybook-tooltip {
+  &_box {
+    padding: 20px 50px;
+    display: flex;
+    gap: 16px;
+  }
+
+  &_icon-wrapper {
+    display: flex;
+    padding: 6px;
+    gap: 8px;
+    align-items: center;
+    background-color: var(--color-ui_grey);
+    cursor: pointer;
+  }
+
+  &_icon-box {
+    background-color: var(--color-ui_grey);
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_top {
+    padding: 0 64px 68px 0;
+    margin: 0 32px;
+  }
+
+  &_bottom {
+    padding: 50px 0 0 0;
+    margin: 0 32px;
+  }
+
+  &_left {
+    padding: 0 64px 8px 64px;
+    margin: 0 64px;
+  }
+
+  &_right {
+    padding: 0 32px 8px 32px;
+    margin: 0 32px;
+  }
+
+  &_overview {
+    padding: 40px 0 0 50px;
+  }
+}

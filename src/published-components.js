@@ -15,7 +15,7 @@ const publishedComponents = {
   VirtualizedList: "/src/components/VirtualizedList/VirtualizedList.jsx",
   ColorPicker: "/src/components/ColorPicker/ColorPicker.jsx",
   ColorPickerContent: "/src/components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx",
-  ColorUtils: "src/utils/colors-utils.js",
+  ColorUtils: "/src/utils/colors-utils.js",
   Tipseen: "/src/components/Tipseen/Tipseen.jsx",
   TipseenContent: "/src/components/Tipseen/TipseenContent.jsx",
   TipseenWizard: "/src/components/Tipseen/TipseenWizard.jsx",

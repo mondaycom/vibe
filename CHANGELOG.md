@@ -1,5 +1,26 @@
 # Changelog
 
+## 0.14.4 (2021-12-15)
+
+#### Bug Fixes
+* [#389](https://github.com/mondaycom/monday-ui-react-core/pull/389) added classname to the virtualized list where scrollbars appears ([@etaylib](https://github.com/etaylib))
+
+## 0.14.3 (2021-12-15)
+
+#### Bug Fixes
+* [#391](https://github.com/mondaycom/monday-ui-react-core/pull/391) quick fix in the index of color utils ([@hadasfa](https://github.com/hadasfa))
+* [#390](https://github.com/mondaycom/monday-ui-react-core/pull/390) Fix bugs on allow multiple on click ([@hadasfa](https://github.com/hadasfa))
+
+## 0.14.2 (2021-12-14)
+
+#### Bug Fixes
+* [#388](https://github.com/mondaycom/monday-ui-react-core/pull/388) Fix bug on color utils  ([@hadasfa](https://github.com/hadasfa))
+
+## 0.14.1 (2021-12-14)
+
+#### Bug Fixes
+* [#387](https://github.com/mondaycom/monday-ui-react-core/pull/387) export color utils as default object (for fixing error while trying to create new version) ([@hadasfa](https://github.com/hadasfa))
+
 ## 0.14.0 (2021-12-14)
 
 #### Bug Fixes
