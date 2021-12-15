@@ -6,7 +6,6 @@ import "./shadow-example.scss";
 
 const CSS_BASE_CLASS = "monday-storybook-shadow-example";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
-
 export const ShadowExample = ({ size }) => {
   const sizeName = useMemo(() => capitalize(size), [size]);
   return (
