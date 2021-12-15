@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
 import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
-import { getMondayColorAsStyle } from "../../../../utils/colors-utils";
+import ColorUtils from "../../../../utils/colors-utils";
 import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
@@ -22,7 +22,7 @@ const ColorPickerItemComponent = ({
   colorSize,
   tooltipContent
 }) => {
-  const colorAsStyle = getMondayColorAsStyle(color, colorStyle);
+  const colorAsStyle = ColorUtils.getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
 
   const onMouseDown = useCallback(e => e.preventDefault(), []);
@@ -33,9 +33,9 @@ const ColorPickerItemComponent = ({
     const item = itemRef.current;
     const onHover = e => {
       if (colorStyle === COLOR_STYLES.SELECTED) {
-        e.target.style.background = getMondayColorAsStyle(color, COLOR_STYLES.REGULAR);
+        e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.REGULAR);
       } else {
-        e.target.style.background = getMondayColorAsStyle(color, COLOR_STYLES.SELECTED);
+        e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.SELECTED);
       }
     };
     const onMouseLeave = e => {
