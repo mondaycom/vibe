@@ -44,7 +44,7 @@
   &_title-container {
     display: flex;
     justify-content: center;
-    padding: $spacing-medium $spacing-xs 0 $spacing-xs;
+    padding: $spacing-medium $spacing-xs $spacing-medium $spacing-xs;
     color: var(--primary-text-color);
     font-size: $small-text-font-size;
   }
