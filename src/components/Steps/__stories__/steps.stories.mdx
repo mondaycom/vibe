@@ -1,4 +1,5 @@
 import Steps from "../Steps";
+import { useMemo } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import Icon from "../../Icon/Icon.jsx"
@@ -56,22 +57,34 @@ Steppers display progress through a sequence of logical and numbered steps. They
 Steps with a number view or gallery view.
 <Canvas>
   <Story name="Types">
-    <div className="monday-style-story-steps_column-wrapper">
-      <Steps type={Steps.types.NUMBERS} steps={steps6} activeStepIndex={4} />
-      <Steps steps={steps5} activeStepIndex={2} />
-      <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden className="monday-style-story-steps_padding" />
-    </div>
+    {() => {
+      const steps5 = useMemo(() =>  [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>], [] );
+      const steps6 = useMemo(() =>  [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>, <div></div>], [] );
+      return(
+        <div className="monday-style-story-steps_column-wrapper">
+          <Steps type={Steps.types.NUMBERS} steps={steps6} activeStepIndex={4} />
+          <Steps steps={steps5} activeStepIndex={2} />
+          <Steps steps={steps5} activeStepIndex={2} areNavigationButtonsHidden className="monday-style-story-steps_padding" />
+        </div>
+      )
+    }};
   </Story>
 </Canvas>
 
 ### On primary
 <Canvas>
   <Story name="On primary">
-    <div className="monday-style-story-steps_column-wrapper monday-style-story-steps_color" >
-      <Steps steps={steps6} activeStepIndex={4} isOnPrimary type={Steps.types.NUMBERS} />
-      <Steps steps={steps5} activeStepIndex={2} isOnPrimary />
-      <Steps steps={steps5} activeStepIndex={2} isOnPrimary areNavigationButtonsHidden className="monday-style-story-steps_padding" />
-    </div>
+    {() => {
+      const steps5 = useMemo(() =>  [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>], [] );
+      const steps6 = useMemo(() =>  [<div></div>, <div></div>, <div></div>, <div></div>, <div></div>, <div></div>], [] );
+      return(
+        <div className="monday-style-story-steps_column-wrapper monday-style-story-steps_color" >
+          <Steps steps={steps6} activeStepIndex={4} isOnPrimary type={Steps.types.NUMBERS} />
+          <Steps steps={steps5} activeStepIndex={2} isOnPrimary />
+          <Steps steps={steps5} activeStepIndex={2} isOnPrimary areNavigationButtonsHidden className="monday-style-story-steps_padding" />
+        </div>
+      )
+    }};
   </Story>
 </Canvas>
 
@@ -97,13 +110,13 @@ Our Tipseen component includes support for steps as content.
 <Canvas>
   <Story name="Steps inside a tipseen">
     {() => {
-      const content = [
+      const content = useMemo(() => [
         <div>Popover message will appear here loremipsum dolor samet…</div>,
         <div>Popover message will appear here loremipsum dolor samet…</div>,
         <div>Popover message will appear here loremipsum dolor samet…</div>,
         <div>Popover message will appear here loremipsum dolor samet…</div>,
         <div>Popover message will appear here loremipsum dolor samet…</div>
-      ];
+      ], []);
       return (
         <div className="monday-style-story-steps_block">
           <Tipseen 
