@@ -42,4 +42,43 @@
     justify-content: center;
     gap: 2px;
   }
+
+  &_row-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0;
+  }
+
+  &_title {
+    width: 80px;
+  }
+
+  &_img {
+    width: 80px;
+    height: 80px;
+    background-image: url("./assets/monday.png");
+  }
+
+  &_box-wrapper {
+    display: flex;
+    width: 410px;
+    flex-direction: column;
+  }
+
+  &_aside {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    padding-left: 10px;
+  }
+
+  &_row {
+    display: flex;
+  }
+
+  &_breadcrumbs {
+    margin: -12px -46px -20px;
+  }
 }

@@ -7,6 +7,8 @@ import { Info } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon.jsx";
 import { TOOLTIP, BREADCRUBMS, CHIP } from "../../../../storybook/components/related-components/component-description-map";
 import { Link } from "../../../../storybook/components";
+import BreadcrumbsBar from "../../../BreadcrumbsBar/BreadcrumbsBar.jsx";
+import BreadcrumbItem from "../../../BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx";
 import "./linearProgressBar.stories.scss";
 
 <Meta
@@ -106,7 +108,15 @@ Accordion is a vertically stacked list of items. Each item can be "expanded" or 
         description:"Use a progress bar only process has start and finish point."
       },
       negative: {
-        component:[],
+        component:
+          <DialogContentContainer className="linear-progress-bar_dialog-wrapper">
+            <h4>Storage</h4>
+            <div>
+              <div className="linear-progress-bar_row-wrapper"><div className="linear-progress-bar_title">Drive 1</div><LinearProgressBar value={88} /></div>
+              <div className="linear-progress-bar_row-wrapper"><div className="linear-progress-bar_title">Drive 2</div><LinearProgressBar value={88} /></div>
+              <div className="linear-progress-bar_row-wrapper"><div className="linear-progress-bar_title">Drive 3</div><LinearProgressBar value={88} /></div>
+            </div>
+          </DialogContentContainer>,
         description:"Don’t use an infinite scalable indicator."
       }
     },
@@ -162,16 +172,23 @@ The user can see in a clear way the number of items used in the account.
 ### Progress bar as loading indicator
 <Canvas>
   <Story name="Progress bar as loading indicator">
-    <div className="linear-progress-bar_box">
-      <h4>Loading files</h4>
-      <div className="linear-progress-bar_inline-wrapper">
-        <span>Items</span>
-        <span>142/200</span>
+    <div className="linear-progress-bar_box-wrapper">
+      <div className="linear-progress-bar_row">
+        <div className="linear-progress-bar_img" />
+        <div className="linear-progress-bar_aside">
+          <b>Frame 697.pg</b>
+          <BreadcrumbsBar className="linear-progress-bar_breadcrumbs">
+            <BreadcrumbItem text="Hadas Test" />
+            <BreadcrumbItem text="Activity 6" />
+          </BreadcrumbsBar>
+          <div className="linear-progress-bar_inline-wrapper">
+            <span>2kb</span>
+            <span>Saving...</span>
+          </div>
+        </div>
       </div>
       <LinearProgressBar 
         value={71} 
-        size={LinearProgressBar.sizes.LARGE} 
-        barStyle={LinearProgressBar.styles.POSITIVE} 
       />
     </div>
   </Story>
