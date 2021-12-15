@@ -12,10 +12,6 @@ describe("ProgressBars Tests", () => {
     });
   });
 
-  afterEach(() => {
-    cleanup();
-  });
-
   describe("rendering of bars", () => {
     it("should not render progress bars if no values provided", () => {
       expect(screen.queryAllByRole("progressbar").length).toBe(0);
@@ -26,13 +22,11 @@ describe("ProgressBars Tests", () => {
       act(() => {
         component = rerender(<LinearProgressBar value={13} id="test" />);
       });
-      // should render only main progress bar
       expect(screen.queryAllByRole("progressbar").length).toBe(1);
 
       act(() => {
         component = rerender(<LinearProgressBar value={14} valueSecondary={15} id="test" />);
       });
-      // should render both progress bars
       expect(screen.queryAllByRole("progressbar").length).toBe(2);
     });
   });
@@ -67,7 +61,7 @@ describe("ProgressBars Tests", () => {
       }
     });
   });
-
+  
   describe("multi progress bars", () => {
     const multiValues = [
       { value: 10, color: "rgb(255, 0, 0)" },
