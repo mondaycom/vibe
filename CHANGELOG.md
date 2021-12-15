@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.4 (2021-12-15)
+
+#### Bug Fixes
+* [#389](https://github.com/mondaycom/monday-ui-react-core/pull/389) added classname to the virtualized list where scrollbars appears ([@etaylib](https://github.com/etaylib))
+
 ## 0.14.3 (2021-12-15)
 
 #### Bug Fixes
