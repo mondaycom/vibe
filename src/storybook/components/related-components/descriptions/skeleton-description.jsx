@@ -8,7 +8,7 @@ export const SkeletonDescription = () => {
     <RelatedComponent
       component={component}
       title="Skeleton"
-      description="Skeleton loading componet used to indicate content and ui loading that will appear after its loaded. It helps to decrease perceived duration time"
+      description="Skeleton loading componet used to indicate content and ui loading."
     />
   );
 };
