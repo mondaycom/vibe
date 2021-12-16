@@ -1,3 +1,4 @@
 import shadowsSketch from "./shadowsSketch.png";
+import peopleColumn from "./peopleColumn.png";
 
-export { shadowsSketch };
+export { shadowsSketch, peopleColumn };
