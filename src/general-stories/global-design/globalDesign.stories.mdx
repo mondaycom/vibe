@@ -1,5 +1,4 @@
 import { Meta, Story, Props, Preview } from "@storybook/addon-docs/blocks";
-import SpacingComponent from "./SpacingComponent";
 import GlobalSettingGeneralComponent from "./GlobalSettingGeneralComponent";
 import BoxShadowComponent from "./BoxShadowComponent";
 import RoundedCornerComponent from "./RoundedCornerComponent";
@@ -8,50 +7,6 @@ import StoryWrapper from "../../StoryBookComponents/StoryWrapper/StoryWrapper";
 
 
 <Meta title="Foundations/Global Design" />
-
-<Preview>
-  <Story name="Spacing">
-    <StoryWrapper>
-      <div className="global-design-title-container">
-        <div className="title">Spacing</div>
-        <div className="secondary">*You can double the sizes</div>
-      </div>
-      <div className="global-design-story-container global-design-spacing">
-        <SpacingComponent title="XS" sizeInPx="4px" spacingClass="spacing-xs" />
-        <SpacingComponent
-          title="S"
-          sizeInPx="8px"
-          spacingClass="spacing-small"
-        />
-        <SpacingComponent
-          title="MD"
-          sizeInPx="16px"
-          spacingClass="spacing-medium"
-        />
-        <SpacingComponent
-          title="L"
-          sizeInPx="24px"
-          spacingClass="spacing-large"
-        />
-        <SpacingComponent
-          title="XL"
-          sizeInPx="32px"
-          spacingClass="spacing-xl"
-        />
-        <SpacingComponent
-          title="XXL"
-          sizeInPx="48px"
-          spacingClass="spacing-xxl"
-        />
-        <SpacingComponent
-          title="XXXL"
-          sizeInPx="64px"
-          spacingClass="spacing-xxxl"
-        />
-      </div>
-    </StoryWrapper>
-  </Story>
-</Preview>
 
 <Preview>
   <Story name="Shadows">
