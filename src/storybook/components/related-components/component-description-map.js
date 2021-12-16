@@ -22,6 +22,8 @@ import { SearchDescription } from "./descriptions/search-description";
 import { ComboboxDescription } from "./descriptions/combobox-description";
 import { StepperDescription } from "./descriptions/stepper-description";
 import { ColorsDescription } from "./descriptions/colors-description/colors-description";
+import { SpinnerDescription } from "./descriptions/spinner-description";
+import { SkeletonDescription } from "./descriptions/skeleton-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -46,6 +48,8 @@ export const TEXT_FIELD = "text-field";
 export const SEARCH = "search";
 export const COMBOBOX = "combobox";
 export const STEPPER = "stepper";
+export const SPINNER = "spinner";
+export const SKELETON = "skeleton";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
@@ -75,6 +79,8 @@ descriptionTypesMap.set(TEXT_FIELD, <TextFieldDescription />);
 descriptionTypesMap.set(SEARCH, <SearchDescription />);
 descriptionTypesMap.set(COMBOBOX, <ComboboxDescription />);
 descriptionTypesMap.set(STEPPER, <StepperDescription />);
+descriptionTypesMap.set(SPINNER, <SpinnerDescription />);
+descriptionTypesMap.set(SKELETON, <SkeletonDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
