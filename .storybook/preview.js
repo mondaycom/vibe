@@ -66,9 +66,10 @@ addParameters({
         "Inputs",
         "Data display",
         "Media",
+        "Popover",
         "Pickers",
         "*",
-        "Accessibliity",
+        "Accessibility",
         "Hooks"
       ]
     }
