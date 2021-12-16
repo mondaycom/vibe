@@ -22,7 +22,6 @@ export const OtherContributorsList = () => {
 
   const contributors = useMemo(() => {
     if (contributorsJson) {
-      console.log(contributorsJson);
       return contributorsJson
         .filter(contributor => !excludedDevelopers.has(contributor.id))
         .map(contributor => (

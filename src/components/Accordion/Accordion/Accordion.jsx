@@ -33,9 +33,12 @@ const Accordion = forwardRef(({ children: originalChildren, allowMultiple, defau
   const onChildClick = useCallback(
     itemIndex => {
       if (allowMultiple) {
-        const newExpandedItems = expandedItems;
+        const newExpandedItems = [...expandedItems];
         if (isChildExpanded(itemIndex)) {
-          newExpandedItems.pop(itemIndex);
+          const index = newExpandedItems.indexOf(itemIndex);
+          if (index > -1) {
+            newExpandedItems.splice(index, 1);
+          }
         } else {
           newExpandedItems.push(itemIndex);
         }
