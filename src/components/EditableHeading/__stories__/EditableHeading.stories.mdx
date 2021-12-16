@@ -4,7 +4,7 @@ import { createComponentTemplate } from "../../../storybook/functions/create-com
 import "./EditableHeading.stories.scss";
 
 <Meta
-  title="Components/EditableHeading/EditableHeading"
+  title="Inputs/EditableHeading"
   component={ EditableHeading }
 />
 
@@ -22,8 +22,7 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 - [Feedback](#feedback)
 
 ## Overview
-Heading with the ability to inline heading
-
+Loader indication
 <Canvas>
   <Story
     name="Overview"
@@ -40,6 +39,7 @@ Heading with the ability to inline heading
 <UsageGuidelines guidelines={[
   "Use when the title (Heading) is editable and you want to inline edit it",
   "Always provide a meaningful placeholder",
+  "The component takes 100% of width and height of its container"
 ]}/>
 
 ## Variants
