@@ -59,7 +59,18 @@ addParameters({
   },
   options: {
     storySort: {
-      order: ["Welcome", "Foundations", "Buttons", "Inputs", "Data display", "Media", "Pickers", "*", "Hooks"]
+      order: [
+        "Welcome",
+        "Foundations",
+        "Buttons",
+        "Inputs",
+        "Data display",
+        "Media",
+        "Pickers",
+        "*",
+        "Accessibliity",
+        "Hooks"
+      ]
     }
   }
 });
