@@ -1,0 +1,9 @@
+@import "../../../styles/content-spacing";
+
+.monday-storybook-spacing-sizes {
+  margin: $spacing-between-section-items 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-end;
+}
