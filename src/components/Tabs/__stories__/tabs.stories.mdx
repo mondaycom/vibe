@@ -28,9 +28,9 @@ export const tabsTemplate = (args) => {
         <Tab>Third</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
+        <TabPanel>First slide</TabPanel>
+        <TabPanel>Second slide</TabPanel>
+        <TabPanel>Third slide</TabPanel>
       </TabPanels>
     </TabsContext>
   )
@@ -84,10 +84,10 @@ content use <Link href="/?path=/docs/components-buttongroup--overview" size={Lin
         <Tab disabled>Disabled</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
+        <TabPanel>First slide</TabPanel>
+        <TabPanel>Second slide</TabPanel>
+        <TabPanel>Third slide</TabPanel>
+        <TabPanel>Fourth slide</TabPanel>
       </TabPanels>
     </TabsContext>
   </Story>
@@ -113,17 +113,31 @@ Tabs animation direction
 <Canvas>
   <Story name="Motion">
     <TabsContext className="monday-storybook-tabs_bg-color">
-      <TabList >
+      <TabList>
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
+      </TabList>
+      <TabPanels animationDirection="ltr">
+        <TabPanel>First slide</TabPanel>
+        <TabPanel>Second slide</TabPanel>
+        <TabPanel>Third slide</TabPanel>
+        <TabPanel>Fourth slide</TabPanel>
+      </TabPanels>
+    </TabsContext>
+    <TabsContext className="monday-storybook-tabs_bg-color">
+      <TabList>
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
         <Tab disabled>Disabled</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
-        <TabPanel></TabPanel>
+        <TabPanel>First slide</TabPanel>
+        <TabPanel>Second slide</TabPanel>
+        <TabPanel>Third slide</TabPanel>
+        <TabPanel>Fourth slide</TabPanel>
       </TabPanels>
     </TabsContext>
   </Story>

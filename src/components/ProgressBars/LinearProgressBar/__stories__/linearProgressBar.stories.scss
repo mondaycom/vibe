@@ -58,13 +58,19 @@
   &_img {
     width: 80px;
     height: 80px;
-    background-image: url("./assets/monday.png");
+    background-image: url("./assets/Logo.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 
   &_box-wrapper {
     display: flex;
     width: 410px;
     flex-direction: column;
+    border: 1px solid;
+    @include theme-prop(border-color, layout-border-color);
+    padding: 16px;
   }
 
   &_aside {
