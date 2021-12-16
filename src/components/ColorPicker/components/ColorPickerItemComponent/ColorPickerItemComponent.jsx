@@ -56,7 +56,7 @@ const ColorPickerItemComponent = ({
     <Tooltip content={tooltipContent}>
       <div
         className={cx("monday-style-color-item-wrapper", {
-          "selected-color": value === colorAsStyle
+          "selected-color": isSelected
         })}
       >
         <Clickable
