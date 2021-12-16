@@ -2,49 +2,49 @@
 @import "../../../../styles/typography.scss";
 
 .spacing-xs {
-  height: $spacing-xs;
+  height: var(--spacing-xs);
 }
 
 .spacing-small {
-  height: $spacing-small;
+  height: var(--spacing-small);
 }
 
 .spacing-medium {
-  height: $spacing-medium;
+  height: var(--spacing-medium);
 }
 
 .spacing-large {
-  height: $spacing-large;
+  height: var(--spacing-large);
 }
 
 .spacing-xl {
-  height: $spacing-xl;
+  height: var(--spacing-xl);
 }
 
 .spacing-xxl {
-  height: $spacing-xxl;
+  height: var(--spacing-xxl);
 }
 
 .spacing-xxxl {
-  height: $spacing-xxxl;
+  height: var(--spacing-xxxl);
 }
 
 .spacing-component-visualizer {
   @include theme-prop(background-color, negative-color-selected);
-  width: 95px;
+  width: 75px;
 }
 
 .spacing-component {
   display: flex;
   width: fit-content;
   flex-direction: column;
-  margin: 0 $spacing-medium;
+  margin: 0 var(--spacing-medium);
   align-items: center;
 
   &_title-container {
     display: flex;
     justify-content: center;
-    padding: $spacing-medium $spacing-xs $spacing-medium $spacing-xs;
+    padding: var(--spacing-medium) var(--spacing-xs) var(--spacing-medium) var(--spacing-xs);
     color: var(--primary-text-color);
     font-size: $small-text-font-size;
   }
@@ -56,11 +56,12 @@
   }
 
   &_title {
-    margin-right: $spacing-small;
+    margin-right: var(--spacing-small);
   }
 
   &_variable-name {
     margin: 0;
-    @include small-text;
+    font-size: 11px;
+    font-weight: 500;
   }
 }
