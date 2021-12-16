@@ -22,10 +22,9 @@
     width: 300px;
   }
 
-  &_box-small {
-    .expand-collapse__header{
-      height: 40px;
-      width: 200px;
+  &_big-figure {
+    figure {
+      height: 250px;
     }
   }
 }
