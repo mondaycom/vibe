@@ -17,11 +17,15 @@ export const ComponentRules = ({ rules }) => {
             <ComponentRule
               component={rule.positive?.component}
               description={rule.positive?.description}
+              className={rule.className}
+              componentContainerClassName={rule.componentContainerClassName}
               isRecommended
             />
             <ComponentRule
               component={rule.negative?.component}
               description={rule.negative?.description}
+              className={rule.className}
+              componentContainerClassName={rule.componentContainerClassName}
               isRecommended={false}
             />
           </section>
@@ -43,7 +47,9 @@ ComponentRules.propTypes = {
       negative: PropTypes.shape({
         component: PropTypes.element,
         description: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
-      })
+      }),
+      className: PropTypes.string,
+      componentContainerClassName: PropTypes.string
     })
   )
 };

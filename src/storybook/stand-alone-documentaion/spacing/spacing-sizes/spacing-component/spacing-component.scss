@@ -1,0 +1,67 @@
+@import "../../../../../styles/themes.scss";
+@import "../../../../styles/typography.scss";
+
+.spacing-xs {
+  height: var(--spacing-xs);
+}
+
+.spacing-small {
+  height: var(--spacing-small);
+}
+
+.spacing-medium {
+  height: var(--spacing-medium);
+}
+
+.spacing-large {
+  height: var(--spacing-large);
+}
+
+.spacing-xl {
+  height: var(--spacing-xl);
+}
+
+.spacing-xxl {
+  height: var(--spacing-xxl);
+}
+
+.spacing-xxxl {
+  height: var(--spacing-xxxl);
+}
+
+.spacing-component-visualizer {
+  @include theme-prop(background-color, negative-color-selected);
+  width: 75px;
+}
+
+.spacing-component {
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  margin: 0 var(--spacing-medium);
+  align-items: center;
+
+  &_title-container {
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-medium) var(--spacing-xs) var(--spacing-medium) var(--spacing-xs);
+    color: var(--primary-text-color);
+    font-size: $small-text-font-size;
+  }
+
+  &_description {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+
+  &_title {
+    margin-right: var(--spacing-small);
+  }
+
+  &_variable-name {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 500;
+  }
+}
