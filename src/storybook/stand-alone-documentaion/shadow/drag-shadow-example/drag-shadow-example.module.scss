@@ -1,28 +1,31 @@
 @import "../../../../styles/global-css-settings";
 
-.monday-storybook-drag-shadow-example {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.drag-shadow-example {
 
-  &_icon {
+  &-frame {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &-icon {
     &:hover {
-      & + .monday-storybook-drag-shadow-example_drag-example {
+      & + .drag-shadow-example-draggable {
         @include box-shadow-medium;
         transform: rotate(1deg);
       }
     }
   }
 
-  &_drag-example {
+  &-draggable {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-left: $spacing-xs;
+    margin-left: var(--spacing-xs);
     border: 1px solid;
     @include theme-prop(border-color, layout-border-color);
     border-radius: $border-radius-small;
-    padding: $spacing-small-medium;
+    padding: var(--spacing-small);
     width: 234px;
     height: 37px;
   }

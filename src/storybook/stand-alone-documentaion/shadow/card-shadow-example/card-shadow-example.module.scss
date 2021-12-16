@@ -1,7 +1,6 @@
 @import "../../../../styles/themes.scss";
 
-.monday-storybook-card-shadow-example {
-  &_card {
+.card-shadow-example {
     border: 1px solid;
     @include theme-prop(border-color, layout-border-color);
     height: 317px;
@@ -9,30 +8,29 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    padding: $spacing-medium;
+    padding: var(--spacing-medium);
     cursor: pointer;
 
     &:hover {
       @include box-shadow-medium;
     }
 
-  }
 
-  &_title {
-    margin-top: $spacing-medium;
+  &-title {
+    margin-top: var(--spacing-medium);
     margin-bottom: 0;
     font-size: 18px;
     font-weight: 700;
     line-height: 21px;
   }
 
-  &_description {
-    margin-top: $spacing-small;
+  &-description {
+    margin-top: var(--spacing-small);
     font-size: 14px;
     line-height: 18px;
   }
 
-  &_button {
-    margin-top: $spacing-large;
+  &-button {
+    margin-top: var(--spacing-large);
   }
 }

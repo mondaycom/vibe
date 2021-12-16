@@ -1,14 +1,13 @@
 import { Frame } from "../../../components";
 import Icon from "../../../../components/Icon/Icon";
-import { BEMClass } from "../../../../helpers/bem-helper";
 import Drag from "../../../../components/Icon/Icons/components/Drag";
-import "./drag-shadow-example.scss";
+import classes from "./drag-shadow-example.module.scss";
 
-const CSS_BASE_CLASS = "monday-storybook-drag-shadow-example";
-const bemHelper = BEMClass(CSS_BASE_CLASS);
+const CSS_BASE_CLASS = "drag-shadow-example";
+
 export const DragShadowExample = () => (
-  <Frame className={CSS_BASE_CLASS}>
-    <Icon className={bemHelper({ element: "icon" })} icon={Drag} />
-    <div className={bemHelper({ element: "drag-example" })}>Drag me</div>
+  <Frame className={classes[`${CSS_BASE_CLASS}-frame`]}>
+    <Icon className={classes[`${CSS_BASE_CLASS}-icon`]} icon={Drag} />
+    <div className={classes[`${CSS_BASE_CLASS}-draggable`]}>Drag me</div>
   </Frame>
 );
