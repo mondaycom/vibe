@@ -10,33 +10,13 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 import TextField from "../../TextField/TextField.jsx";
 import { Link } from "../../../storybook/components";
 import { BUTTON_GROUP, BREADCRUBMS, STEPPER } from "../../../storybook/components/related-components/component-description-map";
+import { tabsTemplate } from './tabs.overview.jsx'
 import "./tabs.stories.scss";
 
 <Meta
   title="Components/Tabs/Tabs"
   component={ Tab }
 />
-
-<!--- Component template -->
-
-export const tabsTemplate = (args) => {
-  return (
-    <TabsContext className={args.className}>
-      <TabList>
-        <Tab>First</Tab>
-        <Tab>Second</Tab>
-        <Tab>Third</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>First slide</TabPanel>
-        <TabPanel>Second slide</TabPanel>
-        <TabPanel>Third slide</TabPanel>
-      </TabPanels>
-    </TabsContext>
-  )
-};
-
-<!--- Component documentation -->
 
 # Tabs
 - [Overview](#overview)
@@ -50,7 +30,6 @@ export const tabsTemplate = (args) => {
 
 ## Overview
 Tabs allow users to navigate between related views of content while remaining in context of the page.
-
 <Canvas>
   <Story name="Overview"
          args={ {className: "monday-storybook-tabs_bg-color"} }>
