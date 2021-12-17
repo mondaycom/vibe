@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TabPanels /> Snapshot tests renders correctly with animation from left to right 1`] = `
+exports[`TabPanels renders correctly with animation from left to right 1`] = `
 <div
   className="tab-panels--wrapper"
   id=""
@@ -29,7 +29,7 @@ exports[`<TabPanels /> Snapshot tests renders correctly with animation from left
 </div>
 `;
 
-exports[`<TabPanels /> Snapshot tests renders correctly with animation from right to left 1`] = `
+exports[`TabPanels renders correctly with animation from right to left 1`] = `
 <div
   className="tab-panels--wrapper"
   id=""
@@ -58,7 +58,7 @@ exports[`<TabPanels /> Snapshot tests renders correctly with animation from righ
 </div>
 `;
 
-exports[`<TabPanels /> Snapshot tests renders correctly with empty props 1`] = `
+exports[`TabPanels renders correctly with empty props 1`] = `
 <div
   className="tab-panels--wrapper"
   id=""
@@ -87,7 +87,7 @@ exports[`<TabPanels /> Snapshot tests renders correctly with empty props 1`] = `
 </div>
 `;
 
-exports[`<TabPanels /> Snapshot tests renders correctly with the given active tab panel 1`] = `
+exports[`TabPanels renders correctly with the given active tab panel 1`] = `
 <div
   className="tab-panels--wrapper"
   id=""
