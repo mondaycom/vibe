@@ -4,6 +4,9 @@
   &_small-wrapper {
     padding: 20px;
     width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
 
   &_big-wrapper {
@@ -86,5 +89,11 @@
 
   &_breadcrumbs {
     margin: -12px -46px -20px;
+  }
+
+  &_block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 }
