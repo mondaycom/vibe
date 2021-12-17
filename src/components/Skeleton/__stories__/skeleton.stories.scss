@@ -1,44 +1,33 @@
 @import "../../../styles/global-css-settings";
 
-.skeleton-states {
-  &_text-container {
+.monday-style-skeleton {
+  &_row-box {
+    display: flex;
+    align-items: flex-end;
+    gap: 50px;
+  }
+
+  &_column-box {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  &_rules-row {
     display: flex;
     align-items: center;
+    gap: 10px;
+    padding-bottom: 8px;
   }
 
-  &_element {
-    margin-left: 16px;
-  }
-
-  .skeleton-states_text--small {
-    font-size: 14px;
-  }
-
-  .component-state-description-title{
-    margin-bottom: 16px;
+  &_aside {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 }
 
-.basic-skeleton-wrapper {
+.a {
   display: flex;
-  flex-direction: column;
-
-  .basic-skeleton-text-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .basic-skeleton-text {
-    margin-left: 16px;
-  }
-
-  .basic-skeleton-rect {
-    margin-top: 4px;
-    width: 130px;
-    height: 130px;
-  }
-  .monday-style-skeleton {
-    margin-bottom: 8px;
-  }
+  gap: 14px;
 }
