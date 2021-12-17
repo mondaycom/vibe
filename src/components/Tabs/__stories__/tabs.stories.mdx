@@ -91,34 +91,36 @@ The width of the list is responsive to the screen's width.
 Tabs animation direction
 <Canvas>
   <Story name="Motion">
-    <TabsContext className="monday-storybook-tabs_bg-color">
-      <TabList>
-        <Tab>First</Tab>
-        <Tab>Second</Tab>
-        <Tab>Third</Tab>
-        <Tab disabled>Disabled</Tab>
-      </TabList>
-      <TabPanels animationDirection="ltr">
-        <TabPanel>First slide</TabPanel>
-        <TabPanel>Second slide</TabPanel>
-        <TabPanel>Third slide</TabPanel>
-        <TabPanel>Fourth slide</TabPanel>
-      </TabPanels>
-    </TabsContext>
-    <TabsContext className="monday-storybook-tabs_bg-color">
-      <TabList>
-        <Tab>First</Tab>
-        <Tab>Second</Tab>
-        <Tab>Third</Tab>
-        <Tab disabled>Disabled</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel>First slide</TabPanel>
-        <TabPanel>Second slide</TabPanel>
-        <TabPanel>Third slide</TabPanel>
-        <TabPanel>Fourth slide</TabPanel>
-      </TabPanels>
-    </TabsContext>
+    <div className="monday-storybook-tabs_column-wrapper">
+      <TabsContext className="monday-storybook-tabs_bg-color">
+        <TabList>
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+          <Tab>Third</Tab>
+          <Tab disabled>Disabled</Tab>
+        </TabList>
+        <TabPanels animationDirection="ltr">
+          <TabPanel>First slide</TabPanel>
+          <TabPanel>Second slide</TabPanel>
+          <TabPanel>Third slide</TabPanel>
+          <TabPanel>Fourth slide</TabPanel>
+        </TabPanels>
+      </TabsContext>
+      <TabsContext className="monday-storybook-tabs_bg-color">
+        <TabList>
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+          <Tab>Third</Tab>
+          <Tab disabled>Disabled</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>First slide</TabPanel>
+          <TabPanel>Second slide</TabPanel>
+          <TabPanel>Third slide</TabPanel>
+          <TabPanel>Fourth slide</TabPanel>
+        </TabPanels>
+      </TabsContext>
+    </div>
   </Story>
 </Canvas>
 
