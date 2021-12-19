@@ -21,6 +21,7 @@ import { TextFieldDescription } from "./descriptions/text-field-description";
 import { SearchDescription } from "./descriptions/search-description";
 import { ComboboxDescription } from "./descriptions/combobox-description";
 import { ColorsDescription } from "./descriptions/colors-description/colors-description";
+import { TypographyDescription } from "./descriptions/typography-description/typography-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -47,6 +48,7 @@ export const COMBOBOX = "combobox";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
+export const TYPOGRAPHY = "typography";
 
 export const descriptionTypesMap = new Map();
 
@@ -75,3 +77,4 @@ descriptionTypesMap.set(COMBOBOX, <ComboboxDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
+descriptionTypesMap.set(TYPOGRAPHY, <TypographyDescription />);

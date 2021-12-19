@@ -1,11 +1,11 @@
 import { Meta } from "@storybook/addon-docs";
 import { Frame, Link, RelatedComponents } from "../../components";
-import { COLORS } from "../../components/related-components/component-description-map";
+import { COLORS, TYPOGRAPHY } from "../../components/related-components/component-description-map";
 import { SemanticColors } from "./semantic-colors/semantic-colors";
 import { BackgroundColors } from "./background-colors/background-colors";
 import { TextColors } from "../../components/text-colors/text-colors";
-import "./colors.scss";
 import { BorderColors } from "./border-colors/border-colors";
+import { ContentColors } from "./content-colors/content-colors";
 
 <Meta
   title="Foundations/Colors"
@@ -16,7 +16,6 @@ import { BorderColors } from "./border-colors/border-colors";
 # Colors
 - [Overview](#overview)
 - [Color keys](#color-keys)
-- [UI and alert colors](#ui-and-alert-colors)
 - [Usage and examples](#usage-and-examples)
 - [Up next](#up-next)
 - [Feedback](#feedback)
@@ -27,9 +26,7 @@ The consistent use of color in our product keeps cognitive loads low, and makes 
 The colors are designed to be clear and accessible. They come in three color themes.
 
 ## Color keys
-<SemanticColors />
 
-## UI and alert colors
 ### Semantic colors
 <SemanticColors />
 
@@ -46,6 +43,7 @@ The colors are designed to be clear and accessible. They come in three color the
 These colors are used only for color coding purposes like groups colors, statuses timeline bars etc..
 this gives understanding and indication of orientation and belonging.
 The board’s main strength is its simple and visual appearance. That’s why the status colors should appear on the board and nowhere else in the UI.
+<ContentColors />
 
 ## Usage and examples
 
@@ -54,4 +52,4 @@ The board’s main strength is its simple and visual appearance. That’s why th
 ### Card
 
 ## Up next
-<RelatedComponents componentsNames={[COLORS, COLORS, COLORS]}/>
+<RelatedComponents componentsNames={[TYPOGRAPHY, COLORS, COLORS]}/>

@@ -1,8 +1,6 @@
-import { useMemo } from "react";
-import { colorsHashMap } from "../../../../general-stories/colors/colors-vars-map";
 import { ColorsDescription } from "../../../components";
 
-const colorKeys = new Set([
+const colorKeys = [
   "primary-color",
   "primary-hover-color",
   "primary-selected-color",
@@ -15,7 +13,7 @@ const colorKeys = new Set([
   "private-color",
   "shareable-color",
   "inverted-color-background",
-  "Icon-color"
-]);
+  "icon-color"
+];
 
 export const SemanticColors = () => <ColorsDescription colorNames={colorKeys} />;
