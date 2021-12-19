@@ -1,5 +1,6 @@
 @import "../../styles/themes.scss";
 @import "../../styles/states.scss";
+@import "../../styles/global-css-settings.scss";
 
 $avatar-size-large: 50px;
 $avatar-size-medium: 36px;
@@ -68,7 +69,7 @@ $avatar-size-small: 28px;
 
   &_badges {
     position: absolute;
-    top:50%;
+    top: 50%;
     left: 50%; /* position the left edge of the element at the middle of the parent */
     transform: translate(-50%, -50%);
     display: grid;

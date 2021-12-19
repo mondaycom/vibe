@@ -66,15 +66,11 @@ module.exports = options => {
           use: [
             ...styleLoaders,
             {
-              loader: "fast-sass-loader",
+              loader: "sass-loader",
               options: {
-                includePaths: [path.resolve("./src")],
-                transformers: [
-                  {
-                    extensions: [".json"],
-                    transform: rawFile => jsonToSass.convert(rawFile)
-                  }
-                ]
+                sassOptions: {
+                  includePaths: [path.resolve("./src")]
+                }
               }
             }
           ]
