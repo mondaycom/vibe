@@ -11,7 +11,7 @@ export const ContentColorRow = ({ colorName }) => {
   );
   const hoverStyle = useMemo(
     () => ({
-      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.REGULAR)
+      backgroundColor: ColorUtils.getMondayColorAsStyle(colorName, ColorUtils.modes.HOVER)
     }),
     [colorName]
   );
