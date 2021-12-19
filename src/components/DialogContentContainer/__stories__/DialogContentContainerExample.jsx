@@ -5,7 +5,7 @@ const DialogContentContainerExample = () => {
   return (
     <div className={styles["content-example"]}>
       <p>I could be anything when i grow up</p>
-      <p>event Moshe Zemach</p>
+      <p>even Moshe Zemach</p>
     </div>
   );
 };

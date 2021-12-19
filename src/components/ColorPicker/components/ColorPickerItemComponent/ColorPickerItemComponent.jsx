@@ -12,7 +12,6 @@ import Clickable from "../../../Clickable/Clickable";
 const ColorPickerItemComponent = ({
   color,
   onValueChange,
-  value,
   colorStyle = COLOR_STYLES.REGULAR,
   shouldRenderIndicatorWithoutBackground,
   ColorIndicatorIcon,
