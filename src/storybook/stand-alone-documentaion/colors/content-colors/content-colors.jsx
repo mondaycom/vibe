@@ -6,8 +6,9 @@ import { ContentColorCell } from "../content-color-cell/content-color-cell";
 import classes from "./content-colors.module.scss";
 
 export const ContentColors = () => {
-  const colorsCells = useMemo(() =>
-    Object.values(contentColorsByName).map(colorName => <ContentColorRow colorName={colorName} />)
+  const colorsCells = useMemo(
+    () => Object.values(contentColorsByName).map(colorName => <ContentColorRow colorName={colorName} />),
+    []
   );
 
   return (
