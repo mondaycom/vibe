@@ -22,16 +22,6 @@ $spacing-xxxl: 64px;
 
 $expand-animation-timing: cubic-bezier(0, 0, 0.35, 1);
 
-:root,
-.light-app-theme,
-.default-app-theme {
-  --theme-box-shadow: 50, 51, 56;
-}
-
-.dark-app-theme {
-  --theme-box-shadow: 245, 246, 248;
-}
-
 @mixin box-shadow-small() {
   @include theme-prop(box-shadow, box-shadow-small);
 }
