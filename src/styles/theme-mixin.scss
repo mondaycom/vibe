@@ -1,0 +1,115 @@
+$basic-blue: #0085ff;
+$primary: #0085ff;
+$primary-hover: #0071d9;
+$link-color: #1f76c2;
+$gainsboro: #e1e1e1;
+$snow-white: #fff;
+$dark-blue: #0071d9;
+$success: #00ca72;
+$purple: #a358df;
+$error: #e44258;
+$private: #f65f7c;
+$share: #a358df;
+$surface: #292f4c;
+$wolf-gray: #c5c7d0;
+$mud-black: #323338;
+$dark: #323338;
+$riverstone-gray: #f5f6f8;
+$ui-grey: #e6e9ef;
+$asphalt: #676879;
+$higlight: #dff0ff;
+$theme: (
+  "primary-color": $basic-blue,
+  "primary-text-on-primary": $snow-white,
+  "primary-hover-color": $dark-blue,
+  "primary-selected-color": $higlight,
+  "positive-color": $success,
+  "negative-color": $error,
+  "negative-color-hover": #b63546,
+  "negative-color-selected": #b63546,
+  "private-color": $private,
+  "positive-color-hover": #00a25b,
+  "primary-color-selected": #00a25b,
+  "shareable-color": $purple,
+  "ui-border-color": $ui-grey,
+  "layout-border-color": $ui-grey,
+  "placeholder-color": $asphalt,
+  "icon-color": $asphalt,
+  "disabled-background-color": $ui-grey,
+  "disabled-text-color": $asphalt,
+  "link-color": $link-color,
+  "primary-text-color": $mud-black,
+  "icon-color-hover": $wolf-gray,
+  "main-nav-background-color": $surface,
+  "primary-background-color": $snow-white,
+  "secondary-background-color": $snow-white,
+  "primary-background-hover-color": $wolf-gray,
+  "dark-color": $mud-black,
+  "dark-background-color": $riverstone-gray,
+  "secondary-text-color": $mud-black,
+  "text-color-on-primary": $snow-white,
+  "inverted-color-background": $mud-black,
+  "text-color-on-inverted": $snow-white,
+  "dark-background-on-secondary-color": $riverstone-gray,
+  "dialog-background-color": $snow-white,
+  "modal-background-color": $snow-white,
+  "box-shadow-small": 0 4px 8px rgb(0 0 0 / 20%),
+  "box-shadow-medium": 0 6px 20px rgb(0 0 0 / 20%),
+  "box-shadow-large": 0 15px 50px rgb(0 0 0 / 30%)
+);
+$theme-var: (
+  "primary-color": var(--primary-color),
+  "primary-text-on-primary": var(--primary-text-on-primary),
+  "primary-hover-color": var(--primary-hover-color),
+  "primary-selected-color": var(--primary-selected-color),
+  "positive-color": var(--positive-color),
+  "positive-color-hover": var(--positive-color-hover),
+  "positive-color-selected": var(--positive-color-selected),
+  "negative-color": var(--negative-color),
+  "negative-color-hover": var(--negative-color-hover),
+  "negative-color-selected": var(--negative-color-selected),
+  "private-color": var(--private-color),
+  "shareable-color": var(--color-purple),
+  "ui-border-color": var(--ui-border-color),
+  "layout-border-color": var(--layout-border-color),
+  "placeholder-color": var(--placeholder-color),
+  "icon-color": var(--icon-color),
+  "disabled-background-color": var(--disabled-background-color),
+  "disabled-text-color": var(--disabled-text-color),
+  "link-color": var(--link-color),
+  "primary-text-color": var(--primary-text-color),
+  "icon-color-hover": var(--color-wolf_gray),
+  "primary-background-color": var(--primary-background-color),
+  "secondary-background-color": var(--secondary-background-color),
+  "primary-background-hover-color": var(--primary-background-hover-color),
+  "dark-color": var(--color-mud_black),
+  "dark-background-color": var(--dark-background-color),
+  "secondary-text-color": var(--secondary-text-color),
+  "text-color-on-primary": var(--text-color-on-primary),
+  "inverted-color-background": var(--inverted-color-background),
+  "text-color-on-inverted": var(--text-color-on-inverted),
+  "dark-background-on-secondary-color": var(--dark-background-on-secondary-color),
+  "dialog-background-color": var(--dialog-background-color),
+  "modal-background-color": var(--modal-background-color),
+  "box-shadow-small": var(--box-shadow-small),
+  "box-shadow-medium": var(--box-shadow-medium),
+  "box-shadow-large": var(--box-shadow-large)
+);
+
+@mixin theme-prop($property: color, $color-variable: primary-text-color, $important: false) {
+  @if $important {
+    #{$property}: theme-value-default($color-variable) !important;
+    #{$property}: theme-value-var($color-variable) !important;
+  } @else {
+    #{$property}: theme-value-default($color-variable);
+    #{$property}: theme-value-var($color-variable);
+  }
+}
+
+@function theme-value-default($color-variable: primary-text-color) {
+  @return map-get($theme, $color-variable);
+}
+
+@function theme-value-var($color-variable: primary-text-color) {
+  @return map-get($theme-var, $color-variable);
+}
