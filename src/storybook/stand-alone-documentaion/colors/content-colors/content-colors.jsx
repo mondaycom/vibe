@@ -13,7 +13,7 @@ export const ContentColors = () => {
 
   return (
     <Frame>
-      <table className={classes["content-colors-table"]}>
+      <table className={classes["content-colors-table"]} cellSpacing={0}>
         <tr>
           <ContentColorCell />
           <ContentColorCell>Default</ContentColorCell>
