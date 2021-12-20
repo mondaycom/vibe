@@ -1,6 +1,5 @@
 const path = require("path");
 const autoprefixer = require("autoprefixer");
-const jsonToSass = require("jsontosass");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
