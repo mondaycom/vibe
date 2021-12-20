@@ -17,5 +17,11 @@
   display: grid;
   border-radius: $border-radius-small;
   padding: 40px 24px;
+  background-image: url('./assets/component-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 
+  &--foundation {
+    background-image: url('./assets/foundation-background.png');
+  }
 }

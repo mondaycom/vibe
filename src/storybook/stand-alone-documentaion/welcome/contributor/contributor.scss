@@ -5,7 +5,9 @@
     position: relative;
     width: 100%;
     height: 182px;
-    border-radius: $border-radius-small;;
+    border-radius: $border-radius-small;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   &_image {
     position: absolute;
