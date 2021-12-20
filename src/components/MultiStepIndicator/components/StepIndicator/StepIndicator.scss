@@ -74,25 +74,6 @@
     }
   }
 
-  &__number-container {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-
-    &__text {
-      margin: auto;
-      display: flex;
-      align-items: center;
-
-      &__check-icon {
-        width: 20px;
-        height: 20px;
-        margin-top: 2px;
-      }
-    }
-  }
-
   &__text-container {
     display: flex;
     flex-direction: column;
@@ -115,6 +96,25 @@
       width: 100%;
       font-size: $font-size-default;
       @include theme-prop(color, disabled-text-color);
+    }
+  }
+
+  &__number-container {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+
+    &__text {
+      margin: auto;
+      display: flex;
+      align-items: center;
+
+      &__check-icon {
+        width: 20px;
+        height: 20px;
+        margin-top: 2px;
+      }
     }
   }
 
