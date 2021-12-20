@@ -3,7 +3,12 @@ import { ColorDescription } from "../color-description/color-description";
 import { Frame } from "../frame/frame";
 import { colorsHashMap } from "../../../general-stories/colors/colors-vars-map";
 
-const colorsWithBorder = new Set(["text-color-on-inverted", "text-color-on-primary"]);
+const colorsWithBorder = new Set([
+  "text-color-on-inverted",
+  "text-color-on-primary",
+  "primary-background-color",
+  "secondary-background-color"
+]);
 
 export const ColorsDescription = ({ colorNames }) => {
   const descriptions = useMemo(

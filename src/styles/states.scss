@@ -1,4 +1,4 @@
-@import "./themes";
+@import "./theme-mixin.scss";
 
 @mixin disabled {
   @include theme-prop(border-color, disabled-background-color);
@@ -78,12 +78,10 @@
   box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5) inset, 0 0 0 1px var(--primary-hover-color) inset;
 }
 
-
 @mixin focus-style-css-on-primary($focus-radius: 4px) {
   @include focus-style-base($focus-radius);
   box-shadow: 0 0 0 3px var(--text-color-on-primary-with-opacity), 0 0 0 1px var(--text-color-on-primary) inset;
 }
-
 
 @mixin _scrollerThumb($color) {
   &::-webkit-scrollbar-thumb {

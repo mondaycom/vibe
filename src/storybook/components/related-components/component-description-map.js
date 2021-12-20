@@ -24,6 +24,7 @@ import { StepperDescription } from "./descriptions/stepper-description";
 import { ColorsDescription } from "./descriptions/colors-description/colors-description";
 import { SpinnerDescription } from "./descriptions/spinner-description";
 import { SkeletonDescription } from "./descriptions/skeleton-description";
+import { TypographyDescription } from "./descriptions/typography-description/typography-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -53,6 +54,7 @@ export const SKELETON = "skeleton";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
+export const TYPOGRAPHY = "typography";
 
 export const descriptionTypesMap = new Map();
 
@@ -84,3 +86,4 @@ descriptionTypesMap.set(SKELETON, <SkeletonDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
+descriptionTypesMap.set(TYPOGRAPHY, <TypographyDescription />);
