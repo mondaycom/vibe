@@ -24,13 +24,13 @@ exports[`Dropdown should open menu on click if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-1ht1nal-Component"
+        class=" css-j6eacz-ValueContainer"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-lkl2xd-Component"
+          class="css-1m8eskj-Input"
         >
           <div
             class=""
@@ -56,10 +56,10 @@ exports[`Dropdown should open menu on click if set 1`] = `
         </div>
       </div>
       <div
-        class=" css-1aqjfd-Component"
+        class=" css-hcxwnl-IndicatorsContainer"
       >
         <span
-          class=" css-ds71as-Component"
+          class=" css-1xjgjl1-IndicatorSeparator"
         />
         <div
           aria-hidden="true"
@@ -89,7 +89,7 @@ exports[`Dropdown should open menu on click if set 1`] = `
       class="menu dropdown-menu-wrapper css-1ysewv0-menu"
     >
       <div
-        class=" css-bknh9q-Component"
+        class=" css-4ljt47-MenuList"
       >
         <div
           class=" css-14cnnyc-option"
@@ -163,13 +163,13 @@ exports[`Dropdown should open menu on focus if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-1ht1nal-Component"
+        class=" css-j6eacz-ValueContainer"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-lkl2xd-Component"
+          class="css-1m8eskj-Input"
         >
           <div
             class=""
@@ -195,10 +195,10 @@ exports[`Dropdown should open menu on focus if set 1`] = `
         </div>
       </div>
       <div
-        class=" css-1aqjfd-Component"
+        class=" css-hcxwnl-IndicatorsContainer"
       >
         <span
-          class=" css-ds71as-Component"
+          class=" css-1xjgjl1-IndicatorSeparator"
         />
         <div
           aria-hidden="true"
@@ -237,13 +237,13 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
       class=" css-veeint-control"
     >
       <div
-        class=" css-18qqyiw-Component"
+        class=" css-qwj9xx-ValueContainer"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-lkl2xd-Component"
+          class="css-1m8eskj-Input"
         >
           <div
             class=""
@@ -269,10 +269,10 @@ exports[`Dropdown should render correctly for the different sizes 1`] = `
         </div>
       </div>
       <div
-        class=" css-col3eb-Component"
+        class=" css-12cxbpe-IndicatorsContainer"
       >
         <span
-          class=" css-ds71as-Component"
+          class=" css-1xjgjl1-IndicatorSeparator"
         />
         <div
           aria-hidden="true"
@@ -311,13 +311,13 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
       class=" css-veeint-control"
     >
       <div
-        class=" css-18qqyiw-Component"
+        class=" css-qwj9xx-ValueContainer"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-lkl2xd-Component"
+          class="css-1m8eskj-Input"
         >
           <div
             class=""
@@ -343,10 +343,10 @@ exports[`Dropdown should render correctly for the different sizes 2`] = `
         </div>
       </div>
       <div
-        class=" css-col3eb-Component"
+        class=" css-12cxbpe-IndicatorsContainer"
       >
         <span
-          class=" css-ds71as-Component"
+          class=" css-1xjgjl1-IndicatorSeparator"
         />
         <div
           aria-hidden="true"
@@ -385,13 +385,13 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
       class=" css-veeint-control"
     >
       <div
-        class=" css-18qqyiw-Component"
+        class=" css-qwj9xx-ValueContainer"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-lkl2xd-Component"
+          class="css-1m8eskj-Input"
         >
           <div
             class=""
@@ -417,10 +417,10 @@ exports[`Dropdown should render correctly for the different sizes 3`] = `
         </div>
       </div>
       <div
-        class=" css-col3eb-Component"
+        class=" css-12cxbpe-IndicatorsContainer"
       >
         <span
-          class=" css-ds71as-Component"
+          class=" css-1xjgjl1-IndicatorSeparator"
         />
         <div
           aria-hidden="true"
@@ -459,13 +459,13 @@ exports[`Dropdown should render correctly for the different sizes 4`] = `
       class=" css-132xx32-control"
     >
       <div
-        class=" css-1ht1nal-Component"
+        class=" css-j6eacz-ValueContainer"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-lkl2xd-Component"
+          class="css-1m8eskj-Input"
         >
           <div
             class=""
@@ -491,10 +491,10 @@ exports[`Dropdown should render correctly for the different sizes 4`] = `
         </div>
       </div>
       <div
-        class=" css-1aqjfd-Component"
+        class=" css-hcxwnl-IndicatorsContainer"
       >
         <span
-          class=" css-ds71as-Component"
+          class=" css-1xjgjl1-IndicatorSeparator"
         />
         <div
           aria-hidden="true"
@@ -533,13 +533,13 @@ exports[`Dropdown should render correctly for the different sizes 5`] = `
       class=" css-ng27sg-control"
     >
       <div
-        class=" css-rxqqti-Component"
+        class=" css-c7u1lp-ValueContainer"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-lkl2xd-Component"
+          class="css-1m8eskj-Input"
         >
           <div
             class=""
@@ -565,10 +565,10 @@ exports[`Dropdown should render correctly for the different sizes 5`] = `
         </div>
       </div>
       <div
-        class=" css-hsetqv-Component"
+        class=" css-1b5f2fp-IndicatorsContainer"
       >
         <span
-          class=" css-ds71as-Component"
+          class=" css-1xjgjl1-IndicatorSeparator"
         />
         <div
           aria-hidden="true"
@@ -607,13 +607,13 @@ exports[`Dropdown should render correctly with empty props 1`] = `
       class=" css-132xx32-control"
     >
       <div
-        class=" css-1ht1nal-Component"
+        class=" css-j6eacz-ValueContainer"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-lkl2xd-Component"
+          class="css-1m8eskj-Input"
         >
           <div
             class=""
@@ -639,10 +639,10 @@ exports[`Dropdown should render correctly with empty props 1`] = `
         </div>
       </div>
       <div
-        class=" css-1aqjfd-Component"
+        class=" css-hcxwnl-IndicatorsContainer"
       >
         <span
-          class=" css-ds71as-Component"
+          class=" css-1xjgjl1-IndicatorSeparator"
         />
         <div
           aria-hidden="true"
@@ -696,13 +696,13 @@ exports[`Dropdown should use async if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-1ht1nal-Component"
+        class=" css-j6eacz-ValueContainer"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-lkl2xd-Component"
+          class="css-1m8eskj-Input"
         >
           <div
             class=""
@@ -728,24 +728,24 @@ exports[`Dropdown should use async if set 1`] = `
         </div>
       </div>
       <div
-        class=" css-1aqjfd-Component"
+        class=" css-hcxwnl-IndicatorsContainer"
       >
         <div
           aria-hidden="true"
           class=" css-1xh8qep-loadingIndicator"
         >
           <span
-            class="css-imwzes-Component"
+            class="css-1yvy2vo-LoadingDot"
           />
           <span
-            class="css-1ue98e-Component"
+            class="css-zoievk-LoadingDot"
           />
           <span
-            class="css-fwsb3e-Component"
+            class="css-x748d8-LoadingDot"
           />
         </div>
         <span
-          class=" css-ds71as-Component"
+          class=" css-1xjgjl1-IndicatorSeparator"
         />
         <div
           aria-hidden="true"
@@ -799,13 +799,13 @@ exports[`Dropdown should use virtualization if set 1`] = `
       class=" css-quv8ei-control"
     >
       <div
-        class=" css-1ht1nal-Component"
+        class=" css-j6eacz-ValueContainer"
       >
         <div
           class=" css-1dtegfv-placeholder"
         />
         <div
-          class="css-lkl2xd-Component"
+          class="css-1m8eskj-Input"
         >
           <div
             class=""
@@ -831,10 +831,10 @@ exports[`Dropdown should use virtualization if set 1`] = `
         </div>
       </div>
       <div
-        class=" css-1aqjfd-Component"
+        class=" css-hcxwnl-IndicatorsContainer"
       >
         <span
-          class=" css-ds71as-Component"
+          class=" css-1xjgjl1-IndicatorSeparator"
         />
         <div
           aria-hidden="true"
