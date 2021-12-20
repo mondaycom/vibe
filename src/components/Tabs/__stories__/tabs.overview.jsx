@@ -4,10 +4,10 @@ import TabPanel from "../TabPanel/TabPanel.jsx";
 import TabPanels from "../TabPanels/TabPanels.jsx";
 import TabsContext from "../TabsContext/TabsContext.jsx";
 
-export const tabsTemplate = (args) => {
+export const tabsTemplate = ({ className, ...otherArgs }) => {
   return (
-    <TabsContext className={args.className}>
-      <TabList >
+    <TabsContext className={className} {...otherArgs}>
+      <TabList>
         <Tab>First</Tab>
         <Tab>Second</Tab>
         <Tab>Third</Tab>
@@ -18,5 +18,5 @@ export const tabsTemplate = (args) => {
         <TabPanel>Third slide</TabPanel>
       </TabPanels>
     </TabsContext>
-  )
+  );
 };

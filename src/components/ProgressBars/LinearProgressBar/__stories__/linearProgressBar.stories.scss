@@ -2,11 +2,7 @@
 
 .linear-progress-bar {
   &_small-wrapper {
-    padding: 20px;
     width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
   }
 
   &_big-wrapper {
@@ -95,5 +91,11 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+  }
+
+  &_column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
   }
 }

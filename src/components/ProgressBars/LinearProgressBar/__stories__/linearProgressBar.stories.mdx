@@ -1,4 +1,5 @@
 import LinearProgressBar from "../LinearProgressBar";
+import { useMemo } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
 import colors from "../../../../constants/colors.json";
@@ -20,9 +21,7 @@ import "./linearProgressBar.stories.scss";
 
 export const lineProgressBarTemplate = (args) => {
   return (
-    <div className="linear-progress-bar_small-wrapper">
-      <LinearProgressBar value={args.value} size={args.size} />
-    </div>
+    <LinearProgressBar className="linear-progress-bar_small-wrapper" value={args.value} size={args.size} />
   )
 } 
 
@@ -61,14 +60,14 @@ Progress bars show continuous progress through a process, such as a percentage v
 ### Regular
 <Canvas>
   <Story name="Regular">
-    <div className="linear-progress-bar_small-wrapper">
+    <div className="linear-progress-bar_column">
       <div className="linear-progress-bar_block">
-        <LinearProgressBar indicateProgress value={30} size={LinearProgressBar.sizes.LARGE} />
-        <>With label</>
+        <LinearProgressBar className="linear-progress-bar_small-wrapper" indicateProgress value={30} size={LinearProgressBar.sizes.LARGE} />
+        With label
       </div>
       <div className="linear-progress-bar_block">
-        <LinearProgressBar value={30} size={LinearProgressBar.sizes.LARGE} />
-        <>Without label</>
+        <LinearProgressBar className="linear-progress-bar_small-wrapper" value={30} size={LinearProgressBar.sizes.LARGE} />
+        Without label
       </div>
     </div>
   </Story>
@@ -77,9 +76,7 @@ Progress bars show continuous progress through a process, such as a percentage v
 ### With secondary value
 <Canvas>
   <Story name="With secondary value">
-    <div className="linear-progress-bar_small-wrapper">
-      <LinearProgressBar value={50} indicateProgress valueSecondary={65} size={LinearProgressBar.sizes.LARGE} />
-    </div>
+    <LinearProgressBar className="linear-progress-bar_small-wrapper" value={50} indicateProgress valueSecondary={65} size={LinearProgressBar.sizes.LARGE} />
   </Story>
 </Canvas>
 
@@ -87,21 +84,20 @@ Progress bars show continuous progress through a process, such as a percentage v
 <Canvas>
   <Story name="Multi progress bar">
     {() => {
-      const multiValues = [
+      const multiValues = useMemo(() => [
         { value: 25, color: colors.primary },
         { value: 75, color: colors.yellow },
         { value: 100, color: colors.grass_green }
-      ];
+      ], []);
       return (
-        <div className="linear-progress-bar_big-wrapper">
-          <LinearProgressBar 
-            value={25}
-            size={LinearProgressBar.sizes.LARGE}
-            indicateProgress
-            multi
-            multiValues={multiValues}
-          />
-        </div>
+        <LinearProgressBar
+          className="linear-progress-bar_big-wrapper"
+          value={25}
+          size={LinearProgressBar.sizes.LARGE}
+          indicateProgress
+          multi
+          multiValues={multiValues}
+        />
       )
     }}
   </Story>
@@ -127,11 +123,9 @@ Progress bars show continuous progress through a process, such as a percentage v
         component:
           <DialogContentContainer className="linear-progress-bar_dialog-wrapper">
             <h4>Storage</h4>
-            <div>
-              <div className="linear-progress-bar_row-wrapper"><div className="linear-progress-bar_title">Drive 1</div><LinearProgressBar className="linear-progress-bar_without-bg" value={88} /></div>
-              <div className="linear-progress-bar_row-wrapper"><div className="linear-progress-bar_title">Drive 2</div><LinearProgressBar className="linear-progress-bar_without-bg" value={46} /></div>
-              <div className="linear-progress-bar_row-wrapper"><div className="linear-progress-bar_title">Drive 3</div><LinearProgressBar className="linear-progress-bar_without-bg" value={72} /></div>
-            </div>
+            <div className="linear-progress-bar_row-wrapper"><div className="linear-progress-bar_title">Drive 1</div><LinearProgressBar className="linear-progress-bar_without-bg" value={88} /></div>
+            <div className="linear-progress-bar_row-wrapper"><div className="linear-progress-bar_title">Drive 2</div><LinearProgressBar className="linear-progress-bar_without-bg" value={46} /></div>
+            <div className="linear-progress-bar_row-wrapper"><div className="linear-progress-bar_title">Drive 3</div><LinearProgressBar className="linear-progress-bar_without-bg" value={72} /></div>
           </DialogContentContainer>,
         description:"Don’t use an infinite scalable indicator."
       }
@@ -211,4 +205,4 @@ The user can see in a clear way the number of items used in the account.
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[SPINNER,STEPPER,SKELETON]} />
+<RelatedComponents componentsNames={[SPINNER, STEPPER, SKELETON]} />

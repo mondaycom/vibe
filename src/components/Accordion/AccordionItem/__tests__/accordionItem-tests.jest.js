@@ -3,7 +3,7 @@ import Accordion from "../../Accordion/Accordion.jsx";
 import AccordionItem from "../AccordionItem";
 import { render, fireEvent, screen } from "@testing-library/react";
 
-describe("Chips tests", () => {
+describe("AccordionItem tests", () => {
   let onClickMock;
   let accordionComponent;
   

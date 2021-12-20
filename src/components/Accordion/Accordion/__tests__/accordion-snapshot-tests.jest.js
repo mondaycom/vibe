@@ -9,7 +9,7 @@ describe("Accordion renders correctly", () => {
 		expect(tree).toMatchSnapshot();
 	});
 
-	it("with accordion items", () => {
+	it("with children", () => {
 		const tree = renderer
 			.create(
 				<Accordion>

@@ -2,9 +2,7 @@ import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import Tab from "../Tab";
 
-
-
-describe("Chips tests", () => {
+describe("Tab tests", () => {
   let onClickMock;
   const text = "tab"
   let tabComponent;
