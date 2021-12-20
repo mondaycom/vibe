@@ -15,7 +15,19 @@ module.exports = options => {
       ? {
           loader: "style-loader",
           options: {
-            injectType: "singletonStyleTag"
+            injectType: "singletonStyleTag",
+            insert: function insertAtTop(element) {
+              const parent = document.querySelector("head");
+              // eslint-disable-next-line no-underscore-dangle
+              const lastInsertedElement = window._lastElementInsertedByStyleLoader;
+
+              if (!lastInsertedElement) {
+                parent.insertBefore(element, parent.firstChild);
+              }
+
+              // eslint-disable-next-line no-underscore-dangle
+              window._lastElementInsertedByStyleLoader = true;
+            }
           }
         }
       : {
