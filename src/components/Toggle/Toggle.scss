@@ -19,7 +19,7 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      top: calc(50% - 18px/2);
+      top: calc(50% - 18px / 2);
       transition: left 100ms $expand-animation-timing;
     }
 
@@ -36,6 +36,14 @@
         left: 3px;
       }
     }
+  }
+
+  &_text {
+    @include theme-prop(color, primary-text-color);
+    font-style: normal;
+    font-weight: normal;
+    size: 14px;
+    line-height: 22px;
   }
 
   &_wrapper {
@@ -66,13 +74,5 @@
         @include focus-style-css();
       }
     }
-  }
-
-  &_text {
-    @include theme-prop(color, primary-text-color);
-    font-style: normal;
-    font-weight: normal;
-    size: 14px;
-    line-height: 22px;
   }
 }

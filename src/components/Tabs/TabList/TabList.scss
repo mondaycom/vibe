@@ -22,20 +22,6 @@
     }
   }
 
-  &.disabled {
-    opacity: 0;
-    height: 0;
-    padding-bottom: 5px;
-    pointer-events: none;
-    .tabs-list {
-      .tab--wrapper {
-        .tab-inner:hover {
-          cursor: default;
-        }
-      }
-    }
-  }
-
   &.stretched {
     .tabs-list {
       width: 100%;
@@ -45,6 +31,20 @@
 
         .tab-inner {
           width: 100%;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 0;
+    height: 0;
+    padding-bottom: 5px;
+    pointer-events: none;
+    .tabs-list {
+      .tab--wrapper {
+        .tab-inner:hover {
+          cursor: default;
         }
       }
     }
