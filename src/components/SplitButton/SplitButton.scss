@@ -1,5 +1,6 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
+@import "../../styles/global-css-settings.scss";
 
 .monday-style-split-button {
   display: inline-flex;
@@ -25,7 +26,7 @@
   &--active {
     transform: scale(0.95);
   }
-  
+
   &--disabled {
     cursor: not-allowed;
     pointer-events: none;
@@ -39,7 +40,7 @@
           @include theme-prop(border-color, ui-border-color);
         }
       }
-      
+
       &:not(.monday-style-split-button--disabled).monday-style-split-button {
         &--color {
           &-primary {
@@ -109,9 +110,9 @@
                 @include theme-prop(background-color, primary-background-hover-color);
               }
             }
-            
+
             &.monday-style-split-button--split-content-open {
-              .monday-style-split-button__secondary-button, 
+              .monday-style-split-button__secondary-button,
               .monday-style-split-button__secondary-button:hover {
                 @include theme-prop(color, primary-color);
                 @include theme-prop(background-color, primary-selected-color);
@@ -163,6 +164,6 @@
         }
       }
     }
-    
+
   }
 }
