@@ -259,6 +259,15 @@
     width: 100%;
   }
 
+  .input-component__sub-text-container {
+    display: flex;
+    @include font-input();
+    @include theme-prop(color, secondary-text-color);
+    .input-component__sub-text-container-counter {
+      margin-left: auto;
+    }
+  }
+
   &.input-component--disabled {
     .input-component__input-wrapper {
       cursor: not-allowed;
@@ -277,15 +286,6 @@
       .input-component__icon {
         cursor: not-allowed;
       }
-    }
-  }
-
-  .input-component__sub-text-container {
-    display: flex;
-    @include font-input();
-    @include theme-prop(color, secondary-text-color);
-    .input-component__sub-text-container-counter {
-      margin-left: auto;
     }
   }
 }
