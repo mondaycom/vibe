@@ -1,6 +1,7 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 @import "../../styles/states.scss";
+@import "../../styles/global-css-settings.scss";
 
 .input-component {
   position: relative;
@@ -217,13 +218,13 @@
       .input-component__loader{
         width: 16px;
         height: 16px;
-        
+
         .input-component__loader-svg{
           @include theme-prop(color, secondary-text-color);
         }
       }
     }
-    
+
     .input-component__icon--container {
       position: absolute;
       top: 50%;

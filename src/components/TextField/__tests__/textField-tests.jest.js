@@ -14,7 +14,7 @@ describe("TextField tests", () => {
     cleanup();
     ref = {};
     onChangeStub = jest.fn();
-    jest.useFakeTimers("modren");
+    jest.useFakeTimers("modern");
     inputComponent = render(<TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />);
   });
   afterEach(() => {
@@ -65,6 +65,7 @@ describe("TextField tests", () => {
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
     userEvent.type(input, "A");
     expect(onChangeStub).not.toHaveBeenCalledWith("A");
+    jest.advanceTimersByTime(debounceTime + 1)
     await waitFor(() => expect(onChangeStub).toHaveBeenCalledWith("A"), { timeout: debounceTime });
   });
 

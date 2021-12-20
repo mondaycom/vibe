@@ -1,7 +1,9 @@
 .monday-story-clickable {
   &_first-element {
-    background-color: purple;
-    color: white;
+    padding: var(--spacing-small);
+    border-radius: var(--border-radius-small);
+    background-color: var(--primary-selected-color);
+    color: var(--primary-text-color);
     width: 40%;
   }
 }
