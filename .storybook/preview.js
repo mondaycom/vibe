@@ -12,7 +12,6 @@ import {
   RelatedComponents,
   DocFooter,
   MultipleStoryElementsWrapper,
-  Link,
   Paragraph
 } from "../src/storybook/components";
 import LinkComponent from "../src/storybook/components/link-component/link-component";
