@@ -6,7 +6,6 @@
   width: 100%;
   margin-top: 0;
   margin-bottom: $spacing-between-section-items;
-  @include theme-prop(background-color, primary-selected-color);
   @include basic-text;
   font-family: $header-primary-font;
   font-size: $h1-font-size;
@@ -17,5 +16,11 @@
   display: grid;
   border-radius: $border-radius-small;
   padding: 40px 24px;
+  background-image: url('./assets/component-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 
+  &--foundation {
+    background-image: url('./assets/foundation-background.png');
+  }
 }

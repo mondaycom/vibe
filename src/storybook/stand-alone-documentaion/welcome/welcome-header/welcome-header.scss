@@ -6,9 +6,11 @@
   height: 294px;
   display: flex;
   align-items: center;
-  @include theme-prop(background-color, dark-background-color);
   min-width: 650px;
   padding-left: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../assets/WelcomePageCover.png');
 
   &_text {
     width: 461px;
