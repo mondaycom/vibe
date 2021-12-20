@@ -144,6 +144,7 @@ export const contentColors = [
 
 export const COLOR_STYLES = {
   REGULAR: "regular",
+  HOVER: "hover",
   SELECTED: "selected"
 };
 
