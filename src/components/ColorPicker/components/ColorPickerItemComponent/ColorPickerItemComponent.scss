@@ -3,11 +3,6 @@
   display: flex;
   border-radius: 4px;
 
-  &.selected-color {
-    .color-item {
-      border: 2px solid var(--primary-color);
-    }
-  }
   .color-item {
     display: flex;
     justify-content: center;
@@ -24,15 +19,21 @@
       width: 24px;
       height: 24px;
     }
-  
+
     &.color-item-size-medium {
       width: 32px;
       height: 32px;
     }
-  
+
     &.color-item-size-large {
       width: 40px;
       height: 40px;
+    }
+  }
+
+  &.selected-color {
+    .color-item {
+      border: 2px solid var(--primary-color);
     }
   }
 

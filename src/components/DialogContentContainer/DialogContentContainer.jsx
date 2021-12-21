@@ -41,12 +41,19 @@ const DialogContentContainer = forwardRef(
   }
 );
 
+DialogContentContainer.types = DIALOG_TYPES;
+DialogContentContainer.sizes = DIALOG_SIZES;
+
 DialogContentContainer.propTypes = {
   className: PropTypes.string,
   ariaLabelledby: PropTypes.string,
   ariaDescribedby: PropTypes.string,
-  type: PropTypes.oneOf([DIALOG_TYPES.MODAL, DIALOG_TYPES.POPOVER]),
-  size: PropTypes.oneOf([DIALOG_SIZES.SMALL, DIALOG_SIZES.MEDIUM, DIALOG_SIZES.LARGE])
+  type: PropTypes.oneOf([DialogContentContainer.types.MODAL, DialogContentContainer.types.POPOVER]),
+  size: PropTypes.oneOf([
+    DialogContentContainer.sizes.SMALL,
+    DialogContentContainer.sizes.MEDIUM,
+    DialogContentContainer.sizes.LARGE
+  ])
 };
 
 DialogContentContainer.defaultProps = {
@@ -56,8 +63,5 @@ DialogContentContainer.defaultProps = {
   type: DIALOG_TYPES.POPOVER,
   size: DIALOG_SIZES.MEDIUM
 };
-
-DialogContentContainer.types = DIALOG_TYPES;
-DialogContentContainer.sizes = DIALOG_SIZES;
 
 export default DialogContentContainer;

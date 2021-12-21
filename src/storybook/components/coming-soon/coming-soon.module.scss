@@ -1,0 +1,18 @@
+@import "../../styles/content-spacing";
+
+.coming-soon{
+  &-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  &-image {
+    width: 374px;
+    margin: $spacing-between-section-items;
+  }
+  &-title {
+    width: 374px;
+    text-align: center;
+  }
+}

@@ -12,7 +12,6 @@ import {
   RelatedComponents,
   DocFooter,
   MultipleStoryElementsWrapper,
-  Link,
   Paragraph
 } from "../src/storybook/components";
 import LinkComponent from "../src/storybook/components/link-component/link-component";
@@ -59,7 +58,19 @@ addParameters({
   },
   options: {
     storySort: {
-      order: ["Welcome", "Foundations", "Buttons", "Inputs", "Data display", "Media", "*", "Hooks"]
+      order: [
+        "Welcome",
+        "Foundations",
+        "Buttons",
+        "Inputs",
+        "Data display",
+        "Media",
+        "Popover",
+        "Pickers",
+        "*",
+        "Accessibility",
+        "Hooks"
+      ]
     }
   }
 });

@@ -3,11 +3,11 @@ import "@storybook/addon-actions/register";
 import "@storybook/addon-links/register";
 import { create } from "@storybook/theming/create";
 import { addons } from "@storybook/addons";
+import logo from "./logo.png";
 
 const theme = create({
   base: "light",
-  brandImage:
-    "https://dapulse-res.cloudinary.com/image/upload/f_auto,q_auto/remote_mondaycom_static/img/monday-logo-x2.png",
+  brandImage: logo,
   brandUrl: "https://monday.com"
 });
 
