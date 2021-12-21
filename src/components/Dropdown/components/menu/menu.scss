@@ -9,7 +9,6 @@
   0% {
     opacity: 0;
     z-index: -10000;
-    transform: translateY(-75px);
     transform: translateY(var(--dropdown-menu-fadinY, -75px));
   }
   100% {

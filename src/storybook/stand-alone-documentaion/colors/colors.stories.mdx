@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/addon-docs";
-import { Frame, RelatedComponents } from "../../components";
+import { ComponentName, Frame, RelatedComponents } from "../../components";
 import { COLORS, TYPOGRAPHY } from "../../components/related-components/component-description-map";
 import { SemanticColors } from "./semantic-colors/semantic-colors";
 import { BackgroundColors } from "./background-colors/background-colors";
@@ -15,7 +15,10 @@ import classes from "./colors.stories.module.scss";
 
 <!--- Component documentation -->
 
-# Colors
+<ComponentName withFoundationBackground>
+  Colors
+</ComponentName>
+
 - [Overview](#overview)
 - [Color keys](#color-keys)
 - [Usage and examples](#usage-and-examples)

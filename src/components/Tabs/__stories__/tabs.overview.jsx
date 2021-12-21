@@ -1,8 +1,8 @@
-import Tab from "../Tab/Tab.jsx";
-import TabList from "../TabList/TabList.jsx";
-import TabPanel from "../TabPanel/TabPanel.jsx";
-import TabPanels from "../TabPanels/TabPanels.jsx";
-import TabsContext from "../TabsContext/TabsContext.jsx";
+import Tab from "../Tab/Tab";
+import TabList from "../TabList/TabList";
+import TabPanel from "../TabPanel/TabPanel";
+import TabPanels from "../TabPanels/TabPanels";
+import TabsContext from "../TabsContext/TabsContext";
 
 export const tabsTemplate = ({ className, ...otherArgs }) => {
   return (

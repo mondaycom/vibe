@@ -95,12 +95,6 @@
       border-radius: $border-radius-medium;
       object-fit: contain;
     }
-
-    .banner--close {
-      align-self: start;
-      grid-area: close;
-      border-radius: $border-radius-small;
-    }
   }
 
   &.rtl {

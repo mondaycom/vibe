@@ -12,11 +12,24 @@
   & * {
     box-sizing: border-box;
   }
+
   .input-component__label--wrapper {
     width: 100%;
   }
 
+  .input-component__sub-text-container {
+    display: flex;
+    @include font-input();
+    @include theme-prop(color, secondary-text-color);
+    .input-component__sub-text-container-counter {
+      margin-left: auto;
+    }
+  }
+
   &.input-component--disabled {
+    .input-component__icon {
+      cursor: not-allowed;
+    }
     .input-component__input-wrapper {
       cursor: not-allowed;
       .input-component__input {
@@ -31,128 +44,12 @@
           background-color: transparent;
         }
       }
-      .input-component__icon {
-        cursor: not-allowed;
-      }
     }
   }
 
   .input-component__input-wrapper {
     width: 100%;
     position: relative;
-    &.input-component__input--error-validation {
-      &:hover {
-        .input-component__input {
-          @include theme-prop(border-color, negative-color);
-        }
-      }
-      .input-component__input {
-        @include theme-prop(border-color, negative-color);
-        &:focus,
-        &:active {
-          @include theme-prop(border-color, negative-color);
-        }
-      }
-      .input-component__icon--container .input-component__icon {
-        @include theme-prop(color, negative-color);
-        &:hover {
-          @include theme-prop(color, negative-color);
-        }
-      }
-      + .input-component__sub-text-container {
-        .input-component__sub-text-container-status {
-          @include theme-prop(color, negative-color);
-        }
-      }
-    }
-    &.input-component__input--success-validation {
-      &:hover {
-        .input-component__input {
-          @include theme-prop(border-color, positive-color);
-        }
-      }
-      .input-component__input {
-        @include theme-prop(border-color, positive-color);
-        &:focus,
-        &:active {
-          @include theme-prop(border-color, positive-color);
-        }
-      }
-      .input-component__icon--container .input-component__icon {
-        @include theme-prop(color, positive-color);
-        &:hover {
-          @include theme-prop(color, positive-color);
-        }
-      }
-      + .input-component__sub-text-container {
-        .input-component__sub-text-container-status {
-          @include theme-prop(color, positive-color);
-        }
-      }
-    }
-    &.input-component__input-wrapper--size-small {
-      height: 32px;
-      .input-component__input {
-        @include font-input();
-        &.input-component__input--has-icon {
-          &.input-component__input--only-underline {
-            padding-left: $spacing-xs;
-          }
-        }
-      }
-    }
-    &.input-component__input-wrapper--size-medium {
-      height: 40px;
-      .input-component__input {
-        @include font-paragraph();
-        &.input-component__input--has-icon {
-          padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
-          &.input-component__input--only-underline {
-            padding-left: 4px;
-          }
-        }
-      }
-      .input-component__icon--container {
-        pointer-events: none;
-        height: 32px;
-        width: 32px;
-        outline: none;
-        .input-component__icon {
-          font-size: $font-size-paragraph;
-        }
-      }
-    }
-    &.input-component__input-wrapper--size-large {
-      height: 48px;
-      .input-component__input {
-        @include font-paragraph();
-        &.input-component__input--has-icon {
-          padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
-          &.input-component__input--only-underline {
-            padding-left: $spacing-xs;
-          }
-        }
-      }
-      .input-component__icon--container {
-        height: 40px;
-        width: 40px;
-        .input-component__icon {
-          font-size: $font-size-paragraph;
-        }
-      }
-    }
-
-    .input-component__icon--container {
-      &:hover + .input-component__icon--container + .input-component__input {
-        @include theme-prop(border-color, primary-text-color);
-      }
-    }
-
-    &:hover {
-      .input-component__input {
-        @include theme-prop(border-color, primary-text-color);
-      }
-    }
 
     .input-component__input {
       width: 100%;
@@ -198,30 +95,6 @@
         border-top: none;
         padding: $spacing-small $spacing-large $spacing-small $spacing-xs;
         border-radius: 0 !important;
-      }
-    }
-    .input-component__loader--container{
-      position: absolute;
-      top: 50%;
-      right: 4px;
-      width: 24px;
-      height: 24px;
-      transform: translateY(-50%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &.input-component__loader--container-has-icon{
-        right: 32px;
-      }
-
-      .input-component__loader{
-        width: 16px;
-        height: 16px;
-
-        .input-component__loader-svg{
-          @include theme-prop(color, secondary-text-color);
-        }
       }
     }
 
@@ -271,13 +144,147 @@
         font-size: 14px;
       }
     }
-  }
-  .input-component__sub-text-container {
-    display: flex;
-    @include font-input();
-    @include theme-prop(color, secondary-text-color);
-    .input-component__sub-text-container-counter {
-      margin-left: auto;
+
+    &.input-component__input--error-validation {
+      &:hover {
+        .input-component__input {
+          @include theme-prop(border-color, negative-color);
+        }
+      }
+      .input-component__input {
+        @include theme-prop(border-color, negative-color);
+        &:focus,
+        &:active {
+          @include theme-prop(border-color, negative-color);
+        }
+      }
+      .input-component__icon--container .input-component__icon {
+        @include theme-prop(color, negative-color);
+        &:hover {
+          @include theme-prop(color, negative-color);
+        }
+      }
+      + .input-component__sub-text-container {
+        .input-component__sub-text-container-status {
+          @include theme-prop(color, negative-color);
+        }
+      }
+    }
+
+    &.input-component__input--success-validation {
+      &:hover {
+        .input-component__input {
+          @include theme-prop(border-color, positive-color);
+        }
+      }
+      .input-component__input {
+        @include theme-prop(border-color, positive-color);
+        &:focus,
+        &:active {
+          @include theme-prop(border-color, positive-color);
+        }
+      }
+      .input-component__icon--container .input-component__icon {
+        @include theme-prop(color, positive-color);
+        &:hover {
+          @include theme-prop(color, positive-color);
+        }
+      }
+      + .input-component__sub-text-container {
+        .input-component__sub-text-container-status {
+          @include theme-prop(color, positive-color);
+        }
+      }
+    }
+
+    &.input-component__input-wrapper--size-small {
+      height: 32px;
+      .input-component__input {
+        @include font-input();
+        &.input-component__input--has-icon {
+          &.input-component__input--only-underline {
+            padding-left: $spacing-xs;
+          }
+        }
+      }
+    }
+
+    &.input-component__input-wrapper--size-medium {
+      height: 40px;
+      .input-component__input {
+        @include font-paragraph();
+        &.input-component__input--has-icon {
+          padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
+          &.input-component__input--only-underline {
+            padding-left: 4px;
+          }
+        }
+      }
+      .input-component__icon--container {
+        pointer-events: none;
+        height: 32px;
+        width: 32px;
+        outline: none;
+
+        .input-component__icon {
+          font-size: $font-size-paragraph;
+        }
+
+        &:hover + .input-component__icon--container + .input-component__input {
+          @include theme-prop(border-color, primary-text-color);
+        }
+      }
+    }
+
+    &.input-component__input-wrapper--size-large {
+      height: 48px;
+      .input-component__input {
+        @include font-paragraph();
+        &.input-component__input--has-icon {
+          padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
+          &.input-component__input--only-underline {
+            padding-left: $spacing-xs;
+          }
+        }
+      }
+      .input-component__icon--container {
+        height: 40px;
+        width: 40px;
+        .input-component__icon {
+          font-size: $font-size-paragraph;
+        }
+      }
+    }
+
+    &:hover {
+      .input-component__input {
+        @include theme-prop(border-color, primary-text-color);
+      }
+    }
+
+    .input-component__loader--container{
+      position: absolute;
+      top: 50%;
+      right: 4px;
+      width: 24px;
+      height: 24px;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.input-component__loader--container-has-icon{
+        right: 32px;
+      }
+
+      .input-component__loader{
+        width: 16px;
+        height: 16px;
+
+        .input-component__loader-svg{
+          @include theme-prop(color, secondary-text-color);
+        }
+      }
     }
   }
 }
