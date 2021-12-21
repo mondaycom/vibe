@@ -18,19 +18,6 @@
       @include font-default;
     }
 
-    &_gallery {
-      margin: 0 $spacing-small;
-      display: flex;
-      align-items: center;
-
-      .monday-style-steps-header_dot {
-        margin-right: $spacing-small;
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-    }
-
     &_dot {
       @include reset-button;
       width: 6px;
@@ -45,9 +32,21 @@
       &:hover {
         transform: scale(1.3);
       }
-
       &--is-active {
         @include active-step-dot;
+      }
+    }
+
+    &_gallery {
+      margin: 0 $spacing-small;
+      display: flex;
+      align-items: center;
+
+      .monday-style-steps-header_dot {
+        margin-right: $spacing-small;
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
   }
