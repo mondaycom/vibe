@@ -64,6 +64,53 @@
       }
     }
 
+    .input-component__icon--container {
+      position: absolute;
+      top: 50%;
+      right: 4px;
+      width: 24px;
+      height: 24px;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: $border-radius-small;
+      opacity: 0;
+      pointer-events: none;
+      &:active,
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        @include theme-prop(background-color, primary-background-hover-color);
+      }
+      -webkit-appearance: none;
+
+      &.input-component__icon--container-active {
+        &.input-component__icon--container-has-icon {
+          pointer-events: all;
+          cursor: pointer;
+        }
+        opacity: 1;
+        .input-component__icon {
+          opacity: 1;
+          pointer-events: all;
+          transform: rotate(0) scale(1);
+        }
+      }
+      &.input-component__icon--container-has-icon:hover,
+      &.input-component__icon--container-has-icon:focus-within {
+        @include theme-prop(background-color, primary-background-hover-color);
+      }
+      .input-component__icon {
+        transform: rotate(90deg) scale(0.8);
+        @include theme-prop(color, icon-color);
+        will-change: transform;
+        pointer-events: none;
+        transition: color 0.1s $expand-animation-timing, transform 0.1s $expand-animation-timing;
+        font-size: 14px;
+      }
+    }
+
     &.input-component__input--error-validation {
       &:hover {
         .input-component__input {
@@ -144,8 +191,13 @@
         height: 32px;
         width: 32px;
         outline: none;
+
         .input-component__icon {
           font-size: $font-size-paragraph;
+        }
+
+        &:hover + .input-component__icon--container + .input-component__input {
+          @include theme-prop(border-color, primary-text-color);
         }
       }
     }
@@ -167,12 +219,6 @@
         .input-component__icon {
           font-size: $font-size-paragraph;
         }
-      }
-    }
-
-    .input-component__icon--container {
-      &:hover + .input-component__icon--container + .input-component__input {
-        @include theme-prop(border-color, primary-text-color);
       }
     }
 
@@ -207,52 +253,7 @@
       }
     }
 
-    .input-component__icon--container {
-      position: absolute;
-      top: 50%;
-      right: 4px;
-      width: 24px;
-      height: 24px;
-      transform: translateY(-50%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: $border-radius-small;
-      opacity: 0;
-      pointer-events: none;
-      &:active,
-      &:focus,
-      &:focus-visible {
-        outline: none;
-        @include theme-prop(background-color, primary-background-hover-color);
-      }
-      -webkit-appearance: none;
 
-      &.input-component__icon--container-active {
-        &.input-component__icon--container-has-icon {
-          pointer-events: all;
-          cursor: pointer;
-        }
-        opacity: 1;
-        .input-component__icon {
-          opacity: 1;
-          pointer-events: all;
-          transform: rotate(0) scale(1);
-        }
-      }
-      &.input-component__icon--container-has-icon:hover,
-      &.input-component__icon--container-has-icon:focus-within {
-        @include theme-prop(background-color, primary-background-hover-color);
-      }
-      .input-component__icon {
-        transform: rotate(90deg) scale(0.8);
-        @include theme-prop(color, icon-color);
-        will-change: transform;
-        pointer-events: none;
-        transition: color 0.1s $expand-animation-timing, transform 0.1s $expand-animation-timing;
-        font-size: 14px;
-      }
-    }
   }
 
   .input-component__label--wrapper {
@@ -269,6 +270,9 @@
   }
 
   &.input-component--disabled {
+    .input-component__icon {
+      cursor: not-allowed;
+    }
     .input-component__input-wrapper {
       cursor: not-allowed;
       .input-component__input {
@@ -278,13 +282,11 @@
         @include theme-prop(background-color, disabled-background-color);
         cursor: not-allowed;
       }
+
       .input-component__icon--container.input-component__icon--container-has-icon {
         &:hover {
           background-color: transparent;
         }
-      }
-      .input-component__icon {
-        cursor: not-allowed;
       }
     }
   }
