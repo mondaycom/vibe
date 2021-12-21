@@ -1,5 +1,34 @@
-.aсс {
+@import "../../../styles/themes.scss";
+@import "../../../styles/typography.scss";
+
+.monday-storybook-multiStepIndicator {
+  &_column-wrapper {
     display: flex;
     flex-direction: column;
     gap: 40px;
+  }
+
+  &_big-size {
+    width: 100%;
+  }
+
+  &_spacing {
+    width: 400px;
+    height: 80px;
+    @include theme-prop(background-color, winter);
+    @include theme-prop(box-shadow, box-shadow-medium);
+  }
+
+  &_box-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_line {
+    margin-left: -40px;
+    .monday-style-divider {
+      width: 130px;
+    } 
+  }
 }

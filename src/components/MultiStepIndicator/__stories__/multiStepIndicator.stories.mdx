@@ -1,16 +1,22 @@
 import MultiStepIndicator from "../MultiStepIndicator";
+import { useMemo, useState, useEffect, useCallback } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { STEP_STATUSES } from "../MultiStepConstants";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { BREADCRUBMS, STEPPER, TAB } from "../../../storybook/components/related-components/component-description-map";
+import { firstSteps, secondSteps, thirdSteps } from "./helper.js";
 import "./multiStepIndicator.stories.scss";
 
+
 <Meta
-  title="Components/MultiStepIndicator/MultiStepIndicator"
+  title="Navigation/MultiStepIndicator"
   component={ MultiStepIndicator }
 />
 
 <!--- Component template -->
 
 export const multiStepIndicatorTemplate = createComponentTemplate(MultiStepIndicator);
+console.log(firstSteps)
 
 <!--- Component documentation -->
 
@@ -29,7 +35,25 @@ Tabular navigation component that helps users visualize and interact with a mult
 
 <Canvas>
   <Story name="Overview"
-         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+         args={ {
+           steps: [
+            {
+              status: MultiStepIndicator.stepStatuses.FULFILLED,
+              titleText: "Everything you can do with Monday",
+              subtitleText: "Subtitle"
+            },
+            {
+              status: MultiStepIndicator.stepStatuses.PENDING,
+              titleText: "Everything you can do with Monday",
+              subtitleText: "Subtitle"
+            },
+            {
+              status: MultiStepIndicator.stepStatuses.PENDING,
+              titleText: "Everything you can do with Monday",
+              subtitleText: "Subtitle"
+            }
+           ]
+          } }>
     { multiStepIndicatorTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -53,39 +77,7 @@ Placements
 <Canvas>
   <Story name="Placements">
     {() => {
-      const steps = [
-        {
-          status: MultiStepIndicator.stepStatuses.FULFILLED,
-          titleText: "Fulfilled title",
-          subtitleText: ""
-        },
-        {
-          status: MultiStepIndicator.stepStatuses.ACTIVE,
-          titleText: "Active title",
-          subtitleText: ""
-        },
-        {
-          status: MultiStepIndicator.stepStatuses.PENDING,
-          titleText: "Pending title",
-          subtitleText: ""
-        }
-      ];
-      return (
-        <div className="aсс">
-          <MultiStepIndicator steps={steps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />
-          <MultiStepIndicator steps={steps} />
-        </div>
-      )
-    }}
-  </Story>
-</Canvas>
-
-### Types
-There are 4 types: Primary, success, danger, dark
-<Canvas>
-  <Story name="Types">
-    {() => {
-      const exampleSteps = [
+      const steps = useMemo(() => [
         {
           status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Fulfilled title",
@@ -101,13 +93,45 @@ There are 4 types: Primary, success, danger, dark
           titleText: "Pending title",
           subtitleText: "Pending subtitle"
         }
-      ];
+      ], []);
       return (
-        <div className="aсс">
-          <MultiStepIndicator steps={exampleSteps} type={MultiStepIndicator.types.PRIMARY} />
-          <MultiStepIndicator steps={exampleSteps} type={MultiStepIndicator.types.SUCCESS} />
-          <MultiStepIndicator steps={exampleSteps} type={MultiStepIndicator.types.DANGER} />
-          <MultiStepIndicator steps={exampleSteps} type={MultiStepIndicator.types.DARK} />
+        <div className="monday-storybook-multiStepIndicator_column-wrapper">
+          <MultiStepIndicator steps={steps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />
+          <MultiStepIndicator steps={steps} />
+        </div>
+      )
+    }}
+  </Story>
+</Canvas>
+
+### Types
+There are 4 types: Primary, success, danger, dark
+<Canvas>
+  <Story name="Types">
+    {() => {
+      const steps = useMemo(() => [
+        {
+          status: MultiStepIndicator.stepStatuses.FULFILLED,
+          titleText: "Fulfilled title",
+          subtitleText: "Fulfilled subtitle"
+        },
+        {
+          status: MultiStepIndicator.stepStatuses.ACTIVE,
+          titleText: "Active title",
+          subtitleText: "Active subtitle"
+        },
+        {
+          status: MultiStepIndicator.stepStatuses.PENDING,
+          titleText: "Pending title",
+          subtitleText: "Pending subtitle"
+        }
+      ], []);
+      return (
+        <div className="monday-storybook-multiStepIndicator_column-wrapper">
+          <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.PRIMARY} />
+          <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.SUCCESS} />
+          <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.DANGER} />
+          <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.DARK} />
         </div>
       )
     }}
@@ -118,8 +142,63 @@ There are 4 types: Primary, success, danger, dark
 State transition automatic example
 <Canvas>
   <Story name="Transition Animation">
-    <MultiStepIndicator />
-    <MultiStepIndicator />
+    {() => {
+    const exampleSteps = {
+      firstStep: {
+        status: MultiStepIndicator.stepStatuses.PENDING,
+        titleText: "First step title",
+        subtitleText: "First subtitle",
+      },
+      secondStep: {
+        status: MultiStepIndicator.stepStatuses.PENDING,
+        titleText: "Second step title",
+        subtitleText: "Second subtitle",
+      },
+      thirdStep: {
+        status: MultiStepIndicator.stepStatuses.PENDING,
+        titleText: "Third step title",
+        subtitleText: "Third subtitle",
+      },
+    };
+    const [steps, setSteps] = useState([
+      { ...exampleSteps.firstStep },
+      { ...exampleSteps.secondStep },
+      { ...exampleSteps.thirdStep }
+    ]);
+    const clearSteps = useCallback(() => {
+      setSteps([{ ...exampleSteps.firstStep }, { ...exampleSteps.secondStep }, { ...exampleSteps.thirdStep }]);
+    }, [setSteps]);
+    const getStepKeyForTransition = () => {
+      if (numActions < 2) return "firstStep";
+      else if (numActions < 4) return "secondStep";
+      else return "thirdStep";
+    };
+    const STEP_TRANSITIONS = {
+      [STEP_STATUSES.PENDING]: STEP_STATUSES.ACTIVE,
+      [STEP_STATUSES.ACTIVE]: STEP_STATUSES.FULFILLED,
+      [STEP_STATUSES.FULFILLED]: STEP_STATUSES.PENDING
+    };
+    const [numActions, setNumActions] = useState(0);
+    const performIndicatorStateTransition = useCallback(() => {
+      if (numActions === steps.length * 2) {
+        clearSteps();
+        setNumActions(0);
+        return;
+      }
+      const stepKey = getStepKeyForTransition();
+      const copySteps = { firstStep: { ...steps[0] }, secondStep: { ...steps[1] }, thirdStep: { ...steps[2] } };
+      copySteps[stepKey].status = STEP_TRANSITIONS[copySteps[stepKey].status];
+      setSteps([{ ...copySteps.firstStep }, { ...copySteps.secondStep }, { ...copySteps.thirdStep }]);
+      setNumActions(numActions + 1);
+    }, [steps, setSteps, numActions, setNumActions]);
+    useEffect(() => {
+      const interval = setInterval(performIndicatorStateTransition, 2000);
+      return () => {
+        clearInterval(interval);
+      };
+    }, [performIndicatorStateTransition]);
+    return <MultiStepIndicator steps={steps} />
+  }}
   </Story>
 </Canvas>
 
@@ -128,21 +207,29 @@ State transition automatic example
   rules={[
     {
       positive: {
-        component:<MultiStepIndicator />,
+        component:<MultiStepIndicator steps={firstSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_big-size" />,
         description:"Be consistent with the information you include under each step. If you’re using a subtitle on one step, use for all steps."
       },
       negative: {
-        component:<MultiStepIndicator />,
+        component:<MultiStepIndicator steps={secondSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_big-size"  />,
         description:"Don’t place subheader on one step only."
       }
     },
     {
       positive: {
-        component:<MultiStepIndicator />,
+        component:
+          <div className="box-wrapper">
+            <MultiStepIndicator steps={thirdSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_small-size" />
+            <div className="monday-storybook-multiStepIndicator_spacing" />
+          </div>,
         description:"Grouping steps makes it easier to grasp the progress and navigate among steps."
       },
       negative: {
-        component:<MultiStepIndicator />,
+        component:
+          <div className="monday-storybook-multiStepIndicator_box-wrapper">
+            <MultiStepIndicator steps={thirdSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_line" />
+            <div className="monday-storybook-multiStepIndicator_spacing" />
+          </div>,
         description:"Avoid spacing steps far apart. It requires user's eyes and mouse to move for a longer distance."
       }
     }
@@ -153,9 +240,30 @@ State transition automatic example
 ### Multi step wizard
 <Canvas>
   <Story name="Multi step wizard">
-    <div>1</div>
+    {() => {
+      const steps = useMemo(() => [
+        {
+          status: MultiStepIndicator.stepStatuses.FULFILLED,
+          titleText: "Step 1",
+          subtitleText: "Learn how to use monday CRM"
+        },
+        {
+          status: MultiStepIndicator.stepStatuses.PENDING,
+          titleText: "Step 2",
+          subtitleText: "Integrate your email"
+        },
+        {
+          status: MultiStepIndicator.stepStatuses.PENDING,
+          titleText: "Step 3",
+          subtitleText: "Import your data"
+        }
+      ], []);
+      return (
+        <MultiStepIndicator className="monday-storybook-multiStepIndicator_big-size" steps={steps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />
+      )
+    }}
   </Story>
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[]} />
+<RelatedComponents componentsNames={[TAB, BREADCRUBMS]} />
