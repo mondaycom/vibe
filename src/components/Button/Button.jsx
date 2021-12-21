@@ -289,6 +289,7 @@ const Button = forwardRef(
 Button.sizes = SIZES;
 Button.colors = BUTTON_COLORS;
 Button.kinds = BUTTON_TYPES;
+Button.types = BUTTON_INPUT_TYPE;
 Button.inputTags = BUTTON_INPUT_TYPE;
 
 Button.propTypes = {

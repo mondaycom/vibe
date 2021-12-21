@@ -22,7 +22,7 @@ export const Tip = ({ className, title, children }) => {
 
 Tip.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.oneOf(PropTypes.string, PropTypes.element),
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   className: PropTypes.string
 };
 
