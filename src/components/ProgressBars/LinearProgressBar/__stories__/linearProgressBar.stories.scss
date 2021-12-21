@@ -44,9 +44,8 @@
 
   &_row-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-flow: row nowrap;
     align-items: center;
-    flex-wrap: nowrap;
     padding: 0;
   }
 
