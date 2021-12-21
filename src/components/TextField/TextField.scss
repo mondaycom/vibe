@@ -13,6 +13,40 @@
     box-sizing: border-box;
   }
 
+  .input-component__label--wrapper {
+    width: 100%;
+  }
+
+  .input-component__sub-text-container {
+    display: flex;
+    @include font-input();
+    @include theme-prop(color, secondary-text-color);
+    .input-component__sub-text-container-counter {
+      margin-left: auto;
+    }
+  }
+
+  &.input-component--disabled {
+    .input-component__icon {
+      cursor: not-allowed;
+    }
+    .input-component__input-wrapper {
+      cursor: not-allowed;
+      .input-component__input {
+        user-select: none;
+        border: none;
+        pointer-events: none;
+        @include theme-prop(background-color, disabled-background-color);
+        cursor: not-allowed;
+      }
+      .input-component__icon--container.input-component__icon--container-has-icon {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
   .input-component__input-wrapper {
     width: 100%;
     position: relative;
@@ -249,43 +283,6 @@
 
         .input-component__loader-svg{
           @include theme-prop(color, secondary-text-color);
-        }
-      }
-    }
-
-
-  }
-
-  .input-component__label--wrapper {
-    width: 100%;
-  }
-
-  .input-component__sub-text-container {
-    display: flex;
-    @include font-input();
-    @include theme-prop(color, secondary-text-color);
-    .input-component__sub-text-container-counter {
-      margin-left: auto;
-    }
-  }
-
-  &.input-component--disabled {
-    .input-component__icon {
-      cursor: not-allowed;
-    }
-    .input-component__input-wrapper {
-      cursor: not-allowed;
-      .input-component__input {
-        user-select: none;
-        border: none;
-        pointer-events: none;
-        @include theme-prop(background-color, disabled-background-color);
-        cursor: not-allowed;
-      }
-
-      .input-component__icon--container.input-component__icon--container-has-icon {
-        &:hover {
-          background-color: transparent;
         }
       }
     }

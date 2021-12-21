@@ -9,7 +9,6 @@ import Icon from "../Icon/Icon";
 import AddSmall from "../Icon/Icons/components/AddSmall";
 import { getWidthHeight } from "./services/IconButton-helpers";
 import { SIZES } from "../../constants/sizes";
-import "./IconButton.scss";
 
 const IconButton = forwardRef(
   ({ className, id, icon, size, tooltipContent, ariaLabel, kind, active, disabled, disabledReason, onClick }, ref) => {

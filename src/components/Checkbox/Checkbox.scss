@@ -21,6 +21,14 @@ $checkbox-size: 16px;
   width: fit-content;
   height: min-content;
 
+  &__label {
+    @include font-input();
+    cursor: pointer;
+    user-select: none;
+    margin-inline-start: $spacing-small;
+    @include theme-prop(color, primary-text-color);
+  }
+
   &__checkbox {
     cursor: pointer;
     visibility: visible;
@@ -64,14 +72,6 @@ $checkbox-size: 16px;
     }
   }
 
-  &__label {
-    @include font-input();
-    cursor: pointer;
-    user-select: none;
-    margin-inline-start: $spacing-small;
-    @include theme-prop(color, primary-text-color);
-  }
-
   // Since it is not possible to change the design of the checkbox according to the requirements using css,
   // we hide the checkbox and draw a new one instead.
   // In order to allow accessibility, all operations will be performed on the hidden checkbox and be reflected
@@ -79,14 +79,28 @@ $checkbox-size: 16px;
   &__input {
     @include hidden-element();
 
+    &:disabled {
+      & + .monday-style-checkbox {
+        &__checkbox,
+        &__checkbox:hover {
+          @include theme-prop(background-color, disabled-background-color);
+          @include theme-prop(border-color, ui-border-color);
+
+          .monday-style-checkbox__icon {
+            @include theme-prop(color, disabled-text-color);
+          }
+        }
+      }
+    }
+
     // For any active attribute in the hidden checkbox, we will change the appearance of the checkbox we drew in its place.
     &:focus {
-      & + .monday-style-checkbox__checkbox {
-        @include hover-unselected;
-      }
-
       &:checked + .monday-style-checkbox__checkbox {
         @include hover-selected;
+      }
+
+      & + .monday-style-checkbox__checkbox {
+        @include hover-unselected;
       }
     }
     &:focus-visible {
@@ -140,19 +154,6 @@ $checkbox-size: 16px;
       &:disabled + .monday-style-checkbox {
         &__checkbox:after {
           @include theme-prop(background-color, disabled-background-color);
-        }
-      }
-    }
-    &:disabled {
-      & + .monday-style-checkbox {
-        &__checkbox,
-        &__checkbox:hover {
-          @include theme-prop(background-color, disabled-background-color);
-          @include theme-prop(border-color, ui-border-color);
-
-          .monday-style-checkbox__icon {
-            @include theme-prop(color, disabled-text-color);
-          }
         }
       }
     }
