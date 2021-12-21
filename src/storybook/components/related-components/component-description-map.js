@@ -21,6 +21,8 @@ import { TextFieldDescription } from "./descriptions/text-field-description";
 import { SearchDescription } from "./descriptions/search-description";
 import { ComboboxDescription } from "./descriptions/combobox-description";
 import { ColorsDescription } from "./descriptions/colors-description/colors-description";
+import { AvatarDescription } from "./descriptions/avatar-description";
+import { IconsDescription } from "./descriptions/icons-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -44,6 +46,8 @@ export const TIPSEEN = "tipseen";
 export const TEXT_FIELD = "text-field";
 export const SEARCH = "search";
 export const COMBOBOX = "combobox";
+export const AVATAR = "avatar";
+export const ICONS = "icons";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
@@ -72,6 +76,8 @@ descriptionTypesMap.set(TIPSEEN, <TipseenDescription />);
 descriptionTypesMap.set(TEXT_FIELD, <TextFieldDescription />);
 descriptionTypesMap.set(SEARCH, <SearchDescription />);
 descriptionTypesMap.set(COMBOBOX, <ComboboxDescription />);
+descriptionTypesMap.set(AVATAR, <AvatarDescription />);
+descriptionTypesMap.set(ICONS, <IconsDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
