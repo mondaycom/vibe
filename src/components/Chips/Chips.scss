@@ -16,6 +16,11 @@ $icon-margin: 4px;
   animation: chips-enter 100ms;
   animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
 
+  .label {
+    @include font-general-text();
+    @include ellipsis();
+  }
+
   &.no-animation {
     animation: none;
   }
@@ -51,11 +56,6 @@ $icon-margin: 4px;
     .label {
       @include theme-prop(color, disabled-text-color);
     }
-  }
-
-  .label {
-    @include font-general-text();
-    @include ellipsis();
   }
 }
 

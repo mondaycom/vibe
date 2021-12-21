@@ -1,7 +1,51 @@
 @import "../../styles/states.scss";
 @import "../../styles/global-css-settings.scss";
 
-.monday-style-toggle{
+.monday-style-toggle {
+  &_toggle {
+    @include reset-button();
+    transition: background-color 100ms $expand-animation-timing;
+    margin: 0 $spacing-small;
+    position: relative;
+    height: 24px;
+    width: 41px;
+    cursor: pointer;
+    border-radius: 100px !important;
+
+    &::after {
+      @include theme-prop(background-color, primary-background-color);
+      content: " ";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: calc(50% - 18px / 2);
+      transition: left 100ms $expand-animation-timing;
+    }
+
+    &--selected {
+      @include theme-prop(background-color, primary-color);
+      &::after {
+        left: 20px;
+      }
+    }
+
+    &--not-selected {
+      @include theme-prop(background-color, ui-border-color);
+      &::after {
+        left: 3px;
+      }
+    }
+  }
+
+  &_text {
+    @include theme-prop(color, primary-text-color);
+    font-style: normal;
+    font-weight: normal;
+    size: 14px;
+    line-height: 22px;
+  }
+
   &_wrapper {
     display: flex;
     align-items: center;
@@ -30,49 +74,5 @@
         @include focus-style-css();
       }
     }
-  }
-
-  &_toggle {
-    @include reset-button();
-    transition: background-color 100ms $expand-animation-timing;
-    margin: 0 $spacing-small;
-    position: relative;
-    height: 24px;
-    width: 41px;
-    cursor: pointer;
-    border-radius: 100px !important;
-
-    &::after {
-      @include theme-prop(background-color, primary-background-color);
-      content: " ";
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      top: calc(50% - 18px/2);
-      transition: left 100ms $expand-animation-timing;
-    }
-
-    &--selected {
-      @include theme-prop(background-color, primary-color);
-      &::after {
-        left: 20px;
-      }
-    }
-
-    &--not-selected {
-      @include theme-prop(background-color, ui-border-color);
-      &::after {
-        left: 3px;
-      }
-    }
-  }
-
-  &_text {
-    @include theme-prop(color, primary-text-color);
-    font-style: normal;
-    font-weight: normal;
-    size: 14px;
-    line-height: 22px;
   }
 }

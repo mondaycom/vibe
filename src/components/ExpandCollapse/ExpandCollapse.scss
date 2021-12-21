@@ -69,7 +69,6 @@
   @keyframes expandContentAnimation {
     0% {
       opacity: 0;
-      transform: translateY(-75px);
       transform: translateY(var(--dropdown-menu-fadinY, -75px));
     }
     100% {

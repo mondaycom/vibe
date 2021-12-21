@@ -8,15 +8,6 @@
     align-items: center;
   }
 
-  &-icon {
-    &:hover {
-      & + .drag-shadow-example-draggable {
-        @include box-shadow-medium;
-        transform: rotate(1deg);
-      }
-    }
-  }
-
   &-draggable {
     display: flex;
     justify-content: flex-start;
@@ -28,5 +19,14 @@
     padding: var(--spacing-small);
     width: 234px;
     height: 37px;
+  }
+
+  &-icon {
+    &:hover {
+      & + .drag-shadow-example-draggable {
+        @include box-shadow-medium;
+        transform: rotate(1deg);
+      }
+    }
   }
 }
