@@ -23,15 +23,15 @@
     &.half-size {
       height: 30px;
     }
-    &:hover {
-      .color-code-name {
-        display: flex;
-      }
-    }
     .color-code-name {
       display: none;
       color: var(--color-snow_white);
       text-shadow: -1px -1px var(--primary-text-color);
+    }
+    &:hover {
+      .color-code-name {
+        display: flex;
+      }
     }
   }
 
