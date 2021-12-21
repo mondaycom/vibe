@@ -34,10 +34,6 @@
 
   &--kind {
     &-tertiary {
-      .monday-style-split-button__secondary-button {
-        border-left: 1px solid transparent;
-        margin-left: 1px;
-      }
       &.monday-style-split-button {
         &--color {
           &-primary {
@@ -105,6 +101,10 @@
             }
           }
         }
+      }
+      .monday-style-split-button__secondary-button {
+        border-left: 1px solid transparent;
+        margin-left: 1px;
       }
     }
     &-primary {
