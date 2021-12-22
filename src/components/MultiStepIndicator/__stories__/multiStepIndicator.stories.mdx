@@ -5,11 +5,13 @@ import { STEP_STATUSES } from "../MultiStepConstants";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import { BREADCRUBMS, STEPPER, TAB } from "../../../storybook/components/related-components/component-description-map";
 import { firstSteps, secondSteps, thirdSteps } from "./helper.js";
+import { Link } from "../../../storybook/components";
+import { Featured } from "../../Icon/Icons"
 import "./multiStepIndicator.stories.scss";
 
 
 <Meta
-  title="Navigation/MultiStepIndicator"
+  title="Navigation/Wizard"
   component={ MultiStepIndicator }
 />
 
@@ -62,13 +64,14 @@ Tabular navigation component that helps users visualize and interact with a mult
 
 ## Usage
 <UsageGuidelines guidelines={[
-  "Use stepper wizard to break a larger goal into manageable steps.",
+  "Use wizard to break a larger goal into manageable steps.",
   "If a workflow needs more than 6 steps, consider how you might simplify it or break it up into multiple tasks.",
-  "Use a numbered stepper when users must complete a series of prerequisite tasks in a prescribed order. Alternatively, use a non-numbered stepper when users can complete steps in any order, without prerequisites.",
-  "Always position the stepper at the top of the multi-step process so that the user has a common reference point as they move between steps.",
+  "Always position the wizard at the top of the multi-step process so that the user has a common reference point as they move between steps.",
 ]}/>
 
-<Tip title="Not what you were looking for?">In order to navigate between content withouht a liniar progress, use the Tabs or Button group component.</Tip>
+<Tip title="Not what you were looking for?">
+  In order to navigate between content withouht a liniar progress, use the <Link href="/?path=/docs/navigation-tabs-tabs--overview" size={Link.sizes.SMALL} withoutSpacing>Tabs</Link> or <Link href="/?path=/docs/buttons-buttongroup--overview" size={Link.sizes.SMALL} withoutSpacing>Button group</Link> component.
+</Tip>
 
 ## Variants
 ### Placements
@@ -127,10 +130,63 @@ There are 4 types: Primary, success, danger, dark
       ], []);
       return (
         <div className="monday-storybook-multiStepIndicator_column-wrapper">
-          <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.PRIMARY} />
-          <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.SUCCESS} />
-          <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.DANGER} />
-          <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.DARK} />
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="title">primary</span>
+            <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.PRIMARY} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="title">success</span>
+            <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.SUCCESS} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="title">danger</span>
+            <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.DANGER} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="title">dark</span>
+            <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.DARK} />
+          </div>
+        </div>
+      )
+    }}
+  </Story>
+</Canvas>
+
+### Fullfiled Icons
+<Canvas>
+  <Story name="Fullfiled Icons">
+    {() => {
+      const steps = useMemo(() => [
+        {
+          status: MultiStepIndicator.stepStatuses.FULFILLED,
+          titleText: "Fulfilled title",
+          subtitleText: "Fulfilled subtitle"
+        },
+        {
+          status: MultiStepIndicator.stepStatuses.ACTIVE,
+          titleText: "Active title",
+          subtitleText: "Active subtitle"
+        },
+        {
+          status: MultiStepIndicator.stepStatuses.PENDING,
+          titleText: "Pending title",
+          subtitleText: "Pending subtitle"
+        }
+      ], []);
+      return (
+        <div className="monday-storybook-multiStepIndicator_column-wrapper">
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="title">Default (check)</span>
+            <MultiStepIndicator steps={steps} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="title">Number instead of icon</span>
+            <MultiStepIndicator steps={steps} isFulfilledStepDisplayNumber={true} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="title">Custom (featured)</span>
+            <MultiStepIndicator steps={steps} fulfilledStepIcon={Featured}  />
+          </div>
         </div>
       )
     }}
@@ -221,7 +277,7 @@ State transition automatic example
             <MultiStepIndicator steps={thirdSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_small-size" />
             <div className="monday-storybook-multiStepIndicator_spacing" />
           </div>,
-        description:"Grouping steps makes it easier to grasp the progress and navigate among steps."
+        description:"While using the wizard component, keep the default spacing between the wizard steps, even if the wizard width is smaller than the page width."
       },
       negative: {
         component:
@@ -229,7 +285,7 @@ State transition automatic example
             <MultiStepIndicator steps={thirdSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_line" />
             <div className="monday-storybook-multiStepIndicator_spacing" />
           </div>,
-        description:"Avoid spacing steps far apart. It requires user's eyes and mouse to move for a longer distance."
+        description:"Do not override the spacing between the wizard steps according to the page width."
       }
     }
   ]}
@@ -265,4 +321,4 @@ State transition automatic example
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[TAB, BREADCRUBMS]} />
+<RelatedComponents componentsNames={[TAB, BREADCRUBMS, STEPPER]} />

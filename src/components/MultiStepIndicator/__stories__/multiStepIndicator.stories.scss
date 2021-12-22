@@ -5,7 +5,18 @@
   &_column-wrapper {
     display: flex;
     flex-direction: column;
+    gap: 30px;
+  }
+  
+  &_row-wrapper {
+    display: flex;
+    align-items: center;
     gap: 40px;
+    padding-left: 30px;
+
+    .title {
+      width: 140px;
+    }
   }
 
   &_big-size {
@@ -15,7 +26,8 @@
   &_spacing {
     width: 400px;
     height: 80px;
-    @include theme-prop(background-color, winter);
+    padding-bottom: 10px;
+    @include theme-prop(background-color, primary-background-color);
     @include theme-prop(box-shadow, box-shadow-medium);
   }
 
