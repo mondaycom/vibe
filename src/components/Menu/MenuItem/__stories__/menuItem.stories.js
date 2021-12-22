@@ -14,6 +14,47 @@ import { Activity, Archive, Settings, Invite, Bolt } from "../../../Icon/Icons";
 
 const DISABLE_REASON = "You can't click me";
 
+export const menuItemTemplate = args => (
+  <div style={{ width: 200 }}>
+    <Menu>
+      <MenuItem {...args} />
+    </Menu>
+  </div>
+);
+
+/**export const menuStatesTemplate = args => (export const States = () => (
+  <div>
+    <FlexLayout>
+      <StoryLine title="Menu item">
+        <Menu size={Menu.sizes.SMALL}>
+          <MenuItem id="menu-item" title={("title", "My item")} icon={"fa fa-star-o"} iconType={Icon.type.ICON_FONT} />
+        </Menu>
+      </StoryLine>
+    </FlexLayout>
+    <FlexLayout>
+      <StoryLine title="Menu item with svg icon">
+        <Menu size={Menu.sizes.SMALL}>
+          <MenuItem id="menu-item" title={"SVG icon item"} icon={Activity} iconType={Icon.type.ICON_SVG} />
+        </Menu>
+      </StoryLine>
+    </FlexLayout>
+    <FlexLayout>
+      <StoryLine title="Disabled menu item">
+        <Menu size={Menu.sizes.SMALL}>
+          <MenuItem
+            id="menu-item"
+            title={"Disabled item"}
+            icon={"fa fa-star-o"}
+            disabled={true}
+            disableReason={DISABLE_REASON}
+          />
+        </Menu>
+      </StoryLine>
+    </FlexLayout>
+  </div>
+););
+**/
+
 const subSubMenuRenderer = () => {
   return (
     <Menu tabIndex={0} id="menu-level-3" size={Menu.sizes.SMALL}>
@@ -133,37 +174,7 @@ export const Sandbox = () => {
   );
 };
 
-export const States = () => (
-  <div style={{ width: 700 }}>
-    <FlexLayout>
-      <StoryLine title="Menu item">
-        <Menu size={Menu.sizes.SMALL}>
-          <MenuItem id="menu-item" title={("title", "My item")} icon={"fa fa-star-o"} iconType={Icon.type.ICON_FONT} />
-        </Menu>
-      </StoryLine>
-    </FlexLayout>
-    <FlexLayout>
-      <StoryLine title="Menu item with svg icon">
-        <Menu size={Menu.sizes.SMALL}>
-          <MenuItem id="menu-item" title={"SVG icon item"} icon={Activity} iconType={Icon.type.ICON_SVG} />
-        </Menu>
-      </StoryLine>
-    </FlexLayout>
-    <FlexLayout>
-      <StoryLine title="Disabled menu item">
-        <Menu size={Menu.sizes.SMALL}>
-          <MenuItem
-            id="menu-item"
-            title={"Disabled item"}
-            icon={"fa fa-star-o"}
-            disabled={true}
-            disableReason={DISABLE_REASON}
-          />
-        </Menu>
-      </StoryLine>
-    </FlexLayout>
-  </div>
-);
+
 
 export const subMenu = () => {
   const iconType = select("icon type", { FONT: Icon.type.ICON_FONT, SVG: Icon.type.SVG }, Icon.type.SVG);
