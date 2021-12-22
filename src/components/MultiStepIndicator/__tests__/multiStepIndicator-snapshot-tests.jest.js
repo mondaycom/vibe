@@ -1,6 +1,25 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import { Featured } from "../../Icon/Icons"
 import MultiStepIndicator from "../MultiStepIndicator";
+
+const exampleSteps = [
+  {
+    status: MultiStepIndicator.stepStatuses.FULFILLED,
+    titleText: "Title",
+    subtitleText: "Subtitle"
+  },
+  {
+    status: MultiStepIndicator.stepStatuses.ACTIVE,
+    titleText: "Active",
+    subtitleText: "Active Subtitle"
+  },
+  {
+    status: MultiStepIndicator.stepStatuses.PENDING,
+    titleText: "Pending",
+    subtitleText: "Pending Subtitle"
+  }
+];
 
 describe("MultiStepIndicator renders correctly", () => {
   it("with empty props", () => {
@@ -8,25 +27,38 @@ describe("MultiStepIndicator renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Renders correctly with non-default props", () => {
-    const exampleSteps = [
-      {
-        status: MultiStepIndicator.stepStatuses.FULFILLED,
-        titleText: "Title",
-        subtitleText: "Subtitle"
-      },
-      {
-        status: MultiStepIndicator.stepStatuses.ACTIVE,
-        titleText: "Active",
-        subtitleText: "Active Subtitle"
-      },
-      {
-        status: MultiStepIndicator.stepStatuses.PENDING,
-        titleText: "Pending",
-        subtitleText: "Pending Subtitle"
-      }
-    ];
-    const tree = renderer.create(<MultiStepIndicator type={MultiStepIndicator.types.SUCCESS} steps={exampleSteps} />);
+  it("with steps", () => {
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with className", () => {
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} className="test" />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with stepComponentClassName", () => {
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} stepComponentClassName="test" />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with textPlacement vertical", () => {
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with dividerComponentClassName", () => {
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} dividerComponentClassName="test" />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with isFulfilledStepDisplayNumber", () => {
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} isFulfilledStepDisplayNumber />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with fulfilledStepIcon", () => {
+    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} fulfilledStepIcon={Featured} />);
     expect(tree).toMatchSnapshot();
   });
 });

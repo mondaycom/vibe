@@ -3,17 +3,31 @@ import { fireEvent, render, cleanup } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import MultiStepIndicator from "../MultiStepIndicator";
 
-
-const renderComponent = props => {
-  return render(<MultiStepIndicator {...props} />);
-};
-
 describe("MultiStepIndicator tests", () => {
-  afterEach(() => {
-    cleanup();
+  it("onClick works and is called once", () => {
+    const exampleSteps = [
+      {
+        status: MultiStepIndicator.stepStatuses.FULFILLED,
+        titleText: "Title",
+        subtitleText: "Subtitle"
+      },
+      {
+        status: MultiStepIndicator.stepStatuses.ACTIVE,
+        titleText: "Active",
+        subtitleText: "Active Subtitle"
+      }
+    ];
+
+    const stepClickMock = jest.fn();
+
+    const multiStepIndicatorComponent = render(
+      <MultiStepIndicator type={MultiStepIndicator.types.SUCCESS} steps={exampleSteps} onClick={stepClickMock} />
+    );
+
+    const step = multiStepIndicatorComponent.getByText("Title");
+    act(() => {
+      fireEvent.click(step);
+    });
+    expect(stepClickMock.mock.calls.length).toBe(1);
   });
-
-  it("calls x when y", () => {});
-
-  it("should do  x when y", () => {});
 });
