@@ -7,4 +7,26 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: $spacing-large;
   grid-row-gap: 90px;
+
+  &_contributor {
+    &--orr {
+      background-image: url('../assets/OrrBackground.png');
+    }
+
+    &--evgeniy {
+      background-image: url('../assets/EvgeniyBackground.png');
+    }
+
+    &--hadas {
+      background-image: url('../assets/HadasBackground.png');
+    }
+
+    &--moshe {
+      background-image: url('../assets/MosheBackground.png');
+    }
+
+    &--sahar {
+      background-image: url('../assets/SaharBackground.png');
+    }
+  }
 }

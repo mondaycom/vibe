@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinearProgressBar renders correctly with barStyle 1`] = `
+<div
+  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+>
+  <div
+    className="linear-progress-bar__container"
+  >
+    <div
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={20}
+      className="linear-progress-bar linear-progress-bar--positive linear-progress-bar--animate"
+      role="progressbar"
+      style={
+        Object {
+          "width": "20%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`LinearProgressBar renders correctly with empty props 1`] = `
+<div
+  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+>
+  <div
+    className="linear-progress-bar__container"
+  />
+</div>
+`;
+
+exports[`LinearProgressBar renders correctly with indicateProgress 1`] = `
+<div
+  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+>
+  <div
+    className="linear-progress-bar__container"
+  >
+    <div
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={20}
+      className="linear-progress-bar linear-progress-bar--primary linear-progress-bar--animate"
+      role="progressbar"
+      style={
+        Object {
+          "width": "20%",
+        }
+      }
+    />
+  </div>
+  <label
+    className="linear-progress-bar__label"
+    htmlFor="linear-progress-bar"
+  >
+    20%
+  </label>
+</div>
+`;
+
+exports[`LinearProgressBar renders correctly with min 1`] = `
+<div
+  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+>
+  <div
+    className="linear-progress-bar__container"
+  >
+    <div
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={11.11111111111111}
+      className="linear-progress-bar linear-progress-bar--primary linear-progress-bar--animate"
+      role="progressbar"
+      style={
+        Object {
+          "width": "11.11111111111111%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`LinearProgressBar renders correctly with multi and multiValues 1`] = `
+<div
+  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+>
+  <div
+    className="linear-progress-bar__container"
+  >
+    <div
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={100}
+      className="linear-progress-bar linear-progress-bar--none linear-progress-bar--animate"
+      role="progressbar"
+      style={
+        Object {
+          "backgroundColor": "green",
+          "width": "100%",
+        }
+      }
+    />
+    <div
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={75}
+      className="linear-progress-bar linear-progress-bar--none linear-progress-bar--animate"
+      role="progressbar"
+      style={
+        Object {
+          "backgroundColor": "yellow",
+          "width": "75%",
+        }
+      }
+    />
+    <div
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={25}
+      className="linear-progress-bar linear-progress-bar--none linear-progress-bar--animate"
+      role="progressbar"
+      style={
+        Object {
+          "backgroundColor": "red",
+          "width": "25%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`LinearProgressBar renders correctly with size 1`] = `
+<div
+  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__large"
+>
+  <div
+    className="linear-progress-bar__container"
+  >
+    <div
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={20}
+      className="linear-progress-bar linear-progress-bar--primary linear-progress-bar--animate"
+      role="progressbar"
+      style={
+        Object {
+          "width": "20%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`LinearProgressBar renders correctly with value 1`] = `
+<div
+  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+>
+  <div
+    className="linear-progress-bar__container"
+  >
+    <div
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={20}
+      className="linear-progress-bar linear-progress-bar--primary linear-progress-bar--animate"
+      role="progressbar"
+      style={
+        Object {
+          "width": "20%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`LinearProgressBar renders correctly with valueSecondary 1`] = `
+<div
+  className="linear-progress-bar--wrapper linear-progress-bar--wrapper__small"
+>
+  <div
+    className="linear-progress-bar__container"
+  >
+    <div
+      aria-label=""
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={40}
+      className="linear-progress-bar__secondary linear-progress-bar__secondary--primary linear-progress-bar__secondary--animate"
+      role="progressbar"
+      style={
+        Object {
+          "width": "40%",
+        }
+      }
+    />
+    <div
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={20}
+      className="linear-progress-bar linear-progress-bar--primary linear-progress-bar--animate"
+      role="progressbar"
+      style={
+        Object {
+          "width": "20%",
+        }
+      }
+    />
+  </div>
+</div>
+`;

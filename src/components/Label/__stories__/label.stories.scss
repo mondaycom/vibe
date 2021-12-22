@@ -1,5 +1,6 @@
 @import "../../../styles/themes.scss";
 @import "../../../styles/typography.scss";
+@import "../../../styles/global-css-settings.scss";
 
 .monday-storybook-label {
   &_group {
@@ -32,14 +33,14 @@
       flex-direction: column;
       column-gap: 25px;
   }
-  
+
   &_title {
     display: inline;
     padding-right: 8px;
   }
 
   &_bad-lable {
-    border-radius: $border-radius-small;
+    border-radius: var(--border-radius-small);
       div {
        border: none;
       }
@@ -49,13 +50,13 @@
   }
 
   &_purple {
-    background-color: $amethyst;
+    background-color: var(--color-amethyst);
   }
-  
+
   &_pink {
-    background-color: $light-pink
+    background-color: var(--color-light-pink)
   }
-  
+
   &_states-gap {
     gap: 24px;
   }

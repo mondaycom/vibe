@@ -1,6 +1,7 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
 @import "../../styles/states.scss";
+@import "../../styles/global-css-settings.scss";
 
 .expand-collapse--wrapper {
   .expand-collapse {
@@ -68,7 +69,6 @@
   @keyframes expandContentAnimation {
     0% {
       opacity: 0;
-      transform: translateY(-75px);
       transform: translateY(var(--dropdown-menu-fadinY, -75px));
     }
     100% {

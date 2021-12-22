@@ -1,5 +1,6 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
+@import "../../styles/global-css-settings.scss";
 
 .monday-style-radio-button-component {
   display: grid;
@@ -66,6 +67,13 @@
     }
   }
 
+  &__radio-input-container input:focus-visible + &__radio-input-container__radio-control {
+    outline: none;
+    @include theme-prop(border-color, primary-color);
+    box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
+    border-radius: 50%;
+  }
+
   &:hover &__radio-input-container input:enabled:checked + &__radio-input-container__radio-control {
     @include theme-prop(border-color, primary-hover-color);
   }
@@ -73,13 +81,6 @@
   &:hover &__radio-input-container input:enabled:not(:checked) + &__radio-input-container__radio-control,
   &:focus-within &__radio-input-container input:enabled:not(:checked) + &__radio-input-container__radio-control {
     @include theme-prop(border-color, primary-text-color);
-  }
-
-  &__radio-input-container input:focus-visible + &__radio-input-container__radio-control {
-    outline: none;
-    @include theme-prop(border-color, primary-color);
-    box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
-    border-radius: 50%;
   }
 }
 

@@ -1,4 +1,14 @@
 .monday-style-story-avatar {
+  &_multiplue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px 10px 20px;
+    .monday-style-avatar {
+      margin: -8px;
+    }
+  }
+
   &_multiplue-reverse {
     display: flex;
     align-items: flex-start;
@@ -11,16 +21,6 @@
       &:nth-child(2) {
         z-index: 1;
       }
-    }
-  }
-
-  &_multiplue {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px 10px 20px;
-    .monday-style-avatar {
-      margin: -8px;
     }
   }
 }
