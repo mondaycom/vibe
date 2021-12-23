@@ -18,26 +18,26 @@ import "./skeleton.stories.scss";
 <!--- Component template -->
 
 export const skeletonTemplate = (args) => {
-	return (
-		<div className="monday-style-stories-skeleton_rules-column">
-			<div className="monday-style-stories-skeleton_rules-row">
+  return (
+    <div className="monday-style-stories-skeleton_rules-column">
+      <div className="monday-style-stories-skeleton_rules-row">
         <Skeleton type={args.typeCircle} />
         <Skeleton type={args.typeText} width={110} size={args.smallSize} />
-			</div>
-			<div className="monday-style-stories-skeleton_article">
-				<div>
-					<Skeleton />
-				</div>
-				<div className="monday-style-stories-skeleton_aside">
-					<Skeleton type={args.typeText} size={args.sizeH1} />
-					<Skeleton type={args.typeText} size={args.sizeH4} />
-					<Skeleton type={args.typeText} size={args.sizeH4} />
-					<Skeleton type={args.typeText} size={args.sizeH4} />
-					<Skeleton type={args.typeText} size={args.sizeH4} width={82} />
-				</div>
-			</div>
-		</div>
-	)
+      </div>
+      <div className="monday-style-stories-skeleton_article">
+        <div>
+          <Skeleton />
+        </div>
+        <div className="monday-style-stories-skeleton_aside">
+          <Skeleton type={args.typeText} size={args.sizeH1} />
+          <Skeleton type={args.typeText} size={args.sizeH4} />
+          <Skeleton type={args.typeText} size={args.sizeH4} />
+          <Skeleton type={args.typeText} size={args.sizeH4} />
+          <Skeleton type={args.typeText} size={args.sizeH4} width={82} />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 <!--- Component documentation -->
@@ -86,17 +86,17 @@ Use shaes to mimic Avatars, images, buttons etc...
   <Story name="Shapes">
     <div className="monday-style-stories-skeleton_row-box">
       <div className="monday-style-stories-skeleton_column-box">
-				<Skeleton type={Skeleton.types.CIRCLE} />
-				<>Circle</>
-			</div>
-			<div className="monday-style-stories-skeleton_column-box">
-				<Skeleton />
-				<>Square</>
-			</div>
-			<div className="monday-style-stories-skeleton_column-box">
-				<Skeleton width={112} height={46} />
-				<>Rectangle</>
-			</div>
+        <Skeleton type={Skeleton.types.CIRCLE} />
+        <>Circle</>
+      </div>
+      <div className="monday-style-stories-skeleton_column-box">
+        <Skeleton />
+        <>Square</>
+      </div>
+      <div className="monday-style-stories-skeleton_column-box">
+        <Skeleton width={112} height={46} />
+        <>Rectangle</>
+      </div>
     </div>
   </Story>
 </Canvas>
@@ -107,17 +107,17 @@ Presents a classic menu or equivalent picker
   <Story name="Text">
     <div className="monday-style-stories-skeleton_row-box">
       <div className="monday-style-stories-skeleton_column-box">
-				<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H1} />
-				<>H1</>
-			</div>
-			<div className="monday-style-stories-skeleton_column-box">
-				<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H2} />
-				<>H2</>
-			</div>
-			<div className="monday-style-stories-skeleton_column-box">
-				<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
-				<>Paragraph</>
-			</div>
+        <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H1} />
+        <>H1</>
+      </div>
+      <div className="monday-style-stories-skeleton_column-box">
+        <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.H2} />
+        <>H2</>
+      </div>
+      <div className="monday-style-stories-skeleton_column-box">
+        <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+        <>Paragraph</>
+      </div>
     </div>
   </Story>
 </Canvas>
@@ -128,47 +128,47 @@ Presents a classic menu or equivalent picker
     {
       positive: {
         component:
-					<div>
-						<div className="monday-style-stories-skeleton_rules-row">
-							<Skeleton type={Skeleton.types.CIRCLE} />
-							<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
-						</div>
-						<div className="monday-style-stories-skeleton_rules-row">
-							<Skeleton type={Skeleton.types.CIRCLE} />
-							<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
-						</div>
-						<div className="monday-style-stories-skeleton_rules-row">
-							<Skeleton type={Skeleton.types.CIRCLE} />
-							<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
-						</div>
-					</div>,
+          <div>
+            <div className="monday-style-stories-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+            </div>
+            <div className="monday-style-stories-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+            </div>
+            <div className="monday-style-stories-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+            </div>
+          </div>,
         description:"Show only representation of ui."
       },
       negative: {
         component:
-					<div>
-						<div className="monday-style-stories-skeleton_rules-row">
-							<Skeleton type={Skeleton.types.CIRCLE} />
-							<div>
-								<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
-								Small text
-							</div>
-						</div>
-						<div className="monday-style-stories-skeleton_rules-row">
-							<Skeleton type={Skeleton.types.CIRCLE} />
-							<div>
-								<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
-								Small text
-							</div>
-						</div>
-						<div className="monday-style-stories-skeleton_rules-row">
-							<Skeleton type={Skeleton.types.CIRCLE} />
-							<div>
-								<Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
-								Small text
-							</div>
-						</div>
-					</div>,
+          <div>
+            <div className="monday-style-stories-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <div>
+                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+                Small text
+              </div>
+            </div>
+            <div className="monday-style-stories-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <div>
+                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+                Small text
+              </div>
+            </div>
+            <div className="monday-style-stories-skeleton_rules-row">
+              <Skeleton type={Skeleton.types.CIRCLE} />
+              <div>
+                <Skeleton type={Skeleton.types.TEXT} size={Skeleton.sizes.TEXT.SMALL} />
+                Small text
+              </div>
+            </div>
+          </div>,
         description:"Show all the user interface exactly."
       }
     },
