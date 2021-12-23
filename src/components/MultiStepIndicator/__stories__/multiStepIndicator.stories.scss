@@ -11,16 +11,23 @@
   &_row-wrapper {
     display: flex;
     align-items: center;
-    gap: 40px;
     padding-left: 30px;
-
-    .title {
-      width: 140px;
-    }
   }
 
+  &_title {
+    width: 140px;
+  } 
+
+  &_size {
+    width: 700px;
+  }
+  
   &_big-size {
     width: 100%;
+  }
+
+  &_small-size {
+    padding: 0;
   }
 
   &_spacing {
@@ -35,12 +42,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 40px;
+    padding-top: 80px;
+    padding-bottom: 40px;
   }
 
   &_line {
     margin-left: -40px;
     .monday-style-divider {
-      width: 130px;
+      width: 120px;
     } 
+  }
+
+  &_overflow {
+    figure {
+      overflow: hidden;
+    }
   }
 }

@@ -2,7 +2,7 @@ import Skeleton from "../Skeleton";
 import { useMemo, useState, useEffect, useCallback } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
-import { AVATAR, COUNTER, ICONS } from "../../../storybook/components/related-components/component-description-map";
+import { PROGRESS_BAR, COUNTER, SPINNER } from "../../../storybook/components/related-components/component-description-map";
 import Avatar from "../../Avatar/Avatar.jsx";
 import person1 from "./assets/person1.png"
 import Button from "../../Button/Button.jsx";
@@ -183,7 +183,10 @@ Use this menu to allow a user to either select one or more items from the list.
     {() => {
       const [showSkeleton, setShowSkeleton] = useState(false);
       const [showBlock, setSHowBlock] = useState(false);
+      const [showReload, setshowReload] = useState(true);
       const onClickCallback = useCallback(() => {
+        setshowReload(false)
+        setSHowBlock(false);
         setShowSkeleton(true);
         setTimeout(() => {setShowSkeleton(false)}, 4000);
         setTimeout(() => {setSHowBlock(true)}, 4000);
@@ -229,7 +232,7 @@ Use this menu to allow a user to either select one or more items from the list.
               </div>
             </div>
           )}
-          <Button kind={Button.kinds.SECONDARY} onClick={onClickCallback}>Load update</Button>
+          <Button kind={Button.kinds.SECONDARY} onClick={onClickCallback}>{showReload ? "Load update" : "Reload update"}</Button>
         </div>
       )
     }}
@@ -237,5 +240,5 @@ Use this menu to allow a user to either select one or more items from the list.
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[AVATAR, COUNTER, ICONS]} />
+<RelatedComponents componentsNames={[PROGRESS_BAR, COUNTER, SPINNER]} />
         

@@ -98,8 +98,14 @@ Placements
       ], []);
       return (
         <div className="monday-storybook-multiStepIndicator_column-wrapper">
-          <MultiStepIndicator steps={steps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />
-          <MultiStepIndicator steps={steps} />
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Vertical</span>
+            <MultiStepIndicator className="monday-storybook-multiStepIndicator_size" textPlacement={MultiStepIndicator.textPlacements.VERTICAL} steps={steps} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Horizontal</span>
+            <MultiStepIndicator steps={steps} />
+          </div>
         </div>
       )
     }}
@@ -107,7 +113,7 @@ Placements
 </Canvas>
 
 ### Types
-There are 4 types: Primary, success, danger, dark
+There are 4 types: Primary, success, danger, dark.
 <Canvas>
   <Story name="Types">
     {() => {
@@ -131,19 +137,19 @@ There are 4 types: Primary, success, danger, dark
       return (
         <div className="monday-storybook-multiStepIndicator_column-wrapper">
           <div className="monday-storybook-multiStepIndicator_row-wrapper">
-            <span className="title">primary</span>
+            <span className="monday-storybook-multiStepIndicator_title">Primary</span>
             <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.PRIMARY} />
           </div>
           <div className="monday-storybook-multiStepIndicator_row-wrapper">
-            <span className="title">success</span>
+            <span className="monday-storybook-multiStepIndicator_title">Success</span>
             <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.SUCCESS} />
           </div>
           <div className="monday-storybook-multiStepIndicator_row-wrapper">
-            <span className="title">danger</span>
+            <span className="monday-storybook-multiStepIndicator_title">Danger</span>
             <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.DANGER} />
           </div>
           <div className="monday-storybook-multiStepIndicator_row-wrapper">
-            <span className="title">dark</span>
+            <span className="monday-storybook-multiStepIndicator_title">Dark</span>
             <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.DARK} />
           </div>
         </div>
@@ -176,15 +182,15 @@ There are 4 types: Primary, success, danger, dark
       return (
         <div className="monday-storybook-multiStepIndicator_column-wrapper">
           <div className="monday-storybook-multiStepIndicator_row-wrapper">
-            <span className="title">Default (check)</span>
+            <span className="monday-storybook-multiStepIndicator_title">Default (check)</span>
             <MultiStepIndicator steps={steps} />
           </div>
           <div className="monday-storybook-multiStepIndicator_row-wrapper">
-            <span className="title">Number instead of icon</span>
+            <span className="monday-storybook-multiStepIndicator_title">Number instead of icon</span>
             <MultiStepIndicator steps={steps} isFulfilledStepDisplayNumber={true} />
           </div>
           <div className="monday-storybook-multiStepIndicator_row-wrapper">
-            <span className="title">Custom (featured)</span>
+            <span className="monday-storybook-multiStepIndicator_title">Custom (featured)</span>
             <MultiStepIndicator steps={steps} fulfilledStepIcon={Featured}  />
           </div>
         </div>
@@ -273,12 +279,13 @@ State transition automatic example
     {
       positive: {
         component:
-          <div className="box-wrapper">
+          <div className="monday-storybook-multiStepIndicator_box-wrapper">
             <MultiStepIndicator steps={thirdSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_small-size" />
             <div className="monday-storybook-multiStepIndicator_spacing" />
           </div>,
         description:"While using the wizard component, keep the default spacing between the wizard steps, even if the wizard width is smaller than the page width."
       },
+      className: "monday-storybook-multiStepIndicator_overflow",
       negative: {
         component:
           <div className="monday-storybook-multiStepIndicator_box-wrapper">
