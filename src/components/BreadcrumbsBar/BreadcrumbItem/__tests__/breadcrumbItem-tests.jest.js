@@ -6,7 +6,7 @@ import { fireEvent, render } from "@testing-library/react";
 jest.useFakeTimers();
 
 describe("BreadcrumbsItem tests", () => {
-	it("if navigation item, href link is correct", () => {
+  it("if navigation item, href link is correct", () => {
     const { getByRole } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
         <BreadcrumbItem text="Workspace" link="https://www.google.com" />
