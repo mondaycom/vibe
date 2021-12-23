@@ -1,38 +1,12 @@
 import React from "react";
-import renderer from "react-test-renderer";
 import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem";
-import BoardIcon from "../../../Icon/Icons/components/Board";
-import WorkspaceIcon from "../../../Icon/Icons/components/Workspace";
 import { fireEvent, render } from "@testing-library/react";
 
 jest.useFakeTimers();
 
-describe("BreadcrumbsItem", () => {
-  it("renders correctly with empty props", () => {
-    const tree = renderer
-      .create(
-        <BreadcrumbsBar>
-          <BreadcrumbItem />
-        </BreadcrumbsBar>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("renders correctly with icon", () => {
-    const tree = renderer
-      .create(
-        <BreadcrumbsBar>
-          <BreadcrumbItem icon={WorkspaceIcon} text="Workspace" />
-          <BreadcrumbItem icon={BoardIcon} text="Board" />
-        </BreadcrumbsBar>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("if navigation item, href link is correct", () => {
+describe("BreadcrumbsItem tests", () => {
+	it("if navigation item, href link is correct", () => {
     const { getByRole } = render(
       <BreadcrumbsBar type={BreadcrumbsBar.types.NAVIGATION}>
         <BreadcrumbItem text="Workspace" link="https://www.google.com" />
@@ -107,27 +81,5 @@ describe("BreadcrumbsItem", () => {
     jest.advanceTimersByTime(1000);
 
     expect(onClickMock.mock.calls.length).toBe(1);
-  });
-
-  it("'current' item renders correctly", () => {
-    const tree = renderer
-      .create(
-        <BreadcrumbsBar>
-          <BreadcrumbItem isCurrent={true} />
-        </BreadcrumbsBar>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("'disabled' item renders correctly", () => {
-    const tree = renderer
-      .create(
-        <BreadcrumbsBar>
-          <BreadcrumbItem isDisabled={true} />
-        </BreadcrumbsBar>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
   });
 });
