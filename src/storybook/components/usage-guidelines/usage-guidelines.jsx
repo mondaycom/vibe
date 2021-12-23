@@ -10,7 +10,8 @@ export const UsageGuidelines = ({ guidelines }) => {
   const guidelinesElements = useMemo(
     () =>
       guidelines.map((guideline, index) => (
-        <span id={index} className={bemHelper({ element: "guideline" })}>
+        // eslint-disable-next-line react/no-array-index-key
+        <span id={index} key={index} className={bemHelper({ element: "guideline" })}>
           <span className={bemHelper({ element: "icon" })}>➡️</span>
           {guideline}
         </span>

@@ -1,17 +1,25 @@
-import { useState, useCallback } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import Chips from "../Chips";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { TOOLTIP, COUNTER, LABEL } from "../../../storybook/components/related-components/component-description-map";
-import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
+import { Link } from "../../../storybook/components";
 import Search  from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { Calendar, Remove, Add, Email } from "../../Icon/Icons";
+import { Email } from "../../Icon/Icons";
 import person1 from "./assets/person1.png"
 import "./chips.stories.scss";
 
-<Meta title="Data display/Chips" component={Chips} />
+export const argTypes = createStoryMetaSettings({
+  component: Chips,
+  iconPropNamesArray: ["rightIcon", "leftIcon"]
+});
+
+<Meta
+  title="Data display/Chips"
+  component={Chips}
+  argTypes={argTypes}
+/>
 
 <!--- Component template -->
 

@@ -4,13 +4,19 @@ import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import AlertBannerLink from "../AlertBannerLink/AlertBannerLink";
 import AlertBannerButton from "../AlertBannerButton/AlertBannerButton.jsx"
 import { Link } from "../../../storybook/components";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { TOOLTIP, ATTENTION_BOX, TOAST } from "../../../storybook/components/related-components/component-description-map";
 import "./alertBanner.stories.scss";
+
+export const argTypes = createStoryMetaSettings({
+  component: AlertBanner,
+  enumPropNamesArray: ["backgroundColor"],
+});
 
 <Meta
   title="Feedback/AlertBanner"
   component={ AlertBanner }
+  argTypes={argTypes}
 />
 
 <!--- Component template -->
