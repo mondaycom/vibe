@@ -200,7 +200,7 @@ const MenuItem = ({
     <li
       id={`${menuId}-${index}`}
       {...a11yProps}
-      className={cx("monday-style-menu-item", className, {
+      className={cx("monday-style-menu-item", overrideClassName, {
         "monday-style-menu-item--disabled": disabled,
         "monday-style-menu-item--focused": isActive,
         "monday-style-menu-item--selected": selected,

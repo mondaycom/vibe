@@ -7,10 +7,16 @@ import MenuItem from "../../MenuItem/MenuItem";
 import MenuTitle from "../../MenuTitle/MenuTitle";
 import Divider from "../../../Divider/Divider";
 import { selectIcon } from "../../../storybook-helpers";
-import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
+import { Activity, Archive, Settings, Invite, Email, Info, Delete } from "../../../Icon/Icons";
 import { withPerformance } from "storybook-addon-performance";
 
-const DISABLE_REASON = "You can't click me";
+export const menuTemplate = args => (
+  <Menu {...args}>
+    <MenuItem icon={Email} title="Send" />
+    <MenuItem icon={Delete} title="Delete" disabled />
+    <MenuItem icon={Info} title="More info" />
+  </Menu>
+);
 
 const renderMenuItems = () => {
   return [
