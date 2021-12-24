@@ -19,6 +19,25 @@ export const Sandbox = () => (
   </div>
 );
 
+export const InputWithDate = () => (
+  <div style={{ width: "300px", border: "1px solid", padding: "30px" }}>
+    <EditableInput inputType="input" autoSize value={"2022-12-25"} ariaLabel="Choose date" type="date" />
+  </div>
+);
+
+export const InputWithDateTime = () => (
+  <div style={{ width: "300px", border: "1px solid", padding: "30px" }}>
+    <EditableInput
+      inputType="input"
+      autoSize
+      value={"2022-12-25T10:10"}
+      ariaLabel="Choose date and time"
+      type="datetime-local"
+    />
+  </div>
+);
+
+
 export default {
   title: "Components|EditableInput",
   component: EditableInput,
