@@ -82,4 +82,16 @@ describe("BreadcrumbsItem tests", () => {
 
     expect(onClickMock.mock.calls.length).toBe(1);
   });
+
+  it("should call the click callback when clicked", () => {
+    const onClickMock = jest.fn();
+    const { getByText } = render(
+      <BreadcrumbsBar>
+        <BreadcrumbItem text="Workspace" onClick={onClickMock} />
+      </BreadcrumbsBar>
+    );
+    const item = getByText("Workspace");
+    fireEvent.click(item);
+    expect(onClickMock.mock.calls.length).toBe(0);
+  });
 });

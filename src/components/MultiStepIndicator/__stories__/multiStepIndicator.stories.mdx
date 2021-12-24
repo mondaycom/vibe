@@ -204,7 +204,7 @@ State transition automatic example
 <Canvas>
   <Story name="Transition Animation">
     {() => {
-    const exampleSteps = {
+    const exampleSteps = useMemo(() => ({
       firstStep: {
         status: MultiStepIndicator.stepStatuses.PENDING,
         titleText: "First step title",
@@ -219,8 +219,8 @@ State transition automatic example
         status: MultiStepIndicator.stepStatuses.PENDING,
         titleText: "Third step title",
         subtitleText: "Third subtitle",
-      },
-    };
+      }
+    }), []);
     const [steps, setSteps] = useState([
       { ...exampleSteps.firstStep },
       { ...exampleSteps.secondStep },
@@ -229,17 +229,17 @@ State transition automatic example
     const clearSteps = useCallback(() => {
       setSteps([{ ...exampleSteps.firstStep }, { ...exampleSteps.secondStep }, { ...exampleSteps.thirdStep }]);
     }, [setSteps]);
-    const getStepKeyForTransition = () => {
+    const [numActions, setNumActions] = useState(0);
+    const getStepKeyForTransition = useCallback(() => {
       if (numActions < 2) return "firstStep";
       else if (numActions < 4) return "secondStep";
       else return "thirdStep";
-    };
-    const STEP_TRANSITIONS = {
+    }, [numActions]);
+    const STEP_TRANSITIONS = useMemo(() => ({
       [STEP_STATUSES.PENDING]: STEP_STATUSES.ACTIVE,
       [STEP_STATUSES.ACTIVE]: STEP_STATUSES.FULFILLED,
       [STEP_STATUSES.FULFILLED]: STEP_STATUSES.PENDING
-    };
-    const [numActions, setNumActions] = useState(0);
+    }), []);
     const performIndicatorStateTransition = useCallback(() => {
       if (numActions === steps.length * 2) {
         clearSteps();
