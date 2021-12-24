@@ -1,0 +1,270 @@
+import Combobox from "../Combobox";
+import { useState, useCallback, useMemo } from "react";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer.jsx";
+import { Update, Time, Upgrade, ThumbsUp, Wand } from "../../Icon/Icons";
+import { TOOLTIP, BREADCRUBMS, CHIP } from "../../../storybook/components/related-components/component-description-map";
+import "./combobox.stories.scss";
+
+<Meta
+  title="Inputs/Combobox"
+  component={ Combobox }
+/>
+
+<!--- Component template -->
+
+export const comboboxTemplate = (args) => {
+  return (
+    <DialogContentContainer>
+      <Combobox options={args.options} placeholder="Placeholder text here" />
+    </DialogContentContainer>
+  )
+}
+
+<!--- Component documentation -->
+
+# Combobox
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+Comboboxes allowing users to filter longer lists to only the selections matching a query.
+<Canvas>
+  <Story name="Overview"
+         args={ {options: [{ id: "1", label: "Option 1" }, { id: "2", label: "Option 2" }, { id: "3", label: "Option 3" }], } }>
+    { comboboxTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ Combobox } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Allows the user to make a selection from a predefined list of options and is typically used when there are a large amount of options to choose from.",
+  "The menu opens by clicking anywhere in the field.",
+  "The option that best matches the typed characters is highlighted.",
+  "Limit the text content of combobox items to a single line.",
+  "Could be used inside a dialog or as a standalone component.",
+]}/>
+
+<Tip>When there are fewer than five items, consider using Radio buttons (if only one item can be selected) or Checkboxes (if multiple items can be selected).</Tip>
+
+## Variants
+### Default
+<Canvas>
+  <Story name="Default">
+    {() => {
+      const options = useMemo(() => [
+        { id: "1", label: "Option 1" },
+        { id: "2", label: "Option 2" },
+        { id: "3", label: "Option 3" }
+      ], []);
+      return (
+        <Combobox placeholder="Placeholder text here" options={options} />
+      )
+    }}
+  </Story>
+</Canvas>
+
+### Sizes
+<Canvas>
+  <Story name="Sizes">
+    {() => {
+      const options = useMemo(() => [
+        { id: "1", label: "Option 1" },
+        { id: "2", label: "Option 2" },
+        { id: "3", label: "Option 3" },
+        { id: "4", label: "Option 4" },
+        { id: "5", label: "Option 5" }
+      ], []);
+      return (
+        <div className="combobox-stories-styles_row">
+          <DialogContentContainer>
+            <Combobox options={options} size={Combobox.sizes.SMALL} placeholder="Placeholder text here" />
+          </DialogContentContainer>
+          <DialogContentContainer>
+            <Combobox options={options} placeholder="Placeholder text here" />
+          </DialogContentContainer>
+          <DialogContentContainer>
+            <Combobox options={options} size={Combobox.sizes.LARGE} placeholder="Placeholder text here" />
+          </DialogContentContainer>
+        </div>     
+      )
+    }}
+  </Story>
+</Canvas>
+
+### Comobox inside a dialog
+<Canvas>
+  <Story name="Comobox inside a dialog">
+    {() => {
+      const options = useMemo(() => [
+        { id: "1", label: "Option 1" },
+        { id: "2", label: "Option 2" },
+        { id: "3", label: "Option 3" },
+        { id: "4", label: "Option 4" },
+        { id: "5", label: "Option 5" }
+      ], []);
+      return (
+        <DialogContentContainer>
+          <Combobox options={options} placeholder="Placeholder text here" />
+        </DialogContentContainer>
+      )
+    }}
+  </Story>
+</Canvas>
+
+### With Seperator
+<Canvas>
+  <Story name="With Seperator">
+    {() => {
+      const options = useMemo(() => [
+        { id: "1", label: "Option 1" },
+        { id: "2", label: "Option 2" },
+        { id: "3", label: "Option 3" },
+        { id: "4", label: "Option 4" },
+        { id: "5", label: "Option 5" }
+      ], []);
+      return (
+        <DialogContentContainer>
+          <Combobox options={options} placeholder="Placeholder text here" />
+        </DialogContentContainer>
+      )
+    }}
+  </Story>
+</Canvas>
+
+### With icons
+<Canvas>
+  <Story name="With icons">
+    {() => {
+      const options = useMemo(() => [
+        { id: "1", label: "Option 1", leftIcon: Wand },
+        { id: "2", label: "Option 2", leftIcon: ThumbsUp },
+        { id: "3", label: "Option 3", leftIcon: Time },
+        { id: "4", label: "Option 4", leftIcon: Update },
+        { id: "5", label: "Option 5", leftIcon: Upgrade }
+      ], []);
+      return (
+        <DialogContentContainer>
+          <Combobox options={options} placeholder="Placeholder text here" />
+        </DialogContentContainer>
+      )
+    }}
+  </Story>
+</Canvas>
+
+### With Button
+<Canvas>
+  <Story name="With Button">
+    {() => {
+      const options = useMemo(() => [
+        { id: "1", label: "Option 1", leftIcon: Wand },
+        { id: "2", label: "Option 2", leftIcon: ThumbsUp },
+        { id: "3", label: "Option 3", leftIcon: Time },
+        { id: "4", label: "Option 4", leftIcon: Update },
+        { id: "5", label: "Option 5", leftIcon: Upgrade }
+      ], []);
+      return (
+        <DialogContentContainer>
+          <Combobox options={options} placeholder="Placeholder text here" />
+        </DialogContentContainer>
+      )
+    }}
+  </Story>
+</Canvas>
+
+### No results
+<Canvas>
+  <Story name="No results">
+    {() => {
+      return (
+        <DialogContentContainer>
+          <Combobox placeholder="Placeholder text here" />
+        </DialogContentContainer>
+      )
+    }}
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:
+          <DialogContentContainer>
+            <Combobox 
+              placeholder="B17"
+              options={[
+                { id: "1", label: "Report B17-386858", },
+                { id: "2", label: "Report B17- 2040", selected: true },
+                { id: "3", label: "Report B17- 38589" }]}
+            />
+          </DialogContentContainer>,
+        description:"Use combobox to make large lists easier to search."
+      },
+      negative: {
+        component:
+          <DialogContentContainer>
+            <Combobox 
+              placeholder="Day"
+              options={[
+                { id: "1", label: "1 Days", },
+                { id: "2", label: "2 Days", selected: true },
+                { id: "3", label: "3 Days" }]}
+            />
+          </DialogContentContainer>,
+        description:"Don’t use comboxbox if you have less than 5 list items. If it's not complex enough for a combobox, use a Radio button or Dropdown."
+      }
+    },
+    {
+      positive: {
+        component:
+          <DialogContentContainer>
+            <Combobox 
+              placeholder="B17"
+              options={[
+                { id: "1", label: "Report B17-386858", },
+                { id: "2", label: "Report B17- 2040", selected: true },
+                { id: "3", label: "Report B17- 38589" }]}
+            />
+          </DialogContentContainer>,
+        description:"Use the combobox input to filter results from the list."
+      },
+      negative: {
+        component:
+          <DialogContentContainer>
+            <Combobox 
+              placeholder="Moshe Levy"
+              options={[
+                { id: "1", label: "Report B17-386858" },
+                { id: "2", label: "Report B17- 2040" },
+                { id: "3", label: "Report B17- 38589" }]}
+            />
+          </DialogContentContainer>,
+        description:"Don’t use the combobox as a search input to search results that are not within the list."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+### Combobox inside a dialog
+Combobox inside a dialog
+<Canvas>
+  <Story name="Combobox inside a dialog">
+    <Combobox />
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[TOOLTIP, BREADCRUBMS, CHIP]} />

@@ -1,6 +1,7 @@
 import Dropdown from "../Dropdown";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { COMBOBOX, SPLIT_BUTTON, MENU } from "../../../storybook/components/related-components/component-description-map";
 import "./dropdown.stories.scss";
 
 <Meta
@@ -29,7 +30,7 @@ Dropdowns present a list of options from which a user can select one option, or 
 
 <Canvas>
   <Story name="Overview"
-         args={ {placeholder: "Placeholder text here", className: "as"} }>
+         args={ {placeholder: "Placeholder text here", className: "dropdown-stories-styles_spacing"} }>
     { dropdownTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -52,26 +53,26 @@ Dropdowns present a list of options from which a user can select one option, or 
 There are three sizes available: Small, Medium, and Large
 <Canvas>
   <Story name="Sizes">
-    <Dropdown placeholder="Small" size={Dropdown.size.SMALL} className="as" />
-    <Dropdown placeholder="Medium" size={Dropdown.size.MEDIUM} className="as" />
-    <Dropdown placeholder="Large" size={Dropdown.size.LARGE} className="as" />
+    <Dropdown placeholder="Small" size={Dropdown.size.SMALL} className="dropdown-stories-styles_spacing" />
+    <Dropdown placeholder="Medium" size={Dropdown.size.MEDIUM} className="dropdown-stories-styles_spacing" />
+    <Dropdown placeholder="Large" size={Dropdown.size.LARGE} className="dropdown-stories-styles_spacing" />
   </Story>
 </Canvas>
 
 ### Disabled
 <Canvas>
   <Story name="Disabled">
-    <Dropdown disabled size={Dropdown.size.SMALL} className="as" />
-    <Dropdown disabled size={Dropdown.size.MEDIUM} className="as" />
-    <Dropdown disabled size={Dropdown.size.LARGE} className="as" />
+    <Dropdown disabled size={Dropdown.size.SMALL} className="dropdown-stories-styles_spacing" />
+    <Dropdown disabled size={Dropdown.size.MEDIUM} className="dropdown-stories-styles_spacing" />
+    <Dropdown disabled size={Dropdown.size.LARGE} className="dropdown-stories-styles_spacing" />
   </Story>
 </Canvas>
 
 ### RTL
 <Canvas>
   <Story name="RTL">
-    <Dropdown placeholder="Right to left (default)" className="as" />
-    <Dropdown placeholder="Right to left" className="as" rtl />
+    <Dropdown placeholder="Right to left (default)" className="dropdown-stories-styles_spacing" />
+    <Dropdown placeholder="Right to left" className="dropdown-stories-styles_spacing" rtl />
   </Story>
 </Canvas>
 
@@ -84,7 +85,7 @@ There are three sizes available: Small, Medium, and Large
         <Dropdown
           placeholder="English" 
           options={[{ value: "English", label: "English" }, { value: "ocean", label: "Ocean" }]} 
-          className="as"
+          className="dropdown-stories-styles_spacing"
         />,
         description:"Use dropdown to keep the user’s choice visible."
       },
@@ -93,7 +94,7 @@ There are three sizes available: Small, Medium, and Large
           <Dropdown
             placeholder="Choose option" 
             options={[{ value: "English", label: "English" }, { value: "ocean", label: "Ocean" }]} 
-            className="as"
+            className="dropdown-stories-styles_spacing"
           />,
         description:"If you don’t want to keep the user’s choice visible, use the Menu component instead."
       }
@@ -104,7 +105,7 @@ There are three sizes available: Small, Medium, and Large
           <Dropdown
             placeholder="Placeholder text here" 
             options={[{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]} 
-            className="as"
+            className="dropdown-stories-styles_spacing"
           />,
         description:"Use the dropdown as a closed component. Users can only click on the items but not type or search."
       },
@@ -143,7 +144,7 @@ A classic dropdown presents options a user needs to choose from.
             defaultValue={[oprions[0]]}
             placeholder="Placeholder text here" 
             options={oprions} 
-            className="as"
+            className="dropdown-stories-styles_spacing"
           />
         </div>
       )
@@ -176,4 +177,4 @@ A dropdown menu can include lables.
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[]} />
+<RelatedComponents componentsNames={[COMBOBOX, SPLIT_BUTTON, MENU]} />
