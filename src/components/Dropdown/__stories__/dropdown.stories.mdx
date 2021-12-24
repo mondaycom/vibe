@@ -2,6 +2,11 @@ import Dropdown from "../Dropdown";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
 import { COMBOBOX, SPLIT_BUTTON, MENU } from "../../../storybook/components/related-components/component-description-map";
+import { Link } from "../../../storybook/components";
+import Combobox from "../../Combobox/Combobox.jsx";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer.jsx";
+import Button from "../../Button/Button.jsx";
+import Label from "../../Label/Label.jsx";
 import "./dropdown.stories.scss";
 
 <Meta
@@ -84,8 +89,8 @@ There are three sizes available: Small, Medium, and Large
         component:
         <Dropdown
           placeholder="English" 
-          options={[{ value: "English", label: "English" }, { value: "ocean", label: "Ocean" }]} 
-          className="dropdown-stories-styles_spacing"
+          options={[{ value: "English", label: "English" }, { value: "ocean", label: "Ocean" }]}
+          className="dropdown-stories-styles_rules-spacing"
         />,
         description:"Use dropdown to keep the user’s choice visible."
       },
@@ -93,10 +98,10 @@ There are three sizes available: Small, Medium, and Large
         component:
           <Dropdown
             placeholder="Choose option" 
-            options={[{ value: "English", label: "English" }, { value: "ocean", label: "Ocean" }]} 
-            className="dropdown-stories-styles_spacing"
+            options={[{ value: "English", label: "English" }, { value: "ocean", label: "Ocean" }]}
+            className="dropdown-stories-styles_rules-spacing"
           />,
-        description:"If you don’t want to keep the user’s choice visible, use the Menu component instead."
+        description:<>If you don’t want to keep the user’s choice visible, use the <Link href="/?path=/docs/inputs-menu--overview" withoutSpacing>Menu component</Link> instead.</>
       }
     },
     {
@@ -105,13 +110,19 @@ There are three sizes available: Small, Medium, and Large
           <Dropdown
             placeholder="Placeholder text here" 
             options={[{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]} 
-            className="dropdown-stories-styles_spacing"
+            className="dropdown-stories-styles_rules-spacing"
           />,
         description:"Use the dropdown as a closed component. Users can only click on the items but not type or search."
       },
       negative: {
-        component:<Dropdown />,
-        description:"Don’t insert any fields inside a dropdown. If you need, use the Combobox instead."
+        component:
+          <DialogContentContainer>
+            <Combobox 
+              placeholder="Search here"
+              options={[ { id: "1", label: "Option 1" }, { id: "2", label: "Option 2" }, { id: "3", label: "Option 3" } ]}
+            />
+          </DialogContentContainer>,
+        description:<>Don’t insert any fields inside a dropdown. If you need, use the <Link href="/?path=/docs/inputs-combobox--overview" withoutSpacing>Combobox</Link> instead.</>
       }
     }
   ]}
@@ -122,8 +133,22 @@ There are three sizes available: Small, Medium, and Large
 Inside the advanced filters, a user can select multiple people from the dropdown menu, and they will be shown as Chips.
 <Canvas>
   <Story name="Dropdown with chips">
-    <Dropdown />
-    <Dropdown />
+    {() => {
+      const oprions = [
+        { value: "Dor Yehuda", label: "Dor Yehuda" },
+        { value: "No", label: "No" },
+        { value: "Yes", label: "Yes" },
+      ];
+      return (
+        <Dropdown
+          defaultValue={[oprions[0]]}
+          multi
+          placeholder="Placeholder text here" 
+          options={oprions} 
+          className="dropdown-stories-styles_big-spacing"
+        />
+      )
+    }}
   </Story>
 </Canvas>
 
@@ -138,13 +163,13 @@ A classic dropdown presents options a user needs to choose from.
         { value: "Yes", label: "Yes" },
       ];
       return (
-        <div className="">
-          <h6>Are you usually a Dark mode person?</h6>
+        <div>
+          <h5 className="dropdown-stories-styles_title">Are you usually a Dark mode person?</h5>
           <Dropdown
             defaultValue={[oprions[0]]}
             placeholder="Placeholder text here" 
             options={oprions} 
-            className="dropdown-stories-styles_spacing"
+            className="dropdown-stories-styles_big-spacing"
           />
         </div>
       )
@@ -158,21 +183,19 @@ A dropdown menu can include lables.
   <Story name="Dropdown with lables">
     {() => {
       const oprions = [
-        { value: "Success", label: "Success" },
-        { value: "Failed", label: "Failed" },
-        { value: "In progress", label: "In progress" },
+        { value: "Success", label: <Label text="Success" color={Label.colors.POSITIVE} /> },
+        { value: "Failed", label: <Label text="Failed" color={Label.colors.NEGATIVE} /> },
+        { value: "In progress", label: <Label text="In Progress" /> },
       ];
       return (
         <Dropdown
           multi
-          defaultValue={[oprions[0]]}
           placeholder="Placeholder text here" 
           options={oprions} 
-          className="as"
+          className="dropdown-stories-styles_big-spacing"
         />
       )
     }}
-   
   </Story>
 </Canvas>
 

@@ -6,5 +6,20 @@
     flex-direction: row;
     gap: 50px;
   }
-}
 
+  &_btn-group {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid;
+    @include theme-prop(border-color, ui-border-color);
+  }
+
+  &_wrapper {
+    width: 300px;
+    padding: 16px;
+  }
+
+  &_btn {
+    width: 100%;
+  }
+}
