@@ -1,0 +1,31 @@
+@import "../../../styles/global-css-settings";
+@import "../../../styles/themes";
+
+.monday-slider {
+  &__rail {
+    box-sizing: content-box;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+
+    // padding: 13px 0px;
+
+    &--small {
+      border-radius: 2px;
+      height: 2px;
+    }
+
+    &--medium {
+      border-radius: 2px;
+      height: 4px;
+    }
+
+    &--large {
+      border-radius: 8px;
+      height: 8px;
+    }
+  }
+}

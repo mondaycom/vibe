@@ -1,0 +1,59 @@
+import React from "react";
+import PropTypes from "prop-types";
+import { COMPONENT_ID, createBemHelper } from "../SliderCommons";
+import "./SliderFilledTrack.scss";
+
+const bem = createBemHelper(COMPONENT_ID);
+
+function defineFilledTrackProps({ dimension, offset, reverse }) {
+  if (reverse) {
+    return {
+      style: {
+        right: `${offset * 100}%`,
+        width: `${dimension * 100}%`
+      }
+    };
+  }
+  return {
+    style: {
+      left: `${offset * 100}%`,
+      width: `${dimension * 100}%`
+    }
+  };
+  // can be extended here for vertical slider
+}
+
+const SliderFilledTrack = ({ className, dimension, offset, reverse }) => {
+  const filledTrackProps = defineFilledTrackProps({ dimension, offset, reverse });
+  console.log("slider: filled-track", { className });
+  return <div className={bem("filled-track", "", className)} {...filledTrackProps} />;
+};
+
+SliderFilledTrack.propTypes = {
+  /**
+   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
+   */
+  className: PropTypes.string,
+  /**
+   * Size of filled track, according to selected value of component (Slider)
+   */
+  dimension: PropTypes.number,
+  /**
+   * Offset from start of track
+   */
+  offset: PropTypes.number,
+  /**
+   * Start Filled Track from the end of the track
+   * (`right` for LTR and `left` for RTL, `bottom` for vertical)
+   */
+  reverse: PropTypes.bool
+};
+
+SliderFilledTrack.defaultProps = {
+  className: "",
+  dimension: 0,
+  offset: 0,
+  reverse: false
+};
+
+export default SliderFilledTrack;

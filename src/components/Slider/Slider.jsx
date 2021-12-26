@@ -1,33 +1,36 @@
-import React, { useRef, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import { SIZES_BASIC } from "./SliderCommons";
+import { useSlider } from "./SliderHooks";
+import SliderBlock from "./SliderBlock";
+import PlainSlider from "./PlainSlider/PlainSlider";
+import { PlainSliderProps, PlainSliderDefaultProps } from "./PlainSlider/PlainSliderCommons";
+import PercentageLabel from "../ProgressBars/PercentageLabel/PercentageLabel";
 import "./Slider.scss";
 
-const Slider = forwardRef(({ className, id }, ref) => {
-  const componentRef = useRef(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-
+const Slider = forwardRef((props, ref) => {
+  const { blockProps, plainProps, labelProps, is, mergedRef } = useSlider(props, ref);
   return (
-    <div ref={mergedRef} className={cx("slider--wrapper", className)} id={id}>
-      My awesome new component
-    </div>
+    <SliderBlock ref={mergedRef} {...blockProps}>
+      <PlainSlider {...plainProps} />
+      {is.label && <PercentageLabel {...labelProps} />}
+    </SliderBlock>
   );
 });
 
+Slider.sizes = SIZES_BASIC;
+
 Slider.propTypes = {
+  ...PlainSliderProps,
   /**
-   * class name to be added to the wrapper
+   * Show selected from Slider range value
    */
-  className: PropTypes.string,
-  /**
-   * id to be added to the wrapper
-   */
-  id: PropTypes.string
+  indicateSelection: PropTypes.bool
 };
+
 Slider.defaultProps = {
-  className: "",
-  id: undefined
+  ...PlainSliderDefaultProps,
+  indicateSelection: false
 };
 
 export default Slider;
