@@ -1,0 +1,11 @@
+@import "../../../styles/themes.scss";
+
+.heading-as-page-header_commands {
+  margin-top: var(--spacing-large);
+  & > * {
+    margin-left: var(--spacing-small);
+  }
+}
+.heading-as-page-header_search {
+  width: 146px;
+}
