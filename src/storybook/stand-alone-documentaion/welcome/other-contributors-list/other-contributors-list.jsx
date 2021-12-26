@@ -5,11 +5,7 @@ import "./other-contributors-list.scss";
 const BASE_CLASS = "monday-other-contributors-list";
 
 const excludedDevelopers = new Set();
-/** excludedDevelopers.add(60314759); // Orr Gotlieb
-excludedDevelopers.add(72390374); // Hadas Farhi
-excludedDevelopers.add(35146205); // Moshe Zemah * */
 excludedDevelopers.add(41898282); // github-actions[bot]
-// excludedDevelopers.add(9280709); // Sahar Brodbeker
 excludedDevelopers.add(49699333); // dependabot[bot]
 
 export const OtherContributorsList = () => {
@@ -21,14 +17,26 @@ export const OtherContributorsList = () => {
   }, []);
 
   const contributors = useMemo(() => {
+    const finalContributors = [];
     if (contributorsJson) {
-      return contributorsJson
+      // designer contributors
+      finalContributors.push(
+        <Link href="https://il.linkedin.com/in/rotem-dekel-7a8b12133" className={`${BASE_CLASS}_developer`}>
+          Rotem Dekel
+        </Link>
+      );
+
+      // developer contributors
+      const developerContributors = contributorsJson
         .filter(contributor => !excludedDevelopers.has(contributor.id))
         .map(contributor => (
           <Link href={contributor.html_url} className={`${BASE_CLASS}_developer`}>
             {contributor.login}
           </Link>
         ));
+
+      finalContributors.push(...developerContributors);
+      return finalContributors;
     }
   }, [contributorsJson]);
 

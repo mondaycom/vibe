@@ -1,15 +1,21 @@
 import IconButton from "../IconButton";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { Bolt, Activity, Robot, Doc, Pin, Show, HighlightColorBucket, Broom, Add } from "../../Icon/Icons"
+import { Bolt, Robot, Doc, Pin, Show, HighlightColorBucket, Broom, Add } from "../../Icon/Icons"
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { BUTTON_GROUP, SPLIT_BUTTON } from "../../../storybook/components/related-components/component-description-map";
 import { Link } from "../../../storybook/components";
 
+export const argTypes = createStoryMetaSettings({
+  component: IconButton,
+  enumPropNamesArray: ["kind", "size"],
+  iconPropNamesArray: ["icon"]
+});
 
 <Meta
   title="Buttons/IconButton"
   component={ IconButton }
+  argTypes={argTypes}
 />
 
 <!--- Component template -->
@@ -32,8 +38,8 @@ export const iconButtonTemplate = createComponentTemplate(IconButton);
 Please write here the component description
 
 <Canvas>
-  <Story name="Overview" args={{}}>
-    <IconButton ariaLabel="Add Button"/>
+  <Story name="Overview" args={{ariaLabel: "ariaLabel"}}>
+    {iconButtonTemplate.bind()}
   </Story>
 </Canvas>
 
@@ -42,7 +48,7 @@ Please write here the component description
 
 ## Usage
 <UsageGuidelines guidelines={[
-  <>Icon button will always appear with a <Link href="/?path=/docs/components-tooltip--overview">tooltip</Link> while hovering, defining the icon’s meaning.</>,
+  <>Icon button will always appear with a <Link href="/?path=/docs/dialogs-and-pop-ups-tooltip--overview">tooltip</Link> while hovering, defining the icon’s meaning.</>,
   "Use an icon button when a user can perform an inline action on this page and there's no room for a default button.",
   "Use icon button when you want to display an active state of a button.",
   "Use a Primary icon button when it's the most important action to take.",
@@ -117,7 +123,7 @@ Please write here the component description
       },
       negative: {
         component:<IconButton icon={Add} kind={IconButton.kinds.PRIMARY} ariaLabel="Add item" />,
-        description: <>Don’t use Icon button as the main action on the page. Instead, use the <Link href="/?path=/docs/components-button--overview" withoutSpacing>Button component</Link> with an icon.</>
+        description: <>Don’t use Icon button as the main action on the page. Instead, use the <Link href="/?path=/docs/buttons-button--overview" withoutSpacing>Button component</Link> with an icon.</>
       }
     },
     {

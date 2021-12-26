@@ -1,0 +1,32 @@
+@import "../../../../styles/global-css-settings";
+
+.drag-shadow-example {
+
+  &-frame {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &-draggable {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: var(--spacing-xs);
+    border: 1px solid;
+    @include theme-prop(border-color, layout-border-color);
+    border-radius: $border-radius-small;
+    padding: var(--spacing-small);
+    width: 234px;
+    height: 37px;
+  }
+
+  &-icon {
+    &:hover {
+      & + .drag-shadow-example-draggable {
+        @include box-shadow-medium;
+        transform: rotate(1deg);
+      }
+    }
+  }
+}

@@ -3,7 +3,6 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import SVG from "react-inlinesvg";
-import "./CustomSvgIcon.scss";
 import useIconScreenReaderAccessProps from "../../hooks/useIconScreenReaderAccessProps";
 
 function modifySvgCode(svg, color = "currentColor") {
