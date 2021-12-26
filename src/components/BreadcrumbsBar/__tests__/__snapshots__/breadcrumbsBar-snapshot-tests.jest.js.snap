@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BreadcrumbsBar renders correctly bar type 1`] = `
+exports[`BreadcrumbsBar renders correctly with bar type 1`] = `
 <nav
   aria-label="Breadcrumb"
   className="breadcrumbs-bar--wrapper"
@@ -9,7 +9,7 @@ exports[`BreadcrumbsBar renders correctly bar type 1`] = `
 </nav>
 `;
 
-exports[`BreadcrumbsBar renders correctly bar type 2`] = `
+exports[`BreadcrumbsBar renders correctly with bar type 2`] = `
 <nav
   aria-label="Breadcrumb"
   className="breadcrumbs-bar--wrapper"
@@ -18,16 +18,7 @@ exports[`BreadcrumbsBar renders correctly bar type 2`] = `
 </nav>
 `;
 
-exports[`BreadcrumbsBar renders correctly with empty props 1`] = `
-<nav
-  aria-label="Breadcrumb"
-  className="breadcrumbs-bar--wrapper"
->
-  <ol />
-</nav>
-`;
-
-exports[`BreadcrumbsBar renders correctly with items 1`] = `
+exports[`BreadcrumbsBar renders correctly with children 1`] = `
 <nav
   aria-label="Breadcrumb"
   className="breadcrumbs-bar--wrapper"
@@ -64,12 +55,11 @@ exports[`BreadcrumbsBar renders correctly with items 1`] = `
       />
     </svg>
     <li
-      className="breadcrumbItem--wrapper current disabled"
+      className="breadcrumbItem--wrapper"
     >
       <span
-        aria-current="page"
         aria-disabled="true"
-        className="breadcrumb-content current disabled"
+        className="breadcrumb-content"
         tabIndex="0"
       >
         <span
@@ -80,5 +70,14 @@ exports[`BreadcrumbsBar renders correctly with items 1`] = `
       </span>
     </li>
   </ol>
+</nav>
+`;
+
+exports[`BreadcrumbsBar renders correctly with empty props 1`] = `
+<nav
+  aria-label="Breadcrumb"
+  className="breadcrumbs-bar--wrapper"
+>
+  <ol />
 </nav>
 `;
