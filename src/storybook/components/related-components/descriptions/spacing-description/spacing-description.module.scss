@@ -3,9 +3,12 @@
 .spacing-description-visual-element {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
+
   & > * {
     margin: var(--spacing-medium);
-    @include theme-prop(background-color, negative-color);
+    width: 40px;
+    @include theme-prop(background-color, negative-color-selected);
   }
 
   .small-spacing-visual-element {

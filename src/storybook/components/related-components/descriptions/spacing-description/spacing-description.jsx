@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { RelatedComponent } from "../../../related-component/related-component";
-import classes from "./spacing-description.modules.scss";
+import classes from "./spacing-description.module.scss";
 
 export const SpacingDescription = () => {
   const component = useMemo(

@@ -28,9 +28,9 @@ import { SpinnerDescription } from "./descriptions/spinner-description";
 import { SkeletonDescription } from "./descriptions/skeleton-description";
 import { TypographyDescription } from "./descriptions/typography-description/typography-description";
 import { ProgressBarDescription } from "./descriptions/progress-bar-description";
-import { EditableHeading } from "../../../components";
 import { EditableHeadingDescription } from "./descriptions/editable-heading-description";
 import { ShadowDescription } from "./descriptions/shadow-description/shadow-description";
+import { SpacingDescription } from "./descriptions/spacing-description/spacing-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -66,6 +66,7 @@ export const EDITABLE_HEADING = "editable_heading";
 export const COLORS = "colors";
 export const TYPOGRAPHY = "typography";
 export const SHADOW = "shadow";
+export const SPACING = "spacing";
 
 export const descriptionTypesMap = new Map();
 
@@ -103,3 +104,4 @@ descriptionTypesMap.set(EDITABLE_HEADING, <EditableHeadingDescription />);
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
 descriptionTypesMap.set(TYPOGRAPHY, <TypographyDescription />);
 descriptionTypesMap.set(SHADOW, <ShadowDescription />);
+descriptionTypesMap.set(SPACING, <SpacingDescription />);
