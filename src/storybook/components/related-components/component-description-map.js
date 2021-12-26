@@ -28,6 +28,7 @@ import { SpinnerDescription } from "./descriptions/spinner-description";
 import { SkeletonDescription } from "./descriptions/skeleton-description";
 import { TypographyDescription } from "./descriptions/typography-description/typography-description";
 import { ProgressBarDescription } from "./descriptions/progress-bar-description";
+import { ShadowDescription } from "./descriptions/shadow-description/shadow-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -37,7 +38,7 @@ export const RADIO_BUTTON = "radio-button";
 export const COUNTER = "counter";
 export const TOOLTIP = "tooltip";
 export const TOGGLE = "toggle";
-export const DROPDAWN = "dropdawn";
+export const DROPDOWN = "dropdown";
 export const CHIP = "chips";
 export const BUTTON = "button";
 export const TAB = "tab";
@@ -61,6 +62,7 @@ export const PROGRESS_BAR = "progress-bar";
 // General description names (not related to specific components)
 export const COLORS = "colors";
 export const TYPOGRAPHY = "typography";
+export const SHADOW = "shadow";
 
 export const descriptionTypesMap = new Map();
 
@@ -72,7 +74,7 @@ descriptionTypesMap.set(RADIO_BUTTON, <RadioButtonDescription />);
 descriptionTypesMap.set(COUNTER, <CounterDescription />);
 descriptionTypesMap.set(TOOLTIP, <TooltipDescription />);
 descriptionTypesMap.set(TOGGLE, <ToggleDescription />);
-descriptionTypesMap.set(DROPDAWN, <DropdownDescription />);
+descriptionTypesMap.set(DROPDOWN, <DropdownDescription />);
 descriptionTypesMap.set(CHIP, <ChipsDescription />);
 descriptionTypesMap.set(ATTENTION_BOX, <AttentionBoxDescription />);
 descriptionTypesMap.set(ALERT_BANNER, <AlertBannerDescription />);
@@ -96,3 +98,4 @@ descriptionTypesMap.set(PROGRESS_BAR, <ProgressBarDescription />);
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
 descriptionTypesMap.set(TYPOGRAPHY, <TypographyDescription />);
+descriptionTypesMap.set(SHADOW, <ShadowDescription />);

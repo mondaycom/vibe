@@ -1,228 +1,148 @@
 import React, { useEffect, useRef } from "react";
 import Menu from "../Menu";
-import { FlexLayout } from "../../../storybook-helpers";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
-import StoryLine from "../../../../StoryBookComponents/StoryLink/StoryLine";
 import MenuItem from "../../MenuItem/MenuItem";
+import {
+  Activity,
+  Settings,
+  Invite,
+  Email,
+  Info,
+  Delete,
+  Favorite,
+  Emoji,
+  Code,
+  Feedback,
+  Calendar,
+  Filter,
+  Wand
+} from "../../../Icon/Icons";
+import { Search } from "../../../index";
+import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
+import classes from "./Menu.stories.module.scss";
 import MenuTitle from "../../MenuTitle/MenuTitle";
-import Divider from "../../../Divider/Divider";
-import { selectIcon } from "../../../storybook-helpers";
-import { Activity, Archive, Settings, Invite } from "../../../Icon/Icons";
-import { withPerformance } from "storybook-addon-performance";
+import MenuDivider from "../../MenuDivider/MenuDivider";
 
-const DISABLE_REASON = "You can't click me";
+export const menuTemplate = args => (
+  <Menu {...args}>
+    <MenuItem title="Menu item 1" />
+    <MenuItem title="Menu item 2" disabled />
+    <MenuItem title="More item 3" />
+  </Menu>
+);
 
-const renderMenuItems = () => {
-  return [
-    <MenuItem
-      id="menu-item-1"
-      title={"Sombody"}
-      icon={Activity}
-      subMenuRenderer={true}
-      onClick={() => {
-        alert("1");
-      }}
-    />,
-    <MenuItem
-      id="menu-item-2"
-      title={"Come"}
-      icon={Archive}
-      subMenuRenderer={true}
-      onClick={() => {
-        alert("2");
-      }}
-    />,
-    <MenuItem
-      id="menu-item-3"
-      title={"Get her"}
-      icon={Settings}
-      subMenuRenderer={true}
-      onClick={() => {
-        alert("3");
-      }}
-    />,
+export const menuSizesTemplate = args => [
+  <DialogContentContainer>
+    <Menu size={Menu.sizes.SMALL}>
+      <MenuTitle caption="Small menu" />
+      <MenuDivider />
+      <MenuItem title="Menu item 1" />
+      <MenuItem title="Menu item 2" disabled />
+      <MenuItem title="More item 3" />
+    </Menu>
+  </DialogContentContainer>,
+  <DialogContentContainer>
+    <Menu size={Menu.sizes.MEDIUM}>
+      <MenuTitle caption="Medium menu" />
+      <MenuDivider />
+      <MenuItem title="Menu item 1" />
+      <MenuItem title="Menu item 2" disabled />
+      <MenuItem title="More item 3" />
+    </Menu>
+  </DialogContentContainer>,
+  <DialogContentContainer>
+    <Menu size={Menu.sizes.LARGE}>
+      <MenuTitle caption="Large menu" />
+      <MenuDivider />
+      <MenuItem title="Menu item 1" />
+      <MenuItem title="Menu item 2" disabled />
+      <MenuItem title="More item 3" />
+    </Menu>
+  </DialogContentContainer>
+];
 
-    <MenuItem
-      id="menu-item-4"
-      title={"Like a"}
-      icon={"fa fa-star-o"}
-      subMenuRenderer={true}
-      onClick={() => {
-        alert("4");
-      }}
-    />,
-    <MenuItem
-      id="menu-item-5"
-      title={"Striper"}
-      icon={Invite}
-      subMenuRenderer={true}
-      onClick={() => {
-        alert("5");
-      }}
-    />,
+export const menuWithIconsTemplate = args => (
+  <DialogContentContainer>
+    <Menu {...args}>
+      <MenuItem icon={Email} title="Send" />
+      <MenuItem icon={Delete} title="Delete" disabled />
+      <MenuItem icon={Info} title="More info" />
+    </Menu>
+  </DialogContentContainer>
+);
 
-    <MenuItem
-      id="menu-item-6"
-      title={"She's dancing"}
-      icon={"fa fa-star-o"}
-      subMenuRenderer={true}
-      onClick={() => {
-        alert("6");
-      }}
-    />,
-    <MenuItem
-      id="menu-item-7"
-      title={"When disabled"}
-      icon={"fa fa-star-o"}
-      disabled={true}
-      disableReason={DISABLE_REASON}
-      onClick={() => {
-        alert("7");
-      }}
-    />
-  ];
-};
-
-const renderMenuItem = index => {
-  return (
-    <MenuItem
-      id={`menu-item-${index}`}
-      title={text(`MenuItem ${index} name`, "item")}
-      icon={selectIcon(`MenuItem ${index} icon`, "Activity")}
-      disabled={boolean(`MenuItem ${index} disabled`, false)}
-      disableReason={DISABLE_REASON}
-      onClick={() => {
-        alert(index);
-      }}
-    />
-  );
-};
-
-const renderDivider = index => {
-  return <Divider id={`menu-divider-${index}`} />;
-};
-
-const renderMenuTitle = index => {
-  return (
-    <MenuTitle
-      id={`menu-title-${index}`}
-      caption={text(`MenuTitle ${index} caption`, "Caption")}
-      captionPosition={select(
-        `MenuTitle ${index} position`,
-        {
-          TOP: MenuTitle.positions.TOP,
-          BOTTOM: MenuTitle.positions.BOTTOM,
-          CENTER: MenuTitle.positions.CENTER
-        },
-        MenuTitle.positions.BOTTOM
-      )}
-    />
-  );
-};
-const renderItem = index => {
-  const itemType = select(`Item ${index} type`, {
-    MenuItem: "MenuItem",
-    Divider: "Divider",
-    MenuTitle: "MenuTitle"
-  });
-
-  switch (itemType) {
-    case "MenuItem": {
-      return renderMenuItem(index);
-    }
-    case "Divider": {
-      return renderDivider(index);
-    }
-    case "MenuTitle": {
-      return renderMenuTitle(index);
-    }
-    default: {
-      return renderMenuItem(index);
-    }
-  }
-};
-
-const renderMenuItemsByCount = itemsCount => {
-  const items = [];
-  for (var i = 0; i < itemsCount; i++) {
-    items.push(renderItem(i));
-  }
-
-  return items;
-};
-
-export const Sandbox = () => {
-  const itemsCount = number("itemsCount", 3);
-
-  return (
-    <div>
-      <Menu
-        tabIndex={0}
-        id="menu"
-        size={select("size", {
-          SMALL: Menu.sizes.SMALL,
-          MEDIUM: Menu.sizes.MEDIUM,
-          LARGE: Menu.sizes.LARGE
-        })}
-      >
-        {renderMenuItemsByCount(itemsCount)}
-      </Menu>
-    </div>
-  );
-};
-
-export const Sizes = () => {
-  return (
-    <div style={{ width: 700 }}>
-      <FlexLayout>
-        <StoryLine title="Small">
-          <Menu id="menu" size={Menu.sizes.SMALL} tabIndex={0}>
-            {renderMenuItems()}
-          </Menu>
-        </StoryLine>
-      </FlexLayout>
-
-      <FlexLayout>
-        <StoryLine title="Medium">
-          <Menu id="menu" size={Menu.sizes.MEDIUM} tabIndex={1}>
-            {renderMenuItems()}
-          </Menu>
-        </StoryLine>
-      </FlexLayout>
-
-      <FlexLayout>
-        <StoryLine title="Large">
-          <Menu id="menu" size={Menu.sizes.LARGE} tabIndex={2}>
-            {renderMenuItems()}
-          </Menu>
-        </StoryLine>
-      </FlexLayout>
-    </div>
-  );
-};
-
-export const menuKeyboardNavigationWithoutFocus = () => {
-  const inputRef = useRef();
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, [inputRef]);
-
-  return (
-    <div style={{ width: 700 }}>
-      <FlexLayout>
-        <form>
-          <input ref={inputRef} tabIndex={0} />
-        </form>
-        <Menu useDocumentEventListeners={true} id="menu" size={Menu.sizes.SMALL} tabIndex={0}>
-          {renderMenuItems()}
+export const menuWithSubMenuTemplate = args => (
+  <DialogContentContainer>
+    <Menu>
+      <MenuItem title="Menu item" icon={Activity} />
+      <MenuItem title='Hover me to see the sub menu"' icon={Activity}>
+        <Menu>
+          <MenuItem icon={Email} title="Send" />
+          <MenuItem icon={Delete} title="Delete" disabled />
+          <MenuItem icon={Info} title="More info" />
         </Menu>
-      </FlexLayout>
-    </div>
-  );
-};
+      </MenuItem>
+      <MenuItem title="Another item" icon={Settings} />
+    </Menu>
+  </DialogContentContainer>
+);
 
-export default {
-  title: "Components|Menu/Menu",
-  component: Menu,
-  decorators: [withPerformance]
-};
+export const menuWith2DepthSubMenuTemplate = () => (
+  <DialogContentContainer>
+    <Menu>
+      <MenuItem title="Menu item" icon={Favorite} />
+      <MenuItem title="Hover me to see the sub menu" icon={Activity}>
+        <Menu>
+          <MenuItem icon={Emoji} title="Send" />
+          <MenuItem icon={Code} title="Hover me to see the sub menu">
+            <Menu>
+              <MenuItem icon={Email} title="Sub sub item" />
+              <MenuItem icon={Invite} title="Another sub sub item" />
+              <MenuItem icon={Settings} title="More sub sub items" />
+            </Menu>
+          </MenuItem>
+          <MenuItem icon={Feedback} title="More info" />
+        </Menu>
+      </MenuItem>
+      <MenuItem title="Another item" icon={Settings} />
+    </Menu>
+  </DialogContentContainer>
+);
+
+export const ComponentRuleSimpleActions = () => (
+  <DialogContentContainer>
+    <Menu>
+      <MenuItem title="Item 1" icon={Calendar} />
+      <MenuItem title="Item 2" icon={Wand} />
+      <MenuItem title="Item 3" icon={Filter} />
+    </Menu>
+  </DialogContentContainer>
+);
+
+export const ComponentRuleWithSearch = () => (
+  <DialogContentContainer>
+    <Search size={Search.sizes.SMALL} wrapperClassName={classes["component-rule-search"]} />
+    <Menu>
+      <MenuItem title="Item 1" icon={Calendar} />
+      <MenuItem title="Item 2" icon={Wand} />
+      <MenuItem title="Item 3" icon={Filter} />
+    </Menu>
+  </DialogContentContainer>
+);
+
+export const ComponentRuleDefaultWidth = () => (
+  <DialogContentContainer>
+    <Menu>
+      <MenuItem title="Item 1" icon={Calendar} />
+      <MenuItem title="Item 2" icon={Filter} />
+    </Menu>
+  </DialogContentContainer>
+);
+
+export const ComponentRuleLargeWidth = () => (
+  <DialogContentContainer className={classes["component-rule-large-dialog"]}>
+    <Menu className={classes["component-rule-large-menu"]}>
+      <MenuItem title="Item 1" icon={Calendar} />
+      <MenuItem title="Item 2" icon={Filter} />
+    </Menu>
+  </DialogContentContainer>
+);

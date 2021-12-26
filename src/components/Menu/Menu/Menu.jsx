@@ -11,11 +11,14 @@ import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
 import useMouseLeave from "./hooks/useMouseLeave";
 import { SIZES } from "../../../constants/sizes";
 import "./Menu.scss";
+import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 
 const Menu = forwardRef(
   (
     {
       id,
+      className,
+      // Backward compatibility for props naming
       classname,
       size,
       tabIndex,
@@ -33,6 +36,7 @@ const Menu = forwardRef(
     forwardedRef
   ) => {
     const ref = useRef(null);
+    const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const [activeItemIndex, setActiveItemIndex] = useState(focusItemIndex);
     const [isInitialSelectedState, setIsInitialSelectedState] = useState(false);
 
@@ -122,7 +126,7 @@ const Menu = forwardRef(
         onFocus={focusWithinProps.onFocus}
         onBlur={focusWithinProps.onBlur}
         id={id}
-        className={cx("monday-style-menu", classname, `monday-style-menu--${size}`)}
+        className={cx("monday-style-menu", overrideClassName, `monday-style-menu--${size}`)}
         ref={mergedRef}
         tabIndex={tabIndex}
         aria-label={ariaLabel}
@@ -163,7 +167,7 @@ Menu.sizes = SIZES;
 Menu.defaultProps = {
   id: undefined,
   focusOnMount: false,
-  classname: "",
+  className: undefined,
   size: SIZES.MEDIUM,
   tabIndex: 0,
   ariaLabel: "Menu",
@@ -178,7 +182,7 @@ Menu.defaultProps = {
 
 Menu.propTypes = {
   id: PropTypes.string,
-  classname: PropTypes.string,
+  className: PropTypes.string,
   size: PropTypes.oneOf([SIZES.SMALL, SIZES.MEDIUM, SIZES.LARGE]),
   tabIndex: PropTypes.number,
   ariaLabel: PropTypes.string,

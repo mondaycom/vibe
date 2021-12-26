@@ -1,7 +1,8 @@
 import { Meta } from "@storybook/addon-docs";
 import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
 import { ComponentName, Frame } from "../../components";
-import {menuExample, tipseenExample, toolbarExample} from "./assets";
+import { menuExample, tipseenExample, toolbarExample } from "./assets";
+import { COLORS, TYPOGRAPHY, SHADOW } from "../../components/related-components/component-description-map";
 import "./spacing.stories.scss";
 
 <Meta
@@ -17,6 +18,7 @@ import "./spacing.stories.scss";
 - [Overview](#overview)
 - [Spacing sizes](#spacing-sizes)
 - [Usage and examples](#usage-and-examples)
+- [Up next](#up-next)
 - [Feedback](#feedback)
 
 ## Overview
@@ -47,3 +49,6 @@ Using the right sizes will create consistency and hierarchy in user interface.
 <Frame className="monday-storybook-spacing_image-container ">
   <img className="monday-storybook-spacing_image--tipseen" src={tipseenExample} alt=""/>
 </Frame>
+
+## Up next
+<RelatedComponents componentsNames={[TYPOGRAPHY, SHADOW, COLORS]} />
