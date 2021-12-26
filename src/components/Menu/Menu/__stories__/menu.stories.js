@@ -86,26 +86,6 @@ export const menuWith2DepthSubMenuTemplate = () => (
   </DialogContentContainer>
 );
 
-export const menuKeyboardNavigationWithoutFocusTemplate = () => {
-  const inputRef = useRef();
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, [inputRef]);
-
-  return (
-    <div>
-      <form>
-        <input ref={inputRef} tabIndex={0} />
-      </form>
-      <Menu useDocumentEventListeners={true}>
-        <MenuItem title="Menu item 1" />
-        <MenuItem title="Menu item 2" />
-        <MenuItem title="More item 3" />
-      </Menu>
-    </div>
-  );
-};
-
 export const ComponentRuleSimpleActions = () => (
   <DialogContentContainer>
     <Menu>

@@ -5,11 +5,15 @@ import {
   menuWithSubMenuTemplate,
   menuWith2DepthSubMenuTemplate,
   menuWithIconsTemplate,
-  menuKeyboardNavigationWithoutFocusTemplate,
   ComponentRuleSimpleActions,
   ComponentRuleWithSearch,
   ComponentRuleDefaultWidth, ComponentRuleLargeWidth, menuWithDialogTemplate
 } from "./menu.stories";
+import {
+  COMBOBOX,
+  DROPDOWN,
+  SPLIT_BUTTON
+} from "../../../../storybook/components/related-components/component-description-map";
 
 <Meta
   title="Navigation/Menu/Menu"
@@ -134,13 +138,5 @@ It contains at least two menu items.
   </Story>
 </Canvas>
 
-### Menu with keybord navigation without focus
-<Canvas>
-  <Story name="Menu with keybord navigation without focus">
-    {menuKeyboardNavigationWithoutFocusTemplate.bind({})}
-  </Story>
-</Canvas>
-
-
 ## Related components
-<RelatedComponents componentsNames={[]} />
+<RelatedComponents componentsNames={[COMBOBOX, DROPDOWN, SPLIT_BUTTON]} />
