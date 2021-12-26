@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-wrap-multilines */
 import React from "react";
 import { ResizableBox } from "react-resizable";
 import Menu from "../../Menu/Menu/Menu";
@@ -38,11 +39,11 @@ const DefaultExampleTemplate = responseListProps => {
     <ResizableBox
       height={48}
       width={450}
-      handle={(
+      handle={
         <span className="custom-handle custom-handle-se">
           <Icon icon={Open} iconSize={16} clickable={false} className="icon-resizer" />
         </span>
-      )}
+      }
       handleSize={[12, 12]}
       className="resizable-container"
       minConstraints={[200, 48]}
