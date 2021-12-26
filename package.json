@@ -136,6 +136,7 @@
     "prettier": "^1.19.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-resizable": "^3.0.4",
     "react-test-renderer": "^16.14.0",
     "requirejs": "^2.3.6",
     "sass": "^1.45.0",
