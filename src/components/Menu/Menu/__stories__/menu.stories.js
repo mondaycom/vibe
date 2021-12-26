@@ -19,6 +19,8 @@ import {
 import { Search } from "../../../index";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import classes from "./Menu.stories.module.scss";
+import MenuTitle from "../../MenuTitle/MenuTitle";
+import MenuDivider from "../../MenuDivider/MenuDivider";
 
 export const menuTemplate = args => (
   <Menu {...args}>
@@ -28,15 +30,35 @@ export const menuTemplate = args => (
   </Menu>
 );
 
-export const menuWithDialogTemplate = args => (
+export const menuSizesTemplate = args => [
   <DialogContentContainer>
-    <Menu {...args}>
+    <Menu size={Menu.sizes.SMALL}>
+      <MenuTitle caption="Small menu" />
+      <MenuDivider />
+      <MenuItem title="Menu item 1" />
+      <MenuItem title="Menu item 2" disabled />
+      <MenuItem title="More item 3" />
+    </Menu>
+  </DialogContentContainer>,
+  <DialogContentContainer>
+    <Menu size={Menu.sizes.MEDIUM}>
+      <MenuTitle caption="Medium menu" />
+      <MenuDivider />
+      <MenuItem title="Menu item 1" />
+      <MenuItem title="Menu item 2" disabled />
+      <MenuItem title="More item 3" />
+    </Menu>
+  </DialogContentContainer>,
+  <DialogContentContainer>
+    <Menu size={Menu.sizes.LARGE}>
+      <MenuTitle caption="Large menu" />
+      <MenuDivider />
       <MenuItem title="Menu item 1" />
       <MenuItem title="Menu item 2" disabled />
       <MenuItem title="More item 3" />
     </Menu>
   </DialogContentContainer>
-);
+];
 
 export const menuWithIconsTemplate = args => (
   <DialogContentContainer>

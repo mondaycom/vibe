@@ -7,7 +7,7 @@ import {
   menuWithIconsTemplate,
   ComponentRuleSimpleActions,
   ComponentRuleWithSearch,
-  ComponentRuleDefaultWidth, ComponentRuleLargeWidth, menuWithDialogTemplate
+  ComponentRuleDefaultWidth, ComponentRuleLargeWidth, menuSizesTemplate
 } from "./menu.stories";
 import {
   COMBOBOX,
@@ -33,8 +33,7 @@ import {
 - [Feedback](#feedback)
 
 ## Overview
-A menu is a temporary piece of material that appears upon interaction with a button, action, pointer, or other control.
-It contains at least two menu items.
+A menu is a navigatable contextual list of items that can be selected.
 
 <Canvas>
   <Story name="Overview"
@@ -52,39 +51,20 @@ It contains at least two menu items.
   "Menu height is dynamic according to the content it contains and its location on the screen.",
   "Closing menus can be done by selecting a value or clicking any where outside the menu.",
   "Menu items can include icons, radio buttons, and checkboxes.",
-  "If a menu dropdown contains a mix of links and buttons, separate them with a content divider with links at the top and buttons at the bottom."
+  "If a menu dropdown contains a mix of links and buttons, separate them with a content divider with links at the top and buttons at the bottom.",
+  "Menu should contains at least two menu items."
 ]}/>
 
 <Tip>Need to place a search field to filter results? Use the Combobox component instead</Tip>
 
 ## Variants
-### Small menu
+### Sizes
 <Canvas>
   <Story
-    name="Small menu"
+    name="Sizes"
     args={{size: Menu.sizes.SMALL}}
   >
-    { menuWithDialogTemplate.bind({}) }
-  </Story>
-</Canvas>
-
-### Medium menu
-<Canvas>
-  <Story
-    name="Medium menu"
-    args={{size: Menu.sizes.MEDIUM}}
-  >
-    { menuWithDialogTemplate.bind({}) }
-  </Story>
-</Canvas>
-
-### Large menu
-<Canvas>
-  <Story
-    name="Large menu"
-    args={{ size: Menu.sizes.LARGE }}
-  >
-    { menuWithDialogTemplate.bind({}) }
+    { menuSizesTemplate.bind({}) }
   </Story>
 </Canvas>
 
@@ -105,7 +85,7 @@ It contains at least two menu items.
       },
       negative: {
         component:<ComponentRuleWithSearch />,
-        description:"Don’t place a filter component inside. See Combobox."
+        description:"Don’t place a search component near to menu for implement a filter capability. See Combobox."
       }
     },
     {
