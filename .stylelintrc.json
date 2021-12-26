@@ -19,6 +19,7 @@
     "property-no-vendor-prefix": null,
     "scss/at-mixin-argumentless-call-parentheses": null,
     "color-function-notation": null,
+    "kebab-case": false,
     "no-empty-source": [true, {"severity": "warning"}],
     "keyframes-name-pattern": null,
     "max-line-length": [140, {"severity": "error"}],
