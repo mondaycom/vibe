@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import React from "react";
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { ResizableBox } from "react-resizable";
 import Menu from "../../Menu/Menu/Menu";
 import { MenuItem } from "../../index";
