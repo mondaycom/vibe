@@ -1,0 +1,37 @@
+import { Meta } from "@storybook/addon-docs";
+import { ComponentName } from "../../components";
+import CornersSettings from "./corners-settings/corner-settings";3
+import RoundedCorner from "./rounded-corner/rounded-corner";
+import { COLORS, SPACING, TYPOGRAPHY } from "../../components/related-components/component-description-map";
+import classes from "./round-corners.stories.module.scss";
+
+<Meta
+  title="Foundations/Round Corners"
+/>
+
+<!--- Component documentation -->
+
+<ComponentName withFoundationBackground>
+  RoundCorners
+</ComponentName>
+
+- [Overview](#overview)
+- [Up next](#up-next)
+- [Feedback](#feedback)
+
+## Overview
+Our design system contains various fixed units for radius of elements corners.
+<div className={classes["rounded-corners-container"]}>
+  <CornersSettings title="Small" bullets={["Forms", "Buttons", "Check boxes", "Selected mark", "Tooltips etc..."]} >
+    <RoundedCorner roundedCornerSize="small" number="4"/>
+  </CornersSettings>
+  <CornersSettings title="Medium" bullets={["Dropdown", "Popovers", "Attention box", "Updates"]} >
+    <RoundedCorner roundedCornerSize="medium" number="8"/>
+  </CornersSettings>
+  <CornersSettings title="Large" bullets={["Popups"]} >
+    <RoundedCorner roundedCornerSize="big" number="16"/>
+  </CornersSettings>
+</div>
+
+## Up next
+<RelatedComponents componentsNames={[TYPOGRAPHY, SPACING, COLORS]}/>
