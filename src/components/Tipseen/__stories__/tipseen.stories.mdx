@@ -55,13 +55,13 @@ export const tipseenTemplate = (args) => {
 Tipseen is an virtual unboxing experience that helps users get started with the system.
 <Canvas>
   <Story name="Overview"
-         args={ 
+         args={
            {
-            title: "title", 
-            children: "Popover message will appear here loremipsum dolor samet…", 
+            title: "title",
+            children: "Popover message will appear here loremipsum dolor samet…",
             position: Tipseen.positions.RIGHT,
             isDismissHidden: false
-           } 
+           }
          }>
     { tipseenTemplate.bind({}) }
   </Story>
@@ -83,17 +83,17 @@ Tipseen is an virtual unboxing experience that helps users get started with the 
 ### Default
 <Canvas>
   <Story name="Default">
-    <Tipseen          
+    <Tipseen
       // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
       // Therefore, there is no need to move this prop in your implementations.
       modifiers={modifiers}
-      position={Tipseen.positions.RIGHT} 
+      position={Tipseen.positions.RIGHT}
       content={
         <TipseenContent
           title="This is a title"
           isDismissHidden
         >
-          Popover message will appear here loremipsum dolor samet…  
+          Popover message will appear here loremipsum dolor samet…
         </TipseenContent>
       }
     >
@@ -119,9 +119,9 @@ Use when the tip is too long or when you want to teach something in steps.
           // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
           // Therefore, there is no need to move this prop in your implementations.
           modifiers={modifiers}
-          position={Tipseen.positions.RIGHT} 
+          position={Tipseen.positions.RIGHT}
           content={
-            <TipseenWizard 
+            <TipseenWizard
               title="This is a title"
               steps={content}
               activeStepIndex={2}
@@ -140,11 +140,11 @@ Use when the tip is too long or when you want to teach something in steps.
   <Story name="Tipseen with image">
     {() => {
       const content = [
-        <div>Popover message will appear here loremipsum dolor samet…</div>,
-        <div>Popover message will appear here loremipsum dolor samet…</div>,
-        <div>Popover message will appear here loremipsum dolor samet…</div>,
-        <div>Popover message will appear here loremipsum dolor samet…</div>,
-        <div>Popover message will appear here loremipsum dolor samet…</div>
+        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
+        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
+        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
+        <div>Popover message will appear here lorem ipsum dolor samet…</div>,
+        <div>Popover message will appear here lorem ipsum dolor samet…</div>
       ];
       return (
         <Tipseen
@@ -159,7 +159,7 @@ Use when the tip is too long or when you want to teach something in steps.
                 className="monday-style-story-tipseen_image"
                 src={picture}
               />
-              <TipseenWizard 
+              <TipseenWizard
                 title="This is a title"
                 steps={content}
                 activeStepIndex={2}
@@ -186,14 +186,14 @@ Use when the tip is too long or when you want to teach something in steps.
             </div>
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.RIGHT} 
+              position={Tipseen.positions.RIGHT}
               content={
                 <TipseenContent title="Step1 of 7">
                   Click on the “Sales” board to get started
                 </TipseenContent>
               }
             >
-              <div className="monday-style-story-tipseen_column-item monday-style-story-tipseen_hovered">  
+              <div className="monday-style-story-tipseen_column-item monday-style-story-tipseen_hovered">
                 <Icon icon={Board} iconSize="24" /><span>Sales Pipeline</span>
               </div>
             </Tipseen>
@@ -208,7 +208,7 @@ Use when the tip is too long or when you want to teach something in steps.
           <div className="monday-style-story-tipseen_column-wrapper">
             <Tipseen
               modifiers={modifiers}
-              position={Tipseen.positions.TOP} 
+              position={Tipseen.positions.TOP}
               content={
                 <TipseenContent>
                   You still have 14 days on your Pro trial, Enjoy it!

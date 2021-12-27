@@ -39,7 +39,7 @@ AvatarContent.types = AVATAR_TYPES;
 AvatarContent.sizes = AVATAR_SIZES;
 
 AvatarContent.propTypes = {
-  src: PropTypes.string,
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   type: PropTypes.oneOf([AvatarContent.types.TEXT, AvatarContent.types.ICON, AvatarContent.types.IMG]),
   size: PropTypes.oneOf([AvatarContent.sizes.SMALL, AvatarContent.sizes.MEDIUM, AvatarContent.sizes.LARGE]),
   role: PropTypes.string,

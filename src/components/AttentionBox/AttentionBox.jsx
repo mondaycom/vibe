@@ -100,7 +100,7 @@ AttentionBox.propTypes = {
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.any,
   withoutIcon: PropTypes.bool,
   compact: PropTypes.bool,
   onClose: PropTypes.func

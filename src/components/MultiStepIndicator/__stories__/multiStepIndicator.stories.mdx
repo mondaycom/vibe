@@ -39,16 +39,19 @@ Tabular navigation component that helps users visualize and interact with a mult
          args={ {
            steps: [
             {
+              key: "FULFILLED",
               status: MultiStepIndicator.stepStatuses.FULFILLED,
               titleText: "Everything you can do with Monday",
               subtitleText: "Subtitle"
             },
             {
+              key: "PENDING",
               status: MultiStepIndicator.stepStatuses.PENDING,
               titleText: "Everything you can do with Monday",
               subtitleText: "Subtitle"
             },
             {
+              key: "PENDING-2",
               status: MultiStepIndicator.stepStatuses.PENDING,
               titleText: "Everything you can do with Monday",
               subtitleText: "Subtitle"
@@ -81,16 +84,19 @@ Placements
     {() => {
       const steps = useMemo(() => [
         {
+        key: "FULFILLED",
           status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Fulfilled title",
           subtitleText: "Fulfilled subtitle"
         },
         {
+        key: "ACTIVE",
           status: MultiStepIndicator.stepStatuses.ACTIVE,
           titleText: "Active title",
           subtitleText: "Active subtitle"
         },
         {
+        key: "PENDING",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Pending title",
           subtitleText: "Pending subtitle"
@@ -119,16 +125,19 @@ There are 4 types: Primary, success, danger, dark.
     {() => {
       const steps = useMemo(() => [
         {
+        key: "FULFILLED",
           status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Fulfilled title",
           subtitleText: "Fulfilled subtitle"
         },
         {
+        key: "ACTIVE",
           status: MultiStepIndicator.stepStatuses.ACTIVE,
           titleText: "Active title",
           subtitleText: "Active subtitle"
         },
         {
+        key: "PENDING",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Pending title",
           subtitleText: "Pending subtitle"
@@ -164,16 +173,19 @@ There are 4 types: Primary, success, danger, dark.
     {() => {
       const steps = useMemo(() => [
         {
+        key: "FULFILLED",
           status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Fulfilled title",
           subtitleText: "Fulfilled subtitle"
         },
         {
+        key: "ACTIVE",
           status: MultiStepIndicator.stepStatuses.ACTIVE,
           titleText: "Active title",
           subtitleText: "Active subtitle"
         },
         {
+        key: "PENDING",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Pending title",
           subtitleText: "Pending subtitle"
@@ -206,16 +218,19 @@ State transition automatic example
     {() => {
     const exampleSteps = useMemo(() => ({
       firstStep: {
+      key: "PENDING",
         status: MultiStepIndicator.stepStatuses.PENDING,
         titleText: "First step title",
         subtitleText: "First subtitle",
       },
       secondStep: {
+      key: "PENDING-2",
         status: MultiStepIndicator.stepStatuses.PENDING,
         titleText: "Second step title",
         subtitleText: "Second subtitle",
       },
       thirdStep: {
+      key: "PENDING-3",
         status: MultiStepIndicator.stepStatuses.PENDING,
         titleText: "Third step title",
         subtitleText: "Third subtitle",
@@ -305,16 +320,19 @@ State transition automatic example
     {() => {
       const steps = useMemo(() => [
         {
+        key: "FULFILLED",
           status: MultiStepIndicator.stepStatuses.FULFILLED,
           titleText: "Step 1",
           subtitleText: "Learn how to use monday CRM"
         },
         {
+        key: "PENDING",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Step 2",
           subtitleText: "Integrate your email"
         },
         {
+        key: "PENDING-3",
           status: MultiStepIndicator.stepStatuses.PENDING,
           titleText: "Step 3",
           subtitleText: "Import your data"
