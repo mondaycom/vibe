@@ -2,12 +2,18 @@ import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs"
 import { useMemo } from "react";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button"
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { Check, Search, Filter, Download, Group, Upload, Print, Sort } from "../../Icon/Icons";
 import { BUTTON_GROUP, BUTTON, MENU } from "../../../storybook/components/related-components/component-description-map";
 import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
 import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
 import "./splitButton.stories.scss";
+
+export const argTypes = createStoryMetaSettings({
+  component: SplitButton,
+  enumPropNamesArray: ["dialogPaddingSize", "kind"],
+  iconPropNamesArray: ["leftIcon", "rightIcon"]
+});
 
 <Meta
   title="Buttons/Split Button"

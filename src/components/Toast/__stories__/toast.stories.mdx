@@ -11,12 +11,13 @@ import "./toast.stories.scss";
 export const argTypes = createStoryMetaSettings({
   component: Toast,
   enumPropNamesArray: ["type"],
-  iconPropNamesArray: ["icon", "hideIcon"]
+  iconPropNamesArray: ["icon"]
 });
 
 <Meta
   title="Feedback/Toast"
   component={ Toast }
+  argTypes={argTypes}
 />
 
 <!--- Component template -->

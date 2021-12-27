@@ -1,12 +1,11 @@
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { useCallback } from "react";
 import AttentionBox from "../AttentionBox";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { ATTENTION_BOX_TYPES } from "../AttentionBoxConstants";
 import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Info, Invite, ThumbsUp } from "../../Icon/Icons";
-import Button from "../../Button/Button.jsx";
 import Icon from "../../Icon/Icon";
 import Search  from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
@@ -14,9 +13,16 @@ import { TOOLTIP, ALERT_BANNER, TOAST } from "../../../storybook/components/rela
 import person from "./assets/person.png";
 import "./attentionBox.stories.scss";
 
+export const argsTypes = createStoryMetaSettings({
+  component: AttentionBox,
+  enumPropNamesArray: ["type", "iconType"],
+  iconPropNamesArray: ["icon"]
+});
+
 <Meta
   title="Feedback/AttentionBox"
-  component={ AttentionBox }
+  component={AttentionBox}
+  argTypes={argsTypes}
 />
 
 <!--- Component template -->
