@@ -17,6 +17,7 @@ import Divider from "../../Divider/Divider";
 import Avatar from "../../Avatar/Avatar";
 import { Icon } from "../../index";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 
 <Meta
   title="Navigation/List/List"
@@ -68,13 +69,14 @@ Lists is a group of actionable items containing primary and supplemental actions
 
 ## Usage
 <UsageGuidelines guidelines={[
-  "Use list component for display a list of items in a column.",
+  "Use list component for display a list of navigable items in a column.",
+  "List purpose is usually allowing navigation in context to the navigable  content.",
   "Your list items can be either in regular, selected or disabled state. You can control a list item's component state by its attributes.",
 ]}/>
 
 <Tip title="Check yourself">
-  For implementing a menu inside a popup, please use our
-  <Link href="/?path=/docs/navigation-menu--overview" withoutSpacing>menu</Link>
+  For implementing a menu inside a dialog, please use our
+  <Link href="/?path=/docs/navigation-menu--overview" size={Link.sizes.SMALL}>Menu</Link>
   component
 </Tip>
 
@@ -126,42 +128,57 @@ Lists is a group of actionable items containing primary and supplemental actions
   rules={[
     {
       positive: {
-        component:<List />,
-        description:"Best practice description."
+        component: <div className={classes["leftpane-workspaces-section"]}>
+          <List>
+            <ListItem>
+              <ListItemIcon icon={Add}/>
+              Add
+            </ListItem>
+            <ListItem>
+              <ListItemIcon icon={Filter} />
+              Filter
+            </ListItem>
+          </List>
+          <Divider/>
+          <List>
+            <ListItem>
+              <ListItemIcon icon={Board} />
+              Board name
+            </ListItem>
+            <ListItem>
+              <ListItemIcon icon={Board} />
+              Board name
+            </ListItem>
+          </List>
+        </div>,
+        description:"Use a list component to create a menu displayed on one of the various sections of your web page."
       },
       negative: {
-        component:<List />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<List />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<List />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<List />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<List />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<List />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<List />,
-        description:"Bad practice description."
+        component:<DialogContentContainer>
+          <List>
+            <ListItem>
+              <ListItemIcon icon={Add}/>
+              Add
+            </ListItem>
+            <ListItem>
+              <ListItemIcon icon={Filter} />
+              Filter
+            </ListItem>
+          </List>
+          <Divider />
+          <List>
+          <ListItem>
+            <ListItemIcon icon={Board} />
+            Board name
+          </ListItem>
+          <ListItem>
+            <ListItemIcon icon={Board} />
+            Board name
+          </ListItem>
+        </List></DialogContentContainer>,
+        description:<>
+          Do not use the list to implement a menu displayed inside a dialog. See <Link href="/?path=/docs/navigation-menu--overview" withoutSpacing>Menu</Link>.
+        </>
       }
     }
   ]}
