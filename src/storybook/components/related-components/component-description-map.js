@@ -25,6 +25,7 @@ import { ColorsDescription } from "./descriptions/colors-description/colors-desc
 import { SpinnerDescription } from "./descriptions/spinner-description";
 import { SkeletonDescription } from "./descriptions/skeleton-description";
 import { TypographyDescription } from "./descriptions/typography-description/typography-description";
+import { IconButtonDescription } from "./descriptions/icon-button-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -51,6 +52,7 @@ export const COMBOBOX = "combobox";
 export const STEPPER = "stepper";
 export const SPINNER = "spinner";
 export const SKELETON = "skeleton";
+export const ICON_BUTTON = "icon-button";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
@@ -83,6 +85,7 @@ descriptionTypesMap.set(COMBOBOX, <ComboboxDescription />);
 descriptionTypesMap.set(STEPPER, <StepperDescription />);
 descriptionTypesMap.set(SPINNER, <SpinnerDescription />);
 descriptionTypesMap.set(SKELETON, <SkeletonDescription />);
+descriptionTypesMap.set(ICON_BUTTON, <IconButtonDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
