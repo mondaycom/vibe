@@ -10,29 +10,37 @@ import { modifiers } from "./helper.js";
 import { Link } from "../../../storybook/components";
 import { TOOLTIP, ATTENTION_BOX, CHIP } from "../../../storybook/components/related-components/component-description-map";
 import "./tipseen.stories.scss";
+import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+
+export const argTypes = createStoryMetaSettings({
+  component: Tipseen,
+  enumPropNamesArray: ["position", "animationType", "justify"],
+});
 
 <Meta
   title="Popover/Tipseen"
   component={ Tipseen }
+  argTypes={argTypes}
 />
 
 <!--- Component template -->
 
-export const tipseenTemplate = (args) => {
+export const tipseenTemplate = ({ position, isDismissHidden, args, title, children, otherArgs}) => {
   return(
     <Tipseen
     // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
     // Therefore, there is no need to move this prop in your implementations.
       modifiers={modifiers}
-      position={args.position}
+      position={position}
       content={
         <TipseenContent
-          isDismissHidden={args.isDismissHidden}
-          title={args.title}
+          isDismissHidden={isDismissHidden}
+          title={title}
         >
-          {args.children}
+          {children}
         </TipseenContent>
       }
+      {...otherArgs}
     >
       <div className="monday-style-story-tipseen_container" />
     </Tipseen>

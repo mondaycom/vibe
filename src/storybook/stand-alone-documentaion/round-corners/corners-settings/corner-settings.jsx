@@ -1,7 +1,7 @@
 import React from "react";
-import "./GlobalSettingGeneralComponent.scss";
+import "./corner-settings.scss";
 
-const GlobalSettingsGeneralComponent = ({ children, title, bullets, value }) => {
+const CornersSettings = ({ children, title, bullets, value }) => {
   return (
     <div className="global-settings-general-component">
       <div className="global-settings-child-container">{children}</div>
@@ -15,6 +15,6 @@ const GlobalSettingsGeneralComponent = ({ children, title, bullets, value }) => 
     </div>
   );
 };
-GlobalSettingsGeneralComponent.propTypes = {};
-GlobalSettingsGeneralComponent.defaultProps = {};
-export default GlobalSettingsGeneralComponent;
+CornersSettings.propTypes = {};
+CornersSettings.defaultProps = {};
+export default CornersSettings;
