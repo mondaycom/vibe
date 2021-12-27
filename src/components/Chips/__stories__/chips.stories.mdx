@@ -12,6 +12,7 @@ import "./chips.stories.scss";
 
 export const argTypes = createStoryMetaSettings({
   component: Chips,
+  enumPropNamesArray: ["color"],
   iconPropNamesArray: ["rightIcon", "leftIcon"]
 });
 
@@ -56,7 +57,7 @@ Chips are compact elements that represent an input, attribute, or action. They m
   "Use chips when content is mapped to multiple categories, and the user needs a way to differentiate between them."
 ]}/>
 
-<Tip>Chips will always show up in context of a field. If you just need to add information, use <Link href="/?path=/docs/components-label--overview" size={Link.sizes.SMALL} withoutSpacing>Label.</Link></Tip>
+<Tip>Chips will always show up in context of a field. If you just need to add information, use <Link href="/?path=/docs/data-display-label--overview" size={Link.sizes.SMALL} withoutSpacing>Label.</Link></Tip>
 
 ## Variants
 ### With icons

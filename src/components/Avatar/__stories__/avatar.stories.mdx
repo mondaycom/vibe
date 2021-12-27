@@ -10,6 +10,7 @@ import "./avatar.stories.scss";
 export const argTypes = createStoryMetaSettings({
   component: Avatar,
   enumPropNamesArray: ["type", "size"],
+  iconPropNamesArray: ["icon"]
 });
 
 <Meta 
@@ -38,7 +39,8 @@ export const avatarTemplate = createComponentTemplate(Avatar);
 Avatar is a graphical representation of a person through a profile picture, image, icon, or set of initials.
 
 <Canvas>
-  <Story name="Overview" args={{size: Avatar.sizes.Large, src: person1, type: Avatar.types.IMG }}>>
+  <Story name="Overview"
+         args={{size: Avatar.sizes.LARGE, src: person1, type: Avatar.types.IMG, backgroundColor: Avatar.backgroundColors.DONE_GREEN}}>>
       {avatarTemplate.bind({})}
   </Story>
 </Canvas> 

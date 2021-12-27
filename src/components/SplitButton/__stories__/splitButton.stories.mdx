@@ -2,12 +2,18 @@ import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs"
 import { useMemo } from "react";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button"
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { Check, Search, Filter, Download, Group, Upload, Print, Sort } from "../../Icon/Icons";
 import { BUTTON_GROUP, BUTTON, MENU } from "../../../storybook/components/related-components/component-description-map";
 import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
 import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
 import "./splitButton.stories.scss";
+
+export const argTypes = createStoryMetaSettings({
+  component: SplitButton,
+  enumPropNamesArray: ["dialogPaddingSize", "kind"],
+  iconPropNamesArray: ["leftIcon", "rightIcon"]
+});
 
 <Meta
   title="Buttons/Split Button"
@@ -44,14 +50,14 @@ A split button is a dual-function menu button that offers a default action as we
 
 ## Usage
 <UsageGuidelines guidelines={[
-  <>A split button is a hybrid between a button and a menu: it groups related commands together into a <Link href="/?path=/docs/components-dropdown--overview" withoutSpacing>dropdown,</Link> but also offers one-click access to a default choice that doesn’t require opening the menu.</>,
+  <>A split button is a hybrid between a button and a menu: it groups related commands together into a <Link href="/?path=/docs/inputs-dropdown--overview" withoutSpacing>dropdown,</Link> but also offers one-click access to a default choice that doesn’t require opening the menu.</>,
   "Limit the overall number of choices within the menu to less than four.",
   "Order the items within the menu by popularity for a small number of items, or alphabetically for a larger number of items.",
   "Avoid submenus within split button menu.",
   "Split button contains two actions: One primary action and a list of secondary actions."
 ]}/>
 
-<Tip>If the actions in the menu are not related to each other, consider using a <Link href="/?path=/docs/components-menu--overview" size={Link.sizes.SMALL} withoutSpacing>Menu</Link> component.</Tip>
+<Tip>If the actions in the menu are not related to each other, consider using a <Link href="/?path=/docs/navigation-menu--overview" size={Link.sizes.SMALL} withoutSpacing>Menu</Link> component.</Tip>
 
 ## Variants
 ### Button types
@@ -97,7 +103,7 @@ The split button has three variants: primary, secondary, and tertiary.
       },
       negative: {
         component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}] })}/>,
-        description: <>Don’t use split button if there’s only one option within the menu. Use <Link href="/?path=/docs/components-button--overview" withoutSpacing>Button</Link> instead.</>
+        description: <>Don’t use split button if there’s only one option within the menu. Use <Link href="/?path=/docs/buttons-button--overview" withoutSpacing>Button</Link> instead.</>
       }
     },
     {

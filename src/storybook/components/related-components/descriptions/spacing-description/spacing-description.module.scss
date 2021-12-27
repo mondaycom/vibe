@@ -1,0 +1,25 @@
+@import "../../../../../styles/global-css-settings";
+
+.spacing-description-visual-element {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  & > * {
+    margin: var(--spacing-medium);
+    width: 40px;
+    @include theme-prop(background-color, negative-color-selected);
+  }
+
+  .small-spacing-visual-element {
+    height: var(--spacing-small);
+  }
+
+  .medium-spacing-visual-element {
+    height: var(--spacing-medium);
+  }
+
+  .large-spacing-visual-element {
+    height: var(--spacing-large);
+  }
+}

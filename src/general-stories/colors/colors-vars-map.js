@@ -201,7 +201,7 @@ export const elementColorsNames = elementAllowedColors.reduce((acc, key) => {
   acc[key] = key;
   return acc;
 }, {});
-
+console.log(elementColorsNames);
 export const getElementColor = (colorName, isSelectedPalette = false) => {
   if (contentColorsByName[colorName]) {
     return `var(--color-${contentColorsByName[colorName]}${isSelectedPalette ? "-selected" : ""}`;

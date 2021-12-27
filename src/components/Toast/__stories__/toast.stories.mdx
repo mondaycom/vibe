@@ -11,12 +11,13 @@ import "./toast.stories.scss";
 export const argTypes = createStoryMetaSettings({
   component: Toast,
   enumPropNamesArray: ["type"],
-  iconPropNamesArray: ["icon", "hideIcon"]
+  iconPropNamesArray: ["icon"]
 });
 
 <Meta
   title="Feedback/Toast"
   component={ Toast }
+  argTypes={argTypes}
 />
 
 <!--- Component template -->
@@ -57,7 +58,7 @@ A toast notification is a message object that presents timely information, inclu
   "Toast should overlay permanent UI elements without blocking important actions.",
 ]}/>
 
-<Tip title="Check yourself">Need to inform the user about a system’s action? Use an <Link href="/?path=/docs/components-alertbanner--overview" size={Link.sizes.SMALL} withoutSpacing>Alert banner</Link> instead.</Tip>
+<Tip title="Check yourself">Need to inform the user about a system’s action? Use an <Link href="/?path=/docs/feedback-alertbanner--overview" size={Link.sizes.SMALL} withoutSpacing>Alert banner</Link> instead.</Tip>
 
 ## Variants
 ### Default with button
