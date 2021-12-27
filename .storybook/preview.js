@@ -14,9 +14,9 @@ import {
   RelatedComponents,
   DocFooter,
   MultipleStoryElementsWrapper,
-  Paragraph
+  Paragraph,
+  LinkComponent
 } from "../src/storybook/components";
-import LinkComponent from "../src/storybook/components/link-component/link-component";
 
 addParameters({
   docs: {

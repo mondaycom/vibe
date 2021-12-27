@@ -67,7 +67,7 @@ const publishedComponents = {
   CustomSvgIcon: "/src/components/Icon/CustomSvgIcon.jsx",
   FormattedNumber: "/src/components/FormattedNumber/FormattedNumber.jsx",
   LinearProgressBar: "/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
-  useKeyEvent: "/src/hooks/useKeyEvent.js",
+  useKeyEvent: "/src/hooks/useKeyEvent/index.js",
   useEventListener: "/src/hooks/useEventListener/index.js",
   useDebounceEvent: "/src/hooks/useDebounceEvent/index.js",
   useClickOutside: "/src/hooks/useClickOutside/index.js",
