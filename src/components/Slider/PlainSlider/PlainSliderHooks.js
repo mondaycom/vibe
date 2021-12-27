@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { createBemHelper, ensureValueText } from "../SliderCommons";
+import { createBemBlockHelper } from "../../../helpers/bem-helper";
+import { ensureValueText } from "../SliderCommons";
 
 export function useControlledOrInternal(value) {
   const [isControlled] = useState(typeof value !== "undefined");
@@ -72,7 +73,7 @@ export function useSliderValues({ value, valueDefault, valueFormatter, valueText
 }
 
 export function usePlainSlider({ ariaLabel, ariaLabeledBy, classNameBase, max, min, size }) {
-  const consumerBem = createBemHelper(classNameBase);
+  const consumerBem = createBemBlockHelper(classNameBase);
   const subProps = {
     rail: {
       className: consumerBem("rail")

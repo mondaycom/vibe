@@ -1,12 +1,7 @@
 import React from "react";
-import { createBemHelper } from "../SliderCommons";
-import {
-  calcDimensions,
-  COMPONENT_ID,
-  PlainSliderDefaultProps,
-  PlainSliderProps,
-  SIZES_BASIC
-} from "./PlainSliderCommons";
+import { createBemBlockHelper } from "../../../helpers/bem-helper";
+import { SIZES_BASIC } from "../../../constants";
+import { calcDimensions, COMPONENT_ID, PlainSliderDefaultProps, PlainSliderProps } from "./PlainSliderCommons";
 import { usePlainSlider, useSliderInteractions, useSliderValues } from "./PlainSliderHooks";
 import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
@@ -14,7 +9,7 @@ import SliderFilledTrack from "./SliderFilledTrack";
 import SliderThumb from "./SliderThumb";
 import "./PlainSlider.scss";
 
-const bem = createBemHelper(COMPONENT_ID);
+const bem = createBemBlockHelper(COMPONENT_ID);
 
 const PlainSlider = ({
   ariaLabel,
@@ -31,7 +26,7 @@ const PlainSlider = ({
   valueFormatter,
   valueText
 }) => {
-  const consumerBem = createBemHelper(classNameBase);
+  const consumerBem = createBemBlockHelper(classNameBase);
   const { subProps } = usePlainSlider({
     ariaLabel,
     ariaLabeledBy,

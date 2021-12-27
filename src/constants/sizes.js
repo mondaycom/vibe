@@ -6,6 +6,12 @@ export const SIZES = Object.freeze({
   LARGE: "large"
 });
 
+export const SIZES_BASIC = Object.freeze({
+  SMALL: "small",
+  MEDIUM: "medium",
+  LARGE: "large"
+});
+
 export const DialogPositions = Object.freeze({
   LEFT: "left",
   LEFT_START: "left-start",

@@ -1,4 +1,4 @@
-import { createBemHelper } from "./SliderCommons";
+import { createBemBlockHelper } from "../../helpers/bem-helper";
 
 export function useSlider({
   ariaLabel,
@@ -11,7 +11,7 @@ export function useSlider({
   min,
   size
 }) {
-  const consumerBem = createBemHelper(classNameBase);
+  const consumerBem = createBemBlockHelper(classNameBase);
   const subProps = {
     block: {
       id,

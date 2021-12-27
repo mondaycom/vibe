@@ -1,11 +1,12 @@
 import React, { forwardRef, useState } from "react";
 import PropTypes from "prop-types";
-import { DialogPositions } from "../../../constants/sizes";
+import { DialogPositions, SIZES_BASIC } from "../../../constants";
+import { createBemBlockHelper } from "../../../helpers/bem-helper";
 import Tooltip from "../../Tooltip/Tooltip";
-import { COMPONENT_ID, createBemHelper, SIZES_BASIC } from "../SliderCommons";
+import { COMPONENT_ID } from "../SliderCommons";
 import "./SliderThumb.scss";
 
-const bem = createBemHelper(COMPONENT_ID);
+const bem = createBemBlockHelper(COMPONENT_ID);
 
 const SliderThumb = forwardRef(
   (

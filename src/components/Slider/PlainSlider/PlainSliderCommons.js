@@ -1,13 +1,7 @@
 import PropTypes from "prop-types";
+import { SIZES_BASIC } from "../../../constants";
 
 export { COMPONENT_ID } from "../SliderCommons";
-
-// TODO: move to common constants?
-export const SIZES_BASIC = Object.freeze({
-  SMALL: "small",
-  MEDIUM: "medium",
-  LARGE: "large"
-});
 
 export const PlainSliderProps = {
   /**
