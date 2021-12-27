@@ -28,8 +28,10 @@ import { SpinnerDescription } from "./descriptions/spinner-description";
 import { SkeletonDescription } from "./descriptions/skeleton-description";
 import { TypographyDescription } from "./descriptions/typography-description/typography-description";
 import { ProgressBarDescription } from "./descriptions/progress-bar-description";
+import { EditableHeadingDescription } from "./descriptions/editable-heading-description";
 import { ShadowDescription } from "./descriptions/shadow-description/shadow-description";
 import { HeadingDescription } from "./descriptions/heading-description";
+import { SpacingDescription } from "./descriptions/spacing-description/spacing-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -60,11 +62,13 @@ export const SPINNER = "spinner";
 export const SKELETON = "skeleton";
 export const PROGRESS_BAR = "progress-bar";
 export const HEADING = "heading";
+export const EDITABLE_HEADING = "editable_heading";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
 export const TYPOGRAPHY = "typography";
 export const SHADOW = "shadow";
+export const SPACING = "spacing";
 
 export const descriptionTypesMap = new Map();
 
@@ -96,9 +100,11 @@ descriptionTypesMap.set(STEPPER, <StepperDescription />);
 descriptionTypesMap.set(SPINNER, <SpinnerDescription />);
 descriptionTypesMap.set(SKELETON, <SkeletonDescription />);
 descriptionTypesMap.set(PROGRESS_BAR, <ProgressBarDescription />);
+descriptionTypesMap.set(EDITABLE_HEADING, <EditableHeadingDescription />);
 descriptionTypesMap.set(HEADING, <HeadingDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
 descriptionTypesMap.set(TYPOGRAPHY, <TypographyDescription />);
 descriptionTypesMap.set(SHADOW, <ShadowDescription />);
+descriptionTypesMap.set(SPACING, <SpacingDescription />);
