@@ -6,21 +6,12 @@ We are using two approaches when regarding testing the first is the standard jes
 1. Jest as of our test runner and framework
 2. [React testing library](https://testing-library.com/docs/react-testing-library/intro) as our components testing library
 
-The second approach is for special use cases which require a browser (positing, observer callbacks ...)
- 1. Karna as our test runner
- 2. Mocha as our framework library
- 3. Sinon as our mocks/stubs library
- 4. [React testing library](https://testing-library.com/docs/react-testing-library/intro) as our components testing library
-
 ## React testing library
 This library forces us to test according to user behaviour and not implementation details (state keys for example) for example the library allows you to target elements according to text, aria labels, placeholders text and more. This approach ensure us that we test the component in the right way and allows us easier refactoring when needed.
 
 #### Test File
 #### Jest
 Use our plop which automatically generates the proper folder structure, each file should end with .test.js
-
-#### Karma
-The file should end with `-test.js` and should be located in a `__tests__` folder.
 
 ### React testing 101
 #### Mounting components
@@ -85,3 +76,9 @@ In this example we are looking for an element which has a placeholder with the t
 -   [`ByRole`](https://testing-library.com/docs/dom-testing-library/api-queries#byrole)
 -   [`ByTestId`](https://testing-library.com/docs/dom-testing-library/api-queries#bytestid)
 
+
+#### Component tests file structure
+Each component in the library will contain a __tests__ folder that should contain two files:
+- Snapshot tests file, which will include all the component snapshot tests.
+  This file will contain a snapshot test for the component with empty props and a snapshot test for each prop that allows a significant state of the component.
+- Tests file for all the tests which are not snapshot tests. This file should contain a test for each possible interaction of the user with the component. Any other tests for the component which are not snapshot tests also should be here.

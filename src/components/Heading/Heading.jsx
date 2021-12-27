@@ -55,9 +55,19 @@ const Heading = ({
   return Element;
 };
 
+Heading.types = TYPES;
+Heading.sizes = SIZES;
+
 Heading.propTypes = {
   className: PropTypes.string,
-  type: PropTypes.oneOf(Object.keys(TYPES)),
+  type: PropTypes.oneOf([
+    Heading.types.h1,
+    Heading.types.h2,
+    Heading.types.h3,
+    Heading.types.h4,
+    Heading.types.h5,
+    Heading.types.h6
+  ]),
   ariaLabel: PropTypes.string,
   value: PropTypes.string,
   id: PropTypes.string,
@@ -65,7 +75,7 @@ Heading.propTypes = {
   ellipsisMaxLines: PropTypes.number,
   suggestEditOnHover: PropTypes.bool,
   nonEllipsisTooltip: PropTypes.string,
-  size: PropTypes.oneOf(Object.values(SIZES))
+  size: PropTypes.oneOf([Heading.sizes.SMALL, Heading.sizes.MEDIUM, Heading.sizes.LARGE])
 };
 Heading.defaultProps = {
   className: "",

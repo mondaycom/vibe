@@ -70,7 +70,7 @@
     &--h2 {
       height: $h2-empty-state-height;
     }
-    &--h2 {
+    &--h3 {
       height: $h3-empty-state-height;
     }
     &--h4 {
@@ -81,9 +81,6 @@
     }
     &--h6 {
       height: $h6-empty-state-height;
-    }
-    &--h6 {
-      height: $p-empty-state-height;
     }
     &--small, &--custom {
       height: $small-empty-state-height;

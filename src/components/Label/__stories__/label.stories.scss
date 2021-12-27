@@ -1,0 +1,62 @@
+@import "../../../styles/themes";
+@import "../../../styles/global-css-settings";
+
+.monday-storybook-label {
+  &_group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 25px 176px 25px 30px;
+  }
+
+  &_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  &_inline-block {
+    display: flex;
+    gap: 10px;
+  }
+
+  &_article {
+    display: block;
+    width: 300px;
+  }
+
+  &_column-block {
+    display: flex;
+    flex-direction: column;
+    column-gap: 25px;
+  }
+
+  &_title {
+    display: inline;
+    padding-right: 8px;
+  }
+
+  &_bad-lable {
+    border-radius: var(--border-radius-small);
+    div {
+      border: none;
+    }
+    span {
+      @include theme-prop(color, text-color-on-primary);
+    }
+  }
+
+  &_purple {
+    background-color: var(--color-amethyst);
+  }
+
+  &_pink {
+    background-color: var(--color-light-pink);
+  }
+
+  &_states-gap {
+    gap: 24px;
+  }
+}

@@ -1,0 +1,163 @@
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import TextField from "../TextField";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { Email, CloseSmall, Check } from "../../Icon/Icons";
+import { DROPDOWN, SEARCH, COMBOBOX } from "../../../storybook/components/related-components/component-description-map";
+import "./TextField.stories.scss";
+
+export const argTypes = createStoryMetaSettings({
+  component: TextField,
+  enumPropNamesArray: ["type", "size"],
+  iconPropNamesArray: ["secondaryIconName", "iconName", "labelIconName"]
+});
+
+<Meta
+  title="Inputs/TextField"
+  component={ TextField }
+  argTypes={ argTypes}
+/>
+
+<!--- Component template -->
+
+export const textFieldTemplate = createComponentTemplate(TextField);
+
+<!--- Component documentation -->
+
+# TextField
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+An input field includes a label and a text field users can type text into. They typically appear in forms and dialogs.
+
+<Canvas>
+  <Story name="Overview"
+         args={{ title: "Name", iconName: "fa fa-square", validation: {text: "Helper text"}, wrapperClassName: "monday-storybook-text-field_size", showCharCount: true, placeholder: "Placeholder text here" }}>
+    { textFieldTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ TextField } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Always use placeholer in input field",
+  "Icons can be used to message alerts as well. Pair them with error messages to provide redundant alerts.",
+  "Character or word counters should be used if there is a character or word limit.",
+]}/>
+
+## Variants
+### Sizes
+There are three sizes available: Small (32px), Medium (40px) and Large (48px).
+<Canvas>
+  <Story name="Sizes">
+    <div className="monday-storybook-text-field_column-wrapper">
+      <TextField placeholder="Small" />
+      <TextField placeholder="Meduim" size={TextField.sizes.MEDIUM} />
+      <TextField placeholder="Large" size={TextField.sizes.LARGE} />
+    </div>
+  </Story>
+</Canvas>
+
+### States
+<Canvas>
+  <Story name="States">
+    <div className="monday-storybook-text-field_wrapper">
+      <div className="monday-storybook-text-field_column-wrapper monday-storybook-text-field_spacing">
+        <TextField placeholder="Disabled" size={TextField.sizes.MEDIUM} disabled />
+        <TextField placeholder="With icon" iconName={Email} size={TextField.sizes.MEDIUM} />
+      </div>
+      <div className="monday-storybook-text-field_column-wrapper">
+        <TextField placeholder="With field label" title="Name" size={TextField.sizes.MEDIUM} />
+        <TextField placeholder="Success" validation={{ status: "success" }} iconName={Check} size={TextField.sizes.MEDIUM} />
+        <TextField placeholder="Error" validation={{ status: "error" }} iconName={CloseSmall} size={TextField.sizes.MEDIUM} />
+      </div>
+    </div>
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:
+          <div className="monday-storybook-text-field_size">
+            <TextField title="Email" placeholder="email@monday.com" size={TextField.sizes.MEDIUM} />
+          </div>,
+        description: "Make sure your text field has a short, descriptive label above it that describes what the user should type into the box below."
+      },
+      negative: {
+        component:
+          <div className="monday-storybook-text-field_size">
+            <TextField title="What is your email address?" placeholder="email@monday.com" size={TextField.sizes.MEDIUM} />
+          </div>,
+        description: "Avoid phrasing your labels as questions. Keep in mind that your label shouldn’t contain instructions. Reserve those for the helper text."
+      }
+    },
+    {
+      positive: {
+        component:
+          <div className="monday-storybook-text-field_size">
+            <TextField title="Email" placeholder="email@monday.com" size={TextField.sizes.MEDIUM} />
+          </div>,
+        description: "Use the help text description to convey requirements or to show any formatting examples that would help user comprehension."
+      },
+      negative: {
+        component:
+          <div className="monday-storybook-text-field_size">
+            <TextField title="Email" placeholder="email@monday.com" size={TextField.sizes.MEDIUM} />
+            For example: email@monday.com
+          </div>,
+        description: "Avoid repeating the field label. If the field label provides sufficient context for completing the action, then you likely don’t need to add help text."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+### Text field in a form
+Users can insert text.
+<Canvas>
+  <Story name="Text field in a form">
+    <div className="monday-storybook-text-field_box">
+      <h1>Dark Mode Feedback From</h1>
+      <div className="monday-storybook-text-field_box_wrapper">
+      <TextField 
+        title="Your Name" 
+        size={TextField.sizes.MEDIUM}
+        placeholder="John Doe"
+      />
+      <TextField 
+        title="Email" 
+        size={TextField.sizes.MEDIUM}
+        placeholder="email@monday.com"
+      />
+      </div>
+    </div>
+  </Story>
+</Canvas>
+
+### Input field with placeholder text
+<Canvas>
+  <Story name="Input field with placeholder text">
+    <div className="monday-storybook-text-field_size">
+      <TextField 
+        title="Invite with email"
+        labelIconName={Email}
+        placeholder="Enter one or more email"
+        size={TextField.sizes.MEDIUM}
+      />
+    </div>
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[DROPDOWN, SEARCH, COMBOBOX]} />

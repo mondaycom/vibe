@@ -1,0 +1,43 @@
+@import "../../styles/global-css-settings.scss";
+
+// font family
+$header-primary-font: "Sofia Pro", Roboto, sans-serif;
+$text-primary-font: Roboto, sans-serif;
+
+// sizes
+$h1-font-size: 40px;
+$h2-font-size: 28px;
+$h3-font-size: 24px;
+$anchor-font-size: 18px;
+$text-font-size: 16px;
+$small-text-font-size: 14px;
+
+// line height
+$text-line-height: 24px;
+
+@mixin basic-text {
+  @include theme-prop(color, primary-text-color);
+}
+
+@mixin content-text-without-color {
+  font-family: $text-primary-font;
+  font-size: $text-font-size;
+  line-height: $text-line-height;
+  font-weight: 400;
+}
+
+@mixin content-text {
+  @include content-text-without-color;
+  @include basic-text;
+}
+
+@mixin small-text-without-color {
+  font-size: $small-text-font-size;
+  font-weight: 400;
+  line-height: $text-line-height;
+}
+
+@mixin small-text {
+  @include basic-text;
+  @include small-text-without-color;
+}

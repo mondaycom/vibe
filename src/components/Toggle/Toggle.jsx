@@ -7,12 +7,15 @@ import ToggleText from "./ToggleText";
 import "./Toggle.scss";
 import { useToggle } from "../../hooks/useToggle";
 import { BEMClass } from "../../helpers/bem-helper";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
 
 const Toggle = ({
   id,
+  // Backward compatibility for props naming
   componentClassName,
+  className,
   isDefaultSelected,
   isSelected,
   onChange,
@@ -25,6 +28,7 @@ const Toggle = ({
   onOverrideText,
   offOverrideText
 }) => {
+  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const { inputProps, isChecked } = useToggle({
     id,
     isDefaultSelected,
@@ -47,7 +51,7 @@ const Toggle = ({
       {areLabelsHidden ? null : <ToggleText>{offOverrideText}</ToggleText>}
       <input {...inputProps} className={bemHelper({ element: "input" })} />
       <div
-        className={cx(bemHelper({ element: "toggle" }), componentClassName, {
+        className={cx(bemHelper({ element: "toggle" }), overrideClassName, {
           [bemHelper({ element: "toggle", state: "selected" })]: isChecked,
           [bemHelper({ element: "toggle", state: "not-selected" })]: !isChecked
         })}
@@ -60,7 +64,7 @@ const Toggle = ({
 
 Toggle.propTypes = {
   id: PropTypes.string,
-  componentClassName: PropTypes.string,
+  className: PropTypes.string,
   isDefaultSelected: PropTypes.bool,
   isSelected: PropTypes.bool,
   onChange: PropTypes.func,
@@ -76,7 +80,7 @@ Toggle.propTypes = {
 
 Toggle.defaultProps = {
   id: undefined,
-  componentClassName: "",
+  className: undefined,
   isDefaultSelected: true,
   isSelected: undefined,
   onChange: NOOP,

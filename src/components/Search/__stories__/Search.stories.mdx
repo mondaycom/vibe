@@ -1,0 +1,104 @@
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import Search from "../Search";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import { Link } from "../../../storybook/components";
+import Combobox from "../../Combobox/Combobox.jsx";
+import { DROPDOWN, TEXT_FIELD, COMBOBOX } from "../../../storybook/components/related-components/component-description-map";
+import "./Search.stories.scss";
+
+export const argTypes = createStoryMetaSettings({
+  component: Search,
+  enumPropNamesArray: ["type", "size"],
+  iconPropNamesArray: ["secondaryIconName", "iconName"]
+});
+
+<Meta
+  title="Inputs/Search"
+  component={ Search }
+  argTypes={argTypes}
+/>
+
+<!--- Component template -->
+
+export const searchTemplate = createComponentTemplate(Search);
+
+<!--- Component documentation -->
+
+# Search
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+Search lets users quickly find relevant content. A search field allows a user to type a word or phrase to filter through a large amount of data without navigation.
+
+<Canvas>
+  <Story name="Overview"
+         args={ {placeholder: "Placeholder text here", wrapperClassName: "monday-storybook-search_size"} }>
+    { searchTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ Search } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Search query input methods can be extended to include historical suggestions and auto-completion of queries.",
+  "Search results are displayed below the search bar.",
+  "Always use the search icon to help users identify search fields. Display the search icon as a presentational icon inside the search input.",
+  "Let users submit their search by hitting enter. For live-filtering search, update search results immediately without hitting enter and be mindful of performance.",
+  "If used as filter, position the search field above and in context to the list of filterable items",
+]}/>
+
+<Tip title="Not what you were looking for?">If you need to filter results from a long list, consider using the<Link href="/?path=/docs/inputs-combobox--overview" size={Link.sizes.SMALL}>Combobox</Link>component.</Tip>
+
+## Variants
+### Sizes
+There are three sizes available: Small (32px), Medium (40px), and Large (48px).
+<Canvas>
+  <Story name="Sizes">
+    <div className="monday-storybook-search_box">
+      <Search placeholder="Small" size={Search.sizes.SMALL} />
+      <Search placeholder="Medium" />
+      <Search placeholder="Large" size={Search.sizes.LARGE} />
+     </div>
+  </Story>
+</Canvas>
+
+<Tip title="Missing something?">If you’re looking for search states, go to<Link href="/?path=/story/components-canvas--overview" size={Link.sizes.SMALL}>Canvas</Link>and play with Knobs.</Tip>
+
+## Use cases and examples
+### Filter in combobox
+<Canvas>
+  <Story name="Filter in combobox">
+    {() => {
+      const option = [
+        { id: "1", label: "Cheese Cake" },
+        { id: "2", label: "Muffin" },
+        { id: "3", label: "Cookie" },
+        { id: "4", label: "Cup cake" },
+        { id: "5", label: "Banana lottie" }
+     ];
+     return (
+       <DialogContentContainer className="monday-storybook-search_wrapper">
+          <Combobox
+            placeholder="Placeholder text here"
+            options={option}
+            size={Combobox.sizes.SMALL}
+            optionLineHeight={28}
+          />
+        </DialogContentContainer>
+     )
+    }}
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[DROPDOWN, TEXT_FIELD, COMBOBOX]} />

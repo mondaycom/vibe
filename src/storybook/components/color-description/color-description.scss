@@ -1,0 +1,9 @@
+@import "../../../styles/global-css-settings";
+
+.monday-storybook-color-description {
+  border-radius: $border-radius-extra-small;
+  &--with-border {
+    border: 1px solid;
+    @include theme-prop(border-color, ui-border-color);
+  }
+}

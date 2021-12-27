@@ -1,0 +1,33 @@
+@import "../../../styles/themes.scss";
+
+.monday-storybook-alert-banner {
+  &_column-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+  }
+
+  &_big-container {
+     width: 610px;
+  }
+
+  &_small-container {
+    width: 320px;
+  }
+
+  &_medium-container {
+    width: 392px;
+  }
+
+  &_pink {
+    .monday-alert-banner__close-button-wrapper {
+      @include theme-prop(background, private-color);
+    }
+    .monday-alert-banner__inner {
+      @include theme-prop(background, private-color);
+    }
+    .monday-alert-banner__alert-banner-close-btn {
+      @include theme-prop(background, private-color);
+    }
+  }
+}

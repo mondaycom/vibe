@@ -66,8 +66,12 @@ const ColorPicker = forwardRef(
   }
 );
 
+// Backward compatibility for enum naming
 ColorPicker.COLOR_STYLES = COLOR_STYLES;
 ColorPicker.sizes = SIZES;
+
+ColorPicker.colorStyles = COLOR_STYLES;
+ColorPicker.colorSizes = SIZES;
 
 ColorPicker.propTypes = {
   className: PropTypes.string,

@@ -1,7 +1,9 @@
 export const SIZES = Object.freeze({
-  LARGE: "large",
+  XXS: "xxs",
+  XS: "xs",
+  SMALL: "small",
   MEDIUM: "medium",
-  SMALL: "small"
+  LARGE: "large"
 });
 
 export const DialogPositions = Object.freeze({

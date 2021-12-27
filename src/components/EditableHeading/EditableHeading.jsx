@@ -174,21 +174,42 @@ const EditableHeading = props => {
   );
 };
 
+EditableHeading.types = TYPES;
+EditableHeading.sizes = SIZES;
+
 EditableHeading.propTypes = {
+  /**
+   * Class name to be added to the header wrapper
+   */
   className: PropTypes.string,
+  /**
+   * Id to be added to the header wrapper
+   */
   id: PropTypes.string,
-  type: PropTypes.oneOf(Object.keys(TYPES)),
-  errorClass: PropTypes.string,
-  errorClassTimeout: PropTypes.number,
+  /**
+   * Header type
+   */
+  type: PropTypes.oneOf([
+    EditableHeading.types.h1,
+    EditableHeading.types.h2,
+    EditableHeading.types.h3,
+    EditableHeading.types.h4,
+    EditableHeading.types.h5,
+    EditableHeading.types.h6
+  ]),
+  size: PropTypes.oneOf([EditableHeading.sizes.SMALL, EditableHeading.sizes.MEDIUM, EditableHeading.sizes.LARGE]),
   displayPlaceholderInTextMode: PropTypes.bool,
   suggestEditOnHover: PropTypes.bool,
   autoSize: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(SIZES)),
-  inputAriaLabel: PropTypes.string
+  inputAriaLabel: PropTypes.string,
+  placeholder: PropTypes.string,
+  errorClass: PropTypes.string,
+  errorClassTimeout: PropTypes.number
 };
 EditableHeading.defaultProps = {
   className: "",
   id: "",
+  placeholder: undefined,
   type: TYPES.H1,
   errorClass: "error",
   errorClassTimeout: 2000,

@@ -1,0 +1,17 @@
+@import "../../styles/typography.scss";
+@import "../../../styles/global-css-settings.scss";
+@import "../../styles/content-spacing";
+
+@mixin title-appearance{
+  margin-bottom: $spacing-between-title-to-content;
+  font-family: $text-primary-font;
+  @include basic-text;
+  font-size: $h3-font-size;
+  line-height: 28px;
+  letter-spacing: -0.21px;
+  text-align: left;
+  font-weight: 300;
+}
+.monday-storybook-title {
+  @include title-appearance;
+}

@@ -1,0 +1,23 @@
+@import "../../../../styles/themes.scss";
+@import "../../../../styles/typography.scss";
+@import "../../../../styles/global-css-settings.scss";
+@import "../../../styles/content-spacing";
+
+.global-settings-general-component {
+  margin-top: $spacing-between-section-items;
+  .global-settings-list {
+    .global-settings-list-header {
+      @include font-paragraph-bold();
+      color: var(--primary-text-color);
+    }
+    .global-settings-list-item {
+      @include font-input();
+      color: var(--secondary-text-color);
+    }
+  }
+  .global-settings-general-component-value {
+    margin-top: $spacing-medium;
+    @include font-input();
+    color: var(--secondary-text-color);
+  }
+}

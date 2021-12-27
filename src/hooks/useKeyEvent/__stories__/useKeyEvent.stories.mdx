@@ -1,0 +1,92 @@
+import { useState } from "react";
+import { Story, Canvas, Meta, ArgsTable } from "@storybook/addon-docs";
+import useKeyEvent from "..";
+import "../../__stories__/general-hooks-stories.scss";
+
+<Meta title="Hooks/useKeyEvent" />
+
+# useKeyEvent
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Usage](#usage)
+- [Use cases and examples](#use-cases-and-examples)
+- [Feedback](#feedback)
+
+## Overview
+
+Attaches a listener to keyboard DOM events on a specific element, firing a provided callback when the event is triggered.
+
+<Canvas>
+  <Story name="Overview">
+    {() => {
+      const [keyName, setKeyName] = useState('-');
+      useKeyEvent({
+        keys: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+        callback: (e) => setKeyName(e.key)
+      });
+      return <div>Last pressed digit: {keyName}</div>;
+    }}
+  </Story>
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument
+      name="keys"
+      type="Array<string>"
+      description={<>A list of keys to trigger the passed callback. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values" target="_blank" rel="noopener noreferrer">a full list</a> for more info.</>}
+    />
+    <FunctionArgument
+      name="callback"
+      type="(event: Event) => void"
+      description="Callback function to execute when the event is fired."
+      required
+    />
+    <FunctionArgument
+      name="ref"
+      type="React.MutableRefObject"
+      description={<>A React <a href="https://reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener noreferrer">ref</a> object.</>}
+      default="document"
+    />
+    <FunctionArgument
+      name="ignoreDocumentFallback"
+      type="boolean"
+      description={<>If <code>ref</code> is not passed, ignore the default <code>ref</code>.</>}
+      default="false"
+    />
+    <FunctionArgument
+      name="capture"
+      type="boolean"
+      description="Whether to capture the event before bubbling up or not."
+      default="false"
+    />
+    <FunctionArgument
+      name="preventDefault"
+      type="boolean"
+      description={<>Runs <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault" target="_blank" rel="noopener noreferrer">preventDefault</a></code> on the fired events.</>}
+      default="false"
+    />
+    <FunctionArgument
+      name="stopPropagation"
+      type="boolean"
+      description={<>Runs <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank" rel="noopener noreferrer">stopPropagation</a></code> on the fired events.</>}
+      default="false"
+    />
+    <FunctionArgument
+      name="eventName"
+      type="string"
+      description={<>The event to listen to. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#events" target="_blank" rel="noopener noreferrer">a full list</a> for more info.</>}
+      default="keydown"
+    />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Usage
+
+<UsageGuidelines guidelines={[
+  "Use this hook to add custom logic when typing inside an element.",
+  "Use this hook to add keyboard shortcuts.",
+]} />

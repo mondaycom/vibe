@@ -96,6 +96,7 @@ const LinearProgressBar = forwardRef(
 );
 
 LinearProgressBar.styles = PROGRESS_BAR_STYLES;
+LinearProgressBar.barStyles = PROGRESS_BAR_STYLES;
 LinearProgressBar.sizes = SIZES;
 
 LinearProgressBar.propTypes = {

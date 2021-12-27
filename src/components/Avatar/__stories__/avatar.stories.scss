@@ -1,11 +1,26 @@
-@import "../../../styles/global-css-settings.scss";
-
 .monday-style-story-avatar {
-  &_states {
+  &_multiplue {
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 10px 20px 10px 20px;
+    .monday-style-avatar {
+      margin: -8px;
+    }
   }
-  &_state {
-    margin-left:$spacing-medium;
+
+  &_multiplue-reverse {
+    display: flex;
+    align-items: flex-start;
+
+    .monday-style-avatar {
+      margin: -5px;
+      &:first-child {
+        z-index: 2;
+      }
+      &:nth-child(2) {
+        z-index: 1;
+      }
+    }
   }
 }

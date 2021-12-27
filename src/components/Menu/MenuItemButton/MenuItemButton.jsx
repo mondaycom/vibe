@@ -13,8 +13,11 @@ import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEven
 
 import { DialogPositions } from "../../../constants/sizes";
 import "./MenuItemButton.scss";
+import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 
 const MenuItemButton = ({
+  className,
+  // Backward compatibility for props naming
   classname,
   kind,
   leftIcon,
@@ -37,7 +40,7 @@ const MenuItemButton = ({
 }) => {
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
-
+  const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   const mergedRef = useMergeRefs({ refs: [ref, referenceElementRef] });
 
   const shouldShowTooltip = disabled && disableReason;
@@ -78,7 +81,7 @@ const MenuItemButton = ({
     >
       <li
         id={`${menuId}-${index}`}
-        className={cx("monday-style-menu-item-button", classname)}
+        className={cx("monday-style-menu-item-button", overrideClassName)}
         ref={mergedRef}
         role="menuitem"
         aria-current={isActive}
@@ -104,7 +107,7 @@ MenuItemButton.kinds = Button.kinds;
 MenuItemButton.tooltipPositions = DialogPositions;
 
 MenuItemButton.defaultProps = {
-  classname: "",
+  className: undefined,
   kind: MenuItemButton.kinds.PRIMARY,
   leftIcon: null,
   rightIcon: null,
@@ -118,7 +121,7 @@ MenuItemButton.defaultProps = {
 };
 
 MenuItemButton.propTypes = {
-  classname: PropTypes.string,
+  className: PropTypes.string,
   kind: PropTypes.oneOf([MenuItemButton.kinds.PRIMARY, MenuItemButton.kinds.SECONDARY, MenuItemButton.kinds.TERTIARY]),
   leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),

@@ -24,6 +24,7 @@ const ListItemIcon = forwardRef(({ className, id, icon, margin }, ref) => {
 ListItemIcon.margin = { START: "start", END: "end" };
 
 ListItemIcon.propTypes = {
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /**
    * Add a classname to the icon wrapper
    */
@@ -38,6 +39,7 @@ ListItemIcon.propTypes = {
   margin: PropTypes.oneOf([ListItemIcon.margin.START, ListItemIcon.margin.END])
 };
 ListItemIcon.defaultProps = {
+  icon: undefined,
   className: "",
   id: undefined,
   margin: ListItemIcon.margin.START

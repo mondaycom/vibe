@@ -4,20 +4,6 @@
 .tabs--wrapper {
   padding-bottom: 20px;
 
-  &.disabled {
-    opacity: 0;
-    height: 0;
-    padding-bottom: 5px;
-    pointer-events: none;
-    .tabs-list {
-      .tab--wrapper {
-        .tab-inner:hover {
-          cursor: default;
-        }
-      }
-    }
-  }
-
   .tabs-list {
     display: flex;
     flex-direction: row;
@@ -45,6 +31,20 @@
 
         .tab-inner {
           width: 100%;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    opacity: 0;
+    height: 0;
+    padding-bottom: 5px;
+    pointer-events: none;
+    .tabs-list {
+      .tab--wrapper {
+        .tab-inner:hover {
+          cursor: default;
         }
       }
     }

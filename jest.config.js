@@ -31,6 +31,7 @@ module.exports = {
   // coveragePathIgnorePatterns: [
   //   "/node_modules/"
   // ],
+  coveragePathIgnorePatterns: ["node_modules/", "src/components/Icon/Icons/"],
 
   // Indicates which provider should be used to instrument code for coverage
   // coverageProvider: "babel",
@@ -73,15 +74,7 @@ module.exports = {
   // ],
 
   // An array of file extensions your modules use
-  moduleFileExtensions: [
-    "js",
-    "json",
-    "jsx",
-    "ts",
-    "tsx",
-    "node",
-    "mdx"
-  ],
+  moduleFileExtensions: ["js", "json", "jsx", "ts", "tsx", "node", "mdx"],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
@@ -176,14 +169,17 @@ module.exports = {
   // A map from regular expressions to paths to transformers
   transform: {
     "^.+\\.[tj]sx?$": "babel-jest",
-    "^.+\\.mdx?$": "@storybook/addon-docs/jest-transform-mdx"
+    "^.+\\.mdx?$": "@storybook/addon-docs/jest-transform-mdx",
+
+    "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$":
+      "<rootDir>/__mocks__/fileMock.js"
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [
     "node_modules/(?!monday-ui-style)/"
     // "\\.pnp\\.[^\\/]+$"
-  ],
+  ]
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
