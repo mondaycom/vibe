@@ -173,7 +173,7 @@ export const States = () => {
       <FlexLayout>
         <ComponentStateDescription title="DateTime" />
         <div className="width-35">
-          <TextField id="_11" size={TextField.sizes.MEDIUM} type={TEXT_TYPES.DATE_TIME} />
+          <TextField id="_12" size={TextField.sizes.MEDIUM} type={TEXT_TYPES.DATE_TIME} />
         </div>
       </FlexLayout>
     </StoryWrapper>
