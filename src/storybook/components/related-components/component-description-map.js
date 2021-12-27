@@ -29,6 +29,7 @@ import { SkeletonDescription } from "./descriptions/skeleton-description";
 import { TypographyDescription } from "./descriptions/typography-description/typography-description";
 import { ProgressBarDescription } from "./descriptions/progress-bar-description";
 import { ShadowDescription } from "./descriptions/shadow-description/shadow-description";
+import { HeadingDescription } from "./descriptions/heading-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -58,6 +59,7 @@ export const STEPPER = "stepper";
 export const SPINNER = "spinner";
 export const SKELETON = "skeleton";
 export const PROGRESS_BAR = "progress-bar";
+export const HEADING = "heading";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
@@ -94,6 +96,7 @@ descriptionTypesMap.set(STEPPER, <StepperDescription />);
 descriptionTypesMap.set(SPINNER, <SpinnerDescription />);
 descriptionTypesMap.set(SKELETON, <SkeletonDescription />);
 descriptionTypesMap.set(PROGRESS_BAR, <ProgressBarDescription />);
+descriptionTypesMap.set(HEADING, <HeadingDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
