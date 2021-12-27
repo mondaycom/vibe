@@ -12,7 +12,6 @@ import {
   CloseSmall,
   Group,
   Moon,
-  MoreActions,
   Search as SearchIcon,
   Sun
 } from "../../Icon/Icons";
@@ -21,7 +20,6 @@ import SplitButton from "../../SplitButton/SplitButton";
 import Search from "../../Search/Search";
 import Button from "../../Button/Button";
 import Icon from "../../Icon/Icon";
-import DescriptionLabel from "../../storybook-helpers/description-label/description-label";
 import "./ResponsiveList.stories.scss";
 import Open from "../../Icon/Icons/components/Open";
 
@@ -38,16 +36,16 @@ const DefaultExampleTemplate = responseListProps => {
   return (
     <ResizableBox
       height={48}
-      width={450}
+      width={700}
       handle={
         <span className="custom-handle custom-handle-se">
-          <Icon icon={Open} iconSize={16} clickable={false} className="icon-resizer" />
+          <Icon icon={Open} iconSize={20} clickable={false} className="icon-resizer" />
         </span>
       }
       handleSize={[12, 12]}
       className="resizable-container"
       minConstraints={[200, 48]}
-      maxConstraints={[800, 48]}
+      maxConstraints={[850, 48]}
     >
       <ResponsiveList
         id="Knobs"
@@ -65,16 +63,16 @@ const DefaultExampleTemplate = responseListProps => {
               id="search-icon-inside"
               size={Search.sizes.MEDIUM}
               placeholder="search for content"
-              iconName={() => <SearchIcon />}
-              secondaryIconName={() => <CloseSmall />}
+              iconName={SearchIcon}
+              secondaryIconName={CloseSmall}
             />
           }
         >
           <Search
             size={Search.sizes.MEDIUM}
             placeholder="search for content"
-            iconName={() => <SearchIcon />}
-            secondaryIconName={() => <CloseSmall />}
+            iconName={SearchIcon}
+            secondaryIconName={CloseSmall}
           />
         </div>
         <Button kind={Button.kinds.TERTIARY} marginLeft>

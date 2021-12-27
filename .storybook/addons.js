@@ -11,6 +11,10 @@ const theme = create({
   brandUrl: "https://monday.com",
   barSelectedColor: '#5034ff',
   brandTitle: 'Vibe Design',
+  background: {
+    hoverable: "rgba(80, 52, 255, 0.1)"
+  },
+  hoverable: "rgba(80, 52, 255, 0.1)"
 });
 
 addons.setConfig({
