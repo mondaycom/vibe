@@ -1,6 +1,6 @@
 import React from "react";
-import Avatar from "../../components/Avatar/Avatar";
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
+import Avatar from "../../components/Avatar/Avatar";
 import * as AllIcons from "../../components/Icon/Icons";
 
 export function createComponentTemplate(ComponentClass) {
