@@ -1,9 +1,11 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import { COMPONENT_ID, createBemHelper, SIZES_BASIC } from "../SliderCommons";
+import { createBemBlockHelper } from "../../../helpers/bem-helper";
+import { SIZES_BASIC } from "../../../constants";
+import { COMPONENT_ID } from "../SliderCommons";
 import "./SliderRail.scss";
 
-const bem = createBemHelper(COMPONENT_ID);
+const bem = createBemBlockHelper(COMPONENT_ID);
 
 const SliderRail = forwardRef(({ className, children, onClick, size }, ref) => {
   function handleClick(e) {

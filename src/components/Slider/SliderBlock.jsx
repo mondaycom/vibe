@@ -1,10 +1,11 @@
 import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { COMPONENT_ID, createBemHelper } from "./SliderCommons";
+import { createBemBlockHelper } from "../../helpers/bem-helper";
+import { COMPONENT_ID } from "./SliderCommons";
 import "./SliderBlock.scss";
 
-const bem = createBemHelper(COMPONENT_ID);
+const bem = createBemBlockHelper(COMPONENT_ID);
 
 const SliderBlock = forwardRef(({ children, className, id }, ref) => {
   const componentRef = useRef(null);

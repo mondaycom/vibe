@@ -11,6 +11,10 @@
     top: 50%;
     transform: translate(-50%, -50%);
 
+    &:hover {
+      @include theme-prop(border-color, primary-hover-color);
+    }
+
     &--small {
       height: 16px;
       width: 16px;

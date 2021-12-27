@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { SIZES_BASIC } from "./SliderCommons";
+import { SIZES_BASIC } from "../../constants";
 import { useSlider } from "./SliderHooks";
 import SliderBlock from "./SliderBlock";
 import PlainSlider from "./PlainSlider/PlainSlider";
