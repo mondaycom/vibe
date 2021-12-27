@@ -26,25 +26,6 @@ export function createBemHelper(block) {
   };
 }
 
-export function ensureId(id, componentName) {
-  return id ?? createDefaultId(componentName);
-}
-
-export function createDefaultId(prefix) {
-  return `${prefix}-${Math.random()}`;
-}
-
-function defaultFormatter(value) {
-  return `${value}%`;
-}
-
-export function formatValue(value, formatter) {
-  if (typeof formatter === "function") {
-    return formatter(value);
-  }
-  return defaultFormatter(value);
-}
-
 export function ensureValueText(valueText, value, formatter) {
   if (valueText) {
     return valueText;
@@ -52,5 +33,8 @@ export function ensureValueText(valueText, value, formatter) {
   if (typeof value === "undefined") {
     return undefined;
   }
-  return formatValue(value, formatter);
+  if (typeof formatter !== "function") {
+    return value;
+  }
+  return formatter(value);
 }

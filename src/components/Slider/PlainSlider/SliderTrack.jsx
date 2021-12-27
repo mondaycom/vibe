@@ -5,10 +5,10 @@ import "./SliderTrack.scss";
 
 const bem = createBemHelper(COMPONENT_ID);
 
-const SliderTrack = ({ className }) => {
+const SliderTrack = React.memo(({ className }) => {
   console.log("slider: track", { className });
   return <div className={bem("track", "", className)} />;
-};
+});
 
 SliderTrack.propTypes = {
   /**

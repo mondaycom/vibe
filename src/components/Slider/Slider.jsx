@@ -1,22 +1,68 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import { SIZES_BASIC } from "./SliderCommons";
 import { useSlider } from "./SliderHooks";
 import SliderBlock from "./SliderBlock";
 import PlainSlider from "./PlainSlider/PlainSlider";
-import { PlainSliderProps, PlainSliderDefaultProps } from "./PlainSlider/PlainSliderCommons";
-import PercentageLabel from "../ProgressBars/PercentageLabel/PercentageLabel";
+import { PlainSliderDefaultProps, PlainSliderProps } from "./PlainSlider/PlainSliderCommons";
+import { useSliderValues } from "./PlainSlider/PlainSliderHooks";
 import "./Slider.scss";
 
-const Slider = forwardRef((props, ref) => {
-  const { blockProps, plainProps, labelProps, is, mergedRef } = useSlider(props, ref);
-  return (
-    <SliderBlock ref={mergedRef} {...blockProps}>
-      <PlainSlider {...plainProps} />
-      {is.label && <PercentageLabel {...labelProps} />}
-    </SliderBlock>
-  );
-});
+const Slider = forwardRef(
+  (
+    {
+      ariaLabel,
+      ariaLabeledBy,
+      className,
+      classNameBase,
+      id,
+      indicateSelection,
+      max,
+      min,
+      onChange,
+      size,
+      value,
+      valueDefault,
+      valueFormatter,
+      valueText
+    },
+    ref
+  ) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const { subProps, is } = useSlider({
+      ariaLabel,
+      ariaLabeledBy,
+      className,
+      classNameBase,
+      id,
+      indicateSelection,
+      max,
+      min,
+      size
+    });
+    const { finalValue, finalValueText, setValue } = useSliderValues({
+      value,
+      valueDefault,
+      valueFormatter,
+      valueText
+    });
+    function handleChange(newValue) {
+      console.log("slider: handleChange", newValue);
+      setValue(newValue);
+      if (typeof onChange === "function") {
+        onChange(newValue);
+      }
+    }
+    return (
+      <SliderBlock ref={mergedRef} {...subProps.block}>
+        <PlainSlider {...subProps.plain} onChange={handleChange} value={finalValue} valueText={finalValueText} />
+        {is.label && <div {...subProps.label}>finalValueText</div>}
+      </SliderBlock>
+    );
+  }
+);
 
 Slider.sizes = SIZES_BASIC;
 

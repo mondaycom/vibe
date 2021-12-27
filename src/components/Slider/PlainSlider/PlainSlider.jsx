@@ -1,7 +1,13 @@
 import React from "react";
 import { createBemHelper } from "../SliderCommons";
-import { COMPONENT_ID, PlainSliderProps, PlainSliderDefaultProps, SIZES_BASIC } from "./PlainSliderCommons";
-import { usePlainSlider } from "./PlainSliderHooks";
+import {
+  calcDimensions,
+  COMPONENT_ID,
+  PlainSliderDefaultProps,
+  PlainSliderProps,
+  SIZES_BASIC
+} from "./PlainSliderCommons";
+import { usePlainSlider, useSliderInteractions, useSliderValues } from "./PlainSliderHooks";
 import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
 import SliderFilledTrack from "./SliderFilledTrack";
@@ -18,30 +24,64 @@ const PlainSlider = ({
   id,
   max,
   min,
+  onChange,
   size,
   value,
   valueDefault,
+  valueFormatter,
   valueText
 }) => {
-  const { filledTrackProps, trackProps, railProps, thumpProps } = usePlainSlider({
+  const consumerBem = createBemHelper(classNameBase);
+  const { subProps } = usePlainSlider({
     ariaLabel,
     ariaLabeledBy,
     classNameBase,
     id,
     max,
     min,
-    size,
+    size
+  });
+  const { finalValue, finalValueText, setValue } = useSliderValues({
     value,
     valueDefault,
+    valueFormatter,
     valueText
   });
-  console.log("plain slider", { filledTrackProps, trackProps, railProps, thumpProps });
+
+  const { coords, moveToPx, refs } = useSliderInteractions({ min, max });
+
+  function handleRailClick(e) {
+    console.log("handle click on Rail:", e.clientX, coords);
+    const fromStartInPx = e.clientX - coords.left;
+    const newValue = moveToPx(fromStartInPx);
+    changeValue(newValue);
+  }
+
+  function changeValue(newValue) {
+    setValue(newValue);
+    if (typeof onChange === "function") {
+      onChange(newValue);
+    }
+  }
+
+  const { dimension, position } = calcDimensions(max, min, value);
+  console.log("plain slider", { refs, subProps, value, dimension, position, coords });
   return (
     <div className={bem("plain", [size], className)}>
-      <SliderRail {...railProps}>
-        <SliderTrack {...trackProps} />
-        <SliderFilledTrack {...filledTrackProps} />
-        <SliderThumb {...thumpProps} />
+      <SliderRail className={consumerBem("rail")} ref={refs.rail} onClick={handleRailClick}>
+        <SliderTrack className={consumerBem("track")} />
+        {refs.rail.current && (
+          <>
+            <SliderFilledTrack className={consumerBem("filled-track")} dimension={dimension} />
+            <SliderThumb
+              {...subProps.thumb}
+              ref={refs.thumb}
+              position={position}
+              value={finalValue}
+              valueText={finalValueText}
+            />
+          </>
+        )}
       </SliderRail>
     </div>
   );
