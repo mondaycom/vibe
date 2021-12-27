@@ -30,6 +30,7 @@ import { TypographyDescription } from "./descriptions/typography-description/typ
 import { ProgressBarDescription } from "./descriptions/progress-bar-description";
 import { EditableHeadingDescription } from "./descriptions/editable-heading-description";
 import { ShadowDescription } from "./descriptions/shadow-description/shadow-description";
+import { HeadingDescription } from "./descriptions/heading-description";
 import { SpacingDescription } from "./descriptions/spacing-description/spacing-description";
 
 export const SPLIT_BUTTON = "split-button";
@@ -43,7 +44,7 @@ export const TOGGLE = "toggle";
 export const DROPDOWN = "dropdown";
 export const CHIP = "chips";
 export const BUTTON = "button";
-export const TAB = "tab";
+export const TABS = "tabs";
 export const BREADCRUBMS = "breadcrumbs";
 export const MENU = "menu";
 export const ATTENTION_BOX = "attention-box";
@@ -60,6 +61,7 @@ export const STEPPER = "stepper";
 export const SPINNER = "spinner";
 export const SKELETON = "skeleton";
 export const PROGRESS_BAR = "progress-bar";
+export const HEADING = "heading";
 export const EDITABLE_HEADING = "editable_heading";
 
 // General description names (not related to specific components)
@@ -84,7 +86,7 @@ descriptionTypesMap.set(ATTENTION_BOX, <AttentionBoxDescription />);
 descriptionTypesMap.set(ALERT_BANNER, <AlertBannerDescription />);
 descriptionTypesMap.set(TOAST, <ToastDescription />);
 descriptionTypesMap.set(BUTTON, <ButtonDescription />);
-descriptionTypesMap.set(TAB, <TabsDescription />);
+descriptionTypesMap.set(TABS, <TabsDescription />);
 descriptionTypesMap.set(BREADCRUBMS, <BreadcrumbsDescription />);
 descriptionTypesMap.set(MENU, <MenuDescription />);
 descriptionTypesMap.set(WIZARD, <WizardDescription />);
@@ -99,6 +101,7 @@ descriptionTypesMap.set(SPINNER, <SpinnerDescription />);
 descriptionTypesMap.set(SKELETON, <SkeletonDescription />);
 descriptionTypesMap.set(PROGRESS_BAR, <ProgressBarDescription />);
 descriptionTypesMap.set(EDITABLE_HEADING, <EditableHeadingDescription />);
+descriptionTypesMap.set(HEADING, <HeadingDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);

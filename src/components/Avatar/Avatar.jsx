@@ -107,12 +107,15 @@ const Avatar = ({
 Avatar.types = AVATAR_TYPES;
 Avatar.sizes = AVATAR_SIZES;
 Avatar.colors = elementColorsNames;
+Avatar.backgroundColors = elementColorsNames;
 
 Avatar.propTypes = {
   src: PropTypes.string,
+  text: PropTypes.string,
+  icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   className: PropTypes.string,
-  backgroundColor: PropTypes.oneOf(Object.keys(Avatar.colors)),
+  backgroundColor: PropTypes.oneOf(Object.values(Avatar.colors)),
   role: PropTypes.string,
   ariaLabel: PropTypes.string,
   size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
@@ -129,6 +132,8 @@ Avatar.propTypes = {
 Avatar.defaultProps = {
   src: undefined,
   className: "",
+  icon: undefined,
+  text: undefined,
   type: AVATAR_TYPES.TEXT,
   backgroundColor: elementColorsNames.CHILI_BLUE,
   role: undefined,
