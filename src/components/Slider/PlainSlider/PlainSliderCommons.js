@@ -39,6 +39,10 @@ export const PlainSliderProps = {
    */
   min: PropTypes.number,
   /**
+   * Optional onChange callback (for outer trigger or Controlled mode)
+   */
+  onChange: PropTypes.func,
+  /**
    * Size small/medium/large of the component (Slider)
    */
   size: PropTypes.oneOf(Object.values(SIZES_BASIC)),
@@ -50,6 +54,11 @@ export const PlainSliderProps = {
    * Default value if value not specified
    */
   valueDefault: PropTypes.number,
+  /**
+   * Formatter function `value => formattedValue`
+   * default formatter return `${value}%`
+   */
+  valueFormatter: PropTypes.func,
   /**
    * Text/presentation of current/selected value
    */
@@ -64,8 +73,17 @@ export const PlainSliderDefaultProps = {
   id: undefined,
   max: 100,
   min: 0,
+  onChange: undefined,
   size: SIZES_BASIC.SMALL,
   value: undefined,
   valueDefault: 0,
+  valueFormatter: value => `${value}%`,
   valueText: undefined
 };
+
+export function calcDimensions(max, min, value) {
+  const valuePoints = max - min;
+  const dimension = Math.round((value * 100) / valuePoints);
+  const position = dimension;
+  return { dimension, position };
+}

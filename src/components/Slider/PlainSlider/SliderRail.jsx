@@ -1,14 +1,25 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { COMPONENT_ID, createBemHelper, SIZES_BASIC } from "../SliderCommons";
 import "./SliderRail.scss";
 
 const bem = createBemHelper(COMPONENT_ID);
 
-const SliderRail = ({ className, children, size }) => {
+const SliderRail = forwardRef(({ className, children, onClick, size }, ref) => {
+  function handleClick(e) {
+    console.log("click on track", e, e.clientX);
+    if (typeof onClick === "function") {
+      onClick(e);
+    }
+  }
+
   console.log("slider: rail", { className });
-  return <div className={bem("rail", [size], className)}>{children}</div>;
-};
+  return (
+    <div className={bem("rail", [size], className)} onClick={handleClick} ref={ref}>
+      {children}
+    </div>
+  );
+});
 
 SliderRail.sizes = SIZES_BASIC;
 
@@ -18,6 +29,10 @@ SliderRail.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * onClick callback function
+   */
+  onClick: PropTypes.func,
+  /**
    * Size small/medium/large of the component (Slider)
    */
   size: PropTypes.oneOf(Object.values(SliderRail.sizes))
@@ -25,6 +40,7 @@ SliderRail.propTypes = {
 
 SliderRail.defaultProps = {
   className: "",
+  onClick: undefined,
   size: SliderRail.sizes.SMALL
 };
 
