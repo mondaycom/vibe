@@ -14,5 +14,7 @@ export const getActualSize = size => {
 export const TEXT_TYPES = {
   TEXT: "text",
   PASSWORD: "password",
-  SEARCH: "search"
+  SEARCH: "search",
+  DATE: "date",
+  DATE_TIME: "datetime-local"
 };

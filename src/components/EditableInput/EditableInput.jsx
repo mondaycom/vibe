@@ -49,8 +49,7 @@ const EditableInput = forwardRef(
       onCancelEditing,
       textareaSubmitOnEnter,
       onArrowKeyDown,
-      ariaLabel,
-      type
+      ariaLabel
     },
     ref
   ) => {
@@ -211,7 +210,6 @@ const EditableInput = forwardRef(
         rows={rows}
         maxLength={maxLength}
         aria-label={ariaLabel}
-        type={type}
       />
     );
   }
@@ -230,8 +228,7 @@ EditableInput.propTypes = {
   onArrowKeyDown: PropTypes.func,
   onCancelEditing: PropTypes.func,
   textareaSubmitOnEnter: PropTypes.bool,
-  ariaLabel: PropTypes.string,
-  type: PropTypes.oneOf(["date", "datetime-local", undefined])
+  ariaLabel: PropTypes.string
 };
 EditableInput.defaultProps = {
   className: "",
@@ -246,8 +243,7 @@ EditableInput.defaultProps = {
   onArrowKeyDown: undefined,
   onCancelEditing: undefined,
   textareaSubmitOnEnter: false,
-  ariaLabel: undefined,
-  type: undefined
+  ariaLabel: undefined
 };
 
 export default EditableInput;

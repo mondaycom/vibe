@@ -5,6 +5,7 @@ import { ComponentStateDescription, FlexLayout } from "../../storybook-helpers";
 import StoryWrapper from "../../../StoryBookComponents/StoryWrapper/StoryWrapper";
 import TextFieldStoryBookLine from "./TextFieldStoryBookLine";
 import { withPerformance } from "storybook-addon-performance";
+import { TEXT_TYPES } from "../TextFieldConstants";
 
 export const Sandbox = () => {
   return (
@@ -161,6 +162,18 @@ export const States = () => {
             size={TextField.sizes.MEDIUM}
             validation={{ text: "Assist text" }}
           />
+        </div>
+      </FlexLayout>
+      <FlexLayout>
+        <ComponentStateDescription title="Date" />
+        <div className="width-35">
+          <TextField id="_11" size={TextField.sizes.MEDIUM} type={TEXT_TYPES.DATE} />
+        </div>
+      </FlexLayout>
+      <FlexLayout>
+        <ComponentStateDescription title="DateTime" />
+        <div className="width-35">
+          <TextField id="_11" size={TextField.sizes.MEDIUM} type={TEXT_TYPES.DATE_TIME} />
         </div>
       </FlexLayout>
     </StoryWrapper>
