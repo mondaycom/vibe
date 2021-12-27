@@ -32,6 +32,8 @@ import { EditableHeadingDescription } from "./descriptions/editable-heading-desc
 import { ShadowDescription } from "./descriptions/shadow-description/shadow-description";
 import { HeadingDescription } from "./descriptions/heading-description";
 import { SpacingDescription } from "./descriptions/spacing-description/spacing-description";
+import { IconButtonDescription } from "./descriptions/icon-button-description";
+import { MenuButtonDescription } from "./descriptions/menu-button-description";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -63,6 +65,8 @@ export const SKELETON = "skeleton";
 export const PROGRESS_BAR = "progress-bar";
 export const HEADING = "heading";
 export const EDITABLE_HEADING = "editable_heading";
+export const ICON_BUTTON = "icon-button";
+export const MENU_BUTTON = "menu-button";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
@@ -99,6 +103,8 @@ descriptionTypesMap.set(ICONS, <IconsDescription />);
 descriptionTypesMap.set(STEPPER, <StepperDescription />);
 descriptionTypesMap.set(SPINNER, <SpinnerDescription />);
 descriptionTypesMap.set(SKELETON, <SkeletonDescription />);
+descriptionTypesMap.set(ICON_BUTTON, <IconButtonDescription />);
+descriptionTypesMap.set(MENU_BUTTON, <MenuButtonDescription />);
 descriptionTypesMap.set(PROGRESS_BAR, <ProgressBarDescription />);
 descriptionTypesMap.set(EDITABLE_HEADING, <EditableHeadingDescription />);
 descriptionTypesMap.set(HEADING, <HeadingDescription />);
