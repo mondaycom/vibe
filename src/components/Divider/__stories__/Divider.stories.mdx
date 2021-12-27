@@ -17,7 +17,10 @@ export const argTypes = createStoryMetaSettings({
 
 <!--- Component template -->
 
-export const dividerTemplate = createComponentTemplate(Divider);
+export const dividerTemplate = args =>
+  <div style={{width: "400px", height: "200px"}}>
+    <Divider {...args}/>
+  </div>
 
 <!--- Component documentation -->
 
@@ -42,7 +45,7 @@ Divider create separation between two UI elements
 ### Directions
 <Canvas>
   <Story name="Directions">
-    <div style={{display: "flex", flexDirection: "column"}}>
+    <div style={{display: "flex", flexDirection: "column", width: "400px"}}>
       <div className={classes["divider-description-container"]}>
         <span className={classes["divider-description-text"]}>Horizontal</span>
         <Divider direction={Divider.directions.HORIZONTAL}/>

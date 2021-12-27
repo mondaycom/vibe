@@ -6,8 +6,8 @@ import { BEMClass } from "../../helpers/bem-helper";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { getElementColor, elementColorsNames } from "../../general-stories/colors/colors-vars-map";
 import { AvatarBadge } from "./AvatarBadge";
-import "./Avatar.scss";
 import { AvatarContent } from "./AvatarContent";
+import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);

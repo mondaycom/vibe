@@ -23,8 +23,7 @@ export const tooltipTemplate = (args) => {
         // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
         // Therefore, there is no need to move this prop in your implementations.
         modifiers={modifiers}
-        shouldShowOnMount={args.shouldShowOnMount}
-        content={args.content}
+        {...args}
       >
         <div />
       </Tooltip>
