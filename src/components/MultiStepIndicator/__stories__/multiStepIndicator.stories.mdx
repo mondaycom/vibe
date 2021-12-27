@@ -3,7 +3,7 @@ import { useMemo, useState, useEffect, useCallback } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { STEP_STATUSES } from "../MultiStepConstants";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
-import { BREADCRUBMS, STEPPER, TAB } from "../../../storybook/components/related-components/component-description-map";
+import { BREADCRUBMS, STEPPER, TABS } from "../../../storybook/components/related-components/component-description-map";
 import { firstSteps, secondSteps, thirdSteps } from "./helper.js";
 import { Link } from "../../../storybook/components";
 import { Featured } from "../../Icon/Icons"
@@ -328,4 +328,4 @@ State transition automatic example
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[TAB, BREADCRUBMS, STEPPER]} />
+<RelatedComponents componentsNames={[TABS, BREADCRUBMS, STEPPER]} />
