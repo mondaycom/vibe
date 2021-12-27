@@ -1,0 +1,48 @@
+@import "../../../styles/global-css-settings.scss";
+@import "../../styles/content-spacing";
+@import "../../styles/typography";
+
+.argument {
+  ul {
+    padding: 0;
+  }
+
+  .argument {
+    margin-left: 20px;
+  }
+}
+
+.argument-name,
+.argument-type,
+.default-value {
+  font-family: "monaco", monospace;
+  font-size: 85%;
+}
+
+.argument-name {
+  margin-right: 5px;
+}
+
+.argument-type {
+  color: $purple;
+
+  &:before,
+  &:after {
+    color: $wolf-gray;
+  }
+
+  &:before {
+    content: "<";
+  }
+
+  &:after {
+    content: ">";
+  }
+}
+
+.default-value {
+  background: $ui-grey;
+  border-radius: 4px;
+  border: 1px solid $wolf-gray;
+  padding: 0.3em;
+}

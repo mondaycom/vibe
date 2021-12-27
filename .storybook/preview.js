@@ -9,6 +9,8 @@ import {
   ComponentRules,
   ComponentName,
   UsageGuidelines,
+  FunctionArguments,
+  FunctionArgument,
   RelatedComponents,
   DocFooter,
   MultipleStoryElementsWrapper,
@@ -37,6 +39,8 @@ addParameters({
       Tip,
       ComponentRules,
       UsageGuidelines,
+      FunctionArguments,
+      FunctionArgument,
       RelatedComponents
     }
   },

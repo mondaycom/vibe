@@ -1,7 +1,8 @@
 import { useMemo, useCallback, useState, useRef, useEffect } from "react";
 import debounce from "lodash/debounce";
+import noop from "lodash/noop";
 
-export default function useDebounceEvent({ delay = 0, onChange, initialStateValue, trim }) {
+export default function useDebounceEvent({ delay = 0, onChange = noop, initialStateValue = "", trim }) {
   const [inputValue, setValue] = useState(initialStateValue);
   const previousValue = useRef(null);
 

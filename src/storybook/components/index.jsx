@@ -14,6 +14,7 @@ import { Frame } from "./frame/frame";
 import { VisualDescription } from "./visual-description/visual-description";
 import { ColorsDescription } from "./colors-description/colors-description";
 
+export * from "./function-arguments";
 export {
   SectionName,
   Title,
