@@ -1,5 +1,5 @@
 import { useCallback, useRef } from "react";
-import useEventListener from "./useEventListener";
+import useEventListener from "../useEventListener";
 
 export default function useOnClickOutside({ ref, callback }) {
   const onClickOutsideListener = useCallback(

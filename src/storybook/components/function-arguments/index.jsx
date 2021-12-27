@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import { Code } from "@storybook/components"; // eslint-disable-line import/no-extraneous-dependencies
 import classes from "./index.module.scss";
 
-export const FunctionArgument = ({ children, name, type, description, default: defaultValue }) => (
+export const FunctionArgument = ({ children, name, type, description, default: defaultValue, required }) => (
   <li className={classes.argument}>
-    <code className={classes["argument-name"]}>{name}</code>
+    {name && <code className={classes["argument-name"]}>{name}</code>}
     <code className={classes["argument-type"]}>{type}</code>
+    {required && <span className={classes.required}>*</span>}
     {description && <> - {description}</>}
     {defaultValue && (
       <>
