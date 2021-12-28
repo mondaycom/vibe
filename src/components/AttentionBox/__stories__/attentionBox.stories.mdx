@@ -1,12 +1,11 @@
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { useCallback } from "react";
 import AttentionBox from "../AttentionBox";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { ATTENTION_BOX_TYPES } from "../AttentionBoxConstants";
 import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Info, Invite, ThumbsUp } from "../../Icon/Icons";
-import Button from "../../Button/Button.jsx";
 import Icon from "../../Icon/Icon";
 import Search  from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
@@ -14,9 +13,16 @@ import { TOOLTIP, ALERT_BANNER, TOAST } from "../../../storybook/components/rela
 import person from "./assets/person.png";
 import "./attentionBox.stories.scss";
 
+export const argsTypes = createStoryMetaSettings({
+  component: AttentionBox,
+  enumPropNamesArray: ["type", "iconType"],
+  iconPropNamesArray: ["icon"]
+});
+
 <Meta
   title="Feedback/AttentionBox"
-  component={ AttentionBox }
+  component={AttentionBox}
+  argTypes={argsTypes}
 />
 
 <!--- Component template -->
@@ -55,7 +61,7 @@ Attention box lets users know important information within content areas, as clo
   "Their height is based on the content length, which should not exceed two lines of text.",
 ]}/>
 
-<Tip title="Check yourself">If the information about a component isn’t critical for the user, use a <Link href="/?path=/docs/components-tooltip--overview" size={Link.sizes.SMALL} withoutSpacing>Tooltip</Link> instead.</Tip>
+<Tip title="Check yourself">If the information about a component isn’t critical for the user, use a <Link href="/?path=/docs/popover-tooltip--overview" size={Link.sizes.SMALL} withoutSpacing>Tooltip</Link> instead.</Tip>
 
 ## Variants
 ### States
@@ -149,7 +155,7 @@ There are four types of attention boxes: Primary, success, danger, and dark (nat
             <span className="monday-style-attention-box_text" >Catch up on updates from all your boards.</span>
             <AttentionBox text={<span className="monday-style-attention-box_info">7 days left on your free trial <Link>Learn More</Link></span>} compact className="monday-style-attention-box_att-box" />
           </div>,
-        description: <>Don’t use when a message applies at a system level, does not apply to a specific piece of content, or needs to alert all users. On those cases, use <Link href="?path=/docs/components-alertbanner--overview" withoutSpacing>Alert banner.</Link></>
+        description: <>Don’t use when a message applies at a system level, does not apply to a specific piece of content, or needs to alert all users. On those cases, use <Link href="?path=/docs/feedback-alertbanner--overview" withoutSpacing>Alert banner.</Link></>
       }
     }
   ]}

@@ -1,0 +1,13 @@
+@import "../../../styles/themes.scss";
+
+.divider-description {
+  &-container {
+    display: flex;
+    height: 200px;
+  }
+
+  &-text {
+    margin-right: var(--spacing-large);
+    align-self: center;
+  }
+}

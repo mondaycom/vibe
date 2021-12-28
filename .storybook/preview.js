@@ -9,12 +9,14 @@ import {
   ComponentRules,
   ComponentName,
   UsageGuidelines,
+  FunctionArguments,
+  FunctionArgument,
   RelatedComponents,
   DocFooter,
   MultipleStoryElementsWrapper,
-  Paragraph
+  Paragraph,
+  LinkComponent
 } from "../src/storybook/components";
-import LinkComponent from "../src/storybook/components/link-component/link-component";
 
 addParameters({
   docs: {
@@ -37,6 +39,8 @@ addParameters({
       Tip,
       ComponentRules,
       UsageGuidelines,
+      FunctionArguments,
+      FunctionArgument,
       RelatedComponents
     }
   },
