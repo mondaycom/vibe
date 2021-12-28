@@ -1,0 +1,12 @@
+.component-rule {
+  &-search {
+    margin-bottom: var(--spacing-small);
+  }
+
+  &-large-dialog {
+    width: 348px;
+  }
+  &-large-menu {
+    width: 328px;
+  }
+}

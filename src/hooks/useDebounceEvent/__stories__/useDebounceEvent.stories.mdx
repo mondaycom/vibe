@@ -1,0 +1,125 @@
+import { useState } from 'react';
+import { Story, Canvas, Meta, ArgsTable } from "@storybook/addon-docs";
+import useDebounceEvent from "..";
+import "../../__stories__/general-hooks-stories.scss";
+
+<Meta title="Hooks/useDebounceEvent" />
+
+# useDebounceEvent
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Usage](#usage)
+- [Use cases and examples](#use-cases-and-examples)
+- [Feedback](#feedback)
+
+## Overview
+
+This hook generates an easy to use debounced value updater.
+
+<Canvas>
+  <Story name="Overview">
+    {() => {
+      const { inputValue, onEventChanged } = useDebounceEvent({ delay: 100 });
+      return (
+        <input type="text" value={inputValue} onChange={onEventChanged}/>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument name="trim" type="boolean" description="Whether to trim the value or not." default="false" />
+    <FunctionArgument
+      name="onChange"
+      type="(value: string) => void"
+      description="Callback function to execute on changes."
+      default="() => null"
+    />
+    <FunctionArgument
+      name="delay"
+      type="number"
+      description="The amount of time (in ms) to delay the value's update."
+      default="0"
+    />
+    <FunctionArgument name="initialStateValue" type="any" description="The initial value." />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="result" type="Object">
+    <FunctionArgument name="inputValue" type="any" description="The hook's value." />
+    <FunctionArgument
+      name="onEventChanged"
+      type="(event: Event) => void"
+      description={<>A wrapper around the passed <code>onChange</code> function.</>}
+    />
+    <FunctionArgument
+      name="clearValue"
+      type="() => void"
+      description="Clears the current value."
+    />
+    <FunctionArgument
+      name="updateValue"
+      type="(value: any) => void"
+      description="Updates the current value."
+    />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Usage
+
+<UsageGuidelines
+  guidelines={["Use this hook when you need to debounce value updates (for example, text inputs)."]}
+/>
+
+## Use cases and examples
+
+### Passing an initial value
+
+<Canvas>
+  <Story name="Passing an initial value">
+    {() => {
+      const { inputValue, onEventChanged } = useDebounceEvent({ initialStateValue: 'bla bla bla' });
+      return (
+        <input type="text" value={inputValue} onChange={onEventChanged}/>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Passing an `onChange` handler
+
+<Canvas>
+  <Story name="Passing an `onChange` handler">
+    {() => {
+      const [length, setLength] = useState(0);
+      const { inputValue, onEventChanged } = useDebounceEvent({ onChange: (value) => setLength(value.length) });
+      return (
+        <>
+          <input type="text" value={inputValue} onChange={onEventChanged}/>
+          { <span>Input has {length} characters</span> }
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Trimming the value
+
+<Canvas>
+  <Story name="With trim">
+    {() => {
+      const { inputValue, onEventChanged } = useDebounceEvent({ trim: true });
+      return (
+        <input type="text" value={inputValue} onChange={onEventChanged}/>
+      );
+    }}
+  </Story>
+</Canvas>

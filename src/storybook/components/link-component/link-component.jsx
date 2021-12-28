@@ -1,7 +1,11 @@
 import React from "react";
 
-const LinkComponent = ({ children, href }) => {
+const LinkComponent = ({ children, href, target: originalTarget, rel }) => {
   const onClick = event => {
+    if (originalTarget) {
+      return;
+    }
+
     const target = document.querySelector(href);
     if (target) {
       event.preventDefault();
@@ -10,7 +14,13 @@ const LinkComponent = ({ children, href }) => {
     }
   };
   return (
-    <a style={{ color: "var(--link-color)", textDecoration: "none" }} onClick={onClick} href={href}>
+    <a
+      style={{ color: "var(--link-color)", textDecoration: "none" }}
+      onClick={onClick}
+      target={originalTarget}
+      rel={rel}
+      href={href}
+    >
       {children}
     </a>
   );

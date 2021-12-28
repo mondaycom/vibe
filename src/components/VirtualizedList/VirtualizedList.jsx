@@ -248,17 +248,69 @@ const VirtualizedList = forwardRef(
 );
 
 VirtualizedList.propTypes = {
+  /**
+   * class name to add to the component wrapper
+   */
   className: PropTypes.string,
+  /**
+   * id to add to the component wrapper
+   */
   id: PropTypes.string,
+  /**
+   * A list of items to be rendered
+   */
   items: PropTypes.arrayOf(PropTypes.object),
+  /**
+   * item render function
+   * returns `JSX.Element`
+   */
   itemRenderer: PropTypes.func,
+  /**
+   * in order to calculate the number of items to render, the component needs the height of the items
+   * return `number`
+   */
   getItemHeight: PropTypes.func,
+  /**
+   * returns Id of an items
+   * returns `string`
+   */
   getItemId: PropTypes.func,
+  /**
+   * callback to be called when the scroll is finished
+   */
   onScrollToFinished: PropTypes.func,
+  /**
+   * number of items to render (below/above the fold)
+   */
   overscanCount: PropTypes.number,
+  /**
+   * the speed of the scroll (in ms)
+   */
   scrollDuration: PropTypes.number,
+  /**
+   * a callback that is being called when the items are rendered
+   *
+   *    `onItemsRendered => {`
+   *
+   *     firstItemId: string
+   *
+   *     secondItemId: string
+   *
+   *     lastItemId: string
+   *
+   *     centerItemId: string
+   *
+   *     firstItemOffsetEnd: number
+   *
+   *     currentOffsetTop: number
+   *
+   * }
+   */
   onItemsRendered: PropTypes.func,
   onItemsRenderedThrottleMs: PropTypes.number,
+  /**
+   * when the list size changes - `=> (width, height)`
+   */
   onSizeUpdate: PropTypes.func,
   onVerticalScrollbarVisiblityChange: PropTypes.func
 };

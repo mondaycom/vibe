@@ -1,0 +1,349 @@
+import MultiStepIndicator from "../MultiStepIndicator";
+import { useMemo, useState, useEffect, useCallback } from "react";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { STEP_STATUSES } from "../MultiStepConstants";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { BREADCRUBMS, STEPPER, TABS } from "../../../storybook/components/related-components/component-description-map";
+import { firstSteps, secondSteps, thirdSteps } from "./helper.js";
+import { Link } from "../../../storybook/components";
+import { Featured } from "../../Icon/Icons"
+import "./multiStepIndicator.stories.scss";
+
+
+<Meta
+  title="Navigation/Wizard"
+  component={ MultiStepIndicator }
+/>
+
+<!--- Component template -->
+
+export const multiStepIndicatorTemplate = createComponentTemplate(MultiStepIndicator);
+
+<!--- Component documentation -->
+
+# Wizard
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+Tabular navigation component that helps users visualize and interact with a multi-step process.
+
+<Canvas>
+  <Story name="Overview"
+         args={ {
+           steps: [
+            {
+              key: "FULFILLED",
+              status: MultiStepIndicator.stepStatuses.FULFILLED,
+              titleText: "Everything you can do with Monday",
+              subtitleText: "Subtitle"
+            },
+            {
+              key: "PENDING",
+              status: MultiStepIndicator.stepStatuses.PENDING,
+              titleText: "Everything you can do with Monday",
+              subtitleText: "Subtitle"
+            },
+            {
+              key: "PENDING-2",
+              status: MultiStepIndicator.stepStatuses.PENDING,
+              titleText: "Everything you can do with Monday",
+              subtitleText: "Subtitle"
+            }
+           ]
+          } }>
+    { multiStepIndicatorTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ MultiStepIndicator } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Use wizard to break a larger goal into manageable steps.",
+  "If a workflow needs more than 6 steps, consider how you might simplify it or break it up into multiple tasks.",
+  "Always position the wizard at the top of the multi-step process so that the user has a common reference point as they move between steps.",
+]}/>
+
+<Tip title="Not what you were looking for?">
+  In order to navigate between content withouht a liniar progress, use the <Link href="/?path=/docs/navigation-tabs-tabs--overview" size={Link.sizes.SMALL} withoutSpacing>Tabs</Link> or <Link href="/?path=/docs/buttons-buttongroup--overview" size={Link.sizes.SMALL} withoutSpacing>Button group</Link> component.
+</Tip>
+
+## Variants
+### Placements
+Placements
+<Canvas>
+  <Story name="Placements">
+    {() => {
+      const steps = useMemo(() => [
+        {
+        key: "FULFILLED",
+          status: MultiStepIndicator.stepStatuses.FULFILLED,
+          titleText: "Fulfilled title",
+          subtitleText: "Fulfilled subtitle"
+        },
+        {
+        key: "ACTIVE",
+          status: MultiStepIndicator.stepStatuses.ACTIVE,
+          titleText: "Active title",
+          subtitleText: "Active subtitle"
+        },
+        {
+        key: "PENDING",
+          status: MultiStepIndicator.stepStatuses.PENDING,
+          titleText: "Pending title",
+          subtitleText: "Pending subtitle"
+        }
+      ], []);
+      return (
+        <div className="monday-storybook-multiStepIndicator_column-wrapper">
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Vertical</span>
+            <MultiStepIndicator className="monday-storybook-multiStepIndicator_size" textPlacement={MultiStepIndicator.textPlacements.VERTICAL} steps={steps} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Horizontal</span>
+            <MultiStepIndicator steps={steps} />
+          </div>
+        </div>
+      )
+    }}
+  </Story>
+</Canvas>
+
+### Types
+There are 4 types: Primary, success, danger, dark.
+<Canvas>
+  <Story name="Types">
+    {() => {
+      const steps = useMemo(() => [
+        {
+        key: "FULFILLED",
+          status: MultiStepIndicator.stepStatuses.FULFILLED,
+          titleText: "Fulfilled title",
+          subtitleText: "Fulfilled subtitle"
+        },
+        {
+        key: "ACTIVE",
+          status: MultiStepIndicator.stepStatuses.ACTIVE,
+          titleText: "Active title",
+          subtitleText: "Active subtitle"
+        },
+        {
+        key: "PENDING",
+          status: MultiStepIndicator.stepStatuses.PENDING,
+          titleText: "Pending title",
+          subtitleText: "Pending subtitle"
+        }
+      ], []);
+      return (
+        <div className="monday-storybook-multiStepIndicator_column-wrapper">
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Primary</span>
+            <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.PRIMARY} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Success</span>
+            <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.SUCCESS} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Danger</span>
+            <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.DANGER} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Dark</span>
+            <MultiStepIndicator steps={steps} type={MultiStepIndicator.types.DARK} />
+          </div>
+        </div>
+      )
+    }}
+  </Story>
+</Canvas>
+
+### Fullfiled Icons
+<Canvas>
+  <Story name="Fullfiled Icons">
+    {() => {
+      const steps = useMemo(() => [
+        {
+        key: "FULFILLED",
+          status: MultiStepIndicator.stepStatuses.FULFILLED,
+          titleText: "Fulfilled title",
+          subtitleText: "Fulfilled subtitle"
+        },
+        {
+        key: "ACTIVE",
+          status: MultiStepIndicator.stepStatuses.ACTIVE,
+          titleText: "Active title",
+          subtitleText: "Active subtitle"
+        },
+        {
+        key: "PENDING",
+          status: MultiStepIndicator.stepStatuses.PENDING,
+          titleText: "Pending title",
+          subtitleText: "Pending subtitle"
+        }
+      ], []);
+      return (
+        <div className="monday-storybook-multiStepIndicator_column-wrapper">
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Default (check)</span>
+            <MultiStepIndicator steps={steps} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Number instead of icon</span>
+            <MultiStepIndicator steps={steps} isFulfilledStepDisplayNumber={true} />
+          </div>
+          <div className="monday-storybook-multiStepIndicator_row-wrapper">
+            <span className="monday-storybook-multiStepIndicator_title">Custom (featured)</span>
+            <MultiStepIndicator steps={steps} fulfilledStepIcon={Featured}  />
+          </div>
+        </div>
+      )
+    }}
+  </Story>
+</Canvas>
+
+### Transition Animation
+State transition automatic example
+<Canvas>
+  <Story name="Transition Animation">
+    {() => {
+    const exampleSteps = useMemo(() => ({
+      firstStep: {
+      key: "PENDING",
+        status: MultiStepIndicator.stepStatuses.PENDING,
+        titleText: "First step title",
+        subtitleText: "First subtitle",
+      },
+      secondStep: {
+      key: "PENDING-2",
+        status: MultiStepIndicator.stepStatuses.PENDING,
+        titleText: "Second step title",
+        subtitleText: "Second subtitle",
+      },
+      thirdStep: {
+      key: "PENDING-3",
+        status: MultiStepIndicator.stepStatuses.PENDING,
+        titleText: "Third step title",
+        subtitleText: "Third subtitle",
+      }
+    }), []);
+    const [steps, setSteps] = useState([
+      { ...exampleSteps.firstStep },
+      { ...exampleSteps.secondStep },
+      { ...exampleSteps.thirdStep }
+    ]);
+    const clearSteps = useCallback(() => {
+      setSteps([{ ...exampleSteps.firstStep }, { ...exampleSteps.secondStep }, { ...exampleSteps.thirdStep }]);
+    }, [setSteps]);
+    const [numActions, setNumActions] = useState(0);
+    const getStepKeyForTransition = useCallback(() => {
+      if (numActions < 2) return "firstStep";
+      else if (numActions < 4) return "secondStep";
+      else return "thirdStep";
+    }, [numActions]);
+    const STEP_TRANSITIONS = useMemo(() => ({
+      [STEP_STATUSES.PENDING]: STEP_STATUSES.ACTIVE,
+      [STEP_STATUSES.ACTIVE]: STEP_STATUSES.FULFILLED,
+      [STEP_STATUSES.FULFILLED]: STEP_STATUSES.PENDING
+    }), []);
+    const performIndicatorStateTransition = useCallback(() => {
+      if (numActions === steps.length * 2) {
+        clearSteps();
+        setNumActions(0);
+        return;
+      }
+      const stepKey = getStepKeyForTransition();
+      const copySteps = { firstStep: { ...steps[0] }, secondStep: { ...steps[1] }, thirdStep: { ...steps[2] } };
+      copySteps[stepKey].status = STEP_TRANSITIONS[copySteps[stepKey].status];
+      setSteps([{ ...copySteps.firstStep }, { ...copySteps.secondStep }, { ...copySteps.thirdStep }]);
+      setNumActions(numActions + 1);
+    }, [steps, setSteps, numActions, setNumActions]);
+    useEffect(() => {
+      const interval = setInterval(performIndicatorStateTransition, 2000);
+      return () => {
+        clearInterval(interval);
+      };
+    }, [performIndicatorStateTransition]);
+    return <MultiStepIndicator steps={steps} />
+  }}
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:<MultiStepIndicator steps={firstSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_big-size" />,
+        description:"Be consistent with the information you include under each step. If you’re using a subtitle on one step, use for all steps."
+      },
+      negative: {
+        component:<MultiStepIndicator steps={secondSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_big-size"  />,
+        description:"Don’t place subheader on one step only."
+      }
+    },
+    {
+      positive: {
+        component:
+          <div className="monday-storybook-multiStepIndicator_box-wrapper">
+            <MultiStepIndicator steps={thirdSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_small-size" />
+            <div className="monday-storybook-multiStepIndicator_spacing" />
+          </div>,
+        description:"While using the wizard component, keep the default spacing between the wizard steps, even if the wizard width is smaller than the page width."
+      },
+      className: "monday-storybook-multiStepIndicator_overflow",
+      negative: {
+        component:
+          <div className="monday-storybook-multiStepIndicator_box-wrapper">
+            <MultiStepIndicator steps={thirdSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} className="monday-storybook-multiStepIndicator_line" />
+            <div className="monday-storybook-multiStepIndicator_spacing" />
+          </div>,
+        description:"Do not override the spacing between the wizard steps according to the page width."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+### Multi step wizard
+<Canvas>
+  <Story name="Multi step wizard">
+    {() => {
+      const steps = useMemo(() => [
+        {
+        key: "FULFILLED",
+          status: MultiStepIndicator.stepStatuses.FULFILLED,
+          titleText: "Step 1",
+          subtitleText: "Learn how to use monday CRM"
+        },
+        {
+        key: "PENDING",
+          status: MultiStepIndicator.stepStatuses.PENDING,
+          titleText: "Step 2",
+          subtitleText: "Integrate your email"
+        },
+        {
+        key: "PENDING-3",
+          status: MultiStepIndicator.stepStatuses.PENDING,
+          titleText: "Step 3",
+          subtitleText: "Import your data"
+        }
+      ], []);
+      return (
+        <MultiStepIndicator className="monday-storybook-multiStepIndicator_big-size" steps={steps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />
+      )
+    }}
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[TABS, BREADCRUBMS, STEPPER]} />

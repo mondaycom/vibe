@@ -1,20 +1,25 @@
 @import "../../../styles/states.scss";
 
-.container {
-  border: 1px solid;
-  padding: 16px;
-
-  .custom-icon {
-    width: 20px;
-    height: 20px;
-    background-color: yellow;
-    border-radius: 4px;
+.combobox-stories-styles {
+  &_row {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    gap: 50px;
   }
-}
 
-.categories-container {
-  width: 300px;
+  &_btn-group {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid;
+    @include theme-prop(border-color, ui-border-color);
+  }
+
+  &_wrapper {
+    width: 300px;
+    padding: 16px;
+  }
+
+  &_btn {
+    width: 100%;
+  }
 }

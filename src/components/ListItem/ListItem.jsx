@@ -60,6 +60,10 @@ ListItem.sizes = SIZES;
 
 ListItem.propTypes = {
   /**
+   * The textual content of the list item
+   */
+  children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  /**
    * A class name to be passed to the list item wrapper
    */
   className: PropTypes.string,
@@ -99,6 +103,7 @@ ListItem.defaultProps = {
   disabled: false,
   selected: false,
   size: ListItem.sizes.SMALL,
+  children: undefined,
   tabIndex: 0
 };
 

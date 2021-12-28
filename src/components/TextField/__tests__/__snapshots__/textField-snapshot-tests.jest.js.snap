@@ -31,6 +31,7 @@ exports[`TextField renders correctly when disabled 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -102,6 +103,7 @@ exports[`TextField renders correctly when loading 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__loader--container"
@@ -200,6 +202,7 @@ exports[`TextField renders correctly when readonly 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -271,6 +274,7 @@ exports[`TextField renders correctly when required 1`] = `
         required={true}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -342,6 +346,7 @@ exports[`TextField renders correctly with another type 1`] = `
         required={false}
         role=""
         type="password"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -413,6 +418,7 @@ exports[`TextField renders correctly with className 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -484,6 +490,7 @@ exports[`TextField renders correctly with className 2`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -555,6 +562,7 @@ exports[`TextField renders correctly with icon 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
@@ -634,6 +642,7 @@ exports[`TextField renders correctly with iconsNames 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -705,6 +714,7 @@ exports[`TextField renders correctly with id 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -776,6 +786,7 @@ exports[`TextField renders correctly with labelIconName 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -847,6 +858,7 @@ exports[`TextField renders correctly with large size 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -918,6 +930,7 @@ exports[`TextField renders correctly with placeholder 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -989,6 +1002,7 @@ exports[`TextField renders correctly with role 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -1060,6 +1074,7 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
@@ -1139,6 +1154,7 @@ exports[`TextField renders correctly with showCharCount 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -1220,6 +1236,7 @@ exports[`TextField renders correctly with validation 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"
@@ -1373,6 +1390,7 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
         required={false}
         role=""
         type="text"
+        value=""
       />
       <div
         className="input-component__icon--container input-component__icon--container-active"

@@ -24,7 +24,7 @@ export const RelatedComponents = ({ componentsNames }) => {
 };
 
 RelatedComponents.propTypes = {
-  componentsNames: PropTypes.string
+  componentsNames: PropTypes.arrayOf(PropTypes.string)
 };
 
 RelatedComponents.defaultProps = {

@@ -1,0 +1,56 @@
+import { useCallback } from "react";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import useTimeout from "..";
+
+<Meta title="Hooks/useTimeout" />
+
+# useTimeout
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Use this hook when you need to perform an action with timeout, this hook will cancel the timeout when the component unmounts.
+
+<Canvas>
+  <Story name="Overview">
+    {() => {
+      const callback = useCallback(() => {
+        alert("5s passed");
+      });
+      useTimeout({ time: 5000, callback });
+      return <div>Alert is coming!</div>;
+    }}
+  </Story>
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument name="time" type="number" description="The time (in ms) to wait before execution." default="0" />
+    <FunctionArgument
+      name="callback"
+      type="(value: string) => void"
+      description="Callback function to execute when provided time has passed."
+      required
+    />
+    <FunctionArgument
+      name="ignoreZeroTime"
+      type="boolean"
+      description="If time provided is 0 (defer) ignore the callback."
+      default="false"
+    />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="result" type="Array">
+    <FunctionArgument type="() => void" description="Cancels the timeout." />
+  </FunctionArgument>
+</FunctionArguments>
