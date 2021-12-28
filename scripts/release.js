@@ -13,7 +13,7 @@ const VERSION_STRATEGIES = {
 };
 
 const CHANGELOG_HEADERS = {
-  TITLE: "# change-log",
+  TITLE: "# Changelog",
   UNRELEASED_VERSION: "## Unreleased",
   BUGS: "#### Bug Fixes",
   NEW_FEATURES: "#### New Features",
