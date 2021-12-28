@@ -45,7 +45,8 @@ List.propTypes = {
   /**
    * ARIA described by string to reference an id to describe by
    */
-  ariaDescribedBy: PropTypes.string
+  ariaDescribedBy: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.elementType, PropTypes.array, PropTypes.string])
 };
 List.defaultProps = {
   className: "",
@@ -53,7 +54,8 @@ List.defaultProps = {
   component: "ul",
   dense: false,
   ariaLabel: undefined,
-  ariaDescribedBy: undefined
+  ariaDescribedBy: undefined,
+  children: undefined
 };
 
 export default List;

@@ -1,0 +1,65 @@
+import { useCallback, useRef, useState } from "react";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import useClickOutside from "..";
+import "../../__stories__/general-hooks-stories.scss";
+
+<Meta title="Hooks/useClickOutside" />
+
+# useClickOutside
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Usage](#usage)
+- [Feedback](#feedback)
+
+## Overview
+
+This hook is used when you want to capture click events outside of your component.
+
+<Canvas>
+  <Story name="Overview">
+    {() => {
+      const [counter, setCounter] = useState(0);
+      const ref = useRef(null);
+      const onClick = useCallback(() => {
+        setCounter(currentCounter => {
+          return currentCounter + 1;
+        });
+      }, [setCounter]);
+      useClickOutside({ ref, callback: onClick });
+      return (
+        <div className="hooks-reference-element" ref={ref}>
+          Click outside {counter}
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument
+      name="ref"
+      type="React.MutableRefObject"
+      description={<>A React <a href="https://reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener noreferrer">ref</a> object.</>}
+      required
+    />
+    <FunctionArgument
+      name="callback"
+      type="(value: string) => void"
+      description="Callback function to execute on outside clicks."
+      required
+    />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    "Use this hook when you want to listen on events outside of the element",
+    "Use this hook when you need to use events not from the react app"
+  ]}
+/>

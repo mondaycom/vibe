@@ -174,6 +174,9 @@ const EditableHeading = props => {
   );
 };
 
+EditableHeading.types = TYPES;
+EditableHeading.sizes = SIZES;
+
 EditableHeading.propTypes = {
   /**
    * Class name to be added to the header wrapper
@@ -186,8 +189,15 @@ EditableHeading.propTypes = {
   /**
    * Header type
    */
-  type: PropTypes.oneOf(Object.keys(TYPES)),
-  size: PropTypes.oneOf(Object.values(SIZES)),
+  type: PropTypes.oneOf([
+    EditableHeading.types.h1,
+    EditableHeading.types.h2,
+    EditableHeading.types.h3,
+    EditableHeading.types.h4,
+    EditableHeading.types.h5,
+    EditableHeading.types.h6
+  ]),
+  size: PropTypes.oneOf([EditableHeading.sizes.SMALL, EditableHeading.sizes.MEDIUM, EditableHeading.sizes.LARGE]),
   displayPlaceholderInTextMode: PropTypes.bool,
   suggestEditOnHover: PropTypes.bool,
   autoSize: PropTypes.bool,

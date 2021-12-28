@@ -1,5 +1,5 @@
 import { Contributor } from "../contributor/contributor";
-import { Evgeniy, Hadas, Orr, Sahar, Moshe } from "../assets";
+import { Evgeniy, Hadas, Orr, Sahar, Moshe, Nick } from "../assets";
 import "./contributors.scss";
 
 export const Contributors = () => (
@@ -8,7 +8,6 @@ export const Contributors = () => (
       imgSrc={Orr}
       fullName="Orr Gottlieb"
       title="Tech lead"
-      color={Contributor.colors.DONE_GREEN}
       className="monday-storybook-welcome-contributors_contributor--orr"
     />
     <Contributor
@@ -21,22 +20,25 @@ export const Contributors = () => (
       imgSrc={Hadas}
       fullName="Hadas Farhi"
       title="Full Stack Developer"
-      color={Contributor.colors.EGG_YOLK}
       className="monday-storybook-welcome-contributors_contributor--hadas"
     />
     <Contributor
       imgSrc={Moshe}
       fullName="Moshe Zemah"
       title="Senior Tech Lead"
-      color={Contributor.colors.INDIGO}
       className="monday-storybook-welcome-contributors_contributor--moshe"
     />
     <Contributor
       imgSrc={Sahar}
       fullName="Sahar Brodbeker"
       title="Tech lead"
-      color={Contributor.colors.LIPSTICK}
       className="monday-storybook-welcome-contributors_contributor--sahar"
+    />
+    <Contributor
+      imgSrc={Nick}
+      fullName="Nik Savchenko"
+      title="Tech lead"
+      className="monday-storybook-welcome-contributors_contributor--nick"
     />
   </div>
 );

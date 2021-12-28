@@ -1,0 +1,337 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Skeleton renders correctly renders correctly when circle with empty props 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_circle monday-style-skeleton_circle--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when circle with fixed height 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_circle monday-style-skeleton_circle--custom"
+    style={
+      Object {
+        "height": 100,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when circle with fixed height and width 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_circle monday-style-skeleton_circle--custom"
+    style={
+      Object {
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when circle with fixed width 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_circle monday-style-skeleton_circle--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": 100,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when rectangle with empty props 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_rectangle monday-style-skeleton_rectangle--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when rectangle with fixed height 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_rectangle monday-style-skeleton_rectangle--custom"
+    style={
+      Object {
+        "height": 100,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when rectangle with fixed height and width 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_rectangle monday-style-skeleton_rectangle--custom"
+    style={
+      Object {
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when rectangle with fixed width 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_rectangle monday-style-skeleton_rectangle--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": 100,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with CUSTOM size 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with H1 size 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with H1 size 2`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with H1 size 3`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with H2 size 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with H3 size 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with H4 size 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with H5 size 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with empty props 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with fixed height 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": 100,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with fixed height and width 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": 100,
+        "width": 100,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly when text with fixed width 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_text monday-style-skeleton_text--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": 100,
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Skeleton renders correctly renders correctly with empty props 1`] = `
+<div
+  className="monday-style-skeleton"
+>
+  <div
+    className="monday-style-skeleton_rectangle monday-style-skeleton_rectangle--custom"
+    style={
+      Object {
+        "height": undefined,
+        "width": undefined,
+      }
+    }
+  />
+</div>
+`;
