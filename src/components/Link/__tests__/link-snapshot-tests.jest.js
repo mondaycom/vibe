@@ -18,8 +18,8 @@ describe("Link renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with componentClassName", () => {
-    const tree = renderer.create(<Link componentClassName="testClassName" />).toJSON();
+  it("with className", () => {
+    const tree = renderer.create(<Link className="testClassName" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
