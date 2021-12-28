@@ -2,49 +2,59 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Combobox from "../Combobox";
 
-/**
- * There are cases where the component we want to test in the snapshot test will contain additional components.
- We do not want changes to the additional components to fail our component snapshot's test.
- Therefore, we will replace the instances of the other external components in the snapshot test with mock/stub components in these cases.
- */
-
-/** example for external library
- jest.mock("react-transition-group", () => {
-  const FakeTransition = jest.fn(({ children }) => children);
-  const FakeSwitchTransition = jest.fn(({ children }) => children);
-  const FakeCSSTransition = jest.fn(({ children }) => children);
-
-  // We return here the instance of the mock / stub library object content
-  return {
-    CSSTransition: FakeCSSTransition,
-    Transition: FakeTransition,
-    SwitchTransition: FakeSwitchTransition
-  };
-});
- **/
-
-/** example for internal component
-jest.mock("../../Button/Button", () => {
-  // We return here the instance of the mock / stub component
-  return ({ onClick }) => (
-    <div data-testid="cancel-button" {...(onClick && { "data-onclick": "onclick-provided" })} />
-  );
-});
-**/
-
 describe("Combobox renders correctly", () => {
-    it("with empty props", () => {
-      const tree = renderer.create(<Combobox />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
+  it("with empty props", () => {
+    const tree = renderer.create(<Combobox />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-    it("with x", () => {
-      const tree = renderer.create(<Combobox />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
+  it("with className", () => {
+    const tree = renderer.create(<Combobox className="test" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-    it("with y", () => {
-          const tree = renderer.create(<Combobox />).toJSON();
-          expect(tree).toMatchSnapshot();
-    });
+  it("with id", () => {
+    const tree = renderer.create(<Combobox id="test" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with placeholder", () => {
+    const tree = renderer.create(<Combobox placeholder="placeholder" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with another noResultsMessage", () => {
+    const tree = renderer.create(<Combobox noResultsMessage="no test text" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("when disabled", () => {
+    const tree = renderer.create(<Combobox disabled />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with size", () => {
+    const tree = renderer.create(<Combobox size={Combobox.sizes.LARGE} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with optionLineHeight", () => {
+    const tree = renderer.create(<Combobox optionLineHeight={50} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with optionsListHeight", () => {
+    const tree = renderer.create(<Combobox optionsListHeight={50} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with autoFocus", () => {
+    const tree = renderer.create(<Combobox autoFocus />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with loading", () => {
+    const tree = renderer.create(<Combobox loading />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
