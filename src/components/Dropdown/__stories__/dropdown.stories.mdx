@@ -92,8 +92,8 @@ There are three sizes available: Small, Medium, and Large
       positive: {
         component:
         <Dropdown
-          placeholder="English" 
-          options={[{ value: "English", label: "English" }, { value: "ocean", label: "Ocean" }]}
+          defaultValue={[{ value: "English", label: "English" }]}
+          options={[{ value: "English", label: "English" }, { value: "Hebrew", label: "Hebrew" }]}
           className="dropdown-stories-styles_rules-spacing"
         />,
         description:"Use dropdown to keep the user’s choice visible."
@@ -102,7 +102,7 @@ There are three sizes available: Small, Medium, and Large
         component:
           <Dropdown
             placeholder="Choose option" 
-            options={[{ value: "English", label: "English" }, { value: "ocean", label: "Ocean" }]}
+            options={[{ value: "English", label: "English" }, { value: "Hebrew", label: "Hebrew" }]}
             className="dropdown-stories-styles_rules-spacing"
           />,
         description:<>If you don’t want to keep the user’s choice visible, use the <Link href="/?path=/docs/inputs-menu--overview" withoutSpacing>Menu component</Link> instead.</>

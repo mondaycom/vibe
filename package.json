@@ -160,7 +160,10 @@
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
-  "sideEffects": ["*.scss", "*.css"],
+  "sideEffects": [
+    "*.scss",
+    "*.css"
+  ],
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [ci-skip]"
   },
