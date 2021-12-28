@@ -69,7 +69,7 @@ Comboboxes allowing users to filter longer lists to only the selections matching
       const options = useMemo(() => [
         { id: "1", label: "Option 1" },
         { id: "2", label: "Option 2" },
-        { id: "3", label: "Option 3" }
+        { id: "3", label: "Option 3" },
       ], []);
       return (
         <Combobox placeholder="Placeholder text here" options={options} />
@@ -126,20 +126,25 @@ Comboboxes allowing users to filter longer lists to only the selections matching
   </Story>
 </Canvas>
 
-### With Seperator
+### With categories
 <Canvas>
-  <Story name="With Seperator">
+  <Story name="With categories">
     {() => {
       const options = useMemo(() => [
-        { id: "1", label: "Option 1" },
-        { id: "2", label: "Option 2" },
-        { id: "3", label: <Divider /> },
-        { id: "4", label: "Option 4" },
-        { id: "5", label: "Option 5" }
+        { id: "1", label: "Favorites", categoryId: "favorites" },
+        { id: "2", label: "Main workspace", categoryId: "workspace" },
+        { id: "3", label: "Client Foundations", categoryId: "workspace" },
+        { id: "4", label: "Design", categoryId: "workspace" },
+        { id: "5", label: "Marketing Cluster", categoryId: "workspace" },
+        { id: "6", label: "Mobile", categoryId: "workspace" }
       ], []);
+      const categories = useMemo(() => ({
+        favorites: { id: "favorites", label: "Favorites" },
+        workspace: { id: "Workspaces", label: "Workspaces" }
+      }), []);
       return (
         <DialogContentContainer>
-          <Combobox options={options} placeholder="Placeholder text here" />
+          <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
         </DialogContentContainer>
       )
     }}
@@ -181,19 +186,6 @@ Comboboxes allowing users to filter longer lists to only the selections matching
         <DialogContentContainer>
           <Combobox options={options} placeholder="Placeholder text here" />
           <Button kind={Button.kinds.SECONDARY} className="combobox-stories-styles_btn" leftIcon={Edit}>Edit</Button>
-        </DialogContentContainer>
-      )
-    }}
-  </Story>
-</Canvas>
-
-### No results
-<Canvas>
-  <Story name="No results">
-    {() => {
-      return (
-        <DialogContentContainer>
-          <Combobox placeholder="Placeholder text here" />
         </DialogContentContainer>
       )
     }}
@@ -266,7 +258,7 @@ Comboboxes allowing users to filter longer lists to only the selections matching
 ### Combobox inside a dialog
 Combobox inside a dialog
 <Canvas>
-  <Story name="Combobox insside a dialog">
+  <Story name="Combobox">
     {() => {
       const options = useMemo(() => [
         { id: "1", label: "Favorites", categoryId: "favorites" },
@@ -274,13 +266,12 @@ Combobox inside a dialog
         { id: "3", label: "Client Foundations", categoryId: "workspace" },
         { id: "4", label: "Design", categoryId: "workspace" },
         { id: "5", label: "Marketing Cluster", categoryId: "workspace" },
-        { id: "6", label: "Mobile", categoryId: "workspace" },
-        { id: "7", label: "sixth", categoryId: "workspace" },
+        { id: "6", label: "Mobile", categoryId: "workspace" }
       ], []);
-      const categories = {
+       const categories = useMemo(() => ({
         favorites: { id: "favorites" },
         workspace: { id: "Workspaces", label: "Workspaces" },
-      };
+      }), []);
       return (
         <DialogContentContainer className="combobox-stories-styles_wrapper">
           <Combobox 

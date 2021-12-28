@@ -1,3 +1,7 @@
+@import "../../../styles/themes.scss";
+@import "../../../styles/typography.scss";
+
+
 .dropdown-stories-styles {
   &_spacing {
     min-width: 250px;
@@ -12,5 +16,27 @@
   &_big-spacing {
     min-width: 250px;
     margin: 0 0 130px;
+  }
+
+  &_with-chips {
+    min-width: 300px;
+    margin: 0 0 130px;
+  }
+
+  &_name {
+    padding: 0 8px;
+    font-size: 14px;
+
+
+    span {
+      @include theme-prop(color, disabled-text-color);
+      margin-left: 4px;
+    }
+  }
+
+  &_inline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
