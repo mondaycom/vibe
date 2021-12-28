@@ -19,15 +19,15 @@ jobs:
         run: |
           git config --global user.name 'ci'
           git config --global user.email 'deploy@monday.com'
-#       - name: Prepare changes
-#         run: npm run release
-#         env:
-#           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
-#       - name: Commit and push changes
-#         run: |
-#           git add .
-#           git commit -m "Release version $(node -e "console.log(require('./package.json').version)")"
-#           git push --follow-tags
+      - name: Prepare changes
+        run: npm run release
+        env:
+          GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Release version $(node -e "console.log(require('./package.json').version)")"
+          git push --follow-tags
       - name: Publish the new version to npm
         run: | # Compare the latest version and the current version and publish only if the version changed
           if [ $(npm view monday-ui-react-core version) != $(node -e "console.log(require('./package.json').version)") ]; then npm run build && npm publish; else echo ''; fi;
