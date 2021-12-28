@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { BEM_PREFIX } from "../constants/general";
+import { BEM_PREFIX } from "../constants";
 
 export function BEMClass(componentName) {
   return ({ element, state }) => {
@@ -10,11 +10,11 @@ export function BEMClass(componentName) {
   };
 }
 
-export function createBemBlockHelper(block) {
+export function createBemBlockHelper(block, { isConsume } = {}) {
   if (!block || block === "") {
     return () => "";
   }
-  const blockClass = `${BEM_PREFIX}-${block}`;
+  const blockClass = isConsume ? block : `${BEM_PREFIX}-${block}`;
   return function bem(element, modifiers = "", extraClasses = "") {
     const elClass = element !== "" ? `${blockClass}__${element}` : blockClass;
     const modClasses = cx(modifiers)
