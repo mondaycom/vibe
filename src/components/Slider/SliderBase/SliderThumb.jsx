@@ -1,16 +1,12 @@
 import React, { forwardRef, useState } from "react";
 import PropTypes from "prop-types";
-import { DialogPositions, SIZES_BASIC } from "../../../constants";
-import { createBemBlockHelper } from "../../../helpers/bem-helper";
+import { DialogPositions } from "../../../constants";
 import Tooltip from "../../Tooltip/Tooltip";
-import { COMPONENT_ID } from "../SliderCommons";
-import "./SliderThumb.scss";
-
-const bem = createBemBlockHelper(COMPONENT_ID);
+import { bem } from "../SliderCommons";
 
 const SliderThumb = forwardRef(
   (
-    { className, ariaLabeledBy, ariaLabel, id, isActive, forElement, max, min, position, valueText, size, value },
+    { ariaLabeledBy, ariaLabel, className, disabled, id, isActive, forElement, max, min, position, valueText, value },
     ref
   ) => {
     const [active, setActive] = useState(isActive);
@@ -62,6 +58,7 @@ const SliderThumb = forwardRef(
     console.log("slider: thumb", {
       ref: ref.current,
       active,
+      disabled,
       className,
       ariaLabeledBy,
       ariaLabel,
@@ -82,7 +79,8 @@ const SliderThumb = forwardRef(
           aria-valuemin={min}
           aria-valuenow={value}
           aria-valuetext={valueText}
-          className={bem("thumb", { [size]: !!size, active }, className)}
+          aria-disabled={disabled}
+          className={bem("thumb", { active, disabled }, className)}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
@@ -96,14 +94,12 @@ const SliderThumb = forwardRef(
           ref={ref}
           role="slider"
           style={{ left: `${position}%` }}
-          tabIndex={0}
+          tabIndex={disabled ? -1 : 0}
         />
       </Tooltip>
     );
   }
 );
-
-SliderThumb.sizes = SIZES_BASIC;
 
 SliderThumb.propTypes = {
   /**
@@ -119,26 +115,26 @@ SliderThumb.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * If set to true, Component will be disabled
+   */
+  disabled: PropTypes.bool,
+  /**
    * Attribute `id` to be added to the Component's-Root-Node
    */
   id: PropTypes.string,
   /**
    * Position (i.e. offset) from start of track/rail, according to value
    */
-  position: PropTypes.number,
-  /**
-   * Size small/medium/large of the component (Slider)
-   */
-  size: PropTypes.oneOf(Object.values(SIZES_BASIC))
+  position: PropTypes.number
 };
 
 SliderThumb.defaultProps = {
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
   className: "",
+  disabled: false,
   id: undefined,
-  position: 0,
-  size: SIZES_BASIC.MEDIUM
+  position: 0
 };
 
 export default SliderThumb;

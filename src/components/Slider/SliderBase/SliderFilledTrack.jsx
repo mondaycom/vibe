@@ -1,10 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { createBemBlockHelper } from "../../../helpers/bem-helper";
-import { COMPONENT_ID } from "../SliderCommons";
-import "./SliderFilledTrack.scss";
-
-const bem = createBemBlockHelper(COMPONENT_ID);
+import { bem } from "../SliderCommons";
 
 function defineFilledTrackProps({ dimension, offset, reverse }) {
   if (reverse) {

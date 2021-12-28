@@ -1,11 +1,18 @@
 import Slider from "../Slider";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import "./Slider.stories.scss";
+
+export const argTypes = createStoryMetaSettings({
+  component: Slider,
+  enumPropNamesArray: ["color", "size"]
+  // iconPropNamesArray: ["leftIcon", "rightIcon", "successIcon"]
+})
 
 <Meta
   title="Components/Slider/Slider"
   component={ Slider }
+  argTypes={argTypes}
 />
 
 <!--- Component template -->
@@ -28,8 +35,7 @@ export const sliderTemplate = createComponentTemplate(Slider);
 Please write here the component description
 
 <Canvas>
-  <Story name="Overview"
-         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
+  <Story name="Overview" args={ {} }>
     { sliderTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -47,19 +53,41 @@ Please write here the component description
 <Tip title="Not what you were looking for?">Tip content</Tip>
 
 ## Variants
-### Story title 1
-Description of story 1
+### Sizes
+Sizes small/medium/large are available.
 <Canvas>
-  <Story name="Story title 1">
-    <Slider />
-    <Slider />
+  <Story name="Sizes">
+    <Slider size={Slider.sizes.SMALL} />
+    <Slider size={Slider.sizes.MEDIUM} />
+    <Slider size={Slider.sizes.LARGE} />
   </Story>
 </Canvas>
 
-### Story title 2
-Description of story 2
+### Colors
+Color Modes primary/positive/negative are available.
 <Canvas>
-  <Story name="Story title 2">
+  <Story name="Colors">
+    <Slider color={Slider.colors.POSITIVE} size={Slider.sizes.MEDIUM} />
+    <Slider color={Slider.colors.NEGATIVE} size={Slider.sizes.MEDIUM} />
+    <Slider color={Slider.colors.PRIMARY} size={Slider.sizes.MEDIUM} />
+  </Story>
+</Canvas>
+
+### Disabled
+Slider can be disabled.
+<Canvas>
+  <Story name="Disabled">
+    <Slider disabled={true} color={Slider.colors.POSITIVE} size={Slider.sizes.MEDIUM} />
+    <Slider disabled={true} color={Slider.colors.NEGATIVE} size={Slider.sizes.MEDIUM} />
+    <Slider disabled={true} color={Slider.colors.PRIMARY} size={Slider.sizes.MEDIUM} />
+  </Story>
+</Canvas>
+
+
+### With labels
+Description of story 1
+<Canvas>
+  <Story name="Story title 4">
     <Slider />
     <Slider />
   </Story>
@@ -114,21 +142,17 @@ Description of story 2
 
 ## Use cases and examples
 
-### Story title 3
-Description of story 3
-<Canvas>
-  <Story name="Story title 3">
-    <Slider />
-    <Slider />
-  </Story>
-</Canvas>
 
-### Story title 4
-Description of story 4
+
+### Customisation
+Custom Id and Custom (Consumer) Classes. Check HTML of component.
 <Canvas>
-  <Story name="Story title 4">
-    <Slider />
-    <Slider />
+  <Story name="Customisation">
+    <Slider
+      id="my-app-slider"
+      className="my-main-super-class"
+      classNameBase="slide-me"
+    />
   </Story>
 </Canvas>
 
