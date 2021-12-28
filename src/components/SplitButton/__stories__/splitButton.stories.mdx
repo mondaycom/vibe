@@ -1,0 +1,164 @@
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs"
+import { useMemo } from "react";
+import SplitButton from "../SplitButton";
+import Button from "../../Button/Button"
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { Check, Search, Filter, Download, Group, Upload, Print, Sort } from "../../Icon/Icons";
+import { BUTTON_GROUP, BUTTON, MENU } from "../../../storybook/components/related-components/component-description-map";
+import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
+import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
+import "./splitButton.stories.scss";
+
+export const argTypes = createStoryMetaSettings({
+  component: SplitButton,
+  enumPropNamesArray: ["dialogPaddingSize", "kind", "secondaryDialogPosition", ],
+  iconPropNamesArray: ["leftIcon", "rightIcon"]
+});
+
+<Meta
+  title="Buttons/Split Button"
+  component={ SplitButton }
+  argTypes={argTypes}
+/>
+
+<!--- Component template -->
+
+export const splitButtonTemplate = createComponentTemplate(SplitButton);
+
+<!--- Component documentation -->
+
+# Split Button
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+A split button is a dual-function menu button that offers a default action as well as the possibility of choosing a secondary action, by selecting from a set of alternatives.
+<Canvas>
+  <Story name="Overview"
+         args={{ children: "Button", secondaryDialogContent: () => SplitButtonExampleDialog({}) }}>
+    { splitButtonTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ SplitButton } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  <>A split button is a hybrid between a button and a menu: it groups related commands together into a <Link href="/?path=/docs/inputs-dropdown--overview" withoutSpacing>dropdown,</Link> but also offers one-click access to a default choice that doesn’t require opening the menu.</>,
+  "Limit the overall number of choices within the menu to less than four.",
+  "Order the items within the menu by popularity for a small number of items, or alphabetically for a larger number of items.",
+  "Avoid submenus within split button menu.",
+  "Split button contains two actions: One primary action and a list of secondary actions."
+]}/>
+
+<Tip>If the actions in the menu are not related to each other, consider using a <Link href="/?path=/docs/navigation-menu--overview" size={Link.sizes.SMALL} withoutSpacing>Menu</Link> component.</Tip>
+
+## Variants
+### Button types
+The split button has three variants: primary, secondary, and tertiary.
+<Canvas>
+  <Story name="Button types">
+    <SplitButton children="Primary" />
+    <SplitButton children="Secondary" kind={SplitButton.kinds.SECONDARY} />
+    <SplitButton children="Tertiary" kind={SplitButton.kinds.TERTIARY} />
+  </Story>
+</Canvas>
+
+### Icons
+<Canvas>
+  <Story name="Icons">
+    <SplitButton leftIcon={Check} children="Left icon" />
+    <SplitButton rightIcon={Check} children="Right icon" />
+    <SplitButton leftIcon={Check} />
+  </Story>
+</Canvas>
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: [
+          <SplitButton children="New item" />,
+          <SplitButton success kind={SplitButton.kinds.TERTIARY} leftIcon={Search}>Search</SplitButton>,
+          <Button kind={Button.kinds.TERTIARY} leftIcon={Filter}>Filter</Button>
+        ],
+        description: "Use only one primary action within a single view."
+      },
+      negative: {
+        component: [<SplitButton children="New item" />,<Button>Search</Button>],
+        description: "Don’t use multiple primary buttons within a single view."
+      }
+    },
+    {
+      positive: {
+        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}, {text: "New board"}] })}/>,
+        description: "Use split button if there are more than one action within the menu."
+      },
+      negative: {
+        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ text: "New group"}] })}/>,
+        description: <>Don’t use split button if there’s only one option within the menu. Use <Link href="/?path=/docs/buttons-button--overview" withoutSpacing>Button</Link> instead.</>
+      }
+    },
+    {
+      positive: {
+        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ icon: Group, text: "New group"}, { icon: Upload, text: "New board"}] })}/>,
+        description: "Use a split button to display an action with related actions. The main action should be the most common."
+      },
+      negative: {
+        component: <SplitButton children="New Item" secondaryDialogContent={() => SplitButtonExampleDialog({  options: [{ icon: Print, text: "Print board"}, { icon: Sort, text: "Sort items"}] })}/>,
+        description: "Don’t use a split button just to group actions."
+      }
+    }
+  ]}
+/>
+
+## Use cases and examples
+### Split button as the primary action
+Use template is the main action.
+<Canvas>
+  <Story name="Split button as the primary action">
+    {() => {
+      const secondaryDialogContent = useMemo(() => SplitButtonExampleDialog({ options: [{icon: Download, text: "Import template"}, { icon: Upload, text: "Export template"}] }), []);
+      return (
+         <SplitButton 
+            className="monday-storybook-split-button_spacing"
+            children="Use template"
+            secondaryPositions={SplitButton.secondaryPositions.BOTTOM_END}
+            secondaryDialogContent={secondaryDialogContent} 
+          />
+      )
+    }}
+  </Story>
+</Canvas>
+
+### Secondary split button 
+When there’s already a primary button in the view, use a secondary split button.
+<Canvas>
+  <Story name="Secondary split button">
+    {() => {
+      const secondaryDialogContent = useMemo(() => SplitButtonExampleDialog({ options: [{text: "Export to PDF"}, {text: "Export to Doc.x"}, {text: "Export to Excel"}] }), []);
+      return (
+        <MultipleStoryElementsWrapper className="monday-storybook-split-button_spacing"> 
+          <SplitButton 
+            children="Export to CSV"
+            kind={SplitButton.kinds.SECONDARY}
+            secondaryPositions={SplitButton.secondaryPositions.BOTTOM_MIDDLE}
+            secondaryDialogContent={secondaryDialogContent} 
+          />
+          <Button>New item</Button>
+        </MultipleStoryElementsWrapper>
+      )
+    }}
+  </Story>
+</Canvas>
+
+## Related components
+<RelatedComponents componentsNames={[BUTTON, BUTTON_GROUP, MENU]} />

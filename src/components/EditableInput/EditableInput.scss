@@ -1,5 +1,6 @@
 @import "../../styles/themes.scss";
 @import "../../styles/typography.scss";
+@import "../../styles/global-css-settings.scss";
 
 .editable-input--wrapper {
   @include theme-prop(background-color, primary-background-color);
@@ -15,7 +16,6 @@
   @include theme-prop(border-color, primary-color);
   vertical-align: top;
   text-align: left;
-  vertical-align: top;
   &.no-resize {
     resize: none;
   }

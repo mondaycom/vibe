@@ -1,0 +1,23 @@
+@import "../../styles/typography.scss";
+@import "../../styles/content-spacing.scss";
+@import "../../../styles/global-css-settings.scss";
+
+.monday-storybook-section-name {
+  margin-top: $spacing-between-sections;
+  margin-bottom: $spacing-between-section-items;
+  @include basic-text;
+  font-family: $header-primary-font;
+  font-weight: 500;
+  font-size: $h2-font-size;
+  line-height: 33px;
+  letter-spacing: -1px;
+  text-align: left;
+  display: grid;
+
+  &:after {
+    content: "";
+    margin-top: $spacing-small;
+    @include theme-prop(background, primary-text-color);
+    height: 2px;
+  }
+}

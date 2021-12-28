@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.0 (2021-12-27)
+
+#### Breaking Changes
+* [#340](https://github.com/mondaycom/monday-ui-react-core/pull/340) Vibe Design System release
+* [#340](https://github.com/mondaycom/monday-ui-react-core/pull/340) Node Sass as a bunlder
+* [#340](https://github.com/mondaycom/monday-ui-react-core/pull/340) New Documentation
+* [#340](https://github.com/mondaycom/monday-ui-react-core/pull/340) More Hooks
+* [#340](https://github.com/mondaycom/monday-ui-react-core/pull/340) className props unification
+* [#340](https://github.com/mondaycom/monday-ui-react-core/pull/340) Upgrade Storybook
+* [#340](https://github.com/mondaycom/monday-ui-react-core/pull/340) Chromatic Integration
+
 ## 0.14.4 (2021-12-15)
 
 #### Bug Fixes

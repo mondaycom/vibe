@@ -1,0 +1,51 @@
+import { Meta } from "@storybook/addon-docs";
+import { ComponentName } from "../../components";
+import { ShadowLevels } from "./shadow-levels/shadow-levels";
+import { shadowsSketch } from "./assets";
+import { CardShadowExample } from "./card-shadow-example/card-shadow-example";
+import { DragShadowExample } from "./drag-shadow-example/drag-shadow-example";
+import { COLORS, SPACING, TYPOGRAPHY } from "../../components/related-components/component-description-map";
+import "./shadow.stories.scss";
+
+<Meta
+  title="Foundations/Shadow"
+/>
+
+<!--- Component documentation -->
+
+<ComponentName withFoundationBackground>
+  Shadow
+</ComponentName>
+
+- [Overview](#overview)
+- [Shadow levels](#shadow-levels)
+- [Usage and examples](#usage-and-examples)
+- [Up next](#up-next)
+- [Feedback](#feedback)
+
+## Overview
+Virtual light in monday platform always comes from the top and creates a shadows from layout and UI elements like in real world.
+Shadows used to create the scenes of hierarchy and elevation withing the UI and layout.
+
+  <img src={shadowsSketch} className="monday-storybook-shadow_overview-image" alt=""/>
+
+
+## Shadow levels
+<ShadowLevels/>
+
+## Usage and examples
+<UsageGuidelines guidelines={[
+  "You can double the sizes to create bigger spacings",
+  "Stay consistent with paddings and sizes across different UI components",
+  "Align all the elements to the same spacing within the components or a page"
+]}/>
+
+### Interactions
+Use shadow to indicate the dragged elements are in the “air”
+<DragShadowExample/>
+
+Use shadow to indicate the card hover is gets closer to the user
+<CardShadowExample/>
+
+## Up next
+<RelatedComponents componentsNames={[TYPOGRAPHY, SPACING, COLORS]}/>

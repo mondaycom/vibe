@@ -3,7 +3,6 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import SVG from "react-inlinesvg";
-import "./CustomSvgIcon.scss";
 import useIconScreenReaderAccessProps from "../../hooks/useIconScreenReaderAccessProps";
 
 function modifySvgCode(svg, color = "currentColor") {
@@ -37,6 +36,8 @@ const CustomSvgIcon = ({
     [replaceToCurrentColor, customColor]
   );
 
+  if (typeof src !== "string") return null;
+
   return (
     <SVG
       {...screenReaderAccessProps}
@@ -52,7 +53,7 @@ const CustomSvgIcon = ({
 
 CustomSvgIcon.propTypes = {
   className: PropTypes.string,
-  src: PropTypes.string,
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   ariaLabel: PropTypes.string,
   ariaHidden: PropTypes.bool,
   replaceToCurrentColor: PropTypes.bool,

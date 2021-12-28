@@ -1,0 +1,14 @@
+@import "../../styles/typography";
+@import "../../styles/content-spacing";
+@import "../../../styles/global-css-settings.scss";
+
+.monday-storybook-footer {
+  &_text {
+    @include content-text;
+  }
+
+  &_link {
+    color: var(--link-color);
+    margin-left: $spacing-xs;
+  }
+}

@@ -1,0 +1,9 @@
+@import "../../../styles/global-css-settings.scss";
+@import "../../styles/content-spacing";
+
+.monday-storybook-related-components {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-gap: $spacing-large;
+  width: 100%;
+}

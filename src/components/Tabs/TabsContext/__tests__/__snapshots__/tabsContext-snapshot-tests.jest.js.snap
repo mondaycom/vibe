@@ -1,0 +1,218 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabsContext renders correctly with activeTabId 1`] = `
+<div
+  className="tabs-context--wrapper"
+  id=""
+>
+  <div
+    className="tabs--wrapper Compact"
+    id=""
+  >
+    <ul
+      className="tabs-list"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      role="tablist"
+      tabIndex={0}
+    >
+      <li
+        aria-disabled={false}
+        aria-selected={false}
+        className="tab--wrapper"
+        id=""
+        role="tab"
+      >
+        <a
+          className="tab-inner"
+          onClick={[Function]}
+        >
+          First
+        </a>
+      </li>
+      <li
+        aria-disabled={false}
+        aria-selected={true}
+        className="tab--wrapper active"
+        id=""
+        role="tab"
+      >
+        <a
+          className="tab-inner"
+          onClick={[Function]}
+        >
+          Second
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="tab-panels--wrapper"
+    id=""
+  >
+    <div
+      className="tab-panel--wrapper tab-panel"
+      id=""
+      role="tabpanel"
+    >
+      First slide
+    </div>
+    <div
+      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      id=""
+      role="tabpanel"
+    >
+      Second slide
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabsContext renders correctly with className 1`] = `
+<div
+  className="tabs-context--wrapper test"
+  id=""
+>
+  <div
+    className="tabs--wrapper Compact"
+    id=""
+  >
+    <ul
+      className="tabs-list"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      role="tablist"
+      tabIndex={0}
+    >
+      <li
+        aria-disabled={false}
+        aria-selected={true}
+        className="tab--wrapper active"
+        id=""
+        role="tab"
+      >
+        <a
+          className="tab-inner"
+          onClick={[Function]}
+        >
+          First
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="tab-panels--wrapper"
+    id=""
+  >
+    <div
+      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      id=""
+      role="tabpanel"
+    >
+      First slide
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabsContext renders correctly with empty props 1`] = `
+<div
+  className="tabs-context--wrapper"
+  id=""
+>
+  <div
+    className="tabs--wrapper Compact"
+    id=""
+  >
+    <ul
+      className="tabs-list"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      role="tablist"
+      tabIndex={0}
+    >
+      <li
+        aria-disabled={false}
+        aria-selected={true}
+        className="tab--wrapper active"
+        id=""
+        role="tab"
+      >
+        <a
+          className="tab-inner"
+          onClick={[Function]}
+        >
+          First
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="tab-panels--wrapper"
+    id=""
+  >
+    <div
+      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      id=""
+      role="tabpanel"
+    >
+      First slide
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TabsContext renders correctly with id 1`] = `
+<div
+  className="tabs-context--wrapper"
+  id="test"
+>
+  <div
+    className="tabs--wrapper Compact"
+    id=""
+  >
+    <ul
+      className="tabs-list"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      role="tablist"
+      tabIndex={0}
+    >
+      <li
+        aria-disabled={false}
+        aria-selected={true}
+        className="tab--wrapper active"
+        id=""
+        role="tab"
+      >
+        <a
+          className="tab-inner"
+          onClick={[Function]}
+        >
+          First
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="tab-panels--wrapper"
+    id=""
+  >
+    <div
+      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      id=""
+      role="tabpanel"
+    >
+      First slide
+    </div>
+  </div>
+</div>
+`;

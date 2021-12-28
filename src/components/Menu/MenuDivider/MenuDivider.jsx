@@ -1,17 +1,23 @@
 import PropTypes from "prop-types";
 import Divider from "../../Divider/Divider";
+import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import "./MenuDivider.scss";
 
-const MenuDivider = ({ classname }) => {
-  return <Divider classname={`menu-child-divider ${classname}`} />;
+const MenuDivider = ({
+  // Backward compatibility for props naming
+  classname,
+  className
+}) => {
+  const overrideClassName = backwardCompatibilityForProperties([className, classname]);
+  return <Divider classname={`menu-child-divider ${overrideClassName}`} />;
 };
 
 MenuDivider.defaultProps = {
-  classname: ""
+  className: undefined
 };
 
 MenuDivider.propTypes = {
-  classname: PropTypes.string
+  className: PropTypes.string
 };
 
 MenuDivider.isMenuChild = true;

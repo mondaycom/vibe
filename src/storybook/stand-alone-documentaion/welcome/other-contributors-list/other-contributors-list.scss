@@ -1,0 +1,10 @@
+@import "../../../styles/typography.scss";
+@import "../../../styles/content-spacing";
+
+.monday-other-contributors-list {
+  margin-top: $spacing-between-section-items;
+  &_developer:not(:last-child):after {
+    @include small-text;
+    content: ","
+  }
+}

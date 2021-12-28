@@ -1,0 +1,55 @@
+import { Meta } from "@storybook/addon-docs";
+import { ComponentName, Frame, Link, RelatedComponents } from "../../components";
+import { TextStyles } from "./text-styles/text-styles";
+import { TextColors } from "../../components/text-colors/text-colors";
+import { COLORS, SHADOW, SPACING } from "../../components/related-components/component-description-map";
+import {typographyExample1, typographyExample2} from "./assets";
+import "./typography.scss";
+
+<Meta
+  title="Foundations/Typography"
+/>
+
+<!--- Component documentation -->
+
+<ComponentName withFoundationBackground>
+  Typography
+</ComponentName>
+
+- [Overview](#overview)
+- [Text styles](#text-styles)
+- [Text colors](#text-colors)
+- [Usage and examples](#usage-and-examples)
+- [Feedback](#feedback)
+
+## Overview
+Like in other ui in mondays interface, typography works by principle of accessibility before aesthetics.
+Therefore the text should be readable and help the user understand what’s important by well contrasted size and colors hierarchy.
+
+## Text styles
+<TextStyles />
+
+## Text colors
+<TextColors />
+
+## Usage and examples
+<UsageGuidelines guidelines={[
+  "Use fonts bigger than 14 pixel only.",
+  <>Don’t underline words, use bold text.</>,
+  "Don't use two different sizes of text in the same line."
+]}/>
+
+<Tip title="What font to use?">
+  We are using Roboto from Google Fonts as default for our design system.
+  Click <Link size={Link.sizes.SMALL} href="https://fonts.google.com/specimen/Roboto" withoutSpacing>here</Link> to download.
+</Tip>
+
+<Frame className="monday-storybook-typography_image-container monday-storybook-typography_image-container--first">
+  <img src={typographyExample1} alt="" className="monday-storybook-typography_popup-example" />
+</Frame>
+<Frame className="monday-storybook-typography_image-container">
+  <img src={typographyExample2} alt="" className="monday-storybook-typography_timeline-example" />
+</Frame>
+
+## Up next
+<RelatedComponents componentsNames={[COLORS, SPACING, SHADOW]}/>

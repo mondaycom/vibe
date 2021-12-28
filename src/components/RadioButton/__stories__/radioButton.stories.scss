@@ -1,49 +1,25 @@
 @import "../../../styles/themes.scss";
 
-.monday-style-radio-buttons-wrapper-vertical {
-  gap: 16px;
-}
-
-.monday-style-radio-buttons-wrapper-horizontal {
-  gap: 24px;
-}
-
-.monday-style-radio-button-regular {
-  cursor: pointer !important;
-
-  .monday-style-radio-button-component__radio-input-container__radio-control {
-    border: 0.1em solid !important;
-    @include theme-prop(border-color, ui-border-color, true);
-    @include theme-prop(background-color, primary-background-color, true);
+.monday-style-radio-buttons {
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+    width: 240px;
+    padding: 14px 0 18px 16px;
   }
-}
+  
+  &_wrapper-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
-.monday-style-radio-button-hover {
-  cursor: pointer !important;
-
-  .monday-style-radio-button-component__radio-input-container__radio-control {
-    border: 0.1em solid !important;
-    @include theme-prop(border-color, primary-text-color, true);
-    @include theme-prop(background-color, primary-background-color, true);
-  }
-}
-
-.monday-style-radio-button-selected {
-  cursor: pointer !important;
-
-  .monday-style-radio-button-component__radio-input-container__radio-control {
-    border: 0.3em solid !important;
-    @include theme-prop(border-color, primary-color, true);
-    @include theme-prop(background-color, primary-background-color, true);
-  }
-}
-
-.monday-style-radio-button-selected-hover {
-  cursor: pointer !important;
-
-  .monday-style-radio-button-component__radio-input-container__radio-control {
-    border: 0.3em solid !important;
-    @include theme-prop(border-color, primary-hover-color, true);
-    @include theme-prop(background-color, primary-background-color, true);
+    div {
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 28px;
+      margin-bottom: 3px;
+    }
   }
 }

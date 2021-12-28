@@ -7,6 +7,7 @@ import AlertIcon from "../Icon/Icons/components/Alert";
 import { baseClassName, closeClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { ICON_TYPES } from "../Icon/IconConstants";
 
 const AttentionBox = ({
   className,
@@ -84,7 +85,7 @@ const AttentionBox = ({
 };
 
 AttentionBox.types = ATTENTION_BOX_TYPES;
-
+AttentionBox.iconTypes = ICON_TYPES;
 AttentionBox.propTypes = {
   className: PropTypes.string,
   /** we support 4 types of attention boxes */
@@ -99,7 +100,7 @@ AttentionBox.propTypes = {
   /** Icon classname for icon font or SVG Icon Component for SVG Type */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.any,
   withoutIcon: PropTypes.bool,
   compact: PropTypes.bool,
   onClose: PropTypes.func

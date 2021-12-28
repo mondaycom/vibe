@@ -1,0 +1,54 @@
+import { Meta } from "@storybook/addon-docs";
+import { SpacingSizes } from "./spacing-sizes/spacing-sizes";
+import { ComponentName, Frame } from "../../components";
+import { menuExample, tipseenExample, toolbarExample } from "./assets";
+import { COLORS, TYPOGRAPHY, SHADOW } from "../../components/related-components/component-description-map";
+import "./spacing.stories.scss";
+
+<Meta
+  title="Foundations/Spacing"
+/>
+
+<!--- Component documentation -->
+
+<ComponentName withFoundationBackground>
+  Spacing
+</ComponentName>
+
+- [Overview](#overview)
+- [Spacing sizes](#spacing-sizes)
+- [Usage and examples](#usage-and-examples)
+- [Up next](#up-next)
+- [Feedback](#feedback)
+
+## Overview
+Positioning UI should be with taught including the empty space between components.
+This is what creates relationships and hierarchy withing the visual controls.
+
+## Spacing sizes
+Using the right sizes will create consistency and hierarchy in user interface.
+<SpacingSizes/>
+
+<Tip title="Applying spacing">
+  Elements with more spacing around them perceived as more important because they get more focus on the page,
+  while small spacing makes components look stacked and not stand out.</Tip>
+
+## Usage and examples
+<UsageGuidelines guidelines={[
+  "You can double the sizes to create bigger spacings",
+  "Stay consistent with paddings and sizes across different UI components",
+  "Align all the elements to the same spacing within the components or a page"
+]}/>
+
+<Frame className="monday-storybook-spacing_image-container">
+  <img className="monday-storybook-spacing_image--menu" src={menuExample} alt=""/>
+</Frame>
+<Frame className="monday-storybook-spacing_image-container">
+  <img className="monday-storybook-spacing_image--toolbar" src={toolbarExample} alt=""/>
+</Frame>
+<Frame className="monday-storybook-spacing_image-container ">
+  <img className="monday-storybook-spacing_image--tipseen" src={tipseenExample} alt=""/>
+</Frame>
+
+## Up next
+<RelatedComponents componentsNames={[TYPOGRAPHY, SHADOW, COLORS]} />

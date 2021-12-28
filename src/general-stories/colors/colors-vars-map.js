@@ -93,6 +93,12 @@ export const colorsMap = [
   { color: "--secondary-background-color", description: "Secondary background color" }
 ];
 
+export const colorsHashMap = colorsMap.reduce((map, current) => {
+  const newColorName = current.color.substring(2);
+  map.set(newColorName, current.description);
+  return map;
+}, new Map());
+
 export const contentColors = [
   "grass_green",
   "done-green",
@@ -138,6 +144,7 @@ export const contentColors = [
 
 export const COLOR_STYLES = {
   REGULAR: "regular",
+  HOVER: "hover",
   SELECTED: "selected"
 };
 
@@ -197,7 +204,7 @@ export const elementColorsNames = elementAllowedColors.reduce((acc, key) => {
 
 export const getElementColor = (colorName, isSelectedPalette = false) => {
   if (contentColorsByName[colorName]) {
-    return `var(--color-${contentColorsByName[colorName]}${isSelectedPalette ? "--selected" : ""}`;
+    return `var(--color-${contentColorsByName[colorName]}${isSelectedPalette ? "-selected" : ""}`;
   }
   if (stateSelectedColors[colorName] && isSelectedPalette) {
     return `var(${stateSelectedColors[colorName]})`;

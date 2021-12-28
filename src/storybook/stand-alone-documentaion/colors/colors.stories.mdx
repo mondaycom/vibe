@@ -1,0 +1,66 @@
+import { Meta } from "@storybook/addon-docs";
+import { ComponentName, Frame, RelatedComponents } from "../../components";
+import { COLORS, TYPOGRAPHY, SHADOW, SPACING } from "../../components/related-components/component-description-map";
+import { SemanticColors } from "./semantic-colors/semantic-colors";
+import { BackgroundColors } from "./background-colors/background-colors";
+import { TextColors } from "../../components/text-colors/text-colors";
+import { BorderColors } from "./border-colors/border-colors";
+import { ContentColors } from "./content-colors/content-colors";
+import { cardColorsExample, menuColorsExample } from "./assets";
+import classes from "./colors.stories.module.scss";
+
+<Meta
+  title="Foundations/Colors"
+/>
+
+<!--- Component documentation -->
+
+<ComponentName withFoundationBackground>
+  Colors
+</ComponentName>
+
+- [Overview](#overview)
+- [Color keys](#color-keys)
+- [Usage and examples](#usage-and-examples)
+- [Up next](#up-next)
+- [Feedback](#feedback)
+
+## Overview
+monday.com tool is very visual and our color system helps users identify status, see actions, locate help, and to indicate next steps.
+The consistent use of color in our product keeps cognitive loads low, and makes for a unified and engaging user experience.
+The colors are designed to be clear and accessible. They come in three color themes.
+
+## Color keys
+
+### Semantic colors
+<SemanticColors />
+
+### Background colors
+<BackgroundColors />
+
+### Text colors
+<TextColors />
+
+### Border colors
+<BorderColors />
+
+### Content colors
+These colors are used only for color coding purposes like groups colors, statuses timeline bars etc..
+this gives understanding and indication of orientation and belonging.
+The board’s main strength is its simple and visual appearance. That’s why the status colors should appear on the board and nowhere else in the UI.
+<ContentColors />
+
+## Usage and examples
+
+### Menu
+<Frame className={classes["colors-example-frame"]}>
+  <img className={classes["menu-colors-example-img"]} src={menuColorsExample} alt=""/>
+</Frame>
+
+### Card
+<Frame className={classes["colors-example-frame"]}>
+  <img className={classes["card-colors-example-img"]} src={cardColorsExample} alt=""/>
+</Frame>
+
+## Up next
+<RelatedComponents componentsNames={[TYPOGRAPHY, SHADOW, SPACING]}/>

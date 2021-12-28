@@ -1,0 +1,21 @@
+@import "../../../../../styles/global-css-settings";
+
+@mixin shadow-box {
+  width: 40px;
+  height: 40px;
+  @include theme-prop(background-color, primary-background-color);
+  margin: 0 var(--spacing-small);
+}
+
+.small-shadow {
+  @include box-shadow-small;
+  @include shadow-box;
+}
+.medium-shadow {
+  @include box-shadow-medium;
+  @include shadow-box;
+}
+.large-shadow {
+  @include box-shadow-large;
+  @include shadow-box;
+}

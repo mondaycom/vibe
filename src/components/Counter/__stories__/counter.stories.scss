@@ -1,17 +1,57 @@
 @import "../../../styles/themes.scss";
 
-.storybook-counter-sandbox-tag {
-  position: relative;
-  display: inline-flex;
-  margin: 16px;
-  padding: 8px;
-  @include theme-prop(background-color, primary-color);
-  @include theme-prop(color, text-color-on-primary);
-  border-radius: 100%;
-  .counter-tag {
+.storybook-counter {
+  &_column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 90px;
+    gap: 30px;
+    width: 100px;
+    margin-right: 160px;
+  }
+
+  &_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 28px;
+    height: 105px;
+    gap: 16px;
+
+  }
+
+  &_icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &_usage-link-line {
+    display: flex;
+  }
+
+  &_line {
+    width: 40px;
+    height: 1px;
+    @include theme-prop(background-color, icon-color-hover);
+  }
+
+  &_position {
+    position: relative;
+  }
+
+  &_counter-position-top {
     position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(25%, -25%);
+    top: -5px;
+    right: -5px;
+  }
+
+  &_counter-position-bot {
+    position: absolute;
+    bottom: 0;
+    right: -3px;
   }
 }

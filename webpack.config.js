@@ -1,6 +1,5 @@
 const path = require("path");
 const autoprefixer = require("autoprefixer");
-const jsonToSass = require("jsontosass");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -15,7 +14,19 @@ module.exports = options => {
       ? {
           loader: "style-loader",
           options: {
-            injectType: "singletonStyleTag"
+            injectType: "singletonStyleTag",
+            insert: function insertAtTop(element) {
+              const parent = document.querySelector("head");
+              // eslint-disable-next-line no-underscore-dangle
+              const lastInsertedElement = window._lastElementInsertedByStyleLoader;
+
+              if (!lastInsertedElement) {
+                parent.insertBefore(element, parent.firstChild);
+              }
+
+              // eslint-disable-next-line no-underscore-dangle
+              window._lastElementInsertedByStyleLoader = true;
+            }
           }
         }
       : {
@@ -59,22 +70,18 @@ module.exports = options => {
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
-          use: ["babel-loader", "eslint-loader"]
+          use: ["babel-loader"]
         },
         {
           test: /\.scss$/,
           use: [
             ...styleLoaders,
             {
-              loader: "fast-sass-loader",
+              loader: "sass-loader",
               options: {
-                includePaths: [path.resolve("./src")],
-                transformers: [
-                  {
-                    extensions: [".json"],
-                    transform: rawFile => jsonToSass.convert(rawFile)
-                  }
-                ]
+                sassOptions: {
+                  includePaths: [path.resolve("./src")]
+                }
               }
             }
           ]

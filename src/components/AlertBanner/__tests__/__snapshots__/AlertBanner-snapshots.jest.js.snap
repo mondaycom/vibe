@@ -1,0 +1,267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlertBanner should render correctly with hidden close button 1`] = `
+<div
+  aria-label="banner"
+  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  role="banner"
+>
+  <div
+    className="monday-alert-banner__inner"
+  />
+  <div
+    className="monday-alert-banner__close-button-wrapper"
+  />
+</div>
+`;
+
+exports[`AlertBanner should render correctly with props 1`] = `
+<div
+  aria-label="lorem-banner"
+  className="my-lorem-ipsum-banner monday-alert-banner monday-alert-banner--background-color-negative"
+  role="banner"
+>
+  <div
+    className="monday-alert-banner__inner"
+  >
+    <div
+      className="monday-alert-banner__inner-item monday-alert-banner__inner-item-text"
+    >
+      <div
+        className="monday-alert-banner__ellipsis"
+      >
+        <div
+          className="monday-style-alert-banner-text"
+        >
+          <span>
+            Lorem ipsum dolor sit amet
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="monday-alert-banner__close-button-wrapper"
+  >
+    <div
+      data-onclick="onclick-provided"
+      data-testid="cancel-button"
+    />
+  </div>
+</div>
+`;
+
+exports[`AlertBanner should render correctly without props 1`] = `
+<div
+  aria-label="banner"
+  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  role="banner"
+>
+  <div
+    className="monday-alert-banner__inner"
+  />
+  <div
+    className="monday-alert-banner__close-button-wrapper"
+  >
+    <div
+      data-onclick="onclick-provided"
+      data-testid="cancel-button"
+    />
+  </div>
+</div>
+`;
+
+exports[`AlertBanner should render with correctly with multiple elements 1`] = `
+<div
+  aria-label="banner"
+  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  role="banner"
+>
+  <div
+    className="monday-alert-banner__inner"
+  >
+    <div
+      className="monday-alert-banner__inner-item monday-alert-banner__inner-item-text"
+    >
+      <div
+        className="monday-alert-banner__ellipsis"
+      >
+        <div
+          className="monday-style-alert-banner-text"
+        >
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="monday-alert-banner__inner-item"
+    >
+      <div
+        className="monday-style-alert-banner-link-margin-left"
+      >
+        <a
+          aria-label=""
+          aria-labelledby=""
+          className="monday-style-link monday-style-alert-banner-link"
+          href="https://monday.com"
+          id=""
+          onClick={[Function]}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <span
+            className="monday-style-link--text"
+          >
+            Lorem ipsum
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      className="monday-alert-banner__inner-item monday-alert-banner__inner-item-text"
+    >
+      <div
+        className="monday-alert-banner__ellipsis"
+      >
+        <div
+          className="monday-style-alert-banner-text monday-style-alert-banner-text-margin-left"
+        >
+          <span>
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="monday-alert-banner__inner-item"
+    >
+      <div
+        className="monday-style-alert-banner-button-margin-left"
+      >
+        <div
+          data-onclick="onclick-provided"
+          data-testid="cancel-button"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="monday-alert-banner__close-button-wrapper"
+  >
+    <div
+      data-onclick="onclick-provided"
+      data-testid="cancel-button"
+    />
+  </div>
+</div>
+`;
+
+exports[`AlertBanner should render with correctly with text and link 1`] = `
+<div
+  aria-label="banner"
+  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  role="banner"
+>
+  <div
+    className="monday-alert-banner__inner"
+  >
+    <div
+      className="monday-alert-banner__inner-item monday-alert-banner__inner-item-text"
+    >
+      <div
+        className="monday-alert-banner__ellipsis"
+      >
+        <div
+          className="monday-style-alert-banner-text"
+        >
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="monday-alert-banner__inner-item"
+    >
+      <div
+        className="monday-style-alert-banner-link-margin-left"
+      >
+        <a
+          aria-label=""
+          aria-labelledby=""
+          className="monday-style-link monday-style-alert-banner-link"
+          href="https://monday.com"
+          id=""
+          onClick={[Function]}
+          rel="noreferrer"
+          target="_blank"
+        >
+          <span
+            className="monday-style-link--text"
+          >
+            Lorem ipsum
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="monday-alert-banner__close-button-wrapper"
+  >
+    <div
+      data-onclick="onclick-provided"
+      data-testid="cancel-button"
+    />
+  </div>
+</div>
+`;
+
+exports[`AlertBanner should render with correctly with text and link 2`] = `
+<div
+  aria-label="banner"
+  className="monday-alert-banner monday-alert-banner--background-color-primary"
+  role="banner"
+>
+  <div
+    className="monday-alert-banner__inner"
+  >
+    <div
+      className="monday-alert-banner__inner-item monday-alert-banner__inner-item-text"
+    >
+      <div
+        className="monday-alert-banner__ellipsis"
+      >
+        <div
+          className="monday-style-alert-banner-text"
+        >
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      className="monday-alert-banner__inner-item"
+    >
+      <div
+        className="monday-style-alert-banner-button-margin-left"
+      >
+        <div
+          data-onclick="onclick-provided"
+          data-testid="cancel-button"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="monday-alert-banner__close-button-wrapper"
+  >
+    <div
+      data-onclick="onclick-provided"
+      data-testid="cancel-button"
+    />
+  </div>
+</div>
+`;

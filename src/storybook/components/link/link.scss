@@ -1,0 +1,14 @@
+@import "../../styles/typography.scss";
+
+.monday-storybook-link {
+  display: inline-flex;
+  &--small {
+    @include small-text-without-color;
+  }
+  &--medium {
+    @include content-text-without-color;
+  }
+  &--with-spacing {
+    margin: 0 $spacing-xs;
+  }
+}

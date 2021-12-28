@@ -1,0 +1,353 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip renders correctly with end arrowPosition 1`] = `
+Array [
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="monday-style-dialog-content-component top edge-center has-tooltip"
+    >
+      <div
+        className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        test
+      </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+        data-placement="top"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
+    </div>
+  </span>,
+]
+`;
+
+exports[`Tooltip renders correctly with hideWhenReferenceHidden 1`] = `
+Array [
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={null}
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="monday-style-dialog-content-component top edge-center has-tooltip"
+    >
+      <div
+        className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        test
+      </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+        data-placement="top"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
+    </div>
+  </span>,
+]
+`;
+
+exports[`Tooltip renders correctly with justify 1`] = `
+Array [
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="monday-style-dialog-content-component top edge-end has-tooltip"
+    >
+      <div
+        className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        test
+      </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+        data-placement="top"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
+    </div>
+  </span>,
+]
+`;
+
+exports[`Tooltip renders correctly with position 1`] = `
+Array [
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="monday-style-dialog-content-component left edge-center has-tooltip"
+    >
+      <div
+        className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        test
+      </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+        data-placement="left"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
+    </div>
+  </span>,
+]
+`;
+
+exports[`Tooltip renders correctly with style 1`] = `
+Array [
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="monday-style-dialog-content-component top edge-center has-tooltip"
+    >
+      <div
+        className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "width": "200px",
+          }
+        }
+      >
+        test
+      </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+        data-placement="top"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
+    </div>
+  </span>,
+]
+`;
+
+exports[`Tooltip renders correctly with theme 1`] = `
+Array [
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="monday-style-dialog-content-component top edge-center has-tooltip"
+    >
+      <div
+        className="monday-style-tooltip monday-style-tooltip-error padding-size-undefined"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        test
+      </div>
+      <div
+        className="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-error padding-size-undefined"
+        data-placement="top"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        style={
+          Object {
+            "position": "absolute",
+          }
+        }
+      />
+    </div>
+  </span>,
+]
+`;
+
+exports[`Tooltip renders correctly with withoutDialog 1`] = `
+<div
+  className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+>
+  test
+</div>
+`;
+
+exports[`Tooltip renders correctly without arrow 1`] = `
+Array [
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  />,
+  <span
+    className="monday-style-dialog-content-wrapper"
+    data-popper-reference-hidden={false}
+    onClickCapture={[Function]}
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+  >
+    <div
+      className="monday-style-dialog-content-component top edge-center"
+    >
+      <div
+        className="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        test
+      </div>
+    </div>
+  </span>,
+]
+`;

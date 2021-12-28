@@ -82,6 +82,21 @@
   }
 
   &--size {
+
+    &-xxs {
+      @include font-input();
+      padding: $spacing-xxs $spacing-xs;
+      height: 16px;
+      line-height: 16px;
+    }
+
+    &-xs {
+      @include font-input();
+      padding: $spacing-xs $spacing-small;
+      height: 24px;
+      line-height: 21px;
+    }
+
     &-small {
       @include font-input();
       padding: $spacing-xs $spacing-small;
@@ -163,6 +178,7 @@
       @include theme-prop(border-color, ui-border-color);
       @include theme-prop(color, primary-text-color);
       background-color: transparent;
+
       &.monday-style-button {
         &--size {
           &-small {
@@ -177,9 +193,6 @@
             line-height: 22px;
           }
         }
-      }
-
-      &.monday-style-button {
         &--color {
           &-primary {
             &-active,

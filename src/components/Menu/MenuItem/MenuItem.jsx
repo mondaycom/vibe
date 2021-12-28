@@ -19,8 +19,11 @@ import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 
 import "./MenuItem.scss";
 import { DialogPositions } from "../../../constants/sizes";
+import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 
 const MenuItem = ({
+  className,
+  // Backward compatibility for props naming
   classname,
   title,
   label,
@@ -49,6 +52,7 @@ const MenuItem = ({
   onMouseEnter,
   onMouseLeave
 }) => {
+  const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   const isActive = activeItemIndex === index;
   const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
   const hasChildren = !!children;
@@ -196,7 +200,7 @@ const MenuItem = ({
     <li
       id={`${menuId}-${index}`}
       {...a11yProps}
-      className={cx("monday-style-menu-item", classname, {
+      className={cx("monday-style-menu-item", overrideClassName, {
         "monday-style-menu-item--disabled": disabled,
         "monday-style-menu-item--focused": isActive,
         "monday-style-menu-item--selected": selected,
@@ -252,7 +256,7 @@ const MenuItem = ({
 MenuItem.iconType = Icon.type;
 MenuItem.tooltipPositions = DialogPositions;
 MenuItem.defaultProps = {
-  classname: "",
+  className: "",
   title: "",
   label: "",
   icon: "",
@@ -277,7 +281,7 @@ MenuItem.defaultProps = {
 };
 
 MenuItem.propTypes = {
-  classname: PropTypes.string,
+  className: PropTypes.string,
   title: PropTypes.string,
   label: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),

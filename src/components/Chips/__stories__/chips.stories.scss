@@ -1,21 +1,48 @@
-.chips-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  height: 140px;
-  border: 1px solid #c5c7d0;
-  width: 700px;
-  align-items: center;
-  padding: 8px;
-  position: relative;
+@import "../../../styles/themes.scss";
+@import "../../../styles/typography.scss";
 
-  .reset-button {
-    position: absolute;
-    bottom: -40px;
+.monday-style-story-chips {
+  &_search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 16px;
   }
 
-  .add-button {
-    position: absolute;
-    bottom: -40px;
-    left: 100px;
+  &_search {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  &_item {
+    width: max-content;
+  }
+
+  &_lable {
+    font-size: 14px;
+    padding-left: 5px;
+    margin-top: 4px;
+  }
+
+  &_inline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &_chip-padding {
+    padding: 0 24px;
+  }
+
+  &_name {
+    padding: 0 8px;
+    font-size: 14px;
+
+    span {
+      @include theme-prop(color, disabled-text-color);
+    }
   }
 }

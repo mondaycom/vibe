@@ -1,0 +1,19 @@
+@import "../../styles/content-spacing";
+
+.monday-storybook-component-rules {
+  display: flex;
+  flex-direction: column;
+
+  &_pair {
+    display: flex;
+    margin-bottom: $spacing-between-section-items;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .monday-storybook-component-rule--recommended {
+    margin-right: 43px;
+  }
+}
