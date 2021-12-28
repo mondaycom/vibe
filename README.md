@@ -15,19 +15,27 @@ $ npm install monday-ui-react-core
 ```
 
 ## Usage
-You can either ` import { Button } from "monday-ui-react-core";`
-or you might want to import directly the component ` import Button from "monday-ui-react-core/dist/Button";`   
+You can import from the main bundle:
+```javascript
+import { Button } from "monday-ui-react-core";
+```
+or you might want to import directly the component from the dist folder
+```javascript
+import Button from "monday-ui-react-core/dist/Button";
+```
 
 You also need to import Main CSS file to your project
-`import "monday-ui-react-core/dist/main.css"`
+```javascript 
+import "monday-ui-react-core/dist/main.css"
+```
 
 ## Storybook
 We are using storybook in order to develop the components independently from any consumer.
 run this to build & run the storybook locally:
-```
+```bash
 npm run storybook
 ```
-the storybook will hosted on http://localhost:7007
+the storybook will be served on `http://localhost:7007`
 
 
 ## Developing locally with your consumer application
@@ -42,7 +50,7 @@ This functionality basically overrides the npm mapping between package name to i
 
   
 Go to the project's directory and run:
-```
+```zsh
 nvm use
 npm unlink
 npm link
