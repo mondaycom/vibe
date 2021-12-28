@@ -132,7 +132,7 @@ ButtonGroup.sizes = Button.sizes;
 ButtonGroup.kinds = Button.kinds;
 
 ButtonGroup.defaultProps = {
-  className: "",
+  className: undefined,
   value: "",
   name: "",
   disabled: false,
