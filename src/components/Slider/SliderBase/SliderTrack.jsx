@@ -1,10 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { createBemBlockHelper } from "../../../helpers/bem-helper";
-import { COMPONENT_ID } from "../SliderCommons";
-import "./SliderTrack.scss";
-
-const bem = createBemBlockHelper(COMPONENT_ID);
+import { bem } from "../SliderCommons";
 
 const SliderTrack = React.memo(({ className }) => {
   console.log("slider: track", { className });

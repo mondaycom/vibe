@@ -1,24 +1,21 @@
 import { useEffect, useRef, useState } from "react";
-import { createBemBlockHelper } from "../../../helpers/bem-helper";
-import { ensureValueText } from "../SliderCommons";
+
+function ensureValueText(valueText, value, formatter) {
+  if (valueText) {
+    return valueText;
+  }
+  if (typeof value === "undefined") {
+    return undefined;
+  }
+  if (typeof formatter !== "function") {
+    return value;
+  }
+  return formatter(value);
+}
 
 export function useControlledOrInternal(value) {
   const [isControlled] = useState(typeof value !== "undefined");
   return isControlled;
-}
-
-// TODO: can be used as global common/shared util-hookd
-export function useSliderResize(onResize) {
-  function handleResize() {
-    if (typeof onResize === "function") {
-      onResize();
-    }
-  }
-  useEffect(() => {
-    // TODO: enhance by ResizeObserve
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 }
 
 export function useSliderInteractions({ min, max }) {
@@ -56,6 +53,20 @@ export function useSliderInteractions({ min, max }) {
   return { coords, moveToPx, refs };
 }
 
+// TODO: can be used as global common/shared util-hooks
+export function useSliderResize(onResize) {
+  function handleResize() {
+    if (typeof onResize === "function") {
+      onResize();
+    }
+  }
+  useEffect(() => {
+    // TODO: enhance by ResizeObserve
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+}
+
 export function useSliderValue({ isControlled, value, valueDefault }) {
   const initialValue = isControlled ? value : valueDefault;
   const [internalStateValue, setInternalStateValue] = useState(initialValue);
@@ -67,32 +78,7 @@ export function useSliderValue({ isControlled, value, valueDefault }) {
 
 export function useSliderValues({ value, valueDefault, valueFormatter, valueText }) {
   const isControlled = useControlledOrInternal(value);
-  const [finalValue, setValue] = useSliderValue({ isControlled, value, valueDefault });
-  const finalValueText = ensureValueText(valueText, finalValue, valueFormatter);
-  return { finalValue, finalValueText, isControlled, setValue };
-}
-
-export function usePlainSlider({ ariaLabel, ariaLabeledBy, classNameBase, max, min, size }) {
-  const consumerBem = createBemBlockHelper(classNameBase);
-  const subProps = {
-    rail: {
-      className: consumerBem("rail")
-    },
-    thumb: {
-      ariaLabel,
-      ariaLabeledBy,
-      className: consumerBem("thumb"),
-      max,
-      min,
-      size
-    },
-    track: {
-      className: consumerBem("track")
-    },
-    filledTrack: {
-      className: consumerBem("filled-track"),
-      dimension: 0
-    }
-  };
-  return { subProps };
+  const [actualValue, setValue] = useSliderValue({ isControlled, value, valueDefault });
+  const actualValueText = ensureValueText(valueText, actualValue, valueFormatter);
+  return { actualValue, actualValueText, isControlled, setValue };
 }
