@@ -1,0 +1,58 @@
+import HiddenText from "../HiddenText";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import "./HiddenText.stories.scss";
+import {
+  CLICKABLE,
+  HEADING,
+  TEXT_FIELD
+} from "../../../storybook/components/related-components/component-description-map";
+
+<Meta
+  title="Accessibility/HiddenText"
+  component={ HiddenText }
+/>
+
+<!--- Component template -->
+
+export const hiddenTextTemplate = createComponentTemplate(HiddenText);
+
+<!--- Component documentation -->
+
+# HiddenText
+- [Overview](#overview)
+- [Props](#props)
+- [Do’s and don’ts](#dos-and-donts)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+Hidden text helps us to create a text which is accessible to screen reader users but not to users who see the screen.
+<Canvas>
+  <Story name="Overview"
+         args={ {text: "Hello hidden text"} }>
+    { hiddenTextTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ HiddenText } />
+
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:<HiddenText text="Screen reader users should know what written here!" />,
+        description:"Use hidden text for writing a text which should be exposed to screen reader users only."
+      },
+      negative: {
+        component:<HiddenText text="This text should be hidden from everyone!"/>,
+        description:"Do no use hidden text for text that should be hidden from everyone."
+      }
+    }
+  ]}
+/>
+
+## Related components
+<RelatedComponents componentsNames={[CLICKABLE, HEADING, TEXT_FIELD]} />
