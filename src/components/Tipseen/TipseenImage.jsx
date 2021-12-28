@@ -8,7 +8,7 @@ const TipseenImage = ({ src, alt, className }) => {
 };
 
 TipseenImage.propTypes = {
-  src: PropTypes.string,
+  src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   alt: PropTypes.string,
   className: PropTypes.string
 };

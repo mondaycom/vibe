@@ -1,0 +1,36 @@
+import ResponsiveList from "../ResponsiveList";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { Sandbox } from "./responsiveListStoriesComponents";
+import "./ResponsiveList.stories.scss";
+
+<Meta title="Layout/ResponsiveList" component={ResponsiveList} />
+
+# ResponsiveList
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Feedback](#feedback)
+
+## Overview
+
+ResponsiveList is a helper component, it is in charge of "moving" elements when there container is overflowing. It moves them to a list at the end of the container.
+(the blue handle is a resize handler - not part of the component)
+
+<Canvas>
+  <Story name="Overview" args={{}}>
+    {Sandbox.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={ResponsiveList} />
+
+## Usage
+
+<UsageGuidelines guidelines={[
+  "Use this component when you want to handle different screen sizes",
+  "Make sure to limit the parent size so the list can 'decide' when to collapse"
+]}/>

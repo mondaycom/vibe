@@ -12,6 +12,7 @@ import headerBanner from "./header-banner.png";
 import gettingStarted from "./getting-started.png";
 import components from "./components.png";
 import foundations from "./foundations.png";
+import Nick from "./Nick.png";
 
 export {
   clarity,
@@ -23,6 +24,7 @@ export {
   Rotem,
   Sahar,
   Moshe,
+  Nick,
   speed,
   headerBanner,
   gettingStarted,

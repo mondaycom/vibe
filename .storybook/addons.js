@@ -8,7 +8,13 @@ import logo from "./logo.png";
 const theme = create({
   base: "light",
   brandImage: logo,
-  brandUrl: "https://monday.com"
+  brandUrl: "https://monday.com",
+  barSelectedColor: '#5034ff',
+  brandTitle: 'Vibe Design',
+  background: {
+    hoverable: "rgba(80, 52, 255, 0.1)"
+  },
+  hoverable: "rgba(80, 52, 255, 0.1)"
 });
 
 addons.setConfig({
