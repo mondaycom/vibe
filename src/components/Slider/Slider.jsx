@@ -4,7 +4,10 @@ import { COLORS_BASIC, SIZES_BASIC } from "../../constants";
 import { createBemBlockHelper } from "../../helpers/bem-helper";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Slider.scss";
+import { usePrefix, usePostfix } from "./SliderHooks";
 import SliderBlock from "./SliderBlock";
+import SliderPrefix from "./SliderPrefix";
+import SliderPostfix from "./SliderPostfix";
 import { SliderBase, useSliderValues } from "./SliderBase";
 
 const Slider = forwardRef(
@@ -17,15 +20,19 @@ const Slider = forwardRef(
       color,
       disabled,
       id,
-      indicateSelection,
       max,
       min,
       onChange,
+      showValue,
       size,
       value,
       valueDefault,
       valueFormatter,
-      valueText
+      valueText,
+      // ------ Additional subcomponents' props
+      indicateSelection,
+      prefix,
+      postfix
     },
     ref
   ) => {
@@ -38,6 +45,12 @@ const Slider = forwardRef(
       valueText
     });
     const consumerBem = createBemBlockHelper(classNameBase, { isConsume: true });
+    const [isPrefix, PrefixComponent] = usePrefix(prefix);
+    const [isPostfix, PostfixComponent] = usePostfix(postfix, {
+      indicateSelection,
+      value: actualValue,
+      valueText: actualValueText
+    });
 
     function handleChange(newValue) {
       console.log("slider: handle change", newValue);
@@ -49,10 +62,11 @@ const Slider = forwardRef(
     console.log("--- slider", { disabled });
     return (
       <SliderBlock id={id} ref={mergedRef} className={consumerBem("", { disabled }, className)} disabled={disabled}>
+        {isPrefix && <SliderPrefix>{PrefixComponent}</SliderPrefix>}
         <SliderBase
           ariaLabel={ariaLabel}
           ariaLabeledBy={ariaLabeledBy}
-          className={consumerBem("plain")}
+          className={consumerBem("base")}
           classNameBase={classNameBase}
           color={color}
           disabled={disabled}
@@ -60,10 +74,11 @@ const Slider = forwardRef(
           min={min}
           onChange={handleChange}
           size={size}
+          showValue={showValue}
           value={actualValue}
           valueText={actualValueText}
         />
-        {indicateSelection && <div className={consumerBem("label", { disabled })}>{actualValueText}</div>}
+        {isPostfix && <SliderPostfix>{PostfixComponent}</SliderPostfix>}
       </SliderBlock>
     );
   }
@@ -119,6 +134,10 @@ Slider.propTypes = {
    */
   onChange: PropTypes.func,
   /**
+   * Always show `value` instead of Tooltip
+   */
+  showValue: PropTypes.bool,
+  /**
    * Size small/medium/large of the component (Slider)
    */
   size: PropTypes.oneOf(Object.values(Slider.sizes)),
@@ -147,7 +166,37 @@ Slider.propTypes = {
   /**
    * Show selected from Slider range value
    */
-  indicateSelection: PropTypes.bool
+  indicateSelection: PropTypes.bool,
+  /**
+   * Options for initial/start/prefix element, it can be one of:
+   *  - Any Component (react component, node, text, number etc.)
+   *  - Or it can be an object of options for Icons component (see Icon components props)
+   *  - Or it can be an object for Label (Icon, Title - and other components)
+   *  - Or it can be Render Props Function witch are getting value and valueText
+   */
+  prefix: PropTypes.oneOfType([
+    PropTypes.shape({
+      icon: PropTypes.string.isRequired
+    }),
+    PropTypes.shape({
+      text: PropTypes.string.isRequired
+    }),
+    PropTypes.func,
+    PropTypes.node
+  ]),
+  /**
+   * Options for postfix/end/finishing element. Same as prefix element.
+   */
+  postfix: PropTypes.oneOfType([
+    PropTypes.shape({
+      icon: PropTypes.string.isRequired
+    }),
+    PropTypes.shape({
+      text: PropTypes.string.isRequired
+    }),
+    PropTypes.func,
+    PropTypes.node
+  ])
 };
 
 Slider.defaultProps = {
@@ -163,12 +212,15 @@ Slider.defaultProps = {
   min: 0,
   onChange: undefined,
   size: SIZES_BASIC.SMALL,
+  showValue: false,
   value: undefined,
   valueDefault: 0,
   valueFormatter: value => `${value}%`,
   valueText: undefined,
   // ------ Additional subcomponents' props
-  indicateSelection: false
+  indicateSelection: false,
+  prefix: undefined,
+  postfix: undefined
 };
 
 export default Slider;
