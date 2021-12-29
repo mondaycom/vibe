@@ -1,14 +1,13 @@
 import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
 import { COLORS_BASIC, SIZES_BASIC } from "../../constants";
-import { createBemBlockHelper } from "../../helpers/bem-helper";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Slider.scss";
-import { usePrefix, usePostfix } from "./SliderHooks";
-import SliderBlock from "./SliderBlock";
-import SliderPrefix from "./SliderPrefix";
-import SliderPostfix from "./SliderPostfix";
-import { SliderBase, useSliderValues } from "./SliderBase";
+import { bem } from "./SliderCommons";
+import { SliderProvider } from "./SliderContext";
+import SliderBase from "./SliderBase/SliderBase";
+import SliderInfix from "./SliderInfix";
+import { createBemBlockHelper } from "../../helpers/bem-helper";
 
 const Slider = forwardRef(
   (
@@ -23,6 +22,7 @@ const Slider = forwardRef(
       max,
       min,
       onChange,
+      step,
       showValue,
       size,
       value,
@@ -38,48 +38,43 @@ const Slider = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const { actualValue, actualValueText, setValue } = useSliderValues({
-      value,
-      valueDefault,
-      valueFormatter,
-      valueText
-    });
     const consumerBem = createBemBlockHelper(classNameBase, { isConsume: true });
-    const [isPrefix, PrefixComponent] = usePrefix(prefix);
-    const [isPostfix, PostfixComponent] = usePostfix(postfix, {
-      indicateSelection,
-      value: actualValue,
-      valueText: actualValueText
-    });
-
     function handleChange(newValue) {
       console.log("slider: handle change", newValue);
-      setValue(newValue);
       if (typeof onChange === "function") {
         onChange(newValue);
       }
     }
+    const providerProps = {
+      ariaLabel,
+      ariaLabeledBy,
+      classNameBase,
+      color,
+      disabled,
+      max,
+      min,
+      showValue,
+      size,
+      step,
+      value,
+      valueDefault,
+      valueFormatter,
+      valueText,
+      infixOptions: {
+        prefix,
+        postfix,
+        indicateSelection
+      }
+    };
     console.log("--- slider", { disabled });
     return (
-      <SliderBlock id={id} ref={mergedRef} className={consumerBem("", { disabled }, className)} disabled={disabled}>
-        {isPrefix && <SliderPrefix>{PrefixComponent}</SliderPrefix>}
-        <SliderBase
-          ariaLabel={ariaLabel}
-          ariaLabeledBy={ariaLabeledBy}
-          className={consumerBem("base")}
-          classNameBase={classNameBase}
-          color={color}
-          disabled={disabled}
-          max={max}
-          min={min}
-          onChange={handleChange}
-          size={size}
-          showValue={showValue}
-          value={actualValue}
-          valueText={actualValueText}
-        />
-        {isPostfix && <SliderPostfix>{PostfixComponent}</SliderPostfix>}
-      </SliderBlock>
+      <SliderProvider {...providerProps}>
+        <div ref={mergedRef} className={bem("", { disabled }, className)} id={id}>
+          <SliderInfix kind="prefix" />
+          <SliderBase className={consumerBem("base")} onChange={handleChange} />
+          <SliderInfix kind="postfix" />
+        </div>
+      </SliderProvider>
     );
   }
 );

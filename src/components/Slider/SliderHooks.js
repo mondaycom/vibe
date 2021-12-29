@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import useMergeRefs from "../../../hooks/useMergeRefs";
 
 function ensureValueText(valueText, value, formatter) {
   if (valueText) {
@@ -19,16 +18,12 @@ export function useControlledOrInternal(value) {
   return isControlled;
 }
 
-export function useSliderInteractions({ min, max, ref }) {
-  const thumbRef = useRef(null);
-  const refs = {
-    rail: useRef(null),
-    thumb: useMergeRefs({ refs: [ref, thumbRef] })
-  };
+export function useSliderInteractions({ min, max }) {
+  const railRef = useRef(null);
   const [coords, setCoords] = useState({ left: 0, right: 100, width: 100 });
 
   function defineCoords() {
-    const railRect = refs.rail.current.getBoundingClientRect();
+    const railRect = railRef.current.getBoundingClientRect();
     const { left, right, width } = railRect;
     console.log("coords", railRect, { left, right, width });
     setCoords({ left, right, width });
@@ -52,7 +47,7 @@ export function useSliderInteractions({ min, max, ref }) {
     defineCoords();
   }, []);
 
-  return { coords, moveToPx, refs };
+  return { coords, moveToPx, railRef };
 }
 
 // TODO: can be used as global common/shared util-hooks
@@ -66,7 +61,7 @@ export function useSliderResize(onResize) {
     // TODO: enhance by ResizeObserve
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [onResize]);
 }
 
 export function useSliderValue({ isControlled, value, valueDefault }) {
@@ -80,7 +75,7 @@ export function useSliderValue({ isControlled, value, valueDefault }) {
 
 export function useSliderValues({ value, valueDefault, valueFormatter, valueText }) {
   const isControlled = useControlledOrInternal(value);
-  const [actualValue, setValue] = useSliderValue({ isControlled, value, valueDefault });
+  const [actualValue, setSelectedValue] = useSliderValue({ isControlled, value, valueDefault });
   const actualValueText = ensureValueText(valueText, actualValue, valueFormatter);
-  return { actualValue, actualValueText, isControlled, setValue };
+  return { actualValue, actualValueText, isControlled, setSelectedValue };
 }

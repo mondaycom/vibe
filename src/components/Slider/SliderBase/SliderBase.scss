@@ -48,7 +48,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
 
-    &--active {
+    &--focused {
       @include theme-prop(border-color, primary-hover-color);
       outline: 3px solid;
       @include theme-prop(outline-color, primary-selected-color);
