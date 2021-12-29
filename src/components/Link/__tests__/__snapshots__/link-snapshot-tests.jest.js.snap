@@ -38,7 +38,7 @@ exports[`Link renders correctly with ariaLabeledBy 1`] = `
 </a>
 `;
 
-exports[`Link renders correctly with componentClassName 1`] = `
+exports[`Link renders correctly with className 1`] = `
 <a
   aria-label=""
   aria-labelledby=""
