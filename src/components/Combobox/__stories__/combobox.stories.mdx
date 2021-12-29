@@ -119,7 +119,7 @@ Comboboxes allowing users to filter longer lists to only the selections matching
       ], []);
       return (
         <DialogContentContainer>
-          <Combobox options={options} placeholder="Placeholder text here" />
+          <Combobox options={options} noResultsRenderer={() => alert(123123)} placeholder="Placeholder text here" />
         </DialogContentContainer>
       )
     }}
