@@ -3,7 +3,7 @@
 ## 1.0.1 (2021-12-29)
 
 #### Bug Fixes
-* [#417](https://github.com/mondaycom/monday-ui-react-core/pull/417) change className props to consist naming ([@hadasfa](https://github.com/hadasfa))
+* [#417](https://github.com/mondaycom/monday-ui-react-core/pull/417) Change `className` props to consistent naming ([@hadasfa](https://github.com/hadasfa))
 * [#416](https://github.com/mondaycom/monday-ui-react-core/pull/416) Tree-shake the library ([@sahariko](https://github.com/sahariko))
 
 #### Documentation
