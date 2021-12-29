@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "scripts": {
@@ -160,7 +160,10 @@
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },
-  "sideEffects": ["*.scss", "*.css"],
+  "sideEffects": [
+    "*.scss",
+    "*.css"
+  ],
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [ci-skip]"
   },
