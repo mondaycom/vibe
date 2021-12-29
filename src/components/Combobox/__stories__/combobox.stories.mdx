@@ -196,15 +196,19 @@ Comboboxes allowing users to filter longer lists to only the selections matching
 <ComponentRules
   rules={[
     {
+      className: "combobox-stories-styles_big-figure",
       positive: {
         component:
           <DialogContentContainer>
             <Combobox 
-              placeholder="B17"
+              placeholder="Day"
               options={[
-                { id: "1", label: "Report B17-386858", },
-                { id: "2", label: "Report B17- 2040", selected: true },
-                { id: "3", label: "Report B17- 38589" }]}
+                { id: "1", label: "1 Days" },
+                { id: "2", label: "2 Days" },
+                { id: "3", label: "3 Days" },
+                { id: "4", label: "4 Days" },
+                { id: "5", label: "5 Days" }
+                ]}
             />
           </DialogContentContainer>,
         description:"Use combobox to make large lists easier to search."
@@ -215,24 +219,29 @@ Comboboxes allowing users to filter longer lists to only the selections matching
             <Combobox 
               placeholder="Day"
               options={[
-                { id: "1", label: "1 Days", },
-                { id: "2", label: "2 Days", selected: true },
-                { id: "3", label: "3 Days" }]}
+                { id: "1", label: "1 Days" },
+                { id: "2", label: "2 Days" },
+                { id: "3", label: "3 Days" },
+                ]}
             />
           </DialogContentContainer>,
         description:<>Don’t use comboxbox if you have less than 5 list items. If it's not complex enough for a combobox, use a <Link href="/?path=/docs/inputs-radio-button--overview" withoutSpacing>Radio button</Link> or <Link href="/?path=/docs/inputs-dropdown--overview" withoutSpacing>Dropdown.</Link></>
       }
     },
     {
+      className: "combobox-stories-styles_big-figure",
       positive: {
         component:
           <DialogContentContainer>
             <Combobox 
-              placeholder="B17"
+              placeholder="Search names"
               options={[
-                { id: "1", label: "Report B17-386858", },
-                { id: "2", label: "Report B17- 2040", selected: true },
-                { id: "3", label: "Report B17- 38589" }]}
+                { id: "1", label: "Hadas" },
+                { id: "2", label: "Orr" },
+                { id: "3", label: "Evgeniy" },
+                { id: "2", label: "Moshe" },
+                { id: "2", label: "Sahar" }
+                ]}
             />
           </DialogContentContainer>,
         description:"Use the combobox input to filter results from the list."
@@ -241,11 +250,14 @@ Comboboxes allowing users to filter longer lists to only the selections matching
         component:
           <DialogContentContainer>
             <Combobox 
-              placeholder="Moshe Levy"
+              placeholder="Search everething"
               options={[
-                { id: "1", label: "Report B17-386858" },
-                { id: "2", label: "Report B17- 2040" },
-                { id: "3", label: "Report B17- 38589" }]}
+                { id: "1", label: "Hadas" },
+                { id: "2", label: "Orr" },
+                { id: "3", label: "Evgeniy" },
+                { id: "2", label: "Moshe" },
+                { id: "2", label: "Sahar" }
+                ]}
             />
           </DialogContentContainer>,
         description:"Don’t use the combobox as a search input to search results that are not within the list."
