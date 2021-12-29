@@ -97,4 +97,14 @@ describe("TextField renders correctly", () => {
     const tree = renderer.create(<TextField iconsNames={{ primary: "primary-label", secondary: "secondary-label", layout: "test" }} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("with date type", () => {
+    const tree = renderer.create(<TextField type={TextField.types.DATE} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with date-time type", () => {
+    const tree = renderer.create(<TextField type={TextField.types.DATE_TIME} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
