@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 (2021-12-29)
+
+#### Bug Fixes
+* [#404](https://github.com/mondaycom/monday-ui-react-core/pull/404) added support for date and date time for input ([@etaylib](https://github.com/etaylib))
+
 ## 1.0.1 (2021-12-29)
 
 #### Bug Fixes
