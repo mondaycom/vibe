@@ -169,10 +169,13 @@ A dropdown menu can include lables.
 <Canvas>
   <Story name="Dropdown with lables">
     {() => {
+      const labelRenderer = useCallback(({label, color}) => {
+        return <Label text={label} color={color} />;
+      });
       const options = useMemo(() => [
-        { value: "Success", label: "Success",  text: "Success", color: Label.colors.POSITIVE },
-        { value: "Failed", label: "Failed", text: "Failed", color: Label.colors.NEGATIVE},
-        { value: "In progress", label: "In progress", text: "In progress"}
+        { value: "success", label: "Success", color: Label.colors.POSITIVE },
+        { value: "failed", label: "Failed",color: Label.colors.NEGATIVE},
+        { value: "in progress", label: "In progress"}
       ], []);
       return (
         <Dropdown
@@ -180,8 +183,8 @@ A dropdown menu can include lables.
           options={options}
           defaultValue={[options[0]]}
           className="dropdown-stories-styles_big-spacing"
-          optionRenderer={Label}
-          valueRenderer={Label}
+          optionRenderer={labelRenderer}
+          valueRenderer={labelRenderer}
         />
       )
     }}
