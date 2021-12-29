@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { COLORS_BASIC, SIZES_BASIC } from "../../../constants";
 import { createBemBlockHelper } from "../../../helpers/bem-helper";
@@ -11,75 +11,82 @@ import SliderTrack from "./SliderTrack";
 import SliderFilledTrack from "./SliderFilledTrack";
 import SliderThumb from "./SliderThumb";
 
-const SliderBase = ({
-  ariaLabel,
-  ariaLabeledBy,
-  className,
-  classNameBase,
-  color,
-  disabled,
-  id,
-  max,
-  min,
-  onChange,
-  size,
-  value,
-  valueDefault,
-  valueFormatter,
-  valueText
-}) => {
-  const { actualValue, actualValueText, setValue } = useSliderValues({
-    value,
-    valueDefault,
-    valueFormatter,
-    valueText
-  });
-  const { coords, moveToPx, refs } = useSliderInteractions({ min, max });
-  const consumerBem = createBemBlockHelper(classNameBase, { isConsume: true });
+const SliderBase = forwardRef(
+  (
+    {
+      ariaLabel,
+      ariaLabeledBy,
+      className,
+      classNameBase,
+      color,
+      disabled,
+      id,
+      max,
+      min,
+      onChange,
+      size,
+      showValue,
+      value,
+      valueDefault,
+      valueFormatter,
+      valueText
+    },
+    ref
+  ) => {
+    const { actualValue, actualValueText, setValue } = useSliderValues({
+      value,
+      valueDefault,
+      valueFormatter,
+      valueText
+    });
+    const { coords, moveToPx, refs } = useSliderInteractions({ min, max, ref });
+    const consumerBem = createBemBlockHelper(classNameBase, { isConsume: true });
 
-  function changeValue(newValue) {
-    console.log("change value");
-    setValue(newValue);
-    if (typeof onChange === "function") {
-      onChange(newValue);
+    function changeValue(newValue) {
+      console.log("change value");
+      setValue(newValue);
+      if (typeof onChange === "function") {
+        onChange(newValue);
+      }
     }
-  }
 
-  function handleRailClick(e) {
-    console.log("handle click on Rail:", e.clientX, coords);
-    const fromStartInPx = e.clientX - coords.left;
-    const newValue = moveToPx(fromStartInPx);
-    changeValue(newValue);
-  }
+    function handleRailClick(e) {
+      console.log("handle click on Rail:", e.clientX, coords);
+      const fromStartInPx = e.clientX - coords.left;
+      const newValue = moveToPx(fromStartInPx);
+      changeValue(newValue);
+    }
 
-  const { dimension, position } = calcDimensions(max, min, value);
-  console.log("plain slider", { disabled, refs, value, dimension, position, coords });
-  return (
-    <div id={id} className={bem("plain", { [size]: size, [color]: color, disabled }, className)}>
-      <SliderRail className={consumerBem("rail")} onClick={handleRailClick} ref={refs.rail} size={size}>
-        <SliderTrack className={consumerBem("track")} />
-        {refs.rail.current && (
-          <>
-            <SliderFilledTrack className={consumerBem("filled-track")} dimension={dimension} />
-            <SliderThumb
-              ariaLabel={ariaLabel}
-              ariaLabelBy={ariaLabeledBy}
-              className={consumerBem("thumb")}
-              disabled={disabled}
-              max={max}
-              min={min}
-              ref={refs.thumb}
-              position={position}
-              size={size}
-              value={actualValue}
-              valueText={actualValueText}
-            />
-          </>
-        )}
-      </SliderRail>
-    </div>
-  );
-};
+    const { dimension, position } = calcDimensions(max, min, value);
+    console.log("base slider", { disabled, refs, value, dimension, position, coords });
+    return (
+      <div id={id} className={bem("base", { [size]: size, [color]: color, disabled }, className)}>
+        <SliderRail className={consumerBem("rail")} onClick={handleRailClick} ref={refs.rail} size={size}>
+          <SliderTrack className={consumerBem("track")} />
+          {refs.rail.current && (
+            <>
+              <SliderFilledTrack className={consumerBem("filled-track")} dimension={dimension} />
+              <SliderThumb
+                ariaLabel={ariaLabel}
+                ariaLabelBy={ariaLabeledBy}
+                className={consumerBem("thumb")}
+                disabled={disabled}
+                max={max}
+                min={min}
+                ref={refs.thumb}
+                position={position}
+                size={size}
+                showValue={showValue}
+                value={actualValue}
+                valueText={actualValueText}
+              />
+            </>
+          )}
+        </SliderRail>
+      </div>
+    );
+  }
+);
 
 SliderBase.colors = COLORS_BASIC;
 SliderBase.sizes = SIZES_BASIC;
@@ -130,6 +137,10 @@ SliderBase.propTypes = {
    */
   onChange: PropTypes.func,
   /**
+   * Always show `value` instead of Tooltip
+   */
+  showValue: PropTypes.bool,
+  /**
    * Size small/medium/large of the component (Slider)
    */
   size: PropTypes.oneOf(Object.values(SliderBase.sizes)),
@@ -166,6 +177,7 @@ SliderBase.defaultProps = {
   max: 100,
   min: 0,
   onChange: undefined,
+  showValue: false,
   size: SIZES_BASIC.SMALL,
   value: undefined,
   valueDefault: 0,

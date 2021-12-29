@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import useMergeRefs from "../../../hooks/useMergeRefs";
 
 function ensureValueText(valueText, value, formatter) {
   if (valueText) {
@@ -18,10 +19,11 @@ export function useControlledOrInternal(value) {
   return isControlled;
 }
 
-export function useSliderInteractions({ min, max }) {
+export function useSliderInteractions({ min, max, ref }) {
+  const thumbRef = useRef(null);
   const refs = {
     rail: useRef(null),
-    thumb: useRef(null)
+    thumb: useMergeRefs({ refs: [ref, thumbRef] })
   };
   const [coords, setCoords] = useState({ left: 0, right: 100, width: 100 });
 

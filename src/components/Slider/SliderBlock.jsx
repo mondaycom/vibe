@@ -1,7 +1,6 @@
 import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./SliderBlock.scss";
 import { bem } from "./SliderCommons";
 
 const SliderBlock = forwardRef(({ children, className, disabled, id }, ref) => {

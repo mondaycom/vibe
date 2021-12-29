@@ -1,3 +1,20 @@
 @import "../../styles/themes.scss";
 
-/* .monday-style-slider { } */
+.monday-slider {
+  align-items: center;
+  display: flex;
+  max-width: 500px;
+  min-width: 200px;
+  width: 100%;
+
+  &__prefix {
+    font-size: 14px;
+    margin-right: 8px;
+  }
+
+  &__postfix {
+    font-size: 14px;
+    margin-left: 8px;
+  }
+
+}

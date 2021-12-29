@@ -1,19 +1,17 @@
-import Slider from "../Slider";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import {ArgsTable, Canvas, Meta, Story} from "@storybook/addon-docs";
+import { ComponentRules, createComponentTemplate, createStoryMetaSettings, RelatedComponents, VerticalStories } from "../../../storybook";
 import "./Slider.stories.scss";
+import Slider from "../Slider";
+import Sound from "../../Icon/Icons/components/Sound";
+import Video from "../../Icon/Icons/components/Video";
 
 export const argTypes = createStoryMetaSettings({
   component: Slider,
   enumPropNamesArray: ["color", "size"]
   // iconPropNamesArray: ["leftIcon", "rightIcon", "successIcon"]
-})
+});
 
-<Meta
-  title="Components/Slider/Slider"
-  component={ Slider }
-  argTypes={argTypes}
-/>
+<Meta title="Components/Slider/Slider" component={Slider} argTypes={argTypes} />
 
 <!--- Component template -->
 
@@ -22,6 +20,7 @@ export const sliderTemplate = createComponentTemplate(Slider);
 <!--- Component documentation -->
 
 # Slider
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -32,64 +31,72 @@ export const sliderTemplate = createComponentTemplate(Slider);
 - [Feedback](#feedback)
 
 ## Overview
+
 Please write here the component description
 
 <Canvas>
-  <Story name="Overview" args={ {} }>
-    { sliderTemplate.bind({}) }
+  <Story name="Overview" args={{}}>
+    {sliderTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Slider } />
+
+<ArgsTable of={Slider} />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Usage guideline 1",
-  "Usage guideline 2",
-  "Usage guideline 3",
-]}/>
 
+<UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
 <Tip title="Not what you were looking for?">Tip content</Tip>
 
 ## Variants
+
 ### Sizes
+
 Sizes small/medium/large are available.
+
 <Canvas>
   <Story name="Sizes">
-    <Slider size={Slider.sizes.SMALL} />
-    <Slider size={Slider.sizes.MEDIUM} />
-    <Slider size={Slider.sizes.LARGE} />
+    <Slider size={Slider.sizes.SMALL} valueDefault={12} />
+    <Slider size={Slider.sizes.MEDIUM} valueDefault={24} />
+    <Slider size={Slider.sizes.LARGE} valueDefault={35} />
   </Story>
 </Canvas>
 
 ### Colors
+
 Color Modes primary/positive/negative are available.
+
 <Canvas>
   <Story name="Colors">
-    <Slider color={Slider.colors.POSITIVE} size={Slider.sizes.MEDIUM} />
-    <Slider color={Slider.colors.NEGATIVE} size={Slider.sizes.MEDIUM} />
-    <Slider color={Slider.colors.PRIMARY} size={Slider.sizes.MEDIUM} />
+    <Slider color={Slider.colors.POSITIVE} valueDefault={34} size={Slider.sizes.MEDIUM} />
+    <Slider color={Slider.colors.NEGATIVE} valueDefault={55} size={Slider.sizes.MEDIUM} />
+    <Slider color={Slider.colors.PRIMARY} valueDefault={12} size={Slider.sizes.MEDIUM} />
   </Story>
 </Canvas>
 
 ### Disabled
+
 Slider can be disabled.
+
 <Canvas>
   <Story name="Disabled">
-    <Slider disabled={true} color={Slider.colors.POSITIVE} size={Slider.sizes.MEDIUM} />
+    <Slider disabled={true} valueDefault={24} color={Slider.colors.POSITIVE} size={Slider.sizes.MEDIUM} />
     <Slider disabled={true} color={Slider.colors.NEGATIVE} size={Slider.sizes.MEDIUM} />
-    <Slider disabled={true} color={Slider.colors.PRIMARY} size={Slider.sizes.MEDIUM} />
+    <Slider disabled={true} valueDefault={55} color={Slider.colors.PRIMARY} size={Slider.sizes.MEDIUM} />
   </Story>
 </Canvas>
 
-
 ### With labels
-Description of story 1
+
+Indicate selection at Label, Add Prefix and/or Postfix Icons or Labels
+
 <Canvas>
-  <Story name="Story title 4">
-    <Slider />
-    <Slider />
+  <Story name="WithLabels" decorators={[VerticalStories]}>
+    <Slider indicateSelection={true} valueDefault={12} size={Slider.sizes.SMALL} />
+    <Slider prefix={{ icon: Sound }} indicateSelection={true} valueDefault={70} size={Slider.sizes.SMALL} />
+    <Slider prefix={{ icon: Video }} postfix={{ icon: Sound }} valueDefault={45} size={Slider.sizes.MEDIUM} />
+    <Slider prefix="Vol" indicateSelection={true} valueDefault={0} size={Slider.sizes.LARGE} />
   </Story>
 </Canvas>
 
@@ -106,27 +113,7 @@ Description of story 1
         description:"Bad practice description."
       }
     },
-    {
-      positive: {
-        component:<Slider />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<Slider />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<Slider />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<Slider />,
-        description:"Bad practice description."
-      }
-    },
-    {
+     {
       positive: {
         component:<Slider />,
         description:"Best practice description."
@@ -139,22 +126,37 @@ Description of story 1
   ]}
 />
 
-
 ## Use cases and examples
 
+### Always show Slider's value
 
+Always show value of slider (instead of Tooltip).
+
+<Canvas>
+  <Story name="ShowValue">
+    <Slider showValue={true} valueDefault={12} size={Slider.sizes.SMALL} />
+    <Slider showValue={true} valueDefault={55} size={Slider.sizes.MEDIUM} />
+    <Slider showValue={true} valueDefault={89} size={Slider.sizes.LARGE} />
+  </Story>
+</Canvas>
 
 ### Customisation
-Custom Id and Custom (Consumer) Classes. Check HTML of component.
+
+Custom ID and Custom (Consumer) Classes. Check HTML of component.
+Add Custom Items as Prefix and Postfix of Slider.
+
 <Canvas>
   <Story name="Customisation">
     <Slider
       id="my-app-slider"
       className="my-main-super-class"
       classNameBase="slide-me"
+      valueDefault={19}
+      size={Slider.sizes.MEDIUM}
     />
   </Story>
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[]} />

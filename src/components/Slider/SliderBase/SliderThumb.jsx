@@ -5,11 +5,8 @@ import Tooltip from "../../Tooltip/Tooltip";
 import { bem } from "../SliderCommons";
 
 const SliderThumb = forwardRef(
-  (
-    { ariaLabeledBy, ariaLabel, className, disabled, id, isActive, forElement, max, min, position, valueText, value },
-    ref
-  ) => {
-    const [active, setActive] = useState(isActive);
+  ({ ariaLabeledBy, ariaLabel, className, disabled, id, max, min, position, showValue, valueText, value }, ref) => {
+    const [focused, setFocused] = useState(false);
 
     const tooltipShowDelay = 300;
     const tooltipPosition = DialogPositions.TOP;
@@ -43,11 +40,19 @@ const SliderThumb = forwardRef(
     }
     function handlePointerEnter(e) {
       console.log("-enter", e);
-      setActive(true);
+      // setHovered(false);
     }
     function handlePointerLeave(e) {
       console.log("-leave", e);
-      setActive(false);
+      // setHovered(false);
+    }
+    function handleFocus(e) {
+      console.log("-focus", e);
+      setFocused(true);
+    }
+    function handleBlur(e) {
+      console.log("-blur", e);
+      setFocused(false);
     }
     // function handlePointerOver(e) {
     //   console.log("-over", e);
@@ -57,20 +62,19 @@ const SliderThumb = forwardRef(
     // }
     console.log("slider: thumb", {
       ref: ref.current,
-      active,
+      focused,
       disabled,
       className,
       ariaLabeledBy,
       ariaLabel,
       id,
-      forElement,
       max,
       min,
       valueText,
       value
     });
     return (
-      <Tooltip content={valueText} position={tooltipPosition} showDelay={tooltipShowDelay}>
+      <Tooltip content={showValue ? null : valueText} position={tooltipPosition} showDelay={tooltipShowDelay}>
         <div
           id={id}
           aria-label={ariaLabel}
@@ -80,7 +84,9 @@ const SliderThumb = forwardRef(
           aria-valuenow={value}
           aria-valuetext={valueText}
           aria-disabled={disabled}
-          className={bem("thumb", { active, disabled }, className)}
+          className={bem("thumb", { focused, disabled }, className)}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
@@ -95,7 +101,9 @@ const SliderThumb = forwardRef(
           role="slider"
           style={{ left: `${position}%` }}
           tabIndex={disabled ? -1 : 0}
-        />
+        >
+          {showValue && <label className={bem("thumb-label")}>{valueText}</label>}
+        </div>
       </Tooltip>
     );
   }
@@ -123,9 +131,31 @@ SliderThumb.propTypes = {
    */
   id: PropTypes.string,
   /**
+   * Max range value of the component (Slider)
+   */
+  max: PropTypes.number,
+  /**
+   * Min range value of the component (Slider)
+   */
+  min: PropTypes.number,
+  /**
    * Position (i.e. offset) from start of track/rail, according to value
    */
-  position: PropTypes.number
+  position: PropTypes.number,
+  /**
+   * Always show `value` instead of Tooltip
+   */
+  showValue: PropTypes.bool,
+  /**
+   * Current/selected value of the range of the Component (Slider)
+   *   - should be used in Controlled Mode only
+   */
+  value: PropTypes.number,
+  /**
+   * Text/presentation of current/selected value
+   *  - should be used in Controlled Mode only
+   */
+  valueText: PropTypes.string
 };
 
 SliderThumb.defaultProps = {
@@ -134,7 +164,12 @@ SliderThumb.defaultProps = {
   className: "",
   disabled: false,
   id: undefined,
-  position: 0
+  max: 100,
+  min: 0,
+  position: 0,
+  showValue: false,
+  value: undefined,
+  valueText: undefined
 };
 
 export default SliderThumb;
