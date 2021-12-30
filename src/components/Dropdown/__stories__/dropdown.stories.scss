@@ -1,7 +1,6 @@
 @import "../../../styles/themes.scss";
 @import "../../../styles/typography.scss";
 
-
 .dropdown-stories-styles {
   &_spacing {
     min-width: 250px;
@@ -9,7 +8,7 @@
   }
 
   &_rules-spacing {
-    margin-bottom: 80px;
+    margin-bottom: 100px;
     min-width: 250px;
   }
 
@@ -26,7 +25,6 @@
   &_name {
     padding: 0 8px;
     font-size: 14px;
-
 
     span {
       @include theme-prop(color, disabled-text-color);
