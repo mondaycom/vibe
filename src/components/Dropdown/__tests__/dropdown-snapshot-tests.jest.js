@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Dropdown from "../Dropdown";
+import DropdownDriver from "./driver";
 
 const mockOptions = [
     { value: "ocean", label: "Ocean", isFixed: true },
@@ -81,4 +82,55 @@ describe("Dropdown renders correctly", () => {
     const tree = renderer.create(<Dropdown defaultValue={mockOptions[0]} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  describe("snapshot driver", () => {
+    it("should render correctly with empty props", () => {
+      const component = new DropdownDriver();
+  
+      expect(component.snapshot).toMatchSnapshot();
+    });
+  
+    it("should render correctly for the different sizes", function() {
+      Object.values(Dropdown.size).forEach(size => {
+        const component = new DropdownDriver().withSize(size).withPlaceholder();
+  
+        expect(component.snapshot).toMatchSnapshot();
+      });
+    });
+  
+    it("should use virtualization if set", () => {
+      const component = new DropdownDriver()
+        .withOpenMenuOnClick()
+        .withOpenMenuOnFocus()
+        .withVirtualizedOptions();
+  
+      component.focusInput();
+  
+      expect(component.snapshot).toMatchSnapshot();
+    });
+  
+    it("should use async if set", () => {
+      const component = new DropdownDriver().withAsyncOptions().withDefaultOptions();
+  
+      component.focusInput();
+  
+      expect(component.snapshot).toMatchSnapshot();
+    });
+  
+    it("should open menu on focus if set", function() {
+      const component = new DropdownDriver().withOpenMenuOnClick().withOptions();
+  
+      component.focusInput();
+  
+      expect(component.snapshot).toMatchSnapshot();
+    });
+  
+    it("should open menu on click if set", function() {
+      const component = new DropdownDriver().withOpenMenuOnClick().withOptions();
+  
+      component.clickInput();
+  
+      expect(component.snapshot).toMatchSnapshot();
+    });  
+  })
 });
