@@ -197,10 +197,11 @@ const VirtualizedList = forwardRef(
     useEffect(() => {
       // scroll to specific item
       if (scrollToId && prevScrollToId !== scrollToId) {
+        const hasVerticalScrollbar = isVerticalScrollbarVisible(items, normalizedItems, idGetter, listHeight);
         const item = normalizedItems[scrollToId];
-        item && startScrollAnimation(item);
+        hasVerticalScrollbar && item && startScrollAnimation(item);
       }
-    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems]);
+    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, listHeight]);
 
     useEffect(() => {
       // recalculate row heights
