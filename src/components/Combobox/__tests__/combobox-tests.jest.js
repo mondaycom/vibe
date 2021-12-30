@@ -8,6 +8,7 @@ describe("Combobox tests", () => {
     { value: "orange", label: "Orange" },
     { value: "yellow", label: "Yellow" }
   ];
+
   it("should call callback func when onOptionHover", () => {
     const onMouseOverMock = jest.fn();
     const { getByLabelText } = render(
@@ -58,7 +59,6 @@ describe("Combobox tests", () => {
     )
     const input = getByLabelText("Search for content");
     fireEvent.change(input, {target: {value: 'No text in option'}});
-
 
     await waitFor(() =>{
       fireEvent.click(screen.getByText("Add new")),
