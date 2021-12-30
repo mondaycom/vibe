@@ -5,10 +5,13 @@ import NOOP from "lodash/noop";
 import "./Link.scss";
 import { LINK_TARGET, ICON_POSITION } from "./LinkConsts";
 import Icon from "../Icon/Icon";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const Link = forwardRef(
   (
     {
+      className,
+      // Backward compatibility for props naming
       componentClassName,
       href,
       text,
@@ -24,6 +27,7 @@ const Link = forwardRef(
     },
     ref
   ) => {
+    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const isStart = iconPosition === ICON_POSITION.START;
 
     const onClickWrapper = useCallback(
@@ -44,7 +48,7 @@ const Link = forwardRef(
         ref={ref}
         onClick={onClickWrapper}
         target={target}
-        className={cx("monday-style-link", componentClassName)}
+        className={cx("monday-style-link", overrideClassName)}
         aria-label={ariaLabelDescription}
         aria-labelledby={ariaLabeledBy}
       >
@@ -65,7 +69,7 @@ Link.target = LINK_TARGET;
 Link.position = ICON_POSITION;
 
 Link.propTypes = {
-  componentClassName: PropTypes.string,
+  className: PropTypes.string,
   href: PropTypes.string,
   text: PropTypes.string,
   rel: PropTypes.string,
@@ -89,7 +93,7 @@ Link.defaultProps = {
   /**
    * Classname to be added to the component container
    */
-  componentClassName: "",
+  className: undefined,
   /**
    * the href to link the component to
    */

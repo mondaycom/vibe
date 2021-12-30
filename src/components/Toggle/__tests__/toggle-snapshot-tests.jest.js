@@ -9,12 +9,12 @@ describe("Toggle renders correctly", () => {
   });
 
   it("renders correctly when selection defined by default selected (on) ", () => {
-    const tree = renderer.create(<Toggle componentClassName="dummy-class-name" isDefaultSelected />).toJSON();
+    const tree = renderer.create(<Toggle className="dummy-class-name" isDefaultSelected />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly when selection defined by default selected (off) ", () => {
-    const tree = renderer.create(<Toggle componentClassName="dummy-class-name" isDefaultSelected={false} />).toJSON();
+    const tree = renderer.create(<Toggle className="dummy-class-name" isDefaultSelected={false} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -42,7 +42,7 @@ describe("Toggle renders correctly", () => {
     const tree = renderer.create(<Toggle offOverrideText="TestOff" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-  
+
   it("renders correctly when labels are hidden", () => {
     const tree = renderer.create(<Toggle areLabelsHidden />).toJSON();
     expect(tree).toMatchSnapshot();
