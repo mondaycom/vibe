@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3 (2021-12-30)
+
+#### Bug Fixes
+* [#420](https://github.com/mondaycom/monday-ui-react-core/pull/420) Fix virtualized list scrollbar visible issue ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.0.2 (2021-12-29)
 
 #### Bug Fixes
