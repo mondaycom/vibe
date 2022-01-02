@@ -53,6 +53,7 @@ const Slider = forwardRef(
       disabled,
       max,
       min,
+      onChange,
       showValue,
       size,
       step,
@@ -128,6 +129,10 @@ Slider.propTypes = {
    * - required in Controlled Mode
    */
   onChange: PropTypes.func,
+  /**
+   * Step for Component (Slider) changes
+   */
+  step: PropTypes.number,
   /**
    * Always show `value` instead of Tooltip
    */
@@ -205,7 +210,8 @@ Slider.defaultProps = {
   id: undefined,
   max: 100,
   min: 0,
-  onChange: undefined,
+  onChange: (e) => {console.log('outer change', e)},
+  step: 1,
   size: SIZES_BASIC.SMALL,
   showValue: false,
   value: undefined,
