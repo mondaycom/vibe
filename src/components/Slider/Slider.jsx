@@ -210,7 +210,9 @@ Slider.defaultProps = {
   id: undefined,
   max: 100,
   min: 0,
-  onChange: (e) => {console.log('outer change', e)},
+  onChange: e => {
+    console.log("outer change", e);
+  },
   step: 1,
   size: SIZES_BASIC.SMALL,
   showValue: false,
