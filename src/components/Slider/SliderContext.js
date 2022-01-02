@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { SIZES_BASIC } from "../../constants";
 import { createBemBlockHelper } from "../../helpers/bem-helper";
 import { useSliderValues } from "./SliderHooks";
@@ -8,6 +8,7 @@ const uiDefaults = {
   ariaLabeledBy: undefined,
   color: undefined,
   disabled: false,
+  focused: false,
   size: SIZES_BASIC.SMALL,
   showValue: false,
   consumerBem: () => {}
@@ -22,7 +23,10 @@ const selectionDefaults = {
 };
 const SelectionContext = createContext(selectionDefaults);
 const actionsDefaults = {
-  setSelectedValue: () => {}
+  setSelectedValue: () => {},
+  changeValue: () => {},
+  increaseValue: () => {},
+  decreaseValue: () => {}
 };
 const ActionsContext = createContext(actionsDefaults);
 const InfixContext = createContext();
@@ -36,6 +40,7 @@ export function SliderProvider({
   disabled,
   max,
   min,
+  onChange,
   showValue,
   size,
   step,
@@ -53,11 +58,15 @@ export function SliderProvider({
     valueText
   });
 
+  const [focused, setFocused] = useState(false);
+  console.log("----------", actualValue, actualValueText);
+
   const uiContextValue = {
     ariaLabel,
     ariaLabeledBy,
     color,
     disabled,
+    focused,
     size,
     showValue,
     consumerBem
@@ -71,8 +80,38 @@ export function SliderProvider({
     valueText: actualValueText
   };
 
+  function increaseValue() {
+    if (actualValue === max) {
+      return;
+    }
+    const newValue = actualValue + step;
+    console.log("increase value", actualValue, newValue);
+    changeValue(newValue);
+  }
+
+  function decreaseValue() {
+    if (actualValue === min) {
+      return;
+    }
+    const newValue = actualValue - step;
+    console.log("decrease value", actualValue, newValue);
+    changeValue(newValue);
+  }
+
+  function changeValue(newValue) {
+    console.log("change value in provider");
+    setSelectedValue(newValue);
+    if (typeof onChange === "function") {
+      onChange(newValue);
+    }
+  }
+
   const actionsContextValue = {
-    setSelectedValue
+    setSelectedValue,
+    changeValue,
+    setFocused,
+    increaseValue,
+    decreaseValue
   };
 
   return (
