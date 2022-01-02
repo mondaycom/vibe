@@ -12,16 +12,17 @@ import { isArrowDownEvent, isArrowLeftEvent, isArrowRightEvent, isArrowUpEvent }
 
 export function calcDimensions(max, min, value) {
   const valuePoints = max - min;
-  const dimension = Math.round((value * 100) / valuePoints);
+  const dimension = Math.round(((value - min) * 100) / valuePoints);
   const position = dimension;
+  console.log("dimensions", { max, min, value, dimension });
   return { dimension, position };
 }
 
 const SliderBase = forwardRef(({ className, onChange }, ref) => {
   const { color, disabled, dragging, size, consumerBem } = useSliderUi();
-  const { min, max, value } = useSliderSelection();
+  const { min, max, step, value } = useSliderSelection();
   const { changeValue, increaseValue, decreaseValue, setFocused } = useSliderActions();
-  const { coords, moveToPx, railRef } = useSliderInteractions({ min, max, ref });
+  const { coords, moveToPx, railRef } = useSliderInteractions({ min, max, step, ref });
   const { dimension, position } = calcDimensions(max, min, value);
 
   function handlePointerMove(e) {

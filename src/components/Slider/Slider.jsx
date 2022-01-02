@@ -68,7 +68,7 @@ const Slider = forwardRef(
     };
     return (
       <SliderProvider {...providerProps}>
-        <div ref={mergedRef} className={bem("", { disabled }, className)} id={id}>
+        <div ref={mergedRef} className={bem("", { disabled, "value-shown": showValue }, className)} id={id}>
           <SliderInfix kind="prefix" />
           <SliderBase className={consumerBem("base")} onChange={handleChange} />
           <SliderInfix kind="postfix" />

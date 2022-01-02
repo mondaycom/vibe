@@ -16,25 +16,28 @@ function useSliderInfixComponent(kind) {
   const infix = kind === SliderInfix.kinds.POSTFIX ? postfix : prefix;
 
   if (indicateSelection && kind === SliderInfix.kinds.POSTFIX) {
-    return [true, <Label text={valueText} color={Label.colors.DARK} kind={Label.kinds.LINE} />];
+    return [true, "", <Label text={valueText} color={Label.colors.DARK} kind={Label.kinds.LINE} />];
   }
   if (typeof infix === "object" && infix.icon) {
     const { icon, ...restIconProps } = infix;
     const iconProps = { ...defaultIconProps, ...restIconProps };
-    return [true, <Icon icon={icon} {...iconProps} />];
+    return [true, "", <Icon icon={icon} {...iconProps} />];
   }
   if (typeof infix === "function") {
-    return [true, infix(value, valueText)];
+    return [true, "", infix(value, valueText)];
+  }
+  if (typeof infix === "string") {
+    return [true, "txt", infix];
   }
   if (typeof infix === "undefined") {
-    return [false, null];
+    return [false, "", null];
   }
-  return [true, infix];
+  return [true, "", infix];
 }
 
 const SliderInfix = ({ kind }) => {
-  const [isShow, InfixComponent] = useSliderInfixComponent(kind);
-  return isShow && <div className={bem(kind)}>{InfixComponent}</div>;
+  const [isShow, modificators, InfixComponent] = useSliderInfixComponent(kind);
+  return isShow && <div className={bem(kind, modificators)}>{InfixComponent}</div>;
 };
 
 SliderInfix.kinds = INFIX_KIND;
