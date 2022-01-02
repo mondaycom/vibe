@@ -22,7 +22,6 @@ function defineFilledTrackProps({ dimension, offset, reverse }) {
 
 const SliderFilledTrack = ({ className, dimension, offset, reverse }) => {
   const filledTrackProps = defineFilledTrackProps({ dimension, offset, reverse });
-  console.log("slider: filled-track", { className });
   return <div className={bem("filled-track", "", className)} {...filledTrackProps} />;
 };
 

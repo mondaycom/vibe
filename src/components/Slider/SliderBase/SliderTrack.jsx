@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { bem } from "../SliderCommons";
 
 const SliderTrack = React.memo(({ className }) => {
-  console.log("slider: track", { className });
   return <div className={bem("track", "", className)} />;
 });
 

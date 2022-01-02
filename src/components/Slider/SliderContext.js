@@ -8,6 +8,7 @@ const uiDefaults = {
   ariaLabeledBy: undefined,
   color: undefined,
   disabled: false,
+  dragging: false,
   focused: false,
   size: SIZES_BASIC.SMALL,
   showValue: false,
@@ -59,13 +60,14 @@ export function SliderProvider({
   });
 
   const [focused, setFocused] = useState(false);
-  console.log("----------", actualValue, actualValueText);
+  const [dragging, setDragging] = useState(false);
 
   const uiContextValue = {
     ariaLabel,
     ariaLabeledBy,
     color,
     disabled,
+    dragging,
     focused,
     size,
     showValue,
@@ -85,7 +87,6 @@ export function SliderProvider({
       return;
     }
     const newValue = actualValue + step;
-    console.log("increase value", actualValue, newValue);
     changeValue(newValue);
   }
 
@@ -94,12 +95,10 @@ export function SliderProvider({
       return;
     }
     const newValue = actualValue - step;
-    console.log("decrease value", actualValue, newValue);
     changeValue(newValue);
   }
 
   function changeValue(newValue) {
-    console.log("change value in provider");
     setSelectedValue(newValue);
     if (typeof onChange === "function") {
       onChange(newValue);
@@ -109,6 +108,7 @@ export function SliderProvider({
   const actionsContextValue = {
     setSelectedValue,
     changeValue,
+    setDragging,
     setFocused,
     increaseValue,
     decreaseValue

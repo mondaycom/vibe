@@ -40,7 +40,6 @@ const Slider = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const consumerBem = createBemBlockHelper(classNameBase, { isConsume: true });
     function handleChange(newValue) {
-      console.log("slider: handle change", newValue);
       if (typeof onChange === "function") {
         onChange(newValue);
       }
@@ -67,7 +66,6 @@ const Slider = forwardRef(
         indicateSelection
       }
     };
-    console.log("--- slider", { disabled });
     return (
       <SliderProvider {...providerProps}>
         <div ref={mergedRef} className={bem("", { disabled }, className)} id={id}>
@@ -210,9 +208,7 @@ Slider.defaultProps = {
   id: undefined,
   max: 100,
   min: 0,
-  onChange: e => {
-    console.log("outer change", e);
-  },
+  onChange: () => {},
   step: 1,
   size: SIZES_BASIC.SMALL,
   showValue: false,
