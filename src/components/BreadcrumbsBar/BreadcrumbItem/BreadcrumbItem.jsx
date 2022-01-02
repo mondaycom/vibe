@@ -22,7 +22,7 @@ const BreadcrumbItem = ({
   isCurrent,
   icon
 }) => {
-  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled]);
+  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const componentRef = useRef(null);
   const isOverflowing = useIsOverflowing({ ref: componentRef });
 
@@ -84,7 +84,7 @@ BreadcrumbItem.propTypes = {
 BreadcrumbItem.defaultProps = {
   className: "",
   text: "",
-  disabled: false,
+  disabled: undefined,
   isClickable: false,
   link: undefined,
   onClick: undefined,

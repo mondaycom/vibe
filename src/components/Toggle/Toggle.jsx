@@ -31,7 +31,7 @@ const Toggle = ({
   offOverrideText
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled]);
+  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const { inputProps, isChecked } = useToggle({
     id,
     isDefaultSelected,
@@ -89,7 +89,7 @@ Toggle.defaultProps = {
   onChange: NOOP,
   value: undefined,
   name: undefined,
-  disabled: false,
+  disabled: undefined,
   areLabelsHidden: false,
   ariaLabel: undefined,
   ariaControls: undefined,

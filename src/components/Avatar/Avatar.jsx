@@ -37,7 +37,7 @@ const Avatar = ({
   bottomRightBadgeProps
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
-  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled]);
+  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const backgroundColorStyle = useMemo(() => {
     return src ? undefined : { backgroundColor: getElementColor(backgroundColor) };
   }, [src, backgroundColor]);
@@ -148,7 +148,7 @@ Avatar.defaultProps = {
   size: AVATAR_SIZES.LARGE,
   tabIndex: 0,
   ariaHidden: false,
-  disabled: false,
+  disabled: undefined,
   square: false,
   topLeftBadgeProps: undefined,
   topRightBadgeProps: undefined,
