@@ -87,6 +87,9 @@ export function SliderProvider({
       return;
     }
     const newValue = actualValue + step;
+    if (newValue > max) {
+      return changeValue(max);
+    }
     changeValue(newValue);
   }
 
@@ -95,6 +98,9 @@ export function SliderProvider({
       return;
     }
     const newValue = actualValue - step;
+    if (newValue < min) {
+      return changeValue(min);
+    }
     changeValue(newValue);
   }
 

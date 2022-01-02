@@ -18,7 +18,7 @@ export function useControlledOrInternal(value) {
   return isControlled;
 }
 
-export function useSliderInteractions({ min, max }) {
+export function useSliderInteractions({ min, max, step }) {
   const railRef = useRef(null);
   const [coords, setCoords] = useState({ left: 0, right: 100, width: 100 });
 
@@ -28,11 +28,13 @@ export function useSliderInteractions({ min, max }) {
     setCoords({ left, right, width });
   }
 
-  function moveToPx(fromStartInPx) {
+  function moveToPx(offsetInPx) {
     const valuePoints = max - min;
     const pxToValuePoints = coords.width / valuePoints;
-    const fromMinInValuePoints = Math.round(fromStartInPx / pxToValuePoints);
-    const newValue = min + fromMinInValuePoints;
+    const offsetInValuePoints = Math.round(offsetInPx / pxToValuePoints) + min;
+    const steppedOffset = Math.round(offsetInValuePoints / step) * step;
+    console.log("moveToPx", { offsetInPx, offsetInValuePoints, step, steppedOffset, min, max });
+    const newValue = steppedOffset;
     if (newValue < min) {
       return min;
     }
