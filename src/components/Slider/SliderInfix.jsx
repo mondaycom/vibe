@@ -10,7 +10,7 @@ const defaultIconProps = {
   ignoreFocusStyle: true
 };
 
-function useSliderInfixComonent(kind) {
+function useSliderInfixComponent(kind) {
   const { prefix, postfix, indicateSelection } = useSliderInfix();
   const { value, valueText } = useSliderSelection();
   const infix = kind === SliderInfix.kinds.POSTFIX ? postfix : prefix;
@@ -33,8 +33,7 @@ function useSliderInfixComonent(kind) {
 }
 
 const SliderInfix = ({ kind }) => {
-  console.log("slider: postfix", { kind });
-  const [isShow, InfixComponent] = useSliderInfixComonent(kind);
+  const [isShow, InfixComponent] = useSliderInfixComponent(kind);
   return isShow && <div className={bem(kind)}>{InfixComponent}</div>;
 };
 

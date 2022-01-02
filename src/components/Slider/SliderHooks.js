@@ -25,17 +25,20 @@ export function useSliderInteractions({ min, max }) {
   function defineCoords() {
     const railRect = railRef.current.getBoundingClientRect();
     const { left, right, width } = railRect;
-    console.log("coords", railRect, { left, right, width });
     setCoords({ left, right, width });
   }
 
   function moveToPx(fromStartInPx) {
-    console.log("moveToPx", fromStartInPx);
     const valuePoints = max - min;
     const pxToValuePoints = coords.width / valuePoints;
     const fromMinInValuePoints = Math.round(fromStartInPx / pxToValuePoints);
     const newValue = min + fromMinInValuePoints;
-    console.log("--->", { fromStartInPx, valuePoints, pxToValuePoints, fromMinInValuePoints, newValue });
+    if (newValue < min) {
+      return min;
+    }
+    if (newValue > max) {
+      return max;
+    }
     return newValue;
   }
 

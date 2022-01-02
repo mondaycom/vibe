@@ -4,16 +4,14 @@ import { bem } from "../SliderCommons";
 
 const SliderRail = forwardRef(({ className, children, onClick }, ref) => {
   function handleClick(e) {
-    console.log("click on track", e, e.clientX);
     if (typeof onClick === "function") {
       onClick(e);
     }
   }
 
-  console.log("slider: rail", { className });
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-    <div className={bem("rail", "", className)} onClick={handleClick} ref={ref}>
+    <div className={bem("rail", "", className)} onPointerDown={handleClick} ref={ref}>
       {children}
     </div>
   );

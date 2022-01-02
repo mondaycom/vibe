@@ -18,14 +18,22 @@ export function calcDimensions(max, min, value) {
 }
 
 const SliderBase = forwardRef(({ className, onChange }, ref) => {
-  const { color, disabled, size, consumerBem } = useSliderUi();
+  const { color, disabled, dragging, size, consumerBem } = useSliderUi();
   const { min, max, value } = useSliderSelection();
   const { changeValue, increaseValue, decreaseValue, setFocused } = useSliderActions();
   const { coords, moveToPx, railRef } = useSliderInteractions({ min, max, ref });
   const { dimension, position } = calcDimensions(max, min, value);
 
+  function handlePointerMove(e) {
+    if (!dragging) {
+      return;
+    }
+    const fromStartInPx = Math.round(e.clientX - coords.left);
+    const newValue = moveToPx(fromStartInPx);
+    changeValue(newValue);
+  }
+
   function handleRailClick(e) {
-    console.log("handle click on rail:", e.clientX, coords);
     const fromStartInPx = e.clientX - coords.left;
     const newValue = moveToPx(fromStartInPx);
     changeValue(newValue);
@@ -41,9 +49,12 @@ const SliderBase = forwardRef(({ className, onChange }, ref) => {
     }
   }
 
-  console.log("base slider", { disabled, railRef, value, dimension, position, coords });
   return (
-    <div onKeyDown={handleKeyDown} className={bem("base", { [size]: size, [color]: color, disabled }, className)}>
+    <div
+      onKeyDown={handleKeyDown}
+      onPointerMove={handlePointerMove}
+      className={bem("base", { [size]: size, [color]: color, disabled }, className)}
+    >
       <SliderRail className={consumerBem("rail")} onClick={handleRailClick} ref={railRef}>
         <SliderTrack className={consumerBem("track")} />
         {railRef.current && (

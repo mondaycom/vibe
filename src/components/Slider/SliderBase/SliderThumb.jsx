@@ -1,71 +1,44 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { DialogPositions } from "../../../constants";
 import Tooltip from "../../Tooltip/Tooltip";
 import { bem } from "../SliderCommons";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 
+const tooltipShowDelay = 300;
+const tooltipPosition = DialogPositions.TOP;
+
 const SliderThumb = ({ className, position }) => {
-  // const [focused, setFocused] = useState(false);
   const { ariaLabel, ariaLabeledBy, disabled, focused, showValue } = useSliderUi();
   const { max, min, value, valueText } = useSliderSelection();
-  const { setFocused } = useSliderActions();
+  const { setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);
 
-  const tooltipShowDelay = 300;
-  const tooltipPosition = DialogPositions.TOP;
-
-  // function handlePointerDown(e) {
-  //   console.log("-down", ref.current, e);
-  // }
-  // function handlePointerMove(e) {
-  //   const { pageX, pageY, screenX, screenY, target } = e;
-  //   // const elThumb = e.target;
-  //   const elThumb = ref.current;
-  //   // const offset = mergedRef.current.offset();
-  //   // const offset = elThumb.offset();
-  //   if (elThumb) {
-  //     const rect = elThumb.getBoundingClientRect();
-  //     console.log("move offset", rect.top, rect.right, rect.bottom, rect.left, rect);
-  //   }
-  //   console.log("-move", { elThumb, pageX, pageY, screenX, screenY, target }, e);
-  // }
-  // function handlePointerUp(e) {
-  //   console.log("-up", e);
-  // }
-  // function handlePointerCancel(e) {
-  //   console.log("-cancel", e);
-  // }
-  // function handleGotPointerCapture(e) {
-  //   console.log("-got capture", e);
-  // }
-  // function handleLostPointerCapture(e) {
-  //   console.log("-last capture", e);
-  // }
-  // function handlePointerEnter(e) {
-  //   console.log("-enter", e);
-  //   // setHovered(false);
-  // }
-  // function handlePointerLeave(e) {
-  //   console.log("-leave", e);
-  //   // setHovered(false);
-  // }
-  function handleFocus(e) {
-    console.log("-focus", e);
-    setFocused(true);
-  }
-  function handleBlur(e) {
-    console.log("-blur", e);
+  function handleBlur() {
     setFocused(false);
   }
-  // function handlePointerOver(e) {
-  //   console.log("-over", e);
-  // }
-  // function handlePointerOut(e) {
-  //   console.log("-out", e);
-  // }
 
-  console.log("slider: thumb", { focused, valueText, value });
+  function handleFocus() {
+    setFocused(true);
+  }
+
+  function handlePointerDown(e) {
+    e.stopPropagation();
+    setDragging(true);
+    document.addEventListener("pointerup", stopMove);
+  }
+
+  function stopMove() {
+    setDragging(false);
+    document.removeEventListener("pointerup", stopMove);
+  }
+
+  useEffect(() => {
+    if (focused && ref && ref.current) {
+      ref.current.focus();
+    }
+  }, [focused]);
+
   return (
     <Tooltip content={showValue ? null : valueText} position={tooltipPosition} showDelay={tooltipShowDelay}>
       <div
@@ -79,17 +52,7 @@ const SliderThumb = ({ className, position }) => {
         className={bem("thumb", { focused, disabled }, className)}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        // onKeyDown={handleKeyDown}
-        // onPointerDown={handlePointerDown}
-        // onPointerMove={handlePointerMove}
-        // onPointerUp={handlePointerUp}
-        // onPointerCancel={handlePointerCancel}
-        // onGotPointerCapture={handleGotPointerCapture}
-        // onLostPointerCapture={handleLostPointerCapture}
-        // onPointerEnter={handlePointerEnter}
-        // onPointerLeave={handlePointerLeave}
-        // onPointerOver={handlePointerOver}
-        // onPointerOut={handlePointerOut}
+        onPointerDown={handlePointerDown}
         ref={ref}
         role="slider"
         style={{ left: `${position}%` }}
