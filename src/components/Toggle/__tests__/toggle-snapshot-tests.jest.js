@@ -29,7 +29,7 @@ describe("Toggle renders correctly", () => {
   });
 
   it("renders correctly when disabled", () => {
-    const tree = renderer.create(<Toggle isDisabled />).toJSON();
+    const tree = renderer.create(<Toggle disabled={} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

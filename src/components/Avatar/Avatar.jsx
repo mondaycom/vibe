@@ -8,6 +8,7 @@ import { getElementColor, elementColorsNames } from "../../general-stories/color
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import "./Avatar.scss";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
@@ -22,7 +23,11 @@ const Avatar = ({
   role,
   ariaLabel,
   backgroundColor,
+  square,
+  disabled,
+  // Backward compatibility for props naming
   isSquare,
+  // Backward compatibility for props naming
   isDisabled,
   tabIndex,
   ariaHidden,
@@ -31,6 +36,8 @@ const Avatar = ({
   bottomLeftBadgeProps,
   bottomRightBadgeProps
 }) => {
+  const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
+  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled]);
   const backgroundColorStyle = useMemo(() => {
     return src ? undefined : { backgroundColor: getElementColor(backgroundColor) };
   }, [src, backgroundColor]);
@@ -89,8 +96,8 @@ const Avatar = ({
           bemHelper({ element: "circle", state: type }),
           bemHelper({ element: "circle", state: size }),
           {
-            [bemHelper({ element: "circle", state: "is-disabled" })]: isDisabled,
-            [bemHelper({ element: "circle", state: "is-square" })]: isSquare
+            [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
+            [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare
           }
         )}
         aria-hidden={ariaHidden}
@@ -121,8 +128,8 @@ Avatar.propTypes = {
   size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   ariaHidden: PropTypes.bool,
-  isDisabled: PropTypes.bool,
-  isSquare: PropTypes.bool,
+  disabled: PropTypes.bool,
+  square: PropTypes.bool,
   topLeftBadgeProps: PropTypes.object,
   topRightBadgeProps: PropTypes.object,
   bottomLeftBadgeProps: PropTypes.object,
@@ -141,8 +148,8 @@ Avatar.defaultProps = {
   size: AVATAR_SIZES.LARGE,
   tabIndex: 0,
   ariaHidden: false,
-  isDisabled: false,
-  isSquare: false,
+  disabled: false,
+  square: false,
   topLeftBadgeProps: undefined,
   topRightBadgeProps: undefined,
   bottomLeftBadgeProps: undefined,
