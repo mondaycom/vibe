@@ -100,18 +100,6 @@ Indicate selection at Label, Add Prefix and/or Postfix Icons or Labels
   </Story>
 </Canvas>
 
-### Limit and Step
-
-Limit and Step can be customized.
-
-<Canvas>
-  <Story name="Limits, Steps" decorators={[VerticalStories]}>
-    <Slider prefix="Step 10" step={10} indicateSelection={true} valueDefault={10} size={Slider.sizes.SMALL} />
-    <Slider prefix="Step 2, Max: 20" max={20} step={2}  indicateSelection={true} valueDefault={4} size={Slider.sizes.MEDIUM} />
-    <Slider prefix="from 20%" postfix="till 80%" min={20} max={80} showValue={true} valueDefault={62} size={Slider.sizes.LARGE} />
-  </Story>
-</Canvas>
-
 ## Do’s and Don’ts
 <ComponentRules
   rules={[
