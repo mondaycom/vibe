@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
-import { isArrowUpEvent, isArrowDownEvent, isArrowLeftEvent, isArrowRightEvent } from "../../../utils/dom-event-utils";
 import { DialogPositions } from "../../../constants";
 import Tooltip from "../../Tooltip/Tooltip";
 import { bem } from "../SliderCommons";
@@ -9,7 +8,7 @@ import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderCont
 const SliderThumb = ({ className, position }) => {
   // const [focused, setFocused] = useState(false);
   const { ariaLabel, ariaLabeledBy, disabled, focused, showValue } = useSliderUi();
-  const { step, max, min, value, valueText } = useSliderSelection();
+  const { max, min, value, valueText } = useSliderSelection();
   const { setFocused } = useSliderActions();
   const ref = useRef(null);
 
