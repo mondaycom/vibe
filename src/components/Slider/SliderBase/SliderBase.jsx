@@ -16,7 +16,7 @@ function getKey(index) {
 }
 
 const SliderBase = forwardRef(({ className }, ref) => {
-  const { color, disabled, dragging, size, consumerBem } = useSliderUi();
+  const { color, disabled, dragging, size, consumerBem, shapeTestId } = useSliderUi();
   const { isRange, min, max, step, value } = useSliderSelection();
   const { changeValue, increaseValue, decreaseValue } = useSliderActions();
   const { railCoords, railRef } = useSliderRail({ min, max, step, ref });
@@ -51,9 +51,10 @@ const SliderBase = forwardRef(({ className }, ref) => {
 
   return (
     <div
+      className={bem("base", { [size]: size, [color]: color, disabled }, className)}
+      data-testid={shapeTestId("base")}
       onKeyDown={handleKeyDown}
       onPointerMove={handlePointerMove}
-      className={bem("base", { [size]: size, [color]: color, disabled }, className)}
     >
       <SliderRail className={consumerBem("rail")} onClick={handleRailClick} ref={railRef}>
         <SliderTrack className={consumerBem("track")} />

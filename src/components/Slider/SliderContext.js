@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { SIZES_BASIC } from "../../constants";
 import { createBemBlockHelper } from "../../helpers/bem-helper";
+import { createTestIdHelper } from "../../helpers/testid-helper";
 import { useSliderValues } from "./SliderHooks";
 
 function getCurrentValue(actualValue, isRange, focused) {
@@ -14,12 +15,13 @@ const uiDefaults = {
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
   color: undefined,
+  consumerBem: () => {},
   disabled: false,
   dragging: false,
   focused: null,
   size: SIZES_BASIC.SMALL,
-  showValue: false,
-  consumerBem: () => {}
+  shapeTestId: () => {},
+  showValue: false
 };
 const UiContext = createContext(uiDefaults);
 const selectionDefaults = {
@@ -46,6 +48,7 @@ export function SliderProvider({
   ariaLabeledBy,
   classNameBase,
   color,
+  dataTestId,
   disabled,
   isRange,
   max,
@@ -61,6 +64,7 @@ export function SliderProvider({
   infixOptions
 }) {
   const consumerBem = createBemBlockHelper(classNameBase, { isConsume: true });
+  const shapeTestId = createTestIdHelper(dataTestId);
   const { actualValue, actualValueText, setSelectedValue } = useSliderValues({
     value,
     valueDefault,
@@ -76,12 +80,13 @@ export function SliderProvider({
     ariaLabel,
     ariaLabeledBy,
     color,
+    consumerBem,
     disabled,
     dragging,
     focused,
     size,
-    showValue,
-    consumerBem
+    shapeTestId,
+    showValue
   };
 
   const selectionContextValue = {

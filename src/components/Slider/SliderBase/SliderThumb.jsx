@@ -10,7 +10,7 @@ const tooltipPosition = DialogPositions.TOP;
 
 const SliderThumb = ({ className, index, position }) => {
   const { max, min, value, valueText } = useSliderSelection(index);
-  const { ariaLabel, ariaLabeledBy, disabled, focused, showValue } = useSliderUi();
+  const { ariaLabel, ariaLabeledBy, disabled, focused, shapeTestId, showValue } = useSliderUi();
   const { setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);
 
@@ -56,6 +56,7 @@ const SliderThumb = ({ className, index, position }) => {
         aria-valuetext={valueText}
         aria-disabled={disabled}
         className={bem("thumb", { focused: focused === index, disabled, [`index-${index}`]: true }, className)}
+        data-testid={shapeTestId(`thumb-${index}`)}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onPointerDown={handlePointerDown}

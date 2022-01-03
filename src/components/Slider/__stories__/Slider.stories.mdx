@@ -169,7 +169,7 @@ Limit and Step can be customized.
 
 ### Customisation
 
-Custom ID and Custom (Consumer) Classes. Check HTML of component.
+Custom ID, custom `data-testid` and Custom (Consumer) Classes. Check HTML of component.
 Add Custom Items as Prefix and Postfix of Slider.
 
 __Important!__ Please use customisation very careful, only if you really need it. Check twice with your Product/Designer.
@@ -178,6 +178,7 @@ __Important!__ Please use customisation very careful, only if you really need it
   <Story name="Customisation" decorators={[VerticalStories]}>
     <Slider
       id="my-app-slider"
+      data-testid={"my-app-slider"}
       className="my-custom-class"
       classNameBase="see-me-in-dev-tools"
       valueDefault={19}

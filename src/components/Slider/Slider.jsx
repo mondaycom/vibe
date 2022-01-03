@@ -17,6 +17,7 @@ const Slider = forwardRef(
       className,
       classNameBase,
       color,
+      "data-testid": dataTestId,
       disabled,
       id,
       isRange,
@@ -45,6 +46,7 @@ const Slider = forwardRef(
       ariaLabeledBy,
       classNameBase,
       color,
+      dataTestId,
       disabled,
       isRange,
       max,
@@ -65,7 +67,12 @@ const Slider = forwardRef(
     };
     return (
       <SliderProvider {...providerProps}>
-        <div ref={mergedRef} className={bem("", { disabled, "value-shown": showValue }, className)} id={id}>
+        <div
+          className={bem("", { disabled, "value-shown": showValue }, className)}
+          data-testid={dataTestId}
+          id={id}
+          ref={mergedRef}
+        >
           <SliderInfix kind="prefix" />
           <SliderBase className={consumerBem("base")} />
           <SliderInfix kind="postfix" />
@@ -101,6 +108,10 @@ Slider.propTypes = {
    * Color Mode (primary/positive/negative) of the component (Slider)
    */
   color: PropTypes.oneOf(Object.values(Slider.colors)),
+  /**
+   * Unique TestId - can be used as Selector for integration tests and other needs (tracking, etc)
+   */
+  "data-testid": PropTypes.oneOf(Object.values(Slider.colors)),
   /**
    * If set to true, Component (Slider) will be disabled
    *  - impossible to change value of component (Slider)
@@ -207,6 +218,7 @@ Slider.defaultProps = {
   className: "",
   classNameBase: "",
   color: undefined,
+  "data-testid": "monday-slider",
   disabled: false,
   id: undefined,
   isRange: false,
