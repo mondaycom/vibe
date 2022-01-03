@@ -3,19 +3,27 @@ import { SIZES_BASIC } from "../../constants";
 import { createBemBlockHelper } from "../../helpers/bem-helper";
 import { useSliderValues } from "./SliderHooks";
 
+function getCurrentValue(actualValue, isRange, focused) {
+  if (!isRange) {
+    return actualValue;
+  }
+  return actualValue[focused];
+}
+
 const uiDefaults = {
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
   color: undefined,
   disabled: false,
   dragging: false,
-  focused: false,
+  focused: null,
   size: SIZES_BASIC.SMALL,
   showValue: false,
   consumerBem: () => {}
 };
 const UiContext = createContext(uiDefaults);
 const selectionDefaults = {
+  isRange: false,
   max: 100,
   min: 0,
   step: 1,
@@ -39,6 +47,7 @@ export function SliderProvider({
   classNameBase,
   color,
   disabled,
+  isRange,
   max,
   min,
   onChange,
@@ -59,7 +68,8 @@ export function SliderProvider({
     valueText
   });
 
-  const [focused, setFocused] = useState(false);
+  const [focused, setFocused] = useState(null);
+  console.log("----", { focused, actualValue, actualValueText });
   const [dragging, setDragging] = useState(false);
 
   const uiContextValue = {
@@ -75,6 +85,7 @@ export function SliderProvider({
   };
 
   const selectionContextValue = {
+    isRange,
     max,
     min,
     step,
@@ -83,10 +94,11 @@ export function SliderProvider({
   };
 
   function increaseValue() {
-    if (actualValue === max) {
+    const currentValue = getCurrentValue(actualValue, isRange, focused);
+    if (currentValue === max) {
       return;
     }
-    const newValue = actualValue + step;
+    const newValue = currentValue + step;
     if (newValue > max) {
       return changeValue(max);
     }
@@ -94,21 +106,44 @@ export function SliderProvider({
   }
 
   function decreaseValue() {
-    if (actualValue === min) {
+    const currentValue = getCurrentValue(actualValue, isRange, focused);
+    if (currentValue === min) {
       return;
     }
-    const newValue = actualValue - step;
+    const newValue = currentValue - step;
     if (newValue < min) {
       return changeValue(min);
     }
     changeValue(newValue);
   }
 
-  function changeValue(newValue) {
+  function actualChangeValue(newValue) {
     setSelectedValue(newValue);
     if (typeof onChange === "function") {
       onChange(newValue);
     }
+  }
+
+  // TODO: refactor - simplify
+  function changeValue(newValue, { newFocused } = {}) {
+    console.log("change value", { newValue, isRange, focused, newFocused, actualValue });
+    if (!isRange) {
+      actualChangeValue(newValue);
+      return;
+    }
+    const newValues = [...actualValue];
+    const isNewFocus = typeof newFocused !== "undefined";
+    const currentFocused = isNewFocus ? newFocused : focused;
+    newValues[currentFocused] = newValue;
+    if (newValues[0] > newValues[1]) {
+      setFocused(currentFocused === 0 ? 1 : 0);
+      actualChangeValue([newValues[1], newValues[0]]);
+      return;
+    }
+    if (isNewFocus) {
+      setFocused(currentFocused);
+    }
+    actualChangeValue(newValues);
   }
 
   const actionsContextValue = {
@@ -139,8 +174,14 @@ export function useSliderInfix() {
   return useContext(InfixContext);
 }
 
-export function useSliderSelection() {
-  return useContext(SelectionContext);
+export function useSliderSelection(index) {
+  const selectionContext = useContext(SelectionContext);
+  const { isRange, value, valueText } = selectionContext;
+  // TODO: memoize
+  if (isRange && typeof index !== "undefined") {
+    return { ...selectionContext, value: value[index], valueText: valueText[index] };
+  }
+  return selectionContext;
 }
 
 export function useSliderActions() {

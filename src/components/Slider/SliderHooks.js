@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
-function ensureValueText(valueText, value, formatter) {
+function ensureSingleValueText(valueText, value, formatter) {
+  console.log("ensureValueText", value, valueText);
   if (valueText) {
     return valueText;
   }
@@ -13,46 +14,41 @@ function ensureValueText(valueText, value, formatter) {
   return formatter(value);
 }
 
+function ensureValueText(valueText, value, formatter) {
+  console.log("ensureValueText", value, valueText, typeof value);
+  if (!Array.isArray(value)) {
+    return ensureSingleValueText(valueText, value, formatter);
+  }
+  return value.map((valueSingle, index) => {
+    const valueTextSingle = Array.isArray(valueText) ? valueText[index] : undefined;
+    return ensureSingleValueText(valueTextSingle, valueSingle, formatter);
+  });
+}
+
 export function useControlledOrInternal(value) {
   const [isControlled] = useState(typeof value !== "undefined");
   return isControlled;
 }
 
-export function useSliderInteractions({ min, max, step }) {
+export function useSliderRail() {
   const railRef = useRef(null);
-  const [coords, setCoords] = useState({ left: 0, right: 100, width: 100 });
+  const [railCoords, setRailCoords] = useState({ left: 0, right: 100, width: 100 });
 
-  function defineCoords() {
+  function defineRailCoords() {
     const railRect = railRef.current.getBoundingClientRect();
     const { left, right, width } = railRect;
-    setCoords({ left, right, width });
-  }
-
-  function moveToPx(offsetInPx) {
-    const valuePoints = max - min;
-    const pxToValuePoints = coords.width / valuePoints;
-    const offsetInValuePoints = Math.round(offsetInPx / pxToValuePoints) + min;
-    const steppedOffset = Math.round(offsetInValuePoints / step) * step;
-    console.log("moveToPx", { offsetInPx, offsetInValuePoints, step, steppedOffset, min, max });
-    const newValue = steppedOffset;
-    if (newValue < min) {
-      return min;
-    }
-    if (newValue > max) {
-      return max;
-    }
-    return newValue;
+    setRailCoords({ left, right, width });
   }
 
   useSliderResize(() => {
-    defineCoords();
+    defineRailCoords();
   });
 
   useEffect(() => {
-    defineCoords();
+    defineRailCoords();
   }, []);
 
-  return { coords, moveToPx, railRef };
+  return { railCoords, railRef };
 }
 
 // TODO: can be used as global common/shared util-hooks

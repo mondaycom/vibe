@@ -7,14 +7,14 @@ function defineFilledTrackProps({ dimension, offset, reverse }) {
     return {
       style: {
         right: `${offset}%`,
-        width: `${dimension}%`
+        width: `${dimension - offset}%`
       }
     };
   }
   return {
     style: {
       left: `${offset}%`,
-      width: `${dimension}%`
+      width: `${dimension - offset}%`
     }
   };
   // can be extended here for vertical slider

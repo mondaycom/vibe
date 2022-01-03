@@ -19,6 +19,7 @@ const Slider = forwardRef(
       color,
       disabled,
       id,
+      isRange,
       max,
       min,
       onChange,
@@ -39,17 +40,13 @@ const Slider = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const consumerBem = createBemBlockHelper(classNameBase, { isConsume: true });
-    function handleChange(newValue) {
-      if (typeof onChange === "function") {
-        onChange(newValue);
-      }
-    }
     const providerProps = {
       ariaLabel,
       ariaLabeledBy,
       classNameBase,
       color,
       disabled,
+      isRange,
       max,
       min,
       onChange,
@@ -70,7 +67,7 @@ const Slider = forwardRef(
       <SliderProvider {...providerProps}>
         <div ref={mergedRef} className={bem("", { disabled, "value-shown": showValue }, className)} id={id}>
           <SliderInfix kind="prefix" />
-          <SliderBase className={consumerBem("base")} onChange={handleChange} />
+          <SliderBase className={consumerBem("base")} />
           <SliderInfix kind="postfix" />
         </div>
       </SliderProvider>
@@ -115,6 +112,10 @@ Slider.propTypes = {
    */
   id: PropTypes.string,
   /**
+   * If true switch slider to RRange mode (two Thumbs)
+   */
+  isRange: PropTypes.bool,
+  /**
    * Max range value of the component (Slider)
    */
   max: PropTypes.number,
@@ -142,13 +143,15 @@ Slider.propTypes = {
   /**
    * Current/selected value of the range of the Component (Slider)
    *   - should be used in Controlled Mode only
+   *   - in isRange mode should be an array of two numbers
    */
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.number), PropTypes.number]),
   /**
    * Default `value` if value not specified
    *  - should be used in NON-Controlled mode to set initial Value
+   *  - in isRange mode should be an array of two numbers
    */
-  valueDefault: PropTypes.number,
+  valueDefault: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.number), PropTypes.number]),
   /**
    * Formatter function `value => formattedValue`
    * default formatter return `${value}%`
@@ -158,7 +161,7 @@ Slider.propTypes = {
    * Text/presentation of current/selected value
    *  - should be used in Controlled Mode only
    */
-  valueText: PropTypes.string,
+  valueText: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
 
   // ------ Additional subcomponents' props
   /**
@@ -206,6 +209,7 @@ Slider.defaultProps = {
   color: undefined,
   disabled: false,
   id: undefined,
+  isRange: false,
   max: 100,
   min: 0,
   onChange: () => {},

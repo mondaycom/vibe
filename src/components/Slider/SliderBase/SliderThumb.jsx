@@ -8,18 +8,18 @@ import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderCont
 const tooltipShowDelay = 300;
 const tooltipPosition = DialogPositions.TOP;
 
-const SliderThumb = ({ className, position }) => {
+const SliderThumb = ({ className, index, position }) => {
+  const { max, min, value, valueText } = useSliderSelection(index);
   const { ariaLabel, ariaLabeledBy, disabled, focused, showValue } = useSliderUi();
-  const { max, min, value, valueText } = useSliderSelection();
   const { setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);
 
   function handleBlur() {
-    setFocused(false);
+    setFocused(null);
   }
 
   function handleFocus() {
-    setFocused(true);
+    setFocused(index);
   }
 
   function handlePointerDown(e) {
@@ -34,13 +34,19 @@ const SliderThumb = ({ className, position }) => {
   }
 
   useEffect(() => {
-    if (focused && ref && ref.current) {
+    if (focused === index && ref && ref.current) {
       ref.current.focus();
     }
-  }, [focused]);
+  }, [focused, index]);
 
+  console.log("thumb", index, { focused, valueText, value });
   return (
-    <Tooltip content={showValue ? null : valueText} position={tooltipPosition} showDelay={tooltipShowDelay}>
+    <Tooltip
+      open={focused === index}
+      content={showValue ? null : valueText}
+      position={tooltipPosition}
+      showDelay={tooltipShowDelay}
+    >
       <div
         aria-label={ariaLabel}
         aria-labelledby={ariaLabeledBy}
@@ -49,7 +55,7 @@ const SliderThumb = ({ className, position }) => {
         aria-valuenow={value}
         aria-valuetext={valueText}
         aria-disabled={disabled}
-        className={bem("thumb", { focused, disabled }, className)}
+        className={bem("thumb", { focused: focused === index, disabled, [`index-${index}`]: true }, className)}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onPointerDown={handlePointerDown}
@@ -70,6 +76,10 @@ SliderThumb.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * Consumer/Custom/Extra `class names` to be added to the Component's-Root-Node
+   */
+  index: PropTypes.number,
+  /**
    * Position (i.e. offset) from start of track/rail, according to value
    */
   position: PropTypes.number
@@ -77,6 +87,7 @@ SliderThumb.propTypes = {
 
 SliderThumb.defaultProps = {
   className: "",
+  index: 0,
   position: 0
 };
 

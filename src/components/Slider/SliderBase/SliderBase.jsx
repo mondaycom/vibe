@@ -2,43 +2,42 @@ import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import "./SliderBase.scss";
 import { bem } from "../SliderCommons";
-import { useSliderInteractions } from "../SliderHooks";
+import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
+import { calcDimensions, getNearest, moveToPx } from "../SliderHelpers";
+import { useSliderRail } from "../SliderHooks";
 import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
 import SliderFilledTrack from "./SliderFilledTrack";
 import SliderThumb from "./SliderThumb";
-import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import { isArrowDownEvent, isArrowLeftEvent, isArrowRightEvent, isArrowUpEvent } from "../../../utils/dom-event-utils";
 
-export function calcDimensions(max, min, value) {
-  const valuePoints = max - min;
-  const dimension = Math.round(((value - min) * 100) / valuePoints);
-  const position = dimension;
-  console.log("dimensions", { max, min, value, dimension });
-  return { dimension, position };
+function getKey(index) {
+  return index;
 }
 
-const SliderBase = forwardRef(({ className, onChange }, ref) => {
+const SliderBase = forwardRef(({ className }, ref) => {
   const { color, disabled, dragging, size, consumerBem } = useSliderUi();
-  const { min, max, step, value } = useSliderSelection();
-  const { changeValue, increaseValue, decreaseValue, setFocused } = useSliderActions();
-  const { coords, moveToPx, railRef } = useSliderInteractions({ min, max, step, ref });
-  const { dimension, position } = calcDimensions(max, min, value);
+  const { isRange, min, max, step, value } = useSliderSelection();
+  const { changeValue, increaseValue, decreaseValue } = useSliderActions();
+  const { railCoords, railRef } = useSliderRail({ min, max, step, ref });
+  const { dimension, offset, positions } = calcDimensions({ isRange, max, min, value });
+  console.log("rail", { dimension, offset, positions, railCoords, min, max, step, value });
 
   function handlePointerMove(e) {
     if (!dragging) {
       return;
     }
-    const fromStartInPx = Math.round(e.clientX - coords.left);
-    const newValue = moveToPx(fromStartInPx);
+    const offsetInPx = Math.round(e.clientX - railCoords.left);
+    const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
     changeValue(newValue);
   }
 
   function handleRailClick(e) {
-    const fromStartInPx = e.clientX - coords.left;
-    const newValue = moveToPx(fromStartInPx);
-    changeValue(newValue);
-    setFocused(true);
+    const offsetInPx = e.clientX - railCoords.left;
+    const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
+    const newFocused = getNearest({ isRange, newValue, value });
+    console.log("rail click", newValue, { offsetInPx, min, max, railCoords, step, newFocused });
+    changeValue(newValue, { newFocused });
   }
 
   function handleKeyDown(e) {
@@ -60,8 +59,17 @@ const SliderBase = forwardRef(({ className, onChange }, ref) => {
         <SliderTrack className={consumerBem("track")} />
         {railRef.current && (
           <>
-            <SliderFilledTrack className={consumerBem("filled-track")} dimension={dimension} onChange={onChange} />
-            <SliderThumb className={consumerBem("filled-track")} position={position} />
+            <SliderFilledTrack className={consumerBem("filled-track")} dimension={dimension} offset={offset} />
+            {positions.map((position, index) => {
+              return (
+                <SliderThumb
+                  key={getKey(index)}
+                  className={consumerBem("thumb", { [`index-${index}`]: true })}
+                  index={index}
+                  position={position}
+                />
+              );
+            })}
           </>
         )}
       </SliderRail>
@@ -73,17 +81,11 @@ SliderBase.propTypes = {
   /**
    * Custom `class name` to be added to the component-root-node
    */
-  className: PropTypes.string,
-  /**
-   * Optional onChange callback (for outer trigger or Controlled mode)
-   * - required in Controlled Mode
-   */
-  onChange: PropTypes.func
+  className: PropTypes.string
 };
 
 SliderBase.defaultProps = {
-  className: "",
-  onChange: undefined
+  className: ""
 };
 
 export default SliderBase;
