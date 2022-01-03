@@ -288,7 +288,8 @@ MenuItem.defaultProps = {
   tooltipPosition: MenuItem.tooltipPositions.RIGHT,
   tooltipShowDelay: 300,
   onMouseLeave: undefined,
-  onMouseEnter: undefined
+  onMouseEnter: undefined,
+  shouldScrollMenu: false
 };
 
 MenuItem.propTypes = {
@@ -318,7 +319,8 @@ MenuItem.propTypes = {
   ]),
   tooltipShowDelay: PropTypes.number,
   onMouseLeave: PropTypes.func,
-  onMouseEnter: PropTypes.func
+  onMouseEnter: PropTypes.func,
+  shouldScrollMenu: PropTypes.bool
 };
 
 MenuItem.isSelectable = true;
