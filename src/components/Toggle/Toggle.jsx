@@ -21,6 +21,8 @@ const Toggle = ({
   onChange,
   value,
   name,
+  disabled,
+  // Backward compatibility for props naming
   isDisabled,
   ariaLabel,
   ariaControls,
@@ -29,6 +31,7 @@ const Toggle = ({
   offOverrideText
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
+  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const { inputProps, isChecked } = useToggle({
     id,
     isDefaultSelected,
@@ -36,7 +39,7 @@ const Toggle = ({
     onChange,
     value,
     name,
-    isDisabled,
+    isDisabled: overrideDisabled,
     ariaLabel,
     ariaControls
   });
@@ -45,7 +48,7 @@ const Toggle = ({
     <label
       htmlFor={id}
       className={cx(bemHelper({ element: "wrapper" }), {
-        [bemHelper({ element: "wrapper", state: "disabled" })]: isDisabled
+        [bemHelper({ element: "wrapper", state: "disabled" })]: overrideDisabled
       })}
     >
       {areLabelsHidden ? null : <ToggleText>{offOverrideText}</ToggleText>}
@@ -70,7 +73,7 @@ Toggle.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string,
   name: PropTypes.string,
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
   areLabelsHidden: PropTypes.bool,
   onOverrideText: PropTypes.string,
   offOverrideText: PropTypes.string,
@@ -86,7 +89,7 @@ Toggle.defaultProps = {
   onChange: NOOP,
   value: undefined,
   name: undefined,
-  isDisabled: false,
+  disabled: undefined,
   areLabelsHidden: false,
   ariaLabel: undefined,
   ariaControls: undefined,

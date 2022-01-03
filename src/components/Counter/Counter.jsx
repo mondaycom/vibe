@@ -14,12 +14,15 @@ import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 
 import "./Counter.scss";
 import { NOOP } from "../../utils/function-utils";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const Counter = ({
   count,
   size,
   kind,
   color,
+  className,
+  // Backward compatibility for props naming
   wrapperClassName,
   maxDigits,
   ariaLabeledBy,
@@ -29,6 +32,9 @@ const Counter = ({
   onMouseDown,
   noAnimation
 }) => {
+  // Variables
+  const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]);
+
   // State
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
@@ -85,7 +91,7 @@ const Counter = ({
 
   return (
     <span
-      className={wrapperClassName}
+      className={overrideClassName}
       aria-label={`${ariaLabel} ${countText}`}
       aria-labelledby={ariaLabeledBy}
       onMouseDown={onMouseDown}
@@ -118,7 +124,7 @@ Counter.kinds = COUNTER_TYPES;
 Counter.propTypes = {
   /** id to pass to the element */
   id: PropTypes.string,
-  wrapperClassName: PropTypes.string,
+  className: PropTypes.string,
   count: PropTypes.number,
   /** element id to describe the counter accordingly */
   ariaLabeledBy: PropTypes.string,
@@ -141,7 +147,7 @@ Counter.propTypes = {
 };
 Counter.defaultProps = {
   id: "",
-  wrapperClassName: "",
+  className: undefined,
   count: 0,
   size: SIZES.LARGE,
   color: COUNTER_COLORS.PRIMARY,
