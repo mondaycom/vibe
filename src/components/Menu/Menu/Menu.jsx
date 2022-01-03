@@ -32,7 +32,7 @@ const Menu = forwardRef(
       focusItemIndexOnMount,
       isSubMenu,
       useDocumentEventListeners,
-      shouldScrollMenu = false
+      shouldScrollMenu
     },
     forwardedRef
   ) => {
@@ -179,7 +179,8 @@ Menu.defaultProps = {
   focusItemIndex: -1,
   isSubMenu: false,
   useDocumentEventListeners: false,
-  focusItemIndexOnMount: -1
+  focusItemIndexOnMount: -1,
+  shouldScrollMenu: false
 };
 
 Menu.propTypes = {
@@ -195,7 +196,8 @@ Menu.propTypes = {
   focusItemIndex: PropTypes.number,
   isSubMenu: PropTypes.bool,
   useDocumentEventListeners: PropTypes.bool,
-  focusItemIndexOnMount: PropTypes.number
+  focusItemIndexOnMount: PropTypes.number,
+  shouldScrollMenu: PropTypes.bool
 };
 
 export default Menu;

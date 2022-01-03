@@ -85,7 +85,7 @@ const MenuItem = ({
   });
 
   useEffect(() => {
-    if (isActive && shouldScrollMenu && referenceElement) {
+    if (isActive && shouldScrollMenu) {
       if (referenceElement.scrollIntoViewIfNeeded) {
         referenceElement.scrollIntoViewIfNeeded({ behaviour: "smooth" });
       } else {
@@ -288,8 +288,7 @@ MenuItem.defaultProps = {
   tooltipPosition: MenuItem.tooltipPositions.RIGHT,
   tooltipShowDelay: 300,
   onMouseLeave: undefined,
-  onMouseEnter: undefined,
-  shouldScrollMenu: false
+  onMouseEnter: undefined
 };
 
 MenuItem.propTypes = {
@@ -319,8 +318,7 @@ MenuItem.propTypes = {
   ]),
   tooltipShowDelay: PropTypes.number,
   onMouseLeave: PropTypes.func,
-  onMouseEnter: PropTypes.func,
-  shouldScrollMenu: PropTypes.bool
+  onMouseEnter: PropTypes.func
 };
 
 MenuItem.isSelectable = true;
