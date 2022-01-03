@@ -43,3 +43,16 @@ export function getNearest({ isRange, newValue, value }) {
   console.log("SliderHelpers: getNearest", { diff0, diff1, newValue, value });
   return diff0 > diff1 ? 1 : 0;
 }
+
+export function ensureValueDefault({ valueDefault, isRange, min, max }) {
+  if (isRange && !Array.isArray(valueDefault)) {
+    return [min, max];
+  }
+  if (valueDefault < min) {
+    return min;
+  }
+  if (valueDefault > max) {
+    return max;
+  }
+  return valueDefault;
+}

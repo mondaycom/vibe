@@ -70,9 +70,9 @@ Slider can define range instead of single value
 
 <Canvas>
   <Story name="Ranged">
-    <Slider size={Slider.sizes.SMALL} isRange={true} valueDefault={[25, 32]} />
+    <Slider size={Slider.sizes.SMALL} isRange={true} />
     <Slider size={Slider.sizes.MEDIUM} isRange={true} valueDefault={[12, 55]} />
-    <Slider size={Slider.sizes.LARGE} isRange={true} valueDefault={[0, 100]} />
+    <Slider size={Slider.sizes.LARGE} isRange={true} valueDefault={[25, 32]} />
   </Story>
 </Canvas>
 
@@ -164,6 +164,7 @@ Limit and Step can be customized.
     <Slider prefix="Step 10" step={10} indicateSelection={true} valueDefault={10} size={Slider.sizes.SMALL} />
     <Slider prefix="Step 2, Max: 20" max={20} step={2}  indicateSelection={true} valueDefault={4} size={Slider.sizes.MEDIUM} />
     <Slider prefix="from 20%" postfix="till 80%" min={20} max={80} showValue={true} valueDefault={62} size={Slider.sizes.LARGE} />
+    <Slider isRange={true} indicateSelection={true} min={100} max={200} step={10} size={Slider.sizes.LARGE} />
   </Story>
 </Canvas>
 

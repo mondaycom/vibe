@@ -4,6 +4,7 @@ import { COLORS_BASIC, SIZES_BASIC } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Slider.scss";
 import { bem } from "./SliderCommons";
+import { ensureValueDefault } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
@@ -56,7 +57,7 @@ const Slider = forwardRef(
       size,
       step,
       value,
-      valueDefault,
+      valueDefault: ensureValueDefault({ valueDefault, isRange, min, max }),
       valueFormatter,
       valueText,
       infixOptions: {
@@ -111,7 +112,7 @@ Slider.propTypes = {
   /**
    * Unique TestId - can be used as Selector for integration tests and other needs (tracking, etc)
    */
-  "data-testid": PropTypes.oneOf(Object.values(Slider.colors)),
+  "data-testid": PropTypes.string,
   /**
    * If set to true, Component (Slider) will be disabled
    *  - impossible to change value of component (Slider)
