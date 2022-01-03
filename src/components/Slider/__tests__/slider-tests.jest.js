@@ -1,8 +1,6 @@
 import React from "react";
-import { fireEvent, render, cleanup } from "@testing-library/react";
-import { act } from "@testing-library/react-hooks";
+import { cleanup, render } from "@testing-library/react";
 import Slider from "../Slider";
-
 
 const renderComponent = props => {
   return render(<Slider {...props} />);
@@ -13,7 +11,11 @@ describe("Slider tests", () => {
     cleanup();
   });
 
-  it("calls x when y", () => {});
+  it("calls x when y", () => {
+    expect(1).toEqual(1);
+  });
 
-  it("should do  x when y", () => {});
+  it("should do x when y", () => {
+    expect(1).toEqual(1);
+  });
 });
