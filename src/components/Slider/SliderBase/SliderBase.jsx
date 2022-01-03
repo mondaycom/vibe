@@ -21,7 +21,6 @@ const SliderBase = forwardRef(({ className }, ref) => {
   const { changeValue, increaseValue, decreaseValue } = useSliderActions();
   const { railCoords, railRef } = useSliderRail({ min, max, step, ref });
   const { dimension, offset, positions } = calcDimensions({ isRange, max, min, value });
-  console.log("rail", { dimension, offset, positions, railCoords, min, max, step, value });
 
   function handlePointerMove(e) {
     if (!dragging) {
@@ -36,7 +35,6 @@ const SliderBase = forwardRef(({ className }, ref) => {
     const offsetInPx = e.clientX - railCoords.left;
     const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
     const newFocused = getNearest({ isRange, newValue, value });
-    console.log("rail click", newValue, { offsetInPx, min, max, railCoords, step, newFocused });
     changeValue(newValue, { newFocused });
   }
 

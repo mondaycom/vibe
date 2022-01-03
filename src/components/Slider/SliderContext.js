@@ -73,7 +73,6 @@ export function SliderProvider({
   });
 
   const [focused, setFocused] = useState(null);
-  console.log("----", { focused, actualValue, actualValueText });
   const [dragging, setDragging] = useState(false);
 
   const uiContextValue = {
@@ -131,7 +130,6 @@ export function SliderProvider({
 
   // TODO: refactor - simplify
   function changeValue(newValue, { newFocused } = {}) {
-    console.log("change value", { newValue, isRange, focused, newFocused, actualValue });
     if (!isRange) {
       actualChangeValue(newValue);
       return;

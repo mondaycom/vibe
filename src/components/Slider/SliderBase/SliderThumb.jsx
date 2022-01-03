@@ -39,7 +39,6 @@ const SliderThumb = ({ className, index, position }) => {
     }
   }, [focused, index]);
 
-  console.log("thumb", index, { focused, valueText, value });
   return (
     <Tooltip
       open={focused === index}

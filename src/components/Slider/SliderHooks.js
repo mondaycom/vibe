@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
 function ensureSingleValueText(valueText, value, formatter) {
-  console.log("ensureValueText", value, valueText);
   if (valueText) {
     return valueText;
   }
@@ -15,7 +14,6 @@ function ensureSingleValueText(valueText, value, formatter) {
 }
 
 function ensureValueText(valueText, value, formatter) {
-  console.log("ensureValueText", value, valueText, typeof value);
   if (!Array.isArray(value)) {
     return ensureSingleValueText(valueText, value, formatter);
   }
