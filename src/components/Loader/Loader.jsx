@@ -12,7 +12,7 @@ const Loader = forwardRef(
     },
     ref
   ) => {
-    const overrideClassName = backwardCompatibilityForProperties([className, svgClassName]);
+    const overrideClassName = backwardCompatibilityForProperties([className, svgClassName], "");
     return (
       <div className="monday-loader-component" ref={ref} role="alert" title="loading">
         <svg className={`circle-loader-spinner ${overrideClassName}`} viewBox="0 0 50 50">

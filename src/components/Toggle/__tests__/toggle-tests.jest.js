@@ -38,7 +38,7 @@ describe("Toggle tests", () => {
     it("should not change state when disabled, default selected and clicked", () => {
       const { getByRole } = render(
         <form name={formName}>
-          <Toggle disabled={} isDefaultSelected ariaLabel="My Toggle" />
+          <Toggle disabled isDefaultSelected ariaLabel="My Toggle" />
         </form>
       );
 

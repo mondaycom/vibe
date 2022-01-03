@@ -42,7 +42,7 @@ describe("BreadcrumbsItem renders correctly ", () => {
     const tree = renderer
       .create(
         <BreadcrumbsBar>
-          <BreadcrumbItem disabled={} />
+          <BreadcrumbItem disabled />
         </BreadcrumbsBar>
       )
       .toJSON();

@@ -181,8 +181,8 @@ Used on the notification icon to indicate the number of new notifications.
           <Counter 
             count={count} 
             maxDigits={1}
-            color={Counter.colors.NEGATIVE} 
-            wrapperClassName="storybook-counter_counter-position-top"
+            color={Counter.colors.NEGATIVE}
+            className="storybook-counter_counter-position-top"
           />
         </div>
       )
@@ -213,15 +213,15 @@ The counter represents the number of items on each topic.
   <Story name="Count the number of updates">
     <div className="storybook-counter_icon-wrapper">
       <Icon icon={AddUpdate} iconSize="36" />
-      <div className="storybook-counter_line"></div>
+      <div className="storybook-counter_line" />
       <div className="storybook-counter_position">
         <Icon icon={Update} iconSize="36" />
-        <Counter count={5} size={Counter.sizes.SMALL} wrapperClassName="storybook-counter_counter-position-bot" />
+        <Counter count={5} size={Counter.sizes.SMALL} className="storybook-counter_counter-position-bot" />
       </div>
-      <div className="storybook-counter_line"></div>
+      <div className="storybook-counter_line" />
        <div className="storybook-counter_position">
         <Icon icon={Update} iconSize="36" />
-        <Counter count={5} color={Counter.colors.DARK} size={Counter.sizes.SMALL} wrapperClassName="storybook-counter_counter-position-bot" />
+        <Counter count={5} color={Counter.colors.DARK} size={Counter.sizes.SMALL} className="storybook-counter_counter-position-bot" />
       </div>
     </div>
   </Story>
