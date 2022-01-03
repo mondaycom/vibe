@@ -149,7 +149,7 @@ Avatar.defaultProps = {
   tabIndex: 0,
   ariaHidden: false,
   disabled: undefined,
-  square: false,
+  square: undefined,
   topLeftBadgeProps: undefined,
   topRightBadgeProps: undefined,
   bottomLeftBadgeProps: undefined,
