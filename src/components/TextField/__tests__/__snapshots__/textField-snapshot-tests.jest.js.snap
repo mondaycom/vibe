@@ -531,6 +531,150 @@ exports[`TextField renders correctly with className 2`] = `
 </div>
 `;
 
+exports[`TextField renders correctly with date type 1`] = `
+<div
+  aria-busy={false}
+  className="input-component"
+  role=""
+>
+  <div
+    className="input-component__label--wrapper"
+  >
+    <div
+      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input-component__input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="date"
+        value=""
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField renders correctly with date-time type 1`] = `
+<div
+  aria-busy={false}
+  className="input-component"
+  role=""
+>
+  <div
+    className="input-component__label--wrapper"
+  >
+    <div
+      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+    >
+      <input
+        aria-activedescendant=""
+        aria-invalid={null}
+        aria-label=""
+        aria-owns=""
+        autoComplete="off"
+        className="input-component__input"
+        disabled={false}
+        id="input"
+        maxLength={null}
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        readOnly={false}
+        required={false}
+        role=""
+        type="datetime-local"
+        value=""
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+      <div
+        className="input-component__icon--container input-component__icon--container-active"
+        onClick={[Function]}
+        onDragStart={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex="-1"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`TextField renders correctly with icon 1`] = `
 <div
   aria-busy={false}

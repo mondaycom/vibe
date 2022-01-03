@@ -270,7 +270,7 @@ TextField.propTypes = {
     secondary: PropTypes.string
   }),
   /** TEXT_TYPES is exposed on the component itself */
-  type: PropTypes.oneOf([TextField.types.TEXT, TextField.types.PASSWORD, TextField.types.SEARCH]),
+  type: PropTypes.oneOf([TextField.types.TEXT, TextField.types.PASSWORD, TextField.types.SEARCH, TextField.types.DATE, TextField.types.DATE_TIME]),
   maxLength: PropTypes.number,
   trim: PropTypes.bool,
   /** ARIA role for container landmark */
