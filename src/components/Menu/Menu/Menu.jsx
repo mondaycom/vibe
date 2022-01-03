@@ -31,7 +31,8 @@ const Menu = forwardRef(
       focusItemIndex,
       focusItemIndexOnMount,
       isSubMenu,
-      useDocumentEventListeners
+      useDocumentEventListeners,
+      shouldScrollMenu = false
     },
     forwardedRef
   ) => {
@@ -151,7 +152,8 @@ const Menu = forwardRef(
                   closeMenu: onCloseMenu,
                   menuId: id,
                   useDocumentEventListeners,
-                  isInitialSelectedState
+                  isInitialSelectedState,
+                  shouldScrollMenu
                 })
               : null;
           })}
