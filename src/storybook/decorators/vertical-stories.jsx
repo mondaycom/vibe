@@ -6,7 +6,7 @@ export function VerticalStories(Story) {
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "16px",
+        gap: "50px",
         width: "100%"
       }}
     >
