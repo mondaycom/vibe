@@ -1,4 +1,3 @@
-import React from "react";
 import { renderHook, cleanup, act, waitFor } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
 import useKeyEvent from "../useKeyEvent";
@@ -68,7 +67,7 @@ describe("useKeyEvent", () => {
           keyEventName: "keyup",
           ref: { current: element },
           callback: callbackStub,
-          modifiers: useKeyEvent.modifiers.ALT
+          modifier: useKeyEvent.modifiers.ALT
         })
       );
     });
@@ -98,7 +97,7 @@ describe("useKeyEvent", () => {
       expect(callbackStub.mock.calls.length).toEqual(0);
     });
 
-    it(`should not call the callback with the key but with other modifiers`, () => {
+    it(`should not call the callback with the key but with other modifier`, () => {
       act(() => {
         fireEvent.keyUp(element, {
           key: keys[0],
@@ -122,7 +121,7 @@ describe("useKeyEvent", () => {
           keyEventName: "keyup",
           ref: { current: element },
           callback: callbackStub,
-          modifiers: useKeyEvent.modifiers.CTRL_OR_META
+          modifier: useKeyEvent.modifiers.CTRL_OR_META
         })
       );
     });
@@ -162,7 +161,7 @@ describe("useKeyEvent", () => {
       expect(callbackStub.mock.calls.length).toEqual(0);
     });
 
-    it(`should not call the callback with the key but with other modifiers`, () => {
+    it(`should not call the callback with the key but with other modifier`, () => {
       act(() => {
         fireEvent.keyUp(element, {
           key: keys[0],

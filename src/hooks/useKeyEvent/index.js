@@ -12,7 +12,7 @@ const checkModifierInEvent = (event, modifier) => {
 };
 export default function useKeyEvent({
   keys = [],
-  modifiers = [],
+  modifier,
   ref,
   callback,
   ignoreDocumentFallback = false,
@@ -28,10 +28,8 @@ export default function useKeyEvent({
       if (!keys.includes(key)) {
         return;
       }
-      if (modifiers.length > 0) {
-        if (!modifiers.every(modifier => checkModifierInEvent(event, modifier))) {
-          return;
-        }
+      if (modifier && !checkModifierInEvent(event, modifier)) {
+        return;
       }
 
       if (preventDefault) {
@@ -44,7 +42,7 @@ export default function useKeyEvent({
 
       callback(event);
     },
-    [callback, keys, preventDefault, stopPropagation]
+    [callback, keys, preventDefault, stopPropagation, modifier]
   );
 
   let listenerRef;
