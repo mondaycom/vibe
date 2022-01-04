@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./SliderBase.scss";
 import { bem } from "../SliderCommons";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import {calculatePageStep, calcDimensions, getNearest, moveToPx} from "../SliderHelpers";
+import { calcDimensions, getNearest, moveToPx } from "../SliderHelpers";
 import { useSliderRail } from "../SliderHooks";
 import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
@@ -48,6 +48,8 @@ const SliderBase = forwardRef(({ className }, ref) => {
   }
 
   function handleKeyDown(e) {
+    console.log("SliderBase: handleKeyDown: e", e);
+    console.log("SliderBase: handleKeyDown: keyCode", e.keyCode);
     if (isArrowUpEvent(e) || isArrowRightEvent(e)) {
       return increaseValue();
     }
