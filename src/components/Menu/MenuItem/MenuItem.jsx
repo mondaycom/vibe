@@ -92,7 +92,7 @@ const MenuItem = ({
         referenceElement.scrollIntoView({ behavior: "smooth", block: "center" });
       }
     }
-  }, [isActive]);
+  }, [isActive, referenceElement, shouldScrollMenu]);
 
   const isMouseEnter = useMenuItemMouseEvents(
     ref,
