@@ -47,9 +47,8 @@ const ExpandCollapse = forwardRef(
           </button>
           {isExpanded && (
             <div
-              className={`expand-collapse__content expand-collapse__section ${
-                isExpanded && "animate-expand-collapse__content"
-              }`}
+              className={`expand-collapse__content expand-collapse__section ${isExpanded &&
+                "animate-expand-collapse__content"}`}
               id={`${id}-controls`}
               role="region"
             >

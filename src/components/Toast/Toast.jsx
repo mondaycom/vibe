@@ -63,10 +63,10 @@ const Toast = ({
           .map(({ type: _type, content, ...otherProps }) => <ToastButton {...otherProps}> {content} </ToastButton>)
       : null;
   }, [actions]);
-  const classNames = useMemo(
-    () => cx("monday-style-toast", `monday-style-toast--type-${type}`, className),
-    [type, className]
-  );
+  const classNames = useMemo(() => cx("monday-style-toast", `monday-style-toast--type-${type}`, className), [
+    type,
+    className
+  ]);
   const handleClose = useCallback(() => {
     if (onClose) {
       onClose();

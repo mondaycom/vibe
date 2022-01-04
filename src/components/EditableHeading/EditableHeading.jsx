@@ -9,39 +9,22 @@ import { SIZES } from "../../constants/sizes";
 import usePrevious from "../../hooks/usePrevious";
 import "./EditableHeading.scss";
 
-const EditableHeading = ({
-  id,
-  className,
-  value,
-  editing,
-  disabled,
-  onFinishEditing,
-  onCancelEditing,
-  errorClassTimeout,
-  style,
-  onStartEditing,
-  contentRenderer,
-  tooltip,
-  placeholder,
-  displayPlaceholderInTextMode,
-  type,
-  tooltipPosition,
-  ellipsisMaxLines,
-  size,
-  isValidValue,
-  onChange,
-  onKeyDown,
-  onTabHandler,
-  onArrowKeyDown,
-  autoComplete,
-  maxLength,
-  shouldFocusOnMount,
-  selectOnMount,
-  ignoreBlurClass,
-  autoSize,
-  textareaSubmitOnEnter,
-  inputAriaLabel
-}) => {
+const EditableHeading = props => {
+  const {
+    id,
+    className,
+    value,
+    editing,
+    disabled,
+    onFinishEditing,
+    onCancelEditing,
+    errorClassTimeout,
+    style,
+    onStartEditing,
+    contentRenderer,
+    tooltip
+  } = props;
+
   // State
   const [isEditing, setIsEditing] = useState(editing && !disabled);
   const [isError, setIsError] = useState(false);
@@ -117,16 +100,16 @@ const EditableHeading = ({
 
   // Render
   const getContentProps = () => {
-    const suggestEditOnHover = suggestEditOnHover && !disabled;
-    const valueOrPlaceholder = valueState || placeholder || "";
+    const suggestEditOnHover = props.suggestEditOnHover && !disabled;
+    const valueOrPlaceholder = valueState || props.placeholder || "";
     return {
-      value: displayPlaceholderInTextMode ? valueOrPlaceholder : valueState,
-      type,
+      value: props.displayPlaceholderInTextMode ? valueOrPlaceholder : valueState,
+      type: props.type,
       suggestEditOnHover,
-      tooltipPosition,
-      ellipsisMaxLines,
-      nonEllipsisTooltip: tooltip,
-      size
+      tooltipPosition: props.tooltipPosition,
+      ellipsisMaxLines: props.ellipsisMaxLines,
+      nonEllipsisTooltip: props.tooltip,
+      size: props.size
     };
   };
   const renderContentComponent = () => {
@@ -139,31 +122,31 @@ const EditableHeading = ({
   };
 
   const getInputProps = () => {
-    const textAreaType = ellipsisMaxLines > 1 ? TEXTAREA_TYPE : undefined;
-    const inputType = inputType || textAreaType;
+    const textAreaType = props.ellipsisMaxLines > 1 ? TEXTAREA_TYPE : undefined;
+    const inputType = props.inputType || textAreaType;
     return {
       value: valueState,
-      className: `editable-heading-input element-type-${type} size-${size}`,
-      isValidValue,
-      onChange,
-      onKeyDown,
-      onClick,
-      onTabHandler,
-      onArrowKeyDown,
-      autoComplete,
-      maxLength,
-      placeholder,
-      shouldFocusOnMount,
-      selectOnMount,
+      className: `editable-heading-input element-type-${props.type} size-${props.size}`,
+      isValidValue: props.isValidValue,
+      onChange: props.onChange,
+      onKeyDown: props.onKeyDown,
+      onClick: props.onClick,
+      onTabHandler: props.onTabHandler,
+      onArrowKeyDown: props.onArrowKeyDown,
+      autoComplete: props.autoComplete,
+      maxLength: props.maxLength,
+      placeholder: props.placeholder,
+      shouldFocusOnMount: props.shouldFocusOnMount,
+      selectOnMount: props.selectOnMount,
       inputType,
-      ignoreBlurClass,
-      autoSize,
-      textareaSubmitOnEnter,
+      ignoreBlurClass: props.ignoreBlurClass,
+      autoSize: props.autoSize,
+      textareaSubmitOnEnter: props.textareaSubmitOnEnter,
       onFinishEditing: onFinishEditingCallback,
       onCancelEditing: onCancelEditingCallback,
       onError: onInputErrorCallback,
       onSuccess: onInputSuccessCallback,
-      ariaLabel: inputAriaLabel
+      ariaLabel: props.inputAriaLabel
     };
   };
 

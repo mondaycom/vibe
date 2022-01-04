@@ -1,3 +1,4 @@
+
 name: Publish Storybook
 
 on:
@@ -7,6 +8,7 @@ on:
     branches:
       - master
 
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -14,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 12
       - name: Build & deploy Storybook to GitHub Pages
         run: |
           npm install

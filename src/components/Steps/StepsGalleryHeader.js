@@ -9,10 +9,10 @@ export const StepsGalleryHeader = ({ activeStepIndex, stepsCount, onChangeActive
   const stepsPlaceholders = useMemo(() => range(stepsCount), [stepsCount]);
   const defaultStepDescriptionFunc = useCallback(stepIndex => `Step number ${stepIndex}`, []);
   const overrideStepDescriptionFunc = stepDescriptionFunc || defaultStepDescriptionFunc;
-  const onClickFunctions = useMemo(
-    () => stepsPlaceholders.map(stepIndex => e => onChangeActiveStep(e, stepIndex)),
-    [onChangeActiveStep, stepsPlaceholders]
-  );
+  const onClickFunctions = useMemo(() => stepsPlaceholders.map(stepIndex => e => onChangeActiveStep(e, stepIndex)), [
+    onChangeActiveStep,
+    stepsPlaceholders
+  ]);
 
   const galleryDots = useMemo(
     () =>

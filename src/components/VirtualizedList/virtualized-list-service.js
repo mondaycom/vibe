@@ -55,8 +55,9 @@ export const isVerticalScrollbarVisible = (items, normalizedItems, idGetter, lis
   const lastExistingItemId = idGetter(lastExistingItem, items.length - 1);
   const normalizedItem = normalizedItems[lastExistingItemId];
   if (!normalizedItem) return false;
-  const { offsetTop: lastExistingItemIdOffsetTop, height: lastExistingItemHeight } =
-    normalizedItems[lastExistingItemId];
+  const { offsetTop: lastExistingItemIdOffsetTop, height: lastExistingItemHeight } = normalizedItems[
+    lastExistingItemId
+  ];
   const maxOffset = lastExistingItemIdOffsetTop + lastExistingItemHeight;
   const isVisible = maxOffset > listHeight;
   return isVisible;
