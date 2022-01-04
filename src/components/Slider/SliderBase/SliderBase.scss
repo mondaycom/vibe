@@ -47,6 +47,19 @@
     font-size: 14px;
     top: 50%;
     transform: translate(-50%, -50%);
+    transition: transform 0.2s $expand-animation-timing;
+    &--dragging {
+      cursor: grabbing;
+      transform: translate(-50%, -50%) scale(1.33, 1.33);
+      transform-origin: center center;
+      transition: transform 0.2s $expand-animation-timing;
+      @include box-shadow-small();
+    }
+    &--focused {
+      @include theme-prop(border-color, primary-hover-color);
+      cursor: grab;
+      @include box-shadow-small();
+    }
   }
 
   &__thumb-label {
@@ -71,16 +84,12 @@
           transform: translate(-50%, -50%) scale(1.33, 1.33);
           transform-origin: center center;
           transition: transform 0.2s $expand-animation-timing;
+          @include box-shadow-small();
         }
         &:hover {
           @include theme-prop(border-color, primary-hover-color);
           cursor: grab;
-        }
-        &:active {
-          cursor: grabbing;
-          transform: translate(-50%, -50%) scale(1.33, 1.33);
-          transform-origin: center center;
-          transition: transform 0.2s $expand-animation-timing;
+          @include box-shadow-small();
         }
       }
     }

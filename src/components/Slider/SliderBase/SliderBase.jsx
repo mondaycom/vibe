@@ -32,7 +32,7 @@ const SliderBase = forwardRef(({ className }, ref) => {
   const { dimension, offset, positions } = calcDimensions({ isRange, max, min, value });
 
   function handlePointerMove(e) {
-    if (!dragging) {
+    if (dragging === null) {
       return;
     }
     const offsetInPx = Math.round(e.clientX - railCoords.left);

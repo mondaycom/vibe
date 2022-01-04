@@ -6,12 +6,13 @@ import { calculatePageStep, getCurrentValue } from "./SliderHelpers";
 import { useSliderValues } from "./SliderHooks";
 
 const uiDefaults = {
+  active: null,
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
   color: undefined,
   consumerBem: () => {},
   disabled: false,
-  dragging: false,
+  dragging: null,
   focused: null,
   size: SIZES_BASIC.SMALL,
   shapeTestId: () => {},
@@ -66,10 +67,12 @@ export function SliderProvider({
     valueText
   });
 
+  const [active, setActive] = useState(null);
   const [focused, setFocused] = useState(null);
-  const [dragging, setDragging] = useState(false);
+  const [dragging, setDragging] = useState(null);
 
   const uiContextValue = {
+    active,
     ariaLabel,
     ariaLabeledBy,
     color,
@@ -141,7 +144,12 @@ export function SliderProvider({
     const currentFocused = isNewFocus ? newFocused : focused;
     newValues[currentFocused] = newValue;
     if (newValues[0] > newValues[1]) {
-      setFocused(currentFocused === 0 ? 1 : 0);
+      const switched = currentFocused === 0 ? 1 : 0;
+      setActive(switched);
+      setFocused(switched);
+      if (dragging !== null) {
+        setDragging(switched);
+      }
       actualChangeValue([newValues[1], newValues[0]]);
       return;
     }
@@ -152,6 +160,7 @@ export function SliderProvider({
   }
 
   const actionsContextValue = {
+    setActive,
     setSelectedValue,
     changeValue,
     setDragging,

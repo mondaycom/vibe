@@ -10,26 +10,32 @@ const tooltipPosition = DialogPositions.TOP;
 
 const SliderThumb = ({ className, index, position }) => {
   const { max, min, value, valueText } = useSliderSelection(index);
-  const { ariaLabel, ariaLabeledBy, disabled, focused, shapeTestId, showValue } = useSliderUi();
-  const { setFocused, setDragging } = useSliderActions();
+  const { active, ariaLabel, ariaLabeledBy, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
+  const { setActive, setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);
 
   function handleBlur() {
     setFocused(null);
+    setActive(null);
   }
 
   function handleFocus() {
     setFocused(index);
+    setActive(index);
+  }
+
+  function handlePointerLeave() {
+    setActive(null);
   }
 
   function handlePointerDown(e) {
     e.stopPropagation();
-    setDragging(true);
+    setDragging(index);
     document.addEventListener("pointerup", stopMove);
   }
 
   function stopMove() {
-    setDragging(false);
+    setDragging(null);
     document.removeEventListener("pointerup", stopMove);
   }
 
@@ -41,7 +47,7 @@ const SliderThumb = ({ className, index, position }) => {
 
   return (
     <Tooltip
-      open={focused === index}
+      open={active === index}
       content={showValue ? null : valueText}
       position={tooltipPosition}
       showDelay={tooltipShowDelay}
@@ -54,11 +60,16 @@ const SliderThumb = ({ className, index, position }) => {
         aria-valuenow={value}
         aria-valuetext={valueText}
         aria-disabled={disabled}
-        className={bem("thumb", { focused: focused === index, disabled, [`index-${index}`]: true }, className)}
+        className={bem(
+          "thumb",
+          { dragging: dragging === index, focused: focused === index, disabled, [`index-${index}`]: true },
+          className
+        )}
         data-testid={shapeTestId(`thumb-${index}`)}
         onFocus={handleFocus}
         onBlur={handleBlur}
         onPointerDown={handlePointerDown}
+        onPointerLeave={handlePointerLeave}
         ref={ref}
         role="slider"
         style={{ left: `${position}%` }}
