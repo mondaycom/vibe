@@ -21,7 +21,7 @@ import "./combobox.stories.scss";
 export const comboboxTemplate = (args) => {
   return (
     <DialogContentContainer>
-      <Combobox options={args.options} placeholder="Placeholder text here" />
+      <Combobox {...args} />
     </DialogContentContainer>
   )
 }
@@ -39,10 +39,13 @@ export const comboboxTemplate = (args) => {
 - [Feedback](#feedback)
 
 ## Overview
-Comboboxes allowing users to filter longer lists to only the selections matching a query.
+Combobox allowing users to filter longer lists to only the selections matching a query.
 <Canvas>
   <Story name="Overview"
-         args={ {options: [{ id: "1", label: "Option 1" }, { id: "2", label: "Option 2" }, { id: "3", label: "Option 3" }], } }>
+         args={{
+           options: [{ id: "1", label: "Option 1" }, { id: "2", label: "Option 2" }, { id: "3", label: "Option 3" }],
+           placeholder: "Placeholder text here"
+         }}>
     { comboboxTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -119,7 +122,7 @@ Comboboxes allowing users to filter longer lists to only the selections matching
       ], []);
       return (
         <DialogContentContainer>
-          <Combobox options={options} noResultsRenderer={() => alert(123123)} placeholder="Placeholder text here" />
+          <Combobox options={options} placeholder="Placeholder text here" />
         </DialogContentContainer>
       )
     }}
