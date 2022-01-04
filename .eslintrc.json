@@ -7,7 +7,7 @@
   "parser": "babel-eslint",
   "ignorePatterns": ["*test.js", "*.jest.js", "*.stories*.js"],
   "extends": ["airbnb", "plugin:prettier/recommended", "plugin:react-hooks/recommended"],
-  "plugins": ["import", "react", "jsx-a11y", "json", "markdown", "mocha", "react-hooks"],
+  "plugins": ["import", "react", "jsx-a11y", "json", "markdown", "react-hooks"],
   "rules": {
     "no-debugger": "error",
     "global-require": "off",
