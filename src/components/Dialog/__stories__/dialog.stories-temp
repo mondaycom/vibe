@@ -1,4 +1,4 @@
-import { Meta, Story, Props, Preview } from "@storybook/addon-docs/blocks";
+import { Meta, Story, Props, Preview } from "@storybook/addon-docs";
 import { DialogStory } from "./StoryComponents/DialogStory.jsx"
 import ReferenceComponent from "./StoryComponents/Reference";
 import StoryDialogContent from "./StoryComponents//StoryDialogContent";

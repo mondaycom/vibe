@@ -1,6 +1,6 @@
 import { parameters } from "@storybook/addon-docs/dist/esm/frameworks/react/config";
 import { addParameters } from "@storybook/react";
-import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
+import { DocsPage, DocsContainer } from "@storybook/addon-docs";
 import {
   SectionName,
   Title,

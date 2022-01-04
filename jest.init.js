@@ -1,6 +1,5 @@
 import ReactDOM from "react-dom";
 
-
 ReactDOM.createPortal = node => node;
 const { testing } = process.env;
 const TESTING_STORYBOOK = testing === "storybook";
@@ -18,7 +17,8 @@ console.error = function (warning) {
   if (
     /(Invalid prop|Failed prop type)/.test(warning) &&
     !warning.includes("of value `not valid`") &&
-    !warning.includes("`ForwardRef`.")
+    !warning.includes("`ForwardRef`.") &&
+    !warning.includes("children")
   ) {
     throw new Error(warning);
   }
