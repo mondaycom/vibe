@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.4 (2022-01-04)
+
+#### Bug Fixes
+* [#423](https://github.com/mondaycom/monday-ui-react-core/pull/423) Add support on consistent API for all the library components for class name and disabled props ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.0.3 (2021-12-30)
 
 #### Bug Fixes
