@@ -2,14 +2,8 @@ import React, { createContext, useContext, useState } from "react";
 import { SIZES_BASIC } from "../../constants";
 import { createBemBlockHelper } from "../../helpers/bem-helper";
 import { createTestIdHelper } from "../../helpers/testid-helper";
+import { calculatePageStep, getCurrentValue } from "./SliderHelpers";
 import { useSliderValues } from "./SliderHooks";
-
-function getCurrentValue(actualValue, isRange, focused) {
-  if (!isRange) {
-    return actualValue;
-  }
-  return actualValue[focused];
-}
 
 const uiDefaults = {
   ariaLabel: undefined,
@@ -88,7 +82,13 @@ export function SliderProvider({
     showValue
   };
 
+  function definePageStep() {
+    // PageStep - larger step for slide (triggering by PageUp/PageDown events)
+    return calculatePageStep({ min, max, step });
+  }
+
   const selectionContextValue = {
+    definePageStep,
     isRange,
     max,
     min,
@@ -97,24 +97,26 @@ export function SliderProvider({
     valueText: actualValueText
   };
 
-  function increaseValue() {
+  function increaseValue(consumerStep) {
     const currentValue = getCurrentValue(actualValue, isRange, focused);
     if (currentValue === max) {
       return;
     }
-    const newValue = currentValue + step;
+    const finalStep = consumerStep || step;
+    const newValue = currentValue + finalStep;
     if (newValue > max) {
       return changeValue(max);
     }
     changeValue(newValue);
   }
 
-  function decreaseValue() {
+  function decreaseValue(consumerStep) {
     const currentValue = getCurrentValue(actualValue, isRange, focused);
     if (currentValue === min) {
       return;
     }
-    const newValue = currentValue - step;
+    const finalStep = consumerStep || step;
+    const newValue = currentValue - finalStep;
     if (newValue < min) {
       return changeValue(min);
     }

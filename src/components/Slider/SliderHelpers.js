@@ -1,3 +1,33 @@
+function ensureStepModulo(pageStep, step) {
+  const moduloToStep = pageStep % step;
+  if (moduloToStep === 0) {
+    return pageStep;
+  }
+  // console.log("modulo", { pageStep, step, moduloToStep, new: pageStep - moduloToStep });
+  return pageStep - moduloToStep;
+}
+export function calculatePageStep({ max, min, step }) {
+  const pageStep = (max - min) / 10;
+  if (pageStep < step) {
+    // too small pageSize --> return step
+    return step;
+  }
+  const fixedPageStep = ensureStepModulo(Math.round(pageStep), step);
+  if ((max - min) / fixedPageStep > 10) {
+    // too many steps with fixedPageStep - multiply it
+    return 2 * fixedPageStep;
+  }
+  // basic page size is ok
+  return fixedPageStep;
+}
+
+export function getCurrentValue(actualValue, isRange, focused) {
+  if (!isRange) {
+    return actualValue;
+  }
+  return actualValue[focused];
+}
+
 export function calcDimensions({ isRange, max, min, value }) {
   if (!isRange) {
     const [dimension, position] = calcDimension({ max, min, value });

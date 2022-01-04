@@ -194,6 +194,7 @@ Slider.propTypes = {
     PropTypes.shape({
       text: PropTypes.string.isRequired
     }),
+    PropTypes.string,
     PropTypes.func,
     PropTypes.node
   ]),
