@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.0.4 (2022-01-04)
+
+#### Bug Fixes
+* [#423](https://github.com/mondaycom/monday-ui-react-core/pull/423) Add support on consistent API for all the library components for class name and disabled props ([@hadasfa](https://github.com/hadasfa))
+
+## 1.0.3 (2021-12-30)
+
+#### Bug Fixes
+* [#420](https://github.com/mondaycom/monday-ui-react-core/pull/420) Fix virtualized list scrollbar visible issue ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.0.2 (2021-12-29)
+
+#### Bug Fixes
+* [#404](https://github.com/mondaycom/monday-ui-react-core/pull/404) added support for date and date time for input ([@etaylib](https://github.com/etaylib))
+
+## 1.0.1 (2021-12-29)
+
+#### Bug Fixes
+* [#417](https://github.com/mondaycom/monday-ui-react-core/pull/417) Change `className` props to consistent naming ([@hadasfa](https://github.com/hadasfa))
+* [#416](https://github.com/mondaycom/monday-ui-react-core/pull/416) Tree-shake the library ([@sahariko](https://github.com/sahariko))
+
+#### Documentation
+* [#418](https://github.com/mondaycom/monday-ui-react-core/pull/418) Update PULL_REQUEST_TEMPLATE.md ([@sahariko](https://github.com/sahariko))
+
 ## 1.0.0 (2021-12-27)
 
 #### Breaking Changes

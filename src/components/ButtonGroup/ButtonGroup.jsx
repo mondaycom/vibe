@@ -7,10 +7,13 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { baseClassName } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import "./ButtonGroup.scss";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const ButtonGroup = forwardRef(
   (
     {
+      className,
+      // Backward compatibility for props naming
       componentClassName,
       options,
       name,
@@ -28,6 +31,7 @@ const ButtonGroup = forwardRef(
     },
     ref
   ) => {
+    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const inputRef = useRef();
     const [valueState, setValueState] = useState(value);
     const prevValue = usePrevious(value);
@@ -105,7 +109,7 @@ const ButtonGroup = forwardRef(
 
     return (
       <div
-        className={cx(baseClassName, componentClassName, `${baseClassName}--kind-${kind}`, { disabled })}
+        className={cx(baseClassName, overrideClassName, `${baseClassName}--kind-${kind}`, { disabled })}
         ref={mergedRef}
       >
         <div
@@ -128,7 +132,7 @@ ButtonGroup.sizes = Button.sizes;
 ButtonGroup.kinds = Button.kinds;
 
 ButtonGroup.defaultProps = {
-  componentClassName: "",
+  className: undefined,
   value: "",
   name: "",
   disabled: false,
@@ -143,7 +147,7 @@ ButtonGroup.defaultProps = {
 };
 
 ButtonGroup.propTypes = {
-  componentClassName: PropTypes.string,
+  className: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string,
   disabled: PropTypes.bool,

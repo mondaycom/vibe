@@ -5,11 +5,28 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { baseClassName } from "./RadioButtonConstants";
 import Clickable from "../Clickable/Clickable";
 import "./RadioButton.scss";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const RadioButton = forwardRef(
-  ({ componentClassName, text, value, name, disabled, defaultChecked, children, onSelect, checked }, ref) => {
+  (
+    {
+      className,
+      // Backward compatibility for props naming
+      componentClassName,
+      text,
+      value,
+      name,
+      disabled,
+      defaultChecked,
+      children,
+      onSelect,
+      checked
+    },
+    ref
+  ) => {
     const inputRef = useRef();
     const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
+    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const onChildClick = useCallback(() => {
       if (disabled) return;
       if (inputRef.current) {
@@ -28,7 +45,7 @@ const RadioButton = forwardRef(
     }, [checked, defaultChecked]);
 
     return (
-      <label className={cx(baseClassName, componentClassName, { disabled })}>
+      <label className={cx(baseClassName, overrideClassName, { disabled })}>
         <span className={`${baseClassName}__radio-input-container`}>
           <input
             className={`${baseClassName}__radio-input-container__radio-input`}
@@ -54,7 +71,7 @@ const RadioButton = forwardRef(
 );
 
 RadioButton.defaultProps = {
-  componentClassName: "",
+  className: undefined,
   text: "",
   value: "",
   name: "",
@@ -63,7 +80,7 @@ RadioButton.defaultProps = {
   checked: undefined
 };
 RadioButton.propTypes = {
-  componentClassName: PropTypes.string,
+  className: PropTypes.string,
   text: PropTypes.string,
   value: PropTypes.string,
   name: PropTypes.string,

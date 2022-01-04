@@ -50,6 +50,7 @@ function findItemAtOffset(items, normalizedItems, idGetter, fromIndex, offset) {
 }
 
 export const isVerticalScrollbarVisible = (items, normalizedItems, idGetter, listHeight) => {
+  if (!listHeight) return false;
   const lastExistingItem = items[items.length - 1] || EMPTY_OBJECT;
   const lastExistingItemId = idGetter(lastExistingItem, items.length - 1);
   const normalizedItem = normalizedItems[lastExistingItemId];

@@ -42,7 +42,7 @@ describe("BreadcrumbsItem renders correctly ", () => {
     const tree = renderer
       .create(
         <BreadcrumbsBar>
-          <BreadcrumbItem isDisabled />
+          <BreadcrumbItem disabled />
         </BreadcrumbsBar>
       )
       .toJSON();
@@ -71,4 +71,3 @@ describe("BreadcrumbsItem renders correctly ", () => {
     expect(tree).toMatchSnapshot();
   });
 });
-  

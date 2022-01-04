@@ -5,11 +5,24 @@ import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import Tooltip from "../../Tooltip/Tooltip";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
 import "./BreadcrumbItem.scss";
+import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 
 const MOUSEENTER = ["mouseenter"];
 const MOUSELEAVE = ["mouseleave"];
 
-const BreadcrumbItem = ({ className, text, isDisabled, isClickable, link, onClick, isCurrent, icon }) => {
+const BreadcrumbItem = ({
+  className,
+  text,
+  disabled,
+  // Backward compatibility for props naming
+  isDisabled,
+  isClickable,
+  link,
+  onClick,
+  isCurrent,
+  icon
+}) => {
+  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const componentRef = useRef(null);
   const isOverflowing = useIsOverflowing({ ref: componentRef });
 
@@ -27,7 +40,7 @@ const BreadcrumbItem = ({ className, text, isDisabled, isClickable, link, onClic
           className,
           { clickable: isClickable },
           { current: isCurrent },
-          { disabled: isDisabled }
+          { disabled: overrideDisabled }
         )}
       >
         <BreadcrumbContent
@@ -35,7 +48,7 @@ const BreadcrumbItem = ({ className, text, isDisabled, isClickable, link, onClic
             "breadcrumb-content",
             { clickable: isClickable },
             { current: isCurrent },
-            { disabled: isDisabled }
+            { disabled: overrideDisabled }
           )}
           ref={componentRef}
           isClickable={isClickable}
@@ -55,7 +68,7 @@ BreadcrumbItem.propTypes = {
   /** The display text. */
   text: PropTypes.string,
   /** Should item be disabled. */
-  isDisabled: PropTypes.bool,
+  disabled: PropTypes.bool,
   /** Should item be clickable - this should be recieved from the breadcrumbsBar ( Navigation/Indication bar ). */
   isClickable: PropTypes.bool,
   /** If the item is clickable and the type of navigation is a link, this is the link */
@@ -71,7 +84,7 @@ BreadcrumbItem.propTypes = {
 BreadcrumbItem.defaultProps = {
   className: "",
   text: "",
-  isDisabled: false,
+  disabled: undefined,
   isClickable: false,
   link: undefined,
   onClick: undefined,
