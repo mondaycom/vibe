@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useCallback, useRef, useLayoutEffect, useMemo } from "react";
+import React, { useCallback, useRef, useLayoutEffect, useMemo, useEffect } from "react";
 
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
@@ -50,7 +50,8 @@ const MenuItem = ({
   tooltipShowDelay,
   isInitialSelectedState,
   onMouseEnter,
-  onMouseLeave
+  onMouseLeave,
+  shouldScrollMenu
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   const isActive = activeItemIndex === index;
@@ -82,6 +83,16 @@ const MenuItem = ({
   const { styles, attributes } = usePopover(referenceElement, popperElement, {
     isOpen: isSubMenuOpen
   });
+
+  useEffect(() => {
+    if (isActive && shouldScrollMenu) {
+      if (referenceElement.scrollIntoViewIfNeeded) {
+        referenceElement.scrollIntoViewIfNeeded({ behaviour: "smooth" });
+      } else {
+        referenceElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }
+  }, [isActive, referenceElement, shouldScrollMenu]);
 
   const isMouseEnter = useMenuItemMouseEvents(
     ref,

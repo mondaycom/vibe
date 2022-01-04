@@ -31,7 +31,8 @@ const Menu = forwardRef(
       focusItemIndex,
       focusItemIndexOnMount,
       isSubMenu,
-      useDocumentEventListeners
+      useDocumentEventListeners,
+      shouldScrollMenu
     },
     forwardedRef
   ) => {
@@ -151,7 +152,8 @@ const Menu = forwardRef(
                   closeMenu: onCloseMenu,
                   menuId: id,
                   useDocumentEventListeners,
-                  isInitialSelectedState
+                  isInitialSelectedState,
+                  shouldScrollMenu
                 })
               : null;
           })}
@@ -177,7 +179,8 @@ Menu.defaultProps = {
   focusItemIndex: -1,
   isSubMenu: false,
   useDocumentEventListeners: false,
-  focusItemIndexOnMount: -1
+  focusItemIndexOnMount: -1,
+  shouldScrollMenu: false
 };
 
 Menu.propTypes = {
@@ -193,7 +196,8 @@ Menu.propTypes = {
   focusItemIndex: PropTypes.number,
   isSubMenu: PropTypes.bool,
   useDocumentEventListeners: PropTypes.bool,
-  focusItemIndexOnMount: PropTypes.number
+  focusItemIndexOnMount: PropTypes.number,
+  shouldScrollMenu: PropTypes.bool
 };
 
 export default Menu;
