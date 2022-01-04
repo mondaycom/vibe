@@ -7,6 +7,7 @@ import Icon from "../Icon/Icon";
 
 const defaultIconProps = {
   clickable: false,
+  iconSize: 18,
   ignoreFocusStyle: true
 };
 
