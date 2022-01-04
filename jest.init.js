@@ -1,5 +1,5 @@
-import "regenerator-runtime/runtime";
 import ReactDOM from "react-dom";
+
 
 ReactDOM.createPortal = node => node;
 const { testing } = process.env;
@@ -14,7 +14,7 @@ if (TESTING_STORYBOOK) {
 }
 
 const error = console.error;
-console.error = function(warning) {
+console.error = function (warning) {
   if (
     /(Invalid prop|Failed prop type)/.test(warning) &&
     !warning.includes("of value `not valid`") &&
