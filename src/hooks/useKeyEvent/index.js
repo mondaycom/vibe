@@ -1,8 +1,18 @@
 import { useCallback, useRef } from "react";
 import useEventListener from "../useEventListener";
 
+const CTRL_OR_META = "ctrlOrMetaKey";
+
+const checkModifierInEvent = (event, modifier) => {
+  if (event[modifier]) return true;
+  if (modifier === CTRL_OR_META) {
+    return event.ctrlKey || event.metaKey;
+  }
+  return false;
+};
 export default function useKeyEvent({
   keys = [],
+  modifiers = [],
   ref,
   callback,
   ignoreDocumentFallback = false,
@@ -17,6 +27,11 @@ export default function useKeyEvent({
       const { key } = event;
       if (!keys.includes(key)) {
         return;
+      }
+      if (modifiers.length > 0) {
+        if (!modifiers.every(modifier => checkModifierInEvent(event, modifier))) {
+          return;
+        }
       }
 
       if (preventDefault) {
@@ -49,3 +64,11 @@ export default function useKeyEvent({
     capture
   });
 }
+
+useKeyEvent.modifiers = {
+  ALT: "altKey",
+  META: "metaKey", // i.e. CMD key
+  CTRL: "ctrlKey",
+  SHIFT: "shiftKey",
+  CTRL_OR_META
+};
