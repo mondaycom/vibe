@@ -68,13 +68,8 @@ const Menu = forwardRef(
       });
     }, [originalChildren]);
 
-    const {
-      setSubMenuIsOpenByIndex,
-      hasOpenSubMenu,
-      openSubMenuIndex,
-      setOpenSubMenuIndex,
-      resetOpenSubMenuIndex
-    } = useSubMenuIndex();
+    const { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex, resetOpenSubMenuIndex } =
+      useSubMenuIndex();
 
     const onCloseMenu = useOnCloseMenu(onSetActiveItemIndexCallback, setOpenSubMenuIndex, onClose);
 

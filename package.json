@@ -69,6 +69,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
+    "@babel/eslint-parser": "^7.16.5",
     "@babel/plugin-proposal-class-properties": "^7.16.5",
     "@babel/plugin-transform-modules-commonjs": "^7.16.5",
     "@babel/plugin-transform-react-jsx": "^7.16.5",

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React, { useState, useEffect, useCallback } from "react";
 import Counter from "../../../Counter/Counter";
 import Dialog from "../../../Dialog/Dialog";

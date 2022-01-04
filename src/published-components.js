@@ -98,7 +98,7 @@ function exposeIcons(dirPath) {
   const directoryPath = path.join(dirPath, iconsPath);
   const filesObject = {};
   const files = fs.readdirSync(directoryPath);
-  files.forEach(function(file) {
+  files.forEach(function (file) {
     filesObject[`/icons/${file.split(".")[0]}`] = `${iconsPath}/${file}`;
   });
   return filesObject;

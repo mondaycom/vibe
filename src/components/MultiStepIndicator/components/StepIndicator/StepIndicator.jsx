@@ -20,6 +20,28 @@ import Clickable from "../../../Clickable/Clickable";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
+const StepCircleDisplay = ({
+  status,
+  isFulfilledStepDisplayNumber,
+  fulfilledStepIcon,
+  fulfilledStepIconType,
+  stepNumber
+}) => {
+  return status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
+    <Icon
+      icon={fulfilledStepIcon}
+      className={`${baseClassName}__number-container__text__check-icon`}
+      iconLabel={STEP_STATUSES.FULFILLED}
+      iconType={fulfilledStepIconType}
+      ignoreFocusStyle
+      clickable={false}
+      ariaHidden={true}
+    />
+  ) : (
+    stepNumber
+  );
+};
+
 const StepIndicator = ({
   stepComponentClassName,
   stepNumber,
@@ -94,22 +116,6 @@ const StepIndicator = ({
     return [`${baseClassName}${suffix}`, `${baseClassNameWithType}${suffix}`, `${baseClassNameWithStatus}${suffix}`];
   };
 
-  const StepCircleDisplay = () => {
-    return status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
-      <Icon
-        icon={fulfilledStepIcon}
-        className={`${baseClassName}__number-container__text__check-icon`}
-        iconLabel={STEP_STATUSES.FULFILLED}
-        iconType={fulfilledStepIconType}
-        ignoreFocusStyle
-        clickable={false}
-        ariaHidden={true}
-      />
-    ) : (
-      stepNumber
-    );
-  };
-
   return (
     <Clickable
       tabIndex="-1"
@@ -138,7 +144,13 @@ const StepIndicator = ({
               key={status}
             >
               <span className={cx(...getClassNamesWithSuffix("__number-container__text"))}>
-                <StepCircleDisplay />
+                <StepCircleDisplay
+                  fulfilledStepIcon={fulfilledStepIcon}
+                  fulfilledStepIconType={fulfilledStepIconType}
+                  isFulfilledStepDisplayNumber={isFulfilledStepDisplayNumber}
+                  stepNumber={stepNumber}
+                  status={status}
+                />
               </span>
             </CSSTransition>
           </SwitchTransition>
