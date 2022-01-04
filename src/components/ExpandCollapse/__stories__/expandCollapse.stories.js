@@ -1,6 +1,4 @@
 import React from "react";
-import { action } from "@storybook/addon-actions";
-import { text, number } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import ExpandCollapse from "../ExpandCollapse";
 import Icon from "../../Icon/Icon";
@@ -8,8 +6,8 @@ import Robot from "../../Icon/Icons/components/Robot";
 import "./expandCollapse.stories.scss";
 
 export const Sandbox = () => {
-  const width = number("width", 300);
-  const height = number("height", 200);
+  const width =  300;
+  const height =  200;
 
   return (
     <div style={{ width, height }}>

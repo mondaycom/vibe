@@ -1,5 +1,4 @@
 import React from "react";
-import { text } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import HiddenText from "../HiddenText";
 
