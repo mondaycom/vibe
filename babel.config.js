@@ -1,5 +1,6 @@
 const { testing } = process.env;
 const TESTING_STORYBOOK = testing === "storybook";
+
 module.exports = api => {
   api.cache.using(() => process.env.NODE_ENV);
 
@@ -44,6 +45,11 @@ module.exports = api => {
         }
       ],
       "react-docgen"
-    ]
+    ],
+    env: {
+      test: {
+        presets: [["@babel/preset-env", { targets: { node: "current" } }]]
+      }
+    }
   };
 };

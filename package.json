@@ -142,6 +142,7 @@
     "react-dom": "^16.13.1",
     "react-resizable": "^3.0.4",
     "react-test-renderer": "^16.14.0",
+    "regenerator-runtime": "^0.13.9",
     "requirejs": "^2.3.6",
     "sass": "^1.45.2",
     "sass-loader": "^12.4.0",
