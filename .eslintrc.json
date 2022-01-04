@@ -4,7 +4,7 @@
     "browser": true,
     "mocha": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "ignorePatterns": ["*test.js", "*.jest.js", "*.stories*.js"],
   "extends": ["airbnb", "plugin:prettier/recommended", "plugin:react-hooks/recommended"],
   "plugins": ["import", "react", "jsx-a11y", "json", "markdown", "mocha", "react-hooks"],
@@ -26,6 +26,7 @@
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "no-underscore-dangle": "off",
     "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "no-plusplus": "off",
     "react/react-in-jsx-scope": 0,
     "react/no-did-update-set-state": "off",
@@ -58,11 +59,5 @@
     "jsx-a11y/interactive-supports-focus": "error",
     "jsx-a11y/no-noninteractive-tabindex": "error",
     "react/jsx-boolean-value": "off"
-  },
-  "overrides": [
-    {
-      "files": ["scripts/**/*.js"],
-      "rules": { "import/no-extraneous-dependencies": ["error", { "devDependencies": true }] }
-    }
-  ]
+  }
 }

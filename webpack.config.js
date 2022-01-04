@@ -1,16 +1,17 @@
 const path = require("path");
 const autoprefixer = require("autoprefixer");
 const CopyPlugin = require("copy-webpack-plugin");
-const TerserJSPlugin = require("terser-webpack-plugin");
+const { ESBuildMinifyPlugin } = require("esbuild-loader");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const { getPublishedComponents } = require("./src/published-components");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const nodeExternals = require("webpack-node-externals");
+const { getPublishedComponents } = require("./webpack/published-components");
 
-module.exports = options => {
-  const IS_DEV = process.env.NODE_ENV === "development";
-  const nodeExternals = require("webpack-node-externals");
+const isDev = process.env.NODE_ENV === "development";
+
+module.exports = (options = {}) => {
   const styleLoaders = [
-    IS_DEV || options.storybook
+    isDev || options.storybook
       ? {
           loader: "style-loader",
           options: {
@@ -30,12 +31,7 @@ module.exports = options => {
           }
         }
       : {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            // you can specify a publicPath here
-            // by default it uses publicPath in webpackOptions.output
-            hmr: false
-          }
+          loader: MiniCssExtractPlugin.loader
         },
     {
       loader: "css-loader",
@@ -44,7 +40,7 @@ module.exports = options => {
           mode: "local",
           auto: true,
           localIdentName: "[path][name]__[local]--[hash:base64:5]",
-          context: path.resolve(__dirname, "src"),
+          localIdentContext: path.resolve(__dirname, "src"),
           exportGlobals: false
         }
       }
@@ -52,14 +48,15 @@ module.exports = options => {
     {
       loader: "postcss-loader",
       options: {
-        plugins: () => [autoprefixer() /* Using browsers from .browserslistrc file */]
+        postcssOptions: {
+          plugins: () => [autoprefixer() /* Using browsers from .browserslistrc file */]
+        }
       }
     }
   ];
-  const devtool = options.storybook ? "eval-cheap-module-source-map" : false;
 
   return {
-    devtool,
+    devtool: options.storybook ? "eval-cheap-module-source-map" : false,
     resolve: {
       modules: [__dirname, "node_modules"],
       extensions: [".js", ".jsx"]
@@ -95,8 +92,8 @@ module.exports = options => {
     },
     externals: [nodeExternals()],
     entry: {
-      main: path.join(__dirname, "/src/index.js"),
-      ...getPublishedComponents(__dirname)
+      main: path.join(__dirname, "src/index.js"),
+      ...getPublishedComponents()
     },
     output: {
       path: path.join(__dirname, "/dist/"),
@@ -106,7 +103,12 @@ module.exports = options => {
       globalObject: "this"
     },
     optimization: {
-      minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
+      minimizer: [
+        new ESBuildMinifyPlugin({
+          target: "es2015"
+        }),
+        new CssMinimizerPlugin()
+      ]
     },
     plugins: [
       new CopyPlugin({

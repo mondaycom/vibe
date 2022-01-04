@@ -119,15 +119,17 @@ const Dropdown = ({
 
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
-  const Option = useCallback(props => <OptionComponent {...props} Renderer={finalOptionRenderer} />, [
-    finalOptionRenderer
-  ]);
+  const Option = useCallback(
+    props => <OptionComponent {...props} Renderer={finalOptionRenderer} />,
+    [finalOptionRenderer]
+  );
 
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
-  const SingleValue = useCallback(props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />, [
-    finalValueRenderer
-  ]);
+  const SingleValue = useCallback(
+    props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />,
+    [finalValueRenderer]
+  );
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
@@ -135,7 +137,7 @@ const Dropdown = ({
     () =>
       customOnOptionRemove
         ? (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e)
-        : function(optionValue, e) {
+        : function (optionValue, e) {
             setSelected(selected.filter(option => option.value !== optionValue));
 
             e.stopPropagation();
