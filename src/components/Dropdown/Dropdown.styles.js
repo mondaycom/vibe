@@ -102,44 +102,48 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
   };
 };
 
-const container = ({ size }) => (provided, { isDisabled }) => {
-  delete provided.pointerEvents;
-  return {
-    ...provided,
-    ...getSize(size),
-    minHeight: "30px",
-    border: `1px solid ${getCSSVar("ui-border-color")}`,
-    boxShadow: "none",
-    borderRadius: getCSSVar("border-radius-small"),
-    boxSizing: "border-box",
-    transition: `border 0.1s ${getCSSVar("expand-animation-timing")}`,
-    ":hover": {
-      borderColor: getCSSVar("primary-text-color"),
-      borderRadius: getCSSVar("border-radius-small")
-    },
-    ":active, :focus-within": {
-      borderColor: getCSSVar("color-basic_blue")
-    },
-    ...disabledContainerStyle(isDisabled)
+const container =
+  ({ size }) =>
+  (provided, { isDisabled }) => {
+    delete provided.pointerEvents;
+    return {
+      ...provided,
+      ...getSize(size),
+      minHeight: "30px",
+      border: `1px solid ${getCSSVar("ui-border-color")}`,
+      boxShadow: "none",
+      borderRadius: getCSSVar("border-radius-small"),
+      boxSizing: "border-box",
+      transition: `border 0.1s ${getCSSVar("expand-animation-timing")}`,
+      ":hover": {
+        borderColor: getCSSVar("primary-text-color"),
+        borderRadius: getCSSVar("border-radius-small")
+      },
+      ":active, :focus-within": {
+        borderColor: getCSSVar("color-basic_blue")
+      },
+      ...disabledContainerStyle(isDisabled)
+    };
   };
-};
 
-const control = ({ size }) => (provided, { isDisabled }) => ({
-  ...provided,
-  ...getInnerSize(size),
-  ...getColor(),
-  minHeight: "30px",
-  border: "0 solid transparent",
-  borderRadius: getCSSVar("border-radius-small"),
-  ...(!isDisabled && {
-    ":hover": {
-      borderColor: "transparent",
-      borderRadius: getCSSVar("border-radius-small")
-    }
-  }),
-  cursor: "pointer",
-  ...disabledContainerStyle(isDisabled)
-});
+const control =
+  ({ size }) =>
+  (provided, { isDisabled }) => ({
+    ...provided,
+    ...getInnerSize(size),
+    ...getColor(),
+    minHeight: "30px",
+    border: "0 solid transparent",
+    borderRadius: getCSSVar("border-radius-small"),
+    ...(!isDisabled && {
+      ":hover": {
+        borderColor: "transparent",
+        borderRadius: getCSSVar("border-radius-small")
+      }
+    }),
+    cursor: "pointer",
+    ...disabledContainerStyle(isDisabled)
+  });
 
 const placeholder = () => provided => ({
   ...provided,
@@ -148,50 +152,56 @@ const placeholder = () => provided => ({
   fontWeight: 400
 });
 
-const indicatorsContainer = ({ size }) => (provided, { isDisabled }) => ({
-  ...provided,
-  ...getFont(),
-  ...getColor(),
-  borderRadius: getCSSVar("border-radius-small"),
-  ...disabledContainerStyle(isDisabled),
-  ...getInnerSize(size)
-});
-
-const dropdownIndicator = ({ size }) => (provided, { selectProps }) => {
-  return {
+const indicatorsContainer =
+  ({ size }) =>
+  (provided, { isDisabled }) => ({
     ...provided,
+    ...getFont(),
+    ...getColor(),
+    borderRadius: getCSSVar("border-radius-small"),
+    ...disabledContainerStyle(isDisabled),
+    ...getInnerSize(size)
+  });
+
+const dropdownIndicator =
+  ({ size }) =>
+  (provided, { selectProps }) => {
+    return {
+      ...provided,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: "0px",
+      ...getIndicatorBoxSize(size),
+      margin: "4px 3px 4px 0px",
+      backgroundColor: "transparent",
+      borderRadius: getCSSVar("border-radius-small"),
+      svg: {
+        transition: `transform 0.1s ${getCSSVar("expand-animation-timing")}`,
+        transform: selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
+      },
+      color: getCSSVar("icon-color"),
+      ":hover, :active": {
+        backgroundColor: getCSSVar("primary-background-hover-color"),
+        color: getCSSVar("icon-color")
+      }
+    };
+  };
+
+const clearIndicator =
+  ({ size }) =>
+  () => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    padding: "0px",
-    ...getIndicatorBoxSize(size),
-    margin: "4px 3px 4px 0px",
+    color: getCSSVar("icon-color"),
     backgroundColor: "transparent",
     borderRadius: getCSSVar("border-radius-small"),
-    svg: {
-      transition: `transform 0.1s ${getCSSVar("expand-animation-timing")}`,
-      transform: selectProps.menuIsOpen ? "rotate(180deg)" : "rotate(0deg)"
-    },
-    color: getCSSVar("icon-color"),
-    ":hover, :active": {
-      backgroundColor: getCSSVar("primary-background-hover-color"),
-      color: getCSSVar("icon-color")
+    ...getIndicatorBoxSize(size),
+    ":hover": {
+      backgroundColor: getCSSVar("primary-background-hover-color")
     }
-  };
-};
-
-const clearIndicator = ({ size }) => () => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  color: getCSSVar("icon-color"),
-  backgroundColor: "transparent",
-  borderRadius: getCSSVar("border-radius-small"),
-  ...getIndicatorBoxSize(size),
-  ":hover": {
-    backgroundColor: getCSSVar("primary-background-hover-color")
-  }
-});
+  });
 
 const menuOpenOpacity = ({ menuIsOpen }) => {
   if (menuIsOpen) {
@@ -201,16 +211,18 @@ const menuOpenOpacity = ({ menuIsOpen }) => {
   }
 };
 
-const singleValue = () => (provided, { isDisabled, selectProps }) => ({
-  ...provided,
-  ...getFont(),
-  ...getColor(),
-  ...disabledContainerStyle(isDisabled),
-  ...menuOpenOpacity(selectProps),
-  display: "flex",
-  alignItems: "center",
-  height: "100%"
-});
+const singleValue =
+  () =>
+  (provided, { isDisabled, selectProps }) => ({
+    ...provided,
+    ...getFont(),
+    ...getColor(),
+    ...disabledContainerStyle(isDisabled),
+    ...menuOpenOpacity(selectProps),
+    display: "flex",
+    alignItems: "center",
+    height: "100%"
+  });
 
 function getSingleValueTextSize(size) {
   switch (size) {
@@ -242,15 +254,17 @@ const getCenterContentStyle = rtl => {
   };
 };
 
-const valueContainer = ({ size, rtl }) => (provided, { isDisabled }) => ({
-  ...provided,
-  ...getCenterContentStyle(rtl),
-  ...getFont(),
-  ...getColor(),
-  ...getInnerSize(size),
-  ...disabledContainerStyle(isDisabled),
-  borderRadius: getCSSVar("border-radius-small")
-});
+const valueContainer =
+  ({ size, rtl }) =>
+  (provided, { isDisabled }) => ({
+    ...provided,
+    ...getCenterContentStyle(rtl),
+    ...getFont(),
+    ...getColor(),
+    ...getInnerSize(size),
+    ...disabledContainerStyle(isDisabled),
+    borderRadius: getCSSVar("border-radius-small")
+  });
 
 const menu = () => provided => ({
   ...provided,

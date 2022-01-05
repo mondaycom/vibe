@@ -46,7 +46,7 @@ List.propTypes = {
    * ARIA described by string to reference an id to describe by
    */
   ariaDescribedBy: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.elementType, PropTypes.array, PropTypes.string])
+  children: PropTypes.any
 };
 List.defaultProps = {
   className: "",

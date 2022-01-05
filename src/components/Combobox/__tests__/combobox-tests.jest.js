@@ -4,6 +4,15 @@ import { act } from "@testing-library/react-hooks";
 import Combobox from "../Combobox";
 
 describe("Combobox tests", () => {
+
+  beforeEach(() => {
+    jest.useFakeTimers("modern");
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  })
+
   const mockOptions = [
     { value: "orange", label: "Orange" },
     { value: "yellow", label: "Yellow" }
@@ -27,7 +36,6 @@ describe("Combobox tests", () => {
 
   it("should call callback func when noResultsRenderer", async () => {
     const noResRendereMock = jest.fn();
-    jest.useFakeTimers();
     const { getByLabelText } = render(<Combobox noResultsRenderer={noResRendereMock} options={mockOptions} />);
     const input = getByLabelText("Search for content");
     expect(noResRendereMock.mock.calls.length).toBe(0);

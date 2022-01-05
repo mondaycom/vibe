@@ -1,5 +1,4 @@
 import React from "react";
-import { text, boolean, number, select } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import TabsContext from "../TabsContext";
 import TabList from "../../TabList/TabList";
@@ -27,15 +26,7 @@ export const DefaultStory = () => (
 export const Sandbox = () => {
   return (
     <TabsContext
-      activeTabId={select(
-        "activeTabId",
-        {
-          First: 0,
-          Second: 1,
-          Third: 2
-        },
-        0
-      )}
+      activeTabId={0}
     >
       <TabList>
         <Tab>First</Tab>

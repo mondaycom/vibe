@@ -3,7 +3,6 @@ const autoprefixer = require("autoprefixer");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const { getPublishedComponents } = require("./webpack/published-components");
 
 module.exports = options => {
@@ -30,12 +29,7 @@ module.exports = options => {
           }
         }
       : {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            // you can specify a publicPath here
-            // by default it uses publicPath in webpackOptions.output
-            hmr: false
-          }
+          loader: MiniCssExtractPlugin.loader
         },
     {
       loader: "css-loader",
@@ -44,7 +38,7 @@ module.exports = options => {
           mode: "local",
           auto: true,
           localIdentName: "[path][name]__[local]--[hash:base64:5]",
-          context: path.resolve(__dirname, "src"),
+          localIdentContext: path.resolve(__dirname, "src"),
           exportGlobals: false
         }
       }
@@ -52,7 +46,9 @@ module.exports = options => {
     {
       loader: "postcss-loader",
       options: {
-        plugins: () => [autoprefixer() /* Using browsers from .browserslistrc file */]
+        postcssOptions: {
+          plugins: [[autoprefixer()]]
+        }
       }
     }
   ];
@@ -106,7 +102,7 @@ module.exports = options => {
       globalObject: "this"
     },
     optimization: {
-      minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
+      minimizer: [new TerserJSPlugin({})]
     },
     plugins: [
       new CopyPlugin({
