@@ -123,7 +123,7 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.5.5",
-    "execa": "^6.0.0",
+    "execa": "^5.1.1",
     "jest": "^26.6.3",
     "json-loader": "^0.5.7",
     "jsontosass": "^0.2.0",
