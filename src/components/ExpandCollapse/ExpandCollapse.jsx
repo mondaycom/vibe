@@ -9,7 +9,7 @@ import { TYPES } from "../Heading/HeadingConstants";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
 
 const ExpandCollapse = forwardRef(
-  ({ children, headerComponentRenderer, title, className, defaultOpenState, iconSize, id, open, onClick }, ref) => {
+  ({ children, headerComponentRenderer, title, className, defaultOpenState, iconSize, id, open, onClick, extraHeaderContent }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -45,6 +45,7 @@ const ExpandCollapse = forwardRef(
               clickable={false}
             />
           </button>
+          {extraHeaderContent}
           {isExpanded && (
             <div
               className={`expand-collapse__content expand-collapse__section ${
@@ -92,7 +93,11 @@ ExpandCollapse.propTypes = {
    */
   defaultOpenState: PropTypes.bool,
   open: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /**
+   * Extra nodes to add at the bottom of the header and will not open the expandable section
+   */
+  extraHeaderContent: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 };
 
 ExpandCollapse.defaultProps = {
@@ -104,6 +109,7 @@ ExpandCollapse.defaultProps = {
   title: "",
   headerComponentRenderer: null,
   children: null,
+  extraHeaderContent: null,
   open: undefined
 };
 
