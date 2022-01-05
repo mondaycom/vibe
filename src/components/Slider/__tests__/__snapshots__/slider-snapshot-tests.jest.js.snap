@@ -51,10 +51,10 @@ Snapshot Diff:
           aria-valuenow="0"
 `;
 
-exports[`Slider Render 03. with ariaLabeledBy 1`] = `
+exports[`Slider Render 03. with ariaLabelledby 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"ariaLabeledBy":"id-of-the-custom-label"}
++ Current Render: {"ariaLabelledby":"id-of-the-custom-label"}
 
 @@ --- --- @@
         />
@@ -66,10 +66,10 @@ Snapshot Diff:
           aria-valuenow="0"
 `;
 
-exports[`Slider Render 04. with custom className and classNameBase 1`] = `
+exports[`Slider Render 04. with custom className 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"className":"slide-me","classNameBase":"slide-me"}
++ Current Render: {"className":"slide-me"}
 
 @@ --- --- @@
   <div
@@ -78,33 +78,6 @@ Snapshot Diff:
     data-testid="monday-slider"
   >
     <div
--     class="monday-slider__base monday-slider__base--small"
-+     class="monday-slider__base monday-slider__base--small slide-me__base"
-      data-testid="monday-slider__base"
-    >
-      <div
--       class="monday-slider__rail"
-+       class="monday-slider__rail slide-me__rail"
-      >
-        <div
--         class="monday-slider__track"
-+         class="monday-slider__track slide-me__track"
-        />
-        <div
--         class="monday-slider__filled-track"
-+         class="monday-slider__filled-track slide-me__filled-track"
-          style="left: 0%; width: 0%;"
-        />
-        <div
-@@ --- --- @@
-          aria-valuemin="0"
-          aria-valuenow="0"
-          aria-valuetext="0%"
--         class="monday-slider__thumb monday-slider__thumb--index-0"
-+         class="monday-slider__thumb monday-slider__thumb--index-0 slide-me__thumb slide-me__thumb--index-0"
-          data-testid="monday-slider__thumb-0"
-          role="slider"
-          style="left: 0%;"
 `;
 
 exports[`Slider Render 05. with id and data-testid 1`] = `

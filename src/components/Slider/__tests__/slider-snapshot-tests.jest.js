@@ -39,14 +39,14 @@ describe("Slider Render", () => {
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
-  it("03. with ariaLabeledBy", async () => {
-    const props = { ariaLabeledBy: "id-of-the-custom-label" };
+  it("03. with ariaLabelledby", async () => {
+    const props = { ariaLabelledby: "id-of-the-custom-label" };
     const currentRender = await renderSliderHelper(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
-  it("04. with custom className and classNameBase", async () => {
-    const props = { className: "slide-me", classNameBase: "slide-me" };
+  it("04. with custom className", async () => {
+    const props = { className: "slide-me" };
     const currentRender = await renderSliderHelper(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });

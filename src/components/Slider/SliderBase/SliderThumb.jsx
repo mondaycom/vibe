@@ -10,7 +10,7 @@ const tooltipPosition = DialogPositions.TOP;
 
 const SliderThumb = ({ className, index, position }) => {
   const { max, min, value, valueText } = useSliderSelection(index);
-  const { active, ariaLabel, ariaLabeledBy, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
+  const { active, ariaLabel, ariaLabelledby, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
   const { setActive, setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);
 
@@ -54,7 +54,7 @@ const SliderThumb = ({ className, index, position }) => {
     >
       <div
         aria-label={ariaLabel}
-        aria-labelledby={ariaLabeledBy}
+        aria-labelledby={ariaLabelledby}
         aria-valuemax={max}
         aria-valuemin={min}
         aria-valuenow={value}

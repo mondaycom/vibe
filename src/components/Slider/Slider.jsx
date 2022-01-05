@@ -8,15 +8,13 @@ import { ensureValueDefault } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
-import { createBemBlockHelper } from "../../helpers/bem-helper";
 
 const Slider = forwardRef(
   (
     {
       ariaLabel,
-      ariaLabeledBy,
+      ariaLabelledby,
       className,
-      classNameBase,
       color,
       "data-testid": dataTestId,
       disabled,
@@ -41,11 +39,9 @@ const Slider = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const consumerBem = createBemBlockHelper(classNameBase, { isConsume: true });
     const providerProps = {
       ariaLabel,
-      ariaLabeledBy,
-      classNameBase,
+      ariaLabelledby,
       color,
       dataTestId,
       disabled,
@@ -75,7 +71,7 @@ const Slider = forwardRef(
           ref={mergedRef}
         >
           <SliderInfix kind="prefix" />
-          <SliderBase className={consumerBem("base")} />
+          <SliderBase />
           <SliderInfix kind="postfix" />
         </div>
       </SliderProvider>
@@ -95,16 +91,11 @@ Slider.propTypes = {
   /**
    * ElementId of Node that have the text needed for labeling the current element (Slider)
    */
-  ariaLabeledBy: PropTypes.string,
+  ariaLabelledby: PropTypes.string,
   /**
    * Custom `class name` to be added to the component-root-node
    */
   className: PropTypes.string,
-  /**
-   * Custom base of class names for add to component-root and internal-components nodes
-   *  - check Dev Tools for found available Custom/Consumer Classes
-   */
-  classNameBase: PropTypes.string,
   /**
    * Color Mode (primary/positive/negative) of the component (Slider)
    */
@@ -216,9 +207,8 @@ Slider.propTypes = {
 Slider.defaultProps = {
   // ------ SliderBase props
   ariaLabel: undefined,
-  ariaLabeledBy: undefined,
+  ariaLabelledby: undefined,
   className: "",
-  classNameBase: "",
   color: undefined,
   "data-testid": "monday-slider",
   disabled: false,

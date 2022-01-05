@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
 import { SIZES_BASIC } from "../../constants";
-import { createBemBlockHelper } from "../../helpers/bem-helper";
 import { createTestIdHelper } from "../../helpers/testid-helper";
 import { calculatePageStep, getCurrentValue } from "./SliderHelpers";
 import { useSliderValues } from "./SliderHooks";
@@ -8,9 +7,8 @@ import { useSliderValues } from "./SliderHooks";
 const uiDefaults = {
   active: null,
   ariaLabel: undefined,
-  ariaLabeledBy: undefined,
+  ariaLabelledby: undefined,
   color: undefined,
-  consumerBem: () => {},
   disabled: false,
   dragging: null,
   focused: null,
@@ -40,8 +38,7 @@ const InfixContext = createContext();
 export function SliderProvider({
   children,
   ariaLabel,
-  ariaLabeledBy,
-  classNameBase,
+  ariaLabelledby,
   color,
   dataTestId,
   disabled,
@@ -58,7 +55,6 @@ export function SliderProvider({
   valueText,
   infixOptions
 }) {
-  const consumerBem = createBemBlockHelper(classNameBase, { isConsume: true });
   const shapeTestId = createTestIdHelper(dataTestId);
   const { actualValue, actualValueText, setSelectedValue } = useSliderValues({
     value,
@@ -74,9 +70,8 @@ export function SliderProvider({
   const uiContextValue = {
     active,
     ariaLabel,
-    ariaLabeledBy,
+    ariaLabelledby,
     color,
-    consumerBem,
     disabled,
     dragging,
     focused,
