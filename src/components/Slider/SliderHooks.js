@@ -66,8 +66,8 @@ export function useSliderResize(onResize) {
   }, [onResize]);
 }
 
-export function useSliderValue({ isControlled, value, valueDefault }) {
-  const initialValue = isControlled ? value : valueDefault;
+export function useSliderValue({ defaultValue, isControlled, value }) {
+  const initialValue = isControlled ? value : defaultValue;
   const [internalStateValue, setInternalStateValue] = useState(initialValue);
   if (isControlled) {
     return [value, () => {}];
@@ -75,9 +75,9 @@ export function useSliderValue({ isControlled, value, valueDefault }) {
   return [internalStateValue, setInternalStateValue];
 }
 
-export function useSliderValues({ value, valueDefault, valueFormatter, valueText }) {
+export function useSliderValues({ defaultValue, value, valueFormatter, valueText }) {
   const isControlled = useControlledOrInternal(value);
-  const [actualValue, setSelectedValue] = useSliderValue({ isControlled, value, valueDefault });
+  const [actualValue, setSelectedValue] = useSliderValue({ defaultValue, isControlled, value });
   const actualValueText = ensureValueText(valueText, actualValue, valueFormatter);
   return { actualValue, actualValueText, isControlled, setSelectedValue };
 }

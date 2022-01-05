@@ -77,9 +77,9 @@ Sizes small/medium/large are available.
 
 <Canvas>
   <Story name="Sizes">
-    <Slider size={Slider.sizes.SMALL} valueDefault={12} />
-    <Slider size={Slider.sizes.MEDIUM} valueDefault={24} />
-    <Slider size={Slider.sizes.LARGE} valueDefault={35} />
+    <Slider size={Slider.sizes.SMALL} defaultValue={12} />
+    <Slider size={Slider.sizes.MEDIUM} defaultValue={24} />
+    <Slider size={Slider.sizes.LARGE} defaultValue={35} />
   </Story>
 </Canvas>
 
@@ -90,8 +90,8 @@ Slider can define range instead of single value
 <Canvas>
   <Story name="Ranged">
     <Slider size={Slider.sizes.SMALL} isRange={true} />
-    <Slider size={Slider.sizes.MEDIUM} isRange={true} valueDefault={[12, 55]} />
-    <Slider size={Slider.sizes.LARGE} isRange={true} valueDefault={[25, 32]} />
+    <Slider size={Slider.sizes.MEDIUM} isRange={true} defaultValue={[12, 55]} />
+    <Slider size={Slider.sizes.LARGE} isRange={true} defaultValue={[25, 32]} />
   </Story>
 </Canvas>
 
@@ -102,9 +102,9 @@ Color Modes primary/positive/negative are available.
 
 <Canvas>
   <Story name="Colors">
-    <Slider color={Slider.colors.POSITIVE} valueDefault={34} size={Slider.sizes.MEDIUM} />
-    <Slider color={Slider.colors.NEGATIVE} isRange={true} valueDefault={[12, 55]} size={Slider.sizes.MEDIUM} />
-    <Slider color={Slider.colors.PRIMARY} valueDefault={12} size={Slider.sizes.MEDIUM} />
+    <Slider color={Slider.colors.POSITIVE} defaultValue={34} size={Slider.sizes.MEDIUM} />
+    <Slider color={Slider.colors.NEGATIVE} isRange={true} defaultValue={[12, 55]} size={Slider.sizes.MEDIUM} />
+    <Slider color={Slider.colors.PRIMARY} defaultValue={12} size={Slider.sizes.MEDIUM} />
   </Story>
 </Canvas>
 
@@ -114,9 +114,9 @@ Slider can be disabled.
 
 <Canvas>
   <Story name="Disabled">
-    <Slider disabled={true} valueDefault={24} color={Slider.colors.POSITIVE} size={Slider.sizes.MEDIUM} />
+    <Slider disabled={true} defaultValue={24} color={Slider.colors.POSITIVE} size={Slider.sizes.MEDIUM} />
     <Slider disabled={true} color={Slider.colors.NEGATIVE} size={Slider.sizes.MEDIUM} />
-    <Slider disabled={true} isRange={true} valueDefault={[12, 55]} color={Slider.colors.PRIMARY} size={Slider.sizes.MEDIUM} />
+    <Slider disabled={true} isRange={true} defaultValue={[12, 55]} color={Slider.colors.PRIMARY} size={Slider.sizes.MEDIUM} />
   </Story>
 </Canvas>
 
@@ -126,11 +126,11 @@ Indicate selection at Label, Add Prefix and/or Postfix Icons or Labels
 
 <Canvas>
   <Story name="WithLabels" decorators={[VerticalStories]}>
-    <Slider indicateSelection={true} valueDefault={12} size={Slider.sizes.SMALL} />
-    <Slider indicateSelection={true} isRange={true} valueDefault={[12, 55]} size={Slider.sizes.SMALL} />
-    <Slider prefix={{ icon: Sound }} indicateSelection={true} valueDefault={70} size={Slider.sizes.SMALL} />
-    <Slider prefix={{ icon: Video }} postfix={{ icon: Sound }} valueDefault={45} size={Slider.sizes.MEDIUM} />
-    <Slider prefix="Vol" indicateSelection={true} valueDefault={0} size={Slider.sizes.LARGE} />
+    <Slider indicateSelection={true} defaultValue={12} size={Slider.sizes.SMALL} />
+    <Slider indicateSelection={true} isRange={true} defaultValue={[12, 55]} size={Slider.sizes.SMALL} />
+    <Slider prefix={{ icon: Sound }} indicateSelection={true} defaultValue={70} size={Slider.sizes.SMALL} />
+    <Slider prefix={{ icon: Video }} postfix={{ icon: Sound }} defaultValue={45} size={Slider.sizes.MEDIUM} />
+    <Slider prefix="Vol" indicateSelection={true} defaultValue={0} size={Slider.sizes.LARGE} />
   </Story>
 </Canvas>
 
@@ -140,9 +140,9 @@ Always show value of slider (instead of Tooltip).
 
 <Canvas>
   <Story name="ShowValue">
-    <Slider showValue={true} valueDefault={12} size={Slider.sizes.SMALL} />
-    <Slider showValue={true} valueDefault={55} size={Slider.sizes.MEDIUM} />
-    <Slider showValue={true} valueDefault={89} size={Slider.sizes.LARGE} />
+    <Slider showValue={true} defaultValue={12} size={Slider.sizes.SMALL} />
+    <Slider showValue={true} defaultValue={55} size={Slider.sizes.MEDIUM} />
+    <Slider showValue={true} defaultValue={89} size={Slider.sizes.LARGE} />
   </Story>
 </Canvas>
 
@@ -152,9 +152,9 @@ Limit and Step can be customized.
 
 <Canvas>
   <Story name="Limits, Steps" decorators={[VerticalStories]}>
-    <Slider prefix="Step 10" step={10} indicateSelection={true} valueDefault={10} size={Slider.sizes.SMALL} />
-    <Slider prefix="Step 2, Max: 20" max={20} step={2}  indicateSelection={true} valueDefault={4} size={Slider.sizes.MEDIUM} />
-    <Slider prefix="from 20%" postfix="till 80%" min={20} max={80} showValue={true} valueDefault={62} size={Slider.sizes.LARGE} />
+    <Slider prefix="Step 10" step={10} indicateSelection={true} defaultValue={10} size={Slider.sizes.SMALL} />
+    <Slider prefix="Step 2, Max: 20" max={20} step={2}  indicateSelection={true} defaultValue={4} size={Slider.sizes.MEDIUM} />
+    <Slider prefix="from 20%" postfix="till 80%" min={20} max={80} showValue={true} defaultValue={62} size={Slider.sizes.LARGE} />
     <Slider isRange={true} indicateSelection={true} min={100} max={200} step={10} size={Slider.sizes.LARGE} />
   </Story>
 </Canvas>
@@ -199,14 +199,14 @@ __Important!__ Please use customisation very careful, only if you really need it
       id="my-app-slider"
       data-testid={"my-app-slider"}
       className="my-custom-class"
-      valueDefault={19}
+      defaultValue={19}
       prefix="Check Dev-Tools for Custom Classes"
       size={Slider.sizes.MEDIUM}
     />
     <Slider
       id="custom-value-formatter"
       className="my-custom-forrmater"
-      valueDefault={3}
+      defaultValue={3}
       min={1}
       max={10}
       indicateSelection={true}
@@ -217,7 +217,7 @@ __Important!__ Please use customisation very careful, only if you really need it
     <Slider
       id="custom-prefix"
       className="my-slider-wide"
-      valueDefault={50}
+      defaultValue={50}
       prefix={<Chips
         label="Custom component"
         readOnly

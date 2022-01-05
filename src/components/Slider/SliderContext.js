@@ -41,6 +41,7 @@ export function SliderProvider({
   ariaLabelledby,
   color,
   dataTestId,
+  defaultValue,
   disabled,
   isRange,
   max,
@@ -50,15 +51,14 @@ export function SliderProvider({
   size,
   step,
   value,
-  valueDefault,
   valueFormatter,
   valueText,
   infixOptions
 }) {
   const shapeTestId = createTestIdHelper(dataTestId);
   const { actualValue, actualValueText, setSelectedValue } = useSliderValues({
+    defaultValue,
     value,
-    valueDefault,
     valueFormatter,
     valueText
   });

@@ -133,7 +133,7 @@ describe("Slider Render", () => {
   });
 
   it(`18. ranged slider with options`, async () => {
-    const props = { isRange: true, valueDefault: [20, 30], min: 10, max: 50, step: 2 };
+    const props = { isRange: true, defaultValue: [20, 30], min: 10, max: 50, step: 2 };
     const currentRender = await renderSliderHelper(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });

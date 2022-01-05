@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { COLORS_BASIC, SIZES_BASIC } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./Slider.scss";
-import { bem, ensureValueDefault } from "./SliderHelpers";
+import { bem, ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
@@ -26,7 +26,7 @@ const Slider = forwardRef(
       showValue,
       size,
       value,
-      valueDefault,
+      defaultValue,
       valueFormatter,
       valueText,
       // ------ Additional subcomponents' props
@@ -52,7 +52,7 @@ const Slider = forwardRef(
       size,
       step,
       value,
-      valueDefault: ensureValueDefault({ valueDefault, isRange, min, max }),
+      defaultValue: ensureDefaultValue({ defaultValue, isRange, min, max }),
       valueFormatter,
       valueText,
       infixOptions: {
@@ -103,6 +103,11 @@ Slider.propTypes = {
    * Unique TestId - can be used as Selector for integration tests and other needs (tracking, etc)
    */
   "data-testid": PropTypes.string,
+  defaultValue: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.number), PropTypes.number]),
+  /**
+   * Formatter function `value => formattedValue`
+   * default formatter return `${value}%`
+   */
   /**
    * If set to true, Component (Slider) will be disabled
    *  - impossible to change value of component (Slider)
@@ -152,11 +157,6 @@ Slider.propTypes = {
    * Default `value` if value not specified
    *  - should be used in NON-Controlled mode to set initial Value
    *  - in isRange mode should be an array of two numbers
-   */
-  valueDefault: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.number), PropTypes.number]),
-  /**
-   * Formatter function `value => formattedValue`
-   * default formatter return `${value}%`
    */
   valueFormatter: PropTypes.func,
   /**
@@ -210,6 +210,7 @@ Slider.defaultProps = {
   className: "",
   color: undefined,
   "data-testid": "monday-slider",
+  defaultValue: 0,
   disabled: false,
   id: undefined,
   isRange: false,
@@ -220,7 +221,6 @@ Slider.defaultProps = {
   size: SIZES_BASIC.SMALL,
   showValue: false,
   value: undefined,
-  valueDefault: 0,
   valueFormatter: value => `${value}%`,
   valueText: undefined,
   // ------ Additional subcomponents' props

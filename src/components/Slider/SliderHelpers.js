@@ -87,15 +87,15 @@ export function getNearest({ isRange, newValue, value }) {
   return diff0 > diff1 ? 1 : 0;
 }
 
-export function ensureValueDefault({ valueDefault, isRange, min, max }) {
-  if (isRange && !Array.isArray(valueDefault)) {
+export function ensureDefaultValue({ defaultValue, isRange, min, max }) {
+  if (isRange && !Array.isArray(defaultValue)) {
     return [min, max];
   }
-  if (valueDefault < min) {
+  if (defaultValue < min) {
     return min;
   }
-  if (valueDefault > max) {
+  if (defaultValue > max) {
     return max;
   }
-  return valueDefault;
+  return defaultValue;
 }

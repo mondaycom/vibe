@@ -460,7 +460,7 @@ Snapshot Diff:
 exports[`Slider Render 18. ranged slider with options 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"isRange":true,"valueDefault":[20,30],"min":10,"max":50,"step":2}
++ Current Render: {"isRange":true,"defaultValue":[20,30],"min":10,"max":50,"step":2}
 
 @@ --- --- @@
         />
