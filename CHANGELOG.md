@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0 (2022-01-05)
+
+#### Bug Fixes
+* [#426](https://github.com/mondaycom/monday-ui-react-core/pull/426) Bugfix : scroll menu if needed ([@amirbardugo](https://github.com/amirbardugo))
+
+#### New Features
+* [#432](https://github.com/mondaycom/monday-ui-react-core/pull/432) Enhance use key event ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.0.4 (2022-01-04)
 
 #### Bug Fixes
