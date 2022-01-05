@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { INFIX_KIND } from "./SliderCommons";
+import { INFIX_KIND } from "./SliderConstants";
 import { bem } from "./SliderHelpers";
 import { useSliderInfix, useSliderSelection } from "./SliderContext";
 import Label from "../Label/Label";

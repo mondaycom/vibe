@@ -1,5 +1,5 @@
 import cx from "classnames";
-import { COMPONENT_ID, BEM_PREFIX } from "./SliderCommons";
+import { COMPONENT_ID, BEM_PREFIX } from "./SliderConstants";
 
 export function createBemBlockHelper(block, { isConsume } = {}) {
   if (!block || block === "") {
