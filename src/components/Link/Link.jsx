@@ -65,8 +65,12 @@ function getIcon(shouldShow, icon, className) {
   return <Icon className={className} clickable={false} icon={icon} iconType={Icon.type.ICON_FONT} />;
 }
 
-Link.target = LINK_TARGET;
+// Backward compatibility for enum naming
 Link.position = ICON_POSITION;
+Link.target = LINK_TARGET;
+
+Link.iconPositions = ICON_POSITION;
+Link.targets = LINK_TARGET;
 
 Link.propTypes = {
   className: PropTypes.string,
@@ -74,13 +78,13 @@ Link.propTypes = {
   text: PropTypes.string,
   rel: PropTypes.string,
   onClick: PropTypes.func,
-  target: PropTypes.oneOf([Link.target.NEW_WINDOW, Link.target.PARENT, Link.target.SELF, Link.target.TOP]),
+  target: PropTypes.oneOf([Link.targets.NEW_WINDOW, Link.targets.PARENT, Link.targets.SELF, Link.targets.TOP]),
   /** Aria label description */
   ariaLabelDescription: PropTypes.string,
   /** element id to describe the counter accordingly */
   ariaLabeledBy: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  iconPosition: PropTypes.oneOf([Link.position.START, Link.position.END]),
+  iconPosition: PropTypes.oneOf([Link.iconPositions.START, Link.iconPositions.END]),
   id: PropTypes.string,
   disableNavigation: PropTypes.bool
 };
@@ -113,7 +117,7 @@ Link.defaultProps = {
   /**
    * the target window where the link should be open
    */
-  target: Link.target.NEW_WINDOW,
+  target: Link.targets.NEW_WINDOW,
   /**
    * Aria label
    */

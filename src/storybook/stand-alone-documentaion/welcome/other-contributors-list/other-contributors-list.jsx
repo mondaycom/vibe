@@ -19,10 +19,16 @@ export const OtherContributorsList = () => {
   const contributors = useMemo(() => {
     const finalContributors = [];
     if (contributorsJson) {
-      // designer contributors
+      // Add manually contributors which not inside git list
       finalContributors.push(
         <Link href="https://il.linkedin.com/in/rotem-dekel-7a8b12133" className={`${BASE_CLASS}_developer`}>
           Rotem Dekel
+        </Link>
+      );
+
+      finalContributors.push(
+        <Link href="https://github.com/LeanyLabs" className={`${BASE_CLASS}_developer`}>
+          LeanyLabs
         </Link>
       );
 
