@@ -23,7 +23,7 @@ function ensureValueText(valueText, value, formatter) {
   });
 }
 
-export function useControlledOrInternal(value) {
+export function useIsStateControlledFromOutside(value) {
   const [isControlled] = useState(typeof value !== "undefined");
   return isControlled;
 }
@@ -76,7 +76,7 @@ export function useSliderValue({ defaultValue, isControlled, value }) {
 }
 
 export function useSliderValues({ defaultValue, value, valueFormatter, valueText }) {
-  const isControlled = useControlledOrInternal(value);
+  const isControlled = useIsStateControlledFromOutside(value);
   const [actualValue, setSelectedValue] = useSliderValue({ defaultValue, isControlled, value });
   const actualValueText = ensureValueText(valueText, actualValue, valueFormatter);
   return { actualValue, actualValueText, isControlled, setSelectedValue };
