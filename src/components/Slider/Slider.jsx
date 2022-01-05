@@ -69,9 +69,9 @@ const Slider = forwardRef(
           id={id}
           ref={mergedRef}
         >
-          <SliderInfix kind="prefix" />
+          <SliderInfix kind={SliderInfix.kinds.PREFIX} />
           <SliderBase />
-          <SliderInfix kind="postfix" />
+          <SliderInfix kind={SliderInfix.kinds.POSTFIX} />
         </div>
       </SliderProvider>
     );
