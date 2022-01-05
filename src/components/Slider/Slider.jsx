@@ -179,10 +179,8 @@ Slider.propTypes = {
    */
   prefix: PropTypes.oneOfType([
     PropTypes.shape({
-      icon: PropTypes.string.isRequired
-    }),
-    PropTypes.shape({
-      text: PropTypes.string.isRequired
+      // Icon Component: /Icon/Icons/components/*
+      icon: PropTypes.func.isRequired
     }),
     PropTypes.string,
     PropTypes.func,
@@ -193,11 +191,10 @@ Slider.propTypes = {
    */
   postfix: PropTypes.oneOfType([
     PropTypes.shape({
-      icon: PropTypes.string.isRequired
+      // Icon Component: /Icon/Icons/components/*
+      icon: PropTypes.func.isRequired
     }),
-    PropTypes.shape({
-      text: PropTypes.string.isRequired
-    }),
+    PropTypes.string,
     PropTypes.func,
     PropTypes.node
   ])
