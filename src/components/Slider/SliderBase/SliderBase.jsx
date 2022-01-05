@@ -87,13 +87,7 @@ const SliderBase = forwardRef(({ className }, ref) => {
           <>
             <SliderFilledTrack dimension={dimension} offset={offset} />
             {positions.map((position, index) => {
-              return (
-                <SliderThumb
-                  key={getKey(index)}
-                  index={index}
-                  position={position}
-                />
-              );
+              return <SliderThumb key={getKey(index)} index={index} position={position} />;
             })}
           </>
         )}
