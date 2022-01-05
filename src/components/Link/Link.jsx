@@ -74,10 +74,13 @@ Link.targets = LINK_TARGET;
 
 Link.propTypes = {
   className: PropTypes.string,
+  /** Specifies the location (URL) of the external resource */
   href: PropTypes.string,
   text: PropTypes.string,
+  /** Defines the relationship between a linked resource and the current document */
   rel: PropTypes.string,
   onClick: PropTypes.func,
+  /** Specifies where to open the linked document */
   target: PropTypes.oneOf([Link.targets.NEW_WINDOW, Link.targets.PARENT, Link.targets.SELF, Link.targets.TOP]),
   /** Aria label description */
   ariaLabelDescription: PropTypes.string,
