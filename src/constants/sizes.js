@@ -1,15 +1,13 @@
-export const SIZES = Object.freeze({
-  XXS: "xxs",
-  XS: "xs",
+export const SIZES_BASIC = Object.freeze({
   SMALL: "small",
   MEDIUM: "medium",
   LARGE: "large"
 });
 
-export const SIZES_BASIC = Object.freeze({
-  SMALL: "small",
-  MEDIUM: "medium",
-  LARGE: "large"
+export const SIZES = Object.freeze({
+  XXS: "xxs",
+  XS: "xs",
+  ...SIZES_BASIC
 });
 
 export const DialogPositions = Object.freeze({
