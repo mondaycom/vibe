@@ -3,7 +3,7 @@ const autoprefixer = require("autoprefixer");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { getPublishedComponents } = require("./src/published-components");
+const { getPublishedComponents } = require("./webpack/published-components");
 
 module.exports = options => {
   const IS_DEV = process.env.NODE_ENV === "development";
