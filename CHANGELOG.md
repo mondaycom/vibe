@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.0 (2022-01-05)
+
+#### New Features
+* [#430](https://github.com/mondaycom/monday-ui-react-core/pull/430) Create an ESM entry ([@sahariko](https://github.com/sahariko))
+
+#### Dependency Upgrades
+* [#431](https://github.com/mondaycom/monday-ui-react-core/pull/431) Infra/orr/update deps ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#425](https://github.com/mondaycom/monday-ui-react-core/pull/425) New components docs (tabs sub components and hidden text component) ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#434](https://github.com/mondaycom/monday-ui-react-core/pull/434) feat: LearnMore icon ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.1.0 (2022-01-05)
 
 #### Bug Fixes
