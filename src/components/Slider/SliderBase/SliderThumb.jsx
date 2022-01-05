@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { DialogPositions } from "../../../constants";
 import Tooltip from "../../Tooltip/Tooltip";
-import { bem } from "../SliderCommons";
+import { bem } from "../SliderHelpers";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 
 const tooltipShowDelay = 300;

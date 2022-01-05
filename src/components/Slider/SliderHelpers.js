@@ -1,3 +1,22 @@
+import cx from "classnames";
+import { COMPONENT_ID, BEM_PREFIX } from "./SliderCommons";
+
+export function createBemBlockHelper(block, { isConsume } = {}) {
+  if (!block || block === "") {
+    return () => "";
+  }
+  const blockClass = isConsume ? block : `${BEM_PREFIX}-${block}`;
+  return function bem(element, modifiers = "", extraClasses = "") {
+    const elClass = element !== "" ? `${blockClass}__${element}` : blockClass;
+    const modClasses = cx(modifiers)
+      .split(" ")
+      .map(modClass => (modClass === "" ? "" : `${elClass}--${modClass}`));
+    return cx(elClass, modClasses, extraClasses);
+  };
+}
+
+export const bem = createBemBlockHelper(COMPONENT_ID);
+
 function ensureStepModulo(pageStep, step) {
   const moduloToStep = pageStep % step;
   if (moduloToStep === 0) {

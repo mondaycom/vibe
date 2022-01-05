@@ -1,9 +1,8 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import "./SliderBase.scss";
-import { bem } from "../SliderCommons";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import { calcDimensions, getNearest, moveToPx } from "../SliderHelpers";
+import { bem, calcDimensions, getNearest, moveToPx } from "../SliderHelpers";
 import { useSliderRail } from "../SliderHooks";
 import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";

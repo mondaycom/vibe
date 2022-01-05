@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import { bem } from "../SliderCommons";
+import { bem } from "../SliderHelpers";
 
 const SliderRail = forwardRef(({ className, children, onClick }, ref) => {
   function handleClick(e) {
