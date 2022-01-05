@@ -1,0 +1,101 @@
+import TabList from "../../TabList/TabList.jsx";
+import Tab from "../../Tab/Tab";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import classes from "./tab-list.stories.module.scss";
+
+<Meta
+  title="Navigation/Tabs/TabList"
+  component={ TabList }
+/>
+
+<!--- Component template -->
+
+export const tabListTemplate = (args) => (
+  <TabList {...args}>
+    <Tab>First</Tab>
+    <Tab>Second</Tab>
+    <Tab>Third</Tab>
+    <Tab disabled>Disabled</Tab>
+  </TabList>)
+
+<!--- Component documentation -->
+
+# TabList
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+- [Feedback](#feedback)
+
+## Overview
+TabList is a container of all the tabs headers inside the tabs component
+<Canvas>
+  <Story name="Overview">
+    { tabListTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ TabList } />
+
+## Variants
+### Default - compact tabs
+<Canvas>
+  <Story name="Default">
+      <TabList>
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
+      </TabList>
+  </Story>
+</Canvas>
+
+### Stretched
+The width of the list is responsive to the screen's width.
+<Canvas>
+  <Story name="Stretched">
+    <div style={{width: "100%"}}>
+      <TabList tabType="stretched">
+        <Tab>First</Tab>
+        <Tab>Second</Tab>
+        <Tab>Third</Tab>
+        <Tab disabled>Disabled</Tab>
+      </TabList>
+    </div>
+  </Story>
+</Canvas>
+
+### Sizes
+<Canvas>
+  <Story name="Sizes">
+    <div className={classes.tabsSizesContainer}>
+      <>
+        Small
+        <TabList size="sm">
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+          <Tab>Third</Tab>
+          <Tab disabled>Disabled</Tab>
+        </TabList>
+      </>
+      <>
+        Medium
+        <TabList size="md">
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+          <Tab>Third</Tab>
+          <Tab disabled>Disabled</Tab>
+        </TabList>
+      </>
+      <>
+        Large
+        <TabList size="lg">
+          <Tab>First</Tab>
+          <Tab>Second</Tab>
+          <Tab>Third</Tab>
+          <Tab disabled>Disabled</Tab>
+        </TabList>
+      </>
+    </div>
+  </Story>
+</Canvas>

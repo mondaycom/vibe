@@ -1,0 +1,31 @@
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
+import TabPanel from "../TabPanel";
+
+<Meta
+  title="Navigation/Tabs/TabPanel"
+  component={ TabPanel }
+/>
+
+<!--- Component template -->
+
+export const tabPanelTemplate = createComponentTemplate(TabPanel)
+
+<!--- Component documentation -->
+
+# TabPanel
+- [Overview](#overview)
+- [Props](#props)
+- [Variants](#variants)
+- [Feedback](#feedback)
+
+## Overview
+Tab panel contains the content of one tab in a Tabs component.
+<Canvas>
+  <Story name="Overview" args={{children: "Content"}}>
+    { tabPanelTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ TabPanel } />
