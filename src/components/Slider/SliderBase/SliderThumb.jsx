@@ -25,6 +25,9 @@ const SliderThumb = ({ className, index, position }) => {
   }
 
   function handlePointerLeave() {
+    if (dragging) {
+      return;
+    }
     setActive(null);
   }
 
