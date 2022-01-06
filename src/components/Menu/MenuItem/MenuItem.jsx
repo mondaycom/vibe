@@ -85,7 +85,7 @@ const MenuItem = ({
   });
 
   useEffect(() => {
-    if (isActive && shouldScrollMenu) {
+    if (isActive && shouldScrollMenu && referenceElement) {
       if (referenceElement.scrollIntoViewIfNeeded) {
         referenceElement.scrollIntoViewIfNeeded({ behaviour: "smooth" });
       } else {
