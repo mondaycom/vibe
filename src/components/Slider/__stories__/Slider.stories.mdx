@@ -11,8 +11,8 @@ import {
 } from "../../../storybook";
 import {
   PROGRESS_BAR,
-  TEXT_FIELD,
-  TOGGLE
+  TOGGLE,
+  WIZARD
 } from "../../../storybook/components/related-components/component-description-map";
 import "./Slider.stories.scss";
 import Slider from "../Slider";
@@ -41,7 +41,6 @@ export const sliderTemplate = createComponentTemplate(Slider);
 - [Usage](#usage)
 - [Variants](#variants)
 - [Do’s and don’ts](#dos-and-donts)
-- [Use cases and examples](#use-cases-and-examples)
 - [Related components](#related-components)
 - [Feedback](#feedback)
 
@@ -159,34 +158,6 @@ Limit and Step can be customized.
   </Story>
 </Canvas>
 
-## Do’s and Don’ts
-<ComponentRules
-  rules={[
-    {
-      positive: {
-        component:<Slider />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<Slider />,
-        description:"Bad practice description."
-      }
-    },
-     {
-      positive: {
-        component:<Slider />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<Slider />,
-        description:"Bad practice description."
-      }
-    }
-  ]}
-/>
-
-## Use cases and examples
-
 ### Customisation
 
 Custom ID, custom `data-testid` and Custom Class. Add Custom Items as Prefix and Postfix of Slider.
@@ -231,6 +202,33 @@ __Important!__ Please use customisation very careful, only if you really need it
   </Story>
 </Canvas>
 
+## Do’s and Don’ts
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component:<Slider />,
+        description:"Best practice description."
+      },
+      negative: {
+        component:<Slider />,
+        description:"Bad practice description."
+      }
+    },
+     {
+      positive: {
+        component:<Slider />,
+        description:"Best practice description."
+      },
+      negative: {
+        component:<Slider />,
+        description:"Bad practice description."
+      }
+    }
+  ]}
+/>
+
+
 ## Related components
 
-<RelatedComponents componentsNames={[PROGRESS_BAR, TOGGLE, TEXT_FIELD]} />
+<RelatedComponents componentsNames={[PROGRESS_BAR, TOGGLE, WIZARD]} />
