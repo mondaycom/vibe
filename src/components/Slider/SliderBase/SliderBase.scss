@@ -1,4 +1,5 @@
 @import "../../../styles/global-css-settings";
+@import "../../../styles/states";
 @import "../../../styles/themes";
 
 .monday-slider {
@@ -77,15 +78,7 @@
   &:not(&--disabled) {
     .monday-slider {
       &__thumb {
-        &:focus-visible {
-          @include theme-prop(border-color, primary-hover-color);
-          outline: 3px solid;
-          @include theme-prop(outline-color, primary-selected-color);
-          transform: translate(-50%, -50%) scale(1.33, 1.33);
-          transform-origin: center center;
-          transition: transform 0.2s $expand-animation-timing;
-          @include box-shadow-small();
-        }
+        @include focus-style(50%);
         &:hover {
           @include theme-prop(border-color, primary-hover-color);
           cursor: grab;
@@ -166,10 +159,6 @@
       &:not(&--disabled) {
         .monday-slider {
           &__thumb {
-            &:focus-visible {
-              @include theme-prop(border-color, positive-color-hover);
-              @include theme-prop(outline-color, positive-color-selected);
-            }
             &:hover {
               @include theme-prop(border-color, positive-color-hover);
             }
@@ -193,10 +182,6 @@
       &:not(&--disabled) {
         .monday-slider {
           &__thumb {
-            &:focus-visible {
-              @include theme-prop(border-color, negative-color-hover);
-              @include theme-prop(outline-color, negative-color-selected);
-            }
             &:hover {
               @include theme-prop(border-color, negative-color-hover);
             }
