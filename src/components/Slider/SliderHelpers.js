@@ -40,15 +40,15 @@ export function calculatePageStep({ max, min, step }) {
   return fixedPageStep;
 }
 
-export function getCurrentValue(actualValue, isRange, focused) {
-  if (!isRange) {
+export function getCurrentValue(actualValue, ranged, focused) {
+  if (!ranged) {
     return actualValue;
   }
   return actualValue[focused];
 }
 
-export function calcDimensions({ isRange, max, min, value }) {
-  if (!isRange) {
+export function calcDimensions({ max, min, ranged, value }) {
+  if (!ranged) {
     const [dimension, position] = calcDimension({ max, min, value });
     return { dimension, offset: 0, positions: [position] };
   }
@@ -78,8 +78,8 @@ export function moveToPx({ offsetInPx, min, max, railCoords, step }) {
   return newValue;
 }
 
-export function getNearest({ isRange, newValue, value }) {
-  if (!isRange) {
+export function getNearest({ newValue, ranged, value }) {
+  if (!ranged) {
     return 0;
   }
   const diff0 = Math.abs(value[0] - newValue);
@@ -87,8 +87,8 @@ export function getNearest({ isRange, newValue, value }) {
   return diff0 > diff1 ? 1 : 0;
 }
 
-export function ensureDefaultValue({ defaultValue, isRange, min, max }) {
-  if (isRange && !Array.isArray(defaultValue)) {
+export function ensureDefaultValue({ defaultValue, min, max, ranged }) {
+  if (ranged && !Array.isArray(defaultValue)) {
     return [min, max];
   }
   if (defaultValue < min) {

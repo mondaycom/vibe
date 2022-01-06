@@ -18,10 +18,10 @@ const Slider = forwardRef(
       "data-testid": dataTestId,
       disabled,
       id,
-      isRange,
       max,
       min,
       onChange,
+      ranged,
       step,
       showValue,
       size,
@@ -44,15 +44,15 @@ const Slider = forwardRef(
       color,
       dataTestId,
       disabled,
-      isRange,
       max,
       min,
       onChange,
+      ranged,
       showValue,
       size,
       step,
       value,
-      defaultValue: ensureDefaultValue({ defaultValue, isRange, min, max }),
+      defaultValue: ensureDefaultValue({ defaultValue, min, max, ranged }),
       valueFormatter,
       valueText,
       infixOptions: {
@@ -119,10 +119,6 @@ Slider.propTypes = {
    */
   id: PropTypes.string,
   /**
-   * If true switch slider to RRange mode (two Thumbs)
-   */
-  isRange: PropTypes.bool,
-  /**
    * Max range value of the component (Slider)
    */
   max: PropTypes.number,
@@ -135,6 +131,10 @@ Slider.propTypes = {
    * - required in Controlled Mode
    */
   onChange: PropTypes.func,
+  /**
+   * If true switch slider to RRange mode (two Thumbs)
+   */
+  ranged: PropTypes.bool,
   /**
    * The granularity with which the slider can step through values.
    * (A "discrete" slider.) The min prop serves as the origin for the valid values.
@@ -152,13 +152,13 @@ Slider.propTypes = {
   /**
    * Current/selected value of the range of the Component (Slider)
    *   - should be used in Controlled Mode only
-   *   - in isRange mode should be an array of two numbers
+   *   - in ranged mode should be an array of two numbers
    */
   value: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.number), PropTypes.number]),
   /**
    * Default `value` if value not specified
    *  - should be used in NON-Controlled mode to set initial Value
-   *  - in isRange mode should be an array of two numbers
+   *  - in ranged mode should be an array of two numbers
    */
   valueFormatter: PropTypes.func,
   /**
@@ -212,10 +212,10 @@ Slider.defaultProps = {
   defaultValue: 0,
   disabled: false,
   id: undefined,
-  isRange: false,
   max: 100,
   min: 0,
   onChange: () => {},
+  ranged: false,
   step: 1,
   size: SIZES_BASIC.SMALL,
   showValue: false,

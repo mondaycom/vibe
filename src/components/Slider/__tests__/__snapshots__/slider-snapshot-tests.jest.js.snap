@@ -422,10 +422,10 @@ Snapshot Diff:
   </div>
 `;
 
-exports[`Slider Render 17. with isRange (ranged slider) 1`] = `
+exports[`Slider Render 17. with ranged (ranged slider) 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"isRange":true}
++ Current Render: {"ranged":true}
 
 @@ --- --- @@
         />
@@ -460,7 +460,7 @@ Snapshot Diff:
 exports[`Slider Render 18. ranged slider with options 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"isRange":true,"defaultValue":[20,30],"min":10,"max":50,"step":2}
++ Current Render: {"defaultValue":[20,30],"min":10,"max":50,"ranged":true,"step":2}
 
 @@ --- --- @@
         />

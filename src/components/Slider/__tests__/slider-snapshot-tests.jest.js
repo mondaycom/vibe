@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, render, waitFor } from "@testing-library/react";
+import { cleanup } from "@testing-library/react";
 import { snapshotDiff } from "../../../../jest/utils";
 import Sound from "../../Icon/Icons/components/Sound";
 import Chips from "../../Chips/Chips";
@@ -114,14 +114,14 @@ describe("Slider Render", async () => {
     expect(snapshotDiff(defaultRender, currentRender)).toMatchSnapshot();
   });
 
-  it(`17. with isRange (ranged slider)`, async () => {
-    const props = { isRange: true };
+  it(`17. with ranged (ranged slider)`, async () => {
+    const props = { ranged: true };
     const currentRender = await renderComponentForSnapshot(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
   it(`18. ranged slider with options`, async () => {
-    const props = { isRange: true, defaultValue: [20, 30], min: 10, max: 50, step: 2 };
+    const props = { defaultValue: [20, 30], min: 10, max: 50, ranged: true, step: 2 };
     const currentRender = await renderComponentForSnapshot(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });

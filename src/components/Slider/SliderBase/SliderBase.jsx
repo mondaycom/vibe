@@ -25,10 +25,10 @@ function getKey(index) {
 
 const SliderBase = forwardRef(({ className }, ref) => {
   const { color, disabled, dragging, size, shapeTestId } = useSliderUi();
-  const { isRange, definePageStep, min, max, step, value } = useSliderSelection();
+  const { definePageStep, min, max, ranged, step, value } = useSliderSelection();
   const { changeValue, increaseValue, decreaseValue } = useSliderActions();
   const { railCoords, railRef } = useSliderRail({ min, max, step, ref });
-  const { dimension, offset, positions } = calcDimensions({ isRange, max, min, value });
+  const { dimension, offset, positions } = calcDimensions({ max, min, ranged, value });
 
   function handlePointerMove(e) {
     if (dragging === null) {
@@ -42,13 +42,11 @@ const SliderBase = forwardRef(({ className }, ref) => {
   function handleRailClick(e) {
     const offsetInPx = e.clientX - railCoords.left;
     const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
-    const newFocused = getNearest({ isRange, newValue, value });
+    const newFocused = getNearest({ newValue, ranged, value });
     changeValue(newValue, { newFocused });
   }
 
   function handleKeyDown(e) {
-    console.log("SliderBase: handleKeyDown: e", e);
-    console.log("SliderBase: handleKeyDown: keyCode", e.keyCode);
     if (isArrowUpEvent(e) || isArrowRightEvent(e)) {
       return increaseValue();
     }

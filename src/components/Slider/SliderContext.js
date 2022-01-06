@@ -18,9 +18,9 @@ const uiDefaults = {
 };
 const UiContext = createContext(uiDefaults);
 const selectionDefaults = {
-  isRange: false,
   max: 100,
   min: 0,
+  ranged: false,
   step: 1,
   value: undefined,
   valueText: undefined
@@ -43,10 +43,10 @@ export function SliderProvider({
   dataTestId,
   defaultValue,
   disabled,
-  isRange,
   max,
   min,
   onChange,
+  ranged,
   showValue,
   size,
   step,
@@ -87,16 +87,16 @@ export function SliderProvider({
 
   const selectionContextValue = {
     definePageStep,
-    isRange,
     max,
     min,
+    ranged,
     step,
     value: actualValue,
     valueText: actualValueText
   };
 
   function increaseValue(consumerStep) {
-    const currentValue = getCurrentValue(actualValue, isRange, focused);
+    const currentValue = getCurrentValue(actualValue, ranged, focused);
     if (currentValue === max) {
       return;
     }
@@ -109,7 +109,7 @@ export function SliderProvider({
   }
 
   function decreaseValue(consumerStep) {
-    const currentValue = getCurrentValue(actualValue, isRange, focused);
+    const currentValue = getCurrentValue(actualValue, ranged, focused);
     if (currentValue === min) {
       return;
     }
@@ -130,7 +130,7 @@ export function SliderProvider({
 
   // TODO: refactor - simplify
   function changeValue(newValue, { newFocused } = {}) {
-    if (!isRange) {
+    if (!ranged) {
       actualChangeValue(newValue);
       return;
     }
@@ -185,9 +185,9 @@ export function useSliderInfix() {
 
 export function useSliderSelection(index) {
   const selectionContext = useContext(SelectionContext);
-  const { isRange, value, valueText } = selectionContext;
+  const { ranged, value, valueText } = selectionContext;
   // TODO: memoize
-  if (isRange && typeof index !== "undefined") {
+  if (ranged && typeof index !== "undefined") {
     return { ...selectionContext, value: value[index], valueText: valueText[index] };
   }
   return selectionContext;

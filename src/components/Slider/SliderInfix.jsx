@@ -12,8 +12,8 @@ const defaultIconProps = {
   ignoreFocusStyle: true
 };
 
-function getCurrentLabel({ isPostfix, isRange, valueText }) {
-  if (!isRange) {
+function getCurrentLabel({ isPostfix, ranged, valueText }) {
+  if (!ranged) {
     return valueText;
   }
   if (isPostfix) {
@@ -24,12 +24,12 @@ function getCurrentLabel({ isPostfix, isRange, valueText }) {
 
 function useSliderInfixComponent(kind) {
   const { prefix, postfix, indicateSelection } = useSliderInfix();
-  const { isRange, value, valueText } = useSliderSelection();
+  const { ranged, value, valueText } = useSliderSelection();
   const infix = kind === SliderInfix.kinds.POSTFIX ? postfix : prefix;
 
   const isPostfix = kind === SliderInfix.kinds.POSTFIX;
-  if (indicateSelection && (isPostfix || isRange)) {
-    const currentLabel = getCurrentLabel({ isPostfix, isRange, valueText });
+  if (indicateSelection && (isPostfix || ranged)) {
+    const currentLabel = getCurrentLabel({ isPostfix, ranged, valueText });
     return [true, "", <Label text={currentLabel} color={Label.colors.DARK} kind={Label.kinds.LINE} />];
   }
   if (typeof infix === "object" && infix.icon) {
