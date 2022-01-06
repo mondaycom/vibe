@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
 import { SIZES_BASIC } from "../../constants";
 import { createTestIdHelper } from "../../helpers/testid-helper";
 import { calculatePageStep, getCurrentValue } from "./SliderHelpers";
@@ -67,102 +67,111 @@ export function SliderProvider({
   const [focused, setFocused] = useState(null);
   const [dragging, setDragging] = useState(null);
 
-  const uiContextValue = {
-    active,
-    ariaLabel,
-    ariaLabelledby,
-    color,
-    disabled,
-    dragging,
-    focused,
-    size,
-    shapeTestId,
-    showValue
-  };
+  const uiContextValue = useMemo(
+    () => ({ active, ariaLabel, ariaLabelledby, color, disabled, dragging, focused, size, shapeTestId, showValue }),
+    [active, ariaLabel, ariaLabelledby, color, disabled, dragging, focused, size, shapeTestId, showValue]
+  );
 
-  function definePageStep() {
+  const definePageStep = useCallback(() => {
     // PageStep - larger step for slide (triggering by PageUp/PageDown events)
     return calculatePageStep({ min, max, step });
-  }
+  }, [min, max, step]);
 
-  const selectionContextValue = {
-    definePageStep,
-    max,
-    min,
-    ranged,
-    step,
-    value: actualValue,
-    valueText: actualValueText
-  };
+  const selectionContextValue = useMemo(
+    () => ({
+      definePageStep,
+      max,
+      min,
+      ranged,
+      step,
+      value: actualValue,
+      valueText: actualValueText
+    }),
+    [definePageStep, max, min, ranged, step, actualValue, actualValueText]
+  );
 
-  function increaseValue(consumerStep) {
-    const currentValue = getCurrentValue(actualValue, ranged, focused);
-    if (currentValue === max) {
-      return;
-    }
-    const finalStep = consumerStep || step;
-    const newValue = currentValue + finalStep;
-    if (newValue > max) {
-      return changeValue(max);
-    }
-    changeValue(newValue);
-  }
-
-  function decreaseValue(consumerStep) {
-    const currentValue = getCurrentValue(actualValue, ranged, focused);
-    if (currentValue === min) {
-      return;
-    }
-    const finalStep = consumerStep || step;
-    const newValue = currentValue - finalStep;
-    if (newValue < min) {
-      return changeValue(min);
-    }
-    changeValue(newValue);
-  }
-
-  function actualChangeValue(newValue) {
-    setSelectedValue(newValue);
-    if (typeof onChange === "function") {
-      onChange(newValue);
-    }
-  }
-
-  // TODO: refactor - simplify
-  function changeValue(newValue, { newFocused } = {}) {
-    if (!ranged) {
-      actualChangeValue(newValue);
-      return;
-    }
-    const newValues = [...actualValue];
-    const isNewFocus = typeof newFocused !== "undefined";
-    const currentFocused = isNewFocus ? newFocused : focused;
-    newValues[currentFocused] = newValue;
-    if (newValues[0] > newValues[1]) {
-      const switched = currentFocused === 0 ? 1 : 0;
-      setActive(switched);
-      setFocused(switched);
-      if (dragging !== null) {
-        setDragging(switched);
+  const actualChangeValue = useCallback(
+    newValue => {
+      setSelectedValue(newValue);
+      if (typeof onChange === "function") {
+        onChange(newValue);
       }
-      actualChangeValue([newValues[1], newValues[0]]);
-      return;
-    }
-    if (isNewFocus) {
-      setFocused(currentFocused);
-    }
-    actualChangeValue(newValues);
-  }
+    },
+    [setSelectedValue, onChange]
+  );
 
-  const actionsContextValue = {
-    setActive,
-    setSelectedValue,
-    changeValue,
-    setDragging,
-    setFocused,
-    increaseValue,
-    decreaseValue
-  };
+  const changeValue = useCallback(
+    (newValue, { newFocused } = {}) => {
+      if (!ranged) {
+        actualChangeValue(newValue);
+        return;
+      }
+      const newValues = [...actualValue];
+      const isNewFocus = typeof newFocused !== "undefined";
+      const currentFocused = isNewFocus ? newFocused : focused;
+      newValues[currentFocused] = newValue;
+      if (newValues[0] > newValues[1]) {
+        const switched = currentFocused === 0 ? 1 : 0;
+        setActive(switched);
+        setFocused(switched);
+        if (dragging !== null) {
+          setDragging(switched);
+        }
+        actualChangeValue([newValues[1], newValues[0]]);
+        return;
+      }
+      if (isNewFocus) {
+        setFocused(currentFocused);
+      }
+      actualChangeValue(newValues);
+    },
+    [actualValue, actualChangeValue, dragging, focused, ranged, setActive, setFocused]
+  );
+
+  const increaseValue = useCallback(
+    consumerStep => {
+      const currentValue = getCurrentValue(actualValue, ranged, focused);
+      if (currentValue === max) {
+        return;
+      }
+      const finalStep = consumerStep || step;
+      const newValue = currentValue + finalStep;
+      if (newValue > max) {
+        return changeValue(max);
+      }
+      changeValue(newValue);
+    },
+    [actualValue, changeValue, focused, max, ranged, step]
+  );
+
+  const decreaseValue = useCallback(
+    consumerStep => {
+      const currentValue = getCurrentValue(actualValue, ranged, focused);
+      if (currentValue === min) {
+        return;
+      }
+      const finalStep = consumerStep || step;
+      const newValue = currentValue - finalStep;
+      if (newValue < min) {
+        return changeValue(min);
+      }
+      changeValue(newValue);
+    },
+    [actualValue, changeValue, focused, min, ranged, step]
+  );
+
+  const actionsContextValue = useMemo(
+    () => ({
+      setActive,
+      setSelectedValue,
+      changeValue,
+      setDragging,
+      setFocused,
+      increaseValue,
+      decreaseValue
+    }),
+    [setActive, setSelectedValue, changeValue, setDragging, setFocused, increaseValue, decreaseValue]
+  );
 
   return (
     <UiContext.Provider value={uiContextValue}>

@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import "./SliderBase.scss";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
@@ -39,12 +39,15 @@ const SliderBase = forwardRef(({ className }, ref) => {
     changeValue(newValue);
   }
 
-  function handleRailClick(e) {
-    const offsetInPx = e.clientX - railCoords.left;
-    const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
-    const newFocused = getNearest({ newValue, ranged, value });
-    changeValue(newValue, { newFocused });
-  }
+  const handleRailClick = useCallback(
+    e => {
+      const offsetInPx = e.clientX - railCoords.left;
+      const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
+      const newFocused = getNearest({ newValue, ranged, value });
+      changeValue(newValue, { newFocused });
+    },
+    [changeValue, min, max, railCoords, ranged, step, value]
+  );
 
   function handleKeyDown(e) {
     if (isArrowUpEvent(e) || isArrowRightEvent(e)) {

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function ensureSingleValueText(valueText, value, formatter) {
   if (valueText) {
@@ -32,38 +32,38 @@ export function useSliderRail() {
   const railRef = useRef(null);
   const [railCoords, setRailCoords] = useState({ left: 0, right: 100, width: 100 });
 
-  function defineRailCoords() {
+  const defineRailCoords = useCallback(() => {
     if (!railRef.current) {
       return;
     }
     const railRect = railRef.current.getBoundingClientRect();
     const { left, right, width } = railRect;
+    console.log("------------------", left, right, width);
     setRailCoords({ left, right, width });
-  }
+  }, [railRef, setRailCoords]);
 
-  useSliderResize(() => {
-    defineRailCoords();
-  });
+  useSliderResize(defineRailCoords);
 
   useEffect(() => {
     defineRailCoords();
-  }, []);
+  }, [defineRailCoords]);
 
   return { railCoords, railRef };
 }
 
 // TODO: can be used as global common/shared util-hooks
 export function useSliderResize(onResize) {
-  function handleResize() {
+  const handleResize = useCallback(() => {
     if (typeof onResize === "function") {
       onResize();
     }
-  }
+  }, [onResize]);
+
   useEffect(() => {
     // TODO: enhance by ResizeObserve
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [onResize]);
+  }, [handleResize]);
 }
 
 export function useSliderValue({ defaultValue, isControlled, value }) {
