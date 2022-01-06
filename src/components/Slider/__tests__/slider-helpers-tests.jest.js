@@ -20,7 +20,6 @@ describe("Check calculatePageStep helper", () => {
     [6, 0, 60, 3],
     [10, 0, 100, 10]
   ])("pageStep should be (%i) for: min=%i, max=%i, step=%i", (expected, min, max, step) => {
-    // console.log("slider-helpers-tests.jest: each", { min, max, step, expected });
     expect(calculatePageStep({ min, max, step })).toBe(expected);
   });
 });

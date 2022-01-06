@@ -1,10 +1,24 @@
 import React from "react";
 import { cleanup } from "@testing-library/react";
 import { snapshotDiff } from "../../../../jest/utils";
-import Sound from "../../Icon/Icons/components/Sound";
-import Chips from "../../Chips/Chips";
+import { Sound } from "../../Icon/Icons";
 import Slider from "../Slider";
 import { renderComponentForSnapshot } from "./slider-tests.utils";
+
+jest.mock("../../Icon/Icon", () => {
+  return ({ icon, ...rest }) => {
+    return <div data-testid="mock-icon">{JSON.stringify({ ...rest, icon: icon && icon.displayName })}</div>;
+  };
+});
+
+jest.mock("../../Label/Label", () => {
+  const Label = props => {
+    return <div data-testid="mock-label-comp">{JSON.stringify(props)}</div>;
+  };
+  Label.colors = { DARK: "dark" };
+  Label.kinds = { LINE: "line" };
+  return Label;
+});
 
 describe("Slider Render", async () => {
   let defaultRender;
@@ -107,7 +121,7 @@ describe("Slider Render", async () => {
 
   it(`16. with prefix (custom) and postfix (render-props)`, async () => {
     const props = {
-      prefix: <Chips label="Custom component" readOnly />,
+      prefix: <div>Custom component</div>,
       postfix: (value, valueText) => `Render Props result: ${valueText} (${value})`
     };
     const currentRender = await renderComponentForSnapshot(props);

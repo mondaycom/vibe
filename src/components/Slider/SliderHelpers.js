@@ -22,7 +22,6 @@ function ensureStepModulo(pageStep, step) {
   if (moduloToStep === 0) {
     return pageStep;
   }
-  // console.log("modulo", { pageStep, step, moduloToStep, new: pageStep - moduloToStep });
   return pageStep - moduloToStep;
 }
 export function calculatePageStep({ max, min, step }) {

@@ -38,7 +38,6 @@ export function useSliderRail() {
     }
     const railRect = railRef.current.getBoundingClientRect();
     const { left, right, width } = railRect;
-    console.log("------------------", left, right, width);
     setRailCoords({ left, right, width });
   }, [railRef, setRailCoords]);
 
