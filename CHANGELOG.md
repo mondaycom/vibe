@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1 (2022-01-06)
+
+#### Bug Fixes
+* [#436](https://github.com/mondaycom/monday-ui-react-core/pull/436) check that element is there ([@amirbardugo](https://github.com/amirbardugo))
+
 ## 1.2.0 (2022-01-05)
 
 #### New Features
