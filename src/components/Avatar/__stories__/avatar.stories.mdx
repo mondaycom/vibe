@@ -74,9 +74,9 @@ Avatars appear in 3 sizes: Small, Medium, and Large.
 Use when a user is inactive in the system.
 <Canvas>
   <Story name="Disable">
-    <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} isDisabled />
-    <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} isDisabled />
-    <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} isDisabled />
+    <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} disabled />
+    <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} disabled />
+    <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} disabled />
   </Story>
 </Canvas>
 
@@ -99,21 +99,21 @@ Use for non-person avatars, such as a workspace or team.
       type={Avatar.types.TEXT}
       text="R"
       backgroundColor={Avatar.colors.BRIGHT_BLUE}
-      isSquare
+      square
     />
     <Avatar
       size={Avatar.sizes.MEDIUM}
       type={Avatar.types.ICON}
       icon={WhatsNew}
       backgroundColor={Avatar.colors.AQUAMARINE}
-      isSquare
+      square
     />
     <Avatar
       size={Avatar.sizes.LARGE}
       type={Avatar.types.TEXT}
       text="RM"
       backgroundColor={Avatar.colors.WORKING_ORANGE}
-      isSquare
+      square
     />
   </Story>
 </Canvas>

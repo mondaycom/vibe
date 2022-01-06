@@ -4,6 +4,5 @@ import ColorItem from "./color-item/color-item";
 import ComponentStateDescription from "./component-state-description/ComponentStateDescription";
 import FlexLayout from "./flex-layout/flex-layout";
 import Divider from "./Divider/Divider";
-import { selectIcon } from "./story-select-icons/story-select-icons";
 
-export { StoryStateColumn, StoryStateRow, ColorItem, ComponentStateDescription, FlexLayout, Divider, selectIcon };
+export { StoryStateColumn, StoryStateRow, ColorItem, ComponentStateDescription, FlexLayout, Divider };

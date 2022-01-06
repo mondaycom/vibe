@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { number } from "@storybook/addon-knobs";
 import { withPerformance } from "storybook-addon-performance";
 import AccordionItem from "../AccordionItem";
 
 export const Sandbox = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const width = number("width", 300);
-  const height = number("height", 200);
+  const width = 300;
+  const height = 200;
 
   const onClick = () => {
     setIsOpen(!isOpen);

@@ -1,13 +1,12 @@
 {
   "root": true,
   "env": {
-    "browser": true,
-    "mocha": true
+    "browser": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "ignorePatterns": ["*test.js", "*.jest.js", "*.stories*.js"],
   "extends": ["airbnb", "plugin:prettier/recommended", "plugin:react-hooks/recommended"],
-  "plugins": ["import", "react", "jsx-a11y", "json", "markdown", "mocha", "react-hooks"],
+  "plugins": ["import", "react", "jsx-a11y", "json", "markdown", "react-hooks"],
   "rules": {
     "no-debugger": "error",
     "global-require": "off",
@@ -34,6 +33,8 @@
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": 0,
     "react/forbid-prop-types": "off",
+    "react/function-component-definition": "off",
+    "default-param-last": "off",
     "react/require-default-props": ["error"],
     "jsx-a11y/anchor-is-valid": ["error"],
     "react/jsx-props-no-spreading": 0,

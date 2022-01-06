@@ -1,5 +1,3 @@
-import React from "react";
-import { render, fireEvent, act } from "@testing-library/react";
 import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
 
@@ -11,6 +9,7 @@ describe("Dropdown", () => {
   afterEach(() => {
     jest.useRealTimers();
   });
+  
   const mockOptions = [
     { value: "ocean", label: "Ocean", isFixed: true },
     { value: "blue", label: "Blue", isDisabled: true },
@@ -19,55 +18,6 @@ describe("Dropdown", () => {
     { value: "orange", label: "Orange" },
     { value: "yellow", label: "Yellow" }
   ];
-
-  it("should render correctly with empty props", () => {
-    const component = new DropdownDriver();
-
-    expect(component.snapshot).toMatchSnapshot();
-  });
-
-  it("should render correctly for the different sizes", function() {
-    Object.values(Dropdown.size).forEach(size => {
-      const component = new DropdownDriver().withSize(size).withPlaceholder();
-
-      expect(component.snapshot).toMatchSnapshot();
-    });
-  });
-
-  it("should use virtualization if set", () => {
-    const component = new DropdownDriver()
-      .withOpenMenuOnClick()
-      .withOpenMenuOnFocus()
-      .withVirtualizedOptions();
-
-    component.focusInput();
-
-    expect(component.snapshot).toMatchSnapshot();
-  });
-
-  it("should use async if set", () => {
-    const component = new DropdownDriver().withAsyncOptions().withDefaultOptions();
-
-    component.focusInput();
-
-    expect(component.snapshot).toMatchSnapshot();
-  });
-
-  it("should open menu on focus if set", function() {
-    const component = new DropdownDriver().withOpenMenuOnClick().withOptions();
-
-    component.focusInput();
-
-    expect(component.snapshot).toMatchSnapshot();
-  });
-
-  it("should open menu on click if set", function() {
-    const component = new DropdownDriver().withOpenMenuOnClick().withOptions();
-
-    component.clickInput();
-
-    expect(component.snapshot).toMatchSnapshot();
-  });
 
   describe("extraStyles", () => {
     it("Should support extending style groups with monday defaults", () => {

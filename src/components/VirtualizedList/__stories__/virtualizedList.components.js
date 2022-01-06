@@ -1,5 +1,6 @@
 import React from "react";
 
+// eslint-disable-next-line default-param-last
 export const generateItems = (defaultItemHeight = 30, itemsCount) => {
   const items = [];
   for (let i = 0; i < itemsCount; i++) {

@@ -4,8 +4,19 @@ import cx from "classnames";
 import "./Label.scss";
 import { LABEL_COLORS, LABEL_TYPES } from "./LabelConstants";
 import Leg from "./Leg";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
-const Label = ({ wrapperClassName, kind, color, text = "", isAnimationDisabled, isLegIncluded }) => {
+const Label = ({
+  // Backward compatibility for enum naming
+  className,
+  wrapperClassName,
+  kind,
+  color,
+  text = "",
+  isAnimationDisabled,
+  isLegIncluded
+}) => {
+  const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]);
   const classNames = useMemo(
     () =>
       cx("monday-style-label", `monday-style-label--kind-${kind}`, `monday-style-label--color-${color}`, {
@@ -15,7 +26,7 @@ const Label = ({ wrapperClassName, kind, color, text = "", isAnimationDisabled, 
     [kind, color, isAnimationDisabled, isLegIncluded]
   );
   return (
-    <span className={wrapperClassName}>
+    <span className={overrideClassName}>
       <div className={classNames}>
         <span>{text}</span>
         <span className="monday-style-label__leg-wrapper">{isLegIncluded ? <Leg /> : null}</span>
@@ -25,7 +36,7 @@ const Label = ({ wrapperClassName, kind, color, text = "", isAnimationDisabled, 
 };
 
 Label.propTypes = {
-  wrapperClassName: PropTypes.string,
+  className: PropTypes.string,
   text: PropTypes.string,
   color: PropTypes.oneOf([LABEL_COLORS.PRIMARY, LABEL_COLORS.DARK, LABEL_COLORS.POSITIVE, LABEL_COLORS.NEGATIVE]),
   kind: PropTypes.oneOf([LABEL_TYPES.FILL, LABEL_TYPES.LINE]),
@@ -33,7 +44,7 @@ Label.propTypes = {
   isLegIncluded: PropTypes.bool
 };
 Label.defaultProps = {
-  wrapperClassName: "",
+  className: undefined,
   text: "",
   color: LABEL_COLORS.PRIMARY,
   kind: LABEL_TYPES.FILL,

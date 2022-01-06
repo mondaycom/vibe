@@ -4,6 +4,11 @@ module.exports = api => {
   api.cache.using(() => process.env.NODE_ENV);
 
   return {
+    env: {
+      test: {
+        plugins: ["@babel/plugin-transform-runtime"]
+      }
+    },
     presets: [
       [
         "@babel/preset-env",
@@ -14,10 +19,11 @@ module.exports = api => {
                 node: "current"
               }
             : {
-                chrome: "49",
+                chrome: "66",
                 ie: "11",
                 firefox: "51",
-                edge: "14"
+                edge: "18",
+                node: "current"
               }
         }
       ],

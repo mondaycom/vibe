@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.2.0 (2022-01-05)
+
+#### New Features
+* [#430](https://github.com/mondaycom/monday-ui-react-core/pull/430) Create an ESM entry ([@sahariko](https://github.com/sahariko))
+
+#### Dependency Upgrades
+* [#431](https://github.com/mondaycom/monday-ui-react-core/pull/431) Infra/orr/update deps ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#425](https://github.com/mondaycom/monday-ui-react-core/pull/425) New components docs (tabs sub components and hidden text component) ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#434](https://github.com/mondaycom/monday-ui-react-core/pull/434) feat: LearnMore icon ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.1.0 (2022-01-05)
+
+#### Bug Fixes
+* [#426](https://github.com/mondaycom/monday-ui-react-core/pull/426) Bugfix : scroll menu if needed ([@amirbardugo](https://github.com/amirbardugo))
+
+#### New Features
+* [#432](https://github.com/mondaycom/monday-ui-react-core/pull/432) Enhance use key event ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.0.4 (2022-01-04)
+
+#### Bug Fixes
+* [#423](https://github.com/mondaycom/monday-ui-react-core/pull/423) Add support on consistent API for all the library components for class name and disabled props ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.0.3 (2021-12-30)
 
 #### Bug Fixes
