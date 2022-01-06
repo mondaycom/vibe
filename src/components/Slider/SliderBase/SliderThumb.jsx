@@ -25,9 +25,6 @@ const SliderThumb = ({ className, index, position }) => {
   }
 
   function handlePointerLeave() {
-    if (dragging) {
-      return;
-    }
     setActive(null);
   }
 
@@ -50,7 +47,7 @@ const SliderThumb = ({ className, index, position }) => {
 
   return (
     <Tooltip
-      open={active === index}
+      open={active === index || dragging === index}
       content={showValue ? null : valueText}
       position={tooltipPosition}
       showDelay={tooltipShowDelay}
