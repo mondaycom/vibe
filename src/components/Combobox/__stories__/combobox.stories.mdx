@@ -103,7 +103,7 @@ Combobox allowing users to filter longer lists to only the selections matching a
           <DialogContentContainer>
             <Combobox options={options} size={Combobox.sizes.LARGE} placeholder="Placeholder text here" />
           </DialogContentContainer>
-        </div>     
+        </div>
       )
     }}
   </Story>
@@ -203,7 +203,7 @@ Combobox allowing users to filter longer lists to only the selections matching a
       positive: {
         component:
           <DialogContentContainer>
-            <Combobox 
+            <Combobox
               placeholder="Day"
               options={[
                 { id: "1", label: "1 Days" },
@@ -219,7 +219,7 @@ Combobox allowing users to filter longer lists to only the selections matching a
       negative: {
         component:
           <DialogContentContainer>
-            <Combobox 
+            <Combobox
               placeholder="Day"
               options={[
                 { id: "1", label: "1 Days" },
@@ -236,7 +236,7 @@ Combobox allowing users to filter longer lists to only the selections matching a
       positive: {
         component:
           <DialogContentContainer>
-            <Combobox 
+            <Combobox
               placeholder="Search names"
               options={[
                 { id: "1", label: "Hadas" },
@@ -252,7 +252,7 @@ Combobox allowing users to filter longer lists to only the selections matching a
       negative: {
         component:
           <DialogContentContainer>
-            <Combobox 
+            <Combobox
               placeholder="Search everything"
               options={[
                 { id: "1", label: "Hadas" },
@@ -289,11 +289,12 @@ Combobox inside a dialog
       }), []);
       return (
         <DialogContentContainer className="combobox-stories-styles_wrapper">
-          <Combobox 
+          <Combobox
             placeholder="Search for a workspace"
             options={options}
             categories={categories}
           />
+          <Divider />
           <div className="combobox-stories-styles_btn-group">
             <Button size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY} leftIcon={Add}>Add workspace</Button>
             <Button size={Button.sizes.SMALL} kind={Button.kinds.TERTIARY} leftIcon={Workspace}>Browse All</Button>

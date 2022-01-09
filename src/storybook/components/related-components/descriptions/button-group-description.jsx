@@ -7,6 +7,7 @@ export const ButtonGroupDescription = () => {
     () => (
       <ButtonGroup
         groupAriaLabel="button group aria label"
+        value={1}
         options={[
           { value: 1, text: "Alpha" },
           { value: 2, text: "Beta" },
