@@ -9,8 +9,9 @@ import { BoardPrivate, Board } from "../../Icon/Icons"
 import { modifiers } from "./helper.js";
 import { Link } from "../../../storybook/components";
 import { TOOLTIP, ATTENTION_BOX, CHIP } from "../../../storybook/components/related-components/component-description-map";
-import "./tipseen.stories.scss";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { tipseenTemplate } from "./tipseen.stories";
+import "./tipseen.stories.scss";
 
 export const argTypes = createStoryMetaSettings({
   component: Tipseen,
@@ -22,30 +23,6 @@ export const argTypes = createStoryMetaSettings({
   component={ Tipseen }
   argTypes={argTypes}
 />
-
-<!--- Component template -->
-
-export const tipseenTemplate = ({ position, isDismissHidden, args, title, children, otherArgs}) => {
-  return(
-    <Tipseen
-    // The modifier's purpose is to prevent the tipseen from being displayed when the user scrolls the story upwards / downwards.
-    // Therefore, there is no need to move this prop in your implementations.
-      modifiers={modifiers}
-      position={position}
-      content={
-        <TipseenContent
-          isDismissHidden={isDismissHidden}
-          title={title}
-        >
-          {children}
-        </TipseenContent>
-      }
-      {...otherArgs}
-    >
-      <div className="monday-style-story-tipseen_container" />
-    </Tipseen>
-  )
-}
 
 <!--- Component documentation -->
 
