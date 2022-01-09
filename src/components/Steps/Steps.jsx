@@ -61,7 +61,13 @@ const Steps = forwardRef(
 Steps.types = STEPS_TYPES;
 
 Steps.propTypes = {
+  /**
+   * The index of the current displayed step
+   */
   activeStepIndex: PropTypes.number,
+  /**
+   * A callback which called when the active step is changed
+   */
   onChangeActiveStep: PropTypes.func,
   areNavigationButtonsHidden: PropTypes.bool,
   steps: PropTypes.arrayOf(PropTypes.element),
