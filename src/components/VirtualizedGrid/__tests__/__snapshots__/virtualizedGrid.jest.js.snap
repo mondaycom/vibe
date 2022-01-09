@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with empty props 1`] = `
+<div
+  className="virtualized-grid--wrapper"
+  id=""
+>
+  <div
+    style={
+      Object {
+        "height": 0,
+        "overflow": "visible",
+        "width": 0,
+      }
+    }
+  />
+</div>
+`;
