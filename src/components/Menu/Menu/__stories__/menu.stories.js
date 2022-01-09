@@ -86,7 +86,7 @@ export const menuWithSubMenuTemplate = args => (
   </DialogContentContainer>
 );
 
-export const menuWith2DepthSubMenuTemplate = () => (
+export const menuWith2DepthSubMenuTemplate = args => (
   <DialogContentContainer>
     <Menu>
       <MenuItem title="Menu item" icon={Favorite} />
