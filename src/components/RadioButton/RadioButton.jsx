@@ -77,7 +77,8 @@ RadioButton.defaultProps = {
   name: "",
   disabled: false,
   defaultChecked: false,
-  checked: undefined
+  checked: undefined,
+  onSelect: undefined
 };
 RadioButton.propTypes = {
   className: PropTypes.string,
@@ -86,7 +87,8 @@ RadioButton.propTypes = {
   name: PropTypes.string,
   disabled: PropTypes.bool,
   defaultChecked: PropTypes.bool,
-  checked: PropTypes.bool
+  checked: PropTypes.bool,
+  onSelect: PropTypes.func
 };
 
 export default RadioButton;
