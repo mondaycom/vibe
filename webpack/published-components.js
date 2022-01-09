@@ -16,6 +16,7 @@ const publishedComponents = {
   ListItemIcon: "components/ListItemIcon/ListItemIcon.jsx",
   ListItem: "components/ListItem/ListItem.jsx",
   VirtualizedList: "components/VirtualizedList/VirtualizedList.jsx",
+  VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid.jsx",
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
   ColorPickerContent: "components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx",
   ColorUtils: "utils/colors-utils.js",

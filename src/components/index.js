@@ -66,6 +66,7 @@ export { default as ListItemIcon } from "./ListItemIcon/ListItemIcon";
 export { default as ListTitle } from "./ListTitle/ListTitle";
 export { default as List } from "./List/List";
 export { default as VirtualizedList } from "./VirtualizedList/VirtualizedList";
+export { default as VirtualizedGrid } from "./VirtualizedGrid/VirtualizedGrid";
 export { default as TextWithHighlight } from "./TextWithHighlight/TextWithHighlight";
 export { default as Accordion } from "./Accordion/Accordion/Accordion";
 export { default as AccordionItem } from "./Accordion/AccordionItem/AccordionItem";
