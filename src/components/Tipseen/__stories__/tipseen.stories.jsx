@@ -1,6 +1,6 @@
 import Tipseen from "../Tipseen";
 import TipseenContent from "../TipseenContent";
-import { modifiers } from "./helper.js";
+import { modifiers } from "./helper";
 
 export const tipseenTemplate = ({ isDismissHidden, title, children, position, otherArgs }) => {
   return (
