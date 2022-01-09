@@ -1,0 +1,59 @@
+import VirtualizedGrid from "../VirtualizedGrid";
+import Button from "../../Button/Button";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { generateItems, itemRenderer } from "./virtualizedGrid.components";
+
+<Meta
+  title="Navigation/VirtualizedGrid"
+  component={ VirtualizedGrid }
+/>
+
+<!--- Component template -->
+
+export const virtualizedGridTemplate = createComponentTemplate(VirtualizedGrid);
+
+<!--- Component documentation -->
+
+# VirtualizedGrid
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Feedback](#feedback)
+
+## Overview
+VirtualizedGrid is a component which only renders visible grid items, it is a logic component and doesn't change and look and feel
+
+Under the hood we are using - [react-window](https://github.com/bvaughn/react-window) and [react-virtualized-auto-sizer](https://github.com/bvaughn/react-virtualized-auto-sizer)
+<Canvas>
+    <Story name="Overview" args={{}} >
+        <div
+          style={{
+            width: 430,
+            height: 300,
+            overflow: "hidden",
+            display: "flex",
+            alignItems: "center"
+          }}
+        >
+          <div style={{ width: 600, height: "100%" }}>
+            <VirtualizedGrid
+              items={generateItems(50, 100, 1000)}
+              itemRenderer={itemRenderer}
+              getColumnWidth={()=> {return 100}}
+              getRowHeight={()=> {return 50}}
+              id="Knobs"
+              scrollDuration={200}
+            />
+          </div>
+        </div>
+    </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ VirtualizedGrid } />
+
+## Usage
+<UsageGuidelines guidelines={[
+  "Use this when you expect to have many items in your grid"
+]}/>
