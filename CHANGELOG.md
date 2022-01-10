@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.3 (2022-01-10)
+
+#### Bug Fixes
+* [#444](https://github.com/mondaycom/monday-ui-react-core/pull/444) use button to clickable ([@ronachmany-monday](https://github.com/ronachmany-monday))
+
+#### Documentation
+* [#440](https://github.com/mondaycom/monday-ui-react-core/pull/440) Fix stories errors and typos    ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.2.2 (2022-01-10)
 
 #### Bug Fixes
