@@ -129,7 +129,7 @@
     "jsontosass": "^0.2.0",
     "lerna-changelog": "^2.2.0",
     "mini-css-extract-plugin": "^2.4.5",
-    "plop": "^3.0.5",
+    "plop": "2.7.6",
     "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
     "postcss-scss": "^4.0.2",
