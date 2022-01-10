@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.2 (2022-01-10)
+
+#### Bug Fixes
+* [#442](https://github.com/mondaycom/monday-ui-react-core/pull/442) fix: Props passing bug in tabs panel ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#439](https://github.com/mondaycom/monday-ui-react-core/pull/439) Fixed code example of 'Menu with 2-depth sub menu' ([@laviomri](https://github.com/laviomri))
+* [#438](https://github.com/mondaycom/monday-ui-react-core/pull/438) fix links story controls, add leanylabs as contributors and add few description to props ([@hadasfa](https://github.com/hadasfa))
+* [#437](https://github.com/mondaycom/monday-ui-react-core/pull/437) random story fixes ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.2.1 (2022-01-06)
 
 #### Bug Fixes
