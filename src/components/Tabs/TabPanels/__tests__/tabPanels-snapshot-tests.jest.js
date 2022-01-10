@@ -7,7 +7,7 @@ describe("TabPanels renders correctly", () => {
   it("with empty props", () => {
     const tree = renderer.create(
       <TabPanels>
-        <TabPanel>First</TabPanel>
+        <TabPanel className="first">First</TabPanel>
         <TabPanel>Second</TabPanel>
         <TabPanel>Third</TabPanel>
       </TabPanels>
