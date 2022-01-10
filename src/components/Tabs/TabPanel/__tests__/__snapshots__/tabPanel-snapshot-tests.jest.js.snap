@@ -6,7 +6,7 @@ exports[`TabPanel renders correctly with className 1`] = `
   id=""
 >
   <div
-    className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+    className="tab-panel--wrapper tab-panel active animation-direction-rtl test"
     id=""
     role="tabpanel"
   >
