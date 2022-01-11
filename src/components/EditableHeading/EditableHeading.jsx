@@ -3,7 +3,7 @@ import React, { useRef, useState, useCallback, useEffect, useLayoutEffect } from
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Heading from "../Heading/Heading";
-import { Clickable } from "../index";
+import Clickable from "../Clickable/Clickable";
 import EditableInput, { TEXTAREA_TYPE } from "../EditableInput/EditableInput";
 import { TYPES } from "../Heading/HeadingConstants";
 import { SIZES } from "../../constants/sizes";
@@ -160,7 +160,7 @@ const EditableHeading = props => {
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
     >
-      <Clickable role={isEditing ? "button" : "input" } onClick={onClick} tabIndex={0}>
+      <Clickable role={isEditing ? "button" : "input"} onClick={onClick}>
         {isEditing ? renderInputComponent() : renderContentComponent()}
       </Clickable>
     </div>
