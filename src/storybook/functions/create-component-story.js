@@ -17,7 +17,7 @@ const allowedIcons = iconsMetaData.reduce(
   { options: [], mapping: {} }
 );
 
-export function createStoryMetaSettings({ component, enumPropNamesArray, iconPropNamesArray }) {
+export function createStoryMetaSettings({ component, enumPropNamesArray, iconPropNamesArray, actionPropsArray }) {
   const argTypes = {};
 
   // set enum allowed values inside argsTypes object
@@ -39,6 +39,10 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
         type: "select"
       }
     };
+  });
+
+  actionPropsArray?.forEach(propName => {
+    argTypes[propName] = { action: propName };
   });
 
   return argTypes;
