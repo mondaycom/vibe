@@ -160,7 +160,7 @@ const VirtualizedGrid = forwardRef(
         const item = items[index];
         return itemRenderer(item, index, style);
       },
-      [items, itemRenderer, gridWidth]
+      [items, itemRenderer, gridWidth, calcColumnCount]
     );
 
     const updateGridSize = useCallback(
