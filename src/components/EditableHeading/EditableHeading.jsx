@@ -160,7 +160,7 @@ const EditableHeading = props => {
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
     >
-      <Clickable role={isEditing ? "button" : "input" } onClick={onClick}>
+      <Clickable role={isEditing ? "button" : "input"} onClick={onClick}>
         {isEditing ? renderInputComponent() : renderContentComponent()}
       </Clickable>
     </div>
