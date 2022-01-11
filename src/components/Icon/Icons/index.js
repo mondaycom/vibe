@@ -53,6 +53,7 @@ export {default as DashboardPrivate} from './components/DashboardPrivate';
 export {default as Deactivate} from './components/Deactivate';
 export {default as Delete} from './components/Delete';
 export {default as Dependency} from './components/Dependency';
+export {default as description} from './components/description';
 export {default as DisabledUser} from './components/DisabledUser';
 export {default as Divider} from './components/Divider';
 export {default as Doc} from './components/Doc';
