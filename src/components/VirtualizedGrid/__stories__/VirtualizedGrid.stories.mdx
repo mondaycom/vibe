@@ -17,12 +17,12 @@ export const virtualizedGridTemplate = args => {
     return 50;
   }, []);
   const items = useMemo(() => {
-    generateItems(50, 100, 1000);
+    return generateItems(50, 100, 100);
   }, []);
   return (
     <div style={args.wrapperStyle}>
       <VirtualizedGrid
-        items={generateItems(50, 100, 1000)}
+        items={items}
         itemRenderer={itemRenderer}
         getColumnWidth={getColumnWidth}
         getRowHeight={getRowHeight}
