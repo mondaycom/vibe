@@ -467,11 +467,11 @@ Dialog.propTypes = {
   /**
    * if this class exists on the children the show trigger will be ignored
    */
-  showTriggerIgnoreClass: PropTypes.string,
+  showTriggerIgnoreClass: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   /**
    * if this class exists on the children the hide trigger will be ignored
    */
-  hideTriggerIgnoreClass: PropTypes.string,
+  hideTriggerIgnoreClass: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   /**
    * Dialog animation type
    */
