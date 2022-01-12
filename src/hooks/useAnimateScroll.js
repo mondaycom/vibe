@@ -44,7 +44,8 @@ const animate = (
     const easedTime = easeInOutQuint(Math.min(1, ellapsed / scrollDuration));
     const scrollOffset = animationData.scrollOffsetInitial + scrollDelta * easedTime;
     const finalOffsetValue = Math.min(maxVirtualizedComponentOffset, scrollOffset);
-    scrollTopRef.current = finalOffsetValue;
+    const editableScrollTopRef = scrollTopRef;
+    editableScrollTopRef.current = finalOffsetValue;
     virtualizedComponentRef.current.scrollTo(finalOffsetValue);
 
     if (ellapsed < scrollDuration) {

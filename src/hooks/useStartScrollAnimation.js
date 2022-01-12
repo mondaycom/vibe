@@ -3,19 +3,20 @@ import { useCallback } from "react";
 export default function useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll) {
   return useCallback(() => {
     const { offsetTop } = item;
-    if (animationData.animationStartTime) {
+    const editableAnimationData = animationData;
+    if (editableAnimationData.animationStartTime) {
       // animation already in progress
-      animationData.scrollOffsetFinal = offsetTop;
+      editableAnimationData.scrollOffsetFinal = offsetTop;
       return;
     }
-    if (animationData.scrollOffsetInitial === offsetTop) {
+    if (editableAnimationData.scrollOffsetInitial === offsetTop) {
       // offset already equals to item offset
       onScrollToFinished && onScrollToFinished();
       return;
     }
 
-    animationData.scrollOffsetFinal = offsetTop;
-    animationData.animationStartTime = performance.now();
+    editableAnimationData.scrollOffsetFinal = offsetTop;
+    editableAnimationData.animationStartTime = performance.now();
     animateScroll();
   }, [item, animationData, onScrollToFinished, animateScroll]);
 }

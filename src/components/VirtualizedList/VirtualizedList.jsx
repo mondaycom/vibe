@@ -119,12 +119,9 @@ const VirtualizedList = forwardRef(
       onScrollToFinished
     );
 
-    const startScrollAnimation = useCallback(
-      item => {
-        useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
-      },
-      [item, animationData, onScrollToFinished, animateScroll]
-    );
+    const startScrollAnimation = item => {
+      useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
+    };
 
     const rowRenderer = useCallback(
       ({ index, style }) => {
