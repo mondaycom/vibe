@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import easeInOutQuint from "../services/easeInOutQuint.js";
+import easeInOutQuint from "../services/easeInOutQuint";
 
 export default function useAnimateScroll(
   animationDataRef,

@@ -103,7 +103,7 @@ const VirtualizedGrid = forwardRef(
     }, [gridWidth, getColumnWidth]);
 
     const calcRowCount = useMemo(() => {
-      return Math.floor(items.length / calcColumnCount);
+      return calcColumnCount > 0 ? Math.floor(items.length / calcColumnCount) : 0;
     }, [items, calcColumnCount]);
 
     // Callbacks
@@ -127,9 +127,12 @@ const VirtualizedGrid = forwardRef(
       onScrollToFinished
     );
 
-    const startScrollAnimation = (item, animationData, onScrollToFinished, animateScroll) => {
-      useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
-    };
+    const startScrollAnimation = useCallback(
+      item => {
+        useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
+      },
+      [animationData, onScrollToFinished, animateScroll]
+    );
 
     const cellRenderer = useCallback(
       ({ columnIndex, rowIndex, style }) => {
@@ -177,20 +180,9 @@ const VirtualizedGrid = forwardRef(
       if (scrollToId && prevScrollToId !== scrollToId) {
         const hasVerticalScrollbar = isVerticalScrollbarVisible(items, normalizedItems, idGetter, gridHeight);
         const item = normalizedItems[scrollToId];
-        hasVerticalScrollbar && item && startScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
+        hasVerticalScrollbar && item && startScrollAnimation(item);
       }
-    }, [
-      prevScrollToId,
-      scrollToId,
-      startScrollAnimation,
-      normalizedItems,
-      items,
-      idGetter,
-      gridHeight,
-      animateScroll,
-      animationData,
-      onScrollToFinished
-    ]);
+    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, gridHeight]);
 
     useEffect(() => {
       // recalculate row heights

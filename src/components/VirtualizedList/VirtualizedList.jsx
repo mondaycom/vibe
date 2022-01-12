@@ -119,6 +119,13 @@ const VirtualizedList = forwardRef(
       onScrollToFinished
     );
 
+    const startScrollAnimation = useCallback(
+      item => {
+        useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
+      },
+      [item, animationData, onScrollToFinished, animateScroll]
+    );
+
     const rowRenderer = useCallback(
       ({ index, style }) => {
         const item = items[index];
@@ -172,9 +179,9 @@ const VirtualizedList = forwardRef(
       if (scrollToId && prevScrollToId !== scrollToId) {
         const hasVerticalScrollbar = isVerticalScrollbarVisible(items, normalizedItems, idGetter, listHeight);
         const item = normalizedItems[scrollToId];
-        hasVerticalScrollbar && item && useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
+        hasVerticalScrollbar && item && startScrollAnimation(item);
       }
-    }, [prevScrollToId, scrollToId, useStartScrollAnimation, normalizedItems, items, idGetter, listHeight]);
+    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, listHeight]);
 
     useEffect(() => {
       // recalculate row heights
