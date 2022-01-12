@@ -85,10 +85,6 @@ const VirtualizedList = forwardRef(
       return getNormalizedItems(items, idGetter, heightGetter);
     }, [items, idGetter, heightGetter]);
 
-    const maxListOffset = useMemo(() => {
-      return getMaxOffset(listHeight, normalizedItems);
-    }, [listHeight, normalizedItems]);
-
     // Callbacks
     const onScrollCB = useCallback(
       ({ scrollDirection, scrollOffset, scrollUpdateWasRequested }) => {
@@ -152,10 +148,10 @@ const VirtualizedList = forwardRef(
     useEffect(() => {
       // scroll to specific item
       if (scrollToId && prevScrollToId !== scrollToId) {
-        gridRef.current.scrollToItem(scrollToId, "center");
+        listRef.current.scrollToItem(scrollToId, "center");
         onScrollToFinished();
       }
-    }, [scrollToId, prevScrollToId, gridRef, onScrollToFinished]);
+    }, [scrollToId, prevScrollToId, listRef, onScrollToFinished]);
 
     useEffect(() => {
       // recalculate row heights
@@ -238,10 +234,6 @@ VirtualizedList.propTypes = {
    * number of items to render (below/above the fold)
    */
   overscanCount: PropTypes.number,
-  /**
-   * the speed of the scroll (in ms)
-   */
-  scrollDuration: PropTypes.number,
   /**
    * a callback that is being called when the items are rendered
    *

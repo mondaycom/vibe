@@ -85,10 +85,6 @@ const VirtualizedGrid = forwardRef(
       return getNormalizedItems(items, idGetter, heightGetter);
     }, [items, idGetter, heightGetter]);
 
-    const maxGridOffset = useMemo(() => {
-      return getMaxOffset(gridHeight, normalizedItems);
-    }, [gridHeight, normalizedItems]);
-
     const calcColumnCount = useMemo(() => {
       return Math.floor(gridWidth / getColumnWidth());
     }, [gridWidth, getColumnWidth]);
@@ -107,7 +103,7 @@ const VirtualizedGrid = forwardRef(
 
     // Callbacks
     const onScrollCB = useCallback(
-      ({ horizontalScrollDirection, scrollLeft, scrollTop, scrollUpdateWasRequested, verticalScrollDirection }) => {
+      ({ horizontalScrollDirection, _scrollLeft, scrollTop, scrollUpdateWasRequested, _verticalScrollDirection }) => {
         scrollTopRef.current = scrollTop;
         if (!scrollUpdateWasRequested) {
           animationData.scrollOffsetInitial = scrollTop;
@@ -252,14 +248,6 @@ VirtualizedGrid.propTypes = {
    * callback to be called when the scroll is finished
    */
   onScrollToFinished: PropTypes.func,
-  /**
-   * number of items to render (below/above the fold)
-   */
-  // overscanCount: PropTypes.number,
-  /**
-   * the speed of the scroll (in ms)
-   */
-  scrollDuration: PropTypes.number,
   /**
    * a callback that is being called when the items are rendered
    *
