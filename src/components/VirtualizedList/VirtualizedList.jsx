@@ -6,7 +6,6 @@ import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
   getNormalizedItems,
-  getMaxOffset,
   getOnItemsRenderedData,
   isVerticalScrollbarVisible
 } from "../../services/virtualized-service";
@@ -270,7 +269,6 @@ VirtualizedList.defaultProps = {
   getItemId: (item, _index) => item.id,
   onScrollToFinished: NOOP,
   overscanCount: 0,
-  scrollDuration: 200,
   onItemsRendered: null,
   onItemsRenderedThrottleMs: 200,
   onSizeUpdate: NOOP,
