@@ -6,14 +6,15 @@ import { VariableSizeGrid as Grid } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
   getNormalizedItems,
-  easeInOutQuint,
   getMaxOffset,
   getOnItemsRenderedData,
   isVerticalScrollbarVisible
-} from "./virtualized-grid-service";
+} from "../../services/virtualized-service";
+import useAnimateScroll from "../../hooks/useAnimateScroll";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import useStartScrollAnimation from "../../hooks/useStartScrollAnimation";
 import "./VirtualizedGrid.scss";
 
 const VirtualizedGrid = forwardRef(
@@ -49,7 +50,11 @@ const VirtualizedGrid = forwardRef(
     const isVerticalScrollbarVisibleRef = useRef(null);
     const gridRef = useRef(null);
     const scrollTopRef = useRef(0);
-    const animationDataRef = useRef({});
+    const animationDataRef = useRef({
+      scrollOffsetInitial: 0,
+      scrollOffsetFinal: 0,
+      animationStartTime: 0
+    });
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const animationData = animationDataRef.current;
@@ -64,7 +69,7 @@ const VirtualizedGrid = forwardRef(
     const heightGetter = useCallback(
       item => {
         const height = getRowHeight();
-        if (height === undefined) {
+        if (!height || isNaN(height)) {
           console.error("Couldn't get height for item: ", item);
         }
         return height;
@@ -72,18 +77,10 @@ const VirtualizedGrid = forwardRef(
       [getRowHeight]
     );
 
-    const calcColumnCount = useMemo(() => {
-      return Math.floor(gridWidth / getColumnWidth());
-    }, [gridWidth, getColumnWidth]);
-
-    const calcRowCount = useMemo(() => {
-      return Math.floor(gridHeight / getRowHeight());
-    }, [gridHeight, getRowHeight]);
-
     const idGetter = useCallback(
       (item, index) => {
         const itemId = getItemId(item, index);
-        if (itemId === undefined) {
+        if (!itemId || isNaN(itemId)) {
           console.error("Couldn't get id for item: ", item);
         }
         return itemId;
@@ -101,6 +98,14 @@ const VirtualizedGrid = forwardRef(
       return getMaxOffset(gridHeight, normalizedItems);
     }, [gridHeight, normalizedItems]);
 
+    const calcColumnCount = useMemo(() => {
+      return Math.floor(gridWidth / getColumnWidth());
+    }, [gridWidth, getColumnWidth]);
+
+    const calcRowCount = useMemo(() => {
+      return Math.floor(items.length / calcColumnCount);
+    }, [items, calcColumnCount]);
+
     // Callbacks
     const onScrollCB = useCallback(
       ({ scrollDirection, scrollOffset, scrollUpdateWasRequested }) => {
@@ -113,45 +118,13 @@ const VirtualizedGrid = forwardRef(
       [onScroll, scrollTopRef, animationData]
     );
 
-    const animateScroll = useCallback(() => {
-      requestAnimationFrame(() => {
-        const now = performance.now();
-        const ellapsed = now - animationData.animationStartTime;
-        const scrollDelta = animationData.scrollOffsetFinal - animationData.scrollOffsetInitial;
-        const easedTime = easeInOutQuint(Math.min(1, ellapsed / scrollDuration));
-        const scrollOffset = animationData.scrollOffsetInitial + scrollDelta * easedTime;
-        const finalOffsetValue = Math.min(maxGridOffset, scrollOffset);
-        scrollTopRef.current = finalOffsetValue;
-        gridRef.current.scrollTo(finalOffsetValue);
-
-        if (ellapsed < scrollDuration) {
-          animateScroll();
-        } else {
-          animationData.animationStartTime = undefined;
-          onScrollToFinished && onScrollToFinished();
-        }
-      });
-    }, [scrollDuration, animationData, gridRef, maxGridOffset, onScrollToFinished]);
-
-    const startScrollAnimation = useCallback(
-      item => {
-        const { offsetTop } = item;
-        if (animationData.animationStartTime) {
-          // animation already in progress
-          animationData.scrollOffsetFinal = offsetTop;
-          return;
-        }
-        if (animationData.scrollOffsetInitial === offsetTop) {
-          // offset already equals to item offset
-          onScrollToFinished && onScrollToFinished();
-          return;
-        }
-
-        animationData.scrollOffsetFinal = offsetTop;
-        animationData.animationStartTime = performance.now();
-        animateScroll();
-      },
-      [animationData, animateScroll, onScrollToFinished]
+    const animateScroll = useAnimateScroll(
+      animationDataRef,
+      scrollTopRef,
+      maxGridOffset,
+      gridRef,
+      scrollDuration,
+      onScrollToFinished
     );
 
     const cellRenderer = useCallback(
@@ -200,9 +173,18 @@ const VirtualizedGrid = forwardRef(
       if (scrollToId && prevScrollToId !== scrollToId) {
         const hasVerticalScrollbar = isVerticalScrollbarVisible(items, normalizedItems, idGetter, gridHeight);
         const item = normalizedItems[scrollToId];
-        hasVerticalScrollbar && item && startScrollAnimation(item);
+        hasVerticalScrollbar && item && useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
       }
-    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, gridHeight]);
+    }, [
+      prevScrollToId,
+      scrollToId,
+      useStartScrollAnimation,
+      normalizedItems,
+      items,
+      idGetter,
+      gridHeight,
+      animateScroll
+    ]);
 
     useEffect(() => {
       // recalculate row heights
