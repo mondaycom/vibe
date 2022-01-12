@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.5 (2022-01-12)
+
+#### Bug Fixes
+* [#453](https://github.com/mondaycom/monday-ui-react-core/pull/453) Fix icon button export ([@hadasfa](https://github.com/hadasfa))
+* [#452](https://github.com/mondaycom/monday-ui-react-core/pull/452) Fix dialog hideTriggerIgnoreClass prop type to accept array ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.2.4 (2022-01-11)
 
 #### Bug Fixes
