@@ -21,13 +21,16 @@ export const virtualizedGridTemplate = args => {
   }, []);
   return (
     <div style={args.wrapperStyle}>
-      <VirtualizedGrid
-        items={items}
-        itemRenderer={itemRenderer}
-        getColumnWidth={getColumnWidth}
-        getRowHeight={getRowHeight}
-        scrollDuration={args.scrollDuration}
-      />
+      <div style={{ width: "430px", height: "100%" }}>
+        <VirtualizedGrid
+          id={args.wrapperId}
+          items={items}
+          itemRenderer={itemRenderer}
+          getColumnWidth={getColumnWidth}
+          getRowHeight={getRowHeight}
+          scrollDuration={args.scrollDuration}
+        />
+      </div>
     </div>
   );
 };
@@ -58,7 +61,8 @@ Under the hood we are using - [react-window](https://github.com/bvaughn/react-wi
         overflow: "hidden",
         display: "flex",
         alignItems: "center"
-      }
+      },
+      wrapperId: "Knobs"
     }}
   >
     {virtualizedGridTemplate.bind({})}
