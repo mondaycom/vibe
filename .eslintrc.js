@@ -1,17 +1,14 @@
 module.exports = {
-  globals: {
-    jest: "writeable",
-    describe: "readable",
-    it: "readable",
-    expect: "writeable",
-    afterEach: "writeable",
-    beforeEach: "writeable",
-    beforeAll: "readable",
-    afterAll: "readable"
-  },
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    jest: true,
+    "jest/globals": true
+  },
+  settings: {
+    jest: {
+      version: 27
+    }
   },
   extends: ["plugin:react/recommended", "airbnb", "plugin:react-hooks/recommended"],
   parserOptions: {
@@ -21,7 +18,7 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: "module"
   },
-  plugins: ["import", "react", "jsx-a11y", "json", "markdown"],
+  plugins: ["import", "react", "jsx-a11y", "json", "markdown", "jest"],
   rules: {
     quotes: "off",
     "comma-dangle": "off",
@@ -82,5 +79,5 @@ module.exports = {
     "implicit-arrow-linebreak": "off",
     "import/order": "warn",
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }]
-  },
+  }
 };
