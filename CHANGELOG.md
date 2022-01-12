@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.2.4 (2022-01-11)
+
+#### Bug Fixes
+* [#450](https://github.com/mondaycom/monday-ui-react-core/pull/450) editable clickable test fix ([@ronachmany-monday](https://github.com/ronachmany-monday))
+* [#448](https://github.com/mondaycom/monday-ui-react-core/pull/448) icon button export ([@ronachmany-monday](https://github.com/ronachmany-monday))
+
+#### Documentation
+* [#445](https://github.com/mondaycom/monday-ui-react-core/pull/445) Storybook actions ([@laviomri](https://github.com/laviomri))
+
+#### New Icons
+* [#449](https://github.com/mondaycom/monday-ui-react-core/pull/449) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.2.3 (2022-01-10)
+
+#### Bug Fixes
+* [#444](https://github.com/mondaycom/monday-ui-react-core/pull/444) use button to clickable ([@ronachmany-monday](https://github.com/ronachmany-monday))
+
+#### Documentation
+* [#440](https://github.com/mondaycom/monday-ui-react-core/pull/440) Fix stories errors and typos    ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.2.2 (2022-01-10)
 
 #### Bug Fixes
