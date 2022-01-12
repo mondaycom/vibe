@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { action } from "@storybook/addon-actions";
 import * as AllIcons from "../../components/Icon/Icons";
 
 export function createComponentTemplate(ComponentClass) {
@@ -46,4 +48,30 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
   });
 
   return argTypes;
+}
+
+/**
+ * Creates a decorator which maps a callback prop to an input prop.
+ * Useful for adding interactivity to stories of controlled components.
+ * For example: mapping the onChange callback of a Select component to its currentValue prop.
+ * Additionally, the callback will trigger a Storybook action, that can be seen on the Actions tab.
+ */
+export function createControlledInputDecorator({ fromCbProp, toProp }) {
+  return (Story, context) => {
+    const [propValue, setPropValue] = useState(context.initialArgs[toProp]);
+    const createAction = useMemo(() => action(fromCbProp), []);
+
+    const injectedCallback = useCallback(
+      newPropValue => {
+        setPropValue(newPropValue);
+        createAction(newPropValue);
+      },
+      [setPropValue, createAction]
+    );
+
+    context.args[fromCbProp] = injectedCallback;
+    context.args[toProp] = propValue;
+
+    return Story();
+  };
 }
