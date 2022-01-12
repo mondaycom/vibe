@@ -69,7 +69,7 @@ const VirtualizedGrid = forwardRef(
     const heightGetter = useCallback(
       item => {
         const height = getRowHeight();
-        if (!height || isNaN(height)) {
+        if (!height || Number.isNaN(height)) {
           console.error("Couldn't get height for item: ", item);
         }
         return height;
@@ -80,7 +80,7 @@ const VirtualizedGrid = forwardRef(
     const idGetter = useCallback(
       (item, index) => {
         const itemId = getItemId(item, index);
-        if (!itemId || isNaN(itemId)) {
+        if (!itemId || Number.isNaN(itemId)) {
           console.error("Couldn't get id for item: ", item);
         }
         return itemId;
@@ -127,13 +127,17 @@ const VirtualizedGrid = forwardRef(
       onScrollToFinished
     );
 
+    const startScrollAnimation = (item, animationData, onScrollToFinished, animateScroll) => {
+      useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
+    };
+
     const cellRenderer = useCallback(
       ({ columnIndex, rowIndex, style }) => {
         const index = rowIndex * calcColumnCount + columnIndex;
         const item = items[index];
         return itemRenderer(item, index, style);
       },
-      [items, itemRenderer, gridWidth, calcColumnCount]
+      [items, itemRenderer, calcColumnCount]
     );
 
     const updateGridSize = useCallback(
@@ -173,17 +177,19 @@ const VirtualizedGrid = forwardRef(
       if (scrollToId && prevScrollToId !== scrollToId) {
         const hasVerticalScrollbar = isVerticalScrollbarVisible(items, normalizedItems, idGetter, gridHeight);
         const item = normalizedItems[scrollToId];
-        hasVerticalScrollbar && item && useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
+        hasVerticalScrollbar && item && startScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
       }
     }, [
       prevScrollToId,
       scrollToId,
-      useStartScrollAnimation,
+      startScrollAnimation,
       normalizedItems,
       items,
       idGetter,
       gridHeight,
-      animateScroll
+      animateScroll,
+      animationData,
+      onScrollToFinished
     ]);
 
     useEffect(() => {
