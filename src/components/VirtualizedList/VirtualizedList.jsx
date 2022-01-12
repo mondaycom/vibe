@@ -10,11 +10,9 @@ import {
   getOnItemsRenderedData,
   isVerticalScrollbarVisible
 } from "../../services/virtualized-service";
-import useAnimateScroll from "../../hooks/useAnimateScroll";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import useStartScrollAnimation from "../../hooks/useStartScrollAnimation";
 import "./VirtualizedList.scss";
 
 const VirtualizedList = forwardRef(
@@ -29,7 +27,6 @@ const VirtualizedList = forwardRef(
       overscanCount,
       getItemId,
       scrollToId,
-      scrollDuration,
       onScrollToFinished,
       onItemsRendered,
       onItemsRenderedThrottleMs,
@@ -58,12 +55,6 @@ const VirtualizedList = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const animationData = animationDataRef.current;
-    if (!animationData.initialized) {
-      animationData.initialized = true;
-      animationData.scrollOffsetInitial = 0;
-      animationData.scrollOffsetFinal = 0;
-      animationData.animationStartTime = 0;
-    }
 
     // Callbacks
     const heightGetter = useCallback(
@@ -109,19 +100,6 @@ const VirtualizedList = forwardRef(
       },
       [onScroll, scrollTopRef, animationData]
     );
-
-    const animateScroll = useAnimateScroll(
-      animationDataRef,
-      scrollTopRef,
-      maxListOffset,
-      listRef,
-      scrollDuration,
-      onScrollToFinished
-    );
-
-    const startScrollAnimation = item => {
-      useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
-    };
 
     const rowRenderer = useCallback(
       ({ index, style }) => {
@@ -174,11 +152,10 @@ const VirtualizedList = forwardRef(
     useEffect(() => {
       // scroll to specific item
       if (scrollToId && prevScrollToId !== scrollToId) {
-        const hasVerticalScrollbar = isVerticalScrollbarVisible(items, normalizedItems, idGetter, listHeight);
-        const item = normalizedItems[scrollToId];
-        hasVerticalScrollbar && item && startScrollAnimation(item);
+        gridRef.current.scrollToItem(scrollToId, "center");
+        onScrollToFinished();
       }
-    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, listHeight]);
+    }, [scrollToId, prevScrollToId, gridRef, onScrollToFinished]);
 
     useEffect(() => {
       // recalculate row heights
