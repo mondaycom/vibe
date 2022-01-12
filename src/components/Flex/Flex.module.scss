@@ -1,0 +1,91 @@
+@import "../../styles/themes.scss";
+
+@mixin main-position-classes {
+  &-start {
+    justify-content: flex-start;
+  }
+
+  &-end {
+    justify-content: flex-end;
+  }
+
+  &-center {
+    justify-content: center;
+  }
+
+  &-space-between {
+    justify-content: space-between;
+  }
+
+  &-space-around {
+    justify-content: space-around;
+  }
+}
+@mixin secondary-position-classes {
+  &-start {
+    align-content: flex-start;
+  }
+
+  &-end {
+    align-content: flex-end;
+  }
+
+  &-center {
+    align-content: center;
+  }
+
+  &-space-between {
+    align-content: space-between;
+  }
+
+  &-space-around {
+    align-content: space-around;
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  & .horizontal {
+    &-position {
+      @include main-position-classes;
+    }
+    &-spacing-size {
+      &-small {
+        & > * {
+          margin-inline-end: var(--spacing-small);
+        }
+      }
+      &-medium {
+        & > * {
+          margin-inline-end: var(--spacing-medium);
+        }
+      }
+      &-large {
+        & > * {
+          margin-inline-end: var(--spacing-large);
+        }
+      }
+    }
+  }
+
+  &.vertical {
+    &-flex-container {
+      flex-direction: column;
+
+      & .vertical-position {
+        @include main-position-classes;
+      }
+
+      & .horizontal-position {
+        @include secondary-position-classes;
+      }
+    }
+    &-position {
+      @include secondary-position-classes;
+    }
+    &-spacing-size {
+      @include spacing-size-classes(block-end)
+    }
+  }
+}
