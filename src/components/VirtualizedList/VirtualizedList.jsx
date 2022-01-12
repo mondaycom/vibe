@@ -6,14 +6,15 @@ import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
   getNormalizedItems,
-  easeInOutQuint,
   getMaxOffset,
   getOnItemsRenderedData,
   isVerticalScrollbarVisible
-} from "./virtualized-list-service";
+} from "../../services/virtualized-service";
+import useAnimateScroll from "../../hooks/useAnimateScroll";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import useStartScrollAnimation from "../../hooks/useStartScrollAnimation";
 import "./VirtualizedList.scss";
 
 const VirtualizedList = forwardRef(
@@ -49,7 +50,11 @@ const VirtualizedList = forwardRef(
     const isVerticalScrollbarVisibleRef = useRef(null);
     const listRef = useRef(null);
     const scrollTopRef = useRef(0);
-    const animationDataRef = useRef({});
+    const animationDataRef = useRef({
+      scrollOffsetInitial: 0,
+      scrollOffsetFinal: 0,
+      animationStartTime: 0
+    });
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const animationData = animationDataRef.current;
@@ -105,45 +110,13 @@ const VirtualizedList = forwardRef(
       [onScroll, scrollTopRef, animationData]
     );
 
-    const animateScroll = useCallback(() => {
-      requestAnimationFrame(() => {
-        const now = performance.now();
-        const ellapsed = now - animationData.animationStartTime;
-        const scrollDelta = animationData.scrollOffsetFinal - animationData.scrollOffsetInitial;
-        const easedTime = easeInOutQuint(Math.min(1, ellapsed / scrollDuration));
-        const scrollOffset = animationData.scrollOffsetInitial + scrollDelta * easedTime;
-        const finalOffsetValue = Math.min(maxListOffset, scrollOffset);
-        scrollTopRef.current = finalOffsetValue;
-        listRef.current.scrollTo(finalOffsetValue);
-
-        if (ellapsed < scrollDuration) {
-          animateScroll();
-        } else {
-          animationData.animationStartTime = undefined;
-          onScrollToFinished && onScrollToFinished();
-        }
-      });
-    }, [scrollDuration, animationData, listRef, maxListOffset, onScrollToFinished]);
-
-    const startScrollAnimation = useCallback(
-      item => {
-        const { offsetTop } = item;
-        if (animationData.animationStartTime) {
-          // animation already in progress
-          animationData.scrollOffsetFinal = offsetTop;
-          return;
-        }
-        if (animationData.scrollOffsetInitial === offsetTop) {
-          // offset already equals to item offset
-          onScrollToFinished && onScrollToFinished();
-          return;
-        }
-
-        animationData.scrollOffsetFinal = offsetTop;
-        animationData.animationStartTime = performance.now();
-        animateScroll();
-      },
-      [animationData, animateScroll, onScrollToFinished]
+    const animateScroll = useAnimateScroll(
+      animationDataRef,
+      scrollTopRef,
+      maxListOffset,
+      listRef,
+      scrollDuration,
+      onScrollToFinished
     );
 
     const rowRenderer = useCallback(
@@ -199,9 +172,9 @@ const VirtualizedList = forwardRef(
       if (scrollToId && prevScrollToId !== scrollToId) {
         const hasVerticalScrollbar = isVerticalScrollbarVisible(items, normalizedItems, idGetter, listHeight);
         const item = normalizedItems[scrollToId];
-        hasVerticalScrollbar && item && startScrollAnimation(item);
+        hasVerticalScrollbar && item && useStartScrollAnimation(item, animationData, onScrollToFinished, animateScroll);
       }
-    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, listHeight]);
+    }, [prevScrollToId, scrollToId, useStartScrollAnimation, normalizedItems, items, idGetter, listHeight]);
 
     useEffect(() => {
       // recalculate row heights
