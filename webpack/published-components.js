@@ -84,7 +84,8 @@ const publishedComponents = {
   AlertBannerButton: "components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx",
   Toggle: "components/Toggle/Toggle.jsx",
   Skeleton: "components/Skeleton/Skeleton.jsx",
-  Avatar: "components/Avatar/Avatar.jsx"
+  Avatar: "components/Avatar/Avatar.jsx",
+  IconButton: "components/IconButton/IconButton.jsx"
 };
 
 function getPublishedComponents() {
