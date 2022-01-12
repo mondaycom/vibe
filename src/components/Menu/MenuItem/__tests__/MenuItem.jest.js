@@ -24,7 +24,7 @@ describe("<MenuItem />", () => {
   describe.skip("click", () => {
     it("should call the callback on click", async () => {
       const onClick = jest.fn();
-      const { getByText } = render(<MenuItem title={title} onClick={onClick} index={1} activeItemIndex={1}/>);
+      const { getByText } = render(<MenuItem title={title} onClick={onClick} index={1} activeItemIndex={1} />);
 
       const menuItemElement = getByText(title);
       await act(() => {

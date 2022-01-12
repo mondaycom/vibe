@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, cleanup } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import Steps from "../Steps";
 import { NEXT_DESCRIPTION, BACK_DESCRIPTION } from "../StepsConstants";
@@ -55,7 +55,7 @@ describe("Steps tests", () => {
 
     expect(onClickMock.mock.calls.length).toBe(0);
   });
-  
+
   it("does not call onChangeIndexCallback when click on next button when in last page", () => {
     const onClickMock = jest.fn();
     const steps = renderComponent({

@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { useMemo } from "react";
 import { RelatedComponent } from "../../../related-component/related-component";
 import Clickable from "../../../../../components/Clickable/Clickable";

@@ -4,14 +4,11 @@ import Tab from "../Tab";
 
 describe("Tab tests", () => {
   let onClickMock;
-  const text = "tab"
-  let tabComponent;
-  
+  const text = "tab";
+
   beforeEach(() => {
     onClickMock = jest.fn();
-    tabComponent = render(
-      <Tab onClick={onClickMock}>{text}</Tab>
-    );
+    render(<Tab onClick={onClickMock}>{text}</Tab>);
   });
 
   it("should call the click callback when clicked", () => {

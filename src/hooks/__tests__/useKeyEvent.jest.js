@@ -1,4 +1,4 @@
-import { renderHook, cleanup, act, waitFor } from "@testing-library/react-hooks";
+import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
 import useKeyEvent from "../useKeyEvent";
 
@@ -17,8 +17,7 @@ describe("useKeyEvent", () => {
           keyEventName: "keyup",
           ref: { current: element },
           callback: callbackStub
-        })
-      );
+        }));
     });
 
     afterEach(() => {
@@ -68,8 +67,7 @@ describe("useKeyEvent", () => {
           ref: { current: element },
           callback: callbackStub,
           modifier: useKeyEvent.modifiers.ALT
-        })
-      );
+        }));
     });
 
     afterEach(() => {
@@ -122,8 +120,7 @@ describe("useKeyEvent", () => {
           ref: { current: element },
           callback: callbackStub,
           modifier: useKeyEvent.modifiers.CTRL_OR_META
-        })
-      );
+        }));
     });
 
     afterEach(() => {

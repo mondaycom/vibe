@@ -13,7 +13,7 @@ describe("Chips renders correctly", () => {
     const tree = renderer.create(<Chips color={Chips.colors.NEGATIVE} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-  
+
   it("renders correctly disabled chip", () => {
     const tree = renderer.create(<Chips disabled />).toJSON();
     expect(tree).toMatchSnapshot();

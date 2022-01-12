@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, cleanup } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import MultiStepIndicator from "../MultiStepIndicator";
 

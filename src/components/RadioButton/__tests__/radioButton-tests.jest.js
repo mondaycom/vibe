@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
-import RadioButton from "../RadioButton.jsx";
+import RadioButton from "../RadioButton";
 
 describe("RadioButton tests", () => {
   const formName = "myForm";
@@ -26,7 +26,7 @@ describe("RadioButton tests", () => {
       <form name={formName}>
         <RadioButton name={radiosName} value={option1Value} text={option1Text} onSelect={onChangeMock1} defaultChecked={true} />
         <RadioButton name={radiosName} value={option2Value} text={option2Text} onSelect={onChangeMock2} />
-        <RadioButton name={radiosName} value={option3Value} text={option3Text} onSelect={onChangeMock3}/>
+        <RadioButton name={radiosName} value={option3Value} text={option3Text} onSelect={onChangeMock3} />
       </form>
     );
   });
@@ -66,7 +66,7 @@ describe("RadioButton tests", () => {
     const { getByText } = render(
       <RadioButton text={text} />
     );
-    const radioButtonComponentText = getByText(text)
+    const radioButtonComponentText = getByText(text);
     expect(radioButtonComponentText).toBeTruthy();
-  }); 
+  });
 });

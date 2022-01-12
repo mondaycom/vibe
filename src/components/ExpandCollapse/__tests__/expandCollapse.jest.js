@@ -1,8 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { render, fireEvent, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import ExpandCollapse from "../ExpandCollapse";
+import "@testing-library/jest-dom";
 
 describe("ExpandCollapse", () => {
   it("renders correctly with empty props", () => {
@@ -10,13 +10,13 @@ describe("ExpandCollapse", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should render header component", function() {
+  it("Should render header component", () => {
     render(<ExpandCollapse headerComponentRenderer={() => <h1>Some Header</h1>} />);
 
     expect(screen.getByText("Some Header")).toBeInTheDocument();
   });
 
-  it("Should not render child components when closed", function() {
+  it("Should not render child components when closed", () => {
     render(
       <ExpandCollapse headerComponentRenderer={() => <h1>Some Header</h1>}>
         <h1>Child 1</h1>
@@ -30,7 +30,7 @@ describe("ExpandCollapse", () => {
     expect(screen.queryByText("Child 2")).toBeNull();
   });
 
-  it("Should render header and child components when defaultOpenState = true", function() {
+  it("Should render header and child components when defaultOpenState = true", () => {
     render(
       <ExpandCollapse defaultOpenState={true} headerComponentRenderer={() => <h1>Some Header</h1>}>
         <h1>Child 1</h1>
@@ -44,7 +44,7 @@ describe("ExpandCollapse", () => {
     expect(screen.getByText("Child 2")).toBeInTheDocument();
   });
 
-  it("Should render child components after clicking component", function() {
+  it("Should render child components after clicking component", () => {
     const { container } = render(
       <ExpandCollapse headerComponentRenderer={() => <h1>Some Header</h1>}>
         <h1>Child 1</h1>

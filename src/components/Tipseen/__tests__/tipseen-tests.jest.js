@@ -3,7 +3,7 @@ import { fireEvent, render, waitFor } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import TipseenContent from "../TipseenContent";
 import Tipseen from "../Tipseen";
-import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT, TIPSEEN_CLOSE_BUTTON_TEST_ID, TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "../TipseenConstants";
+import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "../TipseenConstants";
 
 jest.mock("react-transition-group", () => {
   const FakeTransition = jest.fn(({ children }) => children);
@@ -26,15 +26,15 @@ describe("Integration Tests", () => {
         <Tipseen onClose={onClickMock}>
           <div />
         </Tipseen>
-      )
-         fireEvent.click(getByLabelText("Close"));
-      
+      );
+      fireEvent.click(getByLabelText("Close"));
+
       waitFor(() => {
         expect(onClickMock.mock.calls.length).toBe(1);
       });
     });
   });
-  
+
   describe("Tipseen content tests", () => {
     it("call onDismiss function when click on dismiss button", () => {
       const onDismissMock = jest.fn();
@@ -42,7 +42,7 @@ describe("Integration Tests", () => {
         <TipseenContent isDismissHidden={false} onDismiss={onDismissMock}>
           content
         </TipseenContent>
-      )
+      );
       const dismissButton = getByText(DISMISS_BUTTON_TEXT);
 
       act(() => {
@@ -57,7 +57,7 @@ describe("Integration Tests", () => {
         <TipseenContent onSubmit={onSubmitMock}>
           content
         </TipseenContent>
-      )
+      );
       const submitButton = getByText(SUBMIT_BUTTON_TEXT);
 
       act(() => {
