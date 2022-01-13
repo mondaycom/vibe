@@ -267,11 +267,9 @@ VirtualizedList.defaultProps = {
   getItemHeight: (item, _index) => item.height,
   getItemId: (item, _index) => item.id,
   onScrollToFinished: NOOP,
-  overscanCount: 0,
   onItemsRendered: null,
   onItemsRenderedThrottleMs: 200,
   onSizeUpdate: NOOP,
-  onVerticalScrollbarVisiblityChange: null,
   scrollToId: null
 };
 
