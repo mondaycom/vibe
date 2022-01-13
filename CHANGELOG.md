@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.0 (2022-01-13)
+
+#### New Features
+* [#443](https://github.com/mondaycom/monday-ui-react-core/pull/443) Adding VirtualizedGrid component ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
+#### Dependency Upgrades
+* [#455](https://github.com/mondaycom/monday-ui-react-core/pull/455) Fix/eslint ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.2.6 (2022-01-12)
 
 #### New Icons
