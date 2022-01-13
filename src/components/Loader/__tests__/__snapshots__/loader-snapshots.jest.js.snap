@@ -4,6 +4,12 @@ exports[`renders correctly with custom class name 1`] = `
 <div
   className="monday-loader-component"
   role="alert"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
   title="loading"
 >
   <svg
@@ -26,6 +32,12 @@ exports[`renders correctly with empty props 1`] = `
 <div
   className="monday-loader-component"
   role="alert"
+  style={
+    Object {
+      "height": undefined,
+      "width": undefined,
+    }
+  }
   title="loading"
 >
   <svg

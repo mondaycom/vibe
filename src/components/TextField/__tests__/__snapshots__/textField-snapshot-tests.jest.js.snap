@@ -114,6 +114,12 @@ exports[`TextField renders correctly when loading 1`] = `
           <div
             className="monday-loader-component"
             role="alert"
+            style={
+              Object {
+                "height": undefined,
+                "width": undefined,
+              }
+            }
             title="loading"
           >
             <svg
