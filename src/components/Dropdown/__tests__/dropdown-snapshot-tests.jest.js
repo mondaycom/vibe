@@ -4,13 +4,13 @@ import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
 
 const mockOptions = [
-    { value: "ocean", label: "Ocean", isFixed: true },
-    { value: "blue", label: "Blue", isDisabled: true },
-    { value: "purple", label: "Purple" },
-    { value: "red", label: "Red", isFixed: true },
-    { value: "orange", label: "Orange" },
-    { value: "yellow", label: "Yellow" }
-  ];
+  { value: "ocean", label: "Ocean", isFixed: true },
+  { value: "blue", label: "Blue", isDisabled: true },
+  { value: "purple", label: "Purple" },
+  { value: "red", label: "Red", isFixed: true },
+  { value: "orange", label: "Orange" },
+  { value: "yellow", label: "Yellow" }
+];
 
 describe("Dropdown renders correctly", () => {
   it("with empty props", () => {
@@ -69,6 +69,7 @@ describe("Dropdown renders correctly", () => {
   });
 
   it("with tabIndex", () => {
+    // eslint-disable-next-line jsx-a11y/tabindex-no-positive
     const tree = renderer.create(<Dropdown tabIndex={9999} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -86,51 +87,51 @@ describe("Dropdown renders correctly", () => {
   describe("snapshot driver", () => {
     it("should render correctly with empty props", () => {
       const component = new DropdownDriver();
-  
+
       expect(component.snapshot).toMatchSnapshot();
     });
-  
-    it("should render correctly for the different sizes", function() {
+
+    it("should render correctly for the different sizes", () => {
       Object.values(Dropdown.size).forEach(size => {
         const component = new DropdownDriver().withSize(size).withPlaceholder();
-  
+
         expect(component.snapshot).toMatchSnapshot();
       });
     });
-  
+
     it("should use virtualization if set", () => {
       const component = new DropdownDriver()
         .withOpenMenuOnClick()
         .withOpenMenuOnFocus()
         .withVirtualizedOptions();
-  
+
       component.focusInput();
-  
+
       expect(component.snapshot).toMatchSnapshot();
     });
-  
+
     it("should use async if set", () => {
       const component = new DropdownDriver().withAsyncOptions().withDefaultOptions();
-  
+
       component.focusInput();
-  
+
       expect(component.snapshot).toMatchSnapshot();
     });
-  
-    it("should open menu on focus if set", function() {
+
+    it("should open menu on focus if set", () => {
       const component = new DropdownDriver().withOpenMenuOnClick().withOptions();
-  
+
       component.focusInput();
-  
+
       expect(component.snapshot).toMatchSnapshot();
     });
-  
-    it("should open menu on click if set", function() {
+
+    it("should open menu on click if set", () => {
       const component = new DropdownDriver().withOpenMenuOnClick().withOptions();
-  
+
       component.clickInput();
-  
+
       expect(component.snapshot).toMatchSnapshot();
-    });  
-  })
+    });
+  });
 });

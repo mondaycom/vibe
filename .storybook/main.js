@@ -33,7 +33,8 @@ module.exports = {
     "storybook-addon-themes",
     "@storybook/addon-a11y",
     "storybook-addon-performance/register",
-    "@storybook/addon-docs"
+    "@storybook/addon-docs",
+    "@storybook/addon-actions",
   ],
   core: {
     builder: "webpack5"

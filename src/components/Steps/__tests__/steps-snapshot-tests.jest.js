@@ -101,7 +101,7 @@ describe("Steps", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    
+
     it("when navigation buttons are hidden", () => {
       const tree = renderer
         .create(

@@ -7,7 +7,7 @@ import TextField from "../TextField";
 describe("TextField tests", () => {
   let inputComponent;
   let onChangeStub;
-  let defaultPlaceHolder = "Place Holder Text";
+  const defaultPlaceHolder = "Place Holder Text";
   let ref;
 
   beforeEach(() => {
@@ -65,7 +65,7 @@ describe("TextField tests", () => {
     const input = screen.getByPlaceholderText(defaultPlaceHolder);
     userEvent.type(input, "A");
     expect(onChangeStub).not.toHaveBeenCalledWith("A");
-    jest.advanceTimersByTime(debounceTime + 1)
+    jest.advanceTimersByTime(debounceTime + 1);
     await waitFor(() => expect(onChangeStub).toHaveBeenCalledWith("A"), { timeout: debounceTime });
   });
 

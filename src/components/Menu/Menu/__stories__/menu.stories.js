@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+/* eslint-disable no-unused-vars */
+import React from "react";
 import Menu from "../Menu";
 import MenuItem from "../../MenuItem/MenuItem";
 import {

@@ -30,7 +30,7 @@ export default function Container({
   const renderOptions = useCallback(
     (from = 0, to = selectedOptions.length) =>
       selectedOptions.map((option, index) =>
-        index >= from && index < to ? (
+        (index >= from && index < to ? (
           <Chips
             data-testid="value-container-chip"
             key={option.value}
@@ -43,8 +43,7 @@ export default function Container({
               e.stopPropagation();
             }}
           />
-        ) : null
-      ),
+        ) : null)),
     [selectedOptions, onSelectedDelete, chipClassName]
   );
 

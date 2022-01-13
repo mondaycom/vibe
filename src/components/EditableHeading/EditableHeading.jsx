@@ -1,9 +1,9 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { useRef, useState, useCallback, useEffect, useMemo, useLayoutEffect } from "react";
+import React, { useRef, useState, useCallback, useEffect, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { useButton } from "@react-aria/button";
 import Heading from "../Heading/Heading";
+import Clickable from "../Clickable/Clickable";
 import EditableInput, { TEXTAREA_TYPE } from "../EditableInput/EditableInput";
 import { TYPES } from "../Heading/HeadingConstants";
 import { SIZES } from "../../constants/sizes";
@@ -70,11 +70,6 @@ const EditableHeading = props => {
   const onInputSuccessCallback = useCallback(() => {
     clearErrorState();
   }, [clearErrorState]);
-
-  const { buttonProps } = useButton({
-    onPress: onClick,
-    elementType: "div"
-  });
 
   // Effects
   useEffect(() => {
@@ -157,20 +152,17 @@ const EditableHeading = props => {
     return <EditableInput {...inputProps} />;
   };
 
-  const clickProps = useMemo(() => {
-    return isEditing ? { onClick, role: "button", tabIndex: "0" } : buttonProps;
-  }, [isEditing, buttonProps, onClick]);
-
   return (
     <div
       ref={ref}
       style={style}
       className={cx("editable-heading--wrapper", className)}
-      {...clickProps}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
     >
-      {isEditing ? renderInputComponent() : renderContentComponent()}
+      <Clickable role={isEditing ? "button" : "input"} onClick={onClick}>
+        {isEditing ? renderInputComponent() : renderContentComponent()}
+      </Clickable>
     </div>
   );
 };

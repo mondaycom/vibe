@@ -96,7 +96,7 @@ describe("useMergeRefs", () => {
     it("should call click listener based on internal ref if element has been clicked", () => {
       render(<Component />);
       const element = screen.getByText("Lorem ipsum dolor sit amet");
-      act(() => {fireEvent.click(element)});
+      act(() => { fireEvent.click(element); });
       waitFor(() => {
         expect(innerRefCallbackStub.mocks.calls.length).toBe(1);
       });

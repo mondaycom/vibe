@@ -1,5 +1,5 @@
 import React from "react";
-import { cleanup, fireEvent, render, screen, act } from "@testing-library/react";
+import { fireEvent, render, act } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import MenuItemButton from "../MenuItemButton";
 

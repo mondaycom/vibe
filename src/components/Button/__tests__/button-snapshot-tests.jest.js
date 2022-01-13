@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Button from "../Button";
 import NOOP from "lodash/noop";
+import Button from "../Button";
 import { WhatsNew } from "../../Icon/Icons";
 
 jest.mock("../../Icon/Icon", () => {
@@ -38,21 +38,21 @@ describe("Button renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  Object.values([Button.sizes.SMALL, Button.sizes.MEDIUM, Button.sizes.LARGE]).map(size => {
+  Object.values([Button.sizes.SMALL, Button.sizes.MEDIUM, Button.sizes.LARGE]).forEach(size => {
     it(`renders Button size- ${size}`, () => {
       const tree = renderer.create(<Button size={size}>Button</Button>).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
 
-  Object.values(Button.colors).map(color => {
+  Object.values(Button.colors).forEach(color => {
     it(`renders Button color- ${color}`, () => {
       const tree = renderer.create(<Button color={color}>Button</Button>).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
 
-  Object.values(Button.kinds).map(kind => {
+  Object.values(Button.kinds).forEach(kind => {
     it(`renders Button kind- ${kind}`, () => {
       const tree = renderer.create(<Button kind={kind}>Button</Button>).toJSON();
       expect(tree).toMatchSnapshot();

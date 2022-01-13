@@ -6,7 +6,8 @@ import Check from "../../Icon/Icons/components/Check";
 
 export const argTypes = createStoryMetaSettings({
   component: ColorPicker,
-  enumPropNamesArray: ["colorStyle", "colorSize"]
+  enumPropNamesArray: ["colorStyle", "colorSize"],
+  actionPropsArray: ["onSave"]
 });
 
 <Meta title="Pickers/ColorPicker" component={ColorPicker} argTypes={argTypes}/>

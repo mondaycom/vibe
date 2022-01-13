@@ -20,10 +20,6 @@ describe("AttentionBox renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly with undefined title prop", () => {
-    const tree = renderer.create(<AttentionBox text="Text" />);
-  });
-
   it("renders correctly with no icon", () => {
     const tree = renderer.create(<AttentionBox title="Title" text="Text" withoutIcon />).toJSON();
     expect(tree).toMatchSnapshot();

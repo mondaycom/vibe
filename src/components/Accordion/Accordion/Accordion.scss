@@ -1,6 +1,6 @@
-@import "../../../styles/themes.scss";
-@import "../../../styles/typography.scss";
-@import "../../../styles/global-css-settings.scss";
+@import "../../../styles/themes";
+@import "../../../styles/typography";
+@import "../../../styles/global-css-settings";
 
 .accordion {
   height: fit-content;
@@ -12,7 +12,7 @@
   .accordion-item {
     .expand-collapse--wrapper {
       .expand-collapse {
-        border-radius: 0px;
+        border-radius: 0;
         border-top: none;
         border-left: none;
         border-right: none;

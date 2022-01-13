@@ -6,7 +6,7 @@ import Icon from "../../../Icon/Icon";
 
 describe("Tab renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<Tab/>).toJSON();
+    const tree = renderer.create(<Tab />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
