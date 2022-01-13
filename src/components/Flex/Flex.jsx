@@ -30,15 +30,15 @@ const Flex = forwardRef(
         id={id}
         ref={mergedRef}
         className={cx(
-          classes["flex-container"],
-          classes[`horizontal-position-${horizontalPosition}`],
-          classes[`horizontal-spacing-size-${horizontalSpacingSize}`],
-          classes[`vertical-position-${verticalPosition}`],
-          classes[`vertical-spacing-size-${verticalSpacingSize}`],
+          classes.container,
+          classes[`horizontalPosition${horizontalPosition}`],
+          classes[`horizontalSpacingSize${horizontalSpacingSize}`],
+          classes[`verticalPosition${verticalPosition}`],
+          classes[`verticalSpacingSize${verticalSpacingSize}`],
           className,
           {
-            [classes["vertical-flex-container"]]: vertical,
-            [classes["wrap"]]: wrap
+            [classes.vertical]: vertical,
+            [classes.wrap]: wrap
           }
         )}
         style={style}

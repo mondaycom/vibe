@@ -10,7 +10,7 @@ export const StoryDescription = ({ description, children, vertical }) => (
     verticalPosition={Flex.verticalPositions.CENTER}
   >
     <Flex
-      className={classes["description"]}
+      className={classes.description}
       style={{ width: "100px" }}
       horizontalPosition={Flex.horizontalPositions.CENTER}
       verticalPosition={Flex.verticalPositions.CENTER}

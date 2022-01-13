@@ -1,59 +1,59 @@
 @import "../../styles/themes.scss";
 
 @mixin main-position-classes {
-  &-start {
+  &Start {
     justify-content: flex-start;
   }
 
-  &-end {
+  &End {
     justify-content: flex-end;
   }
 
-  &-center {
+  &Center {
     justify-content: center;
   }
 
-  &-space-between {
+  &SpaceBetween {
     justify-content: space-between;
   }
 
-  &-space-around {
+  &SpaceAround {
     justify-content: space-around;
   }
 }
 @mixin secondary-position-classes {
-  &-start {
+  &Start {
     align-items: flex-start;
   }
 
-  &-end {
+  &End {
     align-items: flex-end;
   }
 
-  &-center {
+  &Center {
     align-items: center;
   }
 }
 
-.flex-container {
+.container {
   display: flex;
   flex-direction: row;
   &.horizontal {
-    &-position {
+    &Position {
       @include main-position-classes;
     }
-    &-spacing-size {
-      &-small {
+    &SpacingSize {
+      &Small {
         & > * {
           margin-inline-end: var(--spacing-small);
         }
       }
-      &-medium {
+      &Medium {
         & > * {
           margin-inline-end: var(--spacing-medium);
         }
       }
-      &-large {
+      &Large {
         & > * {
           margin-inline-end: var(--spacing-large);
         }
@@ -61,32 +61,28 @@
     }
   }
   &.vertical {
-    &-flex-container {
-      flex-direction: column;
+    flex-direction: column;
 
-      & .vertical-position {
-        @include main-position-classes;
-      }
-
-      & .horizontal-position {
-        @include secondary-position-classes;
-      }
+    & .verticalPosition {
+      @include main-position-classes;
     }
-    &-position {
+
+    & .horizontalPosition {
       @include secondary-position-classes;
     }
-    &-spacing-size {
-      &-small {
+
+    &SpacingSize {
+      &Small {
         & > * {
           margin-block-end: var(--spacing-small);
         }
       }
-      &-medium {
+      &Medium {
         & > * {
           margin-block-end: var(--spacing-medium);
         }
       }
-      &-large {
+      &Large {
         & > * {
           margin-block-end: var(--spacing-large);
         }
