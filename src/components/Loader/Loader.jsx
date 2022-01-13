@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import "./Loader.scss";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
@@ -15,15 +15,16 @@ const Loader = forwardRef(
     ref
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, svgClassName], "");
+
+    const style = useMemo(() => {
+      if (typeof size === "number") {
+        return { width: size, height: size };
+      }
+      return undefined;
+    }, [size]);
+
     return (
-      <div
-        className="monday-loader-component"
-        ref={ref}
-        role="alert"
-        title="loading"
-        style={{ width: size, height: size }}
-        id={id}
-      >
+      <div className="monday-loader-component" ref={ref} role="alert" title="loading" style={style} id={id}>
         <svg className={`circle-loader-spinner ${overrideClassName}`} viewBox="0 0 50 50">
           <circle className="circle-loader-spinner-path" cx="25" cy="25" r="20" fill="none" strokeWidth="5" />
         </svg>
