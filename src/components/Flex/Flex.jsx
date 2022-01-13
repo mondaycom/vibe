@@ -53,7 +53,6 @@ Flex.horizontalPositions = FLEX_POSITIONS;
 Flex.verticalPositions = BASE_POSITIONS;
 Flex.verticalSpacingSizes = FLEX_SPACING_SIZES;
 Flex.horizontalSpacingSizes = FLEX_SPACING_SIZES;
-console.log(Flex);
 
 Flex.propTypes = {
   /**
@@ -67,7 +66,7 @@ Flex.propTypes = {
   style: PropTypes.object,
   vertical: PropTypes.bool,
   wrap: PropTypes.bool,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   horizontalPosition: PropTypes.oneOf([
     Flex.horizontalPositions.START,
     Flex.horizontalPositions.CENTER,
@@ -82,14 +81,18 @@ Flex.propTypes = {
     Flex.verticalPositions.SPACE_BETWEEN,
     Flex.verticalPositions.SPACE_AROUND
   ]),
-  horizontalSpacingSize:
-    PropTypes.oneOf[
-      (Flex.verticalSpacingSizes.SMALL, Flex.verticalSpacingSizes.MEDIUM, Flex.verticalSpacingSizes.LARGE)
-    ],
-  verticalSpacingSize:
-    PropTypes.oneOf[
-      (Flex.verticalSpacingSizes.SMALL, Flex.verticalSpacingSizes.MEDIUM, Flex.verticalSpacingSizes.LARGE)
-    ]
+  horizontalSpacingSize: PropTypes.oneOf([
+    Flex.horizontalSpacingSizes.NONE,
+    Flex.horizontalSpacingSizes.SMALL,
+    Flex.horizontalSpacingSizes.MEDIUM,
+    Flex.horizontalSpacingSizes.LARGE
+  ]),
+  verticalSpacingSize: PropTypes.oneOf([
+    Flex.verticalSpacingSizes.NONE,
+    Flex.verticalSpacingSizes.SMALL,
+    Flex.verticalSpacingSizes.MEDIUM,
+    Flex.verticalSpacingSizes.LARGE
+  ])
 };
 
 Flex.defaultProps = {

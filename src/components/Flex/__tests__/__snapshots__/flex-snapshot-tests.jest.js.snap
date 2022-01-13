@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flex renders correctly Horizontal display with children 1`] = `
+<div
+  className=""
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Horizontal display with horizontal position 1`] = `
+<div
+  className=""
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Horizontal display with horizontal spacing 1`] = `
+<div
+  className=""
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Horizontal display with vertical position 1`] = `
+<div
+  className=""
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Horizontal display with vertical spacing 1`] = `
+<div
+  className=""
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Horizontal display with wrap 1`] = `
+<div
+  className="undefined"
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with children 1`] = `
+<div
+  className=""
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with horizontal position 1`] = `
+<div
+  className=""
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with horizontal spacing 1`] = `
+<div
+  className=""
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with vertical position 1`] = `
+<div
+  className=""
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with vertical spacing 1`] = `
+<div
+  className=""
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly Vertical display with wrap 1`] = `
+<div
+  className="undefined"
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;
+
+exports[`Flex renders correctly with empty props 1`] = `
+<div
+  className=""
+/>
+`;
