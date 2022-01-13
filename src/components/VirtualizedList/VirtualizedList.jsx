@@ -6,9 +6,11 @@ import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
   getNormalizedItems,
+  easeInOutQuint,
+  getMaxOffset,
   getOnItemsRenderedData,
   isVerticalScrollbarVisible
-} from "../../services/virtualized-service";
+} from "./virtualized-list-service";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -26,6 +28,7 @@ const VirtualizedList = forwardRef(
       overscanCount,
       getItemId,
       scrollToId,
+      scrollDuration,
       onScrollToFinished,
       onItemsRendered,
       onItemsRenderedThrottleMs,
@@ -46,14 +49,16 @@ const VirtualizedList = forwardRef(
     const isVerticalScrollbarVisibleRef = useRef(null);
     const listRef = useRef(null);
     const scrollTopRef = useRef(0);
-    const animationDataRef = useRef({
-      scrollOffsetInitial: 0,
-      scrollOffsetFinal: 0,
-      animationStartTime: 0
-    });
+    const animationDataRef = useRef({});
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const animationData = animationDataRef.current;
+    if (!animationData.initialized) {
+      animationData.initialized = true;
+      animationData.scrollOffsetInitial = 0;
+      animationData.scrollOffsetFinal = 0;
+      animationData.animationStartTime = 0;
+    }
 
     // Callbacks
     const heightGetter = useCallback(
@@ -84,6 +89,10 @@ const VirtualizedList = forwardRef(
       return getNormalizedItems(items, idGetter, heightGetter);
     }, [items, idGetter, heightGetter]);
 
+    const maxListOffset = useMemo(() => {
+      return getMaxOffset(listHeight, normalizedItems);
+    }, [listHeight, normalizedItems]);
+
     // Callbacks
     const onScrollCB = useCallback(
       ({ scrollDirection, scrollOffset, scrollUpdateWasRequested }) => {
@@ -94,6 +103,47 @@ const VirtualizedList = forwardRef(
         onScroll && onScroll(scrollDirection, scrollOffset, scrollUpdateWasRequested);
       },
       [onScroll, scrollTopRef, animationData]
+    );
+
+    const animateScroll = useCallback(() => {
+      requestAnimationFrame(() => {
+        const now = performance.now();
+        const ellapsed = now - animationData.animationStartTime;
+        const scrollDelta = animationData.scrollOffsetFinal - animationData.scrollOffsetInitial;
+        const easedTime = easeInOutQuint(Math.min(1, ellapsed / scrollDuration));
+        const scrollOffset = animationData.scrollOffsetInitial + scrollDelta * easedTime;
+        const finalOffsetValue = Math.min(maxListOffset, scrollOffset);
+        scrollTopRef.current = finalOffsetValue;
+        listRef.current.scrollTo(finalOffsetValue);
+
+        if (ellapsed < scrollDuration) {
+          animateScroll();
+        } else {
+          animationData.animationStartTime = undefined;
+          onScrollToFinished && onScrollToFinished();
+        }
+      });
+    }, [scrollDuration, animationData, listRef, maxListOffset, onScrollToFinished]);
+
+    const startScrollAnimation = useCallback(
+      item => {
+        const { offsetTop } = item;
+        if (animationData.animationStartTime) {
+          // animation already in progress
+          animationData.scrollOffsetFinal = offsetTop;
+          return;
+        }
+        if (animationData.scrollOffsetInitial === offsetTop) {
+          // offset already equals to item offset
+          onScrollToFinished && onScrollToFinished();
+          return;
+        }
+
+        animationData.scrollOffsetFinal = offsetTop;
+        animationData.animationStartTime = performance.now();
+        animateScroll();
+      },
+      [animationData, animateScroll, onScrollToFinished]
     );
 
     const rowRenderer = useCallback(
@@ -147,10 +197,11 @@ const VirtualizedList = forwardRef(
     useEffect(() => {
       // scroll to specific item
       if (scrollToId && prevScrollToId !== scrollToId) {
-        listRef.current.scrollToItem(scrollToId, "center");
-        onScrollToFinished();
+        const hasVerticalScrollbar = isVerticalScrollbarVisible(items, normalizedItems, idGetter, listHeight);
+        const item = normalizedItems[scrollToId];
+        hasVerticalScrollbar && item && startScrollAnimation(item);
       }
-    }, [scrollToId, prevScrollToId, listRef, onScrollToFinished]);
+    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, listHeight]);
 
     useEffect(() => {
       // recalculate row heights
@@ -226,13 +277,17 @@ VirtualizedList.propTypes = {
    */
   getItemId: PropTypes.func,
   /**
-   * index of the item to scroll to
-   */
-  scrollToId: PropTypes.number,
-  /**
    * callback to be called when the scroll is finished
    */
   onScrollToFinished: PropTypes.func,
+  /**
+   * number of items to render (below/above the fold)
+   */
+  overscanCount: PropTypes.number,
+  /**
+   * the speed of the scroll (in ms)
+   */
+  scrollDuration: PropTypes.number,
   /**
    * a callback that is being called when the items are rendered
    *
@@ -257,7 +312,8 @@ VirtualizedList.propTypes = {
   /**
    * when the list size changes - `=> (width, height)`
    */
-  onSizeUpdate: PropTypes.func
+  onSizeUpdate: PropTypes.func,
+  onVerticalScrollbarVisiblityChange: PropTypes.func
 };
 VirtualizedList.defaultProps = {
   className: "",
@@ -267,10 +323,12 @@ VirtualizedList.defaultProps = {
   getItemHeight: (item, _index) => item.height,
   getItemId: (item, _index) => item.id,
   onScrollToFinished: NOOP,
+  overscanCount: 0,
+  scrollDuration: 200,
   onItemsRendered: null,
   onItemsRenderedThrottleMs: 200,
   onSizeUpdate: NOOP,
-  scrollToId: null
+  onVerticalScrollbarVisiblityChange: null
 };
 
 export default VirtualizedList;

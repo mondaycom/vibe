@@ -1,4 +1,3 @@
-import { useCallback, useMemo, useState } from "react";
 import VirtualizedList from "../VirtualizedList";
 import Button from "../../Button/Button";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
@@ -9,58 +8,7 @@ import { generateItems, itemRenderer } from "./virtualizedList.components";
 
 <!--- Component template -->
 
-export const virtualizedListTemplate = args => {
-  const [scrollToId, setScrollToId] = useState(null);
-  const [lastScrolledId, setLastScrolledId] = useState(null);
-  const [scrollToDisabled, setScrollToDisabled] = useState(false);
-  const [nextScrollToId, setNextScrollToId] = useState(args.itemsCount - 1);
-  const items = useMemo(() => {
-    return generateItems(30, args.itemsCount);
-  }, []);
-  const onClickToScroll = useCallback(() => {
-    setScrollToId(nextScrollToId);
-    setLastScrolledId("");
-    setScrollToDisabled(true);
-  }, [setScrollToId, setScrollToDisabled, items, nextScrollToId]);
-  const onScrollToFinished = useCallback(() => {
-    setLastScrolledId(nextScrollToId);
-    setScrollToId(null);
-    setNextScrollToId(Math.round(Math.random() * items.length));
-    setScrollToDisabled(false);
-  }, [nextScrollToId, items, setNextScrollToId, setLastScrolledId]);
-  return (
-    <div
-      style={{
-        width: 430,
-        height: 300,
-        overflow: "hidden",
-        display: "flex",
-        alignItems: "center"
-      }}
-    >
-      <div style={{ width: 200, height: "100%" }}>
-        <VirtualizedList
-          id="Knobs"
-          items={items}
-          itemRenderer={itemRenderer}
-          onScrollToFinished={onScrollToFinished}
-          scrollToId={scrollToId}
-        />
-      </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-        <Button
-          size={Button.sizes.MEDIUM}
-          kind={Button.kinds.PRIMARY}
-          onClick={onClickToScroll}
-          disabled={scrollToDisabled}
-        >
-          {`Scroll to Item ${nextScrollToId}`}
-        </Button>
-        <div style={{ marginTop: 16, opacity: lastScrolledId ? 1 : 0 }}>{`Scrolled to Item ${lastScrolledId}`}</div>
-      </div>
-    </div>
-  );
-};
+export const virtualizedListTemplate = createComponentTemplate(VirtualizedList);
 
 <!--- Component documentation -->
 
@@ -78,13 +26,20 @@ VirtualizedList is a component which only renders visible list items, it is a lo
 Under the hood we are using - [react-window](https://github.com/bvaughn/react-window) and [react-virtualized-auto-sizer](https://github.com/bvaughn/react-virtualized-auto-sizer)
 
 <Canvas>
-  <Story
-    name="Overview"
-    args={{
-      itemsCount: 1000
-    }}
-  >
-    {virtualizedListTemplate.bind({})}
+  <Story name="Overview" args={{}}>
+    <div
+      style={{
+        width: 430,
+        height: 300,
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center"
+      }}
+    >
+      <div style={{ width: 200, height: "100%" }}>
+        <VirtualizedList items={generateItems(30, 1000)} itemRenderer={itemRenderer} id="Knobs" scrollDuration={200} />
+      </div>
+    </div>
   </Story>
 </Canvas>
 
