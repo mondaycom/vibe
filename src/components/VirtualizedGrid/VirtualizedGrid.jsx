@@ -244,6 +244,10 @@ VirtualizedGrid.propTypes = {
    */
   getItemId: PropTypes.func,
   /**
+   * index of the item to scroll to
+   */
+  scrollToId: PropTypes.number,
+  /**
    * callback to be called when the scroll is finished
    */
   onScrollToFinished: PropTypes.func,
@@ -287,7 +291,8 @@ VirtualizedGrid.defaultProps = {
   onItemsRendered: null,
   onItemsRenderedThrottleMs: 200,
   onSizeUpdate: NOOP,
-  onVerticalScrollbarVisiblityChange: null
+  onVerticalScrollbarVisiblityChange: null,
+  scrollToId: null
 };
 
 export default VirtualizedGrid;

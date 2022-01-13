@@ -226,13 +226,13 @@ VirtualizedList.propTypes = {
    */
   getItemId: PropTypes.func,
   /**
+   * index of the item to scroll to
+   */
+  scrollToId: PropTypes.number,
+  /**
    * callback to be called when the scroll is finished
    */
   onScrollToFinished: PropTypes.func,
-  /**
-   * number of items to render (below/above the fold)
-   */
-  overscanCount: PropTypes.number,
   /**
    * a callback that is being called when the items are rendered
    *
@@ -257,8 +257,7 @@ VirtualizedList.propTypes = {
   /**
    * when the list size changes - `=> (width, height)`
    */
-  onSizeUpdate: PropTypes.func,
-  onVerticalScrollbarVisiblityChange: PropTypes.func
+  onSizeUpdate: PropTypes.func
 };
 VirtualizedList.defaultProps = {
   className: "",
@@ -272,7 +271,8 @@ VirtualizedList.defaultProps = {
   onItemsRendered: null,
   onItemsRenderedThrottleMs: 200,
   onSizeUpdate: NOOP,
-  onVerticalScrollbarVisiblityChange: null
+  onVerticalScrollbarVisiblityChange: null,
+  scrollToId: null
 };
 
 export default VirtualizedList;
