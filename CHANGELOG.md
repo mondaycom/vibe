@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.1 (2022-01-13)
+
+#### Bug Fixes
+* [#457](https://github.com/mondaycom/monday-ui-react-core/pull/457) fix: Loader issues ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.3.0 (2022-01-13)
 
 #### New Features
