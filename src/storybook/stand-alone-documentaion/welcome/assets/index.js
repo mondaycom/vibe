@@ -8,6 +8,7 @@ import Rotem from "./Rotem.png";
 import Sahar from "./Sahar.png";
 import speed from "./speed.png";
 import path from "./path.png";
+import Omri from "./Omri.png";
 import headerBanner from "./header-banner.png";
 import gettingStarted from "./getting-started.png";
 import components from "./components.png";
@@ -25,6 +26,7 @@ export {
   Sahar,
   Moshe,
   Nick,
+  Omri,
   speed,
   headerBanner,
   gettingStarted,
