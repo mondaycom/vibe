@@ -44,7 +44,6 @@ export const virtualizedGridTemplate = args => {
           itemRenderer={itemRenderer}
           getColumnWidth={getColumnWidth}
           getRowHeight={getRowHeight}
-          scrollDuration={args.scrollDuration}
           onScrollToFinished={onScrollToFinished}
         />
       </div>
@@ -82,7 +81,6 @@ Under the hood we are using - [react-window](https://github.com/bvaughn/react-wi
   <Story
     name="Overview"
     args={{
-      scrollDuration: 200,
       wrapperStyle: {
         width: 430,
         height: 300,
