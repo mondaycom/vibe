@@ -1,5 +1,5 @@
 import { Contributor } from "../contributor/contributor";
-import { Evgeniy, Hadas, Orr, Sahar, Moshe, Nick } from "../assets";
+import { Evgeniy, Hadas, Orr, Sahar, Moshe, Nick, Omri } from "../assets";
 import "./contributors.scss";
 
 export const Contributors = () => (
@@ -7,7 +7,7 @@ export const Contributors = () => (
     <Contributor
       imgSrc={Orr}
       fullName="Orr Gottlieb"
-      title="Tech lead"
+      title="Tech Lead"
       className="monday-storybook-welcome-contributors_contributor--orr"
     />
     <Contributor
@@ -31,14 +31,20 @@ export const Contributors = () => (
     <Contributor
       imgSrc={Sahar}
       fullName="Sahar Brodbeker"
-      title="Tech lead"
+      title="Tech Lead"
       className="monday-storybook-welcome-contributors_contributor--sahar"
     />
     <Contributor
       imgSrc={Nick}
       fullName="Nik Savchenko"
-      title="Tech lead"
+      title="Tech Lead"
       className="monday-storybook-welcome-contributors_contributor--nick"
+    />
+    <Contributor
+      imgSrc={Omri}
+      fullName="Omri Lavi"
+      title="Senior Full Stack Engineer"
+      className="monday-storybook-welcome-contributors_contributor--evgeniy"
     />
   </div>
 );
