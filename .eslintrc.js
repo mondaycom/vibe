@@ -1,9 +1,16 @@
 module.exports = {
+  overrides: [
+    {
+      files: ["*.jest.js"],
+      env: {
+        jest: true,
+        "jest/globals": true
+      }
+    }
+  ],
   env: {
     browser: true,
-    es2021: true,
-    jest: true,
-    "jest/globals": true
+    es2021: true
   },
   settings: {
     jest: {
