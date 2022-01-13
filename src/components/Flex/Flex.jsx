@@ -2,9 +2,9 @@ import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { FLEX_POSITIONS } from "./FlexConstants";
-import { BASE_SIZES } from "../../constants/sizes";
+import { FLEX_POSITIONS, FLEX_SPACING_SIZES } from "./FlexConstants";
 import classes from "./Flex.module.scss";
+import { BASE_POSITIONS } from "../../constants/positions";
 
 const Flex = forwardRef(
   (
@@ -17,7 +17,8 @@ const Flex = forwardRef(
       horizontalPosition,
       verticalPosition,
       horizontalSpacingSize,
-      verticalSpacingSize
+      verticalSpacingSize,
+      style
     },
     ref
   ) => {
@@ -26,19 +27,21 @@ const Flex = forwardRef(
 
     return (
       <div
+        id={id}
         ref={mergedRef}
         className={cx(
           classes["flex-container"],
           classes[`horizontal-position-${horizontalPosition}`],
+          classes[`horizontal-spacing-size-${horizontalSpacingSize}`],
           classes[`vertical-position-${verticalPosition}`],
-          classes[`vertical-spacing-size-${veri}`],
+          classes[`vertical-spacing-size-${verticalSpacingSize}`],
           className,
           {
             [classes["vertical-flex-container"]]: vertical,
-            [classes["wrap-flex-container"]]: wrap
+            [classes["wrap"]]: wrap
           }
         )}
-        id={id}
+        style={style}
       >
         {children}
       </div>
@@ -47,9 +50,11 @@ const Flex = forwardRef(
 );
 
 Flex.horizontalPositions = FLEX_POSITIONS;
-Flex.verticalPositions = FLEX_POSITIONS;
-Flex.verticalSpacingSizes = BASE_SIZES;
-Flex.horizontalSpacingSizes = BASE_SIZES;
+Flex.verticalPositions = BASE_POSITIONS;
+Flex.verticalSpacingSizes = FLEX_SPACING_SIZES;
+Flex.horizontalSpacingSizes = FLEX_SPACING_SIZES;
+console.log(Flex);
+
 Flex.propTypes = {
   /**
    * class name to be add to the wrapper
@@ -59,6 +64,7 @@ Flex.propTypes = {
    * id to be add to the wrapper
    */
   id: PropTypes.string,
+  style: PropTypes.object,
   vertical: PropTypes.bool,
   wrap: PropTypes.bool,
   children: PropTypes.element,
@@ -76,6 +82,10 @@ Flex.propTypes = {
     Flex.verticalPositions.SPACE_BETWEEN,
     Flex.verticalPositions.SPACE_AROUND
   ]),
+  horizontalSpacingSize:
+    PropTypes.oneOf[
+      (Flex.verticalSpacingSizes.SMALL, Flex.verticalSpacingSizes.MEDIUM, Flex.verticalSpacingSizes.LARGE)
+    ],
   verticalSpacingSize:
     PropTypes.oneOf[
       (Flex.verticalSpacingSizes.SMALL, Flex.verticalSpacingSizes.MEDIUM, Flex.verticalSpacingSizes.LARGE)
@@ -86,8 +96,13 @@ Flex.defaultProps = {
   className: "",
   id: undefined,
   vertical: false,
+  style: undefined,
   wrap: false,
-  children: undefined
+  children: undefined,
+  horizontalPosition: Flex.horizontalPositions.START,
+  horizontalSpacingSize: Flex.horizontalSpacingSizes.SMALL,
+  verticalPosition: Flex.verticalPositions.CENTER,
+  verticalSpacingSize: Flex.verticalSpacingSizes.NONE
 };
 
 export default Flex;

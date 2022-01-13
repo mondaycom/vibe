@@ -1,0 +1,11 @@
+@import "../../../styles/themes.scss";
+
+.multi-lines-story-search {
+  width: 200px;
+}
+
+.story-container {
+  & > * {
+    margin-bottom: var(--spacing-large);
+  }
+}

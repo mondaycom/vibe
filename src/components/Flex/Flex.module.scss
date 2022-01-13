@@ -23,30 +23,22 @@
 }
 @mixin secondary-position-classes {
   &-start {
-    align-content: flex-start;
+    align-items: flex-start;
   }
 
   &-end {
-    align-content: flex-end;
+    align-items: flex-end;
   }
 
   &-center {
-    align-content: center;
-  }
-
-  &-space-between {
-    align-content: space-between;
-  }
-
-  &-space-around {
-    align-content: space-around;
+    align-items: center;
   }
 }
 
 .flex-container {
   display: flex;
   flex-direction: row;
-  & .horizontal {
+  &.horizontal {
     &-position {
       @include main-position-classes;
     }
@@ -68,7 +60,6 @@
       }
     }
   }
-
   &.vertical {
     &-flex-container {
       flex-direction: column;
@@ -85,7 +76,24 @@
       @include secondary-position-classes;
     }
     &-spacing-size {
-      @include spacing-size-classes(block-end)
+      &-small {
+        & > * {
+          margin-block-end: var(--spacing-small);
+        }
+      }
+      &-medium {
+        & > * {
+          margin-block-end: var(--spacing-medium);
+        }
+      }
+      &-large {
+        & > * {
+          margin-block-end: var(--spacing-large);
+        }
+      }
     }
+  }
+  &.wrap {
+    flex-wrap: wrap;
   }
 }
