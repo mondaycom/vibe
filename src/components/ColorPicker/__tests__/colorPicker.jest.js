@@ -1,9 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { render, fireEvent, act } from "@testing-library/react";
+import _difference from "lodash/difference";
 import ColorPicker from "../ColorPicker";
 import { contentColors } from "../../../general-stories/colors/colors-vars-map";
-import _difference from "lodash/difference";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ColorPicker />).toJSON();
@@ -66,17 +66,7 @@ describe("Click", () => {
     const blackListColors = contentColors.slice(0, 3);
     const restOfColors = _difference(contentColors, blackListColors);
 
-    let clickedColorValue;
-
-    const { getByLabelText, queryByLabelText } = render(
-      <ColorPicker
-        isBlackListMode
-        colorsList={blackListColors}
-        onSave={color => {
-          clickedColorValue = color;
-        }}
-      />
-    );
+    const { getByLabelText, queryByLabelText } = render(<ColorPicker isBlackListMode colorsList={blackListColors} />);
 
     blackListColors.forEach(color => expect(queryByLabelText(color)).toBeNull());
     const restOfColorsElements = restOfColors.map(color => getByLabelText(color));
@@ -87,17 +77,8 @@ describe("Click", () => {
   it("should render only colors in white list", () => {
     const whiteListColors = contentColors.slice(0, 3);
     const restOfColors = _difference(contentColors, whiteListColors);
-
-    let clickedColorValue;
-
     const { getByLabelText, queryByLabelText } = render(
-      <ColorPicker
-        isBlackListMode={false}
-        colorsList={whiteListColors}
-        onSave={color => {
-          clickedColorValue = color;
-        }}
-      />
+      <ColorPicker isBlackListMode={false} colorsList={whiteListColors} />
     );
 
     const whiteListColorsElements = whiteListColors.map(color => getByLabelText(color));

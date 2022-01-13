@@ -8,10 +8,8 @@ describe("AttentionBox tests", () => {
 
   it("should call onClose callback when close button clicked", () => {
     const onCloseMock = jest.fn();
-    const attentionBoxComponent = render(
-      <AttentionBox onClose={onCloseMock} title={title} text={text}  />
-    );
-    fireEvent.click(screen.getByLabelText('Close'));
+    render(<AttentionBox onClose={onCloseMock} title={title} text={text} />);
+    fireEvent.click(screen.getByLabelText("Close"));
     expect(onCloseMock.mock.calls.length).toBe(1);
-  })
+  });
 });

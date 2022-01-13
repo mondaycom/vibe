@@ -1,17 +1,15 @@
 import React from "react";
-import { fireEvent, render, cleanup, screen, waitFor } from "@testing-library/react";
-import { act } from "@testing-library/react-hooks";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Combobox from "../Combobox";
 
 describe("Combobox tests", () => {
-
   beforeEach(() => {
     jest.useFakeTimers("modern");
   });
 
   afterEach(() => {
     jest.useRealTimers();
-  })
+  });
 
   const mockOptions = [
     { value: "orange", label: "Orange" },
@@ -54,12 +52,13 @@ describe("Combobox tests", () => {
   it("should call callback func when add new", async () => {
     const onAddMock = jest.fn();
 
-    const { getByLabelText, getByText } = render(<Combobox onAddNew={onAddMock} options={mockOptions} />);
+    const { getByLabelText } = render(<Combobox onAddNew={onAddMock} options={mockOptions} />);
     const input = getByLabelText("Search for content");
     fireEvent.change(input, { target: { value: "No text in option" } });
 
     await waitFor(() => {
-      fireEvent.click(screen.getByText("Add new")), expect(onAddMock.mock.calls.length).toBe(1);
+      fireEvent.click(screen.getByText("Add new"));
+      expect(onAddMock.mock.calls.length).toBe(1);
     });
   });
 });

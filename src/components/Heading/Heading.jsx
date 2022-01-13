@@ -23,8 +23,7 @@ const Heading = ({
   nonEllipsisTooltip // tooltip to show when no overflow
 }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
-    node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines)
-  );
+    node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines));
   const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,

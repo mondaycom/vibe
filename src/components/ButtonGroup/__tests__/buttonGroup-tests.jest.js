@@ -10,13 +10,12 @@ describe("ButtonGroup tests", () => {
     { value: 4, text: "Delta" }
   ];
   let onSelectMock;
-  let buttonGroupCimponent;
   let label;
 
   beforeEach(() => {
     onSelectMock = jest.fn();
     label = "label";
-    buttonGroupCimponent = render(<ButtonGroup options={option} onSelect={onSelectMock} groupAriaLabel={label} />);
+    render(<ButtonGroup options={option} onSelect={onSelectMock} groupAriaLabel={label} />);
   });
 
   it("should call the click callback when clicked", () => {

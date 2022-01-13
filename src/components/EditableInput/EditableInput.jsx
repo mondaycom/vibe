@@ -156,8 +156,8 @@ const EditableInput = forwardRef(
         }
 
         if (
-          onArrowKeyDown &&
-          (isArrowUpEvent(event) || isArrowDownEvent(event) || isArrowLeftEvent(event) || isArrowRightEvent(event))
+          onArrowKeyDown
+          && (isArrowUpEvent(event) || isArrowDownEvent(event) || isArrowLeftEvent(event) || isArrowRightEvent(event))
         ) {
           onArrowKeyDown(valueState, event);
         }

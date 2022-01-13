@@ -57,17 +57,17 @@ describe("TextField renders correctly", () => {
     const tree = renderer.create(<TextField size={TextField.sizes.LARGE} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-  
+
   it("with icon", () => {
     const tree = renderer.create(<TextField iconName="fa-star" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-  
+
   it("with labelIconName", () => {
     const tree = renderer.create(<TextField labelIconName="fa-star" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
-  
+
   it("when readonly", () => {
     const tree = renderer.create(<TextField readonly />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -79,7 +79,7 @@ describe("TextField renders correctly", () => {
   });
 
   it("with role", () => {
-    const tree = renderer.create(<TextField role="testRole" />).toJSON();
+    const tree = renderer.create(<TextField role="button" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

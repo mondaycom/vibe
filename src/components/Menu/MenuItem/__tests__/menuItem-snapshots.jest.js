@@ -1,5 +1,4 @@
 import React from "react";
-import { cleanup, fireEvent, render, screen, act } from "@testing-library/react";
 import renderer from "react-test-renderer";
 import MenuItem from "../MenuItem";
 
@@ -31,8 +30,3 @@ describe("Snapshots", () => {
 });
 
 jest.useFakeTimers();
-const itemName = "My item";
-
-const renderComponent = ({ ...props } = {}) => {
-  return render(<MenuItem title={itemName} {...props} />);
-};

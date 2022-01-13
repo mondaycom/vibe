@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, cleanup, screen, waitForElementToBeRemoved } from "@testing-library/react";
+import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import { act } from "@testing-library/react-hooks";
 import IconButton from "../IconButton";
 
@@ -41,15 +41,15 @@ describe("IconButton tests", () => {
 
       renderComponent({ tooltipContent, ariaLabel });
       const component = screen.getByLabelText(ariaLabel);
-      act(()=> {
+      act(() => {
         fireEvent.mouseEnter(component);
-      })
+      });
       jest.advanceTimersByTime(1000);
       const content = screen.getByText(tooltipContent);
       expect(content).toBeTruthy();
-      act(()=> {
+      act(() => {
         fireEvent.mouseLeave(component);
-      })
+      });
       jest.advanceTimersByTime(1000);
     });
 
@@ -58,53 +58,52 @@ describe("IconButton tests", () => {
 
       renderComponent({ ariaLabel });
       const component = screen.getByLabelText(ariaLabel);
-      act(()=> {
+      act(() => {
         fireEvent.mouseEnter(component);
-      })
+      });
       jest.advanceTimersByTime(1000);
       const content = screen.getByText(ariaLabel);
       expect(content).toBeTruthy();
-      act(()=> {
+      act(() => {
         fireEvent.mouseLeave(component);
-      })
+      });
       jest.advanceTimersByTime(1000);
     });
 
     it("should display not disabledReason if disabled is false", () => {
       const ariaLabel = "Button Icon";
-      const disabledReason = "I'm a disabled button"
+      const disabledReason = "I'm a disabled button";
 
       renderComponent({ ariaLabel, disabledReason });
       const component = screen.getByLabelText(ariaLabel);
-      act(()=> {
+      act(() => {
         fireEvent.mouseEnter(component);
-      })
+      });
       jest.advanceTimersByTime(1000);
       const content = screen.queryByText(disabledReason);
       expect(content).toBeFalsy();
-      act(()=> {
+      act(() => {
         fireEvent.mouseLeave(component);
-      })
+      });
       jest.advanceTimersByTime(1000);
     });
 
     it("should display disabledReason if disabled is true", () => {
       const ariaLabel = "Button Icon";
-      const disabledReason = "I'm a disabled button"
+      const disabledReason = "I'm a disabled button";
 
       renderComponent({ ariaLabel, disabledReason, disabled: true });
       const component = screen.getByLabelText(ariaLabel);
-      act(()=> {
+      act(() => {
         fireEvent.mouseEnter(component);
-      })
+      });
       jest.advanceTimersByTime(1000);
       const content = screen.queryByText(disabledReason);
       expect(content).toBeTruthy();
-      act(()=> {
+      act(() => {
         fireEvent.mouseLeave(component);
-      })
+      });
       jest.advanceTimersByTime(1000);
     });
-
   });
 });

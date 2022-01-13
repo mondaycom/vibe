@@ -30,16 +30,14 @@ describe("<AlertBanner />", () => {
       fireEvent.click(container.querySelector(".monday-alert-banner__alert-banner-close-btn"));
       expect(onCloseStub.mock.calls.length).toBe(1);
     });
-    
+
     describe("a11y", () => {
       it("should add the label", () => {
         const ariaLabel = "Lable Name";
-        const { getByLabelText } = render(
-          <AlertBanner ariaLabel={ariaLabel} />
-        );
-        const alertBannerComponent = getByLabelText(ariaLabel);
-        expect(alertBannerComponent).toBeTruthy();
-      }); 
+        const { getByLabelText } = render(<AlertBanner ariaLabel={ariaLabel} />);
+        const alertBannerComponentLabel = getByLabelText(ariaLabel);
+        expect(alertBannerComponentLabel).toBeTruthy();
+      });
     });
   });
 });

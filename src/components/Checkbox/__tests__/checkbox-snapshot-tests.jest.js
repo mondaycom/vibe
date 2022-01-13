@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Checkbox from "../Checkbox";
+import { Checkbox } from "../Checkbox";
 
 describe("Checkbox renders correctly", () => {
   it("with props", () => {
