@@ -16,7 +16,7 @@ import {
   TEXT_FIELD
 } from "../../../storybook/components/related-components/component-description-map";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Heading,
   enumPropNamesArray: ["type", "size"]
 })
@@ -24,7 +24,7 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Text/Heading"
   component={ Heading }
-  argTypes={ argTypes }
+  argType={ metaSettings.argTypes }
 />
 
 <!--- Component template -->

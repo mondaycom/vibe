@@ -8,7 +8,7 @@ import {
 } from "./MenuItem.stories";
 import MenuItem from "../MenuItem";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: MenuItem,
   enumPropNamesArray: ["tooltipPosition"],
   iconPropNamesArray: ["icon"]
@@ -17,7 +17,7 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Navigation/Menu/MenuItem"
   component={ MenuItem }
-  argTypes={argTypes}
+  argType={ metaSettings.argTypes }
 />
 
 <!--- Component documentation -->

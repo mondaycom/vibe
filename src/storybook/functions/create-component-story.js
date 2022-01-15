@@ -45,5 +45,5 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
     argTypes[propName] = { action: propName };
   });
 
-  return argTypes;
+  return { argTypes };
 }
