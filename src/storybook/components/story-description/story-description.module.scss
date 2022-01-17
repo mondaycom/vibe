@@ -1,4 +1,7 @@
 .description {
   font-weight: 500;
-  text-align: center;
+
+  &.vertical {
+    text-align: center;
+  }
 }

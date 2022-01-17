@@ -1,92 +1,45 @@
 @import "../../styles/themes.scss";
 
-@mixin main-position-classes {
-  &Start {
-    justify-content: flex-start;
-  }
-
-  &End {
-    justify-content: flex-end;
-  }
-
-  &Center {
-    justify-content: center;
-  }
-
-  &SpaceBetween {
-    justify-content: space-between;
-  }
-
-  &SpaceAround {
-    justify-content: space-around;
-  }
-}
-@mixin secondary-position-classes {
-  &Start {
-    align-items: flex-start;
-  }
-
-  &End {
-    align-items: flex-end;
-  }
-
-  &Center {
-    align-items: center;
-  }
-}
-
 .container {
   display: flex;
   flex-direction: row;
-  &.horizontal {
-    &Position {
-      @include main-position-classes;
+  &.justify {
+    &Start {
+      justify-content: flex-start;
     }
-    &SpacingSize {
-      &Small {
-        & > * {
-          margin-inline-end: var(--spacing-small);
-        }
-      }
-      &Medium {
-        & > * {
-          margin-inline-end: var(--spacing-medium);
-        }
-      }
-      &Large {
-        & > * {
-          margin-inline-end: var(--spacing-large);
-        }
-      }
+
+    &End {
+      justify-content: flex-end;
+    }
+
+    &Center {
+      justify-content: center;
+    }
+
+    &SpaceBetween {
+      justify-content: space-between;
+    }
+
+    &SpaceAround {
+      justify-content: space-around;
     }
   }
-  &.vertical {
-    flex-direction: column;
-
-    & .verticalPosition {
-      @include main-position-classes;
+  &.align {
+    &Start {
+      align-items: flex-start;
     }
 
-    & .horizontalPosition {
-      @include secondary-position-classes;
+    &End {
+      align-items: flex-end;
     }
 
-    &SpacingSize {
-      &Small {
-        & > * {
-          margin-block-end: var(--spacing-small);
-        }
-      }
-      &Medium {
-        & > * {
-          margin-block-end: var(--spacing-medium);
-        }
-      }
-      &Large {
-        & > * {
-          margin-block-end: var(--spacing-large);
-        }
-      }
+    &Center {
+      align-items: center;
+    }
+  }
+  &.direction {
+    &Column {
+      flex-direction: column;
     }
   }
   &.wrap {

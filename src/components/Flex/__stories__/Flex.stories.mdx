@@ -67,7 +67,7 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
         </Flex>
       </StoryDescription>
       <StoryDescription description="Vertical">
-        <Flex vertical>
+        <Flex direction={Flex.directions.COLUMN}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -82,27 +82,41 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
   <Story name="Horizontal spacing between items">
     <div className={classes["story-container"]}>
       <StoryDescription description="No spacing between items">
-        <Flex horizontalSpacingSize={Flex.horizontalSpacingSizes.NONE}>
+        <Flex gap={Flex.gaps.NONE}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button></Flex>
         </StoryDescription>
+      <StoryDescription description="Extra small spacing between items">
+        <Flex gap={Flex.gaps.XS}>
+          <Button>Primary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+        </Flex>
+      </StoryDescription>
       <StoryDescription description="Small spacing between items">
-        <Flex horizontalSpacingSize={Flex.horizontalSpacingSizes.SMALL}>
+        <Flex gap={Flex.gaps.SMALL}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Medium spacing between items">
-        <Flex horizontalSpacingSize={Flex.horizontalSpacingSizes.MEDIUM}>
+        <Flex gap={Flex.gaps.MEDIUM}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Large spacing between items">
-        <Flex horizontalSpacingSize={Flex.horizontalSpacingSizes.LARGE}>
+        <Flex gap={Flex.gaps.LARGE}>
+          <Button>Primary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+        </Flex>
+      </StoryDescription>
+      <StoryDescription description="Custom spacing between items">
+        <Flex gap={32}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -115,53 +129,43 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
 ### Vertical spacing between items
 <Canvas>
   <Story name="Vertical spacing between items">
-    <Flex style={{width: "100%"}} verticalPosition={Flex.verticalPositions.START} horizontalPosition={Flex.horizontalPositions.SPACE_AROUND}>
-      <StoryDescription description="No spacing" vertical>
-        <Flex
-          verticalPosition={Flex.horizontalPositions.START}
-          verticalSpacingSize={Flex.verticalSpacingSizes.NONE}
-          vertical
-        >
+    <Flex style={{width: "100%"}} justify={Flex.justify.SPACE_AROUND}>
+      <StoryDescription description="No spacing between items" vertical>
+        <Flex gap={Flex.gaps.NONE} direction={Flex.directions.COLUMN}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button></Flex>
       </StoryDescription>
-      <StoryDescription description="Small spacing" vertical>
-        <Flex
-          vertical
-          verticalPosition={Flex.horizontalPositions.START}
-          verticalSpacingSize={Flex.verticalSpacingSizes.SMALL}
-        >
+      <StoryDescription description="Extra small spacing between items" vertical>
+        <Flex gap={Flex.gaps.XS} direction={Flex.directions.COLUMN}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
-      <StoryDescription
-        description="Medium spacing"
-        vertical
-        horizontalPosition={Flex.horizontalPositions.END}
-      >
-        <Flex
-          verticalPosition={Flex.horizontalPositions.START}
-          vertical
-          verticalSpacingSize={Flex.verticalSpacingSizes.MEDIUM}
-        >
+      <StoryDescription description="Small spacing between items" vertical>
+        <Flex gap={Flex.gaps.SMALL} direction={Flex.directions.COLUMN}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
-      <StoryDescription
-        description="Large spacing"
-        vertical
-        horizontalPosition={Flex.horizontalPositions.END}
-      >
-        <Flex
-          verticalPosition={Flex.horizontalPositions.START}
-          vertical
-          verticalSpacingSize={Flex.verticalSpacingSizes.LARGE}
-        >
+      <StoryDescription description="Medium spacing between items" vertical>
+        <Flex gap={Flex.gaps.MEDIUM} direction={Flex.directions.COLUMN}>
+          <Button>Primary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+        </Flex>
+      </StoryDescription>
+      <StoryDescription description="Large spacing between items" vertical>
+        <Flex gap={Flex.gaps.LARGE} direction={Flex.directions.COLUMN}>
+          <Button>Primary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+        </Flex>
+      </StoryDescription>
+      <StoryDescription description="Custom spacing between items" vertical>
+        <Flex gap={32} direction={Flex.directions.COLUMN}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -176,34 +180,34 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
   <Story name="Horizontal positions">
     <div className={classes["story-container"]} style={{width: "100%"}}>
       <StoryDescription description="Start position">
-        <Flex horizontalPosition={Flex.horizontalPositions.START} style={{width: "100%"}}>
+        <Flex justify={Flex.justify.START} style={{width: "100%"}}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button></Flex>
       </StoryDescription>
       <StoryDescription description="Center position">
-        <Flex horizontalPosition={Flex.horizontalPositions.CENTER} style={{width: "100%"}}>
+        <Flex justify={Flex.justify.CENTER} style={{width: "100%"}}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
-      <StoryDescription description="End position" horizontalPosition={Flex.horizontalPositions.END}>
-        <Flex horizontalPosition={Flex.horizontalPositions.END} style={{width: "100%"}}>
+      <StoryDescription description="End position">
+        <Flex justify={Flex.justify.END} style={{width: "100%"}}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space between position">
-        <Flex horizontalPosition={Flex.horizontalPositions.SPACE_BETWEEN} style={{width: "100%"}}>
+        <Flex justify={Flex.justify.SPACE_BETWEEN} style={{width: "100%"}}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="Space around position">
-        <Flex horizontalPosition={Flex.horizontalPositions.SPACE_AROUND} style={{width: "100%"}}>
+        <Flex justify={Flex.justify.SPACE_AROUND} style={{width: "100%"}}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -218,23 +222,36 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
   <Story name="Vertical positions">
     <Flex
       style={{width: "100%"}}
-      verticalPosition={Flex.verticalPositions.START}
-      horizontalPosition={Flex.horizontalPositions.SPACE_AROUND}>
+      justify={Flex.justify.SPACE_AROUND}>
       <StoryDescription description="Start position" vertical>
-        <Flex verticalPosition={Flex.verticalPositions.START} vertical style={{height: "300px"}}>
+        <Flex justify={Flex.justify.START} style={{height: "300px"}} direction={Flex.directions.COLUMN}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button></Flex>
       </StoryDescription>
       <StoryDescription description="Center position" vertical>
-        <Flex verticalPosition={Flex.verticalPositions.CENTER} vertical style={{height: "300px"}}>
+        <Flex justify={Flex.justify.CENTER} style={{height: "300px"}} direction={Flex.directions.COLUMN}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
       <StoryDescription description="End position" vertical>
-        <Flex verticalPosition={Flex.verticalPositions.END} vertical style={{height: "300px"}}>
+        <Flex justify={Flex.justify.END} style={{height: "300px"}} direction={Flex.directions.COLUMN}>
+          <Button>Primary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+        </Flex>
+      </StoryDescription>
+      <StoryDescription description="Space between position" vertical>
+        <Flex justify={Flex.justify.SPACE_BETWEEN} style={{height: "300px"}} direction={Flex.directions.COLUMN}>
+          <Button>Primary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+          <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
+        </Flex>
+      </StoryDescription>
+      <StoryDescription description="Space around position" vertical>
+        <Flex justify={Flex.justify.SPACE_AROUND} style={{height: "300px"}} direction={Flex.directions.COLUMN}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
@@ -244,20 +261,19 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
   </Story>
 </Canvas>
 
-
 ### Support multi lines layout
 You can display a layout that includes multiple lines using the flex component wrap mode.
 This mode allows the layout to break into multiple lines if all the component children cannot fit into one only.
 <Canvas>
   <Story name="Support multi lines layout">
-    <Flex wrap style={{width: "300px"}} verticalSpacingSize={Flex.verticalSpacingSizes.SMALL}>
-      <Chips label="Chip 1" />
-      <Chips label="Chip 2" />
-      <Chips label="Chip 3" />
-      <Chips label="Chip 4" />
-      <Chips label="Chip 5" />
-      <Chips label="Chip 6" />
-      <Chips label="Chip 7" />
+    <Flex wrap style={{width: "300px"}} gap={Flex.gaps.SMALL}>
+      <Chips className={classes["flex-chip"]} label="Chip 1" />
+      <Chips className={classes["flex-chip"]} label="Chip 2" />
+      <Chips className={classes["flex-chip"]} label="Chip 3" />
+      <Chips className={classes["flex-chip"]} label="Chip 4" />
+      <Chips className={classes["flex-chip"]} label="Chip 5" />
+      <Chips className={classes["flex-chip"]} label="Chip 6" />
+      <Chips className={classes["flex-chip"]} label="Chip 7" />
     </Flex>
   </Story>
 </Canvas>

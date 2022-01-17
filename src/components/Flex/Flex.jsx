@@ -1,58 +1,47 @@
-import React, { useRef, forwardRef } from "react";
+import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { FLEX_POSITIONS, FLEX_SPACING_SIZES } from "./FlexConstants";
-import classes from "./Flex.module.scss";
+import { FLEX_POSITIONS, FLEX_GAPS, FLEX_DIRECTIONS } from "./FlexConstants";
 import { BASE_POSITIONS } from "../../constants/positions";
-
+import Clickable from "../Clickable/Clickable";
+import classes from "./Flex.module.scss";
 const Flex = forwardRef(
-  (
-    {
-      className,
-      id,
-      vertical,
-      wrap,
-      children,
-      horizontalPosition,
-      verticalPosition,
-      horizontalSpacingSize,
-      verticalSpacingSize,
-      style
-    },
-    ref
-  ) => {
+  ({ className, id, elementType, direction, wrap, children, justify, align, gap, onClick, style }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
+    const Element = onClick ? Clickable : elementType;
 
     return (
-      <div
+      <Element
         id={id}
+        // in case the element is clickable, we will pass the real element type in this prop
+        elementType={elementType}
         ref={mergedRef}
         className={cx(
           classes.container,
-          classes[`horizontalPosition${horizontalPosition}`],
-          classes[`horizontalSpacingSize${horizontalSpacingSize}`],
-          classes[`verticalPosition${verticalPosition}`],
-          classes[`verticalSpacingSize${verticalSpacingSize}`],
+          classes[`direction${direction}`],
+          classes[`justify${justify}`],
+          classes[`align${align}`],
           className,
           {
-            [classes.vertical]: vertical,
             [classes.wrap]: wrap
           }
         )}
-        style={style}
+        onClick={onClick}
+        style={overrideStyle}
       >
         {children}
-      </div>
+      </Element>
     );
   }
 );
 
-Flex.horizontalPositions = FLEX_POSITIONS;
-Flex.verticalPositions = BASE_POSITIONS;
-Flex.verticalSpacingSizes = FLEX_SPACING_SIZES;
-Flex.horizontalSpacingSizes = FLEX_SPACING_SIZES;
+Flex.justify = FLEX_POSITIONS;
+Flex.align = BASE_POSITIONS;
+Flex.gaps = FLEX_GAPS;
+Flex.directions = FLEX_DIRECTIONS;
 
 Flex.propTypes = {
   /**
@@ -64,48 +53,35 @@ Flex.propTypes = {
    */
   id: PropTypes.string,
   style: PropTypes.object,
-  vertical: PropTypes.bool,
+  direction: PropTypes.oneOf([Flex.directions.ROW, Flex.directions.COLUMN]),
+  elementType: PropTypes.string,
   wrap: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
-  horizontalPosition: PropTypes.oneOf([
-    Flex.horizontalPositions.START,
-    Flex.horizontalPositions.CENTER,
-    Flex.horizontalPositions.END,
-    Flex.horizontalPositions.SPACE_BETWEEN,
-    Flex.horizontalPositions.SPACE_AROUND
+  justify: PropTypes.oneOf([
+    Flex.justify.START,
+    Flex.justify.CENTER,
+    Flex.justify.END,
+    Flex.justify.SPACE_BETWEEN,
+    Flex.justify.SPACE_AROUND
   ]),
-  verticalPosition: PropTypes.oneOf([
-    Flex.verticalPositions.START,
-    Flex.verticalPositions.CENTER,
-    Flex.verticalPositions.END,
-    Flex.verticalPositions.SPACE_BETWEEN,
-    Flex.verticalPositions.SPACE_AROUND
-  ]),
-  horizontalSpacingSize: PropTypes.oneOf([
-    Flex.horizontalSpacingSizes.NONE,
-    Flex.horizontalSpacingSizes.SMALL,
-    Flex.horizontalSpacingSizes.MEDIUM,
-    Flex.horizontalSpacingSizes.LARGE
-  ]),
-  verticalSpacingSize: PropTypes.oneOf([
-    Flex.verticalSpacingSizes.NONE,
-    Flex.verticalSpacingSizes.SMALL,
-    Flex.verticalSpacingSizes.MEDIUM,
-    Flex.verticalSpacingSizes.LARGE
+  align: PropTypes.oneOf([Flex.align.START, Flex.align.CENTER, Flex.align.END]),
+  gap: PropTypes.oneOfType([
+    PropTypes.oneOf([Flex.gaps.NONE, Flex.gaps.SMALL, Flex.gaps.MEDIUM, Flex.gaps.LARGE]),
+    PropTypes.number
   ])
 };
 
 Flex.defaultProps = {
   className: "",
   id: undefined,
-  vertical: false,
+  elementType: "div",
   style: undefined,
   wrap: false,
   children: undefined,
-  horizontalPosition: Flex.horizontalPositions.START,
-  horizontalSpacingSize: Flex.horizontalSpacingSizes.SMALL,
-  verticalPosition: Flex.verticalPositions.CENTER,
-  verticalSpacingSize: Flex.verticalSpacingSizes.NONE
+  direction: Flex.directions.ROW,
+  justify: Flex.justify.START,
+  align: Flex.align.CENTER,
+  gap: Flex.gaps.NONE
 };
 
 export default Flex;
