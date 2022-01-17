@@ -16,6 +16,7 @@ const publishedComponents = {
   ListItemIcon: "components/ListItemIcon/ListItemIcon.jsx",
   ListItem: "components/ListItem/ListItem.jsx",
   VirtualizedList: "components/VirtualizedList/VirtualizedList.jsx",
+  VirtualizedGrid: "components/VirtualizedGrid/VirtualizedGrid.jsx",
   ColorPicker: "components/ColorPicker/ColorPicker.jsx",
   ColorPickerContent: "components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx",
   ColorUtils: "utils/colors-utils.js",
@@ -84,7 +85,8 @@ const publishedComponents = {
   AlertBannerButton: "components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx",
   Toggle: "components/Toggle/Toggle.jsx",
   Skeleton: "components/Skeleton/Skeleton.jsx",
-  Avatar: "components/Avatar/Avatar.jsx"
+  Avatar: "components/Avatar/Avatar.jsx",
+  IconButton: "components/IconButton/IconButton.jsx"
 };
 
 function getPublishedComponents() {

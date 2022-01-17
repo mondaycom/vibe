@@ -67,12 +67,12 @@ describe("AlertBanner", () => {
   });
 
   it("should render correctly with hidden close button", () => {
-    const tree = renderer.create(<AlertBanner isCloseHidden></AlertBanner>).toJSON();
+    const tree = renderer.create(<AlertBanner isCloseHidden />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("should render correctly with background color", () => {
-    const tree = renderer.create(<AlertBanner backgroundColor={AlertBanner.backgroundColors.POSITIVE}></AlertBanner>).toJSON();
+    const tree = renderer.create(<AlertBanner backgroundColor={AlertBanner.backgroundColors.POSITIVE} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

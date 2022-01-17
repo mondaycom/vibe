@@ -8,7 +8,6 @@ const multiValues = [
   { value: 100, color: "green" }
 ];
 
-
 describe("LinearProgressBar renders correctly", () => {
   it("with empty props", () => {
     const tree = renderer.create(<LinearProgressBar />).toJSON();
@@ -36,7 +35,7 @@ describe("LinearProgressBar renders correctly", () => {
   });
 
   it("with indicateProgress", () => {
-    const tree = renderer.create(<LinearProgressBar value={20} indicateProgress/>).toJSON();
+    const tree = renderer.create(<LinearProgressBar value={20} indicateProgress />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

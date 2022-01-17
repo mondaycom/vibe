@@ -1,4 +1,3 @@
-import React from "react";
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
 import useOnClickOutside from "../useClickOutside";

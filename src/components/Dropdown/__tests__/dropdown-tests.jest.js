@@ -1,4 +1,3 @@
-import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
 
 describe("Dropdown", () => {
@@ -9,7 +8,7 @@ describe("Dropdown", () => {
   afterEach(() => {
     jest.useRealTimers();
   });
-  
+
   const mockOptions = [
     { value: "ocean", label: "Ocean", isFixed: true },
     { value: "blue", label: "Blue", isDisabled: true },

@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, cleanup, act } from "@testing-library/react";
+import { render, fireEvent, cleanup } from "@testing-library/react";
 import Button from "../Button";
 
 const text = "Click Me!";
@@ -72,9 +72,9 @@ describe("<Buttoon />", () => {
           const { rerender, queryByText } = buttonComponent;
           const successText = "Done!";
           rerender(
-              <Button onClick={clickActionStub} successText={successText}>
-                {text}
-              </Button>
+            <Button onClick={clickActionStub} successText={successText}>
+              {text}
+            </Button>
           );
           const element = queryByText(successText);
           expect(element).toEqual(null);
@@ -84,16 +84,14 @@ describe("<Buttoon />", () => {
           const { rerender, getByText } = buttonComponent;
           const successText = "Done!";
           rerender(
-              <Button onClick={clickActionStub} success successText={successText}>
-                {text}
-              </Button>
+            <Button onClick={clickActionStub} success successText={successText}>
+              {text}
+            </Button>
           );
           fireEvent.click(getByText(successText));
           expect(clickActionStub.mock.calls.length).toEqual(0);
         });
       });
-
-
     });
   });
 
@@ -143,7 +141,6 @@ describe("<Buttoon />", () => {
       fireEvent.mouseDown(getByText(text));
       expect(onMouseDown.mock.calls.length).toEqual(1);
     });
-
   });
   describe("a11y", () => {
     it("Aria label should be connected to the button", () => {

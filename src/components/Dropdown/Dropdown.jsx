@@ -65,9 +65,9 @@ const Dropdown = ({
   const selectedOptions = customValue ?? selected;
   const selectedOptionsMap = useMemo(
     () =>
-      Array.isArray(selectedOptions)
+      (Array.isArray(selectedOptions)
         ? selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {})
-        : {},
+        : {}),
     [selectedOptions]
   );
   const value = multi ? selectedOptions : customValue;
@@ -135,13 +135,13 @@ const Dropdown = ({
 
   const onOptionRemove = useMemo(
     () =>
-      customOnOptionRemove
+      (customOnOptionRemove
         ? (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e)
         : function (optionValue, e) {
-            setSelected(selected.filter(option => option.value !== optionValue));
+          setSelected(selected.filter(option => option.value !== optionValue));
 
-            e.stopPropagation();
-          },
+          e.stopPropagation();
+        }),
     [customOnOptionRemove, selected, selectedOptionsMap]
   );
 

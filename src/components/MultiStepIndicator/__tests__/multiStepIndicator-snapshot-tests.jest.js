@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { Featured } from "../../Icon/Icons"
+import { Featured } from "../../Icon/Icons";
 import MultiStepIndicator from "../MultiStepIndicator";
 
 const exampleSteps = [

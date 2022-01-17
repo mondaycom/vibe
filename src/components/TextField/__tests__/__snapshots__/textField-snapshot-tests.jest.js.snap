@@ -1119,7 +1119,7 @@ exports[`TextField renders correctly with role 1`] = `
 <div
   aria-busy={false}
   className="input-component"
-  role="testRole"
+  role="button"
 >
   <div
     className="input-component__label--wrapper"

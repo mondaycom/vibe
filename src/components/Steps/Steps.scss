@@ -1,7 +1,7 @@
-@import "../../styles/typography.scss";
-@import "../../styles/themes.scss";
-@import "../../styles/global-css-settings.scss";
-@import "../../styles/states.scss";
+@import "../../styles/typography";
+@import "../../styles/themes";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
 
 @mixin active-step-dot {
   @include theme-prop(background, primary-color);
@@ -54,6 +54,11 @@
     display: flex;
     align-items: center;
 
+    &_icon {
+      @include theme-prop(color, icon-color);
+      width: 15.5px;
+    }
+
     &--backward {
       margin-right: $spacing-small;
       flex-direction: row-reverse;
@@ -62,6 +67,8 @@
       }
     }
 
+    height: 15.5px;
+
     &--forward {
       margin-left: $spacing-small;
       .monday-style-steps-command_icon {
@@ -69,11 +76,7 @@
       }
     }
 
-    &_icon {
-      @include theme-prop(color, icon-color);
-      width: 15.5px;
-      height: 15.5px;
-    }
+
   }
   &--content-on-top {
     .monday-style-steps-header {
@@ -101,7 +104,7 @@
           }
         }
       }
-      &-command{
+      &-command {
         &_icon {
           @include theme-prop(color, text-color-on-primary);
         }

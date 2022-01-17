@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
-import Checkbox from "../Checkbox";
+import { Checkbox } from "../Checkbox";
 
 describe("Checkbox tests", () => {
   const formName = "myForm";
@@ -8,7 +8,7 @@ describe("Checkbox tests", () => {
   const checkbox1Name = "checkbox1";
   const option1Value = "1";
   const option1Text = "Option 1";
-  
+
   const checkbox2Name = "checkbox2";
   const option2Value = "2";
   const option2Text = "Option 2";

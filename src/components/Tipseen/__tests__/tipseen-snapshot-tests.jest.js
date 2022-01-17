@@ -99,7 +99,7 @@ describe("Snapshot Tests", () => {
     it("renders correctly without submit button", () => {
       const tree = renderer
         .create(
-          <TipseenContent children="content" isSubmitHidden>
+          <TipseenContent isSubmitHidden>
             content
           </TipseenContent>
         )
@@ -156,7 +156,7 @@ describe("Snapshot Tests", () => {
       const tree = renderer.create(<TipseenWizard />).toJSON();
       expect(tree).toMatchSnapshot();
     });
-    
+
     it("renders correctly without title", () => {
       const tree = renderer
         .create(

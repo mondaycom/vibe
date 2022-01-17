@@ -14,7 +14,7 @@ export const Sandbox = () => {
 
   return (
     <div style={{ width, height }}>
-      <AccordionItem id="Knobs" open={isOpen} onClickAccordionCallback={onClick} title={"I can be anything"}>
+      <AccordionItem id="Knobs" open={isOpen} onClickAccordionCallback={onClick} title="I can be anything">
         <h3>Any component you want</h3>
       </AccordionItem>
     </div>

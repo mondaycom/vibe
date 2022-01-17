@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from "react";
 import { Check, Announcement } from "../../Icon/Icons";
 import { Menu, MenuItem } from "../../index";
@@ -10,7 +9,7 @@ const DialogDefault = [
 
 const SplitButtonExampleDialog = ({ options = DialogDefault }) => {
   return (
-    <div >
+    <div>
       {!options ? (
         <>I would be anything you want to be</>
       ) : (

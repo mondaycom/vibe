@@ -9,11 +9,11 @@ export const tipseenTemplate = ({ isDismissHidden, title, children, position, ot
       // Therefore, there is no need to move this prop in your implementations.
       modifiers={modifiers}
       position={position}
-      content={
+      content={(
         <TipseenContent isDismissHidden={isDismissHidden} title={title}>
           {children}
         </TipseenContent>
-      }
+      )}
       {...otherArgs}
     >
       <div className="monday-style-story-tipseen_container" />

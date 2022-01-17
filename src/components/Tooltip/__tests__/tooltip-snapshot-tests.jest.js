@@ -13,7 +13,7 @@ jest.mock("react-transition-group", () => {
   };
 });
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 
 describe("Tooltip renders correctly", () => {
   it("with end arrowPosition", () => {
@@ -52,7 +52,7 @@ describe("Tooltip renders correctly", () => {
   });
 
   it("with style", () => {
-    const tree = renderer.create(<Tooltip style={{width: "200px"}} content="test" shouldShowOnMount><div /></Tooltip>).toJSON();
+    const tree = renderer.create(<Tooltip style={{ width: "200px" }} content="test" shouldShowOnMount><div /></Tooltip>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
