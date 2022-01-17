@@ -216,22 +216,25 @@ Use Flex component to position group of sub-elements in one dimension, horizonta
 ### Vertical positions
 <Canvas>
   <Story name="Vertical positions">
-    <Flex style={{width: "100%"}} verticalPosition={Flex.verticalPositions.START} horizontalPosition={Flex.horizontalPositions.SPACE_AROUND}>
+    <Flex
+      style={{width: "100%"}}
+      verticalPosition={Flex.verticalPositions.START}
+      horizontalPosition={Flex.horizontalPositions.SPACE_AROUND}>
       <StoryDescription description="Start position" vertical>
-        <Flex horizontalPosition={Flex.horizontalPositions.START} vertical>
+        <Flex verticalPosition={Flex.verticalPositions.START} vertical style={{height: "300px"}}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button></Flex>
       </StoryDescription>
       <StoryDescription description="Center position" vertical>
-        <Flex horizontalPosition={Flex.horizontalPositions.CENTER} vertical>
+        <Flex verticalPosition={Flex.verticalPositions.CENTER} vertical style={{height: "300px"}}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
         </Flex>
       </StoryDescription>
-      <StoryDescription description="End position" vertical horizontalPosition={Flex.horizontalPositions.END}>
-        <Flex horizontalPosition={Flex.horizontalPositions.END} vertical>
+      <StoryDescription description="End position" vertical>
+        <Flex verticalPosition={Flex.verticalPositions.END} vertical style={{height: "300px"}}>
           <Button>Primary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
           <Button kind={Button.kinds.TERTIARY}>Tertiary</Button>
