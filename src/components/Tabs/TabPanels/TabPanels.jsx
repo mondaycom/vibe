@@ -12,6 +12,7 @@ const TabPanels = forwardRef(
       return React.Children.map(children, (child, index) => {
         if (activeTabId === index) {
           return React.cloneElement(child, {
+            key: index,
             ...child.props,
             className: cx("tab-panel", "active", `animation-direction-${animationDirection}`, child.props.className)
           });
