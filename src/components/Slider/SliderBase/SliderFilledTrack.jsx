@@ -5,24 +5,19 @@ import { bem } from "../SliderHelpers";
 function defineFilledTrackProps({ dimension, offset, reverse }) {
   if (reverse) {
     return {
-      style: {
-        right: `${offset}%`,
-        width: `${dimension - offset}%`
-      }
+      right: `${offset}%`,
+      width: `${dimension - offset}%`
     };
   }
   return {
-    style: {
-      left: `${offset}%`,
-      width: `${dimension - offset}%`
-    }
+    left: `${offset}%`,
+    width: `${dimension - offset}%`
   };
-  // can be extended here for vertical slider
 }
 
 const SliderFilledTrack = ({ className, dimension, offset, reverse }) => {
-  const filledTrackProps = defineFilledTrackProps({ dimension, offset, reverse });
-  return <div className={bem("filled-track", "", className)} {...filledTrackProps} />;
+  const filledTrackStyle = defineFilledTrackProps({ dimension, offset, reverse });
+  return <div className={bem("filled-track", "", className)} style={filledTrackStyle} />;
 };
 
 SliderFilledTrack.propTypes = {
