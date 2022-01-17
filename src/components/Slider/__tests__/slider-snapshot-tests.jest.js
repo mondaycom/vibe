@@ -20,7 +20,7 @@ jest.mock("../../Label/Label", () => {
   return Label;
 });
 
-describe("Slider Render", async () => {
+describe("Slider Render", () => {
   let defaultRender;
   beforeAll(async () => {
     defaultRender = await renderSliderForSnapshots();
