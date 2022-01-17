@@ -1,4 +1,3 @@
-import React from "react";
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { snapshotDiff } from "../../../../jest/utils";
@@ -13,7 +12,8 @@ it("a. Non-ranged Slider: basic renderer", async () => {
 
 describe("b. Non-ranged Slider Active/Inactive", () => {
   it("01. show Tooltip when hover Thumb", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode();
       before = asFragment().firstChild;
@@ -25,7 +25,8 @@ describe("b. Non-ranged Slider Active/Inactive", () => {
   });
 
   it("02. hide Tooltip when unhover Thumb", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode();
       userEvent.hover(elThumb);
@@ -39,7 +40,8 @@ describe("b. Non-ranged Slider Active/Inactive", () => {
   });
 
   it("03. activate Thumb by Tab key press ", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment } = await renderSliderInNonRangeMode();
       before = asFragment().firstChild;
@@ -51,7 +53,8 @@ describe("b. Non-ranged Slider Active/Inactive", () => {
   });
 
   it("04. de-activate Thumb by Tab key press, when Thumb focused ", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode();
       elThumb.focus();
@@ -66,7 +69,8 @@ describe("b. Non-ranged Slider Active/Inactive", () => {
 
 describe("c. Non-ranged Slider Key Events", () => {
   it("01. decrease value by Left/Down keys press", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode({ showValue: true });
       elThumb.focus();
@@ -79,7 +83,8 @@ describe("c. Non-ranged Slider Key Events", () => {
   });
 
   it("02. increase value by Right/Up keys press", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode({ showValue: true });
       elThumb.focus();
@@ -92,7 +97,8 @@ describe("c. Non-ranged Slider Key Events", () => {
   });
 
   it("03. decrease value (step 10%) by PageDown key press", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode({ showValue: true });
       elThumb.focus();
@@ -104,7 +110,8 @@ describe("c. Non-ranged Slider Key Events", () => {
   });
 
   it("04. increase value (step 10%) by PageUp key pres", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode({ showValue: true });
       elThumb.focus();
@@ -117,7 +124,8 @@ describe("c. Non-ranged Slider Key Events", () => {
   });
 
   it("05. change value by keys press in Step and Label mode", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumb } = await renderSliderInNonRangeMode({
         indicateSelection: true,
@@ -157,7 +165,8 @@ describe("d. Non-ranged Slider Mouse Events", () => {
   });
 
   it("01. decrease by mouse click on Track", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment } = await renderSliderInNonRangeMode({ showValue: true });
       const elRail = screen.getByTestId("monday-slider__rail");
@@ -171,7 +180,8 @@ describe("d. Non-ranged Slider Mouse Events", () => {
   });
 
   it("02. increase value by mouse click on Track", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment } = await renderSliderInNonRangeMode({ showValue: true });
       const elRail = screen.getByTestId("monday-slider__rail");

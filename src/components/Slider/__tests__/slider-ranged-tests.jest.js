@@ -1,4 +1,3 @@
-import React from "react";
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { snapshotDiff } from "../../../../jest/utils";
@@ -13,7 +12,8 @@ it("a. Ranges Slider: basic renderer", async () => {
 
 describe("b. Ranges Slider Active/Inactive", () => {
   it("01. show Tooltip when hover Start Thumb", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumbStart } = await renderSliderInRangeMode();
       before = asFragment().firstChild;
@@ -25,7 +25,8 @@ describe("b. Ranges Slider Active/Inactive", () => {
   });
 
   it("02. show Tooltip when hover End Thumb", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumbEnd } = await renderSliderInRangeMode();
       before = asFragment().firstChild;
@@ -37,7 +38,8 @@ describe("b. Ranges Slider Active/Inactive", () => {
   });
 
   it("03. hide Tooltip when unhover Thumb", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumbStart } = await renderSliderInRangeMode();
       userEvent.hover(elThumbStart);
@@ -51,7 +53,8 @@ describe("b. Ranges Slider Active/Inactive", () => {
   });
 
   it("04. activate Start Thumb by Tab key press ", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment } = await renderSliderInRangeMode();
       before = asFragment().firstChild;
@@ -63,7 +66,8 @@ describe("b. Ranges Slider Active/Inactive", () => {
   });
 
   it("05. activate End Thumb by Tab key press ", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment } = await renderSliderInRangeMode();
       userEvent.tab();
@@ -77,7 +81,8 @@ describe("b. Ranges Slider Active/Inactive", () => {
   });
 
   it("06. de-activate Thumb by Tab key press, when End Thumb focused ", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumbEnd } = await renderSliderInRangeMode();
       elThumbEnd.focus();
@@ -92,7 +97,8 @@ describe("b. Ranges Slider Active/Inactive", () => {
 
 describe("c. Ranges Slider Key Events", () => {
   it("01. decrease value by Left/Down keys press", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumbStart } = await renderSliderInRangeMode({ showValue: true });
       elThumbStart.focus();
@@ -105,7 +111,8 @@ describe("c. Ranges Slider Key Events", () => {
   });
 
   it("02. increase value by Right/Up keys press", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumbEnd } = await renderSliderInRangeMode({ showValue: true });
       elThumbEnd.focus();
@@ -118,7 +125,8 @@ describe("c. Ranges Slider Key Events", () => {
   });
 
   it("03. decrease value (step 10%) by PageDown key press", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumbEnd } = await renderSliderInRangeMode({ showValue: true });
       elThumbEnd.focus();
@@ -130,7 +138,8 @@ describe("c. Ranges Slider Key Events", () => {
   });
 
   it("04. increase value (step 10%) by PageUp key pres", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumbStart } = await renderSliderInRangeMode({ showValue: true });
       elThumbStart.focus();
@@ -143,7 +152,8 @@ describe("c. Ranges Slider Key Events", () => {
   });
 
   it("05. change value by keys press in Step and Label mode", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment, elThumbStart } = await renderSliderInRangeMode({
         indicateSelection: true,
@@ -181,7 +191,8 @@ describe("d. Ranges Slider Mouse Events", () => {
   });
 
   it("01. decrease Start value by mouse click on Track before StartThumb", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment } = await renderSliderInRangeMode({ showValue: true });
       const elRail = screen.getByTestId("monday-slider__rail");
@@ -195,7 +206,8 @@ describe("d. Ranges Slider Mouse Events", () => {
   });
 
   it("02. increase Start value by mouse click on Track (between near Start)", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment } = await renderSliderInRangeMode({ showValue: true });
       const elRail = screen.getByTestId("monday-slider__rail");
@@ -209,7 +221,8 @@ describe("d. Ranges Slider Mouse Events", () => {
   });
 
   it("03. decrease value by mouse click on Track (between near End)", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment } = await renderSliderInRangeMode({ showValue: true });
       const elRail = screen.getByTestId("monday-slider__rail");
@@ -223,7 +236,8 @@ describe("d. Ranges Slider Mouse Events", () => {
   });
 
   it("04. increase End value by mouse click on Track (after End)", async () => {
-    let before, after;
+    let before;
+    let after;
     await act(async () => {
       const { asFragment } = await renderSliderInRangeMode({ showValue: true });
       const elRail = screen.getByTestId("monday-slider__rail");
