@@ -47,9 +47,9 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
   actionPropsArray?.forEach(actionProp => {
     if (typeof actionProp === "string") {
       argTypes[actionProp] = { action: actionProp };
-    } else if (actionProp?.name && actionProp.linkToValueProp) {
+    } else if (actionProp?.name && actionProp.linkedToPropValue) {
       // we assume that actionPropsArray is static. If it changes, things may break, since internally we call React.useState for the story decorator.
-      decorators.push(createMappedActionToInputPropDecorator(actionProp.name, actionProp.linkToValueProp));
+      decorators.push(createMappedActionToInputPropDecorator(actionProp.name, actionProp.linkedToPropValue));
     }
   });
 
@@ -62,12 +62,12 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
  * Useful for adding interactivity to stories of controlled components.
  * Additionally, the callback will trigger a Storybook action, that can be seen on the Actions tab.
  * @param {string} actionName - the name of the action prop of the component in the story. For example, "setValue" or "onChange".
- * @param {string} linkToPropName - the name of the prop which should be updated when the prop of "actionName" is called. For example, "value".
- * @returns A decorate for storybook which updates the {@link linkToPropName} input of the component, whenever {@link actionName} is called.
+ * @param {string} linkedToPropValue - the name of the prop which should be updated when the prop of "actionName" is called. For example, "value".
+ * @returns A decorate for storybook which updates the {@link linkedToPropValue} input of the component, whenever {@link actionName} is called.
  */
-function createMappedActionToInputPropDecorator(actionName, linkToPropName) {
+function createMappedActionToInputPropDecorator(actionName, linkedToPropValue) {
   return (Story, context) => {
-    const [propValue, setPropValue] = useState(context.initialArgs[linkToPropName]);
+    const [propValue, setPropValue] = useState(context.initialArgs[linkedToPropValue]);
     const createAction = useMemo(() => action(actionName), []);
 
     const injectedCallback = useCallback(
@@ -79,7 +79,7 @@ function createMappedActionToInputPropDecorator(actionName, linkToPropName) {
     );
 
     context.args[actionName] = injectedCallback;
-    context.args[linkToPropName] = propValue;
+    context.args[linkedToPropValue] = propValue;
 
     return Story();
   };
