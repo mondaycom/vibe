@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import { COLORS_BASIC, SIZES_BASIC } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -39,31 +39,27 @@ const Slider = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const providerProps = {
-      ariaLabel,
-      ariaLabelledby,
-      color,
-      dataTestId,
-      disabled,
-      max,
-      min,
-      onChange,
-      ranged,
-      showValue,
-      size,
-      step,
-      value,
-      defaultValue: ensureDefaultValue({ defaultValue, min, max, ranged }),
-      valueFormatter,
-      valueText,
-      infixOptions: {
-        prefix,
-        postfix,
-        indicateSelection
-      }
-    };
+    const infixOptions = useMemo(() => ({ prefix, postfix, indicateSelection }), [prefix, postfix, indicateSelection]);
     return (
-      <SliderProvider {...providerProps}>
+      <SliderProvider
+        ariaLabel={ariaLabel}
+        ariaLabelledby={ariaLabelledby}
+        color={color}
+        dataTestId={dataTestId}
+        disabled={disabled}
+        infixOptions={infixOptions}
+        max={max}
+        min={min}
+        onChange={onChange}
+        ranged={ranged}
+        showValue={showValue}
+        size={size}
+        step={step}
+        value={value}
+        defaultValue={ensureDefaultValue({ defaultValue, min, max, ranged })}
+        valueFormatter={valueFormatter}
+        valueText={valueText}
+      >
         <div
           className={bem("", { disabled, "value-shown": showValue }, className)}
           data-testid={dataTestId}
