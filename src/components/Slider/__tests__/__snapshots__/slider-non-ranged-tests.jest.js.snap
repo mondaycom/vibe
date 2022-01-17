@@ -1,0 +1,464 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`a. Non-ranged Slider: basic renderer 1`] = `
+<div
+  class="monday-slider"
+  data-testid="monday-slider"
+>
+  <div
+    class="monday-slider__base monday-slider__base--small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="monday-slider__rail"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="monday-slider__track"
+      />
+      <div
+        class="monday-slider__filled-track"
+        style="left: 0%; width: 20%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-label="my-slider"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="20"
+        aria-valuetext="20%"
+        class="monday-slider__thumb monday-slider__thumb--index-0"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 20%;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`b. Non-ranged Slider Active/Inactive 01. show Tooltip when hover Thumb 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+          style="left: 20%;"
+          tabindex="0"
+        />
++       <span
++         class="monday-style-dialog-content-wrapper"
++         data-popper-reference-hidden="false"
++         style="position: absolute; left: 0px; top: 0px;"
++       >
++         <div
++           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
++         >
++           <div
++             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
++           >
++             20%
++           </div>
++           <div
++             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             data-placement="top"
++             style="position: absolute;"
++           />
++         </div>
++       </span>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`b. Non-ranged Slider Active/Inactive 02. hide Tooltip when unhover Thumb 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+          style="left: 20%;"
+          tabindex="0"
+        />
+-       <span
+-         class="monday-style-dialog-content-wrapper"
+-         data-popper-reference-hidden="false"
+-         style="position: absolute; left: 0px; top: 0px;"
+-       >
+-         <div
+-           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
+-         >
+-           <div
+-             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+-           >
+-             20%
+-           </div>
+-           <div
+-             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+-             data-placement="top"
+-             style="position: absolute;"
+-           />
+-         </div>
+-       </span>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`b. Non-ranged Slider Active/Inactive 03. activate Thumb by Tab key press  1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+          aria-valuemin="0"
+          aria-valuenow="20"
+          aria-valuetext="20%"
+-         class="monday-slider__thumb monday-slider__thumb--index-0"
++         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+          style="left: 20%;"
+          tabindex="0"
++       />
++       <span
++         class="monday-style-dialog-content-wrapper"
++         data-popper-reference-hidden="false"
++         style="position: absolute; left: 0px; top: 0px;"
++       >
++         <div
++           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
++         >
++           <div
++             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
++           >
++             20%
++           </div>
++           <div
++             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             data-placement="top"
++             style="position: absolute;"
+            />
++         </div>
++       </span>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`b. Non-ranged Slider Active/Inactive 04. de-activate Thumb by Tab key press, when Thumb focused  1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+          aria-valuemin="0"
+          aria-valuenow="20"
+          aria-valuetext="20%"
+-         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
++         class="monday-slider__thumb monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+          style="left: 20%;"
+          tabindex="0"
+-       />
+-       <span
+-         class="monday-style-dialog-content-wrapper"
+-         data-popper-reference-hidden="false"
+-         style="position: absolute; left: 0px; top: 0px;"
+-       >
+-         <div
+-           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear monday-style-animation-expand-appear-active"
+-         >
+-           <div
+-             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+-           >
+-             20%
+-           </div>
+-           <div
+-             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+-             data-placement="top"
+-             style="position: absolute;"
+        />
+-         </div>
+-       </span>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`c. Non-ranged Slider Key Events 01. decrease value by Left/Down keys press 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 18%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="18"
++         aria-valuetext="18%"
+          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 18%;"
+          tabindex="0"
+        >
+          <label
+            class="monday-slider__thumb-label"
+          >
+-           20%
++           18%
+          </label>
+        </div>
+      </div>
+`;
+
+exports[`c. Non-ranged Slider Key Events 02. increase value by Right/Up keys press 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 22%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="22"
++         aria-valuetext="22%"
+          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 22%;"
+          tabindex="0"
+        >
+          <label
+            class="monday-slider__thumb-label"
+          >
+-           20%
++           22%
+          </label>
+        </div>
+      </div>
+`;
+
+exports[`c. Non-ranged Slider Key Events 03. decrease value (step 10%) by PageDown key press 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 10%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="10"
++         aria-valuetext="10%"
+          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 10%;"
+          tabindex="0"
+        >
+          <label
+            class="monday-slider__thumb-label"
+          >
+-           20%
++           10%
+          </label>
+        </div>
+      </div>
+`;
+
+exports[`c. Non-ranged Slider Key Events 04. increase value (step 10%) by PageUp key pres 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 40%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="40"
++         aria-valuetext="40%"
+          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 40%;"
+          tabindex="0"
+        >
+          <label
+            class="monday-slider__thumb-label"
+          >
+-           20%
++           40%
+          </label>
+        </div>
+      </div>
+`;
+
+exports[`c. Non-ranged Slider Key Events 05. change value by keys press in Step and Label mode 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 40%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="40"
++         aria-valuetext="40%"
+          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 40%;"
+          tabindex="0"
+        >
+          <label
+            class="monday-slider__thumb-label"
+          >
+-           20%
++           40%
+          </label>
+        </div>
+      </div>
+@@ --- --- @@
+          class="monday-style-label monday-style-label--kind-line monday-style-label--color-dark monday-style-label--with-animation"
+        >
+          <span>
+-           20%
++           40%
+          </span>
+          <span
+            class="monday-style-label__leg-wrapper"
+`;
+
+exports[`d. Non-ranged Slider Mouse Events 01. decrease by mouse click on Track 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 16%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="16"
++         aria-valuetext="16%"
+          class="monday-slider__thumb monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 16%;"
+          tabindex="0"
+        >
+          <label
+            class="monday-slider__thumb-label"
+          >
+-           20%
++           16%
+          </label>
+        </div>
+      </div>
+`;
+
+exports[`d. Non-ranged Slider Mouse Events 02. increase value by mouse click on Track 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 20%;"
++         style="left: 0%; width: 36%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-label="my-slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="20"
+-         aria-valuetext="20%"
++         aria-valuenow="36"
++         aria-valuetext="36%"
+          class="monday-slider__thumb monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 20%;"
++         style="left: 36%;"
+          tabindex="0"
+        >
+          <label
+            class="monday-slider__thumb-label"
+          >
+-           20%
++           36%
+          </label>
+        </div>
+      </div>
+`;
