@@ -11,6 +11,7 @@ exports[`Slider Render 01. with empty props 1`] = `
   >
     <div
       class="monday-slider__rail"
+      data-testid="monday-slider__rail"
     >
       <div
         class="monday-slider__track"
@@ -99,6 +100,11 @@ Snapshot Diff:
     >
       <div
         class="monday-slider__rail"
+-       data-testid="monday-slider__rail"
++       data-testid="my-slider__rail"
+      >
+        <div
+          class="monday-slider__track"
 @@ --- --- @@
           aria-valuenow="0"
           aria-valuetext="0%"
