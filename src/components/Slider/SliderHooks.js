@@ -50,7 +50,6 @@ export function useSliderRail() {
   return { railCoords, railRef };
 }
 
-// TODO: can be used as global common/shared util-hooks
 export function useSliderResize(onResize) {
   const handleResize = useCallback(() => {
     if (typeof onResize === "function") {

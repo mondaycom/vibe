@@ -1,8 +1,10 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
+import { useSliderUi } from "../SliderContext";
 import { bem } from "../SliderHelpers";
 
 const SliderRail = forwardRef(({ className, children, onClick }, ref) => {
+  const { shapeTestId } = useSliderUi();
   function handleClick(e) {
     if (typeof onClick === "function") {
       onClick(e);
@@ -11,7 +13,7 @@ const SliderRail = forwardRef(({ className, children, onClick }, ref) => {
 
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-    <div className={bem("rail", "", className)} onPointerDown={handleClick} ref={ref}>
+    <div data-testid={shapeTestId("rail")} className={bem("rail", "", className)} onClick={handleClick} ref={ref}>
       {children}
     </div>
   );
