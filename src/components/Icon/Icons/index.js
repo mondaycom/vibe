@@ -182,6 +182,7 @@ export {default as StrikethroughT} from './components/StrikethroughT';
 export {default as Subitems} from './components/Subitems';
 export {default as Sun} from './components/Sun';
 export {default as Switch} from './components/Switch';
+export {default as Switcher} from './components/Switcher';
 export {default as Table} from './components/Table';
 export {default as Team} from './components/Team';
 export {default as Text} from './components/Text';
