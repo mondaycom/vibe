@@ -19,10 +19,6 @@ import {
   isHomeEvent
 } from "../../../utils/dom-event-utils";
 
-function getKey(index) {
-  return index;
-}
-
 const SliderBase = forwardRef(({ className }, ref) => {
   const { color, disabled, dragging, size, shapeTestId } = useSliderUi();
   const { definePageStep, min, max, ranged, step, value } = useSliderSelection();
@@ -87,7 +83,7 @@ const SliderBase = forwardRef(({ className }, ref) => {
           <>
             <SliderFilledTrack dimension={dimension} offset={offset} />
             {positions.map((position, index) => {
-              return <SliderThumb key={getKey(index)} index={index} position={position} />;
+              return <SliderThumb key={index} index={index} position={position} />;
             })}
           </>
         )}
