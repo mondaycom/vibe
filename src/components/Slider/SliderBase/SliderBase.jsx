@@ -24,7 +24,7 @@ const SliderBase = forwardRef(({ className }, ref) => {
   const { definePageStep, min, max, ranged, step, value } = useSliderSelection();
   const { changeValue, increaseValue, decreaseValue } = useSliderActions();
   const { railCoords, railRef } = useSliderRail({ min, max, step, ref });
-  const { dimension, offset, positions } = calcDimensions({ max, min, ranged, value });
+  const { dimension, offset, positions, thumbKeys } = calcDimensions({ max, min, ranged, value });
 
   function handlePointerMove(e) {
     if (dragging === null) {
@@ -83,7 +83,7 @@ const SliderBase = forwardRef(({ className }, ref) => {
           <>
             <SliderFilledTrack dimension={dimension} offset={offset} />
             {positions.map((position, index) => {
-              return <SliderThumb key={index} index={index} position={position} />;
+              return <SliderThumb key={thumbKeys[index]} index={index} position={position} />;
             })}
           </>
         )}

@@ -49,12 +49,12 @@ export function getCurrentValue(actualValue, ranged, focused) {
 export function calcDimensions({ max, min, ranged, value }) {
   if (!ranged) {
     const [dimension, position] = calcDimension({ max, min, value });
-    return { dimension, offset: 0, positions: [position] };
+    return { dimension, offset: 0, positions: [position], thumbKeys: ['start'] };
   }
   const [val1, val2] = value;
   const [offset, position] = calcDimension({ max, min, value: val1 });
   const [dimension, position2] = calcDimension({ max, min, value: val2 });
-  return { dimension, offset, positions: [position, position2] };
+  return { dimension, offset, positions: [position, position2], thumbKeys: ['start', 'end'] };
 }
 
 export function calcDimension({ max, min, value }) {
