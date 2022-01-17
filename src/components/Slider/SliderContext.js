@@ -1,6 +1,7 @@
 import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
 import { SIZES_BASIC } from "../../constants";
 import { createTestIdHelper } from "../../helpers/testid-helper";
+import { NOOP } from "../../utils/function-utils";
 import { calculatePageStep, getCurrentValue } from "./SliderHelpers";
 import { useSliderValues } from "./SliderHooks";
 
@@ -13,7 +14,7 @@ const uiDefaults = {
   dragging: null,
   focused: null,
   size: SIZES_BASIC.SMALL,
-  shapeTestId: () => {},
+  shapeTestId: NOOP,
   showValue: false
 };
 const UiContext = createContext(uiDefaults);
@@ -27,13 +28,13 @@ const selectionDefaults = {
 };
 const SelectionContext = createContext(selectionDefaults);
 const actionsDefaults = {
-  setSelectedValue: () => {},
-  changeValue: () => {},
-  increaseValue: () => {},
-  decreaseValue: () => {}
+  setSelectedValue: NOOP,
+  changeValue: NOOP,
+  increaseValue: NOOP,
+  decreaseValue: NOOP
 };
 const ActionsContext = createContext(actionsDefaults);
-const InfixContext = createContext();
+const InfixContext = createContext({});
 
 export function SliderProvider({
   children,

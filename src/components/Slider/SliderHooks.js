@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { NOOP } from "../../utils/function-utils";
 
 function ensureSingleValueText(valueText, value, formatter) {
   if (valueText) {
@@ -68,7 +69,7 @@ export function useSliderValue({ defaultValue, isControlled, value }) {
   const initialValue = isControlled ? value : defaultValue;
   const [internalStateValue, setInternalStateValue] = useState(initialValue);
   if (isControlled) {
-    return [value, () => {}];
+    return [value, NOOP];
   }
   return [internalStateValue, setInternalStateValue];
 }

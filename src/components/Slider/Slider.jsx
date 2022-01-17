@@ -2,6 +2,7 @@ import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
 import { COLORS_BASIC, SIZES_BASIC } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import { NOOP } from "../../utils/function-utils";
 import "./Slider.scss";
 import { bem, ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
@@ -214,7 +215,7 @@ Slider.defaultProps = {
   id: undefined,
   max: 100,
   min: 0,
-  onChange: () => {},
+  onChange: NOOP,
   ranged: false,
   step: 1,
   size: SIZES_BASIC.SMALL,
