@@ -1,6 +1,5 @@
 import React from "react";
-import { fireEvent, render, cleanup } from "@testing-library/react";
-import { act } from "@testing-library/react-hooks";
+import { render } from "@testing-library/react";
 import Counter from "../Counter";
 
 describe("Counter tests", () => {
@@ -8,7 +7,7 @@ describe("Counter tests", () => {
 
   const getComponentToRender = ({ count = 1, ...props } = {}) => {
     return (
-      <Counter {...props} className={className} count={count} /> 
+      <Counter {...props} className={className} count={count} />
     );
   };
 
@@ -31,9 +30,9 @@ describe("Counter tests", () => {
   describe("a11y", () => {
     it("should add the aria label", () => {
       const count = 3;
-      const ariaLabel = "Lable Name " 
-      const { getByLabelText } =  render(
-        <Counter ariaLabel={ariaLabel} count={count} /> 
+      const ariaLabel = "Lable Name ";
+      const { getByLabelText } = render(
+        <Counter ariaLabel={ariaLabel} count={count} />
       );
       const counterComponent = getByLabelText(ariaLabel + count);
       expect(counterComponent).toBeTruthy();

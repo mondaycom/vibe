@@ -1,5 +1,64 @@
 # Changelog
 
+## 1.3.1 (2022-01-13)
+
+#### Bug Fixes
+* [#457](https://github.com/mondaycom/monday-ui-react-core/pull/457) fix: Loader issues ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.3.0 (2022-01-13)
+
+#### New Features
+* [#443](https://github.com/mondaycom/monday-ui-react-core/pull/443) Adding VirtualizedGrid component ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
+#### Dependency Upgrades
+* [#455](https://github.com/mondaycom/monday-ui-react-core/pull/455) Fix/eslint ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.2.6 (2022-01-12)
+
+#### New Icons
+* [#454](https://github.com/mondaycom/monday-ui-react-core/pull/454) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.2.5 (2022-01-12)
+
+#### Bug Fixes
+* [#453](https://github.com/mondaycom/monday-ui-react-core/pull/453) Fix icon button export ([@hadasfa](https://github.com/hadasfa))
+* [#452](https://github.com/mondaycom/monday-ui-react-core/pull/452) Fix dialog hideTriggerIgnoreClass prop type to accept array ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.2.4 (2022-01-11)
+
+#### Bug Fixes
+* [#450](https://github.com/mondaycom/monday-ui-react-core/pull/450) editable clickable test fix ([@ronachmany-monday](https://github.com/ronachmany-monday))
+* [#448](https://github.com/mondaycom/monday-ui-react-core/pull/448) icon button export ([@ronachmany-monday](https://github.com/ronachmany-monday))
+
+#### Documentation
+* [#445](https://github.com/mondaycom/monday-ui-react-core/pull/445) Storybook actions ([@laviomri](https://github.com/laviomri))
+
+#### New Icons
+* [#449](https://github.com/mondaycom/monday-ui-react-core/pull/449) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.2.3 (2022-01-10)
+
+#### Bug Fixes
+* [#444](https://github.com/mondaycom/monday-ui-react-core/pull/444) use button to clickable ([@ronachmany-monday](https://github.com/ronachmany-monday))
+
+#### Documentation
+* [#440](https://github.com/mondaycom/monday-ui-react-core/pull/440) Fix stories errors and typos    ([@hadasfa](https://github.com/hadasfa))
+
+## 1.2.2 (2022-01-10)
+
+#### Bug Fixes
+* [#442](https://github.com/mondaycom/monday-ui-react-core/pull/442) fix: Props passing bug in tabs panel ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#439](https://github.com/mondaycom/monday-ui-react-core/pull/439) Fixed code example of 'Menu with 2-depth sub menu' ([@laviomri](https://github.com/laviomri))
+* [#438](https://github.com/mondaycom/monday-ui-react-core/pull/438) fix links story controls, add leanylabs as contributors and add few description to props ([@hadasfa](https://github.com/hadasfa))
+* [#437](https://github.com/mondaycom/monday-ui-react-core/pull/437) random story fixes ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.2.1 (2022-01-06)
+
+#### Bug Fixes
+* [#436](https://github.com/mondaycom/monday-ui-react-core/pull/436) check that element is there ([@amirbardugo](https://github.com/amirbardugo))
+
 ## 1.2.0 (2022-01-05)
 
 #### New Features

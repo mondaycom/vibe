@@ -2,12 +2,13 @@ import isNil from "lodash/isNil";
 
 export function getIconScreenReaderAccessProps({ isClickable, isDecorationOnly, isKeyboardAccessible, label }) {
   const overrideIsDecorationOnly = isNil(isDecorationOnly) ? !isClickable : isDecorationOnly;
-  if (isClickable)
+  if (isClickable) {
     return getClickableIconScreenReaderAccessProps({
       label,
       isDecorationOnly: overrideIsDecorationOnly,
       isKeyboardAccessible
     });
+  }
   return {
     role: overrideIsDecorationOnly ? undefined : "img",
     "aria-hidden": overrideIsDecorationOnly,

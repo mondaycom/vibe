@@ -1,7 +1,7 @@
 import React from "react";
+import { fireEvent, render } from "@testing-library/react";
 import BreadcrumbsBar from "../../BreadcrumbsBar";
 import BreadcrumbItem from "../BreadcrumbItem";
-import { fireEvent, render } from "@testing-library/react";
 
 jest.useFakeTimers();
 

@@ -21,7 +21,6 @@ jest.mock("../../Button/Button", () => {
 });
 
 describe("AlertBanner", () => {
-
   it("should render correctly without props", () => {
     const tree = renderer.create(<AlertBanner />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -82,7 +81,7 @@ describe("AlertBanner", () => {
   });
 
   it("should render correctly with hidden close button", () => {
-    const tree = renderer.create(<AlertBanner isCloseHidden></AlertBanner>).toJSON();
+    const tree = renderer.create(<AlertBanner isCloseHidden />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

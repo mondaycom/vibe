@@ -1,13 +1,12 @@
-import React from "react";
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
-import useSetFocus from "../useSetFocus";
 import { fireEvent } from "@testing-library/react";
+import useSetFocus from "../useSetFocus";
 
 describe("useSetFocus", () => {
   let element;
-  let setActiveStub = jest.fn();
-  let setUnActiveStub = jest.fn();
-  let isActive = true;
+  const setActiveStub = jest.fn();
+  const setUnActiveStub = jest.fn();
+  const isActive = true;
 
   describe("click", () => {
     beforeEach(() => {
@@ -19,8 +18,7 @@ describe("useSetFocus", () => {
           setActive: setActiveStub,
           setUnActive: setUnActiveStub,
           isActive
-        })
-      );
+        }));
     });
 
     afterEach(() => {

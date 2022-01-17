@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import IconButton from "../IconButton";
-import {SIZES} from "../../../constants/sizes";
+import { SIZES } from "../../../constants/sizes";
 
 /**
  * There are cases where the component we want to test in the snapshot test will contain additional components.
@@ -22,7 +22,7 @@ import {SIZES} from "../../../constants/sizes";
     SwitchTransition: FakeSwitchTransition
   };
 });
- **/
+ * */
 
 /** example for internal component
 jest.mock("../../Button/Button", () => {
@@ -31,7 +31,7 @@ jest.mock("../../Button/Button", () => {
     <div data-testid="cancel-button" {...(onClick && { "data-onclick": "onclick-provided" })} />
   );
 });
-**/
+* */
 
 describe("IconButton renders correctly", () => {
   it("with empty props", () => {
@@ -39,31 +39,30 @@ describe("IconButton renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-    it("with id", () => {
-        const tree = renderer.create(<IconButton id="icon-button" />).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
+  it("with id", () => {
+    const tree = renderer.create(<IconButton id="icon-button" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-    it("with", () => {
-        const tree = renderer.create(<IconButton className="class-name" />).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
+  it("with", () => {
+    const tree = renderer.create(<IconButton className="class-name" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
   it("with disabled", () => {
     const tree = renderer.create(<IconButton disabled />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-    //   it(`with size - xs`, () => {
-    //     const tree = renderer.create(<IconButton size="xs" />).toJSON();
-    //     expect(tree).toMatchSnapshot();
-    //   });
-    //
-    // it(`with size - medium`, () => {
-    //     const tree = renderer.create(<IconButton size="medium" />).toJSON();
-    //     expect(tree).toMatchSnapshot();
-    // });
-
+  //   it(`with size - xs`, () => {
+  //     const tree = renderer.create(<IconButton size="xs" />).toJSON();
+  //     expect(tree).toMatchSnapshot();
+  //   });
+  //
+  // it(`with size - medium`, () => {
+  //     const tree = renderer.create(<IconButton size="medium" />).toJSON();
+  //     expect(tree).toMatchSnapshot();
+  // });
 
   Object.values(SIZES).forEach(size => {
     it(`with size - ${size}`, () => {
@@ -72,14 +71,13 @@ describe("IconButton renders correctly", () => {
     });
   });
 
-    it("with aria label", () => {
-        const tree = renderer.create(<IconButton ariaLabel="My aria label" />).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
+  it("with aria label", () => {
+    const tree = renderer.create(<IconButton ariaLabel="My aria label" />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-    it("with active", () => {
-        const tree = renderer.create(<IconButton active />).toJSON();
-        expect(tree).toMatchSnapshot();
-    });
-
+  it("with active", () => {
+    const tree = renderer.create(<IconButton active />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

@@ -5,27 +5,22 @@ exports[`renders correctly with empty props 1`] = `
   aria-label="undefined "
   className="editable-heading--wrapper"
   id=""
-  onClick={[Function]}
-  onDragStart={[Function]}
-  onKeyDown={[Function]}
-  onKeyUp={[Function]}
-  onMouseDown={[Function]}
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseUp={[Function]}
-  onTouchCancel={[Function]}
-  onTouchEnd={[Function]}
-  onTouchMove={[Function]}
-  onTouchStart={[Function]}
-  role="button"
-  tabIndex={0}
 >
-  <h1
-    aria-label=""
-    className="heading-component element-type-h1 size-large single-line-ellipsis suggest-edit-on-hover"
-    id=""
+  <div
+    className="monday-style-clickable monday-style-clickable--disable-text-selection"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    role="input"
+    tabIndex="0"
   >
-    
-  </h1>
+    <h1
+      aria-label=""
+      className="heading-component element-type-h1 size-large single-line-ellipsis suggest-edit-on-hover"
+      id=""
+    >
+      
+    </h1>
+  </div>
 </div>
 `;

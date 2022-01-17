@@ -1,6 +1,5 @@
 import React from "react";
-import { fireEvent, render, cleanup, screen } from "@testing-library/react";
-import { act } from "@testing-library/react-hooks";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Link from "../Link";
 
 describe("Link", () => {
@@ -8,12 +7,11 @@ describe("Link", () => {
   const text = "Read More";
   const href = "https://www.monday.com";
 
-  let linkComponent;
   let onClickMock;
 
   beforeEach(() => {
     onClickMock = jest.fn();
-    linkComponent = render(<Link text={text} onClick={onClickMock} href={href} ariaLabelDescription={ariaLabel} />);
+    render(<Link text={text} onClick={onClickMock} href={href} ariaLabelDescription={ariaLabel} />);
   });
 
   describe("default props", () => {
@@ -40,7 +38,8 @@ describe("Link", () => {
   });
 
   it("should have the correct target", () => {
-    const { getByText } = render(<Link text="test text" target={Link.target.SELF} />);
+    // eslint-disable-next-line jsx-a11y/anchor-is-valid
+    const { getByText } = render(<Link href="#" text="test text" target={Link.target.SELF} />);
     const element = getByText("test text").closest("a");
     expect(element.target).toBe(Link.target.SELF);
   });

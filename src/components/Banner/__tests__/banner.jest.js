@@ -45,7 +45,7 @@ describe("Banner", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should render title, subtitle and image", function() {
+  it("should render title, subtitle and image", () => {
     const tree = renderer
       .create(
         <Banner
@@ -61,21 +61,21 @@ describe("Banner", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should use custom render function for subtitle", function() {
+  it("should use custom render function for subtitle", () => {
     const tree = renderer
       .create(<Banner title={mockTitle} subtitle={mockSubtitle} renderSubtitle={mockRenderFunction} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("should use custom render function for title", function() {
+  it("should use custom render function for title", () => {
     const tree = renderer
       .create(<Banner title={mockTitle} subtitle={mockSubtitle} renderTitle={mockRenderFunction} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("should render close button", function() {
+  it("should render close button", () => {
     const tree = renderer
       .create(
         <Banner
@@ -91,7 +91,7 @@ describe("Banner", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should render in Right to Left mode", function() {
+  it("should render in Right to Left mode", () => {
     const tree = renderer
       .create(
         <Banner

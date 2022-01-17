@@ -62,7 +62,7 @@ jobs:
           body: |
             New icons version
           labels: |
-            icons
+            PR: Icon 💎
           assignees: orrgottlieb
           reviewers: orrgottlieb
           team-reviewers: |

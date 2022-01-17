@@ -31,7 +31,7 @@ export const checkboxTemplate = createComponentTemplate(Checkbox);
 Checkboxes allow users to select one or more items from a set of options.
 <Canvas>
   <Story name="Overview"
-         args={ {label: "Option", checked: true} }>
+         args={ {label: "Option", defaultChecked: true} }>
     { checkboxTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -81,7 +81,7 @@ Has 4 states: regular, hover, selected, and disabled.
         description: "Use checkboxes when one or more items can be selected."
       },
       negative: {
-        component: 
+        component:
           <DialogContentContainer className="monday-style-story-checkbox_wrapper">
             <Checkbox label="Item 1" name="Item 1" checked />
             <Checkbox label="Item 2" name="Item 2" disabled />
@@ -116,7 +116,7 @@ Has 4 states: regular, hover, selected, and disabled.
         description: "Place the checkbox on the left side of the label."
       },
       negative: {
-        component: 
+        component:
           <DialogContentContainer className="monday-style-story-checkbox_wrapper">
             <div className="monday-style-story-checkbox_inline-wrapper">
               <span>Item 1</span>
@@ -143,7 +143,7 @@ Has 4 states: regular, hover, selected, and disabled.
         description: "Always keep a positive tone of voice."
       },
       negative: {
-        component:         
+        component:
           <DialogContentContainer className="monday-style-story-checkbox_wrapper">
             <Checkbox label="Hide done items" checked />
           </DialogContentContainer>,

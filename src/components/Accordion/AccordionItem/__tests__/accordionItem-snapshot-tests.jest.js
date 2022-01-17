@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Accordion from "../../Accordion/Accordion.jsx";
+import Accordion from "../../Accordion/Accordion";
 import AccordionItem from "../AccordionItem";
 
 describe("AccordionItem renders correctly", () => {

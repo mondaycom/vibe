@@ -85,7 +85,7 @@ const MenuItem = ({
   });
 
   useEffect(() => {
-    if (isActive && shouldScrollMenu) {
+    if (isActive && shouldScrollMenu && referenceElement) {
       if (referenceElement.scrollIntoViewIfNeeded) {
         referenceElement.scrollIntoViewIfNeeded({ behaviour: "smooth" });
       } else {
@@ -160,15 +160,15 @@ const MenuItem = ({
   const [iconWrapperStyle, iconStyle] = useMemo(() => {
     return iconBackgroundColor
       ? [
-          {
-            backgroundColor: iconBackgroundColor,
-            borderRadius: "4px",
-            width: 20,
-            height: 20,
-            opacity: disabled ? 0.4 : 1
-          },
-          { color: "var(--text-color-on-primary)" }
-        ]
+        {
+          backgroundColor: iconBackgroundColor,
+          borderRadius: "4px",
+          width: 20,
+          height: 20,
+          opacity: disabled ? 0.4 : 1
+        },
+        { color: "var(--text-color-on-primary)" }
+      ]
       : [undefined, undefined];
   }, [iconBackgroundColor, disabled]);
 

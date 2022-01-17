@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import ListItem from "../ListItem";
 import { fireEvent, render } from "@testing-library/react";
+import ListItem from "../ListItem";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ListItem />).toJSON();

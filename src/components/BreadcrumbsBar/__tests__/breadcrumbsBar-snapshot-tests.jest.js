@@ -28,4 +28,3 @@ describe("BreadcrumbsBar renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 });
-  

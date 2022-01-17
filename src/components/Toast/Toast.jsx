@@ -52,15 +52,15 @@ const Toast = ({
   const toastLinks = useMemo(() => {
     return actions
       ? actions
-          .filter(action => action.type === TOAST_ACTION_TYPES.LINK)
-          .map(({ type: _type, ...otherProps }) => <ToastLink {...otherProps} />)
+        .filter(action => action.type === TOAST_ACTION_TYPES.LINK)
+        .map(({ type: _type, ...otherProps }) => <ToastLink {...otherProps} />)
       : null;
   }, [actions]);
   const toastButtons = useMemo(() => {
     return actions
       ? actions
-          .filter(action => action.type === TOAST_ACTION_TYPES.BUTTON)
-          .map(({ type: _type, content, ...otherProps }) => <ToastButton {...otherProps}> {content} </ToastButton>)
+        .filter(action => action.type === TOAST_ACTION_TYPES.BUTTON)
+        .map(({ type: _type, content, ...otherProps }) => <ToastButton {...otherProps}> {content} </ToastButton>)
       : null;
   }, [actions]);
   const classNames = useMemo(

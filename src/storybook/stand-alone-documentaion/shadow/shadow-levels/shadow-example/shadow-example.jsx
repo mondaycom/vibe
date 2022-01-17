@@ -12,7 +12,7 @@ export const ShadowExample = ({ size }) => {
     <div className={CSS_BASE_CLASS}>
       <div className={cx(bemHelper({ element: "example" }), bemHelper({ element: "example", state: size }))} />
       <span className={bemHelper({ element: "title" })}>{sizeName}</span>
-      <span className={bemHelper({ element: "code" })}>{`@include box-shadow-${size}`}</span>
+      <span className={bemHelper({ element: "code" })}>{`var(--box-shadow-${size})`}</span>
     </div>
   );
 };

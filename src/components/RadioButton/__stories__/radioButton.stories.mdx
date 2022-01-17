@@ -31,7 +31,7 @@ export const radioButtonTemplate = createComponentTemplate(RadioButton);
 A radio represents an item in a single selection list.
 <Canvas>
   <Story name="Overview"
-         args={ {text: "Selection", checked: true } }>
+         args={ {text: "Selection" } }>
     { radioButtonTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -79,7 +79,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
             <RadioButton text="Item 2" checked />
           </DialogContentContainer>,
         description:<>Don't use radio buttons when allowing the user to select more than one item from a list. In this case, use <Link href="/?path=/docs/inputs-checkbox--overview" withoutSpacing>checkboxes</Link> instead.</>
-      }               
+      }
     },
     {
       positive: {
@@ -92,7 +92,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
         description:"Mark the first item as selected, and make sure it’s the most common or popular action."
       },
       negative: {
-        component:     
+        component:
         <DialogContentContainer className="monday-style-radio-buttons_wrapper">
             <RadioButton text="Item 1" name="radio-buttons-group-3" />
             <RadioButton text="Item 2" name="radio-buttons-group-3" />

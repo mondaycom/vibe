@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render, cleanup, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { act } from 'react-dom/test-utils';
 import SplitButton, { SECONDARY_BUTTON_ARIA_LABEL } from "../SplitButton";
 
@@ -56,7 +56,7 @@ describe("SplitButton tests", () => {
         onSecondaryDialogDidHide: onSecondaryDialogDidHideMock
       });
       const arrowButton = splitButtonComponent.getByLabelText(ArrowButtonLabel);
-  
+
       act(() => {
         fireEvent.click(arrowButton);
         jest.advanceTimersByTime(1000);
@@ -67,4 +67,3 @@ describe("SplitButton tests", () => {
     });
   });
 });
-

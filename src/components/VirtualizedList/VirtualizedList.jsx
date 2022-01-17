@@ -10,7 +10,7 @@ import {
   getMaxOffset,
   getOnItemsRenderedData,
   isVerticalScrollbarVisible
-} from "./virtualized-list-service";
+} from "../../services/virtualized-service";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";

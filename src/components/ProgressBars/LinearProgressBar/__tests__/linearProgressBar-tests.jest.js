@@ -61,7 +61,7 @@ describe("ProgressBars Tests", () => {
       }
     });
   });
-  
+
   describe("multi progress bars", () => {
     const multiValues = [
       { value: 10, color: "rgb(255, 0, 0)" },
@@ -99,12 +99,10 @@ describe("ProgressBars Tests", () => {
       rerender(<LinearProgressBar max={100} id="test" multi multiValues={multiValues} />);
 
       let progressBarElements = screen.queryAllByRole("progressbar");
-      let style = window.getComputedStyle(progressBarElements[0]);
-      const widthBeforeChange = style.width;
 
       rerender(<LinearProgressBar max={100} id="test" multi multiValues={multiValuesWithChange} />);
       progressBarElements = screen.queryAllByRole("progressbar");
-      style = window.getComputedStyle(progressBarElements[2]);
+      const style = window.getComputedStyle(progressBarElements[2]);
 
       expect(style.backgroundColor).toEqual(multiValuesWithChange[0].color);
     });

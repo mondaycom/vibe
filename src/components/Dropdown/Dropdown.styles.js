@@ -102,8 +102,7 @@ const getOptionStyle = (provided, { isDisabled, isSelected, isFocused }) => {
   };
 };
 
-const container =
-  ({ size }) =>
+const container = ({ size }) =>
   (provided, { isDisabled }) => {
     delete provided.pointerEvents;
     return {
@@ -126,8 +125,7 @@ const container =
     };
   };
 
-const control =
-  ({ size }) =>
+const control = ({ size }) =>
   (provided, { isDisabled }) => ({
     ...provided,
     ...getInnerSize(size),
@@ -152,8 +150,7 @@ const placeholder = () => provided => ({
   fontWeight: 400
 });
 
-const indicatorsContainer =
-  ({ size }) =>
+const indicatorsContainer = ({ size }) =>
   (provided, { isDisabled }) => ({
     ...provided,
     ...getFont(),
@@ -163,8 +160,7 @@ const indicatorsContainer =
     ...getInnerSize(size)
   });
 
-const dropdownIndicator =
-  ({ size }) =>
+const dropdownIndicator = ({ size }) =>
   (provided, { selectProps }) => {
     return {
       ...provided,
@@ -188,8 +184,7 @@ const dropdownIndicator =
     };
   };
 
-const clearIndicator =
-  ({ size }) =>
+const clearIndicator = ({ size }) =>
   () => ({
     display: "flex",
     alignItems: "center",
@@ -211,8 +206,7 @@ const menuOpenOpacity = ({ menuIsOpen }) => {
   }
 };
 
-const singleValue =
-  () =>
+const singleValue = () =>
   (provided, { isDisabled, selectProps }) => ({
     ...provided,
     ...getFont(),
@@ -254,8 +248,7 @@ const getCenterContentStyle = rtl => {
   };
 };
 
-const valueContainer =
-  ({ size, rtl }) =>
+const valueContainer = ({ size, rtl }) =>
   (provided, { isDisabled }) => ({
     ...provided,
     ...getCenterContentStyle(rtl),

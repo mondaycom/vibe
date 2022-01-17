@@ -1,14 +1,21 @@
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import Link from "../Link.jsx";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { ExternalPage, Gallery } from "../../Icon/Icons"
 import { BUTTON, CHIP, BREADCRUBMS } from "../../../storybook/components/related-components/component-description-map";
 import { Link as StorybookLink } from "../../../storybook/components";
 import "./Link.stories.scss";
 
+export const argTypes = createStoryMetaSettings({
+  component: Link,
+  enumPropNamesArray: ["iconPosition", "target"],
+  iconPropNamesArray: ["icon"]
+});
+
 <Meta
   title="Navigation/Link"
   component={ Link }
+  argTypes={argTypes}
 />
 
 <!--- Component template -->
@@ -47,7 +54,7 @@ Link is an actionable text componet with connection to another web pages.
   "Links should be short with a clear action name. read more, go to, etc...",
 ]}/>
 
-<Tip>If you need and action that is not contexted, with text use <StorybookLink href="/?path=/docs/inputs-combobox--overview" size={StorybookLink.sizes.SMALL} withoutSpacing>Button</StorybookLink>.</Tip>
+<Tip>If you need an action that does not have context with text <StorybookLink href="/?path=/docs/inputs-combobox--overview" size={StorybookLink.sizes.SMALL} withoutSpacing>Button</StorybookLink>.</Tip>
 
 ## Variants
 ### States
@@ -71,7 +78,7 @@ Link is an actionable text componet with connection to another web pages.
       <Link
         text="קרא עוד"
         href="https://www.monday.com"
-        iconPosition={Link.position.END}
+        iconPosition={Link.iconPositions.END}
         icon="fa fa-info"
       />
   </Story>
@@ -88,7 +95,7 @@ Link is an actionable text componet with connection to another web pages.
     <Link
       text="Read more"
       href="https://www.monday.com"
-      iconPosition={Link.position.END}
+      iconPosition={Link.iconPositions.END}
       icon={ExternalPage}
     />
   </Story>
@@ -109,14 +116,14 @@ Link is an actionable text componet with connection to another web pages.
     },
     {
       positive: {
-        component: <Link text="Read more" iconPosition={Link.position.START} href="https://www.monday.com" icon={ExternalPage} />,
+        component: <Link text="Read more" iconPosition={Link.iconPositions.START} href="https://www.monday.com" icon={ExternalPage} />,
         description: "Use icon from the left or right side of the link"
       },
       negative: {
         component: 
         [
-          <Link icon={Gallery} iconPosition={Link.position.END} />, 
-          <Link icon={ExternalPage} text="Read more" iconPosition={Link.position.END} /> 
+          <Link icon={Gallery} iconPosition={Link.iconPositions.END} />,
+          <Link icon={ExternalPage} text="Read more" iconPosition={Link.iconPositions.END} />
         ],
         description: "Don’t use two icons for one link."
       }

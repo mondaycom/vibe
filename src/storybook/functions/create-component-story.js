@@ -1,6 +1,5 @@
 import React from "react";
 import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
-import Avatar from "../../components/Avatar/Avatar";
 import * as AllIcons from "../../components/Icon/Icons";
 
 export function createComponentTemplate(ComponentClass) {
@@ -18,7 +17,7 @@ const allowedIcons = iconsMetaData.reduce(
   { options: [], mapping: {} }
 );
 
-export function createStoryMetaSettings({ component, enumPropNamesArray, iconPropNamesArray }) {
+export function createStoryMetaSettings({ component, enumPropNamesArray, iconPropNamesArray, actionPropsArray }) {
   const argTypes = {};
 
   // set enum allowed values inside argsTypes object
@@ -31,8 +30,6 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
     }
   });
 
-  if (component === Avatar) console.log(argTypes);
-
   // set icon allowed values inside argsTypes object
   iconPropNamesArray?.forEach(propName => {
     argTypes[propName] = {
@@ -42,6 +39,10 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
         type: "select"
       }
     };
+  });
+
+  actionPropsArray?.forEach(propName => {
+    argTypes[propName] = { action: propName };
   });
 
   return argTypes;

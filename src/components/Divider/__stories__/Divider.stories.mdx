@@ -9,54 +9,56 @@ export const argTypes = createStoryMetaSettings({
   enumPropNamesArray: ["direction"]
 });
 
-<Meta
-  title="Data display/Divider"
-  component={ Divider }
-  argTypes={argTypes}
-/>
+<Meta title="Data display/Divider" component={Divider} argTypes={argTypes} />
 
 <!--- Component template -->
 
-export const dividerTemplate = args =>
-  <div style={{width: "400px", height: "200px"}}>
-    <Divider {...args}/>
+export const dividerTemplate = args => (
+  <div style={{ width: "400px", height: "40px" }}>
+    <Divider {...args} />
   </div>
+);
 
 <!--- Component documentation -->
 
 # Divider
+
 - [Overview](#overview)
 - [Props](#props)
 - [Variants](#variants)
 - [Feedback](#feedback)
 
 ## Overview
+
 Divider create separation between two UI elements
+
 <Canvas>
-  <Story name="Overview">
-    { dividerTemplate.bind({}) }
-  </Story>
+  <Story name="Overview">{dividerTemplate.bind({})}</Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Divider } />
+
+<ArgsTable of={Divider} />
 
 ## Variants
+
 ### Directions
+
 <Canvas>
   <Story name="Directions">
-    <div style={{display: "flex", flexDirection: "column", width: "400px"}}>
-      <div className={classes["divider-description-container"]}>
+    <div style={{ display: "flex", flexDirection: "column", width: "400px" }}>
+      <div className={classes["divider-description-container"]} style={{ height: 40 }}>
         <span className={classes["divider-description-text"]}>Horizontal</span>
-        <Divider direction={Divider.directions.HORIZONTAL}/>
+        <Divider direction={Divider.directions.HORIZONTAL} />
       </div>
       <div className={classes["divider-description-container"]}>
         <span className={classes["divider-description-text"]}>Vertical</span>
-        <Divider direction={Divider.directions.VERTICAL}/>
+        <Divider direction={Divider.directions.VERTICAL} className={classes["divider-description-horizontal"]}/>
       </div>
     </div>
   </Story>
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[LABEL, ICONS, CHIP]} />

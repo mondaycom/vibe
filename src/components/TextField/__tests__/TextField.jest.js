@@ -1,18 +1,17 @@
 import React from "react";
-import TextField, { ARIA_LABELS } from "../TextField";
 import { render, fireEvent, cleanup, screen, act } from "@testing-library/react";
+import TextField, { ARIA_LABELS } from "../TextField";
 
 describe("TextField Tests", () => {
   let inputComponent;
   let onChangeStub;
-  let defaultPlaceHolder = "Place Holder Text";
-  let clock;
+  const defaultPlaceHolder = "Place Holder Text";
   let ref;
   beforeEach(() => {
     cleanup();
     ref = { current: null };
     onChangeStub = jest.fn();
-    clock = jest.useFakeTimers("modern");
+    jest.useFakeTimers("modern");
     act(() => {
       inputComponent = render(
         <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" ref={ref} />
@@ -70,7 +69,7 @@ describe("TextField Tests", () => {
         <TextField placeholder={defaultPlaceHolder} onChange={onChangeStub} id="test" debounceRate={200} ref={ref} />
       );
     });
-    expect(ref.current.classList.contains("input-component__input")).toBeTruthy()
+    expect(ref.current.classList.contains("input-component__input")).toBeTruthy();
   });
 
   it("should call the debounced function after time passed (fake timers)", () => {
@@ -87,7 +86,7 @@ describe("TextField Tests", () => {
     act(() => {
       fireEvent.change(input, { target: { value } });
     });
-    jest.advanceTimersByTime(debounceTime + 1)
+    jest.advanceTimersByTime(debounceTime + 1);
     expect(onChangeStub.mock.calls.length).toEqual(1);
   });
 

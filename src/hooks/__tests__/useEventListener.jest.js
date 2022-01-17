@@ -1,7 +1,6 @@
-import React from "react";
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
-import useEventListener from "../useEventListener";
 import { fireEvent } from "@testing-library/react";
+import useEventListener from "../useEventListener";
 
 describe("useEventListener", () => {
   let element;
@@ -16,8 +15,7 @@ describe("useEventListener", () => {
           eventName: "click",
           ref: { current: element },
           callback: callbackStub
-        })
-      );
+        }));
     });
 
     afterEach(() => {
@@ -52,8 +50,7 @@ describe("useEventListener", () => {
           eventName: customEventName,
           ref: { current: element },
           callback: callbackStub
-        })
-      );
+        }));
     });
 
     afterEach(() => {
