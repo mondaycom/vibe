@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useState, useCallback, useEffect } from "react";
+import React, { useRef, forwardRef, useState, useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { useFocusWithin, useKeyboard } from "@react-aria/interactions";
@@ -22,8 +22,27 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     }
   }, [activeTabId, prevActiveTabIdProp, activeTabState, setActiveTabState]);
 
+  const data = useMemo(() => {
+    const disabledTabIds = new Set();
+    const childrenToRender = React.Children.map(children, (child, index) => {
+      if (child.props.disabled) {
+        disabledTabIds.add(index);
+      }
+      return React.cloneElement(child, {
+        value: index,
+        active: activeTabState === index,
+        focus: focusTab === index,
+        onClick: value => onTabClick(value, child.props.onClick)
+      });
+    });
+    return [childrenToRender, disabledTabIds];
+  }, [onTabClick, children, activeTabState, focusTab]);
+
+  const disabledTabIds = data[1];
+
   const onTabSelect = useCallback(
     tabId => {
+      if (disabledTabIds.has(tabId)) return;
       setActiveTabState(tabId);
       onTabChange && onTabChange(tabId);
     },
@@ -32,6 +51,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
 
   const onTabClick = useCallback(
     (tabId, tabCallbackFunc) => {
+      if (disabledTabIds.has(tabId)) return;
       if (tabCallbackFunc) tabCallbackFunc(tabId);
       onTabSelect(tabId);
       setFocusTab(-1);
@@ -77,17 +97,12 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     }
   });
 
+  const tabsToRender = data[0];
+
   return (
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
       <ul tabIndex={0} {...keyboardProps} {...focusWithinProps} className={cx("tabs-list", size)} role="tablist">
-        {React.Children.map(children, (child, index) => {
-          return React.cloneElement(child, {
-            value: index,
-            active: activeTabState === index,
-            focus: focusTab === index,
-            onClick: value => onTabClick(value, child.props.onClick)
-          });
-        })}
+        {tabsToRender}
       </ul>
     </div>
   );
