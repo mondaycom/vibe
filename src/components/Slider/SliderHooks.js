@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { NOOP } from "../../utils/function-utils";
+import useResizeObserver from "../../hooks/useResizeObserver";
+
+const UPDATE_SLIDER_SIZE_DEBOUNCE = 200;
 
 function ensureSingleValueText(valueText, value, formatter) {
   if (valueText) {
@@ -42,27 +45,17 @@ export function useSliderRail() {
     setRailCoords({ left, right, width });
   }, [railRef, setRailCoords]);
 
-  useSliderResize(defineRailCoords);
+  useResizeObserver({
+    ref: railRef,
+    callback: defineRailCoords,
+    debounceTime: UPDATE_SLIDER_SIZE_DEBOUNCE
+  });
 
   useEffect(() => {
     defineRailCoords();
   }, [defineRailCoords]);
 
   return { railCoords, railRef };
-}
-
-export function useSliderResize(onResize) {
-  const handleResize = useCallback(() => {
-    if (typeof onResize === "function") {
-      onResize();
-    }
-  }, [onResize]);
-
-  useEffect(() => {
-    // TODO: enhance by ResizeObserve
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [handleResize]);
 }
 
 export function useSliderValue({ defaultValue, isControlled, value }) {
