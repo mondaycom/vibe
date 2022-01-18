@@ -20,10 +20,10 @@ describe("Flex renders correctly", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("with horizontal position", () => {
+    it("with align", () => {
       const tree = renderer
         .create(
-          <Flex horizontalPosition={Flex.horizontalPositions.END}>
+          <Flex align={Flex.align.END}>
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -32,10 +32,10 @@ describe("Flex renders correctly", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("with horizontal spacing", () => {
+    it("with justify", () => {
       const tree = renderer
         .create(
-          <Flex horizontalSpacingSize={Flex.horizontalSpacingSizes.LARGE}>
+          <Flex justify={Flex.justify.SPACE_BETWEEN}>
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -44,10 +44,10 @@ describe("Flex renders correctly", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("with vertical position", () => {
+    it("with align", () => {
       const tree = renderer
         .create(
-          <Flex verticalPosition={Flex.verticalPositions.END}>
+          <Flex align={Flex.align.END}>
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -56,10 +56,10 @@ describe("Flex renders correctly", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("with vertical spacing", () => {
+    it("with gap", () => {
       const tree = renderer
         .create(
-          <Flex verticalSpacingSize={Flex.verticalSpacingSizes.LARGE}>
+          <Flex gap={Flex.gaps.LARGE}>
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -85,7 +85,7 @@ describe("Flex renders correctly", () => {
     it("with children", () => {
       const tree = renderer
         .create(
-          <Flex vertical>
+          <Flex direction={Flex.directions.COLUMN}>
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -94,10 +94,11 @@ describe("Flex renders correctly", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("with horizontal position", () => {
+
+    it("with justify", () => {
       const tree = renderer
         .create(
-          <Flex vertical horizontalPosition={Flex.horizontalPositions.END}>
+          <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.SPACE_BETWEEN}>
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -106,34 +107,10 @@ describe("Flex renders correctly", () => {
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it("with horizontal spacing", () => {
+    it("with align", () => {
       const tree = renderer
         .create(
-          <Flex vertical horizontalSpacingSize={Flex.horizontalSpacingSizes.LARGE}>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-          </Flex>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-    it("with vertical position", () => {
-      const tree = renderer
-        .create(
-          <Flex vertical verticalPosition={Flex.verticalPositions.END}>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-          </Flex>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-    it("with vertical spacing", () => {
-      const tree = renderer
-        .create(
-          <Flex vertical verticalSpacingSize={Flex.verticalSpacingSizes.LARGE}>
+          <Flex direction={Flex.directions.COLUMN} align={Flex.align.END}>
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -145,7 +122,7 @@ describe("Flex renders correctly", () => {
     it("with wrap", () => {
       const tree = renderer
         .create(
-          <Flex vertical wrap>
+          <Flex direction={Flex.directions.COLUMN} wrap>
             <div>1</div>
             <div>2</div>
             <div>3</div>
