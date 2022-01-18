@@ -13,7 +13,7 @@ import { createStoryMetaSettings } from "../../../storybook/functions/create-com
 import { tipseenTemplate } from "./tipseen.stories";
 import "./tipseen.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Tipseen,
   enumPropNamesArray: ["position", "animationType", "justify"],
 });
@@ -21,7 +21,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Popover/Tipseen"
   component={ Tipseen }
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component documentation -->

@@ -4,7 +4,7 @@ import { createComponentTemplate, createStoryMetaSettings } from "../../../story
 import Send from "../../Icon/Icons/components/Send";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
 
-export const argsTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: ListItem,
   enumPropNamesArray: ["size"]
   });
@@ -12,7 +12,8 @@ export const argsTypes = createStoryMetaSettings({
 <Meta
   title="Navigation/List/ListItem"
   component={ ListItem }
-  argTypes={ argsTypes }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

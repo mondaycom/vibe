@@ -8,7 +8,7 @@ import { createStoryMetaSettings } from "../../../storybook/functions/create-com
 import { TOOLTIP, ATTENTION_BOX, TOAST } from "../../../storybook/components/related-components/component-description-map";
 import "./alertBanner.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: AlertBanner,
   enumPropNamesArray: ["backgroundColor"],
 });
@@ -16,7 +16,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Feedback/AlertBanner"
   component={ AlertBanner }
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

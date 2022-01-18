@@ -4,12 +4,17 @@ import { createComponentTemplate, createStoryMetaSettings } from "../../../story
 import { CHIP, ICONS, LABEL } from "../../../storybook/components/related-components/component-description-map";
 import classes from "./Divider.stories.module.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Divider,
   enumPropNamesArray: ["direction"]
 });
 
-<Meta title="Data display/Divider" component={Divider} argTypes={argTypes} />
+<Meta 
+  title="Data display/Divider" 
+  component={ Divider } 
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators } 
+  />
 
 <!--- Component template -->
 

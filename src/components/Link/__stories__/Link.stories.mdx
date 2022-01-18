@@ -6,7 +6,7 @@ import { BUTTON, CHIP, BREADCRUBMS } from "../../../storybook/components/related
 import { Link as StorybookLink } from "../../../storybook/components";
 import "./Link.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Link,
   enumPropNamesArray: ["iconPosition", "target"],
   iconPropNamesArray: ["icon"]
@@ -15,7 +15,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Navigation/Link"
   component={ Link }
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

@@ -4,13 +4,18 @@ import { createComponentTemplate, createStoryMetaSettings } from "../../../story
 import TextColorIndicator from "../../Icon/Icons/components/TextColorIndicator";
 import Check from "../../Icon/Icons/components/Check";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: ColorPicker,
   enumPropNamesArray: ["colorStyle", "colorSize"],
-  actionPropsArray: ["onSave"]
+  actionPropsArray: [{name: "onSave", linkedToPropValue: "value"}]
 });
 
-<Meta title="Pickers/ColorPicker" component={ColorPicker} argTypes={argTypes}/>
+<Meta 
+  title="Pickers/ColorPicker"
+  component={ ColorPicker }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
+/>
 
 <!--- Component template -->
 

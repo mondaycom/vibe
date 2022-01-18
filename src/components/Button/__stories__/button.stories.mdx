@@ -7,7 +7,7 @@ import { BUTTON_GROUP, SPLIT_BUTTON, CHIP } from "../../../storybook/components/
 import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
 import "./button.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Button,
   enumPropNamesArray: ["kind", "size", "color", "type"],
   iconPropNamesArray: ["leftIcon", "rightIcon", "successIcon"],
@@ -17,7 +17,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Buttons/Button"
   component={Button}
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

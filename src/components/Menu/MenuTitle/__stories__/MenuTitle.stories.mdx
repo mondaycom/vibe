@@ -5,7 +5,7 @@ import {
 import MenuTitle from "../MenuTitle";
 import { menuTitleCaptionPositionsTemplate, menuTitleTemplate } from "./MenuTitle.stories";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: MenuTitle,
   enumPropNamesArray: ["captionPosition"]
 });
@@ -13,7 +13,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Navigation/Menu/MenuTitle"
   component={ MenuTitle }
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component documentation -->
