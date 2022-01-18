@@ -6,6 +6,7 @@ import { FLEX_POSITIONS, FLEX_GAPS, FLEX_DIRECTIONS } from "./FlexConstants";
 import { BASE_POSITIONS } from "../../constants/positions";
 import Clickable from "../Clickable/Clickable";
 import classes from "./Flex.module.scss";
+
 const Flex = forwardRef(
   ({ className, id, elementType, direction, wrap, children, justify, align, gap, onClick, style }, ref) => {
     const componentRef = useRef(null);

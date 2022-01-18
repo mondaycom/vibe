@@ -1,5 +1,4 @@
 import { BASE_POSITIONS } from "../../constants/positions";
-import { PASCAL_BASE_SIZE } from "../../constants/sizes";
 
 export const FLEX_POSITIONS = Object.freeze({
   ...BASE_POSITIONS,
