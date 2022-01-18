@@ -9,7 +9,7 @@ const TabPanel = forwardRef(({ className, id, children, index }, ref) => {
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
   return (
-    <div key={id || index} ref={mergedRef} className={cx("tab-panel--wrapper", className)} id={id} role="tabpanel">
+    <div key={`${id}_${index}`} ref={mergedRef} className={cx("tab-panel--wrapper", className)} id={id} role="tabpanel">
       {children}
     </div>
   );

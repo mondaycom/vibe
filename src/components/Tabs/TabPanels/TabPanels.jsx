@@ -10,15 +10,15 @@ const TabPanels = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const renderedTabs = useMemo(() => {
       return React.Children.map(children, (child, index) => {
-        if (activeTabId === index) {
-          return React.cloneElement(child, {
-            index,
-            ...child.props,
-            className: cx("tab-panel", "active", `animation-direction-${animationDirection}`, child.props.className)
-          });
-        }
-        if (renderOnlyActiveTab) return null;
-        return React.cloneElement(child, { ...child.props, index, className: cx("tab-panel", child.props.className) });
+        const isActiveTab = activeTabId === index;
+        if (renderOnlyActiveTab && !isActiveTab) return null;
+        const activeClass = isActiveTab ? "active" : "non-active";
+        const animationClass = isActiveTab ? `animation-direction-${animationDirection}` : "";
+        return React.cloneElement(child, {
+          index,
+          ...child.props,
+          className: cx("tab-panel", activeClass, animationClass, child.props.className)
+        });
       }).filter(Boolean);
     }, [children, activeTabId, renderOnlyActiveTab, animationDirection]);
 
