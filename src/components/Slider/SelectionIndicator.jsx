@@ -24,7 +24,7 @@ function parseValue(valueText) {
 const SelectionIndicator = ({ kind }) => {
   const isPostfix = kind === INFIX_KIND.POSTFIX;
   const { ranged, value, valueText } = useSliderSelection();
-  const [currentTextValue] = getCurrentLabel({ isPostfix, ranged, value, valueText });
+  const [, currentTextValue] = getCurrentLabel({ isPostfix, ranged, value, valueText });
   const { changeValue } = useSliderActions();
   const handleChange = useMemo(
     () =>

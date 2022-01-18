@@ -50,7 +50,7 @@
     transform: translate(-50%, -50%);
     transition: transform 0.2s $expand-animation-timing;
     &--dragging {
-      cursor: grabbing;
+      cursor: grabbing !important;
       transform: translate(-50%, -50%) scale(1.33, 1.33);
       transform-origin: center center;
       transition: transform 0.2s $expand-animation-timing;
