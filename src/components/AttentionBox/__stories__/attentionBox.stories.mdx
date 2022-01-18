@@ -46,7 +46,7 @@ export const attentionBoxTemplate = createComponentTemplate(AttentionBox);
 Attention box lets users know important information within content areas, as close as possible to the content it’s about.
 <Canvas>
   <Story name="Overview"
-         args={{ title: "Attention box title", text: "Studies show that 100% of people who celebrate birthdays, will eventually die.", className: "monday-style-attention-box_box" }}>
+         args={{ onClose: () => null, title: "Attention box title", text: "Studies show that 100% of people who celebrate birthdays, will eventually die.", className: "monday-style-attention-box_box" }}>
     { attentionBoxTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -58,8 +58,7 @@ Attention box lets users know important information within content areas, as clo
 <UsageGuidelines guidelines={[
   "Use attention box if there is crucial information for user to finish or be acknowledged about a task.",
   "Attention box do not dismiss automatically. They persist on the page until the user dismisses them or takes action that resolves the notification.",
-  "The width of attention box is based on content and layout. They can expand to the fill the container or content area they relate to.",
-  "Their height is based on the content length, which should not exceed two lines of text.",
+  "The width of attention box is based on content and layout. They can expand to the fill the container or content area they relate to."
 ]}/>
 
 <Tip title="Check yourself">If the information about a component isn’t critical for the user, use a <Link href="/?path=/docs/popover-tooltip--overview" size={Link.sizes.SMALL} withoutSpacing>Tooltip</Link> instead.</Tip>
@@ -170,14 +169,11 @@ Provides additional information about an action or section.
     <div className="monday-style-attention-box_wrapper">
       <span className="monday-style-attention-box_title">Cross-Account Copier</span>
       <span className="monday-style-attention-box_text" >Copy boards and dashboards to another account</span>
-      <AttentionBox 
-        text={
-          <>
-            <Icon icon={Info} iconSize="18" />
-            First, move the content you want to copy into folder. Only main boards and dashboards can be copied.
-            <Link href="#" size={Link.sizes.SMALL} withoutSpacing>Learn more.</Link>
-          </>
-        }
+      <AttentionBox
+        compact
+        withIconWithoutHeader
+        icon={Info}
+        text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
         type={ATTENTION_BOX_TYPES.DARK}
       />
     </div>
