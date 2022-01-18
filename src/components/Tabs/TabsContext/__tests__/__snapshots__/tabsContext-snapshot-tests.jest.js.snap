@@ -53,7 +53,7 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
     id=""
   >
     <div
-      className="tab-panel--wrapper tab-panel"
+      className="tab-panel--wrapper tab-panel non-active"
       id=""
       role="tabpanel"
     >

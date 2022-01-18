@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useState, useCallback, useEffect } from "react";
+import React, { useRef, forwardRef, useState, useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { useFocusWithin, useKeyboard } from "@react-aria/interactions";
@@ -22,21 +22,33 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     }
   }, [activeTabId, prevActiveTabIdProp, activeTabState, setActiveTabState]);
 
+  const disabledTabIds = useMemo(() => {
+    const disabledIds = new Set();
+    React.Children.forEach(children, (child, index) => {
+      if (child.props.disabled) {
+        disabledIds.add(index);
+      }
+    });
+    return disabledIds;
+  }, [children]);
+
   const onTabSelect = useCallback(
     tabId => {
+      if (disabledTabIds.has(tabId)) return;
       setActiveTabState(tabId);
       onTabChange && onTabChange(tabId);
     },
-    [onTabChange]
+    [onTabChange, disabledTabIds]
   );
 
   const onTabClick = useCallback(
     (tabId, tabCallbackFunc) => {
+      if (disabledTabIds.has(tabId)) return;
       if (tabCallbackFunc) tabCallbackFunc(tabId);
       onTabSelect(tabId);
       setFocusTab(-1);
     },
-    [onTabSelect, setFocusTab]
+    [onTabSelect, disabledTabIds, setFocusTab]
   );
 
   function onKeyDown(keyCode) {
@@ -77,17 +89,22 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     }
   });
 
+  const tabsToRender = useMemo(() => {
+    const childrenToRender = React.Children.map(children, (child, index) => {
+      return React.cloneElement(child, {
+        value: index,
+        active: activeTabState === index,
+        focus: focusTab === index,
+        onClick: value => onTabClick(value, child.props.onClick)
+      });
+    });
+    return childrenToRender;
+  }, [onTabClick, children, activeTabState, focusTab]);
+
   return (
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
       <ul tabIndex={0} {...keyboardProps} {...focusWithinProps} className={cx("tabs-list", size)} role="tablist">
-        {React.Children.map(children, (child, index) => {
-          return React.cloneElement(child, {
-            value: index,
-            active: activeTabState === index,
-            focus: focusTab === index,
-            onClick: value => onTabClick(value, child.props.onClick)
-          });
-        })}
+        {tabsToRender}
       </ul>
     </div>
   );
