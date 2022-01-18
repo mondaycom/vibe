@@ -46,7 +46,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
       setActiveTabState(tabId);
       onTabChange && onTabChange(tabId);
     },
-    [onTabChange]
+    [onTabChange, disabledTabIds]
   );
 
   const onTabClick = useCallback(
@@ -56,7 +56,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
       onTabSelect(tabId);
       setFocusTab(-1);
     },
-    [onTabSelect, setFocusTab]
+    [onTabSelect, disabledTabIds, setFocusTab]
   );
 
   function onKeyDown(keyCode) {
