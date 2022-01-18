@@ -450,14 +450,14 @@ Snapshot Diff:
 + Current Render
 
 @@ --- --- @@
-          class="monday-style-label monday-style-label--kind-line monday-style-label--color-dark monday-style-label--with-animation"
-        >
-          <span>
--           25%
-+           45%
-          </span>
-          <span
-            class="monday-style-label__leg-wrapper"
+      <div
+        data-testid="mock-text-field-comp"
+      >
+-       {"value":"25%"}
++       {"value":"45%"}
+      </div>
+    </div>
+    <div
 @@ --- --- @@
         />
         <div

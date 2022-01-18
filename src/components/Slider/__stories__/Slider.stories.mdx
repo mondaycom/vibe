@@ -175,13 +175,25 @@ __Important!__ Please use customisation very careful, only if you really need it
     />
     <Slider
       id="custom-value-formatter"
-      className="my-custom-forrmater"
+      className="my-custom-formatter"
       defaultValue={3}
       min={1}
       max={10}
       indicateSelection={true}
       valueFormatter={(value) => `${value}GB`}
       prefix="Custom value formatter"
+      size={Slider.sizes.MEDIUM}
+    />
+    <Slider
+      id="custom-value-formatter"
+      className="my-long-formatter"
+      defaultValue={3}
+      min={1}
+      max={10}
+      indicateSelection={true}
+      selectionIndicatorWidth='120px'
+      valueFormatter={(value) => `${value} meter/hour`}
+      prefix="Long value formatter"
       size={Slider.sizes.MEDIUM}
     />
     <Slider

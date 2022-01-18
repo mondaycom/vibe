@@ -377,14 +377,14 @@ Snapshot Diff:
         </div>
       </div>
 @@ --- --- @@
-          class="monday-style-label monday-style-label--kind-line monday-style-label--color-dark monday-style-label--with-animation"
-        >
-          <span>
--           20%
-+           40%
-          </span>
-          <span
-            class="monday-style-label__leg-wrapper"
+      <div
+        data-testid="mock-text-field-comp"
+      >
+-       {"value":"20%"}
++       {"value":"40%"}
+      </div>
+    </div>
+  </div>
 `;
 
 exports[`d. Non-ranged Slider Mouse Events 01. decrease by mouse click on Track 1`] = `

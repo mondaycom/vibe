@@ -11,13 +11,11 @@ jest.mock("../../Icon/Icon", () => {
   };
 });
 
-jest.mock("../../Label/Label", () => {
-  const Label = props => {
-    return <div data-testid="mock-label-comp">{JSON.stringify(props)}</div>;
+jest.mock("../../TextField/TextField", () => {
+  const TextField = props => {
+    return <div data-testid="mock-text-field-comp">{JSON.stringify(props)}</div>;
   };
-  Label.colors = { DARK: "dark" };
-  Label.kinds = { LINE: "line" };
-  return Label;
+  return TextField;
 });
 
 describe("Slider Render", () => {

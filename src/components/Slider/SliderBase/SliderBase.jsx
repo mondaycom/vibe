@@ -39,8 +39,8 @@ const SliderBase = forwardRef(({ className }, ref) => {
     e => {
       const offsetInPx = e.clientX - railCoords.left;
       const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
-      const newFocused = getNearest({ newValue, ranged, value });
-      changeValue(newValue, { newFocused });
+      const thumbIndex = getNearest({ newValue, ranged, value });
+      changeValue(newValue, { thumbIndex, isChangeFocus: true });
     },
     [changeValue, min, max, railCoords, ranged, step, value]
   );

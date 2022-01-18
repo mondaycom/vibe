@@ -2,8 +2,16 @@ import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { snapshotDiff } from "../../../../jest/utils";
 import { renderSliderInNonRangeMode } from "./slider-tests.utils";
+import React from "react";
 
 jest.useFakeTimers();
+
+jest.mock("../../TextField/TextField", () => {
+  const TextField = props => {
+    return <div data-testid="mock-text-field-comp">{JSON.stringify(props)}</div>;
+  };
+  return TextField;
+});
 
 it("a. Non-ranged Slider: basic renderer", async () => {
   const { asFragment } = await renderSliderInNonRangeMode();

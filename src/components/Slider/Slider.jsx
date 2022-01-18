@@ -33,13 +33,14 @@ const Slider = forwardRef(
       // ------ Additional subcomponents' props
       indicateSelection,
       prefix,
-      postfix
+      postfix,
+      selectionIndicatorWidth
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const infixOptions = useMemo(() => ({ prefix, postfix, indicateSelection }), [prefix, postfix, indicateSelection]);
+    const infixOptions = useMemo(() => ({ prefix, postfix, indicateSelection, selectionIndicatorWidth }), [prefix, postfix, indicateSelection, selectionIndicatorWidth]);
     return (
       <SliderProvider
         ariaLabel={ariaLabel}
@@ -196,7 +197,11 @@ Slider.propTypes = {
     PropTypes.string,
     PropTypes.func,
     PropTypes.node
-  ])
+  ]),
+  /**
+   * Width of SelectionIndicator (i.e. TextField)
+   */
+  selectionIndicatorWidth: PropTypes.string
 };
 
 Slider.defaultProps = {
@@ -222,7 +227,8 @@ Slider.defaultProps = {
   // ------ Additional subcomponents' props
   indicateSelection: false,
   prefix: undefined,
-  postfix: undefined
+  postfix: undefined,
+  selectionIndicatorWidth: '70px'
 };
 
 export default Slider;

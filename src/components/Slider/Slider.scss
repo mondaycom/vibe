@@ -14,6 +14,7 @@
   &__prefix {
     font-size: 14px;
     margin-right: 8px;
+    flex: 0 0 auto;
 
     &--txt {
       white-space: nowrap;
@@ -23,6 +24,7 @@
   &__postfix {
     font-size: 14px;
     margin-left: 8px;
+    flex: 0 0 auto;
     &--txt {
       white-space: nowrap;
     }

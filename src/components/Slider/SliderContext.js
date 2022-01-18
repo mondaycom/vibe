@@ -2,7 +2,7 @@ import React, { createContext, useCallback, useContext, useMemo, useState } from
 import { SIZES_BASIC } from "../../constants";
 import { createTestIdHelper } from "../../helpers/testid-helper";
 import { NOOP } from "../../utils/function-utils";
-import { calculatePageStep, getCurrentValue } from "./SliderHelpers";
+import { calculatePageStep, getCurrentValue, validateValue } from "./SliderHelpers";
 import { useSliderValues } from "./SliderHooks";
 
 const uiDefaults = {
@@ -102,31 +102,33 @@ export function SliderProvider({
   );
 
   const changeValue = useCallback(
-    (newValue, { newFocused } = {}) => {
+    (newValue, { thumbIndex, isChangeFocus } = {}) => {
       if (!ranged) {
-        actualChangeValue(newValue);
+        const validatedValue = validateValue({ newValue, min, max, thumbIndex: 0 })
+        actualChangeValue(validatedValue);
         return;
       }
       const newValues = [...actualValue];
-      const isNewFocus = typeof newFocused !== "undefined";
-      const currentFocused = isNewFocus ? newFocused : focused;
-      newValues[currentFocused] = newValue;
+      const currentThumb = typeof thumbIndex === "undefined" ? focused : thumbIndex;
+      newValues[currentThumb] = validateValue({ newValue, min, max, thumbIndex: 0 });
       if (newValues[0] > newValues[1]) {
-        const switched = currentFocused === 0 ? 1 : 0;
+        const switched = currentThumb === 0 ? 1 : 0;
         setActive(switched);
-        setFocused(switched);
+        if (isChangeFocus !== false) {
+          setFocused(switched);
+        }
         if (dragging !== null) {
           setDragging(switched);
         }
         actualChangeValue([newValues[1], newValues[0]]);
         return;
       }
-      if (isNewFocus) {
-        setFocused(currentFocused);
+      if (isChangeFocus) {
+        setFocused(currentThumb);
       }
       actualChangeValue(newValues);
     },
-    [actualValue, actualChangeValue, dragging, focused, ranged, setActive, setFocused]
+    [actualValue, actualChangeValue, dragging, focused, max, min, ranged, setActive, setFocused]
   );
 
   const increaseValue = useCallback(

@@ -325,11 +325,12 @@ Snapshot Diff:
     </div>
 +   <div
 +     class="monday-slider__postfix"
++     style="width: 70px;"
 +   >
 +     <div
-+       data-testid="mock-label-comp"
++       data-testid="mock-text-field-comp"
 +     >
-+       {"text":"0%","color":"dark","kind":"line"}
++       {"value":"0%"}
 +     </div>
 +   </div>
   </div>

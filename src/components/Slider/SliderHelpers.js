@@ -49,12 +49,12 @@ export function getCurrentValue(actualValue, ranged, focused) {
 export function calcDimensions({ max, min, ranged, value }) {
   if (!ranged) {
     const [dimension, position] = calcDimension({ max, min, value });
-    return { dimension, offset: 0, positions: [position], thumbKeys: ['start'] };
+    return { dimension, offset: 0, positions: [position], thumbKeys: ["start"] };
   }
   const [val1, val2] = value;
   const [offset, position] = calcDimension({ max, min, value: val1 });
   const [dimension, position2] = calcDimension({ max, min, value: val2 });
-  return { dimension, offset, positions: [position, position2], thumbKeys: ['start', 'end'] };
+  return { dimension, offset, positions: [position, position2], thumbKeys: ["start", "end"] };
 }
 
 export function calcDimension({ max, min, value }) {
@@ -97,4 +97,17 @@ export function ensureDefaultValue({ defaultValue, min, max, ranged }) {
     return max;
   }
   return defaultValue;
+}
+
+export function validateValue({ max, min, newValue, thumbIndex }) {
+  if (newValue === "" || Number.isNaN(Number(newValue))) {
+    return thumbIndex === 1 ? max : min;
+  }
+  if (newValue > max) {
+    return max;
+  }
+  if (newValue < min) {
+    return min;
+  }
+  return newValue;
 }
