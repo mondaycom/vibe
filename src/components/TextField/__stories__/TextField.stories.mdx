@@ -6,7 +6,7 @@ import { Email, CloseSmall, Check } from "../../Icon/Icons";
 import { DROPDOWN, SEARCH, COMBOBOX } from "../../../storybook/components/related-components/component-description-map";
 import "./TextField.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: TextField,
   enumPropNamesArray: ["type", "size"],
   iconPropNamesArray: ["secondaryIconName", "iconName", "labelIconName"]
@@ -15,7 +15,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Inputs/TextField"
   component={ TextField }
-  argTypes={ argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

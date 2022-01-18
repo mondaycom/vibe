@@ -3,7 +3,7 @@ import { createStoryMetaSettings } from "../../../../storybook/functions/create-
 import TabPanel from "../../TabPanel/TabPanel";
 import TabPanels from "../TabPanels";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: TabPanels,
   enumPropNamesArray: ["animationDirection"]
 })
@@ -11,7 +11,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Navigation/Tabs/TabPanels"
   component={ TabPanels }
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

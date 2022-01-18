@@ -7,7 +7,7 @@ import { Link } from "../../../storybook/components";
 import Desktop from "./assets/Desktop.js"
 import "./buttonGroup.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: ButtonGroup,
   enumPropNamesArray: ["kind", "size"]
 });
@@ -15,7 +15,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Buttons/ButtonGroup"
   component={ ButtonGroup }
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

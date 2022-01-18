@@ -14,7 +14,7 @@ import BreadcrumbsBar from "../../../BreadcrumbsBar/BreadcrumbsBar.jsx";
 import BreadcrumbItem from "../../../BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx";
 import "./linearProgressBar.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: LinearProgressBar,
   enumPropNamesArray: ["size", "barStyle"]
 });
@@ -22,7 +22,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Feedback/LinearProgressBar"
   component={ LinearProgressBar }
-  argTypes={ argTypes }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

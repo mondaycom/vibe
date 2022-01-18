@@ -18,7 +18,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    content: '';
+    content: "";
     border-bottom: solid 2px;
     @include theme-prop(border-bottom-color, primary-color);
     transform: scaleX(0);
@@ -97,9 +97,8 @@
   }
 
   &.disabled {
-    @include theme-prop(color, disabled-text-color);
-
     .tab-inner {
+      @include theme-prop(color, disabled-text-color);
       cursor: not-allowed;
     }
   }

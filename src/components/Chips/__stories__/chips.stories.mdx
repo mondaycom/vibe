@@ -10,7 +10,7 @@ import { Email } from "../../Icon/Icons";
 import person1 from "./assets/person1.png"
 import "./chips.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Chips,
   enumPropNamesArray: ["color"],
   iconPropNamesArray: ["rightIcon", "leftIcon"]
@@ -19,7 +19,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Data display/Chips"
   component={Chips}
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

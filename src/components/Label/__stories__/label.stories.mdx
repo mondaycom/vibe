@@ -5,7 +5,7 @@ import { TOOLTIP, COUNTER, CHIP } from "../../../storybook/components/related-co
 import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
 import "./label.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Label,
   enumPropNamesArray: ["kind" ,"color"]
 })
@@ -13,7 +13,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Data display/Label"
   component={ Label }
-  argTypes={ argTypes }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

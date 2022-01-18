@@ -9,13 +9,18 @@ import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
 import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
 import "./splitButton.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: SplitButton,
   enumPropNamesArray: ["dialogPaddingSize", "kind", "secondaryDialogPosition"],
   iconPropNamesArray: ["leftIcon", "rightIcon"]
 });
 
-<Meta title="Buttons/Split Button" component={SplitButton} argTypes={argTypes} />
+<Meta 
+  title="Buttons/Split Button"
+  component={ SplitButton }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
+/>
 
 <!--- Component template -->
 

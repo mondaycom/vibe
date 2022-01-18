@@ -10,7 +10,7 @@ import {
   menuItemButtonDisabledTemplate
 } from "./menuItemButton.stories";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: MenuItemButton,
   enumPropNamesArray: ["kind", "tooltipPosition"],
   iconPropNamesArray: ["leftIcon", "rightIcon"]
@@ -19,7 +19,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Navigation/Menu/MenuItemButton"
   component={ MenuItemButton }
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

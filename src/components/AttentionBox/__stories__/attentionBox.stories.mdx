@@ -13,7 +13,7 @@ import { TOOLTIP, ALERT_BANNER, TOAST } from "../../../storybook/components/rela
 import person from "./assets/person.png";
 import "./attentionBox.stories.scss";
 
-export const argsTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: AttentionBox,
   enumPropNamesArray: ["type", "iconType"],
   iconPropNamesArray: ["icon"]
@@ -22,7 +22,8 @@ export const argsTypes = createStoryMetaSettings({
 <Meta
   title="Feedback/AttentionBox"
   component={AttentionBox}
-  argTypes={argsTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

@@ -6,7 +6,7 @@ import { createComponentTemplate, createStoryMetaSettings } from "../../../story
 import { BUTTON_GROUP, MENU_BUTTON, BUTTON } from "../../../storybook/components/related-components/component-description-map";
 import { Link } from "../../../storybook/components";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: IconButton,
   enumPropNamesArray: ["kind", "size"],
   iconPropNamesArray: ["icon"]
@@ -15,7 +15,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Buttons/IconButton"
   component={ IconButton }
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

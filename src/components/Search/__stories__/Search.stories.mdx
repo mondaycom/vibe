@@ -7,7 +7,7 @@ import Combobox from "../../Combobox/Combobox.jsx";
 import { DROPDOWN, TEXT_FIELD, COMBOBOX } from "../../../storybook/components/related-components/component-description-map";
 import "./Search.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Search,
   enumPropNamesArray: ["type", "size"],
   iconPropNamesArray: ["secondaryIconName", "iconName"]
@@ -16,7 +16,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Inputs/Search"
   component={ Search }
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

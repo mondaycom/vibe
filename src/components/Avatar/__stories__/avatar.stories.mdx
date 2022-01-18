@@ -7,7 +7,7 @@ import { MultipleStoryElementsWrapper } from "../../../storybook/components";
 import { home, guest, minus, person1, person2, person3, maleIcon, femaleIcon, owner } from "./assets";
 import "./avatar.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Avatar,
   enumPropNamesArray: ["type", "size"],
   iconPropNamesArray: ["icon"]
@@ -16,7 +16,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta 
   title="Media/Avatar"
   component={Avatar}
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

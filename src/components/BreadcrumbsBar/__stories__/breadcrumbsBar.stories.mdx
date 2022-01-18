@@ -10,7 +10,7 @@ import { BUTTON_GROUP, WIZARD, TABS } from "../../../storybook/components/relate
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import "./breadcrumbsBar.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: BreadcrumbsBar,
   enumPropNamesArray: ["type"]
 });
@@ -18,7 +18,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Navigation/BreadcrumbsBar/BreadcrumbsBar"
   component={ BreadcrumbsBar }
-  argTypes={ argTypes }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

@@ -9,7 +9,7 @@ import Icon from "../../Icon/Icon.jsx"
 import { Link } from "../../../storybook/components";
 import "./counter.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Counter,
   enumPropNamesArray: ["size", "color", "kind", ]
 });
@@ -17,7 +17,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Feedback/Counter"
   component={ Counter }
-  argTypes={ argTypes }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

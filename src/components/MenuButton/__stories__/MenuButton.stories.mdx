@@ -12,7 +12,7 @@ import MoveArrowLeft from "../../Icon/Icons/components/MoveArrowLeft";
 import MoveArrowRight from "../../Icon/Icons/components/MoveArrowRight";
 
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: MenuButton,
   iconPropNamesArray: ["component"]
 });
@@ -20,7 +20,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Buttons/MenuButton"
   component={ MenuButton }
-  argTypes={argTypes}
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->

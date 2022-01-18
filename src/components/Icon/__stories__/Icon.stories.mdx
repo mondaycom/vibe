@@ -5,12 +5,17 @@ import { createComponentTemplate, createStoryMetaSettings } from "../../../story
 import { IconsList } from "./icon.stories.helperComponents";
 import "./Icon.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: Icon,
   iconPropNamesArray: ["icon"]
 });
 
-<Meta title="Media/Icon" component={Icon} argTypes={argTypes} />
+<Meta
+  title="Media/Icon"
+  component={ Icon }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
+/>
 
 <!--- Component template -->
 

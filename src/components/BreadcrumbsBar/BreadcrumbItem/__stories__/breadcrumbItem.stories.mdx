@@ -8,7 +8,7 @@ import BreadcrumbItem from "../BreadcrumbItem";
 import { Workspace } from "../../../Icon/Icons";
 import "./breadcrumbItem.stories.scss";
 
-export const argTypes = createStoryMetaSettings({
+export const metaSettings = createStoryMetaSettings({
   component: BreadcrumbItem,
   iconPropNamesArray: ["icon"]
 })
@@ -16,7 +16,8 @@ export const argTypes = createStoryMetaSettings({
 <Meta
   title="Navigation/BreadcrumbsBar/BreadcrumbItem"
   component={ BreadcrumbItem }
-  argTypes={ argTypes }
+  argTypes={ metaSettings.argTypes }
+  decorators={ metaSettings.decorators }
 />
 
 <!--- Component template -->
