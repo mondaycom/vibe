@@ -22,23 +22,15 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     }
   }, [activeTabId, prevActiveTabIdProp, activeTabState, setActiveTabState]);
 
-  const data = useMemo(() => {
-    const disabledTabIds = new Set();
-    const childrenToRender = React.Children.map(children, (child, index) => {
+  const disabledTabIds = useMemo(() => {
+    const disabledIds = new Set();
+    React.Children.forEach(children, (child, index) => {
       if (child.props.disabled) {
-        disabledTabIds.add(index);
+        disabledIds.add(index);
       }
-      return React.cloneElement(child, {
-        value: index,
-        active: activeTabState === index,
-        focus: focusTab === index,
-        onClick: value => onTabClick(value, child.props.onClick)
-      });
     });
-    return [childrenToRender, disabledTabIds];
-  }, [onTabClick, children, activeTabState, focusTab]);
-
-  const disabledTabIds = data[1];
+    return disabledIds;
+  }, [children]);
 
   const onTabSelect = useCallback(
     tabId => {
@@ -97,7 +89,17 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     }
   });
 
-  const tabsToRender = data[0];
+  const tabsToRender = useMemo(() => {
+    const childrenToRender = React.Children.map(children, (child, index) => {
+      return React.cloneElement(child, {
+        value: index,
+        active: activeTabState === index,
+        focus: focusTab === index,
+        onClick: value => onTabClick(value, child.props.onClick)
+      });
+    });
+    return childrenToRender;
+  }, [onTabClick, children, activeTabState, focusTab]);
 
   return (
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
