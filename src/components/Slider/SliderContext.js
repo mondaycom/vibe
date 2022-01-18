@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useMemo, useState } from "react";
-import { SIZES_BASIC } from "../../constants";
+import { BASE_SIZES } from "../../constants";
 import { createTestIdHelper } from "../../helpers/testid-helper";
 import { NOOP } from "../../utils/function-utils";
 import { calculatePageStep, getCurrentValue, validateValue } from "./SliderHelpers";
@@ -13,7 +13,7 @@ const uiDefaults = {
   disabled: false,
   dragging: null,
   focused: null,
-  size: SIZES_BASIC.SMALL,
+  size: BASE_SIZES.SMALL,
   shapeTestId: NOOP,
   showValue: false
 };

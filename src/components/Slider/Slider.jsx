@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
-import { COLORS_BASIC, SIZES_BASIC } from "../../constants";
+import { COLORS_BASIC, BASE_SIZES } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
 import "./Slider.scss";
@@ -76,7 +76,7 @@ const Slider = forwardRef(
   }
 );
 
-Slider.sizes = SIZES_BASIC;
+Slider.sizes = BASE_SIZES;
 Slider.colors = COLORS_BASIC;
 
 Slider.propTypes = {
@@ -219,7 +219,7 @@ Slider.defaultProps = {
   onChange: NOOP,
   ranged: false,
   step: 1,
-  size: SIZES_BASIC.SMALL,
+  size: BASE_SIZES.SMALL,
   showValue: false,
   value: undefined,
   valueFormatter: value => `${value}%`,
