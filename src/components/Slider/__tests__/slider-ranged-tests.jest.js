@@ -1,8 +1,8 @@
+import React from "react";
 import { act, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { snapshotDiff } from "../../../../jest/utils";
 import { renderSliderInRangeMode } from "./slider-tests.utils";
-import React from "react";
 
 jest.useFakeTimers();
 

@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import debounce from "lodash/debounce";
 import TextField from "../TextField/TextField";
@@ -24,15 +24,16 @@ function parseValue(valueText) {
 const SelectionIndicator = ({ kind }) => {
   const isPostfix = kind === INFIX_KIND.POSTFIX;
   const { ranged, value, valueText } = useSliderSelection();
-  const [currentValue, currentTextValue] = getCurrentLabel({ isPostfix, ranged, value, valueText });
+  const [currentTextValue] = getCurrentLabel({ isPostfix, ranged, value, valueText });
   const { changeValue } = useSliderActions();
-  const handleChange = useCallback(
-    debounce(newValueText => {
-      const newValue = parseValue(newValueText);
-      const thumbIndex = isPostfix ? 1 : 0;
-      changeValue(newValue, { thumbIndex, isChangeFocus: false });
-    }, VALUE_UPDATE_DELAY),
-    [currentValue, changeValue, isPostfix]
+  const handleChange = useMemo(
+    () =>
+      debounce(newValueText => {
+        const newValue = parseValue(newValueText);
+        const thumbIndex = isPostfix ? 1 : 0;
+        changeValue(newValue, { thumbIndex, isChangeFocus: false });
+      }, VALUE_UPDATE_DELAY),
+    [changeValue, isPostfix]
   );
   return <TextField onChange={handleChange} value={currentTextValue} />;
 };

@@ -104,7 +104,7 @@ export function SliderProvider({
   const changeValue = useCallback(
     (newValue, { thumbIndex, isChangeFocus } = {}) => {
       if (!ranged) {
-        const validatedValue = validateValue({ newValue, min, max, thumbIndex: 0 })
+        const validatedValue = validateValue({ newValue, min, max, thumbIndex: 0 });
         actualChangeValue(validatedValue);
         return;
       }
