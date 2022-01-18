@@ -1,0 +1,48 @@
+@import "../../styles/themes.scss";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  &.justify {
+    &Start {
+      justify-content: flex-start;
+    }
+
+    &End {
+      justify-content: flex-end;
+    }
+
+    &Center {
+      justify-content: center;
+    }
+
+    &SpaceBetween {
+      justify-content: space-between;
+    }
+
+    &SpaceAround {
+      justify-content: space-around;
+    }
+  }
+  &.align {
+    &Start {
+      align-items: flex-start;
+    }
+
+    &End {
+      align-items: flex-end;
+    }
+
+    &Center {
+      align-items: center;
+    }
+  }
+  &.direction {
+    &Column {
+      flex-direction: column;
+    }
+  }
+  &.wrap {
+    flex-wrap: wrap;
+  }
+}

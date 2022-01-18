@@ -1,9 +1,11 @@
+export const PASCAL_BASE_SIZE = Object.freeze({ SMALL: "Small", MEDIUM: "Medium", LARGE: "Large" });
+
+export const BASE_SIZES = Object.freeze({ SMALL: "small", MEDIUM: "medium", LARGE: "large" });
+
 export const SIZES = Object.freeze({
   XXS: "xxs",
   XS: "xs",
-  SMALL: "small",
-  MEDIUM: "medium",
-  LARGE: "large"
+  ...BASE_SIZES
 });
 
 export const DialogPositions = Object.freeze({

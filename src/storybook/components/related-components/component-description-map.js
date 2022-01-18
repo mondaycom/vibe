@@ -36,6 +36,7 @@ import { IconButtonDescription } from "./descriptions/icon-button-description";
 import { MenuButtonDescription } from "./descriptions/menu-button-description";
 import { ClickableDescription } from "./descriptions/clickable-description/clickable-description";
 import { HiddenTextDescription } from "./descriptions/hidden-text-description";
+import { ListDescription } from "./descriptions/list";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -71,6 +72,7 @@ export const ICON_BUTTON = "icon-button";
 export const MENU_BUTTON = "menu-button";
 export const CLICKABLE = "clickable";
 export const HIDDEN_TEXT = "hidden-text-description";
+export const LIST = "list";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
@@ -114,6 +116,7 @@ descriptionTypesMap.set(EDITABLE_HEADING, <EditableHeadingDescription />);
 descriptionTypesMap.set(HEADING, <HeadingDescription />);
 descriptionTypesMap.set(CLICKABLE, <ClickableDescription />);
 descriptionTypesMap.set(HIDDEN_TEXT, <HiddenTextDescription />);
+descriptionTypesMap.set(LIST, <ListDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
