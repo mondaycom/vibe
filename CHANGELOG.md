@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.3 (2022-01-18)
+
+#### Bug Fixes
+* [#460](https://github.com/mondaycom/monday-ui-react-core/pull/460) Fix tabs rendering non active tabs ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.3.2 (2022-01-17)
 
 #### New Icons
