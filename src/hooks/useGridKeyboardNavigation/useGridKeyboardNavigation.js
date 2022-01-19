@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState, useContext } from "react";
 import useFullKeyboardListeners from "../useFullKeyboardListeners";
-import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigation/GridKeyboardNavigationContext";
+import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { calcActiveIndexAfterArrowNavigation, getActiveIndexFromInboundNavigation } from "./gridKeyboardNavigationHelper";
 import useEventListener from "../useEventListener";
 
