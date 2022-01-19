@@ -1,0 +1,33 @@
+@import "../../__stories__/general-hooks-stories.scss";
+@import "../../../styles/states.scss";
+@import "../../../styles/typography.scss";
+@import "../../../styles/global-css-settings.scss";
+
+.use-grid-keyboard-nav-comp-wrapper {
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    outline: none;
+    text-align: center;
+}
+
+.use-grid-keyboard-nav-item {
+    width: 60px;
+    margin: $spacing-xs-small;
+
+    &.active-item {
+        @include focus-style-css();
+    }
+}
+
+.use-grid-keyboard-nav-controls {
+    display: flex;
+
+    & :not(:first-child) {
+        margin-left: $spacing-medium;
+    }
+
+    input {
+        width: 60px;
+    }
+}

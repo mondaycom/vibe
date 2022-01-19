@@ -2,7 +2,7 @@ const fs = require("fs");
 
 module.exports = plop => {
   plop.setGenerator("Stories", {
-    description: "New stories files fore existing component",
+    description: "New stories files for existing component",
     prompts: [
       {
         type: "input",
