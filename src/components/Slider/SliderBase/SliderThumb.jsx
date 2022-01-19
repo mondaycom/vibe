@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { DialogPositions } from "../../../constants";
+import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { bem } from "../SliderHelpers";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
@@ -8,7 +9,7 @@ import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderCont
 const tooltipShowDelay = 300;
 const tooltipPosition = DialogPositions.TOP;
 
-const SliderThumb = ({ className, index, position }) => {
+const SliderThumb = ({ className, index, onMove, position }) => {
   const { max, min, value, valueText } = useSliderSelection(index);
   const { active, ariaLabel, ariaLabelledby, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
   const { setActive, setFocused, setDragging } = useSliderActions();
@@ -31,11 +32,13 @@ const SliderThumb = ({ className, index, position }) => {
   function handlePointerDown(e) {
     e.stopPropagation();
     setDragging(index);
+    document.addEventListener("pointermove", onMove);
     document.addEventListener("pointerup", stopMove);
   }
 
   function stopMove() {
     setDragging(null);
+    document.removeEventListener("pointermove", onMove);
     document.removeEventListener("pointerup", stopMove);
   }
 
@@ -91,6 +94,10 @@ SliderThumb.propTypes = {
    */
   index: PropTypes.number,
   /**
+   * On SliderThumb move callback
+   */
+  onMove: PropTypes.func,
+  /**
    * Position (i.e. offset) from start of track/rail, according to value
    */
   position: PropTypes.number
@@ -99,6 +106,7 @@ SliderThumb.propTypes = {
 SliderThumb.defaultProps = {
   className: "",
   index: 0,
+  onMove: NOOP,
   position: 0
 };
 

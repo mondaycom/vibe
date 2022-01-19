@@ -35,6 +35,12 @@ const actionsDefaults = {
 };
 const ActionsContext = createContext(actionsDefaults);
 const InfixContext = createContext({});
+//
+// const globalStatuses = {
+//   focused: null,
+//   dragging: null,
+//   values: []
+// };
 
 export function SliderProvider({
   children,
@@ -116,8 +122,6 @@ export function SliderProvider({
         setActive(switched);
         if (isChangeFocus !== false) {
           setFocused(switched);
-        }
-        if (dragging !== null) {
           setDragging(switched);
         }
         actualChangeValue([newValues[1], newValues[0]]);

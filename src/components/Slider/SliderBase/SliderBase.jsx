@@ -20,20 +20,20 @@ import {
 } from "../../../utils/dom-event-utils";
 
 const SliderBase = forwardRef(({ className }, ref) => {
-  const { color, disabled, dragging, size, shapeTestId } = useSliderUi();
+  const { color, disabled, size, shapeTestId } = useSliderUi();
   const { definePageStep, min, max, ranged, step, value } = useSliderSelection();
   const { changeValue, increaseValue, decreaseValue } = useSliderActions();
   const { railCoords, railRef } = useSliderRail({ min, max, step, ref });
   const { dimension, offset, positions, thumbKeys } = calcDimensions({ max, min, ranged, value });
 
-  function handlePointerMove(e) {
-    if (dragging === null) {
-      return;
-    }
-    const offsetInPx = Math.round(e.clientX - railCoords.left);
-    const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
-    changeValue(newValue);
-  }
+  const handlePointerMove = useCallback(
+    e => {
+      const offsetInPx = Math.round(e.clientX - railCoords.left);
+      const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
+      changeValue(newValue);
+    },
+    [changeValue, min, max, railCoords, step]
+  );
 
   const handleRailClick = useCallback(
     e => {
@@ -75,7 +75,6 @@ const SliderBase = forwardRef(({ className }, ref) => {
       className={bem("base", { [size]: size, [color]: color, disabled }, className)}
       data-testid={shapeTestId("base")}
       onKeyDown={handleKeyDown}
-      onPointerMove={handlePointerMove}
     >
       <SliderRail onClick={handleRailClick} ref={railRef}>
         <SliderTrack />
@@ -83,7 +82,9 @@ const SliderBase = forwardRef(({ className }, ref) => {
           <>
             <SliderFilledTrack dimension={dimension} offset={offset} />
             {positions.map((position, index) => {
-              return <SliderThumb key={thumbKeys[index]} index={index} position={position} />;
+              return (
+                <SliderThumb key={thumbKeys[index]} index={index} onMove={handlePointerMove} position={position} />
+              );
             })}
           </>
         )}
