@@ -1,4 +1,4 @@
-import { useMemo, useLayoutEffect, useCallback, useEffect } from "react";
+import { useMemo, useCallback, useEffect } from "react";
 import useKeyEvent from "./useKeyEvent";
 
 export const NAV_DIRECTIONS = {
