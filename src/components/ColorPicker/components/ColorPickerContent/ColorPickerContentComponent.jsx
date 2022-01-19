@@ -15,7 +15,7 @@ import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigati
 import {
   GridKeyboardNavigationContext,
   useGridKeyboardNavigationContext
-} from "../../../GridKeyboardNavigation/GridKeyboardNavigationContext";
+} from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 
 const Colors = React.forwardRef(
   (
