@@ -27,7 +27,8 @@ const ColorPicker = forwardRef(
       colorsList,
       isMultiselect,
       colorSize,
-      numberOfColorsInLine
+      numberOfColorsInLine,
+      focusOnMount
     },
     ref
   ) => {
@@ -60,6 +61,7 @@ const ColorPicker = forwardRef(
           isMultiselect={isMultiselect}
           colorSize={colorSize}
           numberOfColorsInLine={numberOfColorsInLine}
+          focusOnMount={focusOnMount}
         />
       </DialogContentContainer>
     );
@@ -87,7 +89,8 @@ ColorPicker.propTypes = {
   colorsList: PropTypes.array,
   isMultiselect: PropTypes.bool,
   colorSize: PropTypes.oneOf([ColorPicker.sizes.SMALL, ColorPicker.sizes.MEDIUM, ColorPicker.sizes.LARGE]),
-  numberOfColorsInLine: PropTypes.number
+  numberOfColorsInLine: PropTypes.number,
+  focusOnMount: PropTypes.bool
 };
 
 ColorPicker.defaultProps = {
@@ -104,7 +107,8 @@ ColorPicker.defaultProps = {
   colorsList: [],
   isMultiselect: false,
   colorSize: ColorPicker.sizes.MEDIUM,
-  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE
+  numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
+  focusOnMount: false
 };
 
 export default ColorPicker;

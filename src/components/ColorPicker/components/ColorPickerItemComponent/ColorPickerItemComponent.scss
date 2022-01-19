@@ -1,8 +1,18 @@
+@import "../../../../styles/states.scss";
+
 .monday-style-color-item-wrapper {
   margin: 4px;
   display: flex;
   border-radius: 4px;
+  list-style-type: none;
 
+  &:active,
+  &:focus,
+  &:focus-visible,
+  &.active {
+    outline: none;
+    @include focus-style-css();
+  }
   .color-item {
     display: flex;
     justify-content: center;

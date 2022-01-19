@@ -19,7 +19,8 @@ const ColorPickerItemComponent = ({
   isMultiselect,
   isSelected,
   colorSize,
-  tooltipContent
+  tooltipContent,
+  isActive
 }) => {
   const colorAsStyle = ColorUtils.getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
@@ -53,9 +54,10 @@ const ColorPickerItemComponent = ({
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
   return (
     <Tooltip content={tooltipContent}>
-      <div
+      <li
         className={cx("monday-style-color-item-wrapper", {
-          "selected-color": isSelected
+          "selected-color": isSelected,
+          active: isActive
         })}
       >
         <Clickable
@@ -75,7 +77,7 @@ const ColorPickerItemComponent = ({
             )}
           </div>
         </Clickable>
-      </div>
+      </li>
     </Tooltip>
   );
 };
