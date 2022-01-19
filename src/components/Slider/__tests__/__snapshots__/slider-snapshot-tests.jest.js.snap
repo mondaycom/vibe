@@ -324,8 +324,8 @@ Snapshot Diff:
       </div>
     </div>
 +   <div
-+     class="monday-slider__postfix"
-+     style="width: 70px;"
++     class="monday-slider__infix monday-slider__infix--postfix"
++     style="width: 60px;"
 +   >
 +     <div
 +       data-testid="mock-text-field-comp"
@@ -345,7 +345,7 @@ Snapshot Diff:
     data-testid="monday-slider"
   >
     <div
-+     class="monday-slider__prefix monday-slider__prefix--txt"
++     class="monday-slider__infix monday-slider__infix--txt monday-slider__infix--prefix"
 +   >
 +     Vol
 +   </div>
@@ -360,7 +360,7 @@ Snapshot Diff:
 +     </div>
 +   </div>
 +   <div
-+     class="monday-slider__postfix"
++     class="monday-slider__infix monday-slider__infix--postfix"
 +   >
 +     <div
 +       data-testid="mock-icon"
@@ -380,7 +380,7 @@ Snapshot Diff:
     data-testid="monday-slider"
   >
     <div
-+     class="monday-slider__prefix"
++     class="monday-slider__infix monday-slider__infix--prefix"
 +   >
 +     <div>
 +       Custom component
@@ -396,7 +396,7 @@ Snapshot Diff:
       </div>
 +   </div>
 +   <div
-+     class="monday-slider__postfix"
++     class="monday-slider__infix monday-slider__infix--postfix"
 +   >
 +     Render Props result: 0% (0)
     </div>
