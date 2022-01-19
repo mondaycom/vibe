@@ -71,10 +71,8 @@ export default function useGridKeyboardNavigation({
       setActiveIndex(newIndex);
       return;
     }
-    if (activeIndex === NO_ACTIVE_INDEX) {
-      setActiveIndex(0);
-    }
-  }, [activeIndex, itemsCount, numberOfItemsInLine]);
+    setActiveIndex((_activeIndex) => (_activeIndex === NO_ACTIVE_INDEX ? 0 : _activeIndex));
+  }, [itemsCount, numberOfItemsInLine]);
 
   const onBlur = useCallback(() => setActiveIndex(NO_ACTIVE_INDEX), [setActiveIndex]);
 
