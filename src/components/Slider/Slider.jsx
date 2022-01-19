@@ -228,7 +228,7 @@ Slider.defaultProps = {
   indicateSelection: false,
   prefix: undefined,
   postfix: undefined,
-  selectionIndicatorWidth: '70px'
+  selectionIndicatorWidth: '60px'
 };
 
 export default Slider;
