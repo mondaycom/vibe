@@ -1,18 +1,44 @@
 @import "../../../../styles/states.scss";
+@import "../../../../styles/global-css-settings.scss";
 
 .monday-style-color-item-wrapper {
+
+  @mixin absolute-border($border-width, $border-color-var-name, $inset: -$border-width) {
+    content: " ";
+    position: absolute;
+    border-radius: 7px;
+    inset: $inset;
+    border: $border-width solid;
+    @include theme-prop(border-color, $border-color-var-name);
+    pointer-events: none;
+  }
+
   margin: 4px;
   display: flex;
   border-radius: 4px;
   list-style-type: none;
+  position: relative;
+
+  &:hover {
+    &:after {
+      @include absolute-border(3px, primary-background-hover-color);
+      opacity: 0.8;
+    }
+  }
 
   &:active,
   &:focus,
   &:focus-visible,
   &.active {
     outline: none;
-    @include focus-style-css();
+    &:before {
+      @include absolute-border(3px, primary-selected-color);
+    }
+    &:after {
+      @include absolute-border(2px, primary-color);
+    }
   }
+
   .color-item {
     display: flex;
     justify-content: center;
@@ -42,8 +68,16 @@
   }
 
   &.selected-color {
-    .color-item {
-      border: 2px solid var(--primary-color);
+    position: relative;
+    &:before {
+      @include absolute-border(2px, primary-color, -3px);
+      content: " ";
+      position: absolute;
+      border-radius: 7px;
+      inset: -3px;
+      border: 2px solid;
+      @include theme-prop(border-color, primary-color);
+      pointer-events: none;
     }
   }
 
