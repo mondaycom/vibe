@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
 import { createTestIdHelper } from "../../helpers/testid-helper";
-import { useSliderActionsContextValue, useSliderValues } from "./SliderHooks";
+import { useDragging, useSliderActionsContextValue, useSliderValues } from "./SliderHooks";
 
 const UiContext = createContext({});
 const SelectionContext = createContext({});
@@ -28,7 +28,7 @@ export function SliderProvider({
   infixOptions
 }) {
   const shapeTestId = createTestIdHelper(dataTestId);
-  const { actualValue, actualValueText, setSelectedValue } = useSliderValues({
+  const { actualValue, actualValueText, getSelectedValue, setSelectedValue } = useSliderValues({
     defaultValue,
     value,
     valueFormatter,
@@ -37,7 +37,7 @@ export function SliderProvider({
 
   const [active, setActive] = useState(null);
   const [focused, setFocused] = useState(null);
-  const [dragging, setDragging] = useState(null);
+  const [dragging, setDragging, getDragging] = useDragging();
 
   const uiContextValue = useMemo(
     () => ({ active, ariaLabel, ariaLabelledby, color, disabled, dragging, focused, size, shapeTestId, showValue }),
@@ -58,8 +58,9 @@ export function SliderProvider({
 
   const actionsContextValue = useSliderActionsContextValue({
     actualValue,
-    dragging,
     focused,
+    getDragging,
+    getSelectedValue,
     max,
     min,
     onChange,
