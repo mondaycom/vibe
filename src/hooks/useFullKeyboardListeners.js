@@ -1,4 +1,4 @@
-import { useMemo, useLayoutEffect, useCallback } from "react";
+import { useMemo, useCallback, useEffect } from "react";
 import useKeyEvent from "./useKeyEvent";
 
 export const NAV_DIRECTIONS = {
@@ -76,10 +76,10 @@ export default function useFullKeyboardListeners({
     ...listenerOptions
   });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!focusOnMount || useDocumentEventListeners) return;
     requestAnimationFrame(() => {
       ref?.current?.focus();
     });
-  }, [ref, focusOnMount, useDocumentEventListeners]);
+  }, [focusOnMount, ref, useDocumentEventListeners]);
 }

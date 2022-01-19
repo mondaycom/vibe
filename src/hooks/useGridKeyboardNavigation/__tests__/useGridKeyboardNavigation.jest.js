@@ -12,30 +12,6 @@ describe("useGridKeyboardNavigation", () => {
     cleanup();
   });
 
-  function itemsArray(length) {
-    return range(length);
-  }
-
-  function renderHookForTest({ items = itemsArray(4), numberOfItemsInLine = 3, onItemClicked = jest.fn(), focusOnMount = false }) {
-    const itemsCount = items.length;
-    const getItemByIndex = index => items[index];
-
-    element = document.createElement("div");
-    document.body.appendChild(element);
-
-    return renderHook(
-      () =>
-        useGridKeyboardNavigation({
-          ref: { current: element },
-          itemsCount,
-          getItemByIndex,
-          onItemClicked,
-          focusOnMount,
-          numberOfItemsInLine
-        })
-    );
-  }
-
   it("should set the active index to 0 when focusing for the first time", () => {
     const { result } = renderHookForTest({ });
 
@@ -97,4 +73,28 @@ describe("useGridKeyboardNavigation", () => {
 
     expect(result.current.activeIndex).toBe(0);
   });
+
+  function itemsArray(length) {
+    return range(length);
+  }
+
+  function renderHookForTest({ items = itemsArray(4), numberOfItemsInLine = 3, onItemClicked = jest.fn(), focusOnMount = false }) {
+    const itemsCount = items.length;
+    const getItemByIndex = index => items[index];
+
+    element = document.createElement("div");
+    document.body.appendChild(element);
+
+    return renderHook(
+      () =>
+        useGridKeyboardNavigation({
+          ref: { current: element },
+          itemsCount,
+          getItemByIndex,
+          onItemClicked,
+          focusOnMount,
+          numberOfItemsInLine
+        })
+    );
+  }
 });

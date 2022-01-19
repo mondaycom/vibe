@@ -1,6 +1,6 @@
-import { useCallback, useContext, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useState, useContext } from "react";
 import useFullKeyboardListeners from "../useFullKeyboardListeners";
-import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigation/GridKeyboardNavigationContext";
+import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { calcActiveIndexAfterArrowNavigation, getActiveIndexFromInboundNavigation } from "./gridKeyboardNavigationHelper";
 import useEventListener from "../useEventListener";
 
@@ -54,11 +54,9 @@ export default function useGridKeyboardNavigation({
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (activeIndex > -1) {
-      requestAnimationFrame(() => {
-        ref?.current?.focus();
-      });
+      ref?.current?.focus();
     }
   }, [activeIndex, ref]);
 
