@@ -10,7 +10,9 @@ const tooltipShowDelay = 300;
 const tooltipPosition = DialogPositions.TOP;
 
 const SliderThumb = ({ className, index, onMove, position }) => {
-  const { max, min, value, valueText } = useSliderSelection(index);
+  const { max, min, ranged, value: valueOrValues, valueText: valueOrValuesText } = useSliderSelection();
+  const value = ranged ? valueOrValues[index] : valueOrValues;
+  const valueText = ranged ? valueOrValuesText[index] : valueOrValuesText;
   const { active, ariaLabel, ariaLabelledby, disabled, dragging, focused, shapeTestId, showValue } = useSliderUi();
   const { setActive, setFocused, setDragging } = useSliderActions();
   const ref = useRef(null);

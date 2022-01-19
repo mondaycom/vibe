@@ -6,3 +6,5 @@ export const INFIX_KIND = {
   PREFIX: "prefix",
   POSTFIX: "postfix"
 };
+
+export const UPDATE_SLIDER_SIZE_DEBOUNCE = 200;

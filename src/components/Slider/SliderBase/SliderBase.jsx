@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import "./SliderBase.scss";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import { bem, calcDimensions, getNearest, moveToPx } from "../SliderHelpers";
+import { bem, calcDimensions, getNearest, moveToPx, calculatePageStep } from "../SliderHelpers";
 import { useSliderRail } from "../SliderHooks";
 import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
@@ -21,8 +21,8 @@ import {
 
 const SliderBase = forwardRef(({ className }, ref) => {
   const { color, disabled, size, shapeTestId } = useSliderUi();
-  const { definePageStep, min, max, ranged, step, value } = useSliderSelection();
-  const { changeValue, increaseValue, decreaseValue } = useSliderActions();
+  const { min, max, ranged, step, value } = useSliderSelection();
+  const { changeThumbValue, drugThumb, decreaseValue, increaseValue } = useSliderActions();
   const { railCoords, railRef } = useSliderRail({ min, max, step, ref });
   const { dimension, offset, positions, thumbKeys } = calcDimensions({ max, min, ranged, value });
 
@@ -30,9 +30,9 @@ const SliderBase = forwardRef(({ className }, ref) => {
     e => {
       const offsetInPx = Math.round(e.clientX - railCoords.left);
       const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
-      changeValue(newValue);
+      drugThumb(newValue);
     },
-    [changeValue, min, max, railCoords, step]
+    [drugThumb, min, max, railCoords, step]
   );
 
   const handleRailClick = useCallback(
@@ -40,9 +40,9 @@ const SliderBase = forwardRef(({ className }, ref) => {
       const offsetInPx = e.clientX - railCoords.left;
       const newValue = moveToPx({ offsetInPx, min, max, railCoords, step });
       const thumbIndex = getNearest({ newValue, ranged, value });
-      changeValue(newValue, { thumbIndex, isChangeFocus: true });
+      changeThumbValue(newValue, { thumbIndex });
     },
-    [changeValue, min, max, railCoords, ranged, step, value]
+    [changeThumbValue, min, max, railCoords, ranged, step, value]
   );
 
   function handleKeyDown(e) {
@@ -54,19 +54,19 @@ const SliderBase = forwardRef(({ className }, ref) => {
     }
     if (isPageUpEvent(e)) {
       e.preventDefault();
-      return increaseValue(definePageStep());
+      return increaseValue(calculatePageStep({ min, max, step }));
     }
     if (isPageDownEvent(e)) {
       e.preventDefault();
-      return decreaseValue(definePageStep());
+      return decreaseValue(calculatePageStep({ min, max, step }));
     }
     if (isHomeEvent(e)) {
       e.preventDefault();
-      return changeValue(max);
+      return changeThumbValue(max);
     }
     if (isEndEvent(e)) {
       e.preventDefault();
-      return changeValue(min);
+      return changeThumbValue(min);
     }
   }
 
