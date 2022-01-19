@@ -74,6 +74,7 @@ const publishedComponents = {
   useKeyEvent: "hooks/useKeyEvent/index.js",
   useEventListener: "hooks/useEventListener/index.js",
   useDebounceEvent: "hooks/useDebounceEvent/index.js",
+  useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
   useClickOutside: "hooks/useClickOutside/index.js",
   useResizeObserver: "hooks/useResizeObserver.js",
   allIcons: "components/Icon/Icons",
