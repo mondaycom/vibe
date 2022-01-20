@@ -204,6 +204,7 @@ ColorPickerContentComponent.propTypes = {
   ]),
   numberOfColorsInLine: PropTypes.number,
   tooltipContentByColor: PropTypes.object,
+  focusOnMount: PropTypes.bool,
   colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes))
 };
 
@@ -222,6 +223,7 @@ ColorPickerContentComponent.defaultProps = {
   colorSize: ColorPickerContentComponent.sizes.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   tooltipContentByColor: {},
+  focusOnMount: false,
   colorShape: ColorPickerContentComponent.colorShapes.SQUARE
 };
 

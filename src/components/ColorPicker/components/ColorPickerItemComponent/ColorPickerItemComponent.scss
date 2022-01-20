@@ -5,7 +5,7 @@
   --border-radius-multiplier: 1;
 
   &.circle {
-    --border-radius-multiplier: 100;
+    --border-radius-multiplier: 99999;
   }
 
   @mixin absolute-border($border-width, $border-color-var-name, $inset: -$border-width) {
