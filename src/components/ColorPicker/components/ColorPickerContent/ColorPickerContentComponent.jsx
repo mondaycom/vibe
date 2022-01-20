@@ -8,7 +8,7 @@ import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/
 import Button from "../../../Button/Button";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
-import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import "./ColorPickerContentComponent.scss";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
@@ -31,7 +31,8 @@ const Colors = React.forwardRef(
       isMultiselect,
       SelectedIndicatorIcon,
       colorSize,
-      tooltipContentByColor
+      tooltipContentByColor,
+      colorShape
     },
     ref
   ) => {
@@ -65,6 +66,7 @@ const Colors = React.forwardRef(
               isMultiselect={isMultiselect}
               colorSize={colorSize}
               tooltipContent={tooltipContentByColor[color]}
+              colorShape={colorShape}
             />
           );
         })}
@@ -113,7 +115,8 @@ const ColorPickerContentComponent = ({
   colorSize,
   numberOfColorsInLine,
   tooltipContentByColor,
-  focusOnMount
+  focusOnMount,
+  colorShape
 }) => {
   const onClearButton = useCallback(() => {
     onValueChange(null);
@@ -167,6 +170,7 @@ const ColorPickerContentComponent = ({
           SelectedIndicatorIcon={SelectedIndicatorIcon}
           colorSize={colorSize}
           tooltipContentByColor={tooltipContentByColor}
+          colorShape={colorShape}
         />
         {noColorText && <ClearButton Icon={NoColorIcon} onClick={onClearButton} text={noColorText} ref={buttonRef} />}
       </GridKeyboardNavigationContext.Provider>
@@ -176,6 +180,7 @@ const ColorPickerContentComponent = ({
 
 ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
 ColorPickerContentComponent.sizes = SIZES;
+ColorPickerContentComponent.colorShapes = COLOR_SHAPES;
 
 ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
@@ -198,7 +203,8 @@ ColorPickerContentComponent.propTypes = {
     ColorPickerContentComponent.sizes.LARGE
   ]),
   numberOfColorsInLine: PropTypes.number,
-  tooltipContentByColor: PropTypes.object
+  tooltipContentByColor: PropTypes.object,
+  colorShape: PropTypes.oneOf(Object.keys(ColorPickerContentComponent.colorShapes))
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -215,7 +221,8 @@ ColorPickerContentComponent.defaultProps = {
   colorsList: [],
   colorSize: ColorPickerContentComponent.sizes.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
-  tooltipContentByColor: {}
+  tooltipContentByColor: {},
+  colorShape: ColorPickerContentComponent.colorShapes.SQUARE
 };
 
 export default ColorPickerContentComponent;

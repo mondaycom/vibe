@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -8,6 +8,7 @@ import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
+import { COLOR_SHAPES } from "../../ColorPickerConstants";
 
 const ColorPickerItemComponent = ({
   color,
@@ -20,7 +21,8 @@ const ColorPickerItemComponent = ({
   isSelected,
   colorSize,
   tooltipContent,
-  isActive
+  isActive,
+  colorShape
 }) => {
   const colorAsStyle = ColorUtils.getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
@@ -28,27 +30,6 @@ const ColorPickerItemComponent = ({
   const onMouseDown = useCallback(e => e.preventDefault(), []);
   const onClick = useCallback(() => onValueChange(color), [onValueChange, color]);
 
-  useEffect(() => {
-    if (!itemRef || !itemRef.current || shouldRenderIndicatorWithoutBackground) return;
-    const item = itemRef.current;
-    const onHover = e => {
-      if (colorStyle === COLOR_STYLES.SELECTED) {
-        e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.REGULAR);
-      } else {
-        e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.SELECTED);
-      }
-    };
-    const onMouseLeave = e => {
-      e.target.style.background = colorAsStyle;
-    };
-    item.addEventListener("mouseenter", onHover, false);
-    item.addEventListener("mouseleave", onMouseLeave, false);
-
-    return () => {
-      item.removeEventListener("mouseenter", onHover, false);
-      item.removeEventListener("mouseleave", onMouseLeave, false);
-    };
-  }, [color, colorAsStyle, colorStyle, itemRef, shouldRenderIndicatorWithoutBackground]);
   const shouldRenderSelectedIcon = isSelected && isMultiselect;
   const shouldRenderIcon = (isMultiselect && isSelected) || ColorIndicatorIcon;
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
@@ -57,7 +38,8 @@ const ColorPickerItemComponent = ({
       <li
         className={cx("monday-style-color-item-wrapper", {
           "selected-color": isSelected,
-          active: isActive
+          active: isActive,
+          circle: colorShape === COLOR_SHAPES.CIRCLE
         })}
       >
         <Clickable

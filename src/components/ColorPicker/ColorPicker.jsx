@@ -7,7 +7,7 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 import { COLOR_STYLES } from "../../general-stories/colors/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
-import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
+import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
 import "./ColorPicker.scss";
 
@@ -28,7 +28,8 @@ const ColorPicker = forwardRef(
       isMultiselect,
       colorSize,
       numberOfColorsInLine,
-      focusOnMount
+      focusOnMount,
+      colorShape
     },
     ref
   ) => {
@@ -62,6 +63,7 @@ const ColorPicker = forwardRef(
           colorSize={colorSize}
           numberOfColorsInLine={numberOfColorsInLine}
           focusOnMount={focusOnMount}
+          colorShape={colorShape}
         />
       </DialogContentContainer>
     );
@@ -74,6 +76,7 @@ ColorPicker.sizes = SIZES;
 
 ColorPicker.colorStyles = COLOR_STYLES;
 ColorPicker.colorSizes = SIZES;
+ColorPicker.colorShapes = COLOR_SHAPES;
 
 ColorPicker.propTypes = {
   className: PropTypes.string,
@@ -90,7 +93,8 @@ ColorPicker.propTypes = {
   isMultiselect: PropTypes.bool,
   colorSize: PropTypes.oneOf([ColorPicker.sizes.SMALL, ColorPicker.sizes.MEDIUM, ColorPicker.sizes.LARGE]),
   numberOfColorsInLine: PropTypes.number,
-  focusOnMount: PropTypes.bool
+  focusOnMount: PropTypes.bool,
+  colorShape: PropTypes.oneOf(Object.keys(ColorPicker.colorShapes))
 };
 
 ColorPicker.defaultProps = {
@@ -108,7 +112,8 @@ ColorPicker.defaultProps = {
   isMultiselect: false,
   colorSize: ColorPicker.sizes.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
-  focusOnMount: false
+  focusOnMount: false,
+  colorShape: ColorPicker.colorShapes.SQUARE
 };
 
 export default ColorPicker;
