@@ -1,7 +1,7 @@
 import { NAV_DIRECTIONS } from "../../../hooks/useFullKeyboardListeners";
-import { getOppositeDirection, getDirectionMaps, focusElementWithDirection, getOutmostElementInDirection } from "../GridKeyboardNavigationContextHelper";
+import { getOppositeDirection, getDirectionMaps, focusElementWithDirection, getOutmostElementInDirection } from "../helper";
 
-describe("GridKeyboardNavigationContextHelper", () => {
+describe("GridKeyboardNavigationContext.helper", () => {
   const ELEMENT1 = "e1";
   const ELEMENT2 = "e2";
   const ELEMENT3 = "e3";
@@ -73,6 +73,28 @@ describe("GridKeyboardNavigationContextHelper", () => {
 
       expect(result).toEqual(expected);
     });
+
+    it("should throw when a circular vertical positioning is added", () => {
+      const input = [
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT1 }, // invalid
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 }, // valid
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }, // valid
+      ];
+
+      expect(() => getDirectionMaps(input)).toThrowError("Circular positioning detected: the BOTTOM element is already positioned to the TOP of the TOP element. This probably means the layout isn't ordered correctly.");
+    });
+
+    it("should throw when a circular horizontal positioning is added", () => {
+      const input = [
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT2 }, // invalid
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 }, // valid
+        { topElement: ELEMENT2, bottomElement: ELEMENT5 }, // valid
+      ];
+
+      expect(() => getDirectionMaps(input)).toThrowError("Circular positioning detected: the RIGHT element is already positioned to the LEFT of the LEFT element. This probably means the layout isn't ordered correctly.");
+    });
   });
 
   describe("getOppositeDirection", () => {
@@ -85,6 +107,11 @@ describe("GridKeyboardNavigationContextHelper", () => {
       it(`should return "${opposite}" as the opposite of "${direction}"`, () => {
         expect(getOppositeDirection(direction)).toBe(opposite);
       });
+    });
+
+    it("should throw on unknown input", () => {
+      const input = "UNKNOWN!";
+      expect(() => getOppositeDirection(input)).toThrowError(`Unexpected direction: ${input}`);
     });
   });
 
