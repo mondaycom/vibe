@@ -94,7 +94,7 @@ ColorPicker.propTypes = {
   colorSize: PropTypes.oneOf([ColorPicker.sizes.SMALL, ColorPicker.sizes.MEDIUM, ColorPicker.sizes.LARGE]),
   numberOfColorsInLine: PropTypes.number,
   focusOnMount: PropTypes.bool,
-  colorShape: PropTypes.oneOf(Object.keys(ColorPicker.colorShapes))
+  colorShape: PropTypes.oneOf(Object.values(ColorPicker.colorShapes))
 };
 
 ColorPicker.defaultProps = {

@@ -204,7 +204,7 @@ ColorPickerContentComponent.propTypes = {
   ]),
   numberOfColorsInLine: PropTypes.number,
   tooltipContentByColor: PropTypes.object,
-  colorShape: PropTypes.oneOf(Object.keys(ColorPickerContentComponent.colorShapes))
+  colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes))
 };
 
 ColorPickerContentComponent.defaultProps = {
