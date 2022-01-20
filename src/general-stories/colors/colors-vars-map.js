@@ -90,7 +90,8 @@ export const colorsMap = [
   { color: "--link-on-secondary-color", description: "Use only for links on secondary colors" },
   // Backgrounds
   { color: "--primary-background-color", description: "Primary background color" },
-  { color: "--secondary-background-color", description: "Secondary background color" }
+  { color: "--secondary-background-color", description: "Secondary background color" },
+  { color: "--grey-background-color", description: "Grey background color " }
 ];
 
 export const colorsHashMap = colorsMap.reduce((map, current) => {
