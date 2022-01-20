@@ -1,5 +1,31 @@
 import { NAV_DIRECTIONS } from "../../hooks/useFullKeyboardListeners";
 
+function throwIfCausingCircularDependency(directionMaps, newPosition) {
+  const { topElement, bottomElement, leftElement, rightElement } = newPosition;
+  if (topElement && bottomElement) {
+    if (directionMaps[NAV_DIRECTIONS.UP].get(topElement) === bottomElement) {
+      throwMessage("BOTTOM", "TOP");
+    }
+    if (directionMaps[NAV_DIRECTIONS.DOWN].get(bottomElement) === topElement) {
+      throwMessage("TOP", "BOTTOM");
+    }
+  }
+  if (leftElement && rightElement) {
+    if (directionMaps[NAV_DIRECTIONS.LEFT].get(leftElement) === rightElement) {
+      throwMessage("RIGHT", "LEFT");
+    }
+    if (directionMaps[NAV_DIRECTIONS.RIGHT].get(rightElement) === leftElement) {
+      throwMessage("LEFT", "RIGHT");
+    }
+  }
+
+  function throwMessage(directionFrom, directionTo) {
+    throw new Error(
+      `Circular positioning detected: the ${directionFrom} element is already positioned to the ${directionTo} of the ${directionTo} element. This probably means the layout isn't ordered correctly.`
+    );
+  }
+}
+
 export const getDirectionMaps = positions => {
   const directionMaps = {
     [NAV_DIRECTIONS.RIGHT]: new Map(),
@@ -8,13 +34,16 @@ export const getDirectionMaps = positions => {
     [NAV_DIRECTIONS.DOWN]: new Map()
   };
   positions.forEach(position => {
-    if (position.topElement && position.bottomElement) {
-      directionMaps[NAV_DIRECTIONS.UP].set(position.bottomElement, position.topElement);
-      directionMaps[NAV_DIRECTIONS.DOWN].set(position.topElement, position.bottomElement);
+    throwIfCausingCircularDependency(directionMaps, position);
+
+    const { topElement, bottomElement, leftElement, rightElement } = position;
+    if (topElement && bottomElement) {
+      directionMaps[NAV_DIRECTIONS.UP].set(bottomElement, topElement);
+      directionMaps[NAV_DIRECTIONS.DOWN].set(topElement, bottomElement);
     }
-    if (position.leftElement && position.rightElement) {
-      directionMaps[NAV_DIRECTIONS.LEFT].set(position.rightElement, position.leftElement);
-      directionMaps[NAV_DIRECTIONS.RIGHT].set(position.leftElement, position.rightElement);
+    if (leftElement && rightElement) {
+      directionMaps[NAV_DIRECTIONS.LEFT].set(rightElement, leftElement);
+      directionMaps[NAV_DIRECTIONS.RIGHT].set(leftElement, rightElement);
     }
   });
   return directionMaps;
