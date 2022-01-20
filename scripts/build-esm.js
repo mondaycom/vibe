@@ -5,7 +5,6 @@ const path = require("path");
 const { publishedComponents } = require("../webpack/published-components");
 
 const content = Object.keys(publishedComponents)
-  .filter(componentName => publishedComponents[componentName].startsWith("components/"))
   .map(componentName => `export { default as ${componentName} } from "./${componentName}";`)
   .join("\n");
 

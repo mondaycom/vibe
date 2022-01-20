@@ -74,11 +74,7 @@ addParameters({
         "*",
         "Accessibility",
         "Hooks"
-      ],
-      includeName: false,
-      // currently there is a bug that makes any componet stories to be order alphabetical even so
-      // it is not the default settings. This settings purpose is to sort all the stories of any component by their load time
-      storySort: (a, b) => 0
+      ]
     }
   }
 });

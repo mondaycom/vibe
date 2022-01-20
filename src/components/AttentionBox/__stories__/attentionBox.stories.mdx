@@ -3,7 +3,7 @@ import { useCallback } from "react";
 import AttentionBox from "../AttentionBox";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { ATTENTION_BOX_TYPES } from "../AttentionBoxConstants";
-import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
+import { Link } from "../../../storybook/components";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Info, Invite, ThumbsUp } from "../../Icon/Icons";
 import Icon from "../../Icon/Icon";
@@ -11,6 +11,9 @@ import Search  from "../../Search/Search";
 import Avatar from "../../Avatar/Avatar";
 import { TOOLTIP, ALERT_BANNER, TOAST } from "../../../storybook/components/related-components/component-description-map";
 import person from "./assets/person.png";
+import Flex from "../../Flex/Flex";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import Favorite from "../../Icon/Icons/components/Favorite";
 import "./attentionBox.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -46,7 +49,7 @@ export const attentionBoxTemplate = createComponentTemplate(AttentionBox);
 Attention box lets users know important information within content areas, as close as possible to the content it’s about.
 <Canvas>
   <Story name="Overview"
-         args={{ title: "Attention box title", text: "Studies show that 100% of people who celebrate birthdays, will eventually die.", className: "monday-style-attention-box_box" }}>
+         args={{ onClose: () => null, title: "Attention box title", text: "Studies show that 100% of people who celebrate birthdays, will eventually die.", className: "monday-style-attention-box_box" }}>
     { attentionBoxTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -58,8 +61,7 @@ Attention box lets users know important information within content areas, as clo
 <UsageGuidelines guidelines={[
   "Use attention box if there is crucial information for user to finish or be acknowledged about a task.",
   "Attention box do not dismiss automatically. They persist on the page until the user dismisses them or takes action that resolves the notification.",
-  "The width of attention box is based on content and layout. They can expand to the fill the container or content area they relate to.",
-  "Their height is based on the content length, which should not exceed two lines of text.",
+  "The width of attention box is based on content and layout. They can expand to the fill the container or content area they relate to."
 ]}/>
 
 <Tip title="Check yourself">If the information about a component isn’t critical for the user, use a <Link href="/?path=/docs/popover-tooltip--overview" size={Link.sizes.SMALL} withoutSpacing>Tooltip</Link> instead.</Tip>
@@ -69,34 +71,42 @@ Attention box lets users know important information within content areas, as clo
 There are four types of attention boxes: Primary, success, danger, and dark (natural).
 <Canvas>
   <Story name="States">
-    <MultipleStoryElementsWrapper className="monday-style-attention-box_column-wrapper">
-      <AttentionBox 
-        title="Primary" 
-        text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." 
-        className="monday-style-attention-box_box" 
-        icon={Info} 
-      />
-      <AttentionBox 
-        title="Success" 
-        text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." 
-        type={ATTENTION_BOX_TYPES.SUCCESS} 
-        className="monday-style-attention-box_box"
-        icon={ThumbsUp}
-      />
-      <AttentionBox 
-        title="Danger" 
-        text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." 
-        type={ATTENTION_BOX_TYPES.DANGER} 
-        className="monday-style-attention-box_box" 
-      />
-      <AttentionBox 
-        title="Dark" 
-        text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." 
-        type={ATTENTION_BOX_TYPES.DARK} 
-        className="monday-style-attention-box_box"
-        icon={Info} 
-      />
-    </MultipleStoryElementsWrapper>
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
+      <StoryDescription description="Primary">
+        <AttentionBox
+          title="Enabling SSO Login"
+          text="Will cause all yout team lose access to the account until using the correct SSO source."
+          className="monday-style-attention-box_box"
+          icon={Info}
+        />
+      </StoryDescription>
+      <StoryDescription description="Success">
+        <AttentionBox
+          title="You're doing great"
+          text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          type={ATTENTION_BOX_TYPES.SUCCESS}
+          className="monday-style-attention-box_box"
+          icon={ThumbsUp}
+        />
+      </StoryDescription>
+      <StoryDescription description="Danger">
+        <AttentionBox
+          title="Account low on free space"
+          text="Your account if out of free space, free some space to prevent data loss."
+          type={ATTENTION_BOX_TYPES.DANGER}
+          className="monday-style-attention-box_box"
+        />
+      </StoryDescription>
+      <StoryDescription description="Dark">
+        <AttentionBox
+          title="What a great idea!"
+          text="You can also make this list sortable by tagging the items with tags column"
+          type={ATTENTION_BOX_TYPES.DARK}
+          className="monday-style-attention-box_box"
+          icon={Favorite}
+        />
+      </StoryDescription>
+    </Flex>
 </Story>
 </Canvas>
 
@@ -170,14 +180,11 @@ Provides additional information about an action or section.
     <div className="monday-style-attention-box_wrapper">
       <span className="monday-style-attention-box_title">Cross-Account Copier</span>
       <span className="monday-style-attention-box_text" >Copy boards and dashboards to another account</span>
-      <AttentionBox 
-        text={
-          <>
-            <Icon icon={Info} iconSize="18" />
-            First, move the content you want to copy into folder. Only main boards and dashboards can be copied.
-            <Link href="#" size={Link.sizes.SMALL} withoutSpacing>Learn more.</Link>
-          </>
-        }
+      <AttentionBox
+        compact
+        withIconWithoutHeader
+        icon={Info}
+        text="First, move the content you want to copy into folder. Only main boards and dashboards can be copied."
         type={ATTENTION_BOX_TYPES.DARK}
       />
     </div>

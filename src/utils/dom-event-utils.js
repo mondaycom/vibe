@@ -3,6 +3,10 @@ const ESCAPE_KEY_CODE = 27;
 const BACKSPACE = 8;
 const TAB = 9;
 const SPACE = 32;
+const PAGE_UP = 33;
+const PAGE_DOWN = 34;
+const END = 35;
+const HOME = 36;
 const ARROW_LEFT_KEY_CODE = 37;
 const ARROW_UP_KEY_CODE = 38;
 const ARROW_RIGHT_KEY_CODE = 39;
@@ -51,6 +55,22 @@ export const isSpaceEvent = event => {
 
 export const isTabEvent = event => {
   return validateEvent(event, TAB);
+};
+
+export const isPageUpEvent = event => {
+  return validateEvent(event, PAGE_UP);
+};
+
+export const isPageDownEvent = event => {
+  return validateEvent(event, PAGE_DOWN);
+};
+
+export const isEndEvent = event => {
+  return validateEvent(event, END);
+};
+
+export const isHomeEvent = event => {
+  return validateEvent(event, HOME);
 };
 
 export const isShiftTabEvent = event => {

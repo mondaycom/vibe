@@ -11,15 +11,6 @@ describe("GridKeyboardNavigationContext", () => {
   let ref4;
   let ref5;
 
-  const createElementRef = () => {
-    const element = document.createElement("div");
-    document.body.appendChild(element);
-    jest.spyOn(element, "blur");
-    jest.spyOn(element, "focus");
-    jest.spyOn(element, "dispatchEvent");
-    return { current: element };
-  };
-
   beforeEach(() => {
     ref1 = createElementRef();
     ref2 = createElementRef();
@@ -34,19 +25,6 @@ describe("GridKeyboardNavigationContext", () => {
   });
 
   describe("useGridKeyboardNavigationContext", () => {
-    function renderHookForTest(positions) {
-      wrapperRef = createElementRef();
-      return renderHook(() => useGridKeyboardNavigationContext(positions, wrapperRef));
-    }
-
-    function renderHookWithContext(positions, contextValue) {
-      wrapperRef = createElementRef();
-      const wrapper = ({ children }) => (
-        <GridKeyboardNavigationContext.Provider value={contextValue}>{children}</GridKeyboardNavigationContext.Provider>
-      );
-      return renderHook(() => useGridKeyboardNavigationContext(positions, wrapperRef), { wrapper });
-    }
-
     it("should focus the element positioned on the direction of onOutboundNavigation", () => {
       const positions = [
         { leftElement: ref2, rightElement: ref4 },
@@ -97,5 +75,27 @@ describe("GridKeyboardNavigationContext", () => {
 
       expect(ref4.current.dispatchEvent).toHaveBeenCalledWith(new CustomEvent("focus", { detail: { keyboardDirection } }));
     });
+
+    function renderHookForTest(positions) {
+      wrapperRef = createElementRef();
+      return renderHook(() => useGridKeyboardNavigationContext(positions, wrapperRef));
+    }
+
+    function renderHookWithContext(positions, contextValue) {
+      wrapperRef = createElementRef();
+      const wrapper = ({ children }) => (
+        <GridKeyboardNavigationContext.Provider value={contextValue}>{children}</GridKeyboardNavigationContext.Provider>
+      );
+      return renderHook(() => useGridKeyboardNavigationContext(positions, wrapperRef), { wrapper });
+    }
   });
+
+  function createElementRef() {
+    const element = document.createElement("div");
+    document.body.appendChild(element);
+    jest.spyOn(element, "blur");
+    jest.spyOn(element, "focus");
+    jest.spyOn(element, "dispatchEvent");
+    return { current: element };
+  }
 });
