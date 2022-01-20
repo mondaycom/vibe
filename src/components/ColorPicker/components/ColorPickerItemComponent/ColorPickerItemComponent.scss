@@ -23,12 +23,6 @@
   list-style-type: none;
   position: relative;
 
-  &:hover {
-    &:after {
-      @include absolute-border(3px, primary-background-hover-color);
-      opacity: 0.8;
-    }
-  }
 
   &:focus,
   &:focus-visible,
@@ -50,6 +44,13 @@
     border-radius: calc(4px * var(--border-radius-multiplier, 1));
     cursor: pointer;
 
+    &:hover {
+      &:after {
+        @include absolute-border(3px, primary-background-hover-color);
+        opacity: 0.8;
+      }
+    }
+    
     .color-indicator-wrapper {
       margin-top: 3px;
     }
