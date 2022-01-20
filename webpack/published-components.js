@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require("fs");
-
 const SRC_PATH = path.join(__dirname, "../src");
 const ICONS_PATH = path.join(SRC_PATH, "components/Icon/Icons/components");
 
@@ -71,11 +70,6 @@ const publishedComponents = {
   CustomSvgIcon: "components/Icon/CustomSvgIcon.jsx",
   FormattedNumber: "components/FormattedNumber/FormattedNumber.jsx",
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
-  useKeyEvent: "hooks/useKeyEvent/index.js",
-  useEventListener: "hooks/useEventListener/index.js",
-  useDebounceEvent: "hooks/useDebounceEvent/index.js",
-  useClickOutside: "hooks/useClickOutside/index.js",
-  useResizeObserver: "hooks/useResizeObserver.js",
   allIcons: "components/Icon/Icons",
   Link: "components/Link/Link.jsx",
   ButtonGroup: "components/ButtonGroup/ButtonGroup.jsx",
@@ -86,7 +80,18 @@ const publishedComponents = {
   Toggle: "components/Toggle/Toggle.jsx",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   Avatar: "components/Avatar/Avatar.jsx",
-  IconButton: "components/IconButton/IconButton.jsx"
+  IconButton: "components/IconButton/IconButton.jsx",
+  // hooks
+  useKeyEvent: "hooks/useKeyEvent/index.js",
+  useEventListener: "hooks/useEventListener/index.js",
+  useDebounceEvent: "hooks/useDebounceEvent/index.js",
+  useClickOutside: "hooks/useClickOutside/index.js",
+  useResizeObserver: "hooks/useResizeObserver.js",
+  useAfterFirstRender: "hooks/useAfterFirstRender/index.js",
+  useTimeout: "hooks/useTimeout/index.js",
+  usePrevious: "hooks/usePrevious.js",
+  useMergeRefs: "hooks/useMergeRefs.js",
+  useIsMouseOver: "hooks/useIsMouseOver.js"
 };
 
 function getPublishedComponents() {
