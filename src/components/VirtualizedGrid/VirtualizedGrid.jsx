@@ -85,11 +85,11 @@ const VirtualizedGrid = forwardRef(
     }, [items, idGetter, heightGetter]);
 
     const calcColumnCount = useMemo(() => {
-      return Math.floor(gridWidth / getColumnWidth());
-    }, [gridWidth, getColumnWidth]);
+      return Math.min(items.length, Math.floor(gridWidth / getColumnWidth()));
+    }, [items, gridWidth, getColumnWidth]);
 
     const calcRowCount = useMemo(() => {
-      return calcColumnCount > 0 ? Math.floor(items.length / calcColumnCount) : 0;
+      return calcColumnCount > 0 ? Math.ceil(items.length / calcColumnCount) : 0;
     }, [items, calcColumnCount]);
 
     const scrollToColumnIndex = useMemo(() => {
@@ -168,7 +168,7 @@ const VirtualizedGrid = forwardRef(
     useEffect(() => {
       // recalculate row heights
       if (gridRef.current) {
-        gridRef.current.resetAfterIndices({ columnIndex: 0, rowIndex: 0 });
+        gridRef.current.resetAfterIndex(0);
       }
     }, [normalizedItems]);
 
