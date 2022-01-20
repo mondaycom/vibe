@@ -1,5 +1,5 @@
 import { NAV_DIRECTIONS } from "../../../hooks/useFullKeyboardListeners";
-import { getOppositeDirection, getDirectionMaps, focusElementWithDirection, getOutmostElementInDirection } from "../GridKeyboardNavigationContextHelper";
+import { getOppositeDirection, getDirectionMaps, focusElementWithDirection, getOutmostElementInDirection } from "../helper";
 
 describe("GridKeyboardNavigationContextHelper", () => {
   const ELEMENT1 = "e1";
