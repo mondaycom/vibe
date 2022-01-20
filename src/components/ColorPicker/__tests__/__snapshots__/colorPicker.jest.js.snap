@@ -20,10 +20,11 @@ exports[`renders correctly with empty props 1`] = `
       }
     }
   >
-    <div
+    <ul
       className="color-picker"
+      tabIndex={-1}
     >
-      <div
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -45,8 +46,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -68,8 +69,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -91,8 +92,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -114,8 +115,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -137,8 +138,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -160,8 +161,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -183,8 +184,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -206,8 +207,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -229,8 +230,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -252,8 +253,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -275,8 +276,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -298,8 +299,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -321,8 +322,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -344,8 +345,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -367,8 +368,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -390,8 +391,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -413,8 +414,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -436,8 +437,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -459,8 +460,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -482,8 +483,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -505,8 +506,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -528,8 +529,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -551,8 +552,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -574,8 +575,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -597,8 +598,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -620,8 +621,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -643,8 +644,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -666,8 +667,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -689,8 +690,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -712,8 +713,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -735,8 +736,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -758,8 +759,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -781,8 +782,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -804,8 +805,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -827,8 +828,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -850,8 +851,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -873,8 +874,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -896,8 +897,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -919,8 +920,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-      <div
+      </li>
+      <li
         className="monday-style-color-item-wrapper"
       >
         <div
@@ -942,8 +943,8 @@ exports[`renders correctly with empty props 1`] = `
             style={Object {}}
           />
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </div>
 `;
