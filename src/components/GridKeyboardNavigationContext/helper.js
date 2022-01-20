@@ -50,10 +50,18 @@ export const getDirectionMaps = positions => {
 };
 
 export const getOppositeDirection = direction => {
-  if (direction === NAV_DIRECTIONS.LEFT) return NAV_DIRECTIONS.RIGHT;
-  if (direction === NAV_DIRECTIONS.RIGHT) return NAV_DIRECTIONS.LEFT;
-  if (direction === NAV_DIRECTIONS.UP) return NAV_DIRECTIONS.DOWN;
-  if (direction === NAV_DIRECTIONS.DOWN) return NAV_DIRECTIONS.UP;
+  switch (direction) {
+    case NAV_DIRECTIONS.LEFT:
+      return NAV_DIRECTIONS.RIGHT;
+    case NAV_DIRECTIONS.RIGHT:
+      return NAV_DIRECTIONS.LEFT;
+    case NAV_DIRECTIONS.UP:
+      return NAV_DIRECTIONS.DOWN;
+    case NAV_DIRECTIONS.DOWN:
+      return NAV_DIRECTIONS.UP;
+    default:
+      throw new Error(`Unexpected direction: ${direction}`);
+  }
 };
 
 export const focusElementWithDirection = (elementRef, direction) =>

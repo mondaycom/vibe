@@ -1,101 +1,249 @@
-import { cleanup, renderHook } from "@testing-library/react-hooks";
 import { NAV_DIRECTIONS } from "../../../hooks/useFullKeyboardListeners";
-import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "../GridKeyboardNavigationContext";
-import { focusElementWithDirection } from "../helper";
+import { getOppositeDirection, getDirectionMaps, focusElementWithDirection, getOutmostElementInDirection } from "../helper";
 
-describe("GridKeyboardNavigationContext", () => {
-  let wrapperRef;
-  let ref1;
-  let ref2;
-  let ref3;
-  let ref4;
-  let ref5;
+describe("GridKeyboardNavigationContext.helper", () => {
+  const ELEMENT1 = "e1";
+  const ELEMENT2 = "e2";
+  const ELEMENT3 = "e3";
+  const ELEMENT4 = "e4";
+  const ELEMENT5 = "e5";
 
-  beforeEach(() => {
-    ref1 = createElementRef();
-    ref2 = createElementRef();
-    ref3 = createElementRef();
-    ref4 = createElementRef();
-    ref5 = createElementRef();
+  describe("getDirectionMaps", () => {
+    it("should return empty direction maps when no positions are supplied", () => {
+      const input = [];
+      const expected = {
+        [NAV_DIRECTIONS.RIGHT]: new Map(),
+        [NAV_DIRECTIONS.LEFT]: new Map(),
+        [NAV_DIRECTIONS.UP]: new Map(),
+        [NAV_DIRECTIONS.DOWN]: new Map()
+      };
+
+      const result = getDirectionMaps(input);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should ignore positions in unexpected object schema", () => {
+      const input = [
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 }, // this is the only valid input
+        { unexpectedKey1: ELEMENT2, unexpectedKey2: ELEMENT3 },
+        { topElement: ELEMENT4 },
+        { bottomElement: ELEMENT3 },
+        {}
+      ];
+      const expected = {
+        [NAV_DIRECTIONS.RIGHT]: new Map(),
+        [NAV_DIRECTIONS.LEFT]: new Map(),
+        [NAV_DIRECTIONS.UP]: new Map([[ELEMENT2, ELEMENT1]]),
+        [NAV_DIRECTIONS.DOWN]: new Map([[ELEMENT1, ELEMENT2]])
+      };
+
+      const result = getDirectionMaps(input);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should return directions map which represent the relation between all positions", () => {
+      const input = [
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+      ];
+      const expected = {
+        [NAV_DIRECTIONS.RIGHT]: new Map([
+          [ELEMENT2, ELEMENT4], // ELEMENT4 is to the right of ELEMENT2...
+          [ELEMENT4, ELEMENT5]
+        ]),
+        [NAV_DIRECTIONS.LEFT]: new Map([
+          [ELEMENT5, ELEMENT4],
+          [ELEMENT4, ELEMENT2]
+        ]),
+        [NAV_DIRECTIONS.UP]: new Map([
+          [ELEMENT2, ELEMENT1],
+          [ELEMENT3, ELEMENT2]
+        ]),
+        [NAV_DIRECTIONS.DOWN]: new Map([
+          [ELEMENT1, ELEMENT2],
+          [ELEMENT2, ELEMENT3]
+        ])
+      };
+
+      const result = getDirectionMaps(input);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should throw when a circular vertical positioning is added", () => {
+      const input = [
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT1 }, // invalid
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 }, // valid
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }, // valid
+      ];
+
+      expect(() => getDirectionMaps(input)).toThrowError("Circular positioning detected: the BOTTOM element is already positioned to the TOP of the TOP element. This probably means the layout isn't ordered correctly.");
+    });
+
+    it("should throw when a circular horizontal positioning is added", () => {
+      const input = [
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT2 }, // invalid
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 }, // valid
+        { topElement: ELEMENT2, bottomElement: ELEMENT5 }, // valid
+      ];
+
+      expect(() => getDirectionMaps(input)).toThrowError("Circular positioning detected: the RIGHT element is already positioned to the LEFT of the LEFT element. This probably means the layout isn't ordered correctly.");
+    });
   });
 
-  afterEach(() => {
-    [wrapperRef, ref1, ref2, ref3, ref4, ref5].forEach(ref => ref?.current?.remove());
-    cleanup();
+  describe("getOppositeDirection", () => {
+    [
+      { direction: NAV_DIRECTIONS.LEFT, opposite: NAV_DIRECTIONS.RIGHT },
+      { direction: NAV_DIRECTIONS.RIGHT, opposite: NAV_DIRECTIONS.LEFT },
+      { direction: NAV_DIRECTIONS.UP, opposite: NAV_DIRECTIONS.DOWN },
+      { direction: NAV_DIRECTIONS.DOWN, opposite: NAV_DIRECTIONS.UP }
+    ].forEach(({ direction, opposite }) => {
+      it(`should return "${opposite}" as the opposite of "${direction}"`, () => {
+        expect(getOppositeDirection(direction)).toBe(opposite);
+      });
+    });
+
+    it("should throw on unknown input", () => {
+      const input = "UNKNOWN!";
+      expect(() => getOppositeDirection(input)).toThrowError(`Unexpected direction: ${input}`);
+    });
   });
 
-  describe("useGridKeyboardNavigationContext", () => {
-    it("should focus the element positioned on the direction of onOutboundNavigation", () => {
-      const positions = [
-        { leftElement: ref2, rightElement: ref4 },
-      ];
-      const keyboardDirection = NAV_DIRECTIONS.RIGHT;
-      const { result } = renderHookForTest(positions);
+  describe("focusElementWithDirection", () => {
+    it("should send a custom action with the detail of keyboard direction", () => {
+      const elementRef = { current: { dispatchEvent: jest.fn() } };
+      const keyboardDirection = NAV_DIRECTIONS.LEFT;
+      const expectedEvent = new CustomEvent("focus", { detail: { keyboardDirection } });
 
-      result.current.onOutboundNavigation(ref2, keyboardDirection);
+      focusElementWithDirection(elementRef, keyboardDirection);
 
-      expect(ref2.current.blur).toHaveBeenCalled();
-      expect(ref4.current.dispatchEvent).toHaveBeenCalledWith(new CustomEvent("focus", { detail: { keyboardDirection } }));
+      expect(elementRef.current.dispatchEvent).toHaveBeenCalledTimes(1);
+      expect(elementRef.current.dispatchEvent).toHaveBeenCalledWith(expectedEvent);
     });
 
-    it("should do nothing if there is no element on the direction of onOutboundNavigation", () => {
-      const positions = [
-        { leftElement: ref2, rightElement: ref4 },
-      ];
-      const keyboardDirection = NAV_DIRECTIONS.UP;
-      const { result } = renderHookForTest(positions);
-
-      result.current.onOutboundNavigation(ref2, keyboardDirection);
-
-      expect(ref2.current.blur).not.toHaveBeenCalled();
-      expect(ref4.current.dispatchEvent).not.toHaveBeenCalled();
+    it("should not throw when the element ref is missing", () => {
+      focusElementWithDirection(undefined, NAV_DIRECTIONS.LEFT);
+      // if we reach here - it didn't throw
     });
-
-    it("should call the upper context's onOutboundNavigation if there is no element in that direction", () => {
-      const positions = [
-        { leftElement: ref2, rightElement: ref4 },
-      ];
-      const keyboardDirection = NAV_DIRECTIONS.UP;
-      const fakeUpperContext = { onOutboundNavigation: jest.fn() };
-      const { result } = renderHookWithContext(positions, fakeUpperContext);
-
-      result.current.onOutboundNavigation(ref2, keyboardDirection);
-
-      expect(fakeUpperContext.onOutboundNavigation).toHaveBeenCalledWith(wrapperRef, keyboardDirection);
-    });
-
-    it("should focus the element in the direction of focus, when the wrapper element is focused with direction", () => {
-      const positions = [
-        { leftElement: ref2, rightElement: ref4 },
-      ];
-      const keyboardDirection = NAV_DIRECTIONS.LEFT; // if the user navigated left, the right-most element should be focused
-      renderHookForTest(positions);
-
-      focusElementWithDirection(wrapperRef, keyboardDirection);
-
-      expect(ref4.current.dispatchEvent).toHaveBeenCalledWith(new CustomEvent("focus", { detail: { keyboardDirection } }));
-    });
-
-    function renderHookForTest(positions) {
-      wrapperRef = createElementRef();
-      return renderHook(() => useGridKeyboardNavigationContext(positions, wrapperRef));
-    }
-
-    function renderHookWithContext(positions, contextValue) {
-      wrapperRef = createElementRef();
-      const wrapper = ({ children }) => (
-        <GridKeyboardNavigationContext.Provider value={contextValue}>{children}</GridKeyboardNavigationContext.Provider>
-      );
-      return renderHook(() => useGridKeyboardNavigationContext(positions, wrapperRef), { wrapper });
-    }
   });
 
-  function createElementRef() {
-    const element = document.createElement("div");
-    document.body.appendChild(element);
-    jest.spyOn(element, "blur");
-    jest.spyOn(element, "focus");
-    jest.spyOn(element, "dispatchEvent");
-    return { current: element };
-  }
+  describe("getOutmostElementToFocus", () => {
+    it("should return the right-most element when there are multiple horizontal connections", () => {
+      const directionMaps = getDirectionMaps([
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+      ]);
+      const direction = NAV_DIRECTIONS.RIGHT;
+      const expected = ELEMENT5;
+
+      const result = getOutmostElementInDirection(directionMaps, direction);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should return the left-most element when there are multiple horizontal connections", () => {
+      const directionMaps = getDirectionMaps([
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+      ]);
+      const direction = NAV_DIRECTIONS.LEFT;
+      const expected = ELEMENT2;
+
+      const result = getOutmostElementInDirection(directionMaps, direction);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should return the top-most element when there are multiple horizontal connections", () => {
+      const directionMaps = getDirectionMaps([
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+      ]);
+      const direction = NAV_DIRECTIONS.UP;
+      const expected = ELEMENT1;
+
+      const result = getOutmostElementInDirection(directionMaps, direction);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should return the bottom-most element when there are multiple horizontal connections", () => {
+      const directionMaps = getDirectionMaps([
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+      ]);
+      const direction = NAV_DIRECTIONS.DOWN;
+      const expected = ELEMENT3;
+
+      const result = getOutmostElementInDirection(directionMaps, direction);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should fallback to the left-most element when asking for the BOTTOM element, and there are no vertical relations", () => {
+      const directionMaps = getDirectionMaps([
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+      ]);
+      const direction = NAV_DIRECTIONS.DOWN;
+      const expected = ELEMENT2;
+
+      const result = getOutmostElementInDirection(directionMaps, direction);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should fallback to the left-most element when asking for the TOP element, and there are no vertical relations", () => {
+      const directionMaps = getDirectionMaps([
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+      ]);
+      const direction = NAV_DIRECTIONS.UP;
+      const expected = ELEMENT2;
+
+      const result = getOutmostElementInDirection(directionMaps, direction);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should fallback to the top-most element when asking for the LEFT element, and there are no horizontal relations", () => {
+      const directionMaps = getDirectionMaps([
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
+      ]);
+      const direction = NAV_DIRECTIONS.LEFT;
+      const expected = ELEMENT1;
+
+      const result = getOutmostElementInDirection(directionMaps, direction);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should fallback to the top-most element when asking for the RIGHT element, and there are no horizontal relations", () => {
+      const directionMaps = getDirectionMaps([
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
+      ]);
+      const direction = NAV_DIRECTIONS.RIGHT;
+      const expected = ELEMENT1;
+
+      const result = getOutmostElementInDirection(directionMaps, direction);
+
+      expect(result).toEqual(expected);
+    });
+  });
 });
