@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import { DialogPositions } from "../../../constants";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
+import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
 import { bem } from "../SliderHelpers";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 
-const tooltipShowDelay = 300;
 const tooltipPosition = DialogPositions.TOP;
 
 const SliderThumb = ({ className, index, onMove, position }) => {
@@ -55,7 +55,7 @@ const SliderThumb = ({ className, index, onMove, position }) => {
       open={active === index || dragging === index}
       content={showValue ? null : valueText}
       position={tooltipPosition}
-      showDelay={tooltipShowDelay}
+      showDelay={TOOLTIP_SHOW_DELAY}
     >
       <div
         aria-label={ariaLabel}

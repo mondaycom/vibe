@@ -8,3 +8,5 @@ export const INFIX_KIND = {
 };
 
 export const UPDATE_SLIDER_SIZE_DEBOUNCE = 200;
+
+export const TOOLTIP_SHOW_DELAY = 300;
