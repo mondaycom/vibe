@@ -56,7 +56,7 @@ const Dropdown = ({
   onOptionRemove: customOnOptionRemove,
   onOptionSelect,
   onClear,
-        keepDropdownOpenOnSelection
+  keepDropdownOpenOnSelection
 }) => {
   const [selected, setSelected] = useState(defaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
