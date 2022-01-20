@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.5.0 (2022-01-20)
+
+#### Bug Fixes
+* [#468](https://github.com/mondaycom/monday-ui-react-core/pull/468) Feature/ornu/virtualizedgrid/Fix rows and columns calculations ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
+#### New Features
+* [#462](https://github.com/mondaycom/monday-ui-react-core/pull/462) Added GridKeyboardNavigationContext ([@laviomri](https://github.com/laviomri))
+* [#461](https://github.com/mondaycom/monday-ui-react-core/pull/461) Added useGridKeyboardNavigation ([@laviomri](https://github.com/laviomri))
+
 ## 1.4.0 (2022-01-20)
 
 #### Bug Fixes
