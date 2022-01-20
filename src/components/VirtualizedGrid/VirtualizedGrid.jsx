@@ -86,7 +86,7 @@ const VirtualizedGrid = forwardRef(
 
     const calcColumnCount = useMemo(() => {
       return Math.min(items.length, Math.floor(gridWidth / getColumnWidth()));
-    }, [gridWidth, getColumnWidth]);
+    }, [items, gridWidth, getColumnWidth]);
 
     const calcRowCount = useMemo(() => {
       return calcColumnCount > 0 ? Math.ceil(items.length / calcColumnCount) : 0;

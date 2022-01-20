@@ -27,7 +27,6 @@ export const itemRenderer = (item, index, style) => {
         </div>
       </div>
     );
-  } else {
-    return <div key={index} style={style}></div>;
   }
+  return <div key={index} style={style} />;
 };
