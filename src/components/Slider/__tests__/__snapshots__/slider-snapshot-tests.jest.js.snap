@@ -1,0 +1,483 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider Render 01. with empty props 1`] = `
+<div
+  class="monday-slider"
+  data-testid="monday-slider"
+>
+  <div
+    class="monday-slider__base monday-slider__base--small"
+    data-testid="monday-slider__base"
+  >
+    <div
+      class="monday-slider__rail"
+      data-testid="monday-slider__rail"
+    >
+      <div
+        class="monday-slider__track"
+      />
+      <div
+        class="monday-slider__filled-track"
+        style="left: 0%; width: 0%;"
+      />
+      <div
+        aria-disabled="false"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        aria-valuetext="0%"
+        class="monday-slider__thumb monday-slider__thumb--index-0"
+        data-testid="monday-slider__thumb-0"
+        role="slider"
+        style="left: 0%;"
+        tabindex="0"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Slider Render 02. with ariaLabel 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"ariaLabel":"My Slider"}
+
+@@ --- --- @@
+        />
+        <div
+          aria-disabled="false"
++         aria-label="My Slider"
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="0"
+`;
+
+exports[`Slider Render 03. with ariaLabelledby 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"ariaLabelledby":"id-of-the-custom-label"}
+
+@@ --- --- @@
+        />
+        <div
+          aria-disabled="false"
++         aria-labelledby="id-of-the-custom-label"
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="0"
+`;
+
+exports[`Slider Render 04. with custom className 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"className":"slide-me"}
+
+@@ --- --- @@
+  <div
+-   class="monday-slider"
++   class="monday-slider slide-me"
+    data-testid="monday-slider"
+  >
+    <div
+`;
+
+exports[`Slider Render 05. with id and data-testid 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"id":"my-slider","data-testid":"my-slider"}
+
+@@ --- --- @@
+  <div
+    class="monday-slider"
+-   data-testid="monday-slider"
++   data-testid="my-slider"
++   id="my-slider"
+  >
+    <div
+      class="monday-slider__base monday-slider__base--small"
+-     data-testid="monday-slider__base"
++     data-testid="my-slider__base"
+    >
+      <div
+        class="monday-slider__rail"
+-       data-testid="monday-slider__rail"
++       data-testid="my-slider__rail"
+      >
+        <div
+          class="monday-slider__track"
+@@ --- --- @@
+          aria-valuenow="0"
+          aria-valuetext="0%"
+          class="monday-slider__thumb monday-slider__thumb--index-0"
+-         data-testid="monday-slider__thumb-0"
++         data-testid="my-slider__thumb-0"
+          role="slider"
+          style="left: 0%;"
+          tabindex="0"
+`;
+
+exports[`Slider Render 06. with disabled 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"disabled":true}
+
+@@ --- --- @@
+  <div
+-   class="monday-slider"
++   class="monday-slider monday-slider--disabled"
+    data-testid="monday-slider"
+  >
+    <div
+-     class="monday-slider__base monday-slider__base--small"
++     class="monday-slider__base monday-slider__base--small monday-slider__base--disabled"
+      data-testid="monday-slider__base"
+    >
+      <div
+@@ --- --- @@
+          style="left: 0%; width: 0%;"
+        />
+        <div
+-         aria-disabled="false"
++         aria-disabled="true"
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="0"
+          aria-valuetext="0%"
+-         class="monday-slider__thumb monday-slider__thumb--index-0"
++         class="monday-slider__thumb monday-slider__thumb--disabled monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+          style="left: 0%;"
+-         tabindex="0"
++         tabindex="-1"
+        />
+      </div>
+    </div>
+`;
+
+exports[`Slider Render 07. with color 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"color":"positive"}
+
+@@ --- --- @@
+    data-testid="monday-slider"
+  >
+    <div
+-     class="monday-slider__base monday-slider__base--small"
++     class="monday-slider__base monday-slider__base--small monday-slider__base--positive"
+      data-testid="monday-slider__base"
+    >
+      <div
+`;
+
+exports[`Slider Render 08. with size 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"size":"large"}
+
+@@ --- --- @@
+    data-testid="monday-slider"
+  >
+    <div
+-     class="monday-slider__base monday-slider__base--small"
++     class="monday-slider__base monday-slider__base--large"
+      data-testid="monday-slider__base"
+    >
+      <div
+`;
+
+exports[`Slider Render 09. with min, max, and step 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"min":10,"max":20,"step":2}
+
+@@ --- --- @@
+        />
+        <div
+          aria-disabled="false"
+-         aria-valuemax="100"
+-         aria-valuemin="0"
+-         aria-valuenow="0"
+-         aria-valuetext="0%"
++         aria-valuemax="20"
++         aria-valuemin="10"
++         aria-valuenow="10"
++         aria-valuetext="10%"
+          class="monday-slider__thumb monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+`;
+
+exports[`Slider Render 10. with showValue 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"showValue":true}
+
+@@ --- --- @@
+  <div
+-   class="monday-slider"
++   class="monday-slider monday-slider--value-shown"
+    data-testid="monday-slider"
+  >
+    <div
+@@ --- --- @@
+          role="slider"
+          style="left: 0%;"
+          tabindex="0"
+-       />
++       >
++         <label
++           class="monday-slider__thumb-label"
++         >
++           0%
++         </label>
++       </div>
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`Slider Render 11. with valueFormatter 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {}
+
+@@ --- --- @@
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="0"
+-         aria-valuetext="0%"
++         aria-valuetext="--0GB--"
+          class="monday-slider__thumb monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+`;
+
+exports[`Slider Render 12. with value (controlled component) 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"value":12}
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 0%;"
++         style="left: 0%; width: 12%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="0"
+-         aria-valuetext="0%"
++         aria-valuenow="12"
++         aria-valuetext="12%"
+          class="monday-slider__thumb monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 0%;"
++         style="left: 12%;"
+          tabindex="0"
+        />
+      </div>
+`;
+
+exports[`Slider Render 13. with value, valueText (controlled component) 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"value":15,"valueText":"15kg"}
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 0%;"
++         style="left: 0%; width: 15%;"
+        />
+        <div
+          aria-disabled="false"
+          aria-valuemax="100"
+          aria-valuemin="0"
+-         aria-valuenow="0"
+-         aria-valuetext="0%"
++         aria-valuenow="15"
++         aria-valuetext="15kg"
+          class="monday-slider__thumb monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 0%;"
++         style="left: 15%;"
+          tabindex="0"
+        />
+      </div>
+`;
+
+exports[`Slider Render 14. with indicateSelection 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"indicateSelection":true}
+
+@@ --- --- @@
+        />
+      </div>
+    </div>
++   <div
++     class="monday-slider__infix monday-slider__infix--postfix"
++     style="width: 60px;"
++   >
++     <div
++       data-testid="mock-text-field-comp"
++     >
++       {"value":"0%"}
++     </div>
++   </div>
+  </div>
+`;
+
+exports[`Slider Render 15. with prefix (string) and postfix (Icon) 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+    data-testid="monday-slider"
+  >
+    <div
++     class="monday-slider__infix monday-slider__infix--txt monday-slider__infix--prefix"
++   >
++     Vol
++   </div>
++   <div
+      class="monday-slider__base monday-slider__base--small"
+      data-testid="monday-slider__base"
+    >
+@@ --- --- @@
+          style="left: 0%;"
+          tabindex="0"
+        />
++     </div>
++   </div>
++   <div
++     class="monday-slider__infix monday-slider__infix--postfix"
++   >
++     <div
++       data-testid="mock-icon"
++     >
++       {"clickable":false,"iconSize":18,"ignoreFocusStyle":true,"icon":"Sound"}
+      </div>
+    </div>
+  </div>
+`;
+
+exports[`Slider Render 16. with prefix (custom) and postfix (render-props) 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render
+
+@@ --- --- @@
+    data-testid="monday-slider"
+  >
+    <div
++     class="monday-slider__infix monday-slider__infix--prefix"
++   >
++     <div>
++       Custom component
++     </div>
++   </div>
++   <div
+      class="monday-slider__base monday-slider__base--small"
+      data-testid="monday-slider__base"
+    >
+@@ --- --- @@
+          tabindex="0"
+        />
+      </div>
++   </div>
++   <div
++     class="monday-slider__infix monday-slider__infix--postfix"
++   >
++     Render Props result: 0% (0)
+    </div>
+  </div>
+`;
+
+exports[`Slider Render 17. with ranged (ranged slider) 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"ranged":true}
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 0%;"
++         style="left: 0%; width: 100%;"
+        />
+        <div
+          aria-disabled="false"
+@@ --- --- @@
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+          style="left: 0%;"
++         tabindex="0"
++       />
++       <div
++         aria-disabled="false"
++         aria-valuemax="100"
++         aria-valuemin="0"
++         aria-valuenow="100"
++         aria-valuetext="100%"
++         class="monday-slider__thumb monday-slider__thumb--index-1"
++         data-testid="monday-slider__thumb-1"
++         role="slider"
++         style="left: 100%;"
+          tabindex="0"
+        />
+      </div>
+`;
+
+exports[`Slider Render 18. ranged slider with options 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"defaultValue":[20,30],"min":10,"max":50,"ranged":true,"step":2}
+
+@@ --- --- @@
+        />
+        <div
+          class="monday-slider__filled-track"
+-         style="left: 0%; width: 0%;"
++         style="left: 25%; width: 25%;"
+        />
+        <div
+          aria-disabled="false"
+-         aria-valuemax="100"
+-         aria-valuemin="0"
+-         aria-valuenow="0"
+-         aria-valuetext="0%"
++         aria-valuemax="50"
++         aria-valuemin="10"
++         aria-valuenow="20"
++         aria-valuetext="20%"
+          class="monday-slider__thumb monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+          role="slider"
+-         style="left: 0%;"
++         style="left: 25%;"
++         tabindex="0"
++       />
++       <div
++         aria-disabled="false"
++         aria-valuemax="50"
++         aria-valuemin="10"
++         aria-valuenow="30"
++         aria-valuetext="30%"
++         class="monday-slider__thumb monday-slider__thumb--index-1"
++         data-testid="monday-slider__thumb-1"
++         role="slider"
++         style="left: 50%;"
+          tabindex="0"
+        />
+      </div>
+`;

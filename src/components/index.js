@@ -72,5 +72,6 @@ export { default as Accordion } from "./Accordion/Accordion/Accordion";
 export { default as AccordionItem } from "./Accordion/AccordionItem/AccordionItem";
 export { default as Clickable } from "./Clickable/Clickable";
 export { default as ColorUtils } from "../utils/colors-utils";
+export { default as Slider } from "./Slider/Slider";
 export { default as IconButton } from "./IconButton/IconButton";
 export { default as Flex } from "./Flex/Flex";
