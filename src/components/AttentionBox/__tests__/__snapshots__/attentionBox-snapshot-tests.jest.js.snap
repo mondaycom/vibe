@@ -145,7 +145,7 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
     </span>
   </h2>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text monday-style-attention-box-component_text--compact"
   >
     Text
   </div>
