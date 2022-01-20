@@ -122,7 +122,8 @@ ColorPickerContentComponent.propTypes = {
   numberOfColorsInLine: PropTypes.number,
   tooltipContentByColor: PropTypes.object,
   focusOnMount: PropTypes.bool,
-  colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes))
+  colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes)),
+  isMultiselect: PropTypes.bool
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -141,7 +142,8 @@ ColorPickerContentComponent.defaultProps = {
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   tooltipContentByColor: {},
   focusOnMount: false,
-  colorShape: ColorPickerContentComponent.colorShapes.SQUARE
+  colorShape: ColorPickerContentComponent.colorShapes.SQUARE,
+  isMultiselect: false
 };
 
 export default ColorPickerContentComponent;
