@@ -155,7 +155,8 @@ In case of multiple options, you can use the `onInputChange` prop to allow filte
         { value: "Violet", label: "Violet" },
       ], []);
       const options = useMemo(() => {
-        return allOptions.filter(option => option.label.toLowerCase().includes(searchValue));
+        if (!searchValue) return allOptions;
+        return allOptions.filter(option => option.label.toLowerCase().includes(searchValue.toLowerCase()));
       }, [allOptions, searchValue]);
       const onInputChange = (value) => setSearchValue(value);
       return <Dropdown
