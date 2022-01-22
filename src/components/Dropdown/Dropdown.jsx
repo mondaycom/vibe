@@ -55,7 +55,8 @@ const Dropdown = ({
   multiline = false,
   onOptionRemove: customOnOptionRemove,
   onOptionSelect,
-  onClear
+  onClear,
+  onInputChange
 }) => {
   const [selected, setSelected] = useState(defaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
@@ -65,9 +66,9 @@ const Dropdown = ({
   const selectedOptions = customValue ?? selected;
   const selectedOptionsMap = useMemo(
     () =>
-      (Array.isArray(selectedOptions)
+      Array.isArray(selectedOptions)
         ? selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {})
-        : {}),
+        : {},
     [selectedOptions]
   );
   const value = multi ? selectedOptions : customValue;
@@ -119,29 +120,27 @@ const Dropdown = ({
 
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
-  const Option = useCallback(
-    props => <OptionComponent {...props} Renderer={finalOptionRenderer} />,
-    [finalOptionRenderer]
-  );
+  const Option = useCallback(props => <OptionComponent {...props} Renderer={finalOptionRenderer} />, [
+    finalOptionRenderer
+  ]);
 
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
-  const SingleValue = useCallback(
-    props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />,
-    [finalValueRenderer]
-  );
+  const SingleValue = useCallback(props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />, [
+    finalValueRenderer
+  ]);
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
   const onOptionRemove = useMemo(
     () =>
-      (customOnOptionRemove
+      customOnOptionRemove
         ? (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e)
-        : function (optionValue, e) {
-          setSelected(selected.filter(option => option.value !== optionValue));
+        : function(optionValue, e) {
+            setSelected(selected.filter(option => option.value !== optionValue));
 
-          e.stopPropagation();
-        }),
+            e.stopPropagation();
+          },
     [customOnOptionRemove, selected, selectedOptionsMap]
   );
 
@@ -239,6 +238,7 @@ const Dropdown = ({
       onFocus={onFocus}
       onBlur={onBlur}
       onChange={onChange}
+      onInputChange={onInputChange}
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}
       isRtl={rtl}
@@ -266,6 +266,7 @@ Dropdown.defaultProps = {
   onFocus: NOOP,
   onBlur: NOOP,
   onChange: NOOP,
+  onInputChange: NOOP,
   searchable: true,
   options: [],
   noOptionsMessage: NOOP,
@@ -314,6 +315,10 @@ Dropdown.propTypes = {
    * Called when selected value has changed
    */
   onChange: PropTypes.func,
+  /**
+   * Called when the dropdown's input changes.
+   */
+  onInputChange: PropTypes.func,
   /**
    * If true, search in options will be enabled
    */

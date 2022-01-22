@@ -99,7 +99,7 @@ There are three sizes available: Small, Medium, and Large
             options={[{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]} 
             className="dropdown-stories-styles_rules-spacing"
           />,
-        description:"Use the dropdown as a closed component. Users can only click on the items but not type or search."
+        description:"Use the dropdown as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
       },
       negative: {
         component:
@@ -135,6 +135,35 @@ Inside the advanced filters, a user can select multiple people from the dropdown
           className="dropdown-stories-styles_with-chips"
         />
       )
+    }}
+  </Story>
+</Canvas>
+
+### Searchable Dropdown
+In case of multiple options, you can use the `onInputChange` prop to allow filtering options.
+<Canvas>
+  <Story name="Searchable dropdown">
+    {() => {
+      const [searchValue, setSearchValue] = useState("");
+      const allOptions = useMemo(() => [
+        { value: "Red", label: "Red" },
+        { value: "Orange", label: "Orange" },
+        { value: "Yellow", label: "Yellow" },
+        { value: "Green", label: "Green" },
+        { value: "Blue", label: "Blue" },
+        { value: "Indigo", label: "Indigo" },
+        { value: "Violet", label: "Violet" },
+      ], []);
+      const options = useMemo(() => {
+        if (!searchValue) return allOptions;
+        return allOptions.filter(option => option.label.toLowerCase().includes(searchValue.toLowerCase()));
+      }, [allOptions, searchValue]);
+      const onInputChange = (value) => setSearchValue(value);
+      return <Dropdown
+        options={options}
+        multi
+        className="dropdown-stories-styles_with-chips"
+        onInputChange={onInputChange} />
     }}
   </Story>
 </Canvas>
