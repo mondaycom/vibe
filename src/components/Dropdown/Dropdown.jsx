@@ -64,13 +64,13 @@ const Dropdown = ({
   const finalValueRenderer = valueRenderer || ValueRenderer;
   const isControlled = !!customValue;
   const selectedOptions = customValue ?? selected;
-  const selectedOptionsMap = useMemo(
-    () =>
-      Array.isArray(selectedOptions)
-        ? selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {})
-        : {},
-    [selectedOptions]
-  );
+  const selectedOptionsMap = useMemo(() => {
+    if (Array.isArray(selectedOptions)) {
+      return selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {});
+    }
+    return {};
+  }, [selectedOptions]);
+
   const value = multi ? selectedOptions : customValue;
 
   const styles = useMemo(() => {
@@ -120,29 +120,29 @@ const Dropdown = ({
 
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
-  const Option = useCallback(props => <OptionComponent {...props} Renderer={finalOptionRenderer} />, [
-    finalOptionRenderer
-  ]);
+  const Option = useCallback(
+    props => <OptionComponent {...props} Renderer={finalOptionRenderer} />,
+    [finalOptionRenderer]
+  );
 
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
 
-  const SingleValue = useCallback(props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />, [
-    finalValueRenderer
-  ]);
+  const SingleValue = useCallback(
+    props => <SingleValueComponent {...props} Renderer={finalValueRenderer} />,
+    [finalValueRenderer]
+  );
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
-  const onOptionRemove = useMemo(
-    () =>
-      customOnOptionRemove
-        ? (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e)
-        : function(optionValue, e) {
-            setSelected(selected.filter(option => option.value !== optionValue));
-
-            e.stopPropagation();
-          },
-    [customOnOptionRemove, selected, selectedOptionsMap]
-  );
+  const onOptionRemove = useMemo(() => {
+    if (customOnOptionRemove) {
+      return (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e);
+    }
+    return function (optionValue, e) {
+      setSelected(selected.filter(option => option.value !== optionValue));
+      e.stopPropagation();
+    };
+  }, [customOnOptionRemove, selected, selectedOptionsMap]);
 
   const valueContainerRenderer = useCallback(
     props => (
