@@ -56,7 +56,8 @@ const Dropdown = ({
   onOptionRemove: customOnOptionRemove,
   onOptionSelect,
   onClear,
-  onInputChange
+  onInputChange,
+  closeMenuOnSelect
 }) => {
   const [selected, setSelected] = useState(defaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
@@ -249,7 +250,7 @@ const Dropdown = ({
       tabIndex={tabIndex}
       id={id}
       autoFocus={autoFocus}
-      closeMenuOnSelect={!multi}
+      closeMenuOnSelect={closeMenuOnSelect || !multi}
       {...asyncAdditions}
       {...additions}
     />
@@ -276,7 +277,8 @@ Dropdown.defaultProps = {
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
   id: undefined,
-  autoFocus: false
+  autoFocus: false,
+  closeMenuOnSelect: false
 };
 
 Dropdown.propTypes = {
@@ -447,7 +449,8 @@ Dropdown.propTypes = {
   /**
    * If set to true together with `multi`, it will make the dropdown expand to multiple lines when new values are selected.
    */
-  multiline: PropTypes.bool
+  multiline: PropTypes.bool,
+  closeMenuOnSelect: PropTypes.bool
 };
 
 export default Dropdown;
