@@ -236,29 +236,20 @@ const SplitButton = ({
   );
 };
 
+// Backward compatibility for enum naming
 SplitButton.secondaryPositions = SECONDARY_CONTENT_POSITIONS;
+SplitButton.secondaryDialogPositions = SECONDARY_CONTENT_POSITIONS;
 SplitButton.sizes = Button.sizes;
 SplitButton.colors = Button.colors;
 SplitButton.kinds = Button.kinds;
 SplitButton.inputTags = Button.inputTags;
 SplitButton.dialogPaddingSizes = DialogContentContainer.sizes;
 
-SplitButton.defaultProps = {
-  ...Button.defaultProps,
-  onSecondaryDialogDidShow: NOOP,
-  onSecondaryDialogDidHide: NOOP,
-  zIndex: null,
-  secondaryDialogClassName: "",
-  secondaryDialogPosition: SECONDARY_CONTENT_POSITIONS.BOTTOM_START,
-  dialogPaddingSize: SplitButton.dialogPaddingSizes.MEDIUM
-};
-
 SplitButton.propTypes = {
   ...Button.propTypes,
   secondaryDialogContent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   onSecondaryDialogDidShow: PropTypes.func,
   onSecondaryDialogDidHide: PropTypes.func,
-
   zIndex: PropTypes.number,
   /*
    * Class name to provide the element which wraps the popover/modal/dialog
@@ -280,4 +271,13 @@ SplitButton.propTypes = {
   ])
 };
 
+SplitButton.defaultProps = {
+  ...Button.defaultProps,
+  onSecondaryDialogDidShow: NOOP,
+  onSecondaryDialogDidHide: NOOP,
+  zIndex: null,
+  secondaryDialogClassName: "",
+  secondaryDialogPosition: SECONDARY_CONTENT_POSITIONS.BOTTOM_START,
+  dialogPaddingSize: SplitButton.dialogPaddingSizes.MEDIUM
+};
 export default SplitButton;
