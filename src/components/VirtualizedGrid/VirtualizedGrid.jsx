@@ -168,7 +168,7 @@ const VirtualizedGrid = forwardRef(
     useEffect(() => {
       // recalculate row heights
       if (gridRef.current) {
-        gridRef.current.resetAfterIndex(0);
+        gridRef.current.resetAfterIndices({ columnIndex: 0, rowIndex: 0 });
       }
     }, [normalizedItems]);
 
