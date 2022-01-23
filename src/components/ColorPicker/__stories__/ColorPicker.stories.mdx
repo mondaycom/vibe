@@ -14,14 +14,15 @@ import {
 export const metaSettings = createStoryMetaSettings({
   component: ColorPicker,
   enumPropNamesArray: ["colorStyle", "colorSize", "colorShape"],
-  actionPropsArray: [{name: "onSave", linkedToPropValue: "value"}]
+  iconPropNamesArray: ["ColorIndicatorIcon"],
+  actionPropsArray: [{ name: "onSave", linkedToPropValue: "value" }]
 });
 
-<Meta 
+<Meta
   title="Pickers/ColorPicker"
-  component={ ColorPicker }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={ColorPicker}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component documentation -->
@@ -50,25 +51,19 @@ ColorPicker is our component for selecting our content colors
 ### With Indicator
 
 <Canvas>
-  <Story name="With Indicator">
-    {colorPickerWithIndicatorTemplate.bind({})}
-  </Story>
+  <Story name="With Indicator">{colorPickerWithIndicatorTemplate.bind({})}</Story>
 </Canvas>
 
 ### Text Indication
 
 <Canvas>
-  <Story name="Text Indication">
-    {colorPickerTextIndicatorTemplate.bind({})}
-  </Story>
+  <Story name="Text Indication">{colorPickerTextIndicatorTemplate.bind({})}</Story>
 </Canvas>
 
 ### Selected
 
 <Canvas>
-  <Story name="Selected">
-    {colorPickerSelectedTemplate.bind({})}
-  </Story>
+  <Story name="Selected">{colorPickerSelectedTemplate.bind({})}</Story>
 </Canvas>
 
 ### No color
@@ -76,9 +71,7 @@ ColorPicker is our component for selecting our content colors
 Ability to revert to initial color
 
 <Canvas>
-  <Story name="No color">
-    {colorPickerNoColorTemplate.bind({})}
-  </Story>
+  <Story name="No color">{colorPickerNoColorTemplate.bind({})}</Story>
 </Canvas>
 
 ### Selected icon
@@ -86,7 +79,5 @@ Ability to revert to initial color
 Selected colors indication, when using multi-selection
 
 <Canvas>
-  <Story name="Selected icon">
-    {colorPickerSelectedIconTemplate.bind({})}
-  </Story>
+  <Story name="Selected icon">{colorPickerSelectedIconTemplate.bind({})}</Story>
 </Canvas>
