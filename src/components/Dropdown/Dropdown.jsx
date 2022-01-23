@@ -282,7 +282,7 @@ Dropdown.defaultProps = {
   tabIndex: "0",
   id: undefined,
   autoFocus: false,
-  closeMenuOnSelect: false
+  closeMenuOnSelect: undefined
 };
 
 Dropdown.propTypes = {
