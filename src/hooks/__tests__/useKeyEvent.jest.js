@@ -17,7 +17,8 @@ describe("useKeyEvent", () => {
           keyEventName: "keyup",
           ref: { current: element },
           callback: callbackStub
-        }));
+        })
+      );
     });
 
     afterEach(() => {
@@ -67,7 +68,8 @@ describe("useKeyEvent", () => {
           ref: { current: element },
           callback: callbackStub,
           modifier: useKeyEvent.modifiers.ALT
-        }));
+        })
+      );
     });
 
     afterEach(() => {
@@ -120,7 +122,8 @@ describe("useKeyEvent", () => {
           ref: { current: element },
           callback: callbackStub,
           modifier: useKeyEvent.modifiers.CTRL_OR_META
-        }));
+        })
+      );
     });
 
     afterEach(() => {

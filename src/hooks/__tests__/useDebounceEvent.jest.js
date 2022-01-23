@@ -14,7 +14,8 @@ describe("useDebounceEvent", () => {
         delay,
         initialStateValue,
         onChange: onChangeCallbackStub
-      }));
+      })
+    );
   });
 
   afterEach(() => {
@@ -57,7 +58,8 @@ describe("useDebounceEvent", () => {
           trim: true,
           onChange: onChangeCallbackStub,
           initialStateValue: ""
-        }));
+        })
+      );
 
       const { onEventChanged } = hookRes.result.current;
       const newInputValue = "value     ";
@@ -99,7 +101,8 @@ describe("useDebounceEvent", () => {
           delay: additionalDelay,
           initialStateValue,
           onChange: onChangeCallbackStub
-        }));
+        })
+      );
     });
 
     afterEach(() => {

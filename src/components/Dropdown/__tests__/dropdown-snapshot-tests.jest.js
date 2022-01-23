@@ -100,10 +100,7 @@ describe("Dropdown renders correctly", () => {
     });
 
     it("should use virtualization if set", () => {
-      const component = new DropdownDriver()
-        .withOpenMenuOnClick()
-        .withOpenMenuOnFocus()
-        .withVirtualizedOptions();
+      const component = new DropdownDriver().withOpenMenuOnClick().withOpenMenuOnFocus().withVirtualizedOptions();
 
       component.focusInput();
 

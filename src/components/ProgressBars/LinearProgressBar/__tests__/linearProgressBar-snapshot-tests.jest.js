@@ -25,7 +25,9 @@ describe("LinearProgressBar renders correctly", () => {
   });
 
   it("with barStyle", () => {
-    const tree = renderer.create(<LinearProgressBar value={20} barStyle={LinearProgressBar.styles.POSITIVE} />).toJSON();
+    const tree = renderer
+      .create(<LinearProgressBar value={20} barStyle={LinearProgressBar.styles.POSITIVE} />)
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 

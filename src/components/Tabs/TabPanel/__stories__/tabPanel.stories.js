@@ -12,5 +12,4 @@ export default {
   title: "Components|Tabs/TabPanel",
   component: TabPanel,
   decorators: [withPerformance]
-
 };
