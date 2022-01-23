@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -30,8 +30,30 @@ const ColorPickerItemComponent = ({
   const onMouseDown = useCallback(e => e.preventDefault(), []);
   const onClick = useCallback(() => onValueChange(color), [onValueChange, color]);
 
+  useEffect(() => {
+    if (!itemRef || !itemRef.current || shouldRenderIndicatorWithoutBackground) return;
+    const item = itemRef.current;
+    const onHover = e => {
+      if (colorStyle === COLOR_STYLES.SELECTED) {
+        e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.REGULAR);
+      } else {
+        e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.SELECTED);
+      }
+    };
+    const onMouseLeave = e => {
+      e.target.style.background = colorAsStyle;
+    };
+    item.addEventListener("mouseenter", onHover, false);
+    item.addEventListener("mouseleave", onMouseLeave, false);
+
+    return () => {
+      item.removeEventListener("mouseenter", onHover, false);
+      item.removeEventListener("mouseleave", onMouseLeave, false);
+    };
+  }, [color, colorAsStyle, colorStyle, itemRef, shouldRenderIndicatorWithoutBackground]);
+
   const shouldRenderSelectedIcon = isSelected && isMultiselect;
-  const shouldRenderIcon = (isMultiselect && isSelected) || ColorIndicatorIcon;
+  const shouldRenderIcon = shouldRenderSelectedIcon || ColorIndicatorIcon;
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
   return (
     <Tooltip content={tooltipContent}>
@@ -42,6 +64,7 @@ const ColorPickerItemComponent = ({
           circle: colorShape === COLOR_SHAPES.CIRCLE
         })}
       >
+        <div className="feedback-indicator" />
         <Clickable
           ref={itemRef}
           ariaLabel={color}

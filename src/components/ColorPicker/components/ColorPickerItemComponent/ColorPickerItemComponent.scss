@@ -8,10 +8,10 @@
     --border-radius-multiplier: 99999;
   }
 
-  @mixin absolute-border($border-width, $border-color-var-name, $inset: -$border-width) {
+  @mixin absolute-border($border-width, $border-color-var-name, $inset: -$border-width, $border-radius: 7px) {
     content: " ";
     position: absolute;
-    border-radius: calc(7px * var(--border-radius-multiplier, 1));
+    border-radius: calc($border-radius * var(--border-radius-multiplier, 1));
     inset: $inset;
     border: $border-width solid;
     @include theme-prop(border-color, $border-color-var-name);
@@ -23,16 +23,33 @@
   list-style-type: none;
   position: relative;
 
+  .feedback-indicator {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
 
   &:focus,
   &:focus-visible,
   &.active {
     outline: none;
-    &:before {
-      @include absolute-border(3px, primary-selected-color);
+
+    .feedback-indicator {
+      &:before {
+        @include absolute-border(4px, primary-selected-color);
+      }
+      &:after {
+        @include absolute-border(1px, primary-color);
+      }
     }
-    &:after {
-      @include absolute-border(2px, primary-color);
+  }
+
+  &:hover {
+    &:not(.active):not(.selected-color) {
+      // active elements have no "hover feedback"
+      .feedback-indicator {
+        @include absolute-border(4px, primary-background-hover-color, -4px, 8px);
+      }
     }
   }
 
@@ -44,18 +61,11 @@
     border-radius: calc(4px * var(--border-radius-multiplier, 1));
     cursor: pointer;
 
-    &:hover {
-      &:after {
-        @include absolute-border(3px, primary-background-hover-color);
-        opacity: 0.8;
-      }
-    }
-    
     .color-indicator-wrapper {
       margin-top: 3px;
     }
 
-    &.color-item-size-small{
+    &.color-item-size-small {
       width: 24px;
       height: 24px;
     }
@@ -74,14 +84,14 @@
   &.selected-color {
     position: relative;
     &:before {
-      @include absolute-border(2px, primary-color, -3px);
-      content: " ";
-      position: absolute;
-      border-radius: calc(7px * var(--border-radius-multiplier, 1));
-      inset: -3px;
-      border: 2px solid;
-      @include theme-prop(border-color, primary-color);
-      pointer-events: none;
+      @include absolute-border(2px, primary-color, -4px);
+    }
+
+    .feedback-indicator {
+      &:before {
+        // hide the outer border from the "active" feedback indicator
+        display: none;
+      }
     }
   }
 
