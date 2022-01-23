@@ -250,7 +250,7 @@ const Dropdown = ({
       tabIndex={tabIndex}
       id={id}
       autoFocus={autoFocus}
-      closeMenuOnSelect={closeMenuOnSelect === undefined ? !multi : closeMenuOnSelect}
+      closeMenuOnSelect={closeMenuOnSelect}
       {...asyncAdditions}
       {...additions}
     />
@@ -450,6 +450,9 @@ Dropdown.propTypes = {
    * If set to true together with `multi`, it will make the dropdown expand to multiple lines when new values are selected.
    */
   multiline: PropTypes.bool,
+  /**
+  Pass closeMenuOnSelect to close the multi choose any time an options is chosen.
+  */
   closeMenuOnSelect: PropTypes.bool
 };
 
