@@ -57,7 +57,7 @@ const Dropdown = ({
   onOptionSelect,
   onClear,
   onInputChange,
-  closeMenuOnSelect
+  closeMenuOnSelect = !multi
 }) => {
   const [selected, setSelected] = useState(defaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
