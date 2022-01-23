@@ -88,6 +88,30 @@ There are three sizes available: Small, Medium, and Large
   </Story>
 </Canvas>
 
+### Close dropdown with multi choose
+Pass closeMenuOnSelect to close the multi choose any time an options is chosen.
+<Canvas>
+  <Story name="Close dropdown with multi choose">
+    {() => {
+      const options = useMemo(() => [
+        { value: "Dor Yehuda", label: "Hadas Farhi", src: person1, type: Avatar.types.IMG, size: Avatar.sizes.SMALL, name: "Dor Yehuda", position: "(Full Stack Developer)" },
+        { value: "No", label: "Rotem Dekel", src: person3, type: Avatar.types.IMG, size: Avatar.sizes.SMALL, name: "Rotem Dekel", position: "(Product Designer)" },
+        { value: "Yes", label: "Netta Muller", src: person2, type: Avatar.types.IMG, size: Avatar.sizes.SMALL, name: "Netta Muller", position: "(Brand Designer)" },
+      ], []);
+      return (
+        <Dropdown
+          defaultValue={[options[0]]}
+          options={options}
+          multi
+          optionRenderer={OptionRenderer}
+          className="dropdown-stories-styles_with-chips"
+          closeMenuOnSelect
+        />
+      )
+    }}
+  </Story>
+</Canvas>
+
 ## Do’s and Don’ts
 <ComponentRules
   rules={[
@@ -96,7 +120,7 @@ There are three sizes available: Small, Medium, and Large
         component:
           <Dropdown
             placeholder="Placeholder text here" 
-            options={[{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]} 
+            options={[{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]}
             className="dropdown-stories-styles_rules-spacing"
           />,
         description:"Use the dropdown as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
@@ -106,7 +130,7 @@ There are three sizes available: Small, Medium, and Large
           <Dropdown
             menuIsOpen
             placeholder="Placeholder text here" 
-            options={[{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]} 
+            options={[{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]}
             className="dropdown-stories-styles_rules-spacing"
           />,
         description:<>Don’t insert any fields inside a dropdown. If you need, use the <Link href="/?path=/docs/inputs-combobox--overview" withoutSpacing>Combobox</Link> instead.</>
