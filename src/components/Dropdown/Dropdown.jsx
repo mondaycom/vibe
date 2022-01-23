@@ -250,7 +250,7 @@ const Dropdown = ({
       tabIndex={tabIndex}
       id={id}
       autoFocus={autoFocus}
-      closeMenuOnSelect={typeof closeMenuOnSelect === "undefined" ? !multi : closeMenuOnSelect}
+      closeMenuOnSelect={closeMenuOnSelect === undefined ? !multi : closeMenuOnSelect}
       {...asyncAdditions}
       {...additions}
     />
