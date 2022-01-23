@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.1 (2022-01-23)
+
+#### Bug Fixes
+* [#473](https://github.com/mondaycom/monday-ui-react-core/pull/473) Use resetAfterIndices ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
 ## 1.6.0 (2022-01-23)
 
 #### Bug Fixes
