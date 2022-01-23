@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.6.0 (2022-01-23)
+
+#### Bug Fixes
+* [#469](https://github.com/mondaycom/monday-ui-react-core/pull/469) Focus on editing editable header ([@laviomri](https://github.com/laviomri))
+
+#### New Features
+* [#470](https://github.com/mondaycom/monday-ui-react-core/pull/470) feat: added 'onInputChange' property to Dropdown ([@udidoron](https://github.com/udidoron))
+
+#### Internal Changes
+* [#471](https://github.com/mondaycom/monday-ui-react-core/pull/471) feat: fix lint and absolute paths ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.5.0 (2022-01-20)
 
 #### Bug Fixes
