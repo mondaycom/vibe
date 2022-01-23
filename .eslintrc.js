@@ -17,7 +17,7 @@ module.exports = {
       version: 27
     }
   },
-  extends: ["plugin:react/recommended", "airbnb", "plugin:react-hooks/recommended"],
+  extends: ["plugin:react/recommended", "airbnb", "plugin:react-hooks/recommended", "plugin:prettier/recommended"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -82,7 +82,6 @@ module.exports = {
     "jsx-a11y/no-noninteractive-tabindex": "error",
     "react/jsx-boolean-value": "off",
     "max-len": "off",
-    indent: "off",
     "arrow-parens": "off",
     "implicit-arrow-linebreak": "off",
     "import/order": "warn",
