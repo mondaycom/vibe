@@ -210,6 +210,10 @@ const Dropdown = ({
     })
   };
 
+  const shouldCloseMenuOnSelect = useMemo(() => {
+    return typeof closeMenuOnSelect === "undefined" ? !multi : closeMenuOnSelect;
+  }, [closeMenuOnSelect, multi]);
+
   return (
     <DropDownComponent
       className={cx("dropdown-wrapper", className)}
@@ -250,7 +254,7 @@ const Dropdown = ({
       tabIndex={tabIndex}
       id={id}
       autoFocus={autoFocus}
-      closeMenuOnSelect={typeof closeMenuOnSelect === "undefined" ? !multi : closeMenuOnSelect}
+      closeMenuOnSelect={shouldCloseMenuOnSelect}
       {...asyncAdditions}
       {...additions}
     />
