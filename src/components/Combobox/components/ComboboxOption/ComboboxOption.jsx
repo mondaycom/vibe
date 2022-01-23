@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useMemo } from "react";
 import cx from "classnames";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
@@ -96,6 +96,8 @@ const ComboboxOption = ({
     tooltipContent = isOptionOverflowing ? label : null;
   }
 
+  const optionRendererValue = useMemo(() => optionRenderer && optionRenderer(option), [optionRenderer, option]);
+
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <Tooltip content={tooltipContent}>
@@ -121,14 +123,14 @@ const ComboboxOption = ({
         style={{ height: optionLineHeight }}
       >
         {
-          optionRenderer ? optionRenderer(option) :
-          <>
-            {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
-            <div ref={labelRef} className="option-label">
-              {label}
-            </div>
-            {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
-          </>
+          optionRendererValue ? optionRendererValue
+            : (<>
+              {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
+              <div ref={labelRef} className="option-label">
+                {label}
+              </div>
+              {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
+            </>)
         }
       </div>
     </Tooltip>

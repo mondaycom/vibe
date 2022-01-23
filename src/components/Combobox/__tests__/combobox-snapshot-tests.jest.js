@@ -60,7 +60,7 @@ describe("Combobox renders correctly", () => {
 
   it("with optionRenderer", () => {
     const options = [{ id: "1", label: "Option 1" }, { id: "2", label: "Option 2" }];
-    const optionRenderer = (option) => (<div>some render of {option.label}</div>)
+    const optionRenderer = (option) => (<div>some render of {option.label}</div>);
     const tree = renderer.create(<Combobox options={options} optionRenderer={optionRenderer} />).toJSON();
     expect(tree).toMatchSnapshot();
   });

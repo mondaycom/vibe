@@ -147,7 +147,8 @@ const Combobox = forwardRef(
       isActiveByKeyboard,
       onOptionClick,
       onOptionEnter,
-      onOptionLeave
+      onOptionLeave,
+      optionRenderer
     ]);
 
     const onChangeCallback = useCallback(
