@@ -24,7 +24,13 @@ describe("RadioButton tests", () => {
 
     render(
       <form name={formName}>
-        <RadioButton name={radiosName} value={option1Value} text={option1Text} onSelect={onChangeMock1} defaultChecked={true} />
+        <RadioButton
+          name={radiosName}
+          value={option1Value}
+          text={option1Text}
+          onSelect={onChangeMock1}
+          defaultChecked={true}
+        />
         <RadioButton name={radiosName} value={option2Value} text={option2Text} onSelect={onChangeMock2} />
         <RadioButton name={radiosName} value={option3Value} text={option3Text} onSelect={onChangeMock3} />
       </form>
@@ -63,9 +69,7 @@ describe("RadioButton tests", () => {
 
   it("should be the same text", () => {
     const text = "test text";
-    const { getByText } = render(
-      <RadioButton text={text} />
-    );
+    const { getByText } = render(<RadioButton text={text} />);
     const radioButtonComponentText = getByText(text);
     expect(radioButtonComponentText).toBeTruthy();
   });

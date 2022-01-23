@@ -56,7 +56,7 @@ const Dropdown = ({
   onOptionRemove: customOnOptionRemove,
   onOptionSelect,
   onClear,
-  keepDropdownOpenOnSelection
+  onInputChange
 }) => {
   const [selected, setSelected] = useState(defaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
@@ -64,13 +64,13 @@ const Dropdown = ({
   const finalValueRenderer = valueRenderer || ValueRenderer;
   const isControlled = !!customValue;
   const selectedOptions = customValue ?? selected;
-  const selectedOptionsMap = useMemo(
-    () =>
-      (Array.isArray(selectedOptions)
-        ? selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {})
-        : {}),
-    [selectedOptions]
-  );
+  const selectedOptionsMap = useMemo(() => {
+    if (Array.isArray(selectedOptions)) {
+      return selectedOptions.reduce((acc, option) => ({ ...acc, [option.value]: option }), {});
+    }
+    return {};
+  }, [selectedOptions]);
+
   const value = multi ? selectedOptions : customValue;
 
   const styles = useMemo(() => {
@@ -134,17 +134,15 @@ const Dropdown = ({
 
   const ClearIndicator = useCallback(props => <ClearIndicatorComponent {...props} size={size} />, [size]);
 
-  const onOptionRemove = useMemo(
-    () =>
-      (customOnOptionRemove
-        ? (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e)
-        : function (optionValue, e) {
-          setSelected(selected.filter(option => option.value !== optionValue));
-
-          e.stopPropagation();
-        }),
-    [customOnOptionRemove, selected, selectedOptionsMap]
-  );
+  const onOptionRemove = useMemo(() => {
+    if (customOnOptionRemove) {
+      return (optionValue, e) => customOnOptionRemove(selectedOptionsMap[optionValue], e);
+    }
+    return function (optionValue, e) {
+      setSelected(selected.filter(option => option.value !== optionValue));
+      e.stopPropagation();
+    };
+  }, [customOnOptionRemove, selected, selectedOptionsMap]);
 
   const valueContainerRenderer = useCallback(
     props => (
@@ -240,6 +238,7 @@ const Dropdown = ({
       onFocus={onFocus}
       onBlur={onBlur}
       onChange={onChange}
+      onInputChange={onInputChange}
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}
       isRtl={rtl}
@@ -250,7 +249,7 @@ const Dropdown = ({
       tabIndex={tabIndex}
       id={id}
       autoFocus={autoFocus}
-      closeMenuOnSelect={!keepDropdownOpenOnSelection}
+      closeMenuOnSelect={!multi}
       {...asyncAdditions}
       {...additions}
     />
@@ -268,6 +267,7 @@ Dropdown.defaultProps = {
   onFocus: NOOP,
   onBlur: NOOP,
   onChange: NOOP,
+  onInputChange: NOOP,
   searchable: true,
   options: [],
   noOptionsMessage: NOOP,
@@ -276,8 +276,7 @@ Dropdown.defaultProps = {
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
   id: undefined,
-  autoFocus: false,
-  keepDropdownOpenOnSelection: false
+  autoFocus: false
 };
 
 Dropdown.propTypes = {
@@ -317,6 +316,10 @@ Dropdown.propTypes = {
    * Called when selected value has changed
    */
   onChange: PropTypes.func,
+  /**
+   * Called when the dropdown's input changes.
+   */
+  onInputChange: PropTypes.func,
   /**
    * If true, search in options will be enabled
    */
@@ -444,11 +447,7 @@ Dropdown.propTypes = {
   /**
    * If set to true together with `multi`, it will make the dropdown expand to multiple lines when new values are selected.
    */
-  multiline: PropTypes.bool,
-  /**
-   * If set to true, it will keep the dropdown open when selecting
-   */
-  keepDropdownOpenOnSelection: PropTypes.bool
+  multiline: PropTypes.bool
 };
 
 export default Dropdown;

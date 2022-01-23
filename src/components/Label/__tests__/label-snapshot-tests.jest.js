@@ -10,9 +10,7 @@ describe("Label renders correctly", () => {
 
   describe("fill", () => {
     it("primary", () => {
-      const tree = renderer
-        .create(<Label text="Test" kind={Label.kinds.FILL} color={Label.colors.PRIMARY} />)
-        .toJSON();
+      const tree = renderer.create(<Label text="Test" kind={Label.kinds.FILL} color={Label.colors.PRIMARY} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
@@ -38,9 +36,7 @@ describe("Label renders correctly", () => {
 
   describe("line", () => {
     it("primary", () => {
-      const tree = renderer
-        .create(<Label text="Test" kind={Label.kinds.LINE} color={Label.colors.PRIMARY} />)
-        .toJSON();
+      const tree = renderer.create(<Label text="Test" kind={Label.kinds.LINE} color={Label.colors.PRIMARY} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 

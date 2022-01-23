@@ -43,7 +43,9 @@ describe("MultiStepIndicator renders correctly", () => {
   });
 
   it("with textPlacement vertical", () => {
-    const tree = renderer.create(<MultiStepIndicator steps={exampleSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />);
+    const tree = renderer.create(
+      <MultiStepIndicator steps={exampleSteps} textPlacement={MultiStepIndicator.textPlacements.VERTICAL} />
+    );
     expect(tree).toMatchSnapshot();
   });
 

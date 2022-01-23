@@ -40,7 +40,10 @@ const Slider = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const infixOptions = useMemo(() => ({ prefix, postfix, indicateSelection, selectionIndicatorWidth }), [prefix, postfix, indicateSelection, selectionIndicatorWidth]);
+    const infixOptions = useMemo(
+      () => ({ prefix, postfix, indicateSelection, selectionIndicatorWidth }),
+      [prefix, postfix, indicateSelection, selectionIndicatorWidth]
+    );
     return (
       <SliderProvider
         ariaLabel={ariaLabel}
@@ -228,7 +231,7 @@ Slider.defaultProps = {
   indicateSelection: false,
   prefix: undefined,
   postfix: undefined,
-  selectionIndicatorWidth: '60px'
+  selectionIndicatorWidth: "60px"
 };
 
 export default Slider;

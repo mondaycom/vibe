@@ -1,7 +1,7 @@
-@import "../../../styles/themes.scss";
-@import "../../../styles/typography.scss";
-@import "../../../styles/states.scss";
-@import "../../../styles/global-css-settings.scss";
+@import "../../../styles/themes";
+@import "../../../styles/typography";
+@import "../../../styles/states";
+@import "../../../styles/global-css-settings";
 
 .monday-style-menu-item {
   margin: unset;
@@ -52,13 +52,12 @@
       &:not(:hover):not(.monday-style-menu-item-initial-selected) {
         @include focus-style-css();
       }
-      border-radius: $border-radius-small;
+      border-radius: var(--border-radius-small);
     }
 
     &.monday-style-menu-item--selected {
       @include theme-prop(background-color, primary-selected-color);
-      @include theme-prop(color, primary-color);
-      border-radius: $border-radius-small;
+      border-radius: var(--border-radius-small);
 
       .monday-style-menu-item__icon-wrapper {
         .monday-style-menu-item__icon {

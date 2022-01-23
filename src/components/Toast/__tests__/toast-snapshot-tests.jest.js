@@ -72,7 +72,13 @@ describe("Toast renders correctly", () => {
   });
 
   it("with negative type", () => {
-    const tree = renderer.create(<Toast open type={Toast.types.NEGATIVE}>Something Happened</Toast>).toJSON();
+    const tree = renderer
+      .create(
+        <Toast open type={Toast.types.NEGATIVE}>
+          Something Happened
+        </Toast>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 

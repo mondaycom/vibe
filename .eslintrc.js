@@ -17,7 +17,7 @@ module.exports = {
       version: 27
     }
   },
-  extends: ["plugin:react/recommended", "airbnb", "plugin:react-hooks/recommended"],
+  extends: ["plugin:react/recommended", "airbnb", "plugin:react-hooks/recommended", "plugin:prettier/recommended"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true

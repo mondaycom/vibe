@@ -1,5 +1,35 @@
 # Changelog
 
+## 1.6.2 (2022-01-23)
+
+#### New Icons
+* [#474](https://github.com/mondaycom/monday-ui-react-core/pull/474) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.6.1 (2022-01-23)
+
+#### Bug Fixes
+* [#473](https://github.com/mondaycom/monday-ui-react-core/pull/473) Use resetAfterIndices ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
+## 1.6.0 (2022-01-23)
+
+#### Bug Fixes
+* [#469](https://github.com/mondaycom/monday-ui-react-core/pull/469) Focus on editing editable header ([@laviomri](https://github.com/laviomri))
+
+#### New Features
+* [#470](https://github.com/mondaycom/monday-ui-react-core/pull/470) feat: added 'onInputChange' property to Dropdown ([@udidoron](https://github.com/udidoron))
+
+#### Internal Changes
+* [#471](https://github.com/mondaycom/monday-ui-react-core/pull/471) feat: fix lint and absolute paths ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.5.0 (2022-01-20)
+
+#### Bug Fixes
+* [#468](https://github.com/mondaycom/monday-ui-react-core/pull/468) Feature/ornu/virtualizedgrid/Fix rows and columns calculations ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
+#### New Features
+* [#462](https://github.com/mondaycom/monday-ui-react-core/pull/462) Added GridKeyboardNavigationContext ([@laviomri](https://github.com/laviomri))
+* [#461](https://github.com/mondaycom/monday-ui-react-core/pull/461) Added useGridKeyboardNavigation ([@laviomri](https://github.com/laviomri))
+
 ## 1.4.0 (2022-01-20)
 
 #### Bug Fixes

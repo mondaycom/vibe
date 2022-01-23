@@ -69,7 +69,8 @@ const Menu = forwardRef(
       });
     }, [originalChildren]);
 
-    const { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex, resetOpenSubMenuIndex } = useSubMenuIndex();
+    const { setSubMenuIsOpenByIndex, hasOpenSubMenu, openSubMenuIndex, setOpenSubMenuIndex, resetOpenSubMenuIndex } =
+      useSubMenuIndex();
 
     const onCloseMenu = useOnCloseMenu(onSetActiveItemIndexCallback, setOpenSubMenuIndex, onClose);
 
@@ -130,25 +131,25 @@ const Menu = forwardRef(
         aria-describedby={ariaDescribedBy}
         onMouseOver={onMouseMove}
       >
-        {children
-          && React.Children.map(children, (child, index) => {
+        {children &&
+          React.Children.map(children, (child, index) => {
             return React.isValidElement(child)
               ? React.cloneElement(child, {
-                ...child?.props,
-                activeItemIndex,
-                index,
-                setActiveItemIndex,
-                menuRef: ref,
-                resetOpenSubMenuIndex,
-                isParentMenuVisible: isVisible,
-                setSubMenuIsOpenByIndex,
-                hasOpenSubMenu: index === openSubMenuIndex,
-                closeMenu: onCloseMenu,
-                menuId: id,
-                useDocumentEventListeners,
-                isInitialSelectedState,
-                shouldScrollMenu
-              })
+                  ...child?.props,
+                  activeItemIndex,
+                  index,
+                  setActiveItemIndex,
+                  menuRef: ref,
+                  resetOpenSubMenuIndex,
+                  isParentMenuVisible: isVisible,
+                  setSubMenuIsOpenByIndex,
+                  hasOpenSubMenu: index === openSubMenuIndex,
+                  closeMenu: onCloseMenu,
+                  menuId: id,
+                  useDocumentEventListeners,
+                  isInitialSelectedState,
+                  shouldScrollMenu
+                })
               : null;
           })}
       </ul>

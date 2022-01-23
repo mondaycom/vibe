@@ -1,7 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useContext } from "react";
 import useFullKeyboardListeners from "../useFullKeyboardListeners";
-// import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigation/GridKeyboardNavigationContext";
-import { calcActiveIndexAfterArrowNavigation, getActiveIndexFromInboundNavigation } from "./gridKeyboardNavigationHelper";
+import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import {
+  calcActiveIndexAfterArrowNavigation,
+  getActiveIndexFromInboundNavigation
+} from "./gridKeyboardNavigationHelper";
 import useEventListener from "../useEventListener";
 
 const NO_ACTIVE_INDEX = -1;
@@ -33,7 +36,7 @@ export default function useGridKeyboardNavigation({
 }) {
   const [activeIndex, setActiveIndex] = useState(NO_ACTIVE_INDEX);
 
-  // const keyboardContext = useContext(GridKeyboardNavigationContext);
+  const keyboardContext = useContext(GridKeyboardNavigationContext);
 
   const onArrowNavigation = direction => {
     if (activeIndex === NO_ACTIVE_INDEX) {
@@ -48,7 +51,7 @@ export default function useGridKeyboardNavigation({
       direction
     });
     if (isOutbound) {
-      // keyboardContext?.onOutboundNavigation(ref, direction);
+      keyboardContext?.onOutboundNavigation(ref, direction);
     } else {
       setActiveIndex(nextIndex);
     }
@@ -62,17 +65,20 @@ export default function useGridKeyboardNavigation({
 
   const blurTargetElement = useCallback(() => ref.current?.blur(), [ref]);
 
-  const onFocus = useCallback(e => {
-    const direction = e.detail?.keyboardDirection;
-    if (direction) {
-      const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
-      setActiveIndex(newIndex);
-      return;
-    }
-    if (activeIndex === NO_ACTIVE_INDEX) {
-      setActiveIndex(0);
-    }
-  }, [activeIndex, itemsCount, numberOfItemsInLine]);
+  const onFocus = useCallback(
+    e => {
+      const direction = e.detail?.keyboardDirection;
+      if (direction) {
+        const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
+        setActiveIndex(newIndex);
+        return;
+      }
+      if (activeIndex === NO_ACTIVE_INDEX) {
+        setActiveIndex(0);
+      }
+    },
+    [activeIndex, itemsCount, numberOfItemsInLine]
+  );
 
   const onBlur = useCallback(() => setActiveIndex(NO_ACTIVE_INDEX), [setActiveIndex]);
 
