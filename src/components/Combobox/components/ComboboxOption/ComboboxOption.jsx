@@ -15,7 +15,8 @@ const ComboboxOption = ({
   onOptionLeave,
   onOptionHover,
   optionLineHeight,
-  shouldScrollWhenActive
+  shouldScrollWhenActive,
+  optionRenderer
 }) => {
   const {
     id,
@@ -119,11 +120,16 @@ const ComboboxOption = ({
         })}
         style={{ height: optionLineHeight }}
       >
-        {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
-        <div ref={labelRef} className="option-label">
-          {label}
-        </div>
-        {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
+        {
+          optionRenderer ? optionRenderer(option) :
+          <>
+            {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
+            <div ref={labelRef} className="option-label">
+              {label}
+            </div>
+            {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
+          </>
+        }
       </div>
     </Tooltip>
   );
@@ -135,7 +141,8 @@ ComboboxOption.iconTypes = {
 };
 
 ComboboxOption.defaultProps = {
-  shouldScrollWhenActive: true
+  shouldScrollWhenActive: true,
+  optionRenderer: null
 };
 
 export default ComboboxOption;

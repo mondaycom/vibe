@@ -39,7 +39,8 @@ const Combobox = forwardRef(
       onOptionLeave,
       shouldScrollToSelectedItem,
       noResultsRenderer,
-      stickyCategories
+      stickyCategories,
+      optionRenderer
     },
     ref
   ) => {
@@ -102,6 +103,7 @@ const Combobox = forwardRef(
                     index={index}
                     key={option.id || index}
                     option={option}
+                    optionRenderer={optionRenderer}
                     isActive={activeItemIndex === index}
                     isActiveByKeyboard={isActiveByKeyboard}
                     onOptionClick={onOptionClick}
@@ -124,6 +126,7 @@ const Combobox = forwardRef(
             index={index}
             key={option.id || index}
             option={option}
+            optionRenderer={optionRenderer}
             isActive={activeItemIndex === index}
             isActiveByKeyboard={isActiveByKeyboard}
             onOptionClick={onOptionClick}
@@ -269,7 +272,8 @@ Combobox.propTypes = {
   onOptionLeave: PropTypes.func,
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
-  stickyCategories: PropTypes.bool
+  stickyCategories: PropTypes.bool,
+  optionRenderer: PropTypes.func,
 };
 Combobox.defaultProps = {
   className: "",
@@ -294,7 +298,8 @@ Combobox.defaultProps = {
   onOptionLeave: NOOP,
   shouldScrollToSelectedItem: true,
   noResultsRenderer: undefined,
-  stickyCategories: false
+  stickyCategories: false,
+  optionRenderer: null
 };
 
 export default Combobox;
