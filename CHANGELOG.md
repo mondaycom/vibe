@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.3 (2022-01-23)
+
+#### Bug Fixes
+* [#467](https://github.com/mondaycom/monday-ui-react-core/pull/467) support keep open mode for dropdown ([@etaylib](https://github.com/etaylib))
+* [#475](https://github.com/mondaycom/monday-ui-react-core/pull/475) Fix/orr/menu item css fix ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.6.2 (2022-01-23)
 
 #### New Icons
