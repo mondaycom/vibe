@@ -29,11 +29,7 @@ export const Sandbox = () => {
 
 export const OpenByDefault = () => (
   <div>
-    <ExpandCollapse
-      className="expandCollapse"
-      defaultOpenState={true}
-      headerComponentRenderer={H1Component}
-    >
+    <ExpandCollapse className="expandCollapse" defaultOpenState={true} headerComponentRenderer={H1Component}>
       <Icon iconType={Icon.type.SVG} icon={Robot} iconSize="52px" tabindex="-1" clickable={true} />
     </ExpandCollapse>
   </div>

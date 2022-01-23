@@ -10,8 +10,8 @@ describe("Tooltip tests", () => {
         <div>hello</div>
       </Tooltip>
     );
-    fireEvent.mouseOver(getByText('hello'));
-    await waitFor(() => screen.getByText('content'));
+    fireEvent.mouseOver(getByText("hello"));
+    await waitFor(() => screen.getByText("content"));
     expect(onTooltipShow).toHaveBeenCalledTimes(1);
   });
 
@@ -22,10 +22,10 @@ describe("Tooltip tests", () => {
         <div>hello</div>
       </Tooltip>
     );
-    fireEvent.mouseOver(getByText('hello'));
-    await waitFor(() => screen.getByText('content'));
-    fireEvent.mouseLeave(getByText('hello'));
-    await waitForElementToBeRemoved(() => screen.getByText('content'));
+    fireEvent.mouseOver(getByText("hello"));
+    await waitFor(() => screen.getByText("content"));
+    fireEvent.mouseLeave(getByText("hello"));
+    await waitForElementToBeRemoved(() => screen.getByText("content"));
     expect(onTooltipHide).toHaveBeenCalledTimes(1);
   });
 });

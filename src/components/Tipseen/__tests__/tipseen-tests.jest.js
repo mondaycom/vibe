@@ -53,11 +53,7 @@ describe("Integration Tests", () => {
 
     it("call onSubmit function when click on dismiss button", () => {
       const onSubmitMock = jest.fn();
-      const { getByText } = render(
-        <TipseenContent onSubmit={onSubmitMock}>
-          content
-        </TipseenContent>
-      );
+      const { getByText } = render(<TipseenContent onSubmit={onSubmitMock}>content</TipseenContent>);
       const submitButton = getByText(SUBMIT_BUTTON_TEXT);
 
       act(() => {

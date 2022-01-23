@@ -17,7 +17,7 @@ describe("EditableHeading", () => {
   it("should not render an button when editing = false", () => {
     const { queryByRole } = render(<EditableHeading type={EditableHeading.types.h1} editing={false} />);
 
-    const button = queryByRole('button');
+    const button = queryByRole("button");
 
     expect(button).toBeNull();
   });
@@ -25,7 +25,7 @@ describe("EditableHeading", () => {
   it("should render a button when editing = true", () => {
     const { getByRole } = render(<EditableHeading type={EditableHeading.types.h1} editing={true} />);
 
-    const button = getByRole('button');
+    const button = getByRole("button");
 
     expect(button).toBeInTheDocument();
   });
@@ -34,7 +34,7 @@ describe("EditableHeading", () => {
     const { getByRole, rerender } = render(<EditableHeading type={EditableHeading.types.h1} />);
 
     rerender(<EditableHeading type={EditableHeading.types.h1} editing={true} />);
-    const button = getByRole('button');
+    const button = getByRole("button");
 
     expect(button).toBeInTheDocument();
   });

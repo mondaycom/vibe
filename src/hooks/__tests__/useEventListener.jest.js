@@ -15,7 +15,8 @@ describe("useEventListener", () => {
           eventName: "click",
           ref: { current: element },
           callback: callbackStub
-        }));
+        })
+      );
     });
 
     afterEach(() => {
@@ -50,7 +51,8 @@ describe("useEventListener", () => {
           eventName: customEventName,
           ref: { current: element },
           callback: callbackStub
-        }));
+        })
+      );
     });
 
     afterEach(() => {

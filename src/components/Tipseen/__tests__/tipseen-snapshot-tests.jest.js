@@ -97,13 +97,7 @@ describe("Snapshot Tests", () => {
     });
 
     it("renders correctly without submit button", () => {
-      const tree = renderer
-        .create(
-          <TipseenContent isSubmitHidden>
-            content
-          </TipseenContent>
-        )
-        .toJSON();
+      const tree = renderer.create(<TipseenContent isSubmitHidden>content</TipseenContent>).toJSON();
       expect(tree).toMatchSnapshot();
     });
 

@@ -26,22 +26,20 @@ describe("GridKeyboardNavigationContext", () => {
 
   describe("useGridKeyboardNavigationContext", () => {
     it("should focus the element positioned on the direction of onOutboundNavigation", () => {
-      const positions = [
-        { leftElement: ref2, rightElement: ref4 },
-      ];
+      const positions = [{ leftElement: ref2, rightElement: ref4 }];
       const keyboardDirection = NAV_DIRECTIONS.RIGHT;
       const { result } = renderHookForTest(positions);
 
       result.current.onOutboundNavigation(ref2, keyboardDirection);
 
       expect(ref2.current.blur).toHaveBeenCalled();
-      expect(ref4.current.dispatchEvent).toHaveBeenCalledWith(new CustomEvent("focus", { detail: { keyboardDirection } }));
+      expect(ref4.current.dispatchEvent).toHaveBeenCalledWith(
+        new CustomEvent("focus", { detail: { keyboardDirection } })
+      );
     });
 
     it("should do nothing if there is no element on the direction of onOutboundNavigation", () => {
-      const positions = [
-        { leftElement: ref2, rightElement: ref4 },
-      ];
+      const positions = [{ leftElement: ref2, rightElement: ref4 }];
       const keyboardDirection = NAV_DIRECTIONS.UP;
       const { result } = renderHookForTest(positions);
 
@@ -52,9 +50,7 @@ describe("GridKeyboardNavigationContext", () => {
     });
 
     it("should call the upper context's onOutboundNavigation if there is no element in that direction", () => {
-      const positions = [
-        { leftElement: ref2, rightElement: ref4 },
-      ];
+      const positions = [{ leftElement: ref2, rightElement: ref4 }];
       const keyboardDirection = NAV_DIRECTIONS.UP;
       const fakeUpperContext = { onOutboundNavigation: jest.fn() };
       const { result } = renderHookWithContext(positions, fakeUpperContext);
@@ -65,15 +61,15 @@ describe("GridKeyboardNavigationContext", () => {
     });
 
     it("should focus the element in the direction of focus, when the wrapper element is focused with direction", () => {
-      const positions = [
-        { leftElement: ref2, rightElement: ref4 },
-      ];
+      const positions = [{ leftElement: ref2, rightElement: ref4 }];
       const keyboardDirection = NAV_DIRECTIONS.LEFT; // if the user navigated left, the right-most element should be focused
       renderHookForTest(positions);
 
       focusElementWithDirection(wrapperRef, keyboardDirection);
 
-      expect(ref4.current.dispatchEvent).toHaveBeenCalledWith(new CustomEvent("focus", { detail: { keyboardDirection } }));
+      expect(ref4.current.dispatchEvent).toHaveBeenCalledWith(
+        new CustomEvent("focus", { detail: { keyboardDirection } })
+      );
     });
 
     function renderHookForTest(positions) {
