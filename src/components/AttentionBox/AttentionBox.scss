@@ -4,9 +4,9 @@
 
 .monday-style-attention-box-component {
   position: relative;
-  padding: $spacing-large;
-  border-radius: $border-radius-medium;
-  font-size: $font-size-input;
+  padding: var(--spacing-large);
+  border-radius: var(--border-radius-medium);
+  font-size: var(--font-size-general-label);
   width: fit-content;
   height: fit-content;
   @include theme-prop(color, dark-color);
@@ -62,12 +62,12 @@
     display: flex;
     align-items: center;
     margin-top: 0;
-    margin-bottom: $spacing-medium;
+    margin-bottom: var(--spacing-medium);
 
     &__icon {
       height: 24px;
       width: 24px;
-      margin-right: $spacing-small;
+      margin-right: var(--spacing-small);
     }
 
     &__title {
@@ -77,7 +77,7 @@
   }
 
   &.with-close {
-    padding: $spacing-large $spacing-xxl $spacing-large $spacing-large;
+    padding: var(--spacing-large) var(--spacing-xxl) var(--spacing-large) var(--spacing-large);
   }
 
   &__close-icon {

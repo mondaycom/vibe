@@ -8,11 +8,11 @@
   justify-content: center;
   width: 100%;
   font-family: var(--font-family);
-  font-size: $font-size-input;
+  font-size: var(--font-size-general-label);
   @include theme-prop(color, secondary-text-color);
 
   .linear-progress-bar__label {
-    padding-left: $spacing-xs;
+    padding-left: var(--spacing-xs)
   }
 
   &__large {

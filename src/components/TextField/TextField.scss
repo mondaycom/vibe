@@ -227,7 +227,7 @@
         outline: none;
 
         .input-component__icon {
-          font-size: $font-size-paragraph;
+          font-size: var(--font-size-paragraph);
         }
 
         &:hover + .input-component__icon--container + .input-component__input {
@@ -251,7 +251,7 @@
         height: 40px;
         width: 40px;
         .input-component__icon {
-          font-size: $font-size-paragraph;
+          font-size: var(--font-size-paragraph);
         }
       }
     }

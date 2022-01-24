@@ -30,7 +30,7 @@ export const TextStyles = () => {
         className="monday-storybook-text-description"
         ariaLabel="H2"
         title="Secondary heading (Roboto 24px bold)"
-        description="Use as main header on a page"
+        description="Use as secondary header on a page"
       >
         <Heading
           type={Heading.types.h2}
@@ -46,7 +46,7 @@ export const TextStyles = () => {
         className={CSS_BASE_CLASS}
         ariaLabel="H3"
         title="Tertiary heading (Roboto 24px light)"
-        description="Use as main header on a page"
+        description="Use after heading, profile page headings"
       >
         <Heading
           type={Heading.types.h3}
@@ -61,7 +61,7 @@ export const TextStyles = () => {
         className={CSS_BASE_CLASS}
         ariaLabel="H4"
         title="Fourth heading (Roboto 18px bold)"
-        description="Use as main header on a page"
+        description="Use for subtitles, group name, subheading in admin"
       >
         <Heading
           type={Heading.types.h4}
@@ -76,7 +76,7 @@ export const TextStyles = () => {
         ariaLabel="H5"
         title="Fourth heading (Roboto 18px bold)"
         className={CSS_BASE_CLASS}
-        description="Use as main header on a page"
+        description="Use as subtitles for paragraphs"
       >
         <Heading
           type={Heading.types.h5}
@@ -90,7 +90,7 @@ export const TextStyles = () => {
       <VisualDescription
         ariaLabel="text"
         title="UI labels / General text (Roboto 14px normal)"
-        description="Use as main header on a page"
+        description="Use for general text or labels"
         className={CSS_BASE_CLASS}
       >
         <span
