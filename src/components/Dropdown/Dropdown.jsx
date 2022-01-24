@@ -281,7 +281,7 @@ Dropdown.defaultProps = {
   id: undefined,
   autoFocus: false,
   closeMenuOnSelect: undefined,
-  ref: NOOP
+  ref: undefined
 };
 
 Dropdown.propTypes = {
