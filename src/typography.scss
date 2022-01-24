@@ -1,19 +1,39 @@
 :root {
-  // Font sizes
-  --font-size-1: 14px;
-  --font-size-2: 14px;
-  --font-size-3: 16px;
-  --font-size-4: 18px;
-  --font-size-5: 24px;
-  --font-size-6: 32px;
+  // Font sizes (numeric units)
+  --font-size-10: 14px;
+  --font-size-20: 14px;
+  --font-size-30: 16px;
+  --font-size-40: 18px;
+  --font-size-50: 24px;
+  --font-size-60: 32px;
 
-  // Line heights
-  --font-line-height-1: 18px;
-  --font-line-height-2: 24px;
-  --font-line-height-3: 24px;
-  --font-line-height-4: 24px;
-  --font-line-height-5: 32px;
-  --font-line-height-6: 52px;
+  // Font sizes (meaningful units)
+  --font-size-h1 : var(--font-size-60);
+  --font-size-h2: var(--font-size-50);
+  --font-size-h3: var(--font-size-50);
+  --font-size-h4: var(--font-size-40);
+  --font-size-h5: var(--font-size-30);
+  --font-size-general-label: var(--font-size-20);
+  --font-size-paragraph: var(--font-size-30);
+  --font-size-subtext: var(--font-size-10);
+
+  // Line heights (numeric units)
+  --font-line-height-10: 18px;
+  --font-line-height-20: 24px;
+  --font-line-height-30: 24px;
+  --font-line-height-40: 24px;
+  --font-line-height-50: 32px;
+  --font-line-height-60: 52px;
+
+  // Line heights (meaningful units)
+  --font-line-height-h1 : var(--font-line-height-60);
+  --font-line-height-h2: var(--font-line-height-50);
+  --font-line-height-h3: var(--font-line-height-50);
+  --font-line-height-h4: var(--font-line-height-40);
+  --font-line-height-h5: var(--font-line-height-30);
+  --font-line-height-general-label: var(--font-line-height-20);
+  --font-line-height-paragraph: var(--font-line-height-30);
+  --font-line-height-subtext: var(--font-line-height-10);
 
   // Font weights
   --font-weight-very-light: 200;
@@ -25,14 +45,14 @@
   --font-family: "Roboto", "Open Sans", "Noto Kufi Arabic", "Noto Sans JP", sans-serif;
 
   // Fonts
-  --font-h1: var(--font-weight-bold) var(--font-size-6)/var(--font-line-height-6) var(--font-family);
-  --font-h2: var(--font-weight-bold) var(--font-size-5)/var(--font-line-height-5) var(--font-family);
-  --font-h3: var(--font-weight-bold) var(--font-size-5)/var(--font-line-height-5) var(--font-family);
-  --font-h4: var(--font-weight-bold) var(--font-size-4)/var(--font-line-height-4) var(--font-family);
-  --font-h5: var(--font-weight-bold) var(--font-size-3)/var(--font-line-height-3) var(--font-family);
-  --font-general-label: var(--font-weight-normal) var(--font-size-2)/var(--font-line-height-2) var(--font-family);
-  --font-paragraph: var(--font-weight-normal) var(--font-size-3)/var(--font-line-height-3) var(--font-family);
-  --font-subtext: var(--font-weight-normal) var(--font-size-1)/var(--font-line-height-1) var(--font-family);
+  --font-h1: var(--font-weight-bold) var(--font-size-h1)/var(--font-line-height-h1) var(--font-family);
+  --font-h2: var(--font-weight-bold) var(--font-size-h2)/var(--font-line-height-h2) var(--font-family);
+  --font-h3: var(--font-weight-bold) var(--font-size-h3)/var(--font-line-height-h3) var(--font-family);
+  --font-h4: var(--font-weight-bold) var(--font-size-h4)/var(--font-line-height-h4) var(--font-family);
+  --font-h5: var(--font-weight-bold) var(--font-size-h5)/var(--font-line-height-h5) var(--font-family);
+  --font-general-label: var(--font-weight-normal) var(--font-size-general-label)/var(--font-line-height-general-label) var(--font-family);
+  --font-paragraph: var(--font-weight-normal) var(--font-size-paragraph)/var(--font-line-height-paragraph) var(--font-family);
+  --font-subtext: var(--font-weight-normal) var(--font-size-subtext)/var(--font-line-height-subtext) var(--font-family);
 
   // Font smoothing
   --font-smoothing-webkit: antialiased;
