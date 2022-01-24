@@ -21,58 +21,66 @@ import Button from "../../../../src/components/Button/Button";
 
 Used for accessible keyboard navigation. Useful for components rendering items that can be navigated and selected with a keyboard.
 
-
-
 export const ELEMENT_WIDTH_PX = 72;
 export const PADDING_PX = 24;
 
-export const ON_CLICK = action('item selected');
+export const ON_CLICK = action("item selected");
 
 <Canvas>
   <Story name="Overview">
     {() => {
-    const ref = useRef(null);
-    const [itemsCount, setItemsCount] = useState(15);
-    const [numberOfItemsInLine, setNumberOfItemsInLine] = useState(4);
-    const width = useMemo(() => numberOfItemsInLine * ELEMENT_WIDTH_PX + 2 * PADDING_PX, [numberOfItemsInLine]);
-    const items = useMemo(() => range(itemsCount).map(num => `${num}.`), [itemsCount]);
-    const getItemByIndex = useCallback(index => items[index], [items]);
-    const { activeIndex, onSelectionAction } = useGridKeyboardNavigation({
-      ref,
-      numberOfItemsInLine,
-      itemsCount,
-      getItemByIndex,
-      onItemClicked: ON_CLICK,
-    });
-    const onClickByIndex = useCallback((index) => () => onSelectionAction(index), [onSelectionAction]);
-    return (
-      <div>
-        <div className="use-grid-keyboard-nav-comp-wrapper" style={{ width }} ref={ref} tabIndex={-1}>
-          {items.map((item, index) => (
-            <Button 
-              key={item} 
-              onClick={onClickByIndex(index)} 
-              kind={Button.kinds.SECONDARY}
-              className={cx("use-grid-keyboard-nav-item", { "active-item": index === activeIndex })}>
-              {item}
-            </Button>
-          ))}
+      const ref = useRef(null);
+      const [itemsCount, setItemsCount] = useState(15);
+      const [numberOfItemsInLine, setNumberOfItemsInLine] = useState(4);
+      const width = useMemo(() => numberOfItemsInLine * ELEMENT_WIDTH_PX + 2 * PADDING_PX, [numberOfItemsInLine]);
+      const items = useMemo(() => range(itemsCount).map(num => `${num}.`), [itemsCount]);
+      const getItemByIndex = useCallback(index => items[index], [items]);
+      const { activeIndex, onSelectionAction } = useGridKeyboardNavigation({
+        ref,
+        numberOfItemsInLine,
+        itemsCount,
+        getItemByIndex,
+        onItemClicked: ON_CLICK
+      });
+      const onClickByIndex = useCallback(index => () => onSelectionAction(index), [onSelectionAction]);
+      return (
+        <div>
+          <div className="use-grid-keyboard-nav-comp-wrapper" style={{ width }} ref={ref} tabIndex={-1}>
+            {items.map((item, index) => (
+              <Button
+                key={item}
+                onClick={onClickByIndex(index)}
+                kind={Button.kinds.SECONDARY}
+                className={cx("use-grid-keyboard-nav-item", { "active-item": index === activeIndex })}
+              >
+                {item}
+              </Button>
+            ))}
+          </div>
+          <div className="use-grid-keyboard-nav-controls">
+            <div>
+              Items count:{" "}
+              <input value={itemsCount} onChange={e => setItemsCount(e.target.value)} type="number" min={1} />
+            </div>
+            <div>
+              Number of items in line:{" "}
+              <input
+                value={numberOfItemsInLine}
+                onChange={e => setNumberOfItemsInLine(e.target.value)}
+                type="number"
+                min={1}
+              />
+            </div>
+          </div>
         </div>
-        <div className="use-grid-keyboard-nav-controls">
-          <div>Items count: <input value={itemsCount} onChange={e => setItemsCount(e.target.value)} type="number" min={1}/></div>
-          <div>Number of items in line: <input value={numberOfItemsInLine} onChange={e => setNumberOfItemsInLine(e.target.value)} type="number" min={1}/></div>
-        </div>
-      </div>
-    );
-}}
+      );
+    }}
   </Story>
 </Canvas>
 
 ## Usage
 
-<UsageGuidelines
-  guidelines={["Use this hook when you want to add keyboard navigation to a grid-like component."]}
-/>
+<UsageGuidelines guidelines={["Use this hook when you want to add keyboard navigation to a grid-like component."]} />
 
 ## Arguments
 
@@ -81,16 +89,19 @@ export const ON_CLICK = action('item selected');
     <FunctionArgument
       name="ref"
       type="React.MutableRefObject"
-      description={<>A React <a href="https://reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener noreferrer">ref</a> object. The reference for the component that listens to keyboard. <br/>
-      <b>Important:</b> the referred element must have a <code>tabIndex={-1}</code> for the focus to work properly.</>}
+      description={
+        <>
+          A React{" "}
+          <a href="https://reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener noreferrer">
+            ref
+          </a>{" "}
+          object. The reference for the component that listens to keyboard. <br />
+          <b>Important:</b> the referred element must have a <code>tabIndex={-1}</code> for the focus to work properly.
+        </>
+      }
       required
     />
-    <FunctionArgument
-      name="itemsCount"
-      type="Number"
-      description="The number of items."
-      required
-    />
+    <FunctionArgument name="itemsCount" type="Number" description="The number of items." required />
     <FunctionArgument
       name="numberOfItemsInLine"
       type="Number"
@@ -113,9 +124,17 @@ export const ON_CLICK = action('item selected');
       type="boolean"
       description="If true, the referenced element will be focused when mounted."
     />
+    <FunctionArgument
+      name="focusItemIndexOnMount"
+      type="number"
+      description={
+        <>
+          Optional item index to focus when mounted. Only works with <code>options.focusOnMount</code>.
+        </>
+      }
+    />
   </FunctionArgument>
 </FunctionArguments>
-
 
 ## Returns
 
@@ -125,7 +144,22 @@ export const ON_CLICK = action('item selected');
     <FunctionArgument
       name="onSelectionAction"
       type="(itemIndex) => void"
-      description={<>A wrapper around the passed <code>onItemClicked</code> function. Use it as the handler for selecting items (e.g. <code>onClick</code>)</>}
+      description={
+        <>
+          A wrapper around the passed <code>onItemClicked</code> function. Use it as the handler for selecting items
+          (e.g. <code>onClick</code>)
+        </>
+      }
+    />
+    <FunctionArgument
+      name="isInitialActiveState"
+      type="boolean"
+      description={
+        <>
+          If true, the currently active element was due to an initial mounting index option. See{" "}
+          <code>options.focusItemIndexOnMount</code>.
+        </>
+      }
     />
   </FunctionArgument>
 </FunctionArguments>
