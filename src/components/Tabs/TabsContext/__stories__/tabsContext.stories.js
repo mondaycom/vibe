@@ -25,9 +25,7 @@ export const DefaultStory = () => (
 
 export const Sandbox = () => {
   return (
-    <TabsContext
-      activeTabId={0}
-    >
+    <TabsContext activeTabId={0}>
       <TabList>
         <Tab>First</Tab>
         <Tab>Second</Tab>

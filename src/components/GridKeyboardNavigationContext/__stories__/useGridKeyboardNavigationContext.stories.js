@@ -25,12 +25,7 @@ export const DummyNavigableGrid = forwardRef(({ itemsCount, numberOfItemsInLine,
   });
   const onClickByIndex = useCallback(index => () => onSelectionAction(index), [onSelectionAction]);
   return (
-    <div
-      className="use-grid-keyboard-dummy-grid-wrapper"
-      style={{ width }}
-      ref={ref}
-      tabIndex={-1}
-    >
+    <div className="use-grid-keyboard-dummy-grid-wrapper" style={{ width }} ref={ref} tabIndex={-1}>
       {items.map((item, index) => (
         <Button
           key={item}
@@ -58,7 +53,12 @@ export const LayoutWithInnerKeyboardNavigation = forwardRef((_ignored, ref) => {
   );
   return (
     <GridKeyboardNavigationContext.Provider value={keyboardContext}>
-      <Flex ref={ref} direction={Flex.directions.COLUMN} align={Flex.align.START} className="use-grid-keyboard-dummy-grid-wrapper">
+      <Flex
+        ref={ref}
+        direction={Flex.directions.COLUMN}
+        align={Flex.align.START}
+        className="use-grid-keyboard-dummy-grid-wrapper"
+      >
         <Flex>
           <DummyNavigableGrid ref={leftElRef} itemsCount={6} numberOfItemsInLine={3} itemPrefix="L " />
           <DummyNavigableGrid ref={rightElRef} itemsCount={6} numberOfItemsInLine={2} itemPrefix="R " />

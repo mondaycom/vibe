@@ -9,21 +9,24 @@ export const generateItems = (height = 30, width = "100%", itemsCount) => {
 };
 
 export const itemRenderer = (item, index, style) => {
-  const backgroundColor = index % 2 === 0 ? "white" : "#f8f8f0";
-  return (
-    <div key={index} style={style}>
-      <div
-        style={{
-          backgroundColor,
-          height: item.height,
-          width: item.width,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-      >
-        {item.value}
+  if (item) {
+    const backgroundColor = index % 2 === 0 ? "white" : "#f8f8f0";
+    return (
+      <div key={index} style={style}>
+        <div
+          style={{
+            backgroundColor,
+            height: item.height,
+            width: item.width,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          {item.value}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  return <div key={index} style={style} />;
 };

@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useState, useContext } from "react";
 import useFullKeyboardListeners from "../useFullKeyboardListeners";
 import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
-import { calcActiveIndexAfterArrowNavigation, getActiveIndexFromInboundNavigation } from "./gridKeyboardNavigationHelper";
+import {
+  calcActiveIndexAfterArrowNavigation,
+  getActiveIndexFromInboundNavigation
+} from "./gridKeyboardNavigationHelper";
 import useEventListener from "../useEventListener";
 
 const NO_ACTIVE_INDEX = -1;
@@ -62,15 +65,20 @@ export default function useGridKeyboardNavigation({
 
   const blurTargetElement = useCallback(() => ref.current?.blur(), [ref]);
 
-  const onFocus = useCallback(e => {
-    const direction = e.detail?.keyboardDirection;
-    if (direction) {
-      const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
-      setActiveIndex(newIndex);
-      return;
-    }
-    setActiveIndex((_activeIndex) => (_activeIndex === NO_ACTIVE_INDEX ? 0 : _activeIndex));
-  }, [itemsCount, numberOfItemsInLine]);
+  const onFocus = useCallback(
+    e => {
+      const direction = e.detail?.keyboardDirection;
+      if (direction) {
+        const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
+        setActiveIndex(newIndex);
+        return;
+      }
+      if (activeIndex === NO_ACTIVE_INDEX) {
+        setActiveIndex(0);
+      }
+    },
+    [activeIndex, itemsCount, numberOfItemsInLine]
+  );
 
   const onBlur = useCallback(() => setActiveIndex(NO_ACTIVE_INDEX), [setActiveIndex]);
 

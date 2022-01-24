@@ -1,5 +1,8 @@
 import { NAV_DIRECTIONS } from "../../useFullKeyboardListeners";
-import { calcActiveIndexAfterArrowNavigation, getActiveIndexFromInboundNavigation } from "../gridKeyboardNavigationHelper";
+import {
+  calcActiveIndexAfterArrowNavigation,
+  getActiveIndexFromInboundNavigation
+} from "../gridKeyboardNavigationHelper";
 
 describe("getActiveIndexFromInboundNavigation", () => {
   describe("direction - left", () => {

@@ -6,7 +6,7 @@ export function getActiveIndexFromInboundNavigation({ direction, numberOfItemsIn
     if (direction === NAV_DIRECTIONS.UP) {
       // last line, middle
       const rowCount = Math.ceil(itemsCount / numberOfItemsInLine);
-      return ((rowCount - 1) * numberOfItemsInLine) + firstLineMiddleIndex;
+      return (rowCount - 1) * numberOfItemsInLine + firstLineMiddleIndex;
     }
     if (direction === NAV_DIRECTIONS.DOWN) {
       // first line, middle

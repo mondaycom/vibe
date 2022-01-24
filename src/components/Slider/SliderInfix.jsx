@@ -6,7 +6,13 @@ import { useSliderInfixComponent } from "./SliderInfixHooks";
 
 const SliderInfix = ({ kind }) => {
   const [isShow, modificators, InfixComponent, inlineStyle] = useSliderInfixComponent(kind);
-  return isShow && <div className={bem("infix", [...modificators, kind])} style={inlineStyle}>{InfixComponent}</div>;
+  return (
+    isShow && (
+      <div className={bem("infix", [...modificators, kind])} style={inlineStyle}>
+        {InfixComponent}
+      </div>
+    )
+  );
 };
 
 SliderInfix.kinds = INFIX_KIND;

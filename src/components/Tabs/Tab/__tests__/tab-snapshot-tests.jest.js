@@ -31,37 +31,39 @@ describe("Tab renders correctly", () => {
   });
 
   it("with icon on left", () => {
-    const tree = renderer.create(
-      <Tab icon={Email} iconType={Icon.type.SVG} iconSide="left">Tab</Tab>
-    ).toJSON();
+    const tree = renderer
+      .create(
+        <Tab icon={Email} iconType={Icon.type.SVG} iconSide="left">
+          Tab
+        </Tab>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with icon on right", () => {
-    const tree = renderer.create(
-      <Tab icon={Email} iconType={Icon.type.SVG} iconSide="right">Tab</Tab>
-    ).toJSON();
+    const tree = renderer
+      .create(
+        <Tab icon={Email} iconType={Icon.type.SVG} iconSide="right">
+          Tab
+        </Tab>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with value", () => {
-    const tree = renderer.create(
-      <Tab value={0}>Tab</Tab>
-    ).toJSON();
+    const tree = renderer.create(<Tab value={0}>Tab</Tab>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with id", () => {
-    const tree = renderer.create(
-      <Tab id="test">Tab</Tab>
-    ).toJSON();
+    const tree = renderer.create(<Tab id="test">Tab</Tab>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with className", () => {
-    const tree = renderer.create(
-      <Tab className="test">Tab</Tab>
-    ).toJSON();
+    const tree = renderer.create(<Tab className="test">Tab</Tab>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

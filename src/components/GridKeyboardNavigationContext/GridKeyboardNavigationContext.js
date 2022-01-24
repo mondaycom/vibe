@@ -1,6 +1,11 @@
 import React, { useRef, useContext, useCallback } from "react";
 import useEventListener from "../../hooks/useEventListener";
-import { focusElementWithDirection, getDirectionMaps, getOppositeDirection, getOutmostElementInDirection } from "./helper";
+import {
+  focusElementWithDirection,
+  getDirectionMaps,
+  getOppositeDirection,
+  getOutmostElementInDirection
+} from "./helper";
 
 export const GridKeyboardNavigationContext = React.createContext();
 

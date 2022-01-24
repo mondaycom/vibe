@@ -1,5 +1,10 @@
 import { NAV_DIRECTIONS } from "../../../hooks/useFullKeyboardListeners";
-import { getOppositeDirection, getDirectionMaps, focusElementWithDirection, getOutmostElementInDirection } from "../helper";
+import {
+  getOppositeDirection,
+  getDirectionMaps,
+  focusElementWithDirection,
+  getOutmostElementInDirection
+} from "../helper";
 
 describe("GridKeyboardNavigationContext.helper", () => {
   const ELEMENT1 = "e1";
@@ -48,7 +53,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 },
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ];
       const expected = {
         [NAV_DIRECTIONS.RIGHT]: new Map([
@@ -79,10 +84,12 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT1 }, // invalid
         { leftElement: ELEMENT2, rightElement: ELEMENT4 }, // valid
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 }, // valid
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 } // valid
       ];
 
-      expect(() => getDirectionMaps(input)).toThrowError("Circular positioning detected: the BOTTOM element is already positioned to the TOP of the TOP element. This probably means the layout isn't ordered correctly.");
+      expect(() => getDirectionMaps(input)).toThrowError(
+        "Circular positioning detected: the BOTTOM element is already positioned to the TOP of the TOP element. This probably means the layout isn't ordered correctly."
+      );
     });
 
     it("should throw when a circular horizontal positioning is added", () => {
@@ -90,10 +97,12 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
         { leftElement: ELEMENT4, rightElement: ELEMENT2 }, // invalid
         { topElement: ELEMENT1, bottomElement: ELEMENT2 }, // valid
-        { topElement: ELEMENT2, bottomElement: ELEMENT5 }, // valid
+        { topElement: ELEMENT2, bottomElement: ELEMENT5 } // valid
       ];
 
-      expect(() => getDirectionMaps(input)).toThrowError("Circular positioning detected: the RIGHT element is already positioned to the LEFT of the LEFT element. This probably means the layout isn't ordered correctly.");
+      expect(() => getDirectionMaps(input)).toThrowError(
+        "Circular positioning detected: the RIGHT element is already positioned to the LEFT of the LEFT element. This probably means the layout isn't ordered correctly."
+      );
     });
   });
 
@@ -139,7 +148,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 },
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ]);
       const direction = NAV_DIRECTIONS.RIGHT;
       const expected = ELEMENT5;
@@ -154,7 +163,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 },
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ]);
       const direction = NAV_DIRECTIONS.LEFT;
       const expected = ELEMENT2;
@@ -169,7 +178,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 },
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ]);
       const direction = NAV_DIRECTIONS.UP;
       const expected = ELEMENT1;
@@ -184,7 +193,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 },
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ]);
       const direction = NAV_DIRECTIONS.DOWN;
       const expected = ELEMENT3;
@@ -197,7 +206,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should fallback to the left-most element when asking for the BOTTOM element, and there are no vertical relations", () => {
       const directionMaps = getDirectionMaps([
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ]);
       const direction = NAV_DIRECTIONS.DOWN;
       const expected = ELEMENT2;
@@ -210,7 +219,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should fallback to the left-most element when asking for the TOP element, and there are no vertical relations", () => {
       const directionMaps = getDirectionMaps([
         { leftElement: ELEMENT2, rightElement: ELEMENT4 },
-        { leftElement: ELEMENT4, rightElement: ELEMENT5 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
       ]);
       const direction = NAV_DIRECTIONS.UP;
       const expected = ELEMENT2;
@@ -223,7 +232,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should fallback to the top-most element when asking for the LEFT element, and there are no horizontal relations", () => {
       const directionMaps = getDirectionMaps([
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
-        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 }
       ]);
       const direction = NAV_DIRECTIONS.LEFT;
       const expected = ELEMENT1;
@@ -236,7 +245,7 @@ describe("GridKeyboardNavigationContext.helper", () => {
     it("should fallback to the top-most element when asking for the RIGHT element, and there are no horizontal relations", () => {
       const directionMaps = getDirectionMaps([
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
-        { topElement: ELEMENT2, bottomElement: ELEMENT3 },
+        { topElement: ELEMENT2, bottomElement: ELEMENT3 }
       ]);
       const direction = NAV_DIRECTIONS.RIGHT;
       const expected = ELEMENT1;
