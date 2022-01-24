@@ -205,8 +205,7 @@ const Dropdown = ({
   const additions = {
     ...(!asyncOptions && { options }),
     ...(multi && {
-      isMulti: true,
-      filterOption: option => !selectedOptionsMap[option.value]
+      isMulti: true
     })
   };
 
