@@ -274,7 +274,7 @@ Combobox.propTypes = {
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
-  optionRenderer: PropTypes.func,
+  optionRenderer: PropTypes.func
 };
 Combobox.defaultProps = {
   className: "",

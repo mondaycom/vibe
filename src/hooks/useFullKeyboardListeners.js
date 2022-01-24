@@ -78,8 +78,6 @@ export default function useFullKeyboardListeners({
 
   useEffect(() => {
     if (!focusOnMount || useDocumentEventListeners) return;
-    requestAnimationFrame(() => {
-      ref?.current?.focus();
-    });
+    ref?.current?.focus();
   }, [focusOnMount, ref, useDocumentEventListeners]);
 }

@@ -132,9 +132,7 @@ const ComboboxOption = ({
         })}
         style={{ height: optionLineHeight }}
       >
-        {
-          optionRendererValue || optionValue
-        }
+        {optionRendererValue || optionValue}
       </div>
     </Tooltip>
   );
