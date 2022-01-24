@@ -70,14 +70,12 @@ const ColorPickerContentComponent = forwardRef(
       [isMultiselect, onValueChange, value]
     );
 
-    const keyboardContext = useGridKeyboardNavigationContext(
-      [{ topElement: colorsRef, bottomElement: buttonRef }],
-      ref
-    );
+    const positions = useMemo(() => [{ topElement: colorsRef, bottomElement: buttonRef }], []);
+    const keyboardContext = useGridKeyboardNavigationContext(positions, ref);
     const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
 
     return (
-      <div className={cx("color-picker-content--wrapper", className)} style={{ width }} ref={ref}>
+      <div className={cx("color-picker-content--wrapper", className)} style={{ width }} ref={ref} tabIndex={-1}>
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
           <ColorPickerColorsGrid
             ref={colorsRef}
