@@ -6,7 +6,7 @@
 .input-component {
   position: relative;
   box-sizing: border-box;
-  font-family: Roboto, sans-serif;
+  font-family: var(--font-family);
   width: 100%;
 
   & * {
