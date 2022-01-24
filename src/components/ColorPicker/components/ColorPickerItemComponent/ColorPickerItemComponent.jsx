@@ -37,7 +37,7 @@ const ColorPickerItemComponent = ({
       if (colorStyle === COLOR_STYLES.SELECTED) {
         e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.REGULAR);
       } else {
-        e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.SELECTED);
+        e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.HOVER);
       }
     };
     const onMouseLeave = e => {
