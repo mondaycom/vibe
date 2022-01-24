@@ -29,127 +29,74 @@ $p-empty-state-height: 16px;
 $h6-empty-state-height: 12px;
 $small-empty-state-height: 12px;
 
+@mixin base-font {
+  @include theme-prop(color, primary-text-color);
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
+}
+
 // Main Heading (h1)
 @mixin font-main {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-weight: $font-weight-bold;
-  font-size: $font-size-header;
+  @include base-font;
+  font: var(--font-h1);
   letter-spacing: -1px;
-  line-height: $line-height-for-size-32;
-  @include theme-prop(color, primary-text-color);
 }
 
 // Secondary Heading (h2)
 @mixin font-title {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-weight: $font-weight-bold;
-  font-size: $font-size-secondary;
+  @include base-font;
+  font: var(--font-h2);
   letter-spacing: -0.2px;
-  line-height: $line-height-for-size-24;
-  @include theme-prop(color, primary-text-color);
 }
 
 // Tertiary Heading (h3)
 @mixin font-title-secondary {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-weight: $font-weight-light;
-  font-size: $font-size-secondary;
+  @include base-font;
+  font: var(--font-h2);
   letter-spacing: -0.2px;
-  line-height: $line-height-for-size-24;
   @include theme-prop(color, primary-text-color);
 }
 
 // Fourth Heading (h4)
 @mixin font-subtitle {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-weight: $font-weight-bold;
-  font-size: $font-size-subtitle;
-  line-height: 24px;
-  @include theme-prop(color, primary-text-color);
+  @include base-font;
+  font: var(--font-h4);
 }
 
 // Paragraph Bold (h5)
 @mixin font-paragraph-bold {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-size: $font-size-paragraph;
-  font-weight: $font-weight-bold;
-  line-height: 24px;
-  @include theme-prop(color, primary-text-color);
+  @include base-font;
+  font: var(--font-h5);
 }
 
 // UI lables / General text (h6)
 @mixin font-general-text {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-weight: $font-weight-normal;
-  font-size: $font-size-text;
-  line-height: 24px;
-  @include theme-prop(color, primary-text-color);
+  @include base-font;
+  font: var(--font-general-label);
 }
 
 // Paragraph text (p)
 @mixin font-paragraph {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-weight: $font-weight-normal;
-  font-size: $font-size-paragraph;
-  line-height: 24px;
-  @include theme-prop(color, primary-text-color);
+  @include base-font;
+  font: var(--font-paragraph);
 }
 
 // Caption / Subtext (small)
 @mixin font-caption {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-size: $font-size-caption;
-  font-weight: $font-weight-normal;
-  @include theme-prop(color, secondary-text-color);
-  line-height: 18px;
+  @include base-font;
+  font: var(--font-subtext);
+}
+
+// Please use general text instead of this
+@mixin font-default {
+  @include font-general-text;
+  line-height: 22px;
 }
 
 @mixin font-input {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-size: $font-size-input;
-  font-weight: $font-weight-normal;
-  line-height: 22px;
-  @include theme-prop(color, primary-text-color);
+  @include font-default;
 }
 
-@mixin font-link {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-size: $font-size-text;
-  font-weight: $font-weight-normal;
-  line-height: 22px;
-  text-decoration: none;
-  @include theme-prop(color, link-color);
-}
-
-@mixin font-default {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $primary-font;
-  font-size: $font-size-input;
-  font-weight: $font-weight-normal;
-  line-height: 22px;
-  @include theme-prop(color, primary-text-color);
-}
 
 @mixin line-clamp($lines: 1) {
   overflow: hidden;
