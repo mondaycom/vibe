@@ -98,13 +98,14 @@ const ComboboxOption = ({
 
   const optionRendererValue = useMemo(() => optionRenderer && optionRenderer(option), [optionRenderer, option]);
 
-  const optionValue = (<>
-    {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
-    <div ref={labelRef} className="option-label">
-      {label}
-    </div>
-    {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
-  </>);
+  const optionValue = (
+    <>
+      {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
+      <div ref={labelRef} className="option-label">
+        {label}
+      </div>
+      {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
+    </>);
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
