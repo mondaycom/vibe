@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useContext } from "react";
+import { useCallback, useEffect, useState, useContext, useRef } from "react";
 import useFullKeyboardListeners from "../useFullKeyboardListeners";
 import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import {
@@ -12,6 +12,7 @@ const NO_ACTIVE_INDEX = -1;
 /**
  * @typedef useGridKeyboardNavigationResult
  * @property {number} activeIndex - the currently active index
+ * @property {boolean} isInitialActiveState - if true, the currently active element was due to an initial mounting index option. See "options.focusItemIndexOnMount".
  * @property {function} onSelectionAction - the callback which should be used to select an item. It should be called with the selected item's index. Use this callback for onClick handlers, for example.
  */
 
@@ -24,6 +25,7 @@ const NO_ACTIVE_INDEX = -1;
  * @param {function} options.onItemClicked - the callback for selecting an item. It will be called when an active item is selected, for example with "Enter".
  * @param {function} options.getItemByIndex - a function which gets an index as a param, and returns the item on that index
  * @param {boolean=} options.focusOnMount - if true, the referenced element will be focused when mounted
+ * @param {number=} options.focusItemIndexOnMount - optional item index to focus when mounted. Only works with "options.focusOnMount".
  * @returns {useGridKeyboardNavigationResult}
  */
 export default function useGridKeyboardNavigation({
@@ -32,9 +34,14 @@ export default function useGridKeyboardNavigation({
   numberOfItemsInLine,
   onItemClicked, // the callback to call when an item is selected
   focusOnMount = false,
-  getItemByIndex = () => {}
+  getItemByIndex = () => {},
+  focusItemIndexOnMount = NO_ACTIVE_INDEX
 }) {
-  const [activeIndex, setActiveIndex] = useState(NO_ACTIVE_INDEX);
+  const [isInitialActiveState, setIsInitialActiveState] = useState(
+    focusOnMount && focusItemIndexOnMount !== NO_ACTIVE_INDEX
+  );
+  const skippedInitialActiveIndexChange = useRef(false);
+  const [activeIndex, setActiveIndex] = useState(isInitialActiveState ? focusItemIndexOnMount : NO_ACTIVE_INDEX);
 
   const keyboardContext = useContext(GridKeyboardNavigationContext);
 
@@ -63,6 +70,15 @@ export default function useGridKeyboardNavigation({
     }
   }, [activeIndex, ref]);
 
+  useEffect(() => {
+    if (!skippedInitialActiveIndexChange.current) {
+      skippedInitialActiveIndexChange.current = true;
+      return;
+    }
+    // if the active state changes, this is no longer the initial active state
+    setIsInitialActiveState(false);
+  }, [activeIndex]);
+
   const blurTargetElement = useCallback(() => ref.current?.blur(), [ref]);
 
   const onFocus = useCallback(
@@ -90,7 +106,7 @@ export default function useGridKeyboardNavigation({
       setActiveIndex(index);
       onItemClicked(getItemByIndex(index), index);
     },
-    [onItemClicked, getItemByIndex]
+    [setActiveIndex, onItemClicked, getItemByIndex]
   );
 
   const onKeyboardSelection = useCallback(() => onSelectionAction(activeIndex), [onSelectionAction, activeIndex]);
@@ -105,6 +121,7 @@ export default function useGridKeyboardNavigation({
 
   return {
     activeIndex,
-    onSelectionAction
+    onSelectionAction,
+    isInitialActiveState
   };
 }
