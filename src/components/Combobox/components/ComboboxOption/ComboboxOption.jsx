@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useMemo } from "react";
 import cx from "classnames";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
@@ -15,7 +15,8 @@ const ComboboxOption = ({
   onOptionLeave,
   onOptionHover,
   optionLineHeight,
-  shouldScrollWhenActive
+  shouldScrollWhenActive,
+  optionRenderer
 }) => {
   const {
     id,
@@ -95,6 +96,18 @@ const ComboboxOption = ({
     tooltipContent = isOptionOverflowing ? label : null;
   }
 
+  const optionRendererValue = useMemo(() => optionRenderer && optionRenderer(option), [optionRenderer, option]);
+
+  const optionValue = (
+    <>
+      {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
+      <div ref={labelRef} className="option-label">
+        {label}
+      </div>
+      {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
+    </>
+  );
+
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <Tooltip content={tooltipContent}>
@@ -119,11 +132,9 @@ const ComboboxOption = ({
         })}
         style={{ height: optionLineHeight }}
       >
-        {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
-        <div ref={labelRef} className="option-label">
-          {label}
-        </div>
-        {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
+        {
+          optionRendererValue || optionValue
+        }
       </div>
     </Tooltip>
   );
@@ -135,7 +146,8 @@ ComboboxOption.iconTypes = {
 };
 
 ComboboxOption.defaultProps = {
-  shouldScrollWhenActive: true
+  shouldScrollWhenActive: true,
+  optionRenderer: null
 };
 
 export default ComboboxOption;
