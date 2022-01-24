@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useRef, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -8,6 +8,7 @@ import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
+import { COLOR_SHAPES } from "../../ColorPickerConstants";
 
 const ColorPickerItemComponent = ({
   color,
@@ -19,7 +20,9 @@ const ColorPickerItemComponent = ({
   isMultiselect,
   isSelected,
   colorSize,
-  tooltipContent
+  tooltipContent,
+  isActive,
+  colorShape
 }) => {
   const colorAsStyle = ColorUtils.getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);
@@ -34,7 +37,7 @@ const ColorPickerItemComponent = ({
       if (colorStyle === COLOR_STYLES.SELECTED) {
         e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.REGULAR);
       } else {
-        e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.SELECTED);
+        e.target.style.background = ColorUtils.getMondayColorAsStyle(color, COLOR_STYLES.HOVER);
       }
     };
     const onMouseLeave = e => {
@@ -48,16 +51,20 @@ const ColorPickerItemComponent = ({
       item.removeEventListener("mouseleave", onMouseLeave, false);
     };
   }, [color, colorAsStyle, colorStyle, itemRef, shouldRenderIndicatorWithoutBackground]);
+
   const shouldRenderSelectedIcon = isSelected && isMultiselect;
-  const shouldRenderIcon = (isMultiselect && isSelected) || ColorIndicatorIcon;
+  const shouldRenderIcon = shouldRenderSelectedIcon || ColorIndicatorIcon;
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
   return (
     <Tooltip content={tooltipContent}>
-      <div
+      <li
         className={cx("monday-style-color-item-wrapper", {
-          "selected-color": isSelected
+          "selected-color": isSelected,
+          active: isActive,
+          circle: colorShape === COLOR_SHAPES.CIRCLE
         })}
       >
+        <div className="feedback-indicator" />
         <Clickable
           ref={itemRef}
           ariaLabel={color}
@@ -75,7 +82,7 @@ const ColorPickerItemComponent = ({
             )}
           </div>
         </Clickable>
-      </div>
+      </li>
     </Tooltip>
   );
 };

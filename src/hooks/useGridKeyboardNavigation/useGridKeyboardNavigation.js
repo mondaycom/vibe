@@ -1,0 +1,127 @@
+import { useCallback, useEffect, useState, useContext, useRef } from "react";
+import useFullKeyboardListeners from "../useFullKeyboardListeners";
+import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import {
+  calcActiveIndexAfterArrowNavigation,
+  getActiveIndexFromInboundNavigation
+} from "./gridKeyboardNavigationHelper";
+import useEventListener from "../useEventListener";
+
+const NO_ACTIVE_INDEX = -1;
+
+/**
+ * @typedef useGridKeyboardNavigationResult
+ * @property {number} activeIndex - the currently active index
+ * @property {boolean} isInitialActiveState - if true, the currently active element was due to an initial mounting index option. See "options.focusItemIndexOnMount".
+ * @property {function} onSelectionAction - the callback which should be used to select an item. It should be called with the selected item's index. Use this callback for onClick handlers, for example.
+ */
+
+/**
+ * A hook which is used for accessible keyboard navigation. Useful for components rendering a list of items that can be navigated and selected with a keyboard.
+ * @param {Object} options
+ * @param {React.MutableRefObject} options.ref - the reference for the component that listens to keyboard
+ * @param {number} options.itemsCount - the number of items
+ * @param {number} options.numberOfItemsInLine - the number of items on each line of the grid
+ * @param {function} options.onItemClicked - the callback for selecting an item. It will be called when an active item is selected, for example with "Enter".
+ * @param {function} options.getItemByIndex - a function which gets an index as a param, and returns the item on that index
+ * @param {boolean=} options.focusOnMount - if true, the referenced element will be focused when mounted
+ * @param {number=} options.focusItemIndexOnMount - optional item index to focus when mounted. Only works with "options.focusOnMount".
+ * @returns {useGridKeyboardNavigationResult}
+ */
+export default function useGridKeyboardNavigation({
+  ref,
+  itemsCount,
+  numberOfItemsInLine,
+  onItemClicked, // the callback to call when an item is selected
+  focusOnMount = false,
+  getItemByIndex = () => {},
+  focusItemIndexOnMount = NO_ACTIVE_INDEX
+}) {
+  const [isInitialActiveState, setIsInitialActiveState] = useState(
+    focusOnMount && focusItemIndexOnMount !== NO_ACTIVE_INDEX
+  );
+  const skippedInitialActiveIndexChange = useRef(false);
+  const [activeIndex, setActiveIndex] = useState(isInitialActiveState ? focusItemIndexOnMount : NO_ACTIVE_INDEX);
+
+  const keyboardContext = useContext(GridKeyboardNavigationContext);
+
+  const onArrowNavigation = direction => {
+    if (activeIndex === NO_ACTIVE_INDEX) {
+      setActiveIndex(0);
+      return;
+    }
+
+    const { isOutbound, nextIndex } = calcActiveIndexAfterArrowNavigation({
+      activeIndex,
+      itemsCount,
+      numberOfItemsInLine,
+      direction
+    });
+    if (isOutbound) {
+      keyboardContext?.onOutboundNavigation(ref, direction);
+    } else {
+      setActiveIndex(nextIndex);
+    }
+  };
+
+  useEffect(() => {
+    if (activeIndex > -1) {
+      ref?.current?.focus();
+    }
+  }, [activeIndex, ref]);
+
+  useEffect(() => {
+    if (!skippedInitialActiveIndexChange.current) {
+      skippedInitialActiveIndexChange.current = true;
+      return;
+    }
+    // if the active state changes, this is no longer the initial active state
+    setIsInitialActiveState(false);
+  }, [activeIndex]);
+
+  const blurTargetElement = useCallback(() => ref.current?.blur(), [ref]);
+
+  const onFocus = useCallback(
+    e => {
+      const direction = e.detail?.keyboardDirection;
+      if (direction) {
+        const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
+        setActiveIndex(newIndex);
+        return;
+      }
+      if (activeIndex === NO_ACTIVE_INDEX) {
+        setActiveIndex(0);
+      }
+    },
+    [activeIndex, itemsCount, numberOfItemsInLine]
+  );
+
+  const onBlur = useCallback(() => setActiveIndex(NO_ACTIVE_INDEX), [setActiveIndex]);
+
+  useEventListener({ eventName: "focus", callback: onFocus, ref });
+  useEventListener({ eventName: "blur", callback: onBlur, ref });
+
+  const onSelectionAction = useCallback(
+    index => {
+      setActiveIndex(index);
+      onItemClicked(getItemByIndex(index), index);
+    },
+    [setActiveIndex, onItemClicked, getItemByIndex]
+  );
+
+  const onKeyboardSelection = useCallback(() => onSelectionAction(activeIndex), [onSelectionAction, activeIndex]);
+
+  useFullKeyboardListeners({
+    ref,
+    onArrowNavigation,
+    onSelectionKey: onKeyboardSelection,
+    onEscape: blurTargetElement,
+    focusOnMount
+  });
+
+  return {
+    activeIndex,
+    onSelectionAction,
+    isInitialActiveState
+  };
+}

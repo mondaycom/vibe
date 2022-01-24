@@ -79,6 +79,13 @@ const EditableHeading = props => {
     }
   }, [editing, value, prevValue, valueState, setValueState]);
 
+  useEffect(() => {
+    // update isEditing state if "editing" prop changed to true
+    if (editing) {
+      setIsEditing(true);
+    }
+  }, [editing]);
+
   useLayoutEffect(() => {
     if (!editing && !valueState && value) {
       // When user entered empty value - rollback to value from props

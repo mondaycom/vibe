@@ -18,9 +18,7 @@ describe("SplitButton renders correctly", () => {
 
   it("with tertiary button", () => {
     const tree = renderer
-      .create(
-        <SplitButton secondaryDialogContent={secondaryContent} kind={SplitButton.kinds.TERTIARY} />
-      )
+      .create(<SplitButton secondaryDialogContent={secondaryContent} kind={SplitButton.kinds.TERTIARY} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -28,7 +26,10 @@ describe("SplitButton renders correctly", () => {
   it("with medium dialog padding size", () => {
     const tree = renderer
       .create(
-        <SplitButton secondaryDialogContent={secondaryContent} dialogPaddingSize={SplitButton.dialogPaddingSizes.MEDIUM} />
+        <SplitButton
+          secondaryDialogContent={secondaryContent}
+          dialogPaddingSize={SplitButton.dialogPaddingSizes.MEDIUM}
+        />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -37,18 +38,17 @@ describe("SplitButton renders correctly", () => {
   it("with secondary position", () => {
     const tree = renderer
       .create(
-        <SplitButton secondaryDialogContent={secondaryContent} secondaryDialogPosition={SplitButton.secondaryPositions.BOTTOM_END} />
+        <SplitButton
+          secondaryDialogContent={secondaryContent}
+          secondaryDialogPosition={SplitButton.secondaryPositions.BOTTOM_END}
+        />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with zIndex", () => {
-    const tree = renderer
-      .create(
-        <SplitButton secondaryDialogContent={secondaryContent} zIndex={2} />
-      )
-      .toJSON();
+    const tree = renderer.create(<SplitButton secondaryDialogContent={secondaryContent} zIndex={2} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

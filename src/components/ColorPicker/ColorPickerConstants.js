@@ -10,3 +10,8 @@ export const COLOR_SIZES = {
 
 export const COLOR_PADDING = 8;
 export const DIALOG_WIDTH_PADDING = 24;
+
+export const COLOR_SHAPES = {
+  SQUARE: "square",
+  CIRCLE: "circle"
+};

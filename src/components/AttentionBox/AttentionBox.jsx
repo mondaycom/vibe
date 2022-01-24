@@ -13,6 +13,8 @@ const AttentionBox = ({
   className,
   // Backward compatibility for props naming
   componentClassName,
+  // Will remove when releasing version 2 as BREAKING CHANGES
+  withIconWithoutHeader,
   type,
   icon,
   iconType,
@@ -68,7 +70,25 @@ const AttentionBox = ({
           </span>
         </h2>
       )}
-      <div className={cx(`${baseClassName}__text`, `${classNameWithType}__text`)}>{text}</div>
+      <div
+        className={cx(`${baseClassName}__text`, `${classNameWithType}__text`, {
+          [`${baseClassName}_text--compact`]: compact
+        })}
+      >
+        {!title && compact && !withoutIcon && withIconWithoutHeader && (
+          <Icon
+            iconType={iconType}
+            iconSize={18}
+            ariaHidden
+            clickable={false}
+            icon={icon}
+            className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
+            ignoreFocusStyle
+            iconLabel={iconLabel}
+          />
+        )}
+        {text}
+      </div>
       {onClose && (
         <Icon
           iconType={Icon.type.SVG}
@@ -101,6 +121,7 @@ AttentionBox.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   title: PropTypes.string,
   text: PropTypes.any,
+  withIconWithoutHeader: PropTypes.bool,
   withoutIcon: PropTypes.bool,
   compact: PropTypes.bool,
   onClose: PropTypes.func
@@ -114,6 +135,7 @@ AttentionBox.defaultProps = {
   title: "",
   text: "",
   withoutIcon: false,
+  withIconWithoutHeader: false,
   compact: false,
   onClose: undefined
 };

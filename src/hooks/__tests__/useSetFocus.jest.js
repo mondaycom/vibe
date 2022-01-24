@@ -18,7 +18,8 @@ describe("useSetFocus", () => {
           setActive: setActiveStub,
           setUnActive: setUnActiveStub,
           isActive
-        }));
+        })
+      );
     });
 
     afterEach(() => {

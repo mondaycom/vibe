@@ -1,6 +1,6 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { act } from 'react-dom/test-utils';
+import { act } from "react-dom/test-utils";
 import SplitButton, { SECONDARY_BUTTON_ARIA_LABEL } from "../SplitButton";
 
 jest.useFakeTimers();

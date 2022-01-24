@@ -2,102 +2,109 @@ import cx from "classnames";
 import _difference from "lodash/difference";
 import _intersection from "lodash/intersection";
 import PropTypes from "prop-types";
-import React, { useCallback, useMemo } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { SIZES } from "../../../../constants/sizes";
 import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
-import Button from "../../../Button/Button";
 import NoColor from "../../../Icon/Icons/components/NoColor";
-import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
-import { DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
 import "./ColorPickerContentComponent.scss";
+import {
+  GridKeyboardNavigationContext,
+  useGridKeyboardNavigationContext
+} from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import { ColorPickerClearButton } from "./ColorPickerClearButton";
+import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
 
-const ColorPickerContentComponent = ({
-  className,
-  onValueChange,
-  value,
-  noColorText,
-  colorStyle,
-  ColorIndicatorIcon,
-  SelectedIndicatorIcon,
-  shouldRenderIndicatorWithoutBackground,
-  NoColorIcon,
-  isBlackListMode,
-  colorsList,
-  isMultiselect,
-  colorSize,
-  numberOfColorsInLine,
-  tooltipContentByColor
-}) => {
-  const onClearButton = useCallback(() => {
-    onValueChange(null);
-  }, [onValueChange]);
-
-  const onColorClicked = useCallback(
-    color => {
-      if (!isMultiselect) {
-        onValueChange([color]);
-        return;
-      }
-      const colors = [...value];
-      if (colors.includes(color)) {
-        const index = colors.indexOf(color);
-        if (index > -1) {
-          colors.splice(index, 1);
-        }
-      } else {
-        colors.push(color);
-      }
-      onValueChange(colors);
+const ColorPickerContentComponent = forwardRef(
+  (
+    {
+      className,
+      onValueChange,
+      value,
+      noColorText,
+      colorStyle,
+      ColorIndicatorIcon,
+      SelectedIndicatorIcon,
+      shouldRenderIndicatorWithoutBackground,
+      NoColorIcon,
+      isBlackListMode,
+      colorsList,
+      isMultiselect,
+      colorSize,
+      numberOfColorsInLine,
+      tooltipContentByColor,
+      focusOnMount,
+      colorShape
     },
-    [isMultiselect, onValueChange, value]
-  );
+    ref
+  ) => {
+    const onClearButton = useCallback(() => {
+      onValueChange(null);
+    }, [onValueChange]);
 
-  const colorsToRender = useMemo(() => {
-    return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);
-  }, [isBlackListMode, colorsList]);
+    const colorsRef = useRef(null);
+    const buttonRef = useRef(null);
 
-  const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
+    const colorsToRender = useMemo(() => {
+      return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);
+    }, [isBlackListMode, colorsList]);
 
-  return (
-    <div className={cx("color-picker-content--wrapper", className)} style={{ width }}>
-      <div className={cx("color-picker")}>
-        {colorsToRender.map(color => {
-          return (
-            <ColorPickerItemComponent
-              key={color}
-              color={color}
-              onValueChange={onColorClicked}
-              value={value}
-              shouldRenderIndicatorWithoutBackground={ColorIndicatorIcon && shouldRenderIndicatorWithoutBackground}
-              colorStyle={colorStyle}
-              ColorIndicatorIcon={ColorIndicatorIcon}
-              SelectedIndicatorIcon={SelectedIndicatorIcon}
-              isSelected={isMultiselect ? value.includes(color) : value === color}
-              isMultiselect={isMultiselect}
-              colorSize={colorSize}
-              tooltipContent={tooltipContentByColor[color]}
-            />
-          );
-        })}
+    const onColorClicked = useCallback(
+      color => {
+        if (!isMultiselect) {
+          onValueChange([color]);
+          return;
+        }
+        const colors = [...value];
+        if (colors.includes(color)) {
+          const indexInSelected = colors.indexOf(color);
+          if (indexInSelected > -1) {
+            colors.splice(indexInSelected, 1);
+          }
+        } else {
+          colors.push(color);
+        }
+        onValueChange(colors);
+      },
+      [isMultiselect, onValueChange, value]
+    );
+
+    const positions = useMemo(() => [{ topElement: colorsRef, bottomElement: buttonRef }], []);
+    const keyboardContext = useGridKeyboardNavigationContext(positions, ref);
+    const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
+
+    return (
+      <div className={cx("color-picker-content--wrapper", className)} style={{ width }} ref={ref} tabIndex={-1}>
+        <GridKeyboardNavigationContext.Provider value={keyboardContext}>
+          <ColorPickerColorsGrid
+            ref={colorsRef}
+            onColorClicked={onColorClicked}
+            colorsToRender={colorsToRender}
+            numberOfColorsInLine={numberOfColorsInLine}
+            focusOnMount={focusOnMount}
+            value={value}
+            colorStyle={colorStyle}
+            ColorIndicatorIcon={ColorIndicatorIcon}
+            shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
+            isMultiselect={isMultiselect}
+            SelectedIndicatorIcon={SelectedIndicatorIcon}
+            colorSize={colorSize}
+            tooltipContentByColor={tooltipContentByColor}
+            colorShape={colorShape}
+          />
+          {noColorText && (
+            <ColorPickerClearButton Icon={NoColorIcon} onClick={onClearButton} text={noColorText} ref={buttonRef} />
+          )}
+        </GridKeyboardNavigationContext.Provider>
       </div>
-      {noColorText && (
-        <Button
-          size={Button.sizes.SMALL}
-          kind={Button.kinds.TERTIARY}
-          onClick={onClearButton}
-          className="clear-color-button"
-        >
-          <NoColorIcon size="16" className="clear-color-icon" />
-          {noColorText}
-        </Button>
-      )}
-    </div>
-  );
-};
+    );
+  }
+);
 
 ColorPickerContentComponent.COLOR_STYLES = COLOR_STYLES;
 ColorPickerContentComponent.sizes = SIZES;
+ColorPickerContentComponent.colorShapes = COLOR_SHAPES;
 
 ColorPickerContentComponent.propTypes = {
   className: PropTypes.string,
@@ -120,7 +127,10 @@ ColorPickerContentComponent.propTypes = {
     ColorPickerContentComponent.sizes.LARGE
   ]),
   numberOfColorsInLine: PropTypes.number,
-  tooltipContentByColor: PropTypes.object
+  tooltipContentByColor: PropTypes.object,
+  focusOnMount: PropTypes.bool,
+  colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes)),
+  isMultiselect: PropTypes.bool
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -137,7 +147,10 @@ ColorPickerContentComponent.defaultProps = {
   colorsList: [],
   colorSize: ColorPickerContentComponent.sizes.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
-  tooltipContentByColor: {}
+  tooltipContentByColor: {},
+  focusOnMount: false,
+  colorShape: ColorPickerContentComponent.colorShapes.SQUARE,
+  isMultiselect: false
 };
 
 export default ColorPickerContentComponent;

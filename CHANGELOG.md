@@ -1,5 +1,64 @@
 # Changelog
 
+## 1.7.0 (2022-01-24)
+
+#### New Features
+* [#472](https://github.com/mondaycom/monday-ui-react-core/pull/472) add option renderer to combobox ([@roniCohen123](https://github.com/roniCohen123))
+* [#464](https://github.com/mondaycom/monday-ui-react-core/pull/464) Keyboard nav for ColorPicker ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#476](https://github.com/mondaycom/monday-ui-react-core/pull/476) Minor fixes in split button story ([@hadasfa](https://github.com/hadasfa))
+
+## 1.6.3 (2022-01-23)
+
+#### Bug Fixes
+* [#467](https://github.com/mondaycom/monday-ui-react-core/pull/467) support keep open mode for dropdown ([@etaylib](https://github.com/etaylib))
+* [#475](https://github.com/mondaycom/monday-ui-react-core/pull/475) Fix/orr/menu item css fix ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.6.2 (2022-01-23)
+
+#### New Icons
+* [#474](https://github.com/mondaycom/monday-ui-react-core/pull/474) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.6.1 (2022-01-23)
+
+#### Bug Fixes
+* [#473](https://github.com/mondaycom/monday-ui-react-core/pull/473) Use resetAfterIndices ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
+## 1.6.0 (2022-01-23)
+
+#### Bug Fixes
+* [#469](https://github.com/mondaycom/monday-ui-react-core/pull/469) Focus on editing editable header ([@laviomri](https://github.com/laviomri))
+
+#### New Features
+* [#470](https://github.com/mondaycom/monday-ui-react-core/pull/470) feat: added 'onInputChange' property to Dropdown ([@udidoron](https://github.com/udidoron))
+
+#### Internal Changes
+* [#471](https://github.com/mondaycom/monday-ui-react-core/pull/471) feat: fix lint and absolute paths ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.5.0 (2022-01-20)
+
+#### Bug Fixes
+* [#468](https://github.com/mondaycom/monday-ui-react-core/pull/468) Feature/ornu/virtualizedgrid/Fix rows and columns calculations ([@or-nuri-monday](https://github.com/or-nuri-monday))
+
+#### New Features
+* [#462](https://github.com/mondaycom/monday-ui-react-core/pull/462) Added GridKeyboardNavigationContext ([@laviomri](https://github.com/laviomri))
+* [#461](https://github.com/mondaycom/monday-ui-react-core/pull/461) Added useGridKeyboardNavigation ([@laviomri](https://github.com/laviomri))
+
+## 1.4.0 (2022-01-20)
+
+#### Bug Fixes
+* [#466](https://github.com/mondaycom/monday-ui-react-core/pull/466) Call resetAfterIndices instead of resetAfterIndex ([@or-nuri-monday](https://github.com/or-nuri-monday))
+* [#463](https://github.com/mondaycom/monday-ui-react-core/pull/463) AttentionBox with icon on compact mode support & Docs fixes in attention box and typography ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#424](https://github.com/mondaycom/monday-ui-react-core/pull/424) feat(slider): create new component - Slider ([@niksa-monday](https://github.com/niksa-monday))
+* [#465](https://github.com/mondaycom/monday-ui-react-core/pull/465) feat: export and align hooks exposure ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#456](https://github.com/mondaycom/monday-ui-react-core/pull/456) Feature/hadas/flex ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#458](https://github.com/mondaycom/monday-ui-react-core/pull/458) Added optional mapping from action to input props ([@laviomri](https://github.com/laviomri))
+
 ## 1.3.3 (2022-01-18)
 
 #### Bug Fixes

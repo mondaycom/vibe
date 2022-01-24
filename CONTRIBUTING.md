@@ -6,11 +6,12 @@ This library is open-sourced, and we encourage everyone to use and contribute in
 ## How to contribute
 
 1. Create a fork of this repository
-2. Install dependencies with `npm install` command
-3. Sync from upstream if needed
-4. Run Storybook environment locally with `npm run storybook` command
-5. Commit to your local fork using [Semantic Commit Messages](https://seesparkbox.com/foundry/semantic_commit_messages)
-6. Create a PR with title based using [Semantic Commit Messages](https://seesparkbox.com/foundry/semantic_commit_messages)
+2. Please use the correct node version it is listed in the `.nvmrc` file (you can use `nvm use` in order to switch to the right node version).
+3. Install dependencies with `npm install` command
+4. Sync from upstream if needed
+5. Run Storybook environment locally with `npm run storybook` command
+6. Commit to your local fork using [Semantic Commit Messages](https://seesparkbox.com/foundry/semantic_commit_messages)
+7. Create a PR with title based using [Semantic Commit Messages](https://seesparkbox.com/foundry/semantic_commit_messages)
    For example: `feat: add new TextArea component`
 7. Go over the [checklist](PULL_REQUEST_TEMPLATE.md) in the PR and make sure that all checks are passed
 8. Wait for the Design and Code review

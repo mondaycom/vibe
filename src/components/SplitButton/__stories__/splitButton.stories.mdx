@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import SplitButton from "../SplitButton";
 import Button from "../../Button/Button";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
-import { Check, Search, Filter, Download, Group, Upload, Print, Sort } from "../../Icon/Icons";
+import { Search, Filter, Download, Group, Upload, Print, Sort, Add } from "../../Icon/Icons";
 import { BUTTON_GROUP, BUTTON, MENU } from "../../../storybook/components/related-components/component-description-map";
 import SplitButtonExampleDialog from "./SplitButtonExampleDialog";
 import { MultipleStoryElementsWrapper, Link } from "../../../storybook/components";
@@ -57,14 +57,7 @@ A split button is a dual-function menu button that offers a default action as we
 
 <UsageGuidelines
   guidelines={[
-    <>
-      A split button is a hybrid between a button and a menu: it groups related commands together into a{" "}
-      <Link href="/?path=/docs/inputs-dropdown--overview" withoutSpacing>
-        dropdown,
-      </Link>{" "}
-      but also offers one-click access to a default choice that doesn’t require opening the menu.
-    </>,
-    "Limit the overall number of choices within the menu to less than four.",
+    "Try limiting the overall number of choices within the menu to less than four.",
     "Order the items within the menu by popularity for a small number of items, or alphabetically for a larger number of items.",
     "Avoid submenus within split button menu.",
     "Split button contains two actions: One primary action and a list of secondary actions."
@@ -101,13 +94,12 @@ The split button has three variants: primary, secondary, and tertiary.
   </Story>
 </Canvas>
 
-### Icons
+### Icon usage
 
 <Canvas>
   <Story name="Icons">
-    <SplitButton leftIcon={Check} secondaryDialogContent={<SplitButtonExampleDialog />}>Left icon</SplitButton>
-    <SplitButton rightIcon={Check} secondaryDialogContent={<SplitButtonExampleDialog />}>Right icon</SplitButton>
-    <SplitButton leftIcon={Check} secondaryDialogContent={<SplitButtonExampleDialog />}/>
+    <SplitButton leftIcon={Add} secondaryDialogContent={<SplitButtonExampleDialog />}>Left icon</SplitButton>
+    <SplitButton rightIcon={Add} secondaryDialogContent={<SplitButtonExampleDialog />}>Right icon</SplitButton>
   </Story>
 </Canvas>
 
@@ -203,7 +195,7 @@ The split button has three variants: primary, secondary, and tertiary.
             }
           />
         ),
-        description: "Don’t use a split button just to group actions."
+        description: "Don’t use a split button to group not related actions."
       }
     }
   ]}
@@ -230,7 +222,6 @@ Use template is the main action.
       );
       return (
         <SplitButton
-          className="monday-storybook-split-button_spacing"
           children="Use template"
           secondaryPositions={SplitButton.secondaryPositions.BOTTOM_END}
           secondaryDialogContent={secondaryDialogContent}
@@ -255,7 +246,7 @@ When there’s already a primary button in the view, use a secondary split butto
         []
       );
       return (
-        <MultipleStoryElementsWrapper className="monday-storybook-split-button_spacing">
+        <>
           <SplitButton
             children="Export to CSV"
             kind={SplitButton.kinds.SECONDARY}
@@ -263,7 +254,7 @@ When there’s already a primary button in the view, use a secondary split butto
             secondaryDialogContent={secondaryDialogContent}
           />
           <Button>New item</Button>
-        </MultipleStoryElementsWrapper>
+        </>
       );
     }}
   </Story>

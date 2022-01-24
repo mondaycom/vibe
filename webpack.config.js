@@ -58,7 +58,12 @@ module.exports = options => {
     devtool,
     resolve: {
       modules: [__dirname, "node_modules"],
-      extensions: [".js", ".jsx"]
+      extensions: [".js", ".jsx"],
+      alias: {
+        components: path.resolve(__dirname, "src/components/"),
+        constants: path.resolve(__dirname, "src/constants/"),
+        hooks: path.resolve(__dirname, "src/hooks/")
+      }
     },
 
     module: {
