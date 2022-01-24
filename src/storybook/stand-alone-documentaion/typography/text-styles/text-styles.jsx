@@ -74,7 +74,7 @@ export const TextStyles = () => {
       </VisualDescription>
       <VisualDescription
         ariaLabel="H5"
-        title="Fourth heading (Roboto 18px bold)"
+        title="Fourth heading (Roboto 16px bold)"
         className={CSS_BASE_CLASS}
         description="Use as subtitles for paragraphs"
       >
