@@ -13,5 +13,5 @@ export const DIALOG_WIDTH_PADDING = 24;
 
 export const COLOR_SHAPES = {
   SQUARE: "square",
-  CIRCLE: "circle",
+  CIRCLE: "circle"
 };
