@@ -79,10 +79,36 @@ export const getOutmostElementInDirection = (directionMaps, direction) => {
     // there are no registered vertical relations registered, try horizontal relations. Get the left-most element.
     return getOutmostElementInDirection(directionMaps, NAV_DIRECTIONS.LEFT);
   }
-  let result = firstEntry?.[0];
-  while (directionMap.get(result)) {
-    // as long as there's an element which is outward of the keyboard direction, take it.
-    result = directionMap.get(result);
-  }
-  return result;
+  const firstRef = firstEntry[0];
+  return getLastFocusableElementFromElementInDirection(directionMap, firstRef);
 };
+
+function getLastFocusableElementFromElementInDirection(directionMap, initialRef) {
+  let done = false;
+  let currentRef = initialRef;
+
+  while (!done) {
+    // as long as there's a mounted element which in that direction, take it.
+    const nextEligible = getNextEligibleRef(currentRef);
+    if (!nextEligible) {
+      done = true;
+    } else {
+      currentRef = nextEligible;
+    }
+  }
+
+  function getNextEligibleRef(_currentRef) {
+    const next = directionMap.get(_currentRef);
+    if (!next) {
+      // this is the last element on the direction map - there' nothing next
+      return null;
+    }
+    if (!next.current) {
+      // the next element is not mounted, try the next one
+      return getNextEligibleRef(next);
+    }
+    return next;
+  }
+
+  return currentRef;
+}

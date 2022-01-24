@@ -7,11 +7,13 @@ import {
 } from "../helper";
 
 describe("GridKeyboardNavigationContext.helper", () => {
-  const ELEMENT1 = "e1";
-  const ELEMENT2 = "e2";
-  const ELEMENT3 = "e3";
-  const ELEMENT4 = "e4";
-  const ELEMENT5 = "e5";
+  const ELEMENT1 = { current: "e1" };
+  const ELEMENT2 = { current: "e2" };
+  const ELEMENT3 = { current: "e3" };
+  const ELEMENT4 = { current: "e4" };
+  const ELEMENT5 = { current: "e5" };
+  const UNMOUNTED_ELEMENT_1 = { current: null };
+  const UNMOUNTED_ELEMENT_2 = { current: null };
 
   describe("getDirectionMaps", () => {
     it("should return empty direction maps when no positions are supplied", () => {
@@ -246,6 +248,32 @@ describe("GridKeyboardNavigationContext.helper", () => {
       const directionMaps = getDirectionMaps([
         { topElement: ELEMENT1, bottomElement: ELEMENT2 },
         { topElement: ELEMENT2, bottomElement: ELEMENT3 }
+      ]);
+      const direction = NAV_DIRECTIONS.RIGHT;
+      const expected = ELEMENT1;
+
+      const result = getOutmostElementInDirection(directionMaps, direction);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should skip the bottom-most element when asking for the bottom element, and the bottom-most element is not mounted", () => {
+      const directionMaps = getDirectionMaps([
+        { topElement: ELEMENT1, bottomElement: ELEMENT2 },
+        { topElement: ELEMENT2, bottomElement: UNMOUNTED_ELEMENT_1 }
+      ]);
+      const direction = NAV_DIRECTIONS.DOWN;
+      const expected = ELEMENT2;
+
+      const result = getOutmostElementInDirection(directionMaps, direction);
+
+      expect(result).toEqual(expected);
+    });
+
+    it("should skip the two right-most elements when asking for the right element, and the two right-most elements are not mounted", () => {
+      const directionMaps = getDirectionMaps([
+        { leftElement: ELEMENT1, rightElement: UNMOUNTED_ELEMENT_2 },
+        { leftElement: UNMOUNTED_ELEMENT_2, rightElement: UNMOUNTED_ELEMENT_1 }
       ]);
       const direction = NAV_DIRECTIONS.RIGHT;
       const expected = ELEMENT1;

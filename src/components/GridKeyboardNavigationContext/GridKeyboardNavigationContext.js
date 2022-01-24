@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useCallback } from "react";
+import React, { useContext, useCallback, useMemo } from "react";
 import useEventListener from "../../hooks/useEventListener";
 import {
   focusElementWithDirection,
@@ -9,8 +9,13 @@ import {
 
 export const GridKeyboardNavigationContext = React.createContext();
 
+/**
+ * @param {({topElement: React.MutableRefObject, bottomElement: React.MutableRefObject}|
+ * {leftElement: React.MutableRefObject, rightElement: React.MutableRefObject})[]} positions - the positions of the navigable items
+ * @param {*} wrapperRef - a reference for a wrapper element which contains all the referenced elements
+ */
 export const useGridKeyboardNavigationContext = (positions, wrapperRef) => {
-  const directionMaps = useRef(getDirectionMaps(positions));
+  const directionMaps = useMemo(() => getDirectionMaps(positions), [positions]);
   const upperContext = useContext(GridKeyboardNavigationContext);
 
   const onWrapperFocus = useCallback(
@@ -20,7 +25,7 @@ export const useGridKeyboardNavigationContext = (positions, wrapperRef) => {
         return;
       }
       const oppositeDirection = getOppositeDirection(keyboardDirection);
-      const elementToFocus = getOutmostElementInDirection(directionMaps.current, oppositeDirection);
+      const elementToFocus = getOutmostElementInDirection(directionMaps, oppositeDirection);
       focusElementWithDirection(elementToFocus, keyboardDirection);
     },
     [directionMaps]
@@ -29,7 +34,7 @@ export const useGridKeyboardNavigationContext = (positions, wrapperRef) => {
 
   const onOutboundNavigation = useCallback(
     (elementRef, direction) => {
-      const maybeNextElement = directionMaps.current[direction].get(elementRef);
+      const maybeNextElement = directionMaps[direction].get(elementRef);
       if (maybeNextElement?.current) {
         elementRef.current?.blur();
         focusElementWithDirection(maybeNextElement, direction);
@@ -38,7 +43,7 @@ export const useGridKeyboardNavigationContext = (positions, wrapperRef) => {
       // nothing on that direction - try updating the upper context
       upperContext?.onOutboundNavigation(wrapperRef, direction);
     },
-    [upperContext, wrapperRef]
+    [directionMaps, upperContext, wrapperRef]
   );
   return { onOutboundNavigation };
 };
