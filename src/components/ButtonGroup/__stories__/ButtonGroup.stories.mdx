@@ -46,7 +46,7 @@ Button group can be used to group related options. To emphasize groups of relate
               { value: 2, text: "Beta" },
               { value: 3, text: "Gamma" },
               { value: 4, text: "Delta" },
-            ], 
+            ],
             value: 1
           } }>
     { buttonGroupTemplate.bind({}) }
@@ -80,12 +80,12 @@ Button group can be used to group related options. To emphasize groups of relate
         { value: 2, text: "Beta" },
         { value: 3, text: "Gamma" },
         { value: 4, text: "Delta" },
-      ]} 
+      ]}
     />
   </Story>
 </Canvas>
 
-### Tertiary 
+### Tertiary
 <Canvas>
   <Story name="Tertiary">
     <ButtonGroup
@@ -97,12 +97,12 @@ Button group can be used to group related options. To emphasize groups of relate
         { value: 2, text: "Beta" },
         { value: 3, text: "Gamma" },
         { value: 4, text: "Delta" },
-      ]} 
+      ]}
     />
   </Story>
 </Canvas>
 
-### Disabled
+### Disabled - all buttons
 <Canvas>
   <Story name="Disabled">
     <ButtonGroup
@@ -113,7 +113,22 @@ Button group can be used to group related options. To emphasize groups of relate
         { value: 2, text: "Beta" },
         { value: 3, text: "Gamma" },
         { value: 4, text: "Delta" },
-      ]} 
+      ]}
+    />
+  </Story>
+</Canvas>
+
+### Disabled - single button
+<Canvas>
+  <Story name="Disabled - Singe Button">
+    <ButtonGroup
+      groupAriaLabel="button group aria label"
+      options={[
+        { value: 1, text: "Alpha" },
+        { value: 2, text: "Beta" },
+        { value: 3, text: "Gamma" },
+        { value: 4, text: "Delta", disabled: true, tooltipContent: "I'm the worst variant ever" },
+      ]}
     />
   </Story>
 </Canvas>
@@ -132,7 +147,7 @@ Button group can be used to group related options. To emphasize groups of relate
           { value: 2, text: "Beta" },
           { value: 3, text: "Gamma" },
           { value: 4, text: "Delta" },
-        ]} 
+        ]}
       />
     </div>
     <div className="monday-storybook-button-group_column">
@@ -146,7 +161,7 @@ Button group can be used to group related options. To emphasize groups of relate
           { value: 2, text: "Beta" },
           { value: 3, text: "Gamma" },
           { value: 4, text: "Delta" },
-        ]} 
+        ]}
       />
     </div>
   </Story>
@@ -157,7 +172,7 @@ Button group can be used to group related options. To emphasize groups of relate
   rules={[
     {
       positive: {
-        component:    
+        component:
          <ButtonGroup
             groupAriaLabel="button group aria label"
             value={1}
@@ -165,7 +180,7 @@ Button group can be used to group related options. To emphasize groups of relate
               { value: 1, text: "Month" },
               { value: 2, text: "Week" },
               { value: 3, text: "Year" }
-            ]} 
+            ]}
           />,
         description:"Use when all the actions in the group take place immediately in one click."
       },
@@ -178,7 +193,7 @@ Button group can be used to group related options. To emphasize groups of relate
             { value: 1, text: "Main table" },
             { value: 2, text: "Hadas view" },
             { value: 3, text: "Chart view" },
-          ]} 
+          ]}
         />,
         description:<>Don’t use a button group when switching between content or object pages. Use <Link href="/?path=/docs/navigation-tabs-tabs--overview" withoutSpacing>Tabs</Link> instead.</>
       }
@@ -186,7 +201,7 @@ Button group can be used to group related options. To emphasize groups of relate
     {
       positive: {
         component:
-        <div className="monday-storybook-button-group_column"> 
+        <div className="monday-storybook-button-group_column">
           <ButtonGroup
             groupAriaLabel="button group aria label"
             size={ButtonGroup.sizes.MEDIUM}
@@ -194,7 +209,7 @@ Button group can be used to group related options. To emphasize groups of relate
             options={[
               { value: 1, leftIcon: Desktop },
               { value: 2, leftIcon: Mobile }
-            ]} 
+            ]}
          />
           <ButtonGroup
             groupAriaLabel="button group aria label"
@@ -203,7 +218,7 @@ Button group can be used to group related options. To emphasize groups of relate
             options={[
               { value: 1, text: "Desktop" },
               { value: 2, text: "Mobile" },
-            ]} 
+            ]}
           />
           <ButtonGroup
             groupAriaLabel="button group aria label"
@@ -212,7 +227,7 @@ Button group can be used to group related options. To emphasize groups of relate
             options={[
               { value: 1, text: "Desktop", leftIcon: Desktop },
               { value: 2, text: "Mobile", leftIcon: Mobile },
-            ]} 
+            ]}
           />
         </div>,
         description:"Always use buttons with a consistent style: Icons, text or icon with text."
@@ -226,7 +241,7 @@ Button group can be used to group related options. To emphasize groups of relate
             options={[
               { value: 1, text: "Desktop" },
               { value: 2, icon: Mobile },
-            ]} 
+            ]}
           />,
         description:"Avoid combining text buttons with icon buttons within the same button group."
       }
@@ -241,7 +256,7 @@ Button group can be used to group related options. To emphasize groups of relate
               { value: 1, text: "Yearly plan" },
               { value: 2, text: "Monthly plan" },
               { value: 3, text: "Annual Plan" },
-            ]} 
+            ]}
           />,
         description:"Keep button copy width as simillar as possible."
       },
@@ -254,7 +269,7 @@ Button group can be used to group related options. To emphasize groups of relate
               { value: 1, text: "Yearly" },
               { value: 2, text: "Monthly" },
               { value: 3, text: "Annual-half year plan" },
-            ]} 
+            ]}
           />,
         description:"Avoid mixing long button copy and short copy."
       }
@@ -278,14 +293,14 @@ For example: on the views setttings you can choose only one option.
           { value: 2, text: "Average" },
           { value: 3, text: "Median" },
           { value: 4, text: "Min" },
-        ]} 
+        ]}
       />
     </div>
   </Story>
 </Canvas>
 
 ### Button group as toggle
-Use button group as toggle for change the view between two states. For on and off actions, use the Toggle component. 
+Use button group as toggle for change the view between two states. For on and off actions, use the Toggle component.
 <Canvas>
   <Story name="Button group as toggle">
     <ButtonGroup
@@ -294,7 +309,7 @@ Use button group as toggle for change the view between two states. For on and of
       options={[
         { value: 1, text: "Grid" },
         { value: 2, text: "List" },
-      ]} 
+      ]}
     />
   </Story>
 </Canvas>
