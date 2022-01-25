@@ -216,6 +216,27 @@ Combobox allowing users to filter longer lists to only the selections matching a
   </Story>
 </Canvas>
 
+### Without filter
+<Canvas>
+  <Story name="Without filter">
+    {() => {
+      const options = useMemo(() => [
+        { id: "1", label: "Option 1", leftIcon: Wand },
+        { id: "2", label: "Option 2", leftIcon: ThumbsUp },
+        { id: "3", label: "Option 3", leftIcon: Time },
+        { id: "4", label: "Option 4", leftIcon: Update },
+        { id: "5", label: "Option 5", leftIcon: Upgrade }
+      ], []);
+      return (
+        <DialogContentContainer>
+          <Combobox hideFilter={true} options={options} placeholder="Placeholder text here" />
+          <Button kind={Button.kinds.SECONDARY} className="combobox-stories-styles_btn" leftIcon={Edit}>Edit</Button>
+        </DialogContentContainer>
+      )
+    }}
+  </Story>
+</Canvas>
+
 ## Do’s and Don’ts
 <ComponentRules
   rules={[

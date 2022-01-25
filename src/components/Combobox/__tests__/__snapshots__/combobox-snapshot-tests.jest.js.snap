@@ -748,6 +748,23 @@ exports[`Combobox renders correctly with loading 1`] = `
 </div>
 `;
 
+exports[`Combobox renders correctly with hideFilter 1`] = `
+<div
+  className="combobox--wrapper size-medium empty"
+  id=""
+>
+  <div
+    className="combobox--wrapper-list"
+    role="listbox"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
+  />
+</div>
+`;
+
 exports[`Combobox renders correctly with optionLineHeight 1`] = `
 <div
   className="combobox--wrapper size-medium empty"

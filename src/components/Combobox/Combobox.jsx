@@ -40,7 +40,8 @@ const Combobox = forwardRef(
       shouldScrollToSelectedItem,
       noResultsRenderer,
       stickyCategories,
-      optionRenderer
+      optionRenderer,
+      hideFilter
     },
     ref
   ) => {
@@ -220,22 +221,24 @@ const Combobox = forwardRef(
         id={id}
       >
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
-          <Search
-            ref={inputRef}
-            wrapperClassName="combobox--wrapper-search-wrapper"
-            className="combobox--wrapper-search"
-            inputAriaLabel="Search for content"
-            activeDescendant={`combobox-item-${activeItemIndex}`}
-            id="combobox-search"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
-            placeholder={placeholder}
-            size={size}
-            disabled={disabled}
-            onChange={onChangeCallback}
-            autoFocus={autoFocus}
-            loading={loading}
-          />
+          {!hideFilter && (
+            <Search
+              ref={inputRef}
+              wrapperClassName="combobox--wrapper-search-wrapper"
+              className="combobox--wrapper-search"
+              inputAriaLabel="Search for content"
+              activeDescendant={`combobox-item-${activeItemIndex}`}
+              id="combobox-search"
+              iconName="fa-search"
+              secondaryIconName="fa-close"
+              placeholder={placeholder}
+              size={size}
+              disabled={disabled}
+              onChange={onChangeCallback}
+              autoFocus={autoFocus}
+              loading={loading}
+            />
+          )}
           {renderedItems}
         </div>
         {hasFilter && !hasResults && renderNoResults()}
@@ -267,6 +270,7 @@ Combobox.propTypes = {
   addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   filter: PropTypes.func,
   disableFilter: PropTypes.bool,
+  hideFilter: PropTypes.bool,
   onFilterChanged: PropTypes.func,
   loading: PropTypes.bool,
   onOptionHover: PropTypes.func,
@@ -292,6 +296,7 @@ Combobox.defaultProps = {
   addNewLabel: "Add new",
   filter: defaultFilter,
   disableFilter: false,
+  hideFilter: false,
   onFilterChanged: undefined,
   /** shows loading animation */
   loading: false,
