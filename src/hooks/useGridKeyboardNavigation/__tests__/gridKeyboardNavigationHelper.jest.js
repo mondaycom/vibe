@@ -331,6 +331,25 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
       expect(result).toEqual(expectedResult);
     });
 
+    it("should return outbound navigation when skipping over disabled index 0", () => {
+      const direction = NAV_DIRECTIONS.LEFT;
+      const itemsCount = 2;
+      const numberOfItemsInLine = 2;
+      const activeIndex = 1;
+      const disabledIndexes = [0];
+      const expectedResult = { isOutbound: true };
+
+      const result = calcActiveIndexAfterArrowNavigation({
+        direction,
+        itemsCount,
+        numberOfItemsInLine,
+        activeIndex,
+        disabledIndexes
+      });
+
+      expect(result).toEqual(expectedResult);
+    });
+
     it("should skip multiple disabled sequential indexes in an inbound navigation", () => {
       const direction = NAV_DIRECTIONS.UP;
       const itemsCount = 10;
