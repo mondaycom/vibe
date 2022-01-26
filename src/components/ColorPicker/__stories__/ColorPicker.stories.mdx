@@ -8,7 +8,7 @@ import {
   colorPickerSelectedTemplate,
   colorPickerNoColorTemplate,
   colorPickerSelectedIconTemplate,
-  withColorsStateDecorator
+  colorPickerCircleShapeTemplate
 } from "./ColorPicker.stories";
 
 export const metaSettings = createStoryMetaSettings({
@@ -80,4 +80,12 @@ Selected colors indication, when using multi-selection
 
 <Canvas>
   <Story name="Selected icon">{colorPickerSelectedIconTemplate.bind({})}</Story>
+</Canvas>
+
+### Shapes
+
+The `ColorPicker` supports multiple shapes
+
+<Canvas>
+  <Story name="Shapes">{colorPickerCircleShapeTemplate.bind({})}</Story>
 </Canvas>
