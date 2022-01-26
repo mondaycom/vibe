@@ -83,31 +83,31 @@ export const getOutmostElementInDirection = (directionMaps, direction) => {
   return getLastFocusableElementFromElementInDirection(directionMap, firstRef);
 };
 
+export const getNextElementToFocusInDirection = (directionMap, elementRef) => {
+  const next = directionMap.get(elementRef);
+  if (!next) {
+    // this is the last element on the direction map - there' nothing next
+    return null;
+  }
+  if (!next.current || next.current.disabled || next.current.dataset?.disabled === "true") {
+    // the next element is not mounted or disabled - try the next one
+    return getNextElementToFocusInDirection(directionMap, next);
+  }
+  return next;
+};
+
 function getLastFocusableElementFromElementInDirection(directionMap, initialRef) {
   let done = false;
   let currentRef = initialRef;
 
   while (!done) {
     // as long as there's a mounted element which in that direction, take it.
-    const nextEligible = getNextEligibleRef(currentRef);
+    const nextEligible = getNextElementToFocusInDirection(directionMap, currentRef);
     if (!nextEligible) {
       done = true;
     } else {
       currentRef = nextEligible;
     }
-  }
-
-  function getNextEligibleRef(_currentRef) {
-    const next = directionMap.get(_currentRef);
-    if (!next) {
-      // this is the last element on the direction map - there' nothing next
-      return null;
-    }
-    if (!next.current) {
-      // the next element is not mounted, try the next one
-      return getNextEligibleRef(next);
-    }
-    return next;
   }
 
   return currentRef;

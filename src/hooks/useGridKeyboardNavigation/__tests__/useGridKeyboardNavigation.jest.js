@@ -76,6 +76,24 @@ describe("useGridKeyboardNavigation", () => {
     expect(result.current.activeIndex).toBe(0);
   });
 
+  it("should skip disabled indexes when navigating with the keyboard", () => {
+    const items = ["0", "1", "2", "3", "4", "5", "6", "7", "8"];
+    const disabledIndexes = [1, 4];
+    const { result } = renderHookForTest({
+      items,
+      numberOfItemsInLine: 3,
+      focusItemIndexOnMount: 0,
+      focusOnMount: true,
+      disabledIndexes
+    });
+
+    act(() => {
+      fireEvent.keyDown(element, { key: "ArrowRight" }); // moving right from index 0 should skip disabled index 1, and set activeIndex to 2
+    });
+
+    expect(result.current.activeIndex).toBe(2);
+  });
+
   describe("focusItemIndexOnMount", () => {
     it("should set the active index according to focusItemIndexOnMount on mount, when focusOnMount is true", () => {
       const items = ["a", "b", "c", "d"];
@@ -138,7 +156,8 @@ describe("useGridKeyboardNavigation", () => {
     numberOfItemsInLine = 3,
     onItemClicked = jest.fn(),
     focusOnMount = false,
-    focusItemIndexOnMount = undefined
+    focusItemIndexOnMount = undefined,
+    disabledIndexes = []
   }) {
     const itemsCount = items.length;
     const getItemByIndex = index => items[index];
@@ -154,7 +173,8 @@ describe("useGridKeyboardNavigation", () => {
         onItemClicked,
         focusOnMount,
         numberOfItemsInLine,
-        focusItemIndexOnMount
+        focusItemIndexOnMount,
+        disabledIndexes
       })
     );
   }
