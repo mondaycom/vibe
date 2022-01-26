@@ -3,6 +3,7 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
+import AnyColorPickerItemComponent from "../AnyColorPickerItemComponent/AnyColorPickerItemComponent";
 import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
 import { SIZES } from "../../../../constants/sizes";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
@@ -22,7 +23,9 @@ export const ColorPickerColorsGrid = React.forwardRef(
       SelectedIndicatorIcon,
       colorSize,
       tooltipContentByColor,
-      colorShape
+      colorShape,
+      isWithAnyColorPicker,
+      setShowAnyColorPickerDialog
     },
     ref
   ) => {
@@ -36,6 +39,33 @@ export const ColorPickerColorsGrid = React.forwardRef(
       numberOfItemsInLine: numberOfColorsInLine,
       getItemByIndex
     });
+
+    const renderAnycolorPicker = useCallback(() => {
+      return (
+        <AnyColorPickerItemComponent
+          onColorClicked={onColorClicked}
+          colorStyle={colorStyle}
+          shouldRenderIndicatorWithoutBackground={ColorIndicatorIcon && shouldRenderIndicatorWithoutBackground}
+          ColorIndicatorIcon={ColorIndicatorIcon}
+          SelectedIndicatorIcon={SelectedIndicatorIcon}
+          colorSize={colorSize}
+          tooltipContent={"TODO"}
+          colorShape={colorShape}
+          setShowAnyColorPickerDialog={setShowAnyColorPickerDialog}
+          value={value}
+        />
+      );
+    }, [
+      ColorIndicatorIcon,
+      SelectedIndicatorIcon,
+      colorShape,
+      colorSize,
+      colorStyle,
+      onColorClicked,
+      shouldRenderIndicatorWithoutBackground,
+      setShowAnyColorPickerDialog,
+      value
+    ]);
 
     const onValueChange = useCallback(index => () => onSelectionAction(index), [onSelectionAction]);
     return (
@@ -60,6 +90,7 @@ export const ColorPickerColorsGrid = React.forwardRef(
             />
           );
         })}
+        {isWithAnyColorPicker && renderAnycolorPicker()}
       </ul>
     );
   }
@@ -89,7 +120,8 @@ ColorPickerColorsGrid.propTypes = {
   tooltipContentByColor: PropTypes.object,
   focusOnMount: PropTypes.bool,
   colorShape: PropTypes.oneOf(Object.values(ColorPickerColorsGrid.colorShapes)),
-  isMultiselect: PropTypes.bool
+  isMultiselect: PropTypes.bool,
+  isWithAnyColorPicker: PropTypes.bool
 };
 
 ColorPickerColorsGrid.defaultProps = {
@@ -105,5 +137,6 @@ ColorPickerColorsGrid.defaultProps = {
   tooltipContentByColor: {},
   focusOnMount: false,
   colorShape: ColorPickerColorsGrid.colorShapes.SQUARE,
+  isWithAnyColorPicker: false,
   isMultiselect: false
 };

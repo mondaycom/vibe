@@ -22,7 +22,8 @@ const ColorPickerItemComponent = ({
   colorSize,
   tooltipContent,
   isActive,
-  colorShape
+  colorShape,
+  isWithAnyColorPicker
 }) => {
   const colorAsStyle = ColorUtils.getMondayColorAsStyle(color, colorStyle);
   const itemRef = useRef(null);

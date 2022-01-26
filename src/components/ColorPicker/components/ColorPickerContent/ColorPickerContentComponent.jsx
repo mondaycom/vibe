@@ -2,7 +2,8 @@ import cx from "classnames";
 import _difference from "lodash/difference";
 import _intersection from "lodash/intersection";
 import PropTypes from "prop-types";
-import React, { forwardRef, useCallback, useMemo, useRef } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import { ChromePicker } from "react-color";
 import { SIZES } from "../../../../constants/sizes";
 import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
@@ -35,10 +36,13 @@ const ColorPickerContentComponent = forwardRef(
       numberOfColorsInLine,
       tooltipContentByColor,
       focusOnMount,
-      colorShape
+      colorShape,
+      isWithAnyColorPicker
     },
     ref
   ) => {
+    const [showAnyColorPickerDialog, setShowAnyColorPickerDialog] = useState(false);
+
     const onClearButton = useCallback(() => {
       onValueChange(null);
     }, [onValueChange]);
@@ -74,6 +78,10 @@ const ColorPickerContentComponent = forwardRef(
     const keyboardContext = useGridKeyboardNavigationContext(positions, ref);
     const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
 
+    const renderAnycolorPickerDialog = useCallback(() => {
+      return <ChromePicker color={value} onChange={newColor => onColorClicked(newColor.hex)} />;
+    }, [onColorClicked, value]);
+
     return (
       <div className={cx("color-picker-content--wrapper", className)} style={{ width }} ref={ref} tabIndex={-1}>
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
@@ -92,11 +100,14 @@ const ColorPickerContentComponent = forwardRef(
             colorSize={colorSize}
             tooltipContentByColor={tooltipContentByColor}
             colorShape={colorShape}
+            isWithAnyColorPicker={isWithAnyColorPicker}
+            setShowAnyColorPickerDialog={setShowAnyColorPickerDialog}
           />
           {noColorText && (
             <ColorPickerClearButton Icon={NoColorIcon} onClick={onClearButton} text={noColorText} ref={buttonRef} />
           )}
         </GridKeyboardNavigationContext.Provider>
+        {showAnyColorPickerDialog && renderAnycolorPickerDialog()}
       </div>
     );
   }
@@ -130,7 +141,8 @@ ColorPickerContentComponent.propTypes = {
   tooltipContentByColor: PropTypes.object,
   focusOnMount: PropTypes.bool,
   colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes)),
-  isMultiselect: PropTypes.bool
+  isMultiselect: PropTypes.bool,
+  isWithAnyColorPicker: PropTypes.bool
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -150,7 +162,8 @@ ColorPickerContentComponent.defaultProps = {
   tooltipContentByColor: {},
   focusOnMount: false,
   colorShape: ColorPickerContentComponent.colorShapes.SQUARE,
-  isMultiselect: false
+  isMultiselect: false,
+  isWithAnyColorPicker: false
 };
 
 export default ColorPickerContentComponent;

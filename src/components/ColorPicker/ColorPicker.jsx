@@ -29,7 +29,8 @@ const ColorPicker = forwardRef(
       colorSize,
       numberOfColorsInLine,
       focusOnMount,
-      colorShape
+      colorShape,
+      isWithAnyColorPicker
     },
     ref
   ) => {
@@ -64,6 +65,7 @@ const ColorPicker = forwardRef(
           numberOfColorsInLine={numberOfColorsInLine}
           focusOnMount={focusOnMount}
           colorShape={colorShape}
+          isWithAnyColorPicker={isWithAnyColorPicker}
         />
       </DialogContentContainer>
     );
@@ -94,7 +96,8 @@ ColorPicker.propTypes = {
   colorSize: PropTypes.oneOf([ColorPicker.sizes.SMALL, ColorPicker.sizes.MEDIUM, ColorPicker.sizes.LARGE]),
   numberOfColorsInLine: PropTypes.number,
   focusOnMount: PropTypes.bool,
-  colorShape: PropTypes.oneOf(Object.values(ColorPicker.colorShapes))
+  colorShape: PropTypes.oneOf(Object.values(ColorPicker.colorShapes)),
+  isWithAnyColorPicker: PropTypes.bool
 };
 
 ColorPicker.defaultProps = {
@@ -113,7 +116,8 @@ ColorPicker.defaultProps = {
   colorSize: ColorPicker.sizes.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   focusOnMount: false,
-  colorShape: ColorPicker.colorShapes.SQUARE
+  colorShape: ColorPicker.colorShapes.SQUARE,
+  isWithAnyColorPicker: false
 };
 
 export default ColorPicker;

@@ -7,6 +7,7 @@ import {
   colorPickerTextIndicatorTemplate,
   colorPickerSelectedTemplate,
   colorPickerNoColorTemplate,
+  colorPickerAnyColorTemplate,
   colorPickerSelectedIconTemplate,
   withColorsStateDecorator
 } from "./ColorPicker.stories";
@@ -72,6 +73,14 @@ Ability to revert to initial color
 
 <Canvas>
   <Story name="No color">{colorPickerNoColorTemplate.bind({})}</Story>
+</Canvas>
+
+### Any color
+
+With option to select any color
+
+<Canvas>
+  <Story name="Any color">{colorPickerAnyColorTemplate.bind({})}</Story>
 </Canvas>
 
 ### Selected icon

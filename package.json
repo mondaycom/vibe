@@ -61,6 +61,7 @@
     "lodash": "^4.17.21",
     "monday-ui-style": "0.1.72",
     "prop-types": "^15.8.0",
+    "react-color": "^2.19.3",
     "react-inlinesvg": "^2.3.0",
     "react-popper": "^2.2.5",
     "react-select": "^3.1.0",
