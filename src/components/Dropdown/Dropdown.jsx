@@ -146,18 +146,16 @@ const Dropdown = ({
     };
   }, [customOnOptionRemove, selected, selectedOptionsMap]);
 
-  const customProps = useMemo(() => ({
-    selectedOptions,
-    onSelectedDelete: onOptionRemove,
-    setIsDialogShown,
-    isDialogShown,
-    isMultiline: multiline
-  }),[
-    selectedOptions,
-    onOptionRemove,
-    setIsDialogShown,
-    isDialogShown,
-    multiline]);
+  const customProps = useMemo(
+    () => ({
+      selectedOptions,
+      onSelectedDelete: onOptionRemove,
+      setIsDialogShown,
+      isDialogShown,
+      isMultiline: multiline
+    }),
+    [selectedOptions, onOptionRemove, setIsDialogShown, isDialogShown, multiline]
+  );
 
   const onChange = (option, event) => {
     if (customOnChange) {
