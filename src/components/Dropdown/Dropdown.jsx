@@ -145,21 +145,18 @@ const Dropdown = ({
     };
   }, [customOnOptionRemove, selected, selectedOptionsMap]);
 
-  const valueContainerRenderer = useCallback(
-    props => (
-      <components.ValueContainer {...props}>
-        <ValueContainer
-          selectedOptions={selectedOptions}
-          onSelectedDelete={onOptionRemove}
-          setIsDialogShown={setIsDialogShown}
-          isDialogShown={isDialogShown}
-          isMultiline={multiline}
-          {...props}
-        />
-      </components.ValueContainer>
-    ),
-    [selectedOptions, onOptionRemove, isDialogShown, multiline]
-  );
+  const customProps = useMemo(() => ({
+    selectedOptions,
+    onSelectedDelete: onOptionRemove,
+    setIsDialogShown,
+    isDialogShown,
+    isMultiline: multiline
+  }),[
+    selectedOptions,
+    onOptionRemove,
+    setIsDialogShown,
+    isDialogShown,
+    multiline]);
 
   const onChange = (option, event) => {
     if (customOnChange) {
@@ -212,6 +209,7 @@ const Dropdown = ({
   return (
     <DropDownComponent
       className={cx("dropdown-wrapper", className)}
+      selectProps={customProps}
       components={{
         DropdownIndicator,
         Menu,
@@ -221,7 +219,7 @@ const Dropdown = ({
         ...(finalValueRenderer && { SingleValue }),
         ...(multi && {
           MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
-          ValueContainer: valueContainerRenderer
+          ValueContainer
         }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
