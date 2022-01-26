@@ -22,7 +22,6 @@ export default function useMenuKeyboardNavigation(
   setActiveItemIndex,
   isVisible,
   ref,
-  resetOpenSubMenuIndex,
   useDocumentEventListeners
 ) {
   const onArrowKeyEvent = useCallback(
