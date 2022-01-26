@@ -21,3 +21,7 @@ export const colorPickerNoColorTemplate = _args => <ColorPicker noColorText="Cle
 export const colorPickerSelectedIconTemplate = args => (
   <ColorPicker isMultiselect SelectedIndicatorIcon={Check} value="peach" {...args} />
 );
+
+export const colorPickerCircleShapeTemplate = args => (
+  <ColorPicker colorShape={ColorPicker.colorShapes.CIRCLE} {...args} />
+);
