@@ -47,6 +47,7 @@ const Dropdown = ({
   isVirtualized,
   menuPortalTarget,
   extraStyles,
+  maxMenuHeight,
   menuIsOpen,
   tabIndex,
   id,
@@ -245,6 +246,7 @@ const Dropdown = ({
       isRtl={rtl}
       styles={styles}
       theme={customTheme}
+      maxMenuHeight={maxMenuHeight}
       menuPortalTarget={menuPortalTarget}
       menuIsOpen={menuIsOpen}
       tabIndex={tabIndex}
@@ -427,7 +429,10 @@ Dropdown.propTypes = {
    * Custom function to override existing styles (similar to `react-select`'s `style` prop), for example: `base => ({...base, color: 'red'})`, where `base` is the component's default styles
    */
   extraStyles: PropTypes.func,
-
+  /**
+   * Maximum height of the menu before scrolling
+   */
+  maxMenuHeight: PropTypes.number,
   /**
    * Tab index for keyboard navigation purposes
    */
