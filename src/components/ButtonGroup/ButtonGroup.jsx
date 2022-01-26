@@ -143,12 +143,14 @@ ButtonGroup.defaultProps = {
   tooltipPosition: undefined,
   tooltipHideDelay: undefined,
   tooltipShowDelay: undefined,
-  tooltipMoveBy: undefined
+  tooltipMoveBy: undefined,
+  onSelect: undefined
 };
 
 ButtonGroup.propTypes = {
   className: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onSelect: PropTypes.func,
   name: PropTypes.string,
   disabled: PropTypes.bool,
   size: PropTypes.oneOf([ButtonGroup.sizes.SMALL, ButtonGroup.sizes.MEDIUM, ButtonGroup.sizes.LARGE]),
