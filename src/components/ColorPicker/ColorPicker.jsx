@@ -17,6 +17,7 @@ const ColorPicker = forwardRef(
       className,
       onSave,
       value,
+      initialCustomColor,
       noColorText,
       colorStyle,
       ColorIndicatorIcon,
@@ -29,7 +30,8 @@ const ColorPicker = forwardRef(
       colorSize,
       numberOfColorsInLine,
       focusOnMount,
-      colorShape
+      colorShape,
+      showCustomColorPicker
     },
     ref
   ) => {
@@ -64,6 +66,8 @@ const ColorPicker = forwardRef(
           numberOfColorsInLine={numberOfColorsInLine}
           focusOnMount={focusOnMount}
           colorShape={colorShape}
+          showCustomColorPicker={showCustomColorPicker}
+          initialCustomColor={initialCustomColor}
         />
       </DialogContentContainer>
     );
@@ -94,7 +98,9 @@ ColorPicker.propTypes = {
   colorSize: PropTypes.oneOf([ColorPicker.sizes.SMALL, ColorPicker.sizes.MEDIUM, ColorPicker.sizes.LARGE]),
   numberOfColorsInLine: PropTypes.number,
   focusOnMount: PropTypes.bool,
-  colorShape: PropTypes.oneOf(Object.values(ColorPicker.colorShapes))
+  colorShape: PropTypes.oneOf(Object.values(ColorPicker.colorShapes)),
+  showCustomColorPicker: PropTypes.bool,
+  initialCustomColor: PropTypes.string
 };
 
 ColorPicker.defaultProps = {
@@ -113,7 +119,9 @@ ColorPicker.defaultProps = {
   colorSize: ColorPicker.sizes.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   focusOnMount: false,
-  colorShape: ColorPicker.colorShapes.SQUARE
+  colorShape: ColorPicker.colorShapes.SQUARE,
+  showCustomColorPicker: false,
+  initialCustomColor: null
 };
 
 export default ColorPicker;

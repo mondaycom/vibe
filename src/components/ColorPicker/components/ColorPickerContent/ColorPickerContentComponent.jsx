@@ -22,6 +22,7 @@ const ColorPickerContentComponent = forwardRef(
       className,
       onValueChange,
       value,
+      initialCustomColor,
       noColorText,
       colorStyle,
       ColorIndicatorIcon,
@@ -35,7 +36,8 @@ const ColorPickerContentComponent = forwardRef(
       numberOfColorsInLine,
       tooltipContentByColor,
       focusOnMount,
-      colorShape
+      colorShape,
+      showCustomColorPicker
     },
     ref
   ) => {
@@ -51,19 +53,24 @@ const ColorPickerContentComponent = forwardRef(
     }, [isBlackListMode, colorsList]);
 
     const onColorClicked = useCallback(
-      color => {
+      (color, removeOnAdd) => {
         if (!isMultiselect) {
           onValueChange([color]);
           return;
         }
-        const colors = [...value];
+        let colors = [...value];
         if (colors.includes(color)) {
           const indexInSelected = colors.indexOf(color);
           if (indexInSelected > -1) {
             colors.splice(indexInSelected, 1);
           }
         } else {
-          colors.push(color);
+          if (removeOnAdd) {
+            colors = colors.filter(c => c !== removeOnAdd);
+          }
+          if (color) {
+            colors.push(color);
+          }
         }
         onValueChange(colors);
       },
@@ -84,6 +91,7 @@ const ColorPickerContentComponent = forwardRef(
             numberOfColorsInLine={numberOfColorsInLine}
             focusOnMount={focusOnMount}
             value={value}
+            initialCustomColor={initialCustomColor}
             colorStyle={colorStyle}
             ColorIndicatorIcon={ColorIndicatorIcon}
             shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
@@ -92,6 +100,7 @@ const ColorPickerContentComponent = forwardRef(
             colorSize={colorSize}
             tooltipContentByColor={tooltipContentByColor}
             colorShape={colorShape}
+            showCustomColorPicker={showCustomColorPicker}
           />
           {noColorText && (
             <ColorPickerClearButton Icon={NoColorIcon} onClick={onClearButton} text={noColorText} ref={buttonRef} />
@@ -130,7 +139,9 @@ ColorPickerContentComponent.propTypes = {
   tooltipContentByColor: PropTypes.object,
   focusOnMount: PropTypes.bool,
   colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes)),
-  isMultiselect: PropTypes.bool
+  isMultiselect: PropTypes.bool,
+  showCustomColorPicker: PropTypes.bool,
+  initialCustomColor: PropTypes.string
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -150,7 +161,9 @@ ColorPickerContentComponent.defaultProps = {
   tooltipContentByColor: {},
   focusOnMount: false,
   colorShape: ColorPickerContentComponent.colorShapes.SQUARE,
-  isMultiselect: false
+  isMultiselect: false,
+  showCustomColorPicker: false,
+  initialCustomColor: null
 };
 
 export default ColorPickerContentComponent;

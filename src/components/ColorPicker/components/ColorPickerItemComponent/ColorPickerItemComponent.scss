@@ -1,101 +1,142 @@
 @import "../../../../styles/states.scss";
 @import "../../../../styles/global-css-settings.scss";
 
-.monday-style-color-item-wrapper {
-  --border-radius-multiplier: 1;
-
-  &.circle {
-    --border-radius-multiplier: 99999;
-  }
-
-  @mixin absolute-border($border-width, $border-color-var-name, $inset: -$border-width, $border-radius: 7px) {
-    content: " ";
-    position: absolute;
-    border-radius: calc($border-radius * var(--border-radius-multiplier, 1));
-    inset: $inset;
-    border: $border-width solid;
-    @include theme-prop(border-color, $border-color-var-name);
-    pointer-events: none;
-  }
-
-  margin: 4px;
-  display: flex;
-  list-style-type: none;
+.monday-style-color-item-container {
   position: relative;
 
-  .feedback-indicator {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
+  .monday-style-color-item-wrapper {
+    --border-radius-multiplier: 1;
 
-  &:focus,
-  &:focus-visible,
-  &.active {
-    outline: none;
+    &.circle {
+      --border-radius-multiplier: 99999;
+    }
+
+    @mixin absolute-border($border-width, $border-color-var-name, $inset: -$border-width, $border-radius: 7px) {
+      content: " ";
+      position: absolute;
+      border-radius: calc($border-radius * var(--border-radius-multiplier, 1));
+      inset: $inset;
+      border: $border-width solid;
+      @include theme-prop(border-color, $border-color-var-name);
+      pointer-events: none;
+    }
+
+    margin: 4px;
+    display: flex;
+    list-style-type: none;
+    position: relative;
 
     .feedback-indicator {
-      &:before {
-        @include absolute-border(4px, primary-selected-color);
-      }
-      &:after {
-        @include absolute-border(1px, primary-color);
-      }
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
     }
-  }
 
-  &:hover {
-    &:not(.active):not(.selected-color) {
-      // active elements have no "hover feedback"
+    &:focus,
+    &:focus-visible,
+    &.active {
+      outline: none;
+
       .feedback-indicator {
-        @include absolute-border(4px, primary-background-hover-color, -4px, 8px);
+        &:before {
+          @include absolute-border(4px, primary-selected-color);
+        }
+
+        &:after {
+          @include absolute-border(1px, primary-color);
+        }
       }
+    }
+
+    &:hover {
+      &:not(.active):not(.selected-color) {
+        // active elements have no "hover feedback"
+        .feedback-indicator {
+          @include absolute-border(4px, primary-background-hover-color, -4px, 8px);
+        }
+      }
+    }
+
+    .color-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid transparent;
+      border-radius: calc(4px * var(--border-radius-multiplier, 1));
+      cursor: pointer;
+
+      &.rainbow {
+        background: linear-gradient(
+          0deg,
+          rgba(255, 0, 0, 1) 0%,
+          rgba(255, 154, 0, 1) 10%,
+          rgba(208, 222, 33, 1) 20%,
+          rgba(79, 220, 74, 1) 30%,
+          rgba(63, 218, 216, 1) 40%,
+          rgba(47, 201, 226, 1) 50%,
+          rgba(28, 127, 238, 1) 60%,
+          rgba(95, 21, 242, 1) 70%,
+          rgba(186, 12, 248, 1) 80%,
+          rgba(251, 7, 217, 1) 90%,
+          rgba(255, 0, 0, 1) 100%
+        );
+      }
+
+      .color-indicator-wrapper {
+        margin-top: 3px;
+      }
+
+      &.color-item-size-small {
+        width: 24px;
+        height: 24px;
+      }
+
+      &.color-item-size-medium {
+        width: 32px;
+        height: 32px;
+      }
+
+      &.color-item-size-large {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &.selected-color {
+      position: relative;
+
+      &:before {
+        @include absolute-border(2px, primary-color, -4px);
+      }
+
+      .feedback-indicator {
+        &:before {
+          // hide the outer border from the "active" feedback indicator
+          display: none;
+        }
+      }
+    }
+
+    .color-item-text-mode:hover {
+      background-color: var(--primary-background-hover-color) !important;
     }
   }
 
-  .color-item {
+  .custom-color-picker {
+    transform: translateY(-8);
+    position: absolute;
+  }
+
+  .clear-color-picker {
+    @include box-shadow-small;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    right: -4px;
+    top: -6px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid transparent;
-    border-radius: calc(4px * var(--border-radius-multiplier, 1));
-    cursor: pointer;
-
-    .color-indicator-wrapper {
-      margin-top: 3px;
-    }
-
-    &.color-item-size-small {
-      width: 24px;
-      height: 24px;
-    }
-
-    &.color-item-size-medium {
-      width: 32px;
-      height: 32px;
-    }
-
-    &.color-item-size-large {
-      width: 40px;
-      height: 40px;
-    }
-  }
-
-  &.selected-color {
-    position: relative;
-    &:before {
-      @include absolute-border(2px, primary-color, -4px);
-    }
-
-    .feedback-indicator {
-      &:before {
-        // hide the outer border from the "active" feedback indicator
-        display: none;
-      }
-    }
-  }
-
-  .color-item-text-mode:hover {
-    background-color: var(--primary-background-hover-color) !important;
+    padding: 2px;
   }
 }

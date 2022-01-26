@@ -15,3 +15,5 @@ export const COLOR_SHAPES = {
   SQUARE: "square",
   CIRCLE: "circle"
 };
+
+export const RAINBOW = "rainbow";

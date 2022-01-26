@@ -25,3 +25,9 @@ export const colorPickerSelectedIconTemplate = args => (
 export const colorPickerCircleShapeTemplate = args => (
   <ColorPicker colorShape={ColorPicker.colorShapes.CIRCLE} {...args} />
 );
+
+export const colorPickerWithCustomPicker = args => (
+  <ColorPicker showCustomColorPicker numberOfColorsInLine="7" {...args} />
+);
+
+export const colorPickerWithCustomPickerAndMultiSelect = args => <ColorPicker showCustomColorPicker isMultiselect numberOfColorsInLine="7" {...args} />;

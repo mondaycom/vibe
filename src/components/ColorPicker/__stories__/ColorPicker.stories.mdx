@@ -8,7 +8,9 @@ import {
   colorPickerSelectedTemplate,
   colorPickerNoColorTemplate,
   colorPickerSelectedIconTemplate,
-  colorPickerCircleShapeTemplate
+  colorPickerCircleShapeTemplate,
+  colorPickerWithCustomPicker,
+  colorPickerWithCustomPickerAndMultiSelect
 } from "./ColorPicker.stories";
 
 export const metaSettings = createStoryMetaSettings({
@@ -88,4 +90,18 @@ The `ColorPicker` supports multiple shapes
 
 <Canvas>
   <Story name="Shapes">{colorPickerCircleShapeTemplate.bind({})}</Story>
+</Canvas>
+
+### With Color Picker
+
+Passing `showCustomColorPicker` adds a custom color picker icon
+
+<Canvas>
+  <Story name="Custom Single">{colorPickerWithCustomPicker.bind({})}</Story>
+</Canvas>
+
+Also supports isMultiselect
+
+<Canvas>
+  <Story name="Custom Multi">{colorPickerWithCustomPickerAndMultiSelect.bind({})}</Story>
 </Canvas>

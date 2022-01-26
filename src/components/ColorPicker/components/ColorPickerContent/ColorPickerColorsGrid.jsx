@@ -1,11 +1,11 @@
 import cx from "classnames";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
 import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
 import { SIZES } from "../../../../constants/sizes";
-import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
+import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE, RAINBOW } from "../../ColorPickerConstants";
 
 export const ColorPickerColorsGrid = React.forwardRef(
   (
@@ -22,11 +22,33 @@ export const ColorPickerColorsGrid = React.forwardRef(
       SelectedIndicatorIcon,
       colorSize,
       tooltipContentByColor,
-      colorShape
+      colorShape,
+      showCustomColorPicker,
+      initialCustomColor
     },
     ref
   ) => {
+    const [customColor, setCustomColor] = useState(initialCustomColor);
+    const [showColorPicker, setShowColorPicker] = useState();
+
     const getItemByIndex = useCallback(index => colorsToRender[index], [colorsToRender]);
+    const onCustomColorClicked = useCallback(
+      colorHex => {
+        onSelectionAction(colorsToRender.length);
+        setCustomColor(colorHex);
+        onColorClicked(colorHex, customColor);
+      },
+      [colorsToRender.length, customColor, onColorClicked, onSelectionAction]
+    );
+
+    const onClearSelectedColor = useCallback(
+      colorToRemove => {
+        setShowColorPicker();
+        setCustomColor();
+        onColorClicked(colorToRemove);
+      },
+      [onColorClicked]
+    );
 
     const { activeIndex, onSelectionAction } = useGridKeyboardNavigation({
       focusOnMount,
@@ -38,6 +60,7 @@ export const ColorPickerColorsGrid = React.forwardRef(
     });
 
     const onValueChange = useCallback(index => () => onSelectionAction(index), [onSelectionAction]);
+
     return (
       <ul className={cx("color-picker")} ref={ref} tabIndex={-1}>
         {colorsToRender.map((color, index) => {
@@ -46,7 +69,6 @@ export const ColorPickerColorsGrid = React.forwardRef(
               key={color}
               color={color}
               onValueChange={onValueChange(index)}
-              value={value}
               shouldRenderIndicatorWithoutBackground={ColorIndicatorIcon && shouldRenderIndicatorWithoutBackground}
               colorStyle={colorStyle}
               ColorIndicatorIcon={ColorIndicatorIcon}
@@ -57,9 +79,32 @@ export const ColorPickerColorsGrid = React.forwardRef(
               colorSize={colorSize}
               tooltipContent={tooltipContentByColor[color]}
               colorShape={colorShape}
+              showColorPicker={showColorPicker}
+              setShowColorPicker={setShowColorPicker}
             />
           );
         })}
+        {showCustomColorPicker && (
+          <ColorPickerItemComponent
+            key={RAINBOW}
+            color={RAINBOW}
+            onCustomColorClicked={onCustomColorClicked}
+            customColor={customColor}
+            shouldRenderIndicatorWithoutBackground
+            colorStyle={colorStyle}
+            ColorIndicatorIcon={ColorIndicatorIcon}
+            SelectedIndicatorIcon={SelectedIndicatorIcon}
+            isSelected={isMultiselect ? value.includes(customColor) : value === customColor}
+            isActive={colorsToRender.length === activeIndex}
+            isMultiselect={isMultiselect}
+            colorSize={colorSize}
+            tooltipContent={tooltipContentByColor[customColor]}
+            colorShape={colorShape}
+            showColorPicker={showColorPicker}
+            setShowColorPicker={setShowColorPicker}
+            clearSelectedColor={onClearSelectedColor}
+          />
+        )}
       </ul>
     );
   }
@@ -89,7 +134,9 @@ ColorPickerColorsGrid.propTypes = {
   tooltipContentByColor: PropTypes.object,
   focusOnMount: PropTypes.bool,
   colorShape: PropTypes.oneOf(Object.values(ColorPickerColorsGrid.colorShapes)),
-  isMultiselect: PropTypes.bool
+  isMultiselect: PropTypes.bool,
+  showCustomColorPicker: PropTypes.bool,
+  initialCustomColor: PropTypes.string
 };
 
 ColorPickerColorsGrid.defaultProps = {
@@ -105,5 +152,7 @@ ColorPickerColorsGrid.defaultProps = {
   tooltipContentByColor: {},
   focusOnMount: false,
   colorShape: ColorPickerColorsGrid.colorShapes.SQUARE,
-  isMultiselect: false
+  isMultiselect: false,
+  showCustomColorPicker: false,
+  initialCustomColor: null
 };
