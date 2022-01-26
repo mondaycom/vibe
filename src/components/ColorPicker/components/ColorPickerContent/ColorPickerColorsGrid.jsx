@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { useCallback } from "react";
+import React, { useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
@@ -40,18 +40,16 @@ export const ColorPickerColorsGrid = React.forwardRef(
       getItemByIndex
     });
 
-    const renderAnycolorPicker = useCallback(() => {
+    const renderAnycolorPicker = useMemo(() => {
       return (
         <AnyColorPickerItemComponent
           onColorClicked={onColorClicked}
-          colorStyle={colorStyle}
-          shouldRenderIndicatorWithoutBackground={ColorIndicatorIcon && shouldRenderIndicatorWithoutBackground}
           ColorIndicatorIcon={ColorIndicatorIcon}
           SelectedIndicatorIcon={SelectedIndicatorIcon}
-          colorSize={colorSize}
-          tooltipContent={"TODO"}
-          colorShape={colorShape}
           setShowAnyColorPickerDialog={setShowAnyColorPickerDialog}
+          colorSize={colorSize}
+          colorShape={colorShape}
+          tooltipContent={"TODO"}
           value={value}
         />
       );
@@ -60,9 +58,7 @@ export const ColorPickerColorsGrid = React.forwardRef(
       SelectedIndicatorIcon,
       colorShape,
       colorSize,
-      colorStyle,
       onColorClicked,
-      shouldRenderIndicatorWithoutBackground,
       setShowAnyColorPickerDialog,
       value
     ]);
@@ -90,7 +86,7 @@ export const ColorPickerColorsGrid = React.forwardRef(
             />
           );
         })}
-        {isWithAnyColorPicker && renderAnycolorPicker()}
+        {isWithAnyColorPicker && renderAnycolorPicker}
       </ul>
     );
   }

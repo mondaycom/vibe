@@ -7,7 +7,6 @@ import { COLOR_SHAPES } from "../../ColorPickerConstants";
 import "./AnyColorPickerItemComponent.scss";
 
 const AnyColorPickerItemComponent = ({
-  shouldRenderIndicatorWithoutBackground,
   setShowAnyColorPickerDialog,
   ColorIndicatorIcon,
   colorSize,
@@ -27,9 +26,7 @@ const AnyColorPickerItemComponent = ({
         <Clickable
           ref={itemRef}
           ariaLabel={tooltipContent}
-          className={cx("color-item gradient-rainbow-box", `color-item-size-${colorSize}`, {
-            "color-item-text-mode": shouldRenderIndicatorWithoutBackground
-          })}
+          className={cx("color-item gradient-rainbow-box", `color-item-size-${colorSize}`)}
           onClick={onClick}
           tabIndex="-1"
           onMouseDown={onMouseDown} // this is for quill to not lose the selection
