@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.7.0 (2022-01-24)
+
+#### New Features
+* [#472](https://github.com/mondaycom/monday-ui-react-core/pull/472) add option renderer to combobox ([@roniCohen123](https://github.com/roniCohen123))
+* [#464](https://github.com/mondaycom/monday-ui-react-core/pull/464) Keyboard nav for ColorPicker ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#476](https://github.com/mondaycom/monday-ui-react-core/pull/476) Minor fixes in split button story ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.6.3 (2022-01-23)
 
 #### Bug Fixes

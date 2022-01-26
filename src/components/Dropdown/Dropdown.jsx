@@ -57,7 +57,8 @@ const Dropdown = ({
   onOptionSelect,
   onClear,
   onInputChange,
-  closeMenuOnSelect = !multi
+  closeMenuOnSelect = !multi,
+  ref
 }) => {
   const [selected, setSelected] = useState(defaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
@@ -248,6 +249,7 @@ const Dropdown = ({
       id={id}
       autoFocus={autoFocus}
       closeMenuOnSelect={closeMenuOnSelect}
+      ref={ref}
       {...asyncAdditions}
       {...additions}
     />
@@ -275,7 +277,8 @@ Dropdown.defaultProps = {
   tabIndex: "0",
   id: undefined,
   autoFocus: false,
-  closeMenuOnSelect: undefined
+  closeMenuOnSelect: undefined,
+  ref: undefined
 };
 
 Dropdown.propTypes = {
@@ -450,7 +453,11 @@ Dropdown.propTypes = {
   /**
   Pass closeMenuOnSelect to close the multi choose any time an options is chosen.
   */
-  closeMenuOnSelect: PropTypes.bool
+  closeMenuOnSelect: PropTypes.bool,
+  /**
+   Pass Ref for reference of the actual dropdown component
+   */
+  ref: PropTypes.func
 };
 
 export default Dropdown;
