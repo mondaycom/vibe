@@ -36,7 +36,7 @@ export function getActiveIndexFromInboundNavigation({ direction, numberOfItemsIn
   return Math.max(0, Math.min(rawIndex, itemsCount - 1));
 }
 
-export function calcActiveIndexAfterArrowNavigation({ activeIndex, itemsCount, numberOfItemsInLine, direction }) {
+function calcRawNewIndexAfterArrowNavigation({ activeIndex, itemsCount, numberOfItemsInLine, direction }) {
   const getIndexLine = index => Math.ceil((index + 1) / numberOfItemsInLine);
 
   const horizontalChange = isIndexIncrease => {
@@ -71,4 +71,24 @@ export function calcActiveIndexAfterArrowNavigation({ activeIndex, itemsCount, n
     case NAV_DIRECTIONS.UP:
       return verticalChange(false);
   }
+}
+
+export function calcActiveIndexAfterArrowNavigation({
+  activeIndex,
+  itemsCount,
+  numberOfItemsInLine,
+  direction,
+  disabledIndexes = []
+}) {
+  let result = calcRawNewIndexAfterArrowNavigation({ activeIndex, itemsCount, numberOfItemsInLine, direction });
+  while (!result.isOutbound && disabledIndexes.includes(result.nextIndex)) {
+    result = calcRawNewIndexAfterArrowNavigation({
+      activeIndex: result.nextIndex,
+      itemsCount,
+      numberOfItemsInLine,
+      direction
+    });
+  }
+
+  return result;
 }
