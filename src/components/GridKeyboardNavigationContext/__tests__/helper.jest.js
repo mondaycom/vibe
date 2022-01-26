@@ -3,7 +3,8 @@ import {
   getOppositeDirection,
   getDirectionMaps,
   focusElementWithDirection,
-  getOutmostElementInDirection
+  getOutmostElementInDirection,
+  getNextElementToFocusInDirection
 } from "../helper";
 
 describe("GridKeyboardNavigationContext.helper", () => {
@@ -14,6 +15,9 @@ describe("GridKeyboardNavigationContext.helper", () => {
   const ELEMENT5 = { current: "e5" };
   const UNMOUNTED_ELEMENT_1 = { current: null };
   const UNMOUNTED_ELEMENT_2 = { current: null };
+  const DISABLED_ELEMENT = { current: { disabled: true } };
+  const DISABLED_DATASET_ELEMENT = { current: { dataset: { disabled: "true" } } };
+  const DATASET_NOT_DISABLED_ELEMENT = { current: { dataset: { disabled: "false" } } };
 
   describe("getDirectionMaps", () => {
     it("should return empty direction maps when no positions are supplied", () => {
@@ -281,6 +285,69 @@ describe("GridKeyboardNavigationContext.helper", () => {
       const result = getOutmostElementInDirection(directionMaps, direction);
 
       expect(result).toEqual(expected);
+    });
+  });
+
+  describe("getNextElementToFocusInDirection", () => {
+    it("should return null if the referenced element isn't positioned on that direction", () => {
+      const directionMaps = getDirectionMaps([
+        { leftElement: ELEMENT2, rightElement: ELEMENT4 },
+        { leftElement: ELEMENT4, rightElement: ELEMENT5 }
+      ]);
+      const directionMap = directionMaps[NAV_DIRECTIONS.RIGHT];
+
+      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1); // ELEMENT1 isn't mapped
+
+      expect(result).toBeNull();
+    });
+
+    it("return null if there's only one next ref, and it is currently null", () => {
+      const directionMaps = getDirectionMaps([{ leftElement: ELEMENT1, rightElement: UNMOUNTED_ELEMENT_1 }]);
+      const directionMap = directionMaps[NAV_DIRECTIONS.RIGHT];
+
+      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1);
+
+      expect(result).toBeNull();
+    });
+
+    it("return null if there's only one next ref, and it is disabled", () => {
+      const directionMaps = getDirectionMaps([{ leftElement: ELEMENT1, rightElement: DISABLED_ELEMENT }]);
+      const directionMap = directionMaps[NAV_DIRECTIONS.RIGHT];
+
+      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1);
+
+      expect(result).toBeNull();
+    });
+
+    it("return null if there's only one next ref, and it is disabled with data-disabled='true'", () => {
+      const directionMaps = getDirectionMaps([{ leftElement: ELEMENT1, rightElement: DISABLED_DATASET_ELEMENT }]);
+      const directionMap = directionMaps[NAV_DIRECTIONS.RIGHT];
+
+      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1);
+
+      expect(result).toBeNull();
+    });
+
+    it("return the next element ref even if it has data-disabled='false'", () => {
+      const directionMaps = getDirectionMaps([{ leftElement: ELEMENT1, rightElement: DATASET_NOT_DISABLED_ELEMENT }]);
+      const directionMap = directionMaps[NAV_DIRECTIONS.RIGHT];
+
+      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1);
+
+      expect(result).toBe(DATASET_NOT_DISABLED_ELEMENT);
+    });
+
+    it("return the next element ref in the given direction which is focusable, while skipping disabled or unmounted elements", () => {
+      const directionMaps = getDirectionMaps([
+        { leftElement: ELEMENT1, rightElement: UNMOUNTED_ELEMENT_1 },
+        { leftElement: UNMOUNTED_ELEMENT_1, rightElement: DISABLED_ELEMENT },
+        { leftElement: DISABLED_ELEMENT, rightElement: ELEMENT2 }
+      ]);
+      const directionMap = directionMaps[NAV_DIRECTIONS.RIGHT];
+
+      const result = getNextElementToFocusInDirection(directionMap, ELEMENT1);
+
+      expect(result).toBe(ELEMENT2);
     });
   });
 });
