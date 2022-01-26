@@ -30,6 +30,7 @@ export const ON_CLICK = action("item selected");
   <Story name="Overview">
     {() => {
       const ref = useRef(null);
+      const disabledIndexes = [2, 4, 6];
       const [itemsCount, setItemsCount] = useState(15);
       const [numberOfItemsInLine, setNumberOfItemsInLine] = useState(4);
       const width = useMemo(() => numberOfItemsInLine * ELEMENT_WIDTH_PX + 2 * PADDING_PX, [numberOfItemsInLine]);
@@ -40,7 +41,8 @@ export const ON_CLICK = action("item selected");
         numberOfItemsInLine,
         itemsCount,
         getItemByIndex,
-        onItemClicked: ON_CLICK
+        onItemClicked: ON_CLICK,
+        disabledIndexes
       });
       const onClickByIndex = useCallback(index => () => onSelectionAction(index), [onSelectionAction]);
       return (
@@ -49,6 +51,7 @@ export const ON_CLICK = action("item selected");
             {items.map((item, index) => (
               <Button
                 key={item}
+                disabled={disabledIndexes.includes(index)}
                 onClick={onClickByIndex(index)}
                 kind={Button.kinds.SECONDARY}
                 className={cx("use-grid-keyboard-nav-item", { "active-item": index === activeIndex })}
@@ -132,6 +135,11 @@ export const ON_CLICK = action("item selected");
           Optional item index to focus when mounted. Only works with <code>options.focusOnMount</code>.
         </>
       }
+    />
+    <FunctionArgument
+      name="disabledIndexes"
+      type="number[]"
+      description="Optional array of disabled indices, which will be skipped while navigating."
     />
   </FunctionArgument>
 </FunctionArguments>
