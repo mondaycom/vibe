@@ -78,9 +78,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
       <div className={classes["value-container"]}>
         {selectedOptions.length === 0 && (
           <div className={classes["placeholder-container"]}>
-            <components.Placeholder electProps={selectProps} {...otherProps}>
-              {placeholder}
-            </components.Placeholder>
+            <components.Placeholder {...otherProps}>{placeholder}</components.Placeholder>
           </div>
         )}
         <div
