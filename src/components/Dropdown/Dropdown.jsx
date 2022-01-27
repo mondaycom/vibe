@@ -273,6 +273,7 @@ Dropdown.defaultProps = {
   size: SIZES.MEDIUM,
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
+  onOptionRemove: NOOP,
   id: undefined,
   autoFocus: false,
   closeMenuOnSelect: undefined,
@@ -430,6 +431,10 @@ Dropdown.propTypes = {
    * Tab index for keyboard navigation purposes
    */
   tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * Called when one of the selected options of the drop down is removed.
+   */
+  onOptionRemove: PropTypes.func,
   /**
    * ID for the select container
    */
