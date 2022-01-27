@@ -3,6 +3,7 @@ import useEventListener from "../../hooks/useEventListener";
 import {
   focusElementWithDirection,
   getDirectionMaps,
+  getNextElementToFocusInDirection,
   getOppositeDirection,
   getOutmostElementInDirection
 } from "./helper";
@@ -34,8 +35,8 @@ export const useGridKeyboardNavigationContext = (positions, wrapperRef) => {
 
   const onOutboundNavigation = useCallback(
     (elementRef, direction) => {
-      const maybeNextElement = directionMaps[direction].get(elementRef);
-      if (maybeNextElement?.current) {
+      const maybeNextElement = getNextElementToFocusInDirection(directionMaps[direction], elementRef);
+      if (maybeNextElement) {
         elementRef.current?.blur();
         focusElementWithDirection(maybeNextElement, direction);
         return;

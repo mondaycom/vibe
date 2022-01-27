@@ -83,7 +83,6 @@ const Menu = forwardRef(
       onSetActiveItemIndexCallback,
       isVisible,
       ref,
-      resetOpenSubMenuIndex,
       useDocumentEventListeners
     );
     useMouseLeave(resetOpenSubMenuIndex, hasOpenSubMenu, ref, onSetActiveItemIndexCallback);

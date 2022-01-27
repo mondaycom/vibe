@@ -47,6 +47,7 @@ const Dropdown = ({
   isVirtualized,
   menuPortalTarget,
   extraStyles,
+  maxMenuHeight,
   menuIsOpen,
   tabIndex,
   id,
@@ -57,7 +58,8 @@ const Dropdown = ({
   onOptionSelect,
   onClear,
   onInputChange,
-  closeMenuOnSelect = !multi
+  closeMenuOnSelect = !multi,
+  ref
 }) => {
   const [selected, setSelected] = useState(defaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
@@ -245,12 +247,14 @@ const Dropdown = ({
       isRtl={rtl}
       styles={styles}
       theme={customTheme}
+      maxMenuHeight={maxMenuHeight}
       menuPortalTarget={menuPortalTarget}
       menuIsOpen={menuIsOpen}
       tabIndex={tabIndex}
       id={id}
       autoFocus={autoFocus}
       closeMenuOnSelect={closeMenuOnSelect}
+      ref={ref}
       {...asyncAdditions}
       {...additions}
     />
@@ -278,7 +282,8 @@ Dropdown.defaultProps = {
   tabIndex: "0",
   id: undefined,
   autoFocus: false,
-  closeMenuOnSelect: undefined
+  closeMenuOnSelect: undefined,
+  ref: undefined
 };
 
 Dropdown.propTypes = {
@@ -427,7 +432,10 @@ Dropdown.propTypes = {
    * Custom function to override existing styles (similar to `react-select`'s `style` prop), for example: `base => ({...base, color: 'red'})`, where `base` is the component's default styles
    */
   extraStyles: PropTypes.func,
-
+  /**
+   * Maximum height of the menu before scrolling
+   */
+  maxMenuHeight: PropTypes.number,
   /**
    * Tab index for keyboard navigation purposes
    */
@@ -457,7 +465,11 @@ Dropdown.propTypes = {
   /**
    * callback to be called when `multiline` is `true` and the option is removed
    */
-  onOptionRemove: PropTypes.func
+  onOptionRemove: PropTypes.func,
+  /**
+   Pass Ref for reference of the actual dropdown component
+   */
+  ref: PropTypes.func
 };
 
 export default Dropdown;
