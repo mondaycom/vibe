@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.8.0 (2022-01-27)
+
+#### Bug Fixes
+* [#495](https://github.com/mondaycom/monday-ui-react-core/pull/495) fix close when click outside in drop down and display correct options when delete ([@hadasfa](https://github.com/hadasfa))
+* [#496](https://github.com/mondaycom/monday-ui-react-core/pull/496) feature/yarden/dropdown-max-height ([@yardenli](https://github.com/yardenli))
+* [#487](https://github.com/mondaycom/monday-ui-react-core/pull/487) fix(slider): change broken padding for slider prefix ([@niksa-monday](https://github.com/niksa-monday))
+* [#477](https://github.com/mondaycom/monday-ui-react-core/pull/477) Keyboard nav context improvements ([@laviomri](https://github.com/laviomri))
+
+#### New Features
+* [#493](https://github.com/mondaycom/monday-ui-react-core/pull/493) Disabled indexes for keyboard nav ([@laviomri](https://github.com/laviomri))
+* [#488](https://github.com/mondaycom/monday-ui-react-core/pull/488) Skipping disabled components while navigating ([@laviomri](https://github.com/laviomri))
+* [#479](https://github.com/mondaycom/monday-ui-react-core/pull/479) support ref passing for dropdown ([@etaylib](https://github.com/etaylib))
+* [#480](https://github.com/mondaycom/monday-ui-react-core/pull/480) Added focusItemIndexOnMount to useGridKeyboardNavigation ([@laviomri](https://github.com/laviomri))
+
+#### Dependency Upgrades
+* [#484](https://github.com/mondaycom/monday-ui-react-core/pull/484) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+#### Documentation
+* [#489](https://github.com/mondaycom/monday-ui-react-core/pull/489) Story for ColorPicker shape prop ([@laviomri](https://github.com/laviomri))
+* [#486](https://github.com/mondaycom/monday-ui-react-core/pull/486) added missing proptype + added as action ([@laviomri](https://github.com/laviomri))
+
+#### Internal Changes
+* [#492](https://github.com/mondaycom/monday-ui-react-core/pull/492) Menu item small refactor ([@laviomri](https://github.com/laviomri))
+
+#### New Icons
+* [#490](https://github.com/mondaycom/monday-ui-react-core/pull/490) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.7.0 (2022-01-24)
 
 #### New Features
