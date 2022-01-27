@@ -10,7 +10,7 @@ import classes from "./ValueContainer.module.scss";
 const EMPTY_ARRAY = [];
 
 export default function Container({ children, selectProps, ...otherProps }) {
-  const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = selectProps?.selectProps;
+  const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = selectProps.selectProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
