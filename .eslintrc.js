@@ -40,7 +40,6 @@ module.exports = {
     "default-case": "off",
     "func-names": "off",
     "react/sort-comp": "off",
-    "prefer-destructuring": "off",
     "class-methods-use-this": "off",
     radix: "off",
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
@@ -48,7 +47,6 @@ module.exports = {
     "import/prefer-default-export": "off",
     "no-plusplus": "off",
     "react/react-in-jsx-scope": 0,
-    "react/no-did-update-set-state": "off",
     "react/no-danger": "error",
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": 0,
@@ -79,10 +77,8 @@ module.exports = {
     "jsx-a11y/interactive-supports-focus": "error",
     "jsx-a11y/no-noninteractive-tabindex": "error",
     "react/jsx-boolean-value": "off",
-    "max-len": "off",
     "arrow-parens": "off",
     "implicit-arrow-linebreak": "off",
-    "import/order": "warn",
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }]
   }
 };

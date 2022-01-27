@@ -8,7 +8,7 @@ import { Manager, Reference, Popper } from "react-popper";
 import cx from "classnames";
 import isFunction from "lodash/isFunction";
 import { chainFunctions, convertToArray } from "utils/function-utils";
-import { DialogContent } from "components/DialogContent/DialogContent";
+import { DialogContent } from "components/Dialog/DialogContent/DialogContent";
 import { isInsideClass } from "utils/dom-utils";
 import { Refable } from "components/Refable/Refable";
 import { HIDE_SHOW_EVENTS } from "./consts/dialog-show-hide-event";
