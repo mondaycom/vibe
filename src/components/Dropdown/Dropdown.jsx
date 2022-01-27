@@ -273,7 +273,7 @@ Dropdown.defaultProps = {
   size: SIZES.MEDIUM,
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
-  onOptionRemove: NOOP,
+  onOptionRemove: undefined,
   id: undefined,
   autoFocus: false,
   closeMenuOnSelect: undefined,
