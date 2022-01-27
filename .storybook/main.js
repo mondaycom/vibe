@@ -1,11 +1,10 @@
 const projectConfig = require("../webpack/storybook.config.js");
 
-const createCompiler = require("@storybook/addon-docs/mdx-compiler-plugin");
-
 const mergeConfigRules = (originalConfig, newConfigRules) => {
   return {
     ...originalConfig,
-    module: { ...originalConfig.module, rules: [...originalConfig.module.rules, ...newConfigRules] }
+    module: { ...originalConfig.module, rules: [...originalConfig.module.rules, ...newConfigRules] },
+    resolve: { ...originalConfig.resolve, alias: { ...originalConfig.resolve.alias, ...projectConfig.resolve.alias } }
   };
 };
 
@@ -34,7 +33,7 @@ module.exports = {
     "@storybook/addon-a11y",
     "storybook-addon-performance/register",
     "@storybook/addon-docs",
-    "@storybook/addon-actions",
+    "@storybook/addon-actions"
   ],
   core: {
     builder: "webpack5"
