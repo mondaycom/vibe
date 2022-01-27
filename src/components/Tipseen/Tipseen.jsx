@@ -1,18 +1,18 @@
+import { DialogPositions } from "constants/sizes";
+import { DIALOG_ANIMATION_TYPES } from "constants/AnimationTypes";
 import { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
-import { DialogPositions } from "../../constants/sizes";
-import Tooltip from "../Tooltip/Tooltip";
-import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
-import Button from "../Button/Button";
+import useMergeRefs from "hooks/useMergeRefs";
+import Tooltip from "components/Tooltip/Tooltip";
+import Button from "components/Button/Button";
+import { BEMClass } from "helpers/bem-helper";
+import Icon from "components/Icon/Icon";
+import CloseSmall from "components/Icon/Icons/components/CloseSmall";
+import { TOOLTIP_JUSTIFY_TYPES } from "components/Tooltip/TooltipConstants";
 import TipseenTitle from "./TipseenTitle";
-import { BEMClass } from "../../helpers/bem-helper";
-import Icon from "../Icon/Icon";
-import CloseSmall from "../Icon/Icons/components/CloseSmall";
-import { TOOLTIP_JUSTIFY_TYPES } from "../Tooltip/TooltipConstants";
-import "./Tipseen.scss";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
+import "./Tipseen.scss";
 
 const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
 const bemHelper = BEMClass(TIPSEEN_BASE_CSS_CLASS);

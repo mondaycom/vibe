@@ -5,29 +5,29 @@ import Menu from "../../Menu/Menu";
 import { Invite } from "../../../Icon/Icons";
 
 export const menuItemButtonKindsTemplate = args => [
-  <Menu>
+  <Menu key="Primary">
     <MenuItemButton kind={MenuItemButton.kinds.PRIMARY}>Primary</MenuItemButton>
   </Menu>,
-  <Menu>
+  <Menu key="Secondary">
     <MenuItemButton kind={MenuItemButton.kinds.SECONDARY}>Secondary</MenuItemButton>
   </Menu>,
-  <Menu>
+  <Menu key="Tertiary">
     <MenuItemButton kind={MenuItemButton.kinds.TERTIARY}>Tertiary</MenuItemButton>
   </Menu>
 ];
 
 export const menuItemButtonDisabledTemplate = args => [
-  <Menu>
+  <Menu key="disabled-Primary">
     <MenuItemButton kind={MenuItemButton.kinds.PRIMARY} disabled disableReason="Disabled reason">
       Primary
     </MenuItemButton>
   </Menu>,
-  <Menu>
+  <Menu key="disabled-Secondary">
     <MenuItemButton kind={MenuItemButton.kinds.SECONDARY} disabled disableReason="Disabled reason">
       Secondary
     </MenuItemButton>
   </Menu>,
-  <Menu>
+  <Menu key="disabled-Tertiary">
     <MenuItemButton kind={MenuItemButton.kinds.TERTIARY} disabled disableReason="Disabled reason">
       Tertiary
     </MenuItemButton>
@@ -35,10 +35,10 @@ export const menuItemButtonDisabledTemplate = args => [
 ];
 
 export const menuItemButtonIconTemplate = args => [
-  <Menu>
+  <Menu key="left">
     <MenuItemButton leftIcon={Invite}>Left icon</MenuItemButton>
   </Menu>,
-  <Menu>
+  <Menu key="right">
     <MenuItemButton rightIcon={Invite}>Right icon</MenuItemButton>
   </Menu>
 ];

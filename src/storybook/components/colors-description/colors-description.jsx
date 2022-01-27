@@ -15,6 +15,7 @@ export const ColorsDescription = ({ colorNames }) => {
     () =>
       colorNames.map(color => (
         <ColorDescription
+          key={color}
           colorName={color}
           description={colorsHashMap.get(color)}
           withBorder={colorsWithBorder.has(color)}

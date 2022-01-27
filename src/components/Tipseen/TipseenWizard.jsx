@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import cx from "classnames";
-import Steps from "../Steps/Steps";
-import Button from "../Button/Button";
-import { BEMClass } from "../../helpers/bem-helper";
-import "./TipseenWizard.scss";
+import Steps from "components/Steps/Steps";
+import Button from "components/Button/Button";
+import { BEMClass } from "helpers/bem-helper";
 import TipseenBasicContent from "./TipseenBasicContent";
+import "./TipseenWizard.scss";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-wizard";
 const bemHelper = BEMClass(BASE_CSS_CLASS);

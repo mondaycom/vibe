@@ -17,7 +17,7 @@ module.exports = {
       version: 27
     }
   },
-  extends: ["plugin:react/recommended", "airbnb", "plugin:react-hooks/recommended", "plugin:prettier/recommended"],
+  extends: ["plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -27,10 +27,8 @@ module.exports = {
   },
   plugins: ["import", "react", "jsx-a11y", "json", "markdown", "jest"],
   rules: {
-    quotes: "off",
-    "comma-dangle": "off",
+    "react/display-name": "off",
     "object-curly-newline": "off",
-    "arrow-body-style": "off",
     "no-debugger": "error",
     "global-require": "off",
     "no-unused-expressions": "off",

@@ -1,12 +1,12 @@
 import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRefs from "hooks/useMergeRefs";
+import Button from "components/Button/Button";
+import Icon from "components/Icon/Icon";
+import CloseSmall from "components/Icon/Icons/components/CloseSmall";
 import { IMAGE_POSITIONS } from "./BannerConstants";
 import "./Banner.scss";
-import Button from "../Button/Button";
-import Icon from "../Icon/Icon";
-import CloseSmall from "../Icon/Icons/components/CloseSmall";
 
 const PRESERVE_VALUE = value => value;
 

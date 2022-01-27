@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import Menu from "../Menu";
-import MenuItem from "../../MenuItem/MenuItem";
 import {
   Activity,
   Settings,
@@ -16,12 +14,14 @@ import {
   Calendar,
   Filter,
   Wand
-} from "../../../Icon/Icons";
-import { Search } from "../../../index";
-import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
+} from "components/Icon/Icons";
+import DialogContentContainer from "components/DialogContentContainer/DialogContentContainer";
+import Menu from "components/Menu/Menu/Menu";
+import MenuItem from "components/Menu/MenuItem/MenuItem";
+import Search from "components/Search/Search";
+import MenuTitle from "components/Menu/MenuTitle/MenuTitle";
+import MenuDivider from "components/Menu/MenuDivider/MenuDivider";
 import classes from "./Menu.stories.module.scss";
-import MenuTitle from "../../MenuTitle/MenuTitle";
-import MenuDivider from "../../MenuDivider/MenuDivider";
 
 export const menuTemplate = args => (
   <Menu {...args}>
@@ -32,7 +32,7 @@ export const menuTemplate = args => (
 );
 
 export const menuSizesTemplate = args => [
-  <DialogContentContainer>
+  <DialogContentContainer key="small">
     <Menu size={Menu.sizes.SMALL}>
       <MenuTitle caption="Small menu" />
       <MenuDivider />
@@ -41,7 +41,7 @@ export const menuSizesTemplate = args => [
       <MenuItem title="More item 3" />
     </Menu>
   </DialogContentContainer>,
-  <DialogContentContainer>
+  <DialogContentContainer key="md">
     <Menu size={Menu.sizes.MEDIUM}>
       <MenuTitle caption="Medium menu" />
       <MenuDivider />
@@ -50,7 +50,7 @@ export const menuSizesTemplate = args => [
       <MenuItem title="More item 3" />
     </Menu>
   </DialogContentContainer>,
-  <DialogContentContainer>
+  <DialogContentContainer key="lg">
     <Menu size={Menu.sizes.LARGE}>
       <MenuTitle caption="Large menu" />
       <MenuDivider />

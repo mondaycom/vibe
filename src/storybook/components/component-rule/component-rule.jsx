@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { BEMClass } from "../../../helpers/bem-helper";
-import Check from "../../../components/Icon/Icons/components/Check";
-import CloseSmall from "../../../components/Icon/Icons/components/CloseSmall";
+import Check from "components/Icon/Icons/components/Check";
+import CloseSmall from "components/Icon/Icons/components/CloseSmall";
+import Icon from "components/Icon/Icon";
+import { BEMClass } from "helpers/bem-helper";
 import { RECOMMENDED_TITLE, NOT_RECOMMENDED_TITLE, COMPONENT_RULE_BASE_CSS_CLASS } from "./component-rule-constants";
-import Icon from "../../../components/Icon/Icon";
 import "./component-rule.scss";
 
 const bemHelper = BEMClass(COMPONENT_RULE_BASE_CSS_CLASS);

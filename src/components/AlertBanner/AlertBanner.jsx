@@ -1,11 +1,10 @@
 import React, { forwardRef, useMemo } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
+import Button from "components/Button/Button";
+import Icon from "components/Icon/Icon";
+import CloseSmall from "components/Icon/Icons/components/CloseSmall";
 import { BACKGROUND_COLORS } from "./AlertBannerConstants";
-import Button from "../Button/Button";
-import Icon from "../Icon/Icon";
-import CloseSmall from "../Icon/Icons/components/CloseSmall";
-
 import "./AlertBanner.scss";
 
 const NOOP = () => {};

@@ -1,20 +1,14 @@
-// Libraries import
+import { SIZES } from "constants/sizes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
-
-// Constants import
+import useEventListener from "hooks/useEventListener";
+import useAfterFirstRender from "hooks/useAfterFirstRender";
+import { NOOP } from "utils/function-utils";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { COUNTER_COLORS, getActualSize, COUNTER_TYPES } from "./CounterConstants";
-import { SIZES } from "../../constants/sizes";
-
-// Hooks import
-import useEventListener from "../../hooks/useEventListener";
-import useAfterFirstRender from "../../hooks/useAfterFirstRender";
-
 import "./Counter.scss";
-import { NOOP } from "../../utils/function-utils";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const Counter = ({
   count,

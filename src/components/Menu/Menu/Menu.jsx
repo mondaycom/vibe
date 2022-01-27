@@ -1,17 +1,17 @@
+import { SIZES } from "constants/sizes";
 import React, { useMemo, forwardRef, useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
 import { useFocusWithin } from "@react-aria/interactions";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "../../../hooks/useMergeRefs";
-import useClickOutside from "../../../hooks/useClickOutside";
+import useMergeRefs from "hooks/useMergeRefs";
+import useClickOutside from "hooks/useClickOutside";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import useSubMenuIndex from "./hooks/useSubMenuIndex";
 import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
 import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
 import useMouseLeave from "./hooks/useMouseLeave";
-import { SIZES } from "../../../constants/sizes";
 import "./Menu.scss";
-import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 
 const Menu = forwardRef(
   (

@@ -1,4 +1,5 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
+import { SIZES } from "constants/sizes";
 import React, { useCallback, useMemo, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
@@ -13,7 +14,6 @@ import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import ValueContainer from "./components/ValueContainer/ValueContainer";
 import { defaultCustomStyles, ADD_AUTO_HEIGHT_COMPONENTS } from "./DropdownConstants";
-import { SIZES } from "../../constants/sizes";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 
@@ -453,7 +453,11 @@ Dropdown.propTypes = {
   /**
   Pass closeMenuOnSelect to close the multi choose any time an options is chosen.
   */
-  closeMenuOnSelect: PropTypes.bool
+  closeMenuOnSelect: PropTypes.bool,
+  /**
+   * callback to be called when `multiline` is `true` and the option is removed
+   */
+  onOptionRemove: PropTypes.func
 };
 
 export default Dropdown;

@@ -1,22 +1,20 @@
 /* eslint-disable react/default-props-match-prop-types,react/require-default-props */
+import { keyCodes } from "constants/KeyCodes";
 import React, { useMemo, useState, useRef, useCallback, useEffect } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
-
-import useEventListener from "../../../../hooks/useEventListener";
-import useKeyEvent from "../../../../hooks/useKeyEvent";
-import Icon from "../../../Icon/Icon";
-import Check from "../../../Icon/Icons/components/Check";
-import Divider from "../../../Divider/Divider";
-
-import { keyCodes } from "../../../../constants/KeyCodes";
-import { NOOP } from "../../../../utils/function-utils";
+import useEventListener from "hooks/useEventListener";
+import useKeyEvent from "hooks/useKeyEvent";
+import Icon from "components/Icon/Icon";
+import Check from "components/Icon/Icons/components/Check";
+import Divider from "components/Divider/Divider";
+import { NOOP } from "utils/function-utils";
+import HiddenText from "components/HiddenText/HiddenText";
+import Clickable from "components/Clickable/Clickable";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
-import HiddenText from "../../../HiddenText/HiddenText";
-import Clickable from "../../../Clickable/Clickable";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 

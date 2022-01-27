@@ -1,16 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading,react/button-has-type */
+import { SIZES } from "constants/sizes";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useResizeObserver from "../../hooks/useResizeObserver";
-import useMergeRefs from "../../hooks/useMergeRefs";
-import "./Button.scss";
+import useResizeObserver from "hooks/useResizeObserver";
+import useMergeRefs from "hooks/useMergeRefs";
+import { NOOP } from "utils/function-utils";
+import Icon from "components/Icon/Icon";
+import Loader from "components/Loader/Loader";
 import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize } from "./ButtonConstants";
-import { NOOP } from "../../utils/function-utils";
-import Icon from "../Icon/Icon";
-import Loader from "../Loader/Loader";
-import { SIZES } from "../../constants/sizes";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
+import "./Button.scss";
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 

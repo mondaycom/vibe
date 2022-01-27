@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import Icon from "../Icon/Icon";
-import CloseSmall from "../Icon/Icons/components/CloseSmall";
-import AlertIcon from "../Icon/Icons/components/Alert";
+import Icon from "components/Icon/Icon";
+import CloseSmall from "components/Icon/Icons/components/CloseSmall";
+import AlertIcon from "components/Icon/Icons/components/Alert";
+import { ICON_TYPES } from "components/Icon/IconConstants";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { baseClassName, closeClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { ICON_TYPES } from "../Icon/IconConstants";
 
 const AttentionBox = ({
   className,

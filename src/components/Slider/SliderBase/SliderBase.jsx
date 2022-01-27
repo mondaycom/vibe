@@ -1,13 +1,5 @@
 import React, { forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
-import "./SliderBase.scss";
-import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import { bem, calcDimensions, getNearest, moveToPx, calculatePageStep } from "../SliderHelpers";
-import { useSliderRail } from "../SliderHooks";
-import SliderRail from "./SliderRail";
-import SliderTrack from "./SliderTrack";
-import SliderFilledTrack from "./SliderFilledTrack";
-import SliderThumb from "./SliderThumb";
 import {
   isArrowDownEvent,
   isArrowLeftEvent,
@@ -17,7 +9,15 @@ import {
   isPageUpEvent,
   isEndEvent,
   isHomeEvent
-} from "../../../utils/dom-event-utils";
+} from "utils/dom-event-utils";
+import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
+import { bem, calcDimensions, getNearest, moveToPx, calculatePageStep } from "../SliderHelpers";
+import { useSliderRail } from "../SliderHooks";
+import SliderRail from "./SliderRail";
+import SliderTrack from "./SliderTrack";
+import SliderFilledTrack from "./SliderFilledTrack";
+import SliderThumb from "./SliderThumb";
+import "./SliderBase.scss";
 
 const SliderBase = forwardRef(({ className }, ref) => {
   const { color, disabled, size, shapeTestId } = useSliderUi();

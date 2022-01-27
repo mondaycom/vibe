@@ -1,25 +1,20 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import { DialogPositions } from "constants/sizes";
 import React, { useCallback, useRef, useLayoutEffect, useMemo, useEffect } from "react";
-
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
-
-import Tooltip from "../../Tooltip/Tooltip";
-import Icon from "../../Icon/Icon";
-import DropdownChevronRight from "../../Icon/Icons/components/DropdownChevronRight";
-import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-
-import useMergeRefs from "../../../hooks/useMergeRefs";
-import useIsOverflowing from "../../../hooks/useIsOverflowing";
-import usePopover from "../../../hooks/usePopover";
-
+import Tooltip from "components/Tooltip/Tooltip";
+import Icon from "components/Icon/Icon";
+import DropdownChevronRight from "components/Icon/Icons/components/DropdownChevronRight";
+import DialogContentContainer from "components/DialogContentContainer/DialogContentContainer";
+import useMergeRefs from "hooks/useMergeRefs";
+import useIsOverflowing from "hooks/useIsOverflowing";
+import usePopover from "hooks/usePopover";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
-
 import "./MenuItem.scss";
-import { DialogPositions } from "../../../constants/sizes";
-import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 
 const MenuItem = ({
   className,

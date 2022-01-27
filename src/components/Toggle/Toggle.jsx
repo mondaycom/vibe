@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
+import { useToggle } from "hooks/useToggle";
+import { BEMClass } from "helpers/bem-helper";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
 import ToggleText from "./ToggleText";
 import "./Toggle.scss";
-import { useToggle } from "../../hooks/useToggle";
-import { BEMClass } from "../../helpers/bem-helper";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
 
