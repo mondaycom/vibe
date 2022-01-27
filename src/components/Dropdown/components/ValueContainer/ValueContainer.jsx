@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useState, useEffect, useCallback } from "react";
+import { components } from "react-select";
 import Counter from "../../../Counter/Counter";
 import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
@@ -8,14 +9,8 @@ import classes from "./ValueContainer.module.scss";
 
 const EMPTY_ARRAY = [];
 
-export default function Container({
-  selectedOptions,
-  children,
-  onSelectedDelete,
-  isDialogShown,
-  setIsDialogShown,
-  isMultiline
-}) {
+export default function Container({ children, selectProps, ...otherProps }) {
+  const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = selectProps.selectProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
@@ -79,53 +74,55 @@ export default function Container({
   }, [overflowingChildren.length]);
 
   return (
-    <div className={classes["value-container"]}>
-      <div
-        className={classes["value-container-chips"]}
-        ref={newRef => setRef(newRef)}
-        data-testid="value-container-chips"
-      >
-        {isCounterShown ? (
-          <>
-            {renderOptions(0, overflowingIndex)}
-            {clickHandler}
-            {renderOptions(overflowingIndex)}
-          </>
-        ) : (
-          <>
-            {renderOptions()}
-            {clickHandler}
-          </>
-        )}
-      </div>
+    <components.ValueContainer selectProps={selectProps} {...otherProps}>
+      <div className={classes["value-container"]}>
+        <div
+          className={classes["value-container-chips"]}
+          ref={newRef => setRef(newRef)}
+          data-testid="value-container-chips"
+        >
+          {isCounterShown ? (
+            <>
+              {renderOptions(0, overflowingIndex)}
+              {clickHandler}
+              {renderOptions(overflowingIndex)}
+            </>
+          ) : (
+            <>
+              {renderOptions()}
+              {clickHandler}
+            </>
+          )}
+        </div>
 
-      <div>
-        {isCounterShown && (
-          <Dialog
-            content={() => (
-              <DialogContentContainer className={classes["value-container-dialog-content"]}>
-                {renderOptions(overflowingIndex)}
-              </DialogContentContainer>
-            )}
-            tooltip
-            showTrigger={Dialog.hideShowTriggers.CLICK}
-            hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
-            open={isDialogShown}
-            onClick={() => setIsDialogShown(true)}
-            onClickOutside={() => setIsDialogShown(false)}
-          >
-            <Counter
-              kind={Counter.kinds.LINE}
-              prefix="+"
-              count={overflowingChildren.length}
-              onMouseDown={e => {
-                e.stopPropagation();
-              }}
-              noAnimation
-            />
-          </Dialog>
-        )}
+        <div>
+          {isCounterShown && (
+            <Dialog
+              content={() => (
+                <DialogContentContainer className={classes["value-container-dialog-content"]}>
+                  {renderOptions(overflowingIndex)}
+                </DialogContentContainer>
+              )}
+              tooltip
+              showTrigger={Dialog.hideShowTriggers.CLICK}
+              hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
+              open={isDialogShown}
+              onClick={() => setIsDialogShown(true)}
+              onClickOutside={() => setIsDialogShown(false)}
+            >
+              <Counter
+                kind={Counter.kinds.LINE}
+                prefix="+"
+                count={overflowingChildren.length}
+                onMouseDown={e => {
+                  e.stopPropagation();
+                }}
+                noAnimation
+              />
+            </Dialog>
+          )}
+        </div>
       </div>
-    </div>
+    </components.ValueContainer>
   );
 }
