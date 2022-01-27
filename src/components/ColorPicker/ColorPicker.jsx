@@ -108,7 +108,7 @@ ColorPicker.defaultProps = {
   shouldRenderIndicatorWithoutBackground: false,
   NoColorIcon: NoColor,
   isBlackListMode: true,
-  colorsList: ["grass_green"],
+  colorsList: [],
   isMultiselect: false,
   colorSize: ColorPicker.sizes.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
