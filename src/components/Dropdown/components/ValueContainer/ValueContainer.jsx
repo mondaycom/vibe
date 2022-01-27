@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useState, useEffect, useCallback } from "react";
+import { components } from "react-select";
 import Counter from "../../../Counter/Counter";
 import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import Chips from "../../../Chips/Chips";
 import classes from "./ValueContainer.module.scss";
-import { components } from "react-select";
 
 const EMPTY_ARRAY = [];
 
