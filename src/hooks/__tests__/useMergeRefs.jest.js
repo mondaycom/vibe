@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { forwardRef, useRef, useEffect } from "react";
 import { fireEvent, render, cleanup, act, screen, waitFor } from "@testing-library/react";
 import useMergeRefs from "../useMergeRefs";

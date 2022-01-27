@@ -62,8 +62,7 @@ const Toast = ({
           .filter(action => action.type === TOAST_ACTION_TYPES.BUTTON)
           .map(({ type: _type, content, ...otherProps }, index) => (
             <ToastButton key={`alert-button-${index}`} {...otherProps}>
-              {" "}
-              {content}{" "}
+              {content}
             </ToastButton>
           ))
       : null;
