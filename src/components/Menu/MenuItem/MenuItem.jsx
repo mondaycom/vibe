@@ -93,7 +93,7 @@ const MenuItem = forwardRef(
     }, [isActive, referenceElement, shouldScrollMenu]);
 
     const isMouseEnter = useMenuItemMouseEvents(
-      ref,
+      referenceElementRef,
       resetOpenSubMenuIndex,
       setSubMenuIsOpenByIndex,
       isActive,
