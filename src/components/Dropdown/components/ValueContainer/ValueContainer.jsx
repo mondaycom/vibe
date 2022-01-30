@@ -10,12 +10,12 @@ import classes from "./ValueContainer.module.scss";
 const EMPTY_ARRAY = [];
 
 export default function Container({ children, selectProps, ...otherProps }) {
-  const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = selectProps.selectProps;
+  const { placeholder, selectProps: customProps = {} } = selectProps;
+  const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const [isCounterShown, setIsCounterShown] = useState(false);
   const [overflowingIndex, setOverflowingIndex] = useState(-1);
-
   const isOverflowCalculated = overflowingIndex > -1;
   const overflowingChildren = isOverflowCalculated
     ? selectedOptions.slice(overflowingIndex, selectedOptions.length)
@@ -76,6 +76,11 @@ export default function Container({ children, selectProps, ...otherProps }) {
   return (
     <components.ValueContainer selectProps={selectProps} {...otherProps}>
       <div className={classes["value-container"]}>
+        {selectedOptions.length === 0 && (
+          <div className={classes["placeholder-container"]}>
+            <components.Placeholder {...otherProps}>{placeholder}</components.Placeholder>
+          </div>
+        )}
         <div
           className={classes["value-container-chips"]}
           ref={newRef => setRef(newRef)}
@@ -94,7 +99,6 @@ export default function Container({ children, selectProps, ...otherProps }) {
             </>
           )}
         </div>
-
         <div>
           {isCounterShown && (
             <Dialog
