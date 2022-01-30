@@ -106,6 +106,7 @@ export {default as Invite} from './components/Invite';
 export {default as IPRestrictions} from './components/IPRestrictions';
 export {default as Italic} from './components/Italic';
 export {default as Item} from './components/Item';
+export {default as ItemDefaultValues} from './components/ItemDefaultValues';
 export {default as ItemHeightTriple} from './components/ItemHeightTriple';
 export {default as Keyboard} from './components/Keyboard';
 export {default as Labs} from './components/Labs';
