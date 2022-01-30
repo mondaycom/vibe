@@ -13,6 +13,7 @@ import person3 from "./assets/person3.png";
 import person2 from "./assets/person2.png"
 import Avatar from "../../Avatar/Avatar.jsx";
 import { OptionRenderer } from "./OptionRenderer.js";
+import Flex from "../../../components/Flex/Flex";
 import "./dropdown.stories.scss";
 
 <Meta
@@ -85,6 +86,16 @@ There are three sizes available: Small, Medium, and Large
   <Story name="RTL">
     <Dropdown placeholder="Left to right (default)" className="dropdown-stories-styles_spacing" />
     <Dropdown placeholder="מימין לשמאל" className="dropdown-stories-styles_spacing" rtl />
+  </Story>
+</Canvas>
+
+### Multi line states
+Drop down component support multiple options selection in two different state - single line and multiple lines
+<Canvas>
+  <Story name="Multi line states">
+    {() => {
+      return <Flex></Flex>
+    }}
   </Story>
 </Canvas>
 
