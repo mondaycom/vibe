@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "ItemDefaultValues",
+      file: "ItemDefaultValues.svg",
+      description: "Item default values",
+      tags: "item,default,values,edit,value,pencil"
+  },
+
+  {
       name: "Switcher",
       file: "Switcher.svg",
       description: "Switching between products",
