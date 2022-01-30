@@ -132,6 +132,12 @@ const MenuItem = forwardRef(
       }
     }, [shouldShowSubMenu, childElement, useDocumentEventListeners]);
 
+    useEffect(() => {
+      if (isActive) {
+        referenceElement?.focus();
+      }
+    }, [isActive, referenceElement]);
+
     const closeSubMenu = useCallback(
       (options = {}) => {
         setSubMenuIsOpenByIndex(index, false);
@@ -226,6 +232,7 @@ const MenuItem = forwardRef(
         aria-current={isActive}
         onMouseLeave={onMouseLeave}
         onMouseEnter={onMouseEnter}
+        tabIndex={-1}
       >
         {renderMenuItemIconIfNeeded()}
 
