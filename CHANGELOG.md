@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.8.1 (2022-01-30)
+
+#### Bug Fixes
+* [#499](https://github.com/mondaycom/monday-ui-react-core/pull/499) Support placeholder in drop down with multi state ([@hadasfa](https://github.com/hadasfa))
+* [#500](https://github.com/mondaycom/monday-ui-react-core/pull/500) Fixed menu item hover ([@laviomri](https://github.com/laviomri))
+
+#### New Icons
+* [#501](https://github.com/mondaycom/monday-ui-react-core/pull/501) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.8.0 (2022-01-27)
 
 #### Bug Fixes
