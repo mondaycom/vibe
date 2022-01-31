@@ -14,7 +14,9 @@ import person2 from "./assets/person2.png"
 import Avatar from "../../Avatar/Avatar.jsx";
 import { OptionRenderer } from "./OptionRenderer.js";
 import Flex from "../../../components/Flex/Flex";
-import "./dropdown.stories.scss";
+import "./dropdown.stories.scss"; import {
+  StoryDescription
+} from "../../../storybook/components/story-description/story-description";
 
 <Meta
   title="Inputs/Dropdown"
@@ -94,32 +96,46 @@ Drop down component support multiple options selection in two different state - 
 <Canvas>
   <Story name="Multi line states">
     {() => {
-      return <Flex></Flex>
-    }}
-  </Story>
-</Canvas>
-
-### Close dropdown with multi choose
-Pass closeMenuOnSelect to close the multi choose any time an options is chosen.
-<Canvas>
-  <Story name="Close dropdown with multi choose">
-    {() => {
-      const options = useMemo(() => [
-        { value: "Dor Yehuda", label: "Hadas Farhi", src: person1, type: Avatar.types.IMG, size: Avatar.sizes.SMALL, name: "Dor Yehuda", position: "(Full Stack Developer)" },
-        { value: "No", label: "Rotem Dekel", src: person3, type: Avatar.types.IMG, size: Avatar.sizes.SMALL, name: "Rotem Dekel", position: "(Product Designer)" },
-        { value: "Yes", label: "Netta Muller", src: person2, type: Avatar.types.IMG, size: Avatar.sizes.SMALL, name: "Netta Muller", position: "(Brand Designer)" },
-      ], []);
-      return (
-        <Dropdown
-          defaultValue={[options[0]]}
-          options={options}
-          multi
-          optionRenderer={OptionRenderer}
-          className="dropdown-stories-styles_with-chips"
-          closeMenuOnSelect
-        />
-      )
-    }}
+      const options = useMemo( () => [
+        {
+          value: "Rotem",
+          label: "Rotem Dekel"
+        }, {
+          value:"Hadas",
+          label: "Hadas Farhi"
+        }, {
+          value: "Netta",
+          label: "Netta Muller",
+        },
+        {
+          value: "Dor",
+          label: "Dor Yehuda",
+        }], []);
+      return (<Flex gap={Flex.gaps.MEDIUM}>
+        <StoryDescription description="Single line" vertical>
+          <div style={{width: "400px"}}>
+            <Dropdown
+              defaultValue={[options[0]]}
+              options={options}
+              multi
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+        <StoryDescription description="Multiple lines" vertical>
+          <div style={{width: "400px"}}>
+            <Dropdown
+              defaultValue={[options[0]]}
+              options={options}
+              multi
+              multiline
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+      </Flex>);
+      }
+    }
   </Story>
 </Canvas>
 
