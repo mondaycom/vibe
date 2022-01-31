@@ -1,27 +1,26 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { components } from "react-select";
+import { useHiddenOptionsData } from "components/Dropdown/components/ValueContainer/ValueContainerHooks";
 import Counter from "../../../Counter/Counter";
 import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import Chips from "../../../Chips/Chips";
 import classes from "./ValueContainer.module.scss";
 
-const EMPTY_ARRAY = [];
-
 export default function Container({ children, selectProps, ...otherProps }) {
   const { placeholder, selectProps: customProps = {} } = selectProps;
   const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
-  const [isCounterShown, setIsCounterShown] = useState(false);
-  const [overflowingIndex, setOverflowingIndex] = useState(-1);
-  const isOverflowCalculated = overflowingIndex > -1;
-  const overflowingChildren = isOverflowCalculated
-    ? selectedOptions.slice(overflowingIndex, selectedOptions.length)
-    : EMPTY_ARRAY;
   const chipClassName = isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"];
-
+  const { overflowingIndex, hiddenOptionsCount } = useHiddenOptionsData({
+    isMultiline,
+    ref,
+    chipClassName,
+    selectedOptionsCount: selectedOptions.length
+  });
+  const isCounterShown = hiddenOptionsCount > 0;
   const renderOptions = useCallback(
     (from = 0, to = selectedOptions.length) =>
       selectedOptions.map((option, index) =>
@@ -42,36 +41,6 @@ export default function Container({ children, selectProps, ...otherProps }) {
       ),
     [selectedOptions, onSelectedDelete, chipClassName]
   );
-
-  useEffect(() => {
-    let index = -1;
-
-    if (ref) {
-      const { bottom: parentBottom } = ref.getBoundingClientRect();
-      let chipIndex = 0;
-
-      for (let i = 0; i < ref.children.length; i++) {
-        const child = ref.children[i];
-        const isChip = child.classList.contains(chipClassName);
-        const { bottom: childBottom } = child.getBoundingClientRect();
-
-        if (isChip) {
-          if (childBottom > parentBottom) {
-            index = chipIndex;
-            break;
-          }
-
-          chipIndex++;
-        }
-      }
-    }
-
-    setOverflowingIndex(index);
-  }, [ref, isCounterShown, chipClassName]);
-
-  useEffect(() => {
-    setIsCounterShown(!!overflowingChildren.length);
-  }, [overflowingChildren.length]);
 
   return (
     <components.ValueContainer selectProps={selectProps} {...otherProps}>
@@ -117,7 +86,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
               <Counter
                 kind={Counter.kinds.LINE}
                 prefix="+"
-                count={overflowingChildren.length}
+                count={hiddenOptionsCount}
                 onMouseDown={e => {
                   e.stopPropagation();
                 }}
