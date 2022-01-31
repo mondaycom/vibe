@@ -4,6 +4,7 @@ export function useHiddenOptionsData({ isMultiline, ref, selectedOptionsCount, c
   const [overflowIndex, setOverflowIndex] = useState(-1);
   useEffect(() => {
     let finalOverflowingIndex = -1;
+
     if (ref?.children && !isMultiline) {
       const { bottom: parentBottom } = ref.getBoundingClientRect();
       let optionIndex = 0;
@@ -12,6 +13,7 @@ export function useHiddenOptionsData({ isMultiline, ref, selectedOptionsCount, c
       while (childIndex < ref.children.length && optionIndex < selectedOptionsCount) {
         const child = ref.children[childIndex];
         const isOption = child.classList.contains(chipClassName);
+
         if (isOption) {
           const { bottom: childBottom } = child.getBoundingClientRect();
           if (childBottom > parentBottom) {
