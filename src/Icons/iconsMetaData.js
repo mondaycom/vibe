@@ -10,6 +10,20 @@ export const iconsMetaData = [
       description: "Item default values",
       tags: "item,default,values,edit,value,pencil"
   },
+  
+  {
+      name: "ConnectedDoc",
+      file: "ConnectedDoc.svg",
+      description: "Connect existing doc",
+      tags: "doc,attach,connect,link"
+  },
+
+  {
+      name: "AddNewDoc",
+      file: "AddNewDoc.svg",
+      description: "Add new doc",
+      tags: "doc,new"
+  },
 
   {
       name: "Switcher",
