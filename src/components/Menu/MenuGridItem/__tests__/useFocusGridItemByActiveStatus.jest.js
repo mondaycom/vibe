@@ -24,6 +24,7 @@ describe("useFocusGridItemByActiveStatus", () => {
 
   afterEach(() => {
     element.remove();
+    childElement.remove();
     cleanup();
     jest.restoreAllMocks();
   });
