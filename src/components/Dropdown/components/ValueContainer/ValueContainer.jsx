@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useState, useCallback } from "react";
 import { components } from "react-select";
-import { useHiddenOptionsData } from "components/Dropdown/components/ValueContainer/ValueContainerHooks";
+import { useHiddenOptionsData } from "./ValueContainerHooks";
 import Counter from "../../../Counter/Counter";
 import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
@@ -14,7 +14,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const chipClassName = isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"];
-  const { overflowingIndex, hiddenOptionsCount } = useHiddenOptionsData({
+  const { overflowIndex, hiddenOptionsCount } = useHiddenOptionsData({
     isMultiline,
     ref,
     chipClassName,
@@ -57,9 +57,9 @@ export default function Container({ children, selectProps, ...otherProps }) {
         >
           {isCounterShown ? (
             <>
-              {renderOptions(0, overflowingIndex)}
+              {renderOptions(0, overflowIndex)}
               {clickHandler}
-              {renderOptions(overflowingIndex)}
+              {renderOptions(overflowIndex)}
             </>
           ) : (
             <>
@@ -73,7 +73,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
             <Dialog
               content={() => (
                 <DialogContentContainer className={classes["value-container-dialog-content"]}>
-                  {renderOptions(overflowingIndex)}
+                  {renderOptions(overflowIndex)}
                 </DialogContentContainer>
               )}
               tooltip

@@ -1,12 +1,13 @@
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 
 export function useHiddenOptionsData({ isMultiline, ref, selectedOptionsCount, chipClassName }) {
-  const overflowingIndex = useMemo(() => {
+  const [overflowIndex, setOverflowIndex] = useState(-1);
+  useEffect(() => {
     let finalOverflowingIndex = -1;
     if (ref?.children && !isMultiline) {
       const { bottom: parentBottom } = ref.getBoundingClientRect();
       let optionIndex = 0;
-      const childIndex = 0;
+      let childIndex = 0;
 
       while (childIndex < ref.children.length && optionIndex < selectedOptionsCount) {
         const child = ref.children[childIndex];
@@ -19,10 +20,12 @@ export function useHiddenOptionsData({ isMultiline, ref, selectedOptionsCount, c
           }
           optionIndex++;
         }
+        childIndex++;
       }
     }
-    return finalOverflowingIndex;
-  }, [ref, isMultiline, selectedOptionsCount, chipClassName]);
-  const hiddenOptionsCount = overflowingIndex > -1 ? selectedOptionsCount - overflowingIndex + 1 : 0;
-  return { overflowingIndex, hiddenOptionsCount };
+
+    setOverflowIndex(finalOverflowingIndex);
+  }, [ref, isMultiline, selectedOptionsCount, chipClassName, setOverflowIndex]);
+  const hiddenOptionsCount = overflowIndex > -1 ? selectedOptionsCount - overflowIndex : 0;
+  return { overflowIndex, hiddenOptionsCount };
 }
