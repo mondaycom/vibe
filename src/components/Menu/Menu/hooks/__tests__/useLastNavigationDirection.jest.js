@@ -7,7 +7,7 @@ describe("useLastNavigationDirection", () => {
   it("should return undefined when no direction key was pressed yet", () => {
     const { result } = renderHookForTest();
 
-    expect(result.current.lastNavigationDirection).toBeUndefined();
+    expect(result.current.lastNavigationDirectionRef.current).toBeUndefined();
   });
 
   it("should return undefined when only non-direction keys were pressed", () => {
@@ -17,7 +17,7 @@ describe("useLastNavigationDirection", () => {
       userEvent.keyboard("f");
     });
 
-    expect(result.current.lastNavigationDirection).toBeUndefined();
+    expect(result.current.lastNavigationDirectionRef.current).toBeUndefined();
   });
 
   [
@@ -33,7 +33,7 @@ describe("useLastNavigationDirection", () => {
         userEvent.keyboard(`{${key}}`);
       });
 
-      expect(result.current.lastNavigationDirection).toBe(direction);
+      expect(result.current.lastNavigationDirectionRef.current).toBe(direction);
     });
 
     it(`should return direction "${direction}" when pressing the key "${key}" after another direction key`, () => {
@@ -44,7 +44,7 @@ describe("useLastNavigationDirection", () => {
         userEvent.keyboard(`{${otherDirectionKey}}{${key}}`);
       });
 
-      expect(result.current.lastNavigationDirection).toBe(direction);
+      expect(result.current.lastNavigationDirectionRef.current).toBe(direction);
     });
 
     it(`should return direction "${direction}" when pressing the key "${key}" after another non-direction keys`, () => {
@@ -54,7 +54,7 @@ describe("useLastNavigationDirection", () => {
         userEvent.keyboard(`something{${key}}`);
       });
 
-      expect(result.current.lastNavigationDirection).toBe(direction);
+      expect(result.current.lastNavigationDirectionRef.current).toBe(direction);
     });
 
     it(`should return direction "${direction}" when pressing the key "${key}" and THEN non-direction keys`, () => {
@@ -64,7 +64,7 @@ describe("useLastNavigationDirection", () => {
         userEvent.keyboard(`{${key}}something`);
       });
 
-      expect(result.current.lastNavigationDirection).toBe(direction);
+      expect(result.current.lastNavigationDirectionRef.current).toBe(direction);
     });
   });
 
