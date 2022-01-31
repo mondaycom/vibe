@@ -12,7 +12,7 @@ import { Workspace, Add, Edit } from "../../Icon/Icons";
 import "./combobox.stories.scss";
 
 <Meta
-  title="Inputs/Combo box"
+  title="Inputs/Combobox"
   component={ Combobox }
 />
 
@@ -39,7 +39,7 @@ export const comboboxTemplate = (args) => {
 - [Feedback](#feedback)
 
 ## Overview
-Combo box allowing users to filter longer lists to only the selections matching a query.
+Combobox allowing users to filter longer lists to only the selections matching a query.
 <Canvas>
   <Story name="Overview"
          args={{
@@ -58,7 +58,7 @@ Combo box allowing users to filter longer lists to only the selections matching 
   "Allows the user to make a selection from a predefined list of options and is typically used when there are a large amount of options to choose from.",
   "The menu opens by clicking anywhere in the field.",
   "The option that best matches the typed characters is highlighted.",
-  "Limit the text content of combo box items to a single line.",
+  "Limit the text content of combobox items to a single line.",
   "Could be used inside a dialog or as a standalone component.",
 ]}/>
 
@@ -66,7 +66,6 @@ Combo box allowing users to filter longer lists to only the selections matching 
 
 ## Variants
 ### Default
-Default combo box can be used without dialog or as part of the layout
 <Canvas>
   <Story name="Default">
     {() => {
@@ -83,7 +82,6 @@ Default combo box can be used without dialog or as part of the layout
 </Canvas>
 
 ### Sizes
-We have three pre-defined sizes for combo box width size: Small 200px, Medium 240px, Large 260px
 <Canvas>
   <Story name="Sizes">
     {() => {
@@ -132,7 +130,6 @@ We have three pre-defined sizes for combo box width size: Small 200px, Medium 24
 </Canvas>
 
 ### With categories
-When having a lot of options, you may use headings to categoriise them.
 <Canvas>
   <Story name="With categories">
     {() => {
@@ -212,7 +209,7 @@ When having a lot of options, you may use headings to categoriise them.
       return (
         <DialogContentContainer>
           <Combobox options={options} placeholder="Placeholder text here" />
-          <Button kind={Button.kinds.TERTIARY} className="combobox-stories-styles_btn" leftIcon={Edit}>Edit</Button>
+          <Button kind={Button.kinds.SECONDARY} className="combobox-stories-styles_btn" leftIcon={Edit}>Edit</Button>
         </DialogContentContainer>
       )
     }}
@@ -238,7 +235,7 @@ When having a lot of options, you may use headings to categoriise them.
                 ]}
             />
           </DialogContentContainer>,
-        description:"Use combo box to make large lists easier to search."
+        description:"Use combobox to make large lists easier to search."
       },
       negative: {
         component:
@@ -252,7 +249,7 @@ When having a lot of options, you may use headings to categoriise them.
                 ]}
             />
           </DialogContentContainer>,
-        description:<>Don’t use comboxbox if you have less than 5 list items. If it's not complex enough for a combo box, use a <Link href="/?path=/docs/inputs-radio-button--overview" withoutSpacing>Radio button</Link> or <Link href="/?path=/docs/inputs-dropdown--overview" withoutSpacing>Dropdown.</Link></>
+        description:<>Don’t use comboxbox if you have less than 5 list items. If it's not complex enough for a combobox, use a <Link href="/?path=/docs/inputs-radio-button--overview" withoutSpacing>Radio button</Link> or <Link href="/?path=/docs/inputs-dropdown--overview" withoutSpacing>Dropdown.</Link></>
       }
     },
     {
@@ -271,7 +268,7 @@ When having a lot of options, you may use headings to categoriise them.
                 ]}
             />
           </DialogContentContainer>,
-        description:"Use the combo box input to filter results from the list."
+        description:"Use the combobox input to filter results from the list."
       },
       negative: {
         component:
@@ -287,7 +284,7 @@ When having a lot of options, you may use headings to categoriise them.
                 ]}
             />
           </DialogContentContainer>,
-        description:"Don’t use the combo box as a search input to search results that are not within the list."
+        description:"Don’t use the combobox as a search input to search results that are not within the list."
       }
     }
   ]}
@@ -295,7 +292,7 @@ When having a lot of options, you may use headings to categoriise them.
 
 ## Use cases and examples
 ### Combobox inside a dialog
-Combo box inside a dialog
+Combobox inside a dialog
 <Canvas>
   <Story name="Combobox">
     {() => {
