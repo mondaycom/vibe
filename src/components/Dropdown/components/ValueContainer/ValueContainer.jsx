@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useState, useCallback } from "react";
 import { components } from "react-select";
-import { useHiddenOptionsData } from "./ValueContainerHooks";
+import { useHiddenOptionsData } from "../../hooks/useHiddenOptionsData";
 import Counter from "../../../Counter/Counter";
 import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
