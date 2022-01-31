@@ -4,6 +4,7 @@ export function useHiddenOptionsData({ isMultiline, ref, selectedOptionsCount, c
   const [overflowIndex, setOverflowIndex] = useState(-1);
   useEffect(() => {
     let finalOverflowingIndex = -1;
+
     if (ref?.children && !isMultiline) {
       const { bottom: parentBottom } = ref.getBoundingClientRect();
       let optionIndex = 0;
