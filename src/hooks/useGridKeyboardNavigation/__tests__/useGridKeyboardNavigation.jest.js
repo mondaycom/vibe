@@ -33,6 +33,23 @@ describe("useGridKeyboardNavigation", () => {
     expect(result.current.activeIndex).toBe(5); // last index of the right-most line
   });
 
+  it("should do nothing when focusing the element when it is already focused", () => {
+    const items = itemsArray(9);
+    const { result } = renderHookForTest({ items, numberOfItemsInLine: 3 });
+
+    act(() => {
+      // this should set the activeIndex to 5
+      element.dispatchEvent(new CustomEvent("focus", { detail: { keyboardDirection: NAV_DIRECTIONS.LEFT } }));
+    });
+    expect(result.current.activeIndex).toBe(5);
+    act(() => {
+      // this would have set the active index to 1 - but it should be ignored, since the element is already focused.
+      element.dispatchEvent(new CustomEvent("focus", { detail: { keyboardDirection: NAV_DIRECTIONS.DOWN } }));
+    });
+
+    expect(result.current.activeIndex).toBe(5);
+  });
+
   it("should return a callback wrapper that sets the activeIndex to the clicked element", () => {
     const { result } = renderHookForTest({});
 
@@ -163,6 +180,7 @@ describe("useGridKeyboardNavigation", () => {
     const getItemByIndex = index => items[index];
 
     element = document.createElement("div");
+    element.tabIndex = -1; // some tests focus the element - a tabIndex value is required for updating the document.activeIndex value
     document.body.appendChild(element);
 
     return renderHook(() =>

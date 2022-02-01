@@ -7,6 +7,7 @@ exports[`Snapshots renders correctly when disabled 1`] = `
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
+  tabIndex={-1}
 >
   <div
     className="monday-style-menu-item__title"
@@ -35,6 +36,7 @@ exports[`Snapshots renders correctly when selected 1`] = `
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
+  tabIndex={-1}
 >
   <div
     className="monday-style-menu-item__title"
@@ -63,6 +65,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
+  tabIndex={-1}
 >
   <div
     className="monday-style-menu-item__title"
@@ -91,6 +94,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
+  tabIndex={-1}
 >
   <div
     className="monday-style-menu-item__title"
@@ -119,6 +123,7 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
   id="undefined-undefined"
   onClick={[Function]}
   role="menuitem"
+  tabIndex={-1}
 >
   <div
     className="monday-style-menu-item__icon-wrapper"

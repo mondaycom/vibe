@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from "react";
+import { ARROW_DOWN_KEYS, ARROW_UP_KEYS } from "./useFullKeyboardListeners";
 import useKeyEvent from "./useKeyEvent";
 
 const ARROW_DIRECTIONS = {
@@ -6,8 +7,6 @@ const ARROW_DIRECTIONS = {
   DOWN: "down"
 };
 
-const ARROW_DOWN_KEYS = ["ArrowDown"];
-const ARROW_UP_KEYS = ["ArrowUp"];
 const ENTER_KEYS = ["Enter"];
 
 export default function useListKeyboardNavigation(
