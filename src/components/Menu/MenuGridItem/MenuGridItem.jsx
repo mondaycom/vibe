@@ -85,25 +85,32 @@ MenuGridItem.isMenuChild = true;
 MenuGridItem.isSelectable = true;
 
 MenuGridItem.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element,
   className: PropTypes.string,
   disabled: PropTypes.bool, // if true, keyboard navigation will skip on this item. Also, this prop will be passed on to the child
-  closeMenu: PropTypes.func.isRequired, // a callback to close the wrapping menu
+  closeMenu: PropTypes.func, // a callback to close the wrapping menu
   id: PropTypes.string,
-  activeItemIndex: PropTypes.number.isRequired, // the currently active index of the wrapping menu
-  setActiveItemIndex: PropTypes.func.isRequired,
-  getNextSelectableIndex: PropTypes.func.isRequired,
-  getPreviousSelectableIndex: PropTypes.func.isRequired,
-  index: PropTypes.number.isRequired, // the index of this item
+  activeItemIndex: PropTypes.number, // the currently active index of the wrapping menu
+  setActiveItemIndex: PropTypes.func,
+  getNextSelectableIndex: PropTypes.func,
+  getPreviousSelectableIndex: PropTypes.func,
+  index: PropTypes.number, // the index of this item
   isUnderSubMenu: PropTypes.bool, // true if this item is under a submenu, and not a top-level menu
-  setSubMenuIsOpenByIndex: PropTypes.func.isRequired
+  setSubMenuIsOpenByIndex: PropTypes.func
 };
 
 MenuGridItem.defaultProps = {
+  className: undefined,
   disabled: false,
   id: undefined,
-  className: undefined,
-  isUnderSubMenu: false
+  isUnderSubMenu: false,
+  closeMenu: undefined,
+  activeItemIndex: -1,
+  setActiveItemIndex: undefined,
+  index: undefined,
+  setSubMenuIsOpenByIndex: undefined,
+  getNextSelectableIndex: undefined,
+  getPreviousSelectableIndex: undefined
 };
 
 export default MenuGridItem;

@@ -7,11 +7,9 @@ const NO_OP = () => {};
 describe("MenuGridItem", () => {
   const FAKE_REQUIRED_PROPS = {
     closeMenu: NO_OP,
-    activeItemIndex: 2,
     setActiveItemIndex: NO_OP,
     getNextSelectableIndex: NO_OP,
     getPreviousSelectableIndex: NO_OP,
-    index: 1,
     setSubMenuIsOpenByIndex: NO_OP
   };
 
