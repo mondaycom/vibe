@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuGridItem renders correctly with a child 1`] = `
+<div
+  className="menu-grid-item--wrapper"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  tabIndex={-1}
+>
+  <div
+    disabled={false}
+  >
+    Hello!
+  </div>
+</div>
+`;
+
+exports[`MenuGridItem renders correctly with a disabled child 1`] = `
+<div
+  className="menu-grid-item--wrapper"
+  onBlur={[Function]}
+  onFocus={[Function]}
+  tabIndex={-1}
+>
+  <div
+    disabled={true}
+  >
+    this should be disabled
+  </div>
+</div>
+`;
