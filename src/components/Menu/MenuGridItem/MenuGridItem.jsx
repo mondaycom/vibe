@@ -100,6 +100,7 @@ MenuGridItem.propTypes = {
 };
 
 MenuGridItem.defaultProps = {
+  children: undefined,
   className: undefined,
   disabled: false,
   id: undefined,
