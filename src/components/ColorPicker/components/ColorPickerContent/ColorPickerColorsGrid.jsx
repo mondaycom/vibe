@@ -51,7 +51,7 @@ export const ColorPickerColorsGrid = React.forwardRef(
               colorStyle={colorStyle}
               ColorIndicatorIcon={ColorIndicatorIcon}
               SelectedIndicatorIcon={SelectedIndicatorIcon}
-              isSelected={isMultiselect ? value.includes(color) : value === color}
+              isSelected={Array.isArray(value) ? value.includes(color) : value === color}
               isActive={index === activeIndex}
               isMultiselect={isMultiselect}
               colorSize={colorSize}
