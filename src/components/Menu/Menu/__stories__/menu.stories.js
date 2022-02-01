@@ -17,12 +17,13 @@ import {
   Filter,
   Wand
 } from "../../../Icon/Icons";
-import { ColorPickerContent, Search } from "../../../index";
+import { Search } from "../../../index";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import classes from "./Menu.stories.module.scss";
 import MenuTitle from "../../MenuTitle/MenuTitle";
 import MenuDivider from "../../MenuDivider/MenuDivider";
 import MenuGridItem from "../../MenuGridItem/MenuGridItem";
+import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories";
 
 export const menuTemplate = args => (
   <Menu {...args}>
@@ -121,13 +122,13 @@ export const menuWithGridItems = args => (
             <MenuItem icon={Feedback} title="More info" />
             <MenuTitle caption="1st level grid item" />
             <MenuGridItem>
-              <ColorPickerContent />
+              <DummyNavigableGrid itemsCount={6} numberOfItemsInLine={3} withoutBorder />
             </MenuGridItem>
             <MenuItem icon={Code} title="Hover me to see the sub menu">
               <Menu>
                 <MenuTitle caption="2nd level grid item" />
                 <MenuGridItem>
-                  <ColorPickerContent />
+                  <DummyNavigableGrid itemsCount={6} numberOfItemsInLine={3} withoutBorder />
                 </MenuGridItem>
                 <MenuItem icon={Invite} title="Another sub sub item" />
                 <MenuItem icon={Settings} title="More sub sub items" />
