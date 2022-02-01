@@ -21,7 +21,10 @@ import "./dropdown.stories.scss"; import {
 
 <!--- Component template -->
 
-export const dropdownTemplate = createComponentTemplate(Dropdown);
+export const dropdownTemplate = (props) => {
+  const options = useMemo(() => ([{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]), []);
+  return <Dropdown options={options} {...props}/>
+};
 
 <!--- Component documentation -->
 
@@ -36,8 +39,7 @@ export const dropdownTemplate = createComponentTemplate(Dropdown);
 - [Feedback](#feedback)
 
 ## Overview
-Dropdowns present a list of options from which a user can select one option, or several.
-
+Dropdown present a list of options from which a user can select one or several.
 <Canvas>
   <Story name="Overview"
          args={ {placeholder: "Placeholder text here", className: "dropdown-stories-styles_spacing"} }>
@@ -73,7 +75,7 @@ There are three sizes available: Small, Medium, and Large
 ### Disabled
 <Canvas>
   <Story name="Disabled">
-    <Dropdown disabled />
+    <Dropdown placeholder="Disabled" disabled className="dropdown-stories-styles_spacing" />
   </Story>
 </Canvas>
 
@@ -86,7 +88,7 @@ There are three sizes available: Small, Medium, and Large
 </Canvas>
 
 ### Multi line states
-The `<Dropdown>` component supports multiple options selection in two different state - single line and multiple lines.
+The Dropdown component supports multiple options selection in two different state - single line and multiple lines.
 <Canvas>
   <Story name="Multi-choice with different states">
     {() => {
@@ -109,6 +111,7 @@ The `<Dropdown>` component supports multiple options selection in two different 
         <StoryDescription description="Single line" vertical>
           <div style={{width: "400px"}}>
             <Dropdown
+              placeholder="Single line multi state"
               defaultValue={[options[0]]}
               options={options}
               multi
@@ -119,6 +122,7 @@ The `<Dropdown>` component supports multiple options selection in two different 
         <StoryDescription description="Multiple lines" vertical>
           <div style={{width: "400px"}}>
             <Dropdown
+              placeholder="Multiple line multi state"
               defaultValue={[options[0]]}
               options={options}
               multi
@@ -141,7 +145,7 @@ The `<Dropdown>` component supports multiple options selection in two different 
         component:
           <Dropdown
             placeholder="Placeholder text here" 
-            options={[{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]}
+            options={[{ value: 1, label: "Option 1" }, { value: 2, label: "Option 2" },  {value: 3, label: "Option 3" }]}
             className="dropdown-stories-styles_rules-spacing"
           />,
         description:"Use the dropdown as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
@@ -151,10 +155,10 @@ The `<Dropdown>` component supports multiple options selection in two different 
           <Dropdown
             menuIsOpen
             placeholder="Placeholder text here" 
-            options={[{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]}
+            options={[{ value: 1, label: "Option 1" }, { value: 2, label: "Option 2" },  {value: 3, label: "Option 3" }]}
             className="dropdown-stories-styles_rules-spacing"
           />,
-        description:<>Don’t insert any fields inside a dropdown. If you need, use the <Link href="/?path=/docs/inputs-combobox--overview" withoutSpacing>Combobox</Link> instead.</>
+        description:<>Don't keep the dropdown component in open mode as permanent state. If this is a design requirement consider use <Link href="/?path=/docs/inputs-combobox--overview" withoutSpacing>Combo  box</Link> instead.</>
       }
     }
   ]}
@@ -176,6 +180,7 @@ Inside the advanced filters, a user can select multiple people from the dropdown
           defaultValue={[options[0]]}
           options={options}
           multi
+          placeholder="Dropdown with chips"
           optionRenderer={OptionRenderer}
           className="dropdown-stories-styles_with-chips"
         />
@@ -207,8 +212,37 @@ In case of multiple options, you can use the `onInputChange` prop to allow filte
       return <Dropdown
         options={options}
         multi
+        placeholder="Searchable dropdown"
         className="dropdown-stories-styles_with-chips"
         onInputChange={onInputChange} />
+    }}
+  </Story>
+</Canvas>
+
+### Dropdown with lables
+A dropdown menu can include lables.
+<Canvas>
+  <Story name="Dropdown with lables">
+    {() => {
+      const labelRenderer = useCallback(({label, color}) => {
+        return <Label text={label} color={color} isAnimationDisabled />;
+      });
+      const options = useMemo(() => [
+        { value: "success", label: "Success", color: Label.colors.POSITIVE },
+        { value: "failed", label: "Failed",color: Label.colors.NEGATIVE},
+        { value: "in progress", label: "In progress"}
+      ], []);
+      return (
+        <Dropdown
+          placeholder="Placeholder text here" 
+          options={options}
+          defaultValue={[options[0]]}
+          placeholder="Placeholder text here"
+          className="dropdown-stories-styles_big-spacing"
+          optionRenderer={labelRenderer}
+          valueRenderer={labelRenderer}
+        />
+      )
     }}
   </Story>
 </Canvas>
@@ -228,38 +262,11 @@ A classic dropdown presents options a user needs to choose from.
           <h5 className="dropdown-stories-styles_title">Are you usually a Dark mode person?</h5>
           <Dropdown
             defaultValue={[options[0]]}
-            placeholder="Placeholder text here" 
+            placeholder="Placeholder text here"
             options={options}
             className="dropdown-stories-styles_big-spacing"
           />
         </div>
-      )
-    }}
-  </Story>
-</Canvas>
-
-### Dropdown with lables
-A dropdown menu can include lables.
-<Canvas>
-  <Story name="Dropdown with lables">
-    {() => {
-      const labelRenderer = useCallback(({label, color}) => {
-        return <Label text={label} color={color} />;
-      });
-      const options = useMemo(() => [
-        { value: "success", label: "Success", color: Label.colors.POSITIVE },
-        { value: "failed", label: "Failed",color: Label.colors.NEGATIVE},
-        { value: "in progress", label: "In progress"}
-      ], []);
-      return (
-        <Dropdown
-          placeholder="Placeholder text here" 
-          options={options}
-          defaultValue={[options[0]]}
-          className="dropdown-stories-styles_big-spacing"
-          optionRenderer={labelRenderer}
-          valueRenderer={labelRenderer}
-        />
       )
     }}
   </Story>
