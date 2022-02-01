@@ -52,8 +52,7 @@ const ColorPickerItemComponent = ({
     };
   }, [color, colorAsStyle, colorStyle, itemRef, shouldRenderIndicatorWithoutBackground]);
 
-  const shouldRenderSelectedIcon = isSelected && isMultiselect;
-  const shouldRenderIcon = shouldRenderSelectedIcon || ColorIndicatorIcon;
+  const shouldRenderIcon = isSelected || ColorIndicatorIcon;
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
   return (
     <Tooltip content={tooltipContent}>
@@ -78,7 +77,11 @@ const ColorPickerItemComponent = ({
         >
           <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
             {shouldRenderIcon && (
-              <Icon icon={shouldRenderSelectedIcon ? SelectedIndicatorIcon : ColorIndicatorIcon} ignoreFocusStyle />
+              <Icon
+                icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon}
+                className="color-icon"
+                ignoreFocusStyle
+              />
             )}
           </div>
         </Clickable>
