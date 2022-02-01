@@ -18,7 +18,6 @@ export const ColorPickerColorsGrid = React.forwardRef(
       colorStyle,
       ColorIndicatorIcon,
       shouldRenderIndicatorWithoutBackground,
-      isMultiselect,
       SelectedIndicatorIcon,
       colorSize,
       tooltipContentByColor,
