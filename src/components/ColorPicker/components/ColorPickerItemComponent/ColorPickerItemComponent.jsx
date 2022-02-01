@@ -17,7 +17,6 @@ const ColorPickerItemComponent = ({
   shouldRenderIndicatorWithoutBackground,
   ColorIndicatorIcon,
   SelectedIndicatorIcon,
-  isMultiselect,
   isSelected,
   colorSize,
   tooltipContent,

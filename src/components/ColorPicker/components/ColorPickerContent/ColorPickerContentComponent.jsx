@@ -87,7 +87,6 @@ const ColorPickerContentComponent = forwardRef(
             colorStyle={colorStyle}
             ColorIndicatorIcon={ColorIndicatorIcon}
             shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
-            isMultiselect={isMultiselect}
             SelectedIndicatorIcon={SelectedIndicatorIcon}
             colorSize={colorSize}
             tooltipContentByColor={tooltipContentByColor}
