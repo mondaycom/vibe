@@ -2,6 +2,7 @@
 /* tslint:disable */
 export {default as Activity} from './components/Activity';
 export {default as Add} from './components/Add';
+export {default as AddNewDoc} from './components/AddNewDoc';
 export {default as AddSmall} from './components/AddSmall';
 export {default as AddToTeam} from './components/AddToTeam';
 export {default as AddUpdate} from './components/AddUpdate';
@@ -42,6 +43,7 @@ export {default as CollapseRound} from './components/CollapseRound';
 export {default as Column} from './components/Column';
 export {default as Comment} from './components/Comment';
 export {default as Completed} from './components/Completed';
+export {default as ConnectedDoc} from './components/ConnectedDoc';
 export {default as ConvertToItem} from './components/ConvertToItem';
 export {default as ConvertToSubitem} from './components/ConvertToSubitem';
 export {default as Counter} from './components/Counter';
@@ -106,6 +108,7 @@ export {default as Invite} from './components/Invite';
 export {default as IPRestrictions} from './components/IPRestrictions';
 export {default as Italic} from './components/Italic';
 export {default as Item} from './components/Item';
+export {default as ItemDefaultValues} from './components/ItemDefaultValues';
 export {default as ItemHeightTriple} from './components/ItemHeightTriple';
 export {default as Keyboard} from './components/Keyboard';
 export {default as Labs} from './components/Labs';
