@@ -253,8 +253,17 @@ Combobox.iconTypes = ComboboxOption.iconTypes;
 
 Combobox.propTypes = {
   className: PropTypes.string,
+  /**
+   * Placeholder to show when no value was selected
+   */
   placeholder: PropTypes.string,
+  /**
+   * Unique element id
+   */
   id: PropTypes.string,
+  /**
+   * A message that will be displayed inside the combo box when no results are found
+   */
   noResultsMessage: PropTypes.string,
   disabled: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.object),
@@ -268,12 +277,24 @@ Combobox.propTypes = {
   filter: PropTypes.func,
   disableFilter: PropTypes.bool,
   onFilterChanged: PropTypes.func,
+  /**
+   * Display the combo box with loading state
+   */
   loading: PropTypes.bool,
+  /**
+   * on mouse hover callback for option
+   */
   onOptionHover: PropTypes.func,
+  /**
+   * on mouse leave callback for option
+   */
   onOptionLeave: PropTypes.func,
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
+  /**
+   * Replace the regular appearance of combo box option with custom renderer.
+   */
   optionRenderer: PropTypes.func
 };
 Combobox.defaultProps = {
