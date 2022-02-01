@@ -21,6 +21,8 @@ import "./MenuItem.scss";
 import { DialogPositions } from "../../../constants/sizes";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 
+const TAB_INDEX_FOCUS_WITH_JS_ONLY = -1;
+
 const MenuItem = forwardRef(
   (
     {
@@ -232,7 +234,7 @@ const MenuItem = forwardRef(
         aria-current={isActive}
         onMouseLeave={onMouseLeave}
         onMouseEnter={onMouseEnter}
-        tabIndex={-1}
+        tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
       >
         {renderMenuItemIconIfNeeded()}
 
