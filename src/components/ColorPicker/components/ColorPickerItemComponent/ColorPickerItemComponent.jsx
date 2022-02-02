@@ -78,7 +78,7 @@ const ColorPickerItemComponent = ({
             {shouldRenderIcon && (
               <Icon
                 icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon}
-                className="color-icon"
+                className={cx({ "color-icon-white": !shouldRenderIndicatorWithoutBackground })}
                 ignoreFocusStyle
               />
             )}
