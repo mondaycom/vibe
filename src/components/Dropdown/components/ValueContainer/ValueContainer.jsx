@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { components } from "react-select";
+import cx from "classnames";
 import { useHiddenOptionsData } from "../../hooks/useHiddenOptionsData";
 import Counter from "../../../Counter/Counter";
 import Dialog from "../../../Dialog/Dialog";
@@ -9,10 +10,11 @@ import Chips from "../../../Chips/Chips";
 import classes from "./ValueContainer.module.scss";
 
 export default function Container({ children, selectProps, ...otherProps }) {
-  const { placeholder, selectProps: customProps = {} } = selectProps;
+  const { placeholder, inputValue, selectProps: customProps = {} } = selectProps;
   const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
+  const showPlaceholder = selectedOptions.length === 0 && !inputValue;
   const chipClassName = isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"];
   const { overflowIndex, hiddenOptionsCount } = useHiddenOptionsData({
     isMultiline,
@@ -45,13 +47,13 @@ export default function Container({ children, selectProps, ...otherProps }) {
   return (
     <components.ValueContainer selectProps={selectProps} {...otherProps}>
       <div className={classes["value-container"]}>
-        {selectedOptions.length === 0 && (
+        {showPlaceholder && (
           <div className={classes["placeholder-container"]}>
             <components.Placeholder {...otherProps}>{placeholder}</components.Placeholder>
           </div>
         )}
         <div
-          className={classes["value-container-chips"]}
+          className={cx(classes["value-container-chips"], { [classes["without-placeholder"]]: !showPlaceholder})}
           ref={newRef => setRef(newRef)}
           data-testid="value-container-chips"
         >
