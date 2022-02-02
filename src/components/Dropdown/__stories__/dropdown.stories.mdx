@@ -212,7 +212,7 @@ In case of multiple options, you can use the `onInputChange` prop to allow filte
       return <Dropdown
         options={options}
         multi
-        placeholder="Searchable dropdown"
+        placeholder="Select colors"
         className="dropdown-stories-styles_with-chips"
         onInputChange={onInputChange} />
     }}
@@ -220,7 +220,7 @@ In case of multiple options, you can use the `onInputChange` prop to allow filte
 </Canvas>
 
 ### Dropdown with lables
-A dropdown menu can include lables.
+A dropdown menu can include labels.
 <Canvas>
   <Story name="Dropdown with lables">
     {() => {
@@ -234,7 +234,7 @@ A dropdown menu can include lables.
       ], []);
       return (
         <Dropdown
-          placeholder="Placeholder text here" 
+          placeholder="Placeholder text here"
           options={options}
           defaultValue={[options[0]]}
           placeholder="Placeholder text here"

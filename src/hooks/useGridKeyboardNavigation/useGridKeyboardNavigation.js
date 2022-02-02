@@ -86,6 +86,10 @@ export default function useGridKeyboardNavigation({
 
   const onFocus = useCallback(
     e => {
+      if (document.activeElement === ref.current) {
+        // since we use custom events (to add additional data like the navigation direction), it's possible that the element is already focused
+        return;
+      }
       const direction = e.detail?.keyboardDirection;
       if (direction) {
         const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
@@ -96,7 +100,7 @@ export default function useGridKeyboardNavigation({
         setActiveIndex(0);
       }
     },
-    [activeIndex, itemsCount, numberOfItemsInLine]
+    [activeIndex, itemsCount, numberOfItemsInLine, ref]
   );
 
   const onBlur = useCallback(() => setActiveIndex(NO_ACTIVE_INDEX), [setActiveIndex]);

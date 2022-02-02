@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.9.0 (2022-02-02)
+
+#### Bug Fixes
+* [#510](https://github.com/mondaycom/monday-ui-react-core/pull/510) Dropdown with multi - placeholder show condition fix ([@yardenli](https://github.com/yardenli))
+* [#508](https://github.com/mondaycom/monday-ui-react-core/pull/508) Fix selection feedback not showing for single item selection of ColorPicker ([@laviomri](https://github.com/laviomri))
+
+#### New Features
+* [#502](https://github.com/mondaycom/monday-ui-react-core/pull/502) Menu enhancements ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#505](https://github.com/mondaycom/monday-ui-react-core/pull/505) Fix combobox docs ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#511](https://github.com/mondaycom/monday-ui-react-core/pull/511) fix/yarden/dropdown-multi-lint-and-tests-fixes ([@yardenli](https://github.com/yardenli))
+
+## 1.8.4 (2022-02-01)
+
+#### New Icons
+* [#507](https://github.com/mondaycom/monday-ui-react-core/pull/507) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.8.3 (2022-01-31)
 
 #### New Icons

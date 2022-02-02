@@ -2,7 +2,7 @@
 @import "../../../../styles/typography.scss";
 
 .placeholder-container {
-  margin: 6px;
+  margin-left: 6px;
 }
 
 .multiselect-chip-multi-line {
@@ -27,6 +27,10 @@
   flex-grow: 1;
   height: 100%;
   overflow: hidden;
+
+  &.without-placeholder {
+    margin-left: 6px;
+  }
 }
 
 .value-container-dialog-content {

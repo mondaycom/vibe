@@ -27,6 +27,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     id="undefined-1"
     onClick={[Function]}
     role="menuitem"
+    tabIndex={-1}
   >
     <div
       className="monday-style-menu-item__title"
@@ -52,6 +53,7 @@ exports[`Snapshots renders correctly with children 1`] = `
     id="undefined-2"
     onClick={[Function]}
     role="menuitem"
+    tabIndex={-1}
   >
     <div
       className="monday-style-menu-item__title"

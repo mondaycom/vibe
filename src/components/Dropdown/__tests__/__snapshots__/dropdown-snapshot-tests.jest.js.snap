@@ -1857,6 +1857,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
           </div>
         </div>
         <div
+          className=""
           data-testid="value-container-chips"
         >
           <div
