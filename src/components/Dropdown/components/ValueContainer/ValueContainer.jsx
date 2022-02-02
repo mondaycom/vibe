@@ -14,7 +14,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
   const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
-  const showPlaceholder = useMemo(() => selectedOptions.length === 0 && !inputValue, [inputValue, selectedOptions]);
+  const showPlaceholder = selectedOptions.length === 0 && !inputValue;
   const chipClassName = isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"];
   const { overflowIndex, hiddenOptionsCount } = useHiddenOptionsData({
     isMultiline,
