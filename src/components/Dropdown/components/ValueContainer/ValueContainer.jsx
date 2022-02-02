@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback } from "react";
 import { components } from "react-select";
 import cx from "classnames";
 import { useHiddenOptionsData } from "../../hooks/useHiddenOptionsData";
@@ -53,7 +53,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
           </div>
         )}
         <div
-          className={cx(classes["value-container-chips"], { [classes["without-placeholder"]]: !showPlaceholder})}
+          className={cx(classes["value-container-chips"], { [classes["without-placeholder"]]: !showPlaceholder })}
           ref={newRef => setRef(newRef)}
           data-testid="value-container-chips"
         >
