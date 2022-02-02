@@ -27,3 +27,31 @@
     }
   }
 }
+
+.person-picker-mock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: var(--border-radius-small);
+  padding: var(--spacing-xs);
+  background-color: var(--primary-selected-color);
+  border-color: var(--primary-color);
+  width: 97px;
+  height: 34px;
+
+  &-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-name {
+    padding: 0 8px;
+    font-size: 13px;
+
+    span {
+      @include theme-prop(color, disabled-text-color);
+      margin-left: 4px;
+    }
+  }
+}
