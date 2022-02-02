@@ -18,7 +18,6 @@ export const ColorPickerColorsGrid = React.forwardRef(
       colorStyle,
       ColorIndicatorIcon,
       shouldRenderIndicatorWithoutBackground,
-      isMultiselect,
       SelectedIndicatorIcon,
       colorSize,
       tooltipContentByColor,
@@ -53,7 +52,6 @@ export const ColorPickerColorsGrid = React.forwardRef(
               SelectedIndicatorIcon={SelectedIndicatorIcon}
               isSelected={Array.isArray(value) ? value.includes(color) : value === color}
               isActive={index === activeIndex}
-              isMultiselect={isMultiselect}
               colorSize={colorSize}
               tooltipContent={tooltipContentByColor[color]}
               colorShape={colorShape}
@@ -88,8 +86,7 @@ ColorPickerColorsGrid.propTypes = {
   numberOfColorsInLine: PropTypes.number,
   tooltipContentByColor: PropTypes.object,
   focusOnMount: PropTypes.bool,
-  colorShape: PropTypes.oneOf(Object.values(ColorPickerColorsGrid.colorShapes)),
-  isMultiselect: PropTypes.bool
+  colorShape: PropTypes.oneOf(Object.values(ColorPickerColorsGrid.colorShapes))
 };
 
 ColorPickerColorsGrid.defaultProps = {
@@ -104,6 +101,5 @@ ColorPickerColorsGrid.defaultProps = {
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   tooltipContentByColor: {},
   focusOnMount: false,
-  colorShape: ColorPickerColorsGrid.colorShapes.SQUARE,
-  isMultiselect: false
+  colorShape: ColorPickerColorsGrid.colorShapes.SQUARE
 };
