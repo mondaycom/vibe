@@ -12,7 +12,7 @@ it("renders correctly with empty props", () => {
 
 jest.useFakeTimers();
 
-describe("Click", () => {
+describe("ColorPicker", () => {
   it("Should call onSave with color clicked value", () => {
     const colorToClick = contentColors[0];
     let clickedColorValue;
