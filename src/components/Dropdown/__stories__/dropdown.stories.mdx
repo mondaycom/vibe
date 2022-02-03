@@ -23,7 +23,7 @@ import "./dropdown.stories.scss"; import {
 
 export const dropdownTemplate = (props) => {
   const options = useMemo(() => ([{ label: "Option 1" }, { label: "Option 2" }, { label: "Option 3" }]), []);
-  return <Dropdown options={options} {...props}/>
+  return <div style={{height: "150px"}}><Dropdown options={options} {...props}/></div>
 };
 
 <!--- Component documentation -->
@@ -39,7 +39,7 @@ export const dropdownTemplate = (props) => {
 - [Feedback](#feedback)
 
 ## Overview
-Dropdown present a list of options from which a user can select one or several.
+Icon button is a square button contains only icon with no visible text labels used mostly in control bars.
 <Canvas>
   <Story name="Overview"
          args={ {placeholder: "Placeholder text here", className: "dropdown-stories-styles_spacing"} }>
