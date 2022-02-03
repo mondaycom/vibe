@@ -86,4 +86,24 @@ describe("Click", () => {
 
     expect(whiteListColorsElements.length).toBe(whiteListColors.length);
   });
+
+  it("should render all colors if forceUseRawColorList is true and isBlackListMode is false", () => {
+    const colorList = ["#abcdef", "#123456", "#234567"];
+    const { getByLabelText } = render(<ColorPicker colorsList={colorList} forceUseRawColorList={true} />);
+
+    const colorsElements = colorList.map(color => getByLabelText(color));
+
+    expect(colorsElements.length).toBe(colorsElements.length);
+  });
+
+  it("should render all colors if forceUseRawColorList is true, even if isBlackListMode is true", () => {
+    const colorList = ["#abcdef", "#123456", "#234567"];
+    const { getByLabelText } = render(
+      <ColorPicker colorsList={colorList} forceUseRawColorList={true} isBlackListMode={true} />
+    );
+
+    const colorsElements = colorList.map(color => getByLabelText(color));
+
+    expect(colorsElements.length).toBe(colorsElements.length);
+  });
 });
