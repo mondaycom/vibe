@@ -3,6 +3,7 @@ import NOOP from "lodash/noop";
 import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import { useFirefoxShiftLabelSupport } from "./hooks/useFirefoxShiftLabelSupport";
 import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import Remove from "../Icon/Icons/components/Remove";
@@ -29,6 +30,7 @@ export const Checkbox = ({
 }) => {
   const iconContainerRef = useRef(null);
   const inputRef = useRef(null);
+  const { onClick: onLabelClick } = useFirefoxShiftLabelSupport({ ref: inputRef });
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const onMouseUpCallback = useCallback(() => {
     const input = inputRef.current;
@@ -62,6 +64,7 @@ export const Checkbox = ({
       className={cx(BASE_CLASS_NAME, overrideClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
       onMouseUp={onMouseUpCallback}
       htmlFor={id}
+      onClick={onLabelClick}
     >
       <input
         ref={inputRef}
