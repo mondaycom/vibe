@@ -6,7 +6,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
 import { NOOP } from "../../utils/function-utils";
-import { elementColorsNames, getElementColor } from "../../general-stories/colors/colors-vars-map";
+import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import "./Chips.scss";
 
 const Chips = forwardRef(
