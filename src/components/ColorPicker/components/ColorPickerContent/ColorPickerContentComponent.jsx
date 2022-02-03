@@ -35,7 +35,8 @@ const ColorPickerContentComponent = forwardRef(
       numberOfColorsInLine,
       tooltipContentByColor,
       focusOnMount,
-      colorShape
+      colorShape,
+      forceUseRawColorList
     },
     ref
   ) => {
@@ -47,8 +48,11 @@ const ColorPickerContentComponent = forwardRef(
     const buttonRef = useRef(null);
 
     const colorsToRender = useMemo(() => {
+      if (forceUseRawColorList) {
+        return colorsList;
+      }
       return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);
-    }, [isBlackListMode, colorsList]);
+    }, [forceUseRawColorList, isBlackListMode, colorsList]);
 
     const onColorClicked = useCallback(
       color => {
@@ -129,7 +133,8 @@ ColorPickerContentComponent.propTypes = {
   tooltipContentByColor: PropTypes.object,
   focusOnMount: PropTypes.bool,
   colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes)),
-  isMultiselect: PropTypes.bool
+  isMultiselect: PropTypes.bool,
+  forceUseRawColorList: PropTypes.bool
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -149,7 +154,12 @@ ColorPickerContentComponent.defaultProps = {
   tooltipContentByColor: {},
   focusOnMount: false,
   colorShape: ColorPickerContentComponent.colorShapes.SQUARE,
-  isMultiselect: false
+  isMultiselect: false,
+  /**
+   * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
+   * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
+   */
+  forceUseRawColorList: false
 };
 
 export default ColorPickerContentComponent;

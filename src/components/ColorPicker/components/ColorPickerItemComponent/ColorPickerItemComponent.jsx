@@ -1,8 +1,8 @@
-import React, { useRef, useCallback, useEffect } from "react";
+import React, { useRef, useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
-import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
+import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
@@ -23,14 +23,15 @@ const ColorPickerItemComponent = ({
   isActive,
   colorShape
 }) => {
-  const colorAsStyle = ColorUtils.getMondayColorAsStyle(color, colorStyle);
+  const isMondayColor = useMemo(() => contentColors.includes(color), [color]);
+  const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
   const itemRef = useRef(null);
 
   const onMouseDown = useCallback(e => e.preventDefault(), []);
   const onClick = useCallback(() => onValueChange(color), [onValueChange, color]);
 
   useEffect(() => {
-    if (!itemRef || !itemRef.current || shouldRenderIndicatorWithoutBackground) return;
+    if (!itemRef?.current || shouldRenderIndicatorWithoutBackground || !isMondayColor) return;
     const item = itemRef.current;
     const onHover = e => {
       if (colorStyle === COLOR_STYLES.SELECTED) {
@@ -49,7 +50,7 @@ const ColorPickerItemComponent = ({
       item.removeEventListener("mouseenter", onHover, false);
       item.removeEventListener("mouseleave", onMouseLeave, false);
     };
-  }, [color, colorAsStyle, colorStyle, itemRef, shouldRenderIndicatorWithoutBackground]);
+  }, [color, colorAsStyle, colorStyle, isMondayColor, itemRef, shouldRenderIndicatorWithoutBackground]);
 
   const shouldRenderIcon = isSelected || ColorIndicatorIcon;
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
