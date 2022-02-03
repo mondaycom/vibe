@@ -1,11 +1,13 @@
 import IconButton from "../IconButton";
+import Flex from "../../Flex/Flex";
+import Button from "../../Button/Button";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { Bolt, Robot, Doc, Pin, Show, HighlightColorBucket, Broom, Add, Time } from "../../Icon/Icons";
+import { Bolt, Robot, Doc, Pin, Show, HighlightColorBucket, Broom, Add, Time, Item } from "../../Icon/Icons";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { BUTTON_GROUP, MENU_BUTTON, BUTTON } from "../../../storybook/components/related-components/component-description-map";
 import { Link } from "../../../storybook/components";
-import LinkComponent  from "../../Link/Link"; import { Button, Flex } from "components";
+import LinkComponent  from "../../Link/Link";
 
 export const metaSettings = createStoryMetaSettings({
   component: IconButton,
@@ -146,19 +148,21 @@ Set disable button for something that isn’t usable. Use a tooltip on hover in 
 <Canvas>
   <Story name="Icon button as close button">
     <Flex>
-      <Flex direction={Flex.directions.COLUMN}>
-        <Flex>
-          <Icon icon={Item}/>
+      <Flex>
+        <Flex direction={Flex.directions.COLUMN}>
+          <Icon icon={Item} size={40}/>
           <span className="recycle-bin-icon-description">Item</span>
           Item
         </Flex>
-        <Flex>
-          <span><LinkComponent text="Hadas Farhi"/> deleted the item </span><span>Hello World</span><span>from the board</span>
-        </Flex>
-        <Flex>
-          <Icon icon={Time}/>
-          <span>13m</span>
-          <span>(Available for restore in the next 1M)</span>
+        <Flex direction={Flex.directions.COLUMN}>
+          <Flex>
+            <span><LinkComponent text="Hadas Farhi"/> deleted the item </span><span>Hello World</span><span>from the board</span>
+          </Flex>
+          <Flex>
+            <Icon icon={Time}/>
+            <span>13m</span>
+            <span>(Available for restore in the next 1M)</span>
+          </Flex>
         </Flex>
         <Button>Restore</Button>
       </Flex>
