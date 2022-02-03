@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import { render, fireEvent, act } from "@testing-library/react";
 import _difference from "lodash/difference";
 import ColorPicker from "../ColorPicker";
-import { contentColors } from "../../../general-stories/colors/colors-vars-map";
+import { contentColors } from "../../../utils/colors-vars-map";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ColorPicker />).toJSON();

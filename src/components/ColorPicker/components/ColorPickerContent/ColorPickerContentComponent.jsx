@@ -4,7 +4,7 @@ import _intersection from "lodash/intersection";
 import PropTypes from "prop-types";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { SIZES } from "../../../../constants/sizes";
-import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
+import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";

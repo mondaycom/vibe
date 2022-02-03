@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
-import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
+import { COLOR_STYLES } from "../../../../utils/colors-vars-map";
 import { SIZES } from "../../../../constants/sizes";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 

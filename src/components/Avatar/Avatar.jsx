@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
-import { getElementColor, elementColorsNames } from "../../general-stories/colors/colors-vars-map";
+import { getElementColor, elementColorsNames } from "../../utils/colors-vars-map";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import "./Avatar.scss";

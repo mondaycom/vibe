@@ -4,7 +4,7 @@ import React, { forwardRef, useCallback, useRef } from "react";
 import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import { COLOR_STYLES } from "../../general-stories/colors/colors-vars-map";
+import { COLOR_STYLES } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
