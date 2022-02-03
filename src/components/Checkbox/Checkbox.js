@@ -30,7 +30,7 @@ export const Checkbox = ({
 }) => {
   const iconContainerRef = useRef(null);
   const inputRef = useRef(null);
-  const { onClick: onLabelClick } = useFirefoxShiftLabelSupport({ ref: inputRef });
+  const { onClick: onLabelClick } = useFirefoxShiftLabelSupport({ inputRef });
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const onMouseUpCallback = useCallback(() => {
     const input = inputRef.current;
