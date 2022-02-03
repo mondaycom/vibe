@@ -107,7 +107,7 @@ export default function useGridKeyboardNavigation({
 
   useEffect(() => {
     if (activeIndex > -1) {
-      ref?.current?.focus();
+      ref.current?.focus();
     }
   }, [activeIndex, ref]);
 
