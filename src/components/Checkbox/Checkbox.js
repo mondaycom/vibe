@@ -7,6 +7,7 @@ import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import Remove from "../Icon/Icons/components/Remove";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { isFirefox } from "../../utils/user-agent-utils";
 import "./Checkbox.scss";
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
@@ -29,6 +30,17 @@ export const Checkbox = ({
 }) => {
   const iconContainerRef = useRef(null);
   const inputRef = useRef(null);
+
+  // fix for known bug firefox bug: firefox does not support checking or unchecking checkbox by its label when shift pressed
+  const onClickCaptureLabel = useCallback(
+    e => {
+      if (e.shiftKey && isFirefox() && inputRef?.current?.click) {
+        e.preventDefault();
+        inputRef.current.click();
+      }
+    },
+    [inputRef]
+  );
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const onMouseUpCallback = useCallback(() => {
     const input = inputRef.current;
@@ -62,6 +74,7 @@ export const Checkbox = ({
       className={cx(BASE_CLASS_NAME, overrideClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
       onMouseUp={onMouseUpCallback}
       htmlFor={id}
+      onClickCapture={onClickCaptureLabel}
     >
       <input
         ref={inputRef}
