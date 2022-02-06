@@ -58,6 +58,7 @@
     "@storybook/addon-controls": "6.5.0-alpha.18",
     "autosize": "^5.0.1",
     "classnames": "^2.3.1",
+    "detect-browser": "^5.3.0",
     "lodash": "^4.17.21",
     "monday-ui-style": "0.1.78",
     "prop-types": "^15.8.0",
