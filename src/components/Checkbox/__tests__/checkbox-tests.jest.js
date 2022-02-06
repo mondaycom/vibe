@@ -171,7 +171,7 @@ describe("Checkbox tests", () => {
     } = createCheckboxesVariables();
 
     beforeAll(() => {
-      getBrowserName.mockImplementation(() => "Firefox");
+      getBrowserName.mockImplementation(() => "firefox");
     });
 
     beforeEach(() => {

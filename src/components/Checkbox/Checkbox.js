@@ -30,7 +30,7 @@ export const Checkbox = ({
 }) => {
   const iconContainerRef = useRef(null);
   const inputRef = useRef(null);
-  const isFirefox = getBrowserName() === "Firefox";
+  const isFirefox = getBrowserName() === "firefox";
 
   // fix for known bug firefox bug: firefox does not support checking or unchecking checkbox by its label when shift pressed
   const onClickCaptureLabel = useCallback(
