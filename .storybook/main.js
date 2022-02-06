@@ -29,12 +29,13 @@ module.exports = {
     return buildConfig(config);
   },
   addons: [
-    "@storybook/addon-controls",
-    "storybook-addon-themes",
     "@storybook/addon-a11y",
     "storybook-addon-performance/register",
     "@storybook/addon-docs",
     "@storybook/addon-actions",
+    "@storybook/addon-controls",
+    "storybook-addon-themes",
+
   ],
   core: {
     builder: "webpack5"
