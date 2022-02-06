@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.10.1 (2022-02-06)
+
+#### Bug Fixes
+* [#514](https://github.com/mondaycom/monday-ui-react-core/pull/514) fix support on checkbox click while shift is pressed on firefox browser ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.10.0 (2022-02-06)
 
 #### Bug Fixes
