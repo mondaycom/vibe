@@ -7,3 +7,7 @@ export function getBrowserName() {
     return browser.name;
   }
 }
+
+export function isFirefox() {
+  return getBrowserName() === "firefox";
+}

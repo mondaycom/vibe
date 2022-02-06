@@ -4,11 +4,11 @@ import { Checkbox } from "../Checkbox";
 
 jest.mock("../../../utils/user-agent-utils", () => {
   return {
-    getBrowserName: jest.fn()
+    isFirefox: jest.fn()
   };
 });
 
-const { getBrowserName } = require("../../../utils/user-agent-utils");
+const { isFirefox } = require("../../../utils/user-agent-utils");
 
 function createCheckboxesVariables() {
   return {
@@ -171,7 +171,7 @@ describe("Checkbox tests", () => {
     } = createCheckboxesVariables();
 
     beforeAll(() => {
-      getBrowserName.mockImplementation(() => "firefox");
+      isFirefox.mockImplementation(() => true);
     });
 
     beforeEach(() => {
