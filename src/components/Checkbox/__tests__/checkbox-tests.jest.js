@@ -2,13 +2,13 @@ import React from "react";
 import { fireEvent, render, cleanup, screen } from "@testing-library/react";
 import { Checkbox } from "../Checkbox";
 
-jest.mock("detect-browser", () => {
+jest.mock("../../../utils/user-agent-utils", () => {
   return {
-    detect: jest.fn()
+    getBrowserName: jest.fn()
   };
 });
 
-const { detect } = require("detect-browser");
+const { getBrowserName } = require("../../../utils/user-agent-utils");
 
 function createCheckboxesVariables() {
   return {
@@ -171,10 +171,9 @@ describe("Checkbox tests", () => {
     } = createCheckboxesVariables();
 
     beforeAll(() => {
-      detect.mockImplementation(() => ({
-        name: "firefox"
-      }));
+      getBrowserName.mockImplementation(() => "Firefox");
     });
+
     beforeEach(() => {
       const onChangeMock1 = jest.fn();
       const onChangeMock2 = jest.fn();
