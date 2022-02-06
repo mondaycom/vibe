@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import { render, fireEvent, act } from "@testing-library/react";
 import _difference from "lodash/difference";
 import ColorPicker from "../ColorPicker";
-import { contentColors } from "../../../general-stories/colors/colors-vars-map";
+import { contentColors } from "../../../utils/colors-vars-map";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ColorPicker />).toJSON();
@@ -12,7 +12,7 @@ it("renders correctly with empty props", () => {
 
 jest.useFakeTimers();
 
-describe("Click", () => {
+describe("ColorPicker", () => {
   it("Should call onSave with color clicked value", () => {
     const colorToClick = contentColors[0];
     let clickedColorValue;
@@ -85,5 +85,25 @@ describe("Click", () => {
     restOfColors.forEach(color => expect(queryByLabelText(color)).toBeNull());
 
     expect(whiteListColorsElements.length).toBe(whiteListColors.length);
+  });
+
+  it("should render all colors if forceUseRawColorList is true and isBlackListMode is false", () => {
+    const colorList = ["#abcdef", "#123456", "#234567"];
+    const { getByLabelText } = render(<ColorPicker colorsList={colorList} forceUseRawColorList={true} />);
+
+    const colorsElements = colorList.map(color => getByLabelText(color));
+
+    expect(colorsElements.length).toBe(colorsElements.length);
+  });
+
+  it("should render all colors if forceUseRawColorList is true, even if isBlackListMode is true", () => {
+    const colorList = ["#abcdef", "#123456", "#234567"];
+    const { getByLabelText } = render(
+      <ColorPicker colorsList={colorList} forceUseRawColorList={true} isBlackListMode={true} />
+    );
+
+    const colorsElements = colorList.map(color => getByLabelText(color));
+
+    expect(colorsElements.length).toBe(colorsElements.length);
   });
 });

@@ -1,8 +1,8 @@
-import React, { useRef, useCallback, useEffect } from "react";
+import React, { useRef, useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
-import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
+import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
 import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
@@ -17,21 +17,21 @@ const ColorPickerItemComponent = ({
   shouldRenderIndicatorWithoutBackground,
   ColorIndicatorIcon,
   SelectedIndicatorIcon,
-  isMultiselect,
   isSelected,
   colorSize,
   tooltipContent,
   isActive,
   colorShape
 }) => {
-  const colorAsStyle = ColorUtils.getMondayColorAsStyle(color, colorStyle);
+  const isMondayColor = useMemo(() => contentColors.includes(color), [color]);
+  const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
   const itemRef = useRef(null);
 
   const onMouseDown = useCallback(e => e.preventDefault(), []);
   const onClick = useCallback(() => onValueChange(color), [onValueChange, color]);
 
   useEffect(() => {
-    if (!itemRef || !itemRef.current || shouldRenderIndicatorWithoutBackground) return;
+    if (!itemRef?.current || shouldRenderIndicatorWithoutBackground || !isMondayColor) return;
     const item = itemRef.current;
     const onHover = e => {
       if (colorStyle === COLOR_STYLES.SELECTED) {
@@ -50,10 +50,9 @@ const ColorPickerItemComponent = ({
       item.removeEventListener("mouseenter", onHover, false);
       item.removeEventListener("mouseleave", onMouseLeave, false);
     };
-  }, [color, colorAsStyle, colorStyle, itemRef, shouldRenderIndicatorWithoutBackground]);
+  }, [color, colorAsStyle, colorStyle, isMondayColor, itemRef, shouldRenderIndicatorWithoutBackground]);
 
-  const shouldRenderSelectedIcon = isSelected && isMultiselect;
-  const shouldRenderIcon = shouldRenderSelectedIcon || ColorIndicatorIcon;
+  const shouldRenderIcon = isSelected || ColorIndicatorIcon;
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
   return (
     <Tooltip content={tooltipContent}>
@@ -78,7 +77,11 @@ const ColorPickerItemComponent = ({
         >
           <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
             {shouldRenderIcon && (
-              <Icon icon={shouldRenderSelectedIcon ? SelectedIndicatorIcon : ColorIndicatorIcon} ignoreFocusStyle />
+              <Icon
+                icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon}
+                className={cx({ "color-icon-white": !shouldRenderIndicatorWithoutBackground })}
+                ignoreFocusStyle
+              />
             )}
           </div>
         </Clickable>

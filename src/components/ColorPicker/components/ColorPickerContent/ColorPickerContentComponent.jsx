@@ -4,7 +4,7 @@ import _intersection from "lodash/intersection";
 import PropTypes from "prop-types";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import { SIZES } from "../../../../constants/sizes";
-import { COLOR_STYLES, contentColors } from "../../../../general-stories/colors/colors-vars-map";
+import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
@@ -35,7 +35,8 @@ const ColorPickerContentComponent = forwardRef(
       numberOfColorsInLine,
       tooltipContentByColor,
       focusOnMount,
-      colorShape
+      colorShape,
+      forceUseRawColorList
     },
     ref
   ) => {
@@ -47,8 +48,11 @@ const ColorPickerContentComponent = forwardRef(
     const buttonRef = useRef(null);
 
     const colorsToRender = useMemo(() => {
+      if (forceUseRawColorList) {
+        return colorsList;
+      }
       return isBlackListMode ? _difference(contentColors, colorsList) : _intersection(contentColors, colorsList);
-    }, [isBlackListMode, colorsList]);
+    }, [forceUseRawColorList, isBlackListMode, colorsList]);
 
     const onColorClicked = useCallback(
       color => {
@@ -87,7 +91,6 @@ const ColorPickerContentComponent = forwardRef(
             colorStyle={colorStyle}
             ColorIndicatorIcon={ColorIndicatorIcon}
             shouldRenderIndicatorWithoutBackground={shouldRenderIndicatorWithoutBackground}
-            isMultiselect={isMultiselect}
             SelectedIndicatorIcon={SelectedIndicatorIcon}
             colorSize={colorSize}
             tooltipContentByColor={tooltipContentByColor}
@@ -130,7 +133,8 @@ ColorPickerContentComponent.propTypes = {
   tooltipContentByColor: PropTypes.object,
   focusOnMount: PropTypes.bool,
   colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes)),
-  isMultiselect: PropTypes.bool
+  isMultiselect: PropTypes.bool,
+  forceUseRawColorList: PropTypes.bool
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -150,7 +154,12 @@ ColorPickerContentComponent.defaultProps = {
   tooltipContentByColor: {},
   focusOnMount: false,
   colorShape: ColorPickerContentComponent.colorShapes.SQUARE,
-  isMultiselect: false
+  isMultiselect: false,
+  /**
+   * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
+   * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
+   */
+  forceUseRawColorList: false
 };
 
 export default ColorPickerContentComponent;

@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.10.0 (2022-02-06)
+
+#### Bug Fixes
+* [#516](https://github.com/mondaycom/monday-ui-react-core/pull/516) feat: move dependencies to correct area ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#513](https://github.com/mondaycom/monday-ui-react-core/pull/513) Allow non-monday colors picker ([@laviomri](https://github.com/laviomri))
+* [#512](https://github.com/mondaycom/monday-ui-react-core/pull/512) Disabling activeIndex after a non-keyboard interaction ([@laviomri](https://github.com/laviomri))
+* [#509](https://github.com/mondaycom/monday-ui-react-core/pull/509) ColorPicker - white selected icon, even not on multi selection ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#515](https://github.com/mondaycom/monday-ui-react-core/pull/515) Fix OpenGraph description typo ([@laviomri](https://github.com/laviomri))
+
 ## 1.9.0 (2022-02-02)
 
 #### Bug Fixes
