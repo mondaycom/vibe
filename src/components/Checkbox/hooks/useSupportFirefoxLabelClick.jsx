@@ -4,7 +4,7 @@ import { isFirefox } from "../../../utils/user-agent-utils";
 export function useSupportFirefoxLabelClick({ inputRef }) {
   // we handle the custom event create state as ref because this variable should not be depend on the component renders
   // and it should be unique per checkbox
-  const customEventCreated = useRef(true);
+  const customEventCreated = useRef(false);
 
   // fix for known bug firefox bug: firefox does not support checking or unchecking checkbox by its label when shift pressed
   const onClickCapture = useCallback(
