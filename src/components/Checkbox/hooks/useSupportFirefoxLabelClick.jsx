@@ -11,7 +11,6 @@ export function useSupportFirefoxLabelClick({ inputRef }) {
     e => {
       if (!customEventCreated.current && e.shiftKey && isFirefox() && inputRef?.current?.dispatchEvent) {
         e.preventDefault();
-        // Create a synthetic click MouseEvent
         const evt = new MouseEvent("click", {
           shiftKey: true,
           bubbles: true,
@@ -19,8 +18,6 @@ export function useSupportFirefoxLabelClick({ inputRef }) {
         });
 
         customEventCreated.current = true;
-
-        // Send the event to the checkbox element
         inputRef.current.dispatchEvent(evt);
       }
 
