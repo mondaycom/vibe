@@ -174,10 +174,12 @@ describe("Checkbox tests", () => {
       isFirefox.mockImplementation(() => true);
     });
 
+    let onChangeMock1, onChangeMock2, onChangeMock3;
+
     beforeEach(() => {
-      const onChangeMock1 = jest.fn();
-      const onChangeMock2 = jest.fn();
-      const onChangeMock3 = jest.fn();
+      onChangeMock1 = jest.fn();
+      onChangeMock2 = jest.fn();
+      onChangeMock3 = jest.fn();
       renderCheckboxes({
         formName,
         onChangeMock1,
@@ -197,6 +199,16 @@ describe("Checkbox tests", () => {
 
     it("should unselect  1st option (with firefox browser - check workaround for known firefox bug", () => {
       testUnselectFirstOption(option1Text, option2Text, option3Text, { shiftKey: true });
+    });
+
+    it("should call on change with shiftKey true when unselect option with shift key (with firefox browser - check workaround for known firefox bug", () => {
+      let isShift = false;
+      onChangeMock1.mockImplementation(e => {
+        isShift = e.nativeEvent.shiftKey;
+      });
+      const option1 = screen.getByLabelText(option1Text);
+      fireEvent.click(option1, { shiftKey: true });
+      expect(isShift).toBeTruthy();
     });
   });
 });
