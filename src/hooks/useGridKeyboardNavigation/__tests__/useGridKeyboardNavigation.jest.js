@@ -12,16 +12,6 @@ describe("useGridKeyboardNavigation", () => {
     cleanup();
   });
 
-  it("should set the active index to 0 when focusing for the first time", () => {
-    const { result } = renderHookForTest({});
-
-    act(() => {
-      element.dispatchEvent(new Event("focus"));
-    });
-
-    expect(result.current.activeIndex).toBe(0);
-  });
-
   it("should consider the navigation direction when focusing the element with a custom event", () => {
     const items = itemsArray(9);
     const { result } = renderHookForTest({ items, numberOfItemsInLine: 3 });
@@ -33,12 +23,59 @@ describe("useGridKeyboardNavigation", () => {
     expect(result.current.activeIndex).toBe(5); // last index of the right-most line
   });
 
-  it("should return a callback wrapper that sets the activeIndex to the clicked element", () => {
+  it("should do nothing when focusing the element when it is already focused", () => {
+    const items = itemsArray(9);
+    const { result } = renderHookForTest({ items, numberOfItemsInLine: 3 });
+
+    act(() => {
+      // this should set the activeIndex to 5
+      element.dispatchEvent(new CustomEvent("focus", { detail: { keyboardDirection: NAV_DIRECTIONS.LEFT } }));
+    });
+    expect(result.current.activeIndex).toBe(5);
+    act(() => {
+      // this would have set the active index to 1 - but it should be ignored, since the element is already focused.
+      element.dispatchEvent(new CustomEvent("focus", { detail: { keyboardDirection: NAV_DIRECTIONS.DOWN } }));
+    });
+
+    expect(result.current.activeIndex).toBe(5);
+  });
+
+  it("should return a callback wrapper that sets the activeIndex to the keyboard selected element, ", () => {
     const { result } = renderHookForTest({});
 
-    act(() => result.current.onSelectionAction(3));
+    act(() => result.current.onSelectionAction(3, true));
 
     expect(result.current.activeIndex).toBe(3);
+  });
+
+  it("should select the currently active item when navigating and selecting using the keyboard", () => {
+    const onItemClicked = jest.fn();
+    const items = ["a", "b", "c", "d"];
+    renderHookForTest({ items, focusOnMount: true, focusItemIndexOnMount: 0, onItemClicked });
+
+    act(() => {
+      fireEvent.keyDown(element, { key: "ArrowRight" }); // activeIndex should be set to 1
+    });
+    act(() => {
+      fireEvent.keyDown(element, { key: " " }); // perform selection
+    });
+
+    expect(onItemClicked).toHaveBeenCalledTimes(1);
+    expect(onItemClicked).toHaveBeenCalledWith("b", 1);
+  });
+
+  it("should ignore keyboard selections which are performed after selecting with the mouse", () => {
+    const onItemClicked = jest.fn();
+    const items = ["a", "b", "c", "d"];
+    const { result } = renderHookForTest({ items, focusOnMount: true, focusItemIndexOnMount: 0, onItemClicked });
+    act(() => result.current.onSelectionAction(1)); // select without the keyboard
+    expect(onItemClicked).toHaveBeenCalledTimes(1);
+
+    act(() => {
+      fireEvent.keyDown(element, { key: " " }); // perform selection - which should be ignored
+    });
+
+    expect(onItemClicked).toHaveBeenCalledTimes(1); // no new calls
   });
 
   it("should return a callback wrapper that calls onItemClicked with the item and the index", () => {
@@ -74,6 +111,33 @@ describe("useGridKeyboardNavigation", () => {
     });
 
     expect(result.current.activeIndex).toBe(0);
+  });
+
+  it("should skip disabled indexes when navigating with the keyboard", () => {
+    const items = ["0", "1", "2", "3", "4", "5", "6", "7", "8"];
+    const disabledIndexes = [1, 4];
+    const { result } = renderHookForTest({
+      items,
+      numberOfItemsInLine: 3,
+      focusItemIndexOnMount: 0,
+      focusOnMount: true,
+      disabledIndexes
+    });
+
+    act(() => {
+      fireEvent.keyDown(element, { key: "ArrowRight" }); // moving right from index 0 should skip disabled index 1, and set activeIndex to 2
+    });
+
+    expect(result.current.activeIndex).toBe(2);
+  });
+
+  it("should ignore a keyboard selection action if the user is currently not using the keyboard", () => {
+    const { result } = renderHookForTest({ focusItemIndexOnMount: 2, focusOnMount: true });
+
+    act(() => result.current.onSelectionAction(3, true)); // set the activeIndex to 3
+    act(() => result.current.onSelectionAction(2)); // perform a non-keyboard action
+
+    expect(result.current.isInitialActiveState).toBe(false);
   });
 
   describe("focusItemIndexOnMount", () => {
@@ -138,12 +202,14 @@ describe("useGridKeyboardNavigation", () => {
     numberOfItemsInLine = 3,
     onItemClicked = jest.fn(),
     focusOnMount = false,
-    focusItemIndexOnMount = undefined
+    focusItemIndexOnMount = undefined,
+    disabledIndexes = []
   }) {
     const itemsCount = items.length;
     const getItemByIndex = index => items[index];
 
     element = document.createElement("div");
+    element.tabIndex = -1; // some tests focus the element - a tabIndex value is required for updating the document.activeIndex value
     document.body.appendChild(element);
 
     return renderHook(() =>
@@ -154,7 +220,8 @@ describe("useGridKeyboardNavigation", () => {
         onItemClicked,
         focusOnMount,
         numberOfItemsInLine,
-        focusItemIndexOnMount
+        focusItemIndexOnMount,
+        disabledIndexes
       })
     );
   }

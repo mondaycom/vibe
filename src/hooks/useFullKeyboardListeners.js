@@ -8,12 +8,12 @@ export const NAV_DIRECTIONS = {
   RIGHT: "right"
 };
 
-const ARROW_DOWN_KEYS = ["ArrowDown"];
-const ARROW_UP_KEYS = ["ArrowUp"];
-const ARROW_RIGHT_KEYS = ["ArrowRight"];
-const ARROW_LEFT_KEYS = ["ArrowLeft"];
-const SELECTION_KEYS = ["Enter", " "];
-const ESCAPE_KEYS = ["Escape"];
+export const ARROW_DOWN_KEYS = ["ArrowDown"];
+export const ARROW_UP_KEYS = ["ArrowUp"];
+export const ARROW_RIGHT_KEYS = ["ArrowRight"];
+export const ARROW_LEFT_KEYS = ["ArrowLeft"];
+export const SELECTION_KEYS = ["Enter", " "];
+export const ESCAPE_KEYS = ["Escape"];
 
 const NOOP = () => {};
 

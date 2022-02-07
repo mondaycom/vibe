@@ -1,5 +1,89 @@
 # Changelog
 
+## 1.10.1 (2022-02-06)
+
+#### Bug Fixes
+* [#514](https://github.com/mondaycom/monday-ui-react-core/pull/514) fix support on checkbox click while shift is pressed on firefox browser ([@hadasfa](https://github.com/hadasfa))
+
+## 1.10.0 (2022-02-06)
+
+#### Bug Fixes
+* [#516](https://github.com/mondaycom/monday-ui-react-core/pull/516) feat: move dependencies to correct area ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#513](https://github.com/mondaycom/monday-ui-react-core/pull/513) Allow non-monday colors picker ([@laviomri](https://github.com/laviomri))
+* [#512](https://github.com/mondaycom/monday-ui-react-core/pull/512) Disabling activeIndex after a non-keyboard interaction ([@laviomri](https://github.com/laviomri))
+* [#509](https://github.com/mondaycom/monday-ui-react-core/pull/509) ColorPicker - white selected icon, even not on multi selection ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#515](https://github.com/mondaycom/monday-ui-react-core/pull/515) Fix OpenGraph description typo ([@laviomri](https://github.com/laviomri))
+
+## 1.9.0 (2022-02-02)
+
+#### Bug Fixes
+* [#510](https://github.com/mondaycom/monday-ui-react-core/pull/510) Dropdown with multi - placeholder show condition fix ([@yardenli](https://github.com/yardenli))
+* [#508](https://github.com/mondaycom/monday-ui-react-core/pull/508) Fix selection feedback not showing for single item selection of ColorPicker ([@laviomri](https://github.com/laviomri))
+
+#### New Features
+* [#502](https://github.com/mondaycom/monday-ui-react-core/pull/502) Menu enhancements ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#505](https://github.com/mondaycom/monday-ui-react-core/pull/505) Fix combobox docs ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#511](https://github.com/mondaycom/monday-ui-react-core/pull/511) fix/yarden/dropdown-multi-lint-and-tests-fixes ([@yardenli](https://github.com/yardenli))
+
+## 1.8.4 (2022-02-01)
+
+#### New Icons
+* [#507](https://github.com/mondaycom/monday-ui-react-core/pull/507) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.8.3 (2022-01-31)
+
+#### New Icons
+* [#504](https://github.com/mondaycom/monday-ui-react-core/pull/504) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.8.2 (2022-01-31)
+
+#### Bug Fixes
+* [#503](https://github.com/mondaycom/monday-ui-react-core/pull/503) Fix drop down counter in multi state with single line ([@hadasfa](https://github.com/hadasfa))
+
+## 1.8.1 (2022-01-30)
+
+#### Bug Fixes
+* [#499](https://github.com/mondaycom/monday-ui-react-core/pull/499) Support placeholder in drop down with multi state ([@hadasfa](https://github.com/hadasfa))
+* [#500](https://github.com/mondaycom/monday-ui-react-core/pull/500) Fixed menu item hover ([@laviomri](https://github.com/laviomri))
+
+#### New Icons
+* [#501](https://github.com/mondaycom/monday-ui-react-core/pull/501) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.8.0 (2022-01-27)
+
+#### Bug Fixes
+* [#495](https://github.com/mondaycom/monday-ui-react-core/pull/495) fix close when click outside in drop down and display correct options when delete ([@hadasfa](https://github.com/hadasfa))
+* [#496](https://github.com/mondaycom/monday-ui-react-core/pull/496) feature/yarden/dropdown-max-height ([@yardenli](https://github.com/yardenli))
+* [#487](https://github.com/mondaycom/monday-ui-react-core/pull/487) fix(slider): change broken padding for slider prefix ([@niksa-monday](https://github.com/niksa-monday))
+* [#477](https://github.com/mondaycom/monday-ui-react-core/pull/477) Keyboard nav context improvements ([@laviomri](https://github.com/laviomri))
+
+#### New Features
+* [#493](https://github.com/mondaycom/monday-ui-react-core/pull/493) Disabled indexes for keyboard nav ([@laviomri](https://github.com/laviomri))
+* [#488](https://github.com/mondaycom/monday-ui-react-core/pull/488) Skipping disabled components while navigating ([@laviomri](https://github.com/laviomri))
+* [#479](https://github.com/mondaycom/monday-ui-react-core/pull/479) support ref passing for dropdown ([@etaylib](https://github.com/etaylib))
+* [#480](https://github.com/mondaycom/monday-ui-react-core/pull/480) Added focusItemIndexOnMount to useGridKeyboardNavigation ([@laviomri](https://github.com/laviomri))
+
+#### Dependency Upgrades
+* [#484](https://github.com/mondaycom/monday-ui-react-core/pull/484) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+#### Documentation
+* [#489](https://github.com/mondaycom/monday-ui-react-core/pull/489) Story for ColorPicker shape prop ([@laviomri](https://github.com/laviomri))
+* [#486](https://github.com/mondaycom/monday-ui-react-core/pull/486) added missing proptype + added as action ([@laviomri](https://github.com/laviomri))
+
+#### Internal Changes
+* [#492](https://github.com/mondaycom/monday-ui-react-core/pull/492) Menu item small refactor ([@laviomri](https://github.com/laviomri))
+
+#### New Icons
+* [#490](https://github.com/mondaycom/monday-ui-react-core/pull/490) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.7.0 (2022-01-24)
 
 #### New Features

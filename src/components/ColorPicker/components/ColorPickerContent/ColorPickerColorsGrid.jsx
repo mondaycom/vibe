@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import useGridKeyboardNavigation from "../../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import ColorPickerItemComponent from "../ColorPickerItemComponent/ColorPickerItemComponent";
-import { COLOR_STYLES } from "../../../../general-stories/colors/colors-vars-map";
+import { COLOR_STYLES } from "../../../../utils/colors-vars-map";
 import { SIZES } from "../../../../constants/sizes";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 
@@ -18,7 +18,6 @@ export const ColorPickerColorsGrid = React.forwardRef(
       colorStyle,
       ColorIndicatorIcon,
       shouldRenderIndicatorWithoutBackground,
-      isMultiselect,
       SelectedIndicatorIcon,
       colorSize,
       tooltipContentByColor,
@@ -51,9 +50,8 @@ export const ColorPickerColorsGrid = React.forwardRef(
               colorStyle={colorStyle}
               ColorIndicatorIcon={ColorIndicatorIcon}
               SelectedIndicatorIcon={SelectedIndicatorIcon}
-              isSelected={isMultiselect ? value.includes(color) : value === color}
+              isSelected={Array.isArray(value) ? value.includes(color) : value === color}
               isActive={index === activeIndex}
-              isMultiselect={isMultiselect}
               colorSize={colorSize}
               tooltipContent={tooltipContentByColor[color]}
               colorShape={colorShape}
@@ -88,8 +86,7 @@ ColorPickerColorsGrid.propTypes = {
   numberOfColorsInLine: PropTypes.number,
   tooltipContentByColor: PropTypes.object,
   focusOnMount: PropTypes.bool,
-  colorShape: PropTypes.oneOf(Object.values(ColorPickerColorsGrid.colorShapes)),
-  isMultiselect: PropTypes.bool
+  colorShape: PropTypes.oneOf(Object.values(ColorPickerColorsGrid.colorShapes))
 };
 
 ColorPickerColorsGrid.defaultProps = {
@@ -104,6 +101,5 @@ ColorPickerColorsGrid.defaultProps = {
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   tooltipContentByColor: {},
   focusOnMount: false,
-  colorShape: ColorPickerColorsGrid.colorShapes.SQUARE,
-  isMultiselect: false
+  colorShape: ColorPickerColorsGrid.colorShapes.SQUARE
 };

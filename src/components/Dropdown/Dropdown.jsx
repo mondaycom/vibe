@@ -47,6 +47,7 @@ const Dropdown = ({
   isVirtualized,
   menuPortalTarget,
   extraStyles,
+  maxMenuHeight,
   menuIsOpen,
   tabIndex,
   id,
@@ -146,20 +147,15 @@ const Dropdown = ({
     };
   }, [customOnOptionRemove, selected, selectedOptionsMap]);
 
-  const valueContainerRenderer = useCallback(
-    props => (
-      <components.ValueContainer {...props}>
-        <ValueContainer
-          selectedOptions={selectedOptions}
-          onSelectedDelete={onOptionRemove}
-          setIsDialogShown={setIsDialogShown}
-          isDialogShown={isDialogShown}
-          isMultiline={multiline}
-          {...props}
-        />
-      </components.ValueContainer>
-    ),
-    [selectedOptions, onOptionRemove, isDialogShown, multiline]
+  const customProps = useMemo(
+    () => ({
+      selectedOptions,
+      onSelectedDelete: onOptionRemove,
+      setIsDialogShown,
+      isDialogShown,
+      isMultiline: multiline
+    }),
+    [selectedOptions, onOptionRemove, setIsDialogShown, isDialogShown, multiline]
   );
 
   const onChange = (option, event) => {
@@ -206,14 +202,14 @@ const Dropdown = ({
   const additions = {
     ...(!asyncOptions && { options }),
     ...(multi && {
-      isMulti: true,
-      filterOption: option => !selectedOptionsMap[option.value]
+      isMulti: true
     })
   };
 
   return (
     <DropDownComponent
       className={cx("dropdown-wrapper", className)}
+      selectProps={customProps}
       components={{
         DropdownIndicator,
         Menu,
@@ -223,7 +219,7 @@ const Dropdown = ({
         ...(finalValueRenderer && { SingleValue }),
         ...(multi && {
           MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
-          ValueContainer: valueContainerRenderer
+          ValueContainer
         }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
@@ -246,6 +242,7 @@ const Dropdown = ({
       isRtl={rtl}
       styles={styles}
       theme={customTheme}
+      maxMenuHeight={maxMenuHeight}
       menuPortalTarget={menuPortalTarget}
       menuIsOpen={menuIsOpen}
       tabIndex={tabIndex}
@@ -278,6 +275,7 @@ Dropdown.defaultProps = {
   size: SIZES.MEDIUM,
   extraStyles: defaultCustomStyles,
   tabIndex: "0",
+  onOptionRemove: undefined,
   id: undefined,
   autoFocus: false,
   closeMenuOnSelect: undefined,
@@ -430,11 +428,18 @@ Dropdown.propTypes = {
    * Custom function to override existing styles (similar to `react-select`'s `style` prop), for example: `base => ({...base, color: 'red'})`, where `base` is the component's default styles
    */
   extraStyles: PropTypes.func,
-
+  /**
+   * Maximum height of the menu before scrolling
+   */
+  maxMenuHeight: PropTypes.number,
   /**
    * Tab index for keyboard navigation purposes
    */
   tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /**
+   * Called when one of the selected options of the drop down is removed.
+   */
+  onOptionRemove: PropTypes.func,
   /**
    * ID for the select container
    */

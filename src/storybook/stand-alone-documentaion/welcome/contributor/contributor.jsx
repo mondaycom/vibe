@@ -1,6 +1,6 @@
 import cx from "classnames";
 import { InformationBox } from "../../../components/information-box/information-box";
-import { elementColorsNames } from "../../../../general-stories/colors/colors-vars-map";
+import { elementColorsNames } from "../../../../utils/colors-vars-map";
 import "./contributor.scss";
 
 const BASE_CLASS = "monday-storybook-welcome-contributor";

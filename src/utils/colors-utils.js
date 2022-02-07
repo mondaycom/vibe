@@ -1,4 +1,4 @@
-import { COLOR_STYLES } from "../general-stories/colors/colors-vars-map";
+import { COLOR_STYLES } from "./colors-vars-map";
 
 const ColorUtils = {
   modes: COLOR_STYLES,

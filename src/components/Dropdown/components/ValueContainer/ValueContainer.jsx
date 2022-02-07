@@ -1,32 +1,28 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
+import { components } from "react-select";
+import cx from "classnames";
+import { useHiddenOptionsData } from "../../hooks/useHiddenOptionsData";
 import Counter from "../../../Counter/Counter";
 import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import Chips from "../../../Chips/Chips";
 import classes from "./ValueContainer.module.scss";
 
-const EMPTY_ARRAY = [];
-
-export default function Container({
-  selectedOptions,
-  children,
-  onSelectedDelete,
-  isDialogShown,
-  setIsDialogShown,
-  isMultiline
-}) {
+export default function Container({ children, selectProps, ...otherProps }) {
+  const { placeholder, inputValue, selectProps: customProps = {} } = selectProps;
+  const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
-  const [isCounterShown, setIsCounterShown] = useState(false);
-  const [overflowingIndex, setOverflowingIndex] = useState(-1);
-
-  const isOverflowCalculated = overflowingIndex > -1;
-  const overflowingChildren = isOverflowCalculated
-    ? selectedOptions.slice(overflowingIndex, selectedOptions.length)
-    : EMPTY_ARRAY;
+  const showPlaceholder = selectedOptions.length === 0 && !inputValue;
   const chipClassName = isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"];
-
+  const { overflowIndex, hiddenOptionsCount } = useHiddenOptionsData({
+    isMultiline,
+    ref,
+    chipClassName,
+    selectedOptionsCount: selectedOptions.length
+  });
+  const isCounterShown = hiddenOptionsCount > 0;
   const renderOptions = useCallback(
     (from = 0, to = selectedOptions.length) =>
       selectedOptions.map((option, index) =>
@@ -48,84 +44,60 @@ export default function Container({
     [selectedOptions, onSelectedDelete, chipClassName]
   );
 
-  useEffect(() => {
-    let index = -1;
-
-    if (ref) {
-      const { bottom: parentBottom } = ref.getBoundingClientRect();
-      let chipIndex = 0;
-
-      for (let i = 0; i < ref.children.length; i++) {
-        const child = ref.children[i];
-        const isChip = child.classList.contains(chipClassName);
-        const { bottom: childBottom } = child.getBoundingClientRect();
-
-        if (isChip) {
-          if (childBottom > parentBottom) {
-            index = chipIndex;
-            break;
-          }
-
-          chipIndex++;
-        }
-      }
-    }
-
-    setOverflowingIndex(index);
-  }, [ref, isCounterShown, chipClassName]);
-
-  useEffect(() => {
-    setIsCounterShown(!!overflowingChildren.length);
-  }, [overflowingChildren.length]);
-
   return (
-    <div className={classes["value-container"]}>
-      <div
-        className={classes["value-container-chips"]}
-        ref={newRef => setRef(newRef)}
-        data-testid="value-container-chips"
-      >
-        {isCounterShown ? (
-          <>
-            {renderOptions(0, overflowingIndex)}
-            {clickHandler}
-            {renderOptions(overflowingIndex)}
-          </>
-        ) : (
-          <>
-            {renderOptions()}
-            {clickHandler}
-          </>
+    <components.ValueContainer selectProps={selectProps} {...otherProps}>
+      <div className={classes["value-container"]}>
+        {showPlaceholder && (
+          <div className={classes["placeholder-container"]}>
+            <components.Placeholder {...otherProps}>{placeholder}</components.Placeholder>
+          </div>
         )}
+        <div
+          className={cx(classes["value-container-chips"], { [classes["without-placeholder"]]: !showPlaceholder })}
+          ref={newRef => setRef(newRef)}
+          data-testid="value-container-chips"
+        >
+          {isCounterShown ? (
+            <>
+              {renderOptions(0, overflowIndex)}
+              {clickHandler}
+              {renderOptions(overflowIndex)}
+            </>
+          ) : (
+            <>
+              {renderOptions()}
+              {clickHandler}
+            </>
+          )}
+        </div>
+        <div>
+          {isCounterShown && (
+            <Dialog
+              content={() => (
+                <DialogContentContainer className={classes["value-container-dialog-content"]}>
+                  {renderOptions(overflowIndex)}
+                </DialogContentContainer>
+              )}
+              tooltip
+              showTrigger={Dialog.hideShowTriggers.CLICK}
+              hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
+              open={isDialogShown}
+              onClick={() => setIsDialogShown(true)}
+              onClickOutside={() => setIsDialogShown(false)}
+            >
+              <Counter
+                kind={Counter.kinds.LINE}
+                prefix="+"
+                count={hiddenOptionsCount}
+                onMouseDown={e => {
+                  e.stopPropagation();
+                }}
+                noAnimation
+              />
+            </Dialog>
+          )}
+        </div>
       </div>
-
-      <div>
-        {isCounterShown && (
-          <Dialog
-            content={() => (
-              <DialogContentContainer className={classes["value-container-dialog-content"]}>
-                {renderOptions(overflowingIndex)}
-              </DialogContentContainer>
-            )}
-            tooltip
-            showTrigger={Dialog.hideShowTriggers.CLICK}
-            hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
-            open={isDialogShown}
-            onClick={() => setIsDialogShown(true)}
-            onClickOutside={() => setIsDialogShown(false)}
-          >
-            <Counter
-              kind={Counter.kinds.LINE}
-              prefix="+"
-              count={overflowingChildren.length}
-              onMouseDown={e => {
-                e.stopPropagation();
-              }}
-              noAnimation
-            />
-          </Dialog>
-        )}
-      </div>
-    </div>
+    </components.ValueContainer>
   );
 }

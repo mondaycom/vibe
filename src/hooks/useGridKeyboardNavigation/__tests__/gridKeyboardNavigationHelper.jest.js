@@ -310,4 +310,82 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
       expect(result).toEqual(expectedResult);
     });
   });
+
+  describe("disabled indexes", () => {
+    it("should skip a single disabled index", () => {
+      const direction = NAV_DIRECTIONS.RIGHT;
+      const itemsCount = 9;
+      const numberOfItemsInLine = 5;
+      const activeIndex = 0;
+      const disabledIndexes = [1, 3];
+      const expectedResult = { isOutbound: false, nextIndex: 2 }; // skip 1, which is a disabled index
+
+      const result = calcActiveIndexAfterArrowNavigation({
+        direction,
+        itemsCount,
+        numberOfItemsInLine,
+        activeIndex,
+        disabledIndexes
+      });
+
+      expect(result).toEqual(expectedResult);
+    });
+
+    it("should return outbound navigation when skipping over disabled index 0", () => {
+      const direction = NAV_DIRECTIONS.LEFT;
+      const itemsCount = 2;
+      const numberOfItemsInLine = 2;
+      const activeIndex = 1;
+      const disabledIndexes = [0];
+      const expectedResult = { isOutbound: true };
+
+      const result = calcActiveIndexAfterArrowNavigation({
+        direction,
+        itemsCount,
+        numberOfItemsInLine,
+        activeIndex,
+        disabledIndexes
+      });
+
+      expect(result).toEqual(expectedResult);
+    });
+
+    it("should skip multiple disabled sequential indexes in an inbound navigation", () => {
+      const direction = NAV_DIRECTIONS.UP;
+      const itemsCount = 10;
+      const numberOfItemsInLine = 2;
+      const activeIndex = 8; // last row, left item
+      const disabledIndexes = [2, 4, 6]; // all the items of the left column
+      const expectedResult = { isOutbound: false, nextIndex: 0 };
+
+      const result = calcActiveIndexAfterArrowNavigation({
+        direction,
+        itemsCount,
+        numberOfItemsInLine,
+        activeIndex,
+        disabledIndexes
+      });
+
+      expect(result).toEqual(expectedResult);
+    });
+
+    it("should return an outbound navigation when all indexes in the navigation direction are disabled", () => {
+      const direction = NAV_DIRECTIONS.UP;
+      const itemsCount = 5;
+      const numberOfItemsInLine = 5;
+      const activeIndex = 0; // last row, left item
+      const disabledIndexes = [1, 2, 3, 4]; // all the items except for the first one
+      const expectedResult = { isOutbound: true };
+
+      const result = calcActiveIndexAfterArrowNavigation({
+        direction,
+        itemsCount,
+        numberOfItemsInLine,
+        activeIndex,
+        disabledIndexes
+      });
+
+      expect(result).toEqual(expectedResult);
+    });
+  });
 });

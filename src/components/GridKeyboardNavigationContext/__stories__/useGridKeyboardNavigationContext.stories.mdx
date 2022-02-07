@@ -9,12 +9,12 @@ export const metaSettings = createStoryMetaSettings({
   component: useGridKeyboardNavigationContext
 });
 
-<Meta 
-  title="Hooks/useGridKeyboardNavigationContext" 
-  component={ useGridKeyboardNavigationContext } 
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators } 
-  />
+<Meta
+  title="Hooks/useGridKeyboardNavigationContext"
+  component={useGridKeyboardNavigationContext}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
 
 <!--- Component documentation -->
 
@@ -31,21 +31,25 @@ export const metaSettings = createStoryMetaSettings({
 A hook used to specify a connection between multiple navigable components, which are navigable between each other.
 
 <Canvas>
-  <Story name="Overview">{
-    () => {
+  <Story name="Overview">
+    {() => {
       const wrapperRef = useRef(null);
       const leftElRef = useRef(null);
       const rightElRef = useRef(null);
-      const keyboardContext = useGridKeyboardNavigationContext([{leftElement: leftElRef, rightElement: rightElRef}], wrapperRef)
+      const keyboardContext = useGridKeyboardNavigationContext(
+        [{ leftElement: leftElRef, rightElement: rightElRef }],
+        wrapperRef
+      );
       return (
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
           <Flex ref={wrapperRef}>
-            <DummyNavigableGrid ref={leftElRef} itemsCount={15} numberOfItemsInLine={4} itemPrefix="L "/>
-            <DummyNavigableGrid ref={rightElRef} itemsCount={7} numberOfItemsInLine={2} itemPrefix="R "/>
+            <DummyNavigableGrid ref={leftElRef} itemsCount={15} numberOfItemsInLine={4} itemPrefix="L " />
+            <DummyNavigableGrid ref={rightElRef} itemsCount={7} numberOfItemsInLine={2} itemPrefix="R " />
           </Flex>
         </GridKeyboardNavigationContext.Provider>
-      )
-  }}</Story>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ## Usage
@@ -58,19 +62,24 @@ A hook used to specify a connection between multiple navigable components, which
   ]}
 />
 
-
 ## Arguments
+
 <FunctionArguments>
-  <FunctionArgument 
-    name="positions" 
+  <FunctionArgument
+    name="positions"
     type="Array[ { topElement: React.MutableRefObject, bottomElement: React.MutableRefObject } | { leftElement: React.MutableRefObject, rightElement: React.MutableRefObject } ]"
     description="An array of relations between pairs of elements"
     required
   />
-  <FunctionArgument 
-    name="wrapperRef" 
+  <FunctionArgument
+    name="wrapperRef"
     type="React.MutableRefObject"
-    description={<>A React ref for an element which contains all the elements which are listed on the <code>positions</code> argument.</>}
+    description={
+      <>
+        A React ref for an element which contains all the elements which are listed on the <code>positions</code>{" "}
+        argument.
+      </>
+    }
     required
   />
 </FunctionArguments>
@@ -78,32 +87,78 @@ A hook used to specify a connection between multiple navigable components, which
 ## Returns
 
 <FunctionArguments>
-  <FunctionArgument 
-    name="result" 
+  <FunctionArgument
+    name="result"
     type="Object"
-    description={<>A <code>GridKeyboardNavigationContext</code> which should be provided to wrap all the elements from <code>positions</code></>}
+    description={
+      <>
+        A <code>GridKeyboardNavigationContext</code> which should be provided to wrap all the elements from{" "}
+        <code>positions</code>
+      </>
+    }
   />
 </FunctionArguments>
 
 ## Variants
 
+### Disabled Elements
+
+Disabled components can be skipped by adding a `disabled` (or `data-disabled`) to the referenced element.
+
+<Canvas>
+  <Story name="Disabled Elements">
+    {() => {
+      const wrapperRef = useRef(null);
+      const topElRef = useRef(null);
+      const middleElRef = useRef(null);
+      const bottomElRef = useRef(null);
+      const keyboardContext = useGridKeyboardNavigationContext(
+        [
+          { topElement: topElRef, bottomElement: middleElRef },
+          { topElement: middleElRef, bottomElement: bottomElRef }
+        ],
+        wrapperRef
+      );
+      return (
+        <GridKeyboardNavigationContext.Provider value={keyboardContext}>
+          <Flex
+            ref={wrapperRef}
+            direction={Flex.directions.COLUMN}
+            justify={Flex.align.CENTER}
+            className="use-grid-keyboard-dummy-grid-wrapper"
+          >
+            <DummyNavigableGrid ref={topElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="T " />
+            <DummyNavigableGrid ref={middleElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="M " disabled />
+            <DummyNavigableGrid ref={bottomElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="B " />
+          </Flex>
+        </GridKeyboardNavigationContext.Provider>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Multiple Depths
+
 The hook can be used inside multiple depths, in more complex layout requirements.
 
 <Canvas>
-  <Story name="Multiple Depths">{
-    () => {
+  <Story name="Multiple Depths">
+    {() => {
       const wrapperRef = useRef(null);
       const topElRef = useRef(null);
       const bottomElRef = useRef(null);
-      const keyboardContext = useGridKeyboardNavigationContext([{topElement: topElRef, bottomElement: bottomElRef}], wrapperRef)
-      return (
-      <GridKeyboardNavigationContext.Provider value={keyboardContext}>
-        <Flex ref={wrapperRef} direction={Flex.directions.COLUMN}>
-          <LayoutWithInnerKeyboardNavigation ref={topElRef} />
-          <LayoutWithInnerKeyboardNavigation ref={bottomElRef} />
-        </Flex>
-      </GridKeyboardNavigationContext.Provider>
+      const keyboardContext = useGridKeyboardNavigationContext(
+        [{ topElement: topElRef, bottomElement: bottomElRef }],
+        wrapperRef
       );
-  }}</Story>
+      return (
+        <GridKeyboardNavigationContext.Provider value={keyboardContext}>
+          <Flex ref={wrapperRef} direction={Flex.directions.COLUMN}>
+            <LayoutWithInnerKeyboardNavigation ref={topElRef} />
+            <LayoutWithInnerKeyboardNavigation ref={bottomElRef} />
+          </Flex>
+        </GridKeyboardNavigationContext.Provider>
+      );
+    }}
+  </Story>
 </Canvas>

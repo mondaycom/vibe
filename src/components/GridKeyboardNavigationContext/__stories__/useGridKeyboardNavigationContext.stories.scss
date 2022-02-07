@@ -3,19 +3,19 @@
 @import "../../../styles/global-css-settings.scss";
 
 .use-grid-keyboard-dummy-grid-wrapper {
-    padding: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    outline: none;
-    text-align: center;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--primary-hover-color) inset;
+  padding: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  outline: none;
+  text-align: center;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--primary-hover-color) inset;
 }
 
 .use-grid-keyboard-dummy-grid-item {
-    width: 60px;
-    margin: $spacing-xs-small;
+  width: 60px;
+  margin: $spacing-xs-small;
 
-    &.active-item {
-        @include focus-style-css();
-    }
+  &.active-item {
+    @include focus-style-css();
+  }
 }
