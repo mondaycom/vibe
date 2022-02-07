@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.10.2 (2022-02-07)
+
+#### Bug Fixes
+* [#517](https://github.com/mondaycom/monday-ui-react-core/pull/517) Tabs focus issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Dependency Upgrades
+* [#482](https://github.com/mondaycom/monday-ui-react-core/pull/482)  Add typography variables ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#482](https://github.com/mondaycom/monday-ui-react-core/pull/482)  Add typography variables ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.10.1 (2022-02-06)
 
 #### Bug Fixes
