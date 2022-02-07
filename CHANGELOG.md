@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.10.3 (2022-02-07)
+
+#### Bug Fixes
+* [#518](https://github.com/mondaycom/monday-ui-react-core/pull/518) When click on checkbox with shift pressed, shift key is not true in the manual all checkbox events (even if it was true in the original event) ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.10.2 (2022-02-07)
 
 #### Bug Fixes
