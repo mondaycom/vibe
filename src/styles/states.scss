@@ -47,7 +47,7 @@
   }
 }
 
-§§@mixin focus-style-inset($focus-radius: 4px, $shadow-depth: 3px) {
+@mixin focus-style-inset($focus-radius: 4px, $shadow-depth: 3px) {
   &:focus-visible,
   &.focus-visible {
     @include focus-style-css-inset($focus-radius, $shadow-depth);
