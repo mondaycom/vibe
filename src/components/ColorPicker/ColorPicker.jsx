@@ -4,7 +4,7 @@ import React, { forwardRef, useCallback, useRef } from "react";
 import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import { COLOR_STYLES } from "../../general-stories/colors/colors-vars-map";
+import { COLOR_STYLES } from "../../utils/colors-vars-map";
 import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
@@ -29,7 +29,8 @@ const ColorPicker = forwardRef(
       colorSize,
       numberOfColorsInLine,
       focusOnMount,
-      colorShape
+      colorShape,
+      forceUseRawColorList
     },
     ref
   ) => {
@@ -64,6 +65,7 @@ const ColorPicker = forwardRef(
           numberOfColorsInLine={numberOfColorsInLine}
           focusOnMount={focusOnMount}
           colorShape={colorShape}
+          forceUseRawColorList={forceUseRawColorList}
         />
       </DialogContentContainer>
     );
@@ -94,7 +96,8 @@ ColorPicker.propTypes = {
   colorSize: PropTypes.oneOf([ColorPicker.sizes.SMALL, ColorPicker.sizes.MEDIUM, ColorPicker.sizes.LARGE]),
   numberOfColorsInLine: PropTypes.number,
   focusOnMount: PropTypes.bool,
-  colorShape: PropTypes.oneOf(Object.values(ColorPicker.colorShapes))
+  colorShape: PropTypes.oneOf(Object.values(ColorPicker.colorShapes)),
+  forceUseRawColorList: PropTypes.bool
 };
 
 ColorPicker.defaultProps = {
@@ -113,7 +116,12 @@ ColorPicker.defaultProps = {
   colorSize: ColorPicker.sizes.MEDIUM,
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   focusOnMount: false,
-  colorShape: ColorPicker.colorShapes.SQUARE
+  colorShape: ColorPicker.colorShapes.SQUARE,
+  /**
+   * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
+   * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
+   */
+  forceUseRawColorList: false
 };
 
 export default ColorPicker;

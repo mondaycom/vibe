@@ -1,5 +1,44 @@
 # Changelog
 
+## 1.10.4 (2022-02-08)
+
+#### Bug Fixes
+* [#520](https://github.com/mondaycom/monday-ui-react-core/pull/520) Revert " Add typography variables" ([@hadasfa](https://github.com/hadasfa))
+
+## 1.10.3 (2022-02-07)
+
+#### Bug Fixes
+* [#518](https://github.com/mondaycom/monday-ui-react-core/pull/518) When click on checkbox with shift pressed, shift key is not true in the manual all checkbox events (even if it was true in the original event) ([@hadasfa](https://github.com/hadasfa))
+
+## 1.10.2 (2022-02-07)
+
+#### Bug Fixes
+* [#517](https://github.com/mondaycom/monday-ui-react-core/pull/517) Tabs focus issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Dependency Upgrades
+* [#482](https://github.com/mondaycom/monday-ui-react-core/pull/482)  Add typography variables ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#482](https://github.com/mondaycom/monday-ui-react-core/pull/482)  Add typography variables ([@hadasfa](https://github.com/hadasfa))
+
+## 1.10.1 (2022-02-06)
+
+#### Bug Fixes
+* [#514](https://github.com/mondaycom/monday-ui-react-core/pull/514) fix support on checkbox click while shift is pressed on firefox browser ([@hadasfa](https://github.com/hadasfa))
+
+## 1.10.0 (2022-02-06)
+
+#### Bug Fixes
+* [#516](https://github.com/mondaycom/monday-ui-react-core/pull/516) feat: move dependencies to correct area ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#513](https://github.com/mondaycom/monday-ui-react-core/pull/513) Allow non-monday colors picker ([@laviomri](https://github.com/laviomri))
+* [#512](https://github.com/mondaycom/monday-ui-react-core/pull/512) Disabling activeIndex after a non-keyboard interaction ([@laviomri](https://github.com/laviomri))
+* [#509](https://github.com/mondaycom/monday-ui-react-core/pull/509) ColorPicker - white selected icon, even not on multi selection ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#515](https://github.com/mondaycom/monday-ui-react-core/pull/515) Fix OpenGraph description typo ([@laviomri](https://github.com/laviomri))
+
 ## 1.9.0 (2022-02-02)
 
 #### Bug Fixes

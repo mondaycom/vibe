@@ -7,6 +7,8 @@ import Icon from "../Icon/Icon";
 import Check from "../Icon/Icons/components/Check";
 import Remove from "../Icon/Icons/components/Remove";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
+
 import "./Checkbox.scss";
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
@@ -56,12 +58,15 @@ export const Checkbox = ({
     }
   }, [inputRef, indeterminate]);
 
+  const { onClickCapture: onClickCaptureLabel } = useSupportFirefoxLabelClick({ inputRef });
+
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <label
       className={cx(BASE_CLASS_NAME, overrideClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
       onMouseUp={onMouseUpCallback}
       htmlFor={id}
+      onClickCapture={onClickCaptureLabel}
     >
       <input
         ref={inputRef}
