@@ -6,7 +6,7 @@
 .input-component {
   position: relative;
   box-sizing: border-box;
-  font-family: var(--font-family);
+  font-family: Roboto, sans-serif;
   width: 100%;
 
   & * {
@@ -227,7 +227,7 @@
         outline: none;
 
         .input-component__icon {
-          font-size: var(--font-size-paragraph);
+          font-size: $font-size-paragraph;
         }
 
         &:hover + .input-component__icon--container + .input-component__input {
@@ -251,7 +251,7 @@
         height: 40px;
         width: 40px;
         .input-component__icon {
-          font-size: var(--font-size-paragraph);
+          font-size: $font-size-paragraph;
         }
       }
     }

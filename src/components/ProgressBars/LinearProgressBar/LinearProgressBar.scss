@@ -7,12 +7,12 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  font-family: var(--font-family);
-  font-size: var(--font-size-general-label);
+  font-family: $primary-font;
+  font-size: $font-size-input;
   @include theme-prop(color, secondary-text-color);
 
   .linear-progress-bar__label {
-    padding-left: var(--spacing-xs)
+    padding-left: $spacing-xs;
   }
 
   &__large {

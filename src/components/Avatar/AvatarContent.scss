@@ -3,9 +3,6 @@
 $avatar-icon-large: 28px;
 $avatar-icon-medium: 18px;
 $avatar-icon-small: 12px;
-$font-size-avatar-large: 18px;
-$font-size-avatar-medium: 14px;
-$font-size-avatar-small: 12px;
 
 .monday-style-avatar-content {
   &_img {
@@ -15,9 +12,9 @@ $font-size-avatar-small: 12px;
   }
 
   &_text {
-    font-family: var(--font-family);
-    font-weight: var(--font-weight-normal);
-    line-height: 21px;
+    font-family: $primary-font;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-for-size-18;
     letter-spacing: -0.5px;
     display: flex;
     justify-content: center;
