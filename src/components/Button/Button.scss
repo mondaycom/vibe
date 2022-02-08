@@ -91,14 +91,14 @@
 
     &-xs {
       @include font-input();
-      padding: $spacing-xs $spacing-small;
+      //padding: $spacing-xs $spacing-small;
       height: 24px;
       line-height: 21px;
     }
 
     &-small {
       @include font-input();
-      padding: $spacing-xs $spacing-small;
+      //padding: $spacing-xs $spacing-small;
       height: 32px;
       line-height: 24px;
       .monday-style-button__loader {
@@ -108,13 +108,13 @@
 
     &-medium {
       @include font-paragraph();
-      padding: $spacing-small $spacing-medium;
+      //padding: $spacing-small $spacing-medium;
       height: 40px;
     }
 
     &-large {
       @include font-paragraph();
-      padding: $spacing-small-medium $spacing-large;
+     // padding: $spacing-small-medium $spacing-large;
       height: 48px;
     }
   }
