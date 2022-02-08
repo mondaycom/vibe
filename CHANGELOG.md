@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.11.0 (2022-02-08)
+
+#### New Features
+* [#521](https://github.com/mondaycom/monday-ui-react-core/pull/521) Replace typography source to monday-ui-style font variables ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#522](https://github.com/mondaycom/monday-ui-react-core/pull/522) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.10.4 (2022-02-08)
 
 #### Bug Fixes
