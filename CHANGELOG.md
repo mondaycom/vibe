@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.10.4 (2022-02-08)
+
+#### Bug Fixes
+* [#520](https://github.com/mondaycom/monday-ui-react-core/pull/520) Revert " Add typography variables" ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.10.3 (2022-02-07)
 
 #### Bug Fixes
