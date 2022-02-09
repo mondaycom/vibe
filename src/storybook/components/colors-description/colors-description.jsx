@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { ColorDescription } from "../color-description/color-description";
 import { Frame } from "../frame/frame";
-import { colorsHashMap } from "../../../general-stories/colors/colors-vars-map";
+import { colorsHashMap } from "../../../utils/colors-vars-map";
 
 const colorsWithBorder = new Set([
   "text-color-on-inverted",

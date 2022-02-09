@@ -16,6 +16,8 @@ import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 import "./MenuItem.scss";
 
+const TAB_INDEX_FOCUS_WITH_JS_ONLY = -1;
+
 const MenuItem = forwardRef(
   (
     {
@@ -127,6 +129,12 @@ const MenuItem = forwardRef(
       }
     }, [shouldShowSubMenu, childElement, useDocumentEventListeners]);
 
+    useEffect(() => {
+      if (isActive) {
+        referenceElement?.focus();
+      }
+    }, [isActive, referenceElement]);
+
     const closeSubMenu = useCallback(
       (options = {}) => {
         setSubMenuIsOpenByIndex(index, false);
@@ -221,6 +229,7 @@ const MenuItem = forwardRef(
         aria-current={isActive}
         onMouseLeave={onMouseLeave}
         onMouseEnter={onMouseEnter}
+        tabIndex={TAB_INDEX_FOCUS_WITH_JS_ONLY}
       >
         {renderMenuItemIconIfNeeded()}
 

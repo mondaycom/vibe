@@ -253,8 +253,17 @@ Combobox.iconTypes = ComboboxOption.iconTypes;
 
 Combobox.propTypes = {
   className: PropTypes.string,
+  /**
+   * Placeholder to show when no value was selected
+   */
   placeholder: PropTypes.string,
+  /**
+   * Unique element id
+   */
   id: PropTypes.string,
+  /**
+   * A message that will be displayed inside the combo box when no results are found
+   */
   noResultsMessage: PropTypes.string,
   disabled: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.object),
@@ -264,16 +273,34 @@ Combobox.propTypes = {
   optionsListHeight: PropTypes.number,
   autoFocus: PropTypes.bool,
   onAddNew: PropTypes.func,
+  /**
+   * The label of the button that appears at the end of the combo box when the search does not return appropriate options
+   */
   addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   filter: PropTypes.func,
   disableFilter: PropTypes.bool,
   onFilterChanged: PropTypes.func,
+  /**
+   * Display the combo box with loading state
+   */
   loading: PropTypes.bool,
+  /**
+   * on mouse hover callback for option
+   */
   onOptionHover: PropTypes.func,
+  /**
+   * on mouse leave callback for option
+   */
   onOptionLeave: PropTypes.func,
+  /**
+   * Allowed to the following behavior: scrolling automatically to the combo box's selected option
+   */
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
+  /**
+   * Replace the regular appearance of combo box option with custom renderer.
+   */
   optionRenderer: PropTypes.func
 };
 Combobox.defaultProps = {
@@ -288,7 +315,14 @@ Combobox.defaultProps = {
   optionLineHeight: 32,
   optionsListHeight: undefined,
   autoFocus: false,
+  /**
+   * Callback that called after clicking on the add new combo box button.
+   */
   onAddNew: undefined,
+  /**
+   * The button label appears at the end of the combo box when the search does not return appropriate options.
+   * The button will not be displayed if you have not passed a function for the onAddNew prop
+   */
   addNewLabel: "Add new",
   filter: defaultFilter,
   disableFilter: false,

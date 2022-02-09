@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { ContentColorRow } from "../content-color-row/content-color-row";
-import { contentColorsByName } from "../../../../general-stories/colors/colors-vars-map";
+import { contentColorsByName } from "../../../../utils/colors-vars-map";
 import { Frame } from "../../../components";
 import { ContentColorCell } from "../content-color-cell/content-color-cell";
 import classes from "./content-colors.module.scss";

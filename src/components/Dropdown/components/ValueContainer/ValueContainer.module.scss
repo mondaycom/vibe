@@ -1,6 +1,10 @@
 @import "../../../../styles/themes.scss";
 @import "../../../../styles/typography.scss";
 
+.placeholder-container {
+  margin-left: 6px;
+}
+
 .multiselect-chip-multi-line {
   margin: 2px;
 }
@@ -23,6 +27,10 @@
   flex-grow: 1;
   height: 100%;
   overflow: hidden;
+
+  &.without-placeholder {
+    margin-left: 6px;
+  }
 }
 
 .value-container-dialog-content {

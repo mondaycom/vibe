@@ -1,5 +1,91 @@
 # Changelog
 
+## 1.11.0 (2022-02-08)
+
+#### New Features
+* [#521](https://github.com/mondaycom/monday-ui-react-core/pull/521) Replace typography source to monday-ui-style font variables ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#522](https://github.com/mondaycom/monday-ui-react-core/pull/522) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.10.4 (2022-02-08)
+
+#### Bug Fixes
+* [#520](https://github.com/mondaycom/monday-ui-react-core/pull/520) Revert " Add typography variables" ([@hadasfa](https://github.com/hadasfa))
+
+## 1.10.3 (2022-02-07)
+
+#### Bug Fixes
+* [#518](https://github.com/mondaycom/monday-ui-react-core/pull/518) When click on checkbox with shift pressed, shift key is not true in the manual all checkbox events (even if it was true in the original event) ([@hadasfa](https://github.com/hadasfa))
+
+## 1.10.2 (2022-02-07)
+
+#### Bug Fixes
+* [#517](https://github.com/mondaycom/monday-ui-react-core/pull/517) Tabs focus issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Dependency Upgrades
+* [#482](https://github.com/mondaycom/monday-ui-react-core/pull/482)  Add typography variables ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#482](https://github.com/mondaycom/monday-ui-react-core/pull/482)  Add typography variables ([@hadasfa](https://github.com/hadasfa))
+
+## 1.10.1 (2022-02-06)
+
+#### Bug Fixes
+* [#514](https://github.com/mondaycom/monday-ui-react-core/pull/514) fix support on checkbox click while shift is pressed on firefox browser ([@hadasfa](https://github.com/hadasfa))
+
+## 1.10.0 (2022-02-06)
+
+#### Bug Fixes
+* [#516](https://github.com/mondaycom/monday-ui-react-core/pull/516) feat: move dependencies to correct area ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#513](https://github.com/mondaycom/monday-ui-react-core/pull/513) Allow non-monday colors picker ([@laviomri](https://github.com/laviomri))
+* [#512](https://github.com/mondaycom/monday-ui-react-core/pull/512) Disabling activeIndex after a non-keyboard interaction ([@laviomri](https://github.com/laviomri))
+* [#509](https://github.com/mondaycom/monday-ui-react-core/pull/509) ColorPicker - white selected icon, even not on multi selection ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#515](https://github.com/mondaycom/monday-ui-react-core/pull/515) Fix OpenGraph description typo ([@laviomri](https://github.com/laviomri))
+
+## 1.9.0 (2022-02-02)
+
+#### Bug Fixes
+* [#510](https://github.com/mondaycom/monday-ui-react-core/pull/510) Dropdown with multi - placeholder show condition fix ([@yardenli](https://github.com/yardenli))
+* [#508](https://github.com/mondaycom/monday-ui-react-core/pull/508) Fix selection feedback not showing for single item selection of ColorPicker ([@laviomri](https://github.com/laviomri))
+
+#### New Features
+* [#502](https://github.com/mondaycom/monday-ui-react-core/pull/502) Menu enhancements ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#505](https://github.com/mondaycom/monday-ui-react-core/pull/505) Fix combobox docs ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#511](https://github.com/mondaycom/monday-ui-react-core/pull/511) fix/yarden/dropdown-multi-lint-and-tests-fixes ([@yardenli](https://github.com/yardenli))
+
+## 1.8.4 (2022-02-01)
+
+#### New Icons
+* [#507](https://github.com/mondaycom/monday-ui-react-core/pull/507) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.8.3 (2022-01-31)
+
+#### New Icons
+* [#504](https://github.com/mondaycom/monday-ui-react-core/pull/504) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.8.2 (2022-01-31)
+
+#### Bug Fixes
+* [#503](https://github.com/mondaycom/monday-ui-react-core/pull/503) Fix drop down counter in multi state with single line ([@hadasfa](https://github.com/hadasfa))
+
+## 1.8.1 (2022-01-30)
+
+#### Bug Fixes
+* [#499](https://github.com/mondaycom/monday-ui-react-core/pull/499) Support placeholder in drop down with multi state ([@hadasfa](https://github.com/hadasfa))
+* [#500](https://github.com/mondaycom/monday-ui-react-core/pull/500) Fixed menu item hover ([@laviomri](https://github.com/laviomri))
+
+#### New Icons
+* [#501](https://github.com/mondaycom/monday-ui-react-core/pull/501) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.8.0 (2022-01-27)
 
 #### Bug Fixes
