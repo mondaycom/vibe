@@ -1022,16 +1022,16 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
 
 exports[`Dropdown renders correctly when disabled 1`] = `
 <div
-  className="dropdown-wrapper css-1nusrsy-container"
+  className="dropdown-wrapper css-1gsgnpy-container"
   onKeyDown={[Function]}
 >
   <div
-    className=" css-1otez1o-control"
+    className=" css-ai89z2-control"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
   >
     <div
-      className=" css-6tu5sc-Component"
+      className=" css-fkye4g-Component"
     >
       <div
         className=" css-1dtegfv-placeholder"
@@ -1098,7 +1098,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
       </div>
     </div>
     <div
-      className=" css-1g9lka8-Component"
+      className=" css-slt7ro-Component"
     >
       <span
         className=" css-ds71as-Component"
