@@ -1,15 +1,15 @@
 import React from "react";
 import cx from "classnames";
-import ComponentStateDescription from "../../storybook-helpers/component-state-description/ComponentStateDescription";
 import Tooltip from "../Tooltip";
 import TooltipContent from "./TooltipContent";
 import "./tooltip-story.scss";
 
-const TooltipLineWrapper = ({ title, justify = "center", position = "top", theme = "dark" }) => {
+const SHOW_HIDE_TRIGGER = ["click"];
+
+const TooltipLineWrapper = ({ justify = "center", position = "top", theme = "dark" }) => {
   const isBottom = position.indexOf("bottom") > -1;
   return (
     <div className="width-20">
-      <ComponentStateDescription title={title} full />
       <div style={{ paddingTop: "4px" }} />
       <div style={{ width: "90px", height: "2px" }}>
         <Tooltip
@@ -19,8 +19,8 @@ const TooltipLineWrapper = ({ title, justify = "center", position = "top", theme
           shouldShowOnMount
           theme={theme}
           content={<TooltipContent />}
-          showTrigger={["click"]}
-          hideTrigger={["click"]}
+          showTrigger={SHOW_HIDE_TRIGGER}
+          hideTrigger={SHOW_HIDE_TRIGGER}
         >
           <div
             className={cx("tooltip-empty-element", {

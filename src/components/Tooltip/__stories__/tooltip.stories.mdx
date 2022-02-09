@@ -177,7 +177,7 @@ The definition tooltip provides additional help or defines an item or term. It m
         content="Item name: Bottom sheets"
       >
         <div className="monday-storybook-tooltip_icon-wrapper">
-          <Icon icon={Subitems} /> 
+          <Icon icon={Subitems} />
           <span>Subitem</span>
         </div>
       </Tooltip>
@@ -191,11 +191,13 @@ Immediately show when another is shown. The two left tooltips uses the immediate
   <Story name="Immediate tooltips">
     <div className="monday-storybook-tooltip_box">
       <Tooltip
+        immediateShowDelay={0}
         content="I'm a tooltip"
       >
         <TooltipReference />
       </Tooltip>
       <Tooltip
+        immediateShowDelay={0}
         content="I'm a tooltip"
       >
         <TooltipReference />
