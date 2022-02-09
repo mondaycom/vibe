@@ -48,6 +48,7 @@ const disabledContainerStyle = isDisabled => {
     borderColor: "transparent",
     cursor: "not-allowed",
     ":active, :focus, :hover": {
+      borderColor: "transparent",
       cursor: "not-allowed"
     },
     ":active, :focus": {
