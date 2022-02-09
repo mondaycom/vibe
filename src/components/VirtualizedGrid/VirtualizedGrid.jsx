@@ -8,10 +8,10 @@ import {
   getNormalizedItems,
   getOnItemsRenderedData,
   isVerticalScrollbarVisible
-} from "../../services/virtualized-service";
-import usePrevious from "../../hooks/usePrevious";
-import useThrottledCallback from "../../hooks/useThrottledCallback";
-import useMergeRefs from "../../hooks/useMergeRefs";
+} from "services/virtualized-service";
+import usePrevious from "hooks/usePrevious";
+import useThrottledCallback from "hooks/useThrottledCallback";
+import useMergeRefs from "hooks/useMergeRefs";
 import "./VirtualizedGrid.scss";
 
 const VirtualizedGrid = forwardRef(
