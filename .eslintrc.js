@@ -15,6 +15,9 @@ module.exports = {
   settings: {
     jest: {
       version: 27
+    },
+    react: {
+      version: "detect"
     }
   },
   extends: ["plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"],
