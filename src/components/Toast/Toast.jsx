@@ -3,14 +3,14 @@ import React, { useMemo, useCallback, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { CSSTransition } from "react-transition-group";
-import Button from "../Button/Button";
+import Button from "components/Button/Button";
+import Icon from "components/Icon/Icon";
+import Check from "components/Icon/Icons/components/Check";
+import Alert from "components/Icon/Icons/components/Alert";
+import Info from "components/Icon/Icons/components/Info";
+import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
-import Icon from "../Icon/Icon";
-import Check from "../Icon/Icons/components/Check";
-import Alert from "../Icon/Icons/components/Alert";
-import Info from "../Icon/Icons/components/Info";
-import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { TOAST_TYPES, TOAST_ACTION_TYPES } from "./ToastConstants";
 import "./Toast.scss";
 
@@ -53,14 +53,18 @@ const Toast = ({
     return actions
       ? actions
           .filter(action => action.type === TOAST_ACTION_TYPES.LINK)
-          .map(({ type: _type, ...otherProps }) => <ToastLink {...otherProps} />)
+          .map(({ type: _type, ...otherProps }) => <ToastLink key={otherProps.href} {...otherProps} />)
       : null;
   }, [actions]);
   const toastButtons = useMemo(() => {
     return actions
       ? actions
           .filter(action => action.type === TOAST_ACTION_TYPES.BUTTON)
-          .map(({ type: _type, content, ...otherProps }) => <ToastButton {...otherProps}> {content} </ToastButton>)
+          .map(({ type: _type, content, ...otherProps }, index) => (
+            <ToastButton key={`alert-button-${index}`} {...otherProps}>
+              {content}
+            </ToastButton>
+          ))
       : null;
   }, [actions]);
   const classNames = useMemo(

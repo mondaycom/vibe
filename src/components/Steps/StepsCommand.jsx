@@ -1,6 +1,12 @@
 import React, { useCallback, useMemo } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
+import NavigationChevronRight from "components/Icon/Icons/components/NavigationChevronRight";
+import NavigationChevronLeft from "components/Icon/Icons/components/NavigationChevronLeft";
+import { BEMClass } from "helpers/bem-helper";
+import Icon from "components/Icon/Icon";
+import Button from "components/Button/Button";
+import { NOOP } from "utils/function-utils";
 import {
   NEXT_DESCRIPTION,
   BACK_DESCRIPTION,
@@ -8,12 +14,6 @@ import {
   BACK_COMMAND_TEST_ID,
   NEXT_COMMAND_TEST_ID
 } from "./StepsConstants";
-import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRight";
-import NavigationChevronLeft from "../Icon/Icons/components/NavigationChevronLeft";
-import { BEMClass } from "../../helpers/bem-helper";
-import Icon from "../Icon/Icon";
-import Button from "../Button/Button";
-import { NOOP } from "../../utils/function-utils";
 
 const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-command`;
 const bemHelper = BEMClass(CSS_BASE_CLASS);

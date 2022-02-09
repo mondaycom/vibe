@@ -3,10 +3,10 @@ import React, { useRef, forwardRef } from "react";
 import NOOP from "lodash/noop";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRefs from "hooks/useMergeRefs";
+import { BEMClass } from "helpers/bem-helper";
+import { useKeyboardButtonPressedFunc } from "hooks/useKeyboardButtonPressedFunc";
 import "./Clickable.scss";
-import { BEMClass } from "../../helpers/bem-helper";
-import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
 
 const CSS_BASE_CLASS = "monday-style-clickable";
 const bemHelper = BEMClass(CSS_BASE_CLASS);

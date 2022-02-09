@@ -1,13 +1,13 @@
 import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import Button from "../Button/Button";
-import usePrevious from "../../hooks/usePrevious";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import Button from "components/Button/Button";
+import usePrevious from "hooks/usePrevious";
+import useMergeRefs from "hooks/useMergeRefs";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { baseClassName } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import "./ButtonGroup.scss";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const ButtonGroup = forwardRef(
   (

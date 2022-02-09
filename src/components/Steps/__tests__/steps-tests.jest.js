@@ -6,7 +6,14 @@ import { NEXT_DESCRIPTION, BACK_DESCRIPTION } from "../StepsConstants";
 
 jest.useFakeTimers();
 
-const stepsContent = [<div data-testid="first-step">first</div>, <div data-testid="second-step">second</div>];
+const stepsContent = [
+  <div key="first" data-testid="first-step">
+    first
+  </div>,
+  <div key="second" data-testid="second-step">
+    second
+  </div>
+];
 const renderComponent = props => {
   return render(<Steps steps={stepsContent} {...props} />);
 };

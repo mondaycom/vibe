@@ -1,10 +1,10 @@
+import { BASE_POSITIONS } from "constants/positions";
 import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRefs from "hooks/useMergeRefs";
+import Clickable from "components/Clickable/Clickable";
 import { FLEX_POSITIONS, FLEX_GAPS, FLEX_DIRECTIONS } from "./FlexConstants";
-import { BASE_POSITIONS } from "../../constants/positions";
-import Clickable from "../Clickable/Clickable";
 import classes from "./Flex.module.scss";
 
 const Flex = forwardRef(

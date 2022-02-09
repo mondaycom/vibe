@@ -1,12 +1,12 @@
 import cx from "classnames";
 import PropTypes from "prop-types";
-import { BEMClass } from "../../helpers/bem-helper";
-import { NOOP } from "../../utils/function-utils";
-import Button from "../Button/Button";
+import { BEMClass } from "helpers/bem-helper";
+import { NOOP } from "utils/function-utils";
+import Button from "components/Button/Button";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
 import "./TipseenContent.scss";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-content";
 const bemHelper = BEMClass(BASE_CSS_CLASS);

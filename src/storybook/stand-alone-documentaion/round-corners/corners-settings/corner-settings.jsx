@@ -8,7 +8,11 @@ const CornersSettings = ({ children, title, bullets, value }) => {
       <div className="global-settings-list">
         <div className="global-settings-list-header">{title}</div>
         {bullets.map(bullet => {
-          return <div className="global-settings-list-item">{bullet}</div>;
+          return (
+            <div key={bullet} className="global-settings-list-item">
+              {bullet}
+            </div>
+          );
         })}
       </div>
       {value && <div className="global-settings-general-component-value">{value}</div>}

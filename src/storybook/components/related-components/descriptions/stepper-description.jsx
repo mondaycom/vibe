@@ -7,7 +7,13 @@ export const StepperDescription = () => {
     const style = {
       marginLeft: "-10px"
     };
-    const steps = [<div />, <div />, <div />, <div />, <div />];
+    const steps = [
+      <div key="step-1" />,
+      <div key="step-2" />,
+      <div key="step-3" />,
+      <div key="step-4" />,
+      <div key="step-5" />
+    ];
     return (
       <div style={style}>
         <Steps steps={steps} activeStepIndex={2} />

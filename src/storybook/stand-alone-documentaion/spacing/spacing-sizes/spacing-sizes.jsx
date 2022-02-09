@@ -1,5 +1,5 @@
-import SpacingComponent from "./spacing-component/spacing-component";
 import { Frame } from "../../../components";
+import SpacingComponent from "./spacing-component/spacing-component";
 import "./spacing-sizes.scss";
 
 export const SpacingSizes = () => (
