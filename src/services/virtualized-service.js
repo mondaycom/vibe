@@ -62,6 +62,10 @@ export const isVerticalScrollbarVisible = (items, normalizedItems, idGetter, com
   return isVisible;
 };
 
+function isEmptyObject(obj) {
+  return obj === EMPTY_OBJECT;
+}
+
 export const getOnItemsRenderedData = (
   items,
   normalizedItems,
@@ -74,9 +78,11 @@ export const getOnItemsRenderedData = (
   const firstVisibleItem = items[visibleStartIndex] || EMPTY_OBJECT;
   const secondVisibleItem = items[visibleStartIndex + 1] || EMPTY_OBJECT;
   const lastVisibleItem = items[visibleStopIndex] || EMPTY_OBJECT;
-  const firstItemId = idGetter(firstVisibleItem, visibleStartIndex);
-  const secondItemId = idGetter(secondVisibleItem, visibleStartIndex + 1);
-  const lastItemId = idGetter(lastVisibleItem, visibleStopIndex);
+  const firstItemId = isEmptyObject(firstVisibleItem) ? undefined : idGetter(firstVisibleItem, visibleStartIndex);
+  const secondItemId = isEmptyObject(secondVisibleItem)
+    ? undefined
+    : idGetter(secondVisibleItem, visibleStartIndex + 1);
+  const lastItemId = isEmptyObject(lastVisibleItem) ? undefined : idGetter(lastVisibleItem, visibleStopIndex);
   const centerOffset = currentOffsetTop + componentHeight / 2;
   const { offsetTop: firstItemOffsetTop, height: firstItemHeight } = normalizedItems[firstItemId] || EMPTY_OBJECT;
   const firstItemOffsetEnd = firstItemOffsetTop + firstItemHeight;
