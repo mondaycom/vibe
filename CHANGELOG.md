@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.12.0 (2022-02-13)
+
+#### New Features
+* [#529](https://github.com/mondaycom/monday-ui-react-core/pull/529) Add virtualized list ref ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.11.2 (2022-02-13)
 
 #### Dependency Upgrades
