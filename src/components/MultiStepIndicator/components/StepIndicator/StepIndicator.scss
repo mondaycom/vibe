@@ -3,7 +3,7 @@
 
 .monday-style-step-indicator-component {
   @include theme-prop(color, text-color-on-primary);
-  font-size: $font-size-input;
+  font-size: var(--font-size-general-label);
   display: flex;
   margin: 0;
   padding: 0;
@@ -30,7 +30,7 @@
 
     &__subtitle__text {
       width: 100%;
-      font-size: $font-size-default;
+      font-size: var(--font-size-general-label);
       @include theme-prop(color, disabled-text-color);
     }
   }

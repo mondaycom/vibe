@@ -148,9 +148,7 @@ exports[`Toast renders correctly with button 1`] = `
       onMouseUp={[Function]}
       type="button"
     >
-       
       Undo 5
-       
     </button>
   </div>
   <button
@@ -246,9 +244,7 @@ exports[`Toast renders correctly with button and link 1`] = `
       onMouseUp={[Function]}
       type="button"
     >
-       
       Undo 5
-       
     </button>
   </div>
   <button

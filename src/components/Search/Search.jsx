@@ -1,13 +1,13 @@
+import { SIZES } from "constants/sizes";
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import "./Search.scss";
-import SearchIcon from "../Icon/Icons/components/Search";
-import CloseIcon from "../Icon/Icons/components/CloseSmall";
-import TextField from "../TextField/TextField";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import SearchIcon from "components/Icon/Icons/components/Search";
+import CloseIcon from "components/Icon/Icons/components/CloseSmall";
+import TextField from "components/TextField/TextField";
+import useMergeRefs from "hooks/useMergeRefs";
 import { TYPES } from "./SearchConstats";
-import { SIZES } from "../../constants/sizes";
+import "./Search.scss";
 
 const NOOP = () => {};
 

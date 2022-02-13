@@ -33,12 +33,16 @@ const Tab = forwardRef(
 
       return [...children, iconElement];
     }
-
     return (
       <li
         ref={mergedRef}
         key={id}
-        className={cx("tab--wrapper", className, { active, disabled, "focus-visible": focus })}
+        className={cx("tab--wrapper", className, {
+          active,
+          disabled,
+          "focus-visible": focus,
+          "tab-focus-visible-inset": focus
+        })}
         id={id}
         role="tab"
         aria-selected={active}

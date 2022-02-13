@@ -134,6 +134,7 @@ export {default as MoreBelow} from './components/MoreBelow';
 export {default as MoreBelowFilled} from './components/MoreBelowFilled';
 export {default as MoveArrowDown} from './components/MoveArrowDown';
 export {default as MoveArrowLeft} from './components/MoveArrowLeft';
+export {default as MoveArrowLeftDouble} from './components/MoveArrowLeftDouble';
 export {default as MoveArrowRight} from './components/MoveArrowRight';
 export {default as MoveArrowUp} from './components/MoveArrowUp';
 export {default as Mute} from './components/Mute';

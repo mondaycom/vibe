@@ -1,7 +1,7 @@
 import "@storybook/addon-docs/register";
 import "@storybook/addon-actions/register";
 import "@storybook/addon-links/register";
-import { create } from "@storybook/theming/create";
+import { create } from "@storybook/theming";
 import { addons } from "@storybook/addons";
 import logo from "./logo.png";
 

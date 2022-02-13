@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
+import { BEMClass } from "helpers/bem-helper";
+import CustomSvgIcon from "components/Icon/CustomSvgIcon";
 import { AVATAR_SIZES } from "./AvatarConstants";
 import "./AvatarBadge.scss";
-import CustomSvgIcon from "../Icon/CustomSvgIcon";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar-badge";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);

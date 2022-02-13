@@ -2,13 +2,13 @@ import React, { useMemo } from "react";
 import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
+import { BEMClass } from "helpers/bem-helper";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
+import { getElementColor, elementColorsNames } from "utils/colors-vars-map";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
-import { getElementColor, elementColorsNames } from "../../general-stories/colors/colors-vars-map";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import "./Avatar.scss";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);

@@ -5,6 +5,7 @@ import { iconsMetaData } from "monday-ui-style/src/Icons/iconsMetaData";
 import * as AllIcons from "../../components/Icon/Icons";
 
 export function createComponentTemplate(ComponentClass) {
+  // eslint-disable-next-line react/display-name
   return args => <ComponentClass {...args} />;
 }
 

@@ -5,9 +5,9 @@ import classes from "./shadow-description.module.scss";
 export const ShadowDescription = () => {
   const component = useMemo(() => {
     return [
-      <div className={classes["small-shadow"]} />,
-      <div className={classes["medium-shadow"]} />,
-      <div className={classes["large-shadow"]} />
+      <div key="small" className={classes["small-shadow"]} />,
+      <div key="md" className={classes["medium-shadow"]} />,
+      <div key="large" className={classes["large-shadow"]} />
     ];
   }, []);
   return (

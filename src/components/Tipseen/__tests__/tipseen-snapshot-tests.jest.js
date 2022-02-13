@@ -6,9 +6,9 @@ import TipseenImage from "../TipseenImage";
 import TipseenWizard from "../TipseenWizard";
 
 const steps = [
-  <div>Popover message will appear here loremipsum dolor samet…</div>,
-  <div>Popover message will appear here loremipsum dolor samet…</div>,
-  <div>Popover message will appear here loremipsum dolor samet…</div>
+  <div key="step-1">Popover message will appear here loremipsum dolor samet…</div>,
+  <div key="step-2">Popover message will appear here loremipsum dolor samet…</div>,
+  <div key="step-3">Popover message will appear here loremipsum dolor samet…</div>
 ];
 
 jest.mock("react-transition-group", () => {

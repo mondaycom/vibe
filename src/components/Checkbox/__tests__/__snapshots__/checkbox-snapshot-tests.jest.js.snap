@@ -3,6 +3,7 @@
 exports[`Checkbox renders correctly when checked 1`] = `
 <label
   className="monday-style-checkbox"
+  onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
@@ -43,6 +44,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
 exports[`Checkbox renders correctly when default checked 1`] = `
 <label
   className="monday-style-checkbox"
+  onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
@@ -83,6 +85,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
 exports[`Checkbox renders correctly when disabled 1`] = `
 <label
   className="monday-style-checkbox monday-style-checkbox__disabled"
+  onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
@@ -123,6 +126,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
 exports[`Checkbox renders correctly when interminate 1`] = `
 <label
   className="monday-style-checkbox"
+  onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
@@ -163,6 +167,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
 exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
 <label
   className="monday-style-checkbox"
+  onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
@@ -204,6 +209,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
 exports[`Checkbox renders correctly with empty props 1`] = `
 <label
   className="monday-style-checkbox"
+  onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
@@ -244,6 +250,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
 exports[`Checkbox renders correctly with name 1`] = `
 <label
   className="monday-style-checkbox"
+  onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
@@ -284,6 +291,7 @@ exports[`Checkbox renders correctly with name 1`] = `
 exports[`Checkbox renders correctly with props 1`] = `
 <label
   className="monday-style-checkbox dummy-class-name"
+  onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input
@@ -327,6 +335,7 @@ exports[`Checkbox renders correctly with props 1`] = `
 exports[`Checkbox renders correctly with value 1`] = `
 <label
   className="monday-style-checkbox"
+  onClickCapture={[Function]}
   onMouseUp={[Function]}
 >
   <input

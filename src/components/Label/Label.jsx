@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import "./Label.scss";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { LABEL_COLORS, LABEL_TYPES } from "./LabelConstants";
 import Leg from "./Leg";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import "./Label.scss";
 
 const Label = ({
   // Backward compatibility for enum naming

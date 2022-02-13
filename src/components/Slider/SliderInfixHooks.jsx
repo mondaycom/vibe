@@ -1,7 +1,7 @@
 import React from "react";
+import Icon from "components/Icon/Icon";
 import { INFIX_KIND } from "./SliderConstants";
 import { useSliderInfix, useSliderSelection } from "./SliderContext";
-import Icon from "../Icon/Icon";
 import SelectionIndicator from "./SelectionIndicator";
 
 const defaultIconProps = {
@@ -17,12 +17,12 @@ export function useSliderInfixComponent(kind) {
 
   const isPostfix = kind === INFIX_KIND.POSTFIX;
   if (indicateSelection && (isPostfix || ranged)) {
-    return [true, [], <SelectionIndicator kind={kind} />, { width: selectionIndicatorWidth }];
+    return [true, [], <SelectionIndicator key={kind} kind={kind} />, { width: selectionIndicatorWidth }];
   }
   if (typeof infix === "object" && infix.icon) {
     const { icon, ...restIconProps } = infix;
     const iconProps = { ...defaultIconProps, ...restIconProps };
-    return [true, [], <Icon icon={icon} {...iconProps} />, {}];
+    return [true, [], <Icon key="infix-icon" icon={icon} {...iconProps} />, {}];
   }
   if (typeof infix === "function") {
     return [true, [], infix(value, valueText), {}];

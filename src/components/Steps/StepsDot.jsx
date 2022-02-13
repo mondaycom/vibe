@@ -1,8 +1,8 @@
 import cx from "classnames";
 import NOOP from "lodash/noop";
 import PropTypes from "prop-types";
+import { BEMClass } from "helpers/bem-helper";
 import { STEPS_CSS_BASE_CLASS } from "./StepsConstants";
-import { BEMClass } from "../../helpers/bem-helper";
 
 const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-header`;
 const bemHelper = BEMClass(CSS_BASE_CLASS);

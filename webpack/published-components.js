@@ -67,6 +67,7 @@ const publishedComponents = {
   Button: "components/Button/Button.jsx",
   Loader: "components/Loader/Loader.jsx",
   Icon: "components/Icon/Icon.jsx",
+  Flex: "components/Flex/Flex.jsx",
   CustomSvgIcon: "components/Icon/CustomSvgIcon.jsx",
   FormattedNumber: "components/FormattedNumber/FormattedNumber.jsx",
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
@@ -82,6 +83,7 @@ const publishedComponents = {
   Skeleton: "components/Skeleton/Skeleton.jsx",
   Avatar: "components/Avatar/Avatar.jsx",
   IconButton: "components/IconButton/IconButton.jsx",
+  Slider: "components/Slider/Slider.jsx",
   // hooks
   useKeyEvent: "hooks/useKeyEvent/index.js",
   useEventListener: "hooks/useEventListener/index.js",
