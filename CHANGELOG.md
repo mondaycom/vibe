@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.11.1 (2022-02-13)
+
+#### Bug Fixes
+* [#523](https://github.com/mondaycom/monday-ui-react-core/pull/523) Fix icon button and drop down stories ([@hadasfa](https://github.com/hadasfa))
+* [#498](https://github.com/mondaycom/monday-ui-react-core/pull/498) fix: lint fixes ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Dependency Upgrades
+* [#525](https://github.com/mondaycom/monday-ui-react-core/pull/525) Change design system Hebrew font to rubik ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.11.0 (2022-02-08)
 
 #### New Features
