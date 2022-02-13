@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.2 (2022-02-13)
+
+#### Dependency Upgrades
+* [#527](https://github.com/mondaycom/monday-ui-react-core/pull/527) Upgrade monday-ui-style ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.11.1 (2022-02-13)
 
 #### Bug Fixes
