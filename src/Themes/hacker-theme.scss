@@ -77,6 +77,7 @@ $primary_color: #fe78c6;
   --color-done-green: #33d391;
   --color-done-green-hover: #0f9b63;
   --color-done-green-selected: #096c43;
+  --color-done-green-selected-with-opacity: rgba(9, 108, 67, 0.6);
 
   // Bright Green
   --color-bright-green: #b0dc51;
@@ -112,6 +113,7 @@ $primary_color: #fe78c6;
   --color-sunset: #ff9191;
   --color-sunset-hover: #c26163;
   --color-sunset-selected: #884343;
+  --color-sunset-selected-with-opacity: rgba(136, 67, 67, 0.6);
 
   // Stuck red
   --color-stuck-red: #e8697d;
