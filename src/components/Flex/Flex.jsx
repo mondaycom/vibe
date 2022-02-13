@@ -8,7 +8,10 @@ import { FLEX_POSITIONS, FLEX_GAPS, FLEX_DIRECTIONS } from "./FlexConstants";
 import classes from "./Flex.module.scss";
 
 const Flex = forwardRef(
-  ({ className, id, elementType, direction, wrap, children, justify, align, gap, onClick, style }, ref) => {
+  (
+    { className, id, elementType, direction, wrap, children, justify, align, gap, onClick, style, ariaLabelledby },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
@@ -17,6 +20,7 @@ const Flex = forwardRef(
     return (
       <Element
         id={id}
+        ariaLabelledby={ariaLabelledby}
         // in case the element is clickable, we will pass the real element type in this prop
         elementType={elementType}
         ref={mergedRef}
