@@ -156,9 +156,14 @@ When having a lot of options, you may use headings to categorize them.
         workspace: { id: "Workspaces", label: "Workspaces" }
       }), []);
       return (
+      <div className="combobox-stories-styles_row">
         <DialogContentContainer>
           <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
         </DialogContentContainer>
+        <DialogContentContainer>
+          <Combobox options={options} categories={categories} categoriesDivider placeholder="Placeholder text here" />
+        </DialogContentContainer>
+      </div>
       )
     }}
   </Story>

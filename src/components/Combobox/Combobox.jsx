@@ -27,6 +27,7 @@ const Combobox = forwardRef(
       disabled,
       options,
       categories,
+      categoriesDivider,
       noResultsMessage,
       onAddNew,
       addNewLabel,
@@ -93,10 +94,10 @@ const Combobox = forwardRef(
         const optionsByCategories = getOptionsByCategories(filterdOptions, categories, filterValue);
 
         let index = 0;
-        return Object.keys(optionsByCategories).map(categoryId => {
+        return Object.keys(optionsByCategories).map((categoryId, categoryIndex) => {
           return (
             <div role="group" aria-labelledby={`combox-category-${categoryId}`} key={categoryId}>
-              <ComboboxCategory category={categories[categoryId]} />
+              <ComboboxCategory category={categories[categoryId]} divider={categoriesDivider && categoryIndex !== 0} />
               {optionsByCategories[categoryId].map(option => {
                 const renderedOption = (
                   <ComboboxOption
@@ -268,6 +269,10 @@ Combobox.propTypes = {
   disabled: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.object),
   categories: PropTypes.object,
+  /**
+   * Divider between categories sections
+   */
+  categoriesDivider: PropTypes.bool,
   size: PropTypes.oneOf([Combobox.sizes.SMALL, Combobox.sizes.MEDIUM, Combobox.sizes.LARGE]),
   optionLineHeight: PropTypes.number,
   optionsListHeight: PropTypes.number,
@@ -311,6 +316,7 @@ Combobox.defaultProps = {
   disabled: false,
   options: [],
   categories: undefined,
+  categoriesDivider: false,
   size: Combobox.sizes.MEDIUM,
   optionLineHeight: 32,
   optionsListHeight: undefined,
