@@ -1,22 +1,20 @@
 import Tooltip from "../Tooltip";
 import TooltipReference from "./TooltipReference";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { Hide, Subitems, Bolt } from "../../Icon/Icons"
-import Icon from "../../Icon/Icon.jsx"
+import { Hide, Subitems, Bolt } from "../../Icon/Icons";
+import Icon from "../../Icon/Icon.jsx";
 import Button from "../../Button/Button";
 import { modifiers } from "./helper";
 import { Link } from "../../../storybook/components";
 import { CHIP, LABEL, TIPSEEN } from "../../../storybook/components/related-components/component-description-map";
-import "./tooltip.stories.scss"; import {TOOLTIP_THEMES} from "components/Tooltip/TooltipConstants";
+import { TOOLTIP_THEMES } from "components/Tooltip/TooltipConstants";
+import "./tooltip.stories.scss";
 
-<Meta
-  title="Popover/Tooltip"
-  component={ Tooltip }
-/>
+<Meta title="Popover/Tooltip" component={Tooltip} />
 
 <!--- Component template -->
 
-export const tooltipTemplate = (args) => {
+export const tooltipTemplate = args => {
   return (
     <div className="monday-storybook-tooltip_overview">
       <Tooltip
@@ -28,12 +26,13 @@ export const tooltipTemplate = (args) => {
         <div />
       </Tooltip>
     </div>
-  )
-}
+  );
+};
 
 <!--- Component documentation -->
 
 # Tooltip
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -45,31 +44,46 @@ export const tooltipTemplate = (args) => {
 - [Feedback](#feedback)
 
 ## Overview
+
 Tooltips show contextual help or information about specific components when a user hovers on them.
+
 <Canvas>
-  <Story name="Overview"
-         args={ {shouldShowOnMount: true, content: "I’m a tooltip"} }>
-    { tooltipTemplate.bind({}) }
+  <Story name="Overview" args={{ shouldShowOnMount: true, content: "I’m a tooltip" }}>
+    {tooltipTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Tooltip } />
+
+<ArgsTable of={Tooltip} />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Should never contain critical information that a user would absolutely need to proceed.",
-  "Use when the description content would be too much information to include inline or create too much clutter. For example, when expert users have seen it many times.",
-]}/>
 
-<Tip>As tooltips only surface from a hover, never include links or buttons in the copy. If your tooltip requires either of these, considers putting your content in a
-  <Link href="/?path=/docs/popover-tipseen--overview" size={Link.sizes.SMALL} withoutSpacing>Tipseen</Link> or
-   <Link href="/?path=/docs/feedback-attentionbox--overview" size={Link.sizes.SMALL}>Attention box.</Link>
+<UsageGuidelines
+  guidelines={[
+    "Should never contain critical information that a user would absolutely need to proceed.",
+    "Use when the description content would be too much information to include inline or create too much clutter. For example, when expert users have seen it many times."
+  ]}
+/>
+
+<Tip>
+  As tooltips only surface from a hover, never include links or buttons in the copy. If your tooltip requires either of
+  these, considers putting your content in a
+  <Link href="/?path=/docs/popover-tipseen--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Tipseen
+  </Link>{" "}
+  or
+  <Link href="/?path=/docs/feedback-attentionbox--overview" size={Link.sizes.SMALL}>
+    Attention box.
+  </Link>
 </Tip>
 
 ## Variants
+
 ### Positions
+
 Tooltip’s arrow can appear from top, bottom, left or right.
+
 <Canvas>
   <Story name="Positions">
     <div className="monday-storybook-tooltip_top">
@@ -127,159 +141,163 @@ Tooltip’s arrow can appear from top, bottom, left or right.
 </Canvas>
 
 ### Themes
+
 Tooltip’s arrow can appear from top, bottom, left or right.
+
 <Canvas>
-    <Story name="Themes">
-        <div className="monday-storybook-tooltip_top">
-            <Tooltip
-                modifiers={modifiers}
-                content="Dark"
-                shouldShowOnMount
-                position={Tooltip.positions.BOTTOM}
-                animationType="expand"
-                theme={TOOLTIP_THEMES.Dark}
-            >
-                <div />
-            </Tooltip>
-        </div>
-        <div className="monday-storybook-tooltip_top">
-            <Tooltip
-                modifiers={modifiers}
-                content="Success"
-                shouldShowOnMount
-                position={Tooltip.positions.BOTTOM}
-                animationType="expand"
-                theme={TOOLTIP_THEMES.Success}
-            >
-                <div />
-            </Tooltip>
-        </div>
-        <div className="monday-storybook-tooltip_top">
-            <Tooltip
-                modifiers={modifiers}
-                content="Error"
-                shouldShowOnMount
-                position={Tooltip.positions.BOTTOM}
-                animationType="expand"
-                theme={TOOLTIP_THEMES.Error}
-            >
-                <div />
-            </Tooltip>
-        </div>
-        <div className="monday-storybook-tooltip_top">
-            <Tooltip
-                modifiers={modifiers}
-                content="Share"
-                shouldShowOnMount
-                position={Tooltip.positions.BOTTOM}
-                animationType="expand"
-                theme={TOOLTIP_THEMES.Share}
-            >
-                <div />
-            </Tooltip>
-        </div>
-        <div className="monday-storybook-tooltip_top">
-            <Tooltip
-                modifiers={modifiers}
-                content="Private"
-                shouldShowOnMount
-                position={Tooltip.positions.BOTTOM}
-                animationType="expand"
-                theme={TOOLTIP_THEMES.Private}
-            >
-                <div />
-            </Tooltip>
-        </div>
-        <div className="monday-storybook-tooltip_top">
-            <Tooltip
-                modifiers={modifiers}
-                content="Surface"
-                shouldShowOnMount
-                position={Tooltip.positions.BOTTOM}
-                animationType="expand"
-                theme={TOOLTIP_THEMES.Surface}
-            >
-                <div />
-            </Tooltip>
-        </div>
-        <div className="monday-storybook-tooltip_top">
-            <Tooltip
-                modifiers={modifiers}
-                content="Primary"
-                shouldShowOnMount
-                position={Tooltip.positions.BOTTOM}
-                animationType="expand"
-                theme={TOOLTIP_THEMES.Primary}
-            >
-                <div />
-            </Tooltip>
-        </div>
-        <div className="monday-storybook-tooltip_top">
-            <Tooltip
-                modifiers={modifiers}
-                content="White"
-                shouldShowOnMount
-                position={Tooltip.positions.BOTTOM}
-                animationType="expand"
-                theme={TOOLTIP_THEMES.White}
-            >
-                <div />
-            </Tooltip>
-        </div>
-    </Story>
+  <Story name="Themes">
+    <div className="monday-storybook-tooltip_top">
+      <Tooltip
+        modifiers={modifiers}
+        content="Dark"
+        shouldShowOnMount
+        position={Tooltip.positions.BOTTOM}
+        animationType="expand"
+        theme={TOOLTIP_THEMES.Dark}
+      >
+        <div />
+      </Tooltip>
+    </div>
+    <div className="monday-storybook-tooltip_top">
+      <Tooltip
+        modifiers={modifiers}
+        content="Success"
+        shouldShowOnMount
+        position={Tooltip.positions.BOTTOM}
+        animationType="expand"
+        theme={TOOLTIP_THEMES.Success}
+      >
+        <div />
+      </Tooltip>
+    </div>
+    <div className="monday-storybook-tooltip_top">
+      <Tooltip
+        modifiers={modifiers}
+        content="Error"
+        shouldShowOnMount
+        position={Tooltip.positions.BOTTOM}
+        animationType="expand"
+        theme={TOOLTIP_THEMES.Error}
+      >
+        <div />
+      </Tooltip>
+    </div>
+    <div className="monday-storybook-tooltip_top">
+      <Tooltip
+        modifiers={modifiers}
+        content="Share"
+        shouldShowOnMount
+        position={Tooltip.positions.BOTTOM}
+        animationType="expand"
+        theme={TOOLTIP_THEMES.Share}
+      >
+        <div />
+      </Tooltip>
+    </div>
+    <div className="monday-storybook-tooltip_top">
+      <Tooltip
+        modifiers={modifiers}
+        content="Private"
+        shouldShowOnMount
+        position={Tooltip.positions.BOTTOM}
+        animationType="expand"
+        theme={TOOLTIP_THEMES.Private}
+      >
+        <div />
+      </Tooltip>
+    </div>
+    <div className="monday-storybook-tooltip_top">
+      <Tooltip
+        modifiers={modifiers}
+        content="Surface"
+        shouldShowOnMount
+        position={Tooltip.positions.BOTTOM}
+        animationType="expand"
+        theme={TOOLTIP_THEMES.Surface}
+      >
+        <div />
+      </Tooltip>
+    </div>
+    <div className="monday-storybook-tooltip_top">
+      <Tooltip
+        modifiers={modifiers}
+        content="Primary"
+        shouldShowOnMount
+        position={Tooltip.positions.BOTTOM}
+        animationType="expand"
+        theme={TOOLTIP_THEMES.Primary}
+      >
+        <div />
+      </Tooltip>
+    </div>
+    <div className="monday-storybook-tooltip_top">
+      <Tooltip
+        modifiers={modifiers}
+        content="White"
+        shouldShowOnMount
+        position={Tooltip.positions.BOTTOM}
+        animationType="expand"
+        theme={TOOLTIP_THEMES.White}
+      >
+        <div />
+      </Tooltip>
+    </div>
+  </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component:
-        <Tooltip
-          shouldShowOnMount
-          content="Open quick search  + B"
-        >
-          <div className="monday-storybook-tooltip_icon-box"><Icon icon={Bolt} iconSize="32" /></div>
-        </Tooltip>,
-        description:"Use tooltips for adding alternative textual purpose for buttons which do not include any text."
+        component: (
+          <Tooltip shouldShowOnMount content="Open quick search  + B">
+            <div className="monday-storybook-tooltip_icon-box">
+              <Icon icon={Bolt} iconSize="32" />
+            </div>
+          </Tooltip>
+        ),
+        description: "Use tooltips for adding alternative textual purpose for buttons which do not include any text."
       },
       negative: {
-        component:
-        <Tooltip
-          shouldShowOnMount
-          content="Open quick search  + B"
-        >
-          <Button>Quick search</Button>
-        </Tooltip>,
-        description:"Don't use a tooltip to display information already written on the button text."
+        component: (
+          <Tooltip shouldShowOnMount content="Open quick search  + B">
+            <Button>Quick search</Button>
+          </Tooltip>
+        ),
+        description: "Don't use a tooltip to display information already written on the button text."
       }
     }
   ]}
 />
 
 ## Use cases and examples
+
 ### Icon tooltip
+
 An icon tooltip is used to clarify the action or name of an interactive icon button. Provide tooltips for all unlabelled icons.
+
 <Canvas>
   <Story name="Icon tooltip">
     <div className="monday-storybook-tooltip_box">
-      <Tooltip
-        content="Hidden columns"
-      >
-        <div className="monday-storybook-tooltip_icon-wrapper"><Icon icon={Hide} /></div>
+      <Tooltip content="Hidden columns">
+        <div className="monday-storybook-tooltip_icon-wrapper">
+          <Icon icon={Hide} />
+        </div>
       </Tooltip>
     </div>
   </Story>
 </Canvas>
 
 ### Definition tooltip
+
 The definition tooltip provides additional help or defines an item or term. It may be used on the label of a UI element, or on a word embedded in a paragraph.
+
 <Canvas>
   <Story name="Definition tooltip">
     <div className="monday-storybook-tooltip_box">
-      <Tooltip
-        content="Item name: Bottom sheets"
-      >
+      <Tooltip content="Item name: Bottom sheets">
         <div className="monday-storybook-tooltip_icon-wrapper">
           <Icon icon={Subitems} />
           <span>Subitem</span>
@@ -290,25 +308,19 @@ The definition tooltip provides additional help or defines an item or term. It m
 </Canvas>
 
 ### Immediate tooltips
+
 Immediately show when another is shown. The two left tooltips uses the immediate show prop, the right one ignores it and should always have show delay.
+
 <Canvas>
   <Story name="Immediate tooltips">
     <div className="monday-storybook-tooltip_box">
-      <Tooltip
-        immediateShowDelay={0}
-        content="I'm a tooltip"
-      >
+      <Tooltip immediateShowDelay={0} content="I'm a tooltip">
         <TooltipReference />
       </Tooltip>
-      <Tooltip
-        immediateShowDelay={0}
-        content="I'm a tooltip"
-      >
+      <Tooltip immediateShowDelay={0} content="I'm a tooltip">
         <TooltipReference />
       </Tooltip>
-      <Tooltip
-        content="I'm a tooltip"
-      >
+      <Tooltip content="I'm a tooltip">
         <TooltipReference />
       </Tooltip>
     </div>
@@ -316,4 +328,5 @@ Immediately show when another is shown. The two left tooltips uses the immediate
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[CHIP, LABEL, TIPSEEN ]} />
+
+<RelatedComponents componentsNames={[CHIP, LABEL, TIPSEEN]} />
