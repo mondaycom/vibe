@@ -59,7 +59,22 @@ describe("Combobox renders correctly", () => {
   });
 
   it("with divider", () => {
-    const tree = renderer.create(<Combobox categoriesDivider />).toJSON();
+    const options = [
+      { id: "1", label: "Option 1", categoryId: "cat1" },
+      { id: "2", label: "Option 2", categoryId: "cat2" }
+    ];
+
+    const categories = {
+      cat1: {
+        id: "cat1",
+        label: "cat1"
+      },
+      cat2: {
+        id: "cat2",
+        label: "cat2"
+      }
+    };
+    const tree = renderer.create(<Combobox options={options} categories={categories} withCategoriesDivider />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

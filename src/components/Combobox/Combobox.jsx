@@ -13,6 +13,7 @@ import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "./components/ComboboxCategory/ComboboxCategory";
 import { getOptionsByCategories, defaultFilter } from "./ComboboxService";
 import "./Combobox.scss";
+import Divider from "../Divider/Divider";
 
 const Combobox = forwardRef(
   (
@@ -27,7 +28,7 @@ const Combobox = forwardRef(
       disabled,
       options,
       categories,
-      categoriesDivider,
+      withCategoriesDivider,
       noResultsMessage,
       onAddNew,
       addNewLabel,
@@ -97,7 +98,8 @@ const Combobox = forwardRef(
         return Object.keys(optionsByCategories).map((categoryId, categoryIndex) => {
           return (
             <div role="group" aria-labelledby={`combox-category-${categoryId}`} key={categoryId}>
-              <ComboboxCategory category={categories[categoryId]} divider={categoriesDivider && categoryIndex !== 0} />
+              {withCategoriesDivider && categoryIndex !== 0 && <Divider />}
+              <ComboboxCategory category={categories[categoryId]} />
               {optionsByCategories[categoryId].map(option => {
                 const renderedOption = (
                   <ComboboxOption
@@ -272,7 +274,7 @@ Combobox.propTypes = {
   /**
    * Divider between categories sections
    */
-  categoriesDivider: PropTypes.bool,
+  withCategoriesDivider: PropTypes.bool,
   size: PropTypes.oneOf([Combobox.sizes.SMALL, Combobox.sizes.MEDIUM, Combobox.sizes.LARGE]),
   optionLineHeight: PropTypes.number,
   optionsListHeight: PropTypes.number,
@@ -316,7 +318,7 @@ Combobox.defaultProps = {
   disabled: false,
   options: [],
   categories: undefined,
-  categoriesDivider: false,
+  withCategoriesDivider: false,
   size: Combobox.sizes.MEDIUM,
   optionLineHeight: 32,
   optionsListHeight: undefined,

@@ -1,8 +1,7 @@
 import React from "react";
 import "./ComboboxCategory.scss";
-import Divider from "../../../Divider/Divider";
 
-const ComboboxCategory = ({ category, divider }) => {
+const ComboboxCategory = ({ category }) => {
   const { label, id, ariaLabel } = category;
 
   if (!label) return null;
@@ -15,7 +14,6 @@ const ComboboxCategory = ({ category, divider }) => {
       id={`combobox-category-${id}`}
       className="combobox-category"
     >
-      {divider && <Divider />}
       {label}
     </div>
   );

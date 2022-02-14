@@ -414,7 +414,7 @@ exports[`Combobox renders correctly with className 1`] = `
 
 exports[`Combobox renders correctly with divider 1`] = `
 <div
-  className="combobox--wrapper size-medium empty"
+  className="combobox--wrapper size-medium"
   id=""
 >
   <div
@@ -508,6 +508,81 @@ exports[`Combobox renders correctly with divider 1`] = `
               role="img"
             />
           </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-labelledby="combox-category-cat1"
+      role="group"
+    >
+      <div
+        aria-label="cat1"
+        className="combobox-category"
+        id="combobox-category-cat1"
+        role="presentation"
+      >
+        cat1
+      </div>
+      <div
+        aria-label="Option 1"
+        aria-selected={false}
+        className="combobox-option first"
+        id="combobox-item-0"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="option"
+        style={
+          Object {
+            "height": 32,
+          }
+        }
+        tabIndex="-1"
+      >
+        <div
+          className="option-label"
+        >
+          Option 1
+        </div>
+      </div>
+    </div>
+    <div
+      aria-labelledby="combox-category-cat2"
+      role="group"
+    >
+      <div
+        className="monday-style-divider monday-style-divider--horizontal"
+      />
+      <div
+        aria-label="cat2"
+        className="combobox-category"
+        id="combobox-category-cat2"
+        role="presentation"
+      >
+        cat2
+      </div>
+      <div
+        aria-label="Option 2"
+        aria-selected={false}
+        className="combobox-option"
+        id="combobox-item-1"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="option"
+        style={
+          Object {
+            "height": 32,
+          }
+        }
+        tabIndex="-1"
+      >
+        <div
+          className="option-label"
+        >
+          Option 2
         </div>
       </div>
     </div>
