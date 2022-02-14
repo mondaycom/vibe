@@ -55,7 +55,8 @@ const Dropdown = ({
   multiline = false,
   onOptionRemove: customOnOptionRemove,
   onOptionSelect,
-  onClear
+  onClear,
+  isOptionSelected
 }) => {
   const [selected, setSelected] = useState(defaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
@@ -249,6 +250,7 @@ const Dropdown = ({
       tabIndex={tabIndex}
       id={id}
       autoFocus={autoFocus}
+      isOptionSelected={isOptionSelected}
       {...asyncAdditions}
       {...additions}
     />
@@ -441,7 +443,11 @@ Dropdown.propTypes = {
   /**
    * If set to true together with `multi`, it will make the dropdown expand to multiple lines when new values are selected.
    */
-  multiline: PropTypes.bool
+  multiline: PropTypes.bool,
+  /**
+   * Override the built-in logic to detect whether an option is selected.
+   */
+  isOptionSelected: PropTypes.func
 };
 
 export default Dropdown;
