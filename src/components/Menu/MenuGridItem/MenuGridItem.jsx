@@ -62,11 +62,12 @@ const MenuGridItem = forwardRef(
     });
 
     return (
-      <div
+      <section
         ref={mergedRef}
         className={cx("menu-grid-item--wrapper", className)}
         id={id}
         tabIndex={-1}
+        role="grid"
         {...focusWithinProps}
       >
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
@@ -76,7 +77,7 @@ const MenuGridItem = forwardRef(
             ref: childRef
           })}
         </GridKeyboardNavigationContext.Provider>
-      </div>
+      </section>
     );
   }
 );

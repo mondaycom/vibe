@@ -13,7 +13,7 @@ const NAVIGATION_KEYS = [...ARROW_UP_KEYS, ...ARROW_RIGHT_KEYS, ...ARROW_DOWN_KE
 export const useLastNavigationDirection = () => {
   const documentRef = useRef(document);
 
-  const lastNavigationDirectionRef = useRef(undefined);
+  const lastNavigationDirectionRef = useRef();
 
   const setLastNavigationDirection = useCallback(dir => {
     lastNavigationDirectionRef.current = dir;
