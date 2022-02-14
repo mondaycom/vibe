@@ -7,7 +7,7 @@ import Button from "../../Button/Button";
 import { modifiers } from "./helper";
 import { Link } from "../../../storybook/components";
 import { CHIP, LABEL, TIPSEEN } from "../../../storybook/components/related-components/component-description-map";
-import "./tooltip.stories.scss";
+import "./tooltip.stories.scss"; import {TOOLTIP_THEMES} from "components/Tooltip/TooltipConstants";
 
 <Meta
   title="Popover/Tooltip"
@@ -38,6 +38,7 @@ export const tooltipTemplate = (args) => {
 - [Props](#props)
 - [Usage](#usage)
 - [Variants](#variants)
+- [Themes](#themes)
 - [Do’s and don’ts](#dos-and-donts)
 - [Use cases and examples](#use-cases-and-examples)
 - [Related components](#related-components)
@@ -123,6 +124,109 @@ Tooltip’s arrow can appear from top, bottom, left or right.
       </Tooltip>
     </div>
   </Story>
+</Canvas>
+
+### Themes
+Tooltip’s arrow can appear from top, bottom, left or right.
+<Canvas>
+    <Story name="Themes">
+        <div className="monday-storybook-tooltip_top">
+            <Tooltip
+                modifiers={modifiers}
+                content="Dark"
+                shouldShowOnMount
+                position={Tooltip.positions.BOTTOM}
+                animationType="expand"
+                theme={TOOLTIP_THEMES.Dark}
+            >
+                <div />
+            </Tooltip>
+        </div>
+        <div className="monday-storybook-tooltip_top">
+            <Tooltip
+                modifiers={modifiers}
+                content="Success"
+                shouldShowOnMount
+                position={Tooltip.positions.BOTTOM}
+                animationType="expand"
+                theme={TOOLTIP_THEMES.Success}
+            >
+                <div />
+            </Tooltip>
+        </div>
+        <div className="monday-storybook-tooltip_top">
+            <Tooltip
+                modifiers={modifiers}
+                content="Error"
+                shouldShowOnMount
+                position={Tooltip.positions.BOTTOM}
+                animationType="expand"
+                theme={TOOLTIP_THEMES.Error}
+            >
+                <div />
+            </Tooltip>
+        </div>
+        <div className="monday-storybook-tooltip_top">
+            <Tooltip
+                modifiers={modifiers}
+                content="Share"
+                shouldShowOnMount
+                position={Tooltip.positions.BOTTOM}
+                animationType="expand"
+                theme={TOOLTIP_THEMES.Share}
+            >
+                <div />
+            </Tooltip>
+        </div>
+        <div className="monday-storybook-tooltip_top">
+            <Tooltip
+                modifiers={modifiers}
+                content="Private"
+                shouldShowOnMount
+                position={Tooltip.positions.BOTTOM}
+                animationType="expand"
+                theme={TOOLTIP_THEMES.Private}
+            >
+                <div />
+            </Tooltip>
+        </div>
+        <div className="monday-storybook-tooltip_top">
+            <Tooltip
+                modifiers={modifiers}
+                content="Surface"
+                shouldShowOnMount
+                position={Tooltip.positions.BOTTOM}
+                animationType="expand"
+                theme={TOOLTIP_THEMES.Surface}
+            >
+                <div />
+            </Tooltip>
+        </div>
+        <div className="monday-storybook-tooltip_top">
+            <Tooltip
+                modifiers={modifiers}
+                content="Primary"
+                shouldShowOnMount
+                position={Tooltip.positions.BOTTOM}
+                animationType="expand"
+                theme={TOOLTIP_THEMES.Primary}
+            >
+                <div />
+            </Tooltip>
+        </div>
+        <div className="monday-storybook-tooltip_top">
+            <Tooltip
+                modifiers={modifiers}
+                content="White"
+                shouldShowOnMount
+                position={Tooltip.positions.BOTTOM}
+                animationType="expand"
+                theme={TOOLTIP_THEMES.White}
+            >
+                <div />
+            </Tooltip>
+        </div>
+    </Story>
 </Canvas>
 
 ## Do’s and Don’ts
