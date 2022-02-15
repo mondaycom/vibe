@@ -16,6 +16,7 @@ import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
 import { optionRenderer } from "./OptionRenderer";
 import "./combobox.stories.scss";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 
 <Meta
   title="Inputs/Combo box"
@@ -156,9 +157,20 @@ When having a lot of options, you may use headings to categorize them.
         workspace: { id: "Workspaces", label: "Workspaces" }
       }), []);
       return (
-        <DialogContentContainer>
-          <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
-        </DialogContentContainer>
+      <div>
+        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
+          <StoryDescription description="Categories without divider">
+            <DialogContentContainer>
+              <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
+            </DialogContentContainer>
+          </StoryDescription>
+          <StoryDescription description="Categories with divider">
+            <DialogContentContainer>
+              <Combobox options={options} categories={categories} withCategoriesDivider placeholder="Placeholder text here" />
+            </DialogContentContainer>
+          </StoryDescription>
+        </Flex>
+      </div>
       )
     }}
   </Story>
