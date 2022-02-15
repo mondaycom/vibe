@@ -2,6 +2,7 @@ import React, { useRef, forwardRef, useState, useCallback, useEffect, useMemo } 
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { useFocusWithin, useKeyboard } from "@react-aria/interactions";
+import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
 import "./TabList.scss";
@@ -42,13 +43,13 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
   );
 
   const onTabClick = useCallback(
-    (tabId, tabCallbackFunc) => {
+    (value, tabId) => {
+      const tabCallbackFunc = children[tabId].props.onClick;
       if (disabledTabIds.has(tabId)) return;
       if (tabCallbackFunc) tabCallbackFunc(tabId);
       onTabSelect(tabId);
-      setFocusTab(-1);
     },
-    [onTabSelect, disabledTabIds, setFocusTab]
+    [onTabSelect, disabledTabIds]
   );
 
   function onKeyDown(keyCode) {
@@ -89,13 +90,24 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     }
   });
 
+  const getItemByIndex = useCallback(index => children[index], [children]);
+
+  const { activeIndex: focusIndex, onSelectionAction } = useGridKeyboardNavigation({
+    ref: mergedRef,
+    numberOfItemsInLine: children?.length,
+    itemsCount: children?.length,
+    getItemByIndex,
+    onItemClicked: onTabClick,
+    disabledIndexes: disabledTabIds
+  });
+
   const tabsToRender = useMemo(() => {
     const childrenToRender = React.Children.map(children, (child, index) => {
       return React.cloneElement(child, {
         value: index,
         active: activeTabState === index,
-        focus: focusTab === index,
-        onClick: value => onTabClick(value, child.props.onClick)
+        focus: focusIndex === index,
+        onClick: onSelectionAction
       });
     });
     return childrenToRender;
