@@ -513,6 +513,7 @@ exports[`Combobox renders correctly with divider 1`] = `
     </div>
     <div
       aria-labelledby="combox-category-cat1"
+      className=""
       role="group"
     >
       <div
@@ -548,12 +549,13 @@ exports[`Combobox renders correctly with divider 1`] = `
       </div>
     </div>
     <div
+      className="monday-style-divider combobox_category-divider monday-style-divider--horizontal"
+    />
+    <div
       aria-labelledby="combox-category-cat2"
+      className="combobox_category--with-divider"
       role="group"
     >
-      <div
-        className="monday-style-divider monday-style-divider--horizontal"
-      />
       <div
         aria-label="cat2"
         className="combobox-category"

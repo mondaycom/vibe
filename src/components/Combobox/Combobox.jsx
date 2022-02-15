@@ -96,9 +96,15 @@ const Combobox = forwardRef(
 
         let index = 0;
         return Object.keys(optionsByCategories).map((categoryId, categoryIndex) => {
-          return (
-            <div role="group" aria-labelledby={`combox-category-${categoryId}`} key={categoryId}>
-              {withCategoriesDivider && categoryIndex !== 0 && <Divider />}
+          const withDivider = withCategoriesDivider && categoryIndex !== 0;
+          return [
+            withDivider ? <Divider className="combobox_category-divider" key={`${categoryId}-divider`} /> : null,
+            <div
+              role="group"
+              aria-labelledby={`combox-category-${categoryId}`}
+              key={categoryId}
+              className={cx({ ["combobox_category--with-divider"]: withDivider })}
+            >
               <ComboboxCategory category={categories[categoryId]} />
               {optionsByCategories[categoryId].map(option => {
                 const renderedOption = (
@@ -120,7 +126,7 @@ const Combobox = forwardRef(
                 return renderedOption;
               })}
             </div>
-          );
+          ];
         });
       }
       return filterdOptions.map((option, index) => {
@@ -141,17 +147,18 @@ const Combobox = forwardRef(
         );
       });
     }, [
-      shouldScrollToSelectedItem,
-      optionLineHeight,
-      filterValue,
-      filterdOptions,
       categories,
+      filterdOptions,
+      filterValue,
+      withCategoriesDivider,
+      optionRenderer,
       activeItemIndex,
       isActiveByKeyboard,
       onOptionClick,
       onOptionEnter,
       onOptionLeave,
-      optionRenderer
+      optionLineHeight,
+      shouldScrollToSelectedItem
     ]);
 
     const onChangeCallback = useCallback(

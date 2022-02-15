@@ -7,6 +7,19 @@
   display: flex;
   flex-direction: column;
   @include font-general-text();
+  position: relative;
+
+  .combobox_category {
+    &--with-divider {
+      margin-top: var(--spacing-medium);
+    }
+
+    &-divider {
+      position: absolute;
+      width: calc(100% + 16px);
+      margin-left: -12px;
+    }
+  }
 
   &.sticky-category {
     .combobox-category {
