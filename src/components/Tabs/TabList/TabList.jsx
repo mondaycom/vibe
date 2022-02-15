@@ -35,15 +35,6 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     return disabledIds;
   }, [children]);
 
-  const disabledIndexes = useMemo(() => {
-    const array = [];
-    for (const id of disabledTabIds) {
-      const index = tabIndexesByIds.get(id);
-      if (index) array.push(index);
-    }
-    return array;
-  }, [disabledTabIds, tabIndexesByIds]);
-
   const onTabSelect = useCallback(
     tabId => {
       if (disabledTabIds.has(tabId)) return;
@@ -64,7 +55,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
   );
 
   const getItemByIndex = useCallback(index => children[index], [children]);
-
+  const disabledIndexes = useMemo(() => Array.from(disabledTabIds), [disabledTabIds]);
   const ulRef = useRef();
   const { activeIndex: focusIndex, onSelectionAction } = useGridKeyboardNavigation({
     ref: ulRef,
@@ -72,7 +63,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
     itemsCount: children?.length,
     getItemByIndex,
     onItemClicked: onTabClick,
-    disabledIndexes: []
+    disabledIndexes
   });
 
   const tabsToRender = useMemo(() => {
