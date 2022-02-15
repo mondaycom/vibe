@@ -16,6 +16,8 @@
 
     &-divider {
       position: absolute;
+      width: calc(100% + 16px);
+      margin-left: -12px;
     }
   }
 
