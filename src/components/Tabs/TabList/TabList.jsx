@@ -13,10 +13,6 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
   const [activeTabState, setActiveTabState] = useState(activeTabId);
 
   const prevActiveTabIdProp = usePrevious(activeTabId);
-  const tabIndexesByIds = useMemo(() => {
-    const valuesArray = children.map((element, index) => [element.props.id, index]);
-    return new Map(valuesArray);
-  }, [children]);
 
   useEffect(() => {
     // Update active tab if changed from props
