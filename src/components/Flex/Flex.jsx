@@ -69,7 +69,7 @@ Flex.propTypes = {
     Flex.justify.SPACE_BETWEEN,
     Flex.justify.SPACE_AROUND
   ]),
-  align: PropTypes.oneOf([Flex.align.START, Flex.align.CENTER, Flex.align.END]),
+  align: PropTypes.oneOf([Flex.align.START, Flex.align.CENTER, Flex.align.END, Flex.align.STRETCH]),
   gap: PropTypes.oneOfType([
     PropTypes.oneOf([Flex.gaps.NONE, Flex.gaps.SMALL, Flex.gaps.MEDIUM, Flex.gaps.LARGE]),
     PropTypes.number
