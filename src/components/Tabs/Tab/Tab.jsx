@@ -40,7 +40,6 @@ const Tab = forwardRef(
         className={cx("tab--wrapper", className, {
           active,
           disabled,
-          "focus-visible": focus,
           "tab-focus-visible-inset": focus
         })}
         id={id}
