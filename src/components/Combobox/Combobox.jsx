@@ -98,7 +98,7 @@ const Combobox = forwardRef(
         return Object.keys(optionsByCategories).map((categoryId, categoryIndex) => {
           const withDivider = withCategoriesDivider && categoryIndex !== 0;
           return [
-            withDivider ? <Divider className="combobox_category-divider" /> : null,
+            withDivider ? <Divider className="combobox_category-divider" key={`${categoryId}-divider`} /> : null,
             <div
               role="group"
               aria-labelledby={`combox-category-${categoryId}`}
