@@ -5,8 +5,7 @@ export const TOOLTIP_THEMES = {
   Share: "share",
   Private: "private",
   Surface: "surface",
-  Primary: "primary",
-  White: "white"
+  Primary: "primary"
 };
 
 export const TOOLTIP_JUSTIFY_TYPES = {
