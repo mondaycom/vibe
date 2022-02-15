@@ -37,7 +37,8 @@
 }
 
 @mixin focus-style($focus-radius: 4px) {
-  &:focus-visible {
+  &:focus-visible,
+  &.focus-visible {
     @include focus-style-css($focus-radius);
   }
 
