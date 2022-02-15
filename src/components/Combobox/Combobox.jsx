@@ -207,7 +207,7 @@ const Combobox = forwardRef(
       if (disableNoResultRendererOnLoading && loading) return false;
 
       return true;
-    }, [hasFilter, hasResults, disableNoResultRendererOnLoading, loading])
+    }, [hasFilter, hasResults, disableNoResultRendererOnLoading, loading]);
 
     function renderNoResults() {
       if (noResultsRenderer) {
