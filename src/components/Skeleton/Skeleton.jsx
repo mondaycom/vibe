@@ -1,5 +1,6 @@
 import cx from "classnames";
 import PropTypes from "prop-types";
+import { BEMClass } from "helpers/bem-helper";
 import {
   SKELETON_TYPES,
   SKELETON_SIZES,
@@ -8,7 +9,6 @@ import {
   SKELETON_CUSTOM_SIZE
 } from "./SkeletonConstants";
 import "./Skeleton.scss";
-import { BEMClass } from "../../helpers/bem-helper";
 
 const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
 const bemHelper = BEMClass(SKELETON_CSS_BASE_CLASS);

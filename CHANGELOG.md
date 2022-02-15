@@ -1,5 +1,49 @@
 # Changelog
 
+## 1.13.1 (2022-02-15)
+
+#### Bug Fixes
+* [#535](https://github.com/mondaycom/monday-ui-react-core/pull/535) Fix combobox drawer width ([@hadasfa](https://github.com/hadasfa))
+
+## 1.13.0 (2022-02-15)
+
+#### Bug Fixes
+* [#530](https://github.com/mondaycom/monday-ui-react-core/pull/530) tooltip: removing border from tooltip arrow + adding themes to storybook ([@etaylib](https://github.com/etaylib))
+* [#534](https://github.com/mondaycom/monday-ui-react-core/pull/534) Add chips colors story fixes ([@MosheZemah](https://github.com/MosheZemah))
+
+#### New Features
+* [#506](https://github.com/mondaycom/monday-ui-react-core/pull/506) Menu grid item ([@laviomri](https://github.com/laviomri))
+* [#532](https://github.com/mondaycom/monday-ui-react-core/pull/532) Dropdown - add isOptionSelected prop ([@ronachmany-monday](https://github.com/ronachmany-monday))
+* [#533](https://github.com/mondaycom/monday-ui-react-core/pull/533) Add chips colors story ([@MosheZemah](https://github.com/MosheZemah))
+* [#528](https://github.com/mondaycom/monday-ui-react-core/pull/528) add divider to combo box categories ([@SagiL96](https://github.com/SagiL96))
+
+## 1.12.0 (2022-02-13)
+
+#### New Features
+* [#529](https://github.com/mondaycom/monday-ui-react-core/pull/529) Add virtualized list ref ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.11.2 (2022-02-13)
+
+#### Dependency Upgrades
+* [#527](https://github.com/mondaycom/monday-ui-react-core/pull/527) Upgrade monday-ui-style ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.11.1 (2022-02-13)
+
+#### Bug Fixes
+* [#523](https://github.com/mondaycom/monday-ui-react-core/pull/523) Fix icon button and drop down stories ([@hadasfa](https://github.com/hadasfa))
+* [#498](https://github.com/mondaycom/monday-ui-react-core/pull/498) fix: lint fixes ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Dependency Upgrades
+* [#525](https://github.com/mondaycom/monday-ui-react-core/pull/525) Change design system Hebrew font to rubik ([@hadasfa](https://github.com/hadasfa))
+
+## 1.11.0 (2022-02-08)
+
+#### New Features
+* [#521](https://github.com/mondaycom/monday-ui-react-core/pull/521) Replace typography source to monday-ui-style font variables ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#522](https://github.com/mondaycom/monday-ui-react-core/pull/522) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.10.4 (2022-02-08)
 
 #### Bug Fixes

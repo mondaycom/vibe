@@ -1,5 +1,5 @@
+import Heading from "components/Heading/Heading";
 import { comingSoon } from "./assets";
-import Heading from "../../../components/Heading/Heading";
 import classes from "./coming-soon.module.scss";
 
 export const ComingSoon = () => (

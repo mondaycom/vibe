@@ -47,6 +47,7 @@ const publishedComponents = {
   MenuItemButton: "components/Menu/MenuItemButton/MenuItemButton.jsx",
   MenuDivider: "components/Menu/MenuDivider/MenuDivider.jsx",
   Menu: "components/Menu/Menu/Menu.jsx",
+  MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem.jsx",
   Dialog: "components/Dialog/Dialog.jsx",
   DialogContentContainer: "components/DialogContentContainer/DialogContentContainer.jsx",
   AttentionBox: "components/AttentionBox/AttentionBox.jsx",
@@ -94,7 +95,8 @@ const publishedComponents = {
   useTimeout: "hooks/useTimeout/index.js",
   usePrevious: "hooks/usePrevious.js",
   useMergeRefs: "hooks/useMergeRefs.js",
-  useIsMouseOver: "hooks/useIsMouseOver.js"
+  useIsMouseOver: "hooks/useIsMouseOver.js",
+  useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js"
 };
 
 function getPublishedComponents() {

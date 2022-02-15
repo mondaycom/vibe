@@ -1,10 +1,10 @@
 import React from "react";
 import cx from "classnames";
+import { BEMClass } from "helpers/bem-helper";
 import { StepsCommand } from "./StepsCommand";
 import { StepsGalleryHeader } from "./StepsGalleryHeader";
 import { StepsNumbersHeader } from "./StepsNumbersHeader";
 import { STEPS_CSS_BASE_CLASS, STEPS_GALLERY_TYPE } from "./StepsConstants";
-import { BEMClass } from "../../helpers/bem-helper";
 
 const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-header`;
 const bemHelper = BEMClass(CSS_BASE_CLASS);

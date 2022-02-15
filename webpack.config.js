@@ -62,7 +62,10 @@ module.exports = options => {
       alias: {
         components: path.resolve(__dirname, "src/components/"),
         constants: path.resolve(__dirname, "src/constants/"),
-        hooks: path.resolve(__dirname, "src/hooks/")
+        hooks: path.resolve(__dirname, "src/hooks/"),
+        services: path.resolve(__dirname, "src/services/"),
+        helpers: path.resolve(__dirname, "src/helpers/"),
+        utils: path.resolve(__dirname, "src/utils/")
       }
     },
 

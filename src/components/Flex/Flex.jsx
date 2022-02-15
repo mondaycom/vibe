@@ -1,10 +1,10 @@
+import { BASE_POSITIONS } from "constants/positions";
 import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
+import useMergeRefs from "hooks/useMergeRefs";
+import Clickable from "components/Clickable/Clickable";
 import { FLEX_POSITIONS, FLEX_GAPS, FLEX_DIRECTIONS } from "./FlexConstants";
-import { BASE_POSITIONS } from "../../constants/positions";
-import Clickable from "../Clickable/Clickable";
 import classes from "./Flex.module.scss";
 
 const Flex = forwardRef(
@@ -69,7 +69,7 @@ Flex.propTypes = {
     Flex.justify.SPACE_BETWEEN,
     Flex.justify.SPACE_AROUND
   ]),
-  align: PropTypes.oneOf([Flex.align.START, Flex.align.CENTER, Flex.align.END]),
+  align: PropTypes.oneOf([Flex.align.START, Flex.align.CENTER, Flex.align.END, Flex.align.STRETCH]),
   gap: PropTypes.oneOfType([
     PropTypes.oneOf([Flex.gaps.NONE, Flex.gaps.SMALL, Flex.gaps.MEDIUM, Flex.gaps.LARGE]),
     PropTypes.number

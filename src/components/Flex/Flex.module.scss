@@ -36,6 +36,10 @@
     &Center {
       align-items: center;
     }
+
+    &Stretch {
+      align-items: stretch;
+    }
   }
   &.direction {
     &Column {

@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { DIRECTIONS } from "./DividerConstants";
 import "./Divider.scss";
-import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 
 const Divider = ({
   // Backward compatibility for props naming

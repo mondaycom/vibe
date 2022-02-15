@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Steps from "../Steps";
 
-const stepsContent = [<div>first</div>, <div>second</div>];
+const stepsContent = [<div key="first">first</div>, <div key="second">second</div>];
 
 describe("Steps", () => {
   describe("with numeric type renders correctly", () => {

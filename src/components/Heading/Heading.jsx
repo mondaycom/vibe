@@ -1,11 +1,11 @@
+import { SIZES } from "constants/sizes";
 import React, { useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import Tooltip from "components/Tooltip/Tooltip";
+import useIsOverflowing from "hooks/useIsOverflowing";
+import useRefWithCallback from "hooks/useRefWithCallback";
 import { TYPES } from "./HeadingConstants";
-import Tooltip from "../Tooltip/Tooltip";
-import useIsOverflowing from "../../hooks/useIsOverflowing";
-import useRefWithCallback from "../../hooks/useRefWithCallback";
-import { SIZES } from "../../constants/sizes";
 import "./Heading.scss";
 
 const Heading = ({

@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState, useContext, useRef } from "react";
-import useFullKeyboardListeners from "../useFullKeyboardListeners";
-import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import { GridKeyboardNavigationContext } from "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import useFullKeyboardListeners from "hooks/useFullKeyboardListeners";
+import useEventListener from "hooks/useEventListener";
 import {
   calcActiveIndexAfterArrowNavigation,
   getActiveIndexFromInboundNavigation
 } from "./gridKeyboardNavigationHelper";
-import useEventListener from "../useEventListener";
 
 const NO_ACTIVE_INDEX = -1;
 

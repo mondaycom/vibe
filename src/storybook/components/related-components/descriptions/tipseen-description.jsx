@@ -12,11 +12,11 @@ export const TipseenDescription = () => {
       alignItems: "flex-start"
     };
     const content = [
-      <div>Popover message will appear here loremipsum dolor samet…</div>,
-      <div>Popover message will appear here loremipsum dolor samet…</div>,
-      <div>Popover message will appear here loremipsum dolor samet…</div>,
-      <div>Popover message will appear here loremipsum dolor samet…</div>,
-      <div>Popover message will appear here loremipsum dolor samet…</div>
+      <div key="tipseen-key-1">Popover message will appear here loremipsum dolor samet…</div>,
+      <div key="tipseen-key-2">Popover message will appear here loremipsum dolor samet…</div>,
+      <div key="tipseen-key-3">Popover message will appear here loremipsum dolor samet…</div>,
+      <div key="tipseen-key-4">Popover message will appear here loremipsum dolor samet…</div>,
+      <div key="tipseen-key-5">Popover message will appear here loremipsum dolor samet…</div>
     ];
     const modifiers = [
       {

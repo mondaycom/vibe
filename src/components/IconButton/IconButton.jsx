@@ -1,14 +1,14 @@
+import { SIZES } from "constants/sizes";
 import React, { useRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
-import useMergeRefs from "../../hooks/useMergeRefs";
-import ToolTip from "../Tooltip/Tooltip";
-import Button from "../Button/Button";
-import Icon from "../Icon/Icon";
-import AddSmall from "../Icon/Icons/components/AddSmall";
+import useMergeRefs from "hooks/useMergeRefs";
+import ToolTip from "components/Tooltip/Tooltip";
+import Button from "components/Button/Button";
+import Icon from "components/Icon/Icon";
+import AddSmall from "components/Icon/Icons/components/AddSmall";
 import { getWidthHeight } from "./services/IconButton-helpers";
-import { SIZES } from "../../constants/sizes";
 
 const IconButton = forwardRef(
   ({ className, id, icon, size, tooltipContent, ariaLabel, kind, active, disabled, disabledReason, onClick }, ref) => {

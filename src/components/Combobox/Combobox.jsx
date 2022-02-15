@@ -13,6 +13,7 @@ import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "./components/ComboboxCategory/ComboboxCategory";
 import { getOptionsByCategories, defaultFilter } from "./ComboboxService";
 import "./Combobox.scss";
+import Divider from "../Divider/Divider";
 
 const Combobox = forwardRef(
   (
@@ -27,6 +28,7 @@ const Combobox = forwardRef(
       disabled,
       options,
       categories,
+      withCategoriesDivider,
       noResultsMessage,
       onAddNew,
       addNewLabel,
@@ -93,9 +95,16 @@ const Combobox = forwardRef(
         const optionsByCategories = getOptionsByCategories(filterdOptions, categories, filterValue);
 
         let index = 0;
-        return Object.keys(optionsByCategories).map(categoryId => {
-          return (
-            <div role="group" aria-labelledby={`combox-category-${categoryId}`} key={categoryId}>
+        return Object.keys(optionsByCategories).map((categoryId, categoryIndex) => {
+          const withDivider = withCategoriesDivider && categoryIndex !== 0;
+          return [
+            withDivider ? <Divider className="combobox_category-divider" key={`${categoryId}-divider`} /> : null,
+            <div
+              role="group"
+              aria-labelledby={`combox-category-${categoryId}`}
+              key={categoryId}
+              className={cx({ ["combobox_category--with-divider"]: withDivider })}
+            >
               <ComboboxCategory category={categories[categoryId]} />
               {optionsByCategories[categoryId].map(option => {
                 const renderedOption = (
@@ -117,7 +126,7 @@ const Combobox = forwardRef(
                 return renderedOption;
               })}
             </div>
-          );
+          ];
         });
       }
       return filterdOptions.map((option, index) => {
@@ -138,17 +147,18 @@ const Combobox = forwardRef(
         );
       });
     }, [
-      shouldScrollToSelectedItem,
-      optionLineHeight,
-      filterValue,
-      filterdOptions,
       categories,
+      filterdOptions,
+      filterValue,
+      withCategoriesDivider,
+      optionRenderer,
       activeItemIndex,
       isActiveByKeyboard,
       onOptionClick,
       onOptionEnter,
       onOptionLeave,
-      optionRenderer
+      optionLineHeight,
+      shouldScrollToSelectedItem
     ]);
 
     const onChangeCallback = useCallback(
@@ -268,6 +278,10 @@ Combobox.propTypes = {
   disabled: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.object),
   categories: PropTypes.object,
+  /**
+   * Divider between categories sections
+   */
+  withCategoriesDivider: PropTypes.bool,
   size: PropTypes.oneOf([Combobox.sizes.SMALL, Combobox.sizes.MEDIUM, Combobox.sizes.LARGE]),
   optionLineHeight: PropTypes.number,
   optionsListHeight: PropTypes.number,
@@ -311,6 +325,7 @@ Combobox.defaultProps = {
   disabled: false,
   options: [],
   categories: undefined,
+  withCategoriesDivider: false,
   size: Combobox.sizes.MEDIUM,
   optionLineHeight: 32,
   optionsListHeight: undefined,

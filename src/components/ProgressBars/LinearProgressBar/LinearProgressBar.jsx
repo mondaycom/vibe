@@ -1,12 +1,11 @@
+import { SIZES } from "constants/sizes";
 import React, { useMemo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import PercentageLabel from "../PercentageLabel/PercentageLabel";
 import { baseClassName, PROGRESS_BAR_STYLES } from "./LinearProgressBarConstants";
 import { calculatePercentage } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
-import PercentageLabel from "../PercentageLabel/PercentageLabel";
-import { SIZES } from "../../../constants/sizes";
-
 import "./LinearProgressBar.scss";
 
 const LinearProgressBar = forwardRef(

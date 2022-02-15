@@ -4,6 +4,9 @@ import NOOP from "lodash/noop";
 import cx from "classnames";
 import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
+import usePrevious from "hooks/usePrevious";
+import useThrottledCallback from "hooks/useThrottledCallback";
+import useMergeRefs from "hooks/useMergeRefs";
 import {
   getNormalizedItems,
   easeInOutQuint,
@@ -11,9 +14,6 @@ import {
   getOnItemsRenderedData,
   isVerticalScrollbarVisible
 } from "../../services/virtualized-service";
-import usePrevious from "../../hooks/usePrevious";
-import useThrottledCallback from "../../hooks/useThrottledCallback";
-import useMergeRefs from "../../hooks/useMergeRefs";
 import "./VirtualizedList.scss";
 
 const VirtualizedList = forwardRef(
@@ -33,7 +33,8 @@ const VirtualizedList = forwardRef(
       onItemsRendered,
       onItemsRenderedThrottleMs,
       onSizeUpdate,
-      onVerticalScrollbarVisiblityChange
+      onVerticalScrollbarVisiblityChange,
+      virtualListRef
     },
     ref
   ) => {
@@ -51,6 +52,7 @@ const VirtualizedList = forwardRef(
     const scrollTopRef = useRef(0);
     const animationDataRef = useRef({});
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedListRef = useMergeRefs({ refs: [virtualListRef, listRef] });
 
     const animationData = animationDataRef.current;
     if (!animationData.initialized) {
@@ -228,7 +230,7 @@ const VirtualizedList = forwardRef(
             updateListSize(width, height);
             return (
               <List
-                ref={listRef}
+                ref={mergedListRef}
                 height={height}
                 width={width}
                 itemCount={items.length}

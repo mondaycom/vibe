@@ -1,8 +1,8 @@
 import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "../../hooks/useMergeRefs";
-import "./{{properCase componentName}}.scss";
+import useMergeRefs from "hooks/useMergeRefs";
+import "./{{properCase componentName}}.module.scss";
 
 const {{properCase componentName}} = forwardRef(({ className, id }, ref) => {
   const componentRef = useRef(null);

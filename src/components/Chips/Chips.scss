@@ -16,6 +16,10 @@ $icon-margin: 4px;
   animation: chips-enter 100ms;
   animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
 
+  &.with-user-select {
+    user-select: text;
+  }
+
   .label {
     @include font-general-text();
     @include ellipsis();

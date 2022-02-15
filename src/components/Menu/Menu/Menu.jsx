@@ -1,17 +1,18 @@
+import { SIZES } from "constants/sizes";
 import React, { useMemo, forwardRef, useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
 import { useFocusWithin } from "@react-aria/interactions";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "../../../hooks/useMergeRefs";
-import useClickOutside from "../../../hooks/useClickOutside";
+import useMergeRefs from "hooks/useMergeRefs";
+import useClickOutside from "hooks/useClickOutside";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import useSubMenuIndex from "./hooks/useSubMenuIndex";
 import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
 import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
 import useMouseLeave from "./hooks/useMouseLeave";
-import { SIZES } from "../../../constants/sizes";
 import "./Menu.scss";
-import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
+import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 
 const Menu = forwardRef(
   (
@@ -76,9 +77,12 @@ const Menu = forwardRef(
 
     useClickOutside({ ref, callback: onCloseMenu });
     useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu, useDocumentEventListeners);
+
+    const { getNextSelectableIndex, getPreviousSelectableIndex } = useAdjacentSelectableMenuIndex({ children });
     useMenuKeyboardNavigation(
       hasOpenSubMenu,
-      children,
+      getNextSelectableIndex,
+      getPreviousSelectableIndex,
       activeItemIndex,
       onSetActiveItemIndexCallback,
       isVisible,
@@ -91,12 +95,10 @@ const Menu = forwardRef(
       setIsInitialSelectedState(true);
     }, [setIsInitialSelectedState]);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
       if (hasOpenSubMenu || useDocumentEventListeners) return;
       if (activeItemIndex > -1) {
-        requestAnimationFrame(() => {
-          ref && ref.current && ref.current.focus();
-        });
+        ref?.current?.focus();
       }
     }, [activeItemIndex, hasOpenSubMenu, useDocumentEventListeners]);
 
@@ -147,7 +149,10 @@ const Menu = forwardRef(
                   menuId: id,
                   useDocumentEventListeners,
                   isInitialSelectedState,
-                  shouldScrollMenu
+                  shouldScrollMenu,
+                  getNextSelectableIndex,
+                  getPreviousSelectableIndex,
+                  isUnderSubMenu: isSubMenu
                 })
               : null;
           })}
