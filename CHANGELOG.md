@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.13.0 (2022-02-15)
+
+#### Bug Fixes
+* [#530](https://github.com/mondaycom/monday-ui-react-core/pull/530) tooltip: removing border from tooltip arrow + adding themes to storybook ([@etaylib](https://github.com/etaylib))
+* [#534](https://github.com/mondaycom/monday-ui-react-core/pull/534) Add chips colors story fixes ([@MosheZemah](https://github.com/MosheZemah))
+
+#### New Features
+* [#506](https://github.com/mondaycom/monday-ui-react-core/pull/506) Menu grid item ([@laviomri](https://github.com/laviomri))
+* [#532](https://github.com/mondaycom/monday-ui-react-core/pull/532) Dropdown - add isOptionSelected prop ([@ronachmany-monday](https://github.com/ronachmany-monday))
+* [#533](https://github.com/mondaycom/monday-ui-react-core/pull/533) Add chips colors story ([@MosheZemah](https://github.com/MosheZemah))
+* [#528](https://github.com/mondaycom/monday-ui-react-core/pull/528) add divider to combo box categories ([@SagiL96](https://github.com/SagiL96))
+
 ## 1.12.0 (2022-02-13)
 
 #### New Features
