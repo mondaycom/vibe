@@ -255,6 +255,22 @@ If importing the combo box options may take time, you reflect this to the user b
   </Story>
 </Canvas>
 
+###  Empty list while loading
+If you want to render the result or no result placeholder only after loading is finished, use disableNoResultRendererOnLoading
+<Canvas>
+  <Story name="Empty list while loading">
+    {() => {
+      const options = useMemo(() => [
+      ], []);
+      return (
+        <DialogContentContainer>
+          <Combobox loading disableNoResultRendererOnLoading options={options} placeholder="Board name" />
+        </DialogContentContainer>
+      )
+    }}
+  </Story>
+</Canvas>
+
 ## Do’s and Don’ts
 <ComponentRules
   rules={[

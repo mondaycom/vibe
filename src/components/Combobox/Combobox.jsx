@@ -42,7 +42,8 @@ const Combobox = forwardRef(
       shouldScrollToSelectedItem,
       noResultsRenderer,
       stickyCategories,
-      optionRenderer
+      optionRenderer,
+      disableNoResultRendererOnLoading
     },
     ref
   ) => {
@@ -200,6 +201,14 @@ const Combobox = forwardRef(
       return addNewLabel;
     }
 
+    const showNoResultRenderer = useMemo(() => {
+      if (hasFilter) return false;
+      if (hasResults) return false;
+      if (disableNoResultRendererOnLoading && loading) return false;
+
+      return true;
+    }, [hasFilter, hasResults, disableNoResultRendererOnLoading, loading])
+
     function renderNoResults() {
       if (noResultsRenderer) {
         return noResultsRenderer();
@@ -248,7 +257,7 @@ const Combobox = forwardRef(
           />
           {renderedItems}
         </div>
-        {hasFilter && !hasResults && renderNoResults()}
+        {showNoResultRenderer && renderNoResults()}
       </div>
     );
   }
@@ -311,6 +320,10 @@ Combobox.propTypes = {
    */
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
+  /**
+   * Allowed to the following behavior: dont show noResult renderer while loading
+   */
+  disableNoResultRendererOnLoading: PropTypes.bool,
   stickyCategories: PropTypes.bool,
   /**
    * Replace the regular appearance of combo box option with custom renderer.
@@ -349,7 +362,8 @@ Combobox.defaultProps = {
   shouldScrollToSelectedItem: true,
   noResultsRenderer: undefined,
   stickyCategories: false,
-  optionRenderer: null
+  optionRenderer: null,
+  disableNoResultRendererOnLoading: false
 };
 
 export default Combobox;
