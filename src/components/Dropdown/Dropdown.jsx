@@ -59,7 +59,8 @@ const Dropdown = ({
   onClear,
   onInputChange,
   closeMenuOnSelect = !multi,
-  ref
+  ref,
+  isOptionSelected
 }) => {
   const [selected, setSelected] = useState(defaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
@@ -250,6 +251,7 @@ const Dropdown = ({
       autoFocus={autoFocus}
       closeMenuOnSelect={closeMenuOnSelect}
       ref={ref}
+      isOptionSelected={isOptionSelected}
       {...asyncAdditions}
       {...additions}
     />
@@ -469,7 +471,11 @@ Dropdown.propTypes = {
   /**
    Pass Ref for reference of the actual dropdown component
    */
-  ref: PropTypes.func
+  ref: PropTypes.func,
+  /**
+   * Override the built-in logic to detect whether an option is selected.
+   */
+  isOptionSelected: PropTypes.func
 };
 
 export default Dropdown;
