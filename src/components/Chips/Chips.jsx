@@ -19,6 +19,7 @@ const Chips = forwardRef(
       rightIcon,
       disabled,
       readOnly,
+      allowTextSelection,
       color,
       iconSize,
       onDelete,
@@ -52,7 +53,8 @@ const Chips = forwardRef(
         className={cx("chips--wrapper", className, {
           disabled,
           "with-close": hasCloseButton,
-          "no-animation": noAnimation
+          "no-animation": noAnimation,
+          "with-user-select": allowTextSelection
         })}
         id={id}
         style={backgroundColorStyle}
@@ -118,6 +120,10 @@ Chips.propTypes = {
    */
   noAnimation: PropTypes.bool,
   /**
+   * Allow user to select text
+   */
+  allowTextSelection: PropTypes.bool,
+  /**
    * Callback function to be called when the user clicks the component.
    */
   onMouseDown: PropTypes.func
@@ -134,7 +140,8 @@ Chips.defaultProps = {
   iconSize: 16,
   onDelete: NOOP,
   onMouseDown: NOOP,
-  noAnimation: false
+  noAnimation: false,
+  allowTextSelection: false
 };
 
 export default Chips;

@@ -22,6 +22,8 @@ import Search from "components/Search/Search";
 import MenuTitle from "components/Menu/MenuTitle/MenuTitle";
 import MenuDivider from "components/Menu/MenuDivider/MenuDivider";
 import classes from "./Menu.stories.module.scss";
+import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories";
+import MenuGridItem from "components/Menu/MenuGridItem/MenuGridItem";
 
 export const menuTemplate = args => (
   <Menu {...args}>
@@ -107,6 +109,37 @@ export const menuWith2DepthSubMenuTemplate = args => (
       <MenuItem title="Another item" icon={Settings} />
     </Menu>
   </DialogContentContainer>
+);
+
+export const menuWithGridItems = args => (
+  <div className={classes["menu-long-story-wrapper"]}>
+    <DialogContentContainer>
+      <Menu>
+        <MenuItem title="Menu item" icon={Favorite} />
+        <MenuTitle caption="Top level grid item" />
+        <MenuItem title="Hover me to see the sub menu" icon={Activity}>
+          <Menu>
+            <MenuItem icon={Feedback} title="More info" />
+            <MenuTitle caption="1st level grid item" />
+            <MenuGridItem>
+              <DummyNavigableGrid itemsCount={6} numberOfItemsInLine={3} withoutBorder />
+            </MenuGridItem>
+            <MenuItem icon={Code} title="Hover me to see the sub menu">
+              <Menu>
+                <MenuTitle caption="2nd level grid item" />
+                <MenuGridItem>
+                  <DummyNavigableGrid itemsCount={6} numberOfItemsInLine={3} withoutBorder />
+                </MenuGridItem>
+                <MenuItem icon={Invite} title="Another sub sub item" />
+                <MenuItem icon={Settings} title="More sub sub items" />
+              </Menu>
+            </MenuItem>
+          </Menu>
+        </MenuItem>
+        <MenuItem title="Another item" icon={Settings} />
+      </Menu>
+    </DialogContentContainer>
+  </div>
 );
 
 export const ComponentRuleSimpleActions = () => (
