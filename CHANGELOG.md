@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.1 (2022-02-15)
+
+#### Bug Fixes
+* [#535](https://github.com/mondaycom/monday-ui-react-core/pull/535) Fix combobox drawer width ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.13.0 (2022-02-15)
 
 #### Bug Fixes
