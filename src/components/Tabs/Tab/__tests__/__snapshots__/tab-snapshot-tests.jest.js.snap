@@ -34,7 +34,7 @@ exports[`Tab renders correctly when focus 1`] = `
 <li
   aria-disabled={false}
   aria-selected={false}
-  className="tab--wrapper focus-visible tab-focus-visible-inset"
+  className="tab--wrapper tab-focus-visible-inset"
   id=""
   role="tab"
 >
@@ -49,7 +49,7 @@ exports[`Tab renders correctly when focus and active 1`] = `
 <li
   aria-disabled={false}
   aria-selected={true}
-  className="tab--wrapper active focus-visible tab-focus-visible-inset"
+  className="tab--wrapper active tab-focus-visible-inset"
   id=""
   role="tab"
 >
