@@ -96,9 +96,14 @@ export default function useGridKeyboardNavigation({
     [activeIndex, itemsCount, numberOfItemsInLine]
   );
 
+  const onMouseDown = useCallback(() => {
+    isUsingKeyboardNav.current = false;
+  }, [isUsingKeyboardNav]);
+
   const onBlur = useCallback(() => setActiveIndex(NO_ACTIVE_INDEX), [setActiveIndex]);
 
   useEventListener({ eventName: "focus", callback: onFocus, ref });
+  useEventListener({ eventName: "mousedown", callback: onMouseDown, ref });
   useEventListener({ eventName: "blur", callback: onBlur, ref });
 
   useEffect(() => {
