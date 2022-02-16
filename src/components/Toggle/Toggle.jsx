@@ -36,7 +36,7 @@ const Toggle = ({
     [bemHelper({ element: "wrapper", state: "disabled" })]: overrideDisabled
   });
   const inputClassName = bemHelper({ element: "input" });
-  console.log(isDefaultSelected);
+
   return (
     <Switch
       defaultChecked={isDefaultSelected}
