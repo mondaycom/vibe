@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.7 (2022-02-16)
+
+#### Bug Fixes
+* [#543](https://github.com/mondaycom/monday-ui-react-core/pull/543) remove react aria dependecies ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.13.6 (2022-02-16)
 
 #### Bug Fixes
