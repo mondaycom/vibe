@@ -1,4 +1,5 @@
 import { useCallback, useMemo } from "react";
+import { ARROW_DOWN_KEYS, ARROW_UP_KEYS } from "../../../../hooks/useFullKeyboardListeners";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
 const ARROW_DIRECTIONS = {
@@ -6,18 +7,12 @@ const ARROW_DIRECTIONS = {
   DOWN: "down"
 };
 
-const ARROW_DOWN_KEYS = ["ArrowDown"];
-const ARROW_UP_KEYS = ["ArrowUp"];
 const ENTER_KEYS = ["Enter"];
-
-const isChildSelectable = (newIndex, children) => {
-  const child = children[newIndex];
-  return child.type.isSelectable && !child.props.disabled;
-};
 
 export default function useMenuKeyboardNavigation(
   hasOpenSubMenu,
-  children,
+  getNextSelectableIndex,
+  getPreviousSelectableIndex,
   activeItemIndex,
   setActiveItemIndex,
   isVisible,
@@ -31,24 +26,14 @@ export default function useMenuKeyboardNavigation(
       if (hasOpenSubMenu) return false;
 
       if (direction === ARROW_DIRECTIONS.DOWN) {
-        for (let offset = 1; offset <= children.length; offset++) {
-          newIndex = (activeItemIndex + offset) % children.length;
-          if (isChildSelectable(newIndex, children)) {
-            break;
-          }
-        }
+        newIndex = getNextSelectableIndex(activeItemIndex);
       } else if (direction === ARROW_DIRECTIONS.UP) {
-        for (let offset = children.length - 1; offset > 0; offset--) {
-          newIndex = (activeItemIndex + offset) % children.length;
-          if (isChildSelectable(newIndex, children)) {
-            break;
-          }
-        }
+        newIndex = getPreviousSelectableIndex(activeItemIndex);
       }
 
       if (newIndex || newIndex === 0) setActiveItemIndex(newIndex);
     },
-    [activeItemIndex, children, hasOpenSubMenu, setActiveItemIndex]
+    [activeItemIndex, getNextSelectableIndex, getPreviousSelectableIndex, hasOpenSubMenu, setActiveItemIndex]
   );
   const onArrowUp = useCallback(() => {
     onArrowKeyEvent(ARROW_DIRECTIONS.UP);

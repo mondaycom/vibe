@@ -33,7 +33,8 @@ const VirtualizedList = forwardRef(
       onItemsRendered,
       onItemsRenderedThrottleMs,
       onSizeUpdate,
-      onVerticalScrollbarVisiblityChange
+      onVerticalScrollbarVisiblityChange,
+      virtualListRef
     },
     ref
   ) => {
@@ -51,6 +52,7 @@ const VirtualizedList = forwardRef(
     const scrollTopRef = useRef(0);
     const animationDataRef = useRef({});
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const mergedListRef = useMergeRefs({ refs: [virtualListRef, listRef] });
 
     const animationData = animationDataRef.current;
     if (!animationData.initialized) {
@@ -228,7 +230,7 @@ const VirtualizedList = forwardRef(
             updateListSize(width, height);
             return (
               <List
-                ref={listRef}
+                ref={mergedListRef}
                 height={height}
                 width={width}
                 itemCount={items.length}
