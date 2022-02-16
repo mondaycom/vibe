@@ -76,7 +76,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
 
   return (
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
-      <ul ref={ulRef} className={cx("tabs-list", size)} role="tablist" tabIndex={-1}>
+      <ul ref={ulRef} tabIndex={0} className={cx("tabs-list", size)} role="tablist">
         {tabsToRender}
       </ul>
     </div>

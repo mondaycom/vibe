@@ -44,12 +44,12 @@ export default function useGridKeyboardNavigation({
   );
   const skippedInitialActiveIndexChange = useRef(false);
   const [activeIndex, setActiveIndex] = useState(isInitialActiveState ? focusItemIndexOnMount : NO_ACTIVE_INDEX);
-  const [isUsingKeyboardNav, setIsUsingKeyboardNav] = useState(focusOnMount);
+  const isUsingKeyboardNav = useRef(true);
 
   const keyboardContext = useContext(GridKeyboardNavigationContext);
 
   const onArrowNavigation = direction => {
-    setIsUsingKeyboardNav(true);
+    isUsingKeyboardNav.current = true;
     if (activeIndex === NO_ACTIVE_INDEX) {
       setActiveIndex(0);
       return;
@@ -82,13 +82,8 @@ export default function useGridKeyboardNavigation({
 
   const onFocus = useCallback(
     e => {
-      if (document.activeElement === ref.current) {
-        // since we use custom events (to add additional data like the navigation direction), it's possible that the element is already focused
-        return;
-      }
       const direction = e.detail?.keyboardDirection;
       if (direction) {
-        setIsUsingKeyboardNav(true);
         const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
         setActiveIndex(newIndex);
         return;
@@ -113,7 +108,7 @@ export default function useGridKeyboardNavigation({
 
   const onSelectionAction = useCallback(
     (index, isKeyboardAction = false) => {
-      setIsUsingKeyboardNav(isKeyboardAction);
+      isUsingKeyboardNav.current = isKeyboardAction;
       setActiveIndex(index);
       onItemClicked(getItemByIndex(index), index);
     },
@@ -121,7 +116,7 @@ export default function useGridKeyboardNavigation({
   );
 
   const onKeyboardSelection = useCallback(() => {
-    if (!isUsingKeyboardNav) {
+    if (!isUsingKeyboardNav.current) {
       return;
     }
     return onSelectionAction(activeIndex, true);
@@ -136,7 +131,7 @@ export default function useGridKeyboardNavigation({
   });
 
   // if the user is not using keyboard nav, the consumers should not treat the index as active
-  const externalActiveIndex = isUsingKeyboardNav ? activeIndex : NO_ACTIVE_INDEX;
+  const externalActiveIndex = isUsingKeyboardNav.current ? activeIndex : NO_ACTIVE_INDEX;
   return {
     activeIndex: externalActiveIndex,
     onSelectionAction,
