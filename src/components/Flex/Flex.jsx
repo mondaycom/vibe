@@ -12,13 +12,16 @@ const Flex = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
+    const onClickProps = useMemo(() => {
+      if (onClick) return { elementType };
+      return {};
+    }, [onClick, elementType]);
     const Element = onClick ? Clickable : elementType;
 
     return (
       <Element
         id={id}
-        // in case the element is clickable, we will pass the real element type in this prop
-        elementType={elementType}
+        {...onClickProps}
         ref={mergedRef}
         className={cx(
           classes.container,
