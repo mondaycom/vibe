@@ -84,6 +84,7 @@ export default function useGridKeyboardNavigation({
     e => {
       const direction = e.detail?.keyboardDirection;
       if (direction) {
+        isUsingKeyboardNav.current = true;
         const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
         setActiveIndex(newIndex);
         return;
