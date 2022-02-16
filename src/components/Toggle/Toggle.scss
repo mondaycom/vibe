@@ -64,7 +64,7 @@
   // we hide the checkbox and draw a new one instead.
   // In order to allow accessibility, all operations will be performed on the hidden checkbox and be reflected
   // in the new toggle we drew.
-  &_input {
+  input {
     @include hidden-element;
 
     // When the hidden checkbox will be focused by keyboard navigation events, the toggle appearance will reflect it
