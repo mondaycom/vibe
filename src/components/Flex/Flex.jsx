@@ -16,9 +16,9 @@ const Flex = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
     const onClickProps = useMemo(() => {
-      if (onClick) return { elementType };
-      return {};
-    }, [onClick, elementType]);
+      if (onClick) return { elementType, ariaLabelledby };
+      return { "aria-labelledby": ariaLabelledby };
+    }, [onClick, elementType, ariaLabelledby]);
     const Element = onClick ? Clickable : elementType;
 
     return (
