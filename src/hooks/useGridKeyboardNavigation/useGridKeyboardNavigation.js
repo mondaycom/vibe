@@ -92,7 +92,7 @@ export default function useGridKeyboardNavigation({
         setActiveIndex(0);
       }
     },
-    [activeIndex, itemsCount, numberOfItemsInLine, ref]
+    [activeIndex, itemsCount, numberOfItemsInLine]
   );
 
   const onBlur = useCallback(() => setActiveIndex(NO_ACTIVE_INDEX), [setActiveIndex]);
