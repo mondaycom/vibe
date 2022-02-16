@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.2 (2022-02-16)
+
+#### Bug Fixes
+* [#538](https://github.com/mondaycom/monday-ui-react-core/pull/538) Element type issues ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.13.1 (2022-02-15)
 
 #### Bug Fixes
