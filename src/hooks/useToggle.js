@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { useToggleState } from "@react-stately/toggle";
 import { useSwitch } from "@react-aria/switch";
-import { useFocusRing } from "@react-aria/focus";
 
 export const useToggle = ({
   id,
@@ -15,7 +14,6 @@ export const useToggle = ({
   ariaControls
 }) => {
   const toggleRef = useRef();
-  const { isFocusVisible, focusProps } = useFocusRing();
   const toggleState = useToggleState({ defaultSelected: isDefaultSelected, isSelected, onChange });
   const { inputProps: switchProps } = useSwitch(
     {
@@ -33,5 +31,5 @@ export const useToggle = ({
     toggleRef
   );
 
-  return { isChecked: switchProps.checked, isFocusVisible, inputProps: { ...switchProps, ...focusProps } };
+  return { isChecked: switchProps.checked, isFocusVisible, inputProps: { ...switchProps } };
 };

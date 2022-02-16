@@ -1,10 +1,11 @@
 import React, { useRef, forwardRef, useState, useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { useFocusWithin, useKeyboard } from "@react-aria/interactions";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
 import "./TabList.scss";
+import { useFocusWithin } from "hooks/useFocusWithin";
+import { useKeyboard } from "hooks/useKeyboard";
 
 const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, size, children }, ref) => {
   const componentRef = useRef(null);

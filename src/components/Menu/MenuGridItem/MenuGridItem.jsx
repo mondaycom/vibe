@@ -1,12 +1,12 @@
 import React, { useRef, forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { useFocusWithin } from "@react-aria/interactions";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./MenuGridItem.scss";
 import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
+import { useFocusWithin } from "hooks/useFocusWithin";
 
 const MenuGridItem = forwardRef(
   (
