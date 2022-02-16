@@ -11,7 +11,7 @@ import FieldLabel from "../FieldLabel/FieldLabel";
 import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
 import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { useButton } from "@react-aria/button";
+import Clickable from "components/Clickable/Clickable";
 
 const NOOP = () => {
 };
@@ -100,11 +100,6 @@ const TextField = forwardRef(
     const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
 
     const mergedRef = useMergeRefs({ refs: [ref, inputRef, setRef] });
-    const { buttonProps } = useButton({
-      onPress: onIconClickCallback,
-      elementType: "div"
-    });
-
     useEffect(() => {
       if (inputRef.current && autoFocus) {
         const animationFrame = requestAnimationFrame(() => inputRef.current.focus());
@@ -160,12 +155,12 @@ const TextField = forwardRef(
                 </div>
               </div>
             )}
-            <div
+            <Clickable
               className={classNames("input-component__icon--container", {
                 "input-component__icon--container-has-icon": hasIcon,
                 "input-component__icon--container-active": isPrimary
               })}
-              {...buttonProps}
+              onClick={onIconClickCallback}
               tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
             >
               <Icon
@@ -178,13 +173,13 @@ const TextField = forwardRef(
                 ignoreFocusStyle
                 iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
               />
-            </div>
-            <div
+            </Clickable>
+            <Clickable
               className={classNames("input-component__icon--container", {
                 "input-component__icon--container-has-icon": hasIcon,
                 "input-component__icon--container-active": isSecondary
               })}
-              {...buttonProps}
+              onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
             >
               <Icon
@@ -197,7 +192,7 @@ const TextField = forwardRef(
                 ignoreFocusStyle
                 iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
               />
-            </div>
+            </Clickable>
           </div>
           {shouldShowExtraText && (
             <div className="input-component__sub-text-container">

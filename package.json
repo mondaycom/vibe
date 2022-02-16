@@ -48,7 +48,6 @@
   "homepage": "https://github.com/mondaycom/monday-ui-react-core#readme",
   "dependencies": {
     "@popperjs/core": "^2.11.0",
-    "@react-aria/button": "3.3.4",
     "@react-aria/focus": "3.5.0",
     "@react-aria/interactions": "3.7.0",
     "@react-aria/switch": "3.1.3",
