@@ -63,7 +63,12 @@ Flex.propTypes = {
   direction: PropTypes.oneOf([Flex.directions.ROW, Flex.directions.COLUMN]),
   elementType: PropTypes.string,
   wrap: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element)
+  ]),
   justify: PropTypes.oneOf([
     Flex.justify.START,
     Flex.justify.CENTER,
