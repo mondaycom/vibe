@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.3 (2022-02-16)
+
+#### Bug Fixes
+* [#539](https://github.com/mondaycom/monday-ui-react-core/pull/539) Flex types ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.13.2 (2022-02-16)
 
 #### Bug Fixes
