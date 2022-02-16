@@ -31,5 +31,5 @@ export const useToggle = ({
     toggleRef
   );
 
-  return { isChecked: switchProps.checked, isFocusVisible, inputProps: { ...switchProps } };
+  return { isChecked: switchProps.checked, inputProps: { ...switchProps } };
 };
