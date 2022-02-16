@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.6 (2022-02-16)
+
+#### Bug Fixes
+* [#542](https://github.com/mondaycom/monday-ui-react-core/pull/542) remove react button ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.13.5 (2022-02-16)
 
 #### Bug Fixes
