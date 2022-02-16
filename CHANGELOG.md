@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.5 (2022-02-16)
+
+#### Bug Fixes
+* [#541](https://github.com/mondaycom/monday-ui-react-core/pull/541) Set version ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.13.4 (2022-02-16)
 
 #### Bug Fixes
