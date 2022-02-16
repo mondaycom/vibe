@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.4 (2022-02-16)
+
+#### Bug Fixes
+* [#540](https://github.com/mondaycom/monday-ui-react-core/pull/540) Fix font load ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.13.3 (2022-02-16)
 
 #### Bug Fixes
