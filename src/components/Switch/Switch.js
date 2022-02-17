@@ -1,7 +1,6 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import classes from "./Switch.module.scss";
 import cx from "classnames";
-import isNil from "lodash/isNil";
 import useEventListener from "../../hooks/useEventListener";
 import { useSwitchChecked } from "components/Switch/useSwitchChecked";
 
