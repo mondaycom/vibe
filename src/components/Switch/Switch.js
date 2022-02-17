@@ -1,7 +1,9 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import classes from "./Switch.module.scss";
 import cx from "classnames";
 import isNil from "lodash/isNil";
+import useEventListener from "../../hooks/useEventListener";
+import { useSwitchChecked } from "components/Switch/useSwitchChecked";
 
 export const Switch = ({
   id,
@@ -19,23 +21,25 @@ export const Switch = ({
   children: originalChildren,
   wrapperClassName
 }) => {
-  let overrideDefaultChecked = defaultChecked;
-
-  // If component did not receive default checked and checked props, choose default checked as
-  // default behavior (handle isChecked logic inside input) and set default value
-  if (isNil(overrideDefaultChecked) && isNil(checked)) {
-    overrideDefaultChecked = false;
-  }
-
-  const [overrideChecked, setOverrideChecked] = useState(overrideDefaultChecked || checked);
-  const overrideOnChange = useCallback(
-    e => {
-      setOverrideChecked(!overrideChecked);
-      onChange(e);
-    },
-    [onChange, overrideChecked]
-  );
-
+  const ref = useRef();
+  const { onChange: overrideOnChange, checked: overrideChecked } = useSwitchChecked({
+    checked,
+    defaultChecked,
+    onChange
+  });
+  // for focus fix - comment will be remvoed soon
+  /**
+  const [isFocused, setIsFocused] = useState(false);
+  const [isMouseTrigger, setIsMouseTrigger] = useState(false);
+  const onFocus = useCallback(() => setIsFocused(true), [setIsFocused]);
+  const onBlur = useCallback(() => setIsFocused(false), [setIsFocused]);
+  const onMouseDown = useCallback(() => setIsMouseTrigger(true), [setIsMouseTrigger]);
+  const onMouseUp = useCallback(() => setIsMouseTrigger(false), [setIsMouseTrigger]);
+  useEventListener({ eventName: "focus", callback: onFocus, ref });
+  useEventListener({ eventName: "blur", callback: onBlur, ref });
+  useEventListener({ eventName: "mousedown", callback: onMouseDown, ref });
+  useEventListener({ eventName: "mouseup", callback: onMouseUp, ref });
+  **/
   const children = useMemo(
     () =>
       React.cloneElement(originalChildren, {
@@ -48,6 +52,7 @@ export const Switch = ({
   return (
     <label htmlFor={id} className={wrapperClassName}>
       <input
+        ref={ref}
         id={id}
         aria-controls={ariaControls}
         value={value}
