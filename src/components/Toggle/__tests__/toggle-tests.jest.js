@@ -62,7 +62,7 @@ describe("Toggle tests", () => {
       cleanup();
     });
 
-    it.skip("should not change state to off when is selected, clicked and prop does not changed", () => {
+    it("should not change state to off when is selected, clicked and prop does not changed", () => {
       const { getByRole } = render(
         <form name={formName}>
           <Toggle isSelected ariaLabel="My Toggle" />

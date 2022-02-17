@@ -55,6 +55,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
   className="monday-style-toggle_wrapper"
 >
   <input
+    aria-checked={false}
+    checked={false}
     className="monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
@@ -113,8 +115,8 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
   className="monday-style-toggle_wrapper"
 >
   <input
-    aria-checked={true}
-    checked={true}
+    aria-checked={false}
+    checked={false}
     className="monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
@@ -128,7 +130,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--selected"
+    className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--not-selected"
   />
   <span
     className="monday-style-toggle_text"
