@@ -49,6 +49,19 @@ describe("GridKeyboardNavigationContext", () => {
       expect(ref4.current.dispatchEvent).not.toHaveBeenCalled();
     });
 
+    it("should do nothing if onOutboundNavigation is called when disabled", () => {
+      const positions = [{ leftElement: ref2, rightElement: ref4 }];
+      const keyboardDirection = NAV_DIRECTIONS.RIGHT;
+      const { result } = renderHookForTest(positions, true);
+
+      result.current.onOutboundNavigation(ref2, keyboardDirection);
+
+      expect(ref2.current.blur).not.toHaveBeenCalled();
+      expect(ref2.current.dispatchEvent).not.toHaveBeenCalled();
+      expect(ref4.current.blur).not.toHaveBeenCalled();
+      expect(ref4.current.dispatchEvent).not.toHaveBeenCalled();
+    });
+
     it("should call the upper context's onOutboundNavigation if there is no element in that direction", () => {
       const positions = [{ leftElement: ref2, rightElement: ref4 }];
       const keyboardDirection = NAV_DIRECTIONS.UP;
@@ -72,9 +85,22 @@ describe("GridKeyboardNavigationContext", () => {
       );
     });
 
-    function renderHookForTest(positions) {
+    it("should do nothing if the wrapper element is focused, and the hook is disabled", () => {
+      const positions = [{ leftElement: ref2, rightElement: ref4 }];
+      const keyboardDirection = NAV_DIRECTIONS.LEFT;
+      renderHookForTest(positions, true);
+
+      focusElementWithDirection(wrapperRef, keyboardDirection);
+
+      expect(ref2.current.blur).not.toHaveBeenCalled();
+      expect(ref2.current.dispatchEvent).not.toHaveBeenCalled();
+      expect(ref4.current.blur).not.toHaveBeenCalled();
+      expect(ref4.current.dispatchEvent).not.toHaveBeenCalled();
+    });
+
+    function renderHookForTest(positions, disabled = false) {
       wrapperRef = createElementRef();
-      return renderHook(() => useGridKeyboardNavigationContext(positions, wrapperRef));
+      return renderHook(() => useGridKeyboardNavigationContext(positions, wrapperRef, { disabled }));
     }
 
     function renderHookWithContext(positions, contextValue) {
