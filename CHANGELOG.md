@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.13.9 (2022-02-17)
+
+#### Bug Fixes
+* [#546](https://github.com/mondaycom/monday-ui-react-core/pull/546) Displaying focus properly in toggle component ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#547](https://github.com/mondaycom/monday-ui-react-core/pull/547) Update colors in basic, night themes ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.13.8 (2022-02-17)
 
 #### Bug Fixes
