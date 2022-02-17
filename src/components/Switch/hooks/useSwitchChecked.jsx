@@ -10,7 +10,7 @@ export function useSwitchChecked({ checked, defaultChecked, onChange }) {
       }
       onChange(e);
     },
-    [onChange, overrideChecked]
+    [checked, onChange, overrideChecked]
   );
 
   useEffect(() => {

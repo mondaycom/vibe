@@ -1,8 +1,7 @@
 import React, { useMemo, useRef } from "react";
-import classes from "./Switch.module.scss";
 import cx from "classnames";
-// import useEventListener from "../../hooks/useEventListener";
-import { useSwitchChecked } from "components/Switch/useSwitchChecked";
+import { useSwitchChecked } from "components/Switch/hooks/useSwitchChecked";
+import classes from "./Switch.module.scss";
 
 export const Switch = ({
   id,
@@ -26,19 +25,7 @@ export const Switch = ({
     defaultChecked,
     onChange
   });
-  // for focus fix - comment will be remvoed soon
-  /**
-  const [isFocused, setIsFocused] = useState(false);
-  const [isMouseTrigger, setIsMouseTrigger] = useState(false);
-  const onFocus = useCallback(() => setIsFocused(true), [setIsFocused]);
-  const onBlur = useCallback(() => setIsFocused(false), [setIsFocused]);
-  const onMouseDown = useCallback(() => setIsMouseTrigger(true), [setIsMouseTrigger]);
-  const onMouseUp = useCallback(() => setIsMouseTrigger(false), [setIsMouseTrigger]);
-  useEventListener({ eventName: "focus", callback: onFocus, ref });
-  useEventListener({ eventName: "blur", callback: onBlur, ref });
-  useEventListener({ eventName: "mousedown", callback: onMouseDown, ref });
-  useEventListener({ eventName: "mouseup", callback: onMouseUp, ref });
-  **/
+
   const children = useMemo(
     () =>
       React.cloneElement(originalChildren, {
