@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.8 (2022-02-17)
+
+#### Bug Fixes
+* [#544](https://github.com/mondaycom/monday-ui-react-core/pull/544) Fix bug on toggle cannot be affected by click when in controlled mode ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.13.7 (2022-02-16)
 
 #### Bug Fixes
