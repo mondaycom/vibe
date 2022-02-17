@@ -1,7 +1,7 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef } from "react";
 import classes from "./Switch.module.scss";
 import cx from "classnames";
-import useEventListener from "../../hooks/useEventListener";
+// import useEventListener from "../../hooks/useEventListener";
 import { useSwitchChecked } from "components/Switch/useSwitchChecked";
 
 export const Switch = ({

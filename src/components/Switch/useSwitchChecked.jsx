@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
 export function useSwitchChecked({ checked, defaultChecked, onChange }) {
-  debugger;
   const overrideCheckedInitial = checked === undefined ? (defaultChecked ? defaultChecked : false) : checked;
   const [overrideChecked, setOverrideChecked] = useState(overrideCheckedInitial);
   const overrideOnChange = useCallback(
