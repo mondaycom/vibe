@@ -46,6 +46,19 @@ describe("Toggle tests", () => {
       userEvent.click(toggle);
       expect(toggle.checked).toBeTruthy();
     });
+
+    it("should click on toggle trigger on change event with the right parameters", () => {
+      const onClickMock = jest.fn();
+      const { getByRole } = render(
+        <form name={formName}>
+          <Toggle onChange={onClickMock} />
+        </form>
+      );
+
+      const toggle = getByRole(toggleRole);
+      userEvent.click(toggle);
+      expect(onClickMock).toHaveBeenCalledWith(false);
+    });
   });
 
   describe("a11y", () => {
