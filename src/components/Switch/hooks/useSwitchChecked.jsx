@@ -8,7 +8,7 @@ export function useSwitchChecked({ checked, defaultChecked, onChange }) {
       if (checked === undefined) {
         setOverrideChecked(!overrideChecked);
       }
-      onChange(e);
+      onChange(checked, e);
     },
     [checked, onChange, overrideChecked]
   );
