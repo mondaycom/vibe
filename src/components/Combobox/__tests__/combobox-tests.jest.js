@@ -41,7 +41,7 @@ describe("Combobox tests", () => {
     await waitFor(() => expect(noResRendereMock.mock.calls.length).toBe(1));
   });
 
-  it("should dispay no results message", async () => {
+  it("should display no results message", async () => {
     const noRes = "NO MESSAGE";
     const { getByLabelText } = render(<Combobox options={mockOptions} noResultsMessage={noRes} />);
     const input = getByLabelText("Search for content");

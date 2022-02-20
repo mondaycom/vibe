@@ -246,7 +246,7 @@ const Combobox = forwardRef(
           />
           {renderedItems}
         </div>
-        {hasFilter && !hasResults && renderNoResults()}
+        {hasFilter && !hasResults && !loading && renderNoResults()}
       </div>
     );
   }
