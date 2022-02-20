@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.12 (2022-02-20)
+
+#### New Icons
+* [#549](https://github.com/mondaycom/monday-ui-react-core/pull/549) Update color keys ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.13.11 (2022-02-20)
 
 #### Bug Fixes
