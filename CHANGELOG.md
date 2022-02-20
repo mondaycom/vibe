@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.11 (2022-02-20)
+
+#### Bug Fixes
+* [#548](https://github.com/mondaycom/monday-ui-react-core/pull/548) Fix toggle on change params ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.13.10 (2022-02-20)
 
 #### Bug Fixes
