@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.13.10 (2022-02-20)
+
+#### Bug Fixes
+* [#545](https://github.com/mondaycom/monday-ui-react-core/pull/545) Better support for useDocumentEventListeners on Menu components ([@laviomri](https://github.com/laviomri))
+
 ## 1.13.9 (2022-02-17)
 
 #### Bug Fixes
