@@ -35,6 +35,21 @@ describe("useFocusGridItemByActiveStatus", () => {
     expect(element.blur).toHaveBeenCalledTimes(1);
   });
 
+  it("it should do nothing if useDocumentEventListeners and index != activeItemIndex", () => {
+    renderHook(() =>
+      useFocusGridItemByActiveStatus({
+        index: 0,
+        activeItemIndex: 1,
+        wrapperRef,
+        childRef,
+        useDocumentEventListeners: true
+      })
+    );
+
+    expect(element.blur).not.toHaveBeenCalled();
+    expect(GridKeyboardNavigationContextHelperModule.focusElementWithDirection).not.toHaveBeenCalled();
+  });
+
   it("it should blur the wrapper element if activeItemIndex changes from the given index to a different one", () => {
     const props = { index: 0, activeItemIndex: 0, wrapperRef, childRef };
     const { rerender } = renderHook(() => useFocusGridItemByActiveStatus(props));

@@ -130,10 +130,11 @@ const MenuItem = forwardRef(
     }, [shouldShowSubMenu, childElement, useDocumentEventListeners]);
 
     useEffect(() => {
+      if (useDocumentEventListeners) return;
       if (isActive) {
         referenceElement?.focus();
       }
-    }, [isActive, referenceElement]);
+    }, [isActive, referenceElement, useDocumentEventListeners]);
 
     const closeSubMenu = useCallback(
       (options = {}) => {
@@ -262,7 +263,8 @@ const MenuItem = forwardRef(
                 isVisible: shouldShowSubMenu,
                 isSubMenu: true,
                 onClose: closeSubMenu,
-                ref: childRef
+                ref: childRef,
+                useDocumentEventListeners
               })}
             </DialogContentContainer>
           )}
