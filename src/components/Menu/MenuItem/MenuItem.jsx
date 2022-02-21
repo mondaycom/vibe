@@ -45,6 +45,7 @@ const MenuItem = forwardRef(
       setSubMenuIsOpenByIndex,
       closeMenu,
       useDocumentEventListeners,
+      tooltipContent,
       tooltipPosition,
       tooltipShowDelay,
       isInitialSelectedState,
@@ -209,8 +210,13 @@ const MenuItem = forwardRef(
       };
     }, [children, hasOpenSubMenu]);
 
-    const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled;
-    const tooltipContent = disabled ? disableReason : title;
+    const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled || tooltipContent;
+
+    const getTooltipContent = () => {
+      if (disabled) return disableReason;
+      if (tooltipContent) return tooltipContent;
+      return title;
+    };
 
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
@@ -234,7 +240,7 @@ const MenuItem = forwardRef(
         {renderMenuItemIconIfNeeded()}
 
         <Tooltip
-          content={shouldShowTooltip ? tooltipContent : null}
+          content={shouldShowTooltip ? getTooltipContent() : null}
           position={tooltipPosition}
           showDelay={tooltipShowDelay}
         >
@@ -293,6 +299,7 @@ MenuItem.defaultProps = {
   setSubMenuIsOpenByIndex: undefined,
   resetOpenSubMenuIndex: undefined,
   useDocumentEventListeners: false,
+  tooltipContent: PropTypes.string,
   tooltipPosition: MenuItem.tooltipPositions.RIGHT,
   tooltipShowDelay: 300,
   onMouseLeave: undefined,
@@ -318,6 +325,7 @@ MenuItem.propTypes = {
   hasOpenSubMenu: PropTypes.bool,
   setSubMenuIsOpenByIndex: PropTypes.func,
   useDocumentEventListeners: PropTypes.bool,
+  tooltipContent: undefined,
   tooltipPosition: PropTypes.oneOf([
     MenuItem.tooltipPositions.RIGHT,
     MenuItem.tooltipPositions.LEFT,
