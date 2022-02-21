@@ -299,7 +299,7 @@ MenuItem.defaultProps = {
   setSubMenuIsOpenByIndex: undefined,
   resetOpenSubMenuIndex: undefined,
   useDocumentEventListeners: false,
-  tooltipContent: PropTypes.string,
+  tooltipContent: undefined,
   tooltipPosition: MenuItem.tooltipPositions.RIGHT,
   tooltipShowDelay: 300,
   onMouseLeave: undefined,
@@ -325,7 +325,7 @@ MenuItem.propTypes = {
   hasOpenSubMenu: PropTypes.bool,
   setSubMenuIsOpenByIndex: PropTypes.func,
   useDocumentEventListeners: PropTypes.bool,
-  tooltipContent: undefined,
+  tooltipContent: PropTypes.string,
   tooltipPosition: PropTypes.oneOf([
     MenuItem.tooltipPositions.RIGHT,
     MenuItem.tooltipPositions.LEFT,
