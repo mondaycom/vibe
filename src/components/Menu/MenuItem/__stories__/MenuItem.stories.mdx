@@ -4,7 +4,9 @@ import {
   menuItemTemplate,
   menuItemStatesTemplate,
   menuItemIconsTemplate,
-  menuItemIconsWithColorsTemplate, menuItemOverflowTemplate
+  menuItemIconsWithColorsTemplate,
+  menuItemOverflowTemplate,
+  menuItemTooltipTemplate
 } from "./MenuItem.stories";
 import MenuItem from "../MenuItem";
 
@@ -16,14 +18,15 @@ export const metaSettings = createStoryMetaSettings({
 
 <Meta
   title="Navigation/Menu/MenuItem"
-  component={ MenuItem }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={MenuItem}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component documentation -->
 
 # Menu Item
+
 - [Overview](#overview)
 - [Props](#props)
 - [Use cases and examples](#use-cases-and-examples)
@@ -31,42 +34,47 @@ export const metaSettings = createStoryMetaSettings({
 - [Feedback](#feedback)
 
 ## Overview
+
 Use menu item for drawing one options that displayed inside a menu.
 
 <Canvas>
-  <Story name="Overview" args={{title: "Menu item"}}>
-      { menuItemTemplate.bind({}) }
+  <Story name="Overview" args={{ title: "Menu item" }}>
+    {menuItemTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ MenuItem } />
+
+<ArgsTable of={MenuItem} />
 
 ## Variants
+
 ### States
+
 <Canvas>
-  <Story name="States">
-    { menuItemStatesTemplate.bind({}) }
-  </Story>
+  <Story name="States">{menuItemStatesTemplate.bind({})}</Story>
 </Canvas>
 
 ### Icons
+
 <Canvas>
-  <Story name="Icons">
-    { menuItemIconsTemplate.bind({}) }
-  </Story>
+  <Story name="Icons">{menuItemIconsTemplate.bind({})}</Story>
 </Canvas>
 
 ### Icons with colors
+
 <Canvas>
-  <Story name="Icons with colors">
-    { menuItemIconsWithColorsTemplate.bind({}) }
-  </Story>
+  <Story name="Icons with colors">{menuItemIconsWithColorsTemplate.bind({})}</Story>
 </Canvas>
 
 ### Overflow
+
 <Canvas>
-  <Story name="Overflow">
-    { menuItemOverflowTemplate.bind({}) }
-  </Story>
+  <Story name="Overflow">{menuItemOverflowTemplate.bind({})}</Story>
+</Canvas>
+
+### Tooltips
+
+<Canvas>
+  <Story name="Tooltip">{menuItemTooltipTemplate.bind({})}</Story>
 </Canvas>
