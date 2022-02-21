@@ -33,7 +33,7 @@ $tooltip-z-index: 9999999999999999;
 }
 
 .monday-style-tooltip-white,
-  .monday-style-arrow-white {
+.monday-style-arrow-white {
   background-color: $white-theme-bg-color;
   color: $white-theme-font-color;
   @include theme-prop(box-shadow, box-shadow-medium);
