@@ -212,11 +212,11 @@ const MenuItem = forwardRef(
 
     const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled || tooltipContent;
 
-    const getTooltipContent = () => {
+    const finalTooltipContent = useMemo(() => {
       if (disabled) return disableReason;
       if (tooltipContent) return tooltipContent;
       return title;
-    };
+    }, [disableReason, disabled, title, tooltipContent]);
 
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
@@ -240,7 +240,7 @@ const MenuItem = forwardRef(
         {renderMenuItemIconIfNeeded()}
 
         <Tooltip
-          content={shouldShowTooltip ? getTooltipContent() : null}
+          content={shouldShowTooltip ? finalTooltipContent : null}
           position={tooltipPosition}
           showDelay={tooltipShowDelay}
         >
