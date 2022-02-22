@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.14.0 (2022-02-22)
+
+#### Bug Fixes
+* [#536](https://github.com/mondaycom/monday-ui-react-core/pull/536) combobox disable no result on loading ([@roniCohen123](https://github.com/roniCohen123))
+
+#### New Features
+* [#551](https://github.com/mondaycom/monday-ui-react-core/pull/551) Support passing tooltip content to menu item by tooltipContent prop ([@etaylib](https://github.com/etaylib))
+
 ## 1.13.12 (2022-02-20)
 
 #### New Icons
