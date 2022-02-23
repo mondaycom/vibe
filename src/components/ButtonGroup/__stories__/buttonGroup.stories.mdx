@@ -1,9 +1,8 @@
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import ButtonGroup from "../ButtonGroup";
-import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings, Link} from "../../../storybook";
 import { Mobile } from "../../Icon/Icons";
 import { BUTTON, TABS, BREADCRUBMS } from "../../../storybook/components/related-components/component-description-map";
-import { Link } from "../../../storybook/components";
 import Desktop from "./assets/Desktop.js";
 import "./buttonGroup.stories.scss";
 
@@ -14,7 +13,7 @@ export const metaSettings = createStoryMetaSettings({
 });
 
 <Meta
-  title="Buttons/ButtonGroup"
+  title="Buttons/ Button Group"
   component={ButtonGroup}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
@@ -347,7 +346,8 @@ For example: on the views setttings you can choose only one option.
 
 ### Button group as toggle
 
-Use button group as toggle for change the view between two states. For on and off actions, use the Toggle component.
+Use button group as toggle for change the view between two states.
+For on and off actions, use the <Link withoutSpacing href="/?path=/docs/inputs-toggle--overview">Toggle component</Link>.
 
 <Canvas>
   <Story name="Button group as toggle">

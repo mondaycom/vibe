@@ -11,8 +11,16 @@ import "./splitButton.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: SplitButton,
-  enumPropNamesArray: ["dialogPaddingSize", "kind", "secondaryDialogPosition"],
-  iconPropNamesArray: ["leftIcon", "rightIcon"]
+  enumPropNamesArray: [
+      "kind",
+      "dialogPaddingSize",
+      {
+          propName: "secondaryDialogPosition",
+          enumName: "secondaryPositions"
+      }
+  ],
+  iconPropNamesArray: ["leftIcon", "rightIcon"],
+  actionPropsArray: ["secondaryDialogContent", "onSecondaryDialogDidShow", "onSecondaryDialogDidHide", "onClick"]
 });
 
 <Meta 
@@ -74,12 +82,12 @@ A split button is a dual-function menu button that offers a default action as we
 
 ## Variants
 
-### Button types
+### Types
 
 The split button has three variants: primary, secondary, and tertiary.
 
 <Canvas>
-  <Story name="Button types">
+  <Story name="Types">
     <SplitButton children="Primary" secondaryDialogContent={<SplitButtonExampleDialog />} />
     <SplitButton
       children="Secondary"
@@ -92,6 +100,18 @@ The split button has three variants: primary, secondary, and tertiary.
       secondaryDialogContent={<SplitButtonExampleDialog />}
     />
   </Story>
+</Canvas>
+
+### Sizes
+
+The split button has supports multiple sizes: small, medium and large.
+
+<Canvas>
+    <Story name="Sizes">
+        <SplitButton children="Small" size={SplitButton.sizes.SMALL} secondaryDialogContent={<SplitButtonExampleDialog />} />
+        <SplitButton children="Medium" size={SplitButton.sizes.MEDIUM} secondaryDialogContent={<SplitButtonExampleDialog />} />
+        <SplitButton children="Large" size={SplitButton.sizes.LARGE} secondaryDialogContent={<SplitButtonExampleDialog />} />
+    </Story>
 </Canvas>
 
 ### Icon usage
