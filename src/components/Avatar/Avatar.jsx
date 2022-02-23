@@ -35,13 +35,17 @@ const Avatar = ({
   topRightBadgeProps,
   bottomLeftBadgeProps,
   bottomRightBadgeProps,
-  removeBorder
+  withoutBorder,
+  customSize
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const backgroundColorStyle = useMemo(() => {
-    return src ? undefined : { backgroundColor: getElementColor(backgroundColor) };
+    return src ? {} : { backgroundColor: getElementColor(backgroundColor) };
   }, [src, backgroundColor]);
+  const sizeStyle = useMemo(() => {
+    return customSize ? { height: `${customSize}px`, width: `${customSize}px` }: {};
+  }, [customSize]);
 
   const badgesContainer = useMemo(() => {
     const badges = [];
@@ -93,7 +97,7 @@ const Avatar = ({
     <div className={cx(AVATAR_CSS_BASE_CLASS, className)}>
       <div
         className={cx(
-          { 'remove-border': removeBorder },
+          { "without-border": withoutBorder },
           bemHelper({ element: "circle" }),
           bemHelper({ element: "circle", state: type }),
           bemHelper({ element: "circle", state: size }),
@@ -104,7 +108,7 @@ const Avatar = ({
         )}
         aria-hidden={ariaHidden}
         tabIndex={tabIndex}
-        style={backgroundColorStyle}
+        style={{ ...backgroundColorStyle, ...sizeStyle }}
       >
         <AvatarContent type={type} size={size} src={src} icon={icon} text={text} ariaLabel={ariaLabel} role={role} />
       </div>
@@ -127,7 +131,8 @@ Avatar.propTypes = {
   backgroundColor: PropTypes.oneOf(Object.values(Avatar.colors)),
   role: PropTypes.string,
   ariaLabel: PropTypes.string,
-  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL, Avatar.sizes.XS]),
+  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
+  customSize: PropTypes.number,
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   ariaHidden: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -136,7 +141,7 @@ Avatar.propTypes = {
   topRightBadgeProps: PropTypes.object,
   bottomLeftBadgeProps: PropTypes.object,
   bottomRightBadgeProps: PropTypes.object,
-  removeBorder: PropTypes.bool
+  withoutBorder: PropTypes.bool
 };
 
 Avatar.defaultProps = {
@@ -149,6 +154,7 @@ Avatar.defaultProps = {
   role: undefined,
   ariaLabel: undefined,
   size: AVATAR_SIZES.LARGE,
+  customSize: null,
   tabIndex: 0,
   ariaHidden: false,
   disabled: undefined,
@@ -157,7 +163,7 @@ Avatar.defaultProps = {
   topRightBadgeProps: undefined,
   bottomLeftBadgeProps: undefined,
   bottomRightBadgeProps: undefined,
-  removeBorder: false
+  withoutBorder: false
 };
 
 export default Avatar;

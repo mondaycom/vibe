@@ -165,6 +165,84 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 </div>
 `;
 
+exports[`Chips renders correctly renders correctly with left avatar 1`] = `
+<div
+  className="chips--wrapper"
+  id=""
+  onMouseDown={[Function]}
+  style={
+    Object {
+      "backgroundColor": "var(--primary-selected-color)",
+    }
+  }
+>
+  <div
+    className="monday-style-avatar chip-avatar left"
+  >
+    <div
+      aria-hidden={false}
+      className="without-border monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large"
+      style={
+        Object {
+          "height": "16px",
+          "width": "16px",
+        }
+      }
+      tabIndex={0}
+    >
+      <img
+        className="monday-style-avatar-content_img monday-style-avatar-content_img--large"
+        src="person1.png"
+      />
+    </div>
+  </div>
+  <div
+    className="label"
+  >
+
+  </div>
+</div>
+`;
+
+exports[`Chips renders correctly renders correctly with right avatar 1`] = `
+<div
+  className="chips--wrapper"
+  id=""
+  onMouseDown={[Function]}
+  style={
+    Object {
+      "backgroundColor": "var(--primary-selected-color)",
+    }
+  }
+>
+  <div
+    className="label"
+  >
+
+  </div>
+  <div
+    className="monday-style-avatar chip-avatar right"
+  >
+    <div
+      aria-hidden={false}
+      className="without-border monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large"
+      style={
+        Object {
+          "height": "16px",
+          "width": "16px",
+        }
+      }
+      tabIndex={0}
+    >
+      <img
+        className="monday-style-avatar-content_img monday-style-avatar-content_img--large"
+        src="person1.png"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
   className="chips--wrapper with-close"

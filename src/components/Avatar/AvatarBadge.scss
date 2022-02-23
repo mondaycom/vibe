@@ -1,7 +1,6 @@
 $avatar-badge-size-large: 19px;
 $avatar-badge-size-medium: 13px;
 $avatar-badge-size-small: 10px;
-$avatar-badge-size-xs: 8px;
 
 .monday-style-avatar-badge {
   &--large{
@@ -17,10 +16,5 @@ $avatar-badge-size-xs: 8px;
   &--small {
     height: $avatar-badge-size-small;
     width: $avatar-badge-size-small;
-  }
-
-  &--xs {
-    height: $avatar-badge-size-xs;
-    width: $avatar-badge-size-xs;
   }
 }

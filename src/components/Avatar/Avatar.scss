@@ -5,7 +5,6 @@
 $avatar-size-large: 50px;
 $avatar-size-medium: 36px;
 $avatar-size-small: 28px;
-$avatar-size-xs: 16px;
 
 .monday-style-avatar {
   position: relative;
@@ -39,11 +38,6 @@ $avatar-size-xs: 16px;
       width: $avatar-size-small;
     }
 
-    &--xs {
-      height: $avatar-size-xs;
-      width: $avatar-size-xs;
-    }
-
     &--img {
       @include theme-prop(border-color, primary-background-color);
     }
@@ -73,7 +67,7 @@ $avatar-size-xs: 16px;
     }
   }
 
-  .remove-border {
+  .without-border {
     border: none;
   }
 
