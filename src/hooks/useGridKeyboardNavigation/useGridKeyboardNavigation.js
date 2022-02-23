@@ -44,6 +44,9 @@ export default function useGridKeyboardNavigation({
   );
   const skippedInitialActiveIndexChange = useRef(false);
   const [activeIndex, setActiveIndex] = useState(isInitialActiveState ? focusItemIndexOnMount : NO_ACTIVE_INDEX);
+  // isUsingKeyboardNav indicate if the interaction with the grid element happend by using keyboard or by using mouse.
+  // if it will happen by using mouse the focus will be not visible
+  // This hooks assumption is that any interaction with the grid always done by keyboard, unless we clicked on the grid element before that with a mouse.
   const isUsingKeyboardNav = useRef(true);
 
   const keyboardContext = useContext(GridKeyboardNavigationContext);
@@ -97,10 +100,13 @@ export default function useGridKeyboardNavigation({
   );
 
   const onMouseDown = useCallback(() => {
+    // If the user clicked on the grid element we assume that that what will caused the focus
     isUsingKeyboardNav.current = false;
   }, [isUsingKeyboardNav]);
 
   const onBlur = useCallback(() => {
+    // If we lose focus we will return to isUsingKeyboardNav default mode which is that any interaction
+    // with the grid always done by keyboard, unless we clicked on the grid element before that with a mouse
     isUsingKeyboardNav.current = true;
     setActiveIndex(NO_ACTIVE_INDEX);
   }, [setActiveIndex]);
