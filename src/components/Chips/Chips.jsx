@@ -8,6 +8,7 @@ import { getCSSVar } from "../../services/themes";
 import { NOOP } from "../../utils/function-utils";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import "./Chips.scss";
+import Avatar from "../Avatar/Avatar";
 
 const Chips = forwardRef(
   (
@@ -17,6 +18,8 @@ const Chips = forwardRef(
       label,
       leftIcon,
       rightIcon,
+      leftAvatar,
+      rightAvatar,
       disabled,
       readOnly,
       allowTextSelection,
@@ -61,6 +64,17 @@ const Chips = forwardRef(
         onMouseDown={onMouseDown}
         data-testid={dataTestId}
       >
+        {
+          leftAvatar? (
+            <Avatar
+              className='chip-avatar left'
+              size={Avatar.sizes.XS}
+              src={leftAvatar}
+              type={Avatar.types.IMG}
+              key={id}
+            />
+          ) : null
+        }
         {leftIcon ? (
           <Icon
             className="chip-icon left"
@@ -82,6 +96,17 @@ const Chips = forwardRef(
             ignoreFocusStyle
           />
         ) : null}
+        {
+          rightAvatar? (
+            <Avatar
+              className='chip-avatar right'
+              size={Avatar.sizes.XS}
+              src={rightAvatar}
+              type={Avatar.types.IMG}
+              key={id}
+            />
+          ) : null
+        }
         {hasCloseButton && (
           <Icon
             aria-label={`Remove ${label}`}

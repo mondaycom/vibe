@@ -5,6 +5,7 @@
 $avatar-size-large: 50px;
 $avatar-size-medium: 36px;
 $avatar-size-small: 28px;
+$avatar-size-xs: 22px;
 
 .monday-style-avatar {
   position: relative;
@@ -36,6 +37,11 @@ $avatar-size-small: 28px;
     &--small {
       height: $avatar-size-small;
       width: $avatar-size-small;
+    }
+
+    &--xs {
+      height: $avatar-size-xs;
+      width: $avatar-size-xs;
     }
 
     &--img {

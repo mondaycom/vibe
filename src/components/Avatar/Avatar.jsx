@@ -125,7 +125,7 @@ Avatar.propTypes = {
   backgroundColor: PropTypes.oneOf(Object.values(Avatar.colors)),
   role: PropTypes.string,
   ariaLabel: PropTypes.string,
-  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
+  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL, Avatar.sizes.XS]),
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   ariaHidden: PropTypes.bool,
   disabled: PropTypes.bool,
