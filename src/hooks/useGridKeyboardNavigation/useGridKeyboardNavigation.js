@@ -100,7 +100,10 @@ export default function useGridKeyboardNavigation({
     isUsingKeyboardNav.current = false;
   }, [isUsingKeyboardNav]);
 
-  const onBlur = useCallback(() => setActiveIndex(NO_ACTIVE_INDEX), [setActiveIndex]);
+  const onBlur = useCallback(() => {
+    isUsingKeyboardNav.current = true;
+    setActiveIndex(NO_ACTIVE_INDEX);
+  }, [setActiveIndex]);
 
   useEventListener({ eventName: "focus", callback: onFocus, ref });
   useEventListener({ eventName: "mousedown", callback: onMouseDown, ref });
