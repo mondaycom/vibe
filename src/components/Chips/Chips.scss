@@ -33,7 +33,7 @@ $icon-margin: 4px;
     padding-right: 4px;
   }
 
-  .chip-icon {
+  .chip-icon, .chip-avatar {
     &.left {
       margin-right: $icon-margin;
     }
