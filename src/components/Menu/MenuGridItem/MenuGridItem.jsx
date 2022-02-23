@@ -1,12 +1,12 @@
 import React, { useRef, forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { useFocusWithin } from "@react-aria/interactions";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./MenuGridItem.scss";
 import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
+import { useFocusWithin } from "hooks/useFocusWithin";
 
 const MenuGridItem = forwardRef(
   (
@@ -22,7 +22,8 @@ const MenuGridItem = forwardRef(
       setActiveItemIndex,
       setSubMenuIsOpenByIndex,
       isUnderSubMenu,
-      disabled
+      disabled,
+      useDocumentEventListeners
     },
     ref
   ) => {
@@ -49,7 +50,13 @@ const MenuGridItem = forwardRef(
     );
     const { focusWithinProps } = useFocusWithin({ onFocusWithinChange });
 
-    useFocusGridItemByActiveStatus({ wrapperRef: componentRef, childRef, activeItemIndex, index });
+    useFocusGridItemByActiveStatus({
+      wrapperRef: componentRef,
+      childRef,
+      activeItemIndex,
+      index,
+      useDocumentEventListeners
+    });
 
     const keyboardContext = useMenuGridItemNavContext({
       wrapperRef: mergedRef,
@@ -97,7 +104,8 @@ MenuGridItem.propTypes = {
   getPreviousSelectableIndex: PropTypes.func,
   index: PropTypes.number, // the index of this item
   isUnderSubMenu: PropTypes.bool, // true if this item is under a submenu, and not a top-level menu
-  setSubMenuIsOpenByIndex: PropTypes.func
+  setSubMenuIsOpenByIndex: PropTypes.func,
+  useDocumentEventListeners: PropTypes.bool
 };
 
 MenuGridItem.defaultProps = {
@@ -112,7 +120,8 @@ MenuGridItem.defaultProps = {
   index: undefined,
   setSubMenuIsOpenByIndex: undefined,
   getNextSelectableIndex: undefined,
-  getPreviousSelectableIndex: undefined
+  getPreviousSelectableIndex: undefined,
+  useDocumentEventListeners: false
 };
 
 export default MenuGridItem;

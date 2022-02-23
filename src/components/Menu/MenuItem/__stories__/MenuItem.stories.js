@@ -66,3 +66,18 @@ export const menuItemOverflowTemplate = args => {
     </Menu>
   );
 };
+
+export const menuItemTooltipTemplate = args => {
+  return (
+    <Menu>
+      <MenuItem title="Menu item with tooltip" tooltipContent="I am tooltip" />
+      <MenuItem title="Disabled menu item with tooltip" disabled={true} disableReason="I am a disabled tooltip" />
+      <MenuItem title="I am a very very very very long text please hover me to get a tooltip" />
+      <MenuItem
+        title="Menu item with bottom tooltip"
+        tooltipContent="I am tooltip"
+        tooltipPosition={MenuItem.tooltipPositions.BOTTOM}
+      />
+    </Menu>
+  );
+};

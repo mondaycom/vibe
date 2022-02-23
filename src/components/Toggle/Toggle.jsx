@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
-import { useToggle } from "hooks/useToggle";
+import { Switch } from "components/Switch/Switch";
+import { MockToggle } from "components/Toggle/MockToggle";
 import { BEMClass } from "helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
-import ToggleText from "./ToggleText";
 import "./Toggle.scss";
 
 const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
@@ -32,36 +32,31 @@ const Toggle = ({
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
-  const { inputProps, isChecked } = useToggle({
-    id,
-    isDefaultSelected,
-    isSelected,
-    onChange,
-    value,
-    name,
-    isDisabled: overrideDisabled,
-    ariaLabel,
-    ariaControls
+  const wrapperClassName = cx(bemHelper({ element: "wrapper" }), {
+    [bemHelper({ element: "wrapper", state: "disabled" })]: overrideDisabled
   });
-
+  const inputClassName = bemHelper({ element: "input" });
   return (
-    <label
-      htmlFor={id}
-      className={cx(bemHelper({ element: "wrapper" }), {
-        [bemHelper({ element: "wrapper", state: "disabled" })]: overrideDisabled
-      })}
+    <Switch
+      defaultChecked={isDefaultSelected}
+      checked={isSelected}
+      id={id}
+      wrapperClassName={wrapperClassName}
+      onChange={onChange}
+      value={value}
+      name={name}
+      disabled={overrideDisabled}
+      ariaLabel={ariaLabel}
+      ariaControls={ariaControls}
+      inputClassName={inputClassName}
     >
-      {areLabelsHidden ? null : <ToggleText>{offOverrideText}</ToggleText>}
-      <input {...inputProps} className={bemHelper({ element: "input" })} />
-      <div
-        className={cx(bemHelper({ element: "toggle" }), overrideClassName, {
-          [bemHelper({ element: "toggle", state: "selected" })]: isChecked,
-          [bemHelper({ element: "toggle", state: "not-selected" })]: !isChecked
-        })}
-        aria-hidden="true"
+      <MockToggle
+        areLabelsHidden={areLabelsHidden}
+        offOverrideText={offOverrideText}
+        className={overrideClassName}
+        onOverrideText={onOverrideText}
       />
-      {areLabelsHidden ? null : <ToggleText>{onOverrideText}</ToggleText>}
-    </label>
+    </Switch>
   );
 };
 

@@ -237,8 +237,6 @@ const Combobox = forwardRef(
             inputAriaLabel="Search for content"
             activeDescendant={`combobox-item-${activeItemIndex}`}
             id="combobox-search"
-            iconName="fa-search"
-            secondaryIconName="fa-close"
             placeholder={placeholder}
             size={size}
             disabled={disabled}
@@ -248,7 +246,7 @@ const Combobox = forwardRef(
           />
           {renderedItems}
         </div>
-        {hasFilter && !hasResults && renderNoResults()}
+        {hasFilter && !hasResults && !loading && renderNoResults()}
       </div>
     );
   }

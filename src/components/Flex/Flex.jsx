@@ -15,14 +15,16 @@ const Flex = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
+    const onClickProps = useMemo(() => {
+      if (onClick) return { elementType, ariaLabelledby };
+      return { "aria-labelledby": ariaLabelledby };
+    }, [onClick, elementType, ariaLabelledby]);
     const Element = onClick ? Clickable : elementType;
 
     return (
       <Element
         id={id}
-        ariaLabelledby={ariaLabelledby}
-        // in case the element is clickable, we will pass the real element type in this prop
-        elementType={elementType}
+        {...onClickProps}
         ref={mergedRef}
         className={cx(
           classes.container,
@@ -61,7 +63,12 @@ Flex.propTypes = {
   direction: PropTypes.oneOf([Flex.directions.ROW, Flex.directions.COLUMN]),
   elementType: PropTypes.string,
   wrap: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element)
+  ]),
   justify: PropTypes.oneOf([
     Flex.justify.START,
     Flex.justify.CENTER,

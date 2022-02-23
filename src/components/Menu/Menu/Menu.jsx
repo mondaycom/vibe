@@ -1,6 +1,5 @@
 import { SIZES } from "constants/sizes";
 import React, { useMemo, forwardRef, useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
-import { useFocusWithin } from "@react-aria/interactions";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "hooks/useMergeRefs";
@@ -13,6 +12,7 @@ import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
 import useMouseLeave from "./hooks/useMouseLeave";
 import "./Menu.scss";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
+import { useFocusWithin } from "hooks/useFocusWithin";
 
 const Menu = forwardRef(
   (

@@ -45,6 +45,7 @@ const MenuItem = forwardRef(
       setSubMenuIsOpenByIndex,
       closeMenu,
       useDocumentEventListeners,
+      tooltipContent,
       tooltipPosition,
       tooltipShowDelay,
       isInitialSelectedState,
@@ -130,10 +131,11 @@ const MenuItem = forwardRef(
     }, [shouldShowSubMenu, childElement, useDocumentEventListeners]);
 
     useEffect(() => {
+      if (useDocumentEventListeners) return;
       if (isActive) {
         referenceElement?.focus();
       }
-    }, [isActive, referenceElement]);
+    }, [isActive, referenceElement, useDocumentEventListeners]);
 
     const closeSubMenu = useCallback(
       (options = {}) => {
@@ -209,8 +211,13 @@ const MenuItem = forwardRef(
       };
     }, [children, hasOpenSubMenu]);
 
-    const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled;
-    const tooltipContent = disabled ? disableReason : title;
+    const shouldShowTooltip = isTitleHoveredAndOverflowing || disabled || tooltipContent;
+
+    const finalTooltipContent = useMemo(() => {
+      if (disabled) return disableReason;
+      if (tooltipContent) return tooltipContent;
+      return title;
+    }, [disableReason, disabled, title, tooltipContent]);
 
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
@@ -234,7 +241,7 @@ const MenuItem = forwardRef(
         {renderMenuItemIconIfNeeded()}
 
         <Tooltip
-          content={shouldShowTooltip ? tooltipContent : null}
+          content={shouldShowTooltip ? finalTooltipContent : null}
           position={tooltipPosition}
           showDelay={tooltipShowDelay}
         >
@@ -262,7 +269,8 @@ const MenuItem = forwardRef(
                 isVisible: shouldShowSubMenu,
                 isSubMenu: true,
                 onClose: closeSubMenu,
-                ref: childRef
+                ref: childRef,
+                useDocumentEventListeners
               })}
             </DialogContentContainer>
           )}
@@ -293,6 +301,7 @@ MenuItem.defaultProps = {
   setSubMenuIsOpenByIndex: undefined,
   resetOpenSubMenuIndex: undefined,
   useDocumentEventListeners: false,
+  tooltipContent: undefined,
   tooltipPosition: MenuItem.tooltipPositions.RIGHT,
   tooltipShowDelay: 300,
   onMouseLeave: undefined,
@@ -318,6 +327,7 @@ MenuItem.propTypes = {
   hasOpenSubMenu: PropTypes.bool,
   setSubMenuIsOpenByIndex: PropTypes.func,
   useDocumentEventListeners: PropTypes.bool,
+  tooltipContent: PropTypes.string,
   tooltipPosition: PropTypes.oneOf([
     MenuItem.tooltipPositions.RIGHT,
     MenuItem.tooltipPositions.LEFT,

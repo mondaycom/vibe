@@ -1,5 +1,71 @@
 # Changelog
 
+## 1.14.0 (2022-02-22)
+
+#### Bug Fixes
+* [#536](https://github.com/mondaycom/monday-ui-react-core/pull/536) combobox disable no result on loading ([@roniCohen123](https://github.com/roniCohen123))
+
+#### New Features
+* [#551](https://github.com/mondaycom/monday-ui-react-core/pull/551) Support passing tooltip content to menu item by tooltipContent prop ([@etaylib](https://github.com/etaylib))
+
+## 1.13.12 (2022-02-20)
+
+#### New Icons
+* [#549](https://github.com/mondaycom/monday-ui-react-core/pull/549) Update color keys ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.13.11 (2022-02-20)
+
+#### Bug Fixes
+* [#548](https://github.com/mondaycom/monday-ui-react-core/pull/548) Fix toggle on change params ([@hadasfa](https://github.com/hadasfa))
+
+## 1.13.10 (2022-02-20)
+
+#### Bug Fixes
+* [#545](https://github.com/mondaycom/monday-ui-react-core/pull/545) Better support for useDocumentEventListeners on Menu components ([@laviomri](https://github.com/laviomri))
+
+## 1.13.9 (2022-02-17)
+
+#### Bug Fixes
+* [#546](https://github.com/mondaycom/monday-ui-react-core/pull/546) Displaying focus properly in toggle component ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#547](https://github.com/mondaycom/monday-ui-react-core/pull/547) Update colors in basic, night themes ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.13.8 (2022-02-17)
+
+#### Bug Fixes
+* [#544](https://github.com/mondaycom/monday-ui-react-core/pull/544) Fix bug on toggle cannot be affected by click when in controlled mode ([@hadasfa](https://github.com/hadasfa))
+
+## 1.13.7 (2022-02-16)
+
+#### Bug Fixes
+* [#543](https://github.com/mondaycom/monday-ui-react-core/pull/543) remove react aria dependecies ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.13.6 (2022-02-16)
+
+#### Bug Fixes
+* [#542](https://github.com/mondaycom/monday-ui-react-core/pull/542) remove react button ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.13.5 (2022-02-16)
+
+#### Bug Fixes
+* [#541](https://github.com/mondaycom/monday-ui-react-core/pull/541) Set version ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.13.4 (2022-02-16)
+
+#### Bug Fixes
+* [#540](https://github.com/mondaycom/monday-ui-react-core/pull/540) Fix font load ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.13.3 (2022-02-16)
+
+#### Bug Fixes
+* [#539](https://github.com/mondaycom/monday-ui-react-core/pull/539) Flex types ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.13.2 (2022-02-16)
+
+#### Bug Fixes
+* [#538](https://github.com/mondaycom/monday-ui-react-core/pull/538) Element type issues ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.13.1 (2022-02-15)
 
 #### Bug Fixes
