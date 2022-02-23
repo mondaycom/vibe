@@ -73,7 +73,7 @@ Combo box allowing users to filter longer lists to only the selections matching 
 
 ## Variants
 ### Default
-Default combo box can be used without dialog or as part of the layout
+Default combo box can be used without dialog or as part of the layout.
 <Canvas>
   <Story name="Default">
     {() => {
@@ -111,7 +111,7 @@ Use this for combo box that triggered by button.
 </Canvas>
 
 ### Sizes
-We have three pre-defined sizes for combo box width size: Small 200px, Medium 240px, Large 260px
+We have three pre-defined sizes for combo box width size: Small 200px, Medium 240px, Large 260px.
 <Canvas>
   <Story name="Sizes">
     {() => {
@@ -157,20 +157,18 @@ When having a lot of options, you may use headings to categorize them.
         workspace: { id: "Workspaces", label: "Workspaces" }
       }), []);
       return (
-      <div>
-        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.SMALL}>
-          <StoryDescription description="Categories without divider">
+        <Flex gap={Flex.gaps.SMALL}  style={{width:"100%"}} justify={Flex.justify.SPACE_AROUND} align={Flex.align.START} >
+          <StoryDescription description="Categories without divider" vertical>
             <DialogContentContainer>
               <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
             </DialogContentContainer>
           </StoryDescription>
-          <StoryDescription description="Categories with divider">
+          <StoryDescription description="Categories with divider" vertical>
             <DialogContentContainer>
               <Combobox options={options} categories={categories} withCategoriesDivider placeholder="Placeholder text here" />
             </DialogContentContainer>
           </StoryDescription>
         </Flex>
-      </div>
       )
     }}
   </Story>
@@ -330,11 +328,11 @@ If importing the combo box options may take time, you reflect this to the user b
 />
 
 ## Use cases and examples
-### Combobox as person picker
+### Combo box as person picker
 We are using combo box component for our board person picker.
 
 <Canvas>
-  <Story name="Combobox as person picker">
+  <Story name="Combo box as person picker">
     {() => {
         const options = useMemo(
           () => [
@@ -361,7 +359,7 @@ We are using combo box component for our board person picker.
         <Dialog
           content={() => (
             <DialogContentContainer className="combobox-stories-styles_wrapper">
-              <Combobox options={options} categories={categories} optionRenderer={optionRenderer} size={Combobox.sizes.LARGE}/>
+              <Combobox options={options} categories={categories} optionRenderer={optionRenderer} size={Combobox.sizes.SMALL} placeholder="Search"/>
             </DialogContentContainer>
           )}
           tooltip

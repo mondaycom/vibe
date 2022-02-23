@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 import Flex from "../../../components/Flex/Flex";
 import classes from "./story-description.module.scss";
 
-export const StoryDescription = ({ description, children, vertical }) => {
+export const StoryDescription = ({ description, children, vertical, className }) => {
   const direction = useMemo(() => (vertical ? Flex.directions.COLUMN : Flex.directions.ROW), [vertical]);
   return (
-    <Flex direction={direction} gap={Flex.gaps.MEDIUM} justify={Flex.justify.START}>
+    <Flex direction={direction} gap={Flex.gaps.MEDIUM} justify={Flex.justify.START} className={className}>
       <Flex
         className={cx(classes.description, { [classes.vertical]: vertical })}
-        style={{ width: "100px" }}
+        style={{ width: "120px" }}
         justify={Flex.justify.START}
         align={Flex.align.CENTER}
       >
