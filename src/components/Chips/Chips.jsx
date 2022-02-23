@@ -138,6 +138,10 @@ Chips.propTypes = {
   rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /** Icon to place on the left */
   leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  /** Img to place as avatar on the right */
+  rightAvatar: PropTypes.string,
+  /** Img to place as avatar on the left */
+  leftAvatar: PropTypes.string,
   color: PropTypes.oneOf(Object.keys(Chips.colors)),
   /** size for font icon */
   iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -163,6 +167,8 @@ Chips.defaultProps = {
   readOnly: false,
   rightIcon: null,
   leftIcon: null,
+  leftAvatar: null,
+  rightAvatar: null,
   color: Chips.colors.PRIMARY,
   iconSize: 16,
   onDelete: NOOP,
