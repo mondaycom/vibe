@@ -199,7 +199,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
   <div
     className="label"
   >
-
+    
   </div>
 </div>
 `;
@@ -218,7 +218,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
   <div
     className="label"
   >
-
+    
   </div>
   <div
     className="monday-style-avatar chip-avatar right"
