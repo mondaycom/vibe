@@ -8,7 +8,8 @@ export const iconsMetaData = [
       name: "MondayDoc",
       file: "MondayDoc.svg",
       description: "Monday Doc",
-      tags: "Doc, Document"
+      tags: "Doc, Document",
+      ignore: true
   },
 
   {
