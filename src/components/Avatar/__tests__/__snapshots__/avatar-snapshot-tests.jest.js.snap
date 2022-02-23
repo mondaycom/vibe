@@ -218,6 +218,7 @@ exports[`Avatar renders correctly renders correctly with image and text 1`] = `
   <div
     aria-hidden={false}
     className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+    style={Object {}}
     tabIndex={0}
   >
     <span
@@ -489,6 +490,7 @@ exports[`Avatar renders correctly renders correctly with image and text 1`] = `
   <div
     aria-hidden={false}
     className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+    style={Object {}}
     tabIndex={0}
   >
     <span
