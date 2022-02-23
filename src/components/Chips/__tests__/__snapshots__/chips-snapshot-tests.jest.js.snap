@@ -181,7 +181,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
   >
     <div
       aria-hidden={false}
-      className="without-border monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
       style={
         Object {
           "height": "16px",
@@ -225,7 +225,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
   >
     <div
       aria-hidden={false}
-      className="without-border monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
       style={
         Object {
           "height": "16px",
