@@ -34,7 +34,8 @@ const Avatar = ({
   topLeftBadgeProps,
   topRightBadgeProps,
   bottomLeftBadgeProps,
-  bottomRightBadgeProps
+  bottomRightBadgeProps,
+  removeBorder
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
@@ -92,6 +93,7 @@ const Avatar = ({
     <div className={cx(AVATAR_CSS_BASE_CLASS, className)}>
       <div
         className={cx(
+          { 'remove-border': removeBorder },
           bemHelper({ element: "circle" }),
           bemHelper({ element: "circle", state: type }),
           bemHelper({ element: "circle", state: size }),
@@ -133,7 +135,8 @@ Avatar.propTypes = {
   topLeftBadgeProps: PropTypes.object,
   topRightBadgeProps: PropTypes.object,
   bottomLeftBadgeProps: PropTypes.object,
-  bottomRightBadgeProps: PropTypes.object
+  bottomRightBadgeProps: PropTypes.object,
+  removeBorder: PropTypes.bool
 };
 
 Avatar.defaultProps = {
@@ -153,7 +156,8 @@ Avatar.defaultProps = {
   topLeftBadgeProps: undefined,
   topRightBadgeProps: undefined,
   bottomLeftBadgeProps: undefined,
-  bottomRightBadgeProps: undefined
+  bottomRightBadgeProps: undefined,
+  removeBorder: false
 };
 
 export default Avatar;

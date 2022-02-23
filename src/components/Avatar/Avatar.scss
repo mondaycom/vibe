@@ -5,7 +5,7 @@
 $avatar-size-large: 50px;
 $avatar-size-medium: 36px;
 $avatar-size-small: 28px;
-$avatar-size-xs: 22px;
+$avatar-size-xs: 16px;
 
 .monday-style-avatar {
   position: relative;
@@ -71,6 +71,10 @@ $avatar-size-xs: 22px;
         @include focus-style($border-radius-small);
       }
     }
+  }
+
+  .remove-border {
+    border: none;
   }
 
   &_badges {

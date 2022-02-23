@@ -67,6 +67,7 @@ const Chips = forwardRef(
         {
           leftAvatar? (
             <Avatar
+              removeBorder
               className='chip-avatar left'
               size={Avatar.sizes.XS}
               src={leftAvatar}
@@ -99,6 +100,7 @@ const Chips = forwardRef(
         {
           rightAvatar? (
             <Avatar
+              removeBorder
               className='chip-avatar right'
               size={Avatar.sizes.XS}
               src={rightAvatar}
