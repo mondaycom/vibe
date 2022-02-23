@@ -64,18 +64,16 @@ const Chips = forwardRef(
         onMouseDown={onMouseDown}
         data-testid={dataTestId}
       >
-        {
-          leftAvatar? (
-            <Avatar
-              withoutBorder
-              className='chip-avatar left'
-              customSize={16}
-              src={leftAvatar}
-              type={Avatar.types.IMG}
-              key={id}
-            />
-          ) : null
-        }
+        {leftAvatar ? (
+          <Avatar
+            withoutBorder
+            className="chip-avatar left"
+            customSize={16}
+            src={leftAvatar}
+            type={Avatar.types.IMG}
+            key={id}
+          />
+        ) : null}
         {leftIcon ? (
           <Icon
             className="chip-icon left"
@@ -97,18 +95,16 @@ const Chips = forwardRef(
             ignoreFocusStyle
           />
         ) : null}
-        {
-          rightAvatar? (
-            <Avatar
-              withoutBorder
-              className='chip-avatar right'
-              customSize={16}
-              src={rightAvatar}
-              type={Avatar.types.IMG}
-              key={id}
-            />
-          ) : null
-        }
+        {rightAvatar ? (
+          <Avatar
+            withoutBorder
+            className="chip-avatar right"
+            customSize={16}
+            src={rightAvatar}
+            type={Avatar.types.IMG}
+            key={id}
+          />
+        ) : null}
         {hasCloseButton && (
           <Icon
             aria-label={`Remove ${label}`}

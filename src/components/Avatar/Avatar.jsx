@@ -44,7 +44,7 @@ const Avatar = ({
     return src ? {} : { backgroundColor: getElementColor(backgroundColor) };
   }, [src, backgroundColor]);
   const sizeStyle = useMemo(() => {
-    return customSize ? { height: `${customSize}px`, width: `${customSize}px` }: {};
+    return customSize ? { height: `${customSize}px`, width: `${customSize}px` } : {};
   }, [customSize]);
 
   const badgesContainer = useMemo(() => {
@@ -97,13 +97,13 @@ const Avatar = ({
     <div className={cx(AVATAR_CSS_BASE_CLASS, className)}>
       <div
         className={cx(
-          { "without-border": withoutBorder },
           bemHelper({ element: "circle" }),
           bemHelper({ element: "circle", state: type }),
           bemHelper({ element: "circle", state: size }),
           {
             [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
-            [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare
+            [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare,
+            [bemHelper({ element: "circle", state: "without-border" })]: withoutBorder
           }
         )}
         aria-hidden={ariaHidden}

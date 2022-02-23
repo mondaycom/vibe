@@ -65,10 +65,10 @@ $avatar-size-small: 28px;
         @include focus-style($border-radius-small);
       }
     }
-  }
 
-  .without-border {
-    border: none;
+    &--without-border {
+      border: none;
+    }
   }
 
   &_badges {
