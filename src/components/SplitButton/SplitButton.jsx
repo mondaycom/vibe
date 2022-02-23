@@ -71,6 +71,7 @@ const SplitButton = ({
 
   // Refs //
   const ref = useRef(null);
+  console.log(ref.current);
 
   // Callbacks //
   const setHovered = useCallback(() => setIsHover(true), [setIsHover]);
@@ -247,6 +248,9 @@ SplitButton.dialogPaddingSizes = DialogContentContainer.sizes;
 
 SplitButton.propTypes = {
   ...Button.propTypes,
+  /*
+   * The element or renderer which display inside the dialog which open by clicking on the split button's secondary button.
+   */
   secondaryDialogContent: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   onSecondaryDialogDidShow: PropTypes.func,
   onSecondaryDialogDidHide: PropTypes.func,

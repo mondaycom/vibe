@@ -117,7 +117,7 @@ The split button has supports multiple sizes: small, medium and large.
 ### Icon usage
 
 <Canvas>
-  <Story name="Icons">
+  <Story name="Split button with icons">
     <SplitButton leftIcon={Add} secondaryDialogContent={<SplitButtonExampleDialog />}>Left icon</SplitButton>
     <SplitButton rightIcon={Add} secondaryDialogContent={<SplitButtonExampleDialog />}>Right icon</SplitButton>
   </Story>
@@ -174,11 +174,11 @@ The split button has supports multiple sizes: small, medium and large.
         ),
         description: (
           <>
-            Don’t use split button if there’s only one option within the menu. Use{" "}
+            Don’t use split button if there’s only one option within the menu. Use
             <Link href="/?path=/docs/buttons-button--overview" withoutSpacing>
               Button
             </Link>{" "}
-            instead.
+            instead (see example in the secondary dialog).
           </>
         )
       }
@@ -215,7 +215,7 @@ The split button has supports multiple sizes: small, medium and large.
             }
           />
         ),
-        description: "Don’t use a split button to group not related actions."
+        description: "Don’t use a split button to group not related actions (see example in the secondary dialog)."
       }
     }
   ]}
