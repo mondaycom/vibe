@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const { useIsOverflowing } = require("hooks");
 const SRC_PATH = path.join(__dirname, "../src");
 const ICONS_PATH = path.join(SRC_PATH, "components/Icon/Icons/components");
 
@@ -96,7 +97,8 @@ const publishedComponents = {
   usePrevious: "hooks/usePrevious.js",
   useMergeRefs: "hooks/useMergeRefs.js",
   useIsMouseOver: "hooks/useIsMouseOver.js",
-  useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js"
+  useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
+  useIsOverflowing: "hooks/useIsOverflowing"
 };
 
 function getPublishedComponents() {
