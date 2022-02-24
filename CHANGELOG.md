@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.16.0 (2022-02-24)
+
+#### New Features
+* [#556](https://github.com/mondaycom/monday-ui-react-core/pull/556) Expose use is overflowing hook ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.15.0 (2022-02-24)
 
 #### New Features
