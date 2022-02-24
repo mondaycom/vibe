@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.15.0 (2022-02-24)
+
+#### New Features
+* [#554](https://github.com/mondaycom/monday-ui-react-core/pull/554) Add support on avatar in chip component ([@roniCohen123](https://github.com/roniCohen123))
+
 ## 1.14.2 (2022-02-23)
 
 #### New Icons
