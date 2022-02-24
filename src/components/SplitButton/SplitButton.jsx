@@ -71,7 +71,6 @@ const SplitButton = ({
 
   // Refs //
   const ref = useRef(null);
-  console.log(ref.current);
 
   // Callbacks //
   const setHovered = useCallback(() => setIsHover(true), [setIsHover]);

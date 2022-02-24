@@ -25,17 +25,17 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
   const decorators = [];
 
   // set enum allowed values inside argsTypes object
-  enumPropNamesArray?.forEach(propName => {
+  enumPropNamesArray?.forEach(prop => {
     let enumName;
-    if (propName instanceof Object) {
-      enumName = propName.enumName;
-      propName = propName.propName;
+    if (prop instanceof Object) {
+      enumName = prop.enumName;
+      prop = prop.propName;
     } else {
-      enumName = `${propName}s`;
+      enumName = `${prop}s`;
     }
     const enums = component[enumName];
     if (enums && enums instanceof Object) {
-      argTypes[propName] = {
+      argTypes[prop] = {
         options: Object.values(enums)
       };
     }
