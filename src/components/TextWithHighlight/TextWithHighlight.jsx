@@ -103,9 +103,10 @@ TextWithHighlight.propTypes = {
   ignoreCase: PropTypes.bool,
   /** Should use ellipsis */
   useEllipsis: PropTypes.bool,
-  /** The highlight every word separately */
+  /** Allow highlight every word as a separate term */
   allowTermSplit: PropTypes.bool,
   linesToClamp: PropTypes.number,
+  /** Tooltip to show when there is no overflow */
   nonEllipsisTooltip: PropTypes.string
 };
 
