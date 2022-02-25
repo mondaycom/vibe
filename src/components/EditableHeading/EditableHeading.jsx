@@ -23,7 +23,8 @@ const EditableHeading = props => {
     style,
     onStartEditing,
     contentRenderer,
-    tooltip
+    tooltip,
+    highlightTerm
   } = props;
 
   // State
@@ -112,7 +113,8 @@ const EditableHeading = props => {
       tooltipPosition: props.tooltipPosition,
       ellipsisMaxLines: props.ellipsisMaxLines,
       nonEllipsisTooltip: props.tooltip,
-      size: props.size
+      size: props.size,
+      highlightTerm
     };
   };
   const renderContentComponent = () => {
@@ -204,7 +206,8 @@ EditableHeading.propTypes = {
   inputAriaLabel: PropTypes.string,
   placeholder: PropTypes.string,
   errorClass: PropTypes.string,
-  errorClassTimeout: PropTypes.number
+  errorClassTimeout: PropTypes.number,
+  highlightTerm: PropTypes.string
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -217,7 +220,8 @@ EditableHeading.defaultProps = {
   suggestEditOnHover: true,
   autoSize: true,
   size: SIZES.LARGE,
-  inputAriaLabel: undefined
+  inputAriaLabel: undefined,
+  highlightTerm: null
 };
 
 EditableHeading.types = TYPES;

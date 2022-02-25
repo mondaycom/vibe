@@ -4,14 +4,14 @@ import { createComponentTemplate, createStoryMetaSettings } from "../../../story
 
 export const metaSettings = createStoryMetaSettings({
   component: EditableHeading,
-  enumPropNamesArray: ["size", "type"],
-})
+  enumPropNamesArray: ["size", "type"]
+});
 
 <Meta
   title="Inputs/EditableHeading"
-  component={ EditableHeading }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={EditableHeading}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -21,6 +21,7 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 <!--- Component documentation -->
 
 # EditableHeading
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -28,28 +29,31 @@ export const editableHeadingTemplate = createComponentTemplate(EditableHeading);
 - [Feedback](#feedback)
 
 ## Overview
+
 An extension of Heading component, it allows built in editing capabilities
 
 <Canvas>
-  <Story
-    name="Overview"
-    args={ {value:"This heading is editable", type: EditableHeading.types.h1} }
-    >
-    { editableHeadingTemplate.bind({}) }
+  <Story name="Overview" args={{ value: "This heading is editable", type: EditableHeading.types.h1 }}>
+    {editableHeadingTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ EditableHeading } />
+
+<ArgsTable of={EditableHeading} />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Use when the title (Heading) is editable and you want to inline edit it",
-  "Always provide a meaningful placeholder",
-  "The component takes 100% of width and height of its container"
-]}/>
+
+<UsageGuidelines
+  guidelines={[
+    "Use when the title (Heading) is editable and you want to inline edit it",
+    "Always provide a meaningful placeholder",
+    "The component takes 100% of width and height of its container"
+  ]}
+/>
 
 ## Variants
+
 ### Heading types
 
 <Canvas>
@@ -68,5 +72,15 @@ An extension of Heading component, it allows built in editing capabilities
 <Canvas>
   <Story name="Placeholder">
     <EditableHeading type={EditableHeading.types.h1} placeholder="H1 Placeholder" />
+  </Story>
+</Canvas>
+
+### With text highlight
+
+<Canvas>
+  <Story name="Text Highlight">
+    <EditableHeading type={EditableHeading.types.h1} value="H1 Header" highlightTerm="head" />
+    <EditableHeading type={EditableHeading.types.h2} value="H2 Header" highlightTerm="head" />
+    <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head" />
   </Story>
 </Canvas>
