@@ -11,4 +11,8 @@
     @include theme-prop(color, primary-text-color);
     border-radius: 2px;
   }
+
+  &.with-ellipsis {
+    @include line-clamp(var(--heading-clamp-lines));
+  }
 }
