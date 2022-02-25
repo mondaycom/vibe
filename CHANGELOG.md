@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.17.0 (2022-02-25)
+
+#### New Features
+* [#557](https://github.com/mondaycom/monday-ui-react-core/pull/557) Support Heading highlight text ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Documentation
+* [#555](https://github.com/mondaycom/monday-ui-react-core/pull/555) Fix stories ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.16.0 (2022-02-24)
 
 #### New Features
