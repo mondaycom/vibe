@@ -84,9 +84,12 @@ export default function useGridKeyboardNavigation({
     e => {
       const direction = e.detail?.keyboardDirection;
       if (direction) {
+        // if we did not already focused on any grid item, set focus according to the item which selected
+        if (activeIndex === -1) {
+          const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
+          setActiveIndex(newIndex);
+        }
         setIsUsingKeyboardNav(true);
-        const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
-        setActiveIndex(newIndex);
         return;
       }
       if (activeIndex === NO_ACTIVE_INDEX) {
