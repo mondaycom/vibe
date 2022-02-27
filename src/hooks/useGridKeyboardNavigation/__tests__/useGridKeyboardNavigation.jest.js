@@ -105,7 +105,7 @@ describe("useGridKeyboardNavigation", () => {
     const items = ["a", "b", "c", "d"];
     const { result } = renderHookForTest({ items, numberOfItemsInLine: 2 });
 
-    act(() => result.current.onSelectionAction(0, true)); // set the activeIndex to 0
+    act(() => result.current.onSelectionAction(0)); // set the activeIndex to 0
     act(() => {
       fireEvent.keyDown(element, { key: "ArrowUp" });
     });

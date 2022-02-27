@@ -44,15 +44,12 @@ export default function useGridKeyboardNavigation({
   );
   const skippedInitialActiveIndexChange = useRef(false);
   const [activeIndex, setActiveIndex] = useState(isInitialActiveState ? focusItemIndexOnMount : NO_ACTIVE_INDEX);
-  // isUsingKeyboardNav indicate if the interaction with the grid element happend by using keyboard or by using mouse.
-  // if it will happen by using mouse the focus will be not visible
-  // This hooks assumption is that any interaction with the grid always done by keyboard, unless we clicked on the grid element before that with a mouse.
-  const isUsingKeyboardNav = useRef(true);
+  const [isUsingKeyboardNav, setIsUsingKeyboardNav] = useState(true);
 
   const keyboardContext = useContext(GridKeyboardNavigationContext);
 
   const onArrowNavigation = direction => {
-    isUsingKeyboardNav.current = true;
+    setIsUsingKeyboardNav(true);
     if (activeIndex === NO_ACTIVE_INDEX) {
       setActiveIndex(0);
       return;
@@ -87,7 +84,7 @@ export default function useGridKeyboardNavigation({
     e => {
       const direction = e.detail?.keyboardDirection;
       if (direction) {
-        isUsingKeyboardNav.current = true;
+        setIsUsingKeyboardNav(true);
         const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
         setActiveIndex(newIndex);
         return;
@@ -96,7 +93,7 @@ export default function useGridKeyboardNavigation({
         setActiveIndex(0);
       }
     },
-    [activeIndex, itemsCount, numberOfItemsInLine]
+    [activeIndex, itemsCount, numberOfItemsInLine, setIsUsingKeyboardNav]
   );
 
   const onMouseDown = useCallback(() => {
@@ -123,7 +120,7 @@ export default function useGridKeyboardNavigation({
 
   const onSelectionAction = useCallback(
     (index, isKeyboardAction = false) => {
-      isUsingKeyboardNav.current = isKeyboardAction;
+      setIsUsingKeyboardNav(isKeyboardAction);
       setActiveIndex(index);
       onItemClicked(getItemByIndex(index), index);
     },
@@ -131,7 +128,7 @@ export default function useGridKeyboardNavigation({
   );
 
   const onKeyboardSelection = useCallback(() => {
-    if (!isUsingKeyboardNav.current) {
+    if (!isUsingKeyboardNav) {
       return;
     }
     return onSelectionAction(activeIndex, true);
@@ -146,7 +143,7 @@ export default function useGridKeyboardNavigation({
   });
 
   // if the user is not using keyboard nav, the consumers should not treat the index as active
-  const externalActiveIndex = isUsingKeyboardNav.current ? activeIndex : NO_ACTIVE_INDEX;
+  const externalActiveIndex = isUsingKeyboardNav ? activeIndex : NO_ACTIVE_INDEX;
   return {
     activeIndex: externalActiveIndex,
     onSelectionAction,
