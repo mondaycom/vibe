@@ -289,5 +289,37 @@ A classic dropdown presents options a user needs to choose from.
   </Story>
 </Canvas>
 
+### Dropdown with groups
+Dropdown with group.
+<Canvas>
+  <Story name="Dropdown with groups">
+    {() => {
+      const options = useMemo(() => [
+        {
+            label: "Group 1",
+            options: [
+                { value: "1", label: "Option 1" },
+                { value: "2", label: "Option 2" },
+            ]
+        },
+        {
+            label: "Group 2",
+            options: [
+                { value: "3", label: "Option 3" },
+                { value: "4", label: "Option 4" },
+            ]
+        }
+      ], []);
+      return (
+          <Dropdown
+            placeholder="Placeholder text here"
+            options={options}
+            className="dropdown-stories-styles_big-spacing"
+          />
+      )
+    }}
+  </Story>
+</Canvas>
+
 ## Related components
 <RelatedComponents componentsNames={[COMBOBOX, SPLIT_BUTTON, MENU]} />
