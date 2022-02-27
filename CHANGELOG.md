@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.17.1 (2022-02-27)
+
+#### Bug Fixes
+* [#537](https://github.com/mondaycom/monday-ui-react-core/pull/537) Fix tabs list bug - visible focus displayed when clicking out side and then clicking on one tab ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.17.0 (2022-02-25)
 
 #### New Features
