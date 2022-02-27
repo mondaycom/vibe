@@ -98,13 +98,13 @@ export default function useGridKeyboardNavigation({
 
   const onMouseDown = useCallback(() => {
     // If the user clicked on the grid element we assume that that what will caused the focus
-    isUsingKeyboardNav.current = false;
-  }, [isUsingKeyboardNav]);
+    setIsUsingKeyboardNav(false);
+  }, [setIsUsingKeyboardNav]);
 
   const onBlur = useCallback(() => {
     // If we lose focus we will return to isUsingKeyboardNav default mode which is that any interaction
     // with the grid always done by keyboard, unless we clicked on the grid element before that with a mouse
-    isUsingKeyboardNav.current = true;
+    setIsUsingKeyboardNav(true);
     setActiveIndex(NO_ACTIVE_INDEX);
   }, [setActiveIndex]);
 
