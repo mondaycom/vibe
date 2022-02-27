@@ -96,7 +96,8 @@ const publishedComponents = {
   usePrevious: "hooks/usePrevious.js",
   useMergeRefs: "hooks/useMergeRefs.js",
   useIsMouseOver: "hooks/useIsMouseOver.js",
-  useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js"
+  useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
+  useIsOverflowing: "hooks/useIsOverflowing"
 };
 
 function getPublishedComponents() {

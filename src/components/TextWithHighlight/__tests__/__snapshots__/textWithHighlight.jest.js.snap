@@ -2,7 +2,7 @@
 
 exports[`renders correctly with empty props 1`] = `
 <div
-  className="text-with-highlight--wrapper"
+  className="text-with-highlight--wrapper with-ellipsis"
 >
   
 </div>

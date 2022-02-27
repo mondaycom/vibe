@@ -1,6 +1,10 @@
 @import "../../../styles/states.scss";
 
 .combobox-stories-styles {
+  &_category-wrapper {
+    width: 300px;
+  }
+
   &_row {
     display: flex;
     flex-direction: row;

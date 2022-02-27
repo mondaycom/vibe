@@ -127,6 +127,7 @@ export {default as Microphone} from './components/Microphone';
 export {default as Minimize} from './components/Minimize';
 export {default as Mirror} from './components/Mirror';
 export {default as Mobile} from './components/Mobile';
+export {default as MondayDoc} from './components/MondayDoc';
 export {default as MondayLogoOutline} from './components/MondayLogoOutline';
 export {default as Moon} from './components/Moon';
 export {default as MoreActions} from './components/MoreActions';

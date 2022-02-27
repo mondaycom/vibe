@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.17.0 (2022-02-25)
+
+#### New Features
+* [#557](https://github.com/mondaycom/monday-ui-react-core/pull/557) Support Heading highlight text ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Documentation
+* [#555](https://github.com/mondaycom/monday-ui-react-core/pull/555) Fix stories ([@hadasfa](https://github.com/hadasfa))
+
+## 1.16.0 (2022-02-24)
+
+#### New Features
+* [#556](https://github.com/mondaycom/monday-ui-react-core/pull/556) Expose use is overflowing hook ([@hadasfa](https://github.com/hadasfa))
+
+## 1.15.0 (2022-02-24)
+
+#### New Features
+* [#554](https://github.com/mondaycom/monday-ui-react-core/pull/554) Add support on avatar in chip component ([@roniCohen123](https://github.com/roniCohen123))
+
+## 1.14.2 (2022-02-23)
+
+#### New Icons
+* [#553](https://github.com/mondaycom/monday-ui-react-core/pull/553) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.14.1 (2022-02-23)
+
+#### New Icons
+* [#552](https://github.com/mondaycom/monday-ui-react-core/pull/552) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.14.0 (2022-02-22)
 
 #### Bug Fixes

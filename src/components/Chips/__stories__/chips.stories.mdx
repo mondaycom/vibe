@@ -78,9 +78,18 @@ Chips are compact elements that represent an input, attribute, or action. They m
 ### With icons
 
 <Canvas>
-  <Story name="With icons">
+  <Story name="Chips with icons">
     <Chips label="Chip with left icon" leftIcon={Email} readOnly />
     <Chips label="Chip with right icon" rightIcon={Email} readOnly />
+  </Story>
+</Canvas>
+
+### With avatars
+
+<Canvas>
+  <Story name="With avatars">
+    <Chips label="Chip with left avatar" leftAvatar={person1} readOnly />
+    <Chips label="Chip with right avatar" rightAvatar={person1} readOnly />
   </Story>
 </Canvas>
 
@@ -97,10 +106,11 @@ Chips are compact elements that represent an input, attribute, or action. They m
 
 ### Color coded chips
 
-Use chips with colors to indicate different categories<br />e.g. `<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />`
+Use chips with colors to indicate different categories.
+e.g. `<Chips label="GRASS_GREEN" color={Chips.colors.GRASS_GREEN} />`
 
 <Canvas>
-  <Story name="Chips Palette">
+  <Story name="Chips palette">
     <Flex style={{ width: "100%", height: 300 }} align={Flex.align.STRETCH}>
       {_chunk(Object.keys(Chips.colors), 7).map(colorChunk => {
         return (
@@ -158,7 +168,7 @@ Sometimes when needed, chips can change fill color.
   </Story>
 </Canvas>
 
-### Chips in Person Column
+### Chips in person column
 
 Chips can be removable.
 
