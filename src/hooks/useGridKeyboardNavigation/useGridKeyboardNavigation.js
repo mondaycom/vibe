@@ -44,7 +44,7 @@ export default function useGridKeyboardNavigation({
   );
   const skippedInitialActiveIndexChange = useRef(false);
   const [activeIndex, setActiveIndex] = useState(isInitialActiveState ? focusItemIndexOnMount : NO_ACTIVE_INDEX);
-  const [isUsingKeyboardNav, setIsUsingKeyboardNav] = useState(focusOnMount);
+  const [isUsingKeyboardNav, setIsUsingKeyboardNav] = useState(true);
 
   const keyboardContext = useContext(GridKeyboardNavigationContext);
 
@@ -82,27 +82,37 @@ export default function useGridKeyboardNavigation({
 
   const onFocus = useCallback(
     e => {
-      if (document.activeElement === ref.current) {
-        // since we use custom events (to add additional data like the navigation direction), it's possible that the element is already focused
-        return;
-      }
       const direction = e.detail?.keyboardDirection;
       if (direction) {
+        // if we did not already focused on any grid item, set focus according to the item which selected
+        if (activeIndex === -1) {
+          const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
+          setActiveIndex(newIndex);
+        }
         setIsUsingKeyboardNav(true);
-        const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
-        setActiveIndex(newIndex);
         return;
       }
       if (activeIndex === NO_ACTIVE_INDEX) {
         setActiveIndex(0);
       }
     },
-    [activeIndex, itemsCount, numberOfItemsInLine, ref]
+    [activeIndex, itemsCount, numberOfItemsInLine, setIsUsingKeyboardNav]
   );
 
-  const onBlur = useCallback(() => setActiveIndex(NO_ACTIVE_INDEX), [setActiveIndex]);
+  const onMouseDown = useCallback(() => {
+    // If the user clicked on the grid element we assume that that what will caused the focus
+    setIsUsingKeyboardNav(false);
+  }, [setIsUsingKeyboardNav]);
+
+  const onBlur = useCallback(() => {
+    // If we lose focus we will return to isUsingKeyboardNav default mode which is that any interaction
+    // with the grid always done by keyboard, unless we clicked on the grid element before that with a mouse
+    setIsUsingKeyboardNav(true);
+    setActiveIndex(NO_ACTIVE_INDEX);
+  }, [setActiveIndex]);
 
   useEventListener({ eventName: "focus", callback: onFocus, ref });
+  useEventListener({ eventName: "mousedown", callback: onMouseDown, ref });
   useEventListener({ eventName: "blur", callback: onBlur, ref });
 
   useEffect(() => {

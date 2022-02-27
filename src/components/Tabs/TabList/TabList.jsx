@@ -1,18 +1,16 @@
 import React, { useRef, forwardRef, useState, useCallback, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
 import "./TabList.scss";
-import { useFocusWithin } from "hooks/useFocusWithin";
-import { useKeyboard } from "hooks/useKeyboard";
 
 const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, size, children }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
   const [activeTabState, setActiveTabState] = useState(activeTabId);
-  const [focusTab, setFocusTab] = useState(-1);
 
   const prevActiveTabIdProp = usePrevious(activeTabId);
 
@@ -43,51 +41,25 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
   );
 
   const onTabClick = useCallback(
-    (tabId, tabCallbackFunc) => {
+    (value, tabId) => {
+      const tabCallbackFunc = children[tabId].props.onClick;
       if (disabledTabIds.has(tabId)) return;
       if (tabCallbackFunc) tabCallbackFunc(tabId);
       onTabSelect(tabId);
-      setFocusTab(-1);
     },
-    [onTabSelect, disabledTabIds, setFocusTab]
+    [children, disabledTabIds, onTabSelect]
   );
 
-  function onKeyDown(keyCode) {
-    let newFocusTab = focusTab;
-    if (keyCode === 37 || keyCode === 39) {
-      // left or right arrow
-      if (newFocusTab < 0) {
-        newFocusTab = activeTabState;
-      }
-    }
-
-    if (keyCode === 37 && newFocusTab > 0) {
-      // left arrow
-      setFocusTab(newFocusTab - 1);
-    } else if (keyCode === 39 && newFocusTab < children.length - 1) {
-      // right arrow
-      setFocusTab(newFocusTab + 1);
-    } else if (keyCode === 13 || keyCode === 32) {
-      // enter or space
-      onTabSelect(focusTab);
-    }
-  }
-
-  const { keyboardProps } = useKeyboard({
-    onKeyDown: e => {
-      onKeyDown(e.keyCode);
-    },
-    onKeyUp: _e => {}
-  });
-
-  const { focusWithinProps } = useFocusWithin({
-    onFocusWithin: () => {
-      setFocusTab(activeTabState);
-    },
-
-    onBlurWithin: () => {
-      setFocusTab(-1);
-    }
+  const getItemByIndex = useCallback(index => children[index], [children]);
+  const disabledIndexes = useMemo(() => Array.from(disabledTabIds), [disabledTabIds]);
+  const ulRef = useRef();
+  const { activeIndex: focusIndex, onSelectionAction } = useGridKeyboardNavigation({
+    ref: ulRef,
+    numberOfItemsInLine: children?.length,
+    itemsCount: children?.length,
+    getItemByIndex,
+    onItemClicked: onTabClick,
+    disabledIndexes
   });
 
   const tabsToRender = useMemo(() => {
@@ -95,16 +67,16 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
       return React.cloneElement(child, {
         value: index,
         active: activeTabState === index,
-        focus: focusTab === index,
-        onClick: value => onTabClick(value, child.props.onClick)
+        focus: focusIndex === index,
+        onClick: onSelectionAction
       });
     });
     return childrenToRender;
-  }, [onTabClick, children, activeTabState, focusTab]);
+  }, [children, activeTabState, focusIndex, onSelectionAction]);
 
   return (
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
-      <ul tabIndex={0} {...keyboardProps} {...focusWithinProps} className={cx("tabs-list", size)} role="tablist">
+      <ul ref={ulRef} tabIndex={0} className={cx("tabs-list", size)} role="tablist">
         {tabsToRender}
       </ul>
     </div>

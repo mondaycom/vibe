@@ -57,7 +57,7 @@
   }
 
   &.tab-focus-visible-inset {
-    @include focus-style-inset(3px, 3px);
+    @include focus-style-css-inset(3px, 3px);
     position: relative;
   }
 
