@@ -28,7 +28,7 @@ const Button = forwardRef(
       name,
       size,
       color,
-      successColor = BUTTON_COLORS.POSITIVE,
+      successColor,
       disabled,
       rightIcon,
       leftIcon,
