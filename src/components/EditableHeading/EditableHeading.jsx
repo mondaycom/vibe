@@ -21,6 +21,7 @@ const EditableHeading = props => {
     onCancelEditing,
     errorClassTimeout,
     style,
+    customColor,
     onStartEditing,
     contentRenderer,
     tooltip,
@@ -109,6 +110,7 @@ const EditableHeading = props => {
     return {
       value: props.displayPlaceholderInTextMode ? valueOrPlaceholder : valueState,
       type: props.type,
+      customColor,
       suggestEditOnHover,
       tooltipPosition: props.tooltipPosition,
       ellipsisMaxLines: props.ellipsisMaxLines,
@@ -136,6 +138,7 @@ const EditableHeading = props => {
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,
       onClick: props.onClick,
+      customColor,
       onTabHandler: props.onTabHandler,
       onArrowKeyDown: props.onArrowKeyDown,
       autoComplete: props.autoComplete,
@@ -207,7 +210,8 @@ EditableHeading.propTypes = {
   placeholder: PropTypes.string,
   errorClass: PropTypes.string,
   errorClassTimeout: PropTypes.number,
-  highlightTerm: PropTypes.string
+  highlightTerm: PropTypes.string,
+  customColor: PropTypes.string
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -221,7 +225,8 @@ EditableHeading.defaultProps = {
   autoSize: true,
   size: SIZES.LARGE,
   inputAriaLabel: undefined,
-  highlightTerm: null
+  highlightTerm: null,
+  customColor: undefined
 };
 
 EditableHeading.types = TYPES;
