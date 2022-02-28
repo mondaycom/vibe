@@ -40,6 +40,7 @@ const EditableInput = forwardRef(
       customColor,
       ignoreBlurClass,
       onFinishEditing,
+      onIgnoreBlurEvent,
       onFocus,
       onBlur,
       isValidValue,
@@ -94,6 +95,7 @@ const EditableInput = forwardRef(
 
         const { relatedTarget } = event;
         if (shouldIgnoreBlur(relatedTarget, ignoreBlurClass)) {
+          onIgnoreBlurEvent(valueState);
           return;
         }
 
@@ -108,7 +110,7 @@ const EditableInput = forwardRef(
           onBlur(enrichedEvent);
         }
       },
-      [ignoreBlurClass, valueState, onFinishEditing, onBlur]
+      [ignoreBlurClass, valueState, onFinishEditing, onBlur, onIgnoreBlurEvent]
     );
 
     const onChangeCallback = useCallback(

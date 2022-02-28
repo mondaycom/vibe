@@ -19,6 +19,7 @@ const EditableHeading = props => {
     disabled,
     onFinishEditing,
     onCancelEditing,
+    onIgnoreBlurEvent,
     errorClassTimeout,
     style,
     customColor,
@@ -48,7 +49,7 @@ const EditableHeading = props => {
     (newValue, event) => {
       setIsEditing(false);
       setValueState(newValue);
-      onFinishEditing && onFinishEditing(newValue, event);
+      onFinishEditing?.(newValue, event);
     },
     [onFinishEditing, setIsEditing, setValueState]
   );
@@ -56,9 +57,16 @@ const EditableHeading = props => {
   const onCancelEditingCallback = useCallback(
     event => {
       setIsEditing(false);
-      onCancelEditing && onCancelEditing(event);
+      onCancelEditing?.(event);
     },
     [onCancelEditing, setIsEditing]
+  );
+
+  const onIgnoreBlurEventCallback = useCallback(
+    value => {
+      onIgnoreBlurEvent?.(value);
+    },
+    [onIgnoreBlurEvent]
   );
 
   const clearErrorState = useCallback(() => {
@@ -150,6 +158,7 @@ const EditableHeading = props => {
       textareaSubmitOnEnter: props.textareaSubmitOnEnter,
       onFinishEditing: onFinishEditingCallback,
       onCancelEditing: onCancelEditingCallback,
+      onIgnoreBlurEvent: onIgnoreBlurEventCallback,
       onError: onInputErrorCallback,
       onSuccess: onInputSuccessCallback,
       ariaLabel: props.inputAriaLabel
@@ -209,7 +218,14 @@ EditableHeading.propTypes = {
   errorClass: PropTypes.string,
   errorClassTimeout: PropTypes.number,
   highlightTerm: PropTypes.string,
-  customColor: PropTypes.string
+  customColor: PropTypes.string,
+  ignoreBlurClass: PropTypes.string,
+  /** Callback when editing is finished (with final value) */
+  onFinishEditing: PropTypes.func,
+  /** Callback when editing is canceled (i.e. ESC) */
+  onCancelEditing: PropTypes.func,
+  /** Callback (with current value) when clicked on element that matches ignoreBlurClass */
+  onIgnoreBlurEvent: PropTypes.func
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -224,7 +240,11 @@ EditableHeading.defaultProps = {
   size: SIZES.LARGE,
   inputAriaLabel: undefined,
   highlightTerm: null,
-  customColor: undefined
+  customColor: undefined,
+  ignoreBlurClass: undefined,
+  onFinishEditing: undefined,
+  onCancelEditing: undefined,
+  onIgnoreBlurEvent: undefined
 };
 
 EditableHeading.types = TYPES;
