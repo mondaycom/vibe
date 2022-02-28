@@ -64,7 +64,7 @@ const EditableHeading = props => {
 
   const onIgnoreBlurEventCallback = useCallback(
     value => {
-      onIgnoreBlurEvent && onIgnoreBlurEvent(value);
+      onIgnoreBlurEvent?.(value);
     },
     [onIgnoreBlurEvent]
   );
