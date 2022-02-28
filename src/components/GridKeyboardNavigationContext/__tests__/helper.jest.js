@@ -130,24 +130,6 @@ describe("GridKeyboardNavigationContext.helper", () => {
     });
   });
 
-  describe("focusElementWithDirection", () => {
-    it("should send a custom action with the detail of keyboard direction", () => {
-      const elementRef = { current: { dispatchEvent: jest.fn() } };
-      const keyboardDirection = NAV_DIRECTIONS.LEFT;
-      const expectedEvent = new CustomEvent("focus", { detail: { keyboardDirection } });
-
-      focusElementWithDirection(elementRef, keyboardDirection);
-
-      expect(elementRef.current.dispatchEvent).toHaveBeenCalledTimes(1);
-      expect(elementRef.current.dispatchEvent).toHaveBeenCalledWith(expectedEvent);
-    });
-
-    it("should not throw when the element ref is missing", () => {
-      focusElementWithDirection(undefined, NAV_DIRECTIONS.LEFT);
-      // if we reach here - it didn't throw
-    });
-  });
-
   describe("getOutmostElementToFocus", () => {
     it("should return the right-most element when there are multiple horizontal connections", () => {
       const directionMaps = getDirectionMaps([

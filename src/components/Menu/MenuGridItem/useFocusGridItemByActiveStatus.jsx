@@ -1,5 +1,4 @@
 import { useMemo, useEffect } from "react";
-import { focusElementWithDirection } from "../../GridKeyboardNavigationContext/helper";
 import { useLastNavigationDirection } from "../Menu/hooks/useLastNavigationDirection";
 
 export const useFocusGridItemByActiveStatus = ({
@@ -15,7 +14,7 @@ export const useFocusGridItemByActiveStatus = ({
   useEffect(() => {
     if (useDocumentEventListeners) return;
     if (isActive) {
-      focusElementWithDirection(childRef, lastNavigationDirectionRef.current);
+      childRef.current?.focus();
     } else {
       wrapperRef?.current?.blur?.();
     }
