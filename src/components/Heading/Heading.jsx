@@ -17,7 +17,7 @@ const Heading = ({
   size,
   ariaLabel,
   id,
-  color,
+  customColor,
   ellipsis,
   ellipsisMaxLines,
   style,
@@ -29,7 +29,7 @@ const Heading = ({
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines)
   );
-  const finalStyle = useStyle(style, { color });
+  const finalStyle = useStyle(style, { color: customColor });
   const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
@@ -96,7 +96,7 @@ Heading.propTypes = {
   nonEllipsisTooltip: PropTypes.string,
   size: PropTypes.oneOf([Heading.sizes.SMALL, Heading.sizes.MEDIUM, Heading.sizes.LARGE]),
   highlightTerm: PropTypes.string,
-  color: PropTypes.string
+  customColor: PropTypes.string
 };
 
 Heading.defaultProps = {
@@ -111,7 +111,7 @@ Heading.defaultProps = {
   nonEllipsisTooltip: null,
   size: SIZES.LARGE,
   highlightTerm: null,
-  color: undefined
+  customColor: undefined
 };
 
 Heading.types = TYPES;

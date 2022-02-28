@@ -37,7 +37,7 @@ const EditableInput = forwardRef(
       shouldFocusOnMount,
       selectOnMount,
       value,
-      color,
+      customColor,
       ignoreBlurClass,
       onFinishEditing,
       onFocus,
@@ -189,7 +189,7 @@ const EditableInput = forwardRef(
       setValueState(value);
     }, [value]);
 
-    const style = useStyle(undefined, { color });
+    const style = useStyle(undefined, { color: customColor });
 
     const rows = isTextArea(inputType) && autoSize ? "1" : undefined;
     const InputType = inputType;
@@ -234,7 +234,7 @@ EditableInput.propTypes = {
   onCancelEditing: PropTypes.func,
   textareaSubmitOnEnter: PropTypes.bool,
   ariaLabel: PropTypes.string,
-  color: PropTypes.string
+  customColor: PropTypes.string
 };
 EditableInput.defaultProps = {
   className: "",
@@ -250,7 +250,7 @@ EditableInput.defaultProps = {
   onCancelEditing: undefined,
   textareaSubmitOnEnter: false,
   ariaLabel: undefined,
-  color: undefined
+  customColor: undefined
 };
 
 export default EditableInput;

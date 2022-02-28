@@ -1,5 +1,18 @@
 import { useMemo, useRef } from "react";
 import isEqual from "lodash/isEqual";
+import isEmpty from "lodash/isEmpty";
+
+// remove empty values
+const removeEmpty = obj => {
+  if (!obj) return obj;
+  const newObj = {};
+  Object.keys(obj).forEach(key => {
+    if (obj[key] !== undefined) {
+      newObj[key] = obj[key];
+    }
+  });
+  return newObj;
+};
 
 export default function useStyle(currentStyle, additionalProps) {
   const additionalPropsRef = useRef(additionalProps);
@@ -15,10 +28,11 @@ export default function useStyle(currentStyle, additionalProps) {
   const currentStyleObj = currentStyleRef.current;
   const additionalPropsObj = additionalPropsRef.current;
   const style = useMemo(() => {
-    if (!additionalPropsObj) return currentStyleObj;
+    const nonEmptyObj = removeEmpty(additionalPropsObj);
+    if (isEmpty(nonEmptyObj)) return currentStyleObj;
     return {
       ...currentStyleObj,
-      ...additionalPropsObj
+      ...nonEmptyObj
     };
   }, [currentStyleObj, additionalPropsObj]);
 
