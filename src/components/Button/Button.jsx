@@ -315,6 +315,15 @@ Button.propTypes = {
     Button.colors.ON_INVERTED_BACKGROUND
   ]),
 
+  /** The color of a success state */
+  successColor: PropTypes.oneOf([
+    Button.colors.PRIMARY,
+    Button.colors.NEGATIVE,
+    Button.colors.POSITIVE,
+    Button.colors.ON_PRIMARY_COLOR,
+    Button.colors.ON_INVERTED_BACKGROUND
+  ]),
+
   /** The type of a button is exposed on the component  */
   type: PropTypes.oneOf([Button.inputTags.BUTTON, Button.inputTags.SUBMIT, Button.inputTags.RESET]),
   /** Disabled property which causes the button to be disabled */
@@ -374,6 +383,7 @@ Button.defaultProps = {
   style: undefined,
   size: SIZES.MEDIUM,
   color: BUTTON_COLORS.PRIMARY,
+  successColor: BUTTON_COLORS.POSITIVE,
   disabled: false,
   className: "",
   rightIcon: null,
