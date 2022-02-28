@@ -2,6 +2,8 @@ import React, { useRef, forwardRef, useLayoutEffect, useCallback, useState, useE
 import PropTypes from "prop-types";
 import cx from "classnames";
 import autosize from "autosize";
+import useStyle from "hooks/useStyle";
+import useMergeRefs from "hooks/useMergeRefs";
 import {
   isEnterEvent,
   isEscapeEvent,
@@ -11,7 +13,6 @@ import {
   isArrowLeftEvent,
   isArrowRightEvent
 } from "../../utils/dom-event-utils";
-import useMergeRefs from "../../hooks/useMergeRefs";
 import "./EditableInput.scss";
 
 export const TEXTAREA_TYPE = "textarea";
@@ -36,6 +37,7 @@ const EditableInput = forwardRef(
       shouldFocusOnMount,
       selectOnMount,
       value,
+      color,
       ignoreBlurClass,
       onFinishEditing,
       onFocus,
@@ -187,12 +189,15 @@ const EditableInput = forwardRef(
       setValueState(value);
     }, [value]);
 
+    const style = useStyle(undefined, { color });
+
     const rows = isTextArea(inputType) && autoSize ? "1" : undefined;
     const InputType = inputType;
     return (
       <InputType
         ref={mergedRef}
         id={id}
+        style={style}
         className={cx("editable-input--wrapper", className, {
           "no-resize": autoSize
         })}
@@ -228,7 +233,8 @@ EditableInput.propTypes = {
   onArrowKeyDown: PropTypes.func,
   onCancelEditing: PropTypes.func,
   textareaSubmitOnEnter: PropTypes.bool,
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  color: PropTypes.string
 };
 EditableInput.defaultProps = {
   className: "",
@@ -243,7 +249,8 @@ EditableInput.defaultProps = {
   onArrowKeyDown: undefined,
   onCancelEditing: undefined,
   textareaSubmitOnEnter: false,
-  ariaLabel: undefined
+  ariaLabel: undefined,
+  color: undefined
 };
 
 export default EditableInput;
