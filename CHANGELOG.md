@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.18.0 (2022-02-28)
+
+#### New Features
+* [#563](https://github.com/mondaycom/monday-ui-react-core/pull/563) Add color prop to Heading and Editable Heading ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.17.2 (2022-02-28)
 
 #### New Icons
