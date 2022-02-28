@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.18.1 (2022-02-28)
+
+#### Bug Fixes
+* [#564](https://github.com/mondaycom/monday-ui-react-core/pull/564) Allow stop editing for EditableHeading ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.18.0 (2022-02-28)
 
 #### New Features
