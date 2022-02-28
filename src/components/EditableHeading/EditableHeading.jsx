@@ -19,6 +19,7 @@ const EditableHeading = props => {
     disabled,
     onFinishEditing,
     onCancelEditing,
+    onIgnoreBlurEvent,
     errorClassTimeout,
     style,
     customColor,
@@ -59,6 +60,13 @@ const EditableHeading = props => {
       onCancelEditing && onCancelEditing(event);
     },
     [onCancelEditing, setIsEditing]
+  );
+
+  const onIgnoreBlurEventCallback = useCallback(
+    value => {
+      onIgnoreBlurEvent && onIgnoreBlurEvent(value);
+    },
+    [onIgnoreBlurEvent]
   );
 
   const clearErrorState = useCallback(() => {
@@ -150,6 +158,7 @@ const EditableHeading = props => {
       textareaSubmitOnEnter: props.textareaSubmitOnEnter,
       onFinishEditing: onFinishEditingCallback,
       onCancelEditing: onCancelEditingCallback,
+      onIgnoreBlurEvent: onIgnoreBlurEventCallback,
       onError: onInputErrorCallback,
       onSuccess: onInputSuccessCallback,
       ariaLabel: props.inputAriaLabel
