@@ -82,10 +82,8 @@ const EditableHeading = props => {
   }, [editing, value, prevValue, valueState, setValueState]);
 
   useEffect(() => {
-    // update isEditing state if "editing" prop changed to true
-    if (editing) {
-      setIsEditing(true);
-    }
+    // update isEditing state if "editing" prop changed
+    setIsEditing(editing);
   }, [editing]);
 
   useLayoutEffect(() => {
