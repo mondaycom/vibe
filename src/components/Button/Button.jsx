@@ -28,6 +28,7 @@ const Button = forwardRef(
       name,
       size,
       color,
+      successColor = BUTTON_COLORS.POSITIVE,
       disabled,
       rightIcon,
       leftIcon,
@@ -126,7 +127,7 @@ const Button = forwardRef(
     );
 
     const classNames = useMemo(() => {
-      const calculatedColor = success ? BUTTON_COLORS.POSITIVE : color;
+      const calculatedColor = success ? successColor : color;
       return cx(
         className,
         "monday-style-button",
