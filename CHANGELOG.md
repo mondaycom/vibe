@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.18.2 (2022-02-28)
+
+#### Bug Fixes
+* [#565](https://github.com/mondaycom/monday-ui-react-core/pull/565) Editable heading callback on blur ignore ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.18.1 (2022-02-28)
 
 #### Bug Fixes
