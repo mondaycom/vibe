@@ -218,7 +218,14 @@ EditableHeading.propTypes = {
   errorClass: PropTypes.string,
   errorClassTimeout: PropTypes.number,
   highlightTerm: PropTypes.string,
-  customColor: PropTypes.string
+  customColor: PropTypes.string,
+  ignoreBlurClass: PropTypes.string,
+  /** Callback when editing is finished (with final value) */
+  onFinishEditing: PropTypes.func,
+  /** Callback when editing is canceled (i.e. ESC) */
+  onCancelEditing: PropTypes.func,
+  /** Callback (with current value) when clicked on element that matches ignoreBlurClass */
+  onIgnoreBlurEvent: PropTypes.func
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -233,7 +240,11 @@ EditableHeading.defaultProps = {
   size: SIZES.LARGE,
   inputAriaLabel: undefined,
   highlightTerm: null,
-  customColor: undefined
+  customColor: undefined,
+  ignoreBlurClass: undefined,
+  onFinishEditing: undefined,
+  onCancelEditing: undefined,
+  onIgnoreBlurEvent: undefined
 };
 
 EditableHeading.types = TYPES;
