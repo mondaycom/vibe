@@ -49,7 +49,7 @@ const EditableHeading = props => {
     (newValue, event) => {
       setIsEditing(false);
       setValueState(newValue);
-      onFinishEditing && onFinishEditing(newValue, event);
+      onFinishEditing?.(newValue, event);
     },
     [onFinishEditing, setIsEditing, setValueState]
   );
@@ -57,7 +57,7 @@ const EditableHeading = props => {
   const onCancelEditingCallback = useCallback(
     event => {
       setIsEditing(false);
-      onCancelEditing && onCancelEditing(event);
+      onCancelEditing?.(event);
     },
     [onCancelEditing, setIsEditing]
   );

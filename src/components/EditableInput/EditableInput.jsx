@@ -110,7 +110,7 @@ const EditableInput = forwardRef(
           onBlur(enrichedEvent);
         }
       },
-      [ignoreBlurClass, valueState, onFinishEditing, onBlur]
+      [ignoreBlurClass, valueState, onFinishEditing, onBlur, onIgnoreBlurEvent]
     );
 
     const onChangeCallback = useCallback(
