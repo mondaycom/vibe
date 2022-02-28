@@ -37,8 +37,7 @@ export const useGridKeyboardNavigationContext = (positions, wrapperRef, { disabl
       const maybeNextElement = getNextElementToFocusInDirection(directionMaps[direction], elementRef);
       if (maybeNextElement) {
         elementRef.current?.blur();
-        maybeNextElement.current?.focus(); //TODO: need to handle the direction
-        // focusElementWithDirection(maybeNextElement, direction);
+        maybeNextElement.current?.focus();
         return;
       }
       // nothing on that direction - try updating the upper context
