@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.19.0 (2022-03-01)
+
+#### New Features
+* [#561](https://github.com/mondaycom/monday-ui-react-core/pull/561) Added menuPlacement prop to Dropdown component ([@udidoron](https://github.com/udidoron))
+
 ## 1.18.4 (2022-03-01)
 
 #### Bug Fixes
