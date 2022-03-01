@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.19.1 (2022-03-01)
+
+#### New Icons
+* [#569](https://github.com/mondaycom/monday-ui-react-core/pull/569) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.19.0 (2022-03-01)
 
 #### New Features
