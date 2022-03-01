@@ -84,3 +84,13 @@ An extension of Heading component, it allows built in editing capabilities
     <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head" />
   </Story>
 </Canvas>
+
+### With text colors
+
+<Canvas>
+  <Story name="Colors">
+    <EditableHeading type={EditableHeading.types.h1} value="H1 Header" customColor="blue" />
+    <EditableHeading type={EditableHeading.types.h2} value="H2 Header" customColor="red" />
+    <EditableHeading type={EditableHeading.types.h3} value="H3 Header" highlightTerm="head" customColor="#AA33FF" />
+  </Story>
+</Canvas>

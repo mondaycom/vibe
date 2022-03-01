@@ -25,7 +25,8 @@ const Clickable = forwardRef(
       onMouseDown,
       ariaHidden,
       tabIndex,
-      style,
+      disabled,
+      style
       withoutFocusStyle
     },
     ref
@@ -38,13 +39,14 @@ const Clickable = forwardRef(
       <Element
         ref={mergedRef}
         className={cx(CSS_BASE_CLASS, className, {
+          disabled,
           [bemHelper({ state: "disable-text-selection" })]: !enableTextSelection,
           [bemHelper({ state: "with-focus-style" })]: !withoutFocusStyle
         })}
         role={role}
-        onClick={onClick}
+        onClick={disabled ? undefined : onClick}
         id={id}
-        onKeyDown={onKeyDown}
+        onKeyDown={disabled ? undefined : onKeyDown}
         tabIndex={tabIndex}
         aria-label={ariaLabel}
         aria-hidden={ariaHidden}
@@ -72,6 +74,7 @@ Clickable.propTypes = {
   onMouseDown: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   enableTextSelection: PropTypes.bool,
+  disabled: PropTypes.bool,
   elementType: PropTypes.string,
   ariaHidden: PropTypes.bool,
   tabIndex: PropTypes.string,
@@ -86,6 +89,7 @@ Clickable.defaultProps = {
   onClick: NOOP,
   onMouseDown: NOOP,
   children: undefined,
+  disabled: false,
   enableTextSelection: false,
   elementType: "div",
   ariaHidden: undefined,

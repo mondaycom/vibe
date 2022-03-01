@@ -1,5 +1,35 @@
 # Changelog
 
+## 1.19.0 (2022-03-01)
+
+#### New Features
+* [#561](https://github.com/mondaycom/monday-ui-react-core/pull/561) Added menuPlacement prop to Dropdown component ([@udidoron](https://github.com/udidoron))
+
+## 1.18.4 (2022-03-01)
+
+#### Bug Fixes
+* [#567](https://github.com/mondaycom/monday-ui-react-core/pull/567) Fix editable heading cursor on disabled ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.18.3 (2022-03-01)
+
+#### Bug Fixes
+* [#566](https://github.com/mondaycom/monday-ui-react-core/pull/566) Fix editable heading editing while disabled ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.18.2 (2022-02-28)
+
+#### Bug Fixes
+* [#565](https://github.com/mondaycom/monday-ui-react-core/pull/565) Editable heading callback on blur ignore ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.18.1 (2022-02-28)
+
+#### Bug Fixes
+* [#564](https://github.com/mondaycom/monday-ui-react-core/pull/564) Allow stop editing for EditableHeading ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.18.0 (2022-02-28)
+
+#### New Features
+* [#563](https://github.com/mondaycom/monday-ui-react-core/pull/563) Add color prop to Heading and Editable Heading ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.17.2 (2022-02-28)
 
 #### New Icons
