@@ -3,8 +3,12 @@
 @import "../../styles/states.scss";
 
 .monday-style-clickable {
-  @include focus-style;
   cursor: pointer;
+  outline: none;
+
+  &--with-focus-style {
+    @include focus-style;
+  }
 
   &--disable-text-selection {
     -webkit-touch-callout: none; /* iOS Safari */
