@@ -75,7 +75,8 @@ Clickable.propTypes = {
   elementType: PropTypes.string,
   ariaHidden: PropTypes.bool,
   tabIndex: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
+  withoutFocusStyle: PropTypes.bool
 };
 Clickable.defaultProps = {
   className: "",
