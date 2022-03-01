@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.18.3 (2022-03-01)
+
+#### Bug Fixes
+* [#566](https://github.com/mondaycom/monday-ui-react-core/pull/566) Fix editable heading editing while disabled ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.18.2 (2022-02-28)
 
 #### Bug Fixes
