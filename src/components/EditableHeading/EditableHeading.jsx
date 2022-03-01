@@ -171,6 +171,8 @@ const EditableHeading = props => {
     return <EditableInput {...inputProps} />;
   };
 
+  const shouldEdit = !disabled && isEditing;
+
   return (
     <div
       ref={ref}
@@ -179,8 +181,8 @@ const EditableHeading = props => {
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
     >
-      <Clickable role={isEditing ? "button" : "input"} onClick={onClick}>
-        {isEditing ? renderInputComponent() : renderContentComponent()}
+      <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick}>
+        {shouldEdit ? renderInputComponent() : renderContentComponent()}
       </Clickable>
     </div>
   );
