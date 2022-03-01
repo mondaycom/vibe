@@ -26,7 +26,7 @@ const Clickable = forwardRef(
       ariaHidden,
       tabIndex,
       disabled,
-      style
+      style,
       withoutFocusStyle
     },
     ref
