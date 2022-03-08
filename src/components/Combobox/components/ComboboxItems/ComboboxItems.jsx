@@ -115,10 +115,11 @@ export const ComboboxItems = ({
       />
     );
   } else {
-    itemsElements =
-        (<div className={cx(styles.scrollableContainer, styles.optionsContainer)}>
-          {items.map(itemData => comboboxItemRenderer(itemData))}
-        </div>);
+    itemsElements = (
+      <div className={cx(styles.scrollableContainer, styles.optionsContainer)} role="treegrid">
+        {items.map(itemData => comboboxItemRenderer(itemData))}
+      </div>
+    );
   }
 
   return itemsElements;

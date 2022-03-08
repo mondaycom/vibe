@@ -338,7 +338,8 @@ VirtualizedList.defaultProps = {
   onItemsRenderedThrottleMs: 200,
   onSizeUpdate: NOOP,
   onVerticalScrollbarVisiblityChange: null,
-  role: undefined
+  role: undefined,
+  scrollableClassName: undefined
 };
 
 export default VirtualizedList;

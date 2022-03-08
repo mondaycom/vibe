@@ -18,7 +18,6 @@ const ComboboxOption = ({
   shouldScrollWhenActive,
   optionRenderer
 }) => {
-  if (!option) debugger;
   const {
     id,
     leftIcon,
