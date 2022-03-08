@@ -12,180 +12,187 @@ export const iconsMetaData = [
   },
 
   {
-      name: "MoveArrowLeftDouble",
-      file: "MoveArrowLeftDouble.svg",
-      description: "Move Arrow Left Double",
-      tags: "move,arrow,left,double,back"
+    name: "MoveArrowLeftDouble",
+    file: "MoveArrowLeftDouble.svg",
+    description: "Move Arrow Left Double",
+    tags: "move,arrow,left,double,back",
   },
 
   {
-      name: "ItemDefaultValues",
-      file: "ItemDefaultValues.svg",
-      description: "Item default values",
-      tags: "item,default,values,edit,value,pencil"
-  },
-  
-  {
-      name: "ConnectedDoc",
-      file: "ConnectedDoc.svg",
-      description: "Connect existing doc",
-      tags: "doc,attach,connect,link"
+    name: "Formula",
+    file: "Formula.svg",
+    description: "Formula",
+    tags: "formula,math,equation",
   },
 
   {
-      name: "AddNewDoc",
-      file: "AddNewDoc.svg",
-      description: "Add new doc",
-      tags: "doc,new"
+    name: "ItemDefaultValues",
+    file: "ItemDefaultValues.svg",
+    description: "Item default values",
+    tags: "item,default,values,edit,value,pencil",
   },
 
   {
-      name: "Switcher",
-      file: "Switcher.svg",
-      description: "Switching between products",
-      tags: ""
+    name: "ConnectedDoc",
+    file: "ConnectedDoc.svg",
+    description: "Connect existing doc",
+    tags: "doc,attach,connect,link",
   },
 
   {
-      name: "Description",
-      file: "Description.svg",
-      description: "Description",
-      tags: "description"
+    name: "AddNewDoc",
+    file: "AddNewDoc.svg",
+    description: "Add new doc",
+    tags: "doc,new",
   },
 
   {
-      name: "LearnMore",
-      file: "LearnMore.svg",
-      description: "Learn More",
-      tags: "LearnMore,Learn More,Question"
+    name: "Switcher",
+    file: "Switcher.svg",
+    description: "Switching between products",
+    tags: "",
   },
 
   {
-      name: "ItemHeightTriple",
-      file: "ItemHeightTriple.svg",
-      description: "Item height triple",
-      tags: "height,item,line,triple"
-  },
-  {
-      name: "TextMedium",
-      file: "TextMedium.svg",
-      description: "Text Medium",
-      tags: "Medium,Text,Design,Font,Text Medium",
-      category: [BASIC],
+    name: "Description",
+    file: "Description.svg",
+    description: "Description",
+    tags: "description",
   },
 
   {
-      name: "NavigationDoubleChevronLeft",
-      file: "NavigationDoubleChevronLeft.svg",
-      description: "Navigation double chevron left",
-      tags: "nagivation,double,chevron,left,history"
+    name: "LearnMore",
+    file: "LearnMore.svg",
+    description: "Learn More",
+    tags: "LearnMore,Learn More,Question",
   },
 
   {
-      name: "Night",
-      file: "Night.svg",
-      description: "Night",
-      tags: "night, stars, dark"
+    name: "ItemHeightTriple",
+    file: "ItemHeightTriple.svg",
+    description: "Item height triple",
+    tags: "height,item,line,triple",
+  },
+  {
+    name: "TextMedium",
+    file: "TextMedium.svg",
+    description: "Text Medium",
+    tags: "Medium,Text,Design,Font,Text Medium",
+    category: [BASIC],
   },
 
   {
-      name: "Mirror",
-      file: "Mirror.svg",
-      description: "mirror",
-      tags: "mirror,connect"
+    name: "NavigationDoubleChevronLeft",
+    file: "NavigationDoubleChevronLeft.svg",
+    description: "Navigation double chevron left",
+    tags: "nagivation,double,chevron,left,history",
   },
 
   {
-      name: "Minimize",
-      file: "Minimize.svg",
-      description: "minimize",
-      tags: "minimize,close,collapse"
+    name: "Night",
+    file: "Night.svg",
+    description: "Night",
+    tags: "night, stars, dark",
   },
 
   {
-      name: "Layout",
-      file: "Layout.svg",
-      description: "Layout",
-      tags: "Layout, Grid"
+    name: "Mirror",
+    file: "Mirror.svg",
+    description: "mirror",
+    tags: "mirror,connect",
   },
 
   {
-      name: "DocTemplate",
-      file: "DocTemplate.svg",
-      description: "Template Doc",
-      tags: "Template, Doc"
+    name: "Minimize",
+    file: "Minimize.svg",
+    description: "minimize",
+    tags: "minimize,close,collapse",
   },
 
   {
-      name: "ConvertToItem",
-      file: "ConvertToItem.svg",
-      description: "ConvertToItem",
-      tags: "convert,item"
+    name: "Layout",
+    file: "Layout.svg",
+    description: "Layout",
+    tags: "Layout, Grid",
   },
 
   {
-      name: "TextCopy",
-      file: "TextCopy.svg",
-      description: "Copy Text",
-      tags: "copy,text,t"
-  },
-  {
-      name: "Open",
-      file: "Open.svg",
-      description: "Open",
-      tags: "open"
-  },
-  {
-      name: "Expand",
-      file: "Expand.svg",
-      description: "Expand",
-      tags: "expand"
-  },
-  {
-      name: "ConvertToSubitem",
-      file: "ConvertToSubitem.svg",
-      description: "Convert To Subitem",
-      tags: "convert, subitem"
-  },
-  {
-      name: "Clear",
-      file: "Clear.svg",
-      description: "Clear",
-      tags: "clear"
-  },
-  {
-      name: "TextColorIndicator",
-      file: "TextColorIndicator.svg",
-      description: "",
-      tags: "text, A, font"
+    name: "DocTemplate",
+    file: "DocTemplate.svg",
+    description: "Template Doc",
+    tags: "Template, Doc",
   },
 
   {
-      name: "Bug",
-      file: "Bug.svg",
-      description: "Bug",
-      tags: "bug"
+    name: "ConvertToItem",
+    file: "ConvertToItem.svg",
+    description: "ConvertToItem",
+    tags: "convert,item",
   },
 
   {
-      name: "Battery",
-      file: "Battery.svg",
-      description: "Battery",
-      tags: "battery"
+    name: "TextCopy",
+    file: "TextCopy.svg",
+    description: "Copy Text",
+    tags: "copy,text,t",
+  },
+  {
+    name: "Open",
+    file: "Open.svg",
+    description: "Open",
+    tags: "open",
+  },
+  {
+    name: "Expand",
+    file: "Expand.svg",
+    description: "Expand",
+    tags: "expand",
+  },
+  {
+    name: "ConvertToSubitem",
+    file: "ConvertToSubitem.svg",
+    description: "Convert To Subitem",
+    tags: "convert, subitem",
+  },
+  {
+    name: "Clear",
+    file: "Clear.svg",
+    description: "Clear",
+    tags: "clear",
+  },
+  {
+    name: "TextColorIndicator",
+    file: "TextColorIndicator.svg",
+    description: "",
+    tags: "text, A, font",
   },
 
   {
-      name: "Status",
-      file: "Status.svg",
-      description: "Status icon",
-      tags: "status, done, status category"
+    name: "Bug",
+    file: "Bug.svg",
+    description: "Bug",
+    tags: "bug",
   },
 
   {
-      name: "Subitems",
-      file: "Subitems.svg",
-      description: "Subitems icon",
-      tags: "subitems, subitems category"
+    name: "Battery",
+    file: "Battery.svg",
+    description: "Battery",
+    tags: "battery",
+  },
+
+  {
+    name: "Status",
+    file: "Status.svg",
+    description: "Status icon",
+    tags: "status, done, status category",
+  },
+
+  {
+    name: "Subitems",
+    file: "Subitems.svg",
+    description: "Subitems icon",
+    tags: "subitems, subitems category",
   },
 
   {
@@ -210,93 +217,93 @@ export const iconsMetaData = [
   },
 
   {
-      name: "Recurring",
-      file: "Recurring.svg",
-      description: "Recurring icon",
-      tags: "recurring, time, timebased, every, automation, cron"
+    name: "Recurring",
+    file: "Recurring.svg",
+    description: "Recurring icon",
+    tags: "recurring, time, timebased, every, automation, cron",
   },
 
   {
-      name: "Featured",
-      file: "Featured.svg",
-      description: "Featured category icon",
-      tags: "featured, category, highlights, automation"
+    name: "Featured",
+    file: "Featured.svg",
+    description: "Featured category icon",
+    tags: "featured, category, highlights, automation",
   },
 
   {
-      name: "DueDate",
-      file: "DueDate.svg",
-      description: "DueDate icon",
-      tags: "duedate, date, deadline, automation, timebased, cron"
+    name: "DueDate",
+    file: "DueDate.svg",
+    description: "DueDate icon",
+    tags: "duedate, date, deadline, automation, timebased, cron",
   },
 
   {
-      name: "Dependency",
-      file: "Dependency.svg",
-      description: "Dependencies icon",
-      tags: "dependency, category, dependencies, ensure, adjust, automations"
+    name: "Dependency",
+    file: "Dependency.svg",
+    description: "Dependencies icon",
+    tags: "dependency, category, dependencies, ensure, adjust, automations",
   },
 
   {
-      name: "Custom",
-      file: "Custom.svg",
-      description: "Custom categoty icon",
-      tags: "custom, recipe, automations, dynamic, builder"
+    name: "Custom",
+    file: "Custom.svg",
+    description: "Custom categoty icon",
+    tags: "custom, recipe, automations, dynamic, builder",
   },
 
   {
-      name: "Basic",
-      file: "Basic.svg",
-      description: "Basic category icon",
-      tags: "basic, category, automations"
+    name: "Basic",
+    file: "Basic.svg",
+    description: "Basic category icon",
+    tags: "basic, category, automations",
   },
 
   {
-      name: "Work",
-      file: "Work.svg",
-      description: "work",
-      tags: "work",
-      ignore: true
+    name: "Work",
+    file: "Work.svg",
+    description: "work",
+    tags: "work",
+    ignore: true,
   },
 
   {
-      name: "MoreBelowFilled",
-      file: "MoreBelowFilled.svg",
-      description: "More below filled",
-      tags: "more,below,filled",
-      ignore: true
+    name: "MoreBelowFilled",
+    file: "MoreBelowFilled.svg",
+    description: "More below filled",
+    tags: "more,below,filled",
+    ignore: true,
   },
 
   {
-      name: "MoreBelow",
-      file: "MoreBelow.svg",
-      description: "more below",
-      tags: "more,below",
-      ignore: true
+    name: "MoreBelow",
+    file: "MoreBelow.svg",
+    description: "more below",
+    tags: "more,below",
+    ignore: true,
   },
 
   {
-      name: "CollapseRound",
-      file: "CollapseRound.svg",
-      description: "Collapse round",
-      tags: "collapse,round",
-      ignore: true
+    name: "CollapseRound",
+    file: "CollapseRound.svg",
+    description: "Collapse round",
+    tags: "collapse,round",
+    ignore: true,
   },
 
   {
-      name: "CloseRound",
-      file: "CloseRound.svg",
-      description: "Close round",
-      tags: "close,round",
-      ignore: true
+    name: "CloseRound",
+    file: "CloseRound.svg",
+    description: "Close round",
+    tags: "close,round",
+    ignore: true,
   },
 
   {
-      name: "Bulllet",
-      file: "Bulllet.svg",
-      description: "Bullet",
-      tags: "bullet",
-      ignore: true
+    name: "Bulllet",
+    file: "Bulllet.svg",
+    description: "Bullet",
+    tags: "bullet",
+    ignore: true,
   },
 
   {
@@ -835,11 +842,11 @@ export const iconsMetaData = [
     category: [PLATFORM],
   },
   {
-        name: "Gallery",
-        file: "Gallery.svg",
-        description: "Gallery",
-        tags: "Gallery, Files, Image gallery",
-        category: [PLATFORM],
+    name: "Gallery",
+    file: "Gallery.svg",
+    description: "Gallery",
+    tags: "Gallery, Files, Image gallery",
+    category: [PLATFORM],
   },
   {
     name: "GIF",
@@ -1122,7 +1129,7 @@ export const iconsMetaData = [
     file: "Mute.svg",
     description: "Mute",
     tags: "Mute",
-    category: [PLATFORM]
+    category: [PLATFORM],
   },
 
   {
@@ -1598,37 +1605,37 @@ export const iconsMetaData = [
   },
 
   {
-      name: "Deactivate",
-      file: "Deactivate.svg",
-      description: "Deactivate",
-      tags: "deactivate, active"
+    name: "Deactivate",
+    file: "Deactivate.svg",
+    description: "Deactivate",
+    tags: "deactivate, active",
   },
 
   {
-      name: "AddToTeam",
-      file: "AddToTeam.svg",
-      description: "Add to team",
-      tags: "user, users, team, add"
+    name: "AddToTeam",
+    file: "AddToTeam.svg",
+    description: "Add to team",
+    tags: "user, users, team, add",
   },
 
   {
-      name: "PersonRound",
-      file: "PersonRound.svg",
-      description: "Person round",
-      tags: "person, user"
+    name: "PersonRound",
+    file: "PersonRound.svg",
+    description: "Person round",
+    tags: "person, user",
   },
 
   {
-      name: "UserDomain",
-      file: "UserDomain.svg",
-      description: "User domain",
-      tags: "user, domain, email"
+    name: "UserDomain",
+    file: "UserDomain.svg",
+    description: "User domain",
+    tags: "user, domain, email",
   },
 
   {
-      name: "UserStatus",
-      file: "UserStatus.svg",
-      description: "User status",
-      tags: "user, status"
-  }
+    name: "UserStatus",
+    file: "UserStatus.svg",
+    description: "User status",
+    tags: "user, status",
+  },
 ];
