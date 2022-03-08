@@ -150,7 +150,13 @@ When having a lot of options, you may use headings to categorize them.
         { id: "3", label: "Client Foundations", categoryId: "workspace" },
         { id: "4", label: "Design", categoryId: "workspace" },
         { id: "5", label: "Marketing Cluster", categoryId: "workspace" },
-        { id: "6", label: "Mobile", categoryId: "workspace" }
+        { id: "6", label: "Mobile", categoryId: "workspace" },
+          { id: "11", label: "Favorites", categoryId: "favorites" },
+          { id: "12", label: "Main workspace", categoryId: "favorites" },
+          { id: "13", label: "Client Foundations", categoryId: "favorites" },
+          { id: "14", label: "Design", categoryId: "favorites" },
+          { id: "15", label: "Marketing Cluster", categoryId: "favorites" },
+          { id: "16", label: "Mobile", categoryId: "workspace" }
       ], []);
       const categories = useMemo(() => ({
         favorites: { id: "favorites", label: "Favorites" },
@@ -159,8 +165,8 @@ When having a lot of options, you may use headings to categorize them.
       return (
         <Flex gap={Flex.gaps.SMALL}  style={{width:"100%"}} justify={Flex.justify.SPACE_AROUND} align={Flex.align.START} >
           <StoryDescription description="Categories without divider" vertical>
-            <DialogContentContainer>
-              <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
+            <DialogContentContainer style={{height: "200px"}} render>
+              <Combobox options={options} categories={undefined} placeholder="Placeholder text here" renderOnlyVisibleOptions/>
             </DialogContentContainer>
           </StoryDescription>
           <StoryDescription description="Categories with divider" vertical>

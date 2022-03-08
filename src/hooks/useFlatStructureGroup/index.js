@@ -1,14 +1,8 @@
-import {useCallback} from "react";
+import { useCallback } from "react";
 
-export function useFlatStructureGroup({groupId }) {
-    const titleId = ``
-    const createTitleComponent =
-        useCallback((titleContent) =>
-            <div role="group" aria-labelledby={titleId}>
-                <span role="presentation" id={titleId}>
-                    {titleContent}
-                </span>
-            </div>, [titleId]);
-    const createOptionComponent = useCallback((itemContent));
-    const optionProps = {role: }
+export function useFlatStructureGroup({ optionsCount }) {
+  const groupsContainerProps = { role: "treegrid" };
+  const titleProps = useCallback(() => ({ role: "row", "aria-level": 1 }), []);
+  const optionProps = useCallback(() => ({ role: "row", "aria-level": 2 }), []);
+  return { groupsContainerProps, titleProps, optionProps };
 }

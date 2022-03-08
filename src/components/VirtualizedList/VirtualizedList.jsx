@@ -224,7 +224,7 @@ const VirtualizedList = forwardRef(
     }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, listHeight, idGetter]);
 
     return (
-      <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id}>
+      <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id} role="treegrid">
         <AutoSizer>
           {({ height, width }) => {
             updateListSize(width, height);
