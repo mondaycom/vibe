@@ -1,0 +1,6 @@
+@import "../../../../styles/states.scss";
+
+.scrollableContainer {
+  @include scroller;
+}
+

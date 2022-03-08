@@ -145,8 +145,6 @@ When having a lot of options, you may use headings to categorize them.
   <Story name="With categories">
     {() => {
       const options = useMemo(() => [
-        { id: "1", label: "Favorites", categoryId: "favorites" },
-        { id: "2", label: "Main workspace", categoryId: "workspace" },
         { id: "3", label: "Client Foundations", categoryId: "workspace" },
         { id: "4", label: "Design", categoryId: "workspace" },
         { id: "5", label: "Marketing Cluster", categoryId: "workspace" },
@@ -171,7 +169,6 @@ When having a lot of options, you may use headings to categorize them.
           </StoryDescription>
           <StoryDescription description="Categories with divider" vertical>
             <DialogContentContainer>
-              <Combobox options={options} categories={categories} withCategoriesDivider placeholder="Placeholder text here" />
             </DialogContentContainer>
           </StoryDescription>
         </Flex>

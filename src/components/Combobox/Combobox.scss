@@ -52,6 +52,7 @@
 
   &-search-wrapper {
     position: sticky;
+    margin-bottom: var(--spacing-small);
     top: 0;
     background-color: var(--primary-background-color);
     z-index: 12;
@@ -92,9 +93,10 @@
   }
 
   &-list {
+    display: flex;
+    flex-direction: column;
     flex: 1 1 auto;
     padding: 0 4px 8px 4px;
-    overflow: auto;
-    @include scroller;
+    overflow: hidden;
   }
 }

@@ -4,18 +4,28 @@ import ComboboxOption from "components/Combobox/components/ComboboxOption/Combob
 import ComboboxCategory from "components/Combobox/components/ComboboxCategory/ComboboxCategory";
 import Divider from "../../Divider/Divider";
 import { COMBOBOX_DIVIDER_ITEM, COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "./ComboboxConstants";
-export function comboboxItemRenderer({ type, ...otherArgs }) {
+export function comboboxItemRenderer(item, index, style = {}) {
+  debugger;
+  const { type, ...otherArgs } = item;
+  let innerElement;
   switch (type) {
     case COMBOBOX_DIVIDER_ITEM: {
-      return dividerRenderer(otherArgs);
+      innerElement = dividerRenderer(otherArgs);
     }
     case COMBOBOX_CATEGORY_ITEM: {
-      return categoryRenderer(otherArgs);
+      innerElement = categoryRenderer(otherArgs);
     }
     case COMBOBOX_OPTION_ITEM: {
-      return optionRenderer(otherArgs);
+      if (!otherArgs) debugger;
+      innerElement = optionRenderer(otherArgs);
     }
   }
+
+  return (
+    <div key={otherArgs.id} style={style}>
+      {innerElement}
+    </div>
+  );
 }
 
 export function dividerRenderer({ id }) {
