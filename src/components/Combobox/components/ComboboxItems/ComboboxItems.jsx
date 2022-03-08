@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import cx from "classnames";
 import { getOptionsByCategories } from "components/Combobox/ComboboxService";
 import {
   COMBOBOX_CATEGORY_ITEM,
@@ -114,8 +115,11 @@ export const ComboboxItems = ({
       />
     );
   } else {
-    itemsElements = items.map(itemData => comboboxItemRenderer(itemData));
+    itemsElements =
+        (<div className={cx(styles.scrollableContainer, styles.optionsContainer)}>
+          {items.map(itemData => comboboxItemRenderer(itemData))}
+        </div>);
   }
 
-  return <div className={styles.itemsContainer}>{itemsElements}</div>;
+  return itemsElements;
 };

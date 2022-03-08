@@ -4,3 +4,8 @@
   @include scroller;
 }
 
+.optionsContainer {
+  overflow: auto;
+  margin-top: var(--spacing-small);
+}
+

@@ -145,16 +145,12 @@ When having a lot of options, you may use headings to categorize them.
   <Story name="With categories">
     {() => {
       const options = useMemo(() => [
+        { id: "1", label: "Favorites", categoryId: "favorites" },
+        { id: "2", label: "Main workspace", categoryId: "workspace" },
         { id: "3", label: "Client Foundations", categoryId: "workspace" },
         { id: "4", label: "Design", categoryId: "workspace" },
         { id: "5", label: "Marketing Cluster", categoryId: "workspace" },
-        { id: "6", label: "Mobile", categoryId: "workspace" },
-          { id: "11", label: "Favorites", categoryId: "favorites" },
-          { id: "12", label: "Main workspace", categoryId: "favorites" },
-          { id: "13", label: "Client Foundations", categoryId: "favorites" },
-          { id: "14", label: "Design", categoryId: "favorites" },
-          { id: "15", label: "Marketing Cluster", categoryId: "favorites" },
-          { id: "16", label: "Mobile", categoryId: "workspace" }
+        { id: "6", label: "Mobile", categoryId: "workspace" }
       ], []);
       const categories = useMemo(() => ({
         favorites: { id: "favorites", label: "Favorites" },
@@ -163,12 +159,13 @@ When having a lot of options, you may use headings to categorize them.
       return (
         <Flex gap={Flex.gaps.SMALL}  style={{width:"100%"}} justify={Flex.justify.SPACE_AROUND} align={Flex.align.START} >
           <StoryDescription description="Categories without divider" vertical>
-            <DialogContentContainer style={{height: "200px"}} render>
-              <Combobox options={options} categories={undefined} placeholder="Placeholder text here" renderOnlyVisibleOptions/>
+            <DialogContentContainer>
+              <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
             </DialogContentContainer>
           </StoryDescription>
           <StoryDescription description="Categories with divider" vertical>
             <DialogContentContainer>
+              <Combobox options={options} categories={categories} withCategoriesDivider placeholder="Placeholder text here" />
             </DialogContentContainer>
           </StoryDescription>
         </Flex>
@@ -240,20 +237,70 @@ If combo box requires action, use button component at the end of the list.
   </Story>
 </Canvas>
 
+### With window optimization
+When you display a large number of options, you may want to render only the options shown at a given moment to allow better performance and a
+better user experience.
+<Canvas>
+    <Story name="With window optimization">
+        {() => {
+            const options = useMemo(() => [
+                { id: "1", label: "Option 1", categoryId: "Group1" },
+                { id: "2", label: "Option 2", categoryId: "Group1" },
+                { id: "3", label: "Option 3", categoryId: "Group1" },
+                { id: "4", label: "Option 4", categoryId: "Group1" },
+                { id: "5", label: "Option 5", categoryId: "Group1" },
+                { id: "6", label: "Option 6", categoryId: "Group1" },
+                { id: "7", label: "Option 7", categoryId: "Group1" },
+                { id: "8", label: "Option 8", categoryId: "Group1" },
+                { id: "9", label: "Option 9", categoryId: "Group1" },
+                { id: "10", label: "Option 10", categoryId: "Group2" },
+                { id: "11", label: "Option 11", categoryId: "Group2" },
+                { id: "12", label: "Option 12", categoryId: "Group2" },
+                { id: "13", label: "Option 13", categoryId: "Group2" },
+                { id: "14", label: "Option 14", categoryId: "Group2" },
+                { id: "15", label: "Option 15", categoryId: "Group2" },
+                { id: "16", label: "Option 16", categoryId: "Group2" },
+                { id: "17", label: "Option 17", categoryId: "Group2" },
+                { id: "18", label: "Option 18", categoryId: "Group2" },
+                { id: "19", label: "Option 19", categoryId: "Group2" },
+                { id: "20", label: "Option 20", categoryId: "Group2" },
+            ], []);
+            const categories = useMemo(() => ({
+                Group1: { id: "Group1", label: "Group 1" },
+                Group2: { id: "Group2", label: "Group 2" }
+            }), []);
+            return (
+                <Flex gap={Flex.gaps.SMALL}  style={{width:"100%"}} justify={Flex.justify.SPACE_AROUND} align={Flex.align.START} >
+                    <StoryDescription description="Window optimization without categories" vertical>
+                        <DialogContentContainer style={{height: "200px"}}>
+                            <Combobox options={options} renderOnlyVisibleOptions placeholder="Placeholder text here" />
+                        </DialogContentContainer>
+                    </StoryDescription>
+                    <StoryDescription description="Window optimization with categories" vertical>
+                        <DialogContentContainer style={{height: "200px"}}>
+                            <Combobox options={options} categories={categories} renderOnlyVisibleOptions placeholder="Placeholder text here" />
+                        </DialogContentContainer>
+                    </StoryDescription>
+                </Flex>
+            )
+        }}
+    </Story>
+</Canvas>
+
 ###  Loading state
 If importing the combo box options may take time, you reflect this to the user by using our Combo Box loading mode.
 <Canvas>
-  <Story name="Loading state">
-    {() => {
-      const options = useMemo(() => [
-      ], []);
-      return (
-        <DialogContentContainer>
-          <Combobox loading options={options} placeholder="Board name" />
-        </DialogContentContainer>
-      )
-    }}
-  </Story>
+    <Story name="Loading state">
+        {() => {
+            const options = useMemo(() => [
+            ], []);
+            return (
+                <DialogContentContainer>
+                    <Combobox loading options={options} placeholder="Board name" />
+                </DialogContentContainer>
+            )
+        }}
+    </Story>
 </Canvas>
 
 ## Do’s and Don’ts
