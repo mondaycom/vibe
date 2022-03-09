@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import useIsOverflowing from "hooks/useIsOverflowing";
@@ -6,62 +6,69 @@ import Tooltip from "components/Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
 import "./BreadcrumbItem.scss";
+import useMergeRefs from "../../../hooks/useMergeRefs";
 
 const MOUSEENTER = ["mouseenter"];
 const MOUSELEAVE = ["mouseleave"];
 
-const BreadcrumbItem = ({
-  className,
-  text,
-  disabled,
-  // Backward compatibility for props naming
-  isDisabled,
-  isClickable,
-  link,
-  onClick,
-  isCurrent,
-  icon
-}) => {
-  const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
-  const componentRef = useRef(null);
-  const isOverflowing = useIsOverflowing({ ref: componentRef });
+const BreadcrumbItem = forwardRef(
+  (
+    {
+      className,
+      text,
+      disabled,
+      // Backward compatibility for props naming
+      isDisabled,
+      isClickable,
+      link,
+      onClick,
+      isCurrent,
+      icon
+    },
+    ref
+  ) => {
+    const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
+    const componentRef = useRef(null);
+    const isOverflowing = useIsOverflowing({ ref: componentRef });
 
-  return (
-    <Tooltip
-      disableDialogSlide={true}
-      withoutDialog={false}
-      content={isOverflowing && text}
-      showTrigger={MOUSEENTER}
-      hideTrigger={MOUSELEAVE}
-    >
-      <li
-        className={classNames(
-          "breadcrumbItem--wrapper",
-          className,
-          { clickable: isClickable },
-          { current: isCurrent },
-          { disabled: overrideDisabled }
-        )}
+    return (
+      <Tooltip
+        disableDialogSlide={true}
+        withoutDialog={false}
+        content={isOverflowing && text}
+        showTrigger={MOUSEENTER}
+        hideTrigger={MOUSELEAVE}
       >
-        <BreadcrumbContent
+        <li
           className={classNames(
-            "breadcrumb-content",
+            "breadcrumbItem--wrapper",
+            className,
             { clickable: isClickable },
             { current: isCurrent },
             { disabled: overrideDisabled }
           )}
-          ref={componentRef}
-          isClickable={isClickable}
-          link={link}
-          onClick={onClick}
-          text={text}
-          icon={icon}
-          isCurrent={isCurrent}
-        />
-      </li>
-    </Tooltip>
-  );
-};
+        >
+          <BreadcrumbContent
+            buttonRef={ref}
+            className={classNames(
+              "breadcrumb-content",
+              { clickable: isClickable },
+              { current: isCurrent },
+              { disabled: overrideDisabled }
+            )}
+            ref={componentRef}
+            isClickable={isClickable}
+            link={link}
+            onClick={onClick}
+            text={text}
+            icon={icon}
+            isCurrent={isCurrent}
+          />
+        </li>
+      </Tooltip>
+    );
+  }
+);
 
 BreadcrumbItem.propTypes = {
   className: PropTypes.string,
