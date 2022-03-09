@@ -6,7 +6,7 @@ import {
   COMBOBOX_DIVIDER_ITEM,
   COMBOBOX_OPTION_ITEM
 } from "components/Combobox/components/ComboboxConstants";
-import { comboboxItemRenderer } from "components/Combobox/components/ComboboxRenderers";
+import { comboboxItemRenderer } from "components/Combobox/components/ComboboxRenderers/ComboboxRenderers";
 import { VirtualizedList } from "components";
 import styles from "./ComboboxItems.modules.scss";
 
@@ -34,7 +34,7 @@ export const ComboboxItems = ({
         const withDivider = withCategoriesDivider && categoryIndex !== 0;
         if (withDivider) items.push({ type: COMBOBOX_DIVIDER_ITEM, height: 17, id: `${categoryId}-divider` });
         items.push({
-          height: 28,
+          height: 32,
           type: COMBOBOX_CATEGORY_ITEM,
           category: categories[categoryId],
           id: categoryId,

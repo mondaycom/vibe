@@ -13,12 +13,6 @@
     &--with-divider {
       margin-top: var(--spacing-medium);
     }
-
-    &-divider {
-      position: absolute;
-      width: calc(100% + 16px);
-      margin-left: -12px;
-    }
   }
 
   &.sticky-category {

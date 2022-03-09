@@ -1,0 +1,15 @@
+.comboboxItemContainer {
+  display: flex;
+  flex: auto;
+}
+
+.dividerContainer {
+  position: relative;
+  width: 100%;
+}
+
+.divider {
+  position: absolute;
+  width: calc(100% + 16px);
+  margin-left: -12px;
+}

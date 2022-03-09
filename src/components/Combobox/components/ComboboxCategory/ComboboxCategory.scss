@@ -4,8 +4,13 @@
 
 .combobox-category {
   @include theme-prop(color, placeholder-color);
-  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+  margin-block: var(--spacing-small);
+  &:first-child {
+    margin-top: 0;
+  }
   &:last-child {
-    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }

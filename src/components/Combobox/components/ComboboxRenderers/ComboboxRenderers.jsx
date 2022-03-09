@@ -1,8 +1,10 @@
 import React from "react";
 import ComboboxOption from "components/Combobox/components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "components/Combobox/components/ComboboxCategory/ComboboxCategory";
-import Divider from "../../Divider/Divider";
-import { COMBOBOX_DIVIDER_ITEM, COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "./ComboboxConstants";
+import Divider from "../../../Divider/Divider";
+import { COMBOBOX_DIVIDER_ITEM, COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../ComboboxConstants";
+import styles from "./ComboboxRenderers.module.scss";
+
 export function comboboxItemRenderer(item, _index, style) {
   const { type, ...otherArgs } = item;
   let innerElement;
@@ -22,14 +24,18 @@ export function comboboxItemRenderer(item, _index, style) {
   }
 
   return (
-    <div key={otherArgs.id} style={style}>
+    <div key={otherArgs.id} className={styles.comboboxItemContainer} style={style}>
       {innerElement}
     </div>
   );
 }
 
-export function dividerRenderer({ id }) {
-  return <Divider className="combobox_category-divider" key={id} />;
+export function dividerRenderer({ id, height }) {
+  return (
+    <div className={styles.dividerContainer} style={{ height: height }}>
+      <Divider className={styles.divider} key={id} />
+    </div>
+  );
 }
 
 export function categoryRenderer({ id, category, className }) {
