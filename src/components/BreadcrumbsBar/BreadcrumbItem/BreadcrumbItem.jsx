@@ -6,7 +6,6 @@ import Tooltip from "components/Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
 import "./BreadcrumbItem.scss";
-import useMergeRefs from "../../../hooks/useMergeRefs";
 
 const MOUSEENTER = ["mouseenter"];
 const MOUSELEAVE = ["mouseleave"];
