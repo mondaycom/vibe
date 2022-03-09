@@ -113,16 +113,14 @@ function getPublishedComponents() {
 function exposeIcons() {
   const files = fs.readdirSync(ICONS_PATH);
 
-  return files.reduce(
-    (acc, file) => ({
-      ...acc,
-      [`/icons/${file.split(".")[0]}`]: `${ICONS_PATH}/${file}`
-    }),
-    {}
-  );
+  return files.reduce((acc, file) => {
+    acc[`/icons/${file.split(".")[0]}`] = `${ICONS_PATH}/${file}`;
+    return acc;
+  }, {});
 }
 
 module.exports = {
   publishedComponents,
-  getPublishedComponents
+  getPublishedComponents,
+  exposeIcons
 };

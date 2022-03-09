@@ -2,6 +2,8 @@ import React, { useRef, forwardRef, useLayoutEffect, useCallback, useState, useE
 import PropTypes from "prop-types";
 import cx from "classnames";
 import autosize from "autosize";
+import useStyle from "hooks/useStyle";
+import useMergeRefs from "hooks/useMergeRefs";
 import {
   isEnterEvent,
   isEscapeEvent,
@@ -11,7 +13,6 @@ import {
   isArrowLeftEvent,
   isArrowRightEvent
 } from "../../utils/dom-event-utils";
-import useMergeRefs from "../../hooks/useMergeRefs";
 import "./EditableInput.scss";
 
 export const TEXTAREA_TYPE = "textarea";
@@ -36,8 +37,10 @@ const EditableInput = forwardRef(
       shouldFocusOnMount,
       selectOnMount,
       value,
+      customColor,
       ignoreBlurClass,
       onFinishEditing,
+      onIgnoreBlurEvent,
       onFocus,
       onBlur,
       isValidValue,
@@ -92,6 +95,7 @@ const EditableInput = forwardRef(
 
         const { relatedTarget } = event;
         if (shouldIgnoreBlur(relatedTarget, ignoreBlurClass)) {
+          onIgnoreBlurEvent(valueState);
           return;
         }
 
@@ -106,7 +110,7 @@ const EditableInput = forwardRef(
           onBlur(enrichedEvent);
         }
       },
-      [ignoreBlurClass, valueState, onFinishEditing, onBlur]
+      [ignoreBlurClass, valueState, onFinishEditing, onBlur, onIgnoreBlurEvent]
     );
 
     const onChangeCallback = useCallback(
@@ -187,12 +191,15 @@ const EditableInput = forwardRef(
       setValueState(value);
     }, [value]);
 
+    const style = useStyle(undefined, { color: customColor });
+
     const rows = isTextArea(inputType) && autoSize ? "1" : undefined;
     const InputType = inputType;
     return (
       <InputType
         ref={mergedRef}
         id={id}
+        style={style}
         className={cx("editable-input--wrapper", className, {
           "no-resize": autoSize
         })}
@@ -228,7 +235,8 @@ EditableInput.propTypes = {
   onArrowKeyDown: PropTypes.func,
   onCancelEditing: PropTypes.func,
   textareaSubmitOnEnter: PropTypes.bool,
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  customColor: PropTypes.string
 };
 EditableInput.defaultProps = {
   className: "",
@@ -243,7 +251,8 @@ EditableInput.defaultProps = {
   onArrowKeyDown: undefined,
   onCancelEditing: undefined,
   textareaSubmitOnEnter: false,
-  ariaLabel: undefined
+  ariaLabel: undefined,
+  customColor: undefined
 };
 
 export default EditableInput;

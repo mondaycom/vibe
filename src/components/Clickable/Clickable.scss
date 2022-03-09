@@ -6,6 +6,10 @@
   @include focus-style;
   cursor: pointer;
 
+  &.disabled {
+    cursor: default;
+  }
+
   &--disable-text-selection {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
