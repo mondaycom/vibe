@@ -26,7 +26,6 @@ export const ComboboxItems = ({
   renderOnlyVisibleOptions
 }) => {
   let items = useMemo(() => {
-    console.log("render items");
     let items = [];
     if (categories) {
       const optionsByCategories = getOptionsByCategories(options, categories, filterValue);
@@ -100,7 +99,6 @@ export const ComboboxItems = ({
     shouldScrollToSelectedItem
   ]);
 
-  console.log(items);
   let itemsElements;
 
   // If we request to render only the items which visible in a given moment (optimization for very large lists)
