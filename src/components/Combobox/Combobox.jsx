@@ -62,6 +62,16 @@ const Combobox = forwardRef(
       [setActiveItemIndex]
     );
 
+    const onChangeCallback = useCallback(
+      value => {
+        if (onFilterChanged) {
+          onFilterChanged(value);
+        }
+        setFilterValue(value);
+      },
+      [setFilterValue, onFilterChanged]
+    );
+
     const onOptionClick = useCallback(
       (_event, index, option, mouseClick) => {
         if (option.disabled) return;
@@ -165,16 +175,6 @@ const Combobox = forwardRef(
       optionLineHeight,
       shouldScrollToSelectedItem
     ]);
-
-    const onChangeCallback = useCallback(
-      value => {
-        if (onFilterChanged) {
-          onFilterChanged(value);
-        }
-        setFilterValue(value);
-      },
-      [setFilterValue, onFilterChanged]
-    );
 
     const isChildSelectable = useCallback(option => {
       return option && !option.disabled;
