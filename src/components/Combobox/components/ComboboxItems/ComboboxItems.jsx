@@ -1,12 +1,13 @@
 import React, { useMemo } from "react";
 import cx from "classnames";
 import { getOptionsByCategories } from "components/Combobox/ComboboxService";
+import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_DIVIDER_ITEM } from "components/Combobox/components/ComboboxConstants";
 import {
-  COMBOBOX_CATEGORY_ITEM,
-  COMBOBOX_DIVIDER_ITEM,
-  COMBOBOX_OPTION_ITEM
-} from "components/Combobox/components/ComboboxConstants";
-import { comboboxItemRenderer } from "components/Combobox/components/ComboboxRenderers/ComboboxRenderers";
+  comboboxItemRenderer,
+  createCategoryItemObject,
+  createDividerItemObject,
+  createOptionItemObject
+} from "components/Combobox/components/ComboboxRenderers/ComboboxRenderers";
 import { VirtualizedList } from "components";
 import styles from "./ComboboxItems.modules.scss";
 
@@ -32,46 +33,37 @@ export const ComboboxItems = ({
       let optionIndex = 0;
       Object.keys(optionsByCategories).forEach((categoryId, categoryIndex) => {
         const withDivider = withCategoriesDivider && categoryIndex !== 0;
-        if (withDivider) items.push({ type: COMBOBOX_DIVIDER_ITEM, height: 17, id: `${categoryId}-divider` });
-        items.push({
-          height: 32,
-          type: COMBOBOX_CATEGORY_ITEM,
-          category: categories[categoryId],
-          id: categoryId,
-          withDivider
-        });
-        const isActive = activeItemIndex === optionIndex;
-        const options = optionsByCategories[categoryId].map(option => {
-          const renderedOption = {
-            type: COMBOBOX_OPTION_ITEM,
+        if (withDivider) {
+          items.push(createDividerItemObject({ categoryId }));
+        }
+
+        items.push(createCategoryItemObject({ categoryId, categoryData: categories[categoryId], withDivider }));
+        optionsByCategories[categoryId].forEach(option => {
+          const itemObject = createOptionItemObject({
             height: optionLineHeight,
-            belongToCategory: true,
-            index: { optionIndex },
             option,
-            id: option.id || optionIndex,
+            index: optionIndex,
             optionRenderer,
-            isActive,
+            isActive: activeItemIndex === optionIndex,
             isActiveByKeyboard,
             onOptionClick,
             onOptionEnter,
             onOptionLeave,
             optionLineHeight,
             shouldScrollToSelectedItem
-          };
+          });
+
+          items.push(itemObject);
           optionIndex++;
-          return renderedOption;
         });
-        items.push(...options);
       });
     } else {
       items = options.map((option, index) => {
-        return {
-          type: COMBOBOX_OPTION_ITEM,
-          index,
+        return createOptionItemObject({
           height: optionLineHeight,
           option,
+          index,
           optionRenderer,
-          id: option.id || index,
           isActive: activeItemIndex === index,
           isActiveByKeyboard,
           onOptionClick,
@@ -79,10 +71,9 @@ export const ComboboxItems = ({
           onOptionLeave,
           optionLineHeight,
           shouldScrollToSelectedItem
-        };
+        });
       });
     }
-
     return items;
   }, [
     categories,

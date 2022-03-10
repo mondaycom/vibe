@@ -5,20 +5,68 @@ import Divider from "../../../Divider/Divider";
 import { COMBOBOX_DIVIDER_ITEM, COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../ComboboxConstants";
 import styles from "./ComboboxRenderers.module.scss";
 
+const DIVIDER_HEIGHT = 17;
+const CATEGORY_HEIGHT = 32;
+
+export function createDividerItemObject({ categoryId }) {
+  return { type: COMBOBOX_DIVIDER_ITEM, height: DIVIDER_HEIGHT, id: `${categoryId}-divider` };
+}
+
+export function createCategoryItemObject({ withDivider, categoryId, categoryData }) {
+  return {
+    height: CATEGORY_HEIGHT,
+    type: COMBOBOX_CATEGORY_ITEM,
+    category: categoryData,
+    id: categoryId,
+    withDivider
+  };
+}
+
+export function createOptionItemObject({
+  option,
+  height,
+  index,
+  optionRenderer,
+  isActive,
+  isActiveByKeyboard,
+  onOptionClick,
+  onOptionEnter,
+  onOptionLeave,
+  optionLineHeight,
+  shouldScrollToSelectedItem
+}) {
+  return {
+    type: COMBOBOX_OPTION_ITEM,
+    height,
+    belongToCategory: true,
+    index,
+    option,
+    id: option.id || index,
+    optionRenderer,
+    isActive,
+    isActiveByKeyboard,
+    onOptionClick,
+    onOptionEnter,
+    onOptionLeave,
+    optionLineHeight,
+    shouldScrollToSelectedItem
+  };
+}
+
 export function comboboxItemRenderer(item, _index, style) {
   const { type, ...otherArgs } = item;
   let innerElement;
   switch (type) {
     case COMBOBOX_DIVIDER_ITEM: {
-      innerElement = dividerRenderer(otherArgs);
+      innerElement = dividerItemRenderer(otherArgs);
       break;
     }
     case COMBOBOX_CATEGORY_ITEM: {
-      innerElement = categoryRenderer(otherArgs);
+      innerElement = categoryItemRenderer(otherArgs);
       break;
     }
     case COMBOBOX_OPTION_ITEM: {
-      innerElement = optionRenderer(otherArgs);
+      innerElement = optionItemRenderer(otherArgs);
       break;
     }
   }
@@ -30,7 +78,7 @@ export function comboboxItemRenderer(item, _index, style) {
   );
 }
 
-export function dividerRenderer({ id, height }) {
+export function dividerItemRenderer({ id, height }) {
   return (
     <div className={styles.dividerContainer} style={{ height: height }}>
       <Divider className={styles.divider} key={id} />
@@ -38,11 +86,11 @@ export function dividerRenderer({ id, height }) {
   );
 }
 
-export function categoryRenderer({ id, category, className }) {
+export function categoryItemRenderer({ id, category, className }) {
   return <ComboboxCategory key={id} category={category} className={className} />;
 }
 
-export function optionRenderer({
+export function optionItemRenderer({
   id,
   index,
   option,
