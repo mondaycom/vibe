@@ -1,5 +1,5 @@
 import {Meta} from "@storybook/addon-docs";
-import {ComponentName, Frame} from "../../components";
+import {ComponentName, Frame, UnstyledList, UnstyledListItem} from "../../components";
 import {PrinciplesAccesability} from "./principles/principlesAccesability";
 import {
     colorContrastImage,
@@ -54,7 +54,7 @@ Large Text - at least 18pt (typically 24px) or 14pt (typically 18.66px) and bold
 Incidental - inactive user interface (disabled items), decorative (icons, Illustartions) non-visible, insignificant part of a picture<br/>
 Logotypes - Text that is part of a logo or brand name
 
-__Non-Text Color Contrast__<br/>
+### Non-Text Color Contrast
 The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color
 
 <Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
@@ -77,28 +77,36 @@ People with vision impairments or difficulties reading rely on text alternatives
 
 Note: Alternative text is very important since it is adaptable. Assistive technology can convey this content to the user in different ways: visually, enlarged, spoken aloud,  and rendered in a tactile form.
 
-__Information Images__ are all images that convey important information and communicate information visually:
-* The alt-text needs to convey the same information as the image
-* Ensure the alt-text is short and appropriate to the context
-* If the same information already is present as text on the screen, the image becomes decorative
-* Do not use the words like "graphic", "An image of", "A picture of", "an icon of"
+### Information Images
+Are all images that convey important information and communicate information visually:
+<UnstyledList>
+    <UnstyledListItem>The alt-text needs to convey the same information as the image</UnstyledListItem>
+    <UnstyledListItem>Ensure the alt-text is short and appropriate to the context</UnstyledListItem>
+    <UnstyledListItem>If the same information already is present as text on the screen, the image becomes
+        decorative</UnstyledListItem>
+    <UnstyledListItem>Do not use the words like "graphic", "An image of", "A picture of", "an icon
+        of"</UnstyledListItem>
+</UnstyledList>
 
 <Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
     <img src={imageryDescriptive} alt="example for an accessible information within image src"/>
 </Frame>
 
-__Decorative Images__ such as borders, empty states, background ambience images:
-* Do not convey information
-* Should be ignored by the screen reader
-* Can be defined as background image in the stylesheet
-* Should use ``role="presentation"``
+### Decorative Images
+Such as borders, empty states, background ambience images:
+<UnstyledList>
+    <UnstyledListItem>Do not convey information</UnstyledListItem>
+    <UnstyledListItem>Should be ignored by the screen reader</UnstyledListItem>
+    <UnstyledListItem>Can be defined as background image in the stylesheet</UnstyledListItem>
+    <UnstyledListItem>Should use ``role="presentation"``</UnstyledListItem>
+</UnstyledList>
 
 <Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
     <img src={imageryDecorative} alt="example decorative image" role="presentation"/>
 </Frame>
 
 ## Hierarchy and focus
-__Reading Order__<br/>
+### Reading Order
 The reading and navigation order is determined by code order<br/>
 The reading order must be logical and intuitive.<br/>
 We arrange the order of the elements within the HTML so that the reading order follows the same order as the visual presentation of the screen.
@@ -107,20 +115,24 @@ We arrange the order of the elements within the HTML so that the reading order f
     <img src={hierarchyOrder} alt="example decorative image" role="presentation"/>
 </Frame>
 
-__Semantic Markup__<br/>
+### Semantic Markup
 Semantic markup is used to define: Headings, Regions/Landmarks, Lists, Emphasized or special text, Tables and
 Text labels & form group labels
 
-__Headings__<br/>
+### Headings
 Headings communicate the structure of the content on the page. Assistive technologies users can use them as in-page navigation elements.
-* Arrange the headings on the page according to their level (``h1...h6``).
-* The most important heading on the page is heading level 1 (``<h1>``).
-* Only one heading level 1 ``<h1>`` is allowed on a page.
-* Headings should be placed at the start of new sections of content not for decoration.
-* Avoid skipping heading levels. Ensure that a heading level 1 ``<h1>`` is not followed directly by an ``<h3>``, for example.
+<UnstyledList>
+    <UnstyledListItem>Arrange the headings on the page according to their level (``H1...H6``).</UnstyledListItem>
+    <UnstyledListItem>The most important heading on the page is heading level 1 (``H1``).</UnstyledListItem>
+    <UnstyledListItem>Only one heading level 1 ``H1`` is allowed on a page.</UnstyledListItem>
+    <UnstyledListItem>Headings should be placed at the start of new sections of content not for
+        decoration</UnstyledListItem>
+    <UnstyledListItem>void skipping heading levels. Ensure that a heading level 1 ``H1`` is not followed directly by an
+        ``H3``, for example.</UnstyledListItem>
+</UnstyledList>
 
 ## Navigation
-__Keyboard Access__<br/>
+### Keyboard Access
 All active elements that can be activated with a mouse have to be operable by keyboard, or have a keyboard equivalent.<br/>
 Dynamic components such as dialogs, not initially in the tab order must also receive keyboard focus.<br/>
 Elements that show content on mouse hover needs to be added to the tab-order and be operable with the keyboard.<br/>
@@ -130,7 +142,7 @@ In your design, annotate the tab-order and number the tab stops.
     <img src={navigationTabs} alt="example for keyboard navigation" role="presentation"/>
 </Frame>
 
-__Focus Management__<br/>
+### Focus Management
 Keyboard navigation in a rich internet application is different from tabbing in a website.<br/>
 In rich internet applications, users tab to complex components such as comboboxes, grids, menus etc. then use the arrow keys to navigate within the component.<br/>
 Dynamic components such as dialogs, not initially in the tab order have to receive keyboard focus.<br/>
@@ -139,7 +151,7 @@ Receiving focus or interacting with an input element must not result in a substa
 
 <Tip title="We got you covered with tab navigation">Use this keyboard navigation infra in any UI that requires it.</Tip>
 
-__Focus Visible__<br/>
+### Focus Visible
 Provide a visible focus indicator to mark currently focused active elements.<br/>
 As keyboard users tab through the page, they can see where they are.
 
@@ -153,13 +165,23 @@ A screen reader is a piece of software that makes digital content accessible to 
 The screen reader the DOM (Document Object Model)  and transfers it into a Virtual Buffer (acts like a word document).
 
 Screen reader users navigate the virtual buffer in Virtual Mode or Browse Mode:
-* With shorstcut keys like H for the next heading, E for the next editable field, B for the next button, etc..
-* With the keyboard arrow  keys. The navigation is object by object.
+<UnstyledList>
+    <UnstyledListItem>With shorstcut keys like H for the next heading, E for the next editable field, B for the next
+        button, etc..</UnstyledListItem>
+    <UnstyledListItem>With the keyboard arrow keys. The navigation is object by object.</UnstyledListItem>
+</UnstyledList>
 
 Screen reader users navigate the virtual buffer in Input Mode or Forms Mode:
-* The standard mode in which the users will type letters via the keyboard.
+<UnstyledList>
+    <UnstyledListItem>The standard mode in which the users will type letters via the keyboard.</UnstyledListItem>
+</UnstyledList>
+
 
 For example:
-* Screen readers that read aloud web content for people who cannot read the text, usually blind people and people with cognitive impairmants. For example: JAWS and NVDA on windows machines,  VoiceOver for MacOS.
-* Screen magnifiers for people with low vision. For example: Zoomtext
-* Voice recognition software and selection switches for people who cannot use a keyboard or a mouse. For example: Dragon Naturally Speaking
+<UnstyledList>
+    <UnstyledListItem>Screen readers that read aloud web content for people who cannot read the text, usually blind
+        people and people with cognitive impairmants. For example: JAWS and NVDA on windows machines, VoiceOver for
+        MacOS.</UnstyledListItem>
+    <UnstyledListItem>Screen magnifiers for people with low vision. For example: Zoomtext</UnstyledListItem>
+    <UnstyledListItem>Voice recognition software and selection switches for people who cannot use a keyboard or a mouse. For example: Dragon Naturally Speaking</UnstyledListItem>
+</UnstyledList>
