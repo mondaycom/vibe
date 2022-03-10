@@ -11,11 +11,6 @@
   height: fit-content;
   @include theme-prop(color, dark-color);
 
-  a{
-    color: inherit !important;
-    text-decoration: underline !important;
-  }
-
   &_text--compact {
     display: flex;
     align-items: center;
