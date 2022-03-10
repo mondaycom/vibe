@@ -1,13 +1,165 @@
-import { Meta } from "@storybook/addon-docs";
-import { ComponentName } from "../../components";
-import { ComingSoon } from "../../components/coming-soon/coming-soon";
+import {Meta} from "@storybook/addon-docs";
+import {ComponentName, Frame} from "../../components";
+import {PrinciplesAccesability} from "./principles/principlesAccesability";
+import {
+    colorContrastImage,
+    colorContrastText,
+    hierarchyOrder,
+    imageryDecorative,
+    imageryDescriptive,
+    imageryAlt,
+    navigationFocus,
+    navigationTabs
+} from "./assets";
 
 <Meta
-  title="Foundations/Accessibility"
+    title="Foundations/Accessibility"
 />
 
 <ComponentName withFoundationBackground>
-  Accessibility
+    Accessibility
 </ComponentName>
 
-<ComingSoon />
+- [Intro](#intro)
+- [Accessibility principles](#accessibility-principles)
+- [Color contrast](color-contrast)
+- [Imagery](#Imagery)
+- [Hierarchy and focus](#hierarchy-and-focus)
+- [Navigation](#navigation)
+- [Assistive Technology](#assistive-technology)
+- [Feedback](#feedback)
+
+## Intro
+Web Accessibility is focused on ensuring people with disabilities can equally perceive, understand, navigate, and interact with digital content. It also means that they can contribute equally like anyone else.
+Web Accessibility is based on guidelines published by The World Wide Web Consortium (W3C) for accessible content called Web Content Accessibility Guidelines or WCAG.
+
+[WCAG Quick Reference](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize#principle1)
+
+<Tip title="Get our Accessibility checklist">Download our accessibility checklist file.</Tip>
+
+## Accessibility principles
+<PrinciplesAccesability/>
+
+## Color contrast
+__Text Color Contrast__<br/>
+Applies to text in the page, including placeholder text, hover text and text shown on keyboard focus.
+The visual presentation of text and images should have a contrast ratio of at least 4.5:1 with the background
+
+<Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
+    <img src={colorContrastText} alt="example for text color contrast"/>
+</Frame>
+
+Except for:
+Large Text - at least 18pt (typically 24px) or 14pt (typically 18.66px) and bold must have a contrast ratio of at least 3:1<br/>
+Incidental - inactive user interface (disabled items), decorative (icons, Illustartions) non-visible, insignificant part of a picture<br/>
+Logotypes - Text that is part of a logo or brand name
+
+__Non-Text Color Contrast__<br/>
+The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color
+
+<Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
+    <img src={colorContrastImage} alt="example for non text color contrast"/>
+</Frame>
+
+UI Components - Visual information required to identify active UI components and states (including borders for input elements (text input, radio buttons, checkboxes, etc.) as well as Focus Indicator (visible focus around active elements when they receive keyboard focus)<br/>
+Graphical Objects - Parts of graphics required to understand the content
+
+<Tip title="Use color contrast tools for code and design">To check color contrast in design use <a
+    href="https://www.figma.com/community/plugin/748533339900865323/Contrast" target="_blank">Contrast figma
+    plugin</a> and inspect elements accessibility tab for live code verification</Tip>
+
+## Imagery
+People with vision impairments or difficulties reading rely on text alternatives for most of the visual content.
+
+<Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
+    <img src={imageryAlt} alt="example for an accessible image"/>
+</Frame>
+
+Note: Alternative text is very important since it is adaptable. Assistive technology can convey this content to the user in different ways: visually, enlarged, spoken aloud,  and rendered in a tactile form.
+
+__Information Images__ are all images that convey important information and communicate information visually:
+* The alt-text needs to convey the same information as the image
+* Ensure the alt-text is short and appropriate to the context
+* If the same information already is present as text on the screen, the image becomes decorative
+* Do not use the words like "graphic", "An image of", "A picture of", "an icon of"
+
+<Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
+    <img src={imageryDescriptive} alt="example for an accessible information within image src"/>
+</Frame>
+
+__Decorative Images__ such as borders, empty states, background ambience images:
+* Do not convey information
+* Should be ignored by the screen reader
+* Can be defined as background image in the stylesheet
+* Should use ``role="presentation"``
+
+<Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
+    <img src={imageryDecorative} alt="example decorative image" role="presentation"/>
+</Frame>
+
+## Hierarchy and focus
+__Reading Order__<br/>
+The reading and navigation order is determined by code order<br/>
+The reading order must be logical and intuitive.<br/>
+We arrange the order of the elements within the HTML so that the reading order follows the same order as the visual presentation of the screen.
+
+<Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
+    <img src={hierarchyOrder} alt="example decorative image" role="presentation"/>
+</Frame>
+
+__Semantic Markup__<br/>
+Semantic markup is used to define: Headings, Regions/Landmarks, Lists, Emphasized or special text, Tables and
+Text labels & form group labels
+
+__Headings__<br/>
+Headings communicate the structure of the content on the page. Assistive technologies users can use them as in-page navigation elements.
+* Arrange the headings on the page according to their level (``h1...h6``).
+* The most important heading on the page is heading level 1 (``<h1>``).
+* Only one heading level 1 ``<h1>`` is allowed on a page.
+* Headings should be placed at the start of new sections of content not for decoration.
+* Avoid skipping heading levels. Ensure that a heading level 1 ``<h1>`` is not followed directly by an ``<h3>``, for example.
+
+## Navigation
+__Keyboard Access__<br/>
+All active elements that can be activated with a mouse have to be operable by keyboard, or have a keyboard equivalent.<br/>
+Dynamic components such as dialogs, not initially in the tab order must also receive keyboard focus.<br/>
+Elements that show content on mouse hover needs to be added to the tab-order and be operable with the keyboard.<br/>
+In your design, annotate the tab-order and number the tab stops.
+
+<Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
+    <img src={navigationTabs} alt="example for keyboard navigation" role="presentation"/>
+</Frame>
+
+__Focus Management__<br/>
+Keyboard navigation in a rich internet application is different from tabbing in a website.<br/>
+In rich internet applications, users tab to complex components such as comboboxes, grids, menus etc. then use the arrow keys to navigate within the component.<br/>
+Dynamic components such as dialogs, not initially in the tab order have to receive keyboard focus.<br/>
+When dynamic components are closed, focus shifts back to the point where interaction started.<br/>
+Receiving focus or interacting with an input element must not result in a substantial change to the page like invoking a dialog or sending focus somewhere else on the page.
+
+<Tip title="We got you covered with tab navigation">Use this keyboard navigation infra in any UI that requires it.</Tip>
+
+__Focus Visible__<br/>
+Provide a visible focus indicator to mark currently focused active elements.<br/>
+As keyboard users tab through the page, they can see where they are.
+
+<Frame className="monday-storybook-frame--no-border monday-storybook-frame--no-gutter">
+    <img src={navigationFocus} alt="example for an accessible navigational focus" role="presentation"/>
+</Frame>
+
+## Assistive Technology
+Software and hardware that people with disabilities use to interact with digital content.
+A screen reader is a piece of software that makes digital content accessible to blind people. The software converts text to speach and helps blind people navigate and understand the content on the page.
+The screen reader the DOM (Document Object Model)  and transfers it into a Virtual Buffer (acts like a word document).
+
+Screen reader users navigate the virtual buffer in Virtual Mode or Browse Mode:
+* With shorstcut keys like H for the next heading, E for the next editable field, B for the next button, etc..
+* With the keyboard arrow  keys. The navigation is object by object.
+
+Screen reader users navigate the virtual buffer in Input Mode or Forms Mode:
+* The standard mode in which the users will type letters via the keyboard.
+
+For example:
+* Screen readers that read aloud web content for people who cannot read the text, usually blind people and people with cognitive impairmants. For example: JAWS and NVDA on windows machines,  VoiceOver for MacOS.
+* Screen magnifiers for people with low vision. For example: Zoomtext
+* Voice recognition software and selection switches for people who cannot use a keyboard or a mouse. For example: Dragon Naturally Speaking

@@ -5,4 +5,13 @@
   @include frame;
   padding: 32px;
   margin: $spacing-between-section-items 0;
+
+  &--no-border {
+    border: 0;
+  }
+
+  &--no-gutter {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
