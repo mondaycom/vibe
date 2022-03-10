@@ -1,3 +1,4 @@
+import accessibilityCheckList from "./accessibility-check-list.pdf";
 import colorContrastImage from "./color-contrast_image.png";
 import colorContrastText from "./color-contrast_text.png";
 import hierarchyOrder from "./hierarchy_order.png";
@@ -12,6 +13,7 @@ import principleIntuative from "./principle_Intutative.png";
 import principleSpeed from "./principle_speed.png";
 
 export {
+  accessibilityCheckList,
   colorContrastImage,
   colorContrastText,
   hierarchyOrder,
