@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.20.0 (2022-03-10)
+
+#### New Features
+* [#578](https://github.com/mondaycom/monday-ui-react-core/pull/578) Feature/hadas/checkbox ref ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#562](https://github.com/mondaycom/monday-ui-react-core/pull/562) Add dropdown groups to storybook and change dropdown groups style ([@ronachmany-monday](https://github.com/ronachmany-monday))
+
+## 1.19.3 (2022-03-09)
+
+#### New Icons
+* [#576](https://github.com/mondaycom/monday-ui-react-core/pull/576) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#575](https://github.com/mondaycom/monday-ui-react-core/pull/575) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.19.2 (2022-03-08)
 
 #### Bug Fixes
