@@ -62,6 +62,16 @@ const Combobox = forwardRef(
       [setActiveItemIndex]
     );
 
+    const onChangeCallback = useCallback(
+      value => {
+        if (onFilterChanged) {
+          onFilterChanged(value);
+        }
+        setFilterValue(value);
+      },
+      [setFilterValue, onFilterChanged]
+    );
+
     const onOptionClick = useCallback(
       (_event, index, option, mouseClick) => {
         if (option.disabled) return;
@@ -80,16 +90,12 @@ const Combobox = forwardRef(
       [onClick, onChangeCallback, clearFilterOnSelection]
     );
 
-    const onOptionEnter = useCallback(
+    const onOptionHoverCB = useCallback(
       (event, index, option) => {
         setActiveItemIndex(-1);
         onOptionHover(event, index, option);
-        if (clearFilterOnSelection) {
-          // clear filter after adding
-          onChangeCallback("");
-        }
       },
-      [setActiveItemIndex, onOptionHover, onChangeCallback, clearFilterOnSelection]
+      [setActiveItemIndex, onOptionHover]
     );
 
     const filteredOptions = useMemo(() => {
@@ -125,7 +131,7 @@ const Combobox = forwardRef(
                     isActive={activeItemIndex === index}
                     isActiveByKeyboard={isActiveByKeyboard}
                     onOptionClick={onOptionClick}
-                    onOptionHover={onOptionEnter}
+                    onOptionHover={onOptionHoverCB}
                     onOptionLeave={onOptionLeave}
                     optionLineHeight={optionLineHeight}
                     shouldScrollWhenActive={shouldScrollToSelectedItem}
@@ -148,7 +154,7 @@ const Combobox = forwardRef(
             isActive={activeItemIndex === index}
             isActiveByKeyboard={isActiveByKeyboard}
             onOptionClick={onOptionClick}
-            onOptionHover={onOptionEnter}
+            onOptionHover={onOptionHoverCB}
             onOptionLeave={onOptionLeave}
             optionLineHeight={optionLineHeight}
             shouldScrollWhenActive={shouldScrollToSelectedItem}
@@ -164,21 +170,11 @@ const Combobox = forwardRef(
       activeItemIndex,
       isActiveByKeyboard,
       onOptionClick,
-      onOptionEnter,
+      onOptionHoverCB,
       onOptionLeave,
       optionLineHeight,
       shouldScrollToSelectedItem
     ]);
-
-    const onChangeCallback = useCallback(
-      value => {
-        if (onFilterChanged) {
-          onFilterChanged(value);
-        }
-        setFilterValue(value);
-      },
-      [setFilterValue, onFilterChanged]
-    );
 
     const isChildSelectable = useCallback(option => {
       return option && !option.disabled;
