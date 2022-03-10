@@ -42,7 +42,8 @@ const Combobox = forwardRef(
       shouldScrollToSelectedItem,
       noResultsRenderer,
       stickyCategories,
-      optionRenderer
+      optionRenderer,
+      clearFilterOnSelection
     },
     ref
   ) => {
@@ -71,19 +72,27 @@ const Combobox = forwardRef(
           requestAnimationFrame(() => inputRef.current?.focus());
         }
         setIsActiveByKeyboard(!mouseClick);
+        if (clearFilterOnSelection) {
+          // clear filter after adding
+          onChangeCallback("");
+        }
       },
-      [onClick]
+      [onClick, onChangeCallback, clearFilterOnSelection]
     );
 
     const onOptionEnter = useCallback(
       (event, index, option) => {
         setActiveItemIndex(-1);
         onOptionHover(event, index, option);
+        if (clearFilterOnSelection) {
+          // clear filter after adding
+          onChangeCallback("");
+        }
       },
-      [setActiveItemIndex, onOptionHover]
+      [setActiveItemIndex, onOptionHover, onChangeCallback, clearFilterOnSelection]
     );
 
-    const filterdOptions = useMemo(() => {
+    const filteredOptions = useMemo(() => {
       if (disableFilter) {
         return options;
       }
@@ -92,7 +101,7 @@ const Combobox = forwardRef(
 
     const renderedItems = useMemo(() => {
       if (categories) {
-        const optionsByCategories = getOptionsByCategories(filterdOptions, categories, filterValue);
+        const optionsByCategories = getOptionsByCategories(filteredOptions, categories, filterValue);
 
         let index = 0;
         return Object.keys(optionsByCategories).map((categoryId, categoryIndex) => {
@@ -129,7 +138,7 @@ const Combobox = forwardRef(
           ];
         });
       }
-      return filterdOptions.map((option, index) => {
+      return filteredOptions.map((option, index) => {
         return (
           <ComboboxOption
             index={index}
@@ -148,7 +157,7 @@ const Combobox = forwardRef(
       });
     }, [
       categories,
-      filterdOptions,
+      filteredOptions,
       filterValue,
       withCategoriesDivider,
       optionRenderer,
@@ -183,7 +192,7 @@ const Combobox = forwardRef(
 
     useListKeyboardNavigation(
       inputRef,
-      filterdOptions,
+      filteredOptions,
       activeItemIndex,
       setActiveItemIndexKeyboardNav,
       isChildSelectable,
@@ -232,6 +241,7 @@ const Combobox = forwardRef(
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           <Search
             ref={inputRef}
+            value={filterValue}
             wrapperClassName="combobox--wrapper-search-wrapper"
             className="combobox--wrapper-search"
             inputAriaLabel="Search for content"
@@ -310,6 +320,8 @@ Combobox.propTypes = {
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
+  /** Clear the filter/search on selection (click or enter) */
+  clearFilterOnSelection: PropTypes.bool,
   /**
    * Replace the regular appearance of combo box option with custom renderer.
    */
@@ -347,7 +359,8 @@ Combobox.defaultProps = {
   shouldScrollToSelectedItem: true,
   noResultsRenderer: undefined,
   stickyCategories: false,
-  optionRenderer: null
+  optionRenderer: null,
+  clearFilterOnSelection: false
 };
 
 export default Combobox;
