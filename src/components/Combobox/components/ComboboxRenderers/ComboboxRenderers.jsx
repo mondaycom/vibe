@@ -53,7 +53,7 @@ export function createOptionItemObject({
   };
 }
 
-export function comboboxItemRenderer(item, _index, style) {
+export function comboboxItemRenderer({ item, _index, style, optionEvents, optionRenderData }) {
   const { type, ...otherArgs } = item;
   let innerElement;
   switch (type) {
@@ -66,7 +66,11 @@ export function comboboxItemRenderer(item, _index, style) {
       break;
     }
     case COMBOBOX_OPTION_ITEM: {
-      innerElement = optionItemRenderer(otherArgs);
+      innerElement = optionItemRenderer({
+        ...otherArgs,
+        ...optionEvents,
+        ...optionRenderData
+      });
       break;
     }
   }
@@ -100,7 +104,7 @@ export function optionItemRenderer({
   optionLineHeight,
   optionRenderer,
   shouldScrollToSelectedItem,
-  isActive,
+  activeItemIndex,
   belongToCategory,
   isActiveByKeyboard
 }) {
@@ -110,7 +114,7 @@ export function optionItemRenderer({
       key={id}
       option={option}
       optionRenderer={optionRenderer}
-      isActive={isActive}
+      isActive={activeItemIndex === index}
       isActiveByKeyboard={isActiveByKeyboard}
       onOptionClick={onOptionClick}
       onOptionHover={onOptionEnter}

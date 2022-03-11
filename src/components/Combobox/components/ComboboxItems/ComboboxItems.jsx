@@ -1,7 +1,6 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import cx from "classnames";
 import { getOptionsByCategories } from "components/Combobox/ComboboxService";
-import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_DIVIDER_ITEM } from "components/Combobox/components/ComboboxConstants";
 import {
   comboboxItemRenderer,
   createCategoryItemObject,
@@ -26,8 +25,40 @@ export const ComboboxItems = ({
   shouldScrollToSelectedItem,
   renderOnlyVisibleOptions
 }) => {
+  const createItemElementRenderer = useCallback(
+    (item, index, style) =>
+      comboboxItemRenderer({
+        item,
+        index,
+        style,
+        optionEvents: {
+          onOptionClick,
+          onOptionEnter,
+          onOptionLeave
+        },
+        optionRenderData: {
+          optionLineHeight,
+          optionRenderer,
+          isActiveByKeyboard,
+          activeItemIndex,
+          shouldScrollToSelectedItem
+        }
+      }),
+    [
+      isActiveByKeyboard,
+      onOptionClick,
+      onOptionEnter,
+      onOptionLeave,
+      optionLineHeight,
+      activeItemIndex,
+      isActiveByKeyboard,
+      shouldScrollToSelectedItem
+    ]
+  );
+
   let items = useMemo(() => {
     let items = [];
+
     if (categories) {
       const optionsByCategories = getOptionsByCategories(options, categories, filterValue);
       let optionIndex = 0;
@@ -42,15 +73,7 @@ export const ComboboxItems = ({
           const itemObject = createOptionItemObject({
             height: optionLineHeight,
             option,
-            index: optionIndex,
-            optionRenderer,
-            isActive: activeItemIndex === optionIndex,
-            isActiveByKeyboard,
-            onOptionClick,
-            onOptionEnter,
-            onOptionLeave,
-            optionLineHeight,
-            shouldScrollToSelectedItem
+            index: optionIndex
           });
 
           items.push(itemObject);
@@ -62,15 +85,7 @@ export const ComboboxItems = ({
         return createOptionItemObject({
           height: optionLineHeight,
           option,
-          index,
-          optionRenderer,
-          isActive: activeItemIndex === index,
-          isActiveByKeyboard,
-          onOptionClick,
-          onOptionEnter,
-          onOptionLeave,
-          optionLineHeight,
-          shouldScrollToSelectedItem
+          index
         });
       });
     }
@@ -97,16 +112,17 @@ export const ComboboxItems = ({
     itemsElements = (
       <VirtualizedList
         items={items}
-        itemRenderer={comboboxItemRenderer}
+        itemRenderer={createItemElementRenderer}
         id="Knobs"
         role="treegrid"
         scrollableClassName={styles.scrollableContainer}
       />
     );
   } else {
+    console.log(items);
     itemsElements = (
       <div className={cx(styles.scrollableContainer, styles.optionsContainer)} role="treegrid">
-        {items.map(itemData => comboboxItemRenderer(itemData))}
+        {items.map(itemData => createItemElementRenderer(itemData))}
       </div>
     );
   }
