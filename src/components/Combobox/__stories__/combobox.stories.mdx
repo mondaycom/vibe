@@ -304,7 +304,7 @@ If combo box requires action, use button component at the end of the list.
   </Story>
 </Canvas>
 
-### With window optimization
+### With virtualization optimization
 When you display a large number of options, you may want to render only the options shown at a given moment to allow better performance and a
 better user experience.
 <Canvas>
@@ -338,12 +338,12 @@ better user experience.
             }), []);
             return (
                 <Flex gap={Flex.gaps.SMALL}  style={{width:"100%"}} justify={Flex.justify.SPACE_AROUND} align={Flex.align.START} >
-                    <StoryDescription description="Window optimization without categories" vertical>
+                    <StoryDescription description="Virtualization optimization without categories" vertical>
                         <DialogContentContainer style={{height: "200px"}}>
                             <Combobox options={options} renderOnlyVisibleOptions placeholder="Placeholder text here" />
                         </DialogContentContainer>
                     </StoryDescription>
-                    <StoryDescription description="Window optimization with categories" vertical>
+                    <StoryDescription description="Virtualization optimization with categories" vertical>
                         <DialogContentContainer style={{height: "200px"}}>
                             <Combobox options={options} categories={categories} renderOnlyVisibleOptions placeholder="Placeholder text here" />
                         </DialogContentContainer>
