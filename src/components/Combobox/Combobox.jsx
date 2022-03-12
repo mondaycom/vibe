@@ -44,7 +44,6 @@ const Combobox = forwardRef(
       optionRenderer,
       renderOnlyVisibleOptions,
       clearFilterOnSelection
-
     },
     ref
   ) => {
@@ -61,16 +60,6 @@ const Combobox = forwardRef(
         setIsActiveByKeyboard(true);
       },
       [setActiveItemIndex]
-    );
-
-    const onChangeCallback = useCallback(
-      value => {
-        if (onFilterChanged) {
-          onFilterChanged(value);
-        }
-        setFilterValue(value);
-      },
-      [setFilterValue, onFilterChanged]
     );
 
     const onOptionClick = useCallback(
@@ -135,7 +124,7 @@ const Combobox = forwardRef(
       onOptionClick
     );
 
-    const hasResults = filterdOptions.length > 0;
+    const hasResults = filteredOptions.length > 0;
     const hasFilter = filterValue.length > 0;
 
     function getAddNewLabel() {
@@ -192,14 +181,14 @@ const Combobox = forwardRef(
           />
           <ComboboxItems
             categories={categories}
-            options={filterdOptions}
+            options={filteredOptions}
             filterValue={filterValue}
             withCategoriesDivider={withCategoriesDivider}
             optionRenderer={optionRenderer}
             activeItemIndex={activeItemIndex}
             isActiveByKeyboard={isActiveByKeyboard}
             onOptionClick={onOptionClick}
-            onOptionEnter={onOptionEnter}
+            onOptionEnter={onOptionHoverCB}
             onOptionLeave={onOptionLeave}
             optionLineHeight={optionLineHeight}
             shouldScrollToSelectedItem={shouldScrollToSelectedItem}

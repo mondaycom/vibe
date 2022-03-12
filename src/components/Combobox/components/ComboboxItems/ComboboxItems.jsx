@@ -45,13 +45,13 @@ export const ComboboxItems = ({
         }
       }),
     [
-      isActiveByKeyboard,
       onOptionClick,
       onOptionEnter,
       onOptionLeave,
       optionLineHeight,
-      activeItemIndex,
+      optionRenderer,
       isActiveByKeyboard,
+      activeItemIndex,
       shouldScrollToSelectedItem
     ]
   );
@@ -90,20 +90,7 @@ export const ComboboxItems = ({
       });
     }
     return items;
-  }, [
-    categories,
-    options,
-    filterValue,
-    withCategoriesDivider,
-    activeItemIndex,
-    optionRenderer,
-    isActiveByKeyboard,
-    onOptionClick,
-    onOptionEnter,
-    onOptionLeave,
-    optionLineHeight,
-    shouldScrollToSelectedItem
-  ]);
+  }, [categories, options, filterValue, withCategoriesDivider, optionLineHeight]);
 
   let itemsElements;
 
