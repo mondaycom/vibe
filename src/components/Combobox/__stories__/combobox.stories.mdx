@@ -18,24 +18,22 @@ import { optionRenderer } from "./OptionRenderer";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import "./combobox.stories.scss";
 
-<Meta
-  title="Inputs/Combo box"
-  component={ Combobox }
-/>
+<Meta title="Inputs/Combo box" component={Combobox} />
 
 <!--- Component template -->
 
-export const comboboxTemplate = (args) => {
+export const comboboxTemplate = args => {
   return (
     <DialogContentContainer>
       <Combobox {...args} />
     </DialogContentContainer>
-  )
-}
+  );
+};
 
 <!--- Component documentation -->
 
 # Combobox
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -46,82 +44,118 @@ export const comboboxTemplate = (args) => {
 - [Feedback](#feedback)
 
 ## Overview
+
 Combo box allowing users to filter longer lists to only the selections matching a query.
+
 <Canvas>
-  <Story name="Overview"
-         args={{
-           options: [{ id: "1", label: "Option 1" }, { id: "2", label: "Option 2" }, { id: "3", label: "Option 3" }],
-           placeholder: "Placeholder text here"
-         }}>
-    { comboboxTemplate.bind({}) }
+  <Story
+    name="Overview"
+    args={{
+      options: [
+        { id: "1", label: "Option 1" },
+        { id: "2", label: "Option 2" },
+        { id: "3", label: "Option 3" }
+      ],
+      placeholder: "Placeholder text here"
+    }}
+  >
+    {comboboxTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Combobox } />
+
+<ArgsTable of={Combobox} />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Allows the user to make a selection from a predefined list of options and is typically used when there are a large amount of options to choose from.",
-  "The menu opens by clicking anywhere in the field.",
-  "The option that best matches the typed characters is highlighted.",
-  "Limit the text content of combo box items to a single line.",
-  "Could be used inside a dialog or as a standalone component.",
-]}/>
 
-<Tip>When there are fewer than five items, consider using <Link href="/?path=/docs/inputs-radio-button--overview" size={Link.sizes.SMALL} withoutSpacing>Radio buttons</Link> (if only one item can be selected) or <Link href="/?path=/docs/inputs-checkbox--overview" size={Link.sizes.SMALL} withoutSpacing>Checkboxes</Link> (if multiple items can be selected).</Tip>
+<UsageGuidelines
+  guidelines={[
+    "Allows the user to make a selection from a predefined list of options and is typically used when there are a large amount of options to choose from.",
+    "The menu opens by clicking anywhere in the field.",
+    "The option that best matches the typed characters is highlighted.",
+    "Limit the text content of combo box items to a single line.",
+    "Could be used inside a dialog or as a standalone component."
+  ]}
+/>
+
+<Tip>
+  When there are fewer than five items, consider using{" "}
+  <Link href="/?path=/docs/inputs-radio-button--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Radio buttons
+  </Link>{" "}
+  (if only one item can be selected) or{" "}
+  <Link href="/?path=/docs/inputs-checkbox--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Checkboxes
+  </Link>{" "}
+  (if multiple items can be selected).
+</Tip>
 
 ## Variants
+
 ### Default
+
 Default combo box can be used without dialog or as part of the layout.
+
 <Canvas>
   <Story name="Default">
     {() => {
-      const options = useMemo(() => [
-        { id: "1", label: "Option 1" },
-        { id: "2", label: "Option 2" },
-        { id: "3", label: "Option 3" },
-      ], []);
-      return (
-        <Combobox placeholder="Placeholder text here" options={options} />
-      )
+      const options = useMemo(
+        () => [
+          { id: "1", label: "Option 1" },
+          { id: "2", label: "Option 2" },
+          { id: "3", label: "Option 3" }
+        ],
+        []
+      );
+      return <Combobox placeholder="Placeholder text here" options={options} />;
     }}
   </Story>
 </Canvas>
 
 ### Comobox inside a dialog
+
 Use this for combo box that triggered by button.
+
 <Canvas>
   <Story name="Comobox inside a dialog">
     {() => {
-      const options = useMemo(() => [
-        { id: "1", label: "Option 1" },
-        { id: "2", label: "Option 2" },
-        { id: "3", label: "Option 3" },
-        { id: "4", label: "Option 4" },
-        { id: "5", label: "Option 5" }
-      ], []);
+      const options = useMemo(
+        () => [
+          { id: "1", label: "Option 1" },
+          { id: "2", label: "Option 2" },
+          { id: "3", label: "Option 3" },
+          { id: "4", label: "Option 4" },
+          { id: "5", label: "Option 5" }
+        ],
+        []
+      );
       return (
         <DialogContentContainer>
           <Combobox options={options} placeholder="Placeholder text here" />
         </DialogContentContainer>
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ### Sizes
+
 We have three pre-defined sizes for combo box width size: Small 200px, Medium 240px, Large 260px.
+
 <Canvas>
   <Story name="Sizes">
     {() => {
-      const options = useMemo(() => [
-        { id: "1", label: "Option 1" },
-        { id: "2", label: "Option 2" },
-        { id: "3", label: "Option 3" },
-        { id: "4", label: "Option 4" },
-        { id: "5", label: "Option 5" }
-      ], []);
+      const options = useMemo(
+        () => [
+          { id: "1", label: "Option 1" },
+          { id: "2", label: "Option 2" },
+          { id: "3", label: "Option 3" },
+          { id: "4", label: "Option 4" },
+          { id: "5", label: "Option 5" }
+        ],
+        []
+      );
       return (
         <div className="combobox-stories-styles_row">
           <DialogContentContainer>
@@ -134,30 +168,43 @@ We have three pre-defined sizes for combo box width size: Small 200px, Medium 24
             <Combobox options={options} size={Combobox.sizes.LARGE} placeholder="Placeholder text here" />
           </DialogContentContainer>
         </div>
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ### With categories
+
 When having a lot of options, you may use headings to categorize them.
+
 <Canvas>
   <Story name="With categories">
     {() => {
-      const options = useMemo(() => [
-        { id: "1", label: "Favorites", categoryId: "favorites" },
-        { id: "2", label: "Main workspace", categoryId: "workspace" },
-        { id: "3", label: "Client Foundations", categoryId: "workspace" },
-        { id: "4", label: "Design", categoryId: "workspace" },
-        { id: "5", label: "Marketing Cluster", categoryId: "workspace" },
-        { id: "6", label: "Mobile", categoryId: "workspace" }
-      ], []);
-      const categories = useMemo(() => ({
-        favorites: { id: "favorites", label: "Favorites" },
-        workspace: { id: "Workspaces", label: "Workspaces" }
-      }), []);
+      const options = useMemo(
+        () => [
+          { id: "1", label: "Favorites", categoryId: "favorites" },
+          { id: "2", label: "Main workspace", categoryId: "workspace" },
+          { id: "3", label: "Client Foundations", categoryId: "workspace" },
+          { id: "4", label: "Design", categoryId: "workspace" },
+          { id: "5", label: "Marketing Cluster", categoryId: "workspace" },
+          { id: "6", label: "Mobile", categoryId: "workspace" }
+        ],
+        []
+      );
+      const categories = useMemo(
+        () => ({
+          favorites: { id: "favorites", label: "Favorites" },
+          workspace: { id: "Workspaces", label: "Workspaces" }
+        }),
+        []
+      );
       return (
-        <Flex gap={Flex.gaps.SMALL}  style={{width:"100%"}} justify={Flex.justify.SPACE_AROUND} align={Flex.align.START} >
+        <Flex
+          gap={Flex.gaps.SMALL}
+          style={{ width: "100%" }}
+          justify={Flex.justify.SPACE_AROUND}
+          align={Flex.align.START}
+        >
           <StoryDescription description="Categories without divider" vertical>
             <DialogContentContainer>
               <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
@@ -165,74 +212,94 @@ When having a lot of options, you may use headings to categorize them.
           </StoryDescription>
           <StoryDescription description="Categories with divider" vertical>
             <DialogContentContainer>
-              <Combobox options={options} categories={categories} withCategoriesDivider placeholder="Placeholder text here" />
+              <Combobox
+                options={options}
+                categories={categories}
+                withCategoriesDivider
+                placeholder="Placeholder text here"
+              />
             </DialogContentContainer>
           </StoryDescription>
         </Flex>
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ### With icons
+
 <Canvas>
   <Story name="With icons">
     {() => {
-      const options = useMemo(() => [
-        { id: "1", label: "Option 1", leftIcon: Wand },
-        { id: "2", label: "Option 2", leftIcon: ThumbsUp },
-        { id: "3", label: "Option 3", leftIcon: Time },
-        { id: "4", label: "Option 4", leftIcon: Update },
-        { id: "5", label: "Option 5", leftIcon: Upgrade }
-      ], []);
+      const options = useMemo(
+        () => [
+          { id: "1", label: "Option 1", leftIcon: Wand },
+          { id: "2", label: "Option 2", leftIcon: ThumbsUp },
+          { id: "3", label: "Option 3", leftIcon: Time },
+          { id: "4", label: "Option 4", leftIcon: Update },
+          { id: "5", label: "Option 5", leftIcon: Upgrade }
+        ],
+        []
+      );
       return (
         <DialogContentContainer>
           <Combobox options={options} placeholder="Placeholder text here" />
         </DialogContentContainer>
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ### With optionRenderer
+
 <Canvas>
   <Story name="With optionRenderer">
     {() => {
-      const options = useMemo(() => [
-        { id: "1", label: "Option 1" },
-        { id: "2", label: "Option 2" },
-        { id: "3", label: "Option 3" },
-        { id: "4", label: "Option 4" },
-        { id: "5", label: "Option 5" }
-      ], []);
-      const optionRenderer = (option) => (<div>I can render anything with {option.label}</div>)
+      const options = useMemo(
+        () => [
+          { id: "1", label: "Option 1" },
+          { id: "2", label: "Option 2" },
+          { id: "3", label: "Option 3" },
+          { id: "4", label: "Option 4" },
+          { id: "5", label: "Option 5" }
+        ],
+        []
+      );
+      const optionRenderer = option => <div>I can render anything with {option.label}</div>;
       return (
         <DialogContentContainer>
           <Combobox options={options} optionRenderer={optionRenderer} placeholder="Placeholder text here" />
         </DialogContentContainer>
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ### With Button
+
 If combo box requires action, use button component at the end of the list.
+
 <Canvas>
   <Story name="With Button">
     {() => {
-      const options = useMemo(() => [
-        { id: "1", label: "Option 1", leftIcon: Wand },
-        { id: "2", label: "Option 2", leftIcon: ThumbsUp },
-        { id: "3", label: "Option 3", leftIcon: Time },
-        { id: "4", label: "Option 4", leftIcon: Update },
-        { id: "5", label: "Option 5", leftIcon: Upgrade }
-      ], []);
+      const options = useMemo(
+        () => [
+          { id: "1", label: "Option 1", leftIcon: Wand },
+          { id: "2", label: "Option 2", leftIcon: ThumbsUp },
+          { id: "3", label: "Option 3", leftIcon: Time },
+          { id: "4", label: "Option 4", leftIcon: Update },
+          { id: "5", label: "Option 5", leftIcon: Upgrade }
+        ],
+        []
+      );
       return (
         <DialogContentContainer>
           <Combobox options={options} placeholder="Placeholder text here" />
-          <Button kind={Button.kinds.TERTIARY} className="combobox-stories-styles_btn" leftIcon={Edit}>Edit</Button>
+          <Button kind={Button.kinds.TERTIARY} className="combobox-stories-styles_btn" leftIcon={Edit}>
+            Edit
+          </Button>
         </DialogContentContainer>
-      )
+      );
     }}
   </Story>
 </Canvas>
@@ -287,29 +354,31 @@ better user experience.
     </Story>
 </Canvas>
 
-###  Loading state
+### Loading state
+
 If importing the combo box options may take time, you reflect this to the user by using our Combo Box loading mode.
+
 <Canvas>
-    <Story name="Loading state">
-        {() => {
-            const options = useMemo(() => [
-            ], []);
-            return (
-                <DialogContentContainer>
-                    <Combobox loading options={options} placeholder="Board name" />
-                </DialogContentContainer>
-            )
-        }}
-    </Story>
+  <Story name="Loading state">
+    {() => {
+      const options = useMemo(() => [], []);
+      return (
+        <DialogContentContainer>
+          <Combobox loading options={options} placeholder="Board name" />
+        </DialogContentContainer>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       className: "combobox-stories-styles_big-figure",
       positive: {
-        component:
+        component: (
           <DialogContentContainer>
             <Combobox
               placeholder="Day"
@@ -319,30 +388,43 @@ If importing the combo box options may take time, you reflect this to the user b
                 { id: "3", label: "3 Days" },
                 { id: "4", label: "4 Days" },
                 { id: "5", label: "5 Days" }
-                ]}
+              ]}
             />
-          </DialogContentContainer>,
-        description:"Use combo box to make large lists easier to search."
+          </DialogContentContainer>
+        ),
+        description: "Use combo box to make large lists easier to search."
       },
       negative: {
-        component:
+        component: (
           <DialogContentContainer>
             <Combobox
               placeholder="Day"
               options={[
                 { id: "1", label: "1 Days" },
                 { id: "2", label: "2 Days" },
-                { id: "3", label: "3 Days" },
-                ]}
+                { id: "3", label: "3 Days" }
+              ]}
             />
-          </DialogContentContainer>,
-        description:<>Don’t use comboxbox if you have less than 5 list items. If it's not complex enough for a combo box, use a <Link href="/?path=/docs/inputs-radio-button--overview" withoutSpacing>Radio button</Link> or <Link href="/?path=/docs/inputs-dropdown--overview" withoutSpacing>Dropdown.</Link></>
+          </DialogContentContainer>
+        ),
+        description: (
+          <>
+            Don’t use comboxbox if you have less than 5 list items. If it's not complex enough for a combo box, use a{" "}
+            <Link href="/?path=/docs/inputs-radio-button--overview" withoutSpacing>
+              Radio button
+            </Link>{" "}
+            or{" "}
+            <Link href="/?path=/docs/inputs-dropdown--overview" withoutSpacing>
+              Dropdown.
+            </Link>
+          </>
+        )
       }
     },
     {
       className: "combobox-stories-styles_big-figure",
       positive: {
-        component:
+        component: (
           <DialogContentContainer>
             <Combobox
               placeholder="Search names"
@@ -350,15 +432,16 @@ If importing the combo box options may take time, you reflect this to the user b
                 { id: "1", label: "Hadas" },
                 { id: "2", label: "Orr" },
                 { id: "3", label: "Evgeniy" },
-                { id: "2", label: "Moshe" },
-                { id: "2", label: "Sahar" }
-                ]}
+                { id: "4", label: "Moshe" },
+                { id: "5", label: "Sahar" }
+              ]}
             />
-          </DialogContentContainer>,
-        description:"Use the combo box input to filter results from the list."
+          </DialogContentContainer>
+        ),
+        description: "Use the combo box input to filter results from the list."
       },
       negative: {
-        component:
+        component: (
           <DialogContentContainer>
             <Combobox
               placeholder="Search everything"
@@ -366,65 +449,90 @@ If importing the combo box options may take time, you reflect this to the user b
                 { id: "1", label: "Hadas" },
                 { id: "2", label: "Orr" },
                 { id: "3", label: "Evgeniy" },
-                { id: "2", label: "Moshe" },
-                { id: "2", label: "Sahar" }
-                ]}
+                { id: "4", label: "Moshe" },
+                { id: "5", label: "Sahar" }
+              ]}
             />
-          </DialogContentContainer>,
-        description:"Don’t use the combo box as a search input to search results that are not within the list."
+          </DialogContentContainer>
+        ),
+        description: "Don’t use the combo box as a search input to search results that are not within the list."
       }
     }
   ]}
 />
 
 ## Use cases and examples
+
 ### Combo box as person picker
+
 We are using combo box component for our board person picker.
 
 <Canvas>
   <Story name="Combo box as person picker">
     {() => {
-        const options = useMemo(
-          () => [
-            {
-              id: "Hadas Farhi",
-              label: "Hadas Farhi",
-              src: person1,
-              type: Avatar.types.IMG,
-              position: "(Frontend Developer)",
-              categoryId: "suggestedPeople"
-            },
-            { id: "Rotem Dekel", label: "Rotem Dekel", src: person2, type: Avatar.types.IMG, position: "(Product Designer)", categoryId: "suggestedPeople" },
-            { id: "Netta Muller", label: "Netta Muller", src: person3, type: Avatar.types.IMG, position: "(Brand Designer)", categoryId: "suggestedPeople" }
-          ],
-          []
-        );
-        const categories = useMemo(
-          () => ({
-            suggestedPeople: { id: "suggestedPeople", label: "Suggested people" }
-          }),
-          []
-        );
-       return (<Flex style={{ width: "100%", height: "270px" }} justify={Flex.justify.CENTER} align={Flex.align.START}>
-        <Dialog
-          content={() => (
-            <DialogContentContainer className="combobox-stories-styles_wrapper">
-              <Combobox options={options} categories={categories} optionRenderer={optionRenderer} size={Combobox.sizes.SMALL} placeholder="Search"/>
-            </DialogContentContainer>
-          )}
-          tooltip
-          position={Dialog.positions.BOTTOM}
-          open={true}
-        >
-          <div className="person-picker-mock">
-            <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
-          </div>
-        </Dialog>
-      </Flex>);
-      }
-    }
+      const options = useMemo(
+        () => [
+          {
+            id: "Hadas Farhi",
+            label: "Hadas Farhi",
+            src: person1,
+            type: Avatar.types.IMG,
+            position: "(Frontend Developer)",
+            categoryId: "suggestedPeople"
+          },
+          {
+            id: "Rotem Dekel",
+            label: "Rotem Dekel",
+            src: person2,
+            type: Avatar.types.IMG,
+            position: "(Product Designer)",
+            categoryId: "suggestedPeople"
+          },
+          {
+            id: "Netta Muller",
+            label: "Netta Muller",
+            src: person3,
+            type: Avatar.types.IMG,
+            position: "(Brand Designer)",
+            categoryId: "suggestedPeople"
+          }
+        ],
+        []
+      );
+      const categories = useMemo(
+        () => ({
+          suggestedPeople: { id: "suggestedPeople", label: "Suggested people" }
+        }),
+        []
+      );
+      return (
+        <Flex style={{ width: "100%", height: "270px" }} justify={Flex.justify.CENTER} align={Flex.align.START}>
+          <Dialog
+            content={() => (
+              <DialogContentContainer className="combobox-stories-styles_wrapper">
+                <Combobox
+                  options={options}
+                  categories={categories}
+                  optionRenderer={optionRenderer}
+                  size={Combobox.sizes.SMALL}
+                  placeholder="Search"
+                />
+              </DialogContentContainer>
+            )}
+            tooltip
+            position={Dialog.positions.BOTTOM}
+            open={true}
+          >
+            <div className="person-picker-mock">
+              <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
+            </div>
+          </Dialog>
+        </Flex>
+      );
+    }}
   </Story>
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[TOOLTIP, BREADCRUBMS, CHIP]} />

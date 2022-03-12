@@ -42,7 +42,9 @@ const Combobox = forwardRef(
       noResultsRenderer,
       stickyCategories,
       optionRenderer,
-      renderOnlyVisibleOptions
+      renderOnlyVisibleOptions,
+      clearFilterOnSelection
+
     },
     ref
   ) => {
@@ -61,6 +63,16 @@ const Combobox = forwardRef(
       [setActiveItemIndex]
     );
 
+    const onChangeCallback = useCallback(
+      value => {
+        if (onFilterChanged) {
+          onFilterChanged(value);
+        }
+        setFilterValue(value);
+      },
+      [setFilterValue, onFilterChanged]
+    );
+
     const onOptionClick = useCallback(
       (_event, index, option, mouseClick) => {
         if (option.disabled) return;
@@ -71,11 +83,15 @@ const Combobox = forwardRef(
           requestAnimationFrame(() => inputRef.current?.focus());
         }
         setIsActiveByKeyboard(!mouseClick);
+        if (clearFilterOnSelection) {
+          // clear filter after adding
+          onChangeCallback("");
+        }
       },
-      [onClick]
+      [onClick, onChangeCallback, clearFilterOnSelection]
     );
 
-    const onOptionEnter = useCallback(
+    const onOptionHoverCB = useCallback(
       (event, index, option) => {
         setActiveItemIndex(-1);
         onOptionHover(event, index, option);
@@ -83,7 +99,7 @@ const Combobox = forwardRef(
       [setActiveItemIndex, onOptionHover]
     );
 
-    const filterdOptions = useMemo(() => {
+    const filteredOptions = useMemo(() => {
       if (disableFilter) {
         return options;
       }
@@ -112,7 +128,7 @@ const Combobox = forwardRef(
 
     useListKeyboardNavigation(
       inputRef,
-      filterdOptions,
+      filteredOptions,
       activeItemIndex,
       setActiveItemIndexKeyboardNav,
       isChildSelectable,
@@ -161,6 +177,7 @@ const Combobox = forwardRef(
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           <Search
             ref={inputRef}
+            value={filterValue}
             wrapperClassName="combobox--wrapper-search-wrapper"
             className="combobox--wrapper-search"
             inputAriaLabel="Search for content"
@@ -253,6 +270,8 @@ Combobox.propTypes = {
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
+  /** Clear the filter/search on selection (click or enter) */
+  clearFilterOnSelection: PropTypes.bool,
   /**
    * Replace the regular appearance of combo box option with custom renderer.
    */
@@ -290,7 +309,8 @@ Combobox.defaultProps = {
   shouldScrollToSelectedItem: true,
   noResultsRenderer: undefined,
   stickyCategories: false,
-  optionRenderer: null
+  optionRenderer: null,
+  clearFilterOnSelection: false
 };
 
 export default Combobox;

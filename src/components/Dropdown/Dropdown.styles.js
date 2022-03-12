@@ -283,6 +283,21 @@ const indicatorSeparator = () => () => ({
   display: "none"
 });
 
+const group = () => () => ({
+  paddingBottom: 0,
+  marginTop: "4px"
+});
+
+const groupHeading = () => () => ({
+  height: "32px",
+  fontSize: "14px",
+  lineHeight: "22px",
+  display: "flex",
+  alignItems: "center",
+  marginLeft: getCSSVar("spacing-medium"),
+  color: getCSSVar("secondary-text-color")
+});
+
 export const getIndicatorSize = size => {
   switch (size) {
     case SIZES.LARGE:
@@ -316,5 +331,7 @@ export default data => ({
   valueContainer: valueContainer(data),
   menu: menu(data),
   option: option(data),
-  indicatorSeparator: indicatorSeparator(data)
+  indicatorSeparator: indicatorSeparator(data),
+  group: group(data),
+  groupHeading: groupHeading(data)
 });
