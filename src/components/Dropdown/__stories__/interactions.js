@@ -20,5 +20,5 @@ export const selectAndClearTest = testFunctionWrapper(async canvas => {
   const clearButton = getByClassName("clear-indicator");
   await clickElement(clearButton);
   // Validate we see the placeholder again
-  getByText(canvas, "Placeholder text here");
+  getByText(canvas, "Placeholder text here2");
 });
