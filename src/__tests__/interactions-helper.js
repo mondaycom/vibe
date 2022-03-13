@@ -1,5 +1,6 @@
-import { within, userEvent } from "@storybook/testing-library";
+import { within, userEvent, waitFor } from "@storybook/testing-library";
 import { getTestId, ELEMENT_TYPES as types } from "../utils/test-utils";
+import { expect } from "@storybook/jest";
 
 export const ELEMENT_TYPES = types;
 
@@ -9,10 +10,10 @@ function getWithin(canvasOrValidTestElement) {
 }
 
 export const testFunctionWrapper = testFunc => {
-  return async ({ canvasElement }) => {
+  return async ({ canvasElement, args }) => {
     // Starts querying the component from its root element
     const canvas = getWithin(canvasElement);
-    return testFunc(canvas);
+    return testFunc(canvas, args);
   };
 };
 
@@ -64,3 +65,15 @@ export function delay(timeout) {
     setTimeout(resolve, timeout);
   });
 }
+
+export const waitForElementVisible = getterFunc => {
+  return new Promise(resolve => {
+    let element;
+    waitFor(() => {
+      element = getterFunc();
+      expect(element).toBeVisible();
+    }).then(() => {
+      resolve(element);
+    });
+  });
+};
