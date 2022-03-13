@@ -49,6 +49,7 @@ export const Switch = ({
     <label htmlFor={id} className={wrapperClassName}>
       <input
         id={id}
+        defaultChecked={defaultChecked}
         aria-controls={ariaControls}
         value={value}
         name={name}
