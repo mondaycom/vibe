@@ -13,6 +13,8 @@ import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
 import "./Combobox.scss";
 import { ComboboxItems } from "components/Combobox/components/ComboboxItems/ComboboxItems";
+import { StickyCategoryHeader } from "components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
+import usePrevious from "hooks/usePrevious";
 
 const Combobox = forwardRef(
   (
@@ -153,6 +155,19 @@ const Combobox = forwardRef(
       );
     }
 
+    const [activeCategoryLabel, setActiveCategoryLabel] = useState();
+    const prevActiveCategory = usePrevious(activeCategoryLabel);
+
+    const onActiveCategoryChanged = useCallback(
+      categoryData => {
+        debugger;
+        if (categoryData.category.label !== activeCategoryLabel) {
+          setActiveCategoryLabel(categoryData.category.label);
+        }
+      },
+      [activeCategoryLabel]
+    );
+
     return (
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
       <div
@@ -179,6 +194,7 @@ const Combobox = forwardRef(
             autoFocus={autoFocus}
             loading={loading}
           />
+          <StickyCategoryHeader label={prevActiveCategory} hidden={prevActiveCategory !== undefined} />
           <ComboboxItems
             categories={categories}
             options={filteredOptions}
@@ -187,6 +203,7 @@ const Combobox = forwardRef(
             optionRenderer={optionRenderer}
             activeItemIndex={activeItemIndex}
             isActiveByKeyboard={isActiveByKeyboard}
+            onActiveCategoryChanged={onActiveCategoryChanged}
             onOptionClick={onOptionClick}
             onOptionEnter={onOptionHoverCB}
             onOptionLeave={onOptionLeave}

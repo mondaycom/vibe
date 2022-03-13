@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import cx from "classnames";
 import { getOptionsByCategories } from "components/Combobox/ComboboxService";
 import {
@@ -9,6 +9,7 @@ import {
 } from "components/Combobox/components/ComboboxRenderers/ComboboxRenderers";
 import { VirtualizedList } from "components";
 import styles from "./ComboboxItems.modules.scss";
+import { usePrevious } from "hooks";
 
 export const ComboboxItems = ({
   categories,
@@ -23,8 +24,10 @@ export const ComboboxItems = ({
   onOptionLeave,
   optionLineHeight,
   shouldScrollToSelectedItem,
-  renderOnlyVisibleOptions
+  renderOnlyVisibleOptions,
+  onActiveCategoryChanged
 }) => {
+  const prevFirstItem = useRef();
   const createItemElementRenderer = useCallback(
     (item, index, style) =>
       comboboxItemRenderer({
@@ -56,8 +59,9 @@ export const ComboboxItems = ({
     ]
   );
 
-  let items = useMemo(() => {
+  let { items, categoriesMap } = useMemo(() => {
     let items = [];
+    const categoriesMap = new Map();
 
     if (categories) {
       const optionsByCategories = getOptionsByCategories(options, categories, filterValue);
@@ -68,7 +72,16 @@ export const ComboboxItems = ({
           items.push(createDividerItemObject({ categoryId }));
         }
 
-        items.push(createCategoryItemObject({ categoryId, categoryData: categories[categoryId], withDivider }));
+        const categoryObject = createCategoryItemObject({
+          categoryId,
+          categoryData: categories[categoryId],
+          withDivider
+        });
+
+        // save category object in both items array and categories map
+        items.push(categoryObject);
+        categoriesMap.set(categoryId, categoryObject);
+
         optionsByCategories[categoryId].forEach(option => {
           const itemObject = createOptionItemObject({
             height: optionLineHeight,
@@ -89,8 +102,25 @@ export const ComboboxItems = ({
         });
       });
     }
-    return items;
+    return { items, categoriesMap };
   }, [categories, options, filterValue, withCategoriesDivider, optionLineHeight]);
+
+  const onItemsRender = useCallback(
+    ({ firstItemId, secondItemId }) => {
+      window.requestAnimationFrame(() => {
+        const isScrollDirectionForward = secondItemId !== prevFirstItem;
+        if (isScrollDirectionForward) {
+          // check if prev first item is a category item
+          const prevItemCategoryData = categoriesMap.get(prevFirstItem.current);
+          if (prevItemCategoryData) {
+            onActiveCategoryChanged(prevItemCategoryData);
+          }
+        } else {
+        }
+      });
+    },
+    [activeCategory, categoriesMap, firstCategory, onActiveCategoryChanged]
+  );
 
   let itemsElements;
 
@@ -103,10 +133,10 @@ export const ComboboxItems = ({
         id="Knobs"
         role="treegrid"
         scrollableClassName={styles.scrollableContainer}
+        onItemsRendered={onItemsRender}
       />
     );
   } else {
-    console.log(items);
     itemsElements = (
       <div className={cx(styles.scrollableContainer, styles.optionsContainer)} role="treegrid">
         {items.map(itemData => createItemElementRenderer(itemData))}
