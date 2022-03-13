@@ -15,8 +15,9 @@ export const showSubMenus = testFunctionWrapper(async canvas => {
   // Click the sub sub menu
   optionToSelect = getByText(menuElement, "Sub Sub menu");
   await hoverElement(optionToSelect);
-  // validate showing sub sub item
+  // wait for sub sub menu to show before clicking (since it shows using requestAnimationFrame)
   await delay(1);
+  // validate showing sub sub item
   optionToSelect = getByText(menuElement, "Sub sub item");
   await clickElement(optionToSelect);
 });
