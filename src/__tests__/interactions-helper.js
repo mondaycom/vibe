@@ -45,6 +45,10 @@ export const clickElement = element => {
   return userEvent.click(element);
 };
 
+export const hoverElement = element => {
+  return userEvent.hover(element);
+};
+
 export const typeText = async (element, text, waitForDebounceMs = 250) => {
   let promise = userEvent.type(element, text, {
     delay: 50
@@ -54,7 +58,7 @@ export const typeText = async (element, text, waitForDebounceMs = 250) => {
   return result;
 };
 
-function delay(timeout) {
+export function delay(timeout) {
   return new Promise(resolve => {
     if (!timeout) return resolve();
     setTimeout(resolve, timeout);
