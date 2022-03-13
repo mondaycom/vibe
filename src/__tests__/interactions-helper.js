@@ -45,19 +45,18 @@ export const clickElement = element => {
   return userEvent.click(element);
 };
 
-export const typeText = async (element, text, waitForDebounce = true) => {
+export const typeText = async (element, text, waitForDebounceMs = 250) => {
   let promise = userEvent.type(element, text, {
     delay: 50
   });
-  if (waitForDebounce) {
-    await promise;
-    return delay(250);
-  }
-  return promise;
+  const result = await promise;
+  await delay(waitForDebounceMs);
+  return result;
 };
 
 function delay(timeout) {
   return new Promise(resolve => {
+    if (!timeout) return resolve();
     setTimeout(resolve, timeout);
   });
 }

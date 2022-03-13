@@ -1,4 +1,3 @@
-import { expect } from "@storybook/jest";
 import {
   getByRole,
   getByText,
@@ -21,6 +20,5 @@ export const selectAndClearTest = testFunctionWrapper(async canvas => {
   const clearButton = getByClassName("clear-indicator");
   await clickElement(clearButton);
   // Validate we see the placeholder again
-  const placeholderText = getByText(canvas, "Placeholder text here");
-  expect(placeholderText.innerText).toBe("Placeholder text here");
+  getByText(canvas, "Placeholder text here");
 });
