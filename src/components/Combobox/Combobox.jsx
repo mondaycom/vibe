@@ -14,7 +14,6 @@ import { defaultFilter } from "./ComboboxService";
 import "./Combobox.scss";
 import { ComboboxItems } from "components/Combobox/components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
-import usePrevious from "hooks/usePrevious";
 
 const Combobox = forwardRef(
   (
@@ -156,13 +155,11 @@ const Combobox = forwardRef(
     }
 
     const [activeCategoryLabel, setActiveCategoryLabel] = useState();
-    const prevActiveCategory = usePrevious(activeCategoryLabel);
 
     const onActiveCategoryChanged = useCallback(
       categoryData => {
-        debugger;
-        if (categoryData.category.label !== activeCategoryLabel) {
-          setActiveCategoryLabel(categoryData.category.label);
+        if (categoryData?.category?.label !== activeCategoryLabel) {
+          setActiveCategoryLabel(categoryData?.category?.label);
         }
       },
       [activeCategoryLabel]
@@ -194,7 +191,7 @@ const Combobox = forwardRef(
             autoFocus={autoFocus}
             loading={loading}
           />
-          <StickyCategoryHeader label={prevActiveCategory} hidden={prevActiveCategory !== undefined} />
+          <StickyCategoryHeader label={activeCategoryLabel} hidden={false} />
           <ComboboxItems
             categories={categories}
             options={filteredOptions}

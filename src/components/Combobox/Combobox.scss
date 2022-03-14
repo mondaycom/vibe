@@ -94,3 +94,12 @@
     overflow: hidden;
   }
 }
+
+.combobox_items-container {
+  position: relative;
+  height: 100%;
+}
+
+.combobox_items {
+  position: absolute;
+}
