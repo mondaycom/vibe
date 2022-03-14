@@ -1,4 +1,5 @@
 import React from "react";
+import cx from "classnames";
 import ComboboxOption from "components/Combobox/components/ComboboxOption/ComboboxOption";
 import ComboboxCategory from "components/Combobox/components/ComboboxCategory/ComboboxCategory";
 import Divider from "../../../Divider/Divider";
@@ -55,8 +56,9 @@ export function createOptionItemObject({
   };
 }
 
-export function comboboxItemRenderer({ item, _index, style, optionEvents, optionRenderData }) {
+export function comboboxItemRenderer({ item, _index, style, optionEvents, optionRenderData, isVirtualized }) {
   const { type, ...otherArgs } = item;
+  let customClassNames;
   let innerElement;
   switch (type) {
     case COMBOBOX_DIVIDER_ITEM: {
@@ -64,7 +66,10 @@ export function comboboxItemRenderer({ item, _index, style, optionEvents, option
       break;
     }
     case COMBOBOX_CATEGORY_ITEM: {
-      innerElement = categoryItemRenderer(otherArgs);
+      innerElement = categoryItemRenderer({ isVirtualized, ...otherArgs });
+      if (!isVirtualized) {
+        customClassNames = styles.sticky;
+      }
       break;
     }
     case COMBOBOX_OPTION_ITEM: {
@@ -78,7 +83,7 @@ export function comboboxItemRenderer({ item, _index, style, optionEvents, option
   }
 
   return (
-    <div key={otherArgs.id} className={styles.comboboxItemContainer} style={style}>
+    <div key={otherArgs.id} className={cx(styles.comboboxItemContainer, customClassNames)} style={style}>
       {innerElement}
     </div>
   );
@@ -92,8 +97,8 @@ export function dividerItemRenderer({ id, height }) {
   );
 }
 
-export function categoryItemRenderer({ id, category, className }) {
-  return <ComboboxCategory key={id} category={category} className={className} />;
+export function categoryItemRenderer({ id, category, className, isVirtualized }) {
+  return <ComboboxCategory key={id} category={category} className={className} sticky={!isVirtualized} />;
 }
 
 export function optionItemRenderer({

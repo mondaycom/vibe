@@ -46,7 +46,8 @@ export const ComboboxItems = ({
           isActiveByKeyboard,
           activeItemIndex,
           shouldScrollToSelectedItem
-        }
+        },
+        isVirtualized: renderOnlyVisibleOptions
       }),
     [
       onOptionClick,

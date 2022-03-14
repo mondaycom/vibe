@@ -2,7 +2,7 @@ import React from "react";
 import cx from "classnames";
 import "./ComboboxCategory.scss";
 
-const ComboboxCategory = ({ category, className }) => {
+const ComboboxCategory = ({ category, className, sticky }) => {
   const { label, id, ariaLabel } = category;
 
   if (!label) return null;
@@ -14,7 +14,7 @@ const ComboboxCategory = ({ category, className }) => {
       aria-level={1}
       aria-label={ariaLabel || label}
       id={`combobox-category-${id}`}
-      className={cx("combobox-category", className)}
+      className={cx("combobox-category", className, { "combobox-category--sticky": sticky })}
     >
       {label}
     </div>
