@@ -541,7 +541,9 @@ exports[`Combobox renders correctly with divider 1`] = `
       className=""
       role="treegrid"
     >
-      <div>
+      <div
+        className=""
+      >
         <div
           aria-label="cat1"
           aria-level={1}
@@ -552,13 +554,15 @@ exports[`Combobox renders correctly with divider 1`] = `
           cat1
         </div>
       </div>
-      <div>
+      <div
+        className=""
+      >
         <div
           aria-label="Option 1"
           aria-level={1}
           aria-selected={false}
-          className="combobox-option"
-          id="combobox-item-[object Object]"
+          className="combobox-option first"
+          id="combobox-item-0"
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
@@ -578,12 +582,24 @@ exports[`Combobox renders correctly with divider 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        className=""
+      >
         <div
-          className="monday-style-divider combobox_category-divider monday-style-divider--horizontal"
-        />
+          style={
+            Object {
+              "height": 17,
+            }
+          }
+        >
+          <div
+            className="monday-style-divider monday-style-divider--horizontal"
+          />
+        </div>
       </div>
-      <div>
+      <div
+        className=""
+      >
         <div
           aria-label="cat2"
           aria-level={1}
@@ -594,13 +610,15 @@ exports[`Combobox renders correctly with divider 1`] = `
           cat2
         </div>
       </div>
-      <div>
+      <div
+        className=""
+      >
         <div
           aria-label="Option 2"
           aria-level={1}
           aria-selected={false}
           className="combobox-option"
-          id="combobox-item-[object Object]"
+          id="combobox-item-1"
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
@@ -1193,7 +1211,9 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
       className=""
       role="treegrid"
     >
-      <div>
+      <div
+        className=""
+      >
         <div
           aria-label="Option 1"
           aria-level={1}
@@ -1218,7 +1238,9 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           </div>
         </div>
       </div>
-      <div>
+      <div
+        className=""
+      >
         <div
           aria-label="Option 2"
           aria-level={1}
