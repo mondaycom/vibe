@@ -54,6 +54,15 @@ const Combobox = forwardRef(
     const [isActiveByKeyboard, setIsActiveByKeyboard] = useState(false);
     const [filterValue, setFilterValue] = useState("");
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const onChangeCallback = useCallback(
+      value => {
+        if (onFilterChanged) {
+          onFilterChanged(value);
+        }
+        setFilterValue(value);
+      },
+      [setFilterValue, onFilterChanged]
+    );
 
     const setActiveItemIndexKeyboardNav = useCallback(
       index => {
@@ -95,16 +104,6 @@ const Combobox = forwardRef(
       }
       return filter(filterValue, options);
     }, [options, filterValue, filter, disableFilter]);
-
-    const onChangeCallback = useCallback(
-      value => {
-        if (onFilterChanged) {
-          onFilterChanged(value);
-        }
-        setFilterValue(value);
-      },
-      [setFilterValue, onFilterChanged]
-    );
 
     const isChildSelectable = useCallback(option => {
       return option && !option.disabled;
