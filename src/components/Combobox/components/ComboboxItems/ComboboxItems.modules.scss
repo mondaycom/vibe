@@ -5,7 +5,8 @@
 }
 
 .optionsContainer {
-  overflow: auto;
+  overflow-x: visible;
+  overflow-y: auto;
   margin-top: var(--spacing-small);
 }
 
