@@ -11,9 +11,9 @@ import Button from "../Button/Button";
 import useListKeyboardNavigation from "../../hooks/useListKeyboardNavigation";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
-import "./Combobox.scss";
 import { ComboboxItems } from "components/Combobox/components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
+import "./Combobox.scss";
 
 const Combobox = forwardRef(
   (
@@ -191,7 +191,7 @@ const Combobox = forwardRef(
             autoFocus={autoFocus}
             loading={loading}
           />
-          <StickyCategoryHeader label={activeCategoryLabel} hidden={false} />
+          {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
             categories={categories}
             options={filteredOptions}
