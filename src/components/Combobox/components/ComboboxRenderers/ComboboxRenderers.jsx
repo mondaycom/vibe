@@ -66,7 +66,7 @@ export function comboboxItemRenderer({ item, _index, style, optionEvents, option
       break;
     }
     case COMBOBOX_CATEGORY_ITEM: {
-      innerElement = categoryItemRenderer({ isVirtualized, ...otherArgs });
+      innerElement = categoryItemRenderer(otherArgs);
       if (!isVirtualized) {
         customClassNames = styles.sticky;
       }
@@ -97,8 +97,8 @@ export function dividerItemRenderer({ id, height }) {
   );
 }
 
-export function categoryItemRenderer({ id, category, className, isVirtualized }) {
-  return <ComboboxCategory key={id} category={category} className={className} sticky={!isVirtualized} />;
+export function categoryItemRenderer({ id, category, className }) {
+  return <ComboboxCategory key={id} category={category} className={className} />;
 }
 
 export function optionItemRenderer({

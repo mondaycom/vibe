@@ -17,7 +17,6 @@
 
   &.sticky-category {
     .combobox-category {
-      position: sticky;
       z-index: 10;
       background-color: var(--primary-background-color);
     }
@@ -46,7 +45,6 @@
 
   &-search-wrapper {
     position: sticky;
-    margin-bottom: var(--spacing-small);
     top: 0;
     background-color: var(--primary-background-color);
     z-index: 12;
@@ -93,13 +91,4 @@
     padding: 0 4px 8px 4px;
     overflow: hidden;
   }
-}
-
-.combobox_items-container {
-  position: relative;
-  height: 100%;
-}
-
-.combobox_items {
-  position: absolute;
 }

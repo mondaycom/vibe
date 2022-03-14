@@ -7,10 +7,7 @@
   display: flex;
   align-items: center;
   margin-block: var(--spacing-small);
-  &--sticky {
-    background-color: red;
-    position: sticky;
-  }
+
   &:first-child {
     margin-top: 0;
   }

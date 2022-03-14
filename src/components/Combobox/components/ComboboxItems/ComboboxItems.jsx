@@ -135,7 +135,7 @@ export const ComboboxItems = ({
   if (renderOnlyVisibleOptions) {
     itemsElements = (
       <VirtualizedList
-        className={className}
+        className={cx(styles.optionsContainer, className)}
         items={items}
         itemRenderer={createItemElementRenderer}
         id="Knobs"

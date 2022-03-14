@@ -308,7 +308,7 @@ If combo box requires action, use button component at the end of the list.
 When you display a large number of options, you may want to render only the options shown at a given moment to allow better performance and a
 better user experience.
 <Canvas>
-    <Story name="With window optimization">
+    <Story name="With virtualization optimization">
         {() => {
             const options = useMemo(() => [
                 { id: "1", label: "Option 1", categoryId: "Group1" },
@@ -340,12 +340,12 @@ better user experience.
                 <Flex gap={Flex.gaps.SMALL}  style={{width:"100%"}} justify={Flex.justify.SPACE_AROUND} align={Flex.align.START} >
                     <StoryDescription description="Virtualization optimization without categories" vertical>
                         <DialogContentContainer style={{height: "200px"}}>
-                            <Combobox options={options} renderOnlyVisibleOptions placeholder="Placeholder text here" />
+                            <Combobox options={options}  categories={categories} stickyCategories renderOnlyVisibleOptions placeholder="Placeholder text here" />
                         </DialogContentContainer>
                     </StoryDescription>
                     <StoryDescription description="Virtualization optimization with categories" vertical>
                         <DialogContentContainer style={{height: "200px"}}>
-                            <Combobox options={options} renderOnlyVisibleOptions categories={categories} stickyCategories placeholder="Placeholder text here" />
+                            <Combobox options={options} categories={categories} stickyCategories placeholder="Placeholder text here" />
                         </DialogContentContainer>
                     </StoryDescription>
                 </Flex>
