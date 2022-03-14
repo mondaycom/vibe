@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
 import { getOptionsByCategories } from "components/Combobox/ComboboxService";
 import {
@@ -8,8 +8,8 @@ import {
   createOptionItemObject
 } from "components/Combobox/components/ComboboxRenderers/ComboboxRenderers";
 import { VirtualizedList } from "components";
-import styles from "./ComboboxItems.modules.scss";
 import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "components/Combobox/components/ComboboxConstants";
+import styles from "./ComboboxItems.modules.scss";
 
 export const ComboboxItems = ({
   className,
@@ -57,7 +57,8 @@ export const ComboboxItems = ({
       optionRenderer,
       isActiveByKeyboard,
       activeItemIndex,
-      shouldScrollToSelectedItem
+      shouldScrollToSelectedItem,
+      renderOnlyVisibleOptions
     ]
   );
 
