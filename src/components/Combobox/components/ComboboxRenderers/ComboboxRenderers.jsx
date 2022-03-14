@@ -33,7 +33,8 @@ export function createOptionItemObject({
   onOptionEnter,
   onOptionLeave,
   optionLineHeight,
-  shouldScrollToSelectedItem
+  shouldScrollToSelectedItem,
+  categoryId
 }) {
   return {
     type: COMBOBOX_OPTION_ITEM,
@@ -49,7 +50,8 @@ export function createOptionItemObject({
     onOptionEnter,
     onOptionLeave,
     optionLineHeight,
-    shouldScrollToSelectedItem
+    shouldScrollToSelectedItem,
+    categoryId
   };
 }
 

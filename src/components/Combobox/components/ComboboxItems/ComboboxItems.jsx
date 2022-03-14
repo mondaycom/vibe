@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { getOptionsByCategories } from "components/Combobox/ComboboxService";
 import {
@@ -9,9 +9,10 @@ import {
 } from "components/Combobox/components/ComboboxRenderers/ComboboxRenderers";
 import { VirtualizedList } from "components";
 import styles from "./ComboboxItems.modules.scss";
-import { usePrevious } from "hooks";
+import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "components/Combobox/components/ComboboxConstants";
 
 export const ComboboxItems = ({
+  className,
   categories,
   options,
   filterValue,
@@ -27,7 +28,7 @@ export const ComboboxItems = ({
   renderOnlyVisibleOptions,
   onActiveCategoryChanged
 }) => {
-  const prevFirstItem = useRef();
+  const activeCategory = useRef();
   const createItemElementRenderer = useCallback(
     (item, index, style) =>
       comboboxItemRenderer({
@@ -59,9 +60,9 @@ export const ComboboxItems = ({
     ]
   );
 
-  let { items, categoriesMap } = useMemo(() => {
+  let { items, itemsMap } = useMemo(() => {
     let items = [];
-    const categoriesMap = new Map();
+    const itemsMap = new Map();
 
     if (categories) {
       const optionsByCategories = getOptionsByCategories(options, categories, filterValue);
@@ -80,15 +81,17 @@ export const ComboboxItems = ({
 
         // save category object in both items array and categories map
         items.push(categoryObject);
-        categoriesMap.set(categoryId, categoryObject);
+        itemsMap.set(categoryId, categoryObject);
 
         optionsByCategories[categoryId].forEach(option => {
           const itemObject = createOptionItemObject({
             height: optionLineHeight,
             option,
-            index: optionIndex
+            index: optionIndex,
+            categoryId: categoryObject.id
           });
 
+          itemsMap.set(itemObject.id, itemObject);
           items.push(itemObject);
           optionIndex++;
         });
@@ -102,24 +105,26 @@ export const ComboboxItems = ({
         });
       });
     }
-    return { items, categoriesMap };
+    return { items, itemsMap };
   }, [categories, options, filterValue, withCategoriesDivider, optionLineHeight]);
 
   const onItemsRender = useCallback(
-    ({ firstItemId, secondItemId }) => {
+    ({ firstItemId }) => {
       window.requestAnimationFrame(() => {
-        const isScrollDirectionForward = secondItemId !== prevFirstItem;
-        if (isScrollDirectionForward) {
-          // check if prev first item is a category item
-          const prevItemCategoryData = categoriesMap.get(prevFirstItem.current);
-          if (prevItemCategoryData) {
-            onActiveCategoryChanged(prevItemCategoryData);
+        const itemData = itemsMap.get(firstItemId);
+        if (itemData && (itemData.type === COMBOBOX_CATEGORY_ITEM || itemData.type === COMBOBOX_OPTION_ITEM)) {
+          const newActiveCategory =
+            itemData.type === COMBOBOX_OPTION_ITEM && itemData.categoryId ? itemData.categoryId : itemData.id;
+
+          if (newActiveCategory !== activeCategory.current) {
+            activeCategory.current = newActiveCategory;
+            const categoryObject = itemsMap.get(activeCategory.current);
+            onActiveCategoryChanged(categoryObject);
           }
-        } else {
         }
-      });
+      }, [itemsMap, onActiveCategoryChanged]);
     },
-    [activeCategory, categoriesMap, firstCategory, onActiveCategoryChanged]
+    [itemsMap, onActiveCategoryChanged]
   );
 
   let itemsElements;
@@ -128,6 +133,7 @@ export const ComboboxItems = ({
   if (renderOnlyVisibleOptions) {
     itemsElements = (
       <VirtualizedList
+        className={className}
         items={items}
         itemRenderer={createItemElementRenderer}
         id="Knobs"
@@ -138,7 +144,7 @@ export const ComboboxItems = ({
     );
   } else {
     itemsElements = (
-      <div className={cx(styles.scrollableContainer, styles.optionsContainer)} role="treegrid">
+      <div className={cx(styles.scrollableContainer, styles.optionsContainer, className)} role="treegrid">
         {items.map(itemData => createItemElementRenderer(itemData))}
       </div>
     );
