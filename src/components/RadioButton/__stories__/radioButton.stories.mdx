@@ -4,6 +4,7 @@ import { createComponentTemplate } from "../../../storybook/functions/create-com
 import { TOGGLE, CHECKBOX, DROPDOWN } from "../../../storybook/components/related-components/component-description-map";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Link } from "../../../storybook/components";
+import { clickRadioButton } from "./interactions";
 import "./radioButton.stories.scss";
 
 <Meta title="Inputs/Radio Button" component={RadioButton} />
@@ -143,7 +144,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
 The user needs to select only one option.
 
 <Canvas>
-  <Story name="Radio button in items list">
+  <Story name="Radio button in items list" play={clickRadioButton}>
     <div className="monday-style-radio-buttons_wrapper-column">
       <div>Inbox view options</div>
       <RadioButton text="Inbox updates" name="radio-buttons-group-4" checked />
