@@ -3,6 +3,7 @@
 exports[`Combobox renders correctly when disabled 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -112,6 +113,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
 exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -221,6 +223,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 exports[`Combobox renders correctly with autoFocus 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -330,6 +333,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
 exports[`Combobox renders correctly with className 1`] = `
 <div
   className="combobox--wrapper test size-medium empty"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -439,6 +443,7 @@ exports[`Combobox renders correctly with className 1`] = `
 exports[`Combobox renders correctly with divider 1`] = `
 <div
   className="combobox--wrapper size-medium"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -646,6 +651,7 @@ exports[`Combobox renders correctly with divider 1`] = `
 exports[`Combobox renders correctly with empty props 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -755,6 +761,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
 exports[`Combobox renders correctly with id 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox_test"
   id="test"
 >
   <div
@@ -864,6 +871,7 @@ exports[`Combobox renders correctly with id 1`] = `
 exports[`Combobox renders correctly with loading 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -1000,6 +1008,7 @@ exports[`Combobox renders correctly with loading 1`] = `
 exports[`Combobox renders correctly with optionLineHeight 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -1109,6 +1118,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
 exports[`Combobox renders correctly with optionRenderer 1`] = `
 <div
   className="combobox--wrapper size-medium"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -1273,6 +1283,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
 exports[`Combobox renders correctly with optionsListHeight 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -1382,6 +1393,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
 exports[`Combobox renders correctly with placeholder 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox_"
   id=""
 >
   <div
@@ -1491,6 +1503,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
 exports[`Combobox renders correctly with size 1`] = `
 <div
   className="combobox--wrapper size-large empty"
+  data-testid="combobox_"
   id=""
 >
   <div

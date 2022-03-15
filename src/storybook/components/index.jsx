@@ -13,6 +13,8 @@ import { Paragraph } from "./paragraph/paragraph";
 import { Frame } from "./frame/frame";
 import { VisualDescription } from "./visual-description/visual-description";
 import { ColorsDescription } from "./colors-description/colors-description";
+import { UnstyledList } from "./unstyled-list/unstyled-list";
+import { UnstyledListItem } from "./unstyled-list-item/unstyled-list-item";
 
 export * from "./function-arguments";
 export { default as LinkComponent } from "./link-component/link-component";
@@ -31,5 +33,7 @@ export {
   Paragraph,
   Frame,
   VisualDescription,
-  ColorsDescription
+  ColorsDescription,
+  UnstyledList,
+  UnstyledListItem
 };

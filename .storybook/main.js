@@ -27,12 +27,16 @@ module.exports = {
   webpackFinal: async config => {
     return buildConfig(config);
   },
+  features: {
+    interactionsDebugger: true
+  },
   addons: [
     "@storybook/addon-controls",
     "storybook-addon-themes",
     "@storybook/addon-a11y",
     "storybook-addon-performance/register",
     "@storybook/addon-docs",
+    "@storybook/addon-interactions",
     "@storybook/addon-actions"
   ],
   core: {

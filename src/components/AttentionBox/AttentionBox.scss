@@ -10,6 +10,7 @@
   width: fit-content;
   height: fit-content;
   @include theme-prop(color, dark-color);
+
   &_text--compact {
     display: flex;
     align-items: center;
