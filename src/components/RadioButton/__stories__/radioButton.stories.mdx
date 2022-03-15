@@ -6,10 +6,7 @@ import DialogContentContainer from "../../DialogContentContainer/DialogContentCo
 import { Link } from "../../../storybook/components";
 import "./radioButton.stories.scss";
 
-<Meta
-  title="Inputs/Radio Button"
-  component={ RadioButton }
-/>
+<Meta title="Inputs/Radio Button" component={RadioButton} />
 
 <!--- Component template -->
 
@@ -18,6 +15,7 @@ export const radioButtonTemplate = createComponentTemplate(RadioButton);
 <!--- Component documentation -->
 
 # RadioButton
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -28,30 +26,44 @@ export const radioButtonTemplate = createComponentTemplate(RadioButton);
 - [Feedback](#feedback)
 
 ## Overview
+
 A radio represents an item in a single selection list.
+
 <Canvas>
-  <Story name="Overview"
-         args={ {text: "Selection" } }>
-    { radioButtonTemplate.bind({}) }
+  <Story name="Overview" args={{ text: "Selection" }}>
+    {radioButtonTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ RadioButton } />
+
+<ArgsTable of={RadioButton} />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "A radio lets a user make exactly one selection from a set, which is all visible at the same time.",
-  "Set one radio group option as default. Select the most likely or convenient option.",
-  "Ensure both label and input are clickable to select the option.",
-  "Place radio buttons  can be placed vertically or horizontaly, using 16px spacing.",
-]}/>
 
-<Tip>When there’s limited space or no default selection, consider using a select <Link href="/?path=/docs/inputs-dropdown--overview" size={Link.sizes.SMALL} withoutSpacing>Dropdown</Link> instead.</Tip>
+<UsageGuidelines
+  guidelines={[
+    "A radio lets a user make exactly one selection from a set, which is all visible at the same time.",
+    "Set one radio group option as default. Select the most likely or convenient option.",
+    "Ensure both label and input are clickable to select the option.",
+    "Place radio buttons  can be placed vertically or horizontaly, using 16px spacing."
+  ]}
+/>
+
+<Tip>
+  When there’s limited space or no default selection, consider using a select{" "}
+  <Link href="/?path=/docs/inputs-dropdown--overview" size={Link.sizes.SMALL} withoutSpacing>
+    Dropdown
+  </Link>{" "}
+  instead.
+</Tip>
 
 ## Variants
+
 ### States
+
 Radio buttons have 3 states: regular, selected, and disabled.
+
 <Canvas>
   <Story name="States">
     <RadioButton text="Regular" />
@@ -61,52 +73,75 @@ Radio buttons have 3 states: regular, selected, and disabled.
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component:
+        component: (
           <DialogContentContainer className="monday-style-radio-buttons_wrapper">
             <RadioButton text="Item 1" name="radio-buttons-group-1" />
             <RadioButton text="Item 2" name="radio-buttons-group-1" checked />
-          </DialogContentContainer>,
-        description:"Use radio buttons when only one item can be selected from a list."
+          </DialogContentContainer>
+        ),
+        description: "Use radio buttons when only one item can be selected from a list."
       },
       negative: {
-        component:
+        component: (
           <DialogContentContainer className="monday-style-radio-buttons_wrapper">
             <RadioButton text="Item 1" checked />
             <RadioButton text="Item 2" checked />
-          </DialogContentContainer>,
-        description:<>Don't use radio buttons when allowing the user to select more than one item from a list. In this case, use <Link href="/?path=/docs/inputs-checkbox--overview" withoutSpacing>checkboxes</Link> instead.</>
+          </DialogContentContainer>
+        ),
+        description: (
+          <>
+            Don't use radio buttons when allowing the user to select more than one item from a list. In this case, use{" "}
+            <Link href="/?path=/docs/inputs-checkbox--overview" withoutSpacing>
+              checkboxes
+            </Link>{" "}
+            instead.
+          </>
+        )
       }
     },
     {
       positive: {
-        component:
-        <DialogContentContainer className="monday-style-radio-buttons_wrapper">
+        component: (
+          <DialogContentContainer className="monday-style-radio-buttons_wrapper">
             <RadioButton text="Item 1" name="radio-buttons-group-2" checked />
             <RadioButton text="Item 2" name="radio-buttons-group-2" />
             <RadioButton text="Item 3" name="radio-buttons-group-2" />
-          </DialogContentContainer>,
-        description:"Mark the first item as selected, and make sure it’s the most common or popular action."
+          </DialogContentContainer>
+        ),
+        description: "Mark the first item as selected, and make sure it’s the most common or popular action."
       },
       negative: {
-        component:
-        <DialogContentContainer className="monday-style-radio-buttons_wrapper">
+        component: (
+          <DialogContentContainer className="monday-style-radio-buttons_wrapper">
             <RadioButton text="Item 1" name="radio-buttons-group-3" />
             <RadioButton text="Item 2" name="radio-buttons-group-3" />
             <RadioButton text="Item 3" name="radio-buttons-group-3" />
-        </DialogContentContainer>,
-        description:<>Don’t leave all radio buttons unselcted. If you can’t offer a smart default, consider using the <Link href="/?path=/docs/inputs-dropdown--overview" withoutSpacing>dropdown component.</Link></>
+          </DialogContentContainer>
+        ),
+        description: (
+          <>
+            Don’t leave all radio buttons unselcted. If you can’t offer a smart default, consider using the{" "}
+            <Link href="/?path=/docs/inputs-dropdown--overview" withoutSpacing>
+              dropdown component.
+            </Link>
+          </>
+        )
       }
     }
   ]}
 />
 
 ## Use cases and examples
+
 ### Radio button in items list
+
 The user needs to select only one option.
+
 <Canvas>
   <Story name="Radio button in items list">
     <div className="monday-style-radio-buttons_wrapper-column">
@@ -119,4 +154,5 @@ The user needs to select only one option.
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[CHECKBOX, TOGGLE, DROPDOWN]} />

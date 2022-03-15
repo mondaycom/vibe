@@ -37,13 +37,6 @@ const RadioButton = forwardRef(
       }
     }, [onSelect, inputRef, disabled]);
 
-    const checkedProps = useMemo(() => {
-      if (checked !== undefined) {
-        return { checked };
-      }
-      return { defaultChecked };
-    }, [checked, defaultChecked]);
-
     return (
       <label className={cx(baseClassName, overrideClassName, { disabled })}>
         <span className={`${baseClassName}__radio-input-container`}>
@@ -53,7 +46,7 @@ const RadioButton = forwardRef(
             value={value}
             name={name}
             disabled={disabled}
-            {...checkedProps}
+            defaultChecked={checked || defaultChecked}
             onChange={onSelect}
             ref={mergedRef}
           />
