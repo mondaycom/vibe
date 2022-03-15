@@ -28,7 +28,7 @@ export const ComboboxItems = ({
   renderOnlyVisibleOptions,
   onActiveCategoryChanged
 }) => {
-  const activeCategory = useRef();
+  const activeCategoryId = useRef();
   const createItemElementRenderer = useCallback(
     (item, index, style) =>
       comboboxItemRenderer({
@@ -115,12 +115,12 @@ export const ComboboxItems = ({
       window.requestAnimationFrame(() => {
         const itemData = itemsMap.get(firstItemId);
         if (itemData && (itemData.type === COMBOBOX_CATEGORY_ITEM || itemData.type === COMBOBOX_OPTION_ITEM)) {
-          const newActiveCategory =
+          const newActiveCategoryId =
             itemData.type === COMBOBOX_OPTION_ITEM && itemData.categoryId ? itemData.categoryId : itemData.id;
 
-          if (newActiveCategory !== activeCategory.current) {
-            activeCategory.current = newActiveCategory;
-            const categoryObject = itemsMap.get(activeCategory.current);
+          if (newActiveCategoryId !== activeCategoryId.current) {
+            activeCategoryId.current = newActiveCategoryId;
+            const categoryObject = itemsMap.get(activeCategoryId.current);
             onActiveCategoryChanged(categoryObject);
           }
         }
