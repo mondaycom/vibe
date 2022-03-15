@@ -1,7 +1,6 @@
 import { cleanup, renderHook } from "@testing-library/react-hooks";
 import { NAV_DIRECTIONS } from "../../../hooks/useFullKeyboardListeners";
 import { GridKeyboardNavigationContext, useGridKeyboardNavigationContext } from "../GridKeyboardNavigationContext";
-import { focusElementWithDirection } from "../helper";
 
 describe("GridKeyboardNavigationContext", () => {
   let wrapperRef;

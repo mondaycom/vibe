@@ -18,7 +18,6 @@ describe("useFocusGridItemByActiveStatus", () => {
     wrapperRef = { current: element };
     childRef = { current: childElement };
 
-    jest.spyOn(GridKeyboardNavigationContextHelperModule, "focusElementWithDirection");
     jest.spyOn(useLastNavigationDirectionModule, "useLastNavigationDirection");
   });
 
