@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useCallback } from "react";
+import React, { useRef, forwardRef, useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "hooks/useMergeRefs";
@@ -37,6 +37,13 @@ const RadioButton = forwardRef(
       }
     }, [onSelect, inputRef, disabled]);
 
+    const checkedProps = useMemo(() => {
+      if (checked !== undefined) {
+        return { checked };
+      }
+      return { defaultChecked };
+    }, [checked, defaultChecked]);
+
     return (
       <label className={cx(baseClassName, overrideClassName, { disabled })}>
         <span className={`${baseClassName}__radio-input-container`}>
@@ -46,7 +53,7 @@ const RadioButton = forwardRef(
             value={value}
             name={name}
             disabled={disabled}
-            defaultChecked={checked || defaultChecked}
+            {...checkedProps}
             onChange={onSelect}
             ref={mergedRef}
           />
@@ -79,7 +86,9 @@ RadioButton.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
   disabled: PropTypes.bool,
+  /** Auto check by default */
   defaultChecked: PropTypes.bool,
+  /** Controlled externally - When used, need to be set for all radio buttons in the same group */
   checked: PropTypes.bool,
   onSelect: PropTypes.func
 };

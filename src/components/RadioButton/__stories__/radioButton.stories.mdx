@@ -4,7 +4,8 @@ import { createComponentTemplate } from "../../../storybook/functions/create-com
 import { TOGGLE, CHECKBOX, DROPDOWN } from "../../../storybook/components/related-components/component-description-map";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
 import { Link } from "../../../storybook/components";
-import { clickRadioButton } from "./interactions";
+import { clickRadioButton, controlRadioButton } from "./interactions";
+import { controlledRadioButton } from "./radioButton.stories";
 import "./radioButton.stories.scss";
 
 <Meta title="Inputs/Radio Button" component={RadioButton} />
@@ -82,7 +83,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
         component: (
           <DialogContentContainer className="monday-style-radio-buttons_wrapper">
             <RadioButton text="Item 1" name="radio-buttons-group-1" />
-            <RadioButton text="Item 2" name="radio-buttons-group-1" checked />
+            <RadioButton text="Item 2" name="radio-buttons-group-1" defaultChecked />
           </DialogContentContainer>
         ),
         description: "Use radio buttons when only one item can be selected from a list."
@@ -109,7 +110,7 @@ Radio buttons have 3 states: regular, selected, and disabled.
       positive: {
         component: (
           <DialogContentContainer className="monday-style-radio-buttons_wrapper">
-            <RadioButton text="Item 1" name="radio-buttons-group-2" checked />
+            <RadioButton text="Item 1" name="radio-buttons-group-2" defaultChecked />
             <RadioButton text="Item 2" name="radio-buttons-group-2" />
             <RadioButton text="Item 3" name="radio-buttons-group-2" />
           </DialogContentContainer>
@@ -147,10 +148,18 @@ The user needs to select only one option.
   <Story name="Radio button in items list" play={clickRadioButton}>
     <div className="monday-style-radio-buttons_wrapper-column">
       <div>Inbox view options</div>
-      <RadioButton text="Inbox updates" name="radio-buttons-group-4" checked />
+      <RadioButton text="Inbox updates" name="radio-buttons-group-4" defaultChecked />
       <RadioButton text="I was mentioned" name="radio-buttons-group-4" />
       <RadioButton text="All updates" name="radio-buttons-group-4" />
     </div>
+  </Story>
+</Canvas>
+
+Controled externally.
+
+<Canvas>
+  <Story name="Controlled Radio buttons" play={controlRadioButton}>
+    {controlledRadioButton.bind({})}
   </Story>
 </Canvas>
 
