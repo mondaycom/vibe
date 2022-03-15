@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useCallback, useMemo } from "react";
+import React, { useRef, forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "hooks/useMergeRefs";
