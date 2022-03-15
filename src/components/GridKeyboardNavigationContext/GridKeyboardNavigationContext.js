@@ -26,8 +26,8 @@ export const useGridKeyboardNavigationContext = (positions, wrapperRef, { disabl
       return;
     }
     const oppositeDirection = getOppositeDirection(keyboardDirection);
-    const elementToFocus = getOutmostElementInDirection(directionMaps, oppositeDirection);
-    elementToFocus?.focus();
+    const refToFocus = getOutmostElementInDirection(directionMaps, oppositeDirection);
+    refToFocus?.current?.focus();
   }, [directionMaps, disabled, lastNavigationDirectionRef]);
   useEventListener({ eventName: "focus", callback: onWrapperFocus, ref: wrapperRef });
 
