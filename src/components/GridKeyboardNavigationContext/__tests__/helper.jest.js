@@ -2,7 +2,6 @@ import { NAV_DIRECTIONS } from "../../../hooks/useFullKeyboardListeners";
 import {
   getOppositeDirection,
   getDirectionMaps,
-  focusElementWithDirection,
   getOutmostElementInDirection,
   getNextElementToFocusInDirection
 } from "../helper";

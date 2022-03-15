@@ -33,9 +33,7 @@ describe("GridKeyboardNavigationContext", () => {
       result.current.onOutboundNavigation(ref2, keyboardDirection);
 
       expect(ref2.current.blur).toHaveBeenCalled();
-      expect(ref4.current.dispatchEvent).toHaveBeenCalledWith(
-        new CustomEvent("focus", { detail: { keyboardDirection } })
-      );
+      expect(ref4.current.focus).toHaveBeenCalled();
     });
 
     it("should do nothing if there is no element on the direction of onOutboundNavigation", () => {
@@ -71,31 +69,6 @@ describe("GridKeyboardNavigationContext", () => {
       result.current.onOutboundNavigation(ref2, keyboardDirection);
 
       expect(fakeUpperContext.onOutboundNavigation).toHaveBeenCalledWith(wrapperRef, keyboardDirection);
-    });
-
-    it("should focus the element in the direction of focus, when the wrapper element is focused with direction", () => {
-      const positions = [{ leftElement: ref2, rightElement: ref4 }];
-      const keyboardDirection = NAV_DIRECTIONS.LEFT; // if the user navigated left, the right-most element should be focused
-      renderHookForTest(positions);
-
-      focusElementWithDirection(wrapperRef, keyboardDirection);
-
-      expect(ref4.current.dispatchEvent).toHaveBeenCalledWith(
-        new CustomEvent("focus", { detail: { keyboardDirection } })
-      );
-    });
-
-    it("should do nothing if the wrapper element is focused, and the hook is disabled", () => {
-      const positions = [{ leftElement: ref2, rightElement: ref4 }];
-      const keyboardDirection = NAV_DIRECTIONS.LEFT;
-      renderHookForTest(positions, true);
-
-      focusElementWithDirection(wrapperRef, keyboardDirection);
-
-      expect(ref2.current.blur).not.toHaveBeenCalled();
-      expect(ref2.current.dispatchEvent).not.toHaveBeenCalled();
-      expect(ref4.current.blur).not.toHaveBeenCalled();
-      expect(ref4.current.dispatchEvent).not.toHaveBeenCalled();
     });
 
     function renderHookForTest(positions, disabled = false) {
