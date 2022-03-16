@@ -1,5 +1,4 @@
 import { within, userEvent } from "@storybook/testing-library";
-import * as story from "@storybook/testing-library";
 import { waitFor } from "@testing-library/react";
 import { getTestId, ELEMENT_TYPES as types } from "../utils/test-utils";
 import { expect } from "@storybook/jest";
