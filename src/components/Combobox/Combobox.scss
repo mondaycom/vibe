@@ -8,6 +8,7 @@
   flex-direction: column;
   @include font-general-text();
   position: relative;
+  margin-bottom: var(--spacing-small);
 
   .combobox_category {
     &--with-divider {
@@ -55,8 +56,9 @@
   }
 
   &-no-results {
-    flex: 1 1 auto;
-    height: 100%;
+    margin-top: var(--spacing-small);
+    //flex: 1 1 auto;
+    //height: 100%;
     overflow: hidden;
     position: relative;
     padding: 0 16px;
@@ -87,8 +89,8 @@
   &-list {
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
-    padding: 0 4px 8px 4px;
+   // flex: 1 1 auto;
+    padding: 0 4px;
     overflow: hidden;
   }
 }
