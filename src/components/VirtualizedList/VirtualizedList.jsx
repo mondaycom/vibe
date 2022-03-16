@@ -34,7 +34,9 @@ const VirtualizedList = forwardRef(
       onItemsRenderedThrottleMs,
       onSizeUpdate,
       onVerticalScrollbarVisiblityChange,
-      virtualListRef
+      virtualListRef,
+      scrollableClassName,
+      role
     },
     ref
   ) => {
@@ -224,7 +226,7 @@ const VirtualizedList = forwardRef(
     }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, listHeight, idGetter]);
 
     return (
-      <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id}>
+      <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id} role={role}>
         <AutoSizer>
           {({ height, width }) => {
             updateListSize(width, height);
@@ -238,7 +240,7 @@ const VirtualizedList = forwardRef(
                 onScroll={onScrollCB}
                 overscanCount={overscanCount}
                 onItemsRendered={onItemsRenderedCB}
-                className="virtualized-list-scrollable-container"
+                className={cx("virtualized-list-scrollable-container", scrollableClassName)}
               >
                 {rowRenderer}
               </List>
@@ -255,6 +257,10 @@ VirtualizedList.propTypes = {
    * class name to add to the component wrapper
    */
   className: PropTypes.string,
+  /**
+   * class name to add to the component scollable container
+   */
+  scrollableClassName: PropTypes.string,
   /**
    * id to add to the component wrapper
    */
@@ -315,7 +321,8 @@ VirtualizedList.propTypes = {
    * when the list size changes - `=> (width, height)`
    */
   onSizeUpdate: PropTypes.func,
-  onVerticalScrollbarVisiblityChange: PropTypes.func
+  onVerticalScrollbarVisiblityChange: PropTypes.func,
+  role: PropTypes.string
 };
 VirtualizedList.defaultProps = {
   className: "",
@@ -330,7 +337,9 @@ VirtualizedList.defaultProps = {
   onItemsRendered: null,
   onItemsRenderedThrottleMs: 200,
   onSizeUpdate: NOOP,
-  onVerticalScrollbarVisiblityChange: null
+  onVerticalScrollbarVisiblityChange: null,
+  role: undefined,
+  scrollableClassName: undefined
 };
 
 export default VirtualizedList;

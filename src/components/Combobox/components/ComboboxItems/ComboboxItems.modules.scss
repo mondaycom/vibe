@@ -1,0 +1,12 @@
+@import "../../../../styles/states.scss";
+
+.scrollableContainer {
+  @include scroller;
+}
+
+.optionsContainer {
+  overflow-x: visible;
+  overflow-y: auto;
+  margin-top: var(--spacing-small);
+}
+

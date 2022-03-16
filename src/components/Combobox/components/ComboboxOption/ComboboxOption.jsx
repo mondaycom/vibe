@@ -28,7 +28,8 @@ const ComboboxOption = ({
     iconSize = 16,
     disabled,
     selected,
-    ariaLabel
+    ariaLabel,
+    belongToCategory = false
   } = option;
   let { tooltipContent } = option;
 
@@ -114,7 +115,8 @@ const ComboboxOption = ({
       <div
         ref={ref}
         key={id || label}
-        role="option"
+        role="row"
+        aria-level={belongToCategory ? 2 : 1}
         aria-selected={isActive}
         tabIndex="-1"
         aria-label={ariaLabel || label}
