@@ -75,10 +75,18 @@ export const ComboboxItems = ({
           items.push(createDividerItemObject({ categoryId }));
         }
 
+        const isCategoryWithOptions = optionsByCategories[categoryId].length > 0;
+        const isFirstCategory = categoryIndex === 0;
+
         const categoryObject = createCategoryItemObject({
           categoryId,
           categoryData: categories[categoryId],
-          withDivider
+          withDivider,
+          className: cx({
+            [styles.categoryWithOptions]: isCategoryWithOptions,
+            [styles.categoryWithoutOptions]: !isCategoryWithOptions,
+            [styles.firstCategory]: isFirstCategory
+          })
         });
 
         // save category object in both items array and categories map
