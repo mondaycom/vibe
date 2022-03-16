@@ -340,16 +340,28 @@ better user experience.
                 Group2: { id: "Group2", label: "Group 2" }
             }), []);
             return (
-                <Flex gap={Flex.gaps.SMALL}  style={{width:"100%"}} justify={Flex.justify.SPACE_AROUND} align={Flex.align.START} >
-                    <StoryDescription description="Virtualization optimization without categories" vertical>
-                        <DialogContentContainer style={{height: "200px"}}>
-                            <Combobox options={options} renderOnlyVisibleOptions placeholder="Placeholder text here" />
-                        </DialogContentContainer>
+                <Flex gap={Flex.gaps.SMALL} style={{width:"100%"}} justify={Flex.justify.SPACE_AROUND} align={Flex.align.START} >
+                    <StoryDescription
+                        align={Flex.align.START}
+                        description="Virtualization optimization without categories"
+                        vertical
+                        headerStyle={{width: "70%", textAlign: "start"}}>
+                        <div style={{width: "300px"}}>
+                            <DialogContentContainer style={{height: "200px"}}>
+                                <Combobox options={options} renderOnlyVisibleOptions placeholder="Placeholder text here" />
+                            </DialogContentContainer>
+                        </div>
                     </StoryDescription>
-                    <StoryDescription description="Virtualization optimization with categories" vertical>
-                        <DialogContentContainer style={{height: "200px"}}>
-                            <Combobox options={options} renderOnlyVisibleOptions categories={categories} stickyCategories placeholder="Placeholder text here" />
-                        </DialogContentContainer>
+                    <StoryDescription
+                        align={Flex.align.START}
+                        description="Virtualization optimization with categories"
+                        vertical
+                        headerStyle={{width:"70%", textAlign: "start"}}>
+                        <div style={{width: "300px"}}>
+                            <DialogContentContainer style={{height: "200px"}}>
+                                <Combobox options={options} renderOnlyVisibleOptions categories={categories} stickyCategories placeholder="Placeholder text here" />
+                            </DialogContentContainer>
+                        </div>
                     </StoryDescription>
                 </Flex>
             )
