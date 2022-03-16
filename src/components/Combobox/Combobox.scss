@@ -8,22 +8,16 @@
   flex-direction: column;
   @include font-general-text();
   position: relative;
+  margin-bottom: var(--spacing-small);
 
   .combobox_category {
     &--with-divider {
       margin-top: var(--spacing-medium);
     }
-
-    &-divider {
-      position: absolute;
-      width: calc(100% + 16px);
-      margin-left: -12px;
-    }
   }
 
   &.sticky-category {
     .combobox-category {
-      position: sticky;
       z-index: 10;
       background-color: var(--primary-background-color);
     }
@@ -62,8 +56,9 @@
   }
 
   &-no-results {
+    margin-top: var(--spacing-small);
     flex: 1 1 auto;
-    height: 100%;
+    height: calc(100% - 20px);
     overflow: hidden;
     position: relative;
     padding: 0 16px;
@@ -92,9 +87,10 @@
   }
 
   &-list {
+    display: flex;
+    flex-direction: column;
     flex: 1 1 auto;
-    padding: 0 4px 8px 4px;
-    overflow: auto;
-    @include scroller;
+    padding: 0 4px;
+    overflow: hidden;
   }
 }

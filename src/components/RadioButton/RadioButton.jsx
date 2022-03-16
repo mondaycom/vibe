@@ -86,7 +86,9 @@ RadioButton.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
   disabled: PropTypes.bool,
+  /** Auto check by default */
   defaultChecked: PropTypes.bool,
+  /** Controlled externally - When used, need to be set for all radio buttons in the same group */
   checked: PropTypes.bool,
   onSelect: PropTypes.func
 };
