@@ -15,7 +15,7 @@ function getWithin(canvasOrValidTestElement) {
 }
 
 export const interactionSuite =
-  ({ beforeEach = null, afterEach = null, tests }) =>
+  ({ beforeEach = null, tests, afterEach = null }) =>
   async ({ canvasElement, args }) => {
     for (const test of tests) {
       const fnName = test.name;
@@ -28,7 +28,7 @@ export const interactionSuite =
       await testFunctionWrapper(test)({ canvasElement, args });
 
       if (afterEach) {
-        logFunctionStart(`Running: ${fnName}`);
+        logFunctionStart(`After: ${fnName}`);
         await testFunctionWrapper(afterEach)({ canvasElement, args });
       }
     }
