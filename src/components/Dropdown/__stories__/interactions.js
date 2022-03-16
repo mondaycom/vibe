@@ -25,22 +25,17 @@ const selectAndClearTest = async canvas => {
   getByText(canvas, "Placeholder text here");
 };
 
-const inputLetterA = async canvas => {
+const hideDropdownWhenPressingEscape = async canvas => {
   const dropdownElement = await getByRole(canvas, "textbox");
   // Open the dropdown
   await clickElement(dropdownElement);
-  // Filter it
-  await typeText(dropdownElement, "A");
-  expect(dropdownElement.value).toEqual("A");
-};
+  // Validate open dropdown
+  await getByText(canvas, "Option 1");
+  // Close the dropdown
+  await typeText(dropdownElement, "{escape}");
 
-const inputLetterB = async canvas => {
-  const dropdownElement = await getByRole(canvas, "textbox");
-  // Open the dropdown
-  await clickElement(dropdownElement);
-  // Filter it
-  await typeText(dropdownElement, "B");
-  expect(dropdownElement.value).toEqual("B");
+  const optionElement = await canvas.queryByText("Option 1");
+  expect(optionElement).toBeNull(); //expect not to exist
 };
 
 export const overviewPlaySuite = interactionSuite({
@@ -48,6 +43,10 @@ export const overviewPlaySuite = interactionSuite({
     const dropdownElement = await getByRole(canvas, "textbox");
     await userEvent.clear(dropdownElement);
     expect(dropdownElement.value).toEqual("");
+    await typeText(dropdownElement, "{escape}");
+
+    const optionElement = await canvas.queryByText("Option 1");
+    expect(optionElement).toBeNull(); //expect not to exist
   },
-  tests: [inputLetterA, inputLetterB, selectAndClearTest]
+  tests: [selectAndClearTest, hideDropdownWhenPressingEscape]
 });
