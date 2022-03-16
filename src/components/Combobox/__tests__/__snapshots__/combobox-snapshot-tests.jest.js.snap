@@ -552,7 +552,7 @@ exports[`Combobox renders correctly with divider 1`] = `
         <div
           aria-label="cat1"
           aria-level={1}
-          className="combobox-category"
+          className="combobox-category undefined"
           id="combobox-category-cat1"
           role="row"
         >
