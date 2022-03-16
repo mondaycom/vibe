@@ -14,11 +14,11 @@ export enum ButtonColor {
   ON_INVERTED_BACKGROUND = "on-inverted-background"
 }
 
-const OLD_BUTTON_SIZES: Record<string, string> = {
+const OLD_BUTTON_SIZES = {
   sm: SIZES.SMALL,
   md: SIZES.MEDIUM,
   lg: SIZES.LARGE
-};
+} as const;
 
 // Support old sizes (backward compatible)
 export const getActualSize = (size: string) => OLD_BUTTON_SIZES[size] || size;

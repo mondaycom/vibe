@@ -11,7 +11,6 @@ import Loader from "components/Loader/Loader";
 import { ButtonColor, ButtonInputType, ButtonType, getActualSize } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import "./Button.scss";
-import { Rect } from "@popperjs/core";
 
 // @ts-ignore
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
@@ -66,7 +65,7 @@ export interface ButtonProps {
   /** aria label to provide important when providing only Icon */
   ariaLabel: string;
   /** aria for a button popup */
-  ariaHasPopup: string | boolean;
+  ariaHasPopup: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];;
   /** aria to be set if the popup is open */
   ariaExpanded: boolean;
   /** aria controls - receives id for the controlled region */
