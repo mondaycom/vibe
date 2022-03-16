@@ -1,4 +1,5 @@
 import { within, userEvent } from "@storybook/testing-library";
+import * as story from "@storybook/testing-library";
 import { waitFor } from "@testing-library/react";
 import { getTestId, ELEMENT_TYPES as types } from "../utils/test-utils";
 import { expect } from "@storybook/jest";
@@ -18,11 +19,17 @@ export const interactionSuite =
   ({ beforeEach = null, afterEach = null, tests }) =>
   async ({ canvasElement, args }) => {
     for (const test of tests) {
+      const fnName = test.name;
       if (beforeEach) {
+        logFunctionStart(`Before: ${fnName}`);
         await testFunctionWrapper(beforeEach)({ canvasElement, args });
       }
+
+      logFunctionStart(`Running : ${fnName}`);
       await testFunctionWrapper(test)({ canvasElement, args });
+
       if (afterEach) {
+        logFunctionStart(`Running: ${fnName}`);
         await testFunctionWrapper(afterEach)({ canvasElement, args });
       }
     }
@@ -96,3 +103,7 @@ export const waitForElementVisible = getterFunc => {
     });
   });
 };
+
+function logFunctionStart(name) {
+  expect(` ➡️ ${name}`).toBeDefined();
+}
