@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.21.1 (2022-03-16)
+
+#### Bug Fixes
+* [#589](https://github.com/mondaycom/monday-ui-react-core/pull/589) Fix combobox spacing issues ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.21.0 (2022-03-16)
 
 #### Bug Fixes
