@@ -13,13 +13,14 @@ export function createDividerItemObject({ categoryId }) {
   return { type: COMBOBOX_DIVIDER_ITEM, height: DIVIDER_HEIGHT, id: `${categoryId}-divider` };
 }
 
-export function createCategoryItemObject({ withDivider, categoryId, categoryData }) {
+export function createCategoryItemObject({ withDivider, categoryId, categoryData, className }) {
   return {
     height: CATEGORY_HEIGHT,
     type: COMBOBOX_CATEGORY_ITEM,
     category: categoryData,
     id: categoryId,
-    withDivider
+    withDivider,
+    className
   };
 }
 

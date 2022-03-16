@@ -6,12 +6,5 @@
   @include theme-prop(color, placeholder-color);
   display: flex;
   align-items: center;
-  margin-block: var(--spacing-small);
-
-  &:first-child {
-    margin-top: 0;
-  }
-  &:last-child {
-    margin-bottom: 0;
-  }
+  padding-top: var(--spacing-small);
 }
