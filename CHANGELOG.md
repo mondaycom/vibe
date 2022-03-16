@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.21.0 (2022-03-16)
+
+#### Bug Fixes
+* [#587](https://github.com/mondaycom/monday-ui-react-core/pull/587) Fix radiobutton check issue ([@MosheZemah](https://github.com/MosheZemah))
+* [#583](https://github.com/mondaycom/monday-ui-react-core/pull/583) Fix issue with combobox story ([@MosheZemah](https://github.com/MosheZemah))
+* [#581](https://github.com/mondaycom/monday-ui-react-core/pull/581) Fix issue with hovering combobox hover ([@MosheZemah](https://github.com/MosheZemah))
+
+#### New Features
+* [#574](https://github.com/mondaycom/monday-ui-react-core/pull/574) Add virtualized list support to combobox ([@hadasfa](https://github.com/hadasfa))
+* [#580](https://github.com/mondaycom/monday-ui-react-core/pull/580) Clear filter on combobox selection ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Documentation
+* [#579](https://github.com/mondaycom/monday-ui-react-core/pull/579) PR: Documentation ,Ay11 foundation page ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#585](https://github.com/mondaycom/monday-ui-react-core/pull/585) Add menu tests ([@MosheZemah](https://github.com/MosheZemah))
+* [#582](https://github.com/mondaycom/monday-ui-react-core/pull/582) Interaction tests ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.20.0 (2022-03-10)
 
 #### New Features
