@@ -293,19 +293,21 @@ Button.types = BUTTON_INPUT_TYPE;
 Button.inputTags = BUTTON_INPUT_TYPE;
 
 Button.propTypes = {
+  /** Custom class name to pass to the component */
   className: PropTypes.string,
-  /** The kind of a button is exposed on the component  */
+  /** The button's kind */
   kind: PropTypes.oneOf([Button.kinds.PRIMARY, Button.kinds.SECONDARY, Button.kinds.TERTIARY]),
+  /** Callback function to run when the button is clicked */
   onClick: PropTypes.func,
+  /** Callback function to run when the `onMouseDown` event is triggered */
   onMouseDown: PropTypes.func,
-  /** Blur on button click */
+  /** Blur the button after click */
   blurOnMouseUp: PropTypes.bool,
-  /** Name of the button - for form submit usages  */
+  /** The button's form name */
   name: PropTypes.string,
-  /** The size of a button is exposed on the component  */
+  /** The button's size  */
   size: PropTypes.oneOf([Button.sizes.SMALL, Button.sizes.MEDIUM, Button.sizes.LARGE]),
-
-  /** The color of a button is exposed on the component  */
+  /** The button's color  */
   color: PropTypes.oneOf([
     Button.colors.PRIMARY,
     Button.colors.NEGATIVE,
@@ -313,54 +315,51 @@ Button.propTypes = {
     Button.colors.ON_PRIMARY_COLOR,
     Button.colors.ON_INVERTED_BACKGROUND
   ]),
-
-  /** The type of a button is exposed on the component  */
+  /** The button's type  */
   type: PropTypes.oneOf([Button.inputTags.BUTTON, Button.inputTags.SUBMIT, Button.inputTags.RESET]),
-  /** Disabled property which causes the button to be disabled */
+  /** Whether the button is disabled or not */
   disabled: PropTypes.bool,
-  /** Icon to place on the right */
+  /** Icon to render to the right of the button */
   rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  /** Icon to place on the left */
+  /** Icon to render to the left of the button */
   leftIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  /** the success props are used when you have async action and wants to display a success message */
+  /** Displays a custom success state, see the `successIcon` and `successText` props as well */
   success: PropTypes.bool,
   /** Success icon name */
   successIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /** Success text */
   successText: PropTypes.string,
-
-  /** loading boolean which switches the text to a loader */
+  /** Displays a spinner on the button */
   loading: PropTypes.bool,
-
-  // eslint-disable-next-line react/forbid-prop-types
+  /** Custom style to pass to the component */
   style: PropTypes.object,
-  /** displays the active state */
+  /** Marks the button as active */
   active: PropTypes.bool,
-  /** id to pass to the button */
+  /** HTML ID to pass to the button */
   id: PropTypes.string,
-  /** adds 8px margin to the right */
+  /** Adds a little bit of margin to the right */
   marginRight: PropTypes.bool,
-  /** adds 8px margin to the left */
+  /** Adds a little bit of margin to the left */
   marginLeft: PropTypes.bool,
-  /** element id to describe the button accordingly */
+  /** Element id to describe the button accordingly */
   ariaLabeledBy: PropTypes.string,
-  /** aria label to provide important when providing only Icon */
+  /** Aria label to provide important when providing only Icon */
   ariaLabel: PropTypes.string,
-  /** aria for a button popup */
+  /** Aria for a button popup */
   ariaHasPopup: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  /** aria to be set if the popup is open */
+  /** Aria to be set if the popup is open */
   ariaExpanded: PropTypes.bool,
-  /** aria controls - receives id for the controlled region */
+  /** Aria controls - receives id for the controlled region */
   ariaControls: PropTypes.string,
-  /** On Button Focus callback */
+  /** Callback function to run when the button is focused */
   onFocus: PropTypes.func,
-  /** On Button Blur callback */
+  /** Callback function to run when the button is blurred */
   onBlur: PropTypes.func,
   rightFlat: PropTypes.bool,
   leftFlat: PropTypes.bool,
   preventClickAnimation: PropTypes.bool,
   noSidePadding: PropTypes.bool,
-  /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
+  /** Default text color in `ON_PRIMARY_COLOR` kind (should be any type of css color (rgb, var, hex...) */
   defaultTextColorOnPrimaryColor: PropTypes.string
 };
 
