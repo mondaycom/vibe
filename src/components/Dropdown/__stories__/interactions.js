@@ -9,7 +9,7 @@ import {
 } from "../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
 
-export const selectAndClearTest = async canvas => {
+const selectAndClearTest = async canvas => {
   const dropdownElement = await getByRole(canvas, "textbox");
   // Open the dropdown
   await clickElement(dropdownElement);
@@ -25,7 +25,7 @@ export const selectAndClearTest = async canvas => {
   getByText(canvas, "Placeholder text here");
 };
 
-export const inputLetterA = async canvas => {
+const inputLetterA = async canvas => {
   const dropdownElement = await getByRole(canvas, "textbox");
   // Open the dropdown
   await clickElement(dropdownElement);
@@ -34,7 +34,7 @@ export const inputLetterA = async canvas => {
   expect(dropdownElement.value).toEqual("A");
 };
 
-export const inputLetterB = async canvas => {
+const inputLetterB = async canvas => {
   const dropdownElement = await getByRole(canvas, "textbox");
   // Open the dropdown
   await clickElement(dropdownElement);
