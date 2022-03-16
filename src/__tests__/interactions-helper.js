@@ -7,8 +7,26 @@ export const ELEMENT_TYPES = types;
 
 function getWithin(canvasOrValidTestElement) {
   if (canvasOrValidTestElement.getByRole) return canvasOrValidTestElement;
-  return within(canvasOrValidTestElement);
+  const result = within(canvasOrValidTestElement);
+  if (result instanceof Error) {
+    throw result;
+  }
+  return result;
 }
+
+export const interactionSuite =
+  ({ beforeEach = null, afterEach = null, tests }) =>
+  async ({ canvasElement, args }) => {
+    for (const test of tests) {
+      if (beforeEach) {
+        await testFunctionWrapper(beforeEach)({ canvasElement, args });
+      }
+      await testFunctionWrapper(test)({ canvasElement, args });
+      if (afterEach) {
+        await testFunctionWrapper(afterEach)({ canvasElement, args });
+      }
+    }
+  };
 
 export const testFunctionWrapper = testFunc => {
   return async ({ canvasElement, args }) => {
