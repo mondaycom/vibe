@@ -1,4 +1,5 @@
 import { useRef, useCallback } from "react";
+import useEventListener from "../../../../hooks/useEventListener";
 import {
   ARROW_DOWN_KEYS,
   ARROW_LEFT_KEYS,
@@ -34,7 +35,12 @@ export const useLastNavigationDirection = () => {
     [setLastNavigationDirection]
   );
 
+  const onMousedownAnywhere = useCallback(() => {
+    lastNavigationDirectionRef.current = undefined;
+  }, [lastNavigationDirectionRef]);
+
   useKeyEvent({ ref: documentRef, capture: true, keys: NAVIGATION_KEYS, callback: onKeyEvent });
+  useEventListener({ eventName: "mousedown", ref: documentRef, capture: true, callback: onMousedownAnywhere });
 
   return { lastNavigationDirectionRef };
 };

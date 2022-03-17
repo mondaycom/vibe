@@ -13,6 +13,7 @@ import useMouseLeave from "./hooks/useMouseLeave";
 import "./Menu.scss";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "hooks/useFocusWithin";
+import usePrevious from "../../../hooks/usePrevious";
 
 const Menu = forwardRef(
   (
@@ -95,12 +96,14 @@ const Menu = forwardRef(
       setIsInitialSelectedState(true);
     }, [setIsInitialSelectedState]);
 
+    const previousHasOpenSubMenu = usePrevious(hasOpenSubMenu);
     useEffect(() => {
       if (hasOpenSubMenu || useDocumentEventListeners) return;
-      if (activeItemIndex > -1) {
+      if (activeItemIndex > -1 && previousHasOpenSubMenu) {
+        // the submenu was just closed, so we want to focus the menu to capture keyboard events
         ref?.current?.focus();
       }
-    }, [activeItemIndex, hasOpenSubMenu, useDocumentEventListeners]);
+    }, [activeItemIndex, hasOpenSubMenu, previousHasOpenSubMenu, useDocumentEventListeners]);
 
     useLayoutEffect(() => {
       if (!focusOnMount || useDocumentEventListeners) return;
