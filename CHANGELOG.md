@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.21.2 (2022-03-17)
+
+#### Bug Fixes
+* [#586](https://github.com/mondaycom/monday-ui-react-core/pull/586) Fix menu grid item focus after keyboard nav ([@hadasfa](https://github.com/hadasfa))
+
+#### Dependency Upgrades
+* [#592](https://github.com/mondaycom/monday-ui-react-core/pull/592) Move deps to devDependencies ([@sahariko](https://github.com/sahariko))
+
+#### Documentation
+* [#591](https://github.com/mondaycom/monday-ui-react-core/pull/591) Button prop-types proofreading ([@sahariko](https://github.com/sahariko))
+
 ## 1.21.1 (2022-03-16)
 
 #### Bug Fixes
