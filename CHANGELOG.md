@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.21.3 (2022-03-20)
+
+#### Bug Fixes
+* [#594](https://github.com/mondaycom/monday-ui-react-core/pull/594) fix dark mode issue, sticky issue and add categories story ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#588](https://github.com/mondaycom/monday-ui-react-core/pull/588) feature/omri/multi-interaction-tests-per-story ([@laviomri](https://github.com/laviomri))
+
 ## 1.21.2 (2022-03-17)
 
 #### Bug Fixes
