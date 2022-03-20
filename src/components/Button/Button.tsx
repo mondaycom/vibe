@@ -1,14 +1,12 @@
-/* eslint-disable react/jsx-props-no-spreading,react/button-has-type */
-import { SIZES } from "constants/sizes";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import { SIZES } from "constants/sizes";
 import useResizeObserver from "hooks/useResizeObserver";
 import useMergeRefs from "hooks/useMergeRefs";
 import { NOOP } from "utils/function-utils";
 import Icon from "components/Icon/Icon";
 import Loader from "components/Loader/Loader";
-import { ButtonColor, ButtonInputType, ButtonType, getActualSize } from "./ButtonConstants";
+import { ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import "./Button.scss";
 
@@ -21,104 +19,110 @@ const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps {
   /** Custom class names to pass to the component */
-  className: string;
+  className?: string;
   /** The button's kind */
-  kind: ButtonType;
+  kind?: ButtonType;
   /** Callback function to run when the button is clicked */
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseDown: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   /** Blur on button click */
-  blurOnMouseUp: boolean;
+  blurOnMouseUp?: boolean;
   /** Name of the button - for form submit usages  */
-  name: string;
+  name?: string;
   /** The button's size */
-  size: typeof SIZES[keyof typeof SIZES];
+  size?: Size;
   /** The button's color */
-  color: ButtonColor;
+  color?: ButtonColor;
   /** The button's type */
-  type: ButtonInputType;
+  type?: ButtonInputType;
   /** Whether the button should be disabled or not */
-  disabled: boolean;
+  disabled?: boolean;
   /** Icon to place on the right */
-  rightIcon: string | React.Component;
+  rightIcon?: string | React.Component | null;
   /** Icon to place on the left */
-  leftIcon: string | React.Component;
+  leftIcon?: string | React.Component | null;
   /** the success props are used when you have async action and wants to display a success message */
-  success: boolean;
+  success?: boolean;
   /** Success icon name */
-  successIcon: string | React.Component;
+  successIcon?: string | React.Component | null;
   /** Success text */
-  successText: string;
+  successText?: string;
   /** loading boolean which switches the text to a loader */
-  loading: boolean;
-  style: Record<string, string>;
+  loading?: boolean;
+  style?: React.CSSProperties;
   /** displays the active state */
-  active: boolean;
+  active?: boolean;
   /** id to pass to the button */
   id: string;
   /** adds 8px margin to the right */
-  marginRight: boolean;
+  marginRight?: boolean;
   /** adds 8px margin to the left */
-  marginLeft: boolean;
+  marginLeft?: boolean;
   /** element id to describe the button accordingly */
-  ariaLabeledBy: string;
+  ariaLabeledBy?: string;
   /** aria label to provide important when providing only Icon */
-  ariaLabel: string;
+  ariaLabel?: string;
   /** aria for a button popup */
-  ariaHasPopup: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];;
+  ariaHasPopup?: React.HTMLProps<HTMLButtonElement>["aria-haspopup"];
   /** aria to be set if the popup is open */
-  ariaExpanded: boolean;
+  ariaExpanded?: boolean;
   /** aria controls - receives id for the controlled region */
-  ariaControls: string;
+  ariaControls?: string;
   /** On Button Focus callback */
-  onFocus: (event: React.FocusEvent<HTMLButtonElement>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLButtonElement>) => void;
   /** On Button Blur callback */
-  onBlur: (event: React.FocusEvent<HTMLButtonElement>) => void;
-  rightFlat: boolean;
-  leftFlat: boolean;
-  preventClickAnimation: boolean;
-  noSidePadding: boolean;
+  onBlur?: (event: React.FocusEvent<HTMLButtonElement>) => void;
+  rightFlat?: boolean;
+  leftFlat?: boolean;
+  preventClickAnimation?: boolean;
+  noSidePadding?: boolean;
   /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
-  defaultTextColorOnPrimaryColor: string;
+  defaultTextColorOnPrimaryColor?: string;
 }
 
-const Button = forwardRef<unknown, ButtonProps>(
+const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> & {
+  sizes?: typeof SIZES;
+  colors?: typeof ButtonColor;
+  kinds?: typeof ButtonType;
+  types?: typeof ButtonInputType;
+  inputTags?: typeof ButtonInputType;
+} = forwardRef<unknown, ButtonProps>(
   (
     {
       className,
       children,
-      kind = ButtonType.PRIMARY,
-      onClick = NOOP,
+      kind,
+      onClick,
       name,
-      size = SIZES.MEDIUM,
-      color = ButtonColor.PRIMARY,
-      disabled = false,
-      rightIcon = null,
-      leftIcon = null,
-      success = false,
-      successText = "",
-      successIcon = null,
+      size,
+      color,
+      disabled,
+      rightIcon,
+      leftIcon,
+      success,
+      successText,
+      successIcon,
       style,
-      loading = false,
-      active = false,
+      loading,
+      active,
       id,
-      marginRight = false,
-      marginLeft = false,
-      type = ButtonInputType.BUTTON,
-      onMouseDown = NOOP,
+      marginRight,
+      marginLeft,
+      type,
+      onMouseDown,
       ariaLabel,
-      rightFlat = false,
-      leftFlat = false,
-      preventClickAnimation = false,
-      noSidePadding = false,
-      onFocus = NOOP,
-      onBlur = NOOP,
+      rightFlat,
+      leftFlat,
+      preventClickAnimation,
+      noSidePadding,
+      onFocus,
+      onBlur,
       ariaLabeledBy,
-      defaultTextColorOnPrimaryColor = TRANSPARENT_COLOR,
+      defaultTextColorOnPrimaryColor,
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
-      blurOnMouseUp = true
+      blurOnMouseUp
     },
     ref
   ) => {
@@ -359,7 +363,7 @@ const Button = forwardRef<unknown, ButtonProps>(
   }
 );
 
-const ButtonWithStaticProperties = Object.assign(Button, {
+Object.assign(Button, {
   sizes: SIZES,
   colors: ButtonColor,
   kinds: ButtonType,
@@ -367,4 +371,31 @@ const ButtonWithStaticProperties = Object.assign(Button, {
   inputTags: ButtonInputType
 });
 
-export default ButtonWithStaticProperties;
+Button.defaultProps = {
+  kind: Button.kinds?.PRIMARY,
+  onClick: NOOP,
+  size: Button.sizes?.MEDIUM,
+  color: Button.colors?.PRIMARY,
+  disabled: false,
+  rightIcon: null,
+  leftIcon: null,
+  success: false,
+  successText: "",
+  successIcon: null,
+  loading: false,
+  active: false,
+  marginRight: false,
+  marginLeft: false,
+  type: Button.types?.BUTTON,
+  onMouseDown: NOOP,
+  rightFlat: false,
+  leftFlat: false,
+  preventClickAnimation: false,
+  noSidePadding: false,
+  onFocus: NOOP,
+  onBlur: NOOP,
+  defaultTextColorOnPrimaryColor: TRANSPARENT_COLOR,
+  blurOnMouseUp: true
+};
+
+export default Button;
