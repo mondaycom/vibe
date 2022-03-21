@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.21.4 (2022-03-21)
+
+#### Bug Fixes
+* [#595](https://github.com/mondaycom/monday-ui-react-core/pull/595) Add aria-label to Flex ([@Naama-Weber-Monday](https://github.com/Naama-Weber-Monday))
+
 ## 1.21.3 (2022-03-20)
 
 #### Bug Fixes
