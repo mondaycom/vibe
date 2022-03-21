@@ -96,7 +96,7 @@ Flex.defaultProps = {
   justify: Flex.justify.START,
   align: Flex.align.CENTER,
   gap: Flex.gaps.NONE,
-  'aria-label': ""
+  ariaLabel: undefined
 };
 
 export default Flex;
