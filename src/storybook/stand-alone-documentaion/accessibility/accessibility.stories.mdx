@@ -1,6 +1,7 @@
 import {Meta} from "@storybook/addon-docs";
 import {ComponentName, Frame, UnstyledList, UnstyledListItem} from "../../components";
 import {PrinciplesAccesability} from "./principles/principlesAccesability";
+import {COLORS, TYPOGRAPHY, HIDDEN_TEXT} from "../../components/related-components/component-description-map";
 import {
     accessibilityCheckList,
     colorContrastImage,
@@ -36,7 +37,8 @@ Web Accessibility is based on guidelines published by The World Wide Web Consort
 
 [WCAG Quick Reference](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize#principle1)
 
-<Tip title="Get our Accessibility checklist"><a href={accessibilityCheckList} target="_blank">Download</a> our accessibility checklist file.</Tip>
+<Tip title="Get our Accessibility checklist"><a href={accessibilityCheckList} target="_blank">Download</a> our
+    accessibility checklist file.</Tip>
 
 ## Accessibility principles
 <PrinciplesAccesability/>
@@ -184,5 +186,9 @@ For example:
         people and people with cognitive impairmants. For example: JAWS and NVDA on windows machines, VoiceOver for
         MacOS.</UnstyledListItem>
     <UnstyledListItem>Screen magnifiers for people with low vision. For example: Zoomtext</UnstyledListItem>
-    <UnstyledListItem>Voice recognition software and selection switches for people who cannot use a keyboard or a mouse. For example: Dragon Naturally Speaking</UnstyledListItem>
+    <UnstyledListItem>Voice recognition software and selection switches for people who cannot use a keyboard or a mouse.
+        For example: Dragon Naturally Speaking</UnstyledListItem>
 </UnstyledList>
+
+## Up next
+<RelatedComponents componentsNames={[COLORS, TYPOGRAPHY, HIDDEN_TEXT]}/>
