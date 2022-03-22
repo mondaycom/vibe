@@ -142,8 +142,8 @@ const Combobox = forwardRef(
 
       return (
         <div className="combobox--wrapper-no-results">
-          <div className="message-wrapper">
-            <span className="message">{noResultsMessage}</span>
+          <div className="combobox-message-wrapper">
+            <span className="combobox-message">{noResultsMessage}</span>
           </div>
           {onAddNew && !disabled && (
             <Button className="add-new-button" size={size} kind={Button.kinds.TERTIARY} onClick={onAddNewCallback}>
