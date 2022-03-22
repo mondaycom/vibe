@@ -9,7 +9,21 @@ import classes from "./Flex.module.scss";
 
 const Flex = forwardRef(
   (
-    { className, id, elementType, direction, wrap, children, justify, align, gap, onClick, style, ariaLabelledby, ariaLabel },
+    {
+      className,
+      id,
+      elementType,
+      direction,
+      wrap,
+      children,
+      justify,
+      align,
+      gap,
+      onClick,
+      style,
+      ariaLabelledby,
+      ariaLabel
+    },
     ref
   ) => {
     const componentRef = useRef(null);
@@ -82,7 +96,7 @@ Flex.propTypes = {
     PropTypes.oneOf([Flex.gaps.NONE, Flex.gaps.SMALL, Flex.gaps.MEDIUM, Flex.gaps.LARGE]),
     PropTypes.number
   ]),
-  'aria-label': PropTypes.string
+  ariaLabel: PropTypes.string
 };
 
 Flex.defaultProps = {
