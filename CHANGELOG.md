@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.21.5 (2022-03-22)
+
+#### Bug Fixes
+* [#597](https://github.com/mondaycom/monday-ui-react-core/pull/597) Bug/hadas/change combobox msg class (too common) ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.21.4 (2022-03-21)
 
 #### Bug Fixes
