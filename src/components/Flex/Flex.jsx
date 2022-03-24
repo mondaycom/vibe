@@ -22,7 +22,8 @@ const Flex = forwardRef(
       onClick,
       style,
       ariaLabelledby,
-      ariaLabel
+      ariaLabel,
+      tabIndex
     },
     ref
   ) => {
@@ -50,6 +51,7 @@ const Flex = forwardRef(
             [classes.wrap]: wrap
           }
         )}
+        tabIndex={tabIndex}
         onClick={onClick}
         style={overrideStyle}
         aria-label={ariaLabel}
@@ -96,7 +98,8 @@ Flex.propTypes = {
     PropTypes.oneOf([Flex.gaps.NONE, Flex.gaps.SMALL, Flex.gaps.MEDIUM, Flex.gaps.LARGE]),
     PropTypes.number
   ]),
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  tabIndex: PropTypes.number
 };
 
 Flex.defaultProps = {
@@ -110,7 +113,8 @@ Flex.defaultProps = {
   justify: Flex.justify.START,
   align: Flex.align.CENTER,
   gap: Flex.gaps.NONE,
-  ariaLabel: undefined
+  ariaLabel: undefined,
+  tabIndex: undefined
 };
 
 export default Flex;
