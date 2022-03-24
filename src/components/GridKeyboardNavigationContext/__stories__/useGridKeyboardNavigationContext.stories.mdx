@@ -43,8 +43,8 @@ A hook used to specify a connection between multiple navigable components, which
       return (
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
           <Flex ref={wrapperRef}>
-            <DummyNavigableGrid ref={leftElRef} itemsCount={15} numberOfItemsInLine={4} itemPrefix="L " />
-            <DummyNavigableGrid ref={rightElRef} itemsCount={7} numberOfItemsInLine={2} itemPrefix="R " />
+            <DummyNavigableGrid ref={leftElRef} itemsCount={15} numberOfItemsInLine={4} itemPrefix="L" />
+            <DummyNavigableGrid ref={rightElRef} itemsCount={7} numberOfItemsInLine={2} itemPrefix="R" />
           </Flex>
         </GridKeyboardNavigationContext.Provider>
       );
@@ -127,9 +127,9 @@ Disabled components can be skipped by adding a `disabled` (or `data-disabled`) t
             justify={Flex.align.CENTER}
             className="use-grid-keyboard-dummy-grid-wrapper"
           >
-            <DummyNavigableGrid ref={topElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="T " />
-            <DummyNavigableGrid ref={middleElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="M " disabled />
-            <DummyNavigableGrid ref={bottomElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="B " />
+            <DummyNavigableGrid ref={topElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="T" />
+            <DummyNavigableGrid ref={middleElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="M" disabled />
+            <DummyNavigableGrid ref={bottomElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="B" />
           </Flex>
         </GridKeyboardNavigationContext.Provider>
       );
@@ -153,9 +153,9 @@ The hook can be used inside multiple depths, in more complex layout requirements
       );
       return (
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
-          <Flex ref={wrapperRef} direction={Flex.directions.COLUMN}>
-            <LayoutWithInnerKeyboardNavigation ref={topElRef} />
-            <LayoutWithInnerKeyboardNavigation ref={bottomElRef} />
+          <Flex id="twoGridLayoutsWrapper" ref={wrapperRef} direction={Flex.directions.COLUMN} tabIndex={-1}>
+            <LayoutWithInnerKeyboardNavigation id="gridLayoutTop" ref={topElRef} />
+            <LayoutWithInnerKeyboardNavigation id="gridLayoutBottom" ref={bottomElRef} />
           </Flex>
         </GridKeyboardNavigationContext.Provider>
       );
