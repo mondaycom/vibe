@@ -1,6 +1,6 @@
 import { userEvent } from "@storybook/testing-library";
 import { expect } from "@storybook/jest";
-import { getByText, interactionSuite, clickElement } from "../../../__tests__/interactions-helper";
+import { getByText, interactionSuite, clickElement, resetFocus } from "../../../__tests__/interactions-helper";
 
 //NOTE: this test may fail if it runs when the storybook page isn't focused. (For example, during an HMR refresh without focusing the storybook tab)
 const multiGridLayoutKeyboardNavigation = async canvas => {
@@ -33,7 +33,10 @@ const multiGridLayoutKeyboardNavigation = async canvas => {
 };
 
 export const useGridContextMultipleDepthsPlaySuite = interactionSuite({
-  tests: [multiGridLayoutKeyboardNavigation]
+  tests: [multiGridLayoutKeyboardNavigation],
+  afterEach: async () => {
+    await resetFocus();
+  }
 });
 
 async function keyboardMultipleTimes(text, times) {

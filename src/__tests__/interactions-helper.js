@@ -91,6 +91,11 @@ export function delay(timeout) {
   });
 }
 
+export async function resetFocus() {
+  const focusTrap = document.querySelector("[data-testid=focusTrap");
+  await userEvent.click(focusTrap);
+}
+
 export const waitForElementVisible = getterFunc => {
   return new Promise(resolve => {
     let element;
