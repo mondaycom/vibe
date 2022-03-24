@@ -50,7 +50,7 @@ export const DummyNavigableGrid = forwardRef(
   }
 );
 
-export const LayoutWithInnerKeyboardNavigation = forwardRef((_ignored, ref) => {
+export const LayoutWithInnerKeyboardNavigation = forwardRef(({ id }, ref) => {
   const leftElRef = useRef(null);
   const rightElRef = useRef(null);
   const bottomElRef = useRef(null);
@@ -65,15 +65,17 @@ export const LayoutWithInnerKeyboardNavigation = forwardRef((_ignored, ref) => {
     <GridKeyboardNavigationContext.Provider value={keyboardContext}>
       <Flex
         ref={ref}
+        id={id}
         direction={Flex.directions.COLUMN}
         align={Flex.align.START}
         className="use-grid-keyboard-dummy-grid-wrapper"
+        tabIndex={-1}
       >
         <Flex>
-          <DummyNavigableGrid ref={leftElRef} itemsCount={6} numberOfItemsInLine={3} itemPrefix="L " />
-          <DummyNavigableGrid ref={rightElRef} itemsCount={6} numberOfItemsInLine={2} itemPrefix="R " />
+          <DummyNavigableGrid ref={leftElRef} itemsCount={6} numberOfItemsInLine={3} itemPrefix="L" />
+          <DummyNavigableGrid ref={rightElRef} itemsCount={6} numberOfItemsInLine={2} itemPrefix="R" />
         </Flex>
-        <DummyNavigableGrid ref={bottomElRef} itemsCount={6} numberOfItemsInLine={2} itemPrefix="B " />
+        <DummyNavigableGrid ref={bottomElRef} itemsCount={6} numberOfItemsInLine={2} itemPrefix="B" />
       </Flex>
     </GridKeyboardNavigationContext.Provider>
   );
