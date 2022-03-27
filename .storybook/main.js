@@ -37,7 +37,8 @@ module.exports = {
     "storybook-addon-performance/register",
     "@storybook/addon-docs",
     "@storybook/addon-interactions",
-    "@storybook/addon-actions"
+    "@storybook/addon-actions",
+    "@storybook/addon-google-analytics"
   ],
   core: {
     builder: "webpack5"
