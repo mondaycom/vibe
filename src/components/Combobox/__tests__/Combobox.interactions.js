@@ -15,5 +15,5 @@ export const onSelectClearsFilterTest = testFunctionWrapper(async canvas => {
   await typeText(filterInput, "Option");
   const optionToClick = getByText(comboboxElement, "Option 1");
   await clickElement(optionToClick);
-  expect(filterInput).toHaveValue("12321");
+  expect(filterInput).toHaveValue("");
 });
