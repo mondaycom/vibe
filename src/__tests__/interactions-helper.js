@@ -92,7 +92,7 @@ export function delay(timeout) {
 }
 
 export async function resetFocus() {
-  const focusTrap = document.querySelector("[data-testid=focusTrap");
+  const focusTrap = document.querySelector("[data-testid=focusTrap]");
   await userEvent.click(focusTrap);
 }
 
