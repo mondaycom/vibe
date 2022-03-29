@@ -15,7 +15,6 @@ async function states_onClickTabFocusElementTest(canvas) {
   await pressNavigationKey(NAVIGATIONS_COMMANDS.TAB);
   expect(document.activeElement).toEqual(clickableElement);
   await pressNavigationKey(NAVIGATIONS_COMMANDS.TAB);
-  console.log(document.activeElement);
   expect(document.activeElement).not.toEqual(disabledClickableElement);
   expect(canvas).not.toContain(document.activeElement);
 }
@@ -23,7 +22,6 @@ async function states_onClickTabFocusElementTest(canvas) {
 export const statesPlaySuite = interactionSuite({
   tests: [states_onClickTabFocusElementTest],
   afterEach: async () => {
-    debugger;
     await resetFocus();
   }
 });
