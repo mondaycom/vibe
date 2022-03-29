@@ -9,7 +9,22 @@ import classes from "./Flex.module.scss";
 
 const Flex = forwardRef(
   (
-    { className, id, elementType, direction, wrap, children, justify, align, gap, onClick, style, ariaLabelledby },
+    {
+      className,
+      id,
+      elementType,
+      direction,
+      wrap,
+      children,
+      justify,
+      align,
+      gap,
+      onClick,
+      style,
+      ariaLabelledby,
+      ariaLabel,
+      tabIndex
+    },
     ref
   ) => {
     const componentRef = useRef(null);
@@ -36,8 +51,10 @@ const Flex = forwardRef(
             [classes.wrap]: wrap
           }
         )}
+        tabIndex={tabIndex}
         onClick={onClick}
         style={overrideStyle}
+        aria-label={ariaLabel}
       >
         {children}
       </Element>
@@ -80,7 +97,9 @@ Flex.propTypes = {
   gap: PropTypes.oneOfType([
     PropTypes.oneOf([Flex.gaps.NONE, Flex.gaps.SMALL, Flex.gaps.MEDIUM, Flex.gaps.LARGE]),
     PropTypes.number
-  ])
+  ]),
+  ariaLabel: PropTypes.string,
+  tabIndex: PropTypes.number
 };
 
 Flex.defaultProps = {
@@ -93,7 +112,9 @@ Flex.defaultProps = {
   direction: Flex.directions.ROW,
   justify: Flex.justify.START,
   align: Flex.align.CENTER,
-  gap: Flex.gaps.NONE
+  gap: Flex.gaps.NONE,
+  ariaLabel: undefined,
+  tabIndex: undefined
 };
 
 export default Flex;

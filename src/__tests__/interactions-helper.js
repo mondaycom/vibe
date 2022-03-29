@@ -7,8 +7,32 @@ export const ELEMENT_TYPES = types;
 
 function getWithin(canvasOrValidTestElement) {
   if (canvasOrValidTestElement.getByRole) return canvasOrValidTestElement;
-  return within(canvasOrValidTestElement);
+  const result = within(canvasOrValidTestElement);
+  if (result instanceof Error) {
+    throw result;
+  }
+  return result;
 }
+
+export const interactionSuite =
+  ({ beforeEach = null, tests, afterEach = null }) =>
+  async ({ canvasElement, args }) => {
+    for (const test of tests) {
+      const fnName = test.name;
+      if (beforeEach) {
+        logFunctionStart(`Before: ${fnName}`);
+        await testFunctionWrapper(beforeEach)({ canvasElement, args });
+      }
+
+      logFunctionStart(`Running : ${fnName}`);
+      await testFunctionWrapper(test)({ canvasElement, args });
+
+      if (afterEach) {
+        logFunctionStart(`After: ${fnName}`);
+        await testFunctionWrapper(afterEach)({ canvasElement, args });
+      }
+    }
+  };
 
 export const testFunctionWrapper = testFunc => {
   return async ({ canvasElement, args }) => {
@@ -67,6 +91,11 @@ export function delay(timeout) {
   });
 }
 
+export async function resetFocus() {
+  const focusTrap = document.querySelector("[data-testid=focusTrap]");
+  await userEvent.click(focusTrap);
+}
+
 export const waitForElementVisible = getterFunc => {
   return new Promise(resolve => {
     let element;
@@ -78,3 +107,7 @@ export const waitForElementVisible = getterFunc => {
     });
   });
 };
+
+function logFunctionStart(name) {
+  expect(` ➡️ ${name}`).toBeDefined();
+}
