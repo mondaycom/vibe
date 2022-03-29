@@ -1,5 +1,5 @@
 import {Meta} from "@storybook/addon-docs";
-import {ComponentName, Frame, UnstyledList, UnstyledListItem} from "../../components";
+import {ComponentName, Frame, UnstyledList, UnstyledListItem, Link} from "../../components";
 import {PrinciplesAccesability} from "./principles/principlesAccesability";
 import {COLORS, TYPOGRAPHY, HIDDEN_TEXT} from "../../components/related-components/component-description-map";
 import {
@@ -37,7 +37,7 @@ Web Accessibility is based on guidelines published by The World Wide Web Consort
 
 [WCAG Quick Reference](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize#principle1)
 
-<Tip title="Get our Accessibility checklist"><a href={accessibilityCheckList} target="_blank">Download</a> our
+<Tip title="Get our Accessibility checklist"><Link href={accessibilityCheckList} target="_blank">Download</Link> our
     accessibility checklist file.</Tip>
 
 ## Accessibility principles
@@ -69,9 +69,9 @@ The visual presentation of the following have a contrast ratio of at least 3:1 a
 UI Components - Visual information required to identify active UI components and states (including borders for input elements (text input, radio buttons, checkboxes, etc.) as well as Focus Indicator (visible focus around active elements when they receive keyboard focus)<br/>
 Graphical Objects - Parts of graphics required to understand the content
 
-<Tip title="Use color contrast tools for code and design">To check color contrast in design use <a
+<Tip title="Use color contrast tools for code and design">To check color contrast in design use <Link
     href="https://www.figma.com/community/plugin/748533339900865323/Contrast" target="_blank">Contrast figma
-    plugin</a> and inspect elements accessibility tab for live code verification</Tip>
+    plugin</Link> and inspect elements accessibility tab for live code verification</Tip>
 
 ## Imagery
 People with vision impairments or difficulties reading rely on text alternatives for most of the visual content.
