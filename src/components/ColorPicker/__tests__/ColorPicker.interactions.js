@@ -31,6 +31,37 @@ export const noColorInteractionSuite = interactionSuite({
   }
 });
 
+async function selectMultiColorsWithKeyboardAndMouse(canvas) {
+  await clickOnColor(canvas, contentColorsByName.DARK_PURPLE);
+  await expectColorToBeSelected(canvas, contentColorsByName.DARK_PURPLE);
+
+  //move with keyboard to a different color
+  await keyboardMultipleTimes("{arrowRight}", 3);
+  await expectColorToBeActive(canvas, contentColorsByName.INDIGO);
+
+  //select this color as well
+  await userEvent.keyboard("{Enter}");
+  await expectColorToBeSelected(canvas, contentColorsByName.DARK_PURPLE);
+  await expectColorToBeSelected(canvas, contentColorsByName.INDIGO);
+  await expectColorToBeActive(canvas, contentColorsByName.INDIGO);
+
+  //cancel the selection of the first color
+  await clickOnColor(canvas, contentColorsByName.DARK_PURPLE);
+  await expectColorToBeNotSelected(canvas, contentColorsByName.DARK_PURPLE);
+  await expectColorToBeSelected(canvas, contentColorsByName.INDIGO);
+
+  //since we used the mouse, the "active" indicator should be removed
+  await expectColorToBeNotActive(canvas, contentColorsByName.DARK_PURPLE);
+  await expectColorToBeNotActive(canvas, contentColorsByName.INDIGO);
+}
+
+export const multiSelectionInteractionSuite = interactionSuite({
+  tests: [selectMultiColorsWithKeyboardAndMouse],
+  afterEach: async () => {
+    await resetFocus();
+  }
+});
+
 async function clickOnColor(canvas, color) {
   const element = await getColorItem(canvas, color);
   const toClick = within(element).getByLabelText(color);
