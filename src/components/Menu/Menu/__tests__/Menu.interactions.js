@@ -3,11 +3,9 @@ import {
   getByRole,
   getByText,
   clickElement,
-  hoverElement,
   waitForElementVisible,
   interactionSuite,
-  resetFocus,
-  delay
+  resetFocus
 } from "../../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
 
