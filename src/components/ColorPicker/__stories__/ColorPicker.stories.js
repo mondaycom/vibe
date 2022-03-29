@@ -16,7 +16,7 @@ export const colorPickerSelectedTemplate = args => (
   <ColorPicker ColorIndicatorIcon={TextColorIndicator} colorStyle={ColorPicker.COLOR_STYLES.SELECTED} {...args} />
 );
 
-export const colorPickerNoColorTemplate = _args => <ColorPicker noColorText="Clear color" />;
+export const colorPickerNoColorTemplate = args => <ColorPicker noColorText="Clear color" {...args} />;
 
 export const colorPickerSelectedIconTemplate = args => (
   <ColorPicker isMultiselect SelectedIndicatorIcon={Check} value="peach" {...args} />
