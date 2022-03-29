@@ -108,6 +108,11 @@ export const waitForElementVisible = getterFunc => {
   });
 };
 
+export const keyboardMultipleTimes = async (text, times, options = { delay: 70 }) => {
+  text = text.repeat(times);
+  await userEvent.keyboard(text, options);
+};
+
 function logFunctionStart(name) {
   expect(` ➡️ ${name}`).toBeDefined();
 }

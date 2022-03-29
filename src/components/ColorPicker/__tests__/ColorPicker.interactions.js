@@ -1,6 +1,6 @@
 import { userEvent, within } from "@storybook/testing-library";
 import { contentColorsByName } from "../../../utils/colors-vars-map";
-import { interactionSuite, resetFocus } from "../../../__tests__/interactions-helper";
+import { interactionSuite, keyboardMultipleTimes, resetFocus } from "../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
 
 async function selectAndResetWithKeyboard(canvas) {
@@ -59,9 +59,4 @@ async function expectColorToBeNotActive(canvas, color) {
 
 async function getColorItem(canvas, color) {
   return await canvas.getByTestId(`color-picker-item-${color}`);
-}
-
-async function keyboardMultipleTimes(text, times) {
-  text = text.repeat(times);
-  await userEvent.keyboard(text);
 }
