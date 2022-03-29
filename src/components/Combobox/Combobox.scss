@@ -65,12 +65,12 @@
     display: flex;
     flex-direction: column;
 
-    .message-wrapper {
+    .combobox-message-wrapper {
       flex: 1 0 auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      .message {
+      .combobox-message {
         @include ellipsis();
       }
     }
