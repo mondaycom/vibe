@@ -6,7 +6,8 @@ import {
   hoverElement,
   waitForElementVisible,
   interactionSuite,
-  resetFocus
+  resetFocus,
+  delay
 } from "../../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
 
@@ -30,7 +31,7 @@ const showSubSubMenusOnHover = async canvas => {
     getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM)
   );
   await clickElement(optionToSelect);
-  expect(document.activeElement).toContainElement(optionToSelect);
+  expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
 
   //close the sub-menus on hovering the top-level menu
   await userEvent.hover(getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.TOP_MENU_NON_SUB_MENU_ITEM));
@@ -38,22 +39,40 @@ const showSubSubMenusOnHover = async canvas => {
   expect(canvas.queryByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM)).not.toBeInTheDocument();
 };
 
-// const showSubSubMenusWithKeyboard = async canvas => {
-//   await hoverMenuElementByText(canvas, "With Sub menu");
-//   // const menuElement = await getByRole(canvas, "menu");
-//   // Click the sub menu
-//   let optionToSelect = getByText(menuElement, "With Sub menu");
-//   await hoverElement(optionToSelect);
-//   // Click the sub sub menu
-//   optionToSelect = getByText(menuElement, "Sub Sub menu");
-//   await hoverElement(optionToSelect);
-//   // validate showing sub sub item
-//   optionToSelect = await waitForElementVisible(() => getMenuElementByText(canvas, "Sub sub item"));
-//   await clickElement(optionToSelect);
-// };
+const showSubSubMenusWithKeyboard = async canvas => {
+  const menuElement = getMenuElement(canvas);
+
+  //set the initial focus, to make the keyboard events work
+  const topMenuItem = getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.TOP_MENU_SUB_MENU_ITEM);
+  await userEvent.click(topMenuItem);
+
+  //open sub menu
+  await userEvent.keyboard("{arrowDown}");
+  await userEvent.keyboard("{arrowDown}");
+  await userEvent.keyboard("{arrowRight}");
+  await waitForElementVisible(() => getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM));
+  expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
+
+  //open sub sub menu
+  await userEvent.keyboard("{arrowDown}");
+  await userEvent.keyboard("{arrowDown}");
+  await userEvent.keyboard("{arrowRight}");
+  await waitForElementVisible(() => getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM));
+  expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
+
+  //close sub-sub-menu - using left arrow
+  await userEvent.keyboard("{arrowLeft}");
+  expect(canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM)).not.toBeInTheDocument();
+  expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
+
+  //close sub-menu - using escape
+  await userEvent.keyboard("{escape}");
+  expect(canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM)).not.toBeInTheDocument();
+  expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.TOP_MENU_SUB_MENU_ITEM);
+};
 
 export const menuWithTwoDepthsSuite = interactionSuite({
-  tests: [showSubSubMenusOnHover],
+  tests: [showSubSubMenusOnHover, showSubSubMenusWithKeyboard],
   afterEach: async () => {
     await resetFocus();
   }
@@ -61,9 +80,4 @@ export const menuWithTwoDepthsSuite = interactionSuite({
 
 function getMenuElement(canvas) {
   return getByRole(canvas, "menu");
-}
-
-async function hoverMenuElementByText(canvas, text) {
-  const toHover = await getMenuElementByText(canvas, text);
-  await hoverElement(toHover);
 }
