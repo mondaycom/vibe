@@ -49,6 +49,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -75,6 +76,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -159,6 +161,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -185,6 +188,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -269,6 +273,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -295,6 +300,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -379,6 +385,7 @@ exports[`Combobox renders correctly with className 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -405,6 +412,7 @@ exports[`Combobox renders correctly with className 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -489,6 +497,7 @@ exports[`Combobox renders correctly with divider 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -515,6 +524,7 @@ exports[`Combobox renders correctly with divider 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -697,6 +707,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -723,6 +734,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -807,6 +819,7 @@ exports[`Combobox renders correctly with id 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -833,6 +846,7 @@ exports[`Combobox renders correctly with id 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -944,6 +958,7 @@ exports[`Combobox renders correctly with loading 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -970,6 +985,7 @@ exports[`Combobox renders correctly with loading 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1054,6 +1070,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1080,6 +1097,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1164,6 +1182,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1190,6 +1209,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1329,6 +1349,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1355,6 +1376,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1439,6 +1461,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1465,6 +1488,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1549,6 +1573,7 @@ exports[`Combobox renders correctly with size 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1575,6 +1600,7 @@ exports[`Combobox renders correctly with size 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
