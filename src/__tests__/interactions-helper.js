@@ -84,7 +84,7 @@ export const typeText = async (element, text, waitForDebounceMs = 250) => {
   return result;
 };
 
-export const pressNavigationKey = async (command = NAVIGATIONS_COMMANDS.TAB, waitForDebounceMs = 250) => {
+export const pressNavigationKey = async (command = NAVIGATIONS_COMMANDS.TAB, waitForDebounceMs = 0) => {
   let promise =
     command === NAVIGATIONS_COMMANDS.TAB
       ? userEvent.tab()
