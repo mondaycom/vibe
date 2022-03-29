@@ -35,6 +35,7 @@ exports[`Search renders correctly when disabled 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -61,6 +62,7 @@ exports[`Search renders correctly when disabled 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -125,6 +127,7 @@ exports[`Search renders correctly when underline 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -151,6 +154,7 @@ exports[`Search renders correctly when underline 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -215,6 +219,7 @@ exports[`Search renders correctly with className 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -241,6 +246,7 @@ exports[`Search renders correctly with className 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -305,6 +311,7 @@ exports[`Search renders correctly with icon 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -321,6 +328,7 @@ exports[`Search renders correctly with icon 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -385,6 +393,7 @@ exports[`Search renders correctly with id 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -411,6 +420,7 @@ exports[`Search renders correctly with id 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -502,6 +512,7 @@ exports[`Search renders correctly with loading 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -528,6 +539,7 @@ exports[`Search renders correctly with loading 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -592,6 +604,7 @@ exports[`Search renders correctly with placeholder 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -618,6 +631,7 @@ exports[`Search renders correctly with placeholder 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -682,6 +696,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -708,6 +723,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -762,6 +778,7 @@ exports[`Search renders correctly with underline type 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -788,6 +805,7 @@ exports[`Search renders correctly with underline type 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -852,6 +870,7 @@ exports[`Search renders correctly with validation 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -878,6 +897,7 @@ exports[`Search renders correctly with validation 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -942,6 +962,7 @@ exports[`Search renders correctly with value 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -968,6 +989,7 @@ exports[`Search renders correctly with value 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -1032,6 +1054,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -1058,6 +1081,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -1122,6 +1146,7 @@ exports[`Search renders correctly without props 1`] = `
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
@@ -1148,6 +1173,7 @@ exports[`Search renders correctly without props 1`] = `
       </div>
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
         onMouseDown={[Function]}
