@@ -1,4 +1,4 @@
-import { within, userEvent } from "@storybook/testing-library";
+import { within, userEvent, fireEvent } from "@storybook/testing-library";
 import { waitFor } from "@testing-library/react";
 import { getTestId, ELEMENT_TYPES as types, NAVIGATIONS_COMMANDS } from "../utils/test-utils";
 import { expect } from "@storybook/jest";
@@ -135,4 +135,59 @@ export const keyboardMultipleTimes = async (text, times, options = { delay: 70 }
 
 function logFunctionStart(name) {
   expect(` ➡️ ${name}`).toBeDefined();
+}
+
+function getElementClientCenter(element) {
+  const { left, top, width, height } = element.getBoundingClientRect();
+  return {
+    x: left + width / 2,
+    y: top + height / 2
+  };
+}
+
+const getCoords = ({ toElm, toCoords, delta, from }) => {
+  if (toCoords) {
+    return { ...from, ...toCoords };
+  }
+  if (toElm) {
+    return getElementClientCenter(toElm);
+  }
+  if (delta) {
+    return {
+      x: from.x + delta.x,
+      y: from.y + delta.y
+    };
+  }
+  return {
+    x: from.x + 10,
+    y: from.y + 0
+  };
+};
+
+export async function drag(
+  element,
+  { delta = undefined, toCoords = undefined, toElm = undefined, steps = 20, duration = 100 }
+) {
+  const from = getElementClientCenter(element);
+  const to = getCoords({ toElm, toCoords, delta, from });
+  const step = {
+    x: (to.x - from.x) / steps,
+    y: (to.y - from.y) / steps
+  };
+  const current = {
+    clientX: from.x,
+    clientY: from.y
+  };
+  userEvent.hover(element);
+  fireEvent.pointerEnter(element, current);
+  fireEvent.pointerOver(element, current);
+  fireEvent.pointerMove(element, current);
+  fireEvent.pointerDown(element, current);
+  for (let i = 0; i < steps; i++) {
+    current.clientX += step.x;
+    current.clientY += step.y;
+    await delay(duration / steps);
+    fireEvent.pointerMove(element, current);
+  }
+  fireEvent.pointerUp(element, current);
 }
