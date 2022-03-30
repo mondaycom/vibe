@@ -1,6 +1,6 @@
 import { within, userEvent } from "@storybook/testing-library";
 import { waitFor } from "@testing-library/react";
-import { getTestId, ELEMENT_TYPES as types } from "../utils/test-utils";
+import { getTestId, ELEMENT_TYPES as types, NAVIGATIONS_COMMANDS } from "../utils/test-utils";
 import { expect } from "@storybook/jest";
 
 export const ELEMENT_TYPES = types;
@@ -90,6 +90,18 @@ export const expectActiveElementToHaveExactText = text => {
 
 export const expectActiveElementToHavePartialText = text => {
   expect(document.activeElement).toHaveTextContent(text);
+};
+
+export const pressNavigationKey = async (command = NAVIGATIONS_COMMANDS.TAB, waitForDebounceMs = 0) => {
+  let promise =
+    command === NAVIGATIONS_COMMANDS.TAB
+      ? userEvent.tab()
+      : userEvent.keyboard(command, {
+          delay: 50
+        });
+  const result = await promise;
+  await delay(waitForDebounceMs);
+  return result;
 };
 
 export function delay(timeout) {
