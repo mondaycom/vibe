@@ -84,6 +84,14 @@ export const typeText = async (element, text, waitForDebounceMs = 250) => {
   return result;
 };
 
+export const expectActiveElementToHaveExactText = text => {
+  expect(document.activeElement).toHaveTextContent(new RegExp(`^${text}$`));
+};
+
+export const expectActiveElementToHavePartialText = text => {
+  expect(document.activeElement).toHaveTextContent(text);
+};
+
 export const pressNavigationKey = async (command = NAVIGATIONS_COMMANDS.TAB, waitForDebounceMs = 0) => {
   let promise = command === NAVIGATIONS_COMMANDS.TAB ? userEvent.tab() : userEvent.keyboard(command);
   const result = await promise;
@@ -106,13 +114,18 @@ export async function resetFocus() {
 export const waitForElementVisible = getterFunc => {
   return new Promise(resolve => {
     let element;
-    waitFor(() => {
-      element = getterFunc();
+    waitFor(async () => {
+      element = await getterFunc();
       expect(element).toBeVisible();
     }).then(() => {
       resolve(element);
     });
   });
+};
+
+export const keyboardMultipleTimes = async (text, times, options = { delay: 70 }) => {
+  text = text.repeat(times);
+  await userEvent.keyboard(text, options);
 };
 
 function logFunctionStart(name) {

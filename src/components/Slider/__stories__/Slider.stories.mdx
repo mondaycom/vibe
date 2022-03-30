@@ -18,7 +18,7 @@ import Slider from "../Slider";
 import Sound from "../../Icon/Icons/components/Sound";
 import Video from "../../Icon/Icons/components/Video";
 import Chips from "../../Chips/Chips";
-import { nonRangedSliderMouseEventsPlaySuite } from "../__tests__/Slider.interactions"
+import { nonRangedSliderMouseEventsPlaySuite, rangedSliderMouseEventsPlaySuite } from "../__tests__/Slider.interactions"
 
 export const argTypes = createStoryMetaSettings({
   component: Slider,
@@ -86,9 +86,9 @@ Sizes small/medium/large are available.
 Slider can define range instead of single value
 
 <Canvas>
-  <Story name="Ranged">
-    <Slider size={Slider.sizes.SMALL} ranged={true} />
-    <Slider size={Slider.sizes.MEDIUM} ranged={true} defaultValue={[12, 55]} />
+  <Story name="Ranged" play={rangedSliderMouseEventsPlaySuite}>
+    <Slider data-testid={"monday-ranged-slider-s"} size={Slider.sizes.SMALL} ranged={true} />
+    <Slider data-testid={"monday-ranged-slider-m"} size={Slider.sizes.MEDIUM} ranged={true} defaultValue={[12, 55]} />
     <Slider size={Slider.sizes.LARGE} ranged={true} defaultValue={[25, 32]} />
   </Story>
 </Canvas>

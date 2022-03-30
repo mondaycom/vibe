@@ -21,7 +21,8 @@ const ColorPickerItemComponent = ({
   colorSize,
   tooltipContent,
   isActive,
-  colorShape
+  colorShape,
+  "data-testid": dataTestId
 }) => {
   const isMondayColor = useMemo(() => contentColors.includes(color), [color]);
   const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
@@ -62,6 +63,7 @@ const ColorPickerItemComponent = ({
           active: isActive,
           circle: colorShape === COLOR_SHAPES.CIRCLE
         })}
+        data-testid={dataTestId}
       >
         <div className="feedback-indicator" />
         <Clickable
