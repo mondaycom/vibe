@@ -42,7 +42,7 @@ const Accordion = forwardRef(
     );
 
     const renderChildElements = useMemo(() => {
-      const childElements = React.Children.map(children, (child, itemIndex) => {
+      return React.Children.map(children, (child, itemIndex) => {
         return React.cloneElement(child, {
           ...child?.props,
           onClickAccordionCallback: () => {
@@ -51,8 +51,6 @@ const Accordion = forwardRef(
           open: isChildExpanded(itemIndex)
         });
       });
-
-      return childElements;
     }, [isChildExpanded, onChildClick, children]);
 
     return (
