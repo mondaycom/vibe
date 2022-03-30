@@ -119,8 +119,8 @@ export async function resetFocus() {
 export const waitForElementVisible = getterFunc => {
   return new Promise(resolve => {
     let element;
-    waitFor(() => {
-      element = getterFunc();
+    waitFor(async () => {
+      element = await getterFunc();
       expect(element).toBeVisible();
     }).then(() => {
       resolve(element);

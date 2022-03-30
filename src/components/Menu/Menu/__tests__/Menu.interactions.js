@@ -1,4 +1,4 @@
-import { userEvent } from "@storybook/testing-library";
+import { userEvent, within } from "@storybook/testing-library";
 import {
   getByRole,
   getByText,
@@ -30,7 +30,7 @@ const showSubSubMenusOnHover = async canvas => {
 
   // validate showing sub sub item
   const optionToSelect = await waitForElementVisible(() =>
-    getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM)
+    within(menuElement).findByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM)
   );
   await clickElement(optionToSelect);
   expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
@@ -52,14 +52,14 @@ const showSubSubMenusWithKeyboard = async canvas => {
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await pressNavigationKey(NAVIGATIONS_COMMANDS.RIGHT_ARROW);
-  await waitForElementVisible(() => getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM));
+  await waitForElementVisible(() => within(menuElement).findByText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM));
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 
   //open sub sub menu
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await pressNavigationKey(NAVIGATIONS_COMMANDS.RIGHT_ARROW);
-  await waitForElementVisible(() => getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM));
+  await waitForElementVisible(() => within(menuElement).findByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM));
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
 
   //close sub-sub-menu - using left arrow
