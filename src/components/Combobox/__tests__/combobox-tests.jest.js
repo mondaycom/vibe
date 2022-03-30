@@ -49,7 +49,7 @@ describe("Combobox tests", () => {
     await waitFor(() => expect(screen.getByText(noRes)).toBeInstanceOf(Node));
   });
 
-  it("should call callback func when add new", async () => {
+  it("should call onAddNew func when add new", async () => {
     const onAddMock = jest.fn();
 
     const { getByLabelText } = render(<Combobox onAddNew={onAddMock} options={mockOptions} />);
