@@ -12,6 +12,7 @@ import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
 import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "components/Clickable/Clickable";
+import {ELEMENT_TYPES, getTestId} from "utils/test-utils";
 
 const NOOP = () => {
 };
@@ -53,7 +54,9 @@ const TextField = forwardRef(
       trim,
       role,
       required,
-      loading
+      loading,
+      dataTestId,
+      secondaryDataTestId
     },
     ref
   ) => {
@@ -143,6 +146,7 @@ const TextField = forwardRef(
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               required={required}
+              data-testid={dataTestId ? dataTestId : getTestId(ELEMENT_TYPES.TEXT_FIELD, id)}
             />
             {loading && (
               <div
@@ -181,6 +185,7 @@ const TextField = forwardRef(
               })}
               onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
+              dataTestId={secondaryDataTestId ? secondaryDataTestId : getTestId(ELEMENT_TYPES.TEXT_FIELD_SECONDARY_BUTTON, id)}
             >
               <Icon
                 icon={secondaryIconName}
