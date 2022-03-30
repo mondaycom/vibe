@@ -17,7 +17,13 @@ const AccordionItem = forwardRef(
 
     return (
       <div ref={mergedRef} className={cx("accordion-item", className)} id={id}>
-        <ExpandCollapse title={title} iconSize={iconSize} open={open} onClick={onClickCallback}>
+        <ExpandCollapse
+          iconSize={iconSize}
+          id={`expand-collapse--${id}`}
+          onClick={onClickCallback}
+          open={open}
+          title={title}
+        >
           {children}
         </ExpandCollapse>
       </div>

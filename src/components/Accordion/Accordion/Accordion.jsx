@@ -4,6 +4,18 @@ import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./Accordion.scss";
 
+const COMPONENT_ID = "monday-accordion";
+
+function defineChildId(index, props, accordionId) {
+  if (props.id) {
+    return props.id;
+  }
+  if (accordionId) {
+    return `${accordionId}--item-${index}`;
+  }
+  return `${COMPONENT_ID}--item-${index}`;
+}
+
 const Accordion = forwardRef(
   ({ children: originalChildren, allowMultiple, "data-testid": dataTestId, defaultIndex, className, id }, ref) => {
     const componentRef = useRef(null);
@@ -43,15 +55,18 @@ const Accordion = forwardRef(
 
     const renderChildElements = useMemo(() => {
       return React.Children.map(children, (child, itemIndex) => {
+        const originalProps = { ...child?.props };
+        const childId = defineChildId(itemIndex, originalProps, id);
         return React.cloneElement(child, {
-          ...child?.props,
+          ...originalProps,
+          id: childId,
           onClickAccordionCallback: () => {
             onChildClick(itemIndex);
           },
           open: isChildExpanded(itemIndex)
         });
       });
-    }, [isChildExpanded, onChildClick, children]);
+    }, [children, id, isChildExpanded, onChildClick]);
 
     return (
       <div ref={mergedRef} className={cx("accordion", className)} data-testid={dataTestId} id={id}>
@@ -93,7 +108,7 @@ Accordion.defaultProps = {
   id: undefined,
   allowMultiple: false,
   children: null,
-  "data-testid": "monday-accordion",
+  "data-testid": COMPONENT_ID,
   defaultIndex: []
 };
 
