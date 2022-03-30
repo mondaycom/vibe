@@ -7,12 +7,10 @@ import {
   clickElement,
   resetFocus,
   typeText,
-  getByClassName,
   interactionSuite,
-  pressNavigationKey,
-  getByRole
+  pressNavigationKey
 } from "../../../__tests__/interactions-helper";
-import { userEvent, fireEvent, queryByText } from "@storybook/testing-library";
+import { queryByText } from "@storybook/testing-library";
 import { getTestId, NAVIGATIONS_COMMANDS } from "utils/test-utils";
 
 async function getSearchElement(canvas) {
@@ -41,6 +39,7 @@ async function onSelectExistFilterClearsFilterTest(canvas) {
 }
 
 // there is no story which is not overview which activate this ability
+// eslint-disable-next-line no-unused-vars
 async function onSelectOptionClearsFilterTest(canvas) {
   const { comboboxElement, searchElement } = await getSearchElement(canvas);
   await typeText(searchElement, "Option");

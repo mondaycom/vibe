@@ -3,7 +3,6 @@ import React, { forwardRef, useRef, useMemo, useCallback, useEffect } from "reac
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
-import "./TextField.scss";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
 import { FEEDBACK_CLASSES, FEEDBACK_STATES, sizeMapper } from "./TextFieldHelpers";
@@ -12,7 +11,8 @@ import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
 import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "components/Clickable/Clickable";
-import {ELEMENT_TYPES, getTestId} from "utils/test-utils";
+import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import "./TextField.scss";
 
 const NOOP = () => {
 };

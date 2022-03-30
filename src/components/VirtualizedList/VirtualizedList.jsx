@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
+import { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
 import cx from "classnames";
@@ -338,6 +338,7 @@ VirtualizedList.defaultProps = {
   className: "",
   id: "",
   items: [],
+  // eslint-disable-next-line no-unused-vars
   itemRenderer: (item, _index, style) => item,
   getItemHeight: (item, _index) => item.height,
   getItemId: (item, _index) => item.id,
