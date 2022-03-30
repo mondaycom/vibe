@@ -3,6 +3,7 @@
 exports[`renders correctly with empty props 1`] = `
 <div
   className="monday-style-clickable monday-style-clickable--disable-text-selection"
+  data-testid="clickable"
   onClick={[Function]}
   onKeyDown={[Function]}
   onMouseDown={[Function]}
@@ -14,6 +15,7 @@ exports[`renders correctly with empty props 1`] = `
 exports[`renders correctly with props 1`] = `
 <div
   className="monday-style-clickable monday-style_tests-class"
+  data-testid="clickable"
   onClick={[Function]}
   onKeyDown={[Function]}
   onMouseDown={[Function]}

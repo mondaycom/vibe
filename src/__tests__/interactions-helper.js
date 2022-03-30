@@ -1,6 +1,6 @@
 import { within, userEvent } from "@storybook/testing-library";
 import { waitFor } from "@testing-library/react";
-import { getTestId, ELEMENT_TYPES as types } from "../utils/test-utils";
+import { getTestId, ELEMENT_TYPES as types, NAVIGATIONS_COMMANDS } from "../utils/test-utils";
 import { expect } from "@storybook/jest";
 
 export const ELEMENT_TYPES = types;
@@ -84,6 +84,18 @@ export const typeText = async (element, text, waitForDebounceMs = 250) => {
   return result;
 };
 
+export const pressNavigationKey = async (command = NAVIGATIONS_COMMANDS.TAB, waitForDebounceMs = 0) => {
+  let promise =
+    command === NAVIGATIONS_COMMANDS.TAB
+      ? userEvent.tab()
+      : userEvent.keyboard(command, {
+          delay: 50
+        });
+  const result = await promise;
+  await delay(waitForDebounceMs);
+  return result;
+};
+
 export function delay(timeout) {
   return new Promise(resolve => {
     if (!timeout) return resolve();
@@ -92,7 +104,7 @@ export function delay(timeout) {
 }
 
 export async function resetFocus() {
-  const focusTrap = document.querySelector("[data-testid=focusTrap");
+  const focusTrap = document.querySelector("[data-testid=focusTrap]");
   await userEvent.click(focusTrap);
 }
 

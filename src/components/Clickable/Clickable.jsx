@@ -6,6 +6,7 @@ import cx from "classnames";
 import useMergeRefs from "hooks/useMergeRefs";
 import { BEMClass } from "helpers/bem-helper";
 import { useKeyboardButtonPressedFunc } from "hooks/useKeyboardButtonPressedFunc";
+import { ELEMENT_TYPES } from "utils/test-utils";
 import "./Clickable.scss";
 
 const CSS_BASE_CLASS = "monday-style-clickable";
@@ -41,11 +42,12 @@ const Clickable = forwardRef(
           disabled,
           [bemHelper({ state: "disable-text-selection" })]: !enableTextSelection
         })}
+        data-testid={ELEMENT_TYPES.CLICKABLE}
         role={role}
         onClick={disabled ? undefined : onClick}
         id={id}
         onKeyDown={disabled ? undefined : onKeyDown}
-        tabIndex={tabIndex}
+        tabIndex={disabled ? -1 : tabIndex}
         aria-label={ariaLabel}
         aria-hidden={ariaHidden}
         onMouseDown={onMouseDown}
