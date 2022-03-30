@@ -36,13 +36,15 @@ const Avatar = ({
   bottomLeftBadgeProps,
   bottomRightBadgeProps,
   withoutBorder,
-  customSize
+  customSize,
+  customBackgroundColor
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const backgroundColorStyle = useMemo(() => {
+    if (customBackgroundColor) return { backgroundColor: customBackgroundColor };
     return src ? {} : { backgroundColor: getElementColor(backgroundColor) };
-  }, [src, backgroundColor]);
+  }, [src, backgroundColor, customBackgroundColor]);
   const sizeStyle = useMemo(() => {
     return customSize ? { height: `${customSize}px`, width: `${customSize}px` } : {};
   }, [customSize]);
@@ -129,6 +131,7 @@ Avatar.propTypes = {
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   className: PropTypes.string,
   backgroundColor: PropTypes.oneOf(Object.values(Avatar.colors)),
+  customBackgroundColor: PropTypes.string,
   role: PropTypes.string,
   ariaLabel: PropTypes.string,
   size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
@@ -151,6 +154,7 @@ Avatar.defaultProps = {
   text: undefined,
   type: AVATAR_TYPES.TEXT,
   backgroundColor: elementColorsNames.CHILI_BLUE,
+  customBackgroundColor: null,
   role: undefined,
   ariaLabel: undefined,
   size: AVATAR_SIZES.LARGE,
