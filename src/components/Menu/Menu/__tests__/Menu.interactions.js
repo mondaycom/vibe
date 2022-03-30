@@ -6,9 +6,11 @@ import {
   waitForElementVisible,
   interactionSuite,
   resetFocus,
-  expectActiveElementToHavePartialText
+  expectActiveElementToHavePartialText,
+  pressNavigationKey
 } from "../../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
+import { NAVIGATIONS_COMMANDS } from "../../../../utils/test-utils";
 
 const TWO_DEPTHS_MENU_TEXTS = {
   TOP_MENU_SUB_MENU_ITEM: "With Sub menu",
@@ -47,21 +49,21 @@ const showSubSubMenusWithKeyboard = async canvas => {
   await userEvent.click(topMenuItem);
 
   //open sub menu
-  await userEvent.keyboard("{arrowDown}");
-  await userEvent.keyboard("{arrowDown}");
-  await userEvent.keyboard("{arrowRight}");
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.RIGHT_ARROW);
   await waitForElementVisible(() => getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM));
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 
   //open sub sub menu
-  await userEvent.keyboard("{arrowDown}");
-  await userEvent.keyboard("{arrowDown}");
-  await userEvent.keyboard("{arrowRight}");
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.RIGHT_ARROW);
   await waitForElementVisible(() => getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM));
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
 
   //close sub-sub-menu - using left arrow
-  await userEvent.keyboard("{arrowLeft}");
+  await pressNavigationKey(NAVIGATIONS_COMMANDS.LEFT_ARROW);
   expect(canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM)).not.toBeInTheDocument();
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 
