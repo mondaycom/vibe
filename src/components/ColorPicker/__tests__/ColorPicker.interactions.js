@@ -1,7 +1,13 @@
 import { userEvent, within } from "@storybook/testing-library";
 import { contentColorsByName } from "../../../utils/colors-vars-map";
-import { interactionSuite, keyboardMultipleTimes, resetFocus } from "../../../__tests__/interactions-helper";
+import {
+  ELEMENT_TYPES,
+  interactionSuite,
+  keyboardMultipleTimes,
+  resetFocus
+} from "../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
+import { getTestId } from "../../../utils/test-utils";
 
 async function selectAndResetWithKeyboard(canvas) {
   await clickOnColor(canvas, contentColorsByName.BRIGHT_GREEN);
@@ -89,5 +95,5 @@ async function expectColorToBeNotActive(canvas, color) {
 }
 
 async function getColorItem(canvas, color) {
-  return await canvas.getByTestId(`color-picker-item-${color}`);
+  return await canvas.getByTestId(getTestId(ELEMENT_TYPES.COLOR_PICKER_ITEM, color));
 }

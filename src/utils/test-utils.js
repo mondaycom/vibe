@@ -2,7 +2,8 @@ export const ELEMENT_TYPES = {
   COMBOBOX: "combobox",
   DROPDOWN: "dropdown",
   BUTTON: "button",
-  CLICKABLE: "clickable"
+  CLICKABLE: "clickable",
+  COLOR_PICKER_ITEM: "color-picker-item"
 };
 
 export const NAVIGATIONS_COMMANDS = {
