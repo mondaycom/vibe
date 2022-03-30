@@ -69,31 +69,31 @@ export const multiSelectionInteractionSuite = interactionSuite({
 });
 
 async function clickOnColor(canvas, color) {
-  const element = await getColorItem(canvas, color);
-  const toClick = within(element).getByLabelText(color);
+  const element = await findColorItem(canvas, color);
+  const toClick = await within(element).findByLabelText(color);
   await userEvent.click(toClick);
 }
 
 async function expectColorToBeSelected(canvas, color) {
-  const element = await getColorItem(canvas, color);
+  const element = await findColorItem(canvas, color);
   expect(element).toHaveClass("selected-color");
 }
 
 async function expectColorToBeNotSelected(canvas, color) {
-  const element = await getColorItem(canvas, color);
+  const element = await findColorItem(canvas, color);
   expect(element).not.toHaveClass("selected-color");
 }
 
 async function expectColorToBeActive(canvas, color) {
-  const element = await getColorItem(canvas, color);
+  const element = await findColorItem(canvas, color);
   expect(element).toHaveClass("active");
 }
 
 async function expectColorToBeNotActive(canvas, color) {
-  const element = await getColorItem(canvas, color);
+  const element = await findColorItem(canvas, color);
   expect(element).not.toHaveClass("active");
 }
 
-async function getColorItem(canvas, color) {
-  return await canvas.getByTestId(getTestId(ELEMENT_TYPES.COLOR_PICKER_ITEM, color));
+async function findColorItem(canvas, color) {
+  return await canvas.findByTestId(getTestId(ELEMENT_TYPES.COLOR_PICKER_ITEM, color));
 }
