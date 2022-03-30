@@ -25,7 +25,7 @@ const changeSliderValueByClickingOnTrackTest = async canvas => {
   await delay(CHANGES_DELAY);
   await expect(elThumb.getAttribute("aria-valuenow")).toBe("100");
   // go to middle
-  userEvent.click(elRail, { clientX: Math.floor(rect.left + rect.width / 2) });
+  userEvent.click(elRail, { clientX: Math.floor(rect.left + rect.width * 0.5) });
   await delay(CHANGES_DELAY);
   await expect(elThumb.getAttribute("aria-valuenow")).toBe("50");
 };
@@ -56,11 +56,11 @@ const changeRangedSliderValueByClickingOnTrackTest = async canvas => {
   await delay(CHANGES_DELAY);
   await expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("100");
   // Start Thumb to 1/3 (33)
-  userEvent.click(elRail, { clientX: Math.floor(rect.left + rect.width / 3) });
+  userEvent.click(elRail, { clientX: Math.floor(rect.left + rect.width * 0.25) });
   await delay(CHANGES_DELAY);
-  await expect(elThumbStart.getAttribute("aria-valuenow")).toBe("33");
+  await expect(elThumbStart.getAttribute("aria-valuenow")).toBe("25");
   // Start Thumb to 3/4 (75)
-  userEvent.click(elRail, { clientX: Math.floor(rect.left + rect.width * (3 / 4)) });
+  userEvent.click(elRail, { clientX: Math.floor(rect.left + rect.width * 0.75) });
   await delay(CHANGES_DELAY);
   await expect(elThumbEnd.getAttribute("aria-valuenow")).toBe("75");
 };
