@@ -27,7 +27,7 @@ exports[`renders correctly with empty props 1`] = `
     >
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_grass_green"
+        data-testid="color-picker-item-grass_green"
       >
         <div
           className="feedback-indicator"
@@ -55,7 +55,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_done-green"
+        data-testid="color-picker-item-done-green"
       >
         <div
           className="feedback-indicator"
@@ -83,7 +83,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_bright-green"
+        data-testid="color-picker-item-bright-green"
       >
         <div
           className="feedback-indicator"
@@ -111,7 +111,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_saladish"
+        data-testid="color-picker-item-saladish"
       >
         <div
           className="feedback-indicator"
@@ -139,7 +139,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_egg_yolk"
+        data-testid="color-picker-item-egg_yolk"
       >
         <div
           className="feedback-indicator"
@@ -167,7 +167,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_working_orange"
+        data-testid="color-picker-item-working_orange"
       >
         <div
           className="feedback-indicator"
@@ -195,7 +195,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_dark-orange"
+        data-testid="color-picker-item-dark-orange"
       >
         <div
           className="feedback-indicator"
@@ -223,7 +223,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_peach"
+        data-testid="color-picker-item-peach"
       >
         <div
           className="feedback-indicator"
@@ -251,7 +251,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_sunset"
+        data-testid="color-picker-item-sunset"
       >
         <div
           className="feedback-indicator"
@@ -279,7 +279,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_stuck-red"
+        data-testid="color-picker-item-stuck-red"
       >
         <div
           className="feedback-indicator"
@@ -307,7 +307,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_dark-red"
+        data-testid="color-picker-item-dark-red"
       >
         <div
           className="feedback-indicator"
@@ -335,7 +335,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_sofia_pink"
+        data-testid="color-picker-item-sofia_pink"
       >
         <div
           className="feedback-indicator"
@@ -363,7 +363,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_lipstick"
+        data-testid="color-picker-item-lipstick"
       >
         <div
           className="feedback-indicator"
@@ -391,7 +391,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_bubble"
+        data-testid="color-picker-item-bubble"
       >
         <div
           className="feedback-indicator"
@@ -419,7 +419,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_purple"
+        data-testid="color-picker-item-purple"
       >
         <div
           className="feedback-indicator"
@@ -447,7 +447,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_dark_purple"
+        data-testid="color-picker-item-dark_purple"
       >
         <div
           className="feedback-indicator"
@@ -475,7 +475,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_berry"
+        data-testid="color-picker-item-berry"
       >
         <div
           className="feedback-indicator"
@@ -503,7 +503,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_dark_indigo"
+        data-testid="color-picker-item-dark_indigo"
       >
         <div
           className="feedback-indicator"
@@ -531,7 +531,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_indigo"
+        data-testid="color-picker-item-indigo"
       >
         <div
           className="feedback-indicator"
@@ -559,7 +559,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_navy"
+        data-testid="color-picker-item-navy"
       >
         <div
           className="feedback-indicator"
@@ -587,7 +587,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_bright-blue"
+        data-testid="color-picker-item-bright-blue"
       >
         <div
           className="feedback-indicator"
@@ -615,7 +615,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_dark-blue"
+        data-testid="color-picker-item-dark-blue"
       >
         <div
           className="feedback-indicator"
@@ -643,7 +643,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_aquamarine"
+        data-testid="color-picker-item-aquamarine"
       >
         <div
           className="feedback-indicator"
@@ -671,7 +671,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_chili-blue"
+        data-testid="color-picker-item-chili-blue"
       >
         <div
           className="feedback-indicator"
@@ -699,7 +699,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_river"
+        data-testid="color-picker-item-river"
       >
         <div
           className="feedback-indicator"
@@ -727,7 +727,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_winter"
+        data-testid="color-picker-item-winter"
       >
         <div
           className="feedback-indicator"
@@ -755,7 +755,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_explosive"
+        data-testid="color-picker-item-explosive"
       >
         <div
           className="feedback-indicator"
@@ -783,7 +783,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_american_gray"
+        data-testid="color-picker-item-american_gray"
       >
         <div
           className="feedback-indicator"
@@ -811,7 +811,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_blackish"
+        data-testid="color-picker-item-blackish"
       >
         <div
           className="feedback-indicator"
@@ -839,7 +839,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_brown"
+        data-testid="color-picker-item-brown"
       >
         <div
           className="feedback-indicator"
@@ -867,7 +867,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_orchid"
+        data-testid="color-picker-item-orchid"
       >
         <div
           className="feedback-indicator"
@@ -895,7 +895,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_tan"
+        data-testid="color-picker-item-tan"
       >
         <div
           className="feedback-indicator"
@@ -923,7 +923,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_sky"
+        data-testid="color-picker-item-sky"
       >
         <div
           className="feedback-indicator"
@@ -951,7 +951,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_coffee"
+        data-testid="color-picker-item-coffee"
       >
         <div
           className="feedback-indicator"
@@ -979,7 +979,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_royal"
+        data-testid="color-picker-item-royal"
       >
         <div
           className="feedback-indicator"
@@ -1007,7 +1007,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_teal"
+        data-testid="color-picker-item-teal"
       >
         <div
           className="feedback-indicator"
@@ -1035,7 +1035,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_lavender"
+        data-testid="color-picker-item-lavender"
       >
         <div
           className="feedback-indicator"
@@ -1063,7 +1063,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_steel"
+        data-testid="color-picker-item-steel"
       >
         <div
           className="feedback-indicator"
@@ -1091,7 +1091,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_lilac"
+        data-testid="color-picker-item-lilac"
       >
         <div
           className="feedback-indicator"
@@ -1119,7 +1119,7 @@ exports[`renders correctly with empty props 1`] = `
       </li>
       <li
         className="monday-style-color-item-wrapper"
-        data-testid="color-picker-item_pecan"
+        data-testid="color-picker-item-pecan"
       >
         <div
           className="feedback-indicator"
