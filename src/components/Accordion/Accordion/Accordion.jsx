@@ -4,62 +4,64 @@ import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import "./Accordion.scss";
 
-const Accordion = forwardRef(({ children: originalChildren, allowMultiple, defaultIndex, className, id }, ref) => {
-  const componentRef = useRef(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+const Accordion = forwardRef(
+  ({ children: originalChildren, allowMultiple, "data-testid": dataTestId, defaultIndex, className, id }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-  const [expandedItems, setExpandedItems] = useState(defaultIndex);
+    const [expandedItems, setExpandedItems] = useState(defaultIndex);
 
-  const children = useMemo(() => React.Children.toArray(originalChildren), [originalChildren]);
+    const children = useMemo(() => React.Children.toArray(originalChildren), [originalChildren]);
 
-  const isChildExpanded = useCallback(
-    itemIndex => {
-      return expandedItems.includes(itemIndex);
-    },
-    [expandedItems]
-  );
+    const isChildExpanded = useCallback(
+      itemIndex => {
+        return expandedItems.includes(itemIndex);
+      },
+      [expandedItems]
+    );
 
-  const onChildClick = useCallback(
-    itemIndex => {
-      if (allowMultiple) {
-        const newExpandedItems = [...expandedItems];
-        if (isChildExpanded(itemIndex)) {
-          const index = newExpandedItems.indexOf(itemIndex);
-          if (index > -1) {
-            newExpandedItems.splice(index, 1);
+    const onChildClick = useCallback(
+      itemIndex => {
+        if (allowMultiple) {
+          const newExpandedItems = [...expandedItems];
+          if (isChildExpanded(itemIndex)) {
+            const index = newExpandedItems.indexOf(itemIndex);
+            if (index > -1) {
+              newExpandedItems.splice(index, 1);
+            }
+          } else {
+            newExpandedItems.push(itemIndex);
           }
-        } else {
-          newExpandedItems.push(itemIndex);
+          setExpandedItems(newExpandedItems);
+          return;
         }
-        setExpandedItems(newExpandedItems);
-        return;
-      }
 
-      setExpandedItems([itemIndex]);
-    },
-    [isChildExpanded, expandedItems, allowMultiple]
-  );
+        setExpandedItems([itemIndex]);
+      },
+      [isChildExpanded, expandedItems, allowMultiple]
+    );
 
-  const renderChildElements = useMemo(() => {
-    const childElements = React.Children.map(children, (child, itemIndex) => {
-      return React.cloneElement(child, {
-        ...child?.props,
-        onClickAccordionCallback: () => {
-          onChildClick(itemIndex);
-        },
-        open: isChildExpanded(itemIndex)
+    const renderChildElements = useMemo(() => {
+      const childElements = React.Children.map(children, (child, itemIndex) => {
+        return React.cloneElement(child, {
+          ...child?.props,
+          onClickAccordionCallback: () => {
+            onChildClick(itemIndex);
+          },
+          open: isChildExpanded(itemIndex)
+        });
       });
-    });
 
-    return childElements;
-  }, [isChildExpanded, onChildClick, children]);
+      return childElements;
+    }, [isChildExpanded, onChildClick, children]);
 
-  return (
-    <div ref={mergedRef} className={cx("accordion", className)} id={id}>
-      {children && renderChildElements}
-    </div>
-  );
-});
+    return (
+      <div ref={mergedRef} className={cx("accordion", className)} data-testid={dataTestId} id={id}>
+        {children && renderChildElements}
+      </div>
+    );
+  }
+);
 
 Accordion.propTypes = {
   /**
@@ -79,6 +81,10 @@ Accordion.propTypes = {
    */
   defaultIndex: PropTypes.array,
   /**
+   * Unique TestId - can be used as Selector for integration tests and other needs (tracking, etc.)
+   */
+  "data-testid": PropTypes.string,
+  /**
    * The value of the expandable section
    */
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
@@ -89,6 +95,7 @@ Accordion.defaultProps = {
   id: undefined,
   allowMultiple: false,
   children: null,
+  "data-testid": "monday-accordion",
   defaultIndex: []
 };
 
