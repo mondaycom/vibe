@@ -52,14 +52,18 @@ const showSubSubMenusWithKeyboard = async canvas => {
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await pressNavigationKey(NAVIGATIONS_COMMANDS.RIGHT_ARROW);
-  await waitForElementVisible(() => within(menuElement).findByText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM));
+  await waitForElementVisible(() =>
+    within(menuElement).findByText(new RegExp(`^${TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM}$`))
+  );
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 
   //open sub sub menu
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await pressNavigationKey(NAVIGATIONS_COMMANDS.RIGHT_ARROW);
-  await waitForElementVisible(() => within(menuElement).findByText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM));
+  await waitForElementVisible(() =>
+    within(menuElement).findByText(new RegExp(`^${TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM}$`))
+  );
   expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
 
   //close sub-sub-menu - using left arrow
