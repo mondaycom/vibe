@@ -9,6 +9,7 @@ import {
 } from "../../../__tests__/interactions-helper";
 
 const CHANGES_DELAY = 1;
+const MOVE_DURATION = 100;
 
 // Decrease/Increase value by mouse click on Track/Rail of Slider
 const changeSliderValueByClickingOnTrackTest = async canvas => {
@@ -33,11 +34,18 @@ const changeSliderValueByClickingOnTrackTest = async canvas => {
 // Decrease value by drug Thumb of Slider
 const decreaseSliderValueByDragThumbTest = async canvas => {
   const elRail = canvas.getByTestId("monday-slider-show-value-m__rail");
+  const rect = elRail.getBoundingClientRect();
   const elThumb = await waitForElementVisible(() => within(elRail).getByRole("slider"));
-  // const before = elThumb.getAttribute("aria-valuenow");
-  await drag(elThumb, { delta: { x: -50, y: 0 } });
-  // const after = elThumb.getAttribute("aria-valuenow");
-  // await expect(before).not.toBe(after);
+  await drag(elThumb, {
+    duration: MOVE_DURATION,
+    toCoords: { x: Math.ceil(rect.left + rect.width * 0.25) }
+  });
+  await expect(elThumb.getAttribute("aria-valuenow")).toBe("25");
+  await drag(elThumb, {
+    duration: MOVE_DURATION,
+    toCoords: { x: Math.ceil(rect.left + rect.width * 0.75) }
+  });
+  await expect(elThumb.getAttribute("aria-valuenow")).toBe("75");
 };
 
 // Decrease/Increase value by mouse click on Track/Rail of Slider

@@ -134,7 +134,7 @@ function getElementClientCenter(element) {
 
 const getCoords = ({ toElm, toCoords, delta, from }) => {
   if (toCoords) {
-    return toCoords;
+    return { ...from, ...toCoords };
   }
   if (toElm) {
     return getElementClientCenter(toElm);
@@ -153,7 +153,7 @@ const getCoords = ({ toElm, toCoords, delta, from }) => {
 
 export async function drag(
   element,
-  { delta = undefined, toCoords = undefined, toElm = undefined, steps = 20, duration = 500 }
+  { delta = undefined, toCoords = undefined, toElm = undefined, steps = 20, duration = 100 }
 ) {
   const from = getElementClientCenter(element);
   const to = getCoords({ toElm, toCoords, delta, from });
@@ -165,7 +165,6 @@ export async function drag(
     clientX: from.x,
     clientY: from.y
   };
-  console.log("interactions-helper: drag", { current, step, to, from, element });
   userEvent.hover(element);
   fireEvent.pointerEnter(element, current);
   fireEvent.pointerOver(element, current);
