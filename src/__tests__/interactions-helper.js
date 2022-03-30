@@ -155,15 +155,15 @@ export async function drag(
   };
   console.log("interactions-helper: drag", { current, step, to, from, element });
   userEvent.hover(element);
-  fireEvent.mouseEnter(element, current);
-  fireEvent.mouseOver(element, current);
-  fireEvent.mouseMove(element, current);
-  fireEvent.mouseDown(element, current);
+  fireEvent.pointerEnter(element, current);
+  fireEvent.pointerOver(element, current);
+  fireEvent.pointerMove(element, current);
+  fireEvent.pointerDown(element, current);
   for (let i = 0; i < steps; i++) {
     current.clientX += step.x;
     current.clientY += step.y;
     await delay(duration / steps);
-    fireEvent.mouseMove(element, current);
+    fireEvent.pointerMove(element, current);
   }
-  fireEvent.mouseUp(element, current);
+  fireEvent.pointerUp(element, current);
 }
