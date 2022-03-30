@@ -84,6 +84,14 @@ export const typeText = async (element, text, waitForDebounceMs = 250) => {
   return result;
 };
 
+export const expectActiveElementToHaveExactText = text => {
+  expect(document.activeElement).toHaveTextContent(new RegExp(`^${text}$`));
+};
+
+export const expectActiveElementToHavePartialText = text => {
+  expect(document.activeElement).toHaveTextContent(text);
+};
+
 export function delay(timeout) {
   return new Promise(resolve => {
     if (!timeout) return resolve();

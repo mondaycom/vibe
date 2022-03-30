@@ -5,7 +5,8 @@ import {
   clickElement,
   waitForElementVisible,
   interactionSuite,
-  resetFocus
+  resetFocus,
+  expectActiveElementToHavePartialText
 } from "../../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
 
@@ -15,6 +16,7 @@ const TWO_DEPTHS_MENU_TEXTS = {
   SUB_SUB_MENU_ITEM: "Sub sub item",
   TOP_MENU_NON_SUB_MENU_ITEM: "Another item"
 };
+
 const showSubSubMenusOnHover = async canvas => {
   const menuElement = getMenuElement(canvas);
 
@@ -49,24 +51,24 @@ const showSubSubMenusWithKeyboard = async canvas => {
   await userEvent.keyboard("{arrowDown}");
   await userEvent.keyboard("{arrowRight}");
   await waitForElementVisible(() => getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM));
-  expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
+  expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 
   //open sub sub menu
   await userEvent.keyboard("{arrowDown}");
   await userEvent.keyboard("{arrowDown}");
   await userEvent.keyboard("{arrowRight}");
   await waitForElementVisible(() => getByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM));
-  expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
+  expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM);
 
   //close sub-sub-menu - using left arrow
   await userEvent.keyboard("{arrowLeft}");
   expect(canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_SUB_MENU_ITEM)).not.toBeInTheDocument();
-  expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
+  expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM);
 
   //close sub-menu - using escape
   await userEvent.keyboard("{escape}");
   expect(canvas.queryByText(menuElement, TWO_DEPTHS_MENU_TEXTS.SUB_MENU_ITEM)).not.toBeInTheDocument();
-  expect(document.activeElement).toHaveTextContent(TWO_DEPTHS_MENU_TEXTS.TOP_MENU_SUB_MENU_ITEM);
+  expectActiveElementToHavePartialText(TWO_DEPTHS_MENU_TEXTS.TOP_MENU_SUB_MENU_ITEM);
 };
 
 export const menuWithTwoDepthsSuite = interactionSuite({
