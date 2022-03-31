@@ -185,7 +185,7 @@ const TextField = forwardRef(
               })}
               onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
-              dataTestId={secondaryDataTestId ? secondaryDataTestId : getTestId(ELEMENT_TYPES.TEXT_FIELD_SECONDARY_BUTTON, id)}
+              dataTestId={secondaryDataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD_SECONDARY_BUTTON, id)}
             >
               <Icon
                 icon={secondaryIconName}
