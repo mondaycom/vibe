@@ -13,20 +13,20 @@ import {
 import { queryByText } from "@storybook/testing-library";
 import { getTestId, NAVIGATIONS_COMMANDS } from "utils/test-utils";
 
-async function getSearchElement(canvas) {
+async function getComponentElements(canvas) {
   const comboboxElement = await getByTestId(canvas, ELEMENT_TYPES.COMBOBOX);
   const searchElement = await getByLabelText(comboboxElement, "Search for content");
   return { comboboxElement, searchElement };
 }
 
 async function onTypeFilterComboboxOptionsTest(canvas) {
-  const { comboboxElement, searchElement } = await getSearchElement(canvas);
+  const { comboboxElement, searchElement } = await getComponentElements(canvas);
   await typeText(searchElement, "jjj");
   expect(queryByText(comboboxElement, "Option 1")).toBeNull();
 }
 
 async function onSelectExistFilterClearsFilterTest(canvas) {
-  const { comboboxElement, searchElement } = await getSearchElement(canvas);
+  const { comboboxElement, searchElement } = await getComponentElements(canvas);
   await typeText(searchElement, "jjj");
   const cleanSearchButton = getByTestId(
     comboboxElement,
@@ -41,7 +41,7 @@ async function onSelectExistFilterClearsFilterTest(canvas) {
 // there is no story which is not overview which activate this ability
 // eslint-disable-next-line no-unused-vars
 async function onSelectOptionClearsFilterTest(canvas) {
-  const { comboboxElement, searchElement } = await getSearchElement(canvas);
+  const { comboboxElement, searchElement } = await getComponentElements(canvas);
   await typeText(searchElement, "Option");
   const optionToClick = getByText(comboboxElement, "Option 1");
   await clickElement(optionToClick);
@@ -51,7 +51,7 @@ async function onSelectOptionClearsFilterTest(canvas) {
 }
 
 async function onNavigateBetweenOptionsByArrowsAriaUpdates(canvas) {
-  const { comboboxElement, searchElement } = await getSearchElement(canvas);
+  const { comboboxElement, searchElement } = await getComponentElements(canvas);
 
   // Press on list for initial focus
   await clickElement(searchElement);
