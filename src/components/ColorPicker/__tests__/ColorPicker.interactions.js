@@ -1,7 +1,13 @@
 import { userEvent, within } from "@storybook/testing-library";
 import { contentColorsByName } from "../../../utils/colors-vars-map";
-import { interactionSuite, keyboardMultipleTimes, resetFocus } from "../../../__tests__/interactions-helper";
+import {
+  ELEMENT_TYPES,
+  interactionSuite,
+  keyboardMultipleTimes,
+  resetFocus
+} from "../../../__tests__/interactions-helper";
 import { expect } from "@storybook/jest";
+import { getTestId } from "../../../utils/test-utils";
 
 async function selectAndResetWithKeyboard(canvas) {
   await clickOnColor(canvas, contentColorsByName.BRIGHT_GREEN);
@@ -63,31 +69,31 @@ export const multiSelectionInteractionSuite = interactionSuite({
 });
 
 async function clickOnColor(canvas, color) {
-  const element = await getColorItem(canvas, color);
-  const toClick = within(element).getByLabelText(color);
+  const element = await findColorItem(canvas, color);
+  const toClick = await within(element).findByLabelText(color);
   await userEvent.click(toClick);
 }
 
 async function expectColorToBeSelected(canvas, color) {
-  const element = await getColorItem(canvas, color);
+  const element = await findColorItem(canvas, color);
   expect(element).toHaveClass("selected-color");
 }
 
 async function expectColorToBeNotSelected(canvas, color) {
-  const element = await getColorItem(canvas, color);
+  const element = await findColorItem(canvas, color);
   expect(element).not.toHaveClass("selected-color");
 }
 
 async function expectColorToBeActive(canvas, color) {
-  const element = await getColorItem(canvas, color);
+  const element = await findColorItem(canvas, color);
   expect(element).toHaveClass("active");
 }
 
 async function expectColorToBeNotActive(canvas, color) {
-  const element = await getColorItem(canvas, color);
+  const element = await findColorItem(canvas, color);
   expect(element).not.toHaveClass("active");
 }
 
-async function getColorItem(canvas, color) {
-  return await canvas.getByTestId(`color-picker-item-${color}`);
+async function findColorItem(canvas, color) {
+  return await canvas.findByTestId(getTestId(ELEMENT_TYPES.COLOR_PICKER_ITEM, color));
 }
