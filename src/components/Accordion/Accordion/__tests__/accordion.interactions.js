@@ -15,7 +15,6 @@ function getOpenedAccordionItem(canvas) {
 }
 
 const openCloseAccordionSingleActiveTests = async canvas => {
-  // prepare: take sizes of slider and waiting for render
   let elHeading, elPanel;
   await delay(CHANGES_DELAY);
 
