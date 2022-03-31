@@ -35,7 +35,7 @@ async function onSelectExistFilterClearsFilterTest(canvas) {
   await clickElement(cleanSearchButton);
   expect(searchElement).toHaveValue("");
   const option1 = getByText(comboboxElement, "Option 1");
-  expect(option1).toBeTruthy();
+  expect(option1).toBeInTheDocument();
 }
 
 // there is no story which is not overview which activate this ability
