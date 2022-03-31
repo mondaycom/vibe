@@ -15,33 +15,35 @@ function getOpenedAccordionItem(canvas) {
 }
 
 const openCloseAccordionSingleActiveTests = async canvas => {
-  let elHeading, elPanel;
+  let elHeading, elPanel, before, after;
   await delay(CHANGES_DELAY);
 
   // try to click on already selected Accordion Item heading
-  ({ elHeading, elPanel } = getOpenedAccordionItem(canvas));
-  const before = elPanel.id;
-  userEvent.click(elHeading);
-  ({ elHeading, elPanel } = getOpenedAccordionItem(canvas));
-  const after = elPanel.id;
+  before = getOpenedAccordionItem(canvas);
+  userEvent.click(before.elHeading);
+  after = getOpenedAccordionItem(canvas);
   // what was opened should be still opened
-  await expect(before).toBe(after);
+  await expect(before.elPanel.id).toBe(after.elPanel.id);
   // panel and heading aria controls are the same
-  await expect(elHeading.getAttribute("aria-controls")).toBe(elPanel.id);
+  await expect(after.elHeading.getAttribute("aria-controls")).toBe(after.elPanel.id);
 
   // select first (0) AccordionItem
+  before = getOpenedAccordionItem(canvas);
   elHeading = getAccordionHeadingBtText(canvas, "Notifications");
   userEvent.click(elHeading);
   elPanel = canvas.getByRole("region");
   await expect(elHeading.getAttribute("aria-expanded")).toBe("true");
+  await expect(before.elHeading.getAttribute("aria-expanded")).toBe("false");
   await expect(elHeading.getAttribute("aria-controls")).toBe(elPanel.id);
   await delay(CHANGES_DELAY);
 
   // select back second (1) AccordionItem
+  before = getOpenedAccordionItem(canvas);
   elHeading = getAccordionHeadingBtText(canvas, "Setting");
   userEvent.click(elHeading);
   elPanel = canvas.getByRole("region");
   await expect(elHeading.getAttribute("aria-expanded")).toBe("true");
+  await expect(before.elHeading.getAttribute("aria-expanded")).toBe("false");
   await expect(elHeading.getAttribute("aria-controls")).toBe(elPanel.id);
 };
 
