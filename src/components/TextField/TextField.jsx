@@ -146,7 +146,7 @@ const TextField = forwardRef(
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               required={required}
-              data-testid={dataTestId ? dataTestId : getTestId(ELEMENT_TYPES.TEXT_FIELD, id)}
+              data-testid={dataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD, id)}
             />
             {loading && (
               <div
