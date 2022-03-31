@@ -146,7 +146,7 @@ const TextField = forwardRef(
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               required={required}
-              data-testid={dataTestId ? dataTestId : getTestId(ELEMENT_TYPES.TEXT_FIELD, id)}
+              data-testid={dataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD, id)}
             />
             {loading && (
               <div
@@ -185,7 +185,7 @@ const TextField = forwardRef(
               })}
               onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
-              dataTestId={secondaryDataTestId ? secondaryDataTestId : getTestId(ELEMENT_TYPES.TEXT_FIELD_SECONDARY_BUTTON, id)}
+              dataTestId={secondaryDataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD_SECONDARY_BUTTON, id)}
             >
               <Icon
                 icon={secondaryIconName}
