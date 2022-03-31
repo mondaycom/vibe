@@ -43,7 +43,7 @@ const Clickable = forwardRef(
           disabled,
           [bemHelper({ state: "disable-text-selection" })]: !enableTextSelection
         })}
-        data-testid={dataTestId ? dataTestId : getTestId(ELEMENT_TYPES.CLICKABLE, id)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.CLICKABLE, id)}
         role={role}
         onClick={disabled ? undefined : onClick}
         id={id}
