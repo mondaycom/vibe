@@ -128,8 +128,8 @@ export const waitForElementVisible = getterFunc => {
   });
 };
 
-export const keyboardMultipleTimes = async (text, times, options = { delay: 70 }) => {
-  text = text.repeat(times);
+export const keyboardMultipleTimes = async (text, count, options = { delay: 70 }) => {
+  text = text.repeat(count);
   await userEvent.keyboard(text, options);
 };
 

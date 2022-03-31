@@ -55,7 +55,6 @@ export const ColorPickerColorsGrid = React.forwardRef(
               colorSize={colorSize}
               tooltipContent={tooltipContentByColor[color]}
               colorShape={colorShape}
-              data-testid={`color-picker-item-${color}`}
             />
           );
         })}
