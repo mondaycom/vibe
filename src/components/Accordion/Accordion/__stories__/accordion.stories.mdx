@@ -4,7 +4,7 @@ import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import Checkbox from "../../../Checkbox/Checkbox.js";
 import { WIZARD, BREADCRUBMS, STEPPER } from "../../../../storybook/components/related-components/component-description-map";
 import "./accordion.stories.scss";
-import { accordionSingleActivePlaySuite } from "../__tests__/accordion.interactions"
+import { accordionSingleActivePlaySuite, accordionMultiActivePlaySuite } from "../__tests__/accordion.interactions"
 
 <Meta
   title="Data display/Accordion"
@@ -66,7 +66,7 @@ Accordion is a vertically stacked list of items. Each item can be "expanded" or 
 ### Multi active
 Each section can be expanded without closing the others
 <Canvas>
-  <Story name="Multi active">
+  <Story name="Multi active" play={accordionMultiActivePlaySuite}>
     <Accordion className="monday-storybook-accordion_small-wrapepr" allowMultiple defaultIndex={[1, 3]}>
       <AccordionItem title="Notifications"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
       <AccordionItem title="Setting"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
