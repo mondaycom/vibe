@@ -47,10 +47,6 @@ export const getByTestId = (rootElement, elementType, id = "") => {
   return getWithin(rootElement).getByTestId(dataTestId);
 };
 
-export const getByText = (rootElement, text) => {
-  return getWithin(rootElement).getByText(text);
-};
-
 export const getByPlaceholderText = (rootElement, text) => {
   return getWithin(rootElement).getByPlaceholderText(text);
 };
@@ -65,6 +61,10 @@ export const getByRole = (rootElement, role) => {
 
 export const getByLabelText = (rootElement, text) => {
   return getWithin(rootElement).getByLabelText(text);
+};
+
+export const getByText = (rootElement, text) => {
+  return getWithin(rootElement).getByText(text);
 };
 
 export const clickElement = element => {
@@ -93,12 +93,7 @@ export const expectActiveElementToHavePartialText = text => {
 };
 
 export const pressNavigationKey = async (command = NAVIGATIONS_COMMANDS.TAB, waitForDebounceMs = 0) => {
-  let promise =
-    command === NAVIGATIONS_COMMANDS.TAB
-      ? userEvent.tab()
-      : userEvent.keyboard(command, {
-          delay: 50
-        });
+  let promise = command === NAVIGATIONS_COMMANDS.TAB ? userEvent.tab() : userEvent.keyboard(command);
   const result = await promise;
   await delay(waitForDebounceMs);
   return result;

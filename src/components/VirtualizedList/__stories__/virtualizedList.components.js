@@ -1,5 +1,3 @@
-import React from "react";
-
 // eslint-disable-next-line default-param-last
 export const generateItems = (defaultItemHeight = 30, itemsCount) => {
   const items = [];
@@ -8,23 +6,4 @@ export const generateItems = (defaultItemHeight = 30, itemsCount) => {
     items.push({ value: `Item ${i}`, height, id: i });
   }
   return items;
-};
-
-export const itemRenderer = (item, index, style) => {
-  const backgroundColor = index % 2 === 0 ? "white" : "#f8f8f0";
-  return (
-    <div key={index} style={style}>
-      <div
-        style={{
-          backgroundColor,
-          height: item.height,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-        }}
-      >
-        {item.value}
-      </div>
-    </div>
-  );
 };
