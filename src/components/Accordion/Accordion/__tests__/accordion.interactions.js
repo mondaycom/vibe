@@ -14,10 +14,19 @@ function getOpenedAccordionItem(canvas) {
   return { elPanel, elHeading };
 }
 
-const openCloseAccordionSingleActiveTests = async canvas => {
-  let elHeading, elPanel, before, after;
-  await delay(CHANGES_DELAY);
+async function openAndCheckAccordionItem(canvas, title) {
+  const before = getOpenedAccordionItem(canvas);
+  const elHeading = getAccordionHeadingBtText(canvas, title);
+  userEvent.click(elHeading);
+  const elPanel = canvas.getByRole("region");
+  await expect(elHeading.getAttribute("aria-expanded")).toBe("true");
+  await expect(before.elHeading.getAttribute("aria-expanded")).toBe("false");
+  await expect(elHeading.getAttribute("aria-controls")).toBe(elPanel.id);
+}
 
+const openAlreadyActiveSingleActiveTests = async canvas => {
+  let before, after;
+  await delay(CHANGES_DELAY);
   // try to click on already selected Accordion Item heading
   before = getOpenedAccordionItem(canvas);
   userEvent.click(before.elHeading);
@@ -26,29 +35,19 @@ const openCloseAccordionSingleActiveTests = async canvas => {
   await expect(before.elPanel.id).toBe(after.elPanel.id);
   // panel and heading aria controls are the same
   await expect(after.elHeading.getAttribute("aria-controls")).toBe(after.elPanel.id);
+};
 
+const openCloseAccordionSingleActiveTests = async canvas => {
   // select first (0) AccordionItem
-  before = getOpenedAccordionItem(canvas);
-  elHeading = getAccordionHeadingBtText(canvas, "Notifications");
-  userEvent.click(elHeading);
-  elPanel = canvas.getByRole("region");
-  await expect(elHeading.getAttribute("aria-expanded")).toBe("true");
-  await expect(before.elHeading.getAttribute("aria-expanded")).toBe("false");
-  await expect(elHeading.getAttribute("aria-controls")).toBe(elPanel.id);
   await delay(CHANGES_DELAY);
-
+  await openAndCheckAccordionItem(canvas, "Notifications");
   // select back second (1) AccordionItem
-  before = getOpenedAccordionItem(canvas);
-  elHeading = getAccordionHeadingBtText(canvas, "Setting");
-  userEvent.click(elHeading);
-  elPanel = canvas.getByRole("region");
-  await expect(elHeading.getAttribute("aria-expanded")).toBe("true");
-  await expect(before.elHeading.getAttribute("aria-expanded")).toBe("false");
-  await expect(elHeading.getAttribute("aria-controls")).toBe(elPanel.id);
+  await delay(CHANGES_DELAY);
+  await openAndCheckAccordionItem(canvas, "Setting");
 };
 
 export const accordionSingleActivePlaySuite = interactionSuite({
-  tests: [openCloseAccordionSingleActiveTests],
+  tests: [openAlreadyActiveSingleActiveTests, openCloseAccordionSingleActiveTests],
   afterEach: async () => {
     await resetFocus();
   }
