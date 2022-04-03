@@ -98,7 +98,7 @@ Accordion.propTypes = {
    */
   "data-testid": PropTypes.string,
   /**
-   * The value of the expandable section
+   * List of AccordionItems
    */
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node])
 };
