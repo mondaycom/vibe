@@ -32,19 +32,19 @@ async function openAndCheckAccordionItem(canvas, title) {
   await expect(elHeading.getAttribute("aria-controls")).toBe(elPanel.id);
 }
 
-async function closeAndCheckMultiAccordionItem(canvas, shouldBeOpened) {
+async function closeAndCheckMultiAccordionItem(canvas, expectedOpenedPanels) {
   const before = getOpenedAccordionItems(canvas);
   userEvent.click(before.elHeadings[0]);
   const after = getOpenedAccordionItems(canvas);
-  await expect(after.elPanels.length).toBe(shouldBeOpened);
+  await expect(after.elPanels.length).toBe(expectedOpenedPanels);
   await expect(before.elHeadings[0].getAttribute("aria-expanded")).toBe("false");
 }
 
-async function openAndCheckMultiAccordionItem(canvas, title, shouldBeOpened) {
+async function openAndCheckMultiAccordionItem(canvas, title, expectedOpenedPanels) {
   const elHeading = getAccordionHeadingByText(canvas, title);
   userEvent.click(elHeading);
   const after = getOpenedAccordionItems(canvas);
-  await expect(after.elPanels.length).toBe(shouldBeOpened);
+  await expect(after.elPanels.length).toBe(expectedOpenedPanels);
   await expect(after.elHeadings[0].getAttribute("aria-expanded")).toBe("true");
   await expect(after.elHeadings[0].getAttribute("aria-controls")).toBe(after.elPanels[0].id);
 }
