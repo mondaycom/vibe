@@ -21,6 +21,42 @@ export const OtherContributorsList = () => {
     if (contributorsJson) {
       // Add manually contributors which not inside git list
       finalContributors.push(
+        <Link key="" href="mailto:devorahfr@monday.com" className={`${BASE_CLASS}_developer`}>
+          Devorah Friedman
+        </Link>
+      );
+
+      finalContributors.push(
+        <Link key="" href="mailto:dimako@monday.com" className={`${BASE_CLASS}_developer`}>
+          Dmitry Kogan
+        </Link>
+      );
+
+      finalContributors.push(
+        <Link href="mailto:meytal@monday.com" className={`${BASE_CLASS}_developer`}>
+          Meytal Badichi
+        </Link>
+      );
+
+      finalContributors.push(
+        <Link href="mailto:shay@monday.com" className={`${BASE_CLASS}_developer`}>
+          Shay Cohen
+        </Link>
+      );
+
+      finalContributors.push(
+        <Link href="mailto:eylon@monday.com" className={`${BASE_CLASS}_developer`}>
+         Eylon Goren
+        </Link>
+      );
+
+      finalContributors.push(
+        <Link href="mailto:noafe@monday.com" className={`${BASE_CLASS}_developer`}>
+          Noa Fenko
+        </Link>
+      );
+
+      finalContributors.push(
         <Link href="https://il.linkedin.com/in/rotem-dekel-7a8b12133" className={`${BASE_CLASS}_developer`}>
           Rotem Dekel
         </Link>

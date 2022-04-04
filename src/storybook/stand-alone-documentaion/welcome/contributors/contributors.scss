@@ -9,28 +9,24 @@
   grid-row-gap: 90px;
 
   &_contributor {
-    &--orr {
-      background-image: url('../assets/OrrBackground.png');
+    &--bg-pattern-1 {
+      background-image: url('../assets/BackgroundPattern1.png');
     }
 
-    &--evgeniy {
-      background-image: url('../assets/EvgeniyBackground.png');
+    &--bg-pattern-2 {
+      background-image: url('../assets/BackgroundPattern2.png');
     }
 
-    &--hadas {
-      background-image: url('../assets/HadasBackground.png');
+    &--bg-pattern-3 {
+      background-image: url('../assets/BackgroundPattern3.png');
     }
 
-    &--moshe {
-      background-image: url('../assets/MosheBackground.png');
+    &--bg-pattern-4 {
+      background-image: url('../assets/BackgroundPattern4.png');
     }
 
-    &--sahar {
-      background-image: url('../assets/SaharBackground.png');
-    }
-
-    &--nick {
-      background-image: url('../assets/MosheBackground.png');
+    &--bg-pattern-5 {
+      background-image: url('../assets/BackgroundPattern5.png');
     }
   }
 }
