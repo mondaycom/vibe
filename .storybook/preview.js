@@ -19,6 +19,10 @@ import {
 } from "../src/storybook/components";
 
 addParameters({
+  controls: {
+    expanded: true,
+    sort: "requiredFirst"
+  },
   docs: {
     ...parameters.docs,
     inlineStories: true,
