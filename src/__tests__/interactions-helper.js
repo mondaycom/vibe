@@ -1,4 +1,4 @@
-import { within, userEvent } from "@storybook/testing-library";
+import { within, userEvent, fireEvent } from "@storybook/testing-library";
 import { waitFor } from "@testing-library/react";
 import { getTestId, ELEMENT_TYPES as types, NAVIGATIONS_COMMANDS } from "../utils/test-utils";
 import { expect } from "@storybook/jest";
@@ -47,10 +47,6 @@ export const getByTestId = (rootElement, elementType, id = "") => {
   return getWithin(rootElement).getByTestId(dataTestId);
 };
 
-export const getByText = (rootElement, text) => {
-  return getWithin(rootElement).getByText(text);
-};
-
 export const getByPlaceholderText = (rootElement, text) => {
   return getWithin(rootElement).getByPlaceholderText(text);
 };
@@ -65,6 +61,10 @@ export const getByRole = (rootElement, role) => {
 
 export const getByLabelText = (rootElement, text) => {
   return getWithin(rootElement).getByLabelText(text);
+};
+
+export const getByText = (rootElement, text) => {
+  return getWithin(rootElement).getByText(text);
 };
 
 export const clickElement = element => {
@@ -84,13 +84,16 @@ export const typeText = async (element, text, waitForDebounceMs = 250) => {
   return result;
 };
 
+export const expectActiveElementToHaveExactText = text => {
+  expect(document.activeElement).toHaveTextContent(new RegExp(`^${text}$`));
+};
+
+export const expectActiveElementToHavePartialText = text => {
+  expect(document.activeElement).toHaveTextContent(text);
+};
+
 export const pressNavigationKey = async (command = NAVIGATIONS_COMMANDS.TAB, waitForDebounceMs = 0) => {
-  let promise =
-    command === NAVIGATIONS_COMMANDS.TAB
-      ? userEvent.tab()
-      : userEvent.keyboard(command, {
-          delay: 50
-        });
+  let promise = command === NAVIGATIONS_COMMANDS.TAB ? userEvent.tab() : userEvent.keyboard(command);
   const result = await promise;
   await delay(waitForDebounceMs);
   return result;
@@ -111,8 +114,8 @@ export async function resetFocus() {
 export const waitForElementVisible = getterFunc => {
   return new Promise(resolve => {
     let element;
-    waitFor(() => {
-      element = getterFunc();
+    waitFor(async () => {
+      element = await getterFunc();
       expect(element).toBeVisible();
     }).then(() => {
       resolve(element);
@@ -120,6 +123,66 @@ export const waitForElementVisible = getterFunc => {
   });
 };
 
+export const keyboardMultipleTimes = async (text, count, options = { delay: 70 }) => {
+  text = text.repeat(count);
+  await userEvent.keyboard(text, options);
+};
+
 function logFunctionStart(name) {
   expect(` ➡️ ${name}`).toBeDefined();
+}
+
+function getElementClientCenter(element) {
+  const { left, top, width, height } = element.getBoundingClientRect();
+  return {
+    x: left + width / 2,
+    y: top + height / 2
+  };
+}
+
+const getCoords = ({ toElm, toCoords, delta, from }) => {
+  if (toCoords) {
+    return { ...from, ...toCoords };
+  }
+  if (toElm) {
+    return getElementClientCenter(toElm);
+  }
+  if (delta) {
+    return {
+      x: from.x + delta.x,
+      y: from.y + delta.y
+    };
+  }
+  return {
+    x: from.x + 10,
+    y: from.y + 0
+  };
+};
+
+export async function drag(
+  element,
+  { delta = undefined, toCoords = undefined, toElm = undefined, steps = 20, duration = 100 }
+) {
+  const from = getElementClientCenter(element);
+  const to = getCoords({ toElm, toCoords, delta, from });
+  const step = {
+    x: (to.x - from.x) / steps,
+    y: (to.y - from.y) / steps
+  };
+  const current = {
+    clientX: from.x,
+    clientY: from.y
+  };
+  userEvent.hover(element);
+  fireEvent.pointerEnter(element, current);
+  fireEvent.pointerOver(element, current);
+  fireEvent.pointerMove(element, current);
+  fireEvent.pointerDown(element, current);
+  for (let i = 0; i < steps; i++) {
+    current.clientX += step.x;
+    current.clientY += step.y;
+    await delay(duration / steps);
+    fireEvent.pointerMove(element, current);
+  }
+  fireEvent.pointerUp(element, current);
 }

@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
+import { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
 import cx from "classnames";
@@ -15,6 +15,7 @@ import {
   isVerticalScrollbarVisible
 } from "../../services/virtualized-service";
 import "./VirtualizedList.scss";
+import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
 
 const VirtualizedList = forwardRef(
   (
@@ -226,7 +227,13 @@ const VirtualizedList = forwardRef(
     }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, listHeight, idGetter]);
 
     return (
-      <div ref={mergedRef} className={cx("virtualized-list--wrapper", className)} id={id} role={role}>
+      <div
+        ref={mergedRef}
+        className={cx("virtualized-list--wrapper", className)}
+        id={id}
+        role={role}
+        data-testid={getTestId(ELEMENT_TYPES.VIRTUALIZED_LIST, id)}
+      >
         <AutoSizer>
           {({ height, width }) => {
             updateListSize(width, height);
@@ -270,8 +277,11 @@ VirtualizedList.propTypes = {
    */
   items: PropTypes.arrayOf(PropTypes.object),
   /**
-   * item render function
-   * returns `JSX.Element`
+   * Will return the element which represent an item in the virtualized list.
+   * Returns `JSX.Element`
+   * @param item - item data
+   * @param _index - item index
+   * @param style - item style, must be injected to the item element wrapper for correct presentation of the item
    */
   itemRenderer: PropTypes.func,
   /**
@@ -328,7 +338,8 @@ VirtualizedList.defaultProps = {
   className: "",
   id: "",
   items: [],
-  itemRenderer: (item, _index, _style) => item,
+  // eslint-disable-next-line no-unused-vars
+  itemRenderer: (item, _index, style) => item,
   getItemHeight: (item, _index) => item.height,
   getItemId: (item, _index) => item.id,
   onScrollToFinished: NOOP,

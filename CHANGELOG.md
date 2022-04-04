@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.22.0 (2022-03-30)
+
+#### Bug Fixes
+* [#609](https://github.com/mondaycom/monday-ui-react-core/pull/609) Fix clickable tests (add interaction tests for focus and few behaviour tests) ([@hadasfa](https://github.com/hadasfa))
+* [#606](https://github.com/mondaycom/monday-ui-react-core/pull/606) fix(interaction): minor selector typo issue ([@niksa-monday](https://github.com/niksa-monday))
+
+#### New Features
+* [#616](https://github.com/mondaycom/monday-ui-react-core/pull/616) Avatar custom background color ([@MosheZemah](https://github.com/MosheZemah))
+* [#601](https://github.com/mondaycom/monday-ui-react-core/pull/601) Fix/omri/fix grid keyboard nav story ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#610](https://github.com/mondaycom/monday-ui-react-core/pull/610) test(slider): add Thumb drag interaction tests ([@niksa-monday](https://github.com/niksa-monday))
+* [#612](https://github.com/mondaycom/monday-ui-react-core/pull/612) menu interaction tests ([@laviomri](https://github.com/laviomri))
+* [#607](https://github.com/mondaycom/monday-ui-react-core/pull/607) Color picker interaction tests ([@laviomri](https://github.com/laviomri))
+* [#611](https://github.com/mondaycom/monday-ui-react-core/pull/611) test(Slider): add interaction tests for ranged mode  ([@niksa-monday](https://github.com/niksa-monday))
+* [#596](https://github.com/mondaycom/monday-ui-react-core/pull/596) # ay11 Foundation page Corrections: Update image sizes, add up next section ([@3dyonic](https://github.com/3dyonic))
+* [#608](https://github.com/mondaycom/monday-ui-react-core/pull/608) test(Slider): add interaction tests for Slider component ([@niksa-monday](https://github.com/niksa-monday))
+* [#605](https://github.com/mondaycom/monday-ui-react-core/pull/605) Interaction tests alignments ([@laviomri](https://github.com/laviomri))
+* [#602](https://github.com/mondaycom/monday-ui-react-core/pull/602) Increase default width of left panel ([@laviomri](https://github.com/laviomri))
+* [#603](https://github.com/mondaycom/monday-ui-react-core/pull/603) storybook initials ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#600](https://github.com/mondaycom/monday-ui-react-core/pull/600) fix-typos-in-avatar-story-classnames ([@laviomri](https://github.com/laviomri))
+
 ## 1.21.5 (2022-03-22)
 
 #### Bug Fixes
