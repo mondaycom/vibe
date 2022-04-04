@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
-import { Link } from "../../components";
-import { BEMClass } from "../../../helpers/bem-helper";
+import { BEMClass } from "helpers/bem-helper";
 import "./information-box.scss";
-import { Flex } from "components";
 
 const BASE_CSS_CLASS = "monday-storybook-information-box";
 const bemHelper = BEMClass(BASE_CSS_CLASS);
@@ -18,6 +16,7 @@ export const InformationBox = ({ component, title, description }) => {
   );
 };
 
+console.log([PropTypes.string, PropTypes.element]);
 InformationBox.propTypes = {
   component: PropTypes.element,
   title: PropTypes.oneOf([PropTypes.string, PropTypes.element]),

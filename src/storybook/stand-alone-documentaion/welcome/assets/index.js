@@ -13,7 +13,7 @@ import headerBanner from "./header-banner.png";
 import gettingStarted from "./getting-started.png";
 import components from "./components.png";
 import foundations from "./foundations.png";
-import Nick from "./Nick.png";
+import Nik from "./Nik.png";
 
 export {
   clarity,
@@ -24,7 +24,7 @@ export {
   Orr,
   Sahar,
   Moshe,
-  Nick,
+  Nik,
   Omri,
   Yonatan,
   speed,

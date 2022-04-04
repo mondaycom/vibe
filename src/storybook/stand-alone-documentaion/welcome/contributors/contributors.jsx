@@ -1,64 +1,70 @@
 import { Contributor } from "../contributor/contributor";
-import { Evgeniy, Hadas, Orr, Sahar, Moshe, Nick, Omri } from "../assets";
+import { Evgeniy, Hadas, Orr, Sahar, Moshe, Nik, Omri, Yonatan } from "../assets";
 import "./contributors.scss";
+
+const CONTRIBUTERS = [
+  {
+    imgSrc: Orr,
+    fullName: "Orr Gottlieb",
+    email: "orr@monday.com",
+    title: "Developer",
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-1"
+  },
+  {
+    imgSrc: Evgeniy,
+    fullName: "Evgeniy Kazenic",
+    email: "evgeniy@monday.com",
+    title: "Designer",
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-2"
+  },
+  {
+    imgSrc: Hadas,
+    fullName: "Hadas Farhi",
+    email: "hadasfa@monday.com",
+    title: "Developer",
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-3"
+  },
+  {
+    imgSrc: Moshe,
+    fullName: "Moshe Zemah",
+    email: "moshe@monday.com",
+    title: "Developer",
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-4"
+  },
+  {
+    imgSrc: Sahar,
+    fullName: "Sahar Brodbeker",
+    email: "saharb@monday.com",
+    title: "Developer",
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-5"
+  },
+  {
+    imgSrc: Nik,
+    fullName: "Nik Savchenko",
+    email: "niksa@monday.com",
+    title: "Developer",
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-4"
+  },
+  {
+    imgSrc: Omri,
+    fullName: "Omri Lavi",
+    email: "omrila@monday.com",
+    title: "Developer",
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-2"
+  },
+  {
+    imgSrc: Yonatan,
+    fullName: "Yonatan Lev Ari",
+    email: "yonatanari@monday.com",
+    title: "Developer",
+    className: "monday-storybook-welcome-contributors_contributor--bg-pattern-3"
+  }
+];
 
 export const Contributors = () => (
   <div className="monday-storybook-welcome-contributors">
-    <Contributor
-      imgSrc={Orr}
-      href="orr@monday.com"
-      fullName="Orr Gottlieb"
-      title="Developer"
-      className="monday-storybook-welcome-contributors_contributor--bg-pattern-1"
-    />
-    <Contributor
-      imgSrc={Evgeniy}
-      href="orr@monday.com"
-      fullName="Evgeniy Kazenic"
-      title="Designer"
-      className="monday-storybook-welcome-contributors_contributor--bg-pattern-2"
-    />
-    <Contributor
-      imgSrc={Hadas}
-      href="orr@monday.com"
-      fullName="Hadas Farhi"
-      title="Developer"
-      className="monday-storybook-welcome-contributors_contributor--bg-pattern-3"
-    />
-    <Contributor
-      imgSrc={Moshe}
-      href="orr@monday.com"
-      fullName="Moshe Zemah"
-      title="Developer"
-      className="monday-storybook-welcome-contributors_contributor--bg-pattern-4"
-    />
-    <Contributor
-      imgSrc={Sahar}
-      href="orr@monday.com"
-      fullName="Sahar Brodbeker"
-      title="Developer"
-      className="monday-storybook-welcome-contributors_contributor--bg-pattern-5"
-    />
-    <Contributor
-      imgSrc={Nick}
-      href="orr@monday.com"
-      fullName="Nik Savchenko"
-      title="Developer"
-      className="monday-storybook-welcome-contributors_contributor--bg-pattern-4"
-    />
-    <Contributor
-      imgSrc={Omri}
-      href="orr@monday.com"
-      fullName="Omri Lavi"
-      title="Developer"
-      className="monday-storybook-welcome-contributors_contributor--bg-pattern-2"
-    />
-    <Contributor
-      imgSrc={Omri}
-      href="orr@monday.com"
-      fullName="Yonatan Lev Ari"
-      title="Developer"
-      className="monday-storybook-welcome-contributors_contributor--bg-pattern-1"
-    />
+    {CONTRIBUTERS.map(({ imgSrc, fullName, email, title, className }) => (
+      <Contributor key={email} imgSrc={imgSrc} fullName={fullName} email={email} title={title} className={className} />
+    ))}
   </div>
 );
