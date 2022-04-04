@@ -8,7 +8,7 @@ import { defaultPlaySuite } from "../__tests__/combobox-interactions";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer.jsx";
 import Button from "../../Button/Button.jsx";
 import Dialog from "../../Dialog/Dialog";
-import {Update, Time, Upgrade, ThumbsUp, Wand, Person} from "../../Icon/Icons";
+import { Update, Time, Upgrade, ThumbsUp, Wand, Person } from "../../Icon/Icons";
 import { TOOLTIP, BREADCRUBMS, CHIP } from "../../../storybook/components/related-components/component-description-map";
 import { Link } from "../../../storybook";
 import { Edit } from "../../Icon/Icons";
@@ -85,8 +85,11 @@ Combo box allowing users to filter longer lists to only the selections matching 
   <Link href="/?path=/docs/inputs-radio-button--overview" size={Link.sizes.SMALL} withoutSpacing>
     Radio buttons
   </Link>
-  (if only one item can be selected) or{" "}
-  <Link href="/?path=/docs/inputs-checkbox--overview" size={Link.sizes.SMALL} withoutSpacing>
+  (if only one item can be selected) or <Link
+    href="/?path=/docs/inputs-checkbox--overview"
+    size={Link.sizes.SMALL}
+    withoutSpacing
+  >
     Checkboxes
   </Link>
   (if multiple items can be selected).
@@ -207,17 +210,17 @@ When having a lot of options, you may use headings to categorize them.
           align={Flex.align.START}
         >
           <StoryDescription description="Regular categories" vertical>
-            <DialogContentContainer style={{height: "200px"}}>
+            <DialogContentContainer style={{ height: "200px" }}>
               <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
             </DialogContentContainer>
           </StoryDescription>
-            <StoryDescription description="Categories with sticky mode" vertical>
-                <DialogContentContainer style={{height: "200px"}}>
-                    <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
-                </DialogContentContainer>
-            </StoryDescription>
+          <StoryDescription description="Categories with sticky mode" vertical>
+            <DialogContentContainer style={{ height: "200px" }}>
+              <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
+            </DialogContentContainer>
+          </StoryDescription>
           <StoryDescription description="Categories with divider" vertical>
-            <DialogContentContainer style={{height: "200px"}}>
+            <DialogContentContainer style={{ height: "200px" }}>
               <Combobox
                 options={options}
                 categories={categories}
@@ -275,10 +278,19 @@ When having a lot of options, you may use headings to categorize them.
         ],
         []
       );
-      const optionRenderer = option => <div><Icon icon={Person}/> I can render anything with {option.label}</div>;
+      const optionRenderer = option => (
+        <div>
+          <Icon icon={Person} /> I can render anything with {option.label}
+        </div>
+      );
       return (
-        <DialogContentContainer style={{height:"200px"}}>
-          <Combobox options={options} optionRenderer={optionRenderer} placeholder="Placeholder text here" />
+        <DialogContentContainer>
+          <Combobox
+            options={options}
+            optionRenderer={optionRenderer}
+            placeholder="Placeholder text here"
+            maxOptionsWithoutScroll={3}
+          />
         </DialogContentContainer>
       );
     }}
@@ -315,65 +327,91 @@ If combo box requires action, use button component at the end of the list.
 </Canvas>
 
 ### With virtualization optimization
+
 When you display a large number of options, you may want to render only the options shown at a given moment to allow better performance and a
 better user experience.
+
 <Canvas>
-    <Story name="With virtualization optimization">
-        {() => {
-            const options = useMemo(() => [
-                { id: "1", label: "Option 1", categoryId: "Group1" },
-                { id: "2", label: "Option 2", categoryId: "Group1" },
-                { id: "3", label: "Option 3", categoryId: "Group1" },
-                { id: "4", label: "Option 4", categoryId: "Group1" },
-                { id: "5", label: "Option 5", categoryId: "Group1" },
-                { id: "6", label: "Option 6", categoryId: "Group1" },
-                { id: "7", label: "Option 7", categoryId: "Group1" },
-                { id: "8", label: "Option 8", categoryId: "Group1" },
-                { id: "9", label: "Option 9", categoryId: "Group1" },
-                { id: "10", label: "Option 10", categoryId: "Group2" },
-                { id: "11", label: "Option 11", categoryId: "Group2" },
-                { id: "12", label: "Option 12", categoryId: "Group2" },
-                { id: "13", label: "Option 13", categoryId: "Group2" },
-                { id: "14", label: "Option 14", categoryId: "Group2" },
-                { id: "15", label: "Option 15", categoryId: "Group2" },
-                { id: "16", label: "Option 16", categoryId: "Group2" },
-                { id: "17", label: "Option 17", categoryId: "Group2" },
-                { id: "18", label: "Option 18", categoryId: "Group2" },
-                { id: "19", label: "Option 19", categoryId: "Group2" },
-                { id: "20", label: "Option 20", categoryId: "Group2" },
-            ], []);
-            const categories = useMemo(() => ({
-                Group1: { id: "Group1", label: "Group 1" },
-                Group2: { id: "Group2", label: "Group 2" }
-            }), []);
-            return (
-                <Flex gap={Flex.gaps.SMALL} style={{width:"100%"}} justify={Flex.justify.SPACE_AROUND} align={Flex.align.START} >
-                    <StoryDescription
-                        align={Flex.align.START}
-                        description="Virtualization optimization without categories"
-                        vertical
-                        headerStyle={{width: "70%", textAlign: "start"}}>
-                        <div style={{width: "300px"}}>
-                            <DialogContentContainer style={{height: "200px"}}>
-                                <Combobox options={options} renderOnlyVisibleOptions placeholder="Placeholder text here" />
-                            </DialogContentContainer>
-                        </div>
-                    </StoryDescription>
-                    <StoryDescription
-                        align={Flex.align.START}
-                        description="Virtualization optimization with categories"
-                        vertical
-                        headerStyle={{width:"70%", textAlign: "start"}}>
-                        <div style={{width: "300px"}}>
-                            <DialogContentContainer style={{height: "200px"}}>
-                                <Combobox options={options} renderOnlyVisibleOptions categories={categories} placeholder="Placeholder text here" />
-                            </DialogContentContainer>
-                        </div>
-                    </StoryDescription>
-                </Flex>
-            )
-        }}
-    </Story>
+  <Story name="With virtualization optimization">
+    {() => {
+      const options = useMemo(
+        () => [
+          { id: "1", label: "Option 1", categoryId: "Group1" },
+          { id: "2", label: "Option 2", categoryId: "Group1" },
+          { id: "3", label: "Option 3", categoryId: "Group1" },
+          { id: "4", label: "Option 4", categoryId: "Group1" },
+          { id: "5", label: "Option 5", categoryId: "Group1" },
+          { id: "6", label: "Option 6", categoryId: "Group1" },
+          { id: "7", label: "Option 7", categoryId: "Group1" },
+          { id: "8", label: "Option 8", categoryId: "Group1" },
+          { id: "9", label: "Option 9", categoryId: "Group1" },
+          { id: "10", label: "Option 10", categoryId: "Group2" },
+          { id: "11", label: "Option 11", categoryId: "Group2" },
+          { id: "12", label: "Option 12", categoryId: "Group2" },
+          { id: "13", label: "Option 13", categoryId: "Group2" },
+          { id: "14", label: "Option 14", categoryId: "Group2" },
+          { id: "15", label: "Option 15", categoryId: "Group2" },
+          { id: "16", label: "Option 16", categoryId: "Group2" },
+          { id: "17", label: "Option 17", categoryId: "Group2" },
+          { id: "18", label: "Option 18", categoryId: "Group2" },
+          { id: "19", label: "Option 19", categoryId: "Group2" },
+          { id: "20", label: "Option 20", categoryId: "Group2" }
+        ],
+        []
+      );
+      const categories = useMemo(
+        () => ({
+          Group1: { id: "Group1", label: "Group 1" },
+          Group2: { id: "Group2", label: "Group 2" }
+        }),
+        []
+      );
+      return (
+        <Flex
+          gap={Flex.gaps.SMALL}
+          style={{ width: "100%" }}
+          justify={Flex.justify.SPACE_AROUND}
+          align={Flex.align.START}
+        >
+          <StoryDescription
+            align={Flex.align.START}
+            description="Virtualization optimization without categories"
+            vertical
+            headerStyle={{ width: "70%", textAlign: "start" }}
+          >
+            <div style={{ width: "300px" }}>
+              <DialogContentContainer>
+                <Combobox
+                  options={options}
+                  renderOnlyVisibleOptions
+                  placeholder="Placeholder text here"
+                  maxOptionsWithoutScroll={3}
+                />
+              </DialogContentContainer>
+            </div>
+          </StoryDescription>
+          <StoryDescription
+            align={Flex.align.START}
+            description="Virtualization optimization with categories"
+            vertical
+            headerStyle={{ width: "70%", textAlign: "start" }}
+          >
+            <div style={{ width: "300px" }}>
+              <DialogContentContainer>
+                <Combobox
+                  options={options}
+                  renderOnlyVisibleOptions
+                  categories={categories}
+                  placeholder="Placeholder text here"
+                  maxOptionsWithoutScroll={3}
+                />
+              </DialogContentContainer>
+            </div>
+          </StoryDescription>
+        </Flex>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ### Loading state

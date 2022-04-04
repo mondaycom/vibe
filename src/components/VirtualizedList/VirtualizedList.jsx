@@ -37,7 +37,8 @@ const VirtualizedList = forwardRef(
       onVerticalScrollbarVisiblityChange,
       virtualListRef,
       scrollableClassName,
-      role
+      role,
+      style
     },
     ref
   ) => {
@@ -233,6 +234,7 @@ const VirtualizedList = forwardRef(
         id={id}
         role={role}
         data-testid={getTestId(ELEMENT_TYPES.VIRTUALIZED_LIST, id)}
+        style={style}
       >
         <AutoSizer>
           {({ height, width }) => {
@@ -332,7 +334,9 @@ VirtualizedList.propTypes = {
    */
   onSizeUpdate: PropTypes.func,
   onVerticalScrollbarVisiblityChange: PropTypes.func,
-  role: PropTypes.string
+  role: PropTypes.string,
+  /** Custom style to pass to the component */
+  style: PropTypes.object
 };
 VirtualizedList.defaultProps = {
   className: "",
@@ -350,7 +354,8 @@ VirtualizedList.defaultProps = {
   onSizeUpdate: NOOP,
   onVerticalScrollbarVisiblityChange: null,
   role: undefined,
-  scrollableClassName: undefined
+  scrollableClassName: undefined,
+  style: undefined
 };
 
 export default VirtualizedList;

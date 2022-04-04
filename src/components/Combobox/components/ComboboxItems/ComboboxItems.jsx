@@ -26,9 +26,19 @@ export const ComboboxItems = ({
   optionLineHeight,
   shouldScrollToSelectedItem,
   renderOnlyVisibleOptions,
-  onActiveCategoryChanged
+  onActiveCategoryChanged,
+  maxOptionsWithoutScroll
 }) => {
   const activeCategoryId = useRef();
+
+  const style = useMemo(() => {
+    if (maxOptionsWithoutScroll) {
+      const maxCount = Math.min(options.length, maxOptionsWithoutScroll + 0.5);
+      return { height: optionLineHeight * maxCount };
+    }
+    return null;
+  }, [maxOptionsWithoutScroll, optionLineHeight, options]);
+
   const createItemElementRenderer = useCallback(
     (item, index, style) =>
       comboboxItemRenderer({
@@ -146,15 +156,15 @@ export const ComboboxItems = ({
         className={cx(styles.optionsContainer, className)}
         items={items}
         itemRenderer={createItemElementRenderer}
-        id="Knobs"
         role="treegrid"
         scrollableClassName={styles.scrollableContainer}
         onItemsRendered={onItemsRender}
+        style={style}
       />
     );
   } else {
     itemsElements = (
-      <div className={cx(styles.scrollableContainer, styles.optionsContainer, className)} role="treegrid">
+      <div className={cx(styles.scrollableContainer, styles.optionsContainer, className)} role="treegrid" style={style}>
         {items.map(itemData => createItemElementRenderer(itemData))}
       </div>
     );
