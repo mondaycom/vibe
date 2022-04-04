@@ -45,7 +45,8 @@ const Combobox = forwardRef(
       stickyCategories,
       optionRenderer,
       renderOnlyVisibleOptions,
-      clearFilterOnSelection
+      clearFilterOnSelection,
+      maxOptionsWithoutScroll
     },
     ref
   ) => {
@@ -208,6 +209,7 @@ const Combobox = forwardRef(
             optionLineHeight={optionLineHeight}
             shouldScrollToSelectedItem={shouldScrollToSelectedItem}
             renderOnlyVisibleOptions={renderOnlyVisibleOptions}
+            maxOptionsWithoutScroll={maxOptionsWithoutScroll}
           />
         </div>
         {hasFilter && !hasResults && !loading && renderNoResults()}
@@ -279,7 +281,9 @@ Combobox.propTypes = {
   /**
    * Replace the regular appearance of combo box option with custom renderer.
    */
-  optionRenderer: PropTypes.func
+  optionRenderer: PropTypes.func,
+  /** Maximum options count without scroll */
+  maxOptionsWithoutScroll: PropTypes.number
 };
 Combobox.defaultProps = {
   className: "",
@@ -294,6 +298,7 @@ Combobox.defaultProps = {
   optionLineHeight: 32,
   optionsListHeight: undefined,
   autoFocus: false,
+  maxOptionsWithoutScroll: undefined,
   /**
    * Callback that called after clicking on the add new combo box button.
    */
