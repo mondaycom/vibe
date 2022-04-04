@@ -37,7 +37,7 @@ export const ComboboxItems = ({
       const maxCount = Math.min(options.length, maxOptionsWithoutScroll + 0.5);
       return { height: optionLineHeight * maxCount };
     }
-    return null;
+    return undefined;
   }, [maxOptionsWithoutScroll, optionLineHeight, options]);
 
   const createItemElementRenderer = useCallback(
