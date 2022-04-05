@@ -1,0 +1,12 @@
+// GLOBAL SCOPE LOADER: THEMES
+// This partial loads theme partials
+// - Themes are:
+//   - Basic
+//   - Black
+//   - Dark
+//   - Hacker
+
+@import "themes/basic-theme.scss";
+@import "themes/dark-theme.scss";
+@import "themes/black-theme.scss";
+@import "themes/hacker-theme.scss";

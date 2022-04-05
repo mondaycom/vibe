@@ -1,0 +1,32 @@
+// CORE TOKENS: FONTS
+// This partial Defines Global fonts tokens
+
+// REGISTRATION TOKENS
+// - Font sizes (numeric units)
+$font-reg-size-14: 14px;
+$font-reg-size-16: 16px;
+$font-reg-size-18: 18px;
+$font-reg-size-24: 24px;
+$font-reg-size-32: 32px;
+
+// - Line heights (numeric units)
+$font-reg-line-height-18: 18px;
+$font-reg-line-height-24: 24px;
+$font-reg-line-height-32: 32px;
+$font-reg-line-height-52: 52px;
+
+// GLOBAL FONT TOKENS
+$font-size-base: $font-reg-size-16;
+
+// - Font weights
+$font-weight-very-light: 200;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 500;
+
+// - Font family
+$font-family: "Roboto", "Rubik", "Noto Kufi Arabic", "Noto Sans JP", sans-serif;
+
+// - Font smoothing
+$font-smoothing-webkit: antialiased;
+$font-smoothing-moz: grayscale;
