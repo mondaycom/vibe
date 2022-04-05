@@ -41,7 +41,7 @@ const ComboboxOption = ({
   useEffect(() => {
     const element = ref.current;
     if (isActive && element && shouldScrollWhenActive) {
-      element.scrollIntoView({ behaviour: "smooth" });
+      element?.scrollIntoView({ behaviour: "smooth" });
     }
   }, [ref, isActive, shouldScrollWhenActive]);
 
