@@ -267,9 +267,9 @@
   --color-pecan-selected: #4A4148;
 
   // Shadows
-  --box-shadow-small: #{$shadow-size-small} rgba(9, 11, 25, 0.5);
-  --box-shadow-medium: #{$shadow-size-medium} rgba(9, 11, 25, 0.5);
-  --box-shadow-large: #{$shadow-size-large} rgba(9, 11, 25, 0.5);
+  --box-shadow-small: 0px 4px 8px rgba(9, 11, 25, 0.5);
+  --box-shadow-medium: 0px 6px 20px rgba(9, 11, 25, 0.5);
+  --box-shadow-large: 0px 15px 50px rgba(9, 11, 25, 0.5);
   // Legacy
-  --box-shadow-mediun: var(--box-shadow-medium);
+  --box-shadow-mediun: 0px 6px 20px rgba(9, 11, 25, 0.5);
 }

@@ -1,17 +1,8 @@
-// MONDAY VIBE DESIGN SYSTEM : DESIGN TOKENS
-// - This partial Imports all of VIBE's Token scope.
-// - It include:
-//   - global functions.
-//   - Core Tokens  and Core Maps.
-//   - Theme based Tokens and maps.
-// - Custom properties are generated per each scope from a unified scope related settings map.
-// - CSS Output is custom properties definitions for global :root and themes scopes.
-// - Currently we do not include themes within this refactor scope.
-
-@import "functions";
-@import "mixins";
-@import "core";
-
-@import "themes";
-@import "colors.scss";
-@import "content-colors.scss";
+@import "./animations.scss";
+@import "src/Themes/all.scss";
+@import "./border-radius.scss";
+@import "./colors.scss";
+@import "./content-colors.scss";
+@import "./shadows.scss";
+@import "./spacing.scss";
+@import "./typography.scss";
