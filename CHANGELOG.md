@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.23.2 (2022-04-05)
+
+#### Bug Fixes
+* [#628](https://github.com/mondaycom/monday-ui-react-core/pull/628) Scrollintoview ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.23.1 (2022-04-05)
 
 #### Bug Fixes
