@@ -9,6 +9,11 @@ import { accordionSingleActivePlaySuite, accordionMultiActivePlaySuite } from ".
 <Meta
   title="Data display/Accordion"
   component={ Accordion }
+  subcomponents = {{AccordionItem}}
+  argTypes={{
+    children: { control: false },
+    defaultIndex: { control: false }
+  }}
 />
 
 <!--- Component template -->
@@ -45,14 +50,13 @@ export const accordionTemplate = (args) => {
 Accordion is a vertically stacked list of items. Each item can be "expanded" or "collapsed" to reveal the content within with that item.
 
 <Canvas>
-  <Story name="Overview"
-         args={ {} }>
+  <Story name="Overview" args={ {} }>
     { accordionTemplate.bind({}) }
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Accordion } />
+<ArgsTable story="Overview" />
 
 ## Usage
 <UsageGuidelines guidelines={[
