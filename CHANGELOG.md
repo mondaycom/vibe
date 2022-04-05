@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.23.0 (2022-04-05)
+
+#### Bug Fixes
+* [#615](https://github.com/mondaycom/monday-ui-react-core/pull/615) Interaction tests for combobox & add data test ids by prop to clickable, search, textfield, combobox ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#621](https://github.com/mondaycom/monday-ui-react-core/pull/621) Combobox max options without scroll ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Documentation
+* [#620](https://github.com/mondaycom/monday-ui-react-core/pull/620) docs(accordion): improve storybook (sub-items, props, etc.) ([@niksa-monday](https://github.com/niksa-monday))
+* [#618](https://github.com/mondaycom/monday-ui-react-core/pull/618) test(accordion): add interaction tests for multi-active mode ([@niksa-monday](https://github.com/niksa-monday))
+* [#617](https://github.com/mondaycom/monday-ui-react-core/pull/617) feat(accordion): add data-testid, improve ids, add interaction tests ([@niksa-monday](https://github.com/niksa-monday))
+* [#614](https://github.com/mondaycom/monday-ui-react-core/pull/614) color picker testids fix ([@laviomri](https://github.com/laviomri))
+
 ## 1.22.0 (2022-03-30)
 
 #### Bug Fixes
