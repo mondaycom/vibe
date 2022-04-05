@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.23.1 (2022-04-05)
+
+#### Bug Fixes
+* [#627](https://github.com/mondaycom/monday-ui-react-core/pull/627) Scroll into view not exsiting ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#624](https://github.com/mondaycom/monday-ui-react-core/pull/624) Analytics ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.23.0 (2022-04-05)
 
 #### Bug Fixes
