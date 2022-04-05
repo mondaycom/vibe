@@ -17,7 +17,9 @@ import Divider from "../../Divider/Divider";
 import Avatar from "../../Avatar/Avatar";
 import { Icon } from "../../index";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
-import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer"; import {
+    StoryDescription
+} from "../../../storybook/components/story-description/story-description"; import {Flex} from "components";
 
 <Meta
   title="Navigation/List/List"
@@ -121,6 +123,51 @@ Lists is a group of actionable items containing primary and supplemental actions
       </ListItem>
     </List>
   </Story>
+</Canvas>
+
+### List with virtualization optimization
+
+When you display a large number of items, you may want to render only the options shown at a given moment to allow better performance and a
+better user experience.
+<Canvas>
+    <Story name="List with virtualization optimization">
+        <Flex direction={Flex.directions.COLUMN} align={Flex.align.START}>
+            <StoryDescription description="Without categories">
+                <List>
+                    <ListItem>
+                        List item 1
+                    </ListItem>
+                    <ListItem>
+                        List item 2
+                    </ListItem>
+                    <ListItem>
+                        List item 3
+                    </ListItem>
+                    <ListItem>
+                        List item 4
+                    </ListItem>
+                </List>
+            </StoryDescription>
+            <StoryDescription description="With categories">
+                <List>
+                    <ListTitle>First category</ListTitle>
+                    <ListItem>
+                        List item 1
+                    </ListItem>
+                    <ListItem>
+                        List item 2
+                    </ListItem>
+                    <ListTitle>Second category</ListTitle>
+                    <ListItem>
+                        List item 3
+                    </ListItem>
+                    <ListItem>
+                        List item 4
+                    </ListItem>
+                </List>
+            </StoryDescription>
+        </Flex>
+    </Story>
 </Canvas>
 
 ## Do’s and Don’ts
