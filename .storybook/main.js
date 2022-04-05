@@ -29,8 +29,7 @@ const getAddons = () => {
     "@storybook/addon-a11y",
     "storybook-addon-performance/register",
     "@storybook/addon-docs",
-    "@storybook/addon-actions",
-    "@storybook/addon-google-analytics"
+    "@storybook/addon-actions"
   ];
 
   if (process.env.NODE_ENV !== "production") {
