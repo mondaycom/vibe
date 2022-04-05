@@ -90,7 +90,7 @@ const MenuItem = forwardRef(
         if (referenceElement.scrollIntoViewIfNeeded) {
           referenceElement.scrollIntoViewIfNeeded({ behaviour: "smooth" });
         } else {
-          referenceElement.scrollIntoView({ behavior: "smooth", block: "center" });
+          referenceElement?.scrollIntoView({ behavior: "smooth", block: "center" });
         }
       }
     }, [isActive, referenceElement, shouldScrollMenu]);
