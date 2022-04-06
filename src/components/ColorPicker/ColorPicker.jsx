@@ -31,7 +31,7 @@ const ColorPicker = forwardRef(
       focusOnMount,
       colorShape,
       forceUseRawColorList,
-      showColorNameTooltip: showColorNameTooltip
+      showColorNameTooltip
     },
     ref
   ) => {
