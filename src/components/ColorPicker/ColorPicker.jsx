@@ -30,7 +30,8 @@ const ColorPicker = forwardRef(
       numberOfColorsInLine,
       focusOnMount,
       colorShape,
-      forceUseRawColorList
+      forceUseRawColorList,
+      showColorNameTooltip: showColorNameTooltip
     },
     ref
   ) => {
@@ -66,6 +67,7 @@ const ColorPicker = forwardRef(
           focusOnMount={focusOnMount}
           colorShape={colorShape}
           forceUseRawColorList={forceUseRawColorList}
+          showColorNameTooltip={showColorNameTooltip}
         />
       </DialogContentContainer>
     );
@@ -97,7 +99,8 @@ ColorPicker.propTypes = {
   numberOfColorsInLine: PropTypes.number,
   focusOnMount: PropTypes.bool,
   colorShape: PropTypes.oneOf(Object.values(ColorPicker.colorShapes)),
-  forceUseRawColorList: PropTypes.bool
+  forceUseRawColorList: PropTypes.bool,
+  showColorNameTooltip: PropTypes.bool
 };
 
 ColorPicker.defaultProps = {
@@ -121,7 +124,8 @@ ColorPicker.defaultProps = {
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
    * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
    */
-  forceUseRawColorList: false
+  forceUseRawColorList: false,
+  showColorNameTooltip: false
 };
 
 export default ColorPicker;
