@@ -6,11 +6,7 @@ const BASE_CSS_CLASS = "monday-storybook-information-box-title";
 const bemHelper = BEMClass(BASE_CSS_CLASS);
 
 export const InformationBoxTitle = ({ children }) => {
-  return typeof children === "string" ? (
-    <h4 className={bemHelper({ component: "component" })}>{children}</h4>
-  ) : (
-    children
-  );
+  return <h4 className={bemHelper({ component: "component" })}>{children}</h4>;
 };
 
 InformationBoxTitle.propTypes = {

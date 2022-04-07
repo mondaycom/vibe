@@ -4,13 +4,16 @@ import { InformationBoxTitle } from "../information-box-title/information-box-ti
 import "./information-box.scss";
 
 const BASE_CSS_CLASS = "monday-storybook-information-box";
+
 const bemHelper = BEMClass(BASE_CSS_CLASS);
 
 export const InformationBox = ({ component, title, description }) => {
+  const overrideTitle = typeof title === "string" ? <InformationBoxTitle>{title}</InformationBoxTitle> : title;
+
   return (
     <section className={BASE_CSS_CLASS}>
       <figure className={bemHelper({ element: "component" })}>{component}</figure>
-      <InformationBoxTitle>{title}</InformationBoxTitle>
+      {overrideTitle}
       <section className={bemHelper({ element: "description" })}>{description}</section>
     </section>
   );
