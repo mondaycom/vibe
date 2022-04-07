@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.24.0 (2022-04-07)
+
+#### Bug Fixes
+* [#623](https://github.com/mondaycom/monday-ui-react-core/pull/623) # 💄 Change Icon Button Small variant shape size to 24px. ([@3dyonic](https://github.com/3dyonic))
+
+#### New Features
+* [#629](https://github.com/mondaycom/monday-ui-react-core/pull/629) feat: adding a flag to ColorPicker for showing color name tooltips ([@shanibenaderetmonday](https://github.com/shanibenaderetmonday))
+
 ## 1.23.2 (2022-04-05)
 
 #### Bug Fixes
