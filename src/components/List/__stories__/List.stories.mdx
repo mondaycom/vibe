@@ -7,7 +7,7 @@ import { useCallback } from "react";
 import ListItem from "../../ListItem/ListItem";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
 import ListTitle from "../../ListTitle/ListTitle";
-import { Link } from "../../../storybook/components";
+import {Link, Tip} from "../../../storybook/components";
 import { MENU, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
 import Combobox from "../../Combobox/Combobox";
 import Add from "../../Icon/Icons/components/Add";
@@ -133,7 +133,7 @@ better user experience.
     <Story name="List with virtualization optimization">
         <Flex direction={Flex.directions.COLUMN} align={Flex.align.START}>
             <StoryDescription description="Without categories">
-                <List>
+                <List renderOnlyVisibleItems style={{height: "100px", width: "100px"}}>
                     <ListItem>
                         List item 1
                     </ListItem>
@@ -149,7 +149,7 @@ better user experience.
                 </List>
             </StoryDescription>
             <StoryDescription description="With categories">
-                <List>
+                <List renderOnlyVisibleItems style={{height: "100px", width: "100px"}}>
                     <ListTitle>First category</ListTitle>
                     <ListItem>
                         List item 1
@@ -169,6 +169,11 @@ better user experience.
         </Flex>
     </Story>
 </Canvas>
+
+<Tip>
+    While using virtualization optimization on your list component, please be aware your list needs to contain a constant height and width
+    for function properly
+</Tip>
 
 ## Do’s and Don’ts
 <ComponentRules

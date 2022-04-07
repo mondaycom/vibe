@@ -7,4 +7,8 @@
   padding: 0;
   overflow: auto;
   @include scroller();
+
+  &--virtualized {
+    height: 100px;
+  }
 }

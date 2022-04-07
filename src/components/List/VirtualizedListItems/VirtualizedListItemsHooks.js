@@ -8,18 +8,20 @@ const ITEM_CHILDREN_TYPES = {
 export function useChildrenAsDataObjects(children) {
   return children
     .map((child, index) => {
-      if (child instanceof ListTitle) {
+      if (child.type === ListTitle) {
         return {
           type: ITEM_CHILDREN_TYPES.TITLE,
           id: child.props.id || `list-title-${index}`,
-          children: child.children
+          children: child.children,
+          height: 56
         };
-      } else if (child instanceof ListItem) {
+      } else if (child.type === ListItem) {
         const { id, ...otherProps } = child.props;
         return {
           type: ITEM_CHILDREN_TYPES.ITEM,
           id: id || `list-item-${index}`,
-          ...otherProps
+          ...otherProps,
+          height: 32
         };
       } else {
         return undefined;
@@ -30,6 +32,7 @@ export function useChildrenAsDataObjects(children) {
 
 export function useListItemsRenderer() {
   return useCallback((item, index, style) => {
+    debugger;
     const { type, ...otherProps } = item;
     let element;
     switch (type) {

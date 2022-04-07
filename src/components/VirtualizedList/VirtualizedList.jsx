@@ -69,6 +69,7 @@ const VirtualizedList = forwardRef(
     // Callbacks
     const heightGetter = useCallback(
       (item, index) => {
+        debugger;
         const height = getItemHeight(item, index);
         if (height === undefined) {
           console.error("Couldn't get height for item: ", item);
@@ -236,9 +237,11 @@ const VirtualizedList = forwardRef(
         data-testid={getTestId(ELEMENT_TYPES.VIRTUALIZED_LIST, id)}
         style={style}
       >
-        <AutoSizer>
+        <AutoSizer defaultWidth={20}>
           {({ height, width }) => {
             updateListSize(width, height);
+            console.log(height, width, overscanCount);
+
             return (
               <List
                 ref={mergedListRef}

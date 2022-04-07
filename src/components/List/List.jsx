@@ -3,22 +3,23 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./List.scss";
-import { VirtualizedLIstItems } from "components/List/VirtualizedListItems/VirtualizedLIstItems";
+import { VirtualizedListItems } from "components/List/VirtualizedListItems/VirtualizedListItems";
 
 const List = forwardRef(
-  ({ className, id, component, children, dense, ariaLabel, ariaDescribedBy, renderOnlyVisibleItems }, ref) => {
+  ({ className, id, component, children, dense, ariaLabel, ariaDescribedBy, renderOnlyVisibleItems, style }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const Component = useMemo(() => component, [component]);
     let overrideChildren = children;
 
     if (renderOnlyVisibleItems) {
-      overrideChildren = <VirtualizedLIstItems>{children}</VirtualizedLIstItems>;
+      overrideChildren = <VirtualizedListItems>{children}</VirtualizedListItems>;
     }
 
     return (
       <Component
         ref={mergedRef}
+        style={style}
         className={cx("monday-style-list", className, {
           "monday-style-list--dense": dense,
           "monday-style-list": !renderOnlyVisibleItems,
@@ -63,7 +64,8 @@ List.propTypes = {
   /**
    * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
    */
-  renderOnlyVisibleItems: PropTypes.bool
+  renderOnlyVisibleItems: PropTypes.bool,
+  style: PropTypes.object
 };
 List.defaultProps = {
   className: "",
@@ -73,7 +75,8 @@ List.defaultProps = {
   ariaLabel: undefined,
   ariaDescribedBy: undefined,
   children: undefined,
-  renderOnlyVisibleItems: false
+  renderOnlyVisibleItems: false,
+  style: undefined
 };
 
 export default List;
