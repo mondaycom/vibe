@@ -31,7 +31,7 @@ export const ColorPickerColorsGrid = React.forwardRef(
     const calculateColorTooltip = color => {
       if (tooltipContentByColor && tooltipContentByColor[color]) return tooltipContentByColor[color];
       else {
-        return showColorNameTooltip ? formatColorNameForTooltip(color) : {};
+        return showColorNameTooltip ? formatColorNameForTooltip(color) : undefined;
       }
     };
 
