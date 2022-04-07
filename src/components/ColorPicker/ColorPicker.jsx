@@ -125,6 +125,11 @@ ColorPicker.defaultProps = {
    * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
    */
   forceUseRawColorList: false,
+  /**
+   * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
+   * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
+   *
+   */
   showColorNameTooltip: false
 };
 
