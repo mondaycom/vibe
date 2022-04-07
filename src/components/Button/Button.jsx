@@ -209,22 +209,16 @@ const Button = forwardRef(
 
     const leftIconSize = useMemo(() => {
       if (typeof leftIcon !== "function") return;
-      if (size === SIZES.SMALL) return "20";
-      if (size === SIZES.MEDIUM) return "24";
       return "24";
-    }, [leftIcon, size]);
+    }, [leftIcon]);
 
     const rightIconSize = useMemo(() => {
       if (typeof rightIcon !== "function") return;
-      if (size === SIZES.SMALL) return "20";
-      if (size === SIZES.MEDIUM) return "24";
       return "24";
-    }, [rightIcon, size]);
+    }, [rightIcon]);
 
     const successIconSize = useMemo(() => {
       if (typeof successIcon !== "function") return;
-      if (size === SIZES.SMALL) return "20";
-      if (size === SIZES.MEDIUM) return "24";
       return "24";
     }, [successIcon, size]);
 
