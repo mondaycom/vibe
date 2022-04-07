@@ -8,13 +8,6 @@
     margin: 0 0 $spacing-medium;
   }
 
-  &_title {
-    @include content-text;
-    font-weight: bold;
-    margin-bottom: $spacing-xs;
-    margin-top: $spacing-xs;
-  }
-
   &_description {
     @include content-text;
     font-size: $small-text-font-size;

@@ -1,21 +1,21 @@
 import cx from "classnames";
 import { InformationBox } from "../../../components/information-box/information-box";
-import { Link } from "../../../components";
+import { InformationBoxTitle } from "../../../components/information-box-title/information-box-title";
 import { elementColorsNames } from "utils/colors-vars-map";
-import "./contributor.scss";
 import { Flex, IconButton } from "components";
 import { Email } from "../../../../components/Icon/Icons";
+import "./contributor.scss";
 
 const BASE_CLASS = "monday-storybook-welcome-contributor";
 
 export const Contributor = ({ imgSrc, className, fullName, title, email }) => {
   const contributorTitle = (
     <Flex justify={Flex.justify.SPACE_BETWEEN}>
-      <h4 className="monday-storybook-information-box_title">{fullName}</h4>
+      <InformationBoxTitle>{fullName}</InformationBoxTitle>
       {email && (
-        <Link href={`mailto:${email}`}>
+        <a tabIndex="-1" href={`mailto:${email}`}>
           <IconButton icon={Email} kind={IconButton.kinds.TERTIARY} ariaLabel={`Contact ${fullName}`} />
-        </Link>
+        </a>
       )}
     </Flex>
   );
