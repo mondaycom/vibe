@@ -220,7 +220,7 @@ const Button = forwardRef(
     const successIconSize = useMemo(() => {
       if (typeof successIcon !== "function") return;
       return "24";
-    }, [successIcon, size]);
+    }, [successIcon]);
 
     if (loading) {
       return (
