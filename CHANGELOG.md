@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.24.0 (2022-04-07)
+
+#### Bug Fixes
+* [#623](https://github.com/mondaycom/monday-ui-react-core/pull/623) # 💄 Change Icon Button Small variant shape size to 24px. ([@3dyonic](https://github.com/3dyonic))
+
+#### New Features
+* [#629](https://github.com/mondaycom/monday-ui-react-core/pull/629) feat: adding a flag to ColorPicker for showing color name tooltips ([@shanibenaderetmonday](https://github.com/shanibenaderetmonday))
+
+## 1.23.2 (2022-04-05)
+
+#### Bug Fixes
+* [#628](https://github.com/mondaycom/monday-ui-react-core/pull/628) Scrollintoview ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.23.1 (2022-04-05)
+
+#### Bug Fixes
+* [#627](https://github.com/mondaycom/monday-ui-react-core/pull/627) Scroll into view not exsiting ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#624](https://github.com/mondaycom/monday-ui-react-core/pull/624) Analytics ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.23.0 (2022-04-05)
 
 #### Bug Fixes

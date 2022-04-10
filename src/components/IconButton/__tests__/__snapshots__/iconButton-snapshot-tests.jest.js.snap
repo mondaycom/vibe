@@ -384,12 +384,12 @@ exports[`IconButton renders correctly with size - small 1`] = `
     aria-hidden={false}
     className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
     fill="currentColor"
-    height="16"
+    height="24"
     onClick={[Function]}
     role="button"
     tabIndex={0}
     viewBox="0 0 20 20"
-    width="16"
+    width="24"
   >
     <path
       clipRule="evenodd"
