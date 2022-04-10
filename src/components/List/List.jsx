@@ -4,17 +4,32 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./List.scss";
 import { VirtualizedListItems } from "components/List/VirtualizedListItems/VirtualizedListItems";
+import { ListTitle } from "components";
 
 const List = forwardRef(
   ({ className, id, component, children, dense, ariaLabel, ariaDescribedBy, renderOnlyVisibleItems, style }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const Component = useMemo(() => component, [component]);
-    let overrideChildren = children;
+    const overrideChildren = useMemo(() => {
+      let override = children;
+      if (Array.isArray(override) && override.length > 0) {
+        const originalFirstChildren = override[0];
+        if (originalFirstChildren.type === ListTitle) {
+          const firstChild = React.cloneElement(originalFirstChildren, {
+            ...originalFirstChildren?.props,
+            className: `${originalFirstChildren.className || ""} monday-style-list_category--first`
+          });
+          console.log(firstChild.props);
+          override = [firstChild, ...override.slice(1)];
+        }
+      }
+      if (renderOnlyVisibleItems) {
+        override = <VirtualizedListItems>{override}</VirtualizedListItems>;
+      }
 
-    if (renderOnlyVisibleItems) {
-      overrideChildren = <VirtualizedListItems>{children}</VirtualizedListItems>;
-    }
+      return override;
+    }, [children, renderOnlyVisibleItems]);
 
     return (
       <Component

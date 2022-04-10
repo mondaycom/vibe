@@ -5,15 +5,22 @@ const ITEM_CHILDREN_TYPES = {
   TITLE: "title",
   ITEM: "item"
 };
+
+const LIST_TITLE_SPACING = 24;
+const LIST_ITEM_HEIGHT = 32;
+
 export function useChildrenAsDataObjects(children) {
   return children
     .map((child, index) => {
       if (child.type === ListTitle) {
+        const isFirstCategory = index === 0;
+        const { id, ...otherProps } = child.props;
         return {
           type: ITEM_CHILDREN_TYPES.TITLE,
-          id: child.props.id || `list-title-${index}`,
-          children: child.children,
-          height: 56
+          id: id || `list-title-${index}`,
+          ...otherProps,
+          // avoid add spacing to the first category on the list
+          height: isFirstCategory ? LIST_ITEM_HEIGHT : LIST_ITEM_HEIGHT + LIST_TITLE_SPACING
         };
       } else if (child.type === ListItem) {
         const { id, ...otherProps } = child.props;
@@ -21,7 +28,7 @@ export function useChildrenAsDataObjects(children) {
           type: ITEM_CHILDREN_TYPES.ITEM,
           id: id || `list-item-${index}`,
           ...otherProps,
-          height: 32
+          height: LIST_ITEM_HEIGHT
         };
       } else {
         return undefined;
@@ -32,11 +39,11 @@ export function useChildrenAsDataObjects(children) {
 
 export function useListItemsRenderer() {
   return useCallback((item, index, style) => {
-    debugger;
     const { type, ...otherProps } = item;
     let element;
     switch (type) {
       case ITEM_CHILDREN_TYPES.TITLE: {
+        console.log(otherProps);
         element = <ListTitle {...otherProps} />;
         break;
       }

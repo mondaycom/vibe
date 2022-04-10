@@ -69,7 +69,6 @@ const VirtualizedList = forwardRef(
     // Callbacks
     const heightGetter = useCallback(
       (item, index) => {
-        debugger;
         const height = getItemHeight(item, index);
         if (height === undefined) {
           console.error("Couldn't get height for item: ", item);

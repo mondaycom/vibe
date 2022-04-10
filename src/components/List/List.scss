@@ -8,7 +8,7 @@
   overflow: auto;
   @include scroller();
 
-  &--virtualized {
-    height: 100px;
+  &_category--first {
+    padding-top: 0;
   }
 }
