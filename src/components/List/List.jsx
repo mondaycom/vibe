@@ -36,7 +36,6 @@ const List = forwardRef(
         style={style}
         className={cx("monday-style-list", className, {
           "monday-style-list--dense": dense,
-          "monday-style-list": !renderOnlyVisibleItems,
           "monday-style-list-container": renderOnlyVisibleItems
         })}
         id={id}
