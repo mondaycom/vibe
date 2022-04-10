@@ -13,16 +13,6 @@ const List = forwardRef(
     const Component = component;
     const overrideChildren = useMemo(() => {
       let override = children;
-      if (Array.isArray(children) && children.length > 0) {
-        const originalFirstChild = children[0];
-        if (originalFirstChild.type === ListTitle) {
-          const firstChild = React.cloneElement(originalFirstChild, {
-            ...originalFirstChild?.props,
-            className: `${originalFirstChild.className || ""} monday-style-list_category--first`
-          });
-          override = [firstChild, ...children.slice(1)];
-        }
-      }
       if (renderOnlyVisibleItems) {
         override = <VirtualizedListItems>{override}</VirtualizedListItems>;
       }

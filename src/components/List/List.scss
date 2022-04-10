@@ -7,8 +7,4 @@
   padding: 0;
   overflow: auto;
   @include scroller();
-
-  &_category--first {
-    padding-top: 0;
-  }
 }

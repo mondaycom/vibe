@@ -8,7 +8,7 @@ const ITEM_CHILDREN_TYPES = {
   ITEM: "item"
 };
 
-const LIST_TITLE_SPACING = 24;
+const LIST_TITLE_HEIGHT = 48;
 const LIST_ITEM_HEIGHT = 32;
 
 export const VirtualizedListItems = ({ children }) => {
@@ -17,13 +17,12 @@ export const VirtualizedListItems = ({ children }) => {
       children
         .map((child, index) => {
           if (child.type === ListTitle) {
-            const isFirstCategory = index === 0;
             return {
               type: ITEM_CHILDREN_TYPES.TITLE,
               id: `list-title-${index}`,
               props: child.props,
               // avoid add spacing to the first category on the list
-              height: isFirstCategory ? LIST_ITEM_HEIGHT : LIST_ITEM_HEIGHT + LIST_TITLE_SPACING
+              height: LIST_TITLE_HEIGHT
             };
           } else if (child.type === ListItem) {
             const { id } = child.props;
