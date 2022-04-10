@@ -2,9 +2,9 @@ import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./List.scss";
 import { VirtualizedListItems } from "components/List/VirtualizedListItems/VirtualizedListItems";
 import { ListTitle } from "components";
+import "./List.scss";
 
 const List = forwardRef(
   ({ className, id, component, children, dense, ariaLabel, ariaDescribedBy, renderOnlyVisibleItems, style }, ref) => {
