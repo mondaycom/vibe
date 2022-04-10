@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { VirtualizedListItems } from "components/List/VirtualizedListItems/VirtualizedListItems";
-import { ListTitle } from "components";
 import "./List.scss";
 
 const List = forwardRef(
