@@ -20,7 +20,6 @@ const List = forwardRef(
             ...originalFirstChildren?.props,
             className: `${originalFirstChildren.className || ""} monday-style-list_category--first`
           });
-          console.log(firstChild.props);
           override = [firstChild, ...override.slice(1)];
         }
       }

@@ -43,7 +43,6 @@ export function useListItemsRenderer() {
     let element;
     switch (type) {
       case ITEM_CHILDREN_TYPES.TITLE: {
-        console.log(otherProps);
         element = <ListTitle {...otherProps} />;
         break;
       }

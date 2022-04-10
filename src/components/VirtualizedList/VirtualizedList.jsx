@@ -236,10 +236,9 @@ const VirtualizedList = forwardRef(
         data-testid={getTestId(ELEMENT_TYPES.VIRTUALIZED_LIST, id)}
         style={style}
       >
-        <AutoSizer defaultWidth={20}>
+        <AutoSizer>
           {({ height, width }) => {
             updateListSize(width, height);
-            console.log(height, width, overscanCount);
 
             return (
               <List
