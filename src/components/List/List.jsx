@@ -10,17 +10,17 @@ const List = forwardRef(
   ({ className, id, component, children, dense, ariaLabel, ariaDescribedBy, renderOnlyVisibleItems, style }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const Component = useMemo(() => component, [component]);
+    const Component = component;
     const overrideChildren = useMemo(() => {
       let override = children;
-      if (Array.isArray(override) && override.length > 0) {
-        const originalFirstChildren = override[0];
-        if (originalFirstChildren.type === ListTitle) {
-          const firstChild = React.cloneElement(originalFirstChildren, {
-            ...originalFirstChildren?.props,
-            className: `${originalFirstChildren.className || ""} monday-style-list_category--first`
+      if (Array.isArray(children) && children.length > 0) {
+        const originalFirstChild = children[0];
+        if (originalFirstChild.type === ListTitle) {
+          const firstChild = React.cloneElement(originalFirstChild, {
+            ...originalFirstChild?.props,
+            className: `${originalFirstChild.className || ""} monday-style-list_category--first`
           });
-          override = [firstChild, ...override.slice(1)];
+          override = [firstChild, ...children.slice(1)];
         }
       }
       if (renderOnlyVisibleItems) {
@@ -74,7 +74,7 @@ List.propTypes = {
    * ARIA described by string to reference an id to describe by
    */
   ariaDescribedBy: PropTypes.string,
-  children: PropTypes.any,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   /**
    * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
    */
