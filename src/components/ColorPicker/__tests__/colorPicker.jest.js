@@ -145,7 +145,11 @@ describe("ColorPicker", () => {
     const colorsToRender = [colorName];
 
     const colorPicker = render(
-      <ColorPickerColorsGrid colorsToRender = {colorsToRender} tooltipContentByColor={tooltipContentByColor} showColorNameTooltip />
+      <ColorPickerColorsGrid
+        colorsToRender={colorsToRender}
+        tooltipContentByColor={tooltipContentByColor}
+        showColorNameTooltip
+      />
     );
 
     const component = colorPicker.getByLabelText(colorName);

@@ -239,6 +239,7 @@ const VirtualizedList = forwardRef(
         <AutoSizer>
           {({ height, width }) => {
             updateListSize(width, height);
+
             return (
               <List
                 ref={mergedListRef}
