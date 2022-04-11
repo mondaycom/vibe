@@ -11,6 +11,7 @@ import Loader from "components/Loader/Loader";
 import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import "./Button.scss";
+import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
@@ -54,7 +55,8 @@ const Button = forwardRef(
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
-      blurOnMouseUp
+      blurOnMouseUp,
+      dataTestId
     },
     ref
   ) => {
@@ -177,6 +179,7 @@ const Button = forwardRef(
         id,
         onFocus,
         onBlur,
+        "data-testid": dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-labelledby": ariaLabeledBy,

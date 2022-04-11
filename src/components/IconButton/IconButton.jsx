@@ -49,7 +49,7 @@ const IconButton = forwardRef(
 
     const overrideStyle = useMemo(() => {
       let style = {
-        display: "inline-fllex",
+        display: "inline-flex",
         justifyContent: "center",
         alignItems: "center",
         padding: 0
