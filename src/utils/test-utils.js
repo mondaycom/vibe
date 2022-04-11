@@ -8,7 +8,8 @@ export const ELEMENT_TYPES = {
   TEXT_FIELD_SECONDARY_BUTTON: "text-field-secondary-button",
   SEARCH: "search",
   CLEAN_SEARCH_BUTTON: "clean-search-button",
-  COLOR_PICKER_ITEM: "color-picker-item"
+  COLOR_PICKER_ITEM: "color-picker-item",
+  ICON_BUTTON: "icon-button"
 };
 
 export const NAVIGATIONS_COMMANDS = {

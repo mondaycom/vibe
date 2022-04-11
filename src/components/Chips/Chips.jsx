@@ -9,6 +9,7 @@ import { NOOP } from "../../utils/function-utils";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import "./Chips.scss";
 import Avatar from "../Avatar/Avatar";
+import { IconButton } from "components";
 
 const Chips = forwardRef(
   (
@@ -106,15 +107,15 @@ const Chips = forwardRef(
           />
         ) : null}
         {hasCloseButton && (
-          <Icon
-            aria-label={`Remove ${label}`}
+          <IconButton
+            size={IconButton.sizes.XXS}
+            color={IconButton.colors.ON_PRIMARY_COLOR}
             className="chip-icon close"
-            iconType={Icon.type.SVG}
-            clickable
+            aria-label={`Remove ${label}`}
             icon={CloseSmall}
             iconSize={18}
             onClick={onDeleteCallback}
-            data-testid={`${dataTestId}-close`}
+            dataTestId={`${dataTestId}-close`}
           />
         )}
       </div>

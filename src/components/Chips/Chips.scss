@@ -42,14 +42,7 @@ $icon-margin: 4px;
     }
     &.close {
       margin-left: $icon-margin;
-      @include focus-style();
-      cursor: pointer;
-      @include theme-prop(color, primary-text-color);
-      border-radius: 4px;
-
-      &:hover {
-        @include theme-prop(background-color, primary-background-color);
-      }
+      color: var(--primary-text-color);
     }
   }
 
