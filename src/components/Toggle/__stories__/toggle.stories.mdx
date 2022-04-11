@@ -92,14 +92,14 @@ Allow users to turn an single option on or off. They are usually used to activat
     {
       positive: {
         component:<Toggle  />,
-        description:"Toggle will always apear with lables."
+        description: "Toggle will always appear with labels",
       },
       negative: {
         component:
         <div className="monday-style-story-toggle_column">
           <Toggle offOverrideText="" /><Toggle areLabelsHidden />
         </div>,
-        description:"Don’t remove toggle lables, since users wouldn’t know what state it represents. "
+        description:"Don’t remove toggle labels, since users would not know what state it represents. "
       }
     },
   ]}
@@ -115,14 +115,6 @@ In the automations center, a user can turn the automation on or off.
   </Story>
 </Canvas>
 
-### Turn on/ off notifications
-In the automations center, a user can turn the automation on or off.
-<Canvas>
-  <Story name="Turn on/ off an notifications">
-    <h5>Do not disturb mode</h5>
-    <Toggle isDefaultSelected={false} />
-  </Story>
-</Canvas>
 
 ## Related components
 <RelatedComponents componentsNames={[CHECKBOX, RADIO_BUTTON, BUTTON_GROUP]}/>
