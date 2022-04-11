@@ -283,8 +283,13 @@ Combobox.propTypes = {
    */
   optionRenderer: PropTypes.func,
   /** Maximum options count without scroll */
-  maxOptionsWithoutScroll: PropTypes.number
+  maxOptionsWithoutScroll: PropTypes.number,
+  /**
+   * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
+   */
+  renderOnlyVisibleOptions: PropTypes.bool
 };
+
 Combobox.defaultProps = {
   className: "",
   placeholder: "",
@@ -301,8 +306,9 @@ Combobox.defaultProps = {
   maxOptionsWithoutScroll: undefined,
   /**
    * Callback that called after clicking on the add new combo box button.
+   * @param {string} _filterValue
    */
-  onAddNew: undefined,
+  onAddNew: _filterValue => {},
   /**
    * The button label appears at the end of the combo box when the search does not return appropriate options.
    * The button will not be displayed if you have not passed a function for the onAddNew prop
@@ -319,7 +325,8 @@ Combobox.defaultProps = {
   noResultsRenderer: undefined,
   stickyCategories: false,
   optionRenderer: null,
-  clearFilterOnSelection: false
+  clearFilterOnSelection: false,
+  renderOnlyVisibleOptions: false
 };
 
 export default Combobox;
