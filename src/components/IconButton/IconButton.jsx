@@ -161,7 +161,8 @@ IconButton.propTypes = {
   /**
    * if disabled - this will be shown in the tooltip
    */
-  disabledReason: PropTypes.string
+  disabledReason: PropTypes.string,
+  dataTestId: PropTypes.string
 };
 
 IconButton.defaultProps = {
@@ -175,7 +176,8 @@ IconButton.defaultProps = {
   kind: Button.kinds.TERTIARY,
   disabled: false,
   disabledReason: undefined,
-  color: undefined
+  color: undefined,
+  dataTestId: undefined
 };
 
 export default IconButton;
