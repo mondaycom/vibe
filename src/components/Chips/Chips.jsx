@@ -10,6 +10,8 @@ import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map
 import "./Chips.scss";
 import Avatar from "../Avatar/Avatar";
 import { IconButton } from "components";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
+import { ELEMENT_TYPES } from "utils/test-utils";
 
 const Chips = forwardRef(
   (
@@ -29,10 +31,16 @@ const Chips = forwardRef(
       onDelete,
       onMouseDown,
       noAnimation,
-      "data-testid": dataTestId
+      dataTestId,
+      "data-testid": deprecatedDataTestId
     },
     ref
   ) => {
+    const overrideDataTestId = backwardCompatibilityForProperties(
+      [dataTestId, deprecatedDataTestId],
+      ELEMENT_TYPES.CHIP
+    );
+
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -63,7 +71,7 @@ const Chips = forwardRef(
         id={id}
         style={backgroundColorStyle}
         onMouseDown={onMouseDown}
-        data-testid={dataTestId}
+        data-testid={overrideDataTestId}
       >
         {leftAvatar ? (
           <Avatar
@@ -115,7 +123,7 @@ const Chips = forwardRef(
             icon={CloseSmall}
             iconSize={18}
             onClick={onDeleteCallback}
-            dataTestId={`${dataTestId}-close`}
+            dataTestId={`${overrideDataTestId}-close`}
           />
         )}
       </div>

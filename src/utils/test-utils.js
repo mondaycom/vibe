@@ -9,7 +9,8 @@ export const ELEMENT_TYPES = {
   SEARCH: "search",
   CLEAN_SEARCH_BUTTON: "clean-search-button",
   COLOR_PICKER_ITEM: "color-picker-item",
-  ICON_BUTTON: "icon-button"
+  ICON_BUTTON: "icon-button",
+  CHIP: "chip"
 };
 
 export const NAVIGATIONS_COMMANDS = {
