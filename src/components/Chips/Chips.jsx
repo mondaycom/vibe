@@ -31,16 +31,10 @@ const Chips = forwardRef(
       onDelete,
       onMouseDown,
       noAnimation,
-      dataTestId,
-      "data-testid": deprecatedDataTestId
+      dataTestId
     },
     ref
   ) => {
-    const overrideDataTestId = backwardCompatibilityForProperties(
-      [dataTestId, deprecatedDataTestId],
-      ELEMENT_TYPES.CHIP
-    );
-
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -71,7 +65,7 @@ const Chips = forwardRef(
         id={id}
         style={backgroundColorStyle}
         onMouseDown={onMouseDown}
-        data-testid={overrideDataTestId}
+        data-testid={dataTestId}
       >
         {leftAvatar ? (
           <Avatar
@@ -123,7 +117,7 @@ const Chips = forwardRef(
             icon={CloseSmall}
             iconSize={18}
             onClick={onDeleteCallback}
-            dataTestId={`${overrideDataTestId}-close`}
+            dataTestId={`${dataTestId}-close`}
           />
         )}
       </div>
@@ -139,6 +133,7 @@ Chips.propTypes = {
   label: PropTypes.string,
   disabled: PropTypes.bool,
   readOnly: PropTypes.bool,
+  dataTestId: PropTypes.string,
   /** Icon to place on the right */
   rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /** Icon to place on the left */
@@ -169,6 +164,7 @@ Chips.defaultProps = {
   id: "",
   label: "",
   disabled: false,
+  dataTestId: undefined,
   readOnly: false,
   rightIcon: null,
   leftIcon: null,
