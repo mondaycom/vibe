@@ -76,7 +76,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
 
   return (
     <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
-      <ul ref={ulRef} tabIndex={0} className={cx("tabs-list", size)} role="tablist">
+      <ul ref={ulRef} tabIndex={0} className={cx("tabs-list", size)} role="tablist" aria-label={ariaLabel}>
         {tabsToRender}
       </ul>
     </div>

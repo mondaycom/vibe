@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */
 import React, { useRef, forwardRef } from "react";
-import NOOP from "lodash/noop";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import { Clickable } from "components";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import Icon from "../../Icon/Icon";
 import "./Tab.scss";
@@ -42,14 +42,17 @@ const Tab = forwardRef(
           disabled,
           "tab-focus-visible-inset": focus
         })}
-        id={id}
-        role="tab"
-        aria-selected={active}
-        aria-disabled={disabled}
       >
-        <a className="tab-inner" onClick={() => !disabled && onClick(value)}>
+        <Clickable
+          id={id}
+          aria-selected={active}
+          aria-disabled={disabled}
+          className="tab-inner"
+          onClick={() => !disabled && onClick(value)}
+          role="tab"
+        >
           {renderIconAndChildren()}
-        </a>
+        </Clickable>
       </li>
     );
   }
@@ -77,7 +80,7 @@ Tab.defaultProps = {
   icon: null,
   iconType: undefined,
   iconSide: "left",
-  onClick: NOOP
+  onClick: () => {}
 };
 
 export default Tab;

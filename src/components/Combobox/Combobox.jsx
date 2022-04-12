@@ -56,6 +56,7 @@ const Combobox = forwardRef(
     const [isActiveByKeyboard, setIsActiveByKeyboard] = useState(false);
     const [filterValue, setFilterValue] = useState("");
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const comboboxResultsContainerId = `${id}_combobox-results`;
     const onChangeCallback = useCallback(
       value => {
         if (onFilterChanged) {
@@ -179,6 +180,7 @@ const Combobox = forwardRef(
       >
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           <Search
+            searchResultsContainerId={comboboxResultsContainerId}
             ref={inputRef}
             value={filterValue}
             wrapperClassName="combobox--wrapper-search-wrapper"
@@ -195,6 +197,7 @@ const Combobox = forwardRef(
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
+            id={comboboxResultsContainerId}
             categories={categories}
             options={filteredOptions}
             filterValue={filterValue}
