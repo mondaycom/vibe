@@ -11,6 +11,7 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
     <button
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-backward-command"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -43,6 +44,7 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
     <button
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-forward-command"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -108,6 +110,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
     <button
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-backward-command"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -156,6 +159,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
     <button
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-forward-command"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -197,6 +201,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
     <button
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-backward-command"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -245,6 +250,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
     <button
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-forward-command"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -289,6 +295,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
     <button
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-backward-command"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -337,6 +344,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
     <button
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-forward-command"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -381,6 +389,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
     <button
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-backward-command"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -429,6 +438,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-forward-command"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -473,6 +483,7 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
     <button
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-backward-command"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -491,6 +502,7 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
     <button
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-forward-command"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -522,6 +534,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
     <button
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-backward-command"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -556,6 +569,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
     <button
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-forward-command"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -597,6 +611,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
     <button
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-backward-command"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -631,6 +646,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
     <button
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-forward-command"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -675,6 +691,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
     <button
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-backward-command"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -709,6 +726,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
     <button
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-forward-command"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -753,6 +771,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
     <button
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-backward-command"
       disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
@@ -787,6 +806,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+      data-testid="steps-forward-command"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}

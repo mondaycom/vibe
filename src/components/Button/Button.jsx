@@ -179,7 +179,7 @@ const Button = forwardRef(
         id,
         onFocus,
         onBlur,
-        "data-testid": dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id),
+        "data-testid": dataTestId || getTestId(ELEMENT_TYPES.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-labelledby": ariaLabeledBy,

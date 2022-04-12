@@ -22,6 +22,7 @@ exports[`Snapshot Tests Tipseen content tests renders correctly 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-tipseen-content_dismiss monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -35,6 +36,7 @@ exports[`Snapshot Tests Tipseen content tests renders correctly 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -64,6 +66,7 @@ exports[`Snapshot Tests Tipseen content tests renders correctly when override di
     <button
       aria-disabled={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -93,6 +96,7 @@ exports[`Snapshot Tests Tipseen content tests renders correctly when override su
     <button
       aria-disabled={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -117,6 +121,7 @@ exports[`Snapshot Tests Tipseen content tests renders correctly with empty props
     <button
       aria-disabled={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -146,6 +151,7 @@ exports[`Snapshot Tests Tipseen content tests renders correctly without dismiss 
     <button
       aria-disabled={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -190,6 +196,7 @@ exports[`Snapshot Tests Tipseen content tests renders correctly without title 1`
     <button
       aria-disabled={false}
       className="monday-style-tipseen-content_submit monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -262,6 +269,7 @@ exports[`Snapshot Tests Tipseen renders correctly renders correctly 1`] = `
               aria-disabled={false}
               aria-label="Close"
               className="monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+              data-testid="button"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -358,6 +366,7 @@ exports[`Snapshot Tests Tipseen renders correctly renders correctly with custom 
               aria-disabled={false}
               aria-label="Close"
               className="monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+              data-testid="button"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -449,6 +458,7 @@ exports[`Snapshot Tests Tipseen renders correctly renders correctly with title 1
               aria-disabled={false}
               aria-label="Close"
               className="monday-style-tipseen_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+              data-testid="button"
               disabled={false}
               onBlur={[Function]}
               onClick={[Function]}
@@ -588,6 +598,7 @@ exports[`Snapshot Tests Tipseen wizard tests renders correctly 1`] = `
       <button
         aria-disabled={true}
         className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+        data-testid="steps-backward-command"
         disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
@@ -627,6 +638,7 @@ exports[`Snapshot Tests Tipseen wizard tests renders correctly 1`] = `
       <button
         aria-disabled={false}
         className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+        data-testid="steps-forward-command"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -656,6 +668,7 @@ exports[`Snapshot Tests Tipseen wizard tests renders correctly with empty props 
       <button
         aria-disabled={true}
         className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+        data-testid="steps-backward-command"
         disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
@@ -673,6 +686,7 @@ exports[`Snapshot Tests Tipseen wizard tests renders correctly with empty props 
       <button
         aria-disabled={false}
         className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+        data-testid="steps-forward-command"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
@@ -705,6 +719,7 @@ exports[`Snapshot Tests Tipseen wizard tests renders correctly without title 1`]
       <button
         aria-disabled={true}
         className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+        data-testid="steps-backward-command"
         disabled={true}
         onBlur={[Function]}
         onClick={[Function]}
@@ -744,6 +759,7 @@ exports[`Snapshot Tests Tipseen wizard tests renders correctly without title 1`]
       <button
         aria-disabled={false}
         className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+        data-testid="steps-forward-command"
         disabled={false}
         onBlur={[Function]}
         onClick={[Function]}

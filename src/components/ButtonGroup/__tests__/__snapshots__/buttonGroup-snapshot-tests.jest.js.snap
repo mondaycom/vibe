@@ -13,6 +13,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -26,6 +27,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -39,6 +41,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -52,6 +55,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -79,6 +83,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -92,6 +97,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -105,6 +111,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -118,6 +125,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -145,6 +153,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -158,6 +167,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -171,6 +181,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -184,6 +195,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -211,6 +223,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -224,6 +237,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -237,6 +251,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -250,6 +265,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -277,6 +293,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -290,6 +307,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -303,6 +321,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -316,6 +335,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -343,6 +363,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -356,6 +377,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -369,6 +391,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -382,6 +405,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -409,6 +433,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text selected monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -422,6 +447,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -435,6 +461,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
@@ -448,6 +475,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     <button
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button"
       disabled={false}
       onBlur={[Function]}
       onClick={[Function]}

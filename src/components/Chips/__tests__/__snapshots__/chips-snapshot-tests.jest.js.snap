@@ -3,6 +3,7 @@
 exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 <div
   className="chips--wrapper disabled"
+  data-testid="chip"
   id=""
   onMouseDown={[Function]}
   style={
@@ -22,6 +23,7 @@ exports[`Chips renders correctly renders correctly disabled chip 1`] = `
 exports[`Chips renders correctly renders correctly with color 1`] = `
 <div
   className="chips--wrapper with-close"
+  data-testid="chip"
   id=""
   onMouseDown={[Function]}
   style={
@@ -38,7 +40,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
   <button
     aria-disabled={false}
     className="chip-icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
-    data-testid="undefined-close"
+    data-testid="chip-close"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -82,6 +84,7 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
 exports[`Chips renders correctly renders correctly with empty props 1`] = `
 <div
   className="chips--wrapper with-close"
+  data-testid="chip"
   id=""
   onMouseDown={[Function]}
   style={
@@ -98,7 +101,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
   <button
     aria-disabled={false}
     className="chip-icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
-    data-testid="undefined-close"
+    data-testid="chip-close"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -142,6 +145,7 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
 exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 <div
   className="chips--wrapper"
+  data-testid="chip"
   id=""
   onMouseDown={[Function]}
   style={
@@ -181,6 +185,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
 exports[`Chips renders correctly renders correctly with left icon 1`] = `
 <div
   className="chips--wrapper"
+  data-testid="chip"
   id=""
   onMouseDown={[Function]}
   style={
@@ -216,6 +221,7 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 <div
   className="chips--wrapper"
+  data-testid="chip"
   id=""
   onMouseDown={[Function]}
   style={
@@ -255,6 +261,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
 exports[`Chips renders correctly renders correctly with right icon 1`] = `
 <div
   className="chips--wrapper"
+  data-testid="chip"
   id=""
   onMouseDown={[Function]}
   style={
@@ -290,6 +297,7 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
 exports[`Chips renders correctly renders correctly with text 1`] = `
 <div
   className="chips--wrapper with-close"
+  data-testid="chip"
   id=""
   onMouseDown={[Function]}
   style={
@@ -306,7 +314,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
   <button
     aria-disabled={false}
     className="chip-icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
-    data-testid="undefined-close"
+    data-testid="chip-close"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -350,6 +358,7 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
 exports[`Chips renders correctly renders correctly without close button 1`] = `
 <div
   className="chips--wrapper"
+  data-testid="chip"
   id=""
   onMouseDown={[Function]}
   style={
