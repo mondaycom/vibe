@@ -12,6 +12,7 @@ import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "components/Combobo
 import styles from "./ComboboxItems.modules.scss";
 
 export const ComboboxItems = ({
+  id,
   className,
   categories,
   options,
@@ -165,7 +166,12 @@ export const ComboboxItems = ({
     );
   } else {
     itemsElements = (
-      <div className={cx(styles.scrollableContainer, styles.optionsContainer, className)} role="treegrid" style={style}>
+      <div
+        className={cx(styles.scrollableContainer, styles.optionsContainer, className)}
+        role="treegrid"
+        style={style}
+        id={id}
+      >
         {items.map(itemData => createItemElementRenderer(itemData))}
       </div>
     );
