@@ -6,7 +6,7 @@ const ENTER_KEY = "Enter";
 const SPACE_KEY = " ";
 
 export const BreadcrumbContent = forwardRef(
-  ({ className, isClickable, link, onClick, text, icon, isCurrent, overrideDisabled = false }, ref) => {
+  ({ className, isClickable, link, onClick, text, icon, isCurrent, disabled = false }, ref) => {
     const Icon = icon;
     const onKeyDown = useCallback(
       event => {
@@ -17,7 +17,7 @@ export const BreadcrumbContent = forwardRef(
       [onClick, link]
     );
 
-    const tabIndex = useMemo(() => (overrideDisabled ? "-1" : "0"), [overrideDisabled]);
+    const tabIndex = useMemo(() => (disabled ? "-1" : "0"), [disabled]);
 
     if (isClickable && (link || onClick)) {
       if (link) {

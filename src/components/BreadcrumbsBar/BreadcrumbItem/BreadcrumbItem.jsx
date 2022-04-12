@@ -57,7 +57,7 @@ const BreadcrumbItem = ({
           text={text}
           icon={icon}
           isCurrent={isCurrent}
-          overrideDisabled={isDisabled || disabled}
+          disabled={overrideDisabled}
         />
       </li>
     </Tooltip>
