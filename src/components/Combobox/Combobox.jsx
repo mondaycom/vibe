@@ -178,7 +178,7 @@ const Combobox = forwardRef(
         id={id}
         data-testid={getTestId(ELEMENT_TYPES.COMBOBOX, id)}
       >
-        <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
+        <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }}>
           <Search
             searchResultsContainerId={comboboxResultsContainerId}
             ref={inputRef}

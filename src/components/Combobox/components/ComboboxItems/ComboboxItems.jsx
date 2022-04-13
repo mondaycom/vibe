@@ -158,7 +158,7 @@ export const ComboboxItems = ({
         className={cx(styles.optionsContainer, className)}
         items={items}
         itemRenderer={createItemElementRenderer}
-        role="treegrid"
+        role="listbox"
         scrollableClassName={styles.scrollableContainer}
         onItemsRendered={onItemsRender}
         style={style}
@@ -168,7 +168,7 @@ export const ComboboxItems = ({
     itemsElements = (
       <div
         className={cx(styles.scrollableContainer, styles.optionsContainer, className)}
-        role="treegrid"
+        role="listbox"
         style={style}
         id={id}
       >

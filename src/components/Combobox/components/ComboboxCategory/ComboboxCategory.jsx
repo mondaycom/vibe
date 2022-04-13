@@ -4,20 +4,20 @@ import "./ComboboxCategory.scss";
 
 const ComboboxCategory = ({ category, className }) => {
   const { label, id, ariaLabel } = category;
-
+  const overrideId = `combobox-category-${id}`;
   if (!label) return null;
 
   return (
-    <div
+    <ul
       key={id}
-      role="row"
+      role="group"
       aria-level={1}
       aria-label={ariaLabel || label}
-      id={`combobox-category-${id}`}
+      id={overrideId}
       className={cx("combobox-category", className)}
     >
       {label}
-    </div>
+    </ul>
   );
 };
 
