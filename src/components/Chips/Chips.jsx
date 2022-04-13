@@ -6,11 +6,11 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
 import { NOOP } from "../../utils/function-utils";
+import "./Chips.scss";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import { IconButton } from "components";
 import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
-import "./Chips.scss";
 
 const Chips = forwardRef(
   (
@@ -172,7 +172,7 @@ Chips.defaultProps = {
   rightAvatar: null,
   color: Chips.colors.PRIMARY,
   iconSize: 16,
-  onDelete: NOOP,
+  onDelete: (_id, _e) => {},
   onMouseDown: NOOP,
   noAnimation: false,
   allowTextSelection: false
