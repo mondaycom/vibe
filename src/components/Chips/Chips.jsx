@@ -9,7 +9,6 @@ import { NOOP } from "../../utils/function-utils";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
 import { IconButton } from "components";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
 import "./Chips.scss";
 
