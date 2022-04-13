@@ -46,7 +46,11 @@ const Combobox = forwardRef(
       optionRenderer,
       renderOnlyVisibleOptions,
       clearFilterOnSelection,
-      maxOptionsWithoutScroll
+      maxOptionsWithoutScroll,
+      /**
+       * temporary flag for investigate a bug - will remove very soon
+       */
+      forceUndoScrollNullCheck = false
     },
     ref
   ) => {
@@ -195,6 +199,7 @@ const Combobox = forwardRef(
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
+            forceUndoScrollNullCheck={forceUndoScrollNullCheck}
             categories={categories}
             options={filteredOptions}
             filterValue={filterValue}

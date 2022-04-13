@@ -114,7 +114,8 @@ export function optionItemRenderer({
   shouldScrollToSelectedItem,
   activeItemIndex,
   belongToCategory,
-  isActiveByKeyboard
+  isActiveByKeyboard,
+  forceUndoScrollNullCheck
 }) {
   return (
     <ComboboxOption
@@ -130,6 +131,7 @@ export function optionItemRenderer({
       optionLineHeight={optionLineHeight}
       belongToCategory={belongToCategory}
       shouldScrollWhenActive={shouldScrollToSelectedItem}
+      forceUndoScrollNullCheck={forceUndoScrollNullCheck}
     />
   );
 }

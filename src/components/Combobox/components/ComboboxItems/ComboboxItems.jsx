@@ -27,7 +27,8 @@ export const ComboboxItems = ({
   shouldScrollToSelectedItem,
   renderOnlyVisibleOptions,
   onActiveCategoryChanged,
-  maxOptionsWithoutScroll
+  maxOptionsWithoutScroll,
+  forceUndoScrollNullCheck
 }) => {
   const activeCategoryId = useRef();
 
@@ -56,7 +57,8 @@ export const ComboboxItems = ({
           optionRenderer,
           isActiveByKeyboard,
           activeItemIndex,
-          shouldScrollToSelectedItem
+          shouldScrollToSelectedItem,
+          forceUndoScrollNullCheck
         },
         isVirtualized: renderOnlyVisibleOptions
       }),
@@ -69,6 +71,7 @@ export const ComboboxItems = ({
       isActiveByKeyboard,
       activeItemIndex,
       shouldScrollToSelectedItem,
+      forceUndoScrollNullCheck,
       renderOnlyVisibleOptions
     ]
   );

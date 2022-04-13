@@ -29,7 +29,11 @@ const ComboboxOption = ({
     disabled,
     selected,
     ariaLabel,
-    belongToCategory = false
+    belongToCategory = false,
+    /**
+     * temporary flag for investigate a bug - will remove very soon
+     */
+    forceUndoScrollNullCheck = false
   } = option;
   let { tooltipContent } = option;
 
@@ -41,9 +45,13 @@ const ComboboxOption = ({
   useEffect(() => {
     const element = ref.current;
     if (isActive && element && shouldScrollWhenActive) {
-      element.scrollIntoView?.({ behaviour: "smooth" });
+      if (forceUndoScrollNullCheck) {
+        element?.scrollIntoView({ behaviour: "smooth" });
+      } else {
+        element.scrollIntoView?.({ behaviour: "smooth" });
+      }
     }
-  }, [ref, isActive, shouldScrollWhenActive]);
+  }, [ref, isActive, shouldScrollWhenActive, forceUndoScrollNullCheck]);
 
   const renderIcon = (icon, iconType, className) => {
     if (iconType === ComboboxOption.iconTypes.RENDERER) {
