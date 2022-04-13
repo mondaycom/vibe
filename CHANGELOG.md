@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.25.0 (2022-04-13)
+
+#### Bug Fixes
+* [#632](https://github.com/mondaycom/monday-ui-react-core/pull/632) Support on disabled tabIndex ([@NofarRG](https://github.com/NofarRG))
+* [#630](https://github.com/mondaycom/monday-ui-react-core/pull/630) fix icon size for small button ([@liatmaor](https://github.com/liatmaor))
+
+#### New Features
+* [#625](https://github.com/mondaycom/monday-ui-react-core/pull/625) add support on virtualized list items inside list component ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#619](https://github.com/mondaycom/monday-ui-react-core/pull/619) fix virtualized list story ([@hadasfa](https://github.com/hadasfa))
+* [#622](https://github.com/mondaycom/monday-ui-react-core/pull/622) Feature/yonatanari/wellcome page updates ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.24.0 (2022-04-07)
 
 #### Bug Fixes
