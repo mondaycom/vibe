@@ -6,7 +6,7 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
 import "./TabList.scss";
 
-const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, size, children }, ref) => {
+const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, size, children, ariaLabel }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -86,6 +86,7 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
 TabList.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
+  ariaLabel: PropTypes.string,
   onTabChange: PropTypes.func,
   activeTabId: PropTypes.number,
   tabType: PropTypes.string,
@@ -98,7 +99,8 @@ TabList.defaultProps = {
   onTabChange: () => {},
   activeTabId: 0,
   tabType: "Compact",
-  size: undefined
+  size: undefined,
+  ariaLabel: "Tab list name"
 };
 
 TabList.isTabList = true;
