@@ -9,9 +9,27 @@ import Button from "components/Button/Button";
 import Icon from "components/Icon/Icon";
 import AddSmall from "components/Icon/Icons/components/AddSmall";
 import { getWidthHeight } from "./services/IconButton-helpers";
+import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
 
 const IconButton = forwardRef(
-  ({ className, id, icon, size, tooltipContent, ariaLabel, kind, active, disabled, disabledReason, onClick }, ref) => {
+  (
+    {
+      className,
+      id,
+      icon,
+      size,
+      tooltipContent,
+      ariaLabel,
+      kind,
+      active,
+      disabled,
+      disabledReason,
+      onClick,
+      color,
+      dataTestId
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const buttonAriaLabel = useMemo(() => {
@@ -31,7 +49,7 @@ const IconButton = forwardRef(
 
     const overrideStyle = useMemo(() => {
       let style = {
-        display: "inline-fllex",
+        display: "inline-flex",
         justifyContent: "center",
         alignItems: "center",
         padding: 0
@@ -61,10 +79,12 @@ const IconButton = forwardRef(
         <Button
           onClick={onClick}
           disabled={disabled}
+          color={color}
           kind={kind}
           ariaLabel={buttonAriaLabel}
           ref={mergedRef}
           id={id}
+          dataTestId={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
           className={cx(className)}
           noSidePadding
           active={active}
@@ -85,6 +105,7 @@ const IconButton = forwardRef(
 
 IconButton.sizes = SIZES;
 IconButton.kinds = Button.kinds;
+IconButton.colors = Button.colors;
 
 IconButton.propTypes = {
   /**
@@ -125,6 +146,14 @@ IconButton.propTypes = {
    * Kind of button - like <Button />
    */
   kind: PropTypes.oneOf([IconButton.kinds.PRIMARY, IconButton.kinds.SECONDARY, IconButton.kinds.TERTIARY]),
+  /** The button's color  */
+  color: PropTypes.oneOf([
+    Button.colors.PRIMARY,
+    Button.colors.NEGATIVE,
+    Button.colors.POSITIVE,
+    Button.colors.ON_PRIMARY_COLOR,
+    Button.colors.ON_INVERTED_BACKGROUND
+  ]),
   /**
    * disabled state
    */
@@ -132,7 +161,8 @@ IconButton.propTypes = {
   /**
    * if disabled - this will be shown in the tooltip
    */
-  disabledReason: PropTypes.string
+  disabledReason: PropTypes.string,
+  dataTestId: PropTypes.string
 };
 
 IconButton.defaultProps = {
@@ -145,7 +175,9 @@ IconButton.defaultProps = {
   tooltipContent: undefined,
   kind: Button.kinds.TERTIARY,
   disabled: false,
-  disabledReason: undefined
+  disabledReason: undefined,
+  color: undefined,
+  dataTestId: undefined
 };
 
 export default IconButton;

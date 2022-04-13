@@ -4,6 +4,7 @@ exports[`IconButton renders correctly with 1`] = `
 <button
   aria-disabled={false}
   className="class-name monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  data-testid="icon-button"
   disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
@@ -13,7 +14,7 @@ exports[`IconButton renders correctly with 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-fllex",
+      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -47,6 +48,7 @@ exports[`IconButton renders correctly with active 1`] = `
 <button
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--no-side-padding"
+  data-testid="icon-button"
   disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
@@ -57,7 +59,7 @@ exports[`IconButton renders correctly with active 1`] = `
     Object {
       "alignItems": "center",
       "background": "var(--primary-selected-color)",
-      "display": "inline-fllex",
+      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -102,6 +104,7 @@ exports[`IconButton renders correctly with aria label 1`] = `
     aria-disabled={false}
     aria-label="My aria label"
     className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+    data-testid="icon-button"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -111,7 +114,7 @@ exports[`IconButton renders correctly with aria label 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "display": "inline-fllex",
+        "display": "inline-flex",
         "height": "40px",
         "justifyContent": "center",
         "padding": 0,
@@ -146,6 +149,7 @@ exports[`IconButton renders correctly with disabled 1`] = `
 <button
   aria-disabled={true}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  data-testid="icon-button"
   disabled={true}
   onBlur={[Function]}
   onClick={[Function]}
@@ -155,7 +159,7 @@ exports[`IconButton renders correctly with disabled 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-fllex",
+      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -189,6 +193,7 @@ exports[`IconButton renders correctly with empty props 1`] = `
 <button
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  data-testid="icon-button"
   disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
@@ -198,7 +203,7 @@ exports[`IconButton renders correctly with empty props 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-fllex",
+      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -232,6 +237,7 @@ exports[`IconButton renders correctly with id 1`] = `
 <button
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  data-testid="icon-button_icon-button"
   disabled={false}
   id="icon-button"
   onBlur={[Function]}
@@ -242,7 +248,7 @@ exports[`IconButton renders correctly with id 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-fllex",
+      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -276,6 +282,7 @@ exports[`IconButton renders correctly with size - large 1`] = `
 <button
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  data-testid="icon-button"
   disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
@@ -285,7 +292,7 @@ exports[`IconButton renders correctly with size - large 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-fllex",
+      "display": "inline-flex",
       "height": "48px",
       "justifyContent": "center",
       "padding": 0,
@@ -319,6 +326,7 @@ exports[`IconButton renders correctly with size - medium 1`] = `
 <button
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  data-testid="icon-button"
   disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
@@ -328,7 +336,7 @@ exports[`IconButton renders correctly with size - medium 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-fllex",
+      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -362,6 +370,7 @@ exports[`IconButton renders correctly with size - small 1`] = `
 <button
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  data-testid="icon-button"
   disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
@@ -371,7 +380,7 @@ exports[`IconButton renders correctly with size - small 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-fllex",
+      "display": "inline-flex",
       "height": "32px",
       "justifyContent": "center",
       "padding": 0,
@@ -405,6 +414,7 @@ exports[`IconButton renders correctly with size - xs 1`] = `
 <button
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  data-testid="icon-button"
   disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
@@ -414,7 +424,7 @@ exports[`IconButton renders correctly with size - xs 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-fllex",
+      "display": "inline-flex",
       "height": "24px",
       "justifyContent": "center",
       "padding": 0,
@@ -448,6 +458,7 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
 <button
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  data-testid="icon-button"
   disabled={false}
   onBlur={[Function]}
   onClick={[Function]}
@@ -457,7 +468,7 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-fllex",
+      "display": "inline-flex",
       "height": "16px",
       "justifyContent": "center",
       "padding": 0,
