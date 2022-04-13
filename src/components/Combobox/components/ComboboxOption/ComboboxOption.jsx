@@ -16,7 +16,11 @@ const ComboboxOption = ({
   onOptionHover,
   optionLineHeight,
   shouldScrollWhenActive,
-  optionRenderer
+  optionRenderer,
+  /**
+   * temporary flag for investigate a bug - will remove very soon
+   */
+  forceUndoScrollNullCheck = false
 }) => {
   const {
     id,
@@ -29,11 +33,7 @@ const ComboboxOption = ({
     disabled,
     selected,
     ariaLabel,
-    belongToCategory = false,
-    /**
-     * temporary flag for investigate a bug - will remove very soon
-     */
-    forceUndoScrollNullCheck = false
+    belongToCategory = false
   } = option;
   let { tooltipContent } = option;
 
