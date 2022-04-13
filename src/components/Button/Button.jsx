@@ -191,23 +191,24 @@ const Button = forwardRef(
       };
     }, [
       disabled,
+      mergedRef,
+      type,
       classNames,
       name,
       onMouseUp,
       style,
       onButtonClicked,
       id,
-      type,
-      onMouseDownClicked,
-      ariaLabel,
-      loading,
       onFocus,
       onBlur,
-      mergedRef,
+      dataTestId,
+      onMouseDownClicked,
       ariaLabeledBy,
-      ariaControls,
+      ariaLabel,
+      loading,
+      ariaHasPopup,
       ariaExpanded,
-      ariaHasPopup
+      ariaControls
     ]);
 
     const leftIconSize = useMemo(() => {
