@@ -134,6 +134,7 @@ function useActiveDescendantListFocus({
   });
 
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
+  console.log(itemsIds, visualFocusItemId);
   return {
     visualFocusItemIndex: triggerByKeyboard.current ? visualFocusItemIndex : undefined,
     visualFocusItemId: triggerByKeyboard.current ? visualFocusItemId : undefined,

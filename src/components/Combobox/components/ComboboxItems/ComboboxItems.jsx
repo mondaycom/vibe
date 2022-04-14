@@ -6,7 +6,7 @@ import {
   createCategoryItemObject,
   createDividerItemObject,
   createOptionItemObject
-} from "components/Combobox/components/ComboboxRenderers/ComboboxRenderers";
+} from "components/Combobox/ComboboxHelpers/ComboboxHelpers";
 import { VirtualizedList } from "components";
 import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "components/Combobox/components/ComboboxConstants";
 import styles from "./ComboboxItems.modules.scss";

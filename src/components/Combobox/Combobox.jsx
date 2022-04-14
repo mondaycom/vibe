@@ -9,13 +9,13 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { SIZES } from "../../constants/sizes";
 import Button from "../Button/Button";
-import useListKeyboardNavigation from "../../hooks/useListKeyboardNavigation";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
 import { ComboboxItems } from "components/Combobox/components/ComboboxItems/ComboboxItems";
 import { StickyCategoryHeader } from "components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
+import useActiveDescendantListFocus from "hooks/useActiveDescendantListFocus";
+import { getOptionId } from "./ComboboxHelpers/ComboboxHelpers";
 import "./Combobox.scss";
-import useActiveDescendantListFocus from "hooks/useActiveDescendantListFocus/useActiveDescendantListFocus";
 
 const Combobox = forwardRef(
   (
@@ -89,7 +89,10 @@ const Combobox = forwardRef(
       [filteredOptions]
     );
 
-    const filteredOptionsIds = useMemo(() => filteredOptions.map(option => option.id), [filteredOptions]);
+    const filteredOptionsIds = useMemo(
+      () => filteredOptions.map((option, index) => getOptionId(option?.id, index)),
+      [filteredOptions]
+    );
 
     const onAddNewCallback = useCallback(() => {
       onAddNew && onAddNew(filterValue);

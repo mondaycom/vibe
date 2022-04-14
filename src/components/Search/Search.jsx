@@ -58,7 +58,7 @@ const Search = forwardRef(
     ref
   ) => {
     const mergedRef = useMergeRefs({ refs: [ref, setRef] });
-
+    console.log(activeDescendant);
     return (
       <TextField
         id={id}

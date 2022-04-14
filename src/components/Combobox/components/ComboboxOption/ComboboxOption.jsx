@@ -3,8 +3,9 @@ import cx from "classnames";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing";
-import "./ComboboxOption.scss";
 import { keyCodes } from "../../../../constants/KeyCodes";
+import { getOptionId } from "../../ComboboxHelpers/ComboboxHelpers";
+import "./ComboboxOption.scss";
 
 const ComboboxOption = ({
   index,
@@ -120,7 +121,7 @@ const ComboboxOption = ({
         aria-selected={isActive}
         tabIndex="-1"
         aria-label={ariaLabel || label}
-        id={`combobox-item-${index}`}
+        id={getOptionId(id, index)}
         onMouseEnter={onMouseEnter}
         onClick={onClick}
         onKeyDown={onKeyDown}
