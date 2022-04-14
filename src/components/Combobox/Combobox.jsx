@@ -53,6 +53,7 @@ const Combobox = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
+    const resultsContainerRef = useRef(null);
     const [filterValue, setFilterValue] = useState("");
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const onChangeCallback = useCallback(
@@ -81,9 +82,22 @@ const Combobox = forwardRef(
 
     const [activeOptionIndex, setActiveOptionIndex] = useState(-1);
 
+    const isChildSelectable = useCallback(
+      index => {
+        return index !== undefined && filteredOptions[index] && !filteredOptions[index].disabled;
+      },
+      [filteredOptions]
+    );
+
     const filteredOptionsIds = useMemo(() => filteredOptions.map(option => option.id), [filteredOptions]);
 
-    const overrideOnClick = useMemo(
+    const onAddNewCallback = useCallback(() => {
+      onAddNew && onAddNew(filterValue);
+      // clear filter after adding
+      setFilterValue("");
+    }, [onAddNew, filterValue, setFilterValue]);
+
+    const overrideOnClick = useCallback(
       (event, itemIndex) => {
         onClick(filteredOptions[itemIndex]);
         if (isChildSelectable(itemIndex)) {
@@ -94,32 +108,20 @@ const Combobox = forwardRef(
           onChangeCallback("");
         }
       },
-      [onClick, filteredOptions, clearFilterOnSelection, onChangeCallback]
+      [onClick, filteredOptions, isChildSelectable, clearFilterOnSelection, onChangeCallback]
     );
-
-    const isChildSelectable = useCallback(
-      index => {
-        return index !== undefined && filteredOptions[index] && !filteredOptions[index].disabled;
-      },
-      [filteredOptions]
-    );
-
-    const onAddNewCallback = useCallback(() => {
-      onAddNew && onAddNew(filterValue);
-      // clear filter after adding
-      setFilterValue("");
-    }, [onAddNew, filterValue, setFilterValue]);
 
     const {
       visualFocusItemIndex,
       visualFocusItemId,
-      onClick: onOptionClick
+      onItemClick: onOptionClick
     } = useActiveDescendantListFocus({
-      focusedElementRole: inputRef,
+      focusedElementRef: inputRef,
+      containerElementRef: resultsContainerRef,
+      focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
       itemsIds: filteredOptionsIds,
       onItemClick: overrideOnClick,
-      isItemSelectable: isChildSelectable,
-      role: useActiveDescendantListFocus.roles.COMBOBOX
+      isItemSelectable: isChildSelectable
     });
 
     const hasResults = filteredOptions.length > 0;
@@ -162,6 +164,8 @@ const Combobox = forwardRef(
       [activeCategoryLabel]
     );
 
+    console.log(onOptionClick, inputRef === null);
+
     return (
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
       <div
@@ -191,13 +195,14 @@ const Combobox = forwardRef(
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
+            ref={resultsContainerRef}
             categories={categories}
             options={filteredOptions}
             filterValue={filterValue}
             withCategoriesDivider={withCategoriesDivider}
             optionRenderer={optionRenderer}
             activeItemIndex={activeOptionIndex}
-            visualFocusIndex={visualFocusItemIndex}
+            visualFocusItemIndex={visualFocusItemIndex}
             onActiveCategoryChanged={onActiveCategoryChanged}
             onOptionClick={onOptionClick}
             onOptionEnter={onOptionHoverCB}

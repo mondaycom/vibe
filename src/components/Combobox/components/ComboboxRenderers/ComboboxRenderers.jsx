@@ -106,8 +106,9 @@ export function optionItemRenderer({
   shouldScrollToSelectedItem,
   activeItemIndex,
   belongToCategory,
-  visualFocusIndex
+  visualFocusItemIndex
 }) {
+  console.log("!", visualFocusItemIndex, index);
   return (
     <ComboboxOption
       index={index}
@@ -115,7 +116,7 @@ export function optionItemRenderer({
       option={option}
       optionRenderer={optionRenderer}
       isActive={activeItemIndex === index}
-      visualFocus={index === visualFocusIndex}
+      visualFocus={index === visualFocusItemIndex}
       onOptionClick={onOptionClick}
       onOptionHover={onOptionEnter}
       onOptionLeave={onOptionLeave}

@@ -1,5 +1,6 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import useKeyEvent from "../useKeyEvent";
+import useEventListener from "../useEventListener";
 
 const ARROW_DIRECTIONS = {
   UP: "ArrowUp",
@@ -20,6 +21,7 @@ const ROLES = {
 
 function useActiveDescendantListFocus({
   focusedElementRef, // the reference for the component that listens to keyboard
+  containerElementRef,
   itemsIds,
   isItemSelectable,
   onItemClick,
@@ -32,36 +34,40 @@ function useActiveDescendantListFocus({
   const backArrow = isHorizontalList ? ARROW_DIRECTIONS.LEFT : ARROW_DIRECTIONS.UP;
 
   const [visualFocusItemIndex, setVisualFocusItemIndex] = useState(-1);
+  const triggerByKeyboard = useRef(false);
   const onArrowKeyEvent = useCallback(
     direction => {
-      let newIndex;
+      if (document.activeElement === focusedElementRef.current) {
+        let newIndex;
+        triggerByKeyboard.current = true;
 
-      if (direction === nextArrow) {
-        if (visualFocusItemIndex >= items.length - 1) return;
-        // Go over all the next items until found one which is selectable
-        for (let offset = 1; offset <= itemsCount; offset++) {
-          const nextIndex = (visualFocusItemIndex + offset) % itemsCount;
-          if (isItemSelectable(nextIndex)) {
-            newIndex = nextIndex;
-            break;
+        if (direction === nextArrow) {
+          if (visualFocusItemIndex > itemsCount - 1) return;
+          // Go over all the next items until found one which is selectable
+          for (let offset = 1; offset <= itemsCount; offset++) {
+            const nextIndex = (visualFocusItemIndex + offset) % itemsCount;
+            if (isItemSelectable(nextIndex)) {
+              newIndex = nextIndex;
+              break;
+            }
+          }
+        } else if (direction === backArrow) {
+          for (let offset = 1; offset <= itemsCount - 1; offset++) {
+            let prevIndex = visualFocusItemIndex - offset;
+            if (prevIndex < 0) {
+              prevIndex = itemsCount + prevIndex;
+            }
+            if (isItemSelectable(prevIndex)) {
+              newIndex = prevIndex;
+              break;
+            }
           }
         }
-      } else if (direction === backArrow) {
-        for (let offset = 1; offset <= visualFocusItemIndex; offset++) {
-          let prevIndex = visualFocusItemIndex - offset;
-          if (prevIndex < 0) {
-            prevIndex = itemsCount + prevIndex;
-          }
-          if (isItemSelectable(prevIndex)) {
-            newIndex = prevIndex;
-            break;
-          }
-        }
+
+        if (newIndex > -1 && newIndex !== visualFocusItemIndex) setVisualFocusItemIndex(newIndex);
       }
-
-      if (newIndex) setVisualFocusItemIndex(newIndex);
     },
-    [nextArrow, backArrow, visualFocusItemIndex, itemsCount, isItemSelectable]
+    [focusedElementRef, nextArrow, backArrow, visualFocusItemIndex, itemsCount, isItemSelectable]
   );
   const onArrowBack = useCallback(() => {
     onArrowKeyEvent(backArrow);
@@ -73,17 +79,25 @@ function useActiveDescendantListFocus({
 
   const overrideOnClickCallback = useCallback(
     (event, itemIndex) => {
-      const hasValidIndex = visualFocusItemIndex >= 0 && visualFocusItemIndex < itemsCount;
-      if (!onItemClick || !hasValidIndex || !isItemSelectable(visualFocusItemIndex)) return;
-      if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
-      onItemClick(event, visualFocusItemIndex);
-      if (event instanceof MouseEvent) {
-        // set focus on input again
-        requestAnimationFrame(() => focusedElementRef.current?.focus());
+      if (containerElementRef.current.contains(document.activeElement)) {
+        const hasValidIndex = itemIndex >= 0 && itemIndex < itemsCount;
+        if (!onItemClick || !hasValidIndex || !isItemSelectable(itemIndex)) return;
+        if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
+        onItemClick(event, visualFocusItemIndex);
+        triggerByKeyboard.current = event instanceof MouseEvent;
+        // If click is triggered by keyboard return focus on the input again
+        if (!triggerByKeyboard.current) {
+          requestAnimationFrame(() => focusedElementRef.current?.focus());
+        }
+        e;
       }
     },
-    [visualFocusItemIndex, itemsCount, onItemClick, isItemSelectable, focusedElementRef]
+    [containerElementRef, itemsCount, onItemClick, isItemSelectable, visualFocusItemIndex, focusedElementRef]
   );
+
+  const onBlurCallback = useCallback(() => {
+    setVisualFocusItemIndex(-1);
+  }, [setVisualFocusItemIndex]);
 
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;
@@ -113,10 +127,16 @@ function useActiveDescendantListFocus({
     ...listenerOptions
   });
 
+  useEventListener({
+    eventName: "blur",
+    ref: focusedElementRef,
+    callback: onBlurCallback
+  });
+
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
   return {
-    visualFocusItemIndex,
-    visualFocusItemId,
+    visualFocusItemIndex: triggerByKeyboard.current ? visualFocusItemIndex : undefined,
+    visualFocusItemId: triggerByKeyboard.current ? visualFocusItemId : undefined,
     onItemClick: overrideOnClickCallback,
     focusedElementProps: { "aria-activedescendant": visualFocusItemId, role: focusedElementRole }
   };
