@@ -16,6 +16,15 @@ describe("Combobox tests", () => {
     { value: "yellow", label: "Yellow" }
   ];
 
+  it("should call item on click callback func when onClick", () => {
+    const onClickMock = () => console.log("%%%");
+    const { getByLabelText } = render(<Combobox onClick={onClickMock} options={mockOptions} />);
+
+    fireEvent.click(getByLabelText("Yellow"));
+    //  console.log(getByLabelText("Yellow"));
+    //expect(onClickMock.mock.calls.length).toBe(1);
+  });
+
   it("should call callback func when onOptionHover", () => {
     const onMouseOverMock = jest.fn();
     const { getByLabelText } = render(<Combobox onOptionHover={onMouseOverMock} options={mockOptions} />);

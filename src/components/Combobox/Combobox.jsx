@@ -167,8 +167,6 @@ const Combobox = forwardRef(
       [activeCategoryLabel]
     );
 
-    console.log(onOptionClick, inputRef === null);
-
     return (
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
       <div

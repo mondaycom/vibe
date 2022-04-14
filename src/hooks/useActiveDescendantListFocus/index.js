@@ -83,13 +83,12 @@ function useActiveDescendantListFocus({
         const hasValidIndex = itemIndex >= 0 && itemIndex < itemsCount;
         if (!onItemClick || !hasValidIndex || !isItemSelectable(itemIndex)) return;
         if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
-        onItemClick(event, visualFocusItemIndex);
+        onItemClick(event, itemIndex);
         triggerByKeyboard.current = event instanceof MouseEvent;
         // If click is triggered by keyboard return focus on the input again
         if (!triggerByKeyboard.current) {
           requestAnimationFrame(() => focusedElementRef.current?.focus());
         }
-        e;
       }
     },
     [containerElementRef, itemsCount, onItemClick, isItemSelectable, visualFocusItemIndex, focusedElementRef]
@@ -134,7 +133,6 @@ function useActiveDescendantListFocus({
   });
 
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
-  console.log(itemsIds, visualFocusItemId);
   return {
     visualFocusItemIndex: triggerByKeyboard.current ? visualFocusItemIndex : undefined,
     visualFocusItemId: triggerByKeyboard.current ? visualFocusItemId : undefined,
