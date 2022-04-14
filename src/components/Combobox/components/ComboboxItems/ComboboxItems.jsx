@@ -19,7 +19,7 @@ export const ComboboxItems = ({
   withCategoriesDivider,
   optionRenderer,
   activeItemIndex,
-  isActiveByKeyboard,
+  visualFocusIndex,
   onOptionClick,
   onOptionEnter,
   onOptionLeave,
@@ -54,7 +54,7 @@ export const ComboboxItems = ({
         optionRenderData: {
           optionLineHeight,
           optionRenderer,
-          isActiveByKeyboard,
+          visualFocusIndex,
           activeItemIndex,
           shouldScrollToSelectedItem
         },
@@ -66,7 +66,7 @@ export const ComboboxItems = ({
       onOptionLeave,
       optionLineHeight,
       optionRenderer,
-      isActiveByKeyboard,
+      visualFocusIndex,
       activeItemIndex,
       shouldScrollToSelectedItem,
       renderOnlyVisibleOptions

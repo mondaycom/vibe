@@ -10,7 +10,7 @@ const ComboboxOption = ({
   index,
   option,
   isActive,
-  isActiveByKeyboard,
+  visualFocus,
   onOptionClick,
   onOptionLeave,
   onOptionHover,
@@ -129,7 +129,7 @@ const ComboboxOption = ({
           disabled,
           selected,
           active: isActive,
-          "active-outline": isActiveByKeyboard && isActive,
+          "active-outline": visualFocus,
           first: index === 0
         })}
         style={{ height: optionLineHeight }}

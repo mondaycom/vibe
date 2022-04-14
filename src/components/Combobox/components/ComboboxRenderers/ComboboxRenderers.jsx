@@ -30,10 +30,6 @@ export function createOptionItemObject({
   index,
   optionRenderer,
   isActive,
-  isActiveByKeyboard,
-  onOptionClick,
-  onOptionEnter,
-  onOptionLeave,
   optionLineHeight,
   shouldScrollToSelectedItem,
   categoryId
@@ -47,10 +43,6 @@ export function createOptionItemObject({
     id: option.id || index,
     optionRenderer,
     isActive,
-    isActiveByKeyboard,
-    onOptionClick,
-    onOptionEnter,
-    onOptionLeave,
     optionLineHeight,
     shouldScrollToSelectedItem,
     categoryId
@@ -114,7 +106,7 @@ export function optionItemRenderer({
   shouldScrollToSelectedItem,
   activeItemIndex,
   belongToCategory,
-  isActiveByKeyboard
+  visualFocusIndex
 }) {
   return (
     <ComboboxOption
@@ -123,7 +115,7 @@ export function optionItemRenderer({
       option={option}
       optionRenderer={optionRenderer}
       isActive={activeItemIndex === index}
-      isActiveByKeyboard={isActiveByKeyboard}
+      visualFocus={index === visualFocusIndex}
       onOptionClick={onOptionClick}
       onOptionHover={onOptionEnter}
       onOptionLeave={onOptionLeave}
