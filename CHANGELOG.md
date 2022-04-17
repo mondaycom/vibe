@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.26.0 (2022-04-17)
+
+#### Bug Fixes
+* [#635](https://github.com/mondaycom/monday-ui-react-core/pull/635) Add flag for undo a null check which cause weird behavior (combobox)  ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#633](https://github.com/mondaycom/monday-ui-react-core/pull/633) Fix minor craft bugs (button disabled cursor and chip close button appearance) & stories & add data test id prop to chip, button, icon button ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.25.0 (2022-04-13)
 
 #### Bug Fixes
