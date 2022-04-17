@@ -7,7 +7,8 @@
     "auto:bump-patch": "node scripts/autobump_patch.js",
     "auto:bump-minor": "node scripts/autobump_minor.js",
     "auto:bump-major": "node scripts/autobump_major.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build && npm run test:without-build",
+    "test:without-build": "jest",
     "validate-icons": "node scripts/validate-meta.js",
     "generate-meta": "node scripts/generate-meta.js",
     "compile-styles": "node-sass --output-style expanded --precision 6 ./src/index.scss dist/index.css",
@@ -17,7 +18,8 @@
   },
   "peerDependencies": {
     "react": ">=16.9.0",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "stylelint": "^14.1.0"
   },
   "repository": {
     "type": "git",
@@ -38,10 +40,18 @@
   },
   "homepage": "https://github.com/mondaycom/monday-ui-style#readme",
   "devDependencies": {
+    "@types/jest": "^27.4.1",
     "clean-css-cli": "^4.3.0",
+    "jest": "^27.5.1",
     "node-plop": "^0.26.2",
     "node-sass": "^4.14.1",
+    "stylelint": "14.1.0",
     "plop": "^2.7.4",
     "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "postcss": "8.4.4",
+    "postcss-scss": "^4.0.3",
+    "postcss-value-parser": "4.1.0"
   }
 }

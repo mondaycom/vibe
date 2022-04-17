@@ -34,6 +34,7 @@ import IconName from "monday-ui-style/src/Icons/IconName.svg";
 ## Icons
 
 ### Adding a new icon
+
 In order to add a new icon you will need to for and open a PR - https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
 
 When adding a new icon please make sure that there isn't a similar icon - if so either replace the icon or make sure that we need another version of it
@@ -43,7 +44,7 @@ When adding a new icon please make sure that there isn't a similar icon - if so 
 We are maintaining a metadata file on the icons, it helps our icon library to be more readable and search able when you want to search for a relevant icon
 
 How to add a new icon?
-Add the icon in SVG format under src/Icons folder (size 20x20) 
+Add the icon in SVG format under src/Icons folder (size 20x20)
 then run `npm run generate-meta` and fill in the relevant information
 
 ### Icon colors
@@ -60,3 +61,17 @@ In some rare occasions when you want to preserve a color within the icon please 
 ## New icon request
 
 If you want us to create a non existing monday.com style icon open a PR with please see the [guidelines](ICON_REQUEST.md)
+
+## Stylelint rules
+
+It is recommended to extend our [Stylelint](https://stylelint.io/) config in order to ensure proper usage of this library.  
+To use the supplied config, add `monday-ui-style/stylelint-config` as a [Stylelint config extension](https://stylelint.io/user-guide/configure/#extends):
+
+```js
+// Your .stylelintrc
+{
+  ...
+  "extends": "monday-ui-style/stylelint-config",
+  ...
+}
+```
