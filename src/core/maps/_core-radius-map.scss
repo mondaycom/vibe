@@ -1,0 +1,10 @@
+// CORE MAP :RADIUS
+// This partial defines a border radius related map.
+// - Map includes border radius scope tokens.
+// - Map is collected into the $core-settings-map and is interpolated into custom properties.
+
+$core-border-radius-map: (
+        border-radius-small: $border-radius-small,
+        border-radius-medium: $border-radius-medium,
+        border-radius-big: $border-radius-big,
+);
