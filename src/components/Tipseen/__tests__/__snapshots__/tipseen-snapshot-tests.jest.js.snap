@@ -331,6 +331,7 @@ exports[`Snapshot Tests Tipseen renders correctly renders correctly with custom 
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />
   <span
     className="monday-style-dialog-content-wrapper"
@@ -428,6 +429,7 @@ exports[`Snapshot Tests Tipseen renders correctly renders correctly with title 1
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />
   <span
     className="monday-style-dialog-content-wrapper"
@@ -527,6 +529,7 @@ exports[`Snapshot Tests Tipseen renders correctly renders correctly without clos
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />
   <span
     className="monday-style-dialog-content-wrapper"

@@ -99,6 +99,7 @@ exports[`IconButton renders correctly with aria label 1`] = `
   onMouseDown={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onScroll={[Function]}
 >
   <button
     aria-disabled={false}
