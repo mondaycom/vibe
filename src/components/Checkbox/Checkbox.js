@@ -64,7 +64,7 @@ export const Checkbox = forwardRef(
       }
     }, [mergedInputRef, indeterminate]);
 
-    const { onClickCapture: onClickCaptureLabel } = useSupportFirefoxLabelClick({ mergedInputRef });
+    const { onClickCapture: onClickCaptureLabel } = useSupportFirefoxLabelClick({ inputRef: mergedInputRef });
 
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
