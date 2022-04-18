@@ -15,6 +15,7 @@ exports[`renders correctly with Bolt Icon 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
+  onScroll={[Function]}
   type="button"
 >
   <svg
@@ -50,6 +51,7 @@ exports[`renders correctly with Bolt Icon 2`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
+  onScroll={[Function]}
   type="button"
 >
   <svg
@@ -83,6 +85,7 @@ exports[`renders correctly with empty props 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
+  onScroll={[Function]}
   type="button"
 >
   <svg
@@ -146,6 +149,7 @@ exports[`renders correctly with size Large 1`] = `
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   onMouseUp={[Function]}
+  onScroll={[Function]}
   type="button"
 >
   <svg
@@ -174,6 +178,7 @@ exports[`renders correctly with tooltip content 1`] = `
   onMouseDown={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
+  onScroll={[Function]}
 >
   <button
     aria-disabled={false}
@@ -189,6 +194,7 @@ exports[`renders correctly with tooltip content 1`] = `
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
     onMouseUp={[Function]}
+    onScroll={[Function]}
     type="button"
   >
     <svg

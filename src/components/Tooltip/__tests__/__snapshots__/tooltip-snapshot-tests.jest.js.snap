@@ -11,6 +11,7 @@ Array [
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />,
   <span
     className="monday-style-dialog-content-wrapper"
@@ -61,6 +62,7 @@ Array [
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />,
   <span
     className="monday-style-dialog-content-wrapper"
@@ -111,6 +113,7 @@ Array [
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />,
   <span
     className="monday-style-dialog-content-wrapper"
@@ -161,6 +164,7 @@ Array [
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />,
   <span
     className="monday-style-dialog-content-wrapper"
@@ -211,6 +215,7 @@ Array [
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />,
   <span
     className="monday-style-dialog-content-wrapper"
@@ -266,6 +271,7 @@ Array [
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />,
   <span
     className="monday-style-dialog-content-wrapper"
@@ -324,6 +330,7 @@ Array [
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />,
   <span
     className="monday-style-dialog-content-wrapper"

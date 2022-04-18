@@ -238,6 +238,7 @@ exports[`Snapshot Tests Tipseen renders correctly renders correctly 1`] = `
     onMouseDown={[Function]}
     onMouseEnter={[Function]}
     onMouseLeave={[Function]}
+    onScroll={[Function]}
   />
   <span
     className="monday-style-dialog-content-wrapper"
