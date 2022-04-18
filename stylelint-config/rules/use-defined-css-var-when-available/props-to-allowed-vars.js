@@ -8,8 +8,6 @@ const SPACINGS = [
   "--spacing-xxxl",
 ];
 
-const BOX_SHADOWS = ["--box-shadow-small", "--box-shadow-medium", "--box-shadow-large"];
-
 const BORDER_RADIUSES = ["--border-radius-small", "--border-radius-medium", "--border-radius-big"];
 
 const FONT_SIZES = [
@@ -111,7 +109,6 @@ const PROPS_TO_ALLOWED_VARS = {
   ...mapPropsToAllowedVars("line-height", FONT_LINE_HEIGHTS),
   ...mapPropsToAllowedVars("font-weight", FONT_WEIGHTS),
   ...mapPropsToAllowedVars("font-size", FONT_SIZES),
-  ...mapPropsToAllowedVars("box-shadow", BOX_SHADOWS),
   ...mapPropsToAllowedVars(TIMING_FUNCTION_PROPS, "--expand-animation-timing"),
 
   "font-family": ["--font-family"],
