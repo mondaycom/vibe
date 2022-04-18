@@ -14,7 +14,6 @@ exports[`IconButton renders correctly with 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -59,7 +58,6 @@ exports[`IconButton renders correctly with active 1`] = `
     Object {
       "alignItems": "center",
       "background": "var(--primary-selected-color)",
-      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -114,7 +112,6 @@ exports[`IconButton renders correctly with aria label 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "display": "inline-flex",
         "height": "40px",
         "justifyContent": "center",
         "padding": 0,
@@ -159,7 +156,6 @@ exports[`IconButton renders correctly with disabled 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -203,7 +199,6 @@ exports[`IconButton renders correctly with empty props 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -248,7 +243,6 @@ exports[`IconButton renders correctly with id 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -292,7 +286,6 @@ exports[`IconButton renders correctly with size - large 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-flex",
       "height": "48px",
       "justifyContent": "center",
       "padding": 0,
@@ -336,7 +329,6 @@ exports[`IconButton renders correctly with size - medium 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-flex",
       "height": "40px",
       "justifyContent": "center",
       "padding": 0,
@@ -380,7 +372,6 @@ exports[`IconButton renders correctly with size - small 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-flex",
       "height": "32px",
       "justifyContent": "center",
       "padding": 0,
@@ -424,7 +415,6 @@ exports[`IconButton renders correctly with size - xs 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-flex",
       "height": "24px",
       "justifyContent": "center",
       "padding": 0,
@@ -468,7 +458,6 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "display": "inline-flex",
       "height": "16px",
       "justifyContent": "center",
       "padding": 0,
