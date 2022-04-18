@@ -27,6 +27,7 @@ export default class Dialog extends PureComponent {
     // Binding section.
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.onScroll = this.onScroll.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onClick = this.onClick.bind(this);
     this.onFocus = this.onFocus.bind(this);
@@ -207,6 +208,10 @@ export default class Dialog extends PureComponent {
     this.handleEvent("mouseleave", e.target, e);
   }
 
+  onScroll(e) {
+    this.handleEvent("scroll", e.target, e);
+  }
+
   onClick(e) {
     if (e.button) return;
     this.handleEvent("click", e.target, e);
@@ -303,6 +308,7 @@ export default class Dialog extends PureComponent {
                 onMouseDown={chainOnPropsAndInstance("onMouseDown", this, this.props)}
                 onMouseEnter={chainOnPropsAndInstance("onMouseEnter", this, this.props)}
                 onMouseLeave={chainOnPropsAndInstance("onMouseLeave", this, this.props)}
+                onScroll={chainOnPropsAndInstance("onScroll", this, this.props)}
               >
                 {children}
               </Refable>

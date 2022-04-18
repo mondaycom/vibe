@@ -9,5 +9,6 @@ export const HIDE_SHOW_EVENTS = {
   MOUSE_DOWN: "mousedown",
   FOCUS: "focus",
   BLUR: "blur",
-  CONTENT_CLICK: "onContentClick"
+  CONTENT_CLICK: "onContentClick",
+  SCROLL: "scroll",
 };
