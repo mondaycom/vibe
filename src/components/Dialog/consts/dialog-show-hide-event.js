@@ -10,5 +10,5 @@ export const HIDE_SHOW_EVENTS = {
   FOCUS: "focus",
   BLUR: "blur",
   CONTENT_CLICK: "onContentClick",
-  SCROLL: "scroll",
+  SCROLL: "scroll"
 };
