@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.26.2 (2022-04-18)
+
+#### Bug Fixes
+* [#643](https://github.com/mondaycom/monday-ui-react-core/pull/643) remove set style hardcoded for icon button (not needed and not used u… ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.26.1 (2022-04-18)
 
 #### Bug Fixes
