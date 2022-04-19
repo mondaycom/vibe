@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.26.3 (2022-04-19)
+
+#### Bug Fixes
+* [#648](https://github.com/mondaycom/monday-ui-react-core/pull/648) Undo "component" absolute path because it increase bundle size ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.26.2 (2022-04-18)
 
 #### Bug Fixes
