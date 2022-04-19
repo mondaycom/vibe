@@ -7,10 +7,6 @@ exports[`TabList renders correctly stretched tab list 1`] = `
 >
   <ul
     className="tabs-list"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
     role="tablist"
     tabIndex={0}
   >
@@ -67,10 +63,6 @@ exports[`TabList renders correctly with activeTabId 1`] = `
 >
   <ul
     className="tabs-list"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
     role="tablist"
     tabIndex={0}
   >
@@ -113,10 +105,6 @@ exports[`TabList renders correctly with children 1`] = `
 >
   <ul
     className="tabs-list"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
     role="tablist"
     tabIndex={0}
   >
@@ -145,10 +133,6 @@ exports[`TabList renders correctly with className 1`] = `
 >
   <ul
     className="tabs-list"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
     role="tablist"
     tabIndex={0}
   >
@@ -177,10 +161,6 @@ exports[`TabList renders correctly with id 1`] = `
 >
   <ul
     className="tabs-list"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
     role="tablist"
     tabIndex={0}
   >
@@ -209,10 +189,6 @@ exports[`TabList renders correctly with size 1`] = `
 >
   <ul
     className="tabs-list lg"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
     role="tablist"
     tabIndex={0}
   >
@@ -255,10 +231,6 @@ exports[`TabList renders correctly with tabType 1`] = `
 >
   <ul
     className="tabs-list"
-    onBlur={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onKeyUp={[Function]}
     role="tablist"
     tabIndex={0}
   >

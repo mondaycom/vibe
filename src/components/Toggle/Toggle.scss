@@ -2,6 +2,20 @@
 @import "../../styles/global-css-settings.scss";
 
 .monday-style-toggle {
+  // Since it is not possible to change the design of the checkbox according to the storybook toggle requirements using css,
+  // we hide the checkbox and draw a new one instead.
+  // In order to allow accessibility, all operations will be performed on the hidden checkbox and be reflected
+  // in the new toggle we drew.
+  &_input {
+    // When the hidden checkbox will be focused by keyboard navigation events, the toggle appearance will reflect it
+    &:focus-visible,
+    &.focus-visible {
+      & ~ .monday-style-toggle_toggle {
+        @include focus-style-css();
+      }
+    }
+  }
+
   &_toggle {
     @include reset-button();
     transition: background-color 100ms $expand-animation-timing;
@@ -56,22 +70,6 @@
       }
       & .monday-style-toggle_text {
         color: rgba(var(--primary-text-color), 0.4);
-      }
-    }
-  }
-
-  // Since it is not possible to change the design of the checkbox according to the storybook toggle requirements using css,
-  // we hide the checkbox and draw a new one instead.
-  // In order to allow accessibility, all operations will be performed on the hidden checkbox and be reflected
-  // in the new toggle we drew.
-  input {
-    @include hidden-element;
-
-    // When the hidden checkbox will be focused by keyboard navigation events, the toggle appearance will reflect it
-    &:focus-visible,
-    &.focus-visible {
-      & + .monday-style-toggle_toggle {
-        @include focus-style-css();
       }
     }
   }

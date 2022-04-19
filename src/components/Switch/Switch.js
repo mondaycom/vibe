@@ -1,7 +1,7 @@
-import React, { useCallback, useMemo, useState } from "react";
-import classes from "./Switch.module.scss";
+import React, { useMemo, useRef } from "react";
 import cx from "classnames";
-import isNil from "lodash/isNil";
+import { useSwitchChecked } from "components/Switch/hooks/useSwitchChecked";
+import classes from "./Switch.module.scss";
 
 export const Switch = ({
   id,
@@ -19,22 +19,12 @@ export const Switch = ({
   children: originalChildren,
   wrapperClassName
 }) => {
-  let overrideDefaultChecked = defaultChecked;
-
-  // If component did not receive default checked and checked props, choose default checked as
-  // default behavior (handle isChecked logic inside input) and set default value
-  if (isNil(overrideDefaultChecked) && isNil(checked)) {
-    overrideDefaultChecked = false;
-  }
-
-  const [overrideChecked, setOverrideChecked] = useState(overrideDefaultChecked || checked);
-  const overrideOnChange = useCallback(
-    e => {
-      setOverrideChecked(!overrideChecked);
-      onChange(e);
-    },
-    [onChange, overrideChecked]
-  );
+  const ref = useRef();
+  const { onChange: overrideOnChange, checked: overrideChecked } = useSwitchChecked({
+    checked,
+    defaultChecked,
+    onChange
+  });
 
   const children = useMemo(
     () =>
@@ -48,8 +38,8 @@ export const Switch = ({
   return (
     <label htmlFor={id} className={wrapperClassName}>
       <input
+        ref={ref}
         id={id}
-        defaultChecked={defaultChecked}
         aria-controls={ariaControls}
         value={value}
         name={name}

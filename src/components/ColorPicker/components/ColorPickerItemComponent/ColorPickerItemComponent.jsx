@@ -9,6 +9,7 @@ import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
 import { COLOR_SHAPES } from "../../ColorPickerConstants";
+import { getTestId } from "../../../../utils/test-utils";
 
 const ColorPickerItemComponent = ({
   color,
@@ -21,7 +22,8 @@ const ColorPickerItemComponent = ({
   colorSize,
   tooltipContent,
   isActive,
-  colorShape
+  colorShape,
+  "data-testid": dataTestId
 }) => {
   const isMondayColor = useMemo(() => contentColors.includes(color), [color]);
   const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
@@ -62,6 +64,7 @@ const ColorPickerItemComponent = ({
           active: isActive,
           circle: colorShape === COLOR_SHAPES.CIRCLE
         })}
+        data-testid={dataTestId || getTestId("color-picker-item", color)}
       >
         <div className="feedback-indicator" />
         <Clickable

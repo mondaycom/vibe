@@ -16,7 +16,11 @@ const ComboboxOption = ({
   onOptionHover,
   optionLineHeight,
   shouldScrollWhenActive,
-  optionRenderer
+  optionRenderer,
+  /**
+   * temporary flag for investigate a bug - will remove very soon
+   */
+  forceUndoScrollNullCheck = false
 }) => {
   const {
     id,
@@ -28,7 +32,8 @@ const ComboboxOption = ({
     iconSize = 16,
     disabled,
     selected,
-    ariaLabel
+    ariaLabel,
+    belongToCategory = false
   } = option;
   let { tooltipContent } = option;
 
@@ -40,9 +45,13 @@ const ComboboxOption = ({
   useEffect(() => {
     const element = ref.current;
     if (isActive && element && shouldScrollWhenActive) {
-      element.scrollIntoView({ behaviour: "smooth" });
+      if (forceUndoScrollNullCheck) {
+        element?.scrollIntoView({ behaviour: "smooth" });
+      } else {
+        element.scrollIntoView?.({ behaviour: "smooth" });
+      }
     }
-  }, [ref, isActive, shouldScrollWhenActive]);
+  }, [ref, isActive, shouldScrollWhenActive, forceUndoScrollNullCheck]);
 
   const renderIcon = (icon, iconType, className) => {
     if (iconType === ComboboxOption.iconTypes.RENDERER) {
@@ -114,7 +123,8 @@ const ComboboxOption = ({
       <div
         ref={ref}
         key={id || label}
-        role="option"
+        role="row"
+        aria-level={belongToCategory ? 2 : 1}
         aria-selected={isActive}
         tabIndex="-1"
         aria-label={ariaLabel || label}

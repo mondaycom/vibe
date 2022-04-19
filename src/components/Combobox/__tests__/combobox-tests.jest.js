@@ -41,7 +41,7 @@ describe("Combobox tests", () => {
     await waitFor(() => expect(noResRendereMock.mock.calls.length).toBe(1));
   });
 
-  it("should dispay no results message", async () => {
+  it("should display no results message", async () => {
     const noRes = "NO MESSAGE";
     const { getByLabelText } = render(<Combobox options={mockOptions} noResultsMessage={noRes} />);
     const input = getByLabelText("Search for content");
@@ -49,7 +49,7 @@ describe("Combobox tests", () => {
     await waitFor(() => expect(screen.getByText(noRes)).toBeInstanceOf(Node));
   });
 
-  it("should call callback func when add new", async () => {
+  it("should call onAddNew func when add new", async () => {
     const onAddMock = jest.fn();
 
     const { getByLabelText } = render(<Combobox onAddNew={onAddMock} options={mockOptions} />);

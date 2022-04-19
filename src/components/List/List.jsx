@@ -2,24 +2,40 @@ import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import { VirtualizedListItems } from "components/List/VirtualizedListItems/VirtualizedListItems";
 import "./List.scss";
 
-const List = forwardRef(({ className, id, component, children, dense, ariaLabel, ariaDescribedBy }, ref) => {
-  const componentRef = useRef(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-  const Component = useMemo(() => component, [component]);
-  return (
-    <Component
-      ref={mergedRef}
-      className={cx("monday-style-list", className, { "monday-style-list--dense": dense })}
-      id={id}
-      aria-label={ariaLabel}
-      aria-describedby={ariaDescribedBy}
-    >
-      {children}
-    </Component>
-  );
-});
+const List = forwardRef(
+  ({ className, id, component, children, dense, ariaLabel, ariaDescribedBy, renderOnlyVisibleItems, style }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+    const Component = component;
+    const overrideChildren = useMemo(() => {
+      let override = children;
+      if (renderOnlyVisibleItems) {
+        override = <VirtualizedListItems>{override}</VirtualizedListItems>;
+      }
+
+      return override;
+    }, [children, renderOnlyVisibleItems]);
+
+    return (
+      <Component
+        ref={mergedRef}
+        style={style}
+        className={cx("monday-style-list", className, {
+          "monday-style-list--dense": dense,
+          "monday-style-list-container": renderOnlyVisibleItems
+        })}
+        id={id}
+        aria-label={ariaLabel}
+        aria-describedby={ariaDescribedBy}
+      >
+        {overrideChildren}
+      </Component>
+    );
+  }
+);
 
 List.propTypes = {
   /**
@@ -46,7 +62,12 @@ List.propTypes = {
    * ARIA described by string to reference an id to describe by
    */
   ariaDescribedBy: PropTypes.string,
-  children: PropTypes.any
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+  /**
+   * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
+   */
+  renderOnlyVisibleItems: PropTypes.bool,
+  style: PropTypes.object
 };
 List.defaultProps = {
   className: "",
@@ -55,7 +76,9 @@ List.defaultProps = {
   dense: false,
   ariaLabel: undefined,
   ariaDescribedBy: undefined,
-  children: undefined
+  children: undefined,
+  renderOnlyVisibleItems: false,
+  style: undefined
 };
 
 export default List;

@@ -28,7 +28,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
       selectedOptions.map((option, index) =>
         index >= from && index < to ? (
           <Chips
-            data-testid="value-container-chip"
+            dataTestId="value-container-chip"
             key={option.value}
             className={chipClassName}
             noAnimation

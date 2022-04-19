@@ -3,7 +3,6 @@ import React, { forwardRef, useRef, useMemo, useCallback, useEffect } from "reac
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
-import "./TextField.scss";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
 import { FEEDBACK_CLASSES, FEEDBACK_STATES, sizeMapper } from "./TextFieldHelpers";
@@ -12,6 +11,8 @@ import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
 import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "components/Clickable/Clickable";
+import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import "./TextField.scss";
 
 const NOOP = () => {
 };
@@ -53,7 +54,9 @@ const TextField = forwardRef(
       trim,
       role,
       required,
-      loading
+      loading,
+      dataTestId,
+      secondaryDataTestId
     },
     ref
   ) => {
@@ -143,6 +146,7 @@ const TextField = forwardRef(
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               required={required}
+              data-testid={dataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD, id)}
             />
             {loading && (
               <div
@@ -181,6 +185,7 @@ const TextField = forwardRef(
               })}
               onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
+              dataTestId={secondaryDataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD_SECONDARY_BUTTON, id)}
             >
               <Icon
                 icon={secondaryIconName}

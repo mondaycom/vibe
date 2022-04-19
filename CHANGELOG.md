@@ -1,5 +1,281 @@
 # Changelog
 
+## 1.26.2 (2022-04-18)
+
+#### Bug Fixes
+* [#643](https://github.com/mondaycom/monday-ui-react-core/pull/643) remove set style hardcoded for icon button (not needed and not used u… ([@hadasfa](https://github.com/hadasfa))
+
+## 1.26.1 (2022-04-18)
+
+#### Bug Fixes
+* [#641](https://github.com/mondaycom/monday-ui-react-core/pull/641) Fix bug: support press shift while click on checkbox on firefox browsers ([@hadasfa](https://github.com/hadasfa))
+
+## 1.26.0 (2022-04-17)
+
+#### Bug Fixes
+* [#635](https://github.com/mondaycom/monday-ui-react-core/pull/635) Add flag for undo a null check which cause weird behavior (combobox)  ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#633](https://github.com/mondaycom/monday-ui-react-core/pull/633) Fix minor craft bugs (button disabled cursor and chip close button appearance) & stories & add data test id prop to chip, button, icon button ([@hadasfa](https://github.com/hadasfa))
+
+## 1.25.0 (2022-04-13)
+
+#### Bug Fixes
+* [#632](https://github.com/mondaycom/monday-ui-react-core/pull/632) Support on disabled tabIndex ([@NofarRG](https://github.com/NofarRG))
+* [#630](https://github.com/mondaycom/monday-ui-react-core/pull/630) fix icon size for small button ([@liatmaor](https://github.com/liatmaor))
+
+#### New Features
+* [#625](https://github.com/mondaycom/monday-ui-react-core/pull/625) add support on virtualized list items inside list component ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#619](https://github.com/mondaycom/monday-ui-react-core/pull/619) fix virtualized list story ([@hadasfa](https://github.com/hadasfa))
+* [#622](https://github.com/mondaycom/monday-ui-react-core/pull/622) Feature/yonatanari/wellcome page updates ([@3dyonic](https://github.com/3dyonic))
+
+## 1.24.0 (2022-04-07)
+
+#### Bug Fixes
+* [#623](https://github.com/mondaycom/monday-ui-react-core/pull/623) # 💄 Change Icon Button Small variant shape size to 24px. ([@3dyonic](https://github.com/3dyonic))
+
+#### New Features
+* [#629](https://github.com/mondaycom/monday-ui-react-core/pull/629) feat: adding a flag to ColorPicker for showing color name tooltips ([@shanibenaderetmonday](https://github.com/shanibenaderetmonday))
+
+## 1.23.2 (2022-04-05)
+
+#### Bug Fixes
+* [#628](https://github.com/mondaycom/monday-ui-react-core/pull/628) Scrollintoview ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.23.1 (2022-04-05)
+
+#### Bug Fixes
+* [#627](https://github.com/mondaycom/monday-ui-react-core/pull/627) Scroll into view not exsiting ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#624](https://github.com/mondaycom/monday-ui-react-core/pull/624) Analytics ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.23.0 (2022-04-05)
+
+#### Bug Fixes
+* [#615](https://github.com/mondaycom/monday-ui-react-core/pull/615) Interaction tests for combobox & add data test ids by prop to clickable, search, textfield, combobox ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#621](https://github.com/mondaycom/monday-ui-react-core/pull/621) Combobox max options without scroll ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Documentation
+* [#620](https://github.com/mondaycom/monday-ui-react-core/pull/620) docs(accordion): improve storybook (sub-items, props, etc.) ([@niksa-monday](https://github.com/niksa-monday))
+* [#618](https://github.com/mondaycom/monday-ui-react-core/pull/618) test(accordion): add interaction tests for multi-active mode ([@niksa-monday](https://github.com/niksa-monday))
+* [#617](https://github.com/mondaycom/monday-ui-react-core/pull/617) feat(accordion): add data-testid, improve ids, add interaction tests ([@niksa-monday](https://github.com/niksa-monday))
+* [#614](https://github.com/mondaycom/monday-ui-react-core/pull/614) color picker testids fix ([@laviomri](https://github.com/laviomri))
+
+## 1.22.0 (2022-03-30)
+
+#### Bug Fixes
+* [#609](https://github.com/mondaycom/monday-ui-react-core/pull/609) Fix clickable tests (add interaction tests for focus and few behaviour tests) ([@hadasfa](https://github.com/hadasfa))
+* [#606](https://github.com/mondaycom/monday-ui-react-core/pull/606) fix(interaction): minor selector typo issue ([@niksa-monday](https://github.com/niksa-monday))
+
+#### New Features
+* [#616](https://github.com/mondaycom/monday-ui-react-core/pull/616) Avatar custom background color ([@MosheZemah](https://github.com/MosheZemah))
+* [#601](https://github.com/mondaycom/monday-ui-react-core/pull/601) Fix/omri/fix grid keyboard nav story ([@laviomri](https://github.com/laviomri))
+
+#### Documentation
+* [#610](https://github.com/mondaycom/monday-ui-react-core/pull/610) test(slider): add Thumb drag interaction tests ([@niksa-monday](https://github.com/niksa-monday))
+* [#612](https://github.com/mondaycom/monday-ui-react-core/pull/612) menu interaction tests ([@laviomri](https://github.com/laviomri))
+* [#607](https://github.com/mondaycom/monday-ui-react-core/pull/607) Color picker interaction tests ([@laviomri](https://github.com/laviomri))
+* [#611](https://github.com/mondaycom/monday-ui-react-core/pull/611) test(Slider): add interaction tests for ranged mode  ([@niksa-monday](https://github.com/niksa-monday))
+* [#596](https://github.com/mondaycom/monday-ui-react-core/pull/596) # ay11 Foundation page Corrections: Update image sizes, add up next section ([@3dyonic](https://github.com/3dyonic))
+* [#608](https://github.com/mondaycom/monday-ui-react-core/pull/608) test(Slider): add interaction tests for Slider component ([@niksa-monday](https://github.com/niksa-monday))
+* [#605](https://github.com/mondaycom/monday-ui-react-core/pull/605) Interaction tests alignments ([@laviomri](https://github.com/laviomri))
+* [#602](https://github.com/mondaycom/monday-ui-react-core/pull/602) Increase default width of left panel ([@laviomri](https://github.com/laviomri))
+* [#603](https://github.com/mondaycom/monday-ui-react-core/pull/603) storybook initials ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#600](https://github.com/mondaycom/monday-ui-react-core/pull/600) fix-typos-in-avatar-story-classnames ([@laviomri](https://github.com/laviomri))
+
+## 1.21.5 (2022-03-22)
+
+#### Bug Fixes
+* [#597](https://github.com/mondaycom/monday-ui-react-core/pull/597) Bug/hadas/change combobox msg class (too common) ([@hadasfa](https://github.com/hadasfa))
+
+## 1.21.4 (2022-03-21)
+
+#### Bug Fixes
+* [#595](https://github.com/mondaycom/monday-ui-react-core/pull/595) Add aria-label to Flex ([@Naama-Weber-Monday](https://github.com/Naama-Weber-Monday))
+
+## 1.21.3 (2022-03-20)
+
+#### Bug Fixes
+* [#594](https://github.com/mondaycom/monday-ui-react-core/pull/594) fix dark mode issue, sticky issue and add categories story ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#588](https://github.com/mondaycom/monday-ui-react-core/pull/588) feature/omri/multi-interaction-tests-per-story ([@laviomri](https://github.com/laviomri))
+
+## 1.21.2 (2022-03-17)
+
+#### Bug Fixes
+* [#586](https://github.com/mondaycom/monday-ui-react-core/pull/586) Fix menu grid item focus after keyboard nav ([@hadasfa](https://github.com/hadasfa))
+
+#### Dependency Upgrades
+* [#592](https://github.com/mondaycom/monday-ui-react-core/pull/592) Move deps to devDependencies ([@sahariko](https://github.com/sahariko))
+
+#### Documentation
+* [#591](https://github.com/mondaycom/monday-ui-react-core/pull/591) Button prop-types proofreading ([@sahariko](https://github.com/sahariko))
+
+## 1.21.1 (2022-03-16)
+
+#### Bug Fixes
+* [#589](https://github.com/mondaycom/monday-ui-react-core/pull/589) Fix combobox spacing issues ([@hadasfa](https://github.com/hadasfa))
+
+## 1.21.0 (2022-03-16)
+
+#### Bug Fixes
+* [#587](https://github.com/mondaycom/monday-ui-react-core/pull/587) Fix radiobutton check issue ([@MosheZemah](https://github.com/MosheZemah))
+* [#583](https://github.com/mondaycom/monday-ui-react-core/pull/583) Fix issue with combobox story ([@MosheZemah](https://github.com/MosheZemah))
+* [#581](https://github.com/mondaycom/monday-ui-react-core/pull/581) Fix issue with hovering combobox hover ([@MosheZemah](https://github.com/MosheZemah))
+
+#### New Features
+* [#574](https://github.com/mondaycom/monday-ui-react-core/pull/574) Add virtualized list support to combobox ([@hadasfa](https://github.com/hadasfa))
+* [#580](https://github.com/mondaycom/monday-ui-react-core/pull/580) Clear filter on combobox selection ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Documentation
+* [#579](https://github.com/mondaycom/monday-ui-react-core/pull/579) PR: Documentation ,Ay11 foundation page ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#585](https://github.com/mondaycom/monday-ui-react-core/pull/585) Add menu tests ([@MosheZemah](https://github.com/MosheZemah))
+* [#582](https://github.com/mondaycom/monday-ui-react-core/pull/582) Interaction tests ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.20.0 (2022-03-10)
+
+#### New Features
+* [#578](https://github.com/mondaycom/monday-ui-react-core/pull/578) Feature/hadas/checkbox ref ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#562](https://github.com/mondaycom/monday-ui-react-core/pull/562) Add dropdown groups to storybook and change dropdown groups style ([@ronachmany-monday](https://github.com/ronachmany-monday))
+
+## 1.19.3 (2022-03-09)
+
+#### New Icons
+* [#576](https://github.com/mondaycom/monday-ui-react-core/pull/576) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+* [#575](https://github.com/mondaycom/monday-ui-react-core/pull/575) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.19.2 (2022-03-08)
+
+#### Bug Fixes
+* [#571](https://github.com/mondaycom/monday-ui-react-core/pull/571) Add all icons tests ([@MosheZemah](https://github.com/MosheZemah))
+
+#### New Icons
+* [#573](https://github.com/mondaycom/monday-ui-react-core/pull/573) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.19.1 (2022-03-01)
+
+#### New Icons
+* [#569](https://github.com/mondaycom/monday-ui-react-core/pull/569) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.19.0 (2022-03-01)
+
+#### New Features
+* [#561](https://github.com/mondaycom/monday-ui-react-core/pull/561) Added menuPlacement prop to Dropdown component ([@udidoron](https://github.com/udidoron))
+
+## 1.18.4 (2022-03-01)
+
+#### Bug Fixes
+* [#567](https://github.com/mondaycom/monday-ui-react-core/pull/567) Fix editable heading cursor on disabled ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.18.3 (2022-03-01)
+
+#### Bug Fixes
+* [#566](https://github.com/mondaycom/monday-ui-react-core/pull/566) Fix editable heading editing while disabled ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.18.2 (2022-02-28)
+
+#### Bug Fixes
+* [#565](https://github.com/mondaycom/monday-ui-react-core/pull/565) Editable heading callback on blur ignore ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.18.1 (2022-02-28)
+
+#### Bug Fixes
+* [#564](https://github.com/mondaycom/monday-ui-react-core/pull/564) Allow stop editing for EditableHeading ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.18.0 (2022-02-28)
+
+#### New Features
+* [#563](https://github.com/mondaycom/monday-ui-react-core/pull/563) Add color prop to Heading and Editable Heading ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.17.2 (2022-02-28)
+
+#### New Icons
+* [#558](https://github.com/mondaycom/monday-ui-react-core/pull/558) Upgrade monday ui style ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.17.1 (2022-02-27)
+
+#### Bug Fixes
+* [#537](https://github.com/mondaycom/monday-ui-react-core/pull/537) Fix tabs list bug - visible focus displayed when clicking out side and then clicking on one tab ([@hadasfa](https://github.com/hadasfa))
+
+## 1.17.0 (2022-02-25)
+
+#### New Features
+* [#557](https://github.com/mondaycom/monday-ui-react-core/pull/557) Support Heading highlight text ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Documentation
+* [#555](https://github.com/mondaycom/monday-ui-react-core/pull/555) Fix stories ([@hadasfa](https://github.com/hadasfa))
+
+## 1.16.0 (2022-02-24)
+
+#### New Features
+* [#556](https://github.com/mondaycom/monday-ui-react-core/pull/556) Expose use is overflowing hook ([@hadasfa](https://github.com/hadasfa))
+
+## 1.15.0 (2022-02-24)
+
+#### New Features
+* [#554](https://github.com/mondaycom/monday-ui-react-core/pull/554) Add support on avatar in chip component ([@roniCohen123](https://github.com/roniCohen123))
+
+## 1.14.2 (2022-02-23)
+
+#### New Icons
+* [#553](https://github.com/mondaycom/monday-ui-react-core/pull/553) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.14.1 (2022-02-23)
+
+#### New Icons
+* [#552](https://github.com/mondaycom/monday-ui-react-core/pull/552) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.14.0 (2022-02-22)
+
+#### Bug Fixes
+* [#536](https://github.com/mondaycom/monday-ui-react-core/pull/536) combobox disable no result on loading ([@roniCohen123](https://github.com/roniCohen123))
+
+#### New Features
+* [#551](https://github.com/mondaycom/monday-ui-react-core/pull/551) Support passing tooltip content to menu item by tooltipContent prop ([@etaylib](https://github.com/etaylib))
+
+## 1.13.12 (2022-02-20)
+
+#### New Icons
+* [#549](https://github.com/mondaycom/monday-ui-react-core/pull/549) Update color keys ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.13.11 (2022-02-20)
+
+#### Bug Fixes
+* [#548](https://github.com/mondaycom/monday-ui-react-core/pull/548) Fix toggle on change params ([@hadasfa](https://github.com/hadasfa))
+
+## 1.13.10 (2022-02-20)
+
+#### Bug Fixes
+* [#545](https://github.com/mondaycom/monday-ui-react-core/pull/545) Better support for useDocumentEventListeners on Menu components ([@laviomri](https://github.com/laviomri))
+
+## 1.13.9 (2022-02-17)
+
+#### Bug Fixes
+* [#546](https://github.com/mondaycom/monday-ui-react-core/pull/546) Displaying focus properly in toggle component ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#547](https://github.com/mondaycom/monday-ui-react-core/pull/547) Update colors in basic, night themes ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.13.8 (2022-02-17)
+
+#### Bug Fixes
+* [#544](https://github.com/mondaycom/monday-ui-react-core/pull/544) Fix bug on toggle cannot be affected by click when in controlled mode ([@hadasfa](https://github.com/hadasfa))
+
+## 1.13.7 (2022-02-16)
+
+#### Bug Fixes
+* [#543](https://github.com/mondaycom/monday-ui-react-core/pull/543) remove react aria dependecies ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.13.6 (2022-02-16)
 
 #### Bug Fixes

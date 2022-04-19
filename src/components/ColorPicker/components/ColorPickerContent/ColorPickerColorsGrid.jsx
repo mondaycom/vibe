@@ -21,11 +21,25 @@ export const ColorPickerColorsGrid = React.forwardRef(
       SelectedIndicatorIcon,
       colorSize,
       tooltipContentByColor,
-      colorShape
+      colorShape,
+      showColorNameTooltip: showColorNameTooltip
     },
     ref
   ) => {
     const getItemByIndex = useCallback(index => colorsToRender[index], [colorsToRender]);
+
+    const calculateColorTooltip = color => {
+      if (tooltipContentByColor && tooltipContentByColor[color]) return tooltipContentByColor[color];
+      else {
+        return showColorNameTooltip ? formatColorNameForTooltip(color) : undefined;
+      }
+    };
+
+    const formatColorNameForTooltip = color => {
+      return color.replace(/-|_/g, " ").replace(/(?:^|\s)\S/g, function (a) {
+        return a.toUpperCase();
+      });
+    };
 
     const { activeIndex, onSelectionAction } = useGridKeyboardNavigation({
       focusOnMount,
@@ -53,7 +67,7 @@ export const ColorPickerColorsGrid = React.forwardRef(
               isSelected={Array.isArray(value) ? value.includes(color) : value === color}
               isActive={index === activeIndex}
               colorSize={colorSize}
-              tooltipContent={tooltipContentByColor[color]}
+              tooltipContent={calculateColorTooltip(color)}
               colorShape={colorShape}
             />
           );
@@ -86,7 +100,8 @@ ColorPickerColorsGrid.propTypes = {
   numberOfColorsInLine: PropTypes.number,
   tooltipContentByColor: PropTypes.object,
   focusOnMount: PropTypes.bool,
-  colorShape: PropTypes.oneOf(Object.values(ColorPickerColorsGrid.colorShapes))
+  colorShape: PropTypes.oneOf(Object.values(ColorPickerColorsGrid.colorShapes)),
+  showColorNameTooltip: PropTypes.bool
 };
 
 ColorPickerColorsGrid.defaultProps = {
@@ -101,5 +116,6 @@ ColorPickerColorsGrid.defaultProps = {
   numberOfColorsInLine: DEFAULT_NUMBER_OF_COLORS_IN_LINE,
   tooltipContentByColor: {},
   focusOnMount: false,
-  colorShape: ColorPickerColorsGrid.colorShapes.SQUARE
+  colorShape: ColorPickerColorsGrid.colorShapes.SQUARE,
+  showColorNameTooltip: false
 };

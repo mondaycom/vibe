@@ -2,52 +2,68 @@ import Dropdown from "../Dropdown";
 import { useState, useCallback, useMemo } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettings, Link } from "../../../storybook";
-import { COMBOBOX, SPLIT_BUTTON, MENU } from "../../../storybook/components/related-components/component-description-map";
+import {
+  COMBOBOX,
+  SPLIT_BUTTON,
+  MENU
+} from "../../../storybook/components/related-components/component-description-map";
+import { overviewPlaySuite } from "../__tests__/Dropdown.interactions";
 import Label from "../../Label/Label.jsx";
 import person1 from "./assets/person1.png";
 import person3 from "./assets/person3.png";
-import person2 from "./assets/person2.png"
+import person2 from "./assets/person2.png";
 import Avatar from "../../Avatar/Avatar.jsx";
 import { OptionRenderer } from "./OptionRenderer.js";
 import Flex from "../../../components/Flex/Flex";
-import "./dropdown.stories.scss"; import {
-  StoryDescription
-} from "../../../storybook/components/story-description/story-description";
+import "./dropdown.stories.scss";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 
 export const metaSettings = createStoryMetaSettings({
-    component: Dropdown,
-    enumPropNamesArray: ["size"],
-    actionPropsArray: [
-        "onMenuOpen",
-        "onMenuClose",
-        "onFocus",
-        "onBlur",
-        "onChange",
-        "openMenuOnFocus",
-        "onOptionRemove",
-        "onOptionSelect",
-        "onClear",
-        "onInputChange"
-    ]
+  component: Dropdown,
+  enumPropNamesArray: ["size"],
+  actionPropsArray: [
+    "onMenuOpen",
+    "onMenuClose",
+    "onFocus",
+    "onBlur",
+    "onChange",
+    "openMenuOnFocus",
+    "onOptionRemove",
+    "onOptionSelect",
+    "onClear",
+    "onInputChange"
+  ]
 });
 
 <Meta
   title="Inputs/Dropdown"
-  component={ Dropdown }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={Dropdown}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
 
-export const dropdownTemplate = (props) => {
-  const options = useMemo(() => ([{ value: 1, label: "Option 1" }, { value: 2, label: "Option 2" }, { value: 3, label: "Option 3" }]), []);
-  return <div style={{height: "150px"}}><Dropdown options={options} {...props}/></div>
+export const dropdownTemplate = props => {
+  const options = useMemo(
+    () => [
+      { value: 1, label: "Option 1" },
+      { value: 2, label: "Option 2" },
+      { value: 3, label: "Option 3" }
+    ],
+    []
+  );
+  return (
+    <div style={{ height: "150px" }}>
+      <Dropdown options={options} {...props} />
+    </div>
+  );
 };
 
 <!--- Component documentation -->
 
 # Dropdown
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -58,29 +74,41 @@ export const dropdownTemplate = (props) => {
 - [Feedback](#feedback)
 
 ## Overview
+
 Dropdown present a list of options from which a user can select one or several.
+
 <Canvas>
-  <Story name="Overview"
-         args={ {placeholder: "Placeholder text here", className: "dropdown-stories-styles_spacing"} }>
-    { dropdownTemplate.bind({}) }
+  <Story
+    name="Overview"
+    args={{ placeholder: "Placeholder text here", className: "dropdown-stories-styles_spacing" }}
+    play={overviewPlaySuite}
+  >
+    {dropdownTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Dropdown } />
+
+<ArgsTable of={Dropdown} />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Dropdown menus are typically used when you have 5-8 items to choose from. They're used for navigation or command menus, where an action is initiated based on the selection.",
-  "Use a consistent size of form components on the same page. For example, if you are using a medium size dropdown also use the same size text inputs, buttons, and so on.",
-  "Avoid having multiple lines of text in a dropdown. If the text is too long for one line, add an ellipsis (…).",
-  "When the menu is open, each option in the menu should be the same height as the field.",
-  "When organizing dropdown menu items, sort the list in a logical order by putting the most selected option at the top."
-]}/>
+
+<UsageGuidelines
+  guidelines={[
+    "Dropdown menus are typically used when you have 5-8 items to choose from. They're used for navigation or command menus, where an action is initiated based on the selection.",
+    "Use a consistent size of form components on the same page. For example, if you are using a medium size dropdown also use the same size text inputs, buttons, and so on.",
+    "Avoid having multiple lines of text in a dropdown. If the text is too long for one line, add an ellipsis (…).",
+    "When the menu is open, each option in the menu should be the same height as the field.",
+    "When organizing dropdown menu items, sort the list in a logical order by putting the most selected option at the top."
+  ]}
+/>
 
 ## Variants
+
 ### Sizes
+
 There are three sizes available: Small, Medium, and Large
+
 <Canvas>
   <Story name="Sizes">
     <Dropdown placeholder="Small" size={Dropdown.size.SMALL} className="dropdown-stories-styles_spacing" />
@@ -90,6 +118,7 @@ There are three sizes available: Small, Medium, and Large
 </Canvas>
 
 ### Disabled
+
 <Canvas>
   <Story name="Disabled">
     <Dropdown placeholder="Disabled" disabled className="dropdown-stories-styles_spacing" />
@@ -97,6 +126,7 @@ There are three sizes available: Small, Medium, and Large
 </Canvas>
 
 ### RTL
+
 <Canvas>
   <Story name="RTL">
     <Dropdown placeholder="Left to right (default)" className="dropdown-stories-styles_spacing" />
@@ -105,93 +135,153 @@ There are three sizes available: Small, Medium, and Large
 </Canvas>
 
 ### Multi line states
+
 The Dropdown component supports multiple options selection in two different state - single line and multiple lines.
+
 <Canvas>
   <Story name="Multi-choice with different states">
     {() => {
-      const options = useMemo( () => [
-        {
-          value: "Rotem",
-          label: "Rotem Dekel"
-        }, {
-          value:"Hadas",
-          label: "Hadas Farhi"
-        }, {
-          value: "Netta",
-          label: "Netta Muller",
-        },
-        {
-          value: "Dor",
-          label: "Dor Yehuda",
-        }], []);
-      return (<Flex gap={Flex.gaps.MEDIUM}>
-        <StoryDescription description="Single line" vertical>
-          <div style={{width: "400px"}}>
-            <Dropdown
-              placeholder="Single line multi state"
-              defaultValue={[options[0]]}
-              options={options}
-              multi
-              className="dropdown-stories-styles_with-chips"
-            />
-          </div>
-        </StoryDescription>
-        <StoryDescription description="Multiple lines" vertical>
-          <div style={{width: "400px"}}>
-            <Dropdown
-              placeholder="Multiple line multi state"
-              defaultValue={[options[0]]}
-              options={options}
-              multi
-              multiline
-              className="dropdown-stories-styles_with-chips"
-            />
-          </div>
-        </StoryDescription>
-      </Flex>);
-      }
-    }
+      const options = useMemo(
+        () => [
+          {
+            value: "Rotem",
+            label: "Rotem Dekel"
+          },
+          {
+            value: "Hadas",
+            label: "Hadas Farhi"
+          },
+          {
+            value: "Netta",
+            label: "Netta Muller"
+          },
+          {
+            value: "Dor",
+            label: "Dor Yehuda"
+          }
+        ],
+        []
+      );
+      return (
+        <Flex gap={Flex.gaps.MEDIUM}>
+          <StoryDescription description="Single line" vertical>
+            <div style={{ width: "400px" }}>
+              <Dropdown
+                placeholder="Single line multi state"
+                defaultValue={[options[0]]}
+                options={options}
+                multi
+                className="dropdown-stories-styles_with-chips"
+              />
+            </div>
+          </StoryDescription>
+          <StoryDescription description="Multiple lines" vertical>
+            <div style={{ width: "400px" }}>
+              <Dropdown
+                placeholder="Multiple line multi state"
+                defaultValue={[options[0]]}
+                options={options}
+                multi
+                multiline
+                className="dropdown-stories-styles_with-chips"
+              />
+            </div>
+          </StoryDescription>
+        </Flex>
+      );
+    }}
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component:
+        component: (
           <Dropdown
-            placeholder="Placeholder text here" 
-            options={[{ value: 1, label: "Option 1" }, { value: 2, label: "Option 2" },  {value: 3, label: "Option 3" }]}
+            placeholder="Placeholder text here"
+            options={[
+              { value: 1, label: "Option 1" },
+              { value: 2, label: "Option 2" },
+              { value: 3, label: "Option 3" }
+            ]}
             className="dropdown-stories-styles_rules-spacing"
-          />,
-        description:"Use the dropdown as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
+          />
+        ),
+        description:
+          "Use the dropdown as a closed component. Users should normally be allowed only to click on the items; search is not recommended, though possible."
       },
       negative: {
-        component:
+        component: (
           <Dropdown
             menuIsOpen
-            placeholder="Placeholder text here" 
-            options={[{ value: 1, label: "Option 1" }, { value: 2, label: "Option 2" },  {value: 3, label: "Option 3" }]}
+            placeholder="Placeholder text here"
+            options={[
+              { value: 1, label: "Option 1" },
+              { value: 2, label: "Option 2" },
+              { value: 3, label: "Option 3" }
+            ]}
             className="dropdown-stories-styles_rules-spacing"
-          />,
-        description:<>Don't keep the dropdown component in open mode as permanent state. If this is a design requirement consider use <Link href="/?path=/docs/inputs-combobox--overview" withoutSpacing>Combo  box</Link> instead.</>
+          />
+        ),
+        description: (
+          <>
+            Don't keep the dropdown component in open mode as permanent state. If this is a design requirement consider
+            use{" "}
+            <Link href="/?path=/docs/inputs-combobox--overview" withoutSpacing>
+              Combo box
+            </Link>{" "}
+            instead.
+          </>
+        )
       }
     }
   ]}
 />
 
 ## Use cases and examples
-### Dropdown with chips
+
+### multiple drop down with renderers as options
+
 Inside the advanced filters, a user can select multiple people from the dropdown menu, and they will be shown as Chips.
+
 <Canvas>
   <Story name="Dropdown with chips">
     {() => {
-      const options = useMemo(() => [
-        { value: "Dor Yehuda", label: "Hadas Farhi", src: person1, type: Avatar.types.IMG, size: Avatar.sizes.SMALL, name: "Dor Yehuda", position: "(Full Stack Developer)" },
-        { value: "No", label: "Rotem Dekel", src: person3, type: Avatar.types.IMG, size: Avatar.sizes.SMALL, name: "Rotem Dekel", position: "(Product Designer)" },
-        { value: "Yes", label: "Netta Muller", src: person2, type: Avatar.types.IMG, size: Avatar.sizes.SMALL, name: "Netta Muller", position: "(Brand Designer)" },
-      ], []);
+      const options = useMemo(
+        () => [
+          {
+            value: "Dor Yehuda",
+            label: "Hadas Farhi",
+            src: person1,
+            type: Avatar.types.IMG,
+            size: Avatar.sizes.SMALL,
+            name: "Dor Yehuda",
+            position: "(Full Stack Developer)"
+          },
+          {
+            value: "No",
+            label: "Rotem Dekel",
+            src: person3,
+            type: Avatar.types.IMG,
+            size: Avatar.sizes.SMALL,
+            name: "Rotem Dekel",
+            position: "(Product Designer)"
+          },
+          {
+            value: "Yes",
+            label: "Netta Muller",
+            src: person2,
+            type: Avatar.types.IMG,
+            size: Avatar.sizes.SMALL,
+            name: "Netta Muller",
+            position: "(Brand Designer)"
+          }
+        ],
+        []
+      );
       return (
         <Dropdown
           defaultValue={[options[0]]}
@@ -201,54 +291,67 @@ Inside the advanced filters, a user can select multiple people from the dropdown
           optionRenderer={OptionRenderer}
           className="dropdown-stories-styles_with-chips"
         />
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ### Searchable Dropdown
+
 In case of multiple options, you can use the `onInputChange` prop to allow filtering options.
+
 <Canvas>
   <Story name="Searchable dropdown">
     {() => {
       const [searchValue, setSearchValue] = useState("");
-      const allOptions = useMemo(() => [
-        { value: "Red", label: "Red" },
-        { value: "Orange", label: "Orange" },
-        { value: "Yellow", label: "Yellow" },
-        { value: "Green", label: "Green" },
-        { value: "Blue", label: "Blue" },
-        { value: "Indigo", label: "Indigo" },
-        { value: "Violet", label: "Violet" },
-      ], []);
+      const allOptions = useMemo(
+        () => [
+          { value: "Red", label: "Red" },
+          { value: "Orange", label: "Orange" },
+          { value: "Yellow", label: "Yellow" },
+          { value: "Green", label: "Green" },
+          { value: "Blue", label: "Blue" },
+          { value: "Indigo", label: "Indigo" },
+          { value: "Violet", label: "Violet" }
+        ],
+        []
+      );
       const options = useMemo(() => {
         if (!searchValue) return allOptions;
         return allOptions.filter(option => option.label.toLowerCase().includes(searchValue.toLowerCase()));
       }, [allOptions, searchValue]);
-      const onInputChange = (value) => setSearchValue(value);
-      return <Dropdown
-        options={options}
-        multi
-        placeholder="Select colors"
-        className="dropdown-stories-styles_with-chips"
-        onInputChange={onInputChange} />
+      const onInputChange = value => setSearchValue(value);
+      return (
+        <Dropdown
+          options={options}
+          multi
+          placeholder="Select colors"
+          className="dropdown-stories-styles_with-chips"
+          onInputChange={onInputChange}
+        />
+      );
     }}
   </Story>
 </Canvas>
 
 ### Dropdown with lables
+
 A dropdown menu can include labels.
+
 <Canvas>
   <Story name="Dropdown with lables">
     {() => {
-      const labelRenderer = useCallback(({label, color}) => {
+      const labelRenderer = useCallback(({ label, color }) => {
         return <Label text={label} color={color} isAnimationDisabled />;
       });
-      const options = useMemo(() => [
-        { value: "success", label: "Success", color: Label.colors.POSITIVE },
-        { value: "failed", label: "Failed",color: Label.colors.NEGATIVE},
-        { value: "in progress", label: "In progress"}
-      ], []);
+      const options = useMemo(
+        () => [
+          { value: "success", label: "Success", color: Label.colors.POSITIVE },
+          { value: "failed", label: "Failed", color: Label.colors.NEGATIVE },
+          { value: "in progress", label: "In progress" }
+        ],
+        []
+      );
       return (
         <Dropdown
           placeholder="Placeholder text here"
@@ -259,21 +362,26 @@ A dropdown menu can include labels.
           optionRenderer={labelRenderer}
           valueRenderer={labelRenderer}
         />
-      )
+      );
     }}
   </Story>
 </Canvas>
 
 ### Dropdown inside a form
+
 A classic dropdown presents options a user needs to choose from.
+
 <Canvas>
   <Story name="Dropdown inside a form">
     {() => {
-      const options = useMemo(() => [
-        { value: "Sometimes", label: "Sometimes" },
-        { value: "No", label: "No" },
-        { value: "Yes", label: "Yes" },
-      ], []);
+      const options = useMemo(
+        () => [
+          { value: "Sometimes", label: "Sometimes" },
+          { value: "No", label: "No" },
+          { value: "Yes", label: "Yes" }
+        ],
+        []
+      );
       return (
         <div>
           <h5 className="dropdown-stories-styles_title">Are you usually a Dark mode person?</h5>
@@ -284,10 +392,48 @@ A classic dropdown presents options a user needs to choose from.
             className="dropdown-stories-styles_big-spacing"
           />
         </div>
-      )
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dropdown with groups
+
+Dropdown with group.
+
+<Canvas>
+  <Story name="Dropdown with groups">
+    {() => {
+      const options = useMemo(
+        () => [
+          {
+            label: "Group 1",
+            options: [
+              { value: "1", label: "Option 1" },
+              { value: "2", label: "Option 2" }
+            ]
+          },
+          {
+            label: "Group 2",
+            options: [
+              { value: "3", label: "Option 3" },
+              { value: "4", label: "Option 4" }
+            ]
+          }
+        ],
+        []
+      );
+      return (
+        <Dropdown
+          placeholder="Placeholder text here"
+          options={options}
+          className="dropdown-stories-styles_big-spacing"
+        />
+      );
     }}
   </Story>
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[COMBOBOX, SPLIT_BUTTON, MENU]} />

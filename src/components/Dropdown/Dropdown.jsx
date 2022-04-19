@@ -39,6 +39,7 @@ const Dropdown = ({
   ValueRenderer,
   valueRenderer,
   menuRenderer,
+  menuPlacement,
   rtl,
   size,
   asyncOptions,
@@ -245,6 +246,7 @@ const Dropdown = ({
       theme={customTheme}
       maxMenuHeight={maxMenuHeight}
       menuPortalTarget={menuPortalTarget}
+      menuPlacement={menuPlacement}
       menuIsOpen={menuIsOpen}
       tabIndex={tabIndex}
       id={id}
@@ -272,6 +274,7 @@ Dropdown.defaultProps = {
   onInputChange: NOOP,
   searchable: true,
   options: [],
+  menuPlacement: "bottom",
   noOptionsMessage: NOOP,
   clearable: true,
   size: SIZES.MEDIUM,
@@ -362,6 +365,10 @@ Dropdown.propTypes = {
    */
   menuRenderer: PropTypes.func,
   /**
+   * Default placement of the Dropdown menu in relation to its control. Use "auto" to flip the menu when there isn't enough space below the control.
+   */
+  menuPlacement: PropTypes.oneOf(["bottom", "top", "auto"]),
+  /**
    * If set to true, the dropdown will be in Right to Left mode
    */
   rtl: PropTypes.bool,
@@ -438,10 +445,6 @@ Dropdown.propTypes = {
    * Tab index for keyboard navigation purposes
    */
   tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  /**
-   * Called when one of the selected options of the drop down is removed.
-   */
-  onOptionRemove: PropTypes.func,
   /**
    * ID for the select container
    */
