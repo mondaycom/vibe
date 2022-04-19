@@ -119,4 +119,20 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
 
     expect(contentAfterFix).toEqual(expectedOutputAfterFix);
   });
+
+  ["disabled", "DiSaBlE", "off", 0, false, "false", "0"].forEach((ruleConfigValue) => {
+    it(`does not lint if the rule is disabled by config value of "${ruleConfigValue}"`, async () => {
+      const { results } = await lint({
+        files: path.resolve(__dirname, "./fixtures/contains-values-with-multiple-replacements.scss"),
+        config: {
+          ...config,
+          rules: {
+            "monday-ui-style/use-defined-css-var-when-available": ruleConfigValue,
+          },
+        },
+      });
+      expect(results).toHaveLength(1);
+      expect(results[0].warnings).toHaveLength(0); // the errors were ignored
+    });
+  });
 });

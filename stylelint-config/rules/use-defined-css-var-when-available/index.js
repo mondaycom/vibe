@@ -5,6 +5,8 @@ const { getPropsToAllowedCssVars } = require("./parse-monday-css");
 const { report, ruleMessages, validateOptions } = stylelint.utils;
 
 const RULE_NAME = "monday-ui-style/use-defined-css-var-when-available";
+const CONFIGS_THAT_MEAN_IGNORE_FILE = ["disabled", "disable", "off", "0"];
+
 const messages = ruleMessages(RULE_NAME, {
   expected: (original, expected) => {
     const asArray = Array.isArray(expected) ? expected : [expected];
@@ -19,13 +21,18 @@ module.exports = stylelint.createPlugin(RULE_NAME, (primaryOption, secondaryOpti
 
   return function lint(postcssRoot, postcssResult) {
     const validOptions = validateOptions(postcssResult, RULE_NAME, {
-      // No options for now...
+      actual: primaryOption,
+      possible: [...CONFIGS_THAT_MEAN_IGNORE_FILE, true, "true"],
+      optional: true,
     });
 
-    if (!validOptions) {
-      // If the options are invalid, don't lint
+    primaryOption = primaryOption || true;
+    const shouldNotLint =
+      !validOptions || CONFIGS_THAT_MEAN_IGNORE_FILE.includes(primaryOption.toString().toLowerCase());
+    if (shouldNotLint) {
       return;
     }
+
     const isAutoFixing = Boolean(context.fix);
     postcssRoot.walkDecls((decl) => {
       // Iterate CSS declarations
