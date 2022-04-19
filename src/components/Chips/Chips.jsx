@@ -9,7 +9,7 @@ import { NOOP } from "../../utils/function-utils";
 import "./Chips.scss";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
-import { IconButton } from "components";
+import IconButton from "components/IconButton/IconButton";
 import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
 
 const Chips = forwardRef(
