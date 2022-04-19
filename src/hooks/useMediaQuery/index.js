@@ -14,7 +14,7 @@ export function useMediaQuery(query) {
         setMatches(prevState => {
           let newQueries = [...prevState];
           newQueries[index] = event.matches;
-          return newQueries
+          return newQueries;
         });
       };
       query.addEventListener("change", callback);
@@ -26,7 +26,6 @@ export function useMediaQuery(query) {
       });
     };
   }, [queries, setMatches]);
-  console.log('matches:', matches);
   return matches;
 }
 export default useMediaQuery;

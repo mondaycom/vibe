@@ -97,7 +97,9 @@ const publishedComponents = {
   useMergeRefs: "hooks/useMergeRefs.js",
   useIsMouseOver: "hooks/useIsMouseOver.js",
   useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
-  useIsOverflowing: "hooks/useIsOverflowing"
+  useIsOverflowing: "hooks/useIsOverflowing",
+  useMediaQuery: "hooks/useMediaQuery",
+  useVibeMediaQuery: "hooks/useVibeMediaQuery"
 };
 
 function getPublishedComponents() {

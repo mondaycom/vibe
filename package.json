@@ -190,6 +190,5 @@
       "PR: Breaking Changes 💥": "Breaking Changes",
       "PR: Icon 💎": "New Icons"
     }
-  },
-  "types": "./index.d.ts"
+  }
 }
