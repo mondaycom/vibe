@@ -21,7 +21,6 @@ const ROLES = {
 
 function useActiveDescendantListFocus({
   focusedElementRef, // the reference for the component that listens to keyboard
-  containerElementRef,
   itemsIds,
   isItemSelectable,
   onItemClick,
@@ -77,21 +76,32 @@ function useActiveDescendantListFocus({
     onArrowKeyEvent(nextArrow);
   }, [nextArrow, onArrowKeyEvent]);
 
-  const overrideOnClickCallback = useCallback(
+  const baseOnClickCallback = useCallback(
     (event, itemIndex) => {
-      if (containerElementRef.current.contains(document.activeElement)) {
-        const hasValidIndex = itemIndex >= 0 && itemIndex < itemsCount;
-        if (!onItemClick || !hasValidIndex || !isItemSelectable(itemIndex)) return;
-        if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
-        onItemClick(event, itemIndex);
-        triggerByKeyboard.current = event instanceof MouseEvent;
-        // If click is triggered by keyboard return focus on the input again
-        if (!triggerByKeyboard.current) {
-          requestAnimationFrame(() => focusedElementRef.current?.focus());
-        }
+      const hasValidIndex = itemIndex >= 0 && itemIndex < itemsCount;
+      if (!onItemClick || !hasValidIndex || !isItemSelectable(itemIndex)) return;
+      if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
+      onItemClick(event, itemIndex);
+      triggerByKeyboard.current = event instanceof MouseEvent;
+      // If click is triggered by keyboard return focus on the input again
+      if (!triggerByKeyboard.current) {
+        requestAnimationFrame(() => focusedElementRef.current?.focus());
       }
     },
-    [containerElementRef, itemsCount, onItemClick, isItemSelectable, visualFocusItemIndex, focusedElementRef]
+    [itemsCount, onItemClick, isItemSelectable, visualFocusItemIndex, focusedElementRef]
+  );
+
+  const keyboardOnSelectCallback = useCallback(
+    event => {
+      if (focusedElementRef.current.contains(document.activeElement)) {
+        baseOnClickCallback(event, visualFocusItemIndex);
+      }
+    },
+    [baseOnClickCallback, focusedElementRef, visualFocusItemIndex]
+  );
+  const createOnItemClickCallback = useCallback(
+    itemIndex => event => baseOnClickCallback(event, itemIndex),
+    [baseOnClickCallback]
   );
 
   const onBlurCallback = useCallback(() => {
@@ -122,7 +132,7 @@ function useActiveDescendantListFocus({
 
   useKeyEvent({
     keys: ENTER_KEYS,
-    callback: overrideOnClickCallback,
+    callback: keyboardOnSelectCallback,
     ...listenerOptions
   });
 
@@ -136,7 +146,8 @@ function useActiveDescendantListFocus({
   return {
     visualFocusItemIndex: triggerByKeyboard.current ? visualFocusItemIndex : undefined,
     visualFocusItemId: triggerByKeyboard.current ? visualFocusItemId : undefined,
-    onItemClick: overrideOnClickCallback,
+    createOnItemClickCallback,
+    onItemClickCallback: baseOnClickCallback,
     focusedElementProps: { "aria-activedescendant": visualFocusItemId, role: focusedElementRole }
   };
 }

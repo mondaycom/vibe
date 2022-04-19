@@ -117,7 +117,7 @@ const Combobox = forwardRef(
     const {
       visualFocusItemIndex,
       visualFocusItemId,
-      onItemClick: onOptionClick
+      onItemClickCallback: onOptionClick
     } = useActiveDescendantListFocus({
       focusedElementRef: inputRef,
       containerElementRef: resultsContainerRef,

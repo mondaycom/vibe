@@ -1,31 +1,61 @@
 /* eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
+import useActiveDescendantListFocus from "hooks/useActiveDescendantListFocus";
+import Search from "components/Search/Search";
 
-const UseActiveDescendantListFocus = ({ ref, callback }) => {
+const UseActiveDescendantListFocus = ({ focusedElementRef, // the reference for the component that listens to keyboard
+                                        itemsIds,
+                                        isItemSelectable,
+                                        onItemClick,
+                                        focusedElementRole,
+                                        isHorizontalList,
+                                        useDocumentEventListeners }) => {
   return (
-    <div ref={ref} onClick={callback}>
-      My Awesome Component
-    </div>
+    <div/>
   );
 };
 
 UseActiveDescendantListFocus.propTypes = {
   /**
-   * An element with the ref (useRef) structure.
+   *  The reference for the component that listens to keyboard and will be naturally focus.
    */
-  ref: PropTypes.shape({
-    current: PropTypes.element
-  }),
+  focusedElementRef: PropTypes.shape({
+  current: PropTypes.element
+  }).isRequired,
   /**
-   * Callback function
+   * Array of all the ids of the items inside the active descendant list component
    */
-  callback: PropTypes.func
+  itemsIds: PropTypes.arrayOf(PropTypes.string),
+  /**
+   * Function which return for a specific Item index if the user can select it or not.
+   */
+  isItemSelectable: PropTypes.func,
+  /**
+   * Callback function for clicking on one of the active descendant list items
+   */
+  onItemClick: PropTypes.func,
+  /**
+   * The HTML role of the natural focus element
+   */
+  focusedElementRole: PropTypes.oneOf([
+      useActiveDescendantListFocus.roles.APPLICATION,
+      useActiveDescendantListFocus.roles.GROUP,
+      useActiveDescendantListFocus.roles.COMBOBOX,
+      useActiveDescendantListFocus.roles.COMPOSITE,
+      useActiveDescendantListFocus.roles.TEXTBOX]),
+  /**
+   * Is the layout of the component option's is horizontal or vertical
+   */
+  isHorizontalList: PropTypes.bool
 };
 
 UseActiveDescendantListFocus.defaultProps = {
-  ref: null,
-  callback: undefined
+  itemsIds: [],
+  isItemSelectable: (_itemIndex) => {},
+  onItemClick: (_event, _itemIndex) => {},
+  focusedElementRole: useActiveDescendantListFocus.roles.GROUP,
+  isHorizontalList: false
 };
 
 export default UseActiveDescendantListFocus;

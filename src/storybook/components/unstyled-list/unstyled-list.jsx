@@ -4,7 +4,7 @@ export const UnstyledList = ({ children }) => {
   return <ul className="monday-storybook-unstyled-list">{children}</ul>;
 };
 UnstyledList.propTypes = {
-  children: PropTypes.element
+  children: PropTypes.arrayOf(PropTypes.element)
 };
 
 UnstyledList.defaultProps = {
