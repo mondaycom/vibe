@@ -7,7 +7,7 @@ import {
   createDividerItemObject,
   createOptionItemObject
 } from "components/Combobox/ComboboxHelpers/ComboboxHelpers";
-import { VirtualizedList } from "components";
+import VirtualizedList from "components/VirtualizedList/VirtualizedList";
 import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "components/Combobox/components/ComboboxConstants";
 import styles from "./ComboboxItems.modules.scss";
 
@@ -29,8 +29,9 @@ export const ComboboxItems = forwardRef(
       shouldScrollToSelectedItem,
       renderOnlyVisibleOptions,
       onActiveCategoryChanged,
-      maxOptionsWithoutScroll
-    },
+      maxOptionsWithoutScroll,
+    forceUndoScrollNullCheck
+},
     ref
   ) => {
     const activeCategoryId = useRef();
@@ -59,8 +60,8 @@ export const ComboboxItems = forwardRef(
             optionRenderer,
             visualFocusItemIndex,
             activeItemIndex,
-            shouldScrollToSelectedItem
-          },
+            shouldScrollToSelectedItem,
+          forceUndoScrollNullCheck},
           isVirtualized: renderOnlyVisibleOptions
         }),
       [
@@ -71,7 +72,7 @@ export const ComboboxItems = forwardRef(
         optionRenderer,
         visualFocusItemIndex,
         activeItemIndex,
-        shouldScrollToSelectedItem,
+        shouldScrollToSelectedItem,forceUndoScrollNullCheck,
         renderOnlyVisibleOptions
       ]
     );

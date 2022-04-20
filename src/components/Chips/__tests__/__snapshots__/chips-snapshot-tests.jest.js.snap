@@ -50,7 +50,6 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "display": "inline-flex",
         "height": "16px",
         "justifyContent": "center",
         "padding": 0,
@@ -111,7 +110,6 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "display": "inline-flex",
         "height": "16px",
         "justifyContent": "center",
         "padding": 0,
@@ -324,7 +322,6 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "display": "inline-flex",
         "height": "16px",
         "justifyContent": "center",
         "padding": 0,

@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.26.4 (2022-04-20)
+
+#### New Icons
+* [#647](https://github.com/mondaycom/monday-ui-react-core/pull/647) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.26.3 (2022-04-19)
+
+#### Bug Fixes
+* [#648](https://github.com/mondaycom/monday-ui-react-core/pull/648) Undo "component" absolute path because it increase bundle size ([@hadasfa](https://github.com/hadasfa))
+
+## 1.26.2 (2022-04-18)
+
+#### Bug Fixes
+* [#643](https://github.com/mondaycom/monday-ui-react-core/pull/643) remove set style hardcoded for icon button (not needed and not used u… ([@hadasfa](https://github.com/hadasfa))
+
+## 1.26.1 (2022-04-18)
+
+#### Bug Fixes
+* [#641](https://github.com/mondaycom/monday-ui-react-core/pull/641) Fix bug: support press shift while click on checkbox on firefox browsers ([@hadasfa](https://github.com/hadasfa))
+
+## 1.26.0 (2022-04-17)
+
+#### Bug Fixes
+* [#635](https://github.com/mondaycom/monday-ui-react-core/pull/635) Add flag for undo a null check which cause weird behavior (combobox)  ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#633](https://github.com/mondaycom/monday-ui-react-core/pull/633) Fix minor craft bugs (button disabled cursor and chip close button appearance) & stories & add data test id prop to chip, button, icon button ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.25.0 (2022-04-13)
 
 #### Bug Fixes

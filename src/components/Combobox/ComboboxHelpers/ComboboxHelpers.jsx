@@ -110,6 +110,7 @@ export function optionItemRenderer({
   shouldScrollToSelectedItem,
   activeItemIndex,
   belongToCategory,
+  forceUndoScrollNullCheck,
   visualFocusItemIndex
 }) {
   return (
@@ -126,6 +127,7 @@ export function optionItemRenderer({
       optionLineHeight={optionLineHeight}
       belongToCategory={belongToCategory}
       shouldScrollWhenActive={shouldScrollToSelectedItem}
+      forceUndoScrollNullCheck={forceUndoScrollNullCheck}
     />
   );
 }
