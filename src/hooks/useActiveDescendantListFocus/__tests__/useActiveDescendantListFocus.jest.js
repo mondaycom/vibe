@@ -4,34 +4,63 @@ import range from "lodash/range";
 import useActiveDescendantListFocus from "hooks/useActiveDescendantListFocus";
 import userEvent from "@testing-library/user-event";
 
-let element, itemsElements;
+let element;
+const FIRST_ITEM_ID = "id-1";
+const SECOND_ITEM_ID = "id-2";
+const ITEM_IDS = [FIRST_ITEM_ID, SECOND_ITEM_ID];
 
-function renderHookForTest({ onItemClicked = jest.fn(), disabledIndexes = [], isHorizontal = false }) {
+function renderHookForTest({ onItemClick = jest.fn(), isHorizontal = false }) {
   element = document.createElement("div");
-  itemsElements = [];
   element.tabIndex = -1; // some tests focus the element - a tabIndex value is required for updating the document.activeIndex value
   document.body.appendChild(element);
 
   return renderHook(() =>
-    useGridKeyboardNavigation({
-      ref: { current: element },
-      itemsCount,
-      getItemByIndex,
-      onItemClicked,
-      focusOnMount,
-      numberOfItemsInLine,
-      focusItemIndexOnMount,
-      disabledIndexes
+    useActiveDescendantListFocus({
+      focusedElementRef: {
+        current: element
+      },
+      itemsIds: ITEM_IDS,
+      isItemSelectable: () => true,
+      onItemClick,
+      isHorizontalList: isHorizontal
     })
   );
 }
 
 describe("useActiveDescendantListFocus", () => {
-  let element;
-
   afterEach(() => {
     element.remove();
     cleanup();
+  });
+
+  it("should trigger onClick when navigate to item and press enter", async () => {
+    const onItemClick = jest.fn();
+    const { result } = renderHookForTest({ onItemClick });
+
+    // set focus on the list's element which in charge on natural focus element
+    element.focus();
+    // move visual focus to first item
+    userEvent.keyboard("{arrowDown}");
+    // Trigger on click by press enter
+    userEvent.keyboard("{Enter}");
+
+    expect(onItemClick).toHaveBeenCalledTimes(1);
+  });
+
+  describe("Horizontal list", () => {
+    it(
+      "should visually focus next item when arrow down keyboard pressed and focus back item when arrow up keyboard pressed"
+    );
+    it("should focus on first item if pressing arrow down when currently the visually focus item is the last one");
+    it("should focus on last item if pressing arrow up when currently the visually focus item is the first one");
+  });
+
+  describe("Verical list", () => {
+    it(
+      "should visually focus next item when arrow down keyboard pressed and focus back item when arrow up keyboard pressed"
+    );
+    it("should focus on first item if pressing arrow down when currently the visually focus item is the last one");
+    it("should focus on last item if pressing arrow up when currently the visually focus item is the first one");
   });
 
   it("should consider the last navigation direction when focusing the element", () => {
