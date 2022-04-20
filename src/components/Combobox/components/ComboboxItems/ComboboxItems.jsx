@@ -30,8 +30,8 @@ export const ComboboxItems = forwardRef(
       renderOnlyVisibleOptions,
       onActiveCategoryChanged,
       maxOptionsWithoutScroll,
-    forceUndoScrollNullCheck
-},
+      forceUndoScrollNullCheck
+    },
     ref
   ) => {
     const activeCategoryId = useRef();
@@ -61,7 +61,8 @@ export const ComboboxItems = forwardRef(
             visualFocusItemIndex,
             activeItemIndex,
             shouldScrollToSelectedItem,
-          forceUndoScrollNullCheck},
+            forceUndoScrollNullCheck
+          },
           isVirtualized: renderOnlyVisibleOptions
         }),
       [
@@ -72,7 +73,8 @@ export const ComboboxItems = forwardRef(
         optionRenderer,
         visualFocusItemIndex,
         activeItemIndex,
-        shouldScrollToSelectedItem,forceUndoScrollNullCheck,
+        shouldScrollToSelectedItem,
+        forceUndoScrollNullCheck,
         renderOnlyVisibleOptions
       ]
     );
