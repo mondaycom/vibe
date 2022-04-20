@@ -8,7 +8,9 @@ import {
     FunctionArgument, FunctionArguments,
     UnstyledList, UnstyledListItem
 } from "../../../storybook";
-import styles from "./useActiveDescendantListFocus.module.scss";
+import styles from "./useActiveDescendantListFocus.module.scss"; import {
+    overviewInteractionSuite
+} from "hooks/useActiveDescendantListFocus/__tests__/useActiveDescendantListFocus.interactions";
 
 <Meta
   title="Hooks/use Active Descendant List Focus"
@@ -29,7 +31,7 @@ If you are not sure whether to use this hook or not, please consult your accessi
 <b>Using this hook for not its intended purpose will hurt your component accessibility.</b> <br/>
 
 <Canvas>
-  <Story name="Overview">
+  <Story name="Overview" play={overviewInteractionSuite}>
     {() => {
       const focusedElementRef = useRef(null);
       const itemsIds = ["id-1", "id-2", "id-3"];
