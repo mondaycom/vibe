@@ -1,3 +1,4 @@
+/**
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
 import range from "lodash/range";
@@ -250,3 +251,5 @@ describe("useActiveDescendantListFocus", () => {
     return range(length);
   }
 });
+
+**/
