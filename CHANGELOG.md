@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.26.4 (2022-04-20)
+
+#### New Icons
+* [#647](https://github.com/mondaycom/monday-ui-react-core/pull/647) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.26.3 (2022-04-19)
 
 #### Bug Fixes
