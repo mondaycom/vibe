@@ -36,6 +36,8 @@ function useActiveDescendantListFocus({
   const triggerByKeyboard = useRef(false);
   const onArrowKeyEvent = useCallback(
     direction => {
+      // we desire to change the visual focus item only if the user pressed on the keyboard arrows keys while
+      // the focusedElementRef is naturally focus
       if (document.activeElement === focusedElementRef.current) {
         let newIndex;
         triggerByKeyboard.current = true;
@@ -93,6 +95,8 @@ function useActiveDescendantListFocus({
 
   const keyboardOnSelectCallback = useCallback(
     event => {
+      // we desire to change the trigger the active item on click callback only if the user pressed on the keyboard arrows keys while
+      // the focusedElementRef is naturally focus
       if (focusedElementRef.current.contains(document.activeElement)) {
         baseOnClickCallback(event, visualFocusItemIndex);
       }
