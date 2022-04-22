@@ -20,7 +20,7 @@ async function getSearchElement(canvas) {
   return await getByTestId(canvas, getTestId(ELEMENT_TYPES.SEARCH, "search"));
 }
 
-async function isElementVisuallyFocused(text) {
+async function expectElementVisuallyFocusedByText(text) {
   const activeElements = document.getElementsByClassName(styles.visualFocus);
   expect(activeElements).toHaveLength(1);
   expect(activeElements[0]).toHaveTextContent(text);
@@ -33,17 +33,29 @@ async function keyboardNavAndFocusForVerticalList(canvas) {
   element.focus();
   // move visual focus to first item
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
-  await isElementVisuallyFocused("Item 1");
+  await expectElementVisuallyFocusedByText("Item 1");
+
+  // check the natural focus is still on the focusedElementRef
+  expect(document.activeElement).toEqual(element);
 
   // move visual focus to second item
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
-  await isElementVisuallyFocused("Item 2");
+  await expectElementVisuallyFocusedByText("Item 2");
+
+  // check the natural focus is still on the focusedElementRef
+  expect(document.activeElement).toEqual(element);
 
   // move visual focus to first item again
   await pressNavigationKey(NAVIGATIONS_COMMANDS.UP_ARROW);
-  await isElementVisuallyFocused("Item 1");
+  await expectElementVisuallyFocusedByText("Item 1");
+
+  // check the natural focus is still on the focusedElementRef
+  expect(document.activeElement).toEqual(element);
 
   // move to last item by press up keyboard button
   await pressNavigationKey(NAVIGATIONS_COMMANDS.UP_ARROW);
-  await isElementVisuallyFocused("Item 4");
+  await expectElementVisuallyFocusedByText("Item 3");
+
+  // check the natural focus is still on the focusedElementRef
+  expect(document.activeElement).toEqual(element);
 }

@@ -25,10 +25,19 @@ import styles from "./useActiveDescendantListFocus.module.scss"; import {
 - [Feedback](#feedback)
 
 ## Overview
-This hook is part of a group of hooks we implement for you to ease the development of accessible components in the context of managing focus and keyboard navigation. <br/>
-Use this hook only when you want the browser's natural focus to be on a specific element (usually text input or search) when at the same time, the user will see a visual focus on one of the items in the list depending on the use of the arrow keyboard buttons. <br/>
-If you are not sure whether to use this hook or not, please consult your accessibility advisor.
 <b>Using this hook for not its intended purpose will hurt your component accessibility.</b> <br/>
+<UnstyledList>
+    <UnstyledListItem>
+        Please use this hook only if your component role is one of the following: "composite" widget, "combobox", "textbox", "group", or "application".
+    </UnstyledListItem>
+    <UnstyledListItem>
+        This hook is part of a group of hooks we implement for you to ease the development of accessible components in the context of managing focus and keyboard navigation.
+    </UnstyledListItem>
+    <UnstyledListItem>
+        Use this hook only when you want the browser's natural focus to be on a specific element (usually text input or search) when at the same time, the user will see a visual focus on one of the items in the list depending on the use of the arrow keyboard buttons.
+        Meanwhile, the user can navigate between items and select one of them by using the keyboard. but the focus on the list's item is always only visual (the real focus always be on a specific element, as explained before.)
+    </UnstyledListItem>
+</UnstyledList>
 
 <Canvas>
   <Story name="Overview" play={overviewInteractionSuite}>
@@ -121,17 +130,11 @@ If you are not sure whether to use this hook or not, please consult your accessi
 </FunctionArguments>
 
 ## Usage
+
+This hook contains the implementation of all the logic needed for managing the focus of a component that fits the following description:
 <UnstyledList>
-    <UnstyledListItem>
-        This hook contains the implementation of all the logic needed for managing the focus of a component that fits the following description:
-        <UnstyledList>
-            <UnstyledListItem>The component displays a list of values shown in one dimension - horizontal or vertical.</UnstyledListItem>
-            <UnstyledListItem>The user can interact with the component items, and therefore, the component is focusable.</UnstyledListItem>
-            <UnstyledListItem>When the user focuses on the component, the browser's real focus will always be on an element that is not one of the component's items. Most of the time, the focus will be on the component's Search item or different Text input item.</UnstyledListItem>
-            <UnstyledListItem>Meanwhile, the user can navigate between items and select one of them by using the keyboard. but the focus on the list's item is always only visual (the real focus always be on a specific element, as explained before.)</UnstyledListItem>
-        </UnstyledList>
-    </UnstyledListItem>
-    <UnstyledListItem>
-        Please use this hook only if your component role is one of the following: "composite" widget, "combobox", "textbox", "group", or "application".
-    </UnstyledListItem>
+    <UnstyledListItem>The component displays a list of values shown in one dimension - horizontal or vertical.</UnstyledListItem>
+    <UnstyledListItem>The user can interact with the component items, and therefore, the component is focusable.</UnstyledListItem>
+    <UnstyledListItem>When the user focuses on the component, the browser's real focus will always be on an element that is not one of the component's items. Most of the time, the focus will be on the component's Search item or different Text input item.</UnstyledListItem>
+    <UnstyledListItem>Meanwhile, the user can navigate between items and select one of them by using the keyboard. but the focus on the list's item is always only visual (the real focus always be on a specific element, as explained before.)</UnstyledListItem>
 </UnstyledList>
