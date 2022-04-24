@@ -1,6 +1,4 @@
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
-import { fireEvent } from "@testing-library/react";
-import range from "lodash/range";
 import useActiveDescendantListFocus from "hooks/useActiveDescendantListFocus";
 import userEvent from "@testing-library/user-event";
 
@@ -32,7 +30,7 @@ function runListUnitTest(isHorizontal) {
   const oppositeMoveForwardKey = !isHorizontal ? "{arrowRight}" : "{arrowDown}";
   it("should trigger onClick when focused element has natural focus and user navigate to item and press enter", async () => {
     const onItemClick = jest.fn();
-    const { result } = renderHookForTest({ onItemClick, isHorizontal });
+    renderHookForTest({ onItemClick, isHorizontal });
 
     act(() => {
       // set focus on the list's element which in charge on natural focus element
@@ -52,7 +50,7 @@ function runListUnitTest(isHorizontal) {
 
   it("should not trigger onClick when focused element does not have natural focus and user navigate to item and press enter", async () => {
     const onItemClick = jest.fn();
-    const { result } = renderHookForTest({ onItemClick, isHorizontal });
+    renderHookForTest({ onItemClick, isHorizontal });
 
     act(() => {
       // move visual focus to first item
@@ -85,8 +83,7 @@ function runListUnitTest(isHorizontal) {
 
   it("should not navigate to next item when user try to navigate by using keys for the  opposite dimension to the list dimension ", async () => {
     const onItemClick = jest.fn();
-    const isItemSelectable = i => i !== 0;
-    const { result } = renderHookForTest({ onItemClick, isItemSelectable, isHorizontal });
+    const { result } = renderHookForTest({ onItemClick, isHorizontal });
 
     act(() => {
       // set focus on the list's element which in charge on natural focus element
@@ -96,7 +93,7 @@ function runListUnitTest(isHorizontal) {
       userEvent.keyboard(oppositeMoveForwardKey);
     });
 
-    expect(result.current.visualFocusItemIndex).toEqual(-1);
+    expect(result.current.visualFocusItemIndex === 0).toBeFalsy();
   });
 }
 
