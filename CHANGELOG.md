@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.26.5 (2022-04-24)
+
+#### Bug Fixes
+* [#649](https://github.com/mondaycom/monday-ui-react-core/pull/649) fix commit ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.26.4 (2022-04-20)
 
 #### New Icons
