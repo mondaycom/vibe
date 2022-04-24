@@ -1,4 +1,3 @@
-/**
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
 import range from "lodash/range";
@@ -10,7 +9,7 @@ const FIRST_ITEM_ID = "id-1";
 const SECOND_ITEM_ID = "id-2";
 const ITEM_IDS = [FIRST_ITEM_ID, SECOND_ITEM_ID];
 
-function renderHookForTest({ onItemClick = jest.fn(), isHorizontal = false }) {
+function renderHookForTest({ onItemClick = jest.fn(), isItemSelectable = () => true, isHorizontal = false }) {
   element = document.createElement("div");
   element.tabIndex = -1; // some tests focus the element - a tabIndex value is required for updating the document.activeIndex value
   document.body.appendChild(element);
@@ -21,11 +20,84 @@ function renderHookForTest({ onItemClick = jest.fn(), isHorizontal = false }) {
         current: element
       },
       itemsIds: ITEM_IDS,
-      isItemSelectable: () => true,
+      isItemSelectable: isItemSelectable,
       onItemClick,
       isHorizontalList: isHorizontal
     })
   );
+}
+
+function runListUnitTest(isHorizontal) {
+  const moveForwardKey = isHorizontal ? "{arrowRight}" : "{arrowDown}";
+  const oppositeMoveForwardKey = !isHorizontal ? "{arrowRight}" : "{arrowDown}";
+  it("should trigger onClick when focused element has natural focus and user navigate to item and press enter", async () => {
+    const onItemClick = jest.fn();
+    const { result } = renderHookForTest({ onItemClick, isHorizontal });
+
+    act(() => {
+      // set focus on the list's element which in charge on natural focus element
+      element.focus();
+      // move visual focus to first item
+      userEvent.keyboard(moveForwardKey);
+    });
+
+    act(() => {
+      // Trigger on click by press enter
+      userEvent.keyboard("{Enter}");
+    });
+
+    expect(onItemClick).toHaveBeenCalledTimes(1);
+    expect(onItemClick).toHaveBeenCalledWith(expect.objectContaining({}), 0);
+  });
+
+  it("should not trigger onClick when focused element does not have natural focus and user navigate to item and press enter", async () => {
+    const onItemClick = jest.fn();
+    const { result } = renderHookForTest({ onItemClick, isHorizontal });
+
+    act(() => {
+      // move visual focus to first item
+      userEvent.keyboard(moveForwardKey);
+    });
+
+    act(() =>
+      // Trigger on click by press enter
+      userEvent.keyboard("{Enter}")
+    );
+
+    expect(onItemClick).toHaveBeenCalledTimes(0);
+  });
+
+  it("should skip not selectable item when user try to navigate to it", async () => {
+    const onItemClick = jest.fn();
+    const isItemSelectable = i => i !== 0;
+    const { result } = renderHookForTest({ onItemClick, isItemSelectable, isHorizontal });
+
+    act(() => {
+      // set focus on the list's element which in charge on natural focus element
+      element.focus();
+
+      // move visual focus to first item
+      userEvent.keyboard(moveForwardKey);
+    });
+
+    expect(result.current.visualFocusItemIndex).toEqual(1);
+  });
+
+  it("should not navigate to next item when user try to navigate by using keys for the  opposite dimension to the list dimension ", async () => {
+    const onItemClick = jest.fn();
+    const isItemSelectable = i => i !== 0;
+    const { result } = renderHookForTest({ onItemClick, isItemSelectable, isHorizontal });
+
+    act(() => {
+      // set focus on the list's element which in charge on natural focus element
+      element.focus();
+
+      // move visual focus to first item
+      userEvent.keyboard(oppositeMoveForwardKey);
+    });
+
+    expect(result.current.visualFocusItemIndex).toEqual(-1);
+  });
 }
 
 describe("useActiveDescendantListFocus", () => {
@@ -34,126 +106,17 @@ describe("useActiveDescendantListFocus", () => {
     cleanup();
   });
 
-  it("should trigger onClick when navigate to item and press enter", async () => {
-    const onItemClick = jest.fn();
-    const { result } = renderHookForTest({ onItemClick });
-
-    // set focus on the list's element which in charge on natural focus element
-    element.focus();
-    // move visual focus to first item
-    userEvent.keyboard("{arrowDown}");
-    // Trigger on click by press enter
-    userEvent.keyboard("{Enter}");
-
-    expect(onItemClick).toHaveBeenCalledTimes(1);
+  describe("Vertical list", () => {
+    const isHorizontal = false;
+    runListUnitTest(isHorizontal);
   });
-
   describe("Horizontal list", () => {
-    it(
-      "should visually focus next item when arrow down keyboard pressed and focus back item when arrow up keyboard pressed"
-    );
-    it("should focus on first item if pressing arrow down when currently the visually focus item is the last one");
-    it("should focus on last item if pressing arrow up when currently the visually focus item is the first one");
+    const isHorizontal = true;
+    runListUnitTest(isHorizontal);
   });
+});
 
-  describe("Verical list", () => {
-    it(
-      "should visually focus next item when arrow down keyboard pressed and focus back item when arrow up keyboard pressed"
-    );
-    it("should focus on first item if pressing arrow down when currently the visually focus item is the last one");
-    it("should focus on last item if pressing arrow up when currently the visually focus item is the first one");
-  });
-
-  it("should consider the last navigation direction when focusing the element", () => {
-    const items = itemsArray(9);
-    const { result } = renderHookForTest({ items, numberOfItemsInLine: 3 });
-
-    act(() => {
-      userEvent.keyboard("{ArrowLeft}"); // make sure there's a value for lastNavigationDirection
-      element.focus();
-    });
-
-    expect(result.current.activeIndex).toBe(5); // last index of the right-most line
-  });
-
-  it("should do nothing when focusing the element when it is already focused", () => {
-    const items = itemsArray(9);
-    const { result } = renderHookForTest({ items, numberOfItemsInLine: 3 });
-
-    act(() => {
-      // this should set the activeIndex to 5. Focusing the element after pressing "left", is like like the user pressed left to focus into the wrapper element.
-      userEvent.keyboard("{ArrowLeft}");
-      element.focus();
-    });
-    expect(result.current.activeIndex).toBe(5);
-    act(() => {
-      // this would have set the active index to 1 - but it should be ignored, since the wrapper element is already focused.
-      element.focus();
-    });
-
-    expect(result.current.activeIndex).toBe(5);
-  });
-
-  it("should return a callback wrapper that sets the activeIndex to the keyboard selected element, ", () => {
-    const { result } = renderHookForTest({});
-
-    act(() => result.current.onSelectionAction(3, true));
-
-    expect(result.current.activeIndex).toBe(3);
-  });
-
-  it("should select the currently active item when navigating and selecting using the keyboard", () => {
-    const onItemClicked = jest.fn();
-    const items = ["a", "b", "c", "d"];
-    renderHookForTest({ items, focusOnMount: true, focusItemIndexOnMount: 0, onItemClicked });
-
-    act(() => {
-      fireEvent.keyDown(element, { key: "ArrowRight" }); // activeIndex should be set to 1
-    });
-    act(() => {
-      fireEvent.keyDown(element, { key: " " }); // perform selection
-    });
-
-    expect(onItemClicked).toHaveBeenCalledTimes(1);
-    expect(onItemClicked).toHaveBeenCalledWith("b", 1);
-  });
-
-  it("should ignore keyboard selections which are performed after selecting with the mouse", () => {
-    const onItemClicked = jest.fn();
-    const items = ["a", "b", "c", "d"];
-    const { result } = renderHookForTest({ items, focusOnMount: true, focusItemIndexOnMount: 0, onItemClicked });
-    act(() => result.current.onSelectionAction(1)); // select without the keyboard
-    expect(onItemClicked).toHaveBeenCalledTimes(1);
-
-    act(() => {
-      fireEvent.keyDown(element, { key: " " }); // perform selection - which should be ignored
-    });
-
-    expect(onItemClicked).toHaveBeenCalledTimes(1); // no new calls
-  });
-
-  it("should return a callback wrapper that calls onItemClicked with the item and the index", () => {
-    const onItemClicked = jest.fn();
-    const items = ["a", "b", "c", "d"];
-    const { result } = renderHookForTest({ onItemClicked, items });
-
-    act(() => result.current.onSelectionAction(2));
-
-    expect(onItemClicked).toHaveBeenCalledTimes(1);
-    expect(onItemClicked).toHaveBeenCalledWith("c", 2);
-  });
-
-  it("should update the activeIndex when keyboard-navigating inside the element", () => {
-    const items = ["a", "b", "c", "d"];
-    const { result } = renderHookForTest({ items, numberOfItemsInLine: 2 });
-
-    act(() => result.current.onSelectionAction(0)); // set the activeIndex to 0
-    act(() => {
-      fireEvent.keyDown(element, { key: "ArrowRight" });
-    });
-
-    expect(result.current.activeIndex).toBe(1);
-  });
+/**
 
   it("should not update the activeIndex when performing outbound navigation with the keyboard", () => {
     const items = ["a", "b", "c", "d"];
@@ -193,63 +156,4 @@ describe("useActiveDescendantListFocus", () => {
 
     expect(result.current.isInitialActiveState).toBe(false);
   });
-
-  describe("focusItemIndexOnMount", () => {
-    it("should set the active index according to focusItemIndexOnMount on mount, when focusOnMount is true", () => {
-      const items = ["a", "b", "c", "d"];
-
-      const { result } = renderHookForTest({ items, focusItemIndexOnMount: 2, focusOnMount: true });
-
-      expect(result.current.activeIndex).toBe(2);
-    });
-
-    it("should ignore the value of focusItemIndexOnMount, when focusOnMount is false", () => {
-      const items = ["a", "b", "c", "d"];
-
-      const { result } = renderHookForTest({ items, focusItemIndexOnMount: 2, focusOnMount: false });
-
-      expect(result.current.activeIndex).toBe(-1);
-    });
-
-    it("should return isInitialActiveState = false when focusItemIndexOnMount option is missing", () => {
-      const items = ["a", "b", "c", "d"];
-
-      const { result } = renderHookForTest({ items, focusOnMount: true });
-
-      expect(result.current.isInitialActiveState).toBe(false);
-    });
-
-    it("should return isInitialActiveState = false when focusOnMount = false and focusItemIndexOnMount option exists", () => {
-      const items = ["a", "b", "c", "d"];
-
-      const { result } = renderHookForTest({ items, focusItemIndexOnMount: 2, focusOnMount: false });
-
-      expect(result.current.isInitialActiveState).toBe(false);
-    });
-
-    it("should return isInitialActiveState = true when focusOnMount and focusItemIndexOnMount option exists", () => {
-      const items = ["a", "b", "c", "d"];
-
-      const { result } = renderHookForTest({ items, focusItemIndexOnMount: 2, focusOnMount: true });
-
-      expect(result.current.isInitialActiveState).toBe(true);
-    });
-
-    it("should return isInitialActiveState = false when focusOnMount and focusItemIndexOnMount option exists, and activeIndex changed afterwards", () => {
-      const items = ["a", "b", "c", "d"];
-
-      const { result } = renderHookForTest({ items, focusItemIndexOnMount: 2, focusOnMount: true });
-      act(() => {
-        fireEvent.keyDown(element, { key: "ArrowLeft" });
-      });
-
-      expect(result.current.isInitialActiveState).toBe(false);
-    });
-  });
-
-  function itemsArray(length) {
-    return range(length);
-  }
-});
-
 **/
