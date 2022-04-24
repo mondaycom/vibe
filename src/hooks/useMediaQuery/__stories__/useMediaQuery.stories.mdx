@@ -9,6 +9,7 @@ import "../../__stories__/general-hooks-stories.scss";
 
 - [Overview](#overview)
 - [Arguments](#arguments)
+- [Returns](#returns)
 - [Feedback](#feedback)
 
 ## Overview
@@ -42,10 +43,7 @@ This hook helps maps if a media query is matched or not
             media query - "screen and (max-width: 1280px) and (min-width: 768px)" is matching:{" "}
             {screenSizeMediaQuery ? "true" : "false"}
           </div>
-          <div>
-            media query - prefers-color-scheme: dark is matching:{" "}
-            {preferDarkColorScheme ? "true" : "false"}
-          </div>
+          <div>media query - prefers-color-scheme: dark is matching: {preferDarkColorScheme ? "true" : "false"}</div>
         </div>
       );
     }}
@@ -59,5 +57,20 @@ This hook helps maps if a media query is matched or not
     name="query"
     type="string | Array<string>"
     description={<>A string (or an array of strings) which represent a valid media query</>}
+  />
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument
+    name="result"
+    type="Array<boolean>"
+    description={
+      <>
+        An array with the matching media query set to true for example:
+        <br /> <code>[true, false]</code> - the first media query applies and the second is not
+      </>
+    }
   />
 </FunctionArguments>
