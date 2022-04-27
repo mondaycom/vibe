@@ -47,7 +47,7 @@ const ComboboxOption = ({
     const element = ref.current;
     if (visualFocus && element && shouldScrollWhenActive) {
       if (forceUndoScrollNullCheck) {
-        element?.scrollIntoView({ behaviour: "smooth" });
+        element?.scrollIntoView?.({ behaviour: "smooth" });
       } else {
         element.scrollIntoView?.({ behaviour: "smooth" });
       }
