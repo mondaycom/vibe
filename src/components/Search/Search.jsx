@@ -58,7 +58,6 @@ const Search = forwardRef(
     ref
   ) => {
     const mergedRef = useMergeRefs({ refs: [ref, setRef] });
-
     return (
       <TextField
         id={id}
