@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.27.1 (2022-04-28)
+
+#### Bug Fixes
+* [#654](https://github.com/mondaycom/monday-ui-react-core/pull/654) Fix export of a11y list hook ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.27.0 (2022-04-28)
 
 #### Bug Fixes
