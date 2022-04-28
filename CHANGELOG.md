@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.27.0 (2022-04-28)
+
+#### Bug Fixes
+* [#653](https://github.com/mondaycom/monday-ui-react-core/pull/653) Fix usage on useMergedRef in checkbox ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#636](https://github.com/mondaycom/monday-ui-react-core/pull/636) A11y/combobox nav refactor and expose list focus and keyboard navigation hook ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.26.7 (2022-04-26)
 
 #### New Icons
