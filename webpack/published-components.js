@@ -98,7 +98,7 @@ const publishedComponents = {
   useIsMouseOver: "hooks/useIsMouseOver.js",
   useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
   useIsOverflowing: "hooks/useIsOverflowing",
-  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus.js"
+  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
 };
 
 function getPublishedComponents() {
