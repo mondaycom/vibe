@@ -30,4 +30,4 @@ export const MEDIA_QUERY_SIZES = {
   MEDIUM2,
   LARGE,
   XLARGE
-}
+};
