@@ -27,7 +27,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -140,7 +140,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -253,7 +253,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -366,7 +366,7 @@ exports[`Combobox renders correctly with className 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -479,7 +479,7 @@ exports[`Combobox renders correctly with divider 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -582,7 +582,7 @@ exports[`Combobox renders correctly with divider 1`] = `
           aria-level={1}
           aria-selected={false}
           className="combobox-option first"
-          id="combobox-item-0"
+          id="combobox-item-1"
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
@@ -638,7 +638,7 @@ exports[`Combobox renders correctly with divider 1`] = `
           aria-level={1}
           aria-selected={false}
           className="combobox-option"
-          id="combobox-item-1"
+          id="combobox-item-2"
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
@@ -690,7 +690,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -803,7 +803,7 @@ exports[`Combobox renders correctly with id 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -916,7 +916,7 @@ exports[`Combobox renders correctly with loading 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -1056,7 +1056,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -1169,7 +1169,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -1259,7 +1259,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           aria-level={1}
           aria-selected={false}
           className="combobox-option first"
-          id="combobox-item-0"
+          id="combobox-item-1"
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
@@ -1286,7 +1286,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           aria-level={1}
           aria-selected={false}
           className="combobox-option"
-          id="combobox-item-1"
+          id="combobox-item-2"
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
@@ -1337,7 +1337,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -1450,7 +1450,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
@@ -1563,7 +1563,7 @@ exports[`Combobox renders correctly with size 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-large"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""

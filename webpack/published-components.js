@@ -99,7 +99,8 @@ const publishedComponents = {
   useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
   useIsOverflowing: "hooks/useIsOverflowing",
   useMediaQuery: "hooks/useMediaQuery",
-  useVibeMediaQuery: "hooks/useVibeMediaQuery"
+  useVibeMediaQuery: "hooks/useVibeMediaQuery",
+  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
 };
 
 function getPublishedComponents() {

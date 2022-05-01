@@ -1,5 +1,33 @@
 # Changelog
 
+## 1.27.1 (2022-04-28)
+
+#### Bug Fixes
+* [#654](https://github.com/mondaycom/monday-ui-react-core/pull/654) Fix export of a11y list hook ([@hadasfa](https://github.com/hadasfa))
+
+## 1.27.0 (2022-04-28)
+
+#### Bug Fixes
+* [#653](https://github.com/mondaycom/monday-ui-react-core/pull/653) Fix usage on useMergedRef in checkbox ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#636](https://github.com/mondaycom/monday-ui-react-core/pull/636) A11y/combobox nav refactor and expose list focus and keyboard navigation hook ([@hadasfa](https://github.com/hadasfa))
+
+## 1.26.7 (2022-04-26)
+
+#### New Icons
+* [#652](https://github.com/mondaycom/monday-ui-react-core/pull/652) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.26.6 (2022-04-24)
+
+#### New Icons
+* [#650](https://github.com/mondaycom/monday-ui-react-core/pull/650) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.26.5 (2022-04-24)
+
+#### Bug Fixes
+* [#649](https://github.com/mondaycom/monday-ui-react-core/pull/649) fix commit ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.26.4 (2022-04-20)
 
 #### New Icons

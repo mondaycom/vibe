@@ -10,5 +10,6 @@ export { default as useMergeRefs } from "./useMergeRefs";
 export { default as museIsMouseOver } from "./useIsMouseOver";
 export { default as useGridKeyboardNavigation } from "./useGridKeyboardNavigation/useGridKeyboardNavigation";
 export { default as useIsOverflowing } from "./useIsOverflowing";
+export { default as useActiveDescendantListFocus } from "./useActiveDescendantListFocus";
 export { default as useMediaQuery } from "./useMediaQuery";
 export { default as useVibeMediaQuery } from "./useVibeMediaQuery";
