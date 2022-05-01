@@ -98,6 +98,8 @@ const publishedComponents = {
   useIsMouseOver: "hooks/useIsMouseOver.js",
   useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
   useIsOverflowing: "hooks/useIsOverflowing",
+  useMediaQuery: "hooks/useMediaQuery",
+  useVibeMediaQuery: "hooks/useVibeMediaQuery",
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
 };
 
