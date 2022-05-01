@@ -1,6 +1,15 @@
 import { useLayoutEffect, useState } from "react";
 import useMediaQuery from "hooks/useMediaQuery";
-import { VIBE_MEDIA_QUERIES, LARGE, SMALL1, XLARGE, MEDIUM1, MEDIUM2, SMALL2, MEDIA_QUERY_SIZES } from "utils/media-query-utils";
+import {
+  VIBE_MEDIA_QUERIES,
+  LARGE,
+  SMALL1,
+  XLARGE,
+  MEDIUM1,
+  MEDIUM2,
+  SMALL2,
+  MEDIA_QUERY_SIZES
+} from "utils/media-query-utils";
 
 export default function useVibeMediaQuery() {
   const [mediaSize, setMediaSize] = useState(SMALL1);
