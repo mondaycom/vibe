@@ -257,6 +257,10 @@ Combobox.propTypes = {
   optionLineHeight: PropTypes.number,
   optionsListHeight: PropTypes.number,
   autoFocus: PropTypes.bool,
+  /**
+   * Callback that called after clicking on the add new combo box button.
+   * @param {string} _filterValue
+   */
   onAddNew: PropTypes.func,
   /**
    * The label of the button that appears at the end of the combo box when the search does not return appropriate options
@@ -315,20 +319,11 @@ Combobox.defaultProps = {
   optionsListHeight: undefined,
   autoFocus: false,
   maxOptionsWithoutScroll: undefined,
-  /**
-   * Callback that called after clicking on the add new combo box button.
-   * @param {string} _filterValue
-   */
   onAddNew: _filterValue => {},
-  /**
-   * The button label appears at the end of the combo box when the search does not return appropriate options.
-   * The button will not be displayed if you have not passed a function for the onAddNew prop
-   */
   addNewLabel: "Add new",
   filter: defaultFilter,
   disableFilter: false,
   onFilterChanged: undefined,
-  /** shows loading animation */
   loading: false,
   onOptionHover: NOOP,
   onOptionLeave: NOOP,
