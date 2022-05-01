@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.28.0 (2022-05-01)
+
+#### New Features
+* [#584](https://github.com/mondaycom/monday-ui-react-core/pull/584) Use media query ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.27.1 (2022-04-28)
 
 #### Bug Fixes
