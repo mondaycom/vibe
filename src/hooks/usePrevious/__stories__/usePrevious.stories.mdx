@@ -25,7 +25,7 @@ Hook for keeping previous state value.
       const [count, setCount] = useState(1);
       const prevCount = usePrevious(count);
       const incrementButtonOnClick = () => {
-        setCount(prevCount => prevCount + 1);
+        setCount(prevValue => prevValue + 1);
       };
       return (
         <div>
