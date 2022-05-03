@@ -1,0 +1,49 @@
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import UseSetFocus from "./hooksDummyComponents/UseSetFocus";
+import { useRef } from "react";
+import Button from "components/Button/Button";
+import Flex from "components/Flex/Flex";
+import useSetFocus from "../../useSetFocus/index";
+import { InputField } from "components";
+import "./useSetFocus.stories.scss";
+
+<Meta title="Hooks/useSetFocus" component={UseSetFocus} />
+
+# useSetFocus
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Feedback](#feedback)
+
+## Overview
+
+Hook for controlling focus on specific component e.g. Input.
+
+<Canvas>
+  <Story name="Overview">
+    {() => {
+      const focusCallback = () => {};
+      const blurCallback = () => {};
+      const ref = useRef(null);
+      const { isFocused, focus, blur } = useSetFocus({ ref, focusCallback, blurCallback });
+      return (
+        <Flex direction={Flex.directions.COLUMN}>
+          <InputField ref={ref} placeholder="Input..." />
+          <Button onClick={focus} className="use-set-focus-control-button">
+            Focus
+          </Button>
+          <Button onClick={blur} className="use-set-focus-control-button">
+            Unfocus
+          </Button>
+          <div className="use-set-focus-label">
+            Is focused: {isFocused?.toString()}
+          </div>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Arguments
+
+<ArgsTable of={UseSetFocus} />
