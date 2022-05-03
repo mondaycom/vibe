@@ -4,8 +4,8 @@ import Button from "components/Button/Button";
 import Flex from "components/Flex/Flex";
 import useSetFocus from "../../useSetFocus/index";
 import { InputField } from "components";
-import styles from "./useSetFocus.stories.module.scss";
 import { FunctionArgument, FunctionArguments } from "../../../storybook";
+import styles from "./useSetFocus.stories.module.scss";
 
 <Meta title="Hooks/useSetFocus" />
 
@@ -13,6 +13,7 @@ import { FunctionArgument, FunctionArguments } from "../../../storybook";
 
 - [Overview](#overview)
 - [Arguments](#arguments)
+- [Returns](#returns)
 - [Feedback](#feedback)
 
 ## Overview
@@ -57,12 +58,29 @@ Hook for controlling focus on specific component e.g. Input.
     <FunctionArgument
       name="focusCallback"
       type="() => void"
-      description="Callback function to execute on ref focus event."
+      description="Callback function to execute on the ref's element focus event."
     />
     <FunctionArgument
       name="blurCallback"
       type="() => void"
-      description="Callback function to execute on ref blur event."
+      description="Callback function to execute on the ref's element blur event."
+    />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Returns
+<FunctionArguments>
+  <FunctionArgument name="result" type="Object">
+    <FunctionArgument name="isFocused" type="bool" description="Is the element focused or not." />
+    <FunctionArgument
+      name="focus"
+      type="() => void"
+      description="Function for focusing the element."
+    />
+    <FunctionArgument
+      name="blur"
+      type="() => void"
+      description="Function for blurring the element."
     />
   </FunctionArgument>
 </FunctionArguments>
