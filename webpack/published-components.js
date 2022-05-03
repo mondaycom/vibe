@@ -94,6 +94,7 @@ const publishedComponents = {
   useAfterFirstRender: "hooks/useAfterFirstRender/index.js",
   useTimeout: "hooks/useTimeout/index.js",
   usePrevious: "hooks/usePrevious.js",
+  useSetFocus: "hooks/useSetFocus.js",
   useMergeRefs: "hooks/useMergeRefs.js",
   useIsMouseOver: "hooks/useIsMouseOver.js",
   useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
