@@ -1,5 +1,4 @@
-import { renderHook, cleanup, act } from "@testing-library/react-hooks";
-import { fireEvent } from "@testing-library/react";
+import { act, cleanup, renderHook } from "@testing-library/react-hooks";
 import useSetFocus from "../index";
 
 describe("useSetFocus", () => {
@@ -8,46 +7,83 @@ describe("useSetFocus", () => {
   const blurCallback = jest.fn();
 
   describe("click", () => {
-    beforeEach(() => {
-      element = document.createElement("input");
-      document.body.appendChild(element);
-      renderHook(() =>
-        useSetFocus({
-          ref: { current: element },
-          focusCallback: focusCallback,
-          blurCallback: blurCallback
-        })
-      );
-    });
-
     afterEach(() => {
       element.remove();
       cleanup();
     });
 
-    it("should call focusCallback when moving mouse to the element", () => {
+    it("default isFocused value is false", () => {
+      const { result } = renderHookForTest();
+      expect(result.current.isFocused).toBe(false);
+    });
+
+    it("should call focusCallback when focusing the element", () => {
+      const { result } = renderHookForTest();
+
       act(() => {
-        fireEvent.mouseOver(element);
+        element.focus();
       });
-      expect(focusCallback.mock.calls.length).toBe(1);
+
       expect(blurCallback.mock.calls.length).toBe(0);
-    });
-
-    it("should call blurCallback when moving mouse out of the element", () => {
-      act(() => {
-        fireEvent.mouseOver(element);
-        fireEvent.mouseLeave(element);
-      });
       expect(focusCallback.mock.calls.length).toBe(1);
-      expect(blurCallback.mock.calls.length).toBe(1);
+      expect(result.current.isFocused).toBe(true);
     });
 
-    it("should focus on the element when isActive = true", () => {
+    it("should call blurCallback when blur even happens to the element", () => {
+      const { result } = renderHookForTest();
+
       act(() => {
-        fireEvent.mouseOver(element);
+        element.focus();
       });
 
-      expect(element).toHaveFocus();
+      act(() => {
+        element.blur();
+      });
+
+      expect(blurCallback.mock.calls.length).toBe(1);
+      expect(result.current.isFocused).toBe(false);
+    });
+
+    it("element should be focused after calling hook.focus()", () => {
+      const { result } = renderHookForTest();
+
+      act(() => {
+        result.current.focus();
+      });
+
+      expect(blurCallback.mock.calls.length).toBe(0);
+      expect(focusCallback.mock.calls.length).toBe(1);
+      expect(result.current.isFocused).toBe(true);
+      expect(document.activeElement).toBe(element);
+    });
+
+    it("element should not be focused after calling hook.blur()", () => {
+      const { result } = renderHookForTest();
+
+      act(() => {
+        result.current.focus();
+      });
+
+      act(() => {
+        result.current.blur();
+      });
+
+      expect(blurCallback.mock.calls.length).toBe(1);
+      expect(result.current.isFocused).toBe(false);
+      expect(document.activeElement).not.toBe(element);
     });
   });
+
+  function renderHookForTest() {
+    element = document.createElement("input");
+    document.body.appendChild(element);
+
+    return renderHook(() =>
+      useSetFocus({
+        ref: { current: element },
+        focusCallback: focusCallback,
+        blurCallback: blurCallback
+      })
+    );
+  }
 });
