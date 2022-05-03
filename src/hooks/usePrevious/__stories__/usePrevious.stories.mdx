@@ -4,8 +4,8 @@ import usePrevious from "../index";
 import Button from "components/Button/Button";
 import { Counter } from "components";
 import Flex from "components/Flex/Flex";
-import styles from "./usePrevious.stories.module.scss";
 import { FunctionArgument, FunctionArguments } from "../../../storybook";
+import styles from "./usePrevious.stories.module.scss";
 
 <Meta title="Hooks/usePrevious" />
 
@@ -13,6 +13,7 @@ import { FunctionArgument, FunctionArguments } from "../../../storybook";
 
 - [Overview](#overview)
 - [Arguments](#arguments)
+- [Returns](#returns)
 - [Feedback](#feedback)
 
 ## Overview
@@ -48,4 +49,10 @@ Hook for keeping previous state value.
 
 <FunctionArguments>
   <FunctionArgument name="value" type="any" description={<>State value to keep track of.</>} required />
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="value" type="any" description={<>Previous value of the argument.</>} />
 </FunctionArguments>
