@@ -93,7 +93,7 @@ const publishedComponents = {
   useResizeObserver: "hooks/useResizeObserver.js",
   useAfterFirstRender: "hooks/useAfterFirstRender/index.js",
   useTimeout: "hooks/useTimeout/index.js",
-  usePrevious: "hooks/usePrevious.js",
+  usePrevious: "hooks/usePrevious",
   useMergeRefs: "hooks/useMergeRefs.js",
   useIsMouseOver: "hooks/useIsMouseOver.js",
   useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
