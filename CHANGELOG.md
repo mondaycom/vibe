@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.28.1 (2022-05-10)
+
+#### Bug Fixes
+* [#662](https://github.com/mondaycom/monday-ui-react-core/pull/662) Fix bug: remove "add new" button from not found empty state in combobox as default ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#657](https://github.com/mondaycom/monday-ui-react-core/pull/657) Storybook: usePrevios hook ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.28.0 (2022-05-01)
 
 #### New Features
