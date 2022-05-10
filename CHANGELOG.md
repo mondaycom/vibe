@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.28.2 (2022-05-10)
+
+#### Bug Fixes
+* [#663](https://github.com/mondaycom/monday-ui-react-core/pull/663) fix use previous export ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.28.1 (2022-05-10)
 
 #### Bug Fixes
