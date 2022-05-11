@@ -92,6 +92,8 @@ const BORDER_RADIUSES_PROPS = [
 
 const TIMING_FUNCTION_PROPS = ["transition", "transition-timing", "animation", "animation-timing-function"];
 
+const OPACITY_PROPS =["opacity"];
+
 function mapPropsToAllowedVars(propNames, allowedVars) {
   allowedVars = Array.isArray(allowedVars) ? allowedVars : [allowedVars];
   propNames = Array.isArray(propNames) ? propNames : [propNames];
@@ -110,6 +112,7 @@ const PROPS_TO_ALLOWED_VARS = {
   ...mapPropsToAllowedVars("font-weight", FONT_WEIGHTS),
   ...mapPropsToAllowedVars("font-size", FONT_SIZES),
   ...mapPropsToAllowedVars(TIMING_FUNCTION_PROPS, "--expand-animation-timing"),
+  ...mapPropsToAllowedVars(OPACITY_PROPS, "--disabled-component-opacity"),
 
   "font-family": ["--font-family"],
   "-webkit-font-smoothing": ["--font-smoothing-webkit"],

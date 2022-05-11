@@ -1,0 +1,8 @@
+// COR MAP: COMMON
+// This partial defines common and global values map.
+// - Maps include misc common and global tokens.
+// - Maps are collected into the $core-settings-map and are interpolated into custom properties.
+
+$core-common-map: (
+        disabled-component-opacity: $disabled-component-opacity,
+);

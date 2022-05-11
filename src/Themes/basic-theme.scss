@@ -46,10 +46,10 @@
   --icon-on-secondary-color: var(--color-asphalt);
 
   // disabled
-  --disabled-background-color: var(--color-ui_grey);
-  --disabled-background-on-secondary-color: var(--color-ui_grey);
-  --disabled-text-color: #676879;
-  --disabled-text-on-secondary-color: #676879;
+  --disabled-background-color: var(--color-ui_grey-muted);
+  --disabled-background-on-secondary-color: var(--color-ui_grey-muted);
+  --disabled-text-color: var(--color-asphalt-muted);
+  --disabled-text-on-secondary-color: var(--color-asphalt-muted);
 
   --dark-background-color: var(--color-riverstone_gray);
   --dark-background-on-secondary-color: var(--color-riverstone_gray);
