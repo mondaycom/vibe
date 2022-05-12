@@ -66,39 +66,48 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
 }
 
 /**
- * @returns {{[cssProp: string]: {[value: string]: string[]}}}: a map between a css prop to expected CSS vars replacements per values.
+ * @returns {{[cssProp: string]: {[value: string]: {allowedVars: string[], recommended: string | undefined}}}}: a map between a css prop to expected CSS vars replacements per values, and a recommendation if exists.
  * For example:
   {
     padding: {
       {
-        "8px": ["--spacing-small",],
-        "16px": ["--spacing-medium", "--spacing-medium"]
+        "8px": { allowedVars: [ "--spacing-small" ] },
+        "16px": { allowedVars: [ "--spacing-medium" ] },
       }
     },
     "font-size":{
-      "14px": [ "--font-size-general-label", "--font-size-subtext" ],
+      "14px": { 
+        allowedVars: [ "--font-size-general-label", "--font-size-subtext" ],
+        recommended: "--font-size-general-label"
+      },
     }
   }
  */
 function getPropsToAllowedCssVars() {
   const { allVarsToCanonicalValue } = parseMondayUiCss();
-  const propsToReplacement = {};
+  const propsToReplacementConfig = {};
   Object.keys(PROPS_TO_ALLOWED_VARS).forEach((prop) => {
-    const matchingVars = PROPS_TO_ALLOWED_VARS[prop];
-    if (!matchingVars) {
+    const { allowedVars, recommended } = PROPS_TO_ALLOWED_VARS[prop];
+    if (!allowedVars) {
       return;
     }
-    propsToReplacement[prop] = {};
-    matchingVars.forEach((matchingVar) => {
-      const varCanonicalValue = allVarsToCanonicalValue[matchingVar];
+    propsToReplacementConfig[prop] = {};
+    allowedVars.forEach((varName) => {
+      const varCanonicalValue = allVarsToCanonicalValue[varName];
       if (!varCanonicalValue) {
         return;
       }
-      propsToReplacement[prop][varCanonicalValue] = propsToReplacement[prop][varCanonicalValue] || [];
-      propsToReplacement[prop][varCanonicalValue].push(matchingVar);
+      propsToReplacementConfig[prop][varCanonicalValue] = propsToReplacementConfig[prop][varCanonicalValue] || {
+        allowedVars: [],
+      };
+      propsToReplacementConfig[prop][varCanonicalValue].allowedVars.push(varName);
+      if (recommended && recommended.includes(varName)) {
+        propsToReplacementConfig[prop][varCanonicalValue].recommended = varName;
+      }
     });
   });
-  return propsToReplacement;
+
+  return propsToReplacementConfig;
 }
 
 module.exports = {

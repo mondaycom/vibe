@@ -20,11 +20,20 @@ module.exports = stylelint.createPlugin(RULE_NAME, (primaryOption, secondaryOpti
   const propsToAllowedCssVars = getPropsToAllowedCssVars();
 
   return function lint(postcssRoot, postcssResult) {
-    const validOptions = validateOptions(postcssResult, RULE_NAME, {
-      actual: primaryOption,
-      possible: [...CONFIGS_THAT_MEAN_IGNORE_FILE, true, "true"],
-      optional: true,
-    });
+    const validOptions = validateOptions(
+      postcssResult,
+      RULE_NAME,
+      {
+        actual: primaryOption,
+        possible: [...CONFIGS_THAT_MEAN_IGNORE_FILE, true, "true"],
+        optional: true,
+      },
+      {
+        actual: secondaryOptionObject && secondaryOptionObject.useRecommendedFixes,
+        possible: [true, "true", false, "false"],
+        optional: true,
+      }
+    );
 
     primaryOption = primaryOption || true;
     const shouldNotLint =
@@ -49,25 +58,33 @@ module.exports = stylelint.createPlugin(RULE_NAME, (primaryOption, secondaryOpti
           return;
         }
 
-        const varReplacementsForValue = valuesToVars[node.value];
+        const { allowedVars: varReplacementsForValue, recommended } = valuesToVars[node.value] || {};
 
         if (!varReplacementsForValue || !varReplacementsForValue.length) {
           return;
         }
         const hasSingleReplacement = varReplacementsForValue.length === 1;
 
+        const useRecommendedFixes = secondaryOptionObject && secondaryOptionObject.useRecommendedFixes;
+
         if (isAutoFixing) {
           // We are in “fix” mode
+          let replacementVar;
           if (hasSingleReplacement) {
-            // we only autofix single replacements
-            const replacement = `var(${varReplacementsForValue[0]})`;
-            const newValue = decl.value.replace(node.value, replacement);
-            // Apply the fix. It's not pretty, but that's the way to do it
-            if (decl.raws.value) {
-              decl.raws.value.raw = newValue;
-            } else {
-              decl.value = newValue;
-            }
+            replacementVar = varReplacementsForValue[0];
+          } else if (useRecommendedFixes) {
+            replacementVar = recommended;
+          } else {
+            // we have multiple options, but the user chose not to follow recommendations
+            return;
+          }
+          const replacement = `var(${replacementVar})`;
+          const newValue = decl.value.replace(node.value, replacement);
+          // Apply the fix. It's not pretty, but that's the way to do it
+          if (decl.raws.value) {
+            decl.raws.value.raw = newValue;
+          } else {
+            decl.value = newValue;
           }
         } else {
           // We are in “report only” mode

@@ -48,9 +48,22 @@ const FONT_LINE_HEIGHTS = [
   "--font-line-height-subtext",
 ];
 
-const ANIMATION_TIMING = ["--animation-timing-enter", "--animation-timing-exit", "--animation-timing-transition", "--animation-timing-emphasize", "--expand-animation-timing"];
+const ANIMATION_TIMING = [
+  "--animation-timing-enter",
+  "--animation-timing-exit",
+  "--animation-timing-transition",
+  "--animation-timing-emphasize",
+  "--expand-animation-timing",
+];
 
-const ANIMATION_DURATION = ["--animation-productive-short", "--animation-productive-medium", "--animation-productive-medium", "--animation-productive-long", "--animation-expressive-short", "--animation-expressive-medium", "--animation-expressive-long"];
+const ANIMATION_DURATION = [
+  "--animation-productive-short",
+  "--animation-productive-medium",
+  "--animation-productive-long",
+  "--animation-expressive-short",
+  "--animation-expressive-medium",
+  "--animation-expressive-long",
+];
 
 const SPACING_PROPS = [
   "padding",
@@ -98,13 +111,13 @@ const TIMING_FUNCTION_PROPS = ["transition", "transition-timing", "animation", "
 
 const DURATION_FUNCTION_PROPS = ["transition", "transition-duration", "animation", "animation-duration"];
 
-const OPACITY_PROPS =["opacity"];
+const OPACITY_PROPS = ["opacity"];
 
-function mapPropsToAllowedVars(propNames, allowedVars) {
+function mapPropsToAllowedVars(propNames, allowedVars, recommended = undefined) {
   allowedVars = Array.isArray(allowedVars) ? allowedVars : [allowedVars];
   propNames = Array.isArray(propNames) ? propNames : [propNames];
 
-  return propNames.reduce((result, propName) => ({ ...result, [propName]: allowedVars }), {});
+  return propNames.reduce((result, propName) => ({ ...result, [propName]: { allowedVars, recommended } }), {});
 }
 
 // List the CSS props we want to lint, and map each one to the values we would prefer to use.
@@ -114,16 +127,27 @@ function mapPropsToAllowedVars(propNames, allowedVars) {
 const PROPS_TO_ALLOWED_VARS = {
   ...mapPropsToAllowedVars(SPACING_PROPS, SPACINGS),
   ...mapPropsToAllowedVars(BORDER_RADIUSES_PROPS, BORDER_RADIUSES),
-  ...mapPropsToAllowedVars("line-height", FONT_LINE_HEIGHTS),
+  ...mapPropsToAllowedVars("line-height", FONT_LINE_HEIGHTS, [
+    "--font-line-height-subtext",
+    "--font-line-height-h1",
+    "--font-line-height-h2",
+    "--font-line-height-h4",
+  ]),
   ...mapPropsToAllowedVars("font-weight", FONT_WEIGHTS),
-  ...mapPropsToAllowedVars("font-size", FONT_SIZES),
-  ...mapPropsToAllowedVars(TIMING_FUNCTION_PROPS, ANIMATION_TIMING),
-  ...mapPropsToAllowedVars(DURATION_FUNCTION_PROPS, ANIMATION_DURATION),
+  ...mapPropsToAllowedVars("font-size", FONT_SIZES, [
+    "--font-size-h1",
+    "--font-size-h2",
+    "--font-size-h4",
+    "--font-size-h5",
+    "--font-size-general-label",
+  ]),
+  ...mapPropsToAllowedVars(TIMING_FUNCTION_PROPS, ANIMATION_TIMING, ["--expand-animation-timing"]),
+  ...mapPropsToAllowedVars(DURATION_FUNCTION_PROPS, ANIMATION_DURATION, ["--animation-expressive-short"]),
   ...mapPropsToAllowedVars(OPACITY_PROPS, "--disabled-component-opacity"),
 
-  "font-family": ["--font-family"],
-  "-webkit-font-smoothing": ["--font-smoothing-webkit"],
-  "-moz-osx-font-smoothing": ["--font-smoothing-moz"],
+  "font-family": { allowedVars: ["--font-family"] },
+  "-webkit-font-smoothing": { allowedVars: ["--font-smoothing-webkit"] },
+  "-moz-osx-font-smoothing": { allowedVars: ["--font-smoothing-moz"] },
 };
 
 module.exports = {

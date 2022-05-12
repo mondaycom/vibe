@@ -10,6 +10,18 @@ const config = {
   },
 };
 
+const configWithUseRecommendation = {
+  ...config,
+  rules: {
+    "monday-ui-style/use-defined-css-var-when-available": [
+      true,
+      {
+        useRecommendedFixes: true,
+      },
+    ],
+  },
+};
+
 describe("monday-ui-style/use-defined-css-var-when-available", () => {
   // since we run tests that actually perform code fixes, the fixtures are expected to change
   const fixturesContentBeforeTests = new Map();
@@ -105,7 +117,25 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
     expect(firstWarning.column).toBe(14);
   });
 
-  it("does not perform fixes when there are multiple var replacements", async () => {
+  it("perform fixes when there are multiple var replacements, when specifying the useRecommendedFixes flag", async () => {
+    const { results } = await lint({
+      files: path.resolve(__dirname, "./fixtures/contains-values-with-multiple-replacements.scss"),
+      config: configWithUseRecommendation,
+      fix: true,
+    });
+    const file = results[0]._postcssResult.opts.from;
+    const expectedOutputAfterFix = `
+.some-font-class {
+  width: 16px;
+  font-size: var(--font-size-general-label);
+}`.trim();
+
+    const contentAfterFix = fs.readFileSync(file).toString().trim();
+
+    expect(contentAfterFix).toEqual(expectedOutputAfterFix);
+  });
+
+  it("does not perform fixes when there are multiple var replacements, when not specifying the useRecommendedFixes flag", async () => {
     const { results } = await lint({
       files: path.resolve(__dirname, "./fixtures/contains-values-with-multiple-replacements.scss"),
       config,
