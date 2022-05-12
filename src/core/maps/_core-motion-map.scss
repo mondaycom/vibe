@@ -4,5 +4,15 @@
 // - Map is collected into the $core-settings-map and is interpolated into custom properties.
 
 $core-motion-map: (
+        animation-productive-short: $animation-productive-short,
+        animation-productive-medium: $animation-productive-medium,
+        animation-productive-long: $animation-productive-long,
+        animation-expressive-short: $animation-expressive-short,
+        animation-expressive-medium: $animation-expressive-medium,
+        animation-expressive-long: $animation-expressive-long,
+        animation-timing-enter: $animation-easing-in,
+        animation-timing-exit: $animation-timing-exit,
+        animation-timing-transition: $animation-timing-transition,
+        animation-timing-emphasize: $animation-timing-emphasize,
         expand-animation-timing: $expand-animation-timing,
 );
