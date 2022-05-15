@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.29.0 (2022-05-15)
+
+#### Bug Fixes
+* [#667](https://github.com/mondaycom/monday-ui-react-core/pull/667) [Snyk] Upgrade react-window from 1.8.6 to 1.8.7 ([@snyk-bot](https://github.com/snyk-bot))
+
+#### New Features
+* [#668](https://github.com/mondaycom/monday-ui-react-core/pull/668) hide the dialog/tooltip when the reference is hidden ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.28.2 (2022-05-10)
+
+#### Bug Fixes
+* [#663](https://github.com/mondaycom/monday-ui-react-core/pull/663) fix use previous export ([@hadasfa](https://github.com/hadasfa))
+
+## 1.28.1 (2022-05-10)
+
+#### Bug Fixes
+* [#662](https://github.com/mondaycom/monday-ui-react-core/pull/662) Fix bug: remove "add new" button from not found empty state in combobox as default ([@hadasfa](https://github.com/hadasfa))
+
+#### Documentation
+* [#657](https://github.com/mondaycom/monday-ui-react-core/pull/657) Storybook: usePrevios hook ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.28.0 (2022-05-01)
 
 #### New Features

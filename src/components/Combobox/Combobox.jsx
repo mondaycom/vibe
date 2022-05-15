@@ -319,7 +319,7 @@ Combobox.defaultProps = {
   optionsListHeight: undefined,
   autoFocus: false,
   maxOptionsWithoutScroll: undefined,
-  onAddNew: _filterValue => {},
+  onAddNew: undefined,
   addNewLabel: "Add new",
   filter: defaultFilter,
   disableFilter: false,
