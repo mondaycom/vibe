@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.31.0 (2022-05-19)
+
+#### New Features
+* [#659](https://github.com/mondaycom/monday-ui-react-core/pull/659) Storybook/sergey/use set focus hook ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.30.0 (2022-05-19)
 
 #### New Features
