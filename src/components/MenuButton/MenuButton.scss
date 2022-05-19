@@ -74,8 +74,12 @@
     @include theme-prop(border-color, disabled-background-color);
     @include theme-prop(color, disabled-text-color);
     cursor: not-allowed;
-    opacity: 0.4;
+    &:hover{
+      background-color: transparent;
+    }
+
   }
+
   &--text {
     width: 100%;
   }
