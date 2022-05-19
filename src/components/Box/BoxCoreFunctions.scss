@@ -1,0 +1,10 @@
+// BOX core functions: mock functions
+// These function should be imported from "monday-ui-styles"
+
+// Capitalize
+// - Helper function
+// @arguments: $string
+// @return capitalized string
+@function capitalize($string) {
+  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}

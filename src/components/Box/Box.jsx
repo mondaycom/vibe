@@ -7,10 +7,16 @@ import styles from "./Box.module.scss";
 const Box = forwardRef(({className, id}, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({refs: [ref, componentRef]});
+
     return (
-        <div ref={mergedRef} className={cx("box", className)} id={id}>
-            <div className={styles.red}>1</div>
-            <div className={styles.blue}>2</div>
+        <div ref={mergedRef} className={cx(styles.box, className)} id={id}>
+            <div className={`${styles.boxInner} ${styles.roundedSmall}`}>rounded small</div>
+            <div className={`${styles.boxInner} ${styles.roundedMedium}`}>rounded medium</div>
+            <div className={`${styles.boxInner} ${styles.roundedBig}`}>rounded big</div>
+            <div className={`${styles.boxInner} ${styles.shadowSmall}`}>shadow small</div>
+            <div className={`${styles.boxInner} ${styles.shadowMedium}`}>shadow medium</div>
+            <div className={`${styles.boxInner} ${styles.shadowLarge}`}>shadow large</div>
+            <div className={`${styles.boxInner} ${styles.bgPrimaryBackgroundColor} ${styles.textPrimaryColor} ${styles.pSpacingXl}`}>bgPrimaryBackgroundColor textPrimaryColor pSpacingXl</div>
         </div>
     );
 });

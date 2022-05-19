@@ -1,0 +1,305 @@
+$utilities-modules: (
+        "opacity": (
+                property: opacity,
+                values: (
+                        0: 0,
+                        100: 1,
+                        disabled: var(--disabled-component-opacity),
+                )
+        ),
+        "overflow": (
+                property: overflow,
+                values: auto hidden visible scroll,
+        ),
+        "border": (
+                property: border,
+                values: (
+                        null: var(--border-width) var(--border-style) var(--border-color),
+                        0: 0,
+                )
+        ),
+        "borderTop": (
+                property: border-top,
+                values: (
+                        null: var(--border-width) var(--border-style) var(--border-color),
+                        0: 0,
+                )
+        ),
+        "borderEnd": (
+                property: border-right,
+                class: border-end,
+                values: (
+                        null: var(--border-width) var(--border-style) var(--border-color),
+                        0: 0,
+                )
+        ),
+        "borderBottom": (
+                property: border-bottom,
+                values: (
+                        null: var(--border-width) var(--border-style) var(--border-color),
+                        0: 0,
+                )
+        ),
+        "borderStart": (
+                property: border-left,
+                class: border-start,
+                values: (
+                        null: var(--border-width) var(--border-style) var(--border-color),
+                        0: 0,
+                )
+        ),
+        "borderColor": (
+                property: border-color,
+                class: border,
+                values: $core-border-colors-vars,
+        ),
+        "rounded": (
+                property: border-radius,
+                class: rounded,
+                values: (
+                        0: 0,
+                        small: var(--border-radius-small),
+                        medium: var(--border-radius-medium),
+                        big: var(--border-radius-big),
+                ),
+        ),
+        "roundedTop": (
+                property: border-top-left-radius border-top-right-radius,
+                class: rounded-top,
+                values: (
+                        0: 0,
+                        small: var(--border-radius-small),
+                        medium: var(--border-radius-medium),
+                        big: var(--border-radius-big),
+                ),
+        ),
+        "roundedEnd": (
+                property: border-top-right-radius border-bottom-right-radius,
+                class: rounded-end,
+                values: (
+                        0: 0,
+                        small: var(--border-radius-small),
+                        medium: var(--border-radius-medium),
+                        big: var(--border-radius-big),
+                ),
+        ),
+        "roundedBottom": (
+                property: border-bottom-right-radius border-bottom-left-radius,
+                class: rounded-bottom,
+                values: (
+                        0: 0,
+                        small: var(--border-radius-small),
+                        medium: var(--border-radius-medium),
+                        big: var(--border-radius-big),
+                ),
+        ),
+        "roundedStart": (
+                property: border-bottom-left-radius border-top-left-radius,
+                class: rounded-start,
+                values: (
+                        0: 0,
+                        small: var(--border-radius-small),
+                        medium: var(--border-radius-medium),
+                        big: var(--border-radius-big),
+                ),
+        ),
+        "shadow": (
+                property: box-shadow,
+                class: shadow,
+                values: (
+                        small: var(--box-shadow-small),
+                        medium: var(--box-shadow-medium),
+                        large: var(--box-shadow-large),
+                )
+        ),
+        "margin": (
+                responsive: true,
+                property: margin,
+                class: m,
+                values: map-merge($core-spacing-vars, (auto: auto)),
+        ),
+        "marginX": (
+                responsive: true,
+                property: margin-right margin-left,
+                class: mx,
+                values: map-merge($core-spacing-vars, (auto: auto))
+        ),
+        "marginY": (
+                responsive: true,
+                property: margin-top margin-bottom,
+                class: my,
+                values: map-merge($core-spacing-vars, (auto: auto)),
+        ),
+        "marginTop": (
+                responsive: true,
+                property: margin-top,
+                class: mt,
+                values: map-merge($core-spacing-vars, (auto: auto)),
+        ),
+        "marginEnd": (
+                responsive: true,
+                property: margin-right,
+                class: me,
+                values: map-merge($core-spacing-vars, (auto: auto)),
+        ),
+        "marginBottom": (
+                responsive: true,
+                property: margin-bottom,
+                class: mb,
+                values: map-merge($core-spacing-vars, (auto: auto)),
+        ),
+        "marginStart": (
+                responsive: true,
+                property: margin-left,
+                class: ms,
+                values: map-merge($core-spacing-vars, (auto: auto)),
+        ),
+        "negative-margin": (
+                property: margin,
+                class: m,
+                values: $core-negative-spacing-vars
+        ),
+        "negative-margin-x": (
+                property: margin-right margin-left,
+                class: mx,
+                values: $core-negative-spacing-vars
+        ),
+        "negative-margin-y": (
+                property: margin-top margin-bottom,
+                class: my,
+                values: $core-negative-spacing-vars
+        ),
+        "negative-margin-top": (
+                property: margin-top,
+                class: mt,
+                values: $core-negative-spacing-vars
+        ),
+        "negative-margin-end": (
+                property: margin-right,
+                class: me,
+                values: $core-negative-spacing-vars
+        ),
+        "negative-margin-bottom": (
+                property: margin-bottom,
+                class: mb,
+                values: $core-negative-spacing-vars
+        ),
+        "negative-margin-start": (
+                responsive: true,
+                property: margin-left,
+                class: ms,
+                values: $core-negative-spacing-vars
+        ),
+        "padding": (
+                property: padding,
+                class: p,
+                values: $core-spacing-vars,
+        ),
+        "paddingX": (
+                property: padding-right padding-left,
+                class: px,
+                values: $core-spacing-vars,
+        ),
+        "paddingY": (
+                property: padding-top padding-bottom,
+                class: py,
+                values: $core-spacing-vars,
+        ),
+        "paddingTop": (
+                responsive: true,
+                property: padding-top,
+                class: pt,
+                values: $core-spacing-vars
+        ),
+        "paddingEnd": (
+                responsive: true,
+                property: padding-right,
+                class: pe,
+                values: $core-spacing-vars
+        ),
+        "paddingBottom": (
+                responsive: true,
+                property: padding-bottom,
+                class: pb,
+                values: $core-spacing-vars
+        ),
+        "paddingStart": (
+                responsive: true,
+                property: padding-left,
+                class: ps,
+                values: $core-spacing-vars
+        ),
+        "textAlign": (
+                responsive: true,
+                property: text-align,
+                class: text,
+                values: (
+                        start: left,
+                        end: right,
+                        center: center,
+                )
+        ),
+        "textDecoration": (
+                property: text-decoration,
+                values: none underline line-through
+        ),
+        "textTransform": (
+                property: text-transform,
+                class: text,
+                values: lowercase uppercase capitalize
+        ),
+        "whiteSpace": (
+                property: white-space,
+                class: text,
+                values: (
+                        wrap: normal,
+                        nowrap: nowrap,
+                )
+        ),
+        "wordWrap": (
+                property: word-wrap word-break,
+                class: text,
+                values: (break: break-word),
+                rtl: false
+        ),
+        "color": (
+                property: color,
+                class: text,
+                local-vars: (
+                        "text-opacity": 1
+                ),
+                values: map-merge(
+                                $core-colors-vars,
+                                (
+                                        "reset": inherit
+                                ),
+                ),
+        ),
+        "backgroundColor": (
+                property: background-color,
+                class: bg,
+                values: map-merge(
+                                $core-background-colors-vars,
+                                (
+                                        "transparent": transparent
+                                ),
+                ),
+        ),
+        "userSelect": (
+                property: user-select,
+                values: all auto none
+        ),
+        "pointerEvents": (
+                property: pointer-events,
+                class: pe,
+                values: none auto,
+        ),
+        "visibility": (
+                property: visibility,
+                class: null,
+                values: (
+                        visible: visible,
+                        invisible: hidden,
+                )
+        ),
+);
