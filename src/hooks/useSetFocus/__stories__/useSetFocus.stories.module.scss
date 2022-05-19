@@ -1,8 +1,10 @@
+@import "../../../styles/global-css-settings.scss";
+
 .controlButton {
-  margin-top: 10px;
+  margin-top: $spacing-medium;
   width: 80px;
 }
 
 .focusLabel {
-  margin-top: 10px;
+  margin-top: $spacing-medium;
 }

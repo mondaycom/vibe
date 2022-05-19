@@ -12,6 +12,7 @@ export default function useSetFocus({ ref, focusCallback, blurCallback }) {
       return;
     }
 
+    // Calling back from here to be sure that isFocused value have already been updated
     if (isFocused) {
       focusCallback && focusCallback();
     } else {
