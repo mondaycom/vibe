@@ -7,17 +7,14 @@
 // Local Box utility definitions
 @import "./BoxUtilityMap";
 
-@include utility-factory($utilities-modules,$export:"modules");
+@include utility-factory($utilities-modules, $export: "modules");
 
-.box{
-  min-width: 100%;
-  &Inner{
-    background:red;
-    min-height: 50px;
-    margin:24px;
-    display:flex;
-    text-align: left;
-    align-items: center;
-    color:white;
-  }
+.box {
+  background: red;
+  min-height: 50px;
+  margin: 24px;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  color: white;
 }

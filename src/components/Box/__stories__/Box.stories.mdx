@@ -19,7 +19,7 @@ export const metaSettings = createStoryMetaSettings({
 
 <!--- Component template -->
 
-export const boxTemplate = createComponentTemplate(Box);
+export const boxTemplate = (props) => <div><Box {...props} /></div>
 
 <!--- Component documentation -->
 
