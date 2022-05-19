@@ -154,37 +154,37 @@ $utilities-modules: (
                 class: ms,
                 values: map-merge($core-spacing-vars, (auto: auto)),
         ),
-        "negative-margin": (
+        "negativeMargin": (
                 property: margin,
                 class: m,
                 values: $core-negative-spacing-vars
         ),
-        "negative-margin-x": (
+        "negativeMarginX": (
                 property: margin-right margin-left,
                 class: mx,
                 values: $core-negative-spacing-vars
         ),
-        "negative-margin-y": (
+        "negativeMarginY": (
                 property: margin-top margin-bottom,
                 class: my,
                 values: $core-negative-spacing-vars
         ),
-        "negative-margin-top": (
+        "negativeMarginTop": (
                 property: margin-top,
                 class: mt,
                 values: $core-negative-spacing-vars
         ),
-        "negative-margin-end": (
+        "negativeMarginEnd": (
                 property: margin-right,
                 class: me,
                 values: $core-negative-spacing-vars
         ),
-        "negative-margin-bottom": (
+        "negativeMarginBottom": (
                 property: margin-bottom,
                 class: mb,
                 values: $core-negative-spacing-vars
         ),
-        "negative-margin-start": (
+        "negativeMarginStart": (
                 responsive: true,
                 property: margin-left,
                 class: ms,
