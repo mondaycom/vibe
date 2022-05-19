@@ -10,6 +10,7 @@ import Icon from "components/Icon/Icon";
 import AddSmall from "components/Icon/Icons/components/AddSmall";
 import { getWidthHeight } from "./services/IconButton-helpers";
 import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import styles from "./IconButton.modules.scss";
 
 const IconButton = forwardRef(
   (
@@ -74,7 +75,7 @@ const IconButton = forwardRef(
     }, [disabled, disabledReason, tooltipContent, ariaLabel]);
 
     return (
-      <ToolTip content={content}>
+      <ToolTip content={content} referenceWrapperClassName={styles.referenceContainer}>
         <Button
           onClick={onClick}
           disabled={disabled}
