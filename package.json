@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.29.0",
+  "version": "1.30.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "module": "dist/esm.js",
