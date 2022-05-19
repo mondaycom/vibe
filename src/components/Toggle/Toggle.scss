@@ -64,8 +64,8 @@
     display: flex;
     align-items: center;
     &--disabled {
-      opacity: var(--disabled-component-opacity);
       & .monday-style-toggle_toggle {
+        opacity: var(--disabled-component-opacity);
         cursor: not-allowed;
       }
       & .monday-style-toggle_text {
