@@ -38,19 +38,11 @@ $core-colors-vars: (
         iconColor: var(--icon-color),
         linkColor: var(--link-color),
         disabledTextColor: var(--disabled-text-color),
-        positiveColor: var(--positive-color),
-        positiveColorHover: var(--positive-color-hover),
-        positiveColorSelected: var(--positive-color-selected),
-        negativeColor: var(--negative-color),
-        negativeColorHover: var(--negative-color-hover),
-        negativeColorSelected: var(--negative-color-selected),
-        privateColor: var(--private-color),
-        shareableColor: var(--shareable-color),
 );
 
 $core-background-colors-vars: (
         primaryBackgroundColor: var(--primary-background-color),
-        primaryBackgroundHover-color: var(--primary-background-hover-color),
+        primaryBackgroundHoverColor: var(--primary-background-hover-color),
         secondaryBackgroundColor: var(--secondary-background-color),
         greyBackgroundColor: var(--grey-background-color),
         allgreyBackgroundColor: var(--allgrey-background-color),

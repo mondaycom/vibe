@@ -65,7 +65,7 @@ $utilities-modules: (
         ),
         "roundedTop": (
                 property: border-top-left-radius border-top-right-radius,
-                class: rounded-top,
+                class: roundedTop,
                 values: (
                         0: 0,
                         small: var(--border-radius-small),
@@ -75,7 +75,7 @@ $utilities-modules: (
         ),
         "roundedEnd": (
                 property: border-top-right-radius border-bottom-right-radius,
-                class: rounded-end,
+                class: roundedEnd,
                 values: (
                         0: 0,
                         small: var(--border-radius-small),
@@ -85,7 +85,7 @@ $utilities-modules: (
         ),
         "roundedBottom": (
                 property: border-bottom-right-radius border-bottom-left-radius,
-                class: rounded-bottom,
+                class: roundedBottom,
                 values: (
                         0: 0,
                         small: var(--border-radius-small),
@@ -95,7 +95,7 @@ $utilities-modules: (
         ),
         "roundedStart": (
                 property: border-bottom-left-radius border-top-left-radius,
-                class: rounded-start,
+                class: roundedStart,
                 values: (
                         0: 0,
                         small: var(--border-radius-small),
