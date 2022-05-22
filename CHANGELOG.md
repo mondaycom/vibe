@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.31.1 (2022-05-22)
+
+#### Bug Fixes
+* [#679](https://github.com/mondaycom/monday-ui-react-core/pull/679) Patch/yonatanari/disabled states correction ([@3dyonic](https://github.com/3dyonic))
+
+#### New Icons
+* [#678](https://github.com/mondaycom/monday-ui-react-core/pull/678) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.31.0 (2022-05-19)
+
+#### New Features
+* [#659](https://github.com/mondaycom/monday-ui-react-core/pull/659) Storybook/sergey/use set focus hook ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.30.0 (2022-05-19)
+
+#### New Features
+* [#676](https://github.com/mondaycom/monday-ui-react-core/pull/676) #  Update "monday-ui-style" to "0.1.111" ([@3dyonic](https://github.com/3dyonic))
+
+#### Dependency Upgrades
+* [#669](https://github.com/mondaycom/monday-ui-react-core/pull/669) upgrade patch versions ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.29.0 (2022-05-15)
 
 #### Bug Fixes
