@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.31.1 (2022-05-22)
+
+#### Bug Fixes
+* [#679](https://github.com/mondaycom/monday-ui-react-core/pull/679) Patch/yonatanari/disabled states correction ([@3dyonic](https://github.com/3dyonic))
+
+#### New Icons
+* [#678](https://github.com/mondaycom/monday-ui-react-core/pull/678) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.31.0 (2022-05-19)
 
 #### New Features
