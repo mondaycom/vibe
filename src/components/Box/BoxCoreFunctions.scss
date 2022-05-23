@@ -4,7 +4,39 @@
 // Capitalize
 // - Helper function
 // @arguments: $string
-// @return capitalized string
+// @return capitalize string
 @function capitalize($string) {
   @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
 }
+
+// Contain
+// - Helper function
+// @arguments [list] $list
+// @arguments [$value] $value
+// Return whether `$value` is contained in `$list` , Boolean
+@function contain($list, $value) {
+  @return not not index($list, $value);
+}
+
+// Camelize string
+// @arguments [string] $string
+// @return camelcase string
+@function camelize($string) {
+  $progress: $string;
+  $result: "";
+  $exclude: " ", "-", "–", "—", "_", ",", ";", ":", ".";
+
+  @while str-length($progress) > 0 {
+    $char: str-slice($progress, 1, 1);
+
+    @if contain($exclude, $char) {
+      $progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+    } @else {
+      $result: $result + $char;
+      $progress: str-slice($progress, 2);
+    }
+  }
+
+  @return $result;
+}
+

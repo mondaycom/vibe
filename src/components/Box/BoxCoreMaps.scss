@@ -2,28 +2,28 @@
 // - Mock maps the should be delivered Via "monday-ui-styles"
 
 $core-spacing-vars: (
-        spacingXs: var(--spacing-xs),
-        spacingSmall:var(--spacing-small),
-        spacingMedium: var(--spacing-medium),
-        spacingLarge: var(--spacing-large),
-        spacingXl: var(--spacing-xl),
-        spacingXxl: var(--spacing-xxl),
-        spacingXxxl: var(--spacing-xxxl),
+        xs: var(--spacing-xs),
+        small:var(--spacing-small),
+        medium: var(--spacing-medium),
+        large: var(--spacing-large),
+        xl: var(--spacing-xl),
+        xxl: var(--spacing-xxl),
+        xxxl: var(--spacing-xxxl),
 );
 
 $core-negative-spacing-vars: (
-        spacingNxs: var(--spacing-n-xs),
-        spacingNsmall:var(--spacing-n-small),
-        spacingNmedium: var(--spacing-n-medium),
-        spacingNlarge: var(--spacing-n-large),
-        spacingNxl: var(--spacing-n-xl),
-        spacingNxxl: var(--spacing-n-xxl),
-        spacingNxxxl: var(--spacing-n-xxxl),
+        nxs: var(--spacing-n-xs),
+        nsmall:var(--spacing-n-small),
+        nmedium: var(--spacing-n-medium),
+        nlarge: var(--spacing-n-large),
+        nxl: var(--spacing-n-xl),
+        nxxl: var(--spacing-n-xxl),
+        nxxxl: var(--spacing-n-xxxl),
 );
 
 $core-border-colors-vars: (
-        uiBorderBolor: var(--ui-border-color),
-        layoutBorderBolor: var(--layout-border-color),
+        uiBorderColor: var(--ui-border-color),
+        layoutBorderColor: var(--layout-border-color),
 );
 
 $core-colors-vars: (

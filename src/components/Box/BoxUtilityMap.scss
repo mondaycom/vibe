@@ -11,46 +11,58 @@ $utilities-modules: (
                 property: overflow,
                 values: auto hidden visible scroll,
         ),
+        "overflowY": (
+                class: overflowy,
+                property: overflow-y,
+                values: auto hidden visible scroll,
+        ),
+        "overflowX": (
+                class: overflowx,
+                property: overflow-x,
+                values: auto hidden visible scroll,
+        ),
         "border": (
                 property: border,
                 values: (
-                        null: var(--border-width) var(--border-style) var(--border-color),
+                        null: var(--border-width) var(--border-style) var(--ui-border-color),
                         0: 0,
                 )
         ),
         "borderTop": (
                 property: border-top,
+                class: borderTop,
                 values: (
-                        null: var(--border-width) var(--border-style) var(--border-color),
+                        null: var(--border-width) var(--border-style) var(--ui-border-color),
                         0: 0,
                 )
         ),
         "borderEnd": (
                 property: border-right,
-                class: border-end,
+                class: borderEnd,
                 values: (
-                        null: var(--border-width) var(--border-style) var(--border-color),
+                        null: var(--border-width) var(--border-style) var(--ui-border-color),
                         0: 0,
                 )
         ),
         "borderBottom": (
                 property: border-bottom,
+                class: borderBottom,
                 values: (
-                        null: var(--border-width) var(--border-style) var(--border-color),
+                        null: var(--border-width) var(--border-style) var(--ui-border-color),
                         0: 0,
                 )
         ),
         "borderStart": (
                 property: border-left,
-                class: border-start,
+                class: borderStart,
                 values: (
-                        null: var(--border-width) var(--border-style) var(--border-color),
+                        null: var(--border-width) var(--border-style) var(--ui-border-color),
                         0: 0,
                 )
         ),
         "borderColor": (
                 property: border-color,
-                class: border,
+                class: borderColor,
                 values: $core-border-colors-vars,
         ),
         "rounded": (
@@ -113,43 +125,36 @@ $utilities-modules: (
                 )
         ),
         "margin": (
-                responsive: true,
                 property: margin,
                 class: m,
                 values: map-merge($core-spacing-vars, (auto: auto)),
         ),
         "marginX": (
-                responsive: true,
                 property: margin-right margin-left,
                 class: mx,
                 values: map-merge($core-spacing-vars, (auto: auto))
         ),
         "marginY": (
-                responsive: true,
                 property: margin-top margin-bottom,
                 class: my,
                 values: map-merge($core-spacing-vars, (auto: auto)),
         ),
         "marginTop": (
-                responsive: true,
                 property: margin-top,
                 class: mt,
                 values: map-merge($core-spacing-vars, (auto: auto)),
         ),
         "marginEnd": (
-                responsive: true,
                 property: margin-right,
                 class: me,
                 values: map-merge($core-spacing-vars, (auto: auto)),
         ),
         "marginBottom": (
-                responsive: true,
                 property: margin-bottom,
                 class: mb,
                 values: map-merge($core-spacing-vars, (auto: auto)),
         ),
         "marginStart": (
-                responsive: true,
                 property: margin-left,
                 class: ms,
                 values: map-merge($core-spacing-vars, (auto: auto)),
@@ -185,7 +190,6 @@ $utilities-modules: (
                 values: $core-negative-spacing-vars
         ),
         "negativeMarginStart": (
-                responsive: true,
                 property: margin-left,
                 class: ms,
                 values: $core-negative-spacing-vars
@@ -206,61 +210,24 @@ $utilities-modules: (
                 values: $core-spacing-vars,
         ),
         "paddingTop": (
-                responsive: true,
                 property: padding-top,
                 class: pt,
                 values: $core-spacing-vars
         ),
         "paddingEnd": (
-                responsive: true,
                 property: padding-right,
                 class: pe,
                 values: $core-spacing-vars
         ),
         "paddingBottom": (
-                responsive: true,
                 property: padding-bottom,
                 class: pb,
                 values: $core-spacing-vars
         ),
         "paddingStart": (
-                responsive: true,
                 property: padding-left,
                 class: ps,
                 values: $core-spacing-vars
-        ),
-        "textAlign": (
-                responsive: true,
-                property: text-align,
-                class: text,
-                values: (
-                        start: left,
-                        end: right,
-                        center: center,
-                )
-        ),
-        "textDecoration": (
-                property: text-decoration,
-                values: none underline line-through
-        ),
-        "textTransform": (
-                property: text-transform,
-                class: text,
-                values: lowercase uppercase capitalize
-        ),
-        "whiteSpace": (
-                property: white-space,
-                class: text,
-                values: (
-                        wrap: normal,
-                        nowrap: nowrap,
-                )
-        ),
-        "wordWrap": (
-                property: word-wrap word-break,
-                class: text,
-                values: (break: break-word),
-                rtl: false
         ),
         "color": (
                 property: color,
@@ -268,12 +235,7 @@ $utilities-modules: (
                 local-vars: (
                         "text-opacity": 1
                 ),
-                values: map-merge(
-                                $core-colors-vars,
-                                (
-                                        "reset": inherit
-                                ),
-                ),
+                values: $core-colors-vars,
         ),
         "backgroundColor": (
                 property: background-color,
@@ -286,6 +248,7 @@ $utilities-modules: (
                 ),
         ),
         "userSelect": (
+                class: userSelect,
                 property: user-select,
                 values: all auto none
         ),

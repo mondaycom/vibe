@@ -7,14 +7,6 @@
 // Local Box utility definitions
 @import "./BoxUtilityMap";
 
+// Generating Utility class locally for Box component
 @include utility-factory($utilities-modules, $export: "modules");
 
-.box {
-  background: red;
-  min-height: 50px;
-  margin: 24px;
-  display: flex;
-  text-align: left;
-  align-items: center;
-  color: white;
-}

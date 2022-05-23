@@ -42,13 +42,15 @@
 
     @if $value != null {
       @if $export =="modules" {
-        .#{$property-class + $infix + capitalize($property-class-modifier)} {
+        $class-name: $property-class + capitalize(camelize($infix)) + capitalize(camelize($property-class-modifier));
+        .#{$class-name} {
           @each $property in $properties {
             #{$property}: $value !important;
           }
         }
       } @else {
-        .#{$property-class + $infix + -#{$property-class-modifier}} {
+        $class-name:$property-class + $infix + -#{$property-class-modifier};
+        .#{$class-name} {
           @each $property in $properties {
             #{$property}: $value !important;
           }
