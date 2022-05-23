@@ -15,6 +15,18 @@
       stroke: currentColor;
       stroke-linecap: round;
       animation: dash 1s infinite;
+
+      &--color {
+        &-primary {
+          stroke: var(--primary-color);
+        }
+        &-on-primary {
+          stroke: var(--color-brand-green);
+        }
+        &-dark {
+          stroke: var(--dark-background-color);
+        }
+      }
     }
   }
 

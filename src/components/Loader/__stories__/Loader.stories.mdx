@@ -1,7 +1,8 @@
 import Loader from "../Loader";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
-import "./Loader.stories.scss";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import { Flex } from "components";
 
 <Meta title="Feedback/Loader" component={Loader} />
 
@@ -16,11 +17,12 @@ export const loaderTemplate = createComponentTemplate(Loader);
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
+- [Variants](#variants)
 - [Feedback](#feedback)
 
 ## Overview
 
-Circle loading indication, a general non specific loader
+Circle loading indication, a general non-specific loader.
 
 <Canvas>
   <Story name="Overview" args={{ size: 40 }}>
@@ -42,13 +44,35 @@ Circle loading indication, a general non specific loader
   ]}
 />
 
-### States
+## Variants
 
-Color inheritance - the loader inherits its color from the `color` css attribute
+### Themes
+
+There are three color constant types provided.
 
 <Canvas>
-  <Story name="Color">
-    <div style={{ color: "var(--primary-color)" }}>
+  <Story name="Themes" >
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
+      <StoryDescription description="Primary">
+        <Loader size={40} color={Loader.colors.PRIMARY}/>
+      </StoryDescription>
+      <StoryDescription description="OnPrimary">
+        <Loader size={40} color={Loader.colors.ON_PRIMARY}/>
+      </StoryDescription>
+      <StoryDescription description="Dark">
+        <Loader size={40} color={Loader.colors.DARK}/>
+      </StoryDescription>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Custom theme
+
+If there is a need for color customization, css `color` attribute of a parent component can be used.
+
+<Canvas>
+  <Story name="Color inheritance">
+    <div style={{ color: "var(--color-dark-red)" }}>
       <Loader size={40} />
     </div>
   </Story>
