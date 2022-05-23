@@ -50,7 +50,7 @@ Loader.propTypes = {
    * The containing box of the loader
    */
   size: PropTypes.number,
-  color: PropTypes.oneOf([LOADER_COLORS.PRIMARY, LOADER_COLORS.ON_PRIMARY, LOADER_COLORS.DARK])
+  color: PropTypes.oneOf([Loader.colors.PRIMARY, Loader.colors.ON_PRIMARY, Loader.colors.DARK])
 };
 
 Loader.defaultProps = {
