@@ -4,7 +4,7 @@
 
 .monday-style-attention-box-component {
   position: relative;
-  padding: var(--spacing-large);
+  padding: var(--spacing-medium);
   border-radius: var(--border-radius-medium);
   font-size: var(--font-size-general-label);
   width: fit-content;
@@ -14,6 +14,7 @@
   &_text--compact {
     display: flex;
     align-items: center;
+    padding-right: var(--spacing-medium);
   }
   &__text,
   &__title-container {
@@ -80,7 +81,6 @@
   }
 
   &.with-close {
-    padding: var(--spacing-large) var(--spacing-xxl) var(--spacing-large) var(--spacing-large);
   }
 
   &__close-icon {
