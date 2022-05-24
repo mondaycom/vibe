@@ -96,7 +96,7 @@
         pointer-events: none;
       }
       cursor: not-allowed !important;
-      opacity: 0.4;
+      opacity: var(--disabled-component-opacity);
     }
 
     &--small {

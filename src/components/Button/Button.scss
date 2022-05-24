@@ -159,7 +159,6 @@
             }
             &:disabled {
               color: var(--text-color-on-primary);
-              opacity: 0.4;
             }
           }
         }
@@ -167,7 +166,6 @@
           @include theme-prop(background-color, disabled-background-color);
           @include theme-prop(color, disabled-text-color);
           cursor: not-allowed;
-          opacity: 0.4;
         }
       }
     }
@@ -228,7 +226,6 @@
             }
             &:disabled {
               color: var(--text-color-on-primary);
-              opacity: 0.4;
             }
           }
         }
@@ -238,7 +235,6 @@
         @include theme-prop(color, disabled-text-color);
         cursor: not-allowed;
         pointer-events: none;
-        opacity: 0.4;
         &:hover {
           background-color: transparent;
         }
@@ -283,7 +279,6 @@
             }
             &:disabled {
               color: var(--text-color-on-primary);
-              opacity: 0.4;
             }
           }
           &-on-inverted-background {
@@ -300,7 +295,6 @@
         @include theme-prop(color, disabled-text-color);
         cursor: not-allowed;
         pointer-events: none;
-        opacity: 0.4;
         &:hover {
           background-color: transparent;
         }

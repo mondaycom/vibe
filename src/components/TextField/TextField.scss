@@ -38,6 +38,10 @@
         pointer-events: none;
         @include theme-prop(background-color, disabled-background-color);
         cursor: not-allowed;
+
+        &::placeholder {
+          @include theme-prop(color, disabled-text-color);
+        }
       }
       .input-component__icon--container.input-component__icon--container-has-icon {
         &:hover {
