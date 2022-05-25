@@ -46,14 +46,6 @@ describe("EditableHeading", () => {
     expect(editableHeadingElement).toBeInTheDocument();
   });
 
-  it("renders correctly with dataTestId prop", () => {
-    const { getByTestId } = render(<EditableHeading dataTestId="data-test-id" />);
-
-    const editableHeadingElement = getByTestId("data-test-id");
-
-    expect(editableHeadingElement).toBeInTheDocument();
-  });
-
   it("should play the onStartEditing function without params when click on the input element inside the EditableHeading element", () => {
     const mockCallback = jest.fn();
     const { getByRole } = render(<EditableHeading onStartEditing={mockCallback} />);
