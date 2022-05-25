@@ -3,6 +3,34 @@
   height: 100%;
   width: 100%;
 
+  &.size {
+    &-xs {
+      height: 16px;
+      width: 16px;
+    }
+    &-small {
+      height: 24px;
+      width: 24px;
+    }
+    &-medium {
+      height: 40px;
+      width: 40px;
+    }
+    &-large {
+      height: 64px;
+      width: 64px;
+    }
+  }
+
+  .circle-loader-spinner-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50%;
+    margin-left: -50%;
+    stroke: var(--primary-background-hover-color);
+  }
+
   .circle-loader-spinner {
     animation: rotate 1s linear infinite;
     position: absolute;
@@ -10,23 +38,11 @@
     left: 50%;
     margin-top: -50%;
     margin-left: -50%;
+    stroke: currentColor;
+    stroke-linecap: round;
 
     .circle-loader-spinner-path {
-      stroke: currentColor;
-      stroke-linecap: round;
       animation: dash 1s infinite;
-
-      &--color {
-        &-primary {
-          stroke: var(--primary-color);
-        }
-        &-on-primary {
-          stroke: var(--color-brand-green);
-        }
-        &-dark {
-          stroke: var(--dark-background-color);
-        }
-      }
     }
   }
 

@@ -1,7 +1,36 @@
 @import "../../../styles/themes.scss";
 
 .monday-storybook-loader {
-  width: 40px;
-  height: 40px;
   position: relative !important;
+}
+
+.monday-storybook-loader-on-primary-block {
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+
+  &.color {
+    &-black {
+      background: var(--primary-text-color);
+    }
+    &-negative {
+      background: var(--negative-color);
+    }
+    &-positive {
+      background: var(--positive-color);
+    }
+    &-primary {
+      background: var(--primary-color);
+    }
+  }
+}
+
+.monday-storybook-loader-dos-and-donts-heading {
+  font-size: 32px !important;
+  margin-right: var(--spacing-small) !important;
+}
+
+.monday-storybook-loader-size-variants-block {
+  width: 64px;
+  height: 64px;
 }
