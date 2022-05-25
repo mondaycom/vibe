@@ -154,6 +154,7 @@ export {default as NoColor} from './components/NoColor';
 export {default as Note} from './components/Note';
 export {default as Notifications} from './components/Notifications';
 export {default as Numbers} from './components/Numbers';
+export {default as Offline} from './components/Offline';
 export {default as Open} from './components/Open';
 export {default as Page} from './components/Page';
 export {default as Paste} from './components/Paste';
