@@ -1,5 +1,5 @@
-@import "../../../styles/global-css-settings.scss";
-@import "../../../styles/themes.scss";
+@import "../../../styles/global-css-settings";
+@import "../../../styles/themes";
 
 .monday-style-toast-action_link {
   @include theme-prop(color, text-color-on-primary);
