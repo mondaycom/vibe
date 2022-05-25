@@ -41,11 +41,14 @@ const EditableHeading = props => {
   const ref = useRef(null);
 
   // Callbacks
-  const onClick = useCallback((event) => {
-    if (disabled || isEditing) return;
-    setIsEditing(true);
-    onStartEditing && onStartEditing(event);
-  }, [isEditing, disabled, setIsEditing, onStartEditing]);
+  const onClick = useCallback(
+    event => {
+      if (disabled || isEditing) return;
+      setIsEditing(true);
+      onStartEditing && onStartEditing(event);
+    },
+    [isEditing, disabled, setIsEditing, onStartEditing]
+  );
 
   const onFinishEditingCallback = useCallback(
     (newValue, event) => {
@@ -141,7 +144,13 @@ const EditableHeading = props => {
     const inputType = props.inputType || textAreaType;
     return {
       value: valueState,
-      className: `editable-heading-input element-type-${props.type} size-${props.size} ${inputClassName}`,
+      className: cx(
+        `editable-heading-input`,
+        `element-type-${props.type}`,
+        `editable-heading-input`,
+        `element-type-${props.type}`,
+        inputClassName
+      ),
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,
