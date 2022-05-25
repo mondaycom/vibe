@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.31.3 (2022-05-25)
+
+#### Bug Fixes
+* [#677](https://github.com/mondaycom/monday-ui-react-core/pull/677) fix: fix issue with ButtonIcon inline issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#681](https://github.com/mondaycom/monday-ui-react-core/pull/681) fix: Remove Tip box ([@abaum-augu](https://github.com/abaum-augu))
+
+#### New Icons
+* [#682](https://github.com/mondaycom/monday-ui-react-core/pull/682) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.31.2 (2022-05-24)
 
 #### Bug Fixes
