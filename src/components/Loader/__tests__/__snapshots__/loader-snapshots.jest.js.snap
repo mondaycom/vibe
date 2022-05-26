@@ -2,17 +2,21 @@
 
 exports[`Loader renders correctly with color variants with DARK color 1`] = `
 <div
-  className="monday-loader-component size-medium"
   role="alert"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
+    className="undefined "
     color="var(--primary-text-color)"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -25,17 +29,21 @@ exports[`Loader renders correctly with color variants with DARK color 1`] = `
 
 exports[`Loader renders correctly with color variants with ON_PRIMARY color 1`] = `
 <div
-  className="monday-loader-component size-medium"
   role="alert"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
-    color="var(--text-color-on-primary)"
+    className="undefined "
+    color="var(--text-color-on-inverted)"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -48,17 +56,21 @@ exports[`Loader renders correctly with color variants with ON_PRIMARY color 1`] 
 
 exports[`Loader renders correctly with color variants with PRIMARY color 1`] = `
 <div
-  className="monday-loader-component size-medium"
   role="alert"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
+    className="undefined "
     color="var(--primary-color)"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -71,17 +83,21 @@ exports[`Loader renders correctly with color variants with PRIMARY color 1`] = `
 
 exports[`Loader renders correctly with color variants with SECONDARY color 1`] = `
 <div
-  className="monday-loader-component size-medium"
   role="alert"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
+    className="undefined "
     color="var(--secondary-text-color)"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -101,16 +117,20 @@ exports[`Loader renders correctly with color variants with custom color from par
   }
 >
   <div
-    className="monday-loader-component size-medium"
     role="alert"
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
     title="loading"
   >
     <svg
-      className="circle-loader-spinner "
+      className="undefined "
       viewBox="0 0 50 50"
     >
       <circle
-        className="circle-loader-spinner-path"
         cx="25"
         cy="25"
         fill="none"
@@ -124,16 +144,20 @@ exports[`Loader renders correctly with color variants with custom color from par
 
 exports[`Loader renders correctly with custom class name 1`] = `
 <div
-  className="monday-loader-component size-medium"
   role="alert"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner dummy-class-name"
+    className="undefined dummy-class-name"
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -146,16 +170,20 @@ exports[`Loader renders correctly with custom class name 1`] = `
 
 exports[`Loader renders correctly with different types with CASUAL type 1`] = `
 <div
-  className="monday-loader-component size-medium"
   role="alert"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
+    className="undefined "
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -168,16 +196,20 @@ exports[`Loader renders correctly with different types with CASUAL type 1`] = `
 
 exports[`Loader renders correctly with different types with WITH_BACKGROUND type 1`] = `
 <div
-  className="monday-loader-component size-medium"
   role="alert"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
+    className="undefined "
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-background"
       cx="25"
       cy="25"
       fill="none"
@@ -185,7 +217,6 @@ exports[`Loader renders correctly with different types with WITH_BACKGROUND type
       strokeWidth="5"
     />
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -198,16 +229,20 @@ exports[`Loader renders correctly with different types with WITH_BACKGROUND type
 
 exports[`Loader renders correctly with size variants with LARGE size 1`] = `
 <div
-  className="monday-loader-component size-large"
   role="alert"
+  style={
+    Object {
+      "height": 64,
+      "width": 64,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
+    className="undefined "
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -220,16 +255,20 @@ exports[`Loader renders correctly with size variants with LARGE size 1`] = `
 
 exports[`Loader renders correctly with size variants with MEDIUM size 1`] = `
 <div
-  className="monday-loader-component size-medium"
   role="alert"
+  style={
+    Object {
+      "height": 40,
+      "width": 40,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
+    className="undefined "
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -242,16 +281,20 @@ exports[`Loader renders correctly with size variants with MEDIUM size 1`] = `
 
 exports[`Loader renders correctly with size variants with SMALL size 1`] = `
 <div
-  className="monday-loader-component size-small"
   role="alert"
+  style={
+    Object {
+      "height": 24,
+      "width": 24,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
+    className="undefined "
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -264,16 +307,20 @@ exports[`Loader renders correctly with size variants with SMALL size 1`] = `
 
 exports[`Loader renders correctly with size variants with XS size 1`] = `
 <div
-  className="monday-loader-component size-xs"
   role="alert"
+  style={
+    Object {
+      "height": 16,
+      "width": 16,
+    }
+  }
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
+    className="undefined "
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -286,16 +333,14 @@ exports[`Loader renders correctly with size variants with XS size 1`] = `
 
 exports[`Loader renders correctly with size variants with custom size from class 1`] = `
 <div
-  className="monday-loader-component size-undefined"
   role="alert"
   title="loading"
 >
   <svg
-    className="circle-loader-spinner "
+    className="undefined "
     viewBox="0 0 50 50"
   >
     <circle
-      className="circle-loader-spinner-path"
       cx="25"
       cy="25"
       fill="none"
@@ -316,16 +361,14 @@ exports[`Loader renders correctly with size variants with custom size from paren
   }
 >
   <div
-    className="monday-loader-component size-undefined"
     role="alert"
     title="loading"
   >
     <svg
-      className="circle-loader-spinner "
+      className="undefined "
       viewBox="0 0 50 50"
     >
       <circle
-        className="circle-loader-spinner-path"
         cx="25"
         cy="25"
         fill="none"
