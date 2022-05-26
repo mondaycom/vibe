@@ -2,7 +2,7 @@ import React, { forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { LOADER_COLORS, LOADER_SIZES, LOADER_TYPES } from "components/Loader/LoaderConstants";
-import "./Loader.scss";
+import styles from "./Loader.module.scss";
 
 const Loader = forwardRef(
   (
@@ -19,8 +19,7 @@ const Loader = forwardRef(
   ) => {
     const overrideClassName = backwardCompatibilityForProperties([className, svgClassName], "");
 
-    // For backward compatability
-    const style = useMemo(() => {
+    const sizeStyle = useMemo(() => {
       if (typeof size === "number") {
         return { width: size, height: size };
       }
@@ -28,12 +27,19 @@ const Loader = forwardRef(
     }, [size]);
 
     return (
-      <div className={`monday-loader-component`} ref={ref} role="alert" title="loading" style={style} id={id}>
-        <svg className={`circle-loader-spinner ${overrideClassName}`} viewBox="0 0 50 50" color={color}>
+      <div className={styles.mondayLoaderComponent} ref={ref} role="alert" title="loading" style={sizeStyle} id={id}>
+        <svg className={`${styles.circleLoaderSpinner} ${overrideClassName}`} viewBox="0 0 50 50" color={color}>
           {type === Loader.types.WITH_BACKGROUND && (
-            <circle className={`circle-loader-spinner-background`} cx="25" cy="25" r="20" fill="none" strokeWidth="5" />
+            <circle
+              className={styles.circleLoaderSpinnerBackground}
+              cx="25"
+              cy="25"
+              r="20"
+              fill="none"
+              strokeWidth="5"
+            />
           )}
-          <circle className="circle-loader-spinner-path" cx="25" cy="25" r="20" fill="none" strokeWidth="5" />
+          <circle className={styles.circleLoaderSpinnerPath} cx="25" cy="25" r="20" fill="none" strokeWidth="5" />
         </svg>
       </div>
     );
