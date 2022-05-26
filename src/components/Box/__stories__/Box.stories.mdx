@@ -1,17 +1,54 @@
 import Box from "../Box";
 import {ArgsTable, Story, Canvas, Meta} from "@storybook/addon-docs";
-import {createComponentTemplate, createStoryMetaSettings} from "../../../storybook/functions/create-component-story";
+import {createStoryMetaSettings} from "../../../storybook/functions/create-component-story";
 import "./Box.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
     component: Box,
-    enumPropNamesArray: [], // List enum props here
-    iconPropNamesArray: [], // List props that are typed as icons here
-    actionPropsArray: [], // List the component's actions here
+    enumPropNamesArray: [
+        "children",
+        "opacity",
+        "overflow",
+        "overflowX",
+        "overflowY",
+        "border",
+        "borderTop",
+        "borderEnd",
+        "borderBottom",
+        "borderStart",
+        "borderColor",
+        "rounded",
+        "roundedTop",
+        "roundedEnd",
+        "roundedBottom",
+        "roundedStart",
+        "shadow",
+        "margin",
+        "marginX",
+        "marginY",
+        "marginTop",
+        "marginEnd",
+        "marginStart",
+        "padding",
+        "paddingX",
+        "paddingY",
+        "paddingTop",
+        "paddingEnd",
+        "paddingBottom",
+        "paddingStart",
+        "textAlign",
+        "textDecoration",
+        "textTransform",
+        "userSelect",
+        "pointerEvent",
+        "visibility",
+        "bgColor",
+        "color",
+    ],
 });
 
 <Meta
-    title="Components/Box/Box"
+    title="Layout/Box/Box"
     component={Box}
     argTypes={metaSettings.argTypes}
     decorators={metaSettings.decorators}
@@ -19,7 +56,14 @@ export const metaSettings = createStoryMetaSettings({
 
 <!--- Component template -->
 
-export const boxTemplate = createComponentTemplate(Box);
+export const boxTemplate = (args) => {
+    return <div className="monday-storybook-box-wrapper">
+        <Box
+            border={Box.borders.DEFAULT}
+            rounded={Box.roundeds.MEDIUM}
+        {...args}></Box>
+    </div>
+}
 
 <!--- Component documentation -->
 
@@ -34,11 +78,14 @@ export const boxTemplate = createComponentTemplate(Box);
 - [Feedback](#feedback)
 
 ## Overview
-Please write here the component description
+The Box is a multi prop wrapper element.
+* Its purpose is to help scaffold compositions while using Vibe's prop keys.
+* It can be used to as a composite container for atom based compositions.
+* It can accept all Vibe style related props.
 
 <Canvas>
     <Story name="Overview"
-           args={{prop1: "prop's default value", prop2: "prop's default value"}}>
+           args={{children: "Box With Props"}}>
         {boxTemplate.bind({})}
     </Story>
 </Canvas>
@@ -55,92 +102,483 @@ Please write here the component description
 
 <Tip title="Not what you were looking for?">Tip content</Tip>
 
-## Variants
-### Story title 1
-Description of story 1
+## Utility props
+
+### BACKGROUNDS COLORS
 <Canvas>
-    <Story name="Story title 1">
+    <Story name="Background colors">
+        <div className="monday-storybook-box-wrapper">
+            <Box
+                bgColor={Box.bgColors.PRIMARY_BACKGROUND_COLOR}
+            >Box.bgColors.PRIMARY_BACKGROUND_COLOR</Box>
+            <Box
+                bgColor={Box.bgColors.PRIMARY_HOVER_BACKGROUND_COLOR}
+            >Box.bgColors.PRIMARY_HOVER_BACKGROUND_COLOR</Box>
+            <Box
+                bgColor={Box.bgColors.SECONDARY_BACKGROUND_COLOR}
+            >Box.bgColors.SECONDARY_BACKGROUND_COLOR</Box>
+            <Box
+                bgColor={Box.bgColors.GREY_BACKGROUND_COLOR}
+            >Box.bgColors.GREY_BACKGROUND_COLOR</Box>
+            <Box
+                bgColor={Box.bgColors.ALL_GREY_BACKGROUND_COLOR}
+            >Box.bgColors.ALL_GREY_BACKGROUND_COLOR</Box>
+            <Box
+                bgColor={Box.bgColors.INVERTED_COLOR_BACKGROUND}
+            >Box.bgColors.INVERTED_COLOR_BACKGROUND</Box>
+            <Box
+                bgColor={Box.bgColors.DISABLED_BACKGROUND_COLOR}
+            >Box.bgColors.DISABLED_BACKGROUND_COLOR</Box>
+        </div>
+    </Story>
+</Canvas>
+
+
+### COLORS
+<Canvas>
+    <Story name="Colors">
+        <div className="monday-storybook-box-wrapper">
+            <Box
+                color={Box.colors.PRIMARY_COLOR}
+            >Box.colors.PRIMARY_COLOR</Box>
+            <Box
+                color={Box.colors.PRIMARY_HOVER_COLOR}
+            >Box.colors.PRIMARY_HOVER_COLOR</Box>
+            <Box
+                color={Box.colors.PRIMARY_SELECTED_COLOR}
+            >Box.colors.PRIMARY_SELECTED_COLOR</Box>
+            <Box
+                color={Box.colors.PRIMARY_TEXT_COLOR}
+            >Box.colors.PRIMARY_TEXT_COLOR</Box>
+            <Box
+                bgColor={Box.bgColors.INVERTED_COLOR_BACKGROUND}
+                color={Box.colors.TEXT_COLOR_ON_PRIMARY}
+            >Box.colors.TEXT_COLOR_ON_PRIMARY</Box>
+            <Box
+                color={Box.colors.TEXT_COLOR_ON_INVERTED}
+            >Box.colors.TEXT_COLOR_ON_INVERTED</Box>
+            <Box
+                color={Box.colors.SECONDARY_TEXT_COLOR}
+            >Box.colors.SECONDARY_TEXT_COLOR</Box>
+            <Box
+                color={Box.colors.PLACEHOLDER_TEXT_COLOR}
+            >Box.colors.PLACEHOLDER_TEXT_COLOR</Box>
+            <Box
+                color={Box.colors.ICON_TEXT_COLOR}
+            >Box.icon.PLACEHOLDER_TEXT_COLOR</Box>
+            <Box
+                color={Box.colors.LINK_COLOR}
+            >Box.icon.LINK_COLOR</Box>
+            <Box
+                color={Box.colors.DISABLED_TEXT}
+            >Box.icon.DISABLED_TEXT</Box>
+        </div>
+    </Story>
+</Canvas>
+
+### BORDER
+
+<Canvas>
+    <Story name="Border ">
+        <div className="monday-storybook-box-wrapper">
+            <Box
+                border={Box.borders.NONE}
+            >Box.borders.NONE</Box>
+            <Box
+                border={Box.borders.DEFAULT}
+            >Box.borders.DEFAULT</Box>
+            <Box
+                border={Box.borders.DEFAULT}
+                borderTop={Box.borderTops.NONE}
+            >Box.borderTops.NONE</Box>
+            <Box
+                borderTop={Box.borderTops.DEFAULT}
+            >Box.borderTops.DEFAULT</Box>
+            <Box
+                border={Box.borders.DEFAULT}
+                borderEnd={Box.borderEnds.NONE}
+            >Box.borderEnds.NONE</Box>
+            <Box
+                borderEnd={Box.borderEnds.DEFAULT}
+            >Box.borderEnds.DEFAULT</Box>
+            <Box
+                border={Box.borders.DEFAULT}
+                borderBottom={Box.borderBottoms.NONE}
+            >Box.borderBottom.NONE</Box>
+            <Box
+                borderBottom={Box.borderBottoms.DEFAULT}
+            >Box.bordersBottom.DEFAULT</Box>
+            <Box
+                border={Box.borders.DEFAULT}
+                borderStart={Box.borderStarts.NONE}
+            >Box.borderStarts.NONE</Box>
+            <Box
+                borderStart={Box.borderStarts.DEFAULT}
+            >Box.borderStarts.DEFAULT</Box>
+        </div>
+    </Story>
+</Canvas>
+
+### BORDER COLOR
+<Canvas>
+    <Story name="Border Color">
+        <div className="monday-storybook-box-wrapper">
+            <Box
+                border={Box.borders.DEFAULT}
+                borderColor={Box.borderColors.UI_BORDER_COLOR}
+            >Box.borderColors.UI_BORDER_COLOR}</Box>
+            <Box
+                border={Box.borders.DEFAULT}
+                borderColor={Box.borderColors.LAYOUT_BORDER_COLOR}
+            >Box.borderColors.LAYOUT_BORDER_COLOR}</Box>
+        </div>
+    </Story>
+</Canvas>
+
+### ROUNDED CORNERS
+#### Size props
+<Canvas>
+    <Story name="Round Corners">
+        <div className="monday-storybook-box-wrapper">
+            <Box
+                border={Box.borders.DEFAULT}
+                rounded={Box.roundeds.NONE}
+            >Box.roundeds.NONE</Box>
+            <Box
+                border={Box.borders.DEFAULT}
+                rounded={Box.roundeds.SMALL}
+            >Box.roundeds.SMALL</Box>
+            <Box
+                border={Box.borders.DEFAULT}
+                rounded={Box.roundeds.MEDIUM}
+            >Box.roundeds.MEDIUM</Box>
+            <Box
+                border={Box.borders.DEFAULT}
+                rounded={Box.roundeds.BIG}
+            >Box.roundeds.BIG</Box>
+        </div>
+    </Story>
+</Canvas>
+
+#### Property variations per each size:
+```
+rounded
+roundedTop
+roundedEnd
+roundedBottom
+roundedStart
+```
+
+Property variations example
+<Preview>
+    <div className="monday-storybook-box-wrapper">
         <Box
-          overflowX={Box.overflowX.SCROLL}
-        >Box Content</Box>
-    </Story>
-</Canvas>
+            border={Box.borders.DEFAULT}
+            roundedTop={Box.roundedTops.MEDIUM}
+        >Box.roundedTops.MEDIUM</Box>
+        <Box
+            border={Box.borders.DEFAULT}
+            roundedEnd={Box.roundedEnds.MEDIUM}
+        >Box.roundedEnds.MEDIUM</Box>
+        <Box
+            border={Box.borders.DEFAULT}
+            roundedEnd={Box.roundedEnds.MEDIUM}
+        >Box.roundedEnds.MEDIUM</Box>
+        <Box
+            border={Box.borders.DEFAULT}
+            roundedBottom={Box.roundedBottoms.MEDIUM}
+        >Box.roundedBottoms.MEDIUM</Box>
+        <Box
+            border={Box.borders.DEFAULT}
+            roundedStart={Box.roundedStarts.MEDIUM}
+        >Box.roundedStarts.MEDIUM</Box>
+    </div>
+</Preview>
 
-### Story title 2
-Description of story 2
+### SHADOW
 <Canvas>
-    <Story name="Story title 2">
-        <Box/>
-        <Box/>
+    <Story name="Shadow">
+        <div className="monday-storybook-box-wrapper">
+            <Box
+                shadow={Box.shadows.SMALL}
+            >Box.shadows.SMALL</Box>
+            <Box
+                shadow={Box.shadows.MEDIUM}
+            >Box.shadows.MEDIUM</Box>
+            <Box
+                shadow={Box.shadows.LARGE}
+            >Box.shadows.LARGE</Box>
+        </div>
     </Story>
 </Canvas>
 
-## Do’s and Don’ts
-<ComponentRules
-    rules={[
-        {
-            positive: {
-                component: <Box/>,
-                description: "Best practice description."
-            },
-            negative: {
-                component: <Box/>,
-                description: "Bad practice description."
-            }
-        },
-        {
-            positive: {
-                component: <Box/>,
-                description: "Best practice description."
-            },
-            negative: {
-                component: <Box/>,
-                description: "Bad practice description."
-            }
-        },
-        {
-            positive: {
-                component: <Box/>,
-                description: "Best practice description."
-            },
-            negative: {
-                component: <Box/>,
-                description: "Bad practice description."
-            }
-        },
-        {
-            positive: {
-                component: <Box/>,
-                description: "Best practice description."
-            },
-            negative: {
-                component: <Box/>,
-                description: "Bad practice description."
-            }
-        }
-    ]}
-/>
+### MARGIN
 
-
-## Use cases and examples
-
-### Story title 3
-Description of story 3
+#### Size props
 <Canvas>
-    <Story name="Story title 3">
-        <Box/>
-        <Box/>
+    <Story name="Margin">
+        <div className="monday-storybook-box-wrapper">
+            <div className={"monday-storybook-box-margin-wrapper"}>
+                <Box
+                    bgColor={Box.bgColors.PRIMARY_BACKGROUND_COLOR}
+                    border={Box.borders.DEFAULT}
+                    margin={Box.margins.NONE}
+                >Box.margins.NONE</Box>
+            </div>
+            <div className={"monday-storybook-box-margin-wrapper"}>
+                <Box
+                    bgColor={Box.bgColors.PRIMARY_BACKGROUND_COLOR}
+                    border={Box.borders.DEFAULT}
+                    margin={Box.margins.XS}
+                >Box.margins.XS</Box>
+            </div>
+            <div className={"monday-storybook-box-margin-wrapper"}>
+                <Box
+                    bgColor={Box.bgColors.PRIMARY_BACKGROUND_COLOR}
+                    border={Box.borders.DEFAULT}
+                    margin={Box.margins.SMALL}
+                >Box.margins.SMALL</Box>
+            </div>
+            <div className={"monday-storybook-box-margin-wrapper"}>
+                <Box
+                    bgColor={Box.bgColors.PRIMARY_BACKGROUND_COLOR}
+                    border={Box.borders.DEFAULT}
+                    margin={Box.margins.MEDIUM}
+                >Box.margins.MEDIUM</Box>
+            </div>
+            <div className={"monday-storybook-box-margin-wrapper"}>
+                <Box
+                    bgColor={Box.bgColors.PRIMARY_BACKGROUND_COLOR}
+                    border={Box.borders.DEFAULT}
+                    margin={Box.margins.LARGE}
+                >Box.margins.LARGE</Box>
+            </div>
+            <div className={"monday-storybook-box-margin-wrapper"}>
+                <Box
+                    bgColor={Box.bgColors.PRIMARY_BACKGROUND_COLOR}
+                    border={Box.borders.DEFAULT}
+                    margin={Box.margins.XL}
+                >Box.margins.XL</Box>
+            </div>
+            <div className={"monday-storybook-box-margin-wrapper"}>
+                <Box
+                    bgColor={Box.bgColors.PRIMARY_BACKGROUND_COLOR}
+                    border={Box.borders.DEFAULT}
+                    margin={Box.margins.XXL}
+                >Box.margins.XXL</Box>
+            </div>
+            <div className={"monday-storybook-box-margin-wrapper"}>
+                <Box
+                    bgColor={Box.bgColors.PRIMARY_BACKGROUND_COLOR}
+                    border={Box.borders.DEFAULT}
+                    margin={Box.margins.XXXL}
+                >Box.margins.XXXL</Box>
+            </div>
+        </div>
     </Story>
 </Canvas>
 
-### Story title 4
-Description of story 4
+#### Property variations per each size:
+```
+margin
+marginX (x axis: left, right)
+marginY (y axis: top, bottom)
+marginTop
+marginEnd
+marginBottom
+marginStart
+```
+
+#### Aligning Auto and none
+each property variation can hold additional values for:
+````
+AUTO
+NONE
+````
+
+#### Negative Margins:
+Negative margins are available using the following props:
+````
+marginNegative
+marginNegativeX
+marginNegativeY
+marginNegativeTop
+marginNegativeEnd
+marginNegativeBottom
+marginNegativeStart
+````
+
+
+### PADDING
+
+#### Size props
 <Canvas>
-    <Story name="Story title 4">
-        <Box/>
-        <Box/>
+    <Story name="Padding">
+        <div className="monday-storybook-box-wrapper">
+            <div className={"monday-storybook-box-padding-wrapper"}>
+                <Box
+                    border={Box.borders.DEFAULT}
+                    padding={Box.paddings.NONE}
+                >
+                    <div className="monday-storybook-box-padding-inner">Box.paddings.NONE</div>
+                </Box>
+            </div>
+            <div className="monday-storybook-box-padding-wrapper">
+                <Box
+                    border={Box.borders.DEFAULT}
+                    padding={Box.paddings.XS}
+                >
+                    <div className="monday-storybook-box-padding-inner">Box.paddings.XS</div>
+                </Box>
+            </div>
+            <div className={"monday-storybook-box-padding-wrapper"}>
+                <Box
+                    border={Box.borders.DEFAULT}
+                    padding={Box.paddings.SMALL}
+                >
+                    <div className="monday-storybook-box-padding-inner">Box.paddings.SMALL</div>
+                </Box>
+            </div>
+            <div className={"monday-storybook-box-padding-wrapper"}>
+                <Box
+                    border={Box.borders.DEFAULT}
+                    padding={Box.paddings.MEDIUM}
+                >
+                    <div className="monday-storybook-box-padding-inner">Box.paddings.MEDIUM</div>
+                </Box>
+            </div>
+            <div className={"monday-storybook-box-padding-wrapper"}>
+                <Box
+                    border={Box.borders.DEFAULT}
+                    padding={Box.paddings.LARGE}
+                >
+                    <div className="monday-storybook-box-padding-inner">Box.paddings.LARGE</div>
+                </Box>
+            </div>
+            <div className={"monday-storybook-box-padding-wrapper"}>
+                <Box
+                    border={Box.borders.DEFAULT}
+                    padding={Box.paddings.XL}
+                >
+                    <div className="monday-storybook-box-padding-inner">Box.paddings.XL</div>
+                </Box>
+            </div>
+            <div className={"monday-storybook-box-padding-wrapper"}>
+                <Box
+                    border={Box.borders.DEFAULT}
+                    padding={Box.paddings.XXL}
+                >
+                    <div className="monday-storybook-box-padding-inner">Box.paddings.XXL</div>
+                </Box>
+            </div>
+            <div className={"monday-storybook-box-padding-wrapper"}>
+                <Box
+                    border={Box.borders.DEFAULT}
+                    padding={Box.paddings.XXXL}
+                >
+                    <div className="monday-storybook-box-padding-inner">Box.paddings.XXXL</div>
+                </Box>
+            </div>
+        </div>
     </Story>
 </Canvas>
+
+#### Property variations per each size:
+```
+padding
+paddingX (x axis: left, right)
+paddingY (y axis: top, bottom)
+paddingTop
+paddingEnd
+paddingBottom
+paddingStart
+```
+
+### Opacity
+<Canvas>
+    <Story name="Opacity">
+        <div className="monday-storybook-box-wrapper">
+            <Box
+                opacity={Box.opacitys.DISABLED}
+            >Box.opacities.DISABLED</Box>
+        </div>
+    </Story>
+</Canvas>
+
+
+### Text Align
+<Canvas>
+    <Story name="Text Align">
+        <div className="monday-storybook-box-wrapper">
+            <Box
+                textAlign={Box.textAligns.Start}
+            >Box.opacities.DISABLED</Box>
+            <Box
+                textAlign={Box.textAligns.CENTER}
+            >Box.textAligns.CENTER</Box>
+            <Box
+                textAlign={Box.textAligns.END}
+            >Box.textAligns.END</Box>
+        </div>
+    </Story>
+</Canvas>
+
+
+### Text Transform
+<Canvas>
+    <Story name="Text Decoration">
+        <div className="monday-storybook-box-wrapper">
+            <Box
+                textTransform={Box.textTransforms.LOWERCASE}
+            >texttextTransform.LOWERCASE => example</Box>
+            <Box
+                textTransform={Box.textTransforms.UPPERCASE}
+            >Box.textTransform.UPPERCASE => example</Box>
+            <Box
+                textTransform={Box.textTransforms.CAPITALIZE}
+            >Box.textTransform.CAPITALIZE => example</Box>
+        </div>
+    </Story>
+</Canvas>
+
+### Overflow
+Overflow properties should have a dimension definitions.<br/>
+Height and Width definitions can be provided via custom className
+
+#### Available Variants:
+````
+AUTO
+HIDDEN
+VISIBLE
+SCROLL
+````
+
+#### Props property variations:
+````
+overflow
+overflowX
+overflowY
+````
+
+### User Select
+User select props , enable / disable text selection
+
+#### Available Variants:
+````
+ALL
+AUTO
+NONE
+````
+
+### Pointer Events
+Pointer events props , enable / disable click on an element.
+
+#### Available Variants:
+````
+NONE
+AUTO
+````
 
 ## Related components
+
 <RelatedComponents componentsNames={[]}/>

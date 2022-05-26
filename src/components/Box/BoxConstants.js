@@ -1,5 +1,11 @@
 import styles from "./Box.module.scss";
 
+export const OPACITY = Object.freeze(
+    {
+        DISABLED: styles.opacityDisabled,
+    }
+)
+
 export const OVERFLOW = Object.freeze(
     {
         AUTO: styles.overflowAuto,
@@ -69,40 +75,6 @@ export const BORDER_COLOR = Object.freeze(
     }
 )
 
-export const OPACITY = Object.freeze(
-    {
-        DISABLED: styles.opacityDisabled,
-    }
-)
-
-export const BACKGROUND_COLORS = Object.freeze(
-    {
-        PRIMARY_BACKGROUND_COLOR: styles.bgPrimaryBackgroundColor,
-        PRIMARY_HOVER_BACKGROUND_COLOR: styles.bgPrimaryBackgroundHoverColor,
-        SECONDARY_BACKGROUND_COLOR: styles.bgSecondaryBackgroundColor,
-        GREY_BACKGROUND_COLOR: styles.bgGreyBackgroundColor,
-        ALL_GREY_BACKGROUND_COLOR: styles.bgAllgreyBackgroundColor,
-        INVERTED_COLOR_BACKGROUND: styles.bgInvertedColorBackground,
-        DISABLED_BACKGROUND_COLOR: styles.bgDisabledBackgroundColor,
-    }
-)
-
-export const COLORS = Object.freeze(
-    {
-        PRIMARY_COLOR: styles.textPrimaryColor,
-        PRIMARY_HOVER_COLOR: styles.textPrimaryHoverColor,
-        PRIMARY_SELECTED_COLOR: styles.textPrimarySelectedColor,
-        PRIMARY_TEXT_COLOR: styles.textPrimaryTextColor,
-        TEXT_COLOR_ON_PRIMARY: styles.textTextColorOnInverted,
-        TEXT_COLOR_ON_INVERTED: styles.textSecondaryTextColor,
-        SECONDARY_TEXT_COLOR: styles.textSecondaryTextColor,
-        PLACEHOLDER_COLOR: styles.textPlaceholderColor,
-        ICON_COLOR: styles.textIconColor,
-        LINK_COLOR: styles.textLinkColor,
-        DISABLED_TEXT_COLOR: styles.textDisabledTextColor,
-    }
-)
-
 export const ROUNDED = Object.freeze(
     {
         NONE: styles.rounded0,
@@ -152,12 +124,14 @@ export const SHADOW = Object.freeze(
     {
         SMALL: styles.shadowSmall,
         MEDIUM: styles.shadowMedium,
-        LARGE: styles.shadowBig,
+        LARGE: styles.shadowLarge,
     }
 )
 
 export const MARGIN = Object.freeze(
     {
+        NONE: styles.m0,
+        AUTO: styles.mAuto,
         XS: styles.mXs,
         SMALL: styles.mSmall,
         MEDIUM: styles.mMedium,
@@ -170,6 +144,8 @@ export const MARGIN = Object.freeze(
 
 export const MARGIN_X = Object.freeze(
     {
+        NONE: styles.mx0,
+        AUTO: styles.mxAuto,
         XS: styles.mxXs,
         SMALL: styles.mxSmall,
         MEDIUM: styles.mxMedium,
@@ -182,6 +158,8 @@ export const MARGIN_X = Object.freeze(
 
 export const MARGIN_Y = Object.freeze(
     {
+        NONE: styles.my0,
+        AUTO: styles.myAuto,
         XS: styles.myXs,
         SMALL: styles.mySmall,
         MEDIUM: styles.myMedium,
@@ -194,6 +172,8 @@ export const MARGIN_Y = Object.freeze(
 
 export const MARGIN_TOP = Object.freeze(
     {
+        NONE: styles.mt0,
+        AUTO: styles.mtAuto,
         XS: styles.mtXs,
         SMALL: styles.mtSmall,
         MEDIUM: styles.mtMedium,
@@ -206,6 +186,8 @@ export const MARGIN_TOP = Object.freeze(
 
 export const MARGIN_END = Object.freeze(
     {
+        NONE: styles.me0,
+        AUTO: styles.meAuto,
         XS: styles.meXs,
         SMALL: styles.meSmall,
         MEDIUM: styles.meMedium,
@@ -218,6 +200,8 @@ export const MARGIN_END = Object.freeze(
 
 export const MARGIN_BOTTOM = Object.freeze(
     {
+        NONE: styles.mb0,
+        AUTO: styles.mbAuto,
         XS: styles.mbXs,
         SMALL: styles.mbSmall,
         MEDIUM: styles.mbMedium,
@@ -230,6 +214,8 @@ export const MARGIN_BOTTOM = Object.freeze(
 
 export const MARGIN_START = Object.freeze(
     {
+        NONE: styles.ms0,
+        AUTO: styles.msAuto,
         XS: styles.msXs,
         SMALL: styles.msSmall,
         MEDIUM: styles.msMedium,
@@ -326,7 +312,8 @@ export const MARGIN_NEGATIVE_START = Object.freeze(
 
 export const PADDING = Object.freeze(
     {
-        XS: styles.pXS,
+        NONE: styles.p0,
+        XS: styles.pXs,
         SMALL: styles.pSmall,
         MEDIUM: styles.pMedium,
         LARGE: styles.pLarge,
@@ -338,7 +325,8 @@ export const PADDING = Object.freeze(
 
 export const PADDING_X = Object.freeze(
     {
-        XS: styles.pxXS,
+        NONE: styles.px0,
+        XS: styles.pxXs,
         SMALL: styles.pxSmall,
         MEDIUM: styles.pxMedium,
         LARGE: styles.pxLarge,
@@ -350,7 +338,8 @@ export const PADDING_X = Object.freeze(
 
 export const PADDING_Y = Object.freeze(
     {
-        XS: styles.pyXS,
+        NONE: styles.py0,
+        XS: styles.pyXs,
         SMALL: styles.pySmall,
         MEDIUM: styles.pyMedium,
         LARGE: styles.pyLarge,
@@ -363,7 +352,8 @@ export const PADDING_Y = Object.freeze(
 
 export const PADDING_TOP = Object.freeze(
     {
-        XS: styles.ptXS,
+        NONE: styles.pt0,
+        XS: styles.ptXs,
         SMALL: styles.ptSmall,
         MEDIUM: styles.ptMedium,
         LARGE: styles.ptLarge,
@@ -375,7 +365,8 @@ export const PADDING_TOP = Object.freeze(
 
 export const PADDING_END = Object.freeze(
     {
-        XS: styles.peXS,
+        NONE: styles.pe0,
+        XS: styles.peXs,
         SMALL: styles.peSmall,
         MEDIUM: styles.peMedium,
         LARGE: styles.peLarge,
@@ -387,7 +378,8 @@ export const PADDING_END = Object.freeze(
 
 export const PADDING_BOTTOM = Object.freeze(
     {
-        XS: styles.pbXS,
+        NONE: styles.pb0,
+        XS: styles.pbXs,
         SMALL: styles.pbSmall,
         MEDIUM: styles.pbMedium,
         LARGE: styles.pbLarge,
@@ -399,7 +391,8 @@ export const PADDING_BOTTOM = Object.freeze(
 
 export const PADDING_START = Object.freeze(
     {
-        XS: styles.psXS,
+        NONE: styles.ps0,
+        XS: styles.psXs,
         SMALL: styles.psSmall,
         MEDIUM: styles.psMedium,
         LARGE: styles.psLarge,
@@ -409,27 +402,47 @@ export const PADDING_START = Object.freeze(
     }
 )
 
-export const TEXT_ALIGN = Object.freeze(
+export const BACKGROUND_COLORS = Object.freeze(
     {
-        START: styles.textAlignStart,
-        END: styles.textAlignEnd,
-        CENTER: styles.textAlignCenter,
+        PRIMARY_BACKGROUND_COLOR: styles.bgPrimaryBackgroundColor,
+        PRIMARY_HOVER_BACKGROUND_COLOR: styles.bgPrimaryBackgroundHoverColor,
+        SECONDARY_BACKGROUND_COLOR: styles.bgSecondaryBackgroundColor,
+        GREY_BACKGROUND_COLOR: styles.bgGreyBackgroundColor,
+        ALL_GREY_BACKGROUND_COLOR: styles.bgAllgreyBackgroundColor,
+        INVERTED_COLOR_BACKGROUND: styles.bgInvertedColorBackground,
+        DISABLED_BACKGROUND_COLOR: styles.bgDisabledBackgroundColor,
     }
 )
 
-export const TEXT_DECORATION = Object.freeze(
+export const COLORS = Object.freeze(
     {
-        NONE: styles.textDecorationNone,
-        END: styles.textDecorationUnderline,
-        CENTER: styles.textDecorationLineThrough,
+        PRIMARY_COLOR: styles.textPrimaryColor,
+        PRIMARY_HOVER_COLOR: styles.textPrimaryHoverColor,
+        PRIMARY_SELECTED_COLOR: styles.textPrimarySelectedColor,
+        PRIMARY_TEXT_COLOR: styles.textPrimaryTextColor,
+        TEXT_COLOR_ON_PRIMARY: styles.textTextColorOnInverted,
+        TEXT_COLOR_ON_INVERTED: styles.textSecondaryTextColor,
+        SECONDARY_TEXT_COLOR: styles.textSecondaryTextColor,
+        PLACEHOLDER_COLOR: styles.textPlaceholderColor,
+        ICON_COLOR: styles.textIconColor,
+        LINK_COLOR: styles.textLinkColor,
+        DISABLED_TEXT_COLOR: styles.textDisabledTextColor,
+    }
+)
+
+export const TEXT_ALIGN = Object.freeze(
+    {
+        START: styles.textStart,
+        END: styles.textEnd,
+        CENTER: styles.textCenter,
     }
 )
 
 export const TEXT_TRANSFORM = Object.freeze(
     {
-            NONE: styles.textTransformLowercase,
-            END: styles.textTransformUppercase,
-            CENTER: styles.textTransformCapitalize,
+            LOWERCASE: styles.textLowercase,
+            UPPERCASE: styles.textUppercase,
+            CAPITALIZE: styles.textCapitalize,
     }
 )
 

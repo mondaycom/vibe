@@ -41,7 +41,6 @@ import {
     PADDING_BOTTOM,
     PADDING_START,
     TEXT_ALIGN,
-    TEXT_DECORATION,
     TEXT_TRANSFORM,
     USER_SELECT,
     POINTER_EVENTS,
@@ -94,10 +93,9 @@ const Box = forwardRef(
          paddingBottom,
          paddingStart,
          textAlign,
-         textDecoration,
          textTransform,
          userSelect,
-         pointerEvents,
+         pointerEvent,
          visibility,
          color,
          bgColor
@@ -148,10 +146,9 @@ const Box = forwardRef(
                      paddingBottom,
                      paddingStart,
                      textAlign,
-                     textDecoration,
                      textTransform,
                      userSelect,
-                     pointerEvents,
+                     pointerEvent,
                      visibility,
                      color,
                      bgColor
@@ -160,51 +157,50 @@ const Box = forwardRef(
         );
     });
 
-Box.opacity = OPACITY;
-Box.overflow = OVERFLOW;
-Box.overflowX = OVERFLOW_X;
-Box.overflowY = OVERFLOW_Y;
-Box.border = BORDER;
-Box.borderTop = BORDER_TOP;
-Box.borderEnd = BORDER_END;
-Box.borderBottom = BORDER_BOTTOM;
-Box.borderStart = BORDER_START;
-Box.borderColor = BORDER_COLOR;
-Box.rounded = ROUNDED;
-Box.roundedTop = ROUNDED_TOP;
-Box.roundedEnd = ROUNDED_END;
-Box.roundedBottom = ROUNDED_BOTTOM;
-Box.roundedStart = ROUNDED_START;
-Box.shadow = SHADOW;
-Box.margin = MARGIN;
-Box.marginX = MARGIN_X;
-Box.marginY = MARGIN_Y;
-Box.marginTop = MARGIN_TOP;
-Box.marginEnd = MARGIN_END;
-Box.marginBottom = MARGIN_BOTTOM;
-Box.marginStart = MARGIN_START;
-Box.marginNegative = MARGIN_NEGATIVE;
-Box.marginNegativeX = MARGIN_NEGATIVE_X;
-Box.marginNegativeY = MARGIN_NEGATIVE_Y;
-Box.marginNegativeTop = MARGIN_NEGATIVE_TOP;
-Box.marginNegativeEnd = MARGIN_NEGATIVE_END;
-Box.marginNegativeBottom = MARGIN_NEGATIVE_BOTTOM;
-Box.marginNegativeStart = MARGIN_NEGATIVE_START;
-Box.padding = PADDING;
-Box.paddingX = PADDING_X;
-Box.paddingY = PADDING_Y;
-Box.paddingTop = PADDING_TOP;
-Box.paddingEnd = PADDING_END;
-Box.paddingBottom = PADDING_BOTTOM;
-Box.paddingStart = PADDING_START;
-Box.textAlign = TEXT_ALIGN;
-Box.textDecoration = TEXT_DECORATION;
-Box.textTransform = TEXT_TRANSFORM;
-Box.userSelect = USER_SELECT;
+Box.opacitys = OPACITY;
+Box.overflows = OVERFLOW;
+Box.overflowXs = OVERFLOW_X;
+Box.overflowYs = OVERFLOW_Y;
+Box.borders = BORDER;
+Box.borderTops = BORDER_TOP;
+Box.borderEnds = BORDER_END;
+Box.borderBottoms = BORDER_BOTTOM;
+Box.borderStarts = BORDER_START;
+Box.borderColors = BORDER_COLOR;
+Box.roundeds = ROUNDED;
+Box.roundedTops = ROUNDED_TOP;
+Box.roundedEnds = ROUNDED_END;
+Box.roundedBottoms = ROUNDED_BOTTOM;
+Box.roundedStarts = ROUNDED_START;
+Box.shadows = SHADOW;
+Box.margins = MARGIN;
+Box.marginXs = MARGIN_X;
+Box.marginYs = MARGIN_Y;
+Box.marginTops = MARGIN_TOP;
+Box.marginEnds = MARGIN_END;
+Box.marginBottoms = MARGIN_BOTTOM;
+Box.marginStarts = MARGIN_START;
+Box.marginNegatives = MARGIN_NEGATIVE;
+Box.marginNegativeXs = MARGIN_NEGATIVE_X;
+Box.marginNegativeYs = MARGIN_NEGATIVE_Y;
+Box.marginNegativeTops = MARGIN_NEGATIVE_TOP;
+Box.marginNegativeEnds = MARGIN_NEGATIVE_END;
+Box.marginNegativeBottoms = MARGIN_NEGATIVE_BOTTOM;
+Box.marginNegativeStarts = MARGIN_NEGATIVE_START;
+Box.paddings = PADDING;
+Box.paddingXs = PADDING_X;
+Box.paddingYs = PADDING_Y;
+Box.paddingTops = PADDING_TOP;
+Box.paddingEnds = PADDING_END;
+Box.paddingBottoms = PADDING_BOTTOM;
+Box.paddingStarts = PADDING_START;
+Box.textAligns = TEXT_ALIGN;
+Box.textTransforms = TEXT_TRANSFORM;
+Box.userSelects = USER_SELECT;
 Box.pointerEvents = POINTER_EVENTS;
-Box.visibility = VISIBILITY;
-Box.bgColor = BACKGROUND_COLORS;
-Box.color = COLORS;
+Box.visibilities = VISIBILITY;
+Box.bgColors = BACKGROUND_COLORS;
+Box.colors = COLORS;
 
 Box.propTypes = {
     /**
@@ -218,281 +214,302 @@ Box.propTypes = {
     ]),
     opacity: PropTypes.oneOf(
         [
-            Box.opacity.DISABLED,
+            Box.opacitys.DISABLED,
         ]
     ),
     overflow: PropTypes.oneOf(
         [
-            Box.overflow.AUTO,
-            Box.overflow.HIDDEN,
-            Box.overflow.VISIBLE,
-            Box.overflow.SCROLL,
+            Box.overflows.AUTO,
+            Box.overflows.HIDDEN,
+            Box.overflows.VISIBLE,
+            Box.overflows.SCROLL,
         ]
     ),
     overflowX: PropTypes.oneOf(
         [
-            Box.overflowX.AUTO,
-            Box.overflowX.HIDDEN,
-            Box.overflowX.VISIBLE,
-            Box.overflowX.SCROLL,
+            Box.overflowXs.AUTO,
+            Box.overflowXs.HIDDEN,
+            Box.overflowXs.VISIBLE,
+            Box.overflowXs.SCROLL,
         ]
     ),
     overflowY: PropTypes.oneOf(
         [
-            Box.overflowY.AUTO,
-            Box.overflowY.HIDDEN,
-            Box.overflowY.VISIBLE,
-            Box.overflowY.SCROLL,
+            Box.overflowYs.AUTO,
+            Box.overflowYs.HIDDEN,
+            Box.overflowYs.VISIBLE,
+            Box.overflowYs.SCROLL,
         ]
     ),
     border: PropTypes.oneOf(
         [
-            Box.border.NONE,
-            Box.border.DEFAULT,
+            Box.borders.NONE,
+            Box.borders.DEFAULT,
         ]
     ),
     borderTop: PropTypes.oneOf(
         [
-            Box.borderTop.NONE,
-            Box.borderTop.DEFAULT,
+            Box.borderTops.NONE,
+            Box.borderTops.DEFAULT,
         ]
     ),
     borderEnd: PropTypes.oneOf(
         [
-            Box.borderEnd.NONE,
-            Box.borderEnd.DEFAULT,
+            Box.borderEnds.NONE,
+            Box.borderEnds.DEFAULT,
         ]
     ),
     borderBottom: PropTypes.oneOf(
         [
-            Box.borderBottom.NONE,
-            Box.borderBottom.DEFAULT,
+            Box.borderBottoms.NONE,
+            Box.borderBottoms.DEFAULT,
         ]
     ),
     borderStart: PropTypes.oneOf(
         [
-            Box.borderStart.NONE,
-            Box.borderStart.DEFAULT,
+            Box.borderStarts.NONE,
+            Box.borderStarts.DEFAULT,
         ]
     ),
     borderColor: PropTypes.oneOf(
         [
-            Box.borderColor.UI_BORDER_COLOR,
-            Box.borderColor.LAYOUT_BORDER_COLOR,
+            Box.borderColors.UI_BORDER_COLOR,
+            Box.borderColors.LAYOUT_BORDER_COLOR,
         ]
     ),
     rounded: PropTypes.oneOf(
         [
-            Box.rounded.NONE,
-            Box.rounded.SMALL,
-            Box.rounded.MEDIUM,
-            Box.rounded.BIG,
+            Box.roundeds.NONE,
+            Box.roundeds.SMALL,
+            Box.roundeds.MEDIUM,
+            Box.roundeds.BIG,
         ]
     ),
     roundedTop: PropTypes.oneOf(
         [
-            Box.roundedTop.NONE,
-            Box.roundedTop.SMALL,
-            Box.roundedTop.MEDIUM,
-            Box.roundedTop.BIG,
+            Box.roundedTops.NONE,
+            Box.roundedTops.SMALL,
+            Box.roundedTops.MEDIUM,
+            Box.roundedTops.BIG,
         ]
     ),
     roundedEnd: PropTypes.oneOf(
         [
-            Box.roundedEnd.NONE,
-            Box.roundedEnd.SMALL,
-            Box.roundedEnd.MEDIUM,
-            Box.roundedEnd.BIG,
+            Box.roundedEnds.NONE,
+            Box.roundedEnds.SMALL,
+            Box.roundedEnds.MEDIUM,
+            Box.roundedEnds.BIG,
         ]
     ),
     roundedBottom: PropTypes.oneOf(
         [
-            Box.roundedBottom.NONE,
-            Box.roundedBottom.SMALL,
-            Box.roundedBottom.MEDIUM,
-            Box.roundedBottom.BIG,
+            Box.roundedBottoms.NONE,
+            Box.roundedBottoms.SMALL,
+            Box.roundedBottoms.MEDIUM,
+            Box.roundedBottoms.BIG,
         ]
     ),
     roundedStart: PropTypes.oneOf(
         [
-            Box.roundedStart.NONE,
-            Box.roundedStart.SMALL,
-            Box.roundedStart.MEDIUM,
-            Box.roundedStart.BIG,
+            Box.roundedStarts.NONE,
+            Box.roundedStarts.SMALL,
+            Box.roundedStarts.MEDIUM,
+            Box.roundedStarts.BIG,
         ]
     ),
     shadow: PropTypes.oneOf(
         [
-            Box.shadow.SMALL,
-            Box.shadow.MEDIUM,
-            Box.shadow.LARGE,
+            Box.shadows.SMALL,
+            Box.shadows.MEDIUM,
+            Box.shadows.LARGE,
         ]
     ),
     margin: PropTypes.oneOf(
         [
-            Box.margin.XS,
-            Box.margin.SMALL,
-            Box.margin.MEDIUM,
-            Box.margin.LARGE,
-            Box.margin.XL,
-            Box.margin.XXL,
-            Box.margin.XXXL,
+            Box.margins.NONE,
+            Box.margins.AUTO,
+            Box.margins.XS,
+            Box.margins.SMALL,
+            Box.margins.MEDIUM,
+            Box.margins.LARGE,
+            Box.margins.XL,
+            Box.margins.XXL,
+            Box.margins.XXXL,
         ]
     ),
     marginX: PropTypes.oneOf(
         [
-            Box.marginX.XS,
-            Box.marginX.SMALL,
-            Box.marginX.MEDIUM,
-            Box.marginX.LARGE,
-            Box.marginX.XL,
-            Box.marginX.XXL,
-            Box.marginX.XXXL,
+            Box.marginXs.NONE,
+            Box.marginXs.AUTO,
+            Box.marginXs.XS,
+            Box.marginXs.SMALL,
+            Box.marginXs.MEDIUM,
+            Box.marginXs.LARGE,
+            Box.marginXs.XL,
+            Box.marginXs.XXL,
+            Box.marginXs.XXXL,
         ]
     ),
     marginY: PropTypes.oneOf(
         [
-            Box.marginY.XS,
-            Box.marginY.SMALL,
-            Box.marginY.MEDIUM,
-            Box.marginY.LARGE,
-            Box.marginY.XL,
-            Box.marginY.XXL,
-            Box.marginY.XXXL,
+            Box.marginYs.NONE,
+            Box.marginYs.AUTO,
+            Box.marginYs.XS,
+            Box.marginYs.SMALL,
+            Box.marginYs.MEDIUM,
+            Box.marginYs.LARGE,
+            Box.marginYs.XL,
+            Box.marginYs.XXL,
+            Box.marginYs.XXXL,
         ]
     ),
     marginTop: PropTypes.oneOf(
         [
-            Box.marginTop.XS,
-            Box.marginTop.SMALL,
-            Box.marginTop.MEDIUM,
-            Box.marginTop.LARGE,
-            Box.marginTop.XL,
-            Box.marginTop.XXL,
-            Box.marginTop.XXXL,
+            Box.marginTops.NONE,
+            Box.marginTops.AUTO,
+            Box.marginTops.XS,
+            Box.marginTops.SMALL,
+            Box.marginTops.MEDIUM,
+            Box.marginTops.LARGE,
+            Box.marginTops.XL,
+            Box.marginTops.XXL,
+            Box.marginTops.XXXL,
         ]
     ),
     marginEnd: PropTypes.oneOf(
         [
-            Box.marginEnd.XS,
-            Box.marginEnd.SMALL,
-            Box.marginEnd.MEDIUM,
-            Box.marginEnd.LARGE,
-            Box.marginEnd.XL,
-            Box.marginEnd.XXL,
-            Box.marginEnd.XXXL,
+            Box.marginEnds.NONE,
+            Box.marginEnds.AUTO,
+            Box.marginEnds.XS,
+            Box.marginEnds.SMALL,
+            Box.marginEnds.MEDIUM,
+            Box.marginEnds.LARGE,
+            Box.marginEnds.XL,
+            Box.marginEnds.XXL,
+            Box.marginEnds.XXXL,
         ]
     ),
     marginBottom: PropTypes.oneOf(
         [
-            Box.marginBottom.XS,
-            Box.marginBottom.SMALL,
-            Box.marginBottom.MEDIUM,
-            Box.marginBottom.LARGE,
-            Box.marginBottom.XL,
-            Box.marginBottom.XXL,
-            Box.marginBottom.XXXL,
+            Box.marginBottoms.NONE,
+            Box.marginBottoms.AUTO,
+            Box.marginBottoms.XS,
+            Box.marginBottoms.SMALL,
+            Box.marginBottoms.MEDIUM,
+            Box.marginBottoms.LARGE,
+            Box.marginBottoms.XL,
+            Box.marginBottoms.XXL,
+            Box.marginBottoms.XXXL,
         ]
     ),
     marginStart: PropTypes.oneOf(
         [
-            Box.marginStart.XS,
-            Box.marginStart.SMALL,
-            Box.marginStart.MEDIUM,
-            Box.marginStart.LARGE,
-            Box.marginStart.XL,
-            Box.marginStart.XXL,
-            Box.marginStart.XXXL,
+            Box.marginStarts.NONE,
+            Box.marginStarts.AUTO,
+            Box.marginStarts.XS,
+            Box.marginStarts.SMALL,
+            Box.marginStarts.MEDIUM,
+            Box.marginStarts.LARGE,
+            Box.marginStarts.XL,
+            Box.marginStarts.XXL,
+            Box.marginStarts.XXXL,
         ]
     ),
     padding: PropTypes.oneOf(
         [
-            Box.padding.XS,
-            Box.padding.SMALL,
-            Box.padding.MEDIUM,
-            Box.padding.LARGE,
-            Box.padding.XL,
-            Box.padding.XXL,
-            Box.padding.XXXL,
+            Box.paddings.NONE,
+            Box.paddings.XS,
+            Box.paddings.SMALL,
+            Box.paddings.MEDIUM,
+            Box.paddings.LARGE,
+            Box.paddings.XL,
+            Box.paddings.XXL,
+            Box.paddings.XXXL,
         ]
     ),
     paddingX: PropTypes.oneOf(
         [
-            Box.paddingX.XS,
-            Box.paddingX.SMALL,
-            Box.paddingX.MEDIUM,
-            Box.paddingX.LARGE,
-            Box.paddingX.XL,
-            Box.paddingX.XXL,
-            Box.paddingX.XXXL,
+            Box.paddingXs.NONE,
+            Box.paddingXs.XS,
+            Box.paddingXs.SMALL,
+            Box.paddingXs.MEDIUM,
+            Box.paddingXs.LARGE,
+            Box.paddingXs.XL,
+            Box.paddingXs.XXL,
+            Box.paddingXs.XXXL,
         ]
     ),
     paddingY: PropTypes.oneOf(
         [
-            Box.paddingY.XS,
-            Box.paddingY.SMALL,
-            Box.paddingY.MEDIUM,
-            Box.paddingY.LARGE,
-            Box.paddingY.XL,
-            Box.paddingY.XXL,
-            Box.paddingY.XXXL,
+            Box.paddingYs.NONE,
+            Box.paddingYs.XS,
+            Box.paddingYs.SMALL,
+            Box.paddingYs.MEDIUM,
+            Box.paddingYs.LARGE,
+            Box.paddingYs.XL,
+            Box.paddingYs.XXL,
+            Box.paddingYs.XXXL,
         ]
     ),
     paddingTop: PropTypes.oneOf(
         [
-            Box.paddingTop.XS,
-            Box.paddingTop.SMALL,
-            Box.paddingTop.MEDIUM,
-            Box.paddingTop.LARGE,
-            Box.paddingTop.XL,
-            Box.paddingTop.XXL,
-            Box.paddingTop.XXXL,
+            Box.paddingTops.NONE,
+            Box.paddingTops.XS,
+            Box.paddingTops.SMALL,
+            Box.paddingTops.MEDIUM,
+            Box.paddingTops.LARGE,
+            Box.paddingTops.XL,
+            Box.paddingTops.XXL,
+            Box.paddingTops.XXXL,
         ]
     ),
     paddingEnd: PropTypes.oneOf(
         [
-            Box.paddingEnd.XS,
-            Box.paddingEnd.SMALL,
-            Box.paddingEnd.MEDIUM,
-            Box.paddingEnd.LARGE,
-            Box.paddingEnd.XL,
-            Box.paddingEnd.XXL,
-            Box.paddingEnd.XXXL,
+            Box.paddingEnds.NONE,
+            Box.paddingEnds.XS,
+            Box.paddingEnds.SMALL,
+            Box.paddingEnds.MEDIUM,
+            Box.paddingEnds.LARGE,
+            Box.paddingEnds.XL,
+            Box.paddingEnds.XXL,
+            Box.paddingEnds.XXXL,
         ]
     ),
     paddingBottom: PropTypes.oneOf(
         [
-            Box.paddingBottom.XS,
-            Box.paddingBottom.SMALL,
-            Box.paddingBottom.MEDIUM,
-            Box.paddingBottom.LARGE,
-            Box.paddingBottom.XL,
-            Box.paddingBottom.XXL,
-            Box.paddingBottom.XXXL,
+            Box.paddingBottoms.NONE,
+            Box.paddingBottoms.XS,
+            Box.paddingBottoms.SMALL,
+            Box.paddingBottoms.MEDIUM,
+            Box.paddingBottoms.LARGE,
+            Box.paddingBottoms.XL,
+            Box.paddingBottoms.XXL,
+            Box.paddingBottoms.XXXL,
         ]
     ),
     textAlign: PropTypes.oneOf(
         [
-            Box.textAlign.START,
-            Box.textAlign.END,
-            Box.textAlign.CENTER,
+            Box.textAligns.START,
+            Box.textAligns.END,
+            Box.textAligns.CENTER,
         ]
     ),
-    textDecoration: PropTypes.oneOf(
+   
+    textTransform: PropTypes.oneOf(
         [
-            Box.textDecoration.NONE,
-            Box.textDecoration.UNDERLINE,
-            Box.textDecoration.LINE_THROUGH,
+            Box.textTransforms.LOWERCASE,
+            Box.textTransforms.UPPERCASE,
+            Box.textTransforms.CAPITALIZE,
         ]
     ),
     userSelect: PropTypes.oneOf(
         [
-            Box.userSelect.ALL,
-            Box.userSelect.AUTO,
-            Box.userSelect.NONE,
+            Box.userSelects.ALL,
+            Box.userSelects.AUTO,
+            Box.userSelects.NONE,
         ]
     ),
-    pointerEvents: PropTypes.oneOf(
+    pointerEvent: PropTypes.oneOf(
         [
             Box.pointerEvents.NONE,
             Box.pointerEvents.AUTO,
@@ -500,29 +517,27 @@ Box.propTypes = {
     ),
     color: PropTypes.oneOf(
         [
-            Box.color.PRIMARY_COLOR,
-            Box.color.PRIMARY_HOVER_COLOR,
-            Box.color.PRIMARY_TEXT_COLOR,
-            Box.color.PRIMARY_TECT_COLOR_ON_PRIMARY,
-            Box.color.PRIMARY_COLOR_ON_INVERTED,
-            Box.color.TEXT_COLOR_ON_PRIMARY,
-            Box.color.TEXT_COLOR_ON_INVERTED,
-            Box.color.SECONDARY_TEXT_COLOR,
-            Box.color.PLACEHOLDER_COLOR,
-            Box.color.ICON_COLOR,
-            Box.color.LINK_COLOR,
-            Box.color.DISABLED_TEXT_COLOR,
+            Box.colors.PRIMARY_COLOR,
+            Box.colors.PRIMARY_HOVER_COLOR,
+            Box.colors.PRIMARY_TEXT_COLOR,
+            Box.colors.TEXT_COLOR_ON_PRIMARY,
+            Box.colors.TEXT_COLOR_ON_INVERTED,
+            Box.colors.SECONDARY_TEXT_COLOR,
+            Box.colors.PLACEHOLDER_COLOR,
+            Box.colors.ICON_COLOR,
+            Box.colors.LINK_COLOR,
+            Box.colors.DISABLED_TEXT_COLOR,
         ]
     ),
     bgColor: PropTypes.oneOf(
         [
-            Box.bgColor.PRIMARY_BACKGROUND_COLOR,
-            Box.bgColor.PRIMARY_HOVER_BACKGROUND_COLOR,
-            Box.bgColor.SECONDARY_BACKGROUND_COLOR,
-            Box.bgColor.GREY_BACKGROUND_COLOR,
-            Box.bgColor.ALL_GREY_BACKGROUND_COLOR,
-            Box.bgColor.INVERTED_COLOR_BACKGROUND,
-            Box.bgColor.DISABLED_BACKGROUND_COLOR,
+            Box.bgColors.PRIMARY_BACKGROUND_COLOR,
+            Box.bgColors.PRIMARY_HOVER_BACKGROUND_COLOR,
+            Box.bgColors.SECONDARY_BACKGROUND_COLOR,
+            Box.bgColors.GREY_BACKGROUND_COLOR,
+            Box.bgColors.ALL_GREY_BACKGROUND_COLOR,
+            Box.bgColors.INVERTED_COLOR_BACKGROUND,
+            Box.bgColors.DISABLED_BACKGROUND_COLOR,
         ]
     ),
     className: PropTypes.string,
@@ -571,10 +586,9 @@ Box.defaultProps = {
     paddingBottom: undefined,
     paddingStart: undefined,
     textAlign: undefined,
-    textDecoration: undefined,
     textTransform: undefined,
     userSelect: undefined,
-    pointerEvents: undefined,
+    pointerEvent: undefined,
     visibility: undefined,
     color: undefined,
     bgColor: undefined,

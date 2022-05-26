@@ -1,5 +1,51 @@
 @import "../../../styles/themes.scss";
 
-.monday-storybook-box {
+.monday-storybook-box-wrapper {
+  max-width: 100%;
+  width: 100%;
 
+  // display alignments for storybook presentation
+  > * {
+    margin-bottom: var(--spacing-medium);
+    padding: var(--spacing-large);
+    font-family: monospace;
+  }
+}
+
+.monday-storybook-box-margin-wrapper {
+  overflow: hidden;
+  margin: 0;
+  min-height: inherit;
+  padding: 0;
+  background-color: var(--grey-background-color);
+  border-bottom: 1px solid var(--inverted-color-background);
+}
+
+.monday-storybook-box-padding-wrapper {
+  overflow: hidden;
+
+  > * {
+    position: relative;
+    background: white;
+
+    &::before {
+      background-color: var(--color-error-highlight);
+      opacity: 0.5;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      content: "";
+    }
+
+  }
+}
+
+.monday-storybook-box-padding-inner {
+  background: white;
+  position: relative;
 }

@@ -12,13 +12,13 @@ $utilities-modules: (
                 values: auto hidden visible scroll,
         ),
         "overflowY": (
-                class: overflowy,
                 property: overflow-y,
+                class: overflowy,
                 values: auto hidden visible scroll,
         ),
         "overflowX": (
-                class: overflowx,
                 property: overflow-x,
+                class: overflowx,
                 values: auto hidden visible scroll,
         ),
         "border": (
@@ -247,14 +247,28 @@ $utilities-modules: (
                                 ),
                 ),
         ),
+        "textAlign": (
+                property: text-align,
+                class: text,
+                values: (
+                        start: left,
+                        end: right,
+                        center: center,
+                )
+        ),
+        "textTransform": (
+                property: text-transform,
+                class: text,
+                values: lowercase uppercase capitalize
+        ),
         "userSelect": (
-                class: userSelect,
                 property: user-select,
+                class: userSelect,
                 values: all auto none
         ),
         "pointerEvents": (
                 property: pointer-events,
-                class: pe,
+                class: pointerEvents,
                 values: none auto,
         ),
         "visibility": (
