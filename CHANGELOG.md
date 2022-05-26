@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.32.0 (2022-05-26)
+
+#### New Features
+* [#683](https://github.com/mondaycom/monday-ui-react-core/pull/683) EditableHeading -Add option to pass argument to onStartEditing, input class name prop,… ([@mayaAssayag](https://github.com/mayaAssayag))
+
+#### New Icons
+* [#684](https://github.com/mondaycom/monday-ui-react-core/pull/684) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.31.3 (2022-05-25)
 
 #### Bug Fixes
