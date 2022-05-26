@@ -1,15 +1,15 @@
 export const LOADER_COLORS = {
   PRIMARY: "var(--primary-color)",
   SECONDARY: "var(--secondary-text-color)",
-  ON_PRIMARY: "var(--text-color-on-primary)",
+  ON_PRIMARY: "var(--text-color-on-inverted)",
   DARK: "var(--primary-text-color)"
 };
 
 export const LOADER_SIZES = {
-  XS: "xs",
-  SMALL: "small",
-  MEDIUM: "medium",
-  LARGE: "large"
+  XS: 16,
+  SMALL: 24,
+  MEDIUM: 40,
+  LARGE: 64
 };
 
 export const LOADER_TYPES = {

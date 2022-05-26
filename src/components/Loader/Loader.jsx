@@ -28,14 +28,7 @@ const Loader = forwardRef(
     }, [size]);
 
     return (
-      <div
-        className={`monday-loader-component size-${size}`}
-        ref={ref}
-        role="alert"
-        title="loading"
-        style={style}
-        id={id}
-      >
+      <div className={`monday-loader-component`} ref={ref} role="alert" title="loading" style={style} id={id}>
         <svg className={`circle-loader-spinner ${overrideClassName}`} viewBox="0 0 50 50" color={color}>
           {type === Loader.types.WITH_BACKGROUND && (
             <circle className={`circle-loader-spinner-background`} cx="25" cy="25" r="20" fill="none" strokeWidth="5" />

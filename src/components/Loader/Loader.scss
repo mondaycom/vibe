@@ -3,25 +3,6 @@
   height: 100%;
   width: 100%;
 
-  &.size {
-    &-xs {
-      height: 16px;
-      width: 16px;
-    }
-    &-small {
-      height: 24px;
-      width: 24px;
-    }
-    &-medium {
-      height: 40px;
-      width: 40px;
-    }
-    &-large {
-      height: 64px;
-      width: 64px;
-    }
-  }
-
   .circle-loader-spinner-background {
     position: absolute;
     top: 50%;
