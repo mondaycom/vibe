@@ -14,6 +14,8 @@ const EditableHeading = props => {
   const {
     id,
     className,
+    inputClassName,
+    dataTestId,
     value,
     editing,
     disabled,
@@ -39,11 +41,14 @@ const EditableHeading = props => {
   const ref = useRef(null);
 
   // Callbacks
-  const onClick = useCallback(() => {
-    if (disabled || isEditing) return;
-    setIsEditing(true);
-    onStartEditing && onStartEditing();
-  }, [isEditing, disabled, setIsEditing, onStartEditing]);
+  const onClick = useCallback(
+    event => {
+      if (disabled || isEditing) return;
+      setIsEditing(true);
+      onStartEditing && onStartEditing(event);
+    },
+    [isEditing, disabled, setIsEditing, onStartEditing]
+  );
 
   const onFinishEditingCallback = useCallback(
     (newValue, event) => {
@@ -139,7 +144,7 @@ const EditableHeading = props => {
     const inputType = props.inputType || textAreaType;
     return {
       value: valueState,
-      className: `editable-heading-input element-type-${props.type} size-${props.size}`,
+      className: cx(`editable-heading-input`, `element-type-${props.type}`, `size-${props.size}`, inputClassName),
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,
@@ -180,6 +185,7 @@ const EditableHeading = props => {
       className={cx("editable-heading--wrapper", className)}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
+      data-testid={dataTestId}
     >
       <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick} disabled={disabled}>
         {shouldEdit ? renderInputComponent() : renderContentComponent()}
@@ -196,6 +202,18 @@ EditableHeading.propTypes = {
    * Class name to be added to the header wrapper
    */
   className: PropTypes.string,
+  /**
+   * Class name to be added to the input element
+   */
+  inputClassName: PropTypes.string,
+  /**
+   * data-testid name to be added to the header wrapper
+   */
+  dataTestId: PropTypes.string,
+  /**
+   * Style to be added to the header wrapper
+   */
+  style: PropTypes.string,
   /**
    * Id to be added to the header wrapper
    */
@@ -246,7 +264,10 @@ EditableHeading.defaultProps = {
   ignoreBlurClass: undefined,
   onFinishEditing: undefined,
   onCancelEditing: undefined,
-  onIgnoreBlurEvent: undefined
+  onIgnoreBlurEvent: undefined,
+  style: undefined,
+  dataTestId: "",
+  inputClassName: ""
 };
 
 EditableHeading.types = TYPES;
