@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $utilities-modules: (
         "opacity": (
                 property: opacity,
@@ -127,37 +129,37 @@ $utilities-modules: (
         "margin": (
                 property: margin,
                 class: m,
-                values: map-merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($core-spacing-vars, (auto: auto)),
         ),
         "marginX": (
                 property: margin-right margin-left,
                 class: mx,
-                values: map-merge($core-spacing-vars, (auto: auto))
+                values: map.merge($core-spacing-vars, (auto: auto))
         ),
         "marginY": (
                 property: margin-top margin-bottom,
                 class: my,
-                values: map-merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($core-spacing-vars, (auto: auto)),
         ),
         "marginTop": (
                 property: margin-top,
                 class: mt,
-                values: map-merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($core-spacing-vars, (auto: auto)),
         ),
         "marginEnd": (
                 property: margin-right,
                 class: me,
-                values: map-merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($core-spacing-vars, (auto: auto)),
         ),
         "marginBottom": (
                 property: margin-bottom,
                 class: mb,
-                values: map-merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($core-spacing-vars, (auto: auto)),
         ),
         "marginStart": (
                 property: margin-left,
                 class: ms,
-                values: map-merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($core-spacing-vars, (auto: auto)),
         ),
         "negativeMargin": (
                 property: margin,
@@ -240,7 +242,7 @@ $utilities-modules: (
         "backgroundColor": (
                 property: background-color,
                 class: bg,
-                values: map-merge(
+                values: map.merge(
                                 $core-background-colors-vars,
                                 (
                                         "transparent": transparent

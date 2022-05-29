@@ -1,3 +1,6 @@
+@use "sass:string";
+@use "sass:list";
+
 // BOX core functions: mock functions
 // These function should be imported from "monday-ui-styles"
 
@@ -6,7 +9,7 @@
 // @arguments: $string
 // @return capitalize string
 @function capitalize($string) {
-  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+  @return to-upper-case(string.slice($string, 1, 1)) + string.slice($string, 2);
 }
 
 // Contain
@@ -27,13 +30,13 @@
   $exclude: " ", "-", "–", "—", "_", ",", ";", ":", ".";
 
   @while str-length($progress) > 0 {
-    $char: str-slice($progress, 1, 1);
+    $char: string.slice($progress, 1, 1);
 
     @if contain($exclude, $char) {
-      $progress: capitalize(str-slice($progress, 2, 2)) + str-slice($progress, 3);
+      $progress: capitalize(string.slice($progress, 2, 2)) + string.slice($progress, 3);
     } @else {
       $result: $result + $char;
-      $progress: str-slice($progress, 2);
+      $progress: string.slice($progress, 2);
     }
   }
 

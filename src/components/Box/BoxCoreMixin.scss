@@ -14,34 +14,38 @@
 // - Utility scopes are nested within a utility map
 // - Map keys are fixed and defined within the mixin:
 // --  property, class,values,
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
 
 @mixin generate-utility($utility,$infix, $export) {
 
-  $values: map-get($utility, values);
+  $values: map.get($utility, values);
   @if type-of($values) == "string" or type-of(nth($values, 1)) != "list" {
-    $values: zip($values, $values);
+    $values: list.zip($values, $values);
   }
 
   @each $key, $value in $values {
-    $properties: map-get($utility, property);
+    $properties: map.get($utility, property);
 
     // Multiple properties are possible, for example with vertical or horizontal margins or paddings
     @if type-of($properties) == "string" {
-      $properties: append((), $properties);
+      $properties: list.append((), $properties);
     }
 
     // Use custom class if present
-    $property-class: if(map-has-key($utility, class), map-get($utility, class), nth($properties, 1));
+    $property-class: if(map.has-key($utility, class), map.get($utility, class), list.nth($properties, 1));
     $property-class: if($property-class == null, "", $property-class);
 
-    $infix: if($property-class == "" and str-slice($infix, 1, 1) == "-", str-slice($infix, 2), $infix);
+    $infix: if($property-class == "" and string.slice($infix, 1, 1) == "-", string.slice($infix, 2), $infix);
 
     // Don't prefix if value key is null (eg. with shadow class)
     $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "") + $key, "");
 
-
+    /*  stylelint-disable scss/at-if-no-null */
     @if $value != null {
-      @if $export =="modules" {
+     /*  stylelint-enable scss/at-if-no-null*/
+      @if $export == "modules" {
         $class-name: $property-class + capitalize(camelize($infix)) + capitalize(camelize($property-class-modifier));
         .#{$class-name} {
           @each $property in $properties {
