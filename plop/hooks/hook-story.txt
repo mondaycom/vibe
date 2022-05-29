@@ -32,7 +32,7 @@ Please write here the component description
 ## Arguments
 
 <FunctionArguments>
-  <FunctionArgument name="result" type="Object">
+  <FunctionArgument name="options" type="Object">
     <FunctionArgument name="value" type="any" description={<>Example of required argument.</>} required />
   </FunctionArgument>
 </FunctionArguments>
