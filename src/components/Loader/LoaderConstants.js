@@ -11,8 +11,3 @@ export const LOADER_SIZES = {
   MEDIUM: 40,
   LARGE: 64
 };
-
-export const LOADER_TYPES = {
-  CASUAL: "casual",
-  WITH_BACKGROUND: "with-background"
-};

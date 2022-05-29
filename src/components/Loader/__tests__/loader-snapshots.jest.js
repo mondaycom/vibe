@@ -31,7 +31,7 @@ describe("Loader renders correctly", () => {
     });
 
     it("with custom size from class", () => {
-      const tree = renderer.create(<Loader className={styles.mondayLoaderComponent} />).toJSON();
+      const tree = renderer.create(<Loader className={styles.customLoaderSize} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
@@ -43,6 +43,11 @@ describe("Loader renders correctly", () => {
           </div>
         )
         .toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    it("with custom size as number", () => {
+      const tree = renderer.create(<Loader size={100} />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });
@@ -80,14 +85,9 @@ describe("Loader renders correctly", () => {
     });
   });
 
-  describe("with different types", () => {
-    it("with CASUAL type", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} type={Loader.types.CASUAL} />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-
-    it("with WITH_BACKGROUND type", () => {
-      const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} type={Loader.types.WITH_BACKGROUND} />).toJSON();
+  describe("with visual variants", () => {
+    it("with background", () => {
+      const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} hasBackground />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

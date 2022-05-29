@@ -148,7 +148,7 @@ If there is a need for color customization, css `color` attribute of a parent co
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
       <StoryDescription description="Casual" vertical align={Flex.align.START}>
         <div align="left">
-          <Loader size={Loader.sizes.MEDIUM} type={Loader.types.CASUAL} />
+          <Loader size={Loader.sizes.MEDIUM} />
         </div>
       </StoryDescription>
       <StoryDescription
@@ -158,7 +158,7 @@ If there is a need for color customization, css `color` attribute of a parent co
         headerStyle={{ width: "fitContent" }}
       >
         <div align="left">
-          <Loader size={Loader.sizes.MEDIUM} type={Loader.types.WITH_BACKGROUND} />
+          <Loader size={Loader.sizes.MEDIUM} hasBackground />
         </div>
       </StoryDescription>
     </Flex>
@@ -174,7 +174,7 @@ If there is a need for color customization, css `color` attribute of a parent co
         component: (
           <Flex direction={Flex.directions.ROW}>
             <div className="monday-storybook-loader-dos-and-donts-heading">H1 heading component</div>
-            <Loader size={Loader.sizes.SMALL} type={Loader.types.WITH_BACKGROUND} />
+            <Loader size={Loader.sizes.SMALL} hasBackground />
           </Flex>
         ),
         description: "Place loader in context to the loading content and keep its size proportional to the content."
@@ -183,7 +183,7 @@ If there is a need for color customization, css `color` attribute of a parent co
         component: (
           <Flex direction={Flex.directions.ROW}>
             <div className="monday-storybook-loader-dos-and-donts-heading">H1 heading component</div>
-            <Loader size={Loader.sizes.LARGE} type={Loader.types.WITH_BACKGROUND} />
+            <Loader size={Loader.sizes.LARGE} hasBackground />
           </Flex>
         ),
         description: "Don’t leave the size visually unmaintained."

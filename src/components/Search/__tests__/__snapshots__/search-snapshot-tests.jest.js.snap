@@ -501,7 +501,7 @@ exports[`Search renders correctly with loading 1`] = `
             title="loading"
           >
             <svg
-              className="input-component__loader-svg circle-loader-spinner"
+              className="circle-loader-spinner input-component__loader-svg"
               viewBox="0 0 50 50"
             >
               <circle

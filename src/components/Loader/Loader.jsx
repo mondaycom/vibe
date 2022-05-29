@@ -13,7 +13,7 @@ const Loader = forwardRef(
       className,
       size,
       color,
-      type,
+      hasBackground,
       id
     },
     ref
@@ -29,7 +29,7 @@ const Loader = forwardRef(
 
     return (
       <div
-        className={cx(styles.mondayLoaderComponent, "monday-loader-component")}
+        className={cx("monday-loader-component", styles.loaderContainer)}
         ref={ref}
         role="alert"
         title="loading"
@@ -37,11 +37,11 @@ const Loader = forwardRef(
         id={id}
       >
         <svg
-          className={cx(styles.circleLoaderSpinner, overrideClassName, "circle-loader-spinner")}
+          className={cx("circle-loader-spinner", styles.circleLoaderSpinner, overrideClassName)}
           viewBox="0 0 50 50"
           color={color}
         >
-          {type === Loader.types.WITH_BACKGROUND && (
+          {hasBackground && (
             <circle
               className={styles.circleLoaderSpinnerBackground}
               cx="25"
@@ -52,7 +52,7 @@ const Loader = forwardRef(
             />
           )}
           <circle
-            className={cx(styles.circleLoaderSpinnerPath, "circle-loader-spinner-path")}
+            className={cx("circle-loader-spinner-path", styles.circleLoaderSpinnerPath)}
             cx="25"
             cy="25"
             r="20"
@@ -72,14 +72,17 @@ Loader.types = LOADER_TYPES;
 Loader.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  size: PropTypes.oneOf([Loader.sizes.XS, Loader.sizes.SMALL, Loader.sizes.MEDIUM, Loader.sizes.LARGE]),
+  size: PropTypes.oneOfType([
+    PropTypes.oneOf([Loader.sizes.XS, Loader.sizes.SMALL, Loader.sizes.MEDIUM, Loader.sizes.LARGE]),
+    PropTypes.number
+  ]),
   color: PropTypes.oneOf([
     Loader.colors.PRIMARY,
     Loader.colors.ON_PRIMARY,
     Loader.colors.SECONDARY,
     Loader.colors.DARK
   ]),
-  type: PropTypes.oneOf([Loader.types.CASUAL, Loader.types.WITH_BACKGROUND])
+  hasBackground: PropTypes.bool
 };
 
 Loader.defaultProps = {
@@ -87,7 +90,7 @@ Loader.defaultProps = {
   className: undefined,
   size: undefined,
   color: undefined,
-  type: Loader.types.CASUAL
+  hasBackground: false
 };
 
 export default Loader;
