@@ -5,8 +5,6 @@
 //   - Map is "$core-settings-map" which is a map collected from all other core scope maps.
 // - Core properties are Global and Generic and goes under :root
 
-@import "core/core-tokens";
-@import "core/core-maps";
 @import "core/core-settings";
 
 :root {

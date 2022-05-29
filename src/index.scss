@@ -10,8 +10,11 @@
 
 @import "functions";
 @import "mixins";
-@import "core";
+@import "config";
 
+@import "core";
 @import "themes";
-@import "colors.scss";
-@import "content-colors.scss";
+
+// unit testing for values
+@import "debug-values";
+

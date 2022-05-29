@@ -1,0 +1,11 @@
+// DEBUG: COMPARE VALUES
+// _ This partial loads value map for debug using "debug-compare-values" Mixin
+
+// Reference map for token validation
+@import "maps/reference-vibe-keys-map";
+
+// Import BASIC THEME
+@import "maps/basic/debug-basic-theme-pallete-maps";
+@import "maps/basic/debug-basic-theme-legacy-palette-maps";
+@import "maps/basic/debug-basic-theme-keys-maps";
+@import "maps/basic/debug-basic-theme-legacy-keys-maps";

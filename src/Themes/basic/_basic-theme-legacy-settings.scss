@@ -1,0 +1,7 @@
+// BASIC THEME SETTINGS: This partial Defines a Unified settings map for the BASIC THEME Scope.
+// - Map collect function is used in order to merge multiple maps.
+
+$theme-basic-legacy-settings: map-collect(
+                $theme-basic-legacy-palette,
+                $theme-basic-legacy-keys,
+);

@@ -5,6 +5,7 @@
 //   - Black
 //   - Dark
 //   - Hacker
+// Loading order is important due to theme dependencies
 
 @import "Themes/basic-theme.scss";
 @import "Themes/dark-theme.scss";

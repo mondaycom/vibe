@@ -1,0 +1,22 @@
+// DEBUG: FLAGS
+// - Flag control debug tests: TRUE / FALSE
+// -- This is done to improve readability and to check by scopes.
+
+$debug-values: false;
+$debug-show-pass: true;
+$debug-show-converted: true;
+$debug-show-converted-fail: true;
+
+// Themes
+$debug-basic-theme: true;
+$debug-dark-theme: false;
+$debug-black-theme: false;
+
+// Scopes
+$debug-palette: true;
+$debug-legacy-palette: true;
+$debug-keys: true;
+$debug-legacy-keys: true;
+
+// Example
+$debug-example-verify-vibe-keys: false;

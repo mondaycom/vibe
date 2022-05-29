@@ -1,0 +1,34 @@
+// BASIC THEME LEGACY KEYS MAP: This partial defines the basic theme's legacy keys color map.
+// - Map include legacy keys scope tokens.
+// - Its main Purpose is to separate legacy tokens to registration tokens and key tokens.
+// - This map is for Key Tokens.
+//   - Legacy Key tokens are aliases of registration tokens or content color tokens with a semantic meaning.
+// - Map is collected into the $theme-basic-settings map and is interpolated into custom properties.
+
+$theme-basic-legacy-keys: (
+        primary-on-secondary-color: $primary-on-secondary-color,
+        primary-hover-on-secondary-color:$primary-hover-on-secondary-color,
+        primary-selected-color-rgb: $primary-selected-color-rgb,
+        primary-selected-on-secondary-color: $primary-selected-on-secondary-color,
+        primary-text-on-secondary-color: $primary-text-on-secondary-color,
+        text-color-on-primary-with-opacity: $text-color-on-primary-with-opacity,
+        secondary-text-on-secondary-color:$secondary-text-on-secondary-color,
+        placeholder-color-with-opacity: $placeholder-color-with-opacity,
+        placeholder-on-secondary-color: $placeholder-on-secondary-color,
+        icon-on-secondary-color: $icon-on-secondary-color,
+        link-on-secondary-color: $link-on-secondary-color,
+        label-background-color: $label-background-color,
+        label-background-on-secondary-color: $label-background-on-secondary-color,
+        primary-background-color-rgb: $primary-background-color-rgb,
+        primary-background-hover-on-secondary-color: $primary-background-hover-on-secondary-color,
+        modal-background-color: $modal-background-color,
+        secondary-background-color-rgb: $secondary-background-color-rgb,
+        disabled-background-on-secondary-color: $disabled-background-on-secondary-color,
+        disabled-text-on-secondary-color:$disabled-text-on-secondary-color,
+        ui-border-on-secondary-color: $ui-border-on-secondary-color,
+        layout-border-on-secondary-color: $layout-border-on-secondary-color,
+        dark-background-color: $dark-background-color,
+        dark-background-on-secondary-color: $dark-background-on-secondary-color,
+        dialog-background-color: $dialog-background-color,
+        box-shadow-mediun: $box-shadow-mediun,
+);

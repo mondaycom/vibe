@@ -1,0 +1,68 @@
+// Values from last prod before change (manually removed other scoped)
+$debug-basic-theme-legacy-keys-map: (
+        primary-on-secondary-color: var(--color-basic_blue),
+        primary-hover-on-secondary-color: var(--color-dark_blue),
+        primary-selected-color-rgb: var(--color-highlight_blue-rgb),
+        primary-selected-on-secondary-color: var(--color-highlight_blue),
+        primary-text-on-secondary-color: var(--color-mud_black),
+        text-color-on-primary-with-opacity: var(--color-snow_white-with-opacity),
+        secondary-text-on-secondary-color: var(--color-asphalt),
+        placeholder-color-with-opacity: var(--color-asphalt-with-opacity),
+        placeholder-on-secondary-color: var(--color-asphalt),
+        icon-on-secondary-color: var(--color-asphalt),
+        link-on-secondary-color: var(--color-link_color),
+        label-background-color: var(--color-highlight_blue),
+        label-background-on-secondary-color: var(--color-highlight_blue),
+        primary-background-color-rgb: (255, 255, 255),
+        primary-background-hover-on-secondary-color: var(--color-ui_grey),
+        modal-background-color: var(--color-snow_white),
+        secondary-background-color-rgb: (255, 255, 255),
+        disabled-background-on-secondary-color: #ecedf5,
+        disabled-text-on-secondary-color: #bdbec7,
+        placeholder-color: var(--color-asphalt),
+        ui-border-on-secondary-color: var(--color-wolf_gray),
+        layout-border-on-secondary-color: #d0d4e4,
+        dark-background-color: var(--color-riverstone_gray),
+        dark-background-on-secondary-color: var(--color-riverstone_gray),
+        dialog-background-color: var(--color-snow_white),
+        box-shadow-mediun: var(--box-shadow-medium),
+);
+
+// Value from current code
+$debug-output-basic-theme-legacy-keys: $theme-basic-legacy-keys;
+
+// Custom properties values the equal hard coded values
+$debug-basic-theme-legacy-keys-custom-props-reference: (
+);
+$debug-basic-theme-legacy-keys-custom-props-converted: (
+        primary-on-secondary-color: $primary-on-secondary-color,
+        primary-hover-on-secondary-color: $primary-hover-on-secondary-color,
+        primary-selected-color-rgb: $primary-selected-color-rgb,
+        primary-selected-on-secondary-color: $primary-selected-on-secondary-color,
+        primary-text-on-secondary-color: $primary-text-on-secondary-color,
+        text-color-on-primary-with-opacity: $text-color-on-primary-with-opacity,
+        secondary-text-on-secondary-color: $secondary-text-on-secondary-color,
+        placeholder-color-with-opacity: $placeholder-color-with-opacity,
+        placeholder-on-secondary-color: $placeholder-on-secondary-color,
+        icon-on-secondary-color: $icon-on-secondary-color,
+        link-on-secondary-color: $link-on-secondary-color,
+        label-background-color: $label-background-color,
+        label-background-on-secondary-color: $label-background-on-secondary-color,
+        primary-background-hover-on-secondary-color: $primary-background-hover-on-secondary-color,
+        modal-background-color: $modal-background-color,
+        ui-border-on-secondary-color: $ui-border-on-secondary-color,
+        dark-background-color: $dark-background-color,
+        dark-background-on-secondary-color: $dark-background-on-secondary-color,
+        dialog-background-color: $dialog-background-color,
+        box-shadow-mediun:$box-shadow-medium,
+);
+
+// White list approved changes
+$debug-basic-theme-legacy-keys-white-list: (
+        private-color:"var(--color-bazooka)",
+  // SHOULD BE CORRECTED
+        disabled-background-color: $disabled-background-color,
+        disabled-background-on-secondary-color: $disabled-background-color,
+        disabled-text-color: $disabled-text-color,
+        disabled-text-on-secondary-color: $disabled-text-color,
+);

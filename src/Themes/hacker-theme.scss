@@ -1,7 +1,6 @@
-$bg_color: #282a36;
-$primary_color: #fe78c6;
-
 .hacker_theme-app-theme {
+  $bg_color: #282a36;
+  $primary_color: #fe78c6;
   // primary coloring
   --primary-color: #{$primary_color};
   --primary-on-secondary-color: #{$primary_color};

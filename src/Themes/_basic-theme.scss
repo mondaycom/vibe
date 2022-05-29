@@ -1,0 +1,27 @@
+// BASIC THEME: This partial loads BASIC THEME scope related Custom properties
+// - Properties are Theme Specific and goes under a Theme Specific Class based Selectors.
+// - We also use the ":root" selector, so Basic theme can cascade to other themes.
+//   - This way when a custom property is not defined in another theme, its definition i inherited from the ":root"
+
+@import "basic/basic-theme-settings";
+@import "basic/basic-theme-legacy-settings";
+@import "basic/content-colors";
+
+:root,
+.light-app-theme,
+.default-app-theme {
+  @include generate-custom-properties($theme-basic-settings);
+  @include define-theme-content-colors();
+
+  /*
+
+  LEGACY VALUES
+
+  These values are not within Vibe's UI definitions and are on a deprecation path.
+  Please stop using them and make efforts to replace theme with their Vibe corresponding keys.
+
+  */
+
+  @include generate-custom-properties($theme-basic-legacy-settings);
+}
+
