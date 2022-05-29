@@ -22,7 +22,7 @@ module.exports = plop => {
       {
         type: "add",
         path: "src/hooks/{{camelCase hookName}}/__stories__/{{camelCase hookName}}.stories.module.scss",
-        template: ""
+        templateFile: "plop/hooks/hook-story-style.txt"
       },
       {
         type: "append",

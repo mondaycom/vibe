@@ -1,4 +1,4 @@
-export default function {{camelCase hookName}}(value) {
-  const result = value;
-  return result;
+export default function {{camelCase hookName}}({ ref }) {
+  const result = (Math.random() * 1000).toFixed(0);
+  return { result };
 }
