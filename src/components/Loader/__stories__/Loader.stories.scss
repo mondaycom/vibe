@@ -1,32 +1,43 @@
 @import "../../../styles/themes";
 
-.monday-storybook-loader-on-primary-block {
-  width: 50px;
-  height: 50px;
-  padding: 5px;
+.monday-storybook-loader {
+  &_color-variants {
+    &_on-primary {
+      width: 50px;
+      height: 50px;
+      padding: 5px;
 
-  &.color {
-    &-black {
-      background: var(--primary-text-color);
-    }
-    &-negative {
-      background: var(--negative-color);
-    }
-    &-positive {
-      background: var(--positive-color);
-    }
-    &-primary {
-      background: var(--primary-color);
+      &--color {
+        &-black {
+          background: var(--primary-text-color);
+        }
+
+        &-negative {
+          background: var(--negative-color);
+        }
+
+        &-positive {
+          background: var(--positive-color);
+        }
+
+        &-primary {
+          background: var(--primary-color);
+        }
+      }
     }
   }
-}
 
-.monday-storybook-loader-dos-and-donts-heading {
-  font-size: 32px !important;
-  margin-right: var(--spacing-small) !important;
-}
+  &_size-variants {
+    &_container {
+      width: 64px;
+      height: 64px;
+    }
+  }
 
-.monday-storybook-loader-size-variants-block {
-  width: 64px;
-  height: 64px;
+  &_dos-and-donts {
+    &_heading {
+      font-size: 32px !important;
+      margin-right: var(--spacing-small) !important;
+    }
+  }
 }

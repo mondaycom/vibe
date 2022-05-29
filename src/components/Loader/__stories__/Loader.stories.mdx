@@ -72,22 +72,22 @@ Circular loader indicates to user waiting state.
   <Story name="Size variants">
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
       <StoryDescription description="Xs" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader-size-variants-block">
+        <div className="monday-storybook-loader_size-variants_container">
           <Loader size={Loader.sizes.XS} />
         </div>
       </StoryDescription>
       <StoryDescription description="S" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader-size-variants-block">
+        <div className="monday-storybook-loader_size-variants_container">
           <Loader size={Loader.sizes.SMALL} />
         </div>
       </StoryDescription>
       <StoryDescription description="M" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader-size-variants-block">
+        <div className="monday-storybook-loader_size-variants_container">
           <Loader size={Loader.sizes.MEDIUM} />
         </div>
       </StoryDescription>
       <StoryDescription description="L" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader-size-variants-block">
+        <div className="monday-storybook-loader_size-variants_container">
           <Loader size={Loader.sizes.LARGE} />
         </div>
       </StoryDescription>
@@ -111,16 +111,16 @@ Circular loader indicates to user waiting state.
       </StoryDescription>
       <StoryDescription description="OnPrimary" vertical align={Flex.align.START}>
         <Flex direction={Flex.directions.ROW}>
-          <div className="monday-storybook-loader-on-primary-block color-black">
+          <div className="monday-storybook-loader_color-variants_on-primary--color-black">
             <Loader size={Loader.sizes.MEDIUM} color={Loader.colors.ON_PRIMARY} />
           </div>
-          <div className="monday-storybook-loader-on-primary-block color-negative">
+          <div className="monday-storybook-loader_color-variants_on-primary--color-negative">
             <Loader size={Loader.sizes.MEDIUM} color={Loader.colors.ON_PRIMARY} />
           </div>
-          <div className="monday-storybook-loader-on-primary-block color-positive">
+          <div className="monday-storybook-loader_color-variants_on-primary--color-positive">
             <Loader size={Loader.sizes.MEDIUM} color={Loader.colors.ON_PRIMARY} />
           </div>
-          <div className="monday-storybook-loader-on-primary-block color-primary">
+          <div className="monday-storybook-loader_color-variants_on-primary--color-primary">
             <Loader size={Loader.sizes.MEDIUM} color={Loader.colors.ON_PRIMARY} />
           </div>
         </Flex>
@@ -173,7 +173,7 @@ If there is a need for color customization, css `color` attribute of a parent co
       positive: {
         component: (
           <Flex direction={Flex.directions.ROW}>
-            <div className="monday-storybook-loader-dos-and-donts-heading">H1 heading component</div>
+            <div className="monday-storybook-loader_dos-and-donts_heading">H1 heading component</div>
             <Loader size={Loader.sizes.SMALL} hasBackground />
           </Flex>
         ),
@@ -182,7 +182,7 @@ If there is a need for color customization, css `color` attribute of a parent co
       negative: {
         component: (
           <Flex direction={Flex.directions.ROW}>
-            <div className="monday-storybook-loader-dos-and-donts-heading">H1 heading component</div>
+            <div className="monday-storybook-loader_dos-and-donts_heading">H1 heading component</div>
             <Loader size={Loader.sizes.LARGE} hasBackground />
           </Flex>
         ),
