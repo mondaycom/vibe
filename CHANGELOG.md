@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.32.0 (2022-05-26)
+
+#### New Features
+* [#683](https://github.com/mondaycom/monday-ui-react-core/pull/683) EditableHeading -Add option to pass argument to onStartEditing, input class name prop,… ([@mayaAssayag](https://github.com/mayaAssayag))
+
+#### New Icons
+* [#684](https://github.com/mondaycom/monday-ui-react-core/pull/684) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.31.3 (2022-05-25)
+
+#### Bug Fixes
+* [#677](https://github.com/mondaycom/monday-ui-react-core/pull/677) fix: fix issue with ButtonIcon inline issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### Documentation
+* [#681](https://github.com/mondaycom/monday-ui-react-core/pull/681) fix: Remove Tip box ([@abaum-augu](https://github.com/abaum-augu))
+
+#### New Icons
+* [#682](https://github.com/mondaycom/monday-ui-react-core/pull/682) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.31.2 (2022-05-24)
+
+#### Bug Fixes
+* [#680](https://github.com/mondaycom/monday-ui-react-core/pull/680) Change attention box default padding ([@hadasfa](https://github.com/hadasfa))
+
+#### Dependency Upgrades
+* [#660](https://github.com/mondaycom/monday-ui-react-core/pull/660) #  Update sass to version  "sass": "^1.51.0", ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.31.1 (2022-05-22)
 
 #### Bug Fixes
