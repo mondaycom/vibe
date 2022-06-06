@@ -8,7 +8,7 @@ import { elementColorsNames, getElementColor } from "utils/colors-vars-map";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
-import Tooltip from "../Tooltip/Tooltip";
+import { Tooltip } from "components";
 import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
@@ -21,7 +21,7 @@ const Avatar = ({
   src,
   icon,
   text,
-  tooltipProps,
+  tooltipComponent,
   role,
   ariaLabel,
   backgroundColor,
@@ -98,12 +98,11 @@ const Avatar = ({
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
   const TooltipContainer = ({ children }) => {
-    if (!tooltipProps) {
+    if (!tooltipComponent) {
       return <>{children}</>;
     }
-    // TODO ariaLabel?
-    // TODO Is passing tooltipProps is OK pattern?
-    return <Tooltip {...tooltipProps}>{children}</Tooltip>;
+
+    return <Tooltip {...tooltipComponent.props}>{children}</Tooltip>;
   };
 
   return (
@@ -140,7 +139,7 @@ Avatar.backgroundColors = elementColorsNames;
 Avatar.propTypes = {
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   text: PropTypes.string,
-  tooltipProps: PropTypes.oneOf(Object.values(Tooltip.propTypes)),
+  tooltipComponent: PropTypes.instanceOf(Tooltip),
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   className: PropTypes.string,
@@ -166,7 +165,7 @@ Avatar.defaultProps = {
   className: "",
   icon: undefined,
   text: undefined,
-  tooltipProps: {},
+  tooltipComponent: undefined,
   type: AVATAR_TYPES.TEXT,
   backgroundColor: elementColorsNames.CHILI_BLUE,
   customBackgroundColor: null,

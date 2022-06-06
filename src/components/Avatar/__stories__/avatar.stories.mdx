@@ -216,13 +216,15 @@ Use to display tooltip on onHover Avatar event.
       size={Avatar.sizes.LARGE}
       type={Avatar.types.IMG}
       src={person1}
-      tooltipProps={{content: "Hadas Farhi"}}
+      tooltipComponent={<Tooltip content="Hadas Farhi"/>}
+      ariaLabel={"Hadas Fahri"}
     />
     <Avatar
       size={Avatar.sizes.LARGE}
       type={Avatar.types.IMG}
       src={person1}
-      tooltipProps={{content: "Hadas Farhi", position: Tooltip.positions.BOTTOM}}
+      tooltipComponent={<Tooltip content="Hadas Farhi" position={Tooltip.positions.BOTTOM}/>}
+      ariaLabel={"Hadas Fahri"}
     />
   </Story>
 </Canvas>
