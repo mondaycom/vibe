@@ -5,7 +5,7 @@ import Avatar from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
 import styles from "./AvatarGroup.module.scss";
 
-const AvatarGroup = ({ className, id, children, size, max }) => {
+const AvatarGroup = ({ className, id, children, size, type, max }) => {
   return (
     <div className={cx(styles.container, className)} id={id}>
       {children.map((avatar, index) => {
@@ -15,7 +15,8 @@ const AvatarGroup = ({ className, id, children, size, max }) => {
               {...avatar.props}
               size={size || avatar.props.size}
               key={`${id}-${index}`}
-              className={cx(styles.avatarContainer, className)}
+              className={styles.avatarContainer}
+              type={type || avatar.props.type}
             />
           );
       })}
@@ -37,9 +38,11 @@ AvatarGroup.propTypes = {
   id: PropTypes.string,
   // children: PropTypes.arrayOf(Avatar)
   children: PropTypes.arrayOf(PropTypes.any),
-  // TODO doesn't work why??
-  //  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL])
   size: PropTypes.any,
+  // TODO "Uncaught TypeError: Cannot read properties of undefined (reading 'types')" why??
+  //  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL])
+  //  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
+  type: PropTypes.any,
   max: PropTypes.number
 };
 AvatarGroup.defaultProps = {
@@ -47,6 +50,7 @@ AvatarGroup.defaultProps = {
   id: undefined,
   children: undefined,
   size: undefined,
+  type: undefined,
   max: 5
 };
 
