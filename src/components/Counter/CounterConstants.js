@@ -8,7 +8,8 @@ export const COUNTER_TYPES = {
 export const COUNTER_COLORS = {
   PRIMARY: "primary",
   DARK: "dark",
-  NEGATIVE: "negative"
+  NEGATIVE: "negative",
+  LIGHT: "light"
 };
 
 const OLD_COUNTER_SIZES = {

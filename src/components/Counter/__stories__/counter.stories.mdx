@@ -1,11 +1,11 @@
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { useCallback, useEffect, useState } from "react";
 import Counter from "../Counter";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
-import { TOOLTIP, LABEL, CHIP } from "../../../storybook/components/related-components/component-description-map";
-import Avatar from "../../Avatar/Avatar.jsx"
-import { Notifications, AddUpdate, Update } from "../../Icon/Icons"
-import Icon from "../../Icon/Icon.jsx"
+import { CHIP, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
+import Avatar from "../../Avatar/Avatar.jsx";
+import { AddUpdate, Notifications, Update } from "../../Icon/Icons";
+import Icon from "../../Icon/Icon.jsx";
 import { Link } from "../../../storybook/components";
 import "./counter.stories.scss";
 
@@ -89,6 +89,10 @@ There are two sizes of counters
       <Counter count={5} color={Counter.colors.DARK} />
       Dark
     </div>
+    <div className="storybook-counter_column">
+      <Counter count={5} color={Counter.colors.LIGHT} />
+      Light
+    </div>
   </Story>
 </Canvas>
 
@@ -106,6 +110,10 @@ There are two sizes of counters
     <div className="storybook-counter_column">
       <Counter count={5} color={Counter.colors.DARK} kind={Counter.kinds.LINE} />
        Dark
+    </div>
+    <div className="storybook-counter_column">
+      <Counter count={5} color={Counter.colors.LIGHT} kind={Counter.kinds.LINE} />
+      Light
     </div>
   </Story>
 </Canvas>
