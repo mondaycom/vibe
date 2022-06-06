@@ -1,7 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Loader from "../Loader";
-import styles from "./loader-snapshots.jest.module.scss";
 
 describe("Loader renders correctly", () => {
   it("with custom class name", () => {
@@ -30,22 +29,6 @@ describe("Loader renders correctly", () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it("with custom size from class", () => {
-      const tree = renderer.create(<Loader className={styles.customLoaderSize} />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-
-    it("with custom size from parent", () => {
-      const tree = renderer
-        .create(
-          <div style={{ width: 100, height: 100 }}>
-            <Loader />
-          </div>
-        )
-        .toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-
     it("with custom size as number", () => {
       const tree = renderer.create(<Loader size={100} />).toJSON();
       expect(tree).toMatchSnapshot();
@@ -70,17 +53,6 @@ describe("Loader renders correctly", () => {
 
     it("with DARK color", () => {
       const tree = renderer.create(<Loader size={Loader.sizes.MEDIUM} color={Loader.colors.DARK} />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-
-    it("with custom color from parent", () => {
-      const tree = renderer
-        .create(
-          <div style={{ color: "var(--color-dark-red)" }}>
-            <Loader size={Loader.sizes.MEDIUM} />
-          </div>
-        )
-        .toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

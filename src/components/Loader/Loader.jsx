@@ -1,8 +1,8 @@
 import React, { forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
+import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { LOADER_COLORS, LOADER_SIZES, LOADER_TYPES } from "components/Loader/LoaderConstants";
-import cx from "classnames";
 import styles from "./Loader.module.scss";
 
 const Loader = forwardRef(
