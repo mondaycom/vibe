@@ -36,11 +36,11 @@ Please write here the component description
 <Canvas>
   <Story name="Overview">
     <AvatarGroup size={Avatar.sizes.SMALL}>
-      <Avatar type={Avatar.types.TEXT} text="MR" backgroundColor={Avatar.colors.DONE_GREEN} />
       <Avatar src={person1} type={Avatar.types.IMG} />
       <Avatar src={person2} type={Avatar.types.IMG} />
       <Avatar src={person3} type={Avatar.types.IMG} />
       <Avatar src={person1} type={Avatar.types.IMG} />
+      <Avatar type={Avatar.types.TEXT} text="MR" backgroundColor={Avatar.colors.DONE_GREEN} />
       <Avatar src={person2} type={Avatar.types.IMG} />
       <Avatar src={person3} type={Avatar.types.IMG} />
     </AvatarGroup>
@@ -54,6 +54,7 @@ Please write here the component description
 <UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
 
 ## Variants
+
 ### Size
 As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
 <Canvas>
@@ -94,6 +95,7 @@ As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
 </Canvas>
 
 ## Use cases and examples
+
 ### Hover
 Tooltip on hover.
 <Canvas>
@@ -105,6 +107,18 @@ Tooltip on hover.
       <Avatar src={person1} />
       <Avatar src={person2} />
       <Avatar src={person3} />
+    </AvatarGroup>
+  </Story>
+</Canvas>
+
+### Custom count
+
+<Canvas>
+  <Story name="Custom count">
+    <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3} count={210}>
+      <Avatar src={person1} tooltipComponent={<Tooltip content="Hadas Fahri" />} />
+      <Avatar src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
+      <Avatar src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
     </AvatarGroup>
   </Story>
 </Canvas>

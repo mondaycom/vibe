@@ -5,7 +5,7 @@ import Avatar from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
 import styles from "./AvatarGroup.module.scss";
 
-const AvatarGroup = ({ className, id, children, size, type, max }) => {
+const AvatarGroup = ({ className, id, children, size, type, max, count }) => {
   if (!children) {
     return null;
   }
@@ -28,9 +28,14 @@ const AvatarGroup = ({ className, id, children, size, type, max }) => {
             />
           );
       })}
-      {children.length > max && (
+      {(children.length > max || count) && (
         // TODO pass size to the counter somehow
-        <Counter color={Counter.colors.LIGHT} count={children.length - max} prefix="+" size={Counter.sizes.LARGE} />
+        <Counter
+          color={Counter.colors.LIGHT}
+          count={count || children.length - max}
+          prefix="+"
+          size={Counter.sizes.LARGE}
+        />
       )}
     </div>
   );
@@ -52,7 +57,8 @@ AvatarGroup.propTypes = {
   //  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL])
   //  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   type: PropTypes.any,
-  max: PropTypes.number
+  max: PropTypes.number,
+  count: PropTypes.number
 };
 AvatarGroup.defaultProps = {
   className: "",
@@ -60,7 +66,8 @@ AvatarGroup.defaultProps = {
   children: undefined,
   size: undefined,
   type: undefined,
-  max: 5
+  max: 5,
+  count: undefined
 };
 
 export default AvatarGroup;
