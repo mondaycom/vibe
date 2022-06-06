@@ -33,7 +33,9 @@ Please write here the component description
 
 <FunctionArguments>
   <FunctionArgument name="options" type="Object">
-    <FunctionArgument name="value" type="any" description={<>Example of required argument.</>} required />
+    <FunctionArgument name="value" type="any" description="Example of required argument." required />
+    <FunctionArgument name="value" type="number" description="Example of non-required number argument." />
+    <FunctionArgument name="value" type="string" description="Example of non-required string argument." />
   </FunctionArgument>
 </FunctionArguments>
 
@@ -41,6 +43,6 @@ Please write here the component description
 
 <FunctionArguments>
   <FunctionArgument name="result" type="Object">
-    <FunctionArgument name="result" type="any" description={<>Hook return value.</>} />
+    <FunctionArgument name="result" type="any" description="Hook return value." />
   </FunctionArgument>
 </FunctionArguments>
