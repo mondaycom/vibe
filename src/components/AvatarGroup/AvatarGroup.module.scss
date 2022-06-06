@@ -1,0 +1,13 @@
+@import "../../styles/themes.scss";
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.avatarContainer {
+  margin-left: -8px;
+  :hover {
+    z-index: 1;
+  }
+}
