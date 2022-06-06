@@ -139,6 +139,7 @@ Avatar.backgroundColors = elementColorsNames;
 Avatar.propTypes = {
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   text: PropTypes.string,
+  // TODO should be smth else
   tooltipComponent: PropTypes.instanceOf(Tooltip),
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),

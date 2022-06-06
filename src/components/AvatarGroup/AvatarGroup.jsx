@@ -6,6 +6,14 @@ import Counter from "../Counter/Counter";
 import styles from "./AvatarGroup.module.scss";
 
 const AvatarGroup = ({ className, id, children, size, type, max }) => {
+  if (!children) {
+    return null;
+  }
+
+  if (!children.length) {
+    children = [children];
+  }
+
   return (
     <div className={cx(styles.container, className)} id={id}>
       {children.map((avatar, index) => {
@@ -21,6 +29,7 @@ const AvatarGroup = ({ className, id, children, size, type, max }) => {
           );
       })}
       {children.length > max && (
+        // TODO pass size to the counter somehow
         <Counter color={Counter.colors.LIGHT} count={children.length - max} prefix="+" size={Counter.sizes.LARGE} />
       )}
     </div>
