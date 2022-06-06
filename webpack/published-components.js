@@ -85,7 +85,8 @@ const publishedComponents = {
   Avatar: "components/Avatar/Avatar.jsx",
   IconButton: "components/IconButton/IconButton.jsx",
   Slider: "components/Slider/Slider.jsx",
-  // hooks
+  // Don't remove next line
+  // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index.js",
   useEventListener: "hooks/useEventListener/index.js",
   useDebounceEvent: "hooks/useDebounceEvent/index.js",
