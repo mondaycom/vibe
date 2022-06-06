@@ -1,19 +1,28 @@
-.monday-loader-component {
+.loaderContainer {
   position: relative;
   height: 100%;
   width: 100%;
 
-  .circle-loader-spinner {
+  .circleLoaderSpinnerBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50%;
+    margin-left: -50%;
+    stroke: var(--primary-background-hover-color);
+  }
+
+  .circleLoaderSpinner {
     animation: rotate 1s linear infinite;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-top: -50%;
     margin-left: -50%;
+    stroke: currentColor;
+    stroke-linecap: round;
 
-    .circle-loader-spinner-path {
-      stroke: currentColor;
-      stroke-linecap: round;
+    .circleLoaderSpinnerPath {
       animation: dash 1s infinite;
     }
   }
