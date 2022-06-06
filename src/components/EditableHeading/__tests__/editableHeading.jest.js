@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { render, cleanup, fireEvent } from "@testing-library/react";
+import { cleanup, fireEvent, render } from "@testing-library/react";
 import EditableHeading from "../EditableHeading";
 import "@testing-library/jest-dom";
 
@@ -55,7 +55,7 @@ describe("EditableHeading", () => {
 
     expect(mockCallback.mock.calls.length).toBe(1);
   });
-  
+
   it("should play the onStartEditing function with params when click on the input element inside the EditableHeading element", () => {
     const mockCallback = jest.fn(x => console.log(x));
     const { getByRole } = render(<EditableHeading onStartEditing={mockCallback} />);
