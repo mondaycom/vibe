@@ -8,7 +8,18 @@ import Flex from "components/Flex/Flex";
 import Clickable from "components/Clickable/Clickable";
 import styles from "./AvatarGroup.module.scss";
 
-const AvatarGroup = ({ className, id, children, size, type, max, count, counterCustomTooltipComponent }) => {
+const AvatarGroup = ({
+  className,
+  id,
+  children,
+  size,
+  type,
+  max,
+  count,
+  counterCustomTooltipComponent,
+  counterMaxDigits,
+  counterPrefix
+}) => {
   const counterTooltipComponent = useMemo(() => {
     if (!children || !children.length) {
       return null;
@@ -43,6 +54,7 @@ const AvatarGroup = ({ className, id, children, size, type, max, count, counterC
         {children.map(avatarRenderer)}
       </Flex>
 
+      // TODO VirtualizedList?
       // <VirtualizedList
       //   className={cx(styles.optionsContainer, className)}
       //   items={children}
@@ -89,6 +101,7 @@ const AvatarGroup = ({ className, id, children, size, type, max, count, counterC
               type={type || avatar.props.type}
               key={`${id}-${index}`}
               className={cx(styles.avatarContainer, avatar.props.className)}
+              withoutBorder
             />
           );
         }
@@ -99,7 +112,8 @@ const AvatarGroup = ({ className, id, children, size, type, max, count, counterC
           <Counter
             color={Counter.colors.LIGHT}
             count={count || children.length - max}
-            prefix="+"
+            prefix={counterPrefix}
+            maxDigits={counterMaxDigits}
             size={Counter.sizes.LARGE}
           />
         </CounterTooltipContainer>
@@ -126,7 +140,9 @@ AvatarGroup.propTypes = {
   type: PropTypes.any,
   max: PropTypes.number,
   count: PropTypes.number,
-  counterCustomTooltipComponent: PropTypes.any
+  counterCustomTooltipComponent: PropTypes.any,
+  counterMaxDigits: PropTypes.number,
+  counterPrefix: PropTypes.string
 };
 AvatarGroup.defaultProps = {
   className: "",
@@ -136,7 +152,9 @@ AvatarGroup.defaultProps = {
   type: undefined,
   max: 5,
   count: undefined,
-  counterCustomTooltipComponent: undefined
+  counterCustomTooltipComponent: undefined,
+  counterMaxDigits: 3,
+  counterPrefix: "+"
 };
 
 export default AvatarGroup;
