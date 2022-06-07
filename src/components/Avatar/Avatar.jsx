@@ -21,7 +21,7 @@ const Avatar = ({
   src,
   icon,
   text,
-  tooltipComponent,
+  tooltipProps,
   role,
   ariaLabel,
   backgroundColor,
@@ -98,11 +98,11 @@ const Avatar = ({
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
   const TooltipContainer = ({ children }) => {
-    if (!tooltipComponent) {
+    if (!tooltipProps) {
       return <>{children}</>;
     }
 
-    return <Tooltip {...tooltipComponent.props}>{children}</Tooltip>;
+    return <Tooltip {...tooltipProps}>{children}</Tooltip>;
   };
 
   return (
@@ -139,9 +139,7 @@ Avatar.backgroundColors = elementColorsNames;
 Avatar.propTypes = {
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   text: PropTypes.string,
-  // TODO should be smth else
-  //  tooltipComponent: PropTypes.instanceOf(Tooltip),
-  tooltipComponent: PropTypes.any,
+  tooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   className: PropTypes.string,
@@ -167,7 +165,7 @@ Avatar.defaultProps = {
   className: "",
   icon: undefined,
   text: undefined,
-  tooltipComponent: undefined,
+  tooltipProps: undefined,
   type: AVATAR_TYPES.TEXT,
   backgroundColor: elementColorsNames.CHILI_BLUE,
   customBackgroundColor: null,

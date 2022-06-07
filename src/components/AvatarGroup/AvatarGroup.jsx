@@ -16,7 +16,7 @@ const AvatarGroup = ({
   type,
   max,
   count,
-  counterCustomTooltipComponent,
+  counterTooltipProps,
   counterMaxDigits,
   counterPrefix
 }) => {
@@ -35,11 +35,11 @@ const AvatarGroup = ({
           <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} className={styles.tooltipAvatarFlexItemContainer}>
             <Avatar
               {...avatar.props}
-              tooltipComponent={undefined}
+              tooltipProps={undefined}
               size={Avatar.sizes.SMALL}
               type={type || avatar.props.type}
             />
-            <div>{avatar.props?.tooltipComponent?.props?.content}</div>
+            <div>{avatar.props?.tooltipProps?.content}</div>
           </Flex>
         </Clickable>
       );
@@ -80,12 +80,12 @@ const AvatarGroup = ({
   }
 
   const CounterTooltipContainer = ({ children }) => {
-    if (!counterTooltipComponent && !counterCustomTooltipComponent) {
+    if (!counterTooltipComponent && !counterTooltipProps) {
       return <>{children}</>;
     }
 
-    if (counterCustomTooltipComponent) {
-      return <Tooltip {...counterCustomTooltipComponent.props}>{children}</Tooltip>;
+    if (counterTooltipProps) {
+      return <Tooltip {...counterTooltipProps}>{children}</Tooltip>;
     }
 
     return (
@@ -146,7 +146,8 @@ AvatarGroup.propTypes = {
   type: PropTypes.any,
   max: PropTypes.number,
   count: PropTypes.number,
-  counterCustomTooltipComponent: PropTypes.any,
+  // counterTooltipProps: PropTypes.shape(Tooltip.propTypes),
+  counterTooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
   counterMaxDigits: PropTypes.number,
   counterPrefix: PropTypes.string
 };
@@ -158,7 +159,7 @@ AvatarGroup.defaultProps = {
   type: undefined,
   max: 5,
   count: undefined,
-  counterCustomTooltipComponent: undefined,
+  counterTooltipProps: undefined,
   counterMaxDigits: 3,
   counterPrefix: "+"
 };
