@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.33.0 (2022-06-07)
+
+#### New Features
+* [#686](https://github.com/mondaycom/monday-ui-react-core/pull/686) Storybook/sergeyro/expand loader ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#689](https://github.com/mondaycom/monday-ui-react-core/pull/689) Feature/sergeyro/hooks plop improve ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.32.0 (2022-05-26)
 
 #### New Features
