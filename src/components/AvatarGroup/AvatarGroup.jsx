@@ -27,7 +27,7 @@ const AvatarGroup = ({
 
     const avatarRenderer = (avatar, index) => {
       if (index < max) {
-        return null;
+        return;
       }
 
       return (
@@ -45,13 +45,19 @@ const AvatarGroup = ({
       );
     };
 
+    const renderedAvatars = children.map(avatarRenderer).filter(a => !!a);
+
+    if (!renderedAvatars.length) {
+      return null;
+    }
+
     return (
       <Flex
         className={cx(styles.scrollableContainer, styles.optionsContainer, styles.tooltipContainer, className)}
         role="treegrid"
         direction={Flex.directions.COLUMN}
       >
-        {children.map(avatarRenderer)}
+        {renderedAvatars}
       </Flex>
 
       // TODO VirtualizedList?
