@@ -140,7 +140,7 @@ const Avatar = ({
               src={src}
               icon={icon}
               text={text}
-              ariaLabel={ariaLabel}
+              ariaLabel={ariaLabel || tooltipProps?.content}
               role={role}
             />
           </div>

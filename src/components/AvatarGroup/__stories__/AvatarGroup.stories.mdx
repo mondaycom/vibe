@@ -4,7 +4,6 @@ import { createStoryMetaSettings } from "../../../storybook/functions/create-com
 import { person1, person2, person3 } from "./assets";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "components/Flex/Flex";
-import Tooltip from "components/Tooltip/Tooltip";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { useState } from "react";
 import Slider from "components/Slider/Slider";
@@ -152,7 +151,7 @@ Tooltip on hover.
       <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
       <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
       <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar text="MR" type={Avatar.types.TEXT} tooltipProps={<Tooltip content="Mark Roytstein" />} />
+      <Avatar text="MR" type={Avatar.types.TEXT} tooltipProps={{ content: "Mark Roytstein" }} />
     </AvatarGroup>
   </Story>
 </Canvas>
