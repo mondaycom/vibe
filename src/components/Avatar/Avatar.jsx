@@ -53,6 +53,8 @@ const Avatar = ({
     return customSize ? { height: `${customSize}px`, width: `${customSize}px` } : {};
   }, [customSize]);
 
+  ariaLabel = ariaLabel || (typeof tooltipProps?.content === "string" ? tooltipProps.content : "");
+
   const badgesContainer = useMemo(() => {
     const badges = [];
     if (!isNil(topLeftBadgeProps)) {
@@ -140,7 +142,7 @@ const Avatar = ({
               src={src}
               icon={icon}
               text={text}
-              ariaLabel={ariaLabel || tooltipProps?.content}
+              ariaLabel={ariaLabel}
               role={role}
             />
           </div>
