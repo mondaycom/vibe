@@ -6,7 +6,7 @@ import Counter from "../Counter/Counter";
 import { Tooltip } from "components";
 import styles from "./AvatarGroup.module.scss";
 
-const AvatarGroup = ({ className, id, children, size, type, max, count }) => {
+const AvatarGroup = ({ className, id, children, size, type, max, count, counterCustomTooltipComponent }) => {
   const counterTooltipText = useMemo(() => {
     if (!children || !children.length) {
       return null;
@@ -32,6 +32,10 @@ const AvatarGroup = ({ className, id, children, size, type, max, count }) => {
   const CounterTooltipContainer = ({ children }) => {
     if (!counterTooltipText) {
       return <>{children}</>;
+    }
+
+    if (counterCustomTooltipComponent) {
+      return <Tooltip {...counterCustomTooltipComponent.props}>{children}</Tooltip>;
     }
 
     return (
@@ -89,7 +93,8 @@ AvatarGroup.propTypes = {
   //  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   type: PropTypes.any,
   max: PropTypes.number,
-  count: PropTypes.number
+  count: PropTypes.number,
+  counterCustomTooltipComponent: PropTypes.any
 };
 AvatarGroup.defaultProps = {
   className: "",
@@ -98,7 +103,8 @@ AvatarGroup.defaultProps = {
   size: undefined,
   type: undefined,
   max: 5,
-  count: undefined
+  count: undefined,
+  counterCustomTooltipComponent: undefined
 };
 
 export default AvatarGroup;
