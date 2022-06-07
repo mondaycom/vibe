@@ -5,7 +5,7 @@ import cx from "classnames";
 import { BEMClass } from "helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { getElementColor, elementColorsNames } from "utils/colors-vars-map";
-import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
+import { AVATAR_SIZES, AVATAR_TEXT_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import "./Avatar.scss";
@@ -16,10 +16,12 @@ const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 const Avatar = ({
   type,
   className,
+  textClassName,
   size,
   src,
   icon,
   text,
+  textSize,
   role,
   ariaLabel,
   backgroundColor,
@@ -112,7 +114,17 @@ const Avatar = ({
         tabIndex={tabIndex}
         style={{ ...backgroundColorStyle, ...sizeStyle }}
       >
-        <AvatarContent type={type} size={size} src={src} icon={icon} text={text} ariaLabel={ariaLabel} role={role} />
+        <AvatarContent
+          type={type}
+          size={size}
+          textSize={textSize}
+          textClassName={textClassName}
+          src={src}
+          icon={icon}
+          text={text}
+          ariaLabel={ariaLabel}
+          role={role}
+        />
       </div>
       {badgesContainer}
     </div>
@@ -121,6 +133,7 @@ const Avatar = ({
 
 Avatar.types = AVATAR_TYPES;
 Avatar.sizes = AVATAR_SIZES;
+Avatar.textSizes = AVATAR_TEXT_SIZES;
 Avatar.colors = elementColorsNames;
 Avatar.backgroundColors = elementColorsNames;
 
@@ -130,6 +143,7 @@ Avatar.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   className: PropTypes.string,
+  textClassName: PropTypes.string,
   backgroundColor: PropTypes.oneOf(Object.values(Avatar.colors)),
   customBackgroundColor: PropTypes.string,
   role: PropTypes.string,
@@ -150,6 +164,7 @@ Avatar.propTypes = {
 Avatar.defaultProps = {
   src: undefined,
   className: "",
+  textClassName: "",
   icon: undefined,
   text: undefined,
   type: AVATAR_TYPES.TEXT,
