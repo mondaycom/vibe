@@ -38,6 +38,9 @@ const AvatarGroup = ({
         return <Clickable onClick={avatar.props.onClick}>{children}</Clickable>;
       };
 
+      const ariaLabel =
+        typeof avatar.props?.tooltipProps?.content === "string" ? avatar.props.tooltipProps.content : undefined;
+
       return (
         <ClickableContainer key={`tooltip-item-${index}`}>
           <div className={styles.tooltipAvatarItemClickableContainer}>
@@ -47,11 +50,7 @@ const AvatarGroup = ({
                 tooltipProps={undefined}
                 size={Avatar.sizes.SMALL}
                 type={type || avatar.props.type}
-                ariaLabel={
-                  typeof avatar.props?.tooltipProps?.content === "string"
-                    ? avatar.props.tooltipProps.content
-                    : undefined
-                }
+                ariaLabel={ariaLabel}
               />
               <div>{avatar.props?.tooltipProps?.content}</div>
             </Flex>
