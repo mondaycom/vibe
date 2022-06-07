@@ -30,7 +30,7 @@ const AvatarGroup = ({ className, id, children, size, type, max, count, counterC
   }
 
   const CounterTooltipContainer = ({ children }) => {
-    if (!counterTooltipText) {
+    if (!counterTooltipText && !counterCustomTooltipComponent) {
       return <>{children}</>;
     }
 
