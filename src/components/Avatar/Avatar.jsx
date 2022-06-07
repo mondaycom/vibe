@@ -9,6 +9,7 @@ import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import { Tooltip } from "components";
+import Clickable from "components/Clickable/Clickable";
 import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
@@ -39,7 +40,8 @@ const Avatar = ({
   bottomRightBadgeProps,
   withoutBorder,
   customSize,
-  customBackgroundColor
+  customBackgroundColor,
+  onClick
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
@@ -105,28 +107,46 @@ const Avatar = ({
     return <Tooltip {...tooltipProps}>{children}</Tooltip>;
   };
 
+  const ClickableContainer = ({ children }) => {
+    if (!onClick) {
+      return <>{children}</>;
+    }
+
+    return <Clickable onClick={onClick}>{children}</Clickable>;
+  };
+
   return (
     <div className={cx(AVATAR_CSS_BASE_CLASS, className)}>
-      <TooltipContainer>
-        <div
-          className={cx(
-            bemHelper({ element: "circle" }),
-            bemHelper({ element: "circle", state: type }),
-            bemHelper({ element: "circle", state: size }),
-            {
-              [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
-              [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare,
-              [bemHelper({ element: "circle", state: "without-border" })]: withoutBorder
-            }
-          )}
-          aria-hidden={ariaHidden}
-          tabIndex={tabIndex}
-          style={{ ...backgroundColorStyle, ...sizeStyle }}
-        >
-          <AvatarContent type={type} size={size} src={src} icon={icon} text={text} ariaLabel={ariaLabel} role={role} />
-        </div>
-        {badgesContainer}
-      </TooltipContainer>
+      <ClickableContainer>
+        <TooltipContainer>
+          <div
+            className={cx(
+              bemHelper({ element: "circle" }),
+              bemHelper({ element: "circle", state: type }),
+              bemHelper({ element: "circle", state: size }),
+              {
+                [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
+                [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare,
+                [bemHelper({ element: "circle", state: "without-border" })]: withoutBorder
+              }
+            )}
+            aria-hidden={ariaHidden}
+            tabIndex={tabIndex}
+            style={{ ...backgroundColorStyle, ...sizeStyle }}
+          >
+            <AvatarContent
+              type={type}
+              size={size}
+              src={src}
+              icon={icon}
+              text={text}
+              ariaLabel={ariaLabel}
+              role={role}
+            />
+          </div>
+          {badgesContainer}
+        </TooltipContainer>
+      </ClickableContainer>
     </div>
   );
 };
@@ -157,7 +177,8 @@ Avatar.propTypes = {
   topRightBadgeProps: PropTypes.object,
   bottomLeftBadgeProps: PropTypes.object,
   bottomRightBadgeProps: PropTypes.object,
-  withoutBorder: PropTypes.bool
+  withoutBorder: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 Avatar.defaultProps = {
@@ -181,7 +202,8 @@ Avatar.defaultProps = {
   topRightBadgeProps: undefined,
   bottomLeftBadgeProps: undefined,
   bottomRightBadgeProps: undefined,
-  withoutBorder: false
+  withoutBorder: false,
+  onClick: undefined
 };
 
 export default Avatar;

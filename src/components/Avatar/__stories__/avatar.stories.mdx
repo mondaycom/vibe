@@ -3,9 +3,11 @@ import { createComponentTemplate, createStoryMetaSettings } from "../../../story
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { CHIP, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { WhatsNew } from "../../Icon/Icons";
-import { MultipleStoryElementsWrapper } from "../../../storybook/components";
+import { ComponentRules, MultipleStoryElementsWrapper, RelatedComponents } from "../../../storybook/components";
 import Tooltip from "../../Tooltip/Tooltip";
+import { Counter, Flex } from "components";
 import { femaleIcon, guest, home, maleIcon, minus, owner, person1, person2, person3 } from "./assets";
+import { useState } from "react";
 import "./avatar.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -226,6 +228,32 @@ Use to display tooltip on onHover Avatar event.
       tooltipProps={<Tooltip content="Hadas Farhi" position={Tooltip.positions.BOTTOM}/>}
       ariaLabel={"Hadas Fahri"}
     />
+  </Story>
+</Canvas>
+
+### Clickable avatar
+Use to manage callback on onClick Avatar event.
+<Canvas>
+  <Story name="Clickable avatar">
+    {() => {
+      const [count, setCount] = useState(0);
+      const incrementCount = () => {
+        setCount(prevState => prevState + 1);
+      }
+      return (
+        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
+          <Avatar
+            size={Avatar.sizes.LARGE}
+            type={Avatar.types.IMG}
+            src={person1}
+            tooltipProps={{content: "Hadas Fahri"}}
+            ariaLabel={"Hadas Fahri"}
+            onClick={incrementCount}
+          />
+          <Counter count={count}/>
+        </Flex>
+      );
+    }}
   </Story>
 </Canvas>
 
