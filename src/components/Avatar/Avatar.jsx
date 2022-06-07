@@ -53,7 +53,7 @@ const Avatar = ({
     return customSize ? { height: `${customSize}px`, width: `${customSize}px` } : {};
   }, [customSize]);
 
-  ariaLabel = ariaLabel || (typeof tooltipProps?.content === "string" ? tooltipProps.content : "");
+  ariaLabel = ariaLabel || (typeof tooltipProps?.content === "string" ? tooltipProps.content : undefined);
 
   const badgesContainer = useMemo(() => {
     const badges = [];
