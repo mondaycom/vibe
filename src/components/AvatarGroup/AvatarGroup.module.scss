@@ -1,4 +1,5 @@
 @import "../../styles/themes.scss";
+@import "../../styles/states";
 
 .container {
   display: flex;
@@ -11,4 +12,32 @@
   :hover {
     z-index: 1;
   }
+}
+
+.tooltipContainer {
+  max-height: 300px;
+  padding-right: var(--spacing-medium);
+  align-items: flex-start !important;
+}
+
+.scrollableContainer {
+  @include scroller;
+}
+
+.optionsContainer {
+  overflow-x: visible;
+  overflow-y: auto;
+  margin-top: var(--spacing-small);
+}
+
+.tooltipAvatarItemClickableContainer {
+  :hover {
+    background: var(--primary-background-hover-color);
+    color: var(--primary-text-color);
+  }
+  width: 100%;
+}
+
+.tooltipAvatarFlexItemContainer {
+  margin-bottom: var(--spacing-small);
 }

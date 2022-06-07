@@ -3,23 +3,55 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import Avatar from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
-import { Tooltip } from "components";
+import Tooltip from "components/Tooltip/Tooltip";
+import Flex from "components/Flex/Flex";
+import Clickable from "components/Clickable/Clickable";
 import styles from "./AvatarGroup.module.scss";
 
 const AvatarGroup = ({ className, id, children, size, type, max, count, counterCustomTooltipComponent }) => {
-  const counterTooltipText = useMemo(() => {
+  const counterTooltipComponent = useMemo(() => {
     if (!children || !children.length) {
       return null;
     }
 
-    let text = "";
-    for (let i = max; i < children.length; ++i) {
-      if (children[i].props.tooltipComponent) {
-        text += children[i].props.tooltipComponent.props.content + "\n";
+    const avatarRenderer = (avatar, index) => {
+      if (index < max) {
+        return null;
       }
-    }
-    return text;
-  }, [children, max]);
+
+      return (
+        <Clickable className={styles.tooltipAvatarItemClickableContainer} key={`tooltip-item-${index}`}>
+          <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} className={styles.tooltipAvatarFlexItemContainer}>
+            <Avatar
+              {...avatar.props}
+              tooltipComponent={undefined}
+              size={Avatar.sizes.SMALL}
+              type={type || avatar.props.type}
+            />
+            <div>{avatar.props?.tooltipComponent?.props?.content}</div>
+          </Flex>
+        </Clickable>
+      );
+    };
+
+    return (
+      <Flex
+        className={cx(styles.scrollableContainer, styles.optionsContainer, styles.tooltipContainer, className)}
+        role="treegrid"
+        direction={Flex.directions.COLUMN}
+      >
+        {children.map(avatarRenderer)}
+      </Flex>
+
+      // <VirtualizedList
+      //   className={cx(styles.optionsContainer, className)}
+      //   items={children}
+      //   itemRenderer={avatarRenderer}
+      //   role="treegrid"
+      //   scrollableClassName={styles.scrollableContainer}
+      // />
+    );
+  }, [children, className, max, type]);
 
   if (!children) {
     return null;
@@ -30,7 +62,7 @@ const AvatarGroup = ({ className, id, children, size, type, max, count, counterC
   }
 
   const CounterTooltipContainer = ({ children }) => {
-    if (!counterTooltipText && !counterCustomTooltipComponent) {
+    if (!counterTooltipComponent && !counterCustomTooltipComponent) {
       return <>{children}</>;
     }
 
@@ -40,7 +72,7 @@ const AvatarGroup = ({ className, id, children, size, type, max, count, counterC
 
     return (
       // TODO disable hide on timer in Tooltip
-      <Tooltip content={counterTooltipText} hideDelay={10000000}>
+      <Tooltip content={counterTooltipComponent} hideDelay={10000000}>
         {children}
       </Tooltip>
     );
