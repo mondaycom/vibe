@@ -30,18 +30,33 @@ const AvatarGroup = ({
         return;
       }
 
+      const ClickableContainer = ({ children }) => {
+        if (!avatar.props.onClick) {
+          return <>{children}</>;
+        }
+
+        return <Clickable onClick={avatar.props.onClick}>{children}</Clickable>;
+      };
+
       return (
-        <Clickable className={styles.tooltipAvatarItemClickableContainer} key={`tooltip-item-${index}`}>
-          <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} className={styles.tooltipAvatarFlexItemContainer}>
-            <Avatar
-              {...avatar.props}
-              tooltipProps={undefined}
-              size={Avatar.sizes.SMALL}
-              type={type || avatar.props.type}
-            />
-            <div>{avatar.props?.tooltipProps?.content}</div>
-          </Flex>
-        </Clickable>
+        <ClickableContainer key={`tooltip-item-${index}`}>
+          <div className={styles.tooltipAvatarItemClickableContainer}>
+            <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} className={styles.tooltipAvatarFlexItemContainer}>
+              <Avatar
+                {...avatar.props}
+                tooltipProps={undefined}
+                size={Avatar.sizes.SMALL}
+                type={type || avatar.props.type}
+                ariaLabel={
+                  typeof avatar.props?.tooltipProps?.content === "string"
+                    ? avatar.props.tooltipProps.content
+                    : undefined
+                }
+              />
+              <div>{avatar.props?.tooltipProps?.content}</div>
+            </Flex>
+          </div>
+        </ClickableContainer>
       );
     };
 
