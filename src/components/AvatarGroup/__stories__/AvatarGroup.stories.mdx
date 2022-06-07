@@ -6,6 +6,8 @@ import Avatar from "../../Avatar/Avatar";
 import Flex from "components/Flex/Flex";
 import Tooltip from "components/Tooltip/Tooltip";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import { useState } from "react";
+import Slider from "components/Slider/Slider";
 import "./AvatarGroup.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -25,6 +27,7 @@ export const metaSettings = createStoryMetaSettings({
 <!--- Component documentation -->
 
 # AvatarGroup
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -33,7 +36,9 @@ export const metaSettings = createStoryMetaSettings({
 - [Feedback](#feedback)
 
 ## Overview
+
 Please write here the component description
+
 <Canvas>
   <Story name="Overview">
     <AvatarGroup size={Avatar.sizes.SMALL}>
@@ -49,15 +54,19 @@ Please write here the component description
 </Canvas>
 
 ## Props
+
 <ArgsTable of={AvatarGroup} />
 
 ## Usage
+
 <UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
 
 ## Variants
 
 ### Size
+
 As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
+
 <Canvas>
   <Story name="Size">
     <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE}>
@@ -98,65 +107,74 @@ As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
 ## Use cases and examples
 
 ### Hover
+
 Tooltip on hover.
+
 <Canvas>
   <Story name="Hover">
     <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
       <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Hadas Fahri" />} />
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar text="MR" type={Avatar.types.TEXT} tooltipComponent={<Tooltip content="Mark Roytstein" />}/>
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar text="MR" type={Avatar.types.TEXT} tooltipComponent={<Tooltip content="Mark Roytstein" />} />
     </AvatarGroup>
   </Story>
 </Canvas>
 
 ### Custom hover
+
 Custom hover
+
 <Canvas>
   <Story name="Custom hover">
-    <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3} counterCustomTooltipComponent={<Tooltip content="... and plenty of more employees" />}>
+    <AvatarGroup
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.IMG}
+      max={3}
+      counterCustomTooltipComponent={<Tooltip content="... and plenty of more employees" />}
+    >
       <Avatar src={person1} tooltipComponent={<Tooltip content="Hadas Fahri" />} />
-      <Avatar src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
-      <Avatar src={person1} tooltipComponent={<Tooltip content="Person 1" />}/>
-      <Avatar src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
+      <Avatar src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+      <Avatar src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+      <Avatar src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
     </AvatarGroup>
   </Story>
 </Canvas>
@@ -167,8 +185,41 @@ Custom hover
   <Story name="Custom count">
     <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3} count={210}>
       <Avatar src={person1} tooltipComponent={<Tooltip content="Hadas Fahri" />} />
-      <Avatar src={person2} tooltipComponent={<Tooltip content="Person 2" />}/>
-      <Avatar src={person3} tooltipComponent={<Tooltip content="Person 3" />}/>
+      <Avatar src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+      <Avatar src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
     </AvatarGroup>
+  </Story>
+</Canvas>
+
+### Slider count
+
+<Canvas>
+  <Story name="Slider count">
+    {() => {
+      const [max, setMax] = useState(3);
+      return (
+        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM} className="monday-storybook-avatar-group__slider-count-container">
+          <Slider size={Slider.sizes.LARGE} min={1} max={16} defaultValue={max} onChange={value => setMax(value)} prefix="0" postfix="16" valueText={`${max}`} />
+          <AvatarGroup size={Avatar.sizes.LARGE} max={max}>
+            <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+            <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+            <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+            <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+            <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+            <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+            <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+            <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+            <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+            <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+            <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+            <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+            <Avatar type={Avatar.types.IMG} src={person1} tooltipComponent={<Tooltip content="Person 1" />} />
+            <Avatar type={Avatar.types.IMG} src={person2} tooltipComponent={<Tooltip content="Person 2" />} />
+            <Avatar type={Avatar.types.IMG} src={person3} tooltipComponent={<Tooltip content="Person 3" />} />
+            <Avatar text="MR" type={Avatar.types.TEXT} tooltipComponent={<Tooltip content="Mark Roytstein" />} />
+          </AvatarGroup>
+        </Flex>
+      );
+    }}
   </Story>
 </Canvas>
