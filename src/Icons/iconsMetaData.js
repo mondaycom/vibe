@@ -1316,6 +1316,13 @@ export const iconsMetaData = [
   },
 
   {
+    name: "RecycleBin",
+    file: "RecycleBin.svg",
+    description: "Recycle bin",
+    tags: "Recycle bin, Trash, Recycle, Bin"
+  },
+
+  {
     name: "Redo",
     file: "Redo.svg",
     description: "Redo",
