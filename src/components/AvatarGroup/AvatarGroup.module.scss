@@ -1,3 +1,5 @@
+@import "src/components/Avatar/Avatar.scss";
+
 .container {
   display: flex;
   flex-direction: row;
@@ -9,6 +11,33 @@
   margin-left: -8px;
   // TODO customize spacing
   :hover {
-    z-index: 1;
+    z-index: 2;
+  }
+}
+
+.counterContainer {
+  background: var(--primary-background-hover-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -8px;
+  z-index: 1;
+
+  &.small {
+    height: $avatar-size-small ;
+    width: $avatar-size-small ;
+    border-radius: $avatar-size-small / 2;
+  }
+
+  &.medium {
+    height: $avatar-size-medium;
+    width: $avatar-size-medium;
+    border-radius: $avatar-size-medium / 2;
+  }
+
+  &.large {
+    height: $avatar-size-large;
+    width: $avatar-size-large;
+    border-radius: $avatar-size-large / 2;
   }
 }

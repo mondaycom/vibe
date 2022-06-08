@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Avatar from "../Avatar/Avatar";
@@ -20,6 +20,20 @@ const AvatarGroup = ({
   counterMaxDigits,
   counterPrefix
 }) => {
+  const getCounterSizeStyle = useCallback(() => {
+    switch (size || children[0]?.props?.size) {
+      case Avatar.sizes.SMALL:
+        return styles.small;
+      case Avatar.sizes.MEDIUM:
+        return styles.medium;
+      case Avatar.sizes.LARGE:
+        return styles.large;
+      default:
+        return styles.medium;
+    }
+  }, [children, size]);
+  const counterSizeStyle = getCounterSizeStyle();
+
   if (!children) {
     return null;
   }
@@ -45,7 +59,6 @@ const AvatarGroup = ({
         }
       })}
       {(children.length > max || count) && (
-        // TODO pass size to the counter
         <AvatarGroupCounterTooltipContainer
           avatars={children}
           counterTooltipProps={counterTooltipProps}
@@ -53,13 +66,14 @@ const AvatarGroup = ({
           type={type}
           max={max}
         >
-          <Counter
-            color={Counter.colors.LIGHT}
-            count={count || children.length - max}
-            prefix={counterPrefix}
-            maxDigits={counterMaxDigits}
-            size={Counter.sizes.LARGE}
-          />
+          <div className={cx(styles.counterContainer, counterSizeStyle)}>
+            <Counter
+              color={Counter.colors.LIGHT}
+              count={count || children.length - max}
+              prefix={counterPrefix}
+              maxDigits={counterMaxDigits}
+            />
+          </div>
         </AvatarGroupCounterTooltipContainer>
       )}
     </div>
