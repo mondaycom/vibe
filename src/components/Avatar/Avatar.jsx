@@ -5,7 +5,7 @@ import cx from "classnames";
 import { BEMClass } from "helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import { getElementColor, elementColorsNames } from "utils/colors-vars-map";
-import { AVATAR_SIZES, AVATAR_TEXT_SIZES, AVATAR_TYPES } from "./AvatarConstants";
+import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import "./Avatar.scss";
@@ -133,7 +133,6 @@ const Avatar = ({
 
 Avatar.types = AVATAR_TYPES;
 Avatar.sizes = AVATAR_SIZES;
-Avatar.textSizes = AVATAR_TEXT_SIZES;
 Avatar.colors = elementColorsNames;
 Avatar.backgroundColors = elementColorsNames;
 
