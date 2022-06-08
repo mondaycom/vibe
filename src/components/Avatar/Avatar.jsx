@@ -16,6 +16,7 @@ const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 const Avatar = ({
   type,
   className,
+  textClassName,
   size,
   src,
   icon,
@@ -112,7 +113,16 @@ const Avatar = ({
         tabIndex={tabIndex}
         style={{ ...backgroundColorStyle, ...sizeStyle }}
       >
-        <AvatarContent type={type} size={size} src={src} icon={icon} text={text} ariaLabel={ariaLabel} role={role} />
+        <AvatarContent
+          type={type}
+          size={size}
+          textClassName={textClassName}
+          src={src}
+          icon={icon}
+          text={text}
+          ariaLabel={ariaLabel}
+          role={role}
+        />
       </div>
       {badgesContainer}
     </div>
@@ -130,6 +140,7 @@ Avatar.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   className: PropTypes.string,
+  textClassName: PropTypes.string,
   backgroundColor: PropTypes.oneOf(Object.values(Avatar.colors)),
   customBackgroundColor: PropTypes.string,
   role: PropTypes.string,
@@ -150,6 +161,7 @@ Avatar.propTypes = {
 Avatar.defaultProps = {
   src: undefined,
   className: "",
+  textClassName: "",
   icon: undefined,
   text: undefined,
   type: AVATAR_TYPES.TEXT,
