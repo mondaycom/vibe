@@ -21,7 +21,6 @@ const Avatar = ({
   src,
   icon,
   text,
-  textSize,
   role,
   ariaLabel,
   backgroundColor,
@@ -117,7 +116,6 @@ const Avatar = ({
         <AvatarContent
           type={type}
           size={size}
-          textSize={textSize}
           textClassName={textClassName}
           src={src}
           icon={icon}
