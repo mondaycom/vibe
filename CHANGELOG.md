@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.33.1 (2022-06-08)
+
+#### Internal Changes
+* [#692](https://github.com/mondaycom/monday-ui-react-core/pull/692) update version of storybook ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Icons
+* [#691](https://github.com/mondaycom/monday-ui-react-core/pull/691) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.33.0 (2022-06-07)
 
 #### New Features
