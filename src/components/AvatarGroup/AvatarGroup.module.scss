@@ -23,9 +23,14 @@
   margin-left: -8px;
   z-index: 1;
 
+  &:focus {
+    outline: none;
+    @include focus-style(50%);
+  }
+
   &.small {
-    height: $avatar-size-small ;
-    width: $avatar-size-small ;
+    height: $avatar-size-small;
+    width: $avatar-size-small;
     border-radius: $avatar-size-small / 2;
   }
 

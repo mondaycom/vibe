@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import Avatar from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
-import Tooltip from "components/Tooltip/Tooltip";
+import Tooltip from "../Tooltip/Tooltip";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
-import { AVATAR_SIZES, AVATAR_TYPES } from "components/Avatar/AvatarConstants";
 import styles from "./AvatarGroup.module.scss";
 
 const AvatarGroup = ({
@@ -66,7 +65,9 @@ const AvatarGroup = ({
           type={type}
           max={max}
         >
-          <div className={cx(styles.counterContainer, counterSizeStyle)}>
+          {/*TODO should be focusable?*/}
+          {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+          <div className={cx(styles.counterContainer, counterSizeStyle)} tabIndex={0}>
             <Counter
               color={Counter.colors.LIGHT}
               count={count || children.length - max}
@@ -87,11 +88,8 @@ AvatarGroup.propTypes = {
    * Array of Avatar components
    */
   children: PropTypes.arrayOf(PropTypes.element),
-  // TODO "Uncaught TypeError: Cannot read properties of undefined (reading 'types')" why??
-  //  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL])
-  //  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
-  size: PropTypes.oneOf([AVATAR_SIZES.SMALL, AVATAR_SIZES.MEDIUM, AVATAR_SIZES.LARGE]),
-  type: PropTypes.oneOf([AVATAR_TYPES.TEXT, AVATAR_TYPES.ICON, AVATAR_TYPES.IMG]),
+  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
+  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   max: PropTypes.number,
   count: PropTypes.number,
   /**

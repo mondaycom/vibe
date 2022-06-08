@@ -8,7 +8,7 @@ import { elementColorsNames, getElementColor } from "utils/colors-vars-map";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
-import { Tooltip } from "components";
+import Tooltip from "../Tooltip/Tooltip";
 import Clickable from "components/Clickable/Clickable";
 import "./Avatar.scss";
 
