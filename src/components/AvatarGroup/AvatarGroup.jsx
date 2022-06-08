@@ -4,7 +4,8 @@ import cx from "classnames";
 import Avatar from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
 import Tooltip from "components/Tooltip/Tooltip";
-import { AvatarGroupCounterTooltipContainer } from "./AvatarGroupCounterTooltipContainer";
+import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
+import { AVATAR_SIZES, AVATAR_TYPES } from "components/Avatar/AvatarConstants";
 import styles from "./AvatarGroup.module.scss";
 
 const AvatarGroup = ({
@@ -66,23 +67,19 @@ const AvatarGroup = ({
 };
 
 AvatarGroup.propTypes = {
-  /**
-   * class name to be add to the wrapper
-   */
   className: PropTypes.string,
-  /**
-   * id to be add to the wrapper
-   */
   id: PropTypes.string,
-  // children: PropTypes.arrayOf(Avatar)
-  children: PropTypes.arrayOf(PropTypes.any),
-  size: PropTypes.any,
+  // TODO instance of Avatar
+  // children: PropTypes.arrayOf(PropTypes.instanceOf(Avatar)),
+  children: PropTypes.arrayOf(PropTypes.element),
   // TODO "Uncaught TypeError: Cannot read properties of undefined (reading 'types')" why??
   //  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL])
   //  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
-  type: PropTypes.any,
+  size: PropTypes.oneOf([AVATAR_SIZES.SMALL, AVATAR_SIZES.MEDIUM, AVATAR_SIZES.LARGE]),
+  type: PropTypes.oneOf([AVATAR_TYPES.TEXT, AVATAR_TYPES.ICON, AVATAR_TYPES.IMG]),
   max: PropTypes.number,
   count: PropTypes.number,
+  // TODO Tooltip.propTypes
   // counterTooltipProps: PropTypes.shape(Tooltip.propTypes),
   counterTooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
   counterMaxDigits: PropTypes.number,

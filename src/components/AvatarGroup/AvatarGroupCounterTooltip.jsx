@@ -3,9 +3,11 @@ import Clickable from "../Clickable/Clickable";
 import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
 import cx from "classnames";
+import PropTypes from "prop-types";
+import { AVATAR_TYPES } from "components/Avatar/AvatarConstants";
 import styles from "./AvatarGroupCounterTooltip.module.scss";
 
-export const AvatarGroupCounterTooltip = ({ children, max, type, className }) => {
+const AvatarGroupCounterTooltip = ({ children, max, type, className }) => {
   const avatarRenderer = (avatar, index) => {
     if (index < max) {
       return;
@@ -69,3 +71,18 @@ export const AvatarGroupCounterTooltip = ({ children, max, type, className }) =>
     // />
   );
 };
+
+AvatarGroupCounterTooltip.propTypes = {
+  className: PropTypes.string,
+  type: PropTypes.oneOf([AVATAR_TYPES.TEXT, AVATAR_TYPES.ICON, AVATAR_TYPES.IMG]),
+  max: PropTypes.number,
+  children: PropTypes.arrayOf(PropTypes.element)
+};
+AvatarGroupCounterTooltip.defaultProps = {
+  className: undefined,
+  type: undefined,
+  max: undefined,
+  children: []
+};
+
+export default AvatarGroupCounterTooltip;

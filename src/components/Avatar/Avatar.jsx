@@ -182,7 +182,6 @@ Avatar.propTypes = {
   withoutBorder: PropTypes.bool,
   onClick: PropTypes.func
 };
-
 Avatar.defaultProps = {
   src: undefined,
   className: "",
