@@ -128,7 +128,9 @@ export default class Tooltip extends React.PureComponent {
       animationType: "expand",
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
-      getDynamicShowDelay: this.getShowDelay
+      getDynamicShowDelay: this.getShowDelay,
+      showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
+      hideTrigger: Dialog.hideShowTriggers.CLICK_OUTSIDE
     };
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }
@@ -156,7 +158,9 @@ Tooltip.defaultProps = {
   hideWhenReferenceHidden: false,
   onTooltipHide: null,
   onTooltipShow: null,
-  modifiers: []
+  modifiers: [],
+  showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
+  hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE
 };
 
 Tooltip.propTypes = {
@@ -180,5 +184,15 @@ Tooltip.propTypes = {
   /**
    * [PopperJS Modifiers](https://popper.js.org/docs/v2/modifiers/) type.
    */
-  modifiers: PropTypes.array
+  modifiers: PropTypes.array,
+  /**
+   * an array of hide/show trigger -
+   * Dialog.hideShowTriggers
+   */
+  showTrigger: PropTypes.any,
+  /**
+   * an array of hide/show trigger -
+   * Dialog.hideShowTriggers
+   */
+  hideTrigger: PropTypes.any
 };
