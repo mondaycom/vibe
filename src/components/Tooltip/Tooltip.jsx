@@ -107,7 +107,19 @@ export default class Tooltip extends React.PureComponent {
   }
 
   render() {
-    const { withoutDialog, moveBy, justify, children, getContainer, theme, paddingSize, tip } = this.props;
+    const {
+      withoutDialog,
+      moveBy,
+      justify,
+      children,
+      getContainer,
+      theme,
+      paddingSize,
+      tip,
+      showTrigger,
+      hideTrigger,
+      showOnDialogEnter
+    } = this.props;
 
     if (!children) {
       return null;
@@ -129,8 +141,9 @@ export default class Tooltip extends React.PureComponent {
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
       getDynamicShowDelay: this.getShowDelay,
-      showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
-      hideTrigger: Dialog.hideShowTriggers.CLICK_OUTSIDE
+      showTrigger,
+      hideTrigger,
+      showOnDialogEnter
     };
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }
@@ -172,7 +185,8 @@ Tooltip.propTypes = {
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers
    */
-  hideTrigger: PropTypes.any
+  hideTrigger: PropTypes.any,
+  showOnDialogEnter: PropTypes.bool
 };
 
 Tooltip.defaultProps = {
@@ -195,5 +209,6 @@ Tooltip.defaultProps = {
   onTooltipShow: null,
   modifiers: [],
   showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
-  hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE
+  hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE,
+  showOnDialogEnter: false
 };

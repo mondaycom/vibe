@@ -3,7 +3,6 @@ import Tooltip from "../Tooltip/Tooltip";
 import AvatarGroupCounterTooltip from "../AvatarGroup/AvatarGroupCounterTooltip";
 import Avatar from "../Avatar/Avatar";
 import PropTypes from "prop-types";
-import { Dialog } from "components";
 
 const AvatarGroupCounterTooltipContainer = ({ children, avatars, counterTooltipProps, max, type, className }) => {
   const counterTooltipComponent = useMemo(() => {
@@ -19,11 +18,7 @@ const AvatarGroupCounterTooltipContainer = ({ children, avatars, counterTooltipP
   }
 
   return (
-    <Tooltip
-      content={counterTooltipComponent}
-      showTrigger={Dialog.hideShowTriggers.MOUSE_ENTER}
-      hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE}
-    >
+    <Tooltip content={counterTooltipComponent} showOnDialogEnter hideDelay={200}>
       {children}
     </Tooltip>
   );
