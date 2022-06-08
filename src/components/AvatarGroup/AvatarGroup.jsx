@@ -1,11 +1,10 @@
-import React, { useMemo } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Avatar from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
 import Tooltip from "components/Tooltip/Tooltip";
-import Flex from "components/Flex/Flex";
-import Clickable from "components/Clickable/Clickable";
+import { AvatarGroupCounterTooltipContainer } from "./AvatarGroupCounterTooltipContainer";
 import styles from "./AvatarGroup.module.scss";
 
 const AvatarGroup = ({
@@ -20,71 +19,6 @@ const AvatarGroup = ({
   counterMaxDigits,
   counterPrefix
 }) => {
-  const counterTooltipComponent = useMemo(() => {
-    if (!children || !children.length) {
-      return null;
-    }
-
-    const avatarRenderer = (avatar, index) => {
-      if (index < max) {
-        return;
-      }
-
-      const ClickableContainer = ({ children }) => {
-        if (!avatar.props.onClick) {
-          return <>{children}</>;
-        }
-
-        return <Clickable onClick={avatar.props.onClick}>{children}</Clickable>;
-      };
-
-      const ariaLabel =
-        typeof avatar.props?.tooltipProps?.content === "string" ? avatar.props.tooltipProps.content : undefined;
-
-      return (
-        <ClickableContainer key={`tooltip-item-${index}`}>
-          <div className={styles.tooltipAvatarItemClickableContainer}>
-            <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} className={styles.tooltipAvatarFlexItemContainer}>
-              <Avatar
-                {...avatar.props}
-                tooltipProps={undefined}
-                size={Avatar.sizes.SMALL}
-                type={type || avatar.props.type}
-                ariaLabel={ariaLabel}
-              />
-              <div>{avatar.props?.tooltipProps?.content}</div>
-            </Flex>
-          </div>
-        </ClickableContainer>
-      );
-    };
-
-    const renderedAvatars = children.map(avatarRenderer).filter(a => !!a);
-
-    if (!renderedAvatars.length) {
-      return null;
-    }
-
-    return (
-      <Flex
-        className={cx(styles.scrollableContainer, styles.optionsContainer, styles.tooltipContainer, className)}
-        role="treegrid"
-        direction={Flex.directions.COLUMN}
-      >
-        {renderedAvatars}
-      </Flex>
-
-      // TODO VirtualizedList?
-      // <VirtualizedList
-      //   className={cx(styles.optionsContainer, className)}
-      //   items={children}
-      //   itemRenderer={avatarRenderer}
-      //   role="treegrid"
-      //   scrollableClassName={styles.scrollableContainer}
-      // />
-    );
-  }, [children, className, max, type]);
-
   if (!children) {
     return null;
   }
@@ -92,23 +26,6 @@ const AvatarGroup = ({
   if (!children.length) {
     children = [children];
   }
-
-  const CounterTooltipContainer = ({ children }) => {
-    if (!counterTooltipComponent && !counterTooltipProps) {
-      return <>{children}</>;
-    }
-
-    if (counterTooltipProps) {
-      return <Tooltip {...counterTooltipProps}>{children}</Tooltip>;
-    }
-
-    return (
-      // TODO disable hide on timer in Tooltip
-      <Tooltip content={counterTooltipComponent} hideDelay={10000000}>
-        {children}
-      </Tooltip>
-    );
-  };
 
   return (
     <div className={cx(styles.container, className)} id={id}>
@@ -128,7 +45,13 @@ const AvatarGroup = ({
       })}
       {(children.length > max || count) && (
         // TODO pass size to the counter
-        <CounterTooltipContainer>
+        <AvatarGroupCounterTooltipContainer
+          avatars={children}
+          counterTooltipProps={counterTooltipProps}
+          className={className}
+          type={type}
+          max={max}
+        >
           <Counter
             color={Counter.colors.LIGHT}
             count={count || children.length - max}
@@ -136,7 +59,7 @@ const AvatarGroup = ({
             maxDigits={counterMaxDigits}
             size={Counter.sizes.LARGE}
           />
-        </CounterTooltipContainer>
+        </AvatarGroupCounterTooltipContainer>
       )}
     </div>
   );
