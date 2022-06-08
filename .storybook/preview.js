@@ -1,4 +1,3 @@
-import { parameters } from "@storybook/addon-docs/dist/esm/frameworks/react/config";
 import { addParameters } from "@storybook/react";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs";
 import {
@@ -24,7 +23,6 @@ addParameters({
     sort: "requiredFirst"
   },
   docs: {
-    ...parameters.docs,
     inlineStories: true,
     container: ({ children, context }) => (
       <DocsContainer context={context}>
