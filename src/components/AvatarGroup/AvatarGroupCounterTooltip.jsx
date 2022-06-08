@@ -76,6 +76,9 @@ AvatarGroupCounterTooltip.propTypes = {
   className: PropTypes.string,
   type: PropTypes.oneOf([AVATAR_TYPES.TEXT, AVATAR_TYPES.ICON, AVATAR_TYPES.IMG]),
   max: PropTypes.number,
+  /**
+   * Array of Avatar components
+   */
   children: PropTypes.arrayOf(PropTypes.element)
 };
 AvatarGroupCounterTooltip.defaultProps = {

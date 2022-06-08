@@ -69,8 +69,9 @@ const AvatarGroup = ({
 AvatarGroup.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
-  // TODO instance of Avatar
-  // children: PropTypes.arrayOf(PropTypes.instanceOf(Avatar)),
+  /**
+   * Array of Avatar components
+   */
   children: PropTypes.arrayOf(PropTypes.element),
   // TODO "Uncaught TypeError: Cannot read properties of undefined (reading 'types')" why??
   //  size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL])
@@ -79,8 +80,9 @@ AvatarGroup.propTypes = {
   type: PropTypes.oneOf([AVATAR_TYPES.TEXT, AVATAR_TYPES.ICON, AVATAR_TYPES.IMG]),
   max: PropTypes.number,
   count: PropTypes.number,
-  // TODO Tooltip.propTypes
-  // counterTooltipProps: PropTypes.shape(Tooltip.propTypes),
+  /**
+   * Tooltip.propTypes
+   */
   counterTooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
   counterMaxDigits: PropTypes.number,
   counterPrefix: PropTypes.string

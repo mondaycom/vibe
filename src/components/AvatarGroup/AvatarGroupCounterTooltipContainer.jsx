@@ -29,7 +29,13 @@ AvatarGroupCounterTooltipContainer.propTypes = {
   className: PropTypes.string,
   type: PropTypes.oneOf([AVATAR_TYPES.TEXT, AVATAR_TYPES.ICON, AVATAR_TYPES.IMG]),
   max: PropTypes.number,
+  /**
+   * Counter element
+   */
   children: PropTypes.element,
+  /**
+   * Array of Avatar elements
+   */
   avatars: PropTypes.arrayOf(PropTypes.element),
   counterTooltipProps: PropTypes.shape({ ...Tooltip.propTypes })
 };

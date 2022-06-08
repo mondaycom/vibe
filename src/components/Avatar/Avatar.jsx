@@ -180,6 +180,9 @@ Avatar.propTypes = {
   bottomLeftBadgeProps: PropTypes.object,
   bottomRightBadgeProps: PropTypes.object,
   withoutBorder: PropTypes.bool,
+  /**
+   * (event) => void
+   */
   onClick: PropTypes.func
 };
 Avatar.defaultProps = {

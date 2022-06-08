@@ -250,8 +250,6 @@ Use to manage callback on onClick Avatar event.
     {() => {
       const [count, setCount] = useState(0);
       const incrementCount = e => {
-        // TODO should console logging be in a storybook?
-        // console.log(e.target);
         setCount(prevState => prevState + 1);
       };
       return (
