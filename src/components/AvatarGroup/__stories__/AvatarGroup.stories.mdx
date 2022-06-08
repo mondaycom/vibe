@@ -39,14 +39,13 @@ Please write here the component description
 
 <Canvas>
   <Story name="Overview">
-    <AvatarGroup size={Avatar.sizes.SMALL}>
+    <AvatarGroup size={Avatar.sizes.LARGE} max={4}>
       <Avatar src={person1} type={Avatar.types.IMG} />
       <Avatar src={person2} type={Avatar.types.IMG} />
       <Avatar src={person3} type={Avatar.types.IMG} />
-      <Avatar src={person1} type={Avatar.types.IMG} />
-      <Avatar type={Avatar.types.TEXT} text="MR" backgroundColor={Avatar.colors.DONE_GREEN} />
-      <Avatar src={person2} type={Avatar.types.IMG} />
-      <Avatar src={person3} type={Avatar.types.IMG} />
+      <Avatar type={Avatar.types.TEXT} text="MR" />
+      <Avatar type={Avatar.types.TEXT} text="SM" backgroundColor={Avatar.colors.DONE_GREEN} />
+      <Avatar type={Avatar.types.TEXT} text="SR" backgroundColor={Avatar.colors.DARK_PURPLE} />
     </AvatarGroup>
   </Story>
 </Canvas>

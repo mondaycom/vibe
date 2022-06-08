@@ -14,11 +14,16 @@ const AvatarGroupCounterTooltipContainer = ({ children, avatars, counterTooltipP
   }
 
   if (counterTooltipProps) {
-    return <Tooltip {...counterTooltipProps}>{children}</Tooltip>;
+    return (
+      <Tooltip {...counterTooltipProps} showOnDialogEnter hideDelay={200} /*theme="white"*/>
+        {children}
+      </Tooltip>
+    );
   }
 
   return (
-    <Tooltip content={counterTooltipComponent} showOnDialogEnter hideDelay={200}>
+    // TODO change to white theme?
+    <Tooltip content={counterTooltipComponent} showOnDialogEnter hideDelay={200} /*theme="white"*/>
       {children}
     </Tooltip>
   );
