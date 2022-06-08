@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.34.0 (2022-06-08)
+
+#### New Features
+* [#690](https://github.com/mondaycom/monday-ui-react-core/pull/690) feat/Chris/ make Avatar initials text styling customisable ([@ChristopherMichaelNowak](https://github.com/ChristopherMichaelNowak))
+
 ## 1.33.1 (2022-06-08)
 
 #### Internal Changes
