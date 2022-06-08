@@ -140,28 +140,6 @@ Tooltip.positions = DialogPositions;
 Tooltip.animationTypes = DIALOG_ANIMATION_TYPES;
 Tooltip.themes = TOOLTIP_THEMES;
 Tooltip.justifyTypes = TOOLTIP_JUSTIFY_TYPES;
-Tooltip.defaultProps = {
-  style: undefined,
-  arrowPosition: "center", // begin, center, end
-  moveBy: { main: 4, secondary: 0 },
-  theme: Tooltip.themes.Dark,
-  position: Tooltip.positions.TOP,
-  justify: Tooltip.justifyTypes.CENTER,
-  hideDelay: 0,
-  showDelay: 300,
-  disableDialogSlide: true,
-  animationType: "expand",
-  withoutDialog: false,
-  containerSelector: "#tooltips-container",
-  immediateShowDelay: null,
-  tip: true,
-  hideWhenReferenceHidden: false,
-  onTooltipHide: null,
-  onTooltipShow: null,
-  modifiers: [],
-  showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
-  hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE
-};
 
 Tooltip.propTypes = {
   style: PropTypes.object,
@@ -195,4 +173,27 @@ Tooltip.propTypes = {
    * Dialog.hideShowTriggers
    */
   hideTrigger: PropTypes.any
+};
+
+Tooltip.defaultProps = {
+  style: undefined,
+  arrowPosition: "center", // begin, center, end
+  moveBy: { main: 4, secondary: 0 },
+  theme: Tooltip.themes.Dark,
+  position: Tooltip.positions.TOP,
+  justify: Tooltip.justifyTypes.CENTER,
+  hideDelay: 0,
+  showDelay: 300,
+  disableDialogSlide: true,
+  animationType: "expand",
+  withoutDialog: false,
+  containerSelector: "#tooltips-container",
+  immediateShowDelay: null,
+  tip: true,
+  hideWhenReferenceHidden: false,
+  onTooltipHide: null,
+  onTooltipShow: null,
+  modifiers: [],
+  showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
+  hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE
 };
