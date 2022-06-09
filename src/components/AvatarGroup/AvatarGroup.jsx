@@ -71,11 +71,12 @@ const AvatarGroup = ({
           counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
           counterTooltipTheme={counterTooltipTheme}
         >
+          {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
           <div
-            className={cx(styles.counterContainer, counterContainerSizeStyle, counterContainerColorStyle)}
-            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
             tabIndex={0}
+            className={cx(styles.counterContainer, counterContainerSizeStyle, counterContainerColorStyle)}
           >
+            {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
             <Counter
               color={counterColor}
               count={count || children.length - max}
