@@ -17,7 +17,8 @@ const AvatarGroup = ({
   count,
   counterTooltipProps,
   counterMaxDigits,
-  counterPrefix
+  counterPrefix,
+  counterTooltipIsVirtualizedList
 }) => {
   const getCounterSizeStyle = useCallback(() => {
     switch (size || children[0]?.props?.size) {
@@ -50,6 +51,7 @@ const AvatarGroup = ({
               {...avatar.props}
               size={size || avatar.props.size}
               type={type || avatar.props.type}
+              // TODO normal key
               key={`${id}-${index}`}
               className={cx(styles.avatarContainer, avatar.props.className)}
               withoutBorder
@@ -64,6 +66,7 @@ const AvatarGroup = ({
           className={className}
           type={type}
           max={max}
+          isVirtualizedList={counterTooltipIsVirtualizedList}
         >
           {/*TODO should be focusable?*/}
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
@@ -97,7 +100,8 @@ AvatarGroup.propTypes = {
    */
   counterTooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
   counterMaxDigits: PropTypes.number,
-  counterPrefix: PropTypes.string
+  counterPrefix: PropTypes.string,
+  counterTooltipIsVirtualizedList: PropTypes.bool
 };
 AvatarGroup.defaultProps = {
   className: "",
@@ -109,7 +113,8 @@ AvatarGroup.defaultProps = {
   count: undefined,
   counterTooltipProps: undefined,
   counterMaxDigits: 3,
-  counterPrefix: "+"
+  counterPrefix: "+",
+  counterTooltipIsVirtualizedList: false
 };
 
 export default AvatarGroup;
