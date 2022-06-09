@@ -66,7 +66,7 @@ const AvatarGroup = ({
           className={className}
           type={type}
           max={max}
-          isVirtualizedList={counterTooltipIsVirtualizedList}
+          counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
         >
           {/*TODO should be focusable?*/}
           {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
@@ -101,6 +101,9 @@ AvatarGroup.propTypes = {
   counterTooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
   counterMaxDigits: PropTypes.number,
   counterPrefix: PropTypes.string,
+  /**
+   * Does default tooltip list need to be virtualized
+   */
   counterTooltipIsVirtualizedList: PropTypes.bool
 };
 AvatarGroup.defaultProps = {

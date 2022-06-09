@@ -11,7 +11,7 @@ const AvatarGroupCounterTooltipContainer = ({
   max,
   type,
   className,
-  isVirtualizedList
+  counterTooltipIsVirtualizedList
 }) => {
   const counterTooltipComponent = useMemo(() => {
     return AvatarGroupCounterTooltip({
@@ -19,9 +19,9 @@ const AvatarGroupCounterTooltipContainer = ({
       max,
       type,
       className,
-      isVirtualizedList
+      isVirtualizedList: counterTooltipIsVirtualizedList
     });
-  }, [avatars, className, max, isVirtualizedList, type]);
+  }, [avatars, className, max, counterTooltipIsVirtualizedList, type]);
 
   if (!counterTooltipComponent && !counterTooltipProps) {
     return <>{children}</>;
@@ -56,7 +56,7 @@ AvatarGroupCounterTooltipContainer.propTypes = {
    */
   avatars: PropTypes.arrayOf(PropTypes.element),
   counterTooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
-  isVirtualizedList: PropTypes.bool
+  counterTooltipIsVirtualizedList: PropTypes.bool
 };
 AvatarGroupCounterTooltipContainer.defaultProps = {
   className: undefined,
@@ -65,7 +65,7 @@ AvatarGroupCounterTooltipContainer.defaultProps = {
   children: [],
   avatars: [],
   counterTooltipProps: undefined,
-  isVirtualizedList: false
+  counterTooltipIsVirtualizedList: false
 };
 
 export default AvatarGroupCounterTooltipContainer;

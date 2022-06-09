@@ -54,9 +54,9 @@ const AvatarGroupCounterTooltip = ({ children, max, type, className, isVirtualiz
   };
 
   if (isVirtualizedList) {
-    // TODO temp solution
     const maxOptionsWithoutScroll = 10;
     const optionLineHeight = 34;
+    // TODO temp solution
     const optionLineWidth = items.some(i => !!i.value?.tooltipProps?.content) ? 175 : 40;
 
     const virtualizedItems = items.map(item => ({ ...item, height: optionLineHeight }));
