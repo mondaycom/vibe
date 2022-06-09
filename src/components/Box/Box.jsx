@@ -98,7 +98,7 @@ const Box = forwardRef(
          pointerEvent,
          visibility,
          color,
-         bgColor
+         backgroundColor
      },
      ref,
     ) => {
@@ -151,7 +151,7 @@ const Box = forwardRef(
                      pointerEvent,
                      visibility,
                      color,
-                     bgColor
+                     backgroundColor
                  )}
                  id={id}>{children}</div>
         );
@@ -199,7 +199,7 @@ Box.textTransforms = TEXT_TRANSFORM;
 Box.userSelects = USER_SELECT;
 Box.pointerEvents = POINTER_EVENTS;
 Box.visibilities = VISIBILITY;
-Box.bgColors = BACKGROUND_COLORS;
+Box.backgroundColors = BACKGROUND_COLORS;
 Box.colors = COLORS;
 
 Box.propTypes = {
@@ -494,7 +494,7 @@ Box.propTypes = {
             Box.textAligns.CENTER,
         ]
     ),
-   
+
     textTransform: PropTypes.oneOf(
         [
             Box.textTransforms.LOWERCASE,
@@ -529,15 +529,15 @@ Box.propTypes = {
             Box.colors.DISABLED_TEXT_COLOR,
         ]
     ),
-    bgColor: PropTypes.oneOf(
+    backgroundColor: PropTypes.oneOf(
         [
-            Box.bgColors.PRIMARY_BACKGROUND_COLOR,
-            Box.bgColors.PRIMARY_HOVER_BACKGROUND_COLOR,
-            Box.bgColors.SECONDARY_BACKGROUND_COLOR,
-            Box.bgColors.GREY_BACKGROUND_COLOR,
-            Box.bgColors.ALL_GREY_BACKGROUND_COLOR,
-            Box.bgColors.INVERTED_COLOR_BACKGROUND,
-            Box.bgColors.DISABLED_BACKGROUND_COLOR,
+            Box.backgroundColors.PRIMARY_BACKGROUND_COLOR,
+            Box.backgroundColors.PRIMARY_HOVER_BACKGROUND_COLOR,
+            Box.backgroundColors.SECONDARY_BACKGROUND_COLOR,
+            Box.backgroundColors.GREY_BACKGROUND_COLOR,
+            Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR,
+            Box.backgroundColors.INVERTED_COLOR_BACKGROUND,
+            Box.backgroundColors.DISABLED_BACKGROUND_COLOR,
         ]
     ),
     className: PropTypes.string,
@@ -591,7 +591,7 @@ Box.defaultProps = {
     pointerEvent: undefined,
     visibility: undefined,
     color: undefined,
-    bgColor: undefined,
+    backgroundColor: undefined,
     id: undefined
 };
 
