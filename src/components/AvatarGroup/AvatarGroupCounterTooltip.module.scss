@@ -2,10 +2,6 @@
 @import "../../styles/states";
 
 .tooltipAvatarItemClickableContainer {
-  :hover {
-    background: var(--primary-background-hover-color);
-    color: var(--primary-text-color);
-  }
   width: 100%;
 }
 
