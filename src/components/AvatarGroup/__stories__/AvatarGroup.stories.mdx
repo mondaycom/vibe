@@ -7,6 +7,7 @@ import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import Slider from "../../Slider/Slider";
+import Tooltip from "../../Tooltip/Tooltip";
 import { UsageGuidelines } from "../../../storybook";
 import "./AvatarGroup.stories.scss";
 
@@ -165,6 +166,7 @@ Custom hover
       type={Avatar.types.IMG}
       max={3}
       counterTooltipProps={{ content: "... and plenty of more employees" }}
+      counterTooltipTheme={Tooltip.themes.Success}
     >
       <Avatar src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
       <Avatar src={person2} tooltipProps={{ content: "Person 2" }} />

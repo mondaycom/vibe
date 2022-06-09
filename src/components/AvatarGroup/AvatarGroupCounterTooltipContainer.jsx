@@ -7,11 +7,12 @@ import PropTypes from "prop-types";
 const AvatarGroupCounterTooltipContainer = ({
   children,
   avatars,
-  counterTooltipProps,
   max,
   type,
   className,
-  counterTooltipIsVirtualizedList
+  counterTooltipProps,
+  counterTooltipIsVirtualizedList,
+  counterTooltipTheme
 }) => {
   const counterTooltipComponent = useMemo(() => {
     return AvatarGroupCounterTooltip({
@@ -29,15 +30,14 @@ const AvatarGroupCounterTooltipContainer = ({
 
   if (counterTooltipProps) {
     return (
-      <Tooltip {...counterTooltipProps} showOnDialogEnter hideDelay={200} /*theme="white"*/>
+      <Tooltip {...counterTooltipProps} showOnDialogEnter hideDelay={200} theme={counterTooltipTheme}>
         {children}
       </Tooltip>
     );
   }
 
   return (
-    // TODO change to white theme?
-    <Tooltip content={counterTooltipComponent} showOnDialogEnter hideDelay={200} /*theme="white"*/>
+    <Tooltip content={counterTooltipComponent} showOnDialogEnter hideDelay={200} theme={counterTooltipTheme}>
       {children}
     </Tooltip>
   );
@@ -56,7 +56,8 @@ AvatarGroupCounterTooltipContainer.propTypes = {
    */
   avatars: PropTypes.arrayOf(PropTypes.element),
   counterTooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
-  counterTooltipIsVirtualizedList: PropTypes.bool
+  counterTooltipIsVirtualizedList: PropTypes.bool,
+  counterTooltipTheme: PropTypes.oneOf(Object.values(Tooltip.themes))
 };
 AvatarGroupCounterTooltipContainer.defaultProps = {
   className: undefined,
@@ -65,7 +66,8 @@ AvatarGroupCounterTooltipContainer.defaultProps = {
   children: [],
   avatars: [],
   counterTooltipProps: undefined,
-  counterTooltipIsVirtualizedList: false
+  counterTooltipIsVirtualizedList: false,
+  counterTooltipTheme: undefined
 };
 
 export default AvatarGroupCounterTooltipContainer;
