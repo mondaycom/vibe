@@ -15,25 +15,26 @@ const AvatarGroup = ({
   type,
   max,
   count,
+  counterColor,
   counterTooltipProps,
   counterMaxDigits,
   counterPrefix,
   counterTooltipIsVirtualizedList,
   counterTooltipTheme
 }) => {
-  const getCounterSizeStyle = useCallback(() => {
-    switch (size || children[0]?.props?.size) {
-      case Avatar.sizes.SMALL:
-        return styles.small;
-      case Avatar.sizes.MEDIUM:
-        return styles.medium;
-      case Avatar.sizes.LARGE:
-        return styles.large;
-      default:
-        return styles.medium;
+  const getCounterContainerSizeStyle = useCallback(() => {
+    const counterSize = size || children[0]?.props?.size;
+    if (Avatar.sizes[`${counterSize.toString().toUpperCase()}`]) {
+      return styles[`${counterSize}`];
     }
+    return styles.medium;
   }, [children, size]);
-  const counterSizeStyle = getCounterSizeStyle();
+  const counterContainerSizeStyle = getCounterContainerSizeStyle();
+
+  const getCounterContainerColorStyle = useCallback(() => {
+    return styles[`${counterColor}`];
+  }, [counterColor]);
+  const counterContainerColorStyle = getCounterContainerColorStyle();
 
   if (!children) {
     return null;
@@ -70,11 +71,13 @@ const AvatarGroup = ({
           counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
           counterTooltipTheme={counterTooltipTheme}
         >
-          {/*TODO should be focusable?*/}
-          {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-          <div className={cx(styles.counterContainer, counterSizeStyle)} tabIndex={0}>
+          <div
+            className={cx(styles.counterContainer, counterContainerSizeStyle, counterContainerColorStyle)}
+            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+            tabIndex={0}
+          >
             <Counter
-              color={Counter.colors.LIGHT}
+              color={counterColor}
               count={count || children.length - max}
               prefix={counterPrefix}
               maxDigits={counterMaxDigits}
@@ -115,6 +118,12 @@ AvatarGroup.propTypes = {
     Tooltip.themes.Private,
     Tooltip.themes.Success,
     Tooltip.themes.Surface
+  ]),
+  counterColor: PropTypes.oneOf([
+    Counter.colors.LIGHT,
+    Counter.colors.DARK,
+    Counter.colors.PRIMARY,
+    Counter.colors.NEGATIVE
   ])
 };
 AvatarGroup.defaultProps = {
@@ -129,7 +138,8 @@ AvatarGroup.defaultProps = {
   counterMaxDigits: 3,
   counterPrefix: "+",
   counterTooltipIsVirtualizedList: false,
-  counterTooltipTheme: Tooltip.themes.Dark
+  counterTooltipTheme: Tooltip.themes.Dark,
+  counterColor: Counter.colors.LIGHT
 };
 
 export default AvatarGroup;
