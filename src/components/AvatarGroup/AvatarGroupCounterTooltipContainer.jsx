@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import Tooltip from "../Tooltip/Tooltip";
+import Dialog from "../Dialog/Dialog";
 import AvatarGroupCounterTooltip from "../AvatarGroup/AvatarGroupCounterTooltip";
 import Avatar from "../Avatar/Avatar";
 import PropTypes from "prop-types";
@@ -30,14 +31,28 @@ const AvatarGroupCounterTooltipContainer = ({
 
   if (counterTooltipProps) {
     return (
-      <Tooltip {...counterTooltipProps} showOnDialogEnter hideDelay={200} theme={counterTooltipTheme}>
+      <Tooltip
+        showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
+        hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}
+        showOnDialogEnter
+        hideDelay={200}
+        theme={counterTooltipTheme}
+        {...counterTooltipProps}
+      >
         {children}
       </Tooltip>
     );
   }
 
   return (
-    <Tooltip content={counterTooltipComponent} showOnDialogEnter hideDelay={200} theme={counterTooltipTheme}>
+    <Tooltip
+      content={counterTooltipComponent}
+      showOnDialogEnter
+      hideDelay={200}
+      theme={counterTooltipTheme}
+      showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
+      hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}
+    >
       {children}
     </Tooltip>
   );

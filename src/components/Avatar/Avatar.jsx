@@ -9,7 +9,8 @@ import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip from "../Tooltip/Tooltip";
-import Clickable from "components/Clickable/Clickable";
+import Clickable from "../Clickable/Clickable";
+import Dialog from "../Dialog/Dialog";
 import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
@@ -106,7 +107,15 @@ const Avatar = ({
       return <>{children}</>;
     }
 
-    return <Tooltip {...tooltipProps}>{children}</Tooltip>;
+    return (
+      <Tooltip
+        showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
+        hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}
+        {...tooltipProps}
+      >
+        {children}
+      </Tooltip>
+    );
   };
 
   const ClickableContainer = ({ children }) => {
