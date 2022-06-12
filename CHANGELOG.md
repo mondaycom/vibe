@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.34.0 (2022-06-08)
+
+#### New Features
+* [#690](https://github.com/mondaycom/monday-ui-react-core/pull/690) feat/Chris/ make Avatar initials text styling customisable ([@ChristopherMichaelNowak](https://github.com/ChristopherMichaelNowak))
+
+## 1.33.1 (2022-06-08)
+
+#### Internal Changes
+* [#692](https://github.com/mondaycom/monday-ui-react-core/pull/692) update version of storybook ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Icons
+* [#691](https://github.com/mondaycom/monday-ui-react-core/pull/691) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.33.0 (2022-06-07)
+
+#### New Features
+* [#686](https://github.com/mondaycom/monday-ui-react-core/pull/686) Storybook/sergeyro/expand loader ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#689](https://github.com/mondaycom/monday-ui-react-core/pull/689) Feature/sergeyro/hooks plop improve ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.32.0 (2022-05-26)
 
 #### New Features

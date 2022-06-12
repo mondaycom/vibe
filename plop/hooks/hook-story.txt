@@ -1,16 +1,15 @@
-import { useRef, useCallback } from "react"
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import {{camelCase componentName}} from "../{{camelCase componentName}}";
-import {{properCase componentName}} from "../../hooksDummyComponents/{{properCase componentName}}";
+import { useRef } from "react"
+import { Story, Canvas, Meta } from "@storybook/addon-docs";
+import {{camelCase hookName}} from "../index";
+import { FunctionArgument, FunctionArguments } from "../../../storybook";
+import styles from "./{{camelCase hookName}}.stories.module.scss"
 
-<Meta
-  title="Hooks/{{camelCase componentName}}"
-  component={ {{properCase componentName}} }
-/>
+<Meta title="Hooks/{{camelCase hookName}}"/>
 
-# {{camelCase componentName}}
+# {{camelCase hookName}}
 - [Overview](#overview)
-- [Props](#props)
+- [Arguments](#arguments)
+- [Returns](#returns)
 - [Feedback](#feedback)
 
 ## Overview
@@ -20,16 +19,30 @@ Please write here the component description
   <Story name="Overview">
     {() => {
       const ref = useRef(null);
-      {{camelCase componentName}}({ ref, callback });
+      const { result } = {{camelCase hookName}}({ ref });
       return (
-        <div ref={ref}>
-          Reference Element
+        <div className={styles.container}>
+          Random hook result = {result}
         </div>
       );
     }}
   </Story>
 </Canvas>
 
-## Props
-<ArgsTable of={ {{properCase componentName}} } />
+## Arguments
 
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument name="value" type="any" description="Example of required argument." required />
+    <FunctionArgument name="value" type="number" description="Example of non-required number argument." />
+    <FunctionArgument name="value" type="string" description="Example of non-required string argument." />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument name="result" type="Object">
+    <FunctionArgument name="result" type="any" description="Hook return value." />
+  </FunctionArgument>
+</FunctionArguments>

@@ -168,6 +168,7 @@ export {default as PushNotification} from './components/PushNotification';
 export {default as Quote} from './components/Quote';
 export {default as Radio} from './components/Radio';
 export {default as Recurring} from './components/Recurring';
+export {default as RecycleBin} from './components/RecycleBin';
 export {default as Redo} from './components/Redo';
 export {default as Remove} from './components/Remove';
 export {default as Replay} from './components/Replay';
