@@ -1,50 +1,120 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import AvatarGroup from "../AvatarGroup";
+import Avatar from "../../Avatar/Avatar";
+import Tooltip from "../../Tooltip/Tooltip";
 
-/**
- * There are cases where the component we want to test in the snapshot test will contain additional components.
- We do not want changes to the additional components to fail our component snapshot's test.
- Therefore, we will replace the instances of the other external components in the snapshot test with mock/stub components in these cases.
- */
-
-/** example for external library
- jest.mock("react-transition-group", () => {
-  const FakeTransition = jest.fn(({ children }) => children);
-  const FakeSwitchTransition = jest.fn(({ children }) => children);
-  const FakeCSSTransition = jest.fn(({ children }) => children);
-
-  // We return here the instance of the mock / stub library object content
-  return {
-    CSSTransition: FakeCSSTransition,
-    Transition: FakeTransition,
-    SwitchTransition: FakeSwitchTransition
-  };
-});
- **/
-
-/** example for internal component
-jest.mock("../../Button/Button", () => {
-  // We return here the instance of the mock / stub component
-  return ({ onClick }) => (
-    <div data-testid="cancel-button" {...(onClick && { "data-onclick": "onclick-provided" })} />
-  );
-});
-**/
-
+// Component depends on Avatar, Counter and Tooltip components
 describe("AvatarGroup renders correctly", () => {
-    it("with empty props", () => {
-      const tree = renderer.create(<AvatarGroup />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
+  it("with empty props", () => {
+    const tree = renderer.create(<AvatarGroup />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-    it("with x", () => {
-      const tree = renderer.create(<AvatarGroup />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
+  it("renders correctly with dummy class name", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup className="dummy-class-name">
+          <Avatar text="P1" />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-    it("with y", () => {
-          const tree = renderer.create(<AvatarGroup />).toJSON();
-          expect(tree).toMatchSnapshot();
-    });
+  it("renders correctly with counter", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup max={1}>
+          <Avatar text="P1" />
+          <Avatar text="P2" />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly without counter", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup max={2}>
+          <Avatar text="P1" />
+          <Avatar text="P2" />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with custom counter value", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup max={2} counterValue={13}>
+          <Avatar text="P1" />
+          <Avatar text="P2" />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with large size", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup size={Avatar.sizes.LARGE} max={1}>
+          <Avatar text="P1" />
+          <Avatar text="P2" />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with counter default-tooltip", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup max={1}>
+          <Avatar text="P1" tooltipProps={{ content: "Person 1" }} />
+          <Avatar text="P2" tooltipProps={{ content: "Person 2" }} />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with themed counter default-tooltip", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup counterTooltipTheme={Tooltip.themes.Success} max={1}>
+          <Avatar text="P1" tooltipProps={{ content: "Person 1" }} />
+          <Avatar text="P2" tooltipProps={{ content: "Person 2" }} />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly without counter tooltip", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup counterTooltipCustomProps={{}} max={1}>
+          <Avatar text="P1" tooltipProps={{ content: "Person 1" }} />
+          <Avatar text="P2" tooltipProps={{ content: "Person 2" }} />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("renders correctly with custom counter tooltip", () => {
+    const tree = renderer
+      .create(
+        <AvatarGroup counterTooltipCustomProps={{ content: "Custom tooltip content" }} max={1}>
+          <Avatar text="P1" />
+          <Avatar text="P2" />
+        </AvatarGroup>
+      )
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
