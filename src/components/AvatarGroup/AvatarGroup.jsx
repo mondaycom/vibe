@@ -14,9 +14,9 @@ const AvatarGroup = ({
   size,
   type,
   max,
-  count,
+  counterValue,
   counterColor,
-  counterTooltipProps,
+  counterTooltipCustomProps,
   counterMaxDigits,
   counterPrefix,
   counterTooltipIsVirtualizedList,
@@ -61,10 +61,10 @@ const AvatarGroup = ({
           );
         }
       })}
-      {(children.length > max || count) && (
+      {(children.length > max || counterValue) && (
         <AvatarGroupCounterTooltipContainer
           avatars={children}
-          counterTooltipProps={counterTooltipProps}
+          counterTooltipCustomProps={counterTooltipCustomProps}
           className={className}
           type={type}
           max={max}
@@ -79,7 +79,7 @@ const AvatarGroup = ({
             {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
             <Counter
               color={counterColor}
-              count={count || children.length - max}
+              count={counterValue || children.length - max}
               prefix={counterPrefix}
               maxDigits={counterMaxDigits}
               ariaLabel={`Additional items`}
@@ -101,13 +101,23 @@ AvatarGroup.propTypes = {
   size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   max: PropTypes.number,
-  count: PropTypes.number,
   /**
-   * Tooltip.propTypes
+   * Counter custom value
    */
-  counterTooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
+  counterValue: PropTypes.number,
   counterMaxDigits: PropTypes.number,
   counterPrefix: PropTypes.string,
+  counterColor: PropTypes.oneOf([
+    Counter.colors.LIGHT,
+    Counter.colors.DARK,
+    Counter.colors.PRIMARY,
+    Counter.colors.NEGATIVE
+  ]),
+
+  /**
+   * Tooltip.propTypes: props for custom counter tooltip
+   */
+  counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes }),
   /**
    * Does default tooltip list need to be virtualized
    */
@@ -120,12 +130,6 @@ AvatarGroup.propTypes = {
     Tooltip.themes.Private,
     Tooltip.themes.Success,
     Tooltip.themes.Surface
-  ]),
-  counterColor: PropTypes.oneOf([
-    Counter.colors.LIGHT,
-    Counter.colors.DARK,
-    Counter.colors.PRIMARY,
-    Counter.colors.NEGATIVE
   ])
 };
 AvatarGroup.defaultProps = {
@@ -135,8 +139,8 @@ AvatarGroup.defaultProps = {
   size: undefined,
   type: undefined,
   max: 5,
-  count: undefined,
-  counterTooltipProps: undefined,
+  counterValue: undefined,
+  counterTooltipCustomProps: undefined,
   counterMaxDigits: 3,
   counterPrefix: "+",
   counterTooltipIsVirtualizedList: false,

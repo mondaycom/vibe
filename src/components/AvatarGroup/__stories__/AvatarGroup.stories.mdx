@@ -165,7 +165,7 @@ Custom hover
       size={Avatar.sizes.LARGE}
       type={Avatar.types.IMG}
       max={3}
-      counterTooltipProps={{ content: "... and plenty of more employees" }}
+      counterTooltipCustomProps={{ content: "... and plenty of more employees" }}
       counterTooltipTheme={Tooltip.themes.Success}
     >
       <Avatar src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
@@ -182,7 +182,7 @@ Custom hover
 
 <Canvas>
   <Story name="Custom count">
-    <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3} count={210}>
+    <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3} counterValue={210}>
       <Avatar src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
       <Avatar src={person2} tooltipProps={{ content: "Person 2" }} />
       <Avatar src={person3} tooltipProps={{ content: "Person 3" }} />
