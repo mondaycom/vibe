@@ -5,7 +5,7 @@ import Avatar from "../Avatar/Avatar";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import VirtualizedList from "../VirtualizedList/VirtualizedList";
-import styles from "./AvatarGroupCounterTooltip.module.scss";
+import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 const AvatarGroupCounterTooltipContent = ({ children, max, type, className, isVirtualizedList }) => {
   if (!children || !children.length) {
