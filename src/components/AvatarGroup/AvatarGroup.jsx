@@ -14,14 +14,18 @@ const AvatarGroup = ({
   size,
   type,
   max,
-  counterValue,
-  counterColor,
+  counterProps,
   counterTooltipCustomProps,
-  counterMaxDigits,
-  counterPrefix,
   counterTooltipIsVirtualizedList,
   counterTooltipTheme
 }) => {
+  const {
+    color: counterColor = Counter.colors.LIGHT,
+    count: counterValue = children?.length && children.length - max,
+    prefix: counterPrefix = "+",
+    maxDigits: counterMaxDigits = 3
+  } = counterProps || {};
+
   const getCounterContainerSizeStyle = useCallback(() => {
     const counterSize = size || (children?.length && children[0]?.props?.size);
     if (counterSize && Avatar.sizes[`${counterSize.toString().toUpperCase()}`]) {
@@ -61,7 +65,7 @@ const AvatarGroup = ({
           );
         }
       })}
-      {(children.length > max || counterValue) && (
+      {(children.length > max || !!counterValue) && (
         <AvatarGroupCounterTooltipContainer
           avatars={children}
           counterTooltipCustomProps={counterTooltipCustomProps}
@@ -79,7 +83,7 @@ const AvatarGroup = ({
             {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
             <Counter
               color={counterColor}
-              count={counterValue || children.length - max}
+              count={counterValue}
               prefix={counterPrefix}
               maxDigits={counterMaxDigits}
               ariaLabel={`Additional items`}
@@ -102,17 +106,9 @@ AvatarGroup.propTypes = {
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   max: PropTypes.number,
   /**
-   * Counter custom value
+   * Counter.propTypes: props for counter
    */
-  counterValue: PropTypes.number,
-  counterMaxDigits: PropTypes.number,
-  counterPrefix: PropTypes.string,
-  counterColor: PropTypes.oneOf([
-    Counter.colors.LIGHT,
-    Counter.colors.DARK,
-    Counter.colors.PRIMARY,
-    Counter.colors.NEGATIVE
-  ]),
+  counterProps: PropTypes.shape({ ...Counter.propTypes }),
 
   /**
    * Tooltip.propTypes: props for custom counter tooltip
@@ -139,13 +135,10 @@ AvatarGroup.defaultProps = {
   size: undefined,
   type: undefined,
   max: 5,
-  counterValue: undefined,
+  counterProps: undefined,
   counterTooltipCustomProps: undefined,
-  counterMaxDigits: 3,
-  counterPrefix: "+",
   counterTooltipIsVirtualizedList: false,
-  counterTooltipTheme: Tooltip.themes.Dark,
-  counterColor: Counter.colors.LIGHT
+  counterTooltipTheme: Tooltip.themes.Dark
 };
 
 export default AvatarGroup;

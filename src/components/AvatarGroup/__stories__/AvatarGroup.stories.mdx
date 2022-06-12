@@ -4,6 +4,7 @@ import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { person1, person2, person3 } from "./assets";
 import Avatar from "../../Avatar/Avatar";
+import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import Slider from "../../Slider/Slider";
@@ -178,11 +179,16 @@ Custom hover
   </Story>
 </Canvas>
 
-### Custom count
+### Custom counter
 
 <Canvas>
-  <Story name="Custom count">
-    <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3} counterValue={210}>
+  <Story name="Custom counter">
+    <AvatarGroup
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.IMG}
+      max={3}
+      counterProps={{ count: "100500", color: Counter.colors.DARK, prefix: "", maxDigits: 3 }}
+    >
       <Avatar src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
       <Avatar src={person2} tooltipProps={{ content: "Person 2" }} />
       <Avatar src={person3} tooltipProps={{ content: "Person 3" }} />
