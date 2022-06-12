@@ -40,7 +40,7 @@ const AvatarGroup = ({
     return null;
   }
 
-  if (!children.length) {
+  if (!Array.isArray(children) && typeof children === "object") {
     children = [children];
   }
 
@@ -51,11 +51,11 @@ const AvatarGroup = ({
           return (
             <Avatar
               {...avatar.props}
-              size={size || avatar.props.size}
-              type={type || avatar.props.type}
+              size={size || avatar.props?.size}
+              type={type || avatar.props?.type}
               // TODO normal key
               key={`${id}-${index}`}
-              className={cx(styles.avatarContainer, avatar.props.className)}
+              className={cx(styles.avatarContainer, avatar.props?.className)}
               withoutBorder
             />
           );
@@ -97,7 +97,7 @@ AvatarGroup.propTypes = {
   /**
    * Array of Avatar components
    */
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]),
   size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   max: PropTypes.number,
