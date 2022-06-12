@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box renders correctly with backgronudColor prop 1`] = `
+<div
+  className=""
+/>
+`;
+
+exports[`Box renders correctly with border prop 1`] = `
+<div
+  className="border"
+/>
+`;
+
+exports[`Box renders correctly with borderBottom prop 1`] = `
+<div
+  className="borderBottom"
+/>
+`;
+
+exports[`Box renders correctly with borderColor prop 1`] = `
+<div
+  className="borderColorUiBorderColor"
+/>
+`;
+
+exports[`Box renders correctly with borderEnd prop 1`] = `
+<div
+  className="borderEnd"
+/>
+`;
+
+exports[`Box renders correctly with borderStart prop 1`] = `
+<div
+  className="borderStart"
+/>
+`;
+
+exports[`Box renders correctly with borderTop prop 1`] = `
+<div
+  className="borderTop"
+/>
+`;
+
+exports[`Box renders correctly with empty props 1`] = `
+<div
+  className=""
+/>
+`;
+
+exports[`Box renders correctly with margin prop 1`] = `
+<div
+  className="mSmall"
+/>
+`;
+
+exports[`Box renders correctly with marginEnd prop 1`] = `
+<div
+  className="meSmall"
+/>
+`;
+
+exports[`Box renders correctly with marginStart prop 1`] = `
+<div
+  className="msSmall"
+/>
+`;
+
+exports[`Box renders correctly with marginTop prop 1`] = `
+<div
+  className="mtSmall"
+/>
+`;
+
+exports[`Box renders correctly with marginX prop 1`] = `
+<div
+  className="mxSmall"
+/>
+`;
+
+exports[`Box renders correctly with marginY prop 1`] = `
+<div
+  className="mySmall"
+/>
+`;
+
+exports[`Box renders correctly with padding prop 1`] = `
+<div
+  className="pSmall"
+/>
+`;
+
+exports[`Box renders correctly with paddingBottom prop 1`] = `
+<div
+  className="pbSmall"
+/>
+`;
+
+exports[`Box renders correctly with paddingEnd prop 1`] = `
+<div
+  className="peSmall"
+/>
+`;
+
+exports[`Box renders correctly with paddingStart prop 1`] = `
+<div
+  className="psSmall"
+/>
+`;
+
+exports[`Box renders correctly with paddingTop prop 1`] = `
+<div
+  className="ptSmall"
+/>
+`;
+
+exports[`Box renders correctly with paddingX prop 1`] = `
+<div
+  className="pxSmall"
+/>
+`;
+
+exports[`Box renders correctly with paddingY prop 1`] = `
+<div
+  className="pySmall"
+/>
+`;
+
+exports[`Box renders correctly with rounded prop 1`] = `
+<div
+  className="roundedSmall"
+/>
+`;
+
+exports[`Box renders correctly with roundedBottom prop 1`] = `
+<div
+  className="roundedTopSmall"
+/>
+`;
+
+exports[`Box renders correctly with roundedEnd prop 1`] = `
+<div
+  className="roundedTopSmall"
+/>
+`;
+
+exports[`Box renders correctly with roundedStart prop 1`] = `
+<div
+  className="roundedStartSmall"
+/>
+`;
+
+exports[`Box renders correctly with roundedTop prop 1`] = `
+<div
+  className="roundedTopSmall"
+/>
+`;
+
+exports[`Box renders correctly with shadow prop 1`] = `
+<div
+  className="shadowSmall"
+/>
+`;
+
+exports[`Box renders correctly with text prop 1`] = `
+<div
+  className="textPrimaryColor"
+/>
+`;
