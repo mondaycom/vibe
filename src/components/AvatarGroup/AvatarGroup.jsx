@@ -82,6 +82,7 @@ const AvatarGroup = ({
               count={count || children.length - max}
               prefix={counterPrefix}
               maxDigits={counterMaxDigits}
+              ariaLabel={`Additional items`}
             />
           </div>
         </AvatarGroupCounterTooltipContainer>
