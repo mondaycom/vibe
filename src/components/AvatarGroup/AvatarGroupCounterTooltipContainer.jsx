@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import Tooltip from "../Tooltip/Tooltip";
 import Dialog from "../Dialog/Dialog";
-import AvatarGroupCounterTooltip from "../AvatarGroup/AvatarGroupCounterTooltip";
+import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
 import Avatar from "../Avatar/Avatar";
 import PropTypes from "prop-types";
 
@@ -15,8 +15,8 @@ const AvatarGroupCounterTooltipContainer = ({
   counterTooltipIsVirtualizedList,
   counterTooltipTheme
 }) => {
-  const counterTooltipComponent = useMemo(() => {
-    return AvatarGroupCounterTooltip({
+  const counterTooltipContentComponent = useMemo(() => {
+    return AvatarGroupCounterTooltipContent({
       children: avatars,
       max,
       type,
@@ -25,7 +25,7 @@ const AvatarGroupCounterTooltipContainer = ({
     });
   }, [avatars, className, max, counterTooltipIsVirtualizedList, type]);
 
-  if (!counterTooltipComponent && !counterTooltipProps) {
+  if (!counterTooltipContentComponent && !counterTooltipProps) {
     return <>{children}</>;
   }
 
@@ -46,7 +46,7 @@ const AvatarGroupCounterTooltipContainer = ({
 
   return (
     <Tooltip
-      content={counterTooltipComponent}
+      content={counterTooltipContentComponent}
       showOnDialogEnter
       hideDelay={200}
       theme={counterTooltipTheme}

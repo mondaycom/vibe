@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import styles from "./AvatarGroupCounterTooltip.module.scss";
 
-const AvatarGroupCounterTooltip = ({ children, max, type, className, isVirtualizedList }) => {
+const AvatarGroupCounterTooltipContent = ({ children, max, type, className, isVirtualizedList }) => {
   if (!children || !children.length) {
     return null;
   }
@@ -98,7 +98,7 @@ const AvatarGroupCounterTooltip = ({ children, max, type, className, isVirtualiz
   );
 };
 
-AvatarGroupCounterTooltip.propTypes = {
+AvatarGroupCounterTooltipContent.propTypes = {
   className: PropTypes.string,
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   max: PropTypes.number,
@@ -108,7 +108,7 @@ AvatarGroupCounterTooltip.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
   isVirtualizedList: PropTypes.bool
 };
-AvatarGroupCounterTooltip.defaultProps = {
+AvatarGroupCounterTooltipContent.defaultProps = {
   className: undefined,
   type: undefined,
   max: undefined,
@@ -116,4 +116,4 @@ AvatarGroupCounterTooltip.defaultProps = {
   isVirtualizedList: false
 };
 
-export default AvatarGroupCounterTooltip;
+export default AvatarGroupCounterTooltipContent;
