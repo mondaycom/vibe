@@ -23,8 +23,8 @@ const AvatarGroup = ({
   counterTooltipTheme
 }) => {
   const getCounterContainerSizeStyle = useCallback(() => {
-    const counterSize = size || children[0]?.props?.size;
-    if (Avatar.sizes[`${counterSize.toString().toUpperCase()}`]) {
+    const counterSize = size || (children?.length && children[0]?.props?.size);
+    if (counterSize && Avatar.sizes[`${counterSize.toString().toUpperCase()}`]) {
       return styles[`${counterSize}`];
     }
     return styles.medium;
