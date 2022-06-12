@@ -1,7 +1,7 @@
 import Box from "../Box";
 import {ArgsTable, Story, Canvas, Meta} from "@storybook/addon-docs";
 import {createStoryMetaSettings} from "../../../storybook/functions/create-component-story";
-import "./Box.stories.scss";
+import styles from "./Box.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettings({
     component: Box,
@@ -48,7 +48,7 @@ export const metaSettings = createStoryMetaSettings({
 <!--- Component template -->
 
 export const boxTemplate = (args) => {
-    return <div className="monday-storybook-box-wrapper">
+    return <div className={styles['monday-storybook-box-wrapper']}>
         <Box
             border={Box.borders.DEFAULT}
             rounded={Box.roundeds.MEDIUM}
@@ -98,7 +98,7 @@ The Box is a multi prop wrapper element.
 ### BACKGROUNDS COLORS
 <Canvas>
     <Story name="Background colors">
-        <div className="monday-storybook-box-wrapper">
+        <div className={styles['monday-storybook-box-wrapper']}>
             <Box
                 backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
             >Box.backgroundColors.PRIMARY_BACKGROUND_COLOR</Box>
@@ -128,7 +128,7 @@ The Box is a multi prop wrapper element.
 ### TEXT COLORS
 <Canvas>
     <Story name="Text Colors">
-        <div className="monday-storybook-box-wrapper">
+        <div className={styles['monday-storybook-box-wrapper']}>
             <Box
                 text={Box.texts.PRIMARY_COLOR}
             >Box.texts.PRIMARY_COLOR</Box>
@@ -171,7 +171,7 @@ The Box is a multi prop wrapper element.
 
 <Canvas>
     <Story name="Border ">
-        <div className="monday-storybook-box-wrapper">
+        <div className={styles['monday-storybook-box-wrapper']}>
             <Box
                 border={Box.borders.NONE}
             >Box.borders.NONE</Box>
@@ -213,7 +213,7 @@ The Box is a multi prop wrapper element.
 ### BORDER COLOR
 <Canvas>
     <Story name="Border Color">
-        <div className="monday-storybook-box-wrapper">
+        <div className={styles['monday-storybook-box-wrapper']}>
             <Box
                 border={Box.borders.DEFAULT}
                 borderColor={Box.borderColors.UI_BORDER_COLOR}
@@ -230,7 +230,7 @@ The Box is a multi prop wrapper element.
 #### Size props
 <Canvas>
     <Story name="Round Corners">
-        <div className="monday-storybook-box-wrapper">
+        <div className={styles['monday-storybook-box-wrapper']}>
             <Box
                 border={Box.borders.DEFAULT}
                 rounded={Box.roundeds.NONE}
@@ -262,7 +262,7 @@ roundedStart
 
 Property variations example
 <Preview>
-    <div className="monday-storybook-box-wrapper">
+    <div className={styles['monday-storybook-box-wrapper']}>
         <Box
             border={Box.borders.DEFAULT}
             roundedTop={Box.roundedTops.MEDIUM}
@@ -289,7 +289,7 @@ Property variations example
 ### SHADOW
 <Canvas>
     <Story name="Shadow">
-        <div className="monday-storybook-box-wrapper">
+        <div className={styles['monday-storybook-box-wrapper']}>
             <Box
                 shadow={Box.shadows.XS}
             >Box.shadows.XS</Box>
@@ -311,57 +311,57 @@ Property variations example
 #### Size props
 <Canvas>
     <Story name="Margin">
-        <div className="monday-storybook-box-wrapper">
-            <div className={"monday-storybook-box-margin-wrapper"}>
+        <div className={styles['monday-storybook-box-wrapper']}>
+            <div className={styles['monday-storybook-box-margin-wrapper']}>
                 <Box
                     backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
                     border={Box.borders.DEFAULT}
                     margin={Box.margins.NONE}
                 >Box.margins.NONE</Box>
             </div>
-            <div className={"monday-storybook-box-margin-wrapper"}>
+            <div className={styles['monday-storybook-box-margin-wrapper']}>
                 <Box
                     backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
                     border={Box.borders.DEFAULT}
                     margin={Box.margins.XS}
                 >Box.margins.XS</Box>
             </div>
-            <div className={"monday-storybook-box-margin-wrapper"}>
+            <div className={styles['monday-storybook-box-margin-wrapper']}>
                 <Box
                     backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
                     border={Box.borders.DEFAULT}
                     margin={Box.margins.SMALL}
                 >Box.margins.SMALL</Box>
             </div>
-            <div className={"monday-storybook-box-margin-wrapper"}>
+            <div className={styles['monday-storybook-box-margin-wrapper']}>
                 <Box
                     backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
                     border={Box.borders.DEFAULT}
                     margin={Box.margins.MEDIUM}
                 >Box.margins.MEDIUM</Box>
             </div>
-            <div className={"monday-storybook-box-margin-wrapper"}>
+            <div className={styles['monday-storybook-box-margin-wrapper']}>
                 <Box
                     backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
                     border={Box.borders.DEFAULT}
                     margin={Box.margins.LARGE}
                 >Box.margins.LARGE</Box>
             </div>
-            <div className={"monday-storybook-box-margin-wrapper"}>
+            <div className={styles['monday-storybook-box-margin-wrapper']}>
                 <Box
                     backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
                     border={Box.borders.DEFAULT}
                     margin={Box.margins.XL}
                 >Box.margins.XL</Box>
             </div>
-            <div className={"monday-storybook-box-margin-wrapper"}>
+            <div className={styles['monday-storybook-box-margin-wrapper']}>
                 <Box
                     backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
                     border={Box.borders.DEFAULT}
                     margin={Box.margins.XXL}
                 >Box.margins.XXL</Box>
             </div>
-            <div className={"monday-storybook-box-margin-wrapper"}>
+            <div className={styles['monday-storybook-box-margin-wrapper']}>
                 <Box
                     backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
                     border={Box.borders.DEFAULT}
@@ -396,69 +396,69 @@ NONE
 #### Size props
 <Canvas>
     <Story name="Padding">
-        <div className="monday-storybook-box-wrapper">
-            <div className={"monday-storybook-box-padding-wrapper"}>
+        <div className={styles['monday-storybook-box-wrapper']}>
+            <div className={styles['monday-storybook-box-padding-wrapper']}>
                 <Box
                     border={Box.borders.DEFAULT}
                     padding={Box.paddings.NONE}
                 >
-                    <div className="monday-storybook-box-padding-inner">Box.paddings.NONE</div>
+                    <div className={styles['monday-storybook-box-padding-inner']}>Box.paddings.NONE</div>
                 </Box>
             </div>
-            <div className="monday-storybook-box-padding-wrapper">
+            <div className={styles['monday-storybook-box-padding-wrapper']}>
                 <Box
                     border={Box.borders.DEFAULT}
                     padding={Box.paddings.XS}
                 >
-                    <div className="monday-storybook-box-padding-inner">Box.paddings.XS</div>
+                    <div className={styles['monday-storybook-box-padding-inner']}>Box.paddings.XS</div>
                 </Box>
             </div>
-            <div className={"monday-storybook-box-padding-wrapper"}>
+            <div className={styles['monday-storybook-box-padding-wrapper']}>
                 <Box
                     border={Box.borders.DEFAULT}
                     padding={Box.paddings.SMALL}
                 >
-                    <div className="monday-storybook-box-padding-inner">Box.paddings.SMALL</div>
+                    <div className={styles['monday-storybook-box-padding-inner']}>Box.paddings.SMALL</div>
                 </Box>
             </div>
-            <div className={"monday-storybook-box-padding-wrapper"}>
+            <div className={styles['monday-storybook-box-padding-wrapper']}>
                 <Box
                     border={Box.borders.DEFAULT}
                     padding={Box.paddings.MEDIUM}
                 >
-                    <div className="monday-storybook-box-padding-inner">Box.paddings.MEDIUM</div>
+                    <div className={styles['monday-storybook-box-padding-inner']}>Box.paddings.MEDIUM</div>
                 </Box>
             </div>
-            <div className={"monday-storybook-box-padding-wrapper"}>
+            <div className={styles['monday-storybook-box-padding-wrapper']}>
                 <Box
                     border={Box.borders.DEFAULT}
                     padding={Box.paddings.LARGE}
                 >
-                    <div className="monday-storybook-box-padding-inner">Box.paddings.LARGE</div>
+                    <div className={styles['monday-storybook-box-padding-inner']}>Box.paddings.LARGE</div>
                 </Box>
             </div>
-            <div className={"monday-storybook-box-padding-wrapper"}>
+            <div className={styles['monday-storybook-box-padding-wrapper']}>
                 <Box
                     border={Box.borders.DEFAULT}
                     padding={Box.paddings.XL}
                 >
-                    <div className="monday-storybook-box-padding-inner">Box.paddings.XL</div>
+                    <div className={styles['monday-storybook-box-padding-inner']}>Box.paddings.XL</div>
                 </Box>
             </div>
-            <div className={"monday-storybook-box-padding-wrapper"}>
+            <div className={styles['monday-storybook-box-padding-wrapper']}>
                 <Box
                     border={Box.borders.DEFAULT}
                     padding={Box.paddings.XXL}
                 >
-                    <div className="monday-storybook-box-padding-inner">Box.paddings.XXL</div>
+                    <div className={styles['monday-storybook-box-padding-inner']}>Box.paddings.XXL</div>
                 </Box>
             </div>
-            <div className={"monday-storybook-box-padding-wrapper"}>
+            <div className={styles['monday-storybook-box-padding-wrapper']}>
                 <Box
                     border={Box.borders.DEFAULT}
                     padding={Box.paddings.XXXL}
                 >
-                    <div className="monday-storybook-box-padding-inner">Box.paddings.XXXL</div>
+                    <div className={styles['monday-storybook-box-padding-inner']}>Box.paddings.XXXL</div>
                 </Box>
             </div>
         </div>
