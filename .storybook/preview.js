@@ -62,6 +62,7 @@ addParameters({
       { name: "Hacker", class: "hacker_theme-app-theme", color: "#282a36" }
     ]
   },
+  layout: 'centered',
   options: {
     storySort: {
       order: [

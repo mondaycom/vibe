@@ -412,10 +412,23 @@ Dialog.propTypes = {
    */
   referenceWrapperClassName: PropTypes.string,
   /**
-   * Where the dialog should be in reference to the children,
+   * Where the dialog should be in reference to the reference element,
    * Top, Left, Right, Bottom ...
    */
-  position: PropTypes.oneOf([...Object.values(Dialog.positions)]),
+  position: PropTypes.oneOf([
+    Dialog.positions.LEFT,
+    Dialog.positions.LEFT_START,
+    Dialog.positions.LEFT_END,
+    Dialog.positions.RIGHT,
+    Dialog.positions.RIGHT_START,
+    Dialog.positions.RIGHT_END,
+    Dialog.positions.TOP,
+    Dialog.positions.TOP_START,
+    Dialog.positions.TOP_END,
+    Dialog.positions.BOTTOM,
+    Dialog.positions.BOTTOM_START,
+    Dialog.positions.BOTTOM_END
+  ]),
   /**
    * PopperJS Modifiers type
    * https://popper.js.org/docs/v2/modifiers/
@@ -436,20 +449,32 @@ Dialog.propTypes = {
    */
   showDelay: PropTypes.number,
   /**
-   * how much delay should the Dialog wait until it should trigger the hide in MS
+   * A number in MS to wait until the dialog is being hidden
    */
   hideDelay: PropTypes.number,
   /**
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers
    */
-  showTrigger: PropTypes.any,
+  showTrigger: PropTypes.oneOf(Object.keys(Dialog.hideShowTriggers)),
 
   /**
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers
    */
-  hideTrigger: PropTypes.any,
+  hideTrigger: PropTypes.oneOf([
+    Dialog.hideShowTriggers.BLUR,
+    Dialog.hideShowTriggers.MOUSE_ENTER,
+    Dialog.hideShowTriggers.MOUSE_LEAVE,
+    Dialog.hideShowTriggers.ENTER,
+    Dialog.hideShowTriggers.CLICK,
+    Dialog.hideShowTriggers.CLICK_OUTSIDE,
+    Dialog.hideShowTriggers.CONTENT_CLICK,
+    Dialog.hideShowTriggers.ESCAPE_KEY,
+    Dialog.hideShowTriggers.FOCUS,
+    Dialog.hideShowTriggers.MOUSE_DOWN,
+    Dialog.hideShowTriggers.TAB_KEY
+  ]),
 
   showOnDialogEnter: PropTypes.bool,
   /**
@@ -485,7 +510,7 @@ Dialog.propTypes = {
    */
   preventAnimationOnMount: PropTypes.bool,
   /**
-   * the container selector in which to append the dialog
+   * a valid selector to the container in which to append the dialog to
    * for examples: "body" , ".my-class", "#my-id"
    */
   containerSelector: PropTypes.string,
@@ -519,6 +544,9 @@ Dialog.propTypes = {
    */
   zIndex: PropTypes.number,
   useDerivedStateFromProps: PropTypes.bool,
+  /**
+   * Hide the dialog if the reference element is out of the viewport
+   */
   hideWhenReferenceHidden: PropTypes.bool,
   shoudlCallbackOnMount: PropTypes.bool
 };
@@ -537,7 +565,6 @@ Dialog.defaultProps = {
   shouldShowOnMount: false,
   disable: false,
   open: false,
-  showTriggerIgnoreClass: null,
   hideTriggerIgnoreClass: null,
   animationType: Dialog.animationTypes.EXPAND,
   wrapperClassName: null,
@@ -554,6 +581,8 @@ Dialog.defaultProps = {
   hideWhenReferenceHidden: false,
   shoudlCallbackOnMount: false
 };
+
+window.Dialog = Dialog
 
 function chainOnPropsAndInstance(name, instance, props) {
   return chainFunctions([props[name], instance[name]], true);

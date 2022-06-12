@@ -1,0 +1,15 @@
+.contentContainer {
+  width: 300px;
+  height: 200px;
+  background: var(--secondary-background-color);
+  color: var(--primary-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:global {
+  .docblock-argstable-body tr {
+    height: 80px !important;
+  }
+}
