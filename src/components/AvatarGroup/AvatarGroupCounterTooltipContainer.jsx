@@ -33,7 +33,7 @@ const AvatarGroupCounterTooltipContainer = ({
     return (
       <Tooltip
         showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
-        hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}
+        hideTrigger={[Dialog.hideShowTriggers.TAB_KEY, Dialog.hideShowTriggers.MOUSE_LEAVE]}
         showOnDialogEnter
         hideDelay={200}
         theme={counterTooltipTheme}
@@ -51,7 +51,7 @@ const AvatarGroupCounterTooltipContainer = ({
       hideDelay={200}
       theme={counterTooltipTheme}
       showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
-      hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}
+      hideTrigger={[Dialog.hideShowTriggers.TAB_KEY, Dialog.hideShowTriggers.MOUSE_LEAVE]}
     >
       {children}
     </Tooltip>
