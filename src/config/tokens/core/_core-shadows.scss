@@ -1,10 +1,12 @@
 // CORE TOKENS: SHADOWS
 // This partial defines global shadow related tokens
 
+$shadow-size-xs: 0px 4px 6px -4px;
 $shadow-size-small: 0px 4px 8px;
 $shadow-size-medium: 0px 6px 20px;
 $shadow-size-large: 0px 15px 50px;
 
+$shadow-xs-opacity: $opacity-10;
 $shadow-small-opacity: $opacity-20;
 $shadow-medium-opacity: $shadow-small-opacity;
 $shadow-large-opacity: $opacity-30;

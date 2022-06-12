@@ -28,10 +28,13 @@ $debug-basic-theme-keys-map: (
         shareable-color: var(--color-purple),
         ui-border-color: var(--color-wolf_gray),
         layout-border-color: #d0d4e4,
+        box-shadow-small:$box-shadow-small,
+        box-shadow-medium: $box-shadow-medium,
+        box-shadow-large: $box-shadow-large,
 );
 
 // Value from current code
-$debug-output-basic-theme-keys: $theme-basic-keys;
+$debug-output-basic-theme-keys: map-collect($theme-basic-keys, $theme-basic-shadow-keys);
 
 // Custom properties values the equal hard coded values
 $debug-basic-theme-custom-props-reference: (

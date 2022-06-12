@@ -56,6 +56,7 @@ $layout-border-color: #d0d4e4; // Todo: TBD, should be - var(--color-ui_grey)
 // - Shadows
 $shadow-color: $color-black;
 
+$box-shadow-xs: $shadow-size-xs rgba($shadow-color, $shadow-xs-opacity);
 $box-shadow-small: $shadow-size-small rgba($shadow-color, $shadow-small-opacity);
 $box-shadow-medium: $shadow-size-medium rgba($shadow-color, $shadow-medium-opacity);
 $box-shadow-large: $shadow-size-large rgba($shadow-color, $shadow-large-opacity);

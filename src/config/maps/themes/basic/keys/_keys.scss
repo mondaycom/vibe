@@ -40,6 +40,7 @@ $theme-basic-keys: (
 // - Map is collected into the $theme-basic-settings map and is interpolated into custom properties.
 
 $theme-basic-shadow-keys: (
+        box-shadow-xs: $box-shadow-xs,
         box-shadow-small: $box-shadow-small,
         box-shadow-medium: $box-shadow-medium,
         box-shadow-large: $box-shadow-large,
