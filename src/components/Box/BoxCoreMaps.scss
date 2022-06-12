@@ -12,16 +12,6 @@ $core-spacing-vars: (
         xxxl: var(--spacing-xxxl),
 );
 
-$core-negative-spacing-vars: (
-        nxs: var(--spacing-n-xs),
-        nsmall:var(--spacing-n-small),
-        nmedium: var(--spacing-n-medium),
-        nlarge: var(--spacing-n-large),
-        nxl: var(--spacing-n-xl),
-        nxxl: var(--spacing-n-xxl),
-        nxxxl: var(--spacing-n-xxxl),
-);
-
 $core-border-colors-vars: (
         uiBorderColor: var(--ui-border-color),
         layoutBorderColor: var(--layout-border-color),

@@ -7,10 +7,7 @@ export const metaSettings = createStoryMetaSettings({
     component: Box,
     enumPropNamesArray: [
         "children",
-        "opacity",
-        "overflow",
-        "overflowX",
-        "overflowY",
+        "disabled",
         "border",
         "borderTop",
         "borderEnd",
@@ -36,14 +33,8 @@ export const metaSettings = createStoryMetaSettings({
         "paddingEnd",
         "paddingBottom",
         "paddingStart",
-        "textAlign",
-        "textDecoration",
-        "textTransform",
-        "userSelect",
-        "pointerEvent",
-        "visibility",
         "backgroundColor",
-        "color",
+        "text",
     ],
 });
 
@@ -61,7 +52,7 @@ export const boxTemplate = (args) => {
         <Box
             border={Box.borders.DEFAULT}
             rounded={Box.roundeds.MEDIUM}
-        {...args}></Box>
+            {...args}></Box>
     </div>
 }
 
@@ -134,43 +125,43 @@ The Box is a multi prop wrapper element.
 </Canvas>
 
 
-### COLORS
+### TEXT COLORS
 <Canvas>
-    <Story name="Colors">
+    <Story name="Text Colors">
         <div className="monday-storybook-box-wrapper">
             <Box
-                color={Box.colors.PRIMARY_COLOR}
-            >Box.colors.PRIMARY_COLOR</Box>
+                text={Box.texts.PRIMARY_COLOR}
+            >Box.texts.PRIMARY_COLOR</Box>
             <Box
-                color={Box.colors.PRIMARY_HOVER_COLOR}
-            >Box.colors.PRIMARY_HOVER_COLOR</Box>
+                text={Box.texts.PRIMARY_HOVER_COLOR}
+            >Box.texts.PRIMARY_HOVER_COLOR</Box>
             <Box
-                color={Box.colors.PRIMARY_SELECTED_COLOR}
-            >Box.colors.PRIMARY_SELECTED_COLOR</Box>
+                text={Box.texts.PRIMARY_SELECTED_COLOR}
+            >Box.texts.PRIMARY_SELECTED_COLOR</Box>
             <Box
-                color={Box.colors.PRIMARY_TEXT_COLOR}
-            >Box.colors.PRIMARY_TEXT_COLOR</Box>
+                text={Box.texts.PRIMARY_TEXT_COLOR}
+            >Box.texts.PRIMARY_TEXT_COLOR</Box>
             <Box
                 backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
-                color={Box.colors.TEXT_COLOR_ON_PRIMARY}
-            >Box.colors.TEXT_COLOR_ON_PRIMARY</Box>
+                text={Box.texts.TEXT_COLOR_ON_PRIMARY}
+            >Box.texts.TEXT_COLOR_ON_PRIMARY</Box>
             <Box
-                color={Box.colors.TEXT_COLOR_ON_INVERTED}
-            >Box.colors.TEXT_COLOR_ON_INVERTED</Box>
+                text={Box.texts.TEXT_COLOR_ON_INVERTED}
+            >Box.texts.TEXT_COLOR_ON_INVERTED</Box>
             <Box
-                color={Box.colors.SECONDARY_TEXT_COLOR}
-            >Box.colors.SECONDARY_TEXT_COLOR</Box>
+                text={Box.texts.SECONDARY_TEXT_COLOR}
+            >Box.texts.SECONDARY_TEXT_COLOR</Box>
             <Box
-                color={Box.colors.PLACEHOLDER_TEXT_COLOR}
-            >Box.colors.PLACEHOLDER_TEXT_COLOR</Box>
+                text={Box.texts.PLACEHOLDER_TEXT_COLOR}
+            >Box.texts.PLACEHOLDER_TEXT_COLOR</Box>
             <Box
-                color={Box.colors.ICON_TEXT_COLOR}
+                text={Box.texts.ICON_TEXT_COLOR}
             >Box.icon.PLACEHOLDER_TEXT_COLOR</Box>
             <Box
-                color={Box.colors.LINK_COLOR}
+                text={Box.texts.LINK_COLOR}
             >Box.icon.LINK_COLOR</Box>
             <Box
-                color={Box.colors.DISABLED_TEXT}
+                text={Box.texts.DISABLED_TEXT}
             >Box.icon.DISABLED_TEXT</Box>
         </div>
     </Story>
@@ -300,6 +291,9 @@ Property variations example
     <Story name="Shadow">
         <div className="monday-storybook-box-wrapper">
             <Box
+                shadow={Box.shadows.XS}
+            >Box.shadows.XS</Box>
+            <Box
                 shadow={Box.shadows.SMALL}
             >Box.shadows.SMALL</Box>
             <Box
@@ -396,18 +390,6 @@ AUTO
 NONE
 ````
 
-#### Negative Margins:
-Negative margins are available using the following props:
-````
-marginNegative
-marginNegativeX
-marginNegativeY
-marginNegativeTop
-marginNegativeEnd
-marginNegativeBottom
-marginNegativeStart
-````
-
 
 ### PADDING
 
@@ -494,90 +476,15 @@ paddingBottom
 paddingStart
 ```
 
-### Opacity
+### Disabled
 <Canvas>
-    <Story name="Opacity">
+    <Story name="Disabled">
         <div className="monday-storybook-box-wrapper">
             <Box
-                opacity={Box.opacitys.DISABLED}
-            >Box.opacities.DISABLED</Box>
+                disabled>Box.disabled.DISABLED</Box>
         </div>
     </Story>
 </Canvas>
-
-
-### Text Align
-<Canvas>
-    <Story name="Text Align">
-        <div className="monday-storybook-box-wrapper">
-            <Box
-                textAlign={Box.textAligns.Start}
-            >Box.opacities.DISABLED</Box>
-            <Box
-                textAlign={Box.textAligns.CENTER}
-            >Box.textAligns.CENTER</Box>
-            <Box
-                textAlign={Box.textAligns.END}
-            >Box.textAligns.END</Box>
-        </div>
-    </Story>
-</Canvas>
-
-
-### Text Transform
-<Canvas>
-    <Story name="Text Decoration">
-        <div className="monday-storybook-box-wrapper">
-            <Box
-                textTransform={Box.textTransforms.LOWERCASE}
-            >texttextTransform.LOWERCASE => example</Box>
-            <Box
-                textTransform={Box.textTransforms.UPPERCASE}
-            >Box.textTransform.UPPERCASE => example</Box>
-            <Box
-                textTransform={Box.textTransforms.CAPITALIZE}
-            >Box.textTransform.CAPITALIZE => example</Box>
-        </div>
-    </Story>
-</Canvas>
-
-### Overflow
-Overflow properties should have a dimension definitions.<br/>
-Height and Width definitions can be provided via custom className
-
-#### Available Variants:
-````
-AUTO
-HIDDEN
-VISIBLE
-SCROLL
-````
-
-#### Props property variations:
-````
-overflow
-overflowX
-overflowY
-````
-
-### User Select
-User select props , enable / disable text selection
-
-#### Available Variants:
-````
-ALL
-AUTO
-NONE
-````
-
-### Pointer Events
-Pointer events props , enable / disable click on an element.
-
-#### Available Variants:
-````
-NONE
-AUTO
-````
 
 ## Related components
 

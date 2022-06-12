@@ -4,24 +4,8 @@ $utilities-modules: (
         "opacity": (
                 property: opacity,
                 values: (
-                        0: 0,
-                        100: 1,
                         disabled: var(--disabled-component-opacity),
                 )
-        ),
-        "overflow": (
-                property: overflow,
-                values: auto hidden visible scroll,
-        ),
-        "overflowY": (
-                property: overflow-y,
-                class: overflowy,
-                values: auto hidden visible scroll,
-        ),
-        "overflowX": (
-                property: overflow-x,
-                class: overflowx,
-                values: auto hidden visible scroll,
         ),
         "border": (
                 property: border,
@@ -39,7 +23,7 @@ $utilities-modules: (
                 )
         ),
         "borderEnd": (
-                property: border-right,
+                property: border-inline-end,
                 class: borderEnd,
                 values: (
                         null: var(--border-width) var(--border-style) var(--ui-border-color),
@@ -55,7 +39,7 @@ $utilities-modules: (
                 )
         ),
         "borderStart": (
-                property: border-left,
+                property: border-inline-start,
                 class: borderStart,
                 values: (
                         null: var(--border-width) var(--border-style) var(--ui-border-color),
@@ -121,6 +105,7 @@ $utilities-modules: (
                 property: box-shadow,
                 class: shadow,
                 values: (
+                        xs: var(--box-shadow-xs),
                         small: var(--box-shadow-small),
                         medium: var(--box-shadow-medium),
                         large: var(--box-shadow-large),
@@ -147,7 +132,7 @@ $utilities-modules: (
                 values: map.merge($core-spacing-vars, (auto: auto)),
         ),
         "marginEnd": (
-                property: margin-right,
+                property: margin-inline-end,
                 class: me,
                 values: map.merge($core-spacing-vars, (auto: auto)),
         ),
@@ -157,44 +142,9 @@ $utilities-modules: (
                 values: map.merge($core-spacing-vars, (auto: auto)),
         ),
         "marginStart": (
-                property: margin-left,
+                property: margin-inline-start,
                 class: ms,
                 values: map.merge($core-spacing-vars, (auto: auto)),
-        ),
-        "negativeMargin": (
-                property: margin,
-                class: m,
-                values: $core-negative-spacing-vars
-        ),
-        "negativeMarginX": (
-                property: margin-right margin-left,
-                class: mx,
-                values: $core-negative-spacing-vars
-        ),
-        "negativeMarginY": (
-                property: margin-top margin-bottom,
-                class: my,
-                values: $core-negative-spacing-vars
-        ),
-        "negativeMarginTop": (
-                property: margin-top,
-                class: mt,
-                values: $core-negative-spacing-vars
-        ),
-        "negativeMarginEnd": (
-                property: margin-right,
-                class: me,
-                values: $core-negative-spacing-vars
-        ),
-        "negativeMarginBottom": (
-                property: margin-bottom,
-                class: mb,
-                values: $core-negative-spacing-vars
-        ),
-        "negativeMarginStart": (
-                property: margin-left,
-                class: ms,
-                values: $core-negative-spacing-vars
         ),
         "padding": (
                 property: padding,
@@ -217,7 +167,7 @@ $utilities-modules: (
                 values: $core-spacing-vars
         ),
         "paddingEnd": (
-                property: padding-right,
+                property: padding-inline-end,
                 class: pe,
                 values: $core-spacing-vars
         ),
@@ -227,16 +177,13 @@ $utilities-modules: (
                 values: $core-spacing-vars
         ),
         "paddingStart": (
-                property: padding-left,
+                property: padding-inline-start,
                 class: ps,
                 values: $core-spacing-vars
         ),
         "color": (
                 property: color,
                 class: text,
-                local-vars: (
-                        "text-opacity": 1
-                ),
                 values: $core-colors-vars,
         ),
         "backgroundColor": (
@@ -248,37 +195,5 @@ $utilities-modules: (
                                         "transparent": transparent
                                 ),
                 ),
-        ),
-        "textAlign": (
-                property: text-align,
-                class: text,
-                values: (
-                        start: left,
-                        end: right,
-                        center: center,
-                )
-        ),
-        "textTransform": (
-                property: text-transform,
-                class: text,
-                values: lowercase uppercase capitalize
-        ),
-        "userSelect": (
-                property: user-select,
-                class: userSelect,
-                values: all auto none
-        ),
-        "pointerEvents": (
-                property: pointer-events,
-                class: pointerEvents,
-                values: none auto,
-        ),
-        "visibility": (
-                property: visibility,
-                class: null,
-                values: (
-                        visible: visible,
-                        invisible: hidden,
-                )
         ),
 );

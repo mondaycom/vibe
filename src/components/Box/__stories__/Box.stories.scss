@@ -23,9 +23,11 @@
 
 .monday-storybook-box-padding-wrapper {
   overflow: hidden;
+  padding:0;
 
   > * {
     position: relative;
+    padding:0;
     background: white;
 
     &::before {

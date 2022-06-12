@@ -1,28 +1,7 @@
 import styles from "./Box.module.scss";
 
-export const OPACITY = Object.freeze({
+export const DISABLED = Object.freeze({
     DISABLED: styles.opacityDisabled,
-})
-
-export const OVERFLOW = Object.freeze({
-    AUTO: styles.overflowAuto,
-    HIDDEN: styles.overflowHidden,
-    VISIBLE: styles.overflowVisible,
-    SCROLL: styles.overflowScroll,
-})
-
-export const OVERFLOW_X = Object.freeze({
-    AUTO: styles.overflowxAuto,
-    HIDDEN: styles.overflowxHidden,
-    VISIBLE: styles.overflowxVisible,
-    SCROLL: styles.overflowxScroll,
-})
-
-export const OVERFLOW_Y = Object.freeze({
-    AUTO: styles.overflowYauto,
-    HIDDEN: styles.overflowYhidden,
-    VISIBLE: styles.overflowYvisible,
-    SCROLL: styles.overflowYscroll,
 })
 
 export const BORDER = Object.freeze({
@@ -30,35 +9,49 @@ export const BORDER = Object.freeze({
 })
 
 export const BORDER_TOP = Object.freeze({
-    NONE: styles.borderTop0, DEFAULT: styles.borderTop,
+    NONE: styles.borderTop0,
+    DEFAULT: styles.borderTop,
 })
 
 export const BORDER_END = Object.freeze({
-    NONE: styles.borderEnd0, DEFAULT: styles.borderEnd,
+    NONE: styles.borderEnd0,
+    DEFAULT: styles.borderEnd,
 })
 
 export const BORDER_BOTTOM = Object.freeze({
-    NONE: styles.borderBottom0, DEFAULT: styles.borderBottom,
+    NONE: styles.borderBottom0,
+    DEFAULT: styles.borderBottom,
 })
 
 export const BORDER_START = Object.freeze({
-    NONE: styles.borderStart0, DEFAULT: styles.borderStart,
+    NONE: styles.borderStart0,
+    DEFAULT: styles.borderStart,
 })
 
 export const BORDER_COLOR = Object.freeze({
-    UI_BORDER_COLOR: styles.borderColorUiBorderColor, LAYOUT_BORDER_COLOR: styles.borderColorLayoutBorderColor,
+    UI_BORDER_COLOR: styles.borderColorUiBorderColor,
+    LAYOUT_BORDER_COLOR: styles.borderColorLayoutBorderColor,
 })
 
 export const ROUNDED = Object.freeze({
-    NONE: styles.rounded0, SMALL: styles.roundedSmall, MEDIUM: styles.roundedMedium, BIG: styles.roundedBig,
+    NONE: styles.rounded0,
+    SMALL: styles.roundedSmall,
+    MEDIUM: styles.roundedMedium,
+    BIG: styles.roundedBig,
 })
 
 export const ROUNDED_TOP = Object.freeze({
-    NONE: styles.roundedTop0, SMALL: styles.roundedTopSmall, MEDIUM: styles.roundedTopMedium, BIG: styles.roundedTopBig,
+    NONE: styles.roundedTop0,
+    SMALL: styles.roundedTopSmall,
+    MEDIUM: styles.roundedTopMedium,
+    BIG: styles.roundedTopBig,
 })
 
 export const ROUNDED_END = Object.freeze({
-    NONE: styles.roundedEnd0, SMALL: styles.roundedEndSmall, MEDIUM: styles.roundedEndMedium, BIG: styles.roundedEndBig,
+    NONE: styles.roundedEnd0,
+    SMALL: styles.roundedEndSmall,
+    MEDIUM: styles.roundedEndMedium,
+    BIG: styles.roundedEndBig,
 })
 
 export const ROUNDED_BOTTOM = Object.freeze({
@@ -76,7 +69,10 @@ export const ROUNDED_START = Object.freeze({
 })
 
 export const SHADOW = Object.freeze({
-    SMALL: styles.shadowSmall, MEDIUM: styles.shadowMedium, LARGE: styles.shadowLarge,
+    XS: styles.shadowXs,
+    SMALL: styles.shadowSmall,
+    MEDIUM: styles.shadowMedium,
+    LARGE: styles.shadowLarge,
 })
 
 export const MARGIN = Object.freeze({
@@ -163,76 +159,6 @@ export const MARGIN_START = Object.freeze({
     XXXL: styles.msXxxl,
 })
 
-export const MARGIN_NEGATIVE = Object.freeze({
-    XS: styles.mNxs,
-    SMALL: styles.mNsmall,
-    MEDIUM: styles.mNmedium,
-    LARGE: styles.mNlarge,
-    XL: styles.mNxl,
-    XXL: styles.mNxxl,
-    XXXL: styles.mNxxxl,
-})
-
-export const MARGIN_NEGATIVE_X = Object.freeze({
-    XS: styles.mxNxs,
-    SMALL: styles.mxNsmall,
-    MEDIUM: styles.mxNmedium,
-    LARGE: styles.mxNlarge,
-    XL: styles.mxNxl,
-    XXL: styles.mxNxxl,
-    XXXL: styles.mxNxxxl,
-})
-
-export const MARGIN_NEGATIVE_Y = Object.freeze({
-    XS: styles.myNxs,
-    SMALL: styles.myNsmall,
-    MEDIUM: styles.myNmedium,
-    LARGE: styles.myNlarge,
-    XL: styles.myNxl,
-    XXL: styles.myNxxl,
-    XXXL: styles.myNxxxl,
-})
-
-export const MARGIN_NEGATIVE_TOP = Object.freeze({
-    XS: styles.mtNxs,
-    SMALL: styles.mtNdmall,
-    MEDIUM: styles.mtNmedium,
-    LARGE: styles.mtNlarge,
-    XL: styles.mtNxl,
-    XXL: styles.mtNxxl,
-    XXXL: styles.mtNxxxl,
-})
-
-export const MARGIN_NEGATIVE_END = Object.freeze({
-    XS: styles.meNxs,
-    SMALL: styles.meNsmall,
-    MEDIUM: styles.meNmedium,
-    LARGE: styles.meNlarge,
-    XL: styles.meNxl,
-    XXL: styles.meNxxl,
-    XXXL: styles.meNxxxl,
-})
-
-export const MARGIN_NEGATIVE_BOTTOM = Object.freeze({
-    XS: styles.mbNxs,
-    SMALL: styles.mbNdmall,
-    MEDIUM: styles.mbNmedium,
-    LARGE: styles.mbNlarge,
-    XL: styles.mbNxl,
-    XXL: styles.mbNxxl,
-    XXXL: styles.mbNxxxl,
-})
-
-export const MARGIN_NEGATIVE_START = Object.freeze({
-    XS: styles.msNxs,
-    SMALL: styles.msNsmall,
-    MEDIUM: styles.msNmedium,
-    LARGE: styles.msNlarge,
-    XL: styles.msNxl,
-    XXL: styles.msNxxl,
-    XXXL: styles.msNxxxl,
-})
-
 export const PADDING = Object.freeze({
     NONE: styles.p0,
     XS: styles.pXs,
@@ -265,7 +191,6 @@ export const PADDING_Y = Object.freeze({
     XXL: styles.pyXxl,
     XXXL: styles.pyXxxl,
 })
-
 
 export const PADDING_TOP = Object.freeze({
     NONE: styles.pt0,
@@ -326,27 +251,11 @@ export const COLORS = Object.freeze({
     PRIMARY_HOVER_COLOR: styles.textPrimaryHoverColor,
     PRIMARY_SELECTED_COLOR: styles.textPrimarySelectedColor,
     PRIMARY_TEXT_COLOR: styles.textPrimaryTextColor,
-    TEXT_COLOR_ON_PRIMARY: styles.textTextColorOnInverted,
-    TEXT_COLOR_ON_INVERTED: styles.textSecondaryTextColor,
+    TEXT_COLOR_ON_PRIMARY: styles.textTextColorOnPrimary,
+    TEXT_COLOR_ON_INVERTED: styles.textTextColorOnInverted,
     SECONDARY_TEXT_COLOR: styles.textSecondaryTextColor,
     PLACEHOLDER_COLOR: styles.textPlaceholderColor,
     ICON_COLOR: styles.textIconColor,
     LINK_COLOR: styles.textLinkColor,
     DISABLED_TEXT_COLOR: styles.textDisabledTextColor,
-})
-
-export const TEXT_ALIGN = Object.freeze({
-    START: styles.textStart, END: styles.textEnd, CENTER: styles.textCenter,
-})
-
-export const TEXT_TRANSFORM = Object.freeze({
-    LOWERCASE: styles.textLowercase, UPPERCASE: styles.textUppercase, CAPITALIZE: styles.textCapitalize,
-})
-
-export const USER_SELECT = Object.freeze({
-    ALL: styles.userSelectAll, AUTO: styles.userSelectAuto, NONE: styles.userSelectNone,
-})
-
-export const POINTER_EVENTS = Object.freeze({
-    NONE: styles.pointerEventsNone, AUTO: styles.pointerEventsAuto,
 })
