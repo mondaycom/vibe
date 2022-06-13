@@ -12,12 +12,8 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
     return null;
   }
 
-  const items = avatars.map(avatar => ({ value: avatar.props }));
-  const displayAsGrid = !items.some(item => item.value?.tooltipProps?.content);
-
-  if (!items.length) {
-    return null;
-  }
+  avatars = avatars.map(avatar => ({ value: avatar.props }));
+  const displayAsGrid = !avatars.some(item => item.value?.tooltipProps?.content);
 
   const avatarRenderer = (item, index, style) => {
     const avatarProps = item.value;
@@ -59,14 +55,14 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
     const maxOptionsWithoutScroll = 10;
     const optionLineHeight = 34;
     // TODO temp solution
-    const optionLineWidth = items.some(i => !!i.value?.tooltipProps?.content) ? 175 : 40;
+    const optionLineWidth = avatars.some(i => !!i.value?.tooltipProps?.content) ? 175 : 40;
 
-    const virtualizedItems = items.map(item => ({ ...item, height: optionLineHeight }));
+    const virtualizedItems = avatars.map(item => ({ ...item, height: optionLineHeight }));
 
     let virtualizedListStyle;
     if (maxOptionsWithoutScroll) {
       // Adding 0.5 to show next option to indicate scroll is available
-      const minCount = Math.min(items.length, maxOptionsWithoutScroll + 0.5);
+      const minCount = Math.min(avatars.length, maxOptionsWithoutScroll + 0.5);
       virtualizedListStyle = { height: optionLineHeight * minCount, minWidth: optionLineWidth };
     }
 
@@ -87,7 +83,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
     );
   }
 
-  const renderedItems = items.map((item, index) =>
+  const renderedItems = avatars.map((item, index) =>
     avatarRenderer(item, index, { width: displayAsGrid ? undefined : "100%" })
   );
 

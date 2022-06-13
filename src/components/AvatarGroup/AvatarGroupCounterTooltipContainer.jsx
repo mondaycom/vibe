@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import Tooltip from "../Tooltip/Tooltip";
 import Dialog from "../Dialog/Dialog";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
@@ -14,14 +14,12 @@ const AvatarGroupCounterTooltipContainer = ({
   counterTooltipIsVirtualizedList,
   counterTooltipTheme
 }) => {
-  const counterTooltipContentComponent = useMemo(() => {
-    return AvatarGroupCounterTooltipContent({
-      avatars,
-      type,
-      className,
-      isVirtualizedList: counterTooltipIsVirtualizedList
-    });
-  }, [avatars, className, counterTooltipIsVirtualizedList, type]);
+  const counterTooltipContentComponent = AvatarGroupCounterTooltipContent({
+    avatars,
+    type,
+    className,
+    isVirtualizedList: counterTooltipIsVirtualizedList
+  });
 
   if (!counterTooltipContentComponent && !counterTooltipCustomProps) {
     return children;
