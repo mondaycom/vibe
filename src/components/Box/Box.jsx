@@ -4,9 +4,6 @@ import cx from "classnames";
 import useMergeRefs from "hooks/useMergeRefs";
 import {
   DISABLED,
-  OVERFLOW,
-  OVERFLOW_X,
-  OVERFLOW_Y,
   BORDER,
   BORDER_TOP,
   BORDER_END,
