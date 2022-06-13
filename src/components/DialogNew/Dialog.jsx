@@ -7,7 +7,7 @@ import { useA11yDialog } from "./a11YDialog";
 import { IconButton } from "components";
 import { CloseSmall } from "components/Icon/Icons";
 
-const Dialog = ({ className, classNames, id, show, title, onHide, role, children }) => {
+const Dialog = ({ className, classNames, id, show, title, onHide, role, isAlertDialog, children }) => {
   // `instance` is the `a11y-dialog` instance.
   // `attr` is an object with the following keys:
   // - `container`: the dialog container
@@ -26,8 +26,8 @@ const Dialog = ({ className, classNames, id, show, title, onHide, role, children
     // The required dialog title, mandatory in the document
     // to provide context to assistive technology.
     title,
-
-    onHide
+    onHide,
+    isAlertDialog
   });
 
   // useEffect(() => {
@@ -62,7 +62,6 @@ const Dialog = ({ className, classNames, id, show, title, onHide, role, children
             icon={CloseSmall}
             kind={IconButton.kinds.TERTIARY}
             size={IconButton.sizes.SMALL}
-            // ariaLabel="My xxs IconButton"
           />
         </div>
 
