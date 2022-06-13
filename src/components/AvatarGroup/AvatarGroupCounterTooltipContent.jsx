@@ -13,6 +13,7 @@ const AvatarGroupCounterTooltipContent = ({ children, max, type, className, isVi
   }
 
   const items = [...children.slice(max).map(avatar => ({ value: avatar.props }))];
+  const displayAsGrid = !items.some(item => item.value?.tooltipProps?.content);
 
   if (!items.length) {
     return null;
@@ -32,7 +33,8 @@ const AvatarGroupCounterTooltipContent = ({ children, max, type, className, isVi
     const ariaLabel =
       typeof avatarProps?.tooltipProps?.content === "string" ? avatarProps.tooltipProps.content : undefined;
 
-    const tooltipAvatarFlexItemClassName = isVirtualizedList ? "" : styles.tooltipAvatarFlexItemContainer;
+    const tooltipAvatarFlexItemClassName =
+      isVirtualizedList || displayAsGrid ? "" : styles.tooltipAvatarFlexItemContainer;
 
     return (
       // TODO make normal keys
@@ -74,7 +76,7 @@ const AvatarGroupCounterTooltipContent = ({ children, max, type, className, isVi
           <VirtualizedList
             className={cx(className)}
             items={virtualizedItems}
-            itemRenderer={avatarRenderer}
+            itemRenderer={(item, index, style) => avatarRenderer(item, index, { ...style, width: "100%" })}
             role="treegrid"
             scrollableClassName={styles.scrollableContainer}
             getItemId={(item, index) => `id-${index}`}
@@ -85,7 +87,23 @@ const AvatarGroupCounterTooltipContent = ({ children, max, type, className, isVi
     );
   }
 
-  const renderedItems = items.map((item, index) => avatarRenderer(item, index));
+  const renderedItems = items.map((item, index) =>
+    avatarRenderer(item, index, { width: displayAsGrid ? undefined : "100%" })
+  );
+
+  if (displayAsGrid) {
+    return (
+      <Flex
+        className={cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)}
+        role="treegrid"
+        direction={Flex.directions.ROW}
+        gap={Flex.gaps.XS}
+        wrap
+      >
+        {renderedItems}
+      </Flex>
+    );
+  }
 
   return (
     <Flex

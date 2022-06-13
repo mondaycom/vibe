@@ -233,7 +233,8 @@ Choose the maximum amount of avatars you want to display.
 
 ### Clickable vs Hover
 
-If Avatars are clickable 
+If avatars are clickable, they will be displayed via MenuButton and user will be able to navigate each additional item.
+Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
 
 <Canvas>
   <Story name="Clickable vs Hover">
@@ -377,58 +378,62 @@ Counter tooltip props can be specified in order to render tooltip with custom co
 <Canvas>
   <Story name="Displaying teams">
     <table>
-      <tr>
-        <th width={200} align="left">
-          Name
-        </th>
-        <th width={200} align="left">
-          Title
-        </th>
-        <th width={200} align="left">
-          Teams
-        </th>
-      </tr>
-      <tr>
-        <td colSpan={3}>
-          <Divider />
-        </td>
-      </tr>
-      <tr>
-        <td align="left">
-          <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
-            <Avatar
-              type={Avatar.types.IMG}
-              src={person1}
-              size={Avatar.sizes.MEDIUM}
-              tooltipProps={{ content: "Hadas Fahri" }}
-            />
-            Hadas Fahri
-          </Flex>
-        </td>
-        <td align="left">Developer</td>
-        <td align="left">
-          <AvatarGroup size={Avatar.sizes.MEDIUM} max={2}>
-            <Avatar
-              type={Avatar.types.TEXT}
-              text="T1"
-              backgroundColor={Avatar.backgroundColors.PEACH}
-              tooltipProps={{ content: "Team 1" }}
-            />
-            <Avatar
-              type={Avatar.types.TEXT}
-              text="T2"
-              backgroundColor={Avatar.backgroundColors.BUBBLE}
-              tooltipProps={{ content: "Team 2" }}
-            />
-            <Avatar
-              type={Avatar.types.TEXT}
-              text="T3"
-              backgroundColor={Avatar.backgroundColors.BERRY}
-              tooltipProps={{ content: "Team 3" }}
-            />
-          </AvatarGroup>
-        </td>
-      </tr>
+      <thead>
+        <tr>
+          <th width={200} align="left">
+            Name
+          </th>
+          <th width={200} align="left">
+            Title
+          </th>
+          <th width={200} align="left">
+            Teams
+          </th>
+        </tr>
+        <tr>
+          <td colSpan={3}>
+            <Divider />
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td align="left">
+            <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
+              <Avatar
+                type={Avatar.types.IMG}
+                src={person1}
+                size={Avatar.sizes.MEDIUM}
+                tooltipProps={{ content: "Hadas Fahri" }}
+              />
+              Hadas Fahri
+            </Flex>
+          </td>
+          <td align="left">Developer</td>
+          <td align="left">
+            <AvatarGroup size={Avatar.sizes.MEDIUM} max={2}>
+              <Avatar
+                type={Avatar.types.TEXT}
+                text="T1"
+                backgroundColor={Avatar.backgroundColors.PEACH}
+                tooltipProps={{ content: "Team 1" }}
+              />
+              <Avatar
+                type={Avatar.types.TEXT}
+                text="T2"
+                backgroundColor={Avatar.backgroundColors.BUBBLE}
+                tooltipProps={{ content: "Team 2" }}
+              />
+              <Avatar
+                type={Avatar.types.TEXT}
+                text="T3"
+                backgroundColor={Avatar.backgroundColors.BERRY}
+                tooltipProps={{ content: "Team 3" }}
+              />
+            </AvatarGroup>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </Story>
 </Canvas>

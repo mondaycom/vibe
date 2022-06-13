@@ -2,7 +2,6 @@
 @import "../../styles/states";
 
 .tooltipAvatarItemClickableContainer {
-  width: 100%;
 }
 
 .tooltipAvatarFlexItemContainer {
@@ -20,6 +19,10 @@
   overflow-x: visible;
   overflow-y: auto;
   margin-top: var(--spacing-small);
+}
+
+.tooltipGridContainer {
+  max-width: 200px;
 }
 
 .virtualizedTooltipContainer {
