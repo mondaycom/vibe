@@ -22,6 +22,10 @@ $spacing-xxxl: 64px;
 
 $expand-animation-timing: cubic-bezier(0, 0, 0.35, 1);
 
+@mixin box-shadow-xs() {
+  @include theme-prop(box-shadow, box-shadow-xs);
+}
+
 @mixin box-shadow-small() {
   @include theme-prop(box-shadow, box-shadow-small);
 }
