@@ -83,9 +83,6 @@ const Box = forwardRef(
         ref={mergedRef}
         className={cx(
           { [DISABLED.DISABLED]: disabled },
-          overflow,
-          overflowX,
-          overflowY,
           border,
           borderTop,
           borderEnd,
@@ -332,7 +329,7 @@ Box.propTypes = {
     Box.paddingBottoms.XXL,
     Box.paddingBottoms.XXXL
   ]),
-  addingStart: PropTypes.oneOf([
+  paddingStart: PropTypes.oneOf([
     Box.paddingStarts.NONE,
     Box.paddingStarts.XS,
     Box.paddingStarts.SMALL,
