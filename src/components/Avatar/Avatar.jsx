@@ -104,7 +104,7 @@ const Avatar = ({
 
   const TooltipContainer = ({ children }) => {
     if (!tooltipProps) {
-      return <>{children}</>;
+      return children;
     }
 
     return (
@@ -120,7 +120,7 @@ const Avatar = ({
 
   const ClickableContainer = ({ children }) => {
     if (!onClick) {
-      return <>{children}</>;
+      return children;
     }
 
     return <Clickable onClick={onClick}>{children}</Clickable>;

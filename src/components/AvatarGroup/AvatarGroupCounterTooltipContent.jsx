@@ -24,7 +24,7 @@ const AvatarGroupCounterTooltipContent = ({ children, max, type, className, isVi
 
     const ClickableContainer = ({ children }) => {
       if (!avatarProps.onClick) {
-        return <>{children}</>;
+        return children;
       }
 
       return <Clickable onClick={avatarProps.onClick}>{children}</Clickable>;

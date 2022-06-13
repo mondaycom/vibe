@@ -26,7 +26,7 @@ const AvatarGroupCounterTooltipContainer = ({
   }, [avatars, className, max, counterTooltipIsVirtualizedList, type]);
 
   if (!counterTooltipContentComponent && !counterTooltipCustomProps) {
-    return <>{children}</>;
+    return children;
   }
 
   if (counterTooltipCustomProps) {

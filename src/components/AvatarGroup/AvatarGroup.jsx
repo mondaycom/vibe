@@ -27,12 +27,11 @@ const AvatarGroup = ({
   } = counterProps || {};
 
   const getCounterContainerSizeStyle = useCallback(() => {
-    const counterSize = size || (children?.length && children[0]?.props?.size);
-    if (counterSize && Avatar.sizes[`${counterSize.toString().toUpperCase()}`]) {
-      return styles[`${counterSize}`];
+    if (size && Avatar.sizes[`${size.toString().toUpperCase()}`]) {
+      return styles[`${size}`];
     }
     return styles.medium;
-  }, [children, size]);
+  }, [size]);
   const counterContainerSizeStyle = getCounterContainerSizeStyle();
 
   const getCounterContainerColorStyle = useCallback(() => {
@@ -44,9 +43,7 @@ const AvatarGroup = ({
     return null;
   }
 
-  if (!Array.isArray(children) && typeof children === "object") {
-    children = [children];
-  }
+  children = React.Children.toArray(children);
 
   return (
     <div className={cx(styles.container, className)} id={id}>
