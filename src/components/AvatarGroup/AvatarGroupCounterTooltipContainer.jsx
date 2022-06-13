@@ -8,7 +8,6 @@ import PropTypes from "prop-types";
 const AvatarGroupCounterTooltipContainer = ({
   children,
   avatars,
-  max,
   type,
   className,
   counterTooltipCustomProps,
@@ -17,13 +16,12 @@ const AvatarGroupCounterTooltipContainer = ({
 }) => {
   const counterTooltipContentComponent = useMemo(() => {
     return AvatarGroupCounterTooltipContent({
-      children: avatars,
-      max,
+      avatars,
       type,
       className,
       isVirtualizedList: counterTooltipIsVirtualizedList
     });
-  }, [avatars, className, max, counterTooltipIsVirtualizedList, type]);
+  }, [avatars, className, counterTooltipIsVirtualizedList, type]);
 
   if (!counterTooltipContentComponent && !counterTooltipCustomProps) {
     return children;
@@ -61,7 +59,6 @@ const AvatarGroupCounterTooltipContainer = ({
 AvatarGroupCounterTooltipContainer.propTypes = {
   className: PropTypes.string,
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
-  max: PropTypes.number,
   /**
    * Counter element
    */
@@ -77,7 +74,6 @@ AvatarGroupCounterTooltipContainer.propTypes = {
 AvatarGroupCounterTooltipContainer.defaultProps = {
   className: undefined,
   type: undefined,
-  max: undefined,
   children: [],
   avatars: [],
   counterTooltipCustomProps: undefined,

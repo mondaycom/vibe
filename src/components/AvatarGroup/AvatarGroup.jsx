@@ -44,31 +44,29 @@ const AvatarGroup = ({
   }
 
   children = React.Children.toArray(children);
+  const displayAvatars = children.slice(0, max);
+  const counterTooltipAvatars = children.slice(max);
 
   return (
     <div className={cx(styles.container, className)} id={id}>
-      {children.map((avatar, index) => {
-        if (index < max) {
-          return (
-            <Avatar
-              {...avatar.props}
-              size={size || avatar.props?.size}
-              type={type || avatar.props?.type}
-              // TODO normal key
-              key={`${id}-${index}`}
-              className={cx(styles.avatarContainer, avatar.props?.className)}
-              withoutBorder
-            />
-          );
-        }
+      {displayAvatars.map((avatar, index) => {
+        return (
+          <Avatar
+            {...avatar.props}
+            key={`avatar-group-item-${id}-${index}`}
+            size={size || avatar.props?.size}
+            type={type || avatar.props?.type}
+            className={cx(styles.avatarContainer, avatar.props?.className)}
+            withoutBorder
+          />
+        );
       })}
-      {(children.length > max || !!counterValue) && (
+      {(counterTooltipAvatars.length || !!counterValue) && (
         <AvatarGroupCounterTooltipContainer
-          avatars={children}
+          avatars={counterTooltipAvatars}
           counterTooltipCustomProps={counterTooltipCustomProps}
           className={className}
           type={type}
-          max={max}
           counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
           counterTooltipTheme={counterTooltipTheme}
         >

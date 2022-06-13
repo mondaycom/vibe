@@ -7,12 +7,12 @@ import PropTypes from "prop-types";
 import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
-const AvatarGroupCounterTooltipContent = ({ children, max, type, className, isVirtualizedList }) => {
-  if (!children || !children.length) {
+const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtualizedList }) => {
+  if (!avatars || !avatars.length) {
     return null;
   }
 
-  const items = [...children.slice(max).map(avatar => ({ value: avatar.props }))];
+  const items = avatars.map(avatar => ({ value: avatar.props }));
   const displayAsGrid = !items.some(item => item.value?.tooltipProps?.content);
 
   if (!items.length) {
@@ -119,18 +119,16 @@ const AvatarGroupCounterTooltipContent = ({ children, max, type, className, isVi
 AvatarGroupCounterTooltipContent.propTypes = {
   className: PropTypes.string,
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
-  max: PropTypes.number,
   /**
    * Array of Avatar components
    */
-  children: PropTypes.arrayOf(PropTypes.element),
+  avatars: PropTypes.arrayOf(PropTypes.element),
   isVirtualizedList: PropTypes.bool
 };
 AvatarGroupCounterTooltipContent.defaultProps = {
   className: undefined,
   type: undefined,
-  max: undefined,
-  children: [],
+  avatars: [],
   isVirtualizedList: false
 };
 
