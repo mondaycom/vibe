@@ -1,11 +1,13 @@
+@use "sass:color";
+
 .hacker_theme-app-theme {
   $bg_color: #282a36;
   $primary_color: #fe78c6;
   // primary coloring
   --primary-color: #{$primary_color};
   --primary-on-secondary-color: #{$primary_color};
-  --primary-hover-color: #{darken($primary_color, 6%)};
-  --primary-hover-on-secondary-color: #{darken($primary_color, 6%)};
+  --primary-hover-color: #{color.adjust($primary_color, $lightness: -6%)};
+  --primary-hover-on-secondary-color: #{color.adjust($primary_color, $lightness: -6%)};
   --primary-selected-color: #9f4077;
   --primary-selected-color-rgb: 159, 64, 119;
   --primary-selected-on-secondary-color: #9f4077;

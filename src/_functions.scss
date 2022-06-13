@@ -1,3 +1,5 @@
+@use "sass:map";
+
 // FUNCTIONS: This partial loads global scope functions.
 
 // - Map Collect
@@ -9,7 +11,7 @@
   $collection: ();
 
   @each $map in $maps {
-    $collection: map-merge($collection, $map);
+    $collection: map.merge($collection, $map);
   }
   @return $collection;
 }

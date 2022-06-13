@@ -1,4 +1,5 @@
 // DEBUG: MIXINS
+@use "sass:string";
 
 // # Debug compare values
 // This Mixin enable map value compate
@@ -9,7 +10,7 @@
 // --- if value is not the same and is whit listed prompt white list message
 // --- else if prompt ❌ fail with $key name and values
 // -- if $prod has key, prompt missing output message
-//
+
 @mixin debug-compare-values(
   $prod,
   $dev,
@@ -34,9 +35,9 @@
 
   @debug "🔷 Validating keys  against referance map. 🔷";
   @each $key, $value in $reference-key-map {
-    $i-key: $i-key +1;
+    $i-key: $i-key + 1;
     @if map-has-key($reference-key-map, $key) and not map-has-key($prod,$key) {
-      $num-reference-missing: $num-reference-missing +1;
+      $num-reference-missing: $num-reference-missing + 1;
       @debug "[#{$i-key}] 🔶 --#{$key} missing from new output when checked prod against boilerplate";
     } @else {
       @if $debug-show-pass {
@@ -51,41 +52,41 @@
 
   @debug "🔷 Validating prod key and values vs dev ... 🔷";
   @each $key, $value in $prod {
-    $i: $i+1;
+    $i: $i + 1;
     @if map-has-key($prod, $key) and map-has-key($dev,$key) {
       // Key match
       @if #{$value} == #{map-get($dev,$key)} {
-        $num-pass: $num-pass+1;
+        $num-pass: $num-pass + 1;
         @if $debug-show-pass {
           @debug "[#{$i}] ✅ PASS --#{$key} ";
         }
       } @else if map-has-key($custom-props-values, $key) {
         @if #{map-get($custom-props-values,$key)} == $key {
           @debug "[#{$i}] 🟩 FALSE FAIL ❕❕ CUSTOM PROPERTY REFERANCE: \a --#{$key}: #{$value } == #{map-get($custom-props-values,$key)} ==> Referance value ==  #{map-get($dev,$key)} ";
-          $num-custom-properties: $num-custom-properties+1;
+          $num-custom-properties: $num-custom-properties + 1;
         }
       } @else if map-has-key($custom-props-converted, $key) {
         @if #{map-get($custom-props-converted,$key)} == #{map-get($dev,$key)} {
-          $num-custom-properties-converted: $num-custom-properties-converted+1;
+          $num-custom-properties-converted: $num-custom-properties-converted + 1;
           @if $debug-show-converted {
             @debug "[#{$i}] 🟩 FALSE FAIL ❕❕ CUSTOM PROPERTY CONVERTED: \a --#{$key}: #{$value } == #{map-get($dev,$key)} ==> Converted value ==  #{map-get($custom-props-converted,$key)} ";
           }
         } @else {
-          $num-custom-properties-converted-fail: $num-custom-properties-converted-fail+1;
+          $num-custom-properties-converted-fail: $num-custom-properties-converted-fail + 1;
           @if $debug-show-converted-fail {
             @debug "[#{$i}] ❌ FAIL, --#{$key},#{map-get($prod,$key)} , ⭕ #{map-get($custom-props-converted,$key)} listed value in var to value map does not match";
           }
         }
       } @else if map-has-key($white-list, $key) {
         @debug "[#{$i}] ⬜ FALSE FAIL ,[WHITE LISTED] --#{$key} #{$value} changed to  #{map-get($white-list,$key)}";
-        $num-white-list: $num-white-list +1;
+        $num-white-list: $num-white-list + 1;
       } @else {
         @debug "[#{$i}] ❌ FAIL, --#{$key},#{map-get($prod,$key)} , ⭕ #{map-get($dev,$key)} ";
         $num-fail: $num-fail + 1;
       }
     } @else {
       // missing key
-      $num-missing: $num-missing +1;
+      $num-missing: $num-missing + 1;
       @debug "[#{$i}] 🔶 fix me, --#{$key} missing from new output when checked prod against dev";
     }
   }
@@ -108,13 +109,13 @@
   $num-fail: 0;
   @debug "🔷 Validating Vibe Tokens ... 🔷";
   @each $key in $keys {
-    $key: str-slice($key, $start-at: 3);
-    $i: $i+1;
+    $key: string.slice($key, $start-at: 3);
+    $i: $i + 1;
     @if map-has-key($reference-vibe-keys-map,$key) == true {
-      $num-pass: $num-pass+1;
+      $num-pass: $num-pass + 1;
       @debug "#{[$i]} ✅ #{$key} is a Vibe key";
     } @else {
-      $num-fail: $num-fail+1;
+      $num-fail: $num-fail + 1;
       @debug "#{[$i]} ❌ #{$key} is not in Vibe";
     }
   }

@@ -23,7 +23,7 @@
               $title: "🖌️ 🎨 palette values",
               $scope: "basic theme palette",
       )
-    };
+    }
     @if $debug-legacy-palette {
       // - legacy palette
       @include debug-compare-values(
