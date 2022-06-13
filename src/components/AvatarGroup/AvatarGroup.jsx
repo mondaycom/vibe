@@ -48,7 +48,7 @@ const AvatarGroup = ({
   const counterTooltipAvatars = children.slice(max);
 
   return (
-    <div className={cx(styles.container, className)} id={id}>
+    <div className={cx(styles.avatarGroupContainer, className)} id={id}>
       {displayAvatars.map((avatar, index) => {
         return (
           <Avatar
