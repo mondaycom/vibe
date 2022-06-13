@@ -5,7 +5,7 @@ import cx from "classnames";
 import styles from "./Dialog.module.scss";
 import { useA11yDialog } from "./a11YDialog";
 
-const Dialog = ({ className, id, show, title, onHide, role }) => {
+const Dialog = ({ className, classNames, id, show, title, onHide, role, children }) => {
   // `instance` is the `a11y-dialog` instance.
   // `attr` is an object with the following keys:
   // - `container`: the dialog container
@@ -44,17 +44,17 @@ const Dialog = ({ className, id, show, title, onHide, role }) => {
   }, [show, instance]);
 
   const dialog = ReactDOM.createPortal(
-    <div {...attr.container} className={styles.dialogContainer}>
-      <div {...attr.overlay} className={styles.dialogOverlay} />
+    <div {...attr.container} className={cx(styles.dialogContainer, classNames.container)}>
+      <div {...attr.overlay} className={cx(styles.dialogOverlay, classNames.overlay)} />
 
-      <div {...attr.dialog} className={styles.dialogContent}>
-        <p {...attr.title} className="dialog-title">
+      <div {...attr.dialog} className={cx(styles.dialogContent, classNames.dialog)}>
+        <p {...attr.title} className={cx(classNames.title)}>
           {title}
         </p>
 
-        <p>Your dialog content</p>
+        {children}
 
-        <button {...attr.closeButton} type="button" className="dialog-close">
+        <button {...attr.closeButton} type="button" className={cx(classNames.close)}>
           Close dialog
         </button>
       </div>
@@ -63,7 +63,7 @@ const Dialog = ({ className, id, show, title, onHide, role }) => {
   );
 
   return (
-    <div className={cx(styles.mondayStyleModalNew, className)} id={id}>
+    <div className={className} id={id}>
       {dialog}
     </div>
   );
@@ -89,15 +89,38 @@ Dialog.propTypes = {
    */
   onHide: PropTypes.func.isRequired,
   /**
-   * either `dialog` (default) or `alertdialog` to make it a modal (preventing
-   * closing on click outside of ESC key).
+   *  Makes the dialog behave like a modal (preventing closing on click outside of
+   *  ESC key)..
    */
-  role: PropTypes.oneOf(["dialog", "alertdialog"])
+  isAlertDialog: PropTypes.bool,
+  /**
+   *  classNames for specific parts of the dialog
+   *  ESC key)..
+   */
+  classNames: PropTypes.exact({
+    container: PropTypes.string,
+    overlay: PropTypes.string,
+    dialog: PropTypes.string,
+    title: PropTypes.string,
+    closeButton: PropTypes.string
+  }),
+  /**
+   *  Dialog content
+   */
+  children: PropTypes.node
 };
 
 Dialog.defaultProps = {
   className: "",
-  role: "dialog"
+  isAlertDialog: false,
+  children: undefined,
+  classNames: {
+    container: "",
+    overlay: "",
+    dialog: "",
+    title: "",
+    closeButton: ""
+  }
 };
 
 export default Dialog;

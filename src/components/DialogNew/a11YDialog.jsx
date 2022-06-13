@@ -13,9 +13,8 @@ const useA11yDialogInstance = () => {
 
 export const useA11yDialog = props => {
   const [instance, ref] = useA11yDialogInstance();
-  const { onHide } = props;
-  const role = props.role || "dialog";
-  const isAlertDialog = role === "alertdialog";
+  const { onHide, isAlertDialog } = props;
+  const role = isAlertDialog ? "alertdialog" : "dialog";
   const titleId = props.titleId || props.id + "-title";
 
   // Destroy the `a11y-dialog` instance when unmounting the component.
@@ -59,10 +58,9 @@ export const useA11yDialog = props => {
 // };
 
 useA11yDialog.propTypes = {
-  // The `role` attribute of the dialog element, either `dialog` (default) or
-  // `alertdialog` to make it a modal (preventing closing on click outside of
+  // Makes the dialog behave like a modal (preventing closing on click outside of
   // ESC key).
-  role: PropTypes.oneOf(["dialog", "alertdialog"]),
+  isAlertDialog: PropTypes.bool,
 
   // The HTML `id` attribute of the dialog element, internally used by
   // a11y-dialog to manipulate the dialog.
