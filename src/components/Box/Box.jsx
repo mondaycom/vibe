@@ -36,7 +36,6 @@ import {
   BACKGROUND_COLORS,
   COLORS
 } from "./BoxConstants";
-import styles from "./Box.module.scss";
 
 const Box = forwardRef(
   (
@@ -45,9 +44,6 @@ const Box = forwardRef(
       id,
       children,
       disabled,
-      overflow,
-      overflowX,
-      overflowY,
       border,
       borderTop,
       borderEnd,
@@ -336,6 +332,16 @@ Box.propTypes = {
     Box.paddingBottoms.XXL,
     Box.paddingBottoms.XXXL
   ]),
+  addingStart: PropTypes.oneOf([
+    Box.paddingStarts.NONE,
+    Box.paddingStarts.XS,
+    Box.paddingStarts.SMALL,
+    Box.paddingStarts.MEDIUM,
+    Box.paddingStarts.LARGE,
+    Box.paddingStarts.XL,
+    Box.paddingStarts.XXL,
+    Box.paddingStarts.XXXL
+  ]),
   text: PropTypes.oneOf([
     Box.texts.PRIMARY_COLOR,
     Box.texts.PRIMARY_HOVER_COLOR,
@@ -366,6 +372,7 @@ Box.propTypes = {
 };
 Box.defaultProps = {
   className: "",
+  childern: undefined,
   disabled: undefined,
   border: undefined,
   borderTop: undefined,
