@@ -6,6 +6,7 @@ import styles from "./Dialog.module.scss";
 import { useA11yDialog } from "./a11YDialog";
 import { IconButton } from "components";
 import { CloseSmall } from "components/Icon/Icons";
+import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 
 const Dialog = ({ className, classNames, id, show, title, onHide, role, isAlertDialog, children }) => {
   // `instance` is the `a11y-dialog` instance.
@@ -30,12 +31,14 @@ const Dialog = ({ className, classNames, id, show, title, onHide, role, isAlertD
     isAlertDialog
   });
 
-  // useEffect(() => {
-  //   instance?.on("hide", element => console.log(element));
-  //   return () => {
-  //     instance?.off("hide");
-  //   };
-  // }, [instance]);
+  useEffect(() => {
+    instance?.on("show", () => disableBodyScroll(instance.$el));
+    instance?.on("hide", () => enableBodyScroll(instance.$el));
+    return () => {
+      instance?.off("show");
+      instance?.off("hide");
+    };
+  }, [instance]);
 
   useEffect(() => {
     if (show) {

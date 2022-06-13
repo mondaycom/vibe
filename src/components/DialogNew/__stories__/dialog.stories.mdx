@@ -28,7 +28,7 @@ export const modalNewTemplate = ({ buttonTitle = "Open dialog" }) => {
   return (
     <div>
       <Button onClick={() => setShow(true)}>{buttonTitle}</Button>
-      <Dialog show={show} title={"Dialog title"} isAlertDialog={true} onHide={() => setShow(false)}><p>Dialog Content</p></Dialog>
+      <Dialog show={show} title={"Dialog title"} onHide={() => setShow(false)}><p>Dialog Content</p></Dialog>
     </div>
   );
 };
