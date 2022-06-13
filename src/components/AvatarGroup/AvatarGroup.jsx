@@ -53,7 +53,7 @@ const AvatarGroup = ({
         return (
           <Avatar
             {...avatar.props}
-            key={`avatar-group-item-${id}-${index}`}
+            key={index}
             size={size || avatar.props?.size}
             type={type || avatar.props?.type}
             className={cx(styles.avatarContainer, avatar.props?.className)}

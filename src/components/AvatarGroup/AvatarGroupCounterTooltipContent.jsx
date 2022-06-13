@@ -33,8 +33,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
       isVirtualizedList || displayAsGrid ? "" : styles.tooltipAvatarFlexItemContainer;
 
     return (
-      // TODO make normal keys
-      <ClickableContainer key={`tooltip-item-${index}`}>
+      <ClickableContainer key={index}>
         <div className={styles.tooltipAvatarItemClickableContainer} style={style}>
           <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} className={tooltipAvatarFlexItemClassName}>
             <Avatar
@@ -75,7 +74,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
             itemRenderer={(item, index, style) => avatarRenderer(item, index, { ...style, width: "100%" })}
             role="treegrid"
             scrollableClassName={styles.scrollableContainer}
-            getItemId={(item, index) => `id-${index}`}
+            getItemId={(item, index) => index}
             style={virtualizedListStyle}
           />
         </div>
