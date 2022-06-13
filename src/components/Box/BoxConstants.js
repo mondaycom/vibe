@@ -9,49 +9,35 @@ export const BORDER = Object.freeze({
 })
 
 export const BORDER_TOP = Object.freeze({
-    NONE: styles.borderTop0,
-    DEFAULT: styles.borderTop,
+    NONE: styles.borderTop0, DEFAULT: styles.borderTop,
 })
 
 export const BORDER_END = Object.freeze({
-    NONE: styles.borderEnd0,
-    DEFAULT: styles.borderEnd,
+    NONE: styles.borderEnd0, DEFAULT: styles.borderEnd,
 })
 
 export const BORDER_BOTTOM = Object.freeze({
-    NONE: styles.borderBottom0,
-    DEFAULT: styles.borderBottom,
+    NONE: styles.borderBottom0, DEFAULT: styles.borderBottom,
 })
 
 export const BORDER_START = Object.freeze({
-    NONE: styles.borderStart0,
-    DEFAULT: styles.borderStart,
+    NONE: styles.borderStart0, DEFAULT: styles.borderStart,
 })
 
 export const BORDER_COLOR = Object.freeze({
-    UI_BORDER_COLOR: styles.borderColorUiBorderColor,
-    LAYOUT_BORDER_COLOR: styles.borderColorLayoutBorderColor,
+    UI_BORDER_COLOR: styles.borderColorUiBorderColor, LAYOUT_BORDER_COLOR: styles.borderColorLayoutBorderColor,
 })
 
 export const ROUNDED = Object.freeze({
-    NONE: styles.rounded0,
-    SMALL: styles.roundedSmall,
-    MEDIUM: styles.roundedMedium,
-    BIG: styles.roundedBig,
+    NONE: styles.rounded0, SMALL: styles.roundedSmall, MEDIUM: styles.roundedMedium, BIG: styles.roundedBig,
 })
 
 export const ROUNDED_TOP = Object.freeze({
-    NONE: styles.roundedTop0,
-    SMALL: styles.roundedTopSmall,
-    MEDIUM: styles.roundedTopMedium,
-    BIG: styles.roundedTopBig,
+    NONE: styles.roundedTop0, SMALL: styles.roundedTopSmall, MEDIUM: styles.roundedTopMedium, BIG: styles.roundedTopBig,
 })
 
 export const ROUNDED_END = Object.freeze({
-    NONE: styles.roundedEnd0,
-    SMALL: styles.roundedEndSmall,
-    MEDIUM: styles.roundedEndMedium,
-    BIG: styles.roundedEndBig,
+    NONE: styles.roundedEnd0, SMALL: styles.roundedEndSmall, MEDIUM: styles.roundedEndMedium, BIG: styles.roundedEndBig,
 })
 
 export const ROUNDED_BOTTOM = Object.freeze({
@@ -69,10 +55,7 @@ export const ROUNDED_START = Object.freeze({
 })
 
 export const SHADOW = Object.freeze({
-    XS: styles.shadowXs,
-    SMALL: styles.shadowSmall,
-    MEDIUM: styles.shadowMedium,
-    LARGE: styles.shadowLarge,
+    XS: styles.shadowXs, SMALL: styles.shadowSmall, MEDIUM: styles.shadowMedium, LARGE: styles.shadowLarge,
 })
 
 export const MARGIN = Object.freeze({
