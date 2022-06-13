@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import styles from "./Dialog.module.scss";
 import { useA11yDialog } from "./a11YDialog";
+import { IconButton } from "components";
+import { CloseSmall } from "components/Icon/Icons";
 
 const Dialog = ({ className, classNames, id, show, title, onHide, role, children }) => {
   // `instance` is the `a11y-dialog` instance.
@@ -48,15 +50,23 @@ const Dialog = ({ className, classNames, id, show, title, onHide, role, children
       <div {...attr.overlay} className={cx(styles.dialogOverlay, classNames.overlay)} />
 
       <div {...attr.dialog} className={cx(styles.dialogContent, classNames.dialog)}>
-        <p {...attr.title} className={cx(classNames.title)}>
-          {title}
-        </p>
+        <div className={styles.titleWrapper}>
+          <p {...attr.title} className={cx(classNames.title, styles.dialogTitle)}>
+            {title}
+          </p>
+
+          <IconButton
+            key="xxs"
+            {...attr.closeButton}
+            className={cx(classNames.close)}
+            icon={CloseSmall}
+            kind={IconButton.kinds.TERTIARY}
+            size={IconButton.sizes.SMALL}
+            // ariaLabel="My xxs IconButton"
+          />
+        </div>
 
         {children}
-
-        <button {...attr.closeButton} type="button" className={cx(classNames.close)}>
-          Close dialog
-        </button>
       </div>
     </div>,
     document.body

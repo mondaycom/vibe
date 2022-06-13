@@ -1,51 +1,64 @@
 @import "../../styles/themes.scss";
-  /**
+/**
    * 1. Make the dialog container, and its child overlay spread across
    *    the entire window.
    */
-  .dialogContainer,
-  .dialogOverlay {
-    position: fixed; /* 1 */
-    top: 0; /* 1 */
-    right: 0; /* 1 */
-    bottom: 0; /* 1 */
-    left: 0; /* 1 */
-  }
+.dialogContainer,
+.dialogOverlay {
+  position: fixed; /* 1 */
+  top: 0; /* 1 */
+  right: 0; /* 1 */
+  bottom: 0; /* 1 */
+  left: 0; /* 1 */
+}
 
-  /**
+/**
    * 1. Make sure the dialog container and all its descendants sits on
    *    top of the rest of the page.
    * 2. Make the dialog container a flex container to easily center the
    *    dialog.
    */
-  .dialogContainer {
-    z-index: 2; /* 1 */
-    display: flex; /* 2 */
-  }
+.dialogContainer {
+  z-index: 2; /* 1 */
+  display: flex; /* 2 */
+}
 
-  /**
+/**
    * 1. Make sure the dialog container and all its descendants are not
    *    visible and not focusable when it is hidden.
    */
-  .dialogContainer[aria-hidden='true'] {
-    display: none; /* 1 */
-  }
+.dialogContainer[aria-hidden="true"] {
+  display: none; /* 1 */
+}
 
-  /**
+/**
    * 1. Make the overlay look like an overlay.
    */
-  .dialogOverlay {
-    background-color: rgba(43, 46, 56, 0.9); /* 1 */
-  }
+.dialogOverlay {
+  background-color: rgba(41, 47, 76, 0.7); /* 1 */
+}
 
-  /**
+/**
    * 1. Vertically and horizontally center the dialog in the page.
    * 2. Make sure the dialog sits on top of the overlay.
    * 3. Make sure the dialog has an opaque background.
    */
-  .dialogContent {
-    margin: auto; /* 1 */
-    z-index: 2; /* 2 */
-    position: relative; /* 2 */
-    background-color: white; /* 3 */
+.dialogContent {
+  margin: auto; /* 1 */
+  z-index: 2; /* 2 */
+  position: relative; /* 2 */
+  background-color: white; /* 3 */
+  padding: 0 30px;
+  width: 550px;
+  min-height: 300px;
+  border-radius: 16px;
+  .titleWrapper {
+    display: flex;
+    align-items: center;
+    .dialogTitle {
+      font-size: var(--font-size-h2);
+      font-weight: var(--font-weight-bold);
+      flex-grow: 1;
+    }
   }
+}
