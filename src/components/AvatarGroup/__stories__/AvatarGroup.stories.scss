@@ -2,6 +2,7 @@
 
 .monday-storybook-avatar-group {
   &__slider-count-container {
-    width: 300px;
+    width: 100%;
+    align-content: start;
   }
 }

@@ -8,8 +8,9 @@ import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import Slider from "../../Slider/Slider";
-import Tooltip from "../../Tooltip/Tooltip";
-import { UsageGuidelines } from "../../../storybook";
+import Divider from "../../Divider/Divider";
+import { Link, RelatedComponents, UsageGuidelines } from "../../../storybook";
+import { AVATAR, MENU, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import "./AvatarGroup.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -30,87 +31,17 @@ export const metaSettings = createStoryMetaSettings({
 
 - [Overview](#overview)
 - [Props](#props)
-- [Usage](#usage)
 - [Variants](#variants)
 - [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
 - [Feedback](#feedback)
 
 ## Overview
 
-Please write here the component description
+Use this component if you need to stack avatars as a group.
 
 <Canvas>
   <Story name="Overview">
-    <AvatarGroup size={Avatar.sizes.LARGE} max={4}>
-      <Avatar src={person1} type={Avatar.types.IMG} />
-      <Avatar src={person2} type={Avatar.types.IMG} />
-      <Avatar src={person3} type={Avatar.types.IMG} />
-      <Avatar type={Avatar.types.TEXT} text="MR" />
-      <Avatar type={Avatar.types.TEXT} text="SM" backgroundColor={Avatar.colors.DONE_GREEN} />
-      <Avatar type={Avatar.types.TEXT} text="SR" backgroundColor={Avatar.colors.DARK_PURPLE} />
-    </AvatarGroup>
-  </Story>
-</Canvas>
-
-## Props
-
-<ArgsTable of={AvatarGroup} />
-
-## Usage
-
-<UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
-
-## Variants
-
-### Size
-
-As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
-
-<Canvas>
-  <Story name="Size">
-    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE}>
-      <StoryDescription description="Small" vertical align={Flex.align.START}>
-        <AvatarGroup size={Avatar.sizes.SMALL} type={Avatar.types.IMG} max={3}>
-          <Avatar src={person1} />
-          <Avatar src={person2} />
-          <Avatar src={person3} />
-          <Avatar src={person1} />
-          <Avatar src={person2} />
-          <Avatar src={person3} />
-        </AvatarGroup>
-      </StoryDescription>
-      <StoryDescription description="Medium" vertical align={Flex.align.START}>
-        <AvatarGroup size={Avatar.sizes.MEDIUM} type={Avatar.types.IMG} max={3}>
-          <Avatar src={person1} />
-          <Avatar src={person2} />
-          <Avatar src={person3} />
-          <Avatar src={person1} />
-          <Avatar src={person2} />
-          <Avatar src={person3} />
-        </AvatarGroup>
-      </StoryDescription>
-      <StoryDescription description="Large" vertical align={Flex.align.START}>
-        <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3}>
-          <Avatar src={person1} />
-          <Avatar src={person2} />
-          <Avatar src={person3} />
-          <Avatar src={person1} />
-          <Avatar src={person2} />
-          <Avatar src={person3} />
-        </AvatarGroup>
-      </StoryDescription>
-    </Flex>
-  </Story>
-</Canvas>
-
-## Use cases and examples
-
-### Hover
-
-Tooltip on hover.
-
-<Canvas>
-  <Story name="Hover">
     <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
       <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
       <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
@@ -125,61 +56,116 @@ Tooltip on hover.
       <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
       <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
       <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar text="MR" type={Avatar.types.TEXT} tooltipProps={{ content: "Mark Roytstein" }} />
     </AvatarGroup>
   </Story>
 </Canvas>
 
-### Custom hover
+## Props
 
-Custom hover
+<ArgsTable of={AvatarGroup} />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={[
+    <>
+      Use <Link href="/?path=/docs/popover-tooltip--overview">tooltip</Link> component while hovering on the counter
+      when you need only to display the content
+    </>,
+    <>
+      If clickable and navigable list is required on counter, use{" "}
+      <Link href="/?path=/docs/navigation-menu-menu--overview">menu</Link> component
+    </>
+  ]}
+/>
+
+## Variants
+
+### Size
+
+As an avatar, avatar groups appear in 3 sizes: Small, Medium, and Large.
 
 <Canvas>
-  <Story name="Custom hover">
-    <AvatarGroup
-      size={Avatar.sizes.LARGE}
-      type={Avatar.types.IMG}
-      max={3}
-      counterTooltipCustomProps={{ content: "... and plenty of more employees" }}
-      counterTooltipTheme={Tooltip.themes.Success}
-    >
-      <Avatar src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar src={person3} tooltipProps={{ content: "Person 3" }} />
-      <Avatar src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
-      <Avatar src={person2} tooltipProps={{ content: "Person 2" }} />
-      <Avatar src={person3} tooltipProps={{ content: "Person 3" }} />
-    </AvatarGroup>
+  <Story name="Size">
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
+      <StoryDescription description="Large" vertical align={Flex.align.START}>
+        <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3}>
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+        </AvatarGroup>
+      </StoryDescription>
+      <StoryDescription description="Medium" vertical align={Flex.align.START}>
+        <AvatarGroup size={Avatar.sizes.MEDIUM} type={Avatar.types.IMG} max={3}>
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+        </AvatarGroup>
+      </StoryDescription>
+      <StoryDescription description="Small" vertical align={Flex.align.START}>
+        <AvatarGroup size={Avatar.sizes.SMALL} type={Avatar.types.IMG} max={3}>
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+        </AvatarGroup>
+      </StoryDescription>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Color variants
+
+You can use Light or Dark counter color to maintain visual hierarchy.
+
+<Canvas>
+  <Story name="Color variants">
+    <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
+      <StoryDescription description="Light" vertical align={Flex.align.START}>
+        <AvatarGroup
+          size={Avatar.sizes.LARGE}
+          type={Avatar.types.IMG}
+          max={3}
+          counterProps={{ color: Counter.colors.LIGHT }}
+        >
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+        </AvatarGroup>
+      </StoryDescription>
+      <StoryDescription description="Dark" vertical align={Flex.align.START}>
+        <AvatarGroup
+          size={Avatar.sizes.LARGE}
+          type={Avatar.types.IMG}
+          max={3}
+          counterProps={{ color: Counter.colors.DARK }}
+        >
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+        </AvatarGroup>
+      </StoryDescription>
+    </Flex>
   </Story>
 </Canvas>
 
 ### Custom counter
+
+You can pass `counterProps` to specify counter params.
 
 <Canvas>
   <Story name="Custom counter">
@@ -198,6 +184,8 @@ Custom hover
 
 ### Slider count
 
+Choose the maximum amount of avatars you want to display.
+
 <Canvas>
   <Story name="Slider count">
     {() => {
@@ -206,10 +194,11 @@ Custom hover
         <Flex
           direction={Flex.directions.COLUMN}
           gap={Flex.gaps.MEDIUM}
+          align={Flex.align.START}
           className="monday-storybook-avatar-group__slider-count-container"
         >
           <Slider
-            size={Slider.sizes.LARGE}
+            size={Slider.sizes.SMALL}
             min={1}
             max={16}
             defaultValue={max}
@@ -241,3 +230,209 @@ Custom hover
     }}
   </Story>
 </Canvas>
+
+### Clickable vs Hover
+
+If Avatars are clickable 
+
+<Canvas>
+  <Story name="Clickable vs Hover">
+    <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+      <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
+        <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar text="MR" type={Avatar.types.TEXT} tooltipProps={{ content: "Mark Roytstein" }} />
+        </AvatarGroup>
+      </StoryDescription>
+      <StoryDescription description="Counter click" vertical align={Flex.align.START}>
+        <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+          <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+          <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+          <Avatar text="MR" type={Avatar.types.TEXT} tooltipProps={{ content: "Mark Roytstein" }} />
+        </AvatarGroup>
+      </StoryDescription>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Counter custom tooltip content
+
+Counter tooltip props can be specified in order to render tooltip with custom content.
+
+<Canvas>
+  <Story name="Counter custom tooltip content">
+    <AvatarGroup
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.IMG}
+      max={3}
+      counterTooltipCustomProps={{ content: "... and plenty more employees" }}
+    >
+      <Avatar src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+      <Avatar src={person2} tooltipProps={{ content: "Person 2" }} />
+      <Avatar src={person3} tooltipProps={{ content: "Person 3" }} />
+      <Avatar src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+      <Avatar src={person2} tooltipProps={{ content: "Person 2" }} />
+      <Avatar src={person3} tooltipProps={{ content: "Person 3" }} />
+    </AvatarGroup>
+  </Story>
+</Canvas>
+
+## Use cases and examples
+
+### Last seen users
+
+<Canvas>
+  <Story name="Last seen users">
+    <Flex direction={Flex.directions.ROW} gap={Flex.gaps.MEDIUM}>
+      <div>Last seen</div>
+      <AvatarGroup size={Avatar.sizes.MEDIUM} max={3}>
+        <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+        <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+        <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+        <Avatar type={Avatar.types.IMG} src={person1} tooltipProps={{ content: "Hadas Fahri" }} />
+        <Avatar type={Avatar.types.IMG} src={person2} tooltipProps={{ content: "Person 2" }} />
+        <Avatar type={Avatar.types.IMG} src={person3} tooltipProps={{ content: "Person 3" }} />
+      </AvatarGroup>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Displaying teams
+
+<Canvas>
+  <Story name="Displaying teams">
+    <table>
+      <tr>
+        <th width={200} align="left">
+          Name
+        </th>
+        <th width={200} align="left">
+          Title
+        </th>
+        <th width={200} align="left">
+          Teams
+        </th>
+      </tr>
+      <tr>
+        <td colSpan={3}>
+          <Divider />
+        </td>
+      </tr>
+      <tr>
+        <td align="left">
+          <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
+            <Avatar
+              type={Avatar.types.IMG}
+              src={person1}
+              size={Avatar.sizes.MEDIUM}
+              tooltipProps={{ content: "Hadas Fahri" }}
+            />
+            Hadas Fahri
+          </Flex>
+        </td>
+        <td align="left">Developer</td>
+        <td align="left">
+          <AvatarGroup size={Avatar.sizes.MEDIUM} max={2}>
+            <Avatar
+              type={Avatar.types.TEXT}
+              text="T1"
+              backgroundColor={Avatar.backgroundColors.PEACH}
+              tooltipProps={{ content: "Team 1" }}
+            />
+            <Avatar
+              type={Avatar.types.TEXT}
+              text="T2"
+              backgroundColor={Avatar.backgroundColors.BUBBLE}
+              tooltipProps={{ content: "Team 2" }}
+            />
+            <Avatar
+              type={Avatar.types.TEXT}
+              text="T3"
+              backgroundColor={Avatar.backgroundColors.BERRY}
+              tooltipProps={{ content: "Team 3" }}
+            />
+          </AvatarGroup>
+        </td>
+      </tr>
+    </table>
+  </Story>
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[AVATAR, MENU, TOOLTIP]} />
