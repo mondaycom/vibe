@@ -6,8 +6,7 @@
 }
 
 .avatarContainer {
-  // Kinda margin-left: -var(--spacing-small), but cooler
-  transform: translateX(calc(-1px * var(--spacing-small)));
+  margin-left: calc(-1 * var(--spacing-small));
   // TODO hover effect?
   //opacity: 0.8;
   //&:hover {
