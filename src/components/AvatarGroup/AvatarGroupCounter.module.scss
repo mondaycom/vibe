@@ -8,7 +8,7 @@
   margin-left: -8px;
   z-index: 1;
 
-  &:focus {
+  &:focus-visible {
     outline: none;
     @include focus-style(50%);
   }
