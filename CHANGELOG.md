@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.35.0 (2022-06-14)
+
+#### New Features
+* [#698](https://github.com/mondaycom/monday-ui-react-core/pull/698) Feature/yonatanari/add shadow xs example ([@3dyonic](https://github.com/3dyonic))
+* [#697](https://github.com/mondaycom/monday-ui-react-core/pull/697) * Update version "monday-ui-style": "0.1.118", ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.34.0 (2022-06-08)
 
 #### New Features
