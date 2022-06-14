@@ -31,22 +31,19 @@
     @include focus-style(50%);
   }
 
+  @mixin counterSize($size) {
+    height: $size;
+    width: $size;
+    border-radius: $size / 2;
+  }
   &.small {
-    height: $avatar-size-small;
-    width: $avatar-size-small;
-    border-radius: $avatar-size-small / 2;
+    @include counterSize($avatar-size-small);
   }
-
   &.medium {
-    height: $avatar-size-medium;
-    width: $avatar-size-medium;
-    border-radius: $avatar-size-medium / 2;
+    @include counterSize($avatar-size-medium);
   }
-
   &.large {
-    height: $avatar-size-large;
-    width: $avatar-size-large;
-    border-radius: $avatar-size-large / 2;
+    @include counterSize($avatar-size-large);
   }
 
   &.primary {
