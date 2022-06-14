@@ -14,6 +14,10 @@
     width: 81px;
     height: 81px;
 
+    &--xs {
+      @include box-shadow-xs;
+    }
+
     &--small {
       @include box-shadow-small;
     }
