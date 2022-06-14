@@ -33,8 +33,8 @@ const AvatarGroup = ({
       {displayAvatars.map((avatar, index) => {
         return (
           <Avatar
-            {...avatar.props}
             key={index}
+            {...avatar.props}
             size={size || avatar.props?.size}
             type={type || avatar.props?.type}
             className={cx(styles.avatarContainer, avatarClassName)}

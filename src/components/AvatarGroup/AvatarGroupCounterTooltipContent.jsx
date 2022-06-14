@@ -8,10 +8,6 @@ import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtualizedList }) => {
-  if (!avatars || !avatars.length) {
-    return null;
-  }
-
   avatars = avatars.map(avatar => ({ value: avatar.props }));
   const displayAsGrid = !avatars.some(item => item.value?.tooltipProps?.content);
 

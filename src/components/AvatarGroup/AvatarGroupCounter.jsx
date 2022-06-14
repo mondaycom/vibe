@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import Tooltip from "../Tooltip/Tooltip";
 import Avatar from "../Avatar/Avatar";
 import PropTypes from "prop-types";
@@ -23,18 +23,8 @@ const AvatarGroupCounter = ({
     maxDigits: counterMaxDigits = 3
   } = counterProps || {};
 
-  const getCounterContainerSizeStyle = useCallback(() => {
-    if (avatarSize && Avatar.sizes[`${avatarSize.toString().toUpperCase()}`]) {
-      return styles[`${avatarSize}`];
-    }
-    return styles.medium;
-  }, [avatarSize]);
-  const counterContainerSizeStyle = getCounterContainerSizeStyle();
-
-  const getCounterContainerColorStyle = useCallback(() => {
-    return styles[`${counterColor}`];
-  }, [counterColor]);
-  const counterContainerColorStyle = getCounterContainerColorStyle();
+  const counterSizeStyle = styles[avatarSize?.toString()];
+  const counterColorStyle = styles[counterColor];
 
   if (!counterTooltipAvatars.length && !counterValue) {
     return null;
@@ -49,7 +39,7 @@ const AvatarGroupCounter = ({
       counterTooltipTheme={counterTooltipTheme}
     >
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
-      <div tabIndex={0} className={cx(styles.counterContainer, counterContainerSizeStyle, counterContainerColorStyle)}>
+      <div tabIndex={0} className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}>
         {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
         <Counter
           color={counterColor}
@@ -84,7 +74,7 @@ AvatarGroupCounter.defaultProps = {
   counterTooltipCustomProps: undefined,
   counterTooltipIsVirtualizedList: false,
   counterTooltipTheme: undefined,
-  avatarSize: undefined,
+  avatarSize: Avatar.sizes.MEDIUM,
   avatarType: undefined
 };
 

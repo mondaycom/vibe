@@ -14,14 +14,17 @@ const AvatarGroupCounterTooltipContainer = ({
   counterTooltipIsVirtualizedList,
   counterTooltipTheme
 }) => {
-  const counterTooltipContentComponent = AvatarGroupCounterTooltipContent({
-    avatars,
-    type,
-    className,
-    isVirtualizedList: counterTooltipIsVirtualizedList
-  });
+  const counterTooltipContentExists = !avatars?.length;
+  const counterTooltipContentComponent = (
+    <AvatarGroupCounterTooltipContent
+      avatars={avatars}
+      type={type}
+      className={className}
+      isVirtualizedList={counterTooltipIsVirtualizedList}
+    />
+  );
 
-  if (!counterTooltipContentComponent && !counterTooltipCustomProps) {
+  if (!counterTooltipContentExists && !counterTooltipCustomProps) {
     return children;
   }
 
