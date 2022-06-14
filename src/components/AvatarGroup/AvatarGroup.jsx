@@ -9,6 +9,7 @@ import styles from "./AvatarGroup.module.scss";
 
 const AvatarGroup = ({
   className,
+  avatarClassName,
   id,
   children,
   size,
@@ -56,7 +57,7 @@ const AvatarGroup = ({
             key={index}
             size={size || avatar.props?.size}
             type={type || avatar.props?.type}
-            className={cx(styles.avatarContainer, avatar.props?.className)}
+            className={cx(styles.avatarContainer, avatarClassName)}
             withoutBorder
           />
         );
@@ -92,6 +93,7 @@ const AvatarGroup = ({
 
 AvatarGroup.propTypes = {
   className: PropTypes.string,
+  avatarClassName: PropTypes.string,
   id: PropTypes.string,
   /**
    * Array of Avatar components
@@ -125,6 +127,7 @@ AvatarGroup.propTypes = {
 };
 AvatarGroup.defaultProps = {
   className: "",
+  avatarClassName: "",
   id: undefined,
   children: undefined,
   size: undefined,
