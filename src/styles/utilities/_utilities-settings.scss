@@ -49,7 +49,7 @@ $utilities-modules: (
         "borderColor": (
                 property: border-color,
                 class: borderColor,
-                values: $core-border-colors-vars,
+                values: $utility-border-colors-vars,
         ),
         "rounded": (
                 property: border-radius,
@@ -114,86 +114,81 @@ $utilities-modules: (
         "margin": (
                 property: margin,
                 class: m,
-                values: map.merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($utility-spacing-vars, (auto: auto)),
         ),
         "marginX": (
                 property: margin-right margin-left,
                 class: mx,
-                values: map.merge($core-spacing-vars, (auto: auto))
+                values: map.merge($utility-spacing-vars, (auto: auto))
         ),
         "marginY": (
                 property: margin-top margin-bottom,
                 class: my,
-                values: map.merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($utility-spacing-vars, (auto: auto)),
         ),
         "marginTop": (
                 property: margin-top,
                 class: mt,
-                values: map.merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($utility-spacing-vars, (auto: auto)),
         ),
         "marginEnd": (
                 property: margin-inline-end,
                 class: me,
-                values: map.merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($utility-spacing-vars, (auto: auto)),
         ),
         "marginBottom": (
                 property: margin-bottom,
                 class: mb,
-                values: map.merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($utility-spacing-vars, (auto: auto)),
         ),
         "marginStart": (
                 property: margin-inline-start,
                 class: ms,
-                values: map.merge($core-spacing-vars, (auto: auto)),
+                values: map.merge($utility-spacing-vars, (auto: auto)),
         ),
         "padding": (
                 property: padding,
                 class: p,
-                values: $core-spacing-vars,
+                values: $utility-spacing-vars,
         ),
         "paddingX": (
                 property: padding-right padding-left,
                 class: px,
-                values: $core-spacing-vars,
+                values: $utility-spacing-vars,
         ),
         "paddingY": (
                 property: padding-top padding-bottom,
                 class: py,
-                values: $core-spacing-vars,
+                values: $utility-spacing-vars,
         ),
         "paddingTop": (
                 property: padding-top,
                 class: pt,
-                values: $core-spacing-vars
+                values: $utility-spacing-vars
         ),
         "paddingEnd": (
                 property: padding-inline-end,
                 class: pe,
-                values: $core-spacing-vars
+                values: $utility-spacing-vars
         ),
         "paddingBottom": (
                 property: padding-bottom,
                 class: pb,
-                values: $core-spacing-vars
+                values: $utility-spacing-vars
         ),
         "paddingStart": (
                 property: padding-inline-start,
                 class: ps,
-                values: $core-spacing-vars
+                values: $utility-spacing-vars
         ),
         "color": (
                 property: color,
                 class: text,
-                values: $core-colors-vars,
+                values: $utility-colors-vars,
         ),
         "backgroundColor": (
                 property: background-color,
                 class: bg,
-                values: map.merge(
-                                $core-background-colors-vars,
-                                (
-                                        "transparent": transparent
-                                ),
-                ),
+                values: $utility-background-colors-vars,
         ),
 );

@@ -1,12 +1,11 @@
 @import "../../styles/themes";
 
-// Mocks for global imports
-@import "./BoxCoreFunctions";
-@import "./BoxCoreMixin";
-@import "./BoxCoreVariables";
-@import "./BoxCoreMaps";
-// Local Box utility definitions
-@import "./BoxUtilityMap";
+// Monday ui styles dependencies
+@import "~monday-ui-style/src/common";
+
+// Utilities map
+@import "../../styles/utilities/utilities-settings";
+
 
 // Generating Utility class locally for Box component
 @include utility-factory($utilities-modules, $export: "modules");
