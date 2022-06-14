@@ -1,10 +1,10 @@
-import React, { useCallback } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Avatar from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
 import Tooltip from "../Tooltip/Tooltip";
-import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
+import AvatarGroupCounter from "./AvatarGroupCounter";
 import styles from "./AvatarGroup.module.scss";
 
 const AvatarGroup = ({
@@ -20,26 +20,6 @@ const AvatarGroup = ({
   counterTooltipIsVirtualizedList,
   counterTooltipTheme
 }) => {
-  const {
-    color: counterColor = Counter.colors.LIGHT,
-    count: counterValue = children?.length && children.length - max,
-    prefix: counterPrefix = "+",
-    maxDigits: counterMaxDigits = 3
-  } = counterProps || {};
-
-  const getCounterContainerSizeStyle = useCallback(() => {
-    if (size && Avatar.sizes[`${size.toString().toUpperCase()}`]) {
-      return styles[`${size}`];
-    }
-    return styles.medium;
-  }, [size]);
-  const counterContainerSizeStyle = getCounterContainerSizeStyle();
-
-  const getCounterContainerColorStyle = useCallback(() => {
-    return styles[`${counterColor}`];
-  }, [counterColor]);
-  const counterContainerColorStyle = getCounterContainerColorStyle();
-
   if (!children) {
     return null;
   }
@@ -62,31 +42,15 @@ const AvatarGroup = ({
           />
         );
       })}
-      {(counterTooltipAvatars.length || !!counterValue) && (
-        <AvatarGroupCounterTooltipContainer
-          avatars={counterTooltipAvatars}
-          counterTooltipCustomProps={counterTooltipCustomProps}
-          className={className}
-          type={type}
-          counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
-          counterTooltipTheme={counterTooltipTheme}
-        >
-          {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
-          <div
-            tabIndex={0}
-            className={cx(styles.counterContainer, counterContainerSizeStyle, counterContainerColorStyle)}
-          >
-            {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
-            <Counter
-              color={counterColor}
-              count={counterValue}
-              prefix={counterPrefix}
-              maxDigits={counterMaxDigits}
-              ariaLabel={`Tab for more items`}
-            />
-          </div>
-        </AvatarGroupCounterTooltipContainer>
-      )}
+      <AvatarGroupCounter
+        counterTooltipAvatars={counterTooltipAvatars}
+        counterProps={counterProps}
+        counterTooltipCustomProps={counterTooltipCustomProps}
+        counterTooltipTheme={counterTooltipTheme}
+        counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
+        avatarSize={size}
+        avatarType={type}
+      />
     </div>
   );
 };
@@ -106,7 +70,6 @@ AvatarGroup.propTypes = {
    * Counter.propTypes: props for counter
    */
   counterProps: PropTypes.shape({ ...Counter.propTypes }),
-
   /**
    * Tooltip.propTypes: props for custom counter tooltip
    */

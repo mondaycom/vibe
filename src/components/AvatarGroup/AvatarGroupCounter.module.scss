@@ -1,0 +1,47 @@
+@import "src/components/Avatar/Avatar.scss";
+
+.counterContainer {
+  background: var(--primary-background-hover-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -8px;
+  z-index: 1;
+
+  &:focus {
+    outline: none;
+    @include focus-style(50%);
+  }
+
+  @mixin counterSize($size) {
+    height: $size;
+    width: $size;
+    border-radius: $size / 2;
+  }
+  &.small {
+    @include counterSize($avatar-size-small);
+  }
+  &.medium {
+    @include counterSize($avatar-size-medium);
+  }
+  &.large {
+    @include counterSize($avatar-size-large);
+  }
+
+  &.primary {
+    color: var(--text-color-on-primary);
+    background-color: var(--primary-color);
+  }
+  &.dark {
+    color: var(--text-color-on-inverted);
+    background-color: var(--inverted-color-background);
+  }
+  &.negative {
+    color: var(--text-color-on-primary);
+    background-color: var(--negative-color);
+  }
+  &.light {
+    color: var(--primary-text-color);
+    background-color: var(--primary-background-hover-color);
+  }
+}
