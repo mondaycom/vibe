@@ -462,7 +462,7 @@ Dialog.propTypes = {
    * an array of hide/show trigger -
    * Dialog.hideShowTriggers
    */
-  hideTrigger: PropTypes.oneOf([
+  hideTrigger: PropTypes.arrayOf([
     Dialog.hideShowTriggers.BLUR,
     Dialog.hideShowTriggers.MOUSE_ENTER,
     Dialog.hideShowTriggers.MOUSE_LEAVE,
@@ -553,7 +553,7 @@ Dialog.propTypes = {
 
 Dialog.defaultProps = {
   referenceWrapperClassName: "",
-  position: "top",
+  position: Dialog.positions.TOP,
   modifiers: [],
   startingEdge: "",
   moveBy: { main: 0, secondary: 0 },
