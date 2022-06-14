@@ -19,6 +19,7 @@ const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 const Avatar = ({
   type,
   className,
+  textClassName,
   size,
   src,
   icon,
@@ -174,6 +175,7 @@ Avatar.propTypes = {
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   className: PropTypes.string,
+  textClassName: PropTypes.string,
   backgroundColor: PropTypes.oneOf(Object.values(Avatar.colors)),
   customBackgroundColor: PropTypes.string,
   role: PropTypes.string,
@@ -197,6 +199,7 @@ Avatar.propTypes = {
 Avatar.defaultProps = {
   src: undefined,
   className: "",
+  textClassName: "",
   icon: undefined,
   text: undefined,
   tooltipProps: undefined,
