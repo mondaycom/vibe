@@ -14,7 +14,7 @@ const AvatarGroupCounterTooltipContainer = ({
   counterTooltipIsVirtualizedList,
   counterTooltipTheme
 }) => {
-  const counterTooltipContentExists = !avatars?.length;
+  const counterTooltipContentExists = !!avatars?.length;
   const counterTooltipContentComponent = (
     <AvatarGroupCounterTooltipContent
       avatars={avatars}
