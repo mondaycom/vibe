@@ -6,6 +6,7 @@ build-storybook.log
 ./build-storybook.log
 /storybook-static
 dist
+check-app-dist
 build
 coverage
 .scannerwork
