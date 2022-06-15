@@ -34,7 +34,7 @@ export const metaSettings = createStoryMetaSettings({
         "paddingBottom",
         "paddingStart",
         "backgroundColor",
-        "text",
+        "textColor",
     ],
 });
 
@@ -130,39 +130,40 @@ The Box is a multi prop wrapper element.
     <Story name="Text Colors">
         <div className={styles['monday-storybook-box-wrapper']}>
             <Box
-                text={Box.texts.PRIMARY_COLOR}
-            >Box.texts.PRIMARY_COLOR</Box>
+                textColor={Box.textColors.PRIMARY_COLOR}
+            >Box.textColors.PRIMARY_COLOR</Box>
             <Box
-                text={Box.texts.PRIMARY_HOVER_COLOR}
-            >Box.texts.PRIMARY_HOVER_COLOR</Box>
+                textColor={Box.textColors.PRIMARY_HOVER_COLOR}
+            >Box.textColors.PRIMARY_HOVER_COLOR</Box>
             <Box
-                text={Box.texts.PRIMARY_SELECTED_COLOR}
-            >Box.texts.PRIMARY_SELECTED_COLOR</Box>
+                textColor={Box.textColors.PRIMARY_SELECTED_COLOR}
+            >Box.textColors.PRIMARY_SELECTED_COLOR</Box>
             <Box
-                text={Box.texts.PRIMARY_TEXT_COLOR}
-            >Box.texts.PRIMARY_TEXT_COLOR</Box>
+                textColor={Box.textColors.PRIMARY_TEXT_COLOR}
+            >Box.textColors.PRIMARY_textColor_COLOR</Box>
             <Box
                 backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
-                text={Box.texts.TEXT_COLOR_ON_PRIMARY}
-            >Box.texts.TEXT_COLOR_ON_PRIMARY</Box>
+                textColor={Box.textColors.TEXT_COLOR_ON_PRIMARY}
+            >Box.textColors.textColor_COLOR_ON_PRIMARY</Box>
             <Box
-                text={Box.texts.TEXT_COLOR_ON_INVERTED}
-            >Box.texts.TEXT_COLOR_ON_INVERTED</Box>
+                backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
+                textColor={Box.textColors.TEXT_COLOR_ON_INVERTED}
+            >Box.textColors.textColor_COLOR_ON_INVERTED</Box>
             <Box
-                text={Box.texts.SECONDARY_TEXT_COLOR}
-            >Box.texts.SECONDARY_TEXT_COLOR</Box>
+                textColor={Box.textColors.SECONDARY_TEXT_COLOR}
+            >Box.textColors.SECONDARY_textColor_COLOR</Box>
             <Box
-                text={Box.texts.PLACEHOLDER_TEXT_COLOR}
-            >Box.texts.PLACEHOLDER_TEXT_COLOR</Box>
+                textColor={Box.textColors.PLACEHOLDER_TEXT_COLOR}
+            >Box.textColors.PLACEHOLDER_textColor_COLOR</Box>
             <Box
-                text={Box.texts.ICON_TEXT_COLOR}
-            >Box.icon.PLACEHOLDER_TEXT_COLOR</Box>
+                textColor={Box.textColors.ICON_TEXT_COLOR}
+            >Box.icon.PLACEHOLDER_textColor_COLOR</Box>
             <Box
-                text={Box.texts.LINK_COLOR}
+                textColor={Box.textColors.LINK_COLOR}
             >Box.icon.LINK_COLOR</Box>
             <Box
-                text={Box.texts.DISABLED_TEXT}
-            >Box.icon.DISABLED_TEXT</Box>
+                textColor={Box.textColors.DISABLED_TEXT}
+            >Box.icon.DISABLED_textColor</Box>
         </div>
     </Story>
 </Canvas>

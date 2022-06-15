@@ -67,7 +67,7 @@ const Box = forwardRef(
       paddingEnd,
       paddingBottom,
       paddingStart,
-      text,
+      textColor,
       backgroundColor
     },
     ref
@@ -106,7 +106,7 @@ const Box = forwardRef(
           paddingEnd,
           paddingBottom,
           paddingStart,
-          text,
+          textColor,
           backgroundColor
         )}
         id={id}
@@ -144,7 +144,7 @@ Box.paddingEnds = PADDING_END;
 Box.paddingBottoms = PADDING_BOTTOM;
 Box.paddingStarts = PADDING_START;
 Box.backgroundColors = BACKGROUND_COLORS;
-Box.texts = COLORS;
+Box.textColors = COLORS;
 
 Box.propTypes = {
   /**
@@ -336,18 +336,18 @@ Box.propTypes = {
     Box.paddingStarts.XXL,
     Box.paddingStarts.XXXL
   ]),
-  text: PropTypes.oneOf([
-    Box.texts.PRIMARY_COLOR,
-    Box.texts.PRIMARY_HOVER_COLOR,
-    Box.texts.PRIMARY_SELECTED_COLOR,
-    Box.texts.PRIMARY_TEXT_COLOR,
-    Box.texts.TEXT_COLOR_ON_PRIMARY,
-    Box.texts.TEXT_COLOR_ON_INVERTED,
-    Box.texts.SECONDARY_TEXT_COLOR,
-    Box.texts.PLACEHOLDER_COLOR,
-    Box.texts.ICON_COLOR,
-    Box.texts.LINK_COLOR,
-    Box.texts.DISABLED_TEXT_COLOR
+  textColor: PropTypes.oneOf([
+    Box.textColors.PRIMARY_COLOR,
+    Box.textColors.PRIMARY_HOVER_COLOR,
+    Box.textColors.PRIMARY_SELECTED_COLOR,
+    Box.textColors.PRIMARY_TEXT_COLOR,
+    Box.textColors.TEXT_COLOR_ON_PRIMARY,
+    Box.textColors.TEXT_COLOR_ON_INVERTED,
+    Box.textColors.SECONDARY_TEXT_COLOR,
+    Box.textColors.PLACEHOLDER_COLOR,
+    Box.textColors.ICON_COLOR,
+    Box.textColors.LINK_COLOR,
+    Box.textColors.DISABLED_TEXT_COLOR
   ]),
   backgroundColor: PropTypes.oneOf([
     Box.backgroundColors.PRIMARY_BACKGROUND_COLOR,
@@ -394,7 +394,7 @@ Box.defaultProps = {
   paddingEnd: undefined,
   paddingBottom: undefined,
   paddingStart: undefined,
-  text: undefined,
+  textColor: undefined,
   backgroundColor: undefined,
   id: undefined
 };
