@@ -2,7 +2,6 @@ import React from "react";
 import renderer from "react-test-renderer";
 import AvatarGroup from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
-import Tooltip from "../../Tooltip/Tooltip";
 
 // Component depends on Avatar, Counter and Tooltip components
 describe("AvatarGroup renders correctly", () => {
@@ -74,18 +73,6 @@ describe("AvatarGroup renders correctly", () => {
     const tree = renderer
       .create(
         <AvatarGroup max={1}>
-          <Avatar text="P1" tooltipProps={{ content: "Person 1" }} />
-          <Avatar text="P2" tooltipProps={{ content: "Person 2" }} />
-        </AvatarGroup>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("renders correctly with themed counter default-tooltip", () => {
-    const tree = renderer
-      .create(
-        <AvatarGroup counterTooltipTheme={Tooltip.themes.Success} max={1}>
           <Avatar text="P1" tooltipProps={{ content: "Person 1" }} />
           <Avatar text="P2" tooltipProps={{ content: "Person 2" }} />
         </AvatarGroup>

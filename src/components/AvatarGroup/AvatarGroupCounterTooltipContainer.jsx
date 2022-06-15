@@ -11,8 +11,7 @@ const AvatarGroupCounterTooltipContainer = ({
   type,
   className,
   counterTooltipCustomProps,
-  counterTooltipIsVirtualizedList,
-  counterTooltipTheme
+  counterTooltipIsVirtualizedList
 }) => {
   const counterTooltipContentExists = !!avatars?.length;
   const counterTooltipContentComponent = (
@@ -35,7 +34,6 @@ const AvatarGroupCounterTooltipContainer = ({
         hideTrigger={[Dialog.hideShowTriggers.TAB_KEY, Dialog.hideShowTriggers.MOUSE_LEAVE]}
         showOnDialogEnter
         hideDelay={200}
-        theme={counterTooltipTheme}
         {...counterTooltipCustomProps}
       >
         {children}
@@ -48,7 +46,6 @@ const AvatarGroupCounterTooltipContainer = ({
       content={counterTooltipContentComponent}
       showOnDialogEnter
       hideDelay={200}
-      theme={counterTooltipTheme}
       showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
       hideTrigger={[Dialog.hideShowTriggers.TAB_KEY, Dialog.hideShowTriggers.MOUSE_LEAVE]}
     >
@@ -69,8 +66,7 @@ AvatarGroupCounterTooltipContainer.propTypes = {
    */
   avatars: PropTypes.arrayOf(PropTypes.element),
   counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes }),
-  counterTooltipIsVirtualizedList: PropTypes.bool,
-  counterTooltipTheme: PropTypes.oneOf(Object.values(Tooltip.themes))
+  counterTooltipIsVirtualizedList: PropTypes.bool
 };
 AvatarGroupCounterTooltipContainer.defaultProps = {
   className: undefined,
@@ -78,8 +74,7 @@ AvatarGroupCounterTooltipContainer.defaultProps = {
   children: [],
   avatars: [],
   counterTooltipCustomProps: undefined,
-  counterTooltipIsVirtualizedList: false,
-  counterTooltipTheme: undefined
+  counterTooltipIsVirtualizedList: false
 };
 
 export default AvatarGroupCounterTooltipContainer;
