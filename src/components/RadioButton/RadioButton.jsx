@@ -20,7 +20,8 @@ const RadioButton = forwardRef(
       defaultChecked,
       children,
       onSelect,
-      checked
+      checked,
+      retainChildClick
     },
     ref
   ) => {
@@ -28,14 +29,14 @@ const RadioButton = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const onChildClick = useCallback(() => {
-      if (disabled) return;
+      if (disabled || !retainChildClick) return;
       if (inputRef.current) {
         inputRef.current.checked = true;
       }
       if (onSelect) {
         onSelect();
       }
-    }, [onSelect, inputRef, disabled]);
+    }, [onSelect, inputRef, disabled, retainChildClick]);
 
     const checkedProps = useMemo(() => {
       if (checked !== undefined) {
@@ -78,7 +79,8 @@ RadioButton.defaultProps = {
   disabled: false,
   defaultChecked: false,
   checked: undefined,
-  onSelect: undefined
+  onSelect: undefined,
+  retainChildClick: true
 };
 RadioButton.propTypes = {
   className: PropTypes.string,
@@ -90,7 +92,9 @@ RadioButton.propTypes = {
   defaultChecked: PropTypes.bool,
   /** Controlled externally - When used, need to be set for all radio buttons in the same group */
   checked: PropTypes.bool,
-  onSelect: PropTypes.func
+  onSelect: PropTypes.func,
+  /** If set to false, will revert to base `onSelect` behaviour */
+  retainChildClick: PropTypes.bool
 };
 
 export default RadioButton;
