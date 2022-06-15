@@ -38,7 +38,6 @@ const AvatarGroup = ({
             size={size || avatar.props?.size}
             type={type || avatar.props?.type}
             className={cx(styles.avatarContainer, avatarClassName)}
-            withoutBorder
           />
         );
       })}
