@@ -57,22 +57,27 @@ AvatarGroup.propTypes = {
   avatarClassName: PropTypes.string,
   id: PropTypes.string,
   /**
-   * Array of Avatar components
+   * Array of `Avatar` components
    */
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]),
   size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   max: PropTypes.number,
   /**
-   * Counter.propTypes: props for counter
+   * 4 `Counter.props` for customization
    */
-  counterProps: PropTypes.shape({ ...Counter.propTypes }),
+  counterProps: PropTypes.shape({
+    color: PropTypes.oneOf([Counter.colors.LIGHT, Counter.colors.DARK]),
+    count: PropTypes.number,
+    prefix: PropTypes.string,
+    maxDigits: PropTypes.number
+  }),
   /**
-   * Tooltip.propTypes: props for custom counter tooltip
+   * `Tooltip.propTypes`: props for custom counter tooltip
    */
   counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes }),
   /**
-   * Does default tooltip list need to be virtualized
+   * Using counter default tooltip virtualized list for rendering only visible items (performance optimization)
    */
   counterTooltipIsVirtualizedList: PropTypes.bool
 };
