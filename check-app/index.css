@@ -1,0 +1,25 @@
+body {
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+body * {
+    box-sizing: border-box;
+}
+#tooltips-container {
+    position: relative;
+    white-space: pre-wrap;
+    z-index: 99999999;
+    max-width: 50%;
+}
+.light-app-theme {
+    background-color: var(--primary-background-color);
+}
+.dark-app-theme {
+    background-color: var(--primary-background-color);
+}
+.black-app-theme {
+    background-color: var(--primary-background-color);
+}
+.hacker_theme-app-theme {
+    background-color: var(--primary-background-color);
+}
