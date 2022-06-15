@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.35.1 (2022-06-15)
+
+#### Bug Fixes
+* [#699](https://github.com/mondaycom/monday-ui-react-core/pull/699) Fix: Add prop to preserve radio button on select behaviour with children ([@DorShakedMonday](https://github.com/DorShakedMonday))
+
 ## 1.35.0 (2022-06-14)
 
 #### New Features
