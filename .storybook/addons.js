@@ -5,6 +5,7 @@ import "@storybook/addon-links/register";
 import { create } from "@storybook/theming";
 import { addons } from "@storybook/addons";
 import logo from "./logo.png";
+import favicon from  '../favicon/favicon.ico'
 
 window.STORYBOOK_GA_ID = "UA-308574295";
 window.STORYBOOK_REACT_GA_OPTIONS = {};
@@ -24,3 +25,8 @@ const theme = create({
 addons.setConfig({
   theme
 });
+
+const fav = document.querySelector("link[rel~='icon']");
+if (fav) {
+  fav.href = favicon;
+}
