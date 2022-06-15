@@ -8,8 +8,12 @@ import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtualizedList }) => {
+  const getTooltipContent = avatarProps => {
+    return avatarProps?.tooltipProps?.content || avatarProps?.ariaLabel;
+  };
+
   avatars = avatars.map(avatar => ({ value: avatar.props }));
-  const displayAsGrid = !avatars.some(item => item.value?.tooltipProps?.content);
+  const displayAsGrid = !avatars.some(item => getTooltipContent(item.value));
 
   const avatarRenderer = (item, index, style) => {
     const avatarProps = item.value;
@@ -22,24 +26,32 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
       return <Clickable onClick={avatarProps.onClick}>{children}</Clickable>;
     };
 
-    const ariaLabel =
-      typeof avatarProps?.tooltipProps?.content === "string" ? avatarProps.tooltipProps.content : undefined;
-
     const tooltipAvatarFlexItemClassName =
       isVirtualizedList || displayAsGrid ? "" : styles.tooltipAvatarFlexItemContainer;
+
+    const labelId = `tooltip-item-${index}-label`;
 
     return (
       <ClickableWrapper key={index}>
         <div className={styles.tooltipAvatarItemClickableContainer} style={style}>
-          <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} className={tooltipAvatarFlexItemClassName}>
+          <Flex
+            direction={Flex.directions.ROW}
+            gap={Flex.gaps.XS}
+            className={tooltipAvatarFlexItemClassName}
+            ariaLabelledby={labelId}
+          >
             <Avatar
               {...avatarProps}
               tooltipProps={undefined}
+              ariaLabel={""}
               size={Avatar.sizes.SMALL}
               type={type || avatarProps?.type}
-              ariaLabel={ariaLabel}
             />
-            <div className={styles.tooltipAvatarItemTitle}>{avatarProps?.tooltipProps?.content}</div>
+            {!displayAsGrid && (
+              <div id={labelId} className={styles.tooltipAvatarItemTitle}>
+                {getTooltipContent(avatarProps)}
+              </div>
+            )}
           </Flex>
         </div>
       </ClickableWrapper>
@@ -50,8 +62,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
     const maxOptionsWithoutScroll = 10;
     const optionLineHeight = 34;
     // TODO temp solution
-    const optionLineWidth = avatars.some(i => !!i.value?.tooltipProps?.content) ? 175 : 40;
-
+    const optionLineWidth = avatars.some(i => getTooltipContent(i.value)) ? 175 : 40;
     const virtualizedItems = avatars.map(item => ({ ...item, height: optionLineHeight }));
 
     let virtualizedListStyle;

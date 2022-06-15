@@ -8,6 +8,7 @@ import Tooltip from "../../Tooltip/Tooltip";
 import { Counter, Flex } from "components";
 import { femaleIcon, guest, home, maleIcon, minus, owner, person1, person2, person3 } from "./assets";
 import { useState } from "react";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import "./avatar.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -51,7 +52,7 @@ Avatar is a graphical representation of a person through a profile picture, imag
       size: Avatar.sizes.LARGE,
       src: person1,
       type: Avatar.types.IMG,
-      backgroundColor: Avatar.backgroundColors.DONE_GREEN
+      ariaLabel: "Hadas Fahri"
     }}
   >
     {avatarTemplate.bind({})}
@@ -113,12 +114,32 @@ Use when a user’s image is not available, use their initials.
 </Canvas>
 
 ### Initials avatar custom text format
+
 While Default initials typography sizes and styles do not suit the design use this custom class to customize it.
+
 <Canvas>
   <Story name="Avatar with formatted text">
-    <Avatar size={Avatar.sizes.SMALL} type={Avatar.types.TEXT} text="RM" backgroundColor={Avatar.colors.BRIGHT_BLUE} textClassName="text-formatted--small" />
-    <Avatar size={Avatar.sizes.MEDIUM} type={Avatar.types.TEXT} text="RM" backgroundColor={Avatar.colors.LIPSTICK} textClassName="text-formatted--medium" />
-    <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.TEXT} text="RM" backgroundColor={Avatar.colors.DONE_GREEN} textClassName="text-formatted--large" />
+    <Avatar
+      size={Avatar.sizes.SMALL}
+      type={Avatar.types.TEXT}
+      text="RM"
+      backgroundColor={Avatar.colors.BRIGHT_BLUE}
+      textClassName="text-formatted--small"
+    />
+    <Avatar
+      size={Avatar.sizes.MEDIUM}
+      type={Avatar.types.TEXT}
+      text="RM"
+      backgroundColor={Avatar.colors.LIPSTICK}
+      textClassName="text-formatted--medium"
+    />
+    <Avatar
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.TEXT}
+      text="RM"
+      backgroundColor={Avatar.colors.DONE_GREEN}
+      textClassName="text-formatted--large"
+    />
   </Story>
 </Canvas>
 
@@ -235,19 +256,29 @@ Use to display tooltip on onHover Avatar event.
 
 <Canvas>
   <Story name="Avatar with tooltip">
-    <Avatar
-      size={Avatar.sizes.LARGE}
-      type={Avatar.types.IMG}
-      src={person1}
-      tooltipProps={{ content: "Hadas Farhi" }}
-      ariaLabel={"Hadas Fahri"}
-    />
-    <Avatar
-      size={Avatar.sizes.LARGE}
-      type={Avatar.types.IMG}
-      src={person1}
-      tooltipProps={{ content: "Hadas Farhi", position: Tooltip.positions.BOTTOM }}
-    />
+    <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE} align={Flex.align.START}>
+      <StoryDescription description="Aria label text tooltip" vertical align={Flex.align.START}>
+        <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel={"Hadas Fahri"} />
+      </StoryDescription>
+      <StoryDescription description="Text tooltip" vertical align={Flex.align.START}>
+        <Avatar
+          size={Avatar.sizes.LARGE}
+          type={Avatar.types.IMG}
+          src={person1}
+          tooltipProps={{ content: "Hadas Farhi" }}
+          ariaLabel={"Hadas Fahri"}
+        />
+      </StoryDescription>
+      <StoryDescription description="JSX tooltip" vertical align={Flex.align.START}>
+        <Avatar
+          size={Avatar.sizes.LARGE}
+          type={Avatar.types.IMG}
+          src={person1}
+          tooltipProps={{ content: <b>Hadas Farhi</b>, position: Tooltip.positions.BOTTOM }}
+          ariaLabel={"Hadas Fahri"}
+        />
+      </StoryDescription>
+    </Flex>
   </Story>
 </Canvas>
 

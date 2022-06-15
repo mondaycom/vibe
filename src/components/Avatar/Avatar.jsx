@@ -25,8 +25,9 @@ const Avatar = ({
   icon,
   text,
   tooltipProps,
-  role,
   ariaLabel,
+  withoutTooltip,
+  role,
   backgroundColor,
   square,
   disabled,
@@ -56,6 +57,11 @@ const Avatar = ({
   }, [customSize]);
 
   ariaLabel = ariaLabel || (typeof tooltipProps?.content === "string" ? tooltipProps.content : undefined);
+  if (withoutTooltip) {
+    tooltipProps?.content && delete tooltipProps.content;
+  } else if (tooltipProps?.content === undefined && ariaLabel) {
+    tooltipProps = { ...tooltipProps, content: ariaLabel };
+  }
 
   const badgesContainer = useMemo(() => {
     const badges = [];
@@ -161,6 +167,8 @@ Avatar.propTypes = {
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   text: PropTypes.string,
   tooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
+  ariaLabel: PropTypes.string,
+  withoutTooltip: PropTypes.bool,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   className: PropTypes.string,
@@ -168,7 +176,6 @@ Avatar.propTypes = {
   backgroundColor: PropTypes.oneOf(Object.values(Avatar.colors)),
   customBackgroundColor: PropTypes.string,
   role: PropTypes.string,
-  ariaLabel: PropTypes.string,
   size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
   customSize: PropTypes.number,
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
@@ -192,11 +199,12 @@ Avatar.defaultProps = {
   icon: undefined,
   text: undefined,
   tooltipProps: undefined,
+  ariaLabel: undefined,
+  withoutTooltip: false,
   type: AVATAR_TYPES.TEXT,
   backgroundColor: elementColorsNames.CHILI_BLUE,
   customBackgroundColor: null,
   role: undefined,
-  ariaLabel: undefined,
   size: AVATAR_SIZES.LARGE,
   customSize: null,
   tabIndex: 0,
