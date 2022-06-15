@@ -154,6 +154,7 @@ const Avatar = ({
               text={text}
               ariaLabel={ariaLabel}
               role={role}
+              textClassName={textClassName}
             />
           </div>
           {badgesContainer}
