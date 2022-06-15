@@ -41,13 +41,7 @@ const AvatarGroupCounter = ({
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
       <div tabIndex={0} className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}>
         {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
-        <Counter
-          color={counterColor}
-          count={counterValue}
-          prefix={counterPrefix}
-          maxDigits={counterMaxDigits}
-          ariaLabel={`Tab for more items`}
-        />
+        <Counter color={counterColor} count={counterValue} prefix={counterPrefix} maxDigits={counterMaxDigits} />
       </div>
     </AvatarGroupCounterTooltipContainer>
   );
