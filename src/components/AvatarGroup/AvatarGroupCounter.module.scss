@@ -16,7 +16,7 @@
 
   @mixin counterSize($size) {
     height: $size;
-    width: $size;
+    min-width: $size;
     border-radius: $size / 2;
   }
   &.small {
