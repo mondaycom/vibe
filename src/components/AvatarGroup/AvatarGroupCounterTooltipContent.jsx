@@ -14,7 +14,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
   const avatarRenderer = (item, index, style) => {
     const avatarProps = item.value;
 
-    const ClickableContainer = ({ children }) => {
+    const ClickableWrapper = ({ children }) => {
       if (!avatarProps.onClick) {
         return children;
       }
@@ -29,7 +29,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
       isVirtualizedList || displayAsGrid ? "" : styles.tooltipAvatarFlexItemContainer;
 
     return (
-      <ClickableContainer key={index}>
+      <ClickableWrapper key={index}>
         <div className={styles.tooltipAvatarItemClickableContainer} style={style}>
           <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} className={tooltipAvatarFlexItemClassName}>
             <Avatar
@@ -42,7 +42,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
             <div className={styles.tooltipAvatarItemTitle}>{avatarProps?.tooltipProps?.content}</div>
           </Flex>
         </div>
-      </ClickableContainer>
+      </ClickableWrapper>
     );
   };
 

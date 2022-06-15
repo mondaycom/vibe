@@ -52,7 +52,7 @@ const Avatar = ({
     return src ? {} : { backgroundColor: getElementColor(backgroundColor) };
   }, [src, backgroundColor, customBackgroundColor]);
   const sizeStyle = useMemo(() => {
-    return customSize ? { height: `${customSize}px`, width: `${customSize}px` } : {};
+    return customSize ? { height: customSize, width: customSize } : {};
   }, [customSize]);
 
   ariaLabel = ariaLabel || (typeof tooltipProps?.content === "string" ? tooltipProps.content : undefined);
@@ -103,23 +103,7 @@ const Avatar = ({
     return badges.length > 0 ? <div className={cx(bemHelper({ element: "badges" }))}>{badges}</div> : null;
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
-  const TooltipContainer = ({ children }) => {
-    if (!tooltipProps) {
-      return children;
-    }
-
-    return (
-      <Tooltip
-        showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
-        hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}
-        {...tooltipProps}
-      >
-        {children}
-      </Tooltip>
-    );
-  };
-
-  const ClickableContainer = ({ children }) => {
+  const ClickableWrapper = ({ children }) => {
     if (!onClick) {
       return children;
     }
@@ -129,8 +113,12 @@ const Avatar = ({
 
   return (
     <div className={cx(AVATAR_CSS_BASE_CLASS, className)}>
-      <ClickableContainer>
-        <TooltipContainer>
+      <ClickableWrapper>
+        <Tooltip
+          showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
+          hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}
+          {...tooltipProps}
+        >
           <div
             className={cx(
               bemHelper({ element: "circle" }),
@@ -158,8 +146,8 @@ const Avatar = ({
             />
           </div>
           {badgesContainer}
-        </TooltipContainer>
-      </ClickableContainer>
+        </Tooltip>
+      </ClickableWrapper>
     </div>
   );
 };
