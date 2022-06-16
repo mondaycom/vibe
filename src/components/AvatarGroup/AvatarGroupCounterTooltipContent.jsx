@@ -31,7 +31,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className }) => {
 
       return (
         <ClickableWrapper key={index}>
-          <div className={styles.tooltipAvatarItemClickableContainer} style={style}>
+          <div style={style}>
             <Flex
               direction={Flex.directions.ROW}
               gap={Flex.gaps.XS}
