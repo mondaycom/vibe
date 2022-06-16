@@ -16,8 +16,7 @@ const AvatarGroup = ({
   type,
   max,
   counterProps,
-  counterTooltipCustomProps,
-  counterTooltipIsVirtualizedList
+  counterTooltipCustomProps
 }) => {
   if (!children) {
     return null;
@@ -44,7 +43,6 @@ const AvatarGroup = ({
         counterTooltipAvatars={counterTooltipAvatars}
         counterProps={counterProps}
         counterTooltipCustomProps={counterTooltipCustomProps}
-        counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
         avatarSize={size}
         avatarType={type}
       />
@@ -75,11 +73,7 @@ AvatarGroup.propTypes = {
   /**
    * `Tooltip.propTypes`: props for custom counter tooltip
    */
-  counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes }),
-  /**
-   * Using counter default tooltip virtualized list for rendering only visible items (performance optimization)
-   */
-  counterTooltipIsVirtualizedList: PropTypes.bool
+  counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes })
 };
 AvatarGroup.defaultProps = {
   className: "",
@@ -90,8 +84,7 @@ AvatarGroup.defaultProps = {
   type: undefined,
   max: 5,
   counterProps: undefined,
-  counterTooltipCustomProps: undefined,
-  counterTooltipIsVirtualizedList: false
+  counterTooltipCustomProps: undefined
 };
 
 export default AvatarGroup;

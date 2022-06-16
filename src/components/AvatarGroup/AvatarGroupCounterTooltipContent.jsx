@@ -4,10 +4,9 @@ import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
 import cx from "classnames";
 import PropTypes from "prop-types";
-import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
-const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtualizedList }) => {
+const AvatarGroupCounterTooltipContent = ({ avatars, type, className }) => {
   const getTooltipContent = avatarProps => {
     return avatarProps?.tooltipProps?.content || avatarProps?.ariaLabel;
   };
@@ -26,8 +25,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
       return <Clickable onClick={avatarProps.onClick}>{children}</Clickable>;
     };
 
-    const tooltipAvatarFlexItemClassName =
-      isVirtualizedList || displayAsGrid ? "" : styles.tooltipAvatarFlexItemContainer;
+    const tooltipAvatarFlexItemClassName = displayAsGrid ? "" : styles.tooltipAvatarFlexItemContainer;
 
     const labelId = `tooltip-item-${index}-label`;
 
@@ -57,37 +55,6 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
       </ClickableWrapper>
     );
   };
-
-  if (isVirtualizedList) {
-    const maxOptionsWithoutScroll = 10;
-    const optionLineHeight = 34;
-    // TODO temp solution
-    const optionLineWidth = avatars.some(i => getTooltipContent(i.value)) ? 175 : 40;
-    const virtualizedItems = avatars.map(item => ({ ...item, height: optionLineHeight }));
-
-    let virtualizedListStyle;
-    if (maxOptionsWithoutScroll) {
-      // Adding 0.5 to show next option to indicate scroll is available
-      const minCount = Math.min(avatars.length, maxOptionsWithoutScroll + 0.5);
-      virtualizedListStyle = { height: optionLineHeight * minCount, minWidth: optionLineWidth };
-    }
-
-    return (
-      <div className={styles.virtualizedTooltipContainer}>
-        <div className={styles.virtualizedListContainer}>
-          <VirtualizedList
-            className={cx(className)}
-            items={virtualizedItems}
-            itemRenderer={(item, index, style) => avatarRenderer(item, index, { ...style, width: "100%" })}
-            role="treegrid"
-            scrollableClassName={styles.scrollableContainer}
-            getItemId={(item, index) => index}
-            style={virtualizedListStyle}
-          />
-        </div>
-      </div>
-    );
-  }
 
   const renderedItems = avatars.map((item, index) =>
     avatarRenderer(item, index, { width: displayAsGrid ? undefined : "100%" })
@@ -124,14 +91,12 @@ AvatarGroupCounterTooltipContent.propTypes = {
   /**
    * Array of Avatar components
    */
-  avatars: PropTypes.arrayOf(PropTypes.element),
-  isVirtualizedList: PropTypes.bool
+  avatars: PropTypes.arrayOf(PropTypes.element)
 };
 AvatarGroupCounterTooltipContent.defaultProps = {
   className: undefined,
   type: undefined,
-  avatars: [],
-  isVirtualizedList: false
+  avatars: []
 };
 
 export default AvatarGroupCounterTooltipContent;

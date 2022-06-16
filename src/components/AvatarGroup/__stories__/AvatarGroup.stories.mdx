@@ -253,34 +253,6 @@ Counter tooltip props can be specified in order to render tooltip with custom co
   </Story>
 </Canvas>
 
-### Virtualized list
-
-Should be used only to display large amount of avatars in default counter tooltip
-
-<Canvas>
-  <Story name="Virtualized list">
-    {() => {
-      const avatars = [
-        <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />,
-        <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />,
-        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-      ];
-      const getDummyAvatars = multiplier => {
-        let result = [];
-        for (let i = 0; i < multiplier; ++i) {
-          result = result.concat(avatars);
-        }
-        return result;
-      };
-      return (
-        <AvatarGroup size={Avatar.sizes.LARGE} max={3} counterTooltipIsVirtualizedList={true}>
-          {getDummyAvatars(334)}
-        </AvatarGroup>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ## Use cases and examples
 
 ### Last seen users

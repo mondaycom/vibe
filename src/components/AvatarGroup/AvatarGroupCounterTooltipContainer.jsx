@@ -5,22 +5,10 @@ import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent
 import Avatar from "../Avatar/Avatar";
 import PropTypes from "prop-types";
 
-const AvatarGroupCounterTooltipContainer = ({
-  children,
-  avatars,
-  type,
-  className,
-  counterTooltipCustomProps,
-  counterTooltipIsVirtualizedList
-}) => {
+const AvatarGroupCounterTooltipContainer = ({ children, avatars, type, className, counterTooltipCustomProps }) => {
   const counterTooltipContentExists = !!avatars?.length;
   const counterTooltipContentComponent = (
-    <AvatarGroupCounterTooltipContent
-      avatars={avatars}
-      type={type}
-      className={className}
-      isVirtualizedList={counterTooltipIsVirtualizedList}
-    />
+    <AvatarGroupCounterTooltipContent avatars={avatars} type={type} className={className} />
   );
 
   if (!counterTooltipContentExists && !counterTooltipCustomProps) {
@@ -65,16 +53,14 @@ AvatarGroupCounterTooltipContainer.propTypes = {
    * Array of Avatar elements
    */
   avatars: PropTypes.arrayOf(PropTypes.element),
-  counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes }),
-  counterTooltipIsVirtualizedList: PropTypes.bool
+  counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes })
 };
 AvatarGroupCounterTooltipContainer.defaultProps = {
   className: undefined,
   type: undefined,
   children: [],
   avatars: [],
-  counterTooltipCustomProps: undefined,
-  counterTooltipIsVirtualizedList: false
+  counterTooltipCustomProps: undefined
 };
 
 export default AvatarGroupCounterTooltipContainer;

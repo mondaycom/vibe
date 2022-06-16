@@ -11,7 +11,6 @@ const AvatarGroupCounter = ({
   counterTooltipAvatars,
   counterProps,
   counterTooltipCustomProps,
-  counterTooltipIsVirtualizedList,
   avatarSize,
   avatarType
 }) => {
@@ -34,7 +33,6 @@ const AvatarGroupCounter = ({
       avatars={counterTooltipAvatars}
       counterTooltipCustomProps={counterTooltipCustomProps}
       type={avatarType}
-      counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
     >
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
       <div tabIndex={0} className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}>
@@ -55,7 +53,6 @@ AvatarGroupCounter.propTypes = {
    */
   counterProps: PropTypes.shape({ ...Counter.propTypes }),
   counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes }),
-  counterTooltipIsVirtualizedList: PropTypes.bool,
   avatarSize: PropTypes.oneOf(Object.values(Avatar.sizes)),
   avatarType: PropTypes.oneOf(Object.values(Avatar.types))
 };
@@ -63,7 +60,6 @@ AvatarGroupCounter.defaultProps = {
   counterTooltipAvatars: [],
   counterProps: undefined,
   counterTooltipCustomProps: undefined,
-  counterTooltipIsVirtualizedList: false,
   avatarSize: Avatar.sizes.MEDIUM,
   avatarType: undefined
 };
