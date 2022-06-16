@@ -57,8 +57,8 @@ AvatarGroupCounter.propTypes = {
   /**
    * Counter.propTypes: props for counter
    */
-  counterProps: PropTypes.shape({ ...Counter.propTypes }),
-  counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes }),
+  counterProps: PropTypes.shape(Counter.propTypes),
+  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
   avatarSize: PropTypes.oneOf(Object.values(Avatar.sizes)),
   avatarType: PropTypes.oneOf(Object.values(Avatar.types))
 };

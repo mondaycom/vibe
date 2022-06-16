@@ -71,7 +71,7 @@ AvatarGroup.propTypes = {
   /**
    * `Tooltip.propTypes`: props for custom counter tooltip
    */
-  counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes })
+  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes)
 };
 AvatarGroup.defaultProps = {
   className: "",

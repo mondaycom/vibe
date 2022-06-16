@@ -53,7 +53,7 @@ AvatarGroupCounterTooltipContainer.propTypes = {
    * Array of Avatar elements
    */
   avatars: PropTypes.arrayOf(PropTypes.element),
-  counterTooltipCustomProps: PropTypes.shape({ ...Tooltip.propTypes })
+  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes)
 };
 AvatarGroupCounterTooltipContainer.defaultProps = {
   className: undefined,

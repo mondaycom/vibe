@@ -56,11 +56,15 @@ const Avatar = ({
     return customSize ? { height: customSize, width: customSize } : {};
   }, [customSize]);
 
-  if (withoutTooltip) {
-    tooltipProps?.content && delete tooltipProps.content;
-  } else if (tooltipProps?.content === undefined && ariaLabel) {
-    tooltipProps = { ...tooltipProps, content: ariaLabel };
-  }
+  const overrideTooltipProps = useMemo(() => {
+    if (withoutTooltip) return undefined;
+
+    if (tooltipProps) {
+      return { content: ariaLabel, ...tooltipProps };
+    } else {
+      return { content: ariaLabel };
+    }
+  }, [ariaLabel, tooltipProps, withoutTooltip]);
 
   const badgesContainer = useMemo(() => {
     const badges = [];
@@ -122,7 +126,7 @@ const Avatar = ({
         <Tooltip
           showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
           hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}
-          {...tooltipProps}
+          {...overrideTooltipProps}
         >
           <div
             className={cx(
@@ -165,7 +169,7 @@ Avatar.backgroundColors = elementColorsNames;
 Avatar.propTypes = {
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   text: PropTypes.string,
-  tooltipProps: PropTypes.shape({ ...Tooltip.propTypes }),
+  tooltipProps: PropTypes.shape(Tooltip.propTypes),
   ariaLabel: PropTypes.string,
   withoutTooltip: PropTypes.bool,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
