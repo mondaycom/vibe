@@ -9,7 +9,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -64,7 +64,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -127,7 +127,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -182,7 +182,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -202,7 +202,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -217,27 +217,6 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
       </span>
     </div>
   </div>
-  <div
-    className=""
-    tabIndex={0}
-  >
-    <span
-      aria-label="Additional items 13"
-      aria-labelledby=""
-      onMouseDown={[Function]}
-    >
-      <div
-        aria-label={13}
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
-      >
-        <span
-          id="counter-"
-        >
-          +13
-        </span>
-      </div>
-    </span>
-  </div>
 </div>
 `;
 
@@ -250,7 +229,7 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -277,7 +256,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -286,69 +265,6 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
       tabIndex={0}
     >
       <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
-      >
-        P1
-      </span>
-    </div>
-  </div>
-  <div
-    className=""
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onKeyDown={[Function]}
-    onMouseDown={[Function]}
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
-    tabIndex={0}
-  >
-    <span
-      aria-label="Additional items 1"
-      aria-labelledby=""
-      onMouseDown={[Function]}
-    >
-      <div
-        aria-label={1}
-        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
-      >
-        <span
-          id="counter-"
-        >
-          +1
-        </span>
-      </div>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`AvatarGroup renders correctly renders correctly with themed counter default-tooltip 1`] = `
-<div
-  className=""
->
-  <div
-    className="monday-style-avatar"
-  >
-    <div
-      aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      style={
-        Object {
-          "backgroundColor": "var(--color-chili-blue",
-        }
-      }
-      tabIndex={0}
-    >
-      <span
-        aria-label="Person 1"
         className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
       >
         P1
@@ -395,7 +311,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -415,7 +331,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -442,7 +358,7 @@ exports[`AvatarGroup renders correctly renders correctly without counter tooltip
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
