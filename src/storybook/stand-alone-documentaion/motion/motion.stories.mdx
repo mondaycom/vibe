@@ -1,13 +1,53 @@
 import { Meta } from "@storybook/addon-docs";
 import { ComponentName } from "../../components";
+import { AnimationOverviews } from "./animation-overviews/animation-overviews";
+import { DurationTokens } from "./duration-tokens/duration-tokens";
 import { ComingSoon } from "../../components/coming-soon/coming-soon";
 
-<Meta
-  title="Foundations/Motion"
-/>
+<Meta title="Foundations/Motion" />
 
-<ComponentName withFoundationBackground>
-  Motion
-</ComponentName>
+<ComponentName withFoundationBackground>Motion</ComponentName>
 
-<ComingSoon />
+- [Overview](#overview)
+- [Implementation](#implementation---duration-and-ease)
+- [Do's and dont's](do's-and-don'ts)
+
+## Overview
+
+Animation is a powerful tool for communication and is an integral part of the visual language of a product. It helps to make the user interface easier to understand, navigate, intuitive to use and more interactive to work with. Here are the 4 main purposes that helps bridging between the virtual world we build and the physical world we know:
+
+<AnimationOverviews />
+
+## Implementation - duration and ease
+
+### Duration - how long a transition lasts
+
+Every move should feel fast and contribute to the feeling that our platform is fast, efficient and responsivene.
+When elements change their state or position, the duration of the animation should be slow enough to give users the possibility to notice the change, but at the same time quick enough not to cause waiting.
+
+The style and size of the motion determine the duration. There are two Styles, Productive motion and Expressive motion. The productive motion duration range is between 70 - 150 ms, while expressive motion scopes between 250 to 400 ms
+
+<DurationTokens />
+
+### Ease - acceleration over time
+
+Since linear movements appear unnatural to a human eye, they should never be linear. Objects should move with some acceleration or deceleration — just like all live objects in the physical world.
+
+## Do's and don'ts
+
+### Consistency
+
+Similar elements must have similar moves, Implement easing curves and timing with a consistent rhythm.
+Things should be predictable and familiar.
+
+### Simplicity
+
+Simple movements make it easier for the user to follow along and convey a clear message. Keep it simple and clever, removing gets in the way of users' understanding.
+
+### Don’t delay the user
+
+The user should never get the feeling that he’s waiting for the animation to end.
+
+### Scale
+
+When scaling, components should not be streched, keep the X and Y proporsions locked
