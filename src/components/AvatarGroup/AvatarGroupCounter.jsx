@@ -7,7 +7,14 @@ import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipConta
 import Counter from "../Counter/Counter";
 import styles from "./AvatarGroupCounter.module.scss";
 
-const AvatarGroupCounter = ({ counterTooltipAvatars, counterProps, counterTooltipCustomProps, size, type }) => {
+const AvatarGroupCounter = ({
+  counterTooltipAvatars,
+  counterProps,
+  counterTooltipCustomProps,
+  counterTooltipIsVirtualizedList,
+  size,
+  type
+}) => {
   const {
     color: counterColor = Counter.colors.LIGHT,
     count: counterValue = counterTooltipAvatars.length,
@@ -26,6 +33,7 @@ const AvatarGroupCounter = ({ counterTooltipAvatars, counterProps, counterToolti
     <AvatarGroupCounterTooltipContainer
       avatars={counterTooltipAvatars}
       counterTooltipCustomProps={counterTooltipCustomProps}
+      counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
       type={type}
     >
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
@@ -53,6 +61,7 @@ AvatarGroupCounter.propTypes = {
    */
   counterProps: PropTypes.shape(Counter.propTypes),
   counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
+  counterTooltipIsVirtualizedList: PropTypes.bool,
   size: PropTypes.oneOf(Object.values(Avatar.sizes)),
   type: PropTypes.oneOf(Object.values(Avatar.types))
 };
@@ -60,6 +69,7 @@ AvatarGroupCounter.defaultProps = {
   counterTooltipAvatars: [],
   counterProps: undefined,
   counterTooltipCustomProps: undefined,
+  counterTooltipIsVirtualizedList: false,
   size: Avatar.sizes.MEDIUM,
   type: undefined
 };

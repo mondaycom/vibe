@@ -5,13 +5,25 @@ import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent
 import Avatar from "../Avatar/Avatar";
 import PropTypes from "prop-types";
 
-const AvatarGroupCounterTooltipContainer = ({ children, avatars, type, className, counterTooltipCustomProps }) => {
+const AvatarGroupCounterTooltipContainer = ({
+  children,
+  avatars,
+  type,
+  className,
+  counterTooltipCustomProps,
+  counterTooltipIsVirtualizedList
+}) => {
   const tooltipContent = useMemo(
     () =>
       counterTooltipCustomProps?.content || (
-        <AvatarGroupCounterTooltipContent avatars={avatars} type={type} className={className} />
+        <AvatarGroupCounterTooltipContent
+          avatars={avatars}
+          type={type}
+          className={className}
+          isVirtualizedList={counterTooltipIsVirtualizedList}
+        />
       ),
-    [avatars, className, counterTooltipCustomProps, type]
+    [avatars, className, counterTooltipCustomProps?.content, counterTooltipIsVirtualizedList, type]
   );
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
@@ -43,14 +55,16 @@ AvatarGroupCounterTooltipContainer.propTypes = {
    * Array of Avatar elements
    */
   avatars: PropTypes.arrayOf(PropTypes.element),
-  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes)
+  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
+  counterTooltipIsVirtualizedList: PropTypes.bool
 };
 AvatarGroupCounterTooltipContainer.defaultProps = {
   className: undefined,
   type: undefined,
   children: [],
   avatars: [],
-  counterTooltipCustomProps: undefined
+  counterTooltipCustomProps: undefined,
+  counterTooltipIsVirtualizedList: false
 };
 
 export default AvatarGroupCounterTooltipContainer;

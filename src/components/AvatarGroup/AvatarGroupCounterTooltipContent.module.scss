@@ -26,3 +26,15 @@
 .scrollableContainer {
   @include scroller;
 }
+
+.virtualizedTooltipContainer {
+  padding-right: var(--spacing-medium);
+  align-items: flex-start !important;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: visible;
+}
+
+.virtualizedListContainer {
+  height: 100%;
+}

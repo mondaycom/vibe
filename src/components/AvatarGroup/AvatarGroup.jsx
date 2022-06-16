@@ -16,7 +16,8 @@ const AvatarGroup = ({
   type,
   max,
   counterProps,
-  counterTooltipCustomProps
+  counterTooltipCustomProps,
+  counterTooltipIsVirtualizedList
 }) => {
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
     const childrenArray = React.Children.toArray(children);
@@ -45,6 +46,7 @@ const AvatarGroup = ({
         counterTooltipAvatars={counterTooltipAvatars}
         counterProps={counterProps}
         counterTooltipCustomProps={counterTooltipCustomProps}
+        counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
         size={size}
         type={type}
       />
@@ -75,7 +77,11 @@ AvatarGroup.propTypes = {
   /**
    * `Tooltip.propTypes`: props for custom counter tooltip
    */
-  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes)
+  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
+  /**
+   * Using counter default tooltip virtualized list for rendering only visible items (performance optimization)
+   */
+  counterTooltipIsVirtualizedList: PropTypes.bool
 };
 AvatarGroup.defaultProps = {
   className: "",
@@ -86,7 +92,8 @@ AvatarGroup.defaultProps = {
   type: undefined,
   max: 5,
   counterProps: undefined,
-  counterTooltipCustomProps: undefined
+  counterTooltipCustomProps: undefined,
+  counterTooltipIsVirtualizedList: false
 };
 
 export default AvatarGroup;
