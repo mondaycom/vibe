@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Tooltip from "../Tooltip/Tooltip";
 import Dialog from "../Dialog/Dialog";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
@@ -6,36 +6,26 @@ import Avatar from "../Avatar/Avatar";
 import PropTypes from "prop-types";
 
 const AvatarGroupCounterTooltipContainer = ({ children, avatars, type, className, counterTooltipCustomProps }) => {
-  const counterTooltipContentExists = !!avatars?.length;
-  const counterTooltipContentComponent = (
-    <AvatarGroupCounterTooltipContent avatars={avatars} type={type} className={className} />
-  );
+  const tooltipContent = useMemo(() => {
+    if (counterTooltipCustomProps) {
+      return counterTooltipCustomProps.content;
+    }
 
-  if (!counterTooltipContentExists && !counterTooltipCustomProps) {
+    return <AvatarGroupCounterTooltipContent avatars={avatars} type={type} className={className} />;
+  }, [avatars, className, counterTooltipCustomProps, type]);
+
+  if (!avatars?.length && !counterTooltipCustomProps) {
     return children;
-  }
-
-  if (counterTooltipCustomProps) {
-    return (
-      <Tooltip
-        showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
-        hideTrigger={[Dialog.hideShowTriggers.TAB_KEY, Dialog.hideShowTriggers.MOUSE_LEAVE]}
-        showOnDialogEnter
-        hideDelay={200}
-        {...counterTooltipCustomProps}
-      >
-        {children}
-      </Tooltip>
-    );
   }
 
   return (
     <Tooltip
-      content={counterTooltipContentComponent}
       showOnDialogEnter
       hideDelay={200}
       showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
       hideTrigger={[Dialog.hideShowTriggers.TAB_KEY, Dialog.hideShowTriggers.MOUSE_LEAVE]}
+      {...(counterTooltipCustomProps || {})}
+      content={tooltipContent}
     >
       {children}
     </Tooltip>
