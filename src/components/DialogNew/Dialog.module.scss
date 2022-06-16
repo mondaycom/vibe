@@ -12,53 +12,127 @@
   left: 0; /* 1 */
 }
 
-/**
-   * 1. Make sure the dialog container and all its descendants sits on
-   *    top of the rest of the page.
-   * 2. Make the dialog container a flex container to easily center the
-   *    dialog.
-   */
 .dialogContainer {
-  z-index: 2; /* 1 */
-  display: flex; /* 2 */
+  z-index: 2;
+  display: flex;
 }
 
-/**
-   * 1. Make sure the dialog container and all its descendants are not
-   *    visible and not focusable when it is hidden.
-   */
 .dialogContainer[aria-hidden="true"] {
-  display: none; /* 1 */
+  display: none;
 }
 
-/**
-   * 1. Make the overlay look like an overlay.
-   */
 .dialogOverlay {
-  background-color: rgba(41, 47, 76, 0.7); /* 1 */
+  background-color: rgba(41, 47, 76, 0.7);
 }
 
-/**
-   * 1. Vertically and horizontally center the dialog in the page.
-   * 2. Make sure the dialog sits on top of the overlay.
-   * 3. Make sure the dialog has an opaque background.
-   */
-.dialogContent {
-  margin: auto; /* 1 */
-  z-index: 2; /* 2 */
-  position: relative; /* 2 */
-  background-color: white; /* 3 */
-  padding: 0 30px;
-  width: 550px;
-  min-height: 300px;
+.dialogContentWrapper {
+  margin: auto;
+  z-index: 2;
+  position: relative;
   border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.dialogContent {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  overflow: auto;
+  flex-grow: 1;
+  background-color: var(--secondary-background-color);
+  max-height: 90vh;
+  max-width: 90vw;
+
+  &.small {
+    width: 350px;
+  }
+  &.medium {
+    width: 550px;
+  }
+  &.large {
+    width: 750px;
+  }
+  &.full {
+    width: 100vw;
+  }
+
   .titleWrapper {
     display: flex;
     align-items: center;
     .dialogTitle {
       font-size: var(--font-size-h2);
       font-weight: var(--font-weight-bold);
+      color: var(--primary-text-color);
       flex-grow: 1;
+      &:focus {
+        color: red;
+      }
     }
+  }
+
+  .innerContentWrapper {
+    flex-grow: 1;
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+  animation-play-state: running;
+  animation-duration: .2s;
+}
+
+.zoomOut {
+  animation-name: zoomOut;
+  animation-play-state: running;
+  animation-duration: .1s;
+}
+
+.fadeId {
+  animation-name: fadeIn;
+  animation-play-state: running;
+  animation-duration: .2s;
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(.02);
+    opacity: 0
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1)
+  }
+
+  to {
+    transform: scale(.2);
+    opacity: 0
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1
+  }
+
+  to {
+    opacity: 0
   }
 }

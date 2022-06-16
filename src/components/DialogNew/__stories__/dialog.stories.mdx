@@ -1,9 +1,12 @@
 import Dialog from "../Dialog";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import "./Dialog.stories.scss";
 import Button from "../../Button/Button";
+import { Flex, TextField } from "components"; import {
+  StoryDescription
+} from "../../../storybook/components/story-description/story-description";
 
 export const metaSettings = createStoryMetaSettings({
   component: Dialog,
@@ -23,12 +26,42 @@ export const metaSettings = createStoryMetaSettings({
 
 [//]: # "export const modalNewTemplate = createComponentTemplate(ModalNew);"
 
-export const modalNewTemplate = ({ buttonTitle = "Open dialog" }) => {
+export const DialogTemplate = ({
+  id = 'sample-id',
+  buttonTitle = "Open dialog",
+  content = <p>Dialog Content</p>,
+  title = "Dialog title",
+  isAlertDialog = false,
+  size = 'medium'
+}) => {
   const [show, setShow] = useState(false);
+  const buttonRef = useRef(null);
+  const hideDialog = () => setShow(false);
   return (
     <div>
-      <Button onClick={() => setShow(true)}>{buttonTitle}</Button>
-      <Dialog show={show} title={"Dialog title"} onHide={() => setShow(false)}><p>Dialog Content</p></Dialog>
+      <Button ref={buttonRef} onClick={() => setShow(true)}>
+        {buttonTitle}
+      </Button>
+      <Dialog
+        id={id}
+        show={show}
+        title={title}
+        isAlertDialog={isAlertDialog}
+        onHide={hideDialog}
+        size={size}
+        triggerElement={buttonRef.current}
+        classNames={{ content: "monday-storybook-modal-new-content-wrapper" }}
+      >
+        {content}
+        <div className="monday-storybook-modal-new-buttons">
+          <Button kind={Button.kinds.SECONDARY} onClick={hideDialog}>
+            Cancel
+          </Button>
+          <Button kind={Button.kinds.PRIMARY} onClick={hideDialog}>
+            Confirm
+          </Button>
+        </div>
+      </Dialog>
     </div>
   );
 };
@@ -48,11 +81,14 @@ export const modalNewTemplate = ({ buttonTitle = "Open dialog" }) => {
 
 ## Overview
 
-Please write here the component description
+An easy to use accessible Dialog component
 
 <Canvas>
-  <Story name="Overview" args={{ prop1: "prop's default value", prop2: "prop's default value" }}>
-    {modalNewTemplate.bind({})}
+  <Story
+    name="Overview"
+    args={{ title: "Dialog title", buttonTitle: "open Dialog", content: <p>Dialog content goes here</p> }}
+  >
+    {DialogTemplate.bind({})}
   </Story>
 </Canvas>
 
@@ -68,175 +104,144 @@ Please write here the component description
 
 ## Variants
 
-### Story title 1
-
-[//]: # (Description of story 1)
-
-[//]: # ()
-[//]: # (<Canvas>)
-
-[//]: # (  <Story name="Story title 1">)
-
-[//]: # (    <ModalNew />)
-
-[//]: # (    <ModalNew />)
-
-[//]: # (  </Story>)
-
-[//]: # (</Canvas>)
-
-[//]: # ()
-[//]: # (### Story title 2)
-
-[//]: # ()
-[//]: # (Description of story 2)
-
-[//]: # ()
-[//]: # (<Canvas>)
-
-[//]: # (  <Story name="Story title 2">)
-
-[//]: # (    <ModalNew />)
-
-[//]: # (    <ModalNew />)
-
-[//]: # (  </Story>)
-
-[//]: # (</Canvas>)
-
-[//]: # ()
-[//]: # (## Do’s and Don’ts)
-
-[//]: # ()
-[//]: # (<ComponentRules)
-
-[//]: # (  rules={[)
-
-[//]: # (    {)
-
-[//]: # (      positive: {)
-
-[//]: # (        component: <ModalNew />,)
-
-[//]: # (        description: "Best practice description.")
-
-[//]: # (      },)
-
-[//]: # (      negative: {)
-
-[//]: # (        component: <ModalNew />,)
-
-[//]: # (        description: "Bad practice description.")
-
-[//]: # (      })
-
-[//]: # (    },)
-
-[//]: # (    {)
-
-[//]: # (      positive: {)
-
-[//]: # (        component: <ModalNew />,)
-
-[//]: # (        description: "Best practice description.")
-
-[//]: # (      },)
-
-[//]: # (      negative: {)
-
-[//]: # (        component: <ModalNew />,)
-
-[//]: # (        description: "Bad practice description.")
-
-[//]: # (      })
-
-[//]: # (    },)
-
-[//]: # (    {)
-
-[//]: # (      positive: {)
-
-[//]: # (        component: <ModalNew />,)
-
-[//]: # (        description: "Best practice description.")
-
-[//]: # (      },)
-
-[//]: # (      negative: {)
-
-[//]: # (        component: <ModalNew />,)
-
-[//]: # (        description: "Bad practice description.")
-
-[//]: # (      })
-
-[//]: # (    },)
-
-[//]: # (    {)
-
-[//]: # (      positive: {)
-
-[//]: # (        component: <ModalNew />,)
-
-[//]: # (        description: "Best practice description.")
-
-[//]: # (      },)
-
-[//]: # (      negative: {)
-
-[//]: # (        component: <ModalNew />,)
-
-[//]: # (        description: "Bad practice description.")
-
-[//]: # (      })
-
-[//]: # (    })
-
-[//]: # (  ]})
-
-[//]: # (/>)
-
-[//]: # ()
-[//]: # (## Use cases and examples)
-
-[//]: # ()
-[//]: # (### Story title 3)
-
-[//]: # ()
-[//]: # (Description of story 3)
-
-[//]: # ()
-[//]: # (<Canvas>)
-
-[//]: # (  <Story name="Story title 3">)
-
-[//]: # (    <ModalNew />)
-
-[//]: # (    <ModalNew />)
-
-[//]: # (  </Story>)
-
-[//]: # (</Canvas>)
-
-[//]: # ()
-[//]: # (### Story title 4)
-
-[//]: # ()
-[//]: # (Description of story 4)
-
-[//]: # ()
-[//]: # (<Canvas>)
-
-[//]: # (  <Story name="Story title 4">)
-
-[//]: # (    <ModalNew />)
-
-[//]: # (    <ModalNew />)
-
-[//]: # (  </Story>)
-
-[//]: # (</Canvas>)
+### Alert Dialog (Modal)
+
+This dialog will NOT be closed when you click outside or click ESC key. Only way to close it is to use the close button.
+
+<UsageGuidelines guidelines={["set `isAlertDialog` to `true` in order to turn a dialog to modal."]} />
+
+<Canvas>
+  <Story
+    name="Alert Dialog"
+    args={{
+      title: "Dialog title",
+      buttonTitle: "open Modal",
+      isAlertDialog: true,
+      content: <p>Use the close button to dismiss this Modal.</p>
+    }}
+  >
+    {DialogTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Dialog with a form
+
+<UsageGuidelines
+  guidelines={[
+    "The dialog is capturing the focus. Use TAB ket to jump throw the close button and the inputs.",
+    "Use Alert dialog so the user won't close the dialog by mistake and loose changes."
+  ]}
+/>
+
+<Canvas>
+  <Story
+    name="Form Dialog"
+    args={{
+      title: "Dialog title",
+      buttonTitle: "open From Dialog",
+      isAlertDialog: true,
+      content: (
+        <form>
+          <TextField title="Your Name" autoFocus size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+        </form>
+      )
+    }}
+  >
+    {DialogTemplate.bind({})}
+  </Story>
+</Canvas>
+
+### Size variants
+
+<Canvas>
+  <Story name="Size variants">
+    <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
+      <StoryDescription description="S" vertical align={Flex.align.START}>
+        <div className="monday-storybook-loader_size-variants_container">
+          <DialogTemplate size={'small'} />
+        </div>
+      </StoryDescription>
+      <StoryDescription description="M" vertical align={Flex.align.START}>
+        <div className="monday-storybook-loader_size-variants_container">
+          <DialogTemplate size={'medium'} />
+        </div>
+      </StoryDescription>
+      <StoryDescription description="L" vertical align={Flex.align.START}>
+        <div className="monday-storybook-loader_size-variants_container">
+          <DialogTemplate size={'large'} />
+        </div>
+      </StoryDescription>
+      <StoryDescription description="Full Width" vertical align={Flex.align.START}>
+        <div className="monday-storybook-loader_size-variants_container">
+          <DialogTemplate size={'full_width'} />
+        </div>
+      </StoryDescription>
+    </Flex>
+  </Story>
+</Canvas>
+
+## Use cases and examples
+
+### Dialog with vertical scroll
+
+The height of dialog with long content will be limited to 90% of screen height, and a scroll bar will be added
+
+<Canvas>
+  <Story
+    name="Dialog with vertical scroll"
+    args={{
+      title: "Dialog title",
+      buttonTitle: "open long Dialog",
+      content: (
+        <form>
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+        </form>
+      )
+    }}
+  >
+    {DialogTemplate.bind({})}
+  </Story>
+</Canvas>
 
 ## Related components
 
-[//]: # (<RelatedComponents componentsNames={[]} />)
+[//]: # "<RelatedComponents componentsNames={[]} />"

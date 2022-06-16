@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -6,33 +6,31 @@ import styles from "./Dialog.module.scss";
 import { useA11yDialog } from "./a11YDialog";
 import { IconButton } from "components";
 import { CloseSmall } from "components/Icon/Icons";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 
-const Dialog = ({ className, classNames, id, show, title, onHide, role, isAlertDialog, children }) => {
-  // `instance` is the `a11y-dialog` instance.
-  // `attr` is an object with the following keys:
-  // - `container`: the dialog container
-  // - `overlay`: the dialog overlay (sometimes called backdrop)
-  // - `dialog`: the actual dialog box
-  // - `title`: the dialog mandatory title
-  // - `closeButton`:  the dialog close button
+const DIALOG_SIZES = {
+  SMALL: "small",
+  MEDIUM: "medium",
+  LARGE: "large",
+  FULL_WIDTH: "full_width"
+};
+
+const Dialog = ({ classNames, id, show, title, onHide, isAlertDialog, children, triggerElement, size }) => {
   const [instance, attr] = useA11yDialog({
-    // The required HTML `id` attribute of the dialog element, internally used
-    // a11y-dialog to manipulate the dialog.
-    id: "my-dialog",
-    // The optional `role` attribute of the dialog element, either `dialog`
-    // (default) or `alertdialog` to make it a modal (preventing closing on
-    // click outside of ESC key).
-    role,
-    // The required dialog title, mandatory in the document
-    // to provide context to assistive technology.
+    id,
     title,
     onHide,
     isAlertDialog
   });
 
+  // clear all scroll locks on unmount (just to be safe)
   useEffect(() => {
-    instance?.on("show", () => disableBodyScroll(instance.$el));
+    return () => clearAllBodyScrollLocks();
+  }, []);
+
+  // lock body on modal show
+  useEffect(() => {
+    instance?.on("show", () => disableBodyScroll(instance.$el, { reserveScrollBarGap: true }));
     instance?.on("hide", () => enableBodyScroll(instance.$el));
     return () => {
       instance?.off("show");
@@ -40,53 +38,98 @@ const Dialog = ({ className, classNames, id, show, title, onHide, role, isAlertD
     };
   }, [instance]);
 
+  const getAnimationProps = useCallback(
+    (hideAnimation = false) => {
+      let animationStart, animationEnd;
+      if (triggerElement) {
+        const { top: sourceTop, left: sourceLeft } = triggerElement.getBoundingClientRect();
+        const {
+          top: destinationTop,
+          left: destinationLeft,
+          width,
+          height
+        } = instance?.$el.childNodes[1].getBoundingClientRect();
+
+        animationStart = {
+          transform: `translate(${sourceLeft - destinationLeft - width / 2}px, ${
+            sourceTop - destinationTop - height / 2
+          }px) scale(0.2)`,
+          opacity: 0.2
+        };
+        animationEnd = { transform: `translate(0, 0) scale(1)`, opacity: 1 };
+      } else {
+        animationStart = {
+          transform: `scale(0.2)`,
+          opacity: 0.2
+        };
+        animationEnd = { transform: `scale(1)`, opacity: 1 };
+      }
+
+      return [
+        hideAnimation ? [animationEnd, animationStart] : [animationStart, animationEnd],
+        {
+          duration: hideAnimation ? 100 : 200,
+          easing: "ease-in"
+        }
+      ];
+    },
+    [instance, triggerElement]
+  );
+
+  // show/hide and animate the modal
   useEffect(() => {
     if (show) {
       instance?.show();
+      instance?.$el.childNodes[1].animate(...getAnimationProps());
     } else {
-      instance?.hide();
+      const animation = instance?.$el.childNodes[1].animate(...getAnimationProps(true));
+      animation?.finished.then(() => instance?.hide());
     }
-  }, [show, instance]);
+  }, [show, instance, getAnimationProps]);
 
   const dialog = ReactDOM.createPortal(
     <div {...attr.container} className={cx(styles.dialogContainer, classNames.container)}>
       <div {...attr.overlay} className={cx(styles.dialogOverlay, classNames.overlay)} />
+      <div className={styles.dialogContentWrapper}>
+        <div
+          {...attr.dialog}
+          className={cx(styles.dialogContent, classNames.dialog, {
+            [styles.small]: size === DIALOG_SIZES.SMALL,
+            [styles.medium]: size === DIALOG_SIZES.MEDIUM,
+            [styles.large]: size === DIALOG_SIZES.LARGE,
+            [styles.full]: size === DIALOG_SIZES.FULL_WIDTH
+          })}
+        >
+          <div className={styles.titleWrapper}>
+            <p {...attr.title} className={cx(classNames.title, styles.dialogTitle)}>
+              {title}
+            </p>
 
-      <div {...attr.dialog} className={cx(styles.dialogContent, classNames.dialog)}>
-        <div className={styles.titleWrapper}>
-          <p {...attr.title} className={cx(classNames.title, styles.dialogTitle)}>
-            {title}
-          </p>
-
-          <IconButton
-            key="xxs"
-            {...attr.closeButton}
-            className={cx(classNames.close)}
-            icon={CloseSmall}
-            kind={IconButton.kinds.TERTIARY}
-            size={IconButton.sizes.SMALL}
-          />
+            <IconButton
+              key="xxs"
+              {...attr.closeButton}
+              ariaLabel="close"
+              className={cx(classNames.closeButton)}
+              icon={props => <CloseSmall {...props} tabIndex={-1} />}
+              kind={IconButton.kinds.TERTIARY}
+              size={IconButton.sizes.SMALL}
+            />
+          </div>
+          <div className={cx(styles.innerContentWrapper, classNames.content)}>{children}</div>
         </div>
-
-        {children}
       </div>
     </div>,
     document.body
   );
 
-  return (
-    <div className={className} id={id}>
-      {dialog}
-    </div>
-  );
+  return <>{dialog}</>;
 };
 
 Dialog.propTypes = {
   /**
-   * Class name to be add to the wrapper
+   * Id of the modal, used internaly and for accessibility
    */
-  className: PropTypes.string,
-
+  id: PropTypes.string.isRequired,
   /**
    * Show/hide the Dialog
    */
@@ -106,14 +149,22 @@ Dialog.propTypes = {
    */
   isAlertDialog: PropTypes.bool,
   /**
+   *  used for the fromOrigin animation
+   */
+  triggerElement: PropTypes.instanceOf(Element),
+  /**
+   *  used for the fromOrigin animation
+   */
+  size: PropTypes.oneOf(Object.values(DIALOG_SIZES)),
+  /**
    *  classNames for specific parts of the dialog
-   *  ESC key)..
    */
   classNames: PropTypes.exact({
     container: PropTypes.string,
     overlay: PropTypes.string,
     dialog: PropTypes.string,
     title: PropTypes.string,
+    content: PropTypes.string,
     closeButton: PropTypes.string
   }),
   /**
@@ -123,14 +174,16 @@ Dialog.propTypes = {
 };
 
 Dialog.defaultProps = {
-  className: "",
+  triggerElement: null,
   isAlertDialog: false,
   children: undefined,
+  size: DIALOG_SIZES.MEDIUM,
   classNames: {
     container: "",
     overlay: "",
     dialog: "",
     title: "",
+    content: "",
     closeButton: ""
   }
 };
