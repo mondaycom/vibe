@@ -182,6 +182,36 @@ You can pass `counterProps` to specify counter params.
   </Story>
 </Canvas>
 
+
+### Grid tooltip
+
+When tooltip text for additional avatars is not passed, extra avatars will be displayed in a grid mode.
+
+<Canvas>
+  <Story name="Grid tooltip">
+    <AvatarGroup size={Avatar.sizes.LARGE} type={Avatar.types.IMG} max={3}>
+      <Avatar src={person1} />
+      <Avatar src={person2} />
+      <Avatar src={person3} />
+      <Avatar src={person1} />
+      <Avatar src={person2} />
+      <Avatar src={person3} />
+      <Avatar src={person1} />
+      <Avatar src={person2} />
+      <Avatar src={person3} />
+      <Avatar src={person1} />
+      <Avatar src={person2} />
+      <Avatar src={person3} />
+      <Avatar src={person1} />
+      <Avatar src={person2} />
+      <Avatar src={person3} />
+      <Avatar src={person1} />
+      <Avatar src={person2} />
+      <Avatar src={person3} />
+    </AvatarGroup>
+  </Story>
+</Canvas>
+
 ### Max amount to display
 
 Choose the maximum amount of avatars you want to display.
