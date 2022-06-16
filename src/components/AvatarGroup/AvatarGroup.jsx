@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Avatar from "../Avatar/Avatar";
@@ -18,13 +18,17 @@ const AvatarGroup = ({
   counterProps,
   counterTooltipCustomProps
 }) => {
+  const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
+    const childrenArray = React.Children.toArray(children);
+    return {
+      displayAvatars: childrenArray.slice(0, max),
+      counterTooltipAvatars: childrenArray.slice(max)
+    };
+  }, [children, max]);
+
   if (!children) {
     return null;
   }
-
-  children = React.Children.toArray(children);
-  const displayAvatars = children.slice(0, max);
-  const counterTooltipAvatars = children.slice(max);
 
   return (
     <div className={cx(styles.avatarGroupContainer, className)} id={id}>
