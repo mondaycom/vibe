@@ -6,15 +6,15 @@ import Avatar from "../Avatar/Avatar";
 import PropTypes from "prop-types";
 
 const AvatarGroupCounterTooltipContainer = ({ children, avatars, type, className, counterTooltipCustomProps }) => {
-  const tooltipContent = useMemo(() => {
-    if (counterTooltipCustomProps) {
-      return counterTooltipCustomProps.content;
-    }
+  const tooltipContent = useMemo(
+    () =>
+      counterTooltipCustomProps?.content || (
+        <AvatarGroupCounterTooltipContent avatars={avatars} type={type} className={className} />
+      ),
+    [avatars, className, counterTooltipCustomProps, type]
+  );
 
-    return <AvatarGroupCounterTooltipContent avatars={avatars} type={type} className={className} />;
-  }, [avatars, className, counterTooltipCustomProps, type]);
-
-  if (!avatars?.length && !counterTooltipCustomProps) {
+  if (!avatars?.length && !counterTooltipCustomProps?.content) {
     return children;
   }
 

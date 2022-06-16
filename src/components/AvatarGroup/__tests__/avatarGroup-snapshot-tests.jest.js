@@ -69,22 +69,22 @@ describe("AvatarGroup renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly with counter default-tooltip", () => {
+  it("renders correctly with counter ariaLabel default-tooltip", () => {
     const tree = renderer
       .create(
         <AvatarGroup max={1}>
-          <Avatar text="P1" tooltipProps={{ content: "Person 1" }} />
-          <Avatar text="P2" tooltipProps={{ content: "Person 2" }} />
+          <Avatar text="P1" ariaLabel="Person 1" />
+          <Avatar text="P2" ariaLabel="Person 2" />
         </AvatarGroup>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("renders correctly without counter tooltip", () => {
+  it("renders correctly with counter default-tooltip", () => {
     const tree = renderer
       .create(
-        <AvatarGroup counterTooltipCustomProps={{}} max={1}>
+        <AvatarGroup max={1}>
           <Avatar text="P1" tooltipProps={{ content: "Person 1" }} />
           <Avatar text="P2" tooltipProps={{ content: "Person 2" }} />
         </AvatarGroup>
