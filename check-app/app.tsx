@@ -1,6 +1,12 @@
 import React from "react";
 import vibeLogo from "../.storybook/logo.png";
+import * as vibe from "../dist/main.js";
+import "../dist/main.css";
 import "./app.css";
+
+function handleButtonClick(...args: any) {
+  console.log("app: handleButtonClick", ...args);
+}
 
 function App() {
   return (
@@ -11,7 +17,10 @@ function App() {
         </a>
         <h1>Check App</h1>
       </header>
-      <main>Components here</main>
+      <main>
+        <vibe.Button onClick={handleButtonClick}>Button</vibe.Button>
+        <vibe.Button kind={vibe.Button.kinds.SECONDARY}>Secondary</vibe.Button>
+      </main>
       <footer></footer>
     </div>
   );

@@ -6,6 +6,15 @@ module.exports = {
         jest: true,
         "jest/globals": true
       }
+    },
+    {
+      files: ["**/*.{ts,tsx}"],
+      extends: ["plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
+      parser: "@typescript-eslint/parser",
+      plugins: ["@typescript-eslint"],
+      rules: {
+        "no-empty": "warn"
+      }
     }
   ],
   env: {
