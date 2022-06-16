@@ -562,7 +562,7 @@ exports[`Combobox renders correctly with divider 1`] = `
       role="treegrid"
     >
       <div
-        className=""
+        className="comboboxItemContainer sticky"
       >
         <div
           aria-label="cat1"
@@ -575,7 +575,7 @@ exports[`Combobox renders correctly with divider 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 1"
@@ -603,9 +603,10 @@ exports[`Combobox renders correctly with divider 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
+          className="dividerContainer"
           style={
             Object {
               "height": 17,
@@ -613,12 +614,12 @@ exports[`Combobox renders correctly with divider 1`] = `
           }
         >
           <div
-            className="monday-style-divider monday-style-divider--horizontal"
+            className="monday-style-divider divider monday-style-divider--horizontal"
           />
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer sticky"
       >
         <div
           aria-label="cat2"
@@ -631,7 +632,7 @@ exports[`Combobox renders correctly with divider 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 2"
@@ -944,16 +945,16 @@ exports[`Combobox renders correctly with loading 1`] = `
               className="input-component__loader"
             >
               <div
-                className="monday-loader-component"
+                className="monday-loader-component loaderContainer"
                 role="alert"
                 title="loading"
               >
                 <svg
-                  className="circle-loader-spinner input-component__loader-svg"
+                  className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
                   viewBox="0 0 50 50"
                 >
                   <circle
-                    className="circle-loader-spinner-path"
+                    className="circle-loader-spinner-path circleLoaderSpinnerPath"
                     cx="25"
                     cy="25"
                     fill="none"
@@ -1252,7 +1253,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
       role="treegrid"
     >
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 1"
@@ -1279,7 +1280,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 2"

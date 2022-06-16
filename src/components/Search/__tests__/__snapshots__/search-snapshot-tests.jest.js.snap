@@ -496,16 +496,16 @@ exports[`Search renders correctly with loading 1`] = `
           className="input-component__loader"
         >
           <div
-            className="monday-loader-component"
+            className="monday-loader-component loaderContainer"
             role="alert"
             title="loading"
           >
             <svg
-              className="circle-loader-spinner input-component__loader-svg"
+              className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
               viewBox="0 0 50 50"
             >
               <circle
-                className="circle-loader-spinner-path"
+                className="circle-loader-spinner-path circleLoaderSpinnerPath"
                 cx="25"
                 cy="25"
                 fill="none"
