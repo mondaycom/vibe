@@ -79,6 +79,7 @@ const Box = forwardRef(
       <div
         ref={mergedRef}
         className={cx(
+          className,
           { [DISABLED.DISABLED]: disabled },
           border,
           borderTop,
@@ -366,7 +367,7 @@ Box.propTypes = {
 };
 Box.defaultProps = {
   className: "",
-  childern: undefined,
+  children: undefined,
   disabled: undefined,
   border: undefined,
   borderTop: undefined,
