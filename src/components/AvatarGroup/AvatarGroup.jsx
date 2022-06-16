@@ -29,15 +29,13 @@ const AvatarGroup = ({
   return (
     <div className={cx(styles.avatarGroupContainer, className)} id={id}>
       {displayAvatars.map((avatar, index) => {
-        return (
-          <Avatar
-            key={index}
-            {...avatar.props}
-            size={size || avatar.props?.size}
-            type={type || avatar.props?.type}
-            className={cx(styles.avatarContainer, avatarClassName)}
-          />
-        );
+        return React.cloneElement(avatar, {
+          key: index,
+          ...avatar?.props,
+          size: size || avatar?.props?.size,
+          type: type || avatar?.props?.type,
+          className: cx(styles.avatarContainer, avatarClassName)
+        });
       })}
       <AvatarGroupCounter
         counterTooltipAvatars={counterTooltipAvatars}
