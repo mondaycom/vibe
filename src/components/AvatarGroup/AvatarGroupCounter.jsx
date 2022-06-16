@@ -7,13 +7,7 @@ import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipConta
 import Counter from "../Counter/Counter";
 import styles from "./AvatarGroupCounter.module.scss";
 
-const AvatarGroupCounter = ({
-  counterTooltipAvatars,
-  counterProps,
-  counterTooltipCustomProps,
-  avatarSize,
-  avatarType
-}) => {
+const AvatarGroupCounter = ({ counterTooltipAvatars, counterProps, counterTooltipCustomProps, size, type }) => {
   const {
     color: counterColor = Counter.colors.LIGHT,
     count: counterValue = counterTooltipAvatars.length,
@@ -21,7 +15,7 @@ const AvatarGroupCounter = ({
     maxDigits: counterMaxDigits = 3
   } = counterProps || {};
 
-  const counterSizeStyle = styles[avatarSize?.toString()];
+  const counterSizeStyle = styles[size?.toString()];
   const counterColorStyle = styles[counterColor];
 
   if (!counterTooltipAvatars.length && !counterValue) {
@@ -32,7 +26,7 @@ const AvatarGroupCounter = ({
     <AvatarGroupCounterTooltipContainer
       avatars={counterTooltipAvatars}
       counterTooltipCustomProps={counterTooltipCustomProps}
-      type={avatarType}
+      type={type}
     >
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
       <div tabIndex={0} className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}>
@@ -59,15 +53,15 @@ AvatarGroupCounter.propTypes = {
    */
   counterProps: PropTypes.shape(Counter.propTypes),
   counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
-  avatarSize: PropTypes.oneOf(Object.values(Avatar.sizes)),
-  avatarType: PropTypes.oneOf(Object.values(Avatar.types))
+  size: PropTypes.oneOf(Object.values(Avatar.sizes)),
+  type: PropTypes.oneOf(Object.values(Avatar.types))
 };
 AvatarGroupCounter.defaultProps = {
   counterTooltipAvatars: [],
   counterProps: undefined,
   counterTooltipCustomProps: undefined,
-  avatarSize: Avatar.sizes.MEDIUM,
-  avatarType: undefined
+  size: Avatar.sizes.MEDIUM,
+  type: undefined
 };
 
 export default AvatarGroupCounter;

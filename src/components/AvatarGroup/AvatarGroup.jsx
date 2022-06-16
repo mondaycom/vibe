@@ -45,8 +45,8 @@ const AvatarGroup = ({
         counterTooltipAvatars={counterTooltipAvatars}
         counterProps={counterProps}
         counterTooltipCustomProps={counterTooltipCustomProps}
-        avatarSize={size}
-        avatarType={type}
+        size={size}
+        type={type}
       />
     </div>
   );
