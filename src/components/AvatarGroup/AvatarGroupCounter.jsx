@@ -1,9 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
+import cx from "classnames";
 import Tooltip from "../Tooltip/Tooltip";
 import Avatar from "../Avatar/Avatar";
-import PropTypes from "prop-types";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
-import cx from "classnames";
 import Counter from "../Counter/Counter";
 import styles from "./AvatarGroupCounter.module.scss";
 

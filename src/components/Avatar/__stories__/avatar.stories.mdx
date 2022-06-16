@@ -11,7 +11,7 @@ import { ComponentRules, MultipleStoryElementsWrapper, RelatedComponents } from 
 import Tooltip from "../../Tooltip/Tooltip";
 import { Counter, Flex } from "components";
 import { femaleIcon, guest, home, maleIcon, minus, owner, person1, person2, person3 } from "./assets";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import "./avatar.stories.scss";
 
@@ -294,9 +294,9 @@ Use to manage callback on onClick Avatar event.
   <Story name="Clickable avatar">
     {() => {
       const [count, setCount] = useState(0);
-      const incrementCount = e => {
+      const incrementCount = useCallback(e => {
         setCount(prevState => prevState + 1);
-      };
+      }, []);
       return (
         <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
           <Avatar
