@@ -1,7 +1,11 @@
 import Avatar from "../Avatar";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { CHIP, LABEL, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
+import {
+  AVATAR_GROUP,
+  LABEL,
+  TOOLTIP
+} from "../../../storybook/components/related-components/component-description-map";
 import { WhatsNew } from "../../Icon/Icons";
 import { ComponentRules, MultipleStoryElementsWrapper, RelatedComponents } from "../../../storybook/components";
 import Tooltip from "../../Tooltip/Tooltip";
@@ -311,4 +315,4 @@ Use to manage callback on onClick Avatar event.
 
 ## Related components
 
-<RelatedComponents componentsNames={[TOOLTIP, LABEL, CHIP]} />
+<RelatedComponents componentsNames={[AVATAR_GROUP, TOOLTIP, LABEL]} />
