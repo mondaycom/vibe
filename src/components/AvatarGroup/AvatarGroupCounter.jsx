@@ -36,7 +36,7 @@ const AvatarGroupCounter = ({ counterTooltipAvatars, counterProps, counterToolti
           count={counterValue}
           prefix={counterPrefix}
           maxDigits={counterMaxDigits}
-          ariaLabel="Additional items"
+          ariaLabel="Tab for more items"
         />
       </div>
     </AvatarGroupCounterTooltipContainer>
