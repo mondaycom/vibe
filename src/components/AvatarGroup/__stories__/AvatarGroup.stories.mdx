@@ -11,7 +11,7 @@ import Slider from "../../Slider/Slider";
 import Divider from "../../Divider/Divider";
 import { Link, RelatedComponents, UsageGuidelines } from "../../../storybook";
 import { AVATAR, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
-import "./AvatarGroup.stories.scss";
+import styles from "./AvatarGroup.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: AvatarGroup,
@@ -195,7 +195,7 @@ Choose the maximum amount of avatars you want to display.
           direction={Flex.directions.COLUMN}
           gap={Flex.gaps.MEDIUM}
           align={Flex.align.START}
-          className="monday-storybook-avatar-group__slider-count-container"
+          className={styles.sliderCountContainer}
         >
           <Slider
             size={Slider.sizes.SMALL}
