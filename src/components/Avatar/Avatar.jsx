@@ -56,7 +56,6 @@ const Avatar = ({
     return customSize ? { height: customSize, width: customSize } : {};
   }, [customSize]);
 
-  ariaLabel = ariaLabel || (typeof tooltipProps?.content === "string" ? tooltipProps.content : undefined);
   if (withoutTooltip) {
     tooltipProps?.content && delete tooltipProps.content;
   } else if (tooltipProps?.content === undefined && ariaLabel) {
