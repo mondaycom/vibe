@@ -118,7 +118,7 @@ const Avatar = ({
     }
 
     return (
-      <Clickable onClick={onClick} tabIndex={-1}>
+      <Clickable onClick={onClick} tabIndex="-1">
         {children}
       </Clickable>
     );
