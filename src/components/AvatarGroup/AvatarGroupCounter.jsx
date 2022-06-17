@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Tooltip from "../Tooltip/Tooltip";
 import Avatar from "../Avatar/Avatar";
-import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
+import MenuButton from "../MenuButton/MenuButton";
 import Counter from "../Counter/Counter";
+import MenuItem from "../Menu/MenuItem/MenuItem";
+import Menu from "../Menu/Menu/Menu";
+import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
 import styles from "./AvatarGroupCounter.module.scss";
 
 const AvatarGroupCounter = ({
@@ -25,8 +28,46 @@ const AvatarGroupCounter = ({
   const counterSizeStyle = styles[size?.toString()];
   const counterColorStyle = styles[counterColor];
 
+  const counterComponent = useCallback(() => {
+    return (
+      <Counter
+        color={counterColor}
+        count={counterValue}
+        prefix={counterPrefix}
+        maxDigits={counterMaxDigits}
+        ariaLabel="Tab for more items"
+      />
+    );
+  }, [counterColor, counterMaxDigits, counterPrefix, counterValue]);
+
   if (!counterTooltipAvatars.length && !counterValue) {
     return null;
+  }
+
+  const areAvatarsClickable = counterTooltipAvatars.some(a => a.props?.onClick);
+  if (areAvatarsClickable) {
+    return (
+      <MenuButton
+        component={counterComponent}
+        zIndex={1}
+        dialogClassName={styles.menu}
+        componentClassName={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
+        ariaLabel={`${counterValue} additional items`}
+      >
+        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+          {counterTooltipAvatars.map((avatar, index) => {
+            return (
+              <MenuItem
+                key={index}
+                title={avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel}
+                onClick={avatar.props?.onClick}
+                iconComponent={<Avatar {...avatar.props} size={Avatar.sizes.SMALL} ariaLabel="" />}
+              />
+            );
+          })}
+        </Menu>
+      </MenuButton>
+    );
   }
 
   return (
@@ -39,13 +80,7 @@ const AvatarGroupCounter = ({
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
       <div tabIndex={0} className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}>
         {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
-        <Counter
-          color={counterColor}
-          count={counterValue}
-          prefix={counterPrefix}
-          maxDigits={counterMaxDigits}
-          ariaLabel="Tab for more items"
-        />
+        {counterComponent()}
       </div>
     </AvatarGroupCounterTooltipContainer>
   );

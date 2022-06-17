@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { DialogPositions } from "constants/sizes";
-import React, { useCallback, useRef, useLayoutEffect, useMemo, useEffect, forwardRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
@@ -30,6 +30,7 @@ const MenuItem = forwardRef(
       menuRef,
       iconType,
       iconBackgroundColor,
+      iconComponent,
       disabled,
       disableReason,
       selected,
@@ -181,6 +182,14 @@ const MenuItem = forwardRef(
     }, [iconBackgroundColor, disabled]);
 
     const renderMenuItemIconIfNeeded = () => {
+      if (iconComponent) {
+        return (
+          <div className="monday-style-menu-item__icon-wrapper" style={iconWrapperStyle}>
+            {iconComponent}
+          </div>
+        );
+      }
+
       if (!icon) return null;
 
       let finalIconType = iconType;
@@ -287,6 +296,7 @@ MenuItem.defaultProps = {
   title: "",
   label: "",
   icon: "",
+  iconComponent: undefined,
   iconType: undefined,
   iconBackgroundColor: undefined,
   disabled: false,
@@ -313,6 +323,7 @@ MenuItem.propTypes = {
   title: PropTypes.string,
   label: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  iconComponent: PropTypes.element,
   iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   iconBackgroundColor: PropTypes.string,
   disabled: PropTypes.bool,
