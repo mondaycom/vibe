@@ -111,7 +111,6 @@ const AvatarGroupCounterTooltipContent = ({
 
   const tooltipContainerAriaLabel = avatars.map(avatar => getTooltipContent(avatar.props)).join(",");
   const flexProps = {
-    id: "tooltip-content-container-id",
     ref: tooltipContentContainerRef,
     tabIndex: 0,
     ariaLabel: tooltipContainerAriaLabel,

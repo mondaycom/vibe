@@ -86,8 +86,7 @@ const AvatarGroupCounter = ({
       counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
       type={type}
     >
-      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-      <div id="avatar-group-focus-prev-placeholder" tabIndex={-1} ref={focusPrevPlaceholderRef} />
+      <div tabIndex={-1} ref={focusPrevPlaceholderRef} />
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
       <div
         tabIndex={0}
@@ -96,8 +95,7 @@ const AvatarGroupCounter = ({
       >
         {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
         {counterComponent()}
-        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-        <div id="avatar-group-focus-next-placeholder" tabIndex={-1} ref={focusNextPlaceholderRef} />
+        <div tabIndex={-1} ref={focusNextPlaceholderRef} />
       </div>
     </AvatarGroupCounterTooltipContainer>
   );
