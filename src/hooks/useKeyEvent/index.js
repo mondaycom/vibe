@@ -16,7 +16,7 @@ const checkWithoutModifierInEvent = event => {
 export default function useKeyEvent({
   keys = [],
   modifier,
-  withoutModifier,
+  withoutAnyModifier,
   ref,
   callback,
   ignoreDocumentFallback = false,
@@ -35,7 +35,7 @@ export default function useKeyEvent({
       if (modifier && !checkModifierInEvent(event, modifier)) {
         return;
       }
-      if (withoutModifier && !checkWithoutModifierInEvent(event)) {
+      if (withoutAnyModifier && !checkWithoutModifierInEvent(event)) {
         return;
       }
 
@@ -49,7 +49,7 @@ export default function useKeyEvent({
 
       callback(event);
     },
-    [keys, modifier, withoutModifier, preventDefault, stopPropagation, callback]
+    [keys, modifier, withoutAnyModifier, preventDefault, stopPropagation, callback]
   );
 
   let listenerRef;

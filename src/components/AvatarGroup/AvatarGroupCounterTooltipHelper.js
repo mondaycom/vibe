@@ -9,7 +9,7 @@ export function useTooltipContentTabNavigation({
   // For Counter
   useKeyEvent({
     keys: ["Tab"],
-    withoutModifier: true,
+    withoutAnyModifier: true,
     ref: counterContainerRef,
     callback: e => {
       // console.log("TAB avatarGroup");
@@ -38,7 +38,9 @@ export function useTooltipContentTabNavigation({
   // For Tooltip content
   useKeyEvent({
     keys: ["Tab"],
-    withoutModifier: true,
+    // TODO optimize: no ref - so listening for all document events
+    // ref: tooltipContentContainerRef // - doesn't work because there is no value at the moment of hook creation
+    withoutAnyModifier: true,
     callback: e => {
       // console.log("TAB tooltipContentContainerRef", tooltipContentContainerRef);
       if (e.target === tooltipContentContainerRef.current) {
@@ -51,6 +53,8 @@ export function useTooltipContentTabNavigation({
   // For Tooltip content
   useKeyEvent({
     keys: ["Tab"],
+    // TODO optimize: no ref - so listening for all document events
+    // ref: tooltipContentContainerRef // - doesn't work because there is no value at the moment of hook creation
     modifier: useKeyEvent.modifiers.SHIFT,
     callback: e => {
       // console.log("SHIFT+TAB tooltipContentContainerRef", tooltipContentContainerRef);
