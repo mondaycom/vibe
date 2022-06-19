@@ -8,5 +8,5 @@
 
 
 // Generating Utility class locally for Box component
-@include utility-factory($utilities-modules, $export: "modules");
+@include utility-class-factory($utilities-modules, $export: "modules");
 
