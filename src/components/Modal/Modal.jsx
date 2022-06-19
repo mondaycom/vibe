@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import styles from "./Dialog.module.scss";
+import styles from "./Modal.module.scss";
 import { useA11yDialog } from "./a11YDialog";
 import { IconButton } from "components";
 import { CloseSmall } from "components/Icon/Icons";
@@ -15,7 +15,7 @@ const DIALOG_SIZES = {
   FULL_WIDTH: "full_width"
 };
 
-const Dialog = ({ classNames, id, show, title, onHide, isAlertDialog, children, triggerElement, size }) => {
+const Modal = ({ classNames, id, show, title, onHide, isAlertDialog, children, triggerElement, size }) => {
   const [instance, attr] = useA11yDialog({
     id,
     title,
@@ -88,12 +88,12 @@ const Dialog = ({ classNames, id, show, title, onHide, isAlertDialog, children, 
   }, [show, instance, getAnimationProps]);
 
   const dialog = ReactDOM.createPortal(
-    <div {...attr.container} className={cx(styles.dialogContainer, classNames.container)}>
-      <div {...attr.overlay} className={cx(styles.dialogOverlay, classNames.overlay)} />
-      <div className={styles.dialogContentWrapper}>
+    <div {...attr.container} className={cx(styles.container, classNames.container)}>
+      <div {...attr.overlay} className={cx(styles.overlay, classNames.overlay)} />
+      <div className={styles.contentWrapper}>
         <div
           {...attr.dialog}
-          className={cx(styles.dialogContent, classNames.dialog, {
+          className={cx(styles.content, classNames.dialog, {
             [styles.small]: size === DIALOG_SIZES.SMALL,
             [styles.medium]: size === DIALOG_SIZES.MEDIUM,
             [styles.large]: size === DIALOG_SIZES.LARGE,
@@ -101,7 +101,7 @@ const Dialog = ({ classNames, id, show, title, onHide, isAlertDialog, children, 
           })}
         >
           <div className={styles.titleWrapper}>
-            <p {...attr.title} className={cx(classNames.title, styles.dialogTitle)}>
+            <p {...attr.title} className={cx(classNames.title, styles.title)}>
               {title}
             </p>
 
@@ -125,7 +125,7 @@ const Dialog = ({ classNames, id, show, title, onHide, isAlertDialog, children, 
   return <>{dialog}</>;
 };
 
-Dialog.propTypes = {
+Modal.propTypes = {
   /**
    * Id of the modal, used internaly and for accessibility
    */
@@ -173,7 +173,7 @@ Dialog.propTypes = {
   children: PropTypes.node
 };
 
-Dialog.defaultProps = {
+Modal.defaultProps = {
   triggerElement: null,
   isAlertDialog: false,
   children: undefined,
@@ -188,4 +188,4 @@ Dialog.defaultProps = {
   }
 };
 
-export default Dialog;
+export default Modal;

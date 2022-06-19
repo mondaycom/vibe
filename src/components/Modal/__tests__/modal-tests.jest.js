@@ -1,14 +1,14 @@
 import React from "react";
 import { render, cleanup } from "@testing-library/react";
 // import { act } from "@testing-library/react-hooks";
-import Dialog from "../Dialog";
+import Modal from "../Modal";
 
 // eslint-disable-next-line no-unused-vars
 const renderComponent = props => {
-  return render(<Dialog {...props} />);
+  return render(<Modal {...props} />);
 };
 
-describe("DialogNew tests", () => {
+describe("Modal tests", () => {
   afterEach(() => {
     cleanup();
   });

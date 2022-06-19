@@ -3,8 +3,8 @@
    * 1. Make the dialog container, and its child overlay spread across
    *    the entire window.
    */
-.dialogContainer,
-.dialogOverlay {
+.container,
+.overlay {
   position: fixed; /* 1 */
   top: 0; /* 1 */
   right: 0; /* 1 */
@@ -12,20 +12,20 @@
   left: 0; /* 1 */
 }
 
-.dialogContainer {
+.container {
   z-index: 2;
   display: flex;
 }
 
-.dialogContainer[aria-hidden="true"] {
+.container[aria-hidden="true"] {
   display: none;
 }
 
-.dialogOverlay {
+.overlay {
   background-color: rgba(41, 47, 76, 0.7);
 }
 
-.dialogContentWrapper {
+.contentWrapper {
   margin: auto;
   z-index: 2;
   position: relative;
@@ -34,7 +34,7 @@
   box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.3);
 }
 
-.dialogContent {
+.content {
   display: flex;
   flex-direction: column;
   padding: 0 30px;
@@ -60,7 +60,7 @@
   .titleWrapper {
     display: flex;
     align-items: center;
-    .dialogTitle {
+    .title {
       font-size: var(--font-size-h2);
       font-weight: var(--font-weight-bold);
       color: var(--primary-text-color);

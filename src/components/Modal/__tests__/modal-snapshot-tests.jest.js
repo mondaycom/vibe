@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Dialog from "../Dialog";
+import Modal from "../Modal";
 
 /**
  * There are cases where the component we want to test in the snapshot test will contain additional components.
@@ -32,19 +32,19 @@ jest.mock("../../Button/Button", () => {
 });
 **/
 
-describe("DialogNew renders correctly", () => {
+describe("Modal renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<Dialog />).toJSON();
+    const tree = renderer.create(<Modal />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with x", () => {
-    const tree = renderer.create(<Dialog />).toJSON();
+    const tree = renderer.create(<Modal />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("with y", () => {
-    const tree = renderer.create(<Dialog />).toJSON();
+    const tree = renderer.create(<Modal />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
