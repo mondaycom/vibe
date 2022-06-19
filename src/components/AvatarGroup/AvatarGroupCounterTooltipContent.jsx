@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Clickable from "../Clickable/Clickable";
 import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
-import VirtualizedList from "../VirtualizedList/VirtualizedList";
+import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounterTooltipContentVirtualizedList";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 const AvatarGroupCounterTooltipContent = ({
@@ -18,8 +18,13 @@ const AvatarGroupCounterTooltipContent = ({
     return avatarProps?.tooltipProps?.content || avatarProps?.ariaLabel;
   };
 
-  const avatarItems = avatars.map(avatar => ({ value: avatar.props }));
-  const displayAsGrid = !avatarItems.some(item => getTooltipContent(item.value));
+  const { avatarItems, displayAsGrid } = useMemo(() => {
+    const avatarItems = avatars.map(avatar => ({
+      value: { ...avatar.props, tooltipContent: getTooltipContent(avatar.props) }
+    }));
+    const displayAsGrid = !avatarItems.some(item => item.value.tooltipContent);
+    return { avatarItems, displayAsGrid };
+  }, [avatars]);
 
   const avatarRenderer = useCallback(
     (item, index, style) => {
@@ -61,7 +66,7 @@ const AvatarGroupCounterTooltipContent = ({
               />
               {!displayAsGrid && (
                 <div id={labelId} className={styles.tooltipAvatarItemTitle}>
-                  {getTooltipContent(avatarProps)}
+                  {avatarProps.tooltipContent}
                 </div>
               )}
             </Flex>
@@ -77,42 +82,22 @@ const AvatarGroupCounterTooltipContent = ({
     [avatarRenderer, avatarItems, displayAsGrid]
   );
 
-  // TODO should be separated to different component?
+  const tooltipContainerAriaLabel = avatarItems.map(item => item.value.tooltipContent).join(",");
+
   if (isVirtualizedList) {
-    const maxOptionsWithoutScroll = 10;
-    const optionLineHeight = 34;
-    // TODO temp solution
-    const optionLineWidth = avatarItems.some(i => getTooltipContent(i.value)) ? 175 : 40;
-    const virtualizedItems = avatarItems.map(item => ({ ...item, height: optionLineHeight }));
-
-    let virtualizedListStyle;
-    if (maxOptionsWithoutScroll) {
-      // Adding 0.5 to show next option to indicate scroll is available
-      const minCount = Math.min(avatarItems.length, maxOptionsWithoutScroll + 0.5);
-      virtualizedListStyle = { height: optionLineHeight * minCount, minWidth: optionLineWidth };
-    }
-
     return (
-      <div className={styles.virtualizedTooltipContainer}>
-        <div className={styles.virtualizedListContainer}>
-          <VirtualizedList
-            className={cx(className)}
-            items={virtualizedItems}
-            itemRenderer={(item, index, style) => avatarRenderer(item, index, { ...style, width: "100%" })}
-            role="treegrid"
-            scrollableClassName={styles.scrollableContainer}
-            getItemId={(item, index) => index}
-            style={virtualizedListStyle}
-          />
-        </div>
-      </div>
+      <AvatarGroupCounterTooltipContentVirtualizedList
+        avatarRenderer={avatarRenderer}
+        tooltipContentContainerRef={tooltipContentContainerRef}
+        tooltipContainerAriaLabel={tooltipContainerAriaLabel}
+        avatarItems={avatarItems}
+      />
     );
   }
 
-  const tooltipContainerAriaLabel = avatars.map(avatar => getTooltipContent(avatar.props)).join(",");
   const flexProps = {
     ref: tooltipContentContainerRef,
-    tabIndex: 0,
+    tabIndex: -1,
     ariaLabel: tooltipContainerAriaLabel,
     className: displayAsGrid
       ? cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)

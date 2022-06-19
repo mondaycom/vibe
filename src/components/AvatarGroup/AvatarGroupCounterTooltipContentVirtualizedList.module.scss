@@ -1,0 +1,23 @@
+@import "../../styles/themes";
+@import "../../styles/states";
+
+.scrollableContainer {
+  @include scroller;
+}
+
+.virtualizedTooltipContainer {
+  padding-right: var(--spacing-medium);
+  align-items: flex-start !important;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: visible;
+  &:focus,
+  &:focus-visible,
+  &.focus-visible {
+    outline: none;
+  }
+}
+
+.virtualizedListContainer {
+  height: 100%;
+}
