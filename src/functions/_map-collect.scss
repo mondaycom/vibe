@@ -1,0 +1,17 @@
+// MIXINS: Map Collect
+
+// Modules imports
+@use "sass:map";
+
+// @arguments: multiple coma separated $maps.
+// @return: a single map with merged values.
+// Use: we use "map-collect" to merge maps from different scopes.
+// - We assume there will be no key duplication since scopes are separated.
+@function map-collect($maps...) {
+  $collection: ();
+
+  @each $map in $maps {
+    $collection: map.merge($collection, $map);
+  }
+  @return $collection;
+}

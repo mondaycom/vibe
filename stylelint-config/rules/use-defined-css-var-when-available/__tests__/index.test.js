@@ -6,8 +6,8 @@ const config = {
   plugins: [path.resolve(__dirname, "../index.js")],
   customSyntax: "postcss-scss",
   rules: {
-    "monday-ui-style/use-defined-css-var-when-available": true,
-  },
+    "monday-ui-style/use-defined-css-var-when-available": true
+  }
 };
 
 const configWithUseRecommendation = {
@@ -16,10 +16,10 @@ const configWithUseRecommendation = {
     "monday-ui-style/use-defined-css-var-when-available": [
       true,
       {
-        useRecommendedFixes: true,
-      },
-    ],
-  },
+        useRecommendedFixes: true
+      }
+    ]
+  }
 };
 
 describe("monday-ui-style/use-defined-css-var-when-available", () => {
@@ -29,7 +29,7 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
   beforeAll(() => {
     const allFiles = fs.readdirSync(path.resolve(__dirname, "fixtures"));
 
-    allFiles.forEach((fixture) => {
+    allFiles.forEach(fixture => {
       const fixturePath = path.resolve(__dirname, "fixtures", fixture);
       const fixtureContent = fs.readFileSync(fixturePath).toString();
       fixturesContentBeforeTests.set(fixturePath, fixtureContent);
@@ -51,10 +51,10 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
 
   it("warns for values that can be replaced with single CSS vars", async () => {
     const {
-      results: [{ warnings }],
+      results: [{ warnings }]
     } = await lint({
       files: path.resolve(__dirname, "./fixtures/contains-values-with-single-replacement.scss"),
-      config,
+      config
     });
 
     expect(warnings).toHaveLength(2);
@@ -77,7 +77,7 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
     const { results } = await lint({
       files: path.resolve(__dirname, "./fixtures/contains-values-with-single-replacement.scss"),
       config,
-      fix: true,
+      fix: true
     });
     const file = results[0]._postcssResult.opts.from;
     const expectedOutputAfterFix = `
@@ -97,10 +97,10 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
 
   it("warns for values that can be replaced with multiple CSS vars", async () => {
     const {
-      results: [{ warnings }],
+      results: [{ warnings }]
     } = await lint({
       files: path.resolve(__dirname, "./fixtures/contains-values-with-multiple-replacements.scss"),
-      config,
+      config
     });
 
     expect(warnings).toHaveLength(1);
@@ -121,7 +121,7 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
     const { results } = await lint({
       files: path.resolve(__dirname, "./fixtures/contains-values-with-multiple-replacements.scss"),
       config: configWithUseRecommendation,
-      fix: true,
+      fix: true
     });
     const file = results[0]._postcssResult.opts.from;
     const expectedOutputAfterFix = `
@@ -139,7 +139,7 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
     const { results } = await lint({
       files: path.resolve(__dirname, "./fixtures/contains-values-with-multiple-replacements.scss"),
       config,
-      fix: true,
+      fix: true
     });
     const originalContent = results[0]._postcssResult.css;
     const file = results[0]._postcssResult.opts.from;
@@ -150,16 +150,16 @@ describe("monday-ui-style/use-defined-css-var-when-available", () => {
     expect(contentAfterFix).toEqual(expectedOutputAfterFix);
   });
 
-  ["disabled", "DiSaBlE", "off", 0, false, "false", "0"].forEach((ruleConfigValue) => {
+  ["disabled", "DiSaBlE", "off", 0, false, "false", "0"].forEach(ruleConfigValue => {
     it(`does not lint if the rule is disabled by config value of "${ruleConfigValue}"`, async () => {
       const { results } = await lint({
         files: path.resolve(__dirname, "./fixtures/contains-values-with-multiple-replacements.scss"),
         config: {
           ...config,
           rules: {
-            "monday-ui-style/use-defined-css-var-when-available": ruleConfigValue,
-          },
-        },
+            "monday-ui-style/use-defined-css-var-when-available": ruleConfigValue
+          }
+        }
       });
       expect(results).toHaveLength(1);
       expect(results[0].warnings).toHaveLength(0); // the errors were ignored

@@ -12,10 +12,10 @@ describe("props-to-allowed-vars", () => {
     const allMappedCssVars = [
       ...new Set(
         Object.values(PROPS_TO_ALLOWED_VARS).reduce((acc, { allowedVars, recommended }) => [...acc, ...allowedVars], [])
-      ),
+      )
     ];
 
-    allMappedCssVars.forEach((cssVarName) => {
+    allMappedCssVars.forEach(cssVarName => {
       it(`should only include css vars that are under :root, without additional selectors - checking ${cssVarName} `, () => {
         //if this fails, this means that we mapped a css prop to a css var that doesn't exist in our CSS output
         const isExistingInCssOutput = allRootCssVarsFromGeneratedCss.includes(cssVarName);
@@ -24,7 +24,7 @@ describe("props-to-allowed-vars", () => {
       });
     });
 
-    allRootCssVarsFromGeneratedCss.forEach((varFromGeneratedCss) => {
+    allRootCssVarsFromGeneratedCss.forEach(varFromGeneratedCss => {
       it(`should map the css var ${varFromGeneratedCss} to valid css props that can use it`, () => {
         const isCssVarMapped = allMappedCssVars.includes(varFromGeneratedCss);
 
@@ -41,16 +41,16 @@ describe("props-to-allowed-vars", () => {
       });
     });
 
-    Object.keys(PROPS_TO_ALLOWED_VARS).forEach((cssProp) => {
+    Object.keys(PROPS_TO_ALLOWED_VARS).forEach(cssProp => {
       const { allowedVars, recommended } = PROPS_TO_ALLOWED_VARS[cssProp];
       const valuesToMatchingVars = {};
-      allowedVars.forEach((varName) => {
+      allowedVars.forEach(varName => {
         const varValue = allVarsToCanonicalValue[varName];
         valuesToMatchingVars[varValue] = valuesToMatchingVars[varValue] || [];
         valuesToMatchingVars[varValue].push(varName);
       });
 
-      Object.keys(valuesToMatchingVars).forEach((value) => {
+      Object.keys(valuesToMatchingVars).forEach(value => {
         it(`should have a recommended var for each value that has multiple variables, for CSS prop ${cssProp} and value ${value}`, () => {
           const matchingVars = valuesToMatchingVars[value];
           if (matchingVars.length === 1) {
@@ -77,7 +77,7 @@ describe("props-to-allowed-vars", () => {
         });
       });
 
-      Object.keys(propsToAllowedCssVars[cssProp]).forEach((value) => {
+      Object.keys(propsToAllowedCssVars[cssProp]).forEach(value => {
         it(`should only have recommendations for values that have multiple possible variables, for CSS prop ${cssProp} and value ${value}`, () => {
           const { recommended } = propsToAllowedCssVars[cssProp][value];
           if (!recommended) {
@@ -103,7 +103,7 @@ describe("props-to-allowed-vars", () => {
 function intersect(arr1, arr2) {
   var set1 = new Set(arr1);
   var set2 = new Set(arr2);
-  var intersection = new Set([...set1].filter((x) => set2.has(x)));
+  var intersection = new Set([...set1].filter(x => set2.has(x)));
   return Array.from(intersection);
 }
 

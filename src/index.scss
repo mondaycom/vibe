@@ -8,13 +8,14 @@
 // - CSS Output is custom properties definitions for global :root and themes scopes.
 // - Currently we do not include themes within this refactor scope.
 
+// Dependencies
 @import "functions";
 @import "mixins";
 @import "config";
 
+// Output
 @import "core";
 @import "themes";
 
 // unit testing for values
 @import "debug-values";
-

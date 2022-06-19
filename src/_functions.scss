@@ -1,26 +1,8 @@
-@use "sass:map";
-
 // FUNCTIONS: This partial loads global scope functions.
 
-// - Map Collect
-// @arguments: multiple coma separated $maps.
-// @return: a single map with merged values.
-// Use: we use "map-collect" to merge maps from different scopes.
-// - We assume there will be no key duplication since scopes are separated.
-@function map-collect($maps...) {
-  $collection: ();
-
-  @each $map in $maps {
-    $collection: map.merge($collection, $map);
-  }
-  @return $collection;
-}
-
-// Extract Rgb
-// @arguments $color (can be hardcoded or $color)
-// @return: comma separated RGB values
-// Use: We use "extract-rgb" when we want to return a comma separated list of rgb values from a color.
-// - We use it in some of our token assignments and their custom-properties output.
-@function extract-rgb($color) {
-  @return red($color), green($color), blue($color);
-}
+// Functions imports
+@import "functions/camelize";
+@import "functions/capitalize";
+@import "functions/contain";
+@import "functions/map-collect";
+@import "functions/extract-rgb";

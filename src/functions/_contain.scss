@@ -1,0 +1,8 @@
+// FUNCTIONS: Contain
+// - Helper function
+// @arguments [list] $list
+// @arguments [$value] $value
+// Return whether `$value` is contained in `$list` , Boolean
+@function contain($list, $value) {
+  @return not not index($list, $value);
+}

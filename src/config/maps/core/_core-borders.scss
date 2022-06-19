@@ -1,0 +1,9 @@
+// CORE MAP: BORDERS
+// This partial defines border-related map.
+// - Map include border scope tokens.
+// - Maps are collected into the $core-settings-map and are interpolated into custom properties.
+
+$core-border-map: (
+        border-width: $border-width,
+        border-style: $border-style,
+);

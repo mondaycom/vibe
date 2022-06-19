@@ -23,7 +23,7 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
   const referenceTokens = {}; // css vars that are pointing to other css vars. e.g. {"--color-primary": "--color-red"}
   const referenceTokensToCanonicalValue = {}; // maps between reference token names to canonical values. e.g. if "--font-size-h5: var(--font-size-30)" and "--font-size-30: 16px", then {"--font-size-h5": "16px"}
 
-  ast.walkDecls(/^--/, (decl) => {
+  ast.walkDecls(/^--/, decl => {
     if (!decl.parent || decl.parent.selector !== ":root") {
       return; // we only care about truly global variables
     }
@@ -41,7 +41,7 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
     }
   });
 
-  Object.keys(referenceTokens).forEach((referenceToken) => {
+  Object.keys(referenceTokens).forEach(referenceToken => {
     const tokenValue = referenceTokens[referenceToken];
     let referencedVar = getReferencedPropFromVar(tokenValue);
     while (referenceTokens[referencedVar]) {
@@ -55,10 +55,10 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
 
   const allVarsToCanonicalValue = {}; //maps between all vars (reference or not) to the canonical value
 
-  Object.keys(varsToCanonicalValue).forEach((varName) => {
+  Object.keys(varsToCanonicalValue).forEach(varName => {
     allVarsToCanonicalValue[varName] = varsToCanonicalValue[varName];
   });
-  Object.keys(referenceTokensToCanonicalValue).forEach((varName) => {
+  Object.keys(referenceTokensToCanonicalValue).forEach(varName => {
     allVarsToCanonicalValue[varName] = referenceTokensToCanonicalValue[varName];
   });
 
@@ -68,7 +68,7 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
 /**
  * @returns {{[cssProp: string]: {[value: string]: {allowedVars: string[], recommended: string | undefined}}}}: a map between a css prop to expected CSS vars replacements per values, and a recommendation if exists.
  * For example:
-  {
+ {
     padding: {
       {
         "8px": { allowedVars: [ "--spacing-small" ] },
@@ -86,19 +86,19 @@ function parseMondayUiCss(css = readCssFromDefaultPath()) {
 function getPropsToAllowedCssVars() {
   const { allVarsToCanonicalValue } = parseMondayUiCss();
   const propsToReplacementConfig = {};
-  Object.keys(PROPS_TO_ALLOWED_VARS).forEach((prop) => {
+  Object.keys(PROPS_TO_ALLOWED_VARS).forEach(prop => {
     const { allowedVars, recommended } = PROPS_TO_ALLOWED_VARS[prop];
     if (!allowedVars) {
       return;
     }
     propsToReplacementConfig[prop] = {};
-    allowedVars.forEach((varName) => {
+    allowedVars.forEach(varName => {
       const varCanonicalValue = allVarsToCanonicalValue[varName];
       if (!varCanonicalValue) {
         return;
       }
       propsToReplacementConfig[prop][varCanonicalValue] = propsToReplacementConfig[prop][varCanonicalValue] || {
-        allowedVars: [],
+        allowedVars: []
       };
       propsToReplacementConfig[prop][varCanonicalValue].allowedVars.push(varName);
       if (recommended && recommended.includes(varName)) {
@@ -112,5 +112,5 @@ function getPropsToAllowedCssVars() {
 
 module.exports = {
   parseMondayUiCss,
-  getPropsToAllowedCssVars,
+  getPropsToAllowedCssVars
 };

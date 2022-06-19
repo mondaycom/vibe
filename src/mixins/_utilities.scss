@@ -1,0 +1,78 @@
+// MIXINS: Utility
+
+// Modules imports
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
+/*  stylelint-disable scss/at-if-no-null */
+
+// These mixins Create Utility class definitions from a utilities map.
+
+// Generate utilities
+// @arguments: $utility , $infix, $export
+// - $utility is a scope key from the utilities map.
+// - $infix is defined by utility values
+// - $export enables Camelcase by capitalizing the $infix
+// -- This is achieved via flag using $export:"modules" (for css modules)
+// This mixin generates classes with definition per a utility scope
+// - Utility scopes are nested within a utility map
+// - Map keys are fixed and defined within the mixin:
+// --  property, class,values,
+@mixin generate-utility-class($utility,$infix, $export) {
+
+  $values: map.get($utility, values);
+  @if type-of($values) == "string" or type-of(nth($values, 1)) != "list" {
+    $values: list.zip($values, $values);
+  }
+
+  @each $key, $value in $values {
+    $properties: map.get($utility, property);
+
+    // Multiple properties are possible, for example with vertical or horizontal margins or paddings
+    @if type-of($properties) == "string" {
+      $properties: list.append((), $properties);
+    }
+
+    // Use custom class if present
+    $property-class: if(map.has-key($utility, class), map.get($utility, class), list.nth($properties, 1));
+    $property-class: if($property-class == null, "", $property-class);
+
+    $infix: if($property-class == "" and string.slice($infix, 1, 1) == "-", string.slice($infix, 2), $infix);
+
+    // Don't prefix if value key is null (eg. with shadow class)
+    $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "") + $key, "");
+
+    @if $value != null {
+      @if $export == "modules" {
+        $class-name: $property-class + capitalize(camelize($infix)) + capitalize(camelize($property-class-modifier));
+        .#{$class-name} {
+          @each $property in $properties {
+            #{$property}: $value !important;
+          }
+        }
+      } @else {
+        $class-name:$property-class + $infix + -#{$property-class-modifier};
+        .#{$class-name} {
+          @each $property in $properties {
+            #{$property}: $value !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Generate utilities
+// This mixin invoke the utility mixin by setting its map and export type, and initializing the $infix.
+@mixin utility-class-factory($map,$infix:"",$export:"") {
+  @each $key, $utility in $map {
+    // The utility can be disabled with `false`, thus check if the utility is a map first
+    // Only proceed if responsive media queries are enabled or if it's the base media query
+    @if type-of($utility) == "map" and ($infix == "") {
+      @include generate-utility-class($utility, $infix, $export);
+    }
+  }
+}
+
+/*  stylelint-enable scss/at-if-no-null */

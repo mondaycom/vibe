@@ -1,0 +1,9 @@
+// COMMON DEPENDENCIES:
+// - This partial loads all functions,mixins,configs and variables.
+// - It should be used inside an external project component scope in order to access vibe dependencies.
+
+// Dependencies
+@import "functions";
+@import "mixins";
+@import "config";
+@import "utilities/utilities-maps";
