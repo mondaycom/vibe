@@ -160,8 +160,8 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
       className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
       style={
         Object {
-          "height": "16px",
-          "width": "16px",
+          "height": 16,
+          "width": 16,
         }
       }
       tabIndex={0}
@@ -241,8 +241,8 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
       className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
       style={
         Object {
-          "height": "16px",
-          "width": "16px",
+          "height": 16,
+          "width": 16,
         }
       }
       tabIndex={0}
