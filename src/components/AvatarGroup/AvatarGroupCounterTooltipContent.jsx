@@ -72,6 +72,7 @@ const AvatarGroupCounterTooltipContent = ({
       ariaLabel={tooltipContainerAriaLabel}
       className={cx(styles.scrollableContainer, styles.tooltipContainer, className)}
       direction={Flex.directions.COLUMN}
+      gap={Flex.gaps.SMALL}
     >
       {renderedItems}
     </Flex>
