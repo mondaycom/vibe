@@ -16,6 +16,11 @@
   overflow-x: visible;
   overflow-y: auto;
   margin-top: var(--spacing-small);
+  &:focus,
+  &:focus-visible,
+  &.focus-visible {
+    outline: none;
+  }
 }
 
 .tooltipGridContainer {

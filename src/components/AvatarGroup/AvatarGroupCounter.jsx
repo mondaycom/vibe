@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Tooltip from "../Tooltip/Tooltip";
@@ -11,6 +11,7 @@ import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipConta
 import styles from "./AvatarGroupCounter.module.scss";
 
 const AvatarGroupCounter = ({
+  avatarGroupContainerRef,
   counterTooltipAvatars,
   counterProps,
   counterTooltipCustomProps,
@@ -28,6 +29,9 @@ const AvatarGroupCounter = ({
   const counterSizeStyle = styles[size?.toString()];
   const counterColorStyle = styles[counterColor];
 
+  const focusPrevPlaceholderRef = useRef(null);
+  const focusNextPlaceholderRef = useRef(null);
+  const counterId = _.uniqueId("avatar-group-counter-id-");
   const counterComponent = useCallback(() => {
     return (
       <Counter
@@ -61,7 +65,7 @@ const AvatarGroupCounter = ({
                 key={index}
                 title={avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel}
                 onClick={avatar.props?.onClick}
-                iconComponent={<Avatar {...avatar.props} size={Avatar.sizes.SMALL} ariaLabel="" />}
+                iconComponent={<Avatar {...avatar.props} size={Avatar.sizes.SMALL} ariaLabel="" tabIndex="-1" />}
               />
             );
           })}
@@ -72,15 +76,23 @@ const AvatarGroupCounter = ({
 
   return (
     <AvatarGroupCounterTooltipContainer
+      avatarGroupContainerRef={avatarGroupContainerRef}
+      focusPrevPlaceholderRef={focusPrevPlaceholderRef}
+      focusNextPlaceholderRef={focusNextPlaceholderRef}
+      counterId={counterId}
       avatars={counterTooltipAvatars}
       counterTooltipCustomProps={counterTooltipCustomProps}
       counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
       type={type}
     >
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+      <div id="avatar-group-focus-prev-placeholder" tabIndex={-1} ref={focusPrevPlaceholderRef} />
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
-      <div tabIndex={0} className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}>
+      <div id={counterId} tabIndex={0} className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}>
         {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
         {counterComponent()}
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+        <div id="avatar-group-focus-next-placeholder" tabIndex={-1} ref={focusNextPlaceholderRef} />
       </div>
     </AvatarGroupCounterTooltipContainer>
   );
@@ -98,7 +110,8 @@ AvatarGroupCounter.propTypes = {
   counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
   counterTooltipIsVirtualizedList: PropTypes.bool,
   size: PropTypes.oneOf(Object.values(Avatar.sizes)),
-  type: PropTypes.oneOf(Object.values(Avatar.types))
+  type: PropTypes.oneOf(Object.values(Avatar.types)),
+  avatarGroupContainerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })])
 };
 AvatarGroupCounter.defaultProps = {
   counterTooltipAvatars: [],
@@ -106,7 +119,8 @@ AvatarGroupCounter.defaultProps = {
   counterTooltipCustomProps: undefined,
   counterTooltipIsVirtualizedList: false,
   size: Avatar.sizes.MEDIUM,
-  type: undefined
+  type: undefined,
+  avatarGroupContainerRef: undefined
 };
 
 export default AvatarGroupCounter;

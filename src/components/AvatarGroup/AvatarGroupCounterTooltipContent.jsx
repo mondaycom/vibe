@@ -7,7 +7,13 @@ import Avatar from "../Avatar/Avatar";
 import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
-const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtualizedList }) => {
+const AvatarGroupCounterTooltipContent = ({
+  avatars,
+  type,
+  className,
+  isVirtualizedList,
+  tooltipContentContainerRef
+}) => {
   const getTooltipContent = avatarProps => {
     return avatarProps?.tooltipProps?.content || avatarProps?.ariaLabel;
   };
@@ -24,7 +30,11 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
           return children;
         }
 
-        return <Clickable onClick={avatarProps.onClick}>{children}</Clickable>;
+        return (
+          <Clickable onClick={avatarProps.onClick} tabIndex="-1">
+            {children}
+          </Clickable>
+        );
       };
 
       const tooltipAvatarFlexItemClassName =
@@ -34,7 +44,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
 
       return (
         <ClickableWrapper key={index}>
-          <div className={styles.tooltipAvatarItemClickableContainer} style={style}>
+          <div style={style}>
             <Flex
               direction={Flex.directions.ROW}
               gap={Flex.gaps.XS}
@@ -47,6 +57,7 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
                 ariaLabel={""}
                 size={Avatar.sizes.SMALL}
                 type={type || avatarProps?.type}
+                tabIndex="-1"
               />
               {!displayAsGrid && (
                 <div id={labelId} className={styles.tooltipAvatarItemTitle}>
@@ -98,7 +109,12 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className, isVirtuali
     );
   }
 
+  const tooltipContainerAriaLabel = avatars.map(avatar => getTooltipContent(avatar.props)).join(",");
   const flexProps = {
+    id: "tooltip-content-container-id",
+    ref: tooltipContentContainerRef,
+    tabIndex: 0,
+    ariaLabel: tooltipContainerAriaLabel,
     className: displayAsGrid
       ? cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)
       : cx(styles.scrollableContainer, styles.tooltipContainer, className),
@@ -118,13 +134,15 @@ AvatarGroupCounterTooltipContent.propTypes = {
    * Array of Avatar components
    */
   avatars: PropTypes.arrayOf(PropTypes.element),
-  isVirtualizedList: PropTypes.bool
+  isVirtualizedList: PropTypes.bool,
+  tooltipContentContainerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })])
 };
 AvatarGroupCounterTooltipContent.defaultProps = {
   className: undefined,
   type: undefined,
   avatars: [],
-  isVirtualizedList: false
+  isVirtualizedList: false,
+  tooltipContentContainerRef: undefined
 };
 
 export default AvatarGroupCounterTooltipContent;

@@ -10,9 +10,13 @@ const checkModifierInEvent = (event, modifier) => {
   }
   return false;
 };
+const checkWithoutModifierInEvent = event => {
+  return !Object.values(useKeyEvent.modifiers).some(m => event[m]);
+};
 export default function useKeyEvent({
   keys = [],
   modifier,
+  withoutModifier,
   ref,
   callback,
   ignoreDocumentFallback = false,
@@ -31,6 +35,9 @@ export default function useKeyEvent({
       if (modifier && !checkModifierInEvent(event, modifier)) {
         return;
       }
+      if (withoutModifier && !checkWithoutModifierInEvent(event)) {
+        return;
+      }
 
       if (preventDefault) {
         event.preventDefault();
@@ -42,7 +49,7 @@ export default function useKeyEvent({
 
       callback(event);
     },
-    [callback, keys, preventDefault, stopPropagation, modifier]
+    [keys, modifier, withoutModifier, preventDefault, stopPropagation, callback]
   );
 
   let listenerRef;

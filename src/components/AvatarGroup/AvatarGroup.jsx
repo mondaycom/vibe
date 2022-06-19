@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Avatar from "../Avatar/Avatar";
@@ -19,6 +19,8 @@ const AvatarGroup = ({
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList
 }) => {
+  const avatarGroupContainerRef = useRef(null);
+
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
     const childrenArray = React.Children.toArray(children);
     return {
@@ -32,7 +34,7 @@ const AvatarGroup = ({
   }
 
   return (
-    <div className={cx(styles.avatarGroupContainer, className)} id={id}>
+    <div className={cx(styles.avatarGroupContainer, className)} id={id} ref={avatarGroupContainerRef}>
       {displayAvatars.map((avatar, index) => {
         return React.cloneElement(avatar, {
           key: index,
@@ -43,6 +45,7 @@ const AvatarGroup = ({
         });
       })}
       <AvatarGroupCounter
+        avatarGroupContainerRef={avatarGroupContainerRef}
         counterTooltipAvatars={counterTooltipAvatars}
         counterProps={counterProps}
         counterTooltipCustomProps={counterTooltipCustomProps}

@@ -1,16 +1,17 @@
 import { useCallback, useState } from "react";
-import AvatarGroup from "../AvatarGroup";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import { Link, RelatedComponents, UsageGuidelines } from "../../../storybook";
+import { AVATAR, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { person1, person2, person3 } from "./assets";
+import AvatarGroup from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
 import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
-import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import Slider from "../../Slider/Slider";
 import Divider from "../../Divider/Divider";
-import { Link, RelatedComponents, UsageGuidelines } from "../../../storybook";
-import { AVATAR, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
+import Tooltip from "../../Tooltip/Tooltip";
 import styles from "./AvatarGroup.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -260,7 +261,7 @@ Choose the maximum amount of avatars you want to display.
   </Story>
 </Canvas>
 
-## Hover vs Clickable
+### Hover vs Clickable
 
 If avatars are clickable, they will be displayed via<Link href="/?path=/docs/navigation-menu-menu--overview">Menu</Link>and user will be able to navigate each additional item.
 Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
@@ -269,46 +270,79 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
   <Story name="Hover vs Clickable">
     {() => {
       const [lastClickedName, setLastClickedName] = useState(null);
-      const avatarOnClick = useCallback(e => {
-        setLastClickedName(e.value);
+      const avatarOnClick = useCallback((e) => {
+        console.log("click e", e);
+        console.log("click e.target.id", e.target.id);
+        console.log("click e.target", e.target);
+        setLastClickedName(e.target.alt);
       }, []);
       return (
-        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
+          <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+            <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
+              <AvatarGroup
+                size={Avatar.sizes.LARGE}
+                max={3}
+                counterTooltipCustomProps={{ position: Tooltip.positions.BOTTOM }}
+              >
+                <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+                <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+                <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+                <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+                <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+                <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+                <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+                <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+                <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+                <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+                <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+                <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+                <Avatar text="MR" type={Avatar.types.TEXT} ariaLabel="Mark Roytstein" />
+              </AvatarGroup>
+            </StoryDescription>
+            <StoryDescription description="Counter click" vertical align={Flex.align.START}>
+              <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
+                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} id="1" ariaLabel="Hadas Fahri" />
+                <Avatar
+                  type={Avatar.types.IMG}
+                  src={person2}
+                  onClick={avatarOnClick}
+                  id="2"
+                  ariaLabel="Sergey Roytman"
+                />
+                <Avatar
+                  type={Avatar.types.IMG}
+                  src={person3}
+                  onClick={avatarOnClick}
+                  id="3"
+                  ariaLabel="Yonatan Lev Ari"
+                />
+                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} id="4" ariaLabel="Hadas Fahri" />
+                <Avatar
+                  type={Avatar.types.IMG}
+                  src={person2}
+                  onClick={avatarOnClick}
+                  id="5"
+                  ariaLabel="Sergey Roytman"
+                />
+                <Avatar
+                  type={Avatar.types.IMG}
+                  src={person3}
+                  onClick={avatarOnClick}
+                  id="6"
+                  ariaLabel="Yonatan Lev Ari"
+                />
+                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
+                <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
+                <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
+                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
+                <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
+                <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
+                <Avatar text="MR" type={Avatar.types.TEXT} onClick={avatarOnClick} ariaLabel="Mark Roytstein" />
+              </AvatarGroup>
+            </StoryDescription>
+          </Flex>
           <div>Last clicked avatar's name: {lastClickedName}</div>
-          <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
-            <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
-              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-              <Avatar text="MR" type={Avatar.types.TEXT} ariaLabel="Mark Roytstein" />
-            </AvatarGroup>
-          </StoryDescription>
-          <StoryDescription description="Counter click" vertical align={Flex.align.START}>
-            <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
-              <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
-              <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
-              <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
-              <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
-              <Avatar text="MR" type={Avatar.types.TEXT} onClick={avatarOnClick} ariaLabel="Mark Roytstein" />
-            </AvatarGroup>
-          </StoryDescription>
         </Flex>
       );
     }}
