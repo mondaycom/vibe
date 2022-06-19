@@ -2,6 +2,7 @@ import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "hooks/useMergeRefs";
+import styles from "./Box.module.scss";
 import {
   DISABLED,
   BORDER,
@@ -79,6 +80,7 @@ const Box = forwardRef(
       <div
         ref={mergedRef}
         className={cx(
+          styles.box,
           className,
           { [DISABLED.DISABLED]: disabled },
           border,
