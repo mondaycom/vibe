@@ -270,11 +270,8 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
   <Story name="Hover vs Clickable">
     {() => {
       const [lastClickedName, setLastClickedName] = useState(null);
-      const avatarOnClick = useCallback((e) => {
-        console.log("click e", e);
-        console.log("click e.target.id", e.target.id);
-        console.log("click e.target", e.target);
-        setLastClickedName(e.target.alt);
+      const avatarOnClick = useCallback(avatarProps => {
+        setLastClickedName(avatarProps.ariaLabel);
       }, []);
       return (
         <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
@@ -302,36 +299,12 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
             </StoryDescription>
             <StoryDescription description="Counter click" vertical align={Flex.align.START}>
               <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
-                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} id="1" ariaLabel="Hadas Fahri" />
-                <Avatar
-                  type={Avatar.types.IMG}
-                  src={person2}
-                  onClick={avatarOnClick}
-                  id="2"
-                  ariaLabel="Sergey Roytman"
-                />
-                <Avatar
-                  type={Avatar.types.IMG}
-                  src={person3}
-                  onClick={avatarOnClick}
-                  id="3"
-                  ariaLabel="Yonatan Lev Ari"
-                />
-                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} id="4" ariaLabel="Hadas Fahri" />
-                <Avatar
-                  type={Avatar.types.IMG}
-                  src={person2}
-                  onClick={avatarOnClick}
-                  id="5"
-                  ariaLabel="Sergey Roytman"
-                />
-                <Avatar
-                  type={Avatar.types.IMG}
-                  src={person3}
-                  onClick={avatarOnClick}
-                  id="6"
-                  ariaLabel="Yonatan Lev Ari"
-                />
+                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
+                <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
+                <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
+                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
+                <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
+                <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
                 <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
                 <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
                 <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />

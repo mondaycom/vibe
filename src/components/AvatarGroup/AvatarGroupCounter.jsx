@@ -49,6 +49,10 @@ const AvatarGroupCounter = ({
     return null;
   }
 
+  const avatarOnClick = avatar => {
+    avatar.props?.onClick && avatar.props.onClick(avatar.props);
+  };
+
   const areAvatarsClickable = counterTooltipAvatars.some(a => a.props?.onClick);
   if (areAvatarsClickable) {
     return (
@@ -65,7 +69,7 @@ const AvatarGroupCounter = ({
               <MenuItem
                 key={index}
                 title={avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel}
-                onClick={avatar.props?.onClick}
+                onClick={() => avatarOnClick(avatar)}
                 iconComponent={<Avatar {...avatar.props} size={Avatar.sizes.SMALL} ariaLabel="" tabIndex="-1" />}
               />
             );

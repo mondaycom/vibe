@@ -33,6 +33,10 @@ const AvatarGroup = ({
     return null;
   }
 
+  const avatarOnClick = avatar => {
+    avatar.props?.onClick && avatar.props.onClick(avatar.props);
+  };
+
   return (
     <div className={cx(styles.avatarGroupContainer, className)} id={id} ref={avatarGroupContainerRef}>
       {displayAvatars.map((avatar, index) => {
@@ -41,7 +45,8 @@ const AvatarGroup = ({
           ...avatar?.props,
           size: size || avatar?.props?.size,
           type: type || avatar?.props?.type,
-          className: cx(styles.avatarContainer, avatarClassName)
+          className: cx(styles.avatarContainer, avatarClassName),
+          onClick: () => avatarOnClick(avatar)
         });
       })}
       <AvatarGroupCounter
