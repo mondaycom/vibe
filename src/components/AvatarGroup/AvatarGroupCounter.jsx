@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Tooltip from "../Tooltip/Tooltip";
@@ -33,7 +33,7 @@ const AvatarGroupCounter = ({
   const focusNextPlaceholderRef = useRef(null);
   const counterContainerRef = useRef(null);
 
-  const counterComponent = useCallback(() => {
+  const counterComponent = useMemo(() => {
     return (
       <Counter
         color={counterColor}
