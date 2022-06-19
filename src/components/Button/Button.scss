@@ -157,15 +157,16 @@
               backdrop-filter: brightness(85%);
               @include focus-style-on-primary();
             }
-            &:disabled {
+            &.monday-style-button--disabled {
               color: var(--text-color-on-primary);
             }
           }
         }
-        &:disabled {
+        &.monday-style-button--disabled {
           @include theme-prop(background-color, disabled-background-color);
           @include theme-prop(color, disabled-text-color);
           cursor: not-allowed;
+          pointer-events: none;
         }
       }
     }
@@ -224,13 +225,13 @@
               backdrop-filter: brightness(85%);
               @include focus-style-on-primary();
             }
-            &:disabled {
+            &.monday-style-button--disabled {
               color: var(--text-color-on-primary);
             }
           }
         }
       }
-      &:disabled {
+      &.monday-style-button--disabled {
         @include theme-prop(border-color, disabled-background-color);
         @include theme-prop(color, disabled-text-color);
         cursor: not-allowed;
@@ -277,7 +278,7 @@
               backdrop-filter: brightness(85%);
               @include focus-style-on-primary();
             }
-            &:disabled {
+            &.monday-style-button--disabled {
               color: var(--text-color-on-primary);
             }
           }
@@ -291,7 +292,7 @@
           }
         }
       }
-      &:disabled {
+      &.monday-style-button--disabled {
         @include theme-prop(color, disabled-text-color);
         cursor: not-allowed;
         pointer-events: none;

@@ -1,6 +1,6 @@
 import { DialogPositions } from "constants/sizes";
 import { DIALOG_ANIMATION_TYPES } from "constants/AnimationTypes";
-import { useRef, forwardRef, useMemo } from "react";
+import { useRef, forwardRef, useMemo, Fragment } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "hooks/useMergeRefs";
@@ -47,6 +47,7 @@ const Tipseen = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
+    const TipseenWrapper = ref || id ? "div" : Fragment;
     const tooltipContent = useMemo(
       () => (
         <div className={TIPSEEN_BASE_CSS_CLASS}>
@@ -74,7 +75,7 @@ const Tipseen = forwardRef(
     );
 
     return (
-      <div ref={mergedRef} id={id}>
+      <TipseenWrapper ref={mergedRef} id={id}>
         <Tooltip
           className={cx(`${TIPSEEN_BASE_CSS_CLASS}-wrapper`, className, {
             [`${TIPSEEN_BASE_CSS_CLASS}-wrapper--without-custom-width`]: !width
@@ -98,7 +99,7 @@ const Tipseen = forwardRef(
         >
           {children}
         </Tooltip>
-      </div>
+      </TipseenWrapper>
     );
   }
 );
