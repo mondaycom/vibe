@@ -31,7 +31,8 @@ const AvatarGroupCounter = ({
 
   const focusPrevPlaceholderRef = useRef(null);
   const focusNextPlaceholderRef = useRef(null);
-  const counterId = _.uniqueId("avatar-group-counter-id-");
+  const counterContainerRef = useRef(null);
+
   const counterComponent = useCallback(() => {
     return (
       <Counter
@@ -79,7 +80,7 @@ const AvatarGroupCounter = ({
       avatarGroupContainerRef={avatarGroupContainerRef}
       focusPrevPlaceholderRef={focusPrevPlaceholderRef}
       focusNextPlaceholderRef={focusNextPlaceholderRef}
-      counterId={counterId}
+      counterContainerRef={counterContainerRef}
       avatars={counterTooltipAvatars}
       counterTooltipCustomProps={counterTooltipCustomProps}
       counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
@@ -88,7 +89,11 @@ const AvatarGroupCounter = ({
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
       <div id="avatar-group-focus-prev-placeholder" tabIndex={-1} ref={focusPrevPlaceholderRef} />
       {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */}
-      <div id={counterId} tabIndex={0} className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}>
+      <div
+        tabIndex={0}
+        className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
+        ref={counterContainerRef}
+      >
         {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
         {counterComponent()}
         {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
