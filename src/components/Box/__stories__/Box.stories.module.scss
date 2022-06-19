@@ -4,11 +4,21 @@
   max-width: 100%;
   width: 100%;
 
-  // display alignments for storybook presentation
   > * {
     margin-bottom: var(--spacing-medium);
     padding: var(--spacing-large);
     font-family: monospace;
+  }
+}
+
+.mondayStorybookBoxWrapperExample {
+  max-width: 100%;
+  width: 100%;
+
+  > * {
+    margin-bottom: inherit;
+    padding: inherit;
+    font-family: inherit;
   }
 }
 
@@ -23,11 +33,11 @@
 
 .mondayStorybookBoxPaddingWrapper {
   overflow: hidden;
-  padding:0;
+  padding: 0;
 
   > * {
     position: relative;
-    padding:0;
+    padding: 0;
     background: white;
 
     &::before {
@@ -43,7 +53,6 @@
       z-index: 0;
       content: "";
     }
-
   }
 }
 
