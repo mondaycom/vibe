@@ -1,10 +1,10 @@
 import React, { useCallback, useMemo } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
-import Clickable from "../Clickable/Clickable";
 import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContentVirtualizedList from "./AvatarGroupCounterTooltipContentVirtualizedList";
+import { avatarRenderer } from "./AvatarGroupCounterTooltipHelper";
 import styles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 const AvatarGroupCounterTooltipContent = ({
@@ -14,75 +14,25 @@ const AvatarGroupCounterTooltipContent = ({
   isVirtualizedList,
   tooltipContentContainerRef
 }) => {
-  const getTooltipContent = avatarProps => {
+  const getTooltipContent = useCallback(avatarProps => {
     return avatarProps?.tooltipProps?.content || avatarProps?.ariaLabel;
-  };
+  }, []);
 
-  const { avatarItems, displayAsGrid } = useMemo(() => {
+  const { avatarItems, displayAsGrid, tooltipContainerAriaLabel } = useMemo(() => {
     const avatarItems = avatars.map(avatar => ({
       value: { ...avatar.props, tooltipContent: getTooltipContent(avatar.props) }
     }));
     const displayAsGrid = !avatarItems.some(item => item.value.tooltipContent);
-    return { avatarItems, displayAsGrid };
-  }, [avatars]);
-
-  const avatarRenderer = useCallback(
-    (item, index, style) => {
-      const avatarProps = item.value;
-
-      const ClickableWrapper = ({ children }) => {
-        if (!avatarProps.onClick) {
-          return children;
-        }
-
-        return (
-          <Clickable onClick={avatarProps.onClick} tabIndex="-1">
-            {children}
-          </Clickable>
-        );
-      };
-
-      const tooltipAvatarFlexItemClassName =
-        isVirtualizedList || displayAsGrid ? "" : styles.tooltipAvatarFlexItemContainer;
-
-      const labelId = `tooltip-item-${index}-label`;
-
-      return (
-        <ClickableWrapper key={index}>
-          <div style={style}>
-            <Flex
-              direction={Flex.directions.ROW}
-              gap={Flex.gaps.XS}
-              className={tooltipAvatarFlexItemClassName}
-              ariaLabelledby={labelId}
-            >
-              <Avatar
-                {...avatarProps}
-                tooltipProps={undefined}
-                ariaLabel={""}
-                size={Avatar.sizes.SMALL}
-                type={type || avatarProps?.type}
-                tabIndex="-1"
-              />
-              {!displayAsGrid && (
-                <div id={labelId} className={styles.tooltipAvatarItemTitle}>
-                  {avatarProps.tooltipContent}
-                </div>
-              )}
-            </Flex>
-          </div>
-        </ClickableWrapper>
-      );
-    },
-    [displayAsGrid, isVirtualizedList, type]
-  );
+    const tooltipContainerAriaLabel = displayAsGrid
+      ? avatarItems.map(item => item.value.tooltipContent).join(",")
+      : undefined;
+    return { avatarItems, displayAsGrid, tooltipContainerAriaLabel };
+  }, [avatars, getTooltipContent]);
 
   const renderedItems = useMemo(
-    () => avatarItems.map((item, index) => avatarRenderer(item, index, { width: displayAsGrid ? undefined : "100%" })),
-    [avatarRenderer, avatarItems, displayAsGrid]
+    () => avatarItems.map((item, index) => avatarRenderer(item, index, undefined, type, displayAsGrid)),
+    [avatarItems, displayAsGrid, type]
   );
-
-  const tooltipContainerAriaLabel = avatarItems.map(item => item.value.tooltipContent).join(",");
 
   if (isVirtualizedList) {
     return (
@@ -91,24 +41,41 @@ const AvatarGroupCounterTooltipContent = ({
         tooltipContentContainerRef={tooltipContentContainerRef}
         tooltipContainerAriaLabel={tooltipContainerAriaLabel}
         avatarItems={avatarItems}
+        type={type}
       />
     );
   }
 
-  const flexProps = {
-    ref: tooltipContentContainerRef,
-    tabIndex: -1,
-    ariaLabel: tooltipContainerAriaLabel,
-    className: displayAsGrid
-      ? cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)
-      : cx(styles.scrollableContainer, styles.tooltipContainer, className),
-    role: "treegrid",
-    gap: displayAsGrid ? Flex.gaps.XS : undefined,
-    wrap: displayAsGrid,
-    direction: displayAsGrid ? Flex.directions.ROW : Flex.directions.COLUMN
-  };
+  // TODO separate to different component?
+  if (displayAsGrid) {
+    return (
+      <Flex
+        ref={tooltipContentContainerRef}
+        tabIndex={-1}
+        role="treegrid"
+        ariaLabel={tooltipContainerAriaLabel}
+        className={cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)}
+        direction={Flex.directions.ROW}
+        gap={Flex.gaps.XS}
+        wrap
+      >
+        {renderedItems}
+      </Flex>
+    );
+  }
 
-  return <Flex {...flexProps}>{renderedItems}</Flex>;
+  return (
+    <Flex
+      ref={tooltipContentContainerRef}
+      tabIndex={-1}
+      role="treegrid"
+      ariaLabel={tooltipContainerAriaLabel}
+      className={cx(styles.scrollableContainer, styles.tooltipContainer, className)}
+      direction={Flex.directions.COLUMN}
+    >
+      {renderedItems}
+    </Flex>
+  );
 };
 
 AvatarGroupCounterTooltipContent.propTypes = {

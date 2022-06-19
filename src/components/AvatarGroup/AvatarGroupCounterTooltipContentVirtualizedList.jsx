@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import VirtualizedList from "../VirtualizedList/VirtualizedList";
+import Avatar from "../Avatar/Avatar";
 import styles from "./AvatarGroupCounterTooltipContentVirtualizedList.module.scss";
 
 const AvatarGroupCounterTooltipContentVirtualizedList = ({
   avatarItems,
   avatarRenderer,
+  type,
   tooltipContainerAriaLabel,
   tooltipContentContainerRef
 }) => {
@@ -23,7 +25,6 @@ const AvatarGroupCounterTooltipContentVirtualizedList = ({
   }
 
   return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
     <div
       className={styles.virtualizedTooltipContainer}
       aria-label={tooltipContainerAriaLabel}
@@ -33,7 +34,7 @@ const AvatarGroupCounterTooltipContentVirtualizedList = ({
       <div className={styles.virtualizedListContainer}>
         <VirtualizedList
           items={virtualizedItems}
-          itemRenderer={(item, index, style) => avatarRenderer(item, index, { ...style, width: "100%" })}
+          itemRenderer={(item, index, style) => avatarRenderer(item, index, { ...style, width: "100%" }, type, false)}
           role="treegrid"
           scrollableClassName={styles.scrollableContainer}
           getItemId={(item, index) => index}
@@ -48,13 +49,15 @@ AvatarGroupCounterTooltipContentVirtualizedList.propTypes = {
   avatars: PropTypes.arrayOf(PropTypes.element),
   avatarRenderer: PropTypes.func,
   tooltipContainerAriaLabel: PropTypes.string,
-  tooltipContentContainerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })])
+  tooltipContentContainerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
+  type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG])
 };
 AvatarGroupCounterTooltipContentVirtualizedList.defaultProps = {
   avatars: [],
   avatarRenderer: undefined,
   tooltipContainerAriaLabel: undefined,
-  tooltipContentContainerRef: undefined
+  tooltipContentContainerRef: undefined,
+  type: undefined
 };
 
 export default AvatarGroupCounterTooltipContentVirtualizedList;
