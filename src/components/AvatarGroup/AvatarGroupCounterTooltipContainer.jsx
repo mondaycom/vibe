@@ -63,7 +63,7 @@ AvatarGroupCounterTooltipContainer.propTypes = {
   /**
    * Counter element
    */
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]),
   /**
    * Array of Avatar elements
    */
