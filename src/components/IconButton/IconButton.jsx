@@ -96,6 +96,7 @@ const IconButton = forwardRef(
             iconSize={iconSize}
             ignoreFocusStyle
             className="icon-button-padding"
+            clickable={false}
           />
         </Button>
       </ToolTip>

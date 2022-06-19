@@ -110,7 +110,7 @@ const Dialog = ({ classNames, id, show, title, onHide, isAlertDialog, children, 
               {...attr.closeButton}
               ariaLabel="close"
               className={cx(classNames.closeButton)}
-              icon={props => <CloseSmall {...props} tabIndex={-1} />}
+              icon={CloseSmall}
               kind={IconButton.kinds.TERTIARY}
               size={IconButton.sizes.SMALL}
             />
