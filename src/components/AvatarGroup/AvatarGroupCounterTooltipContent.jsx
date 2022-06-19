@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import Clickable from "../Clickable/Clickable";
@@ -11,10 +11,16 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className }) => {
     return avatarProps?.tooltipProps?.content || avatarProps?.ariaLabel;
   };
 
-  const displayAsGrid = !avatars.some(avatar => getTooltipContent(avatar.props));
+  const { avatarItems, displayAsGrid } = useMemo(() => {
+    const avatarItems = avatars.map(avatar => ({
+      value: { ...avatar.props, tooltipContent: getTooltipContent(avatar.props) }
+    }));
+    const displayAsGrid = !avatarItems.some(item => item.value.tooltipContent);
+    return { avatarItems, displayAsGrid };
+  }, [avatars]);
 
-  const renderedItems = useMemo(() => {
-    const avatarRenderer = (item, index, style) => {
+  const avatarRenderer = useCallback(
+    (item, index, style) => {
       const avatarProps = item.value;
 
       const ClickableWrapper = ({ children }) => {
@@ -47,43 +53,33 @@ const AvatarGroupCounterTooltipContent = ({ avatars, type, className }) => {
               />
               {!displayAsGrid && (
                 <div id={labelId} className={styles.tooltipAvatarItemTitle}>
-                  {getTooltipContent(avatarProps)}
+                  {avatarProps.tooltipContent}
                 </div>
               )}
             </Flex>
           </div>
         </ClickableWrapper>
       );
-    };
-
-    return avatars.map((avatar, index) =>
-      avatarRenderer({ value: avatar.props }, index, { width: displayAsGrid ? undefined : "100%" })
-    );
-  }, [avatars, displayAsGrid, type]);
-
-  if (displayAsGrid) {
-    return (
-      <Flex
-        className={cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)}
-        role="treegrid"
-        direction={Flex.directions.ROW}
-        gap={Flex.gaps.XS}
-        wrap
-      >
-        {renderedItems}
-      </Flex>
-    );
-  }
-
-  return (
-    <Flex
-      className={cx(styles.scrollableContainer, styles.tooltipContainer, className)}
-      role="treegrid"
-      direction={Flex.directions.COLUMN}
-    >
-      {renderedItems}
-    </Flex>
+    },
+    [displayAsGrid, type]
   );
+
+  const renderedItems = useMemo(
+    () => avatarItems.map((item, index) => avatarRenderer(item, index, { width: displayAsGrid ? undefined : "100%" })),
+    [avatarRenderer, avatarItems, displayAsGrid]
+  );
+
+  const flexProps = {
+    className: displayAsGrid
+      ? cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)
+      : cx(styles.scrollableContainer, styles.tooltipContainer, className),
+    role: "treegrid",
+    gap: displayAsGrid ? Flex.gaps.XS : undefined,
+    wrap: displayAsGrid,
+    direction: displayAsGrid ? Flex.directions.ROW : Flex.directions.COLUMN
+  };
+
+  return <Flex {...flexProps}>{renderedItems}</Flex>;
 };
 
 AvatarGroupCounterTooltipContent.propTypes = {
