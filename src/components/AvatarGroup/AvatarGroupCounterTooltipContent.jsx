@@ -46,7 +46,7 @@ const AvatarGroupCounterTooltipContent = ({
     );
   }
 
-  // TODO separate to different component?
+  // TODO separate to different component or commit e6cee718?
   if (displayAsGrid) {
     return (
       <Flex
