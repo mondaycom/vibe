@@ -1,7 +1,7 @@
 @import "../../styles/states";
 
 .scrollableContainer {
-  @include scroller;
+  @include scroller();
 }
 
 .virtualizedTooltipContainer {

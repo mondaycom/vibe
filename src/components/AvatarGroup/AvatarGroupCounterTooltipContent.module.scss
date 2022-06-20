@@ -22,7 +22,6 @@
   max-width: 160px;
   padding-right: 0;
 }
-
 .scrollableContainer {
-  @include scroller;
+  @include scroller();
 }
