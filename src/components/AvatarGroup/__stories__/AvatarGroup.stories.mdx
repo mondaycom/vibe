@@ -269,35 +269,35 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
 <Canvas>
   <Story name="Hover vs Clickable">
     {() => {
-      const [lastClickedName, setLastClickedName] = useState(null);
+      const [lastClickedName, setLastClickedName] = useState("-");
       const avatarOnClick = useCallback(avatarProps => {
         setLastClickedName(avatarProps.ariaLabel);
       }, []);
       return (
-        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.LARGE} align={Flex.align.START}>
-          <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
-            <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
-              <AvatarGroup
-                size={Avatar.sizes.LARGE}
-                max={3}
-                counterTooltipCustomProps={{ position: Tooltip.positions.BOTTOM }}
-              >
-                <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-                <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-                <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-                <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-                <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-                <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-                <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-                <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-                <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-                <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-                <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-                <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-                <Avatar text="MR" type={Avatar.types.TEXT} ariaLabel="Mark Roytstein" />
-              </AvatarGroup>
-            </StoryDescription>
-            <StoryDescription description="Counter click" vertical align={Flex.align.START}>
+        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+          <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
+            <AvatarGroup
+              size={Avatar.sizes.LARGE}
+              max={3}
+              counterTooltipCustomProps={{ position: Tooltip.positions.BOTTOM }}
+            >
+              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+              <Avatar text="MR" type={Avatar.types.TEXT} ariaLabel="Mark Roytstein" />
+            </AvatarGroup>
+          </StoryDescription>
+          <StoryDescription description="Counter click" vertical align={Flex.align.START}>
+            <Flex>
               <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
                 <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
                 <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
@@ -313,9 +313,9 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
                 <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
                 <Avatar text="MR" type={Avatar.types.TEXT} onClick={avatarOnClick} ariaLabel="Mark Roytstein" />
               </AvatarGroup>
-            </StoryDescription>
-          </Flex>
-          <div>Last clicked avatar's name: {lastClickedName}</div>
+              <div className={styles.lastClickedAvatarNameText}>Last clicked avatar's name: {lastClickedName}</div>
+            </Flex>
+          </StoryDescription>
         </Flex>
       );
     }}
