@@ -17,7 +17,11 @@ const AvatarGroupCounterTooltipContainer = ({
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList
 }) => {
-  const [shouldUpdate, setShouldUpdate] = useState(false);
+  // Dummy state to rerender the component, when tooltip appear, so useTooltipContentTabNavigation will have an existing tooltipContentContainerRef
+  const [, setShouldUpdate] = useState(false);
+  // Used to close tooltip
+  const [isTooltipVisible, setIsTooltipVisible] = useState(true);
+
   const tooltipContentContainerRef = useRef(null);
   const tooltipContent = useMemo(
     () =>
@@ -38,10 +42,15 @@ const AvatarGroupCounterTooltipContainer = ({
     tooltipContentContainerRef,
     focusPrevPlaceholderRef,
     focusNextPlaceholderRef,
-    setShouldUpdate
+    setShouldUpdate,
+    setIsTooltipVisible
   });
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
+    return children;
+  }
+
+  if (!isTooltipVisible) {
     return children;
   }
 

@@ -3,15 +3,24 @@ import { useKeyEvent } from "hooks";
 import Clickable from "../Clickable/Clickable";
 import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
-import avatarGroupCounterTooltipContentStyles from "components/AvatarGroup/AvatarGroupCounterTooltipContent.module.scss";
+import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 export function useTooltipContentTabNavigation({
   counterContainerRef = undefined,
   tooltipContentContainerRef,
   focusPrevPlaceholderRef,
   focusNextPlaceholderRef,
-  setShouldUpdate
+  setShouldUpdate,
+  setIsTooltipVisible
 }) {
+  const hideTooltip = () => {
+    // :D
+    setTimeout(() => {
+      setIsTooltipVisible(false);
+      setIsTooltipVisible(true);
+    });
+  };
+
   // For Counter
   useKeyEvent({
     keys: ["Tab"],
@@ -38,6 +47,7 @@ export function useTooltipContentTabNavigation({
       if (e.target === counterContainerRef.current) {
         // console.log("SHIFT+TAB avatarGroup (1) counterContainerRef, focusing (0) focusPrevPlaceholderRef");
         focusPrevPlaceholderRef?.current && focusPrevPlaceholderRef.current.focus();
+        hideTooltip();
       }
     }
   });
@@ -52,6 +62,7 @@ export function useTooltipContentTabNavigation({
       if (e.target === tooltipContentContainerRef.current) {
         // console.log("TAB tooltipContent (2) tooltipContentContainerRef, focusing (3) focusNextPlaceholderRef");
         focusNextPlaceholderRef?.current && focusNextPlaceholderRef.current.focus();
+        hideTooltip();
       }
     }
   });
