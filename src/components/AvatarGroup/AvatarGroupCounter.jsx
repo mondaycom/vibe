@@ -11,7 +11,6 @@ import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipConta
 import styles from "./AvatarGroupCounter.module.scss";
 
 const AvatarGroupCounter = ({
-  avatarGroupContainerRef,
   counterTooltipAvatars,
   counterProps,
   counterTooltipCustomProps,
@@ -80,7 +79,6 @@ const AvatarGroupCounter = ({
 
   return (
     <AvatarGroupCounterTooltipContainer
-      avatarGroupContainerRef={avatarGroupContainerRef}
       focusPrevPlaceholderRef={focusPrevPlaceholderRef}
       focusNextPlaceholderRef={focusNextPlaceholderRef}
       counterContainerRef={counterContainerRef}
@@ -116,8 +114,7 @@ AvatarGroupCounter.propTypes = {
   counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
   counterTooltipIsVirtualizedList: PropTypes.bool,
   size: PropTypes.oneOf(Object.values(Avatar.sizes)),
-  type: PropTypes.oneOf(Object.values(Avatar.types)),
-  avatarGroupContainerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })])
+  type: PropTypes.oneOf(Object.values(Avatar.types))
 };
 AvatarGroupCounter.defaultProps = {
   counterTooltipAvatars: [],
@@ -125,8 +122,7 @@ AvatarGroupCounter.defaultProps = {
   counterTooltipCustomProps: undefined,
   counterTooltipIsVirtualizedList: false,
   size: Avatar.sizes.MEDIUM,
-  type: undefined,
-  avatarGroupContainerRef: undefined
+  type: undefined
 };
 
 export default AvatarGroupCounter;
