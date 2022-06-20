@@ -21,12 +21,15 @@
   }
   &.small {
     @include counterSize($avatar-size-small);
+    padding: 0 1px;
   }
   &.medium {
     @include counterSize($avatar-size-medium);
+    padding: 0 2px;
   }
   &.large {
     @include counterSize($avatar-size-large);
+    padding: 0 var(--spacing-xs);
   }
 
   &.primary {
