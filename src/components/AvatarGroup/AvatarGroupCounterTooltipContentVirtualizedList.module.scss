@@ -5,7 +5,6 @@
 }
 
 .virtualizedTooltipContainer {
-  padding-right: var(--spacing-medium);
   align-items: flex-start !important;
   display: flex;
   overflow-y: hidden;
@@ -15,8 +14,4 @@
   &.focus-visible {
     outline: none;
   }
-}
-
-.virtualizedListContainer {
-  height: 100%;
 }

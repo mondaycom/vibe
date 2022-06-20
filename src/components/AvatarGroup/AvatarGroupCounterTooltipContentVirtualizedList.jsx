@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import Avatar from "../Avatar/Avatar";
@@ -13,9 +13,11 @@ const AvatarGroupCounterTooltipContentVirtualizedList = ({
 }) => {
   const maxOptionsWithoutScroll = 10;
   const optionLineHeight = 34;
-  // TODO temp solution
-  const optionLineWidth = avatarItems.some(item => item.value.tooltipContent) ? 175 : 40;
-  const virtualizedItems = avatarItems.map(item => ({ ...item, height: optionLineHeight }));
+  const optionLineWidth = 150;
+  const virtualizedItems = useMemo(
+    () => avatarItems.map(item => ({ ...item, height: optionLineHeight })),
+    [avatarItems]
+  );
 
   let virtualizedListStyle;
   if (maxOptionsWithoutScroll) {
@@ -31,16 +33,14 @@ const AvatarGroupCounterTooltipContentVirtualizedList = ({
       ref={tooltipContentContainerRef}
       tabIndex={-1}
     >
-      <div className={styles.virtualizedListContainer}>
-        <VirtualizedList
-          items={virtualizedItems}
-          itemRenderer={(item, index, style) => avatarRenderer(item, index, { ...style, width: "100%" }, type, false)}
-          role="treegrid"
-          scrollableClassName={styles.scrollableContainer}
-          getItemId={(item, index) => index}
-          style={virtualizedListStyle}
-        />
-      </div>
+      <VirtualizedList
+        items={virtualizedItems}
+        itemRenderer={(item, index, style) => avatarRenderer(item, index, style, type, false)}
+        role="treegrid"
+        scrollableClassName={styles.scrollableContainer}
+        getItemId={(item, index) => index}
+        style={virtualizedListStyle}
+      />
     </div>
   );
 };
