@@ -1,12 +1,10 @@
 import Modal from "../Modal";
 import { useStorybookModalHelper } from "./helpers";
-import { useRef, useState } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import "./Modal.stories.scss";
-import Button from "../../Button/Button";
-import { Flex, ModalContent, ModalFooter, ModalHeader, TextField } from "components";
-import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import { ModalContent, ModalFooter, ModalHeader, TextField } from "components";
+import { Settings } from "components/Icon/Icons";
 
 export const metaSettings = createStoryMetaSettings({
   component: Modal,
@@ -37,7 +35,7 @@ An easy to use accessible Modal component
 <Canvas>
   <Story name="Overview">
     {() => {
-      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper();
+      const { openDialogButton, modalButtons, show, closeModal, ref } = useStorybookModalHelper();
       return (
         <div>
           {openDialogButton}
@@ -50,9 +48,7 @@ An easy to use accessible Modal component
             closeButtonAriaLabel={"close"}
           >
             <ModalContent>Modal content goes here</ModalContent>
-            <ModalFooter>
-              {modalButtons}
-            </ModalFooter>
+            <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
       );
@@ -88,11 +84,9 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
 <UsageGuidelines guidelines={["set `isAlertDialog` to `true` in order to turn a Modal to modal."]} />
 
 <Canvas>
-  <Story
-    name="Alert Modal"
-  >
+  <Story name="Alert Modal">
     {() => {
-      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper();
+      const { openDialogButton, modalButtons, show, closeModal, ref } = useStorybookModalHelper();
       return (
         <div>
           {openDialogButton}
@@ -106,9 +100,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
             closeButtonAriaLabel={"close"}
           >
             <p>Use the close button to dismiss this Modal.</p>
-            <ModalFooter>
-              {modalButtons}
-            </ModalFooter>
+            <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
       );
@@ -126,11 +118,9 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
 />
 
 <Canvas>
-  <Story
-    name="Form Modal"
-  >
+  <Story name="Form Modal">
     {() => {
-      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper();
+      const { openDialogButton, modalButtons, show, closeModal, ref } = useStorybookModalHelper();
       return (
         <div>
           {openDialogButton}
@@ -152,9 +142,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
                 <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
               </form>
             </ModalContent>
-            <ModalFooter>
-              {modalButtons}
-            </ModalFooter>
+            <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
       );
@@ -167,7 +155,9 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
 <Canvas>
   <Story name="Size variants - Normal">
     {() => {
-      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper({openButtonTitle: 'Default'});
+      const { openDialogButton, modalButtons, show, closeModal, ref } = useStorybookModalHelper({
+        openButtonTitle: "Default"
+      });
       return (
         <div>
           {openDialogButton}
@@ -181,9 +171,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
             size={Modal.Size.DEFAULT}
           >
             <p>Normal modal</p>
-            <ModalFooter>
-              {modalButtons}
-            </ModalFooter>
+            <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
       );
@@ -191,7 +179,9 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
   </Story>
   <Story name="Size variants - Full">
     {() => {
-      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper({openButtonTitle: 'Full width'});
+      const { openDialogButton, modalButtons, show, closeModal, ref } = useStorybookModalHelper({
+        openButtonTitle: "Full width"
+      });
       return (
         <div>
           {openDialogButton}
@@ -205,9 +195,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
             closeButtonAriaLabel={"close"}
           >
             <p>Full width modal</p>
-            <ModalFooter>
-              {modalButtons}
-            </ModalFooter>
+            <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
       );
@@ -222,11 +210,11 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
 The height of Modal with long content will be limited to 90% of screen height, and a scroll bar will be added
 
 <Canvas>
-  <Story
-    name="Modal with vertical scroll"
-  >
+  <Story name="Modal with vertical scroll">
     {() => {
-      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper({openButtonTitle: 'Default'});
+      const { openDialogButton, modalButtons, show, closeModal, ref } = useStorybookModalHelper({
+        openButtonTitle: "Default"
+      });
       return (
         <div>
           {openDialogButton}
@@ -276,9 +264,38 @@ The height of Modal with long content will be limited to 90% of screen height, a
               <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
               <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
             </form>
-            <ModalFooter>
-              {modalButtons}
-            </ModalFooter>
+            <ModalFooter>{modalButtons}</ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Modal with custom Header
+
+Header with description and icon
+
+<Canvas>
+  <Story name="Modal with custom Header">
+    {() => {
+      const { openDialogButton, modalButtons, show, closeModal, ref } = useStorybookModalHelper({
+        openButtonTitle: "Default"
+      });
+      return (
+        <div>
+          {openDialogButton}
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            closeButtonAriaLabel={"close"}
+          >
+            <ModalHeader title={"Modal Title"} description={"Modal description goes here"} icon={Settings} />
+            <div>Modal content goes here</div>
+            <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
       );

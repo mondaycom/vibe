@@ -17,6 +17,7 @@ const Modal = ({
   id,
   show,
   title,
+  description,
   onClose,
   isAlertDialog,
   children,
@@ -76,7 +77,7 @@ const Modal = ({
       return [
         hideAnimation ? [animationEnd, animationStart] : [animationStart, animationEnd],
         {
-          duration: hideAnimation ? 100 : 200,
+          duration: hideAnimation ? 0 : 200,
           easing: "ease-in"
         }
       ];
@@ -96,6 +97,7 @@ const Modal = ({
     return (
       <ModalHeader
         title={title}
+        description={description}
         attr={attr}
         hideCloseButton={hideCloseButton}
         closeButtonAriaLabel={closeButtonAriaLabel}
@@ -162,7 +164,10 @@ Modal.propTypes = {
    * Title for the modal, required for accessibility
    */
   title: PropTypes.string.isRequired,
-
+  /**
+   * Description for the modal title
+   */
+  description: PropTypes.string,
   /**
    * Called when the modal is hidden (by close button/click outside/esc key
    */
@@ -177,7 +182,7 @@ Modal.propTypes = {
    */
   triggerElement: PropTypes.instanceOf(Element),
   /**
-   *  used for the fromOrigin animation
+   *  Define modal width
    */
   size: PropTypes.oneOf(Object.values(MODAL_SIZE)),
   /**
@@ -185,7 +190,7 @@ Modal.propTypes = {
    */
   hideCloseButton: PropTypes.bool,
   /**
-   *  used for the fromOrigin animation
+   *  Aria label for the close button
    */
   closeButtonAriaLabel: PropTypes.string,
   /**
@@ -194,18 +199,13 @@ Modal.propTypes = {
   classNames: PropTypes.exact({
     container: PropTypes.string,
     overlay: PropTypes.string,
-    modal: PropTypes.string,
-    title: PropTypes.string,
-    content: PropTypes.string,
-    closeButton: PropTypes.string
+    modal: PropTypes.string
   }),
   /**
    *  Dialog content
    */
   children: PropTypes.node
 };
-
-Modal.Header = ModalHeader;
 
 Modal.Size = MODAL_SIZE;
 
@@ -217,12 +217,10 @@ Modal.defaultProps = {
   classNames: {
     container: "",
     overlay: "",
-    modal: "",
-    title: "",
-    content: "",
-    closeButton: ""
+    modal: ""
   },
   hideCloseButton: false,
+  description: "",
   closeButtonAriaLabel: "close"
 };
 

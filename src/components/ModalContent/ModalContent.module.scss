@@ -4,7 +4,7 @@
 .mondayStyleModalContent {
   flex-grow: 1;
   overflow: auto;
-  padding-inline-end: 10px;
-  margin-inline-end: -10px;
+  padding-inline-end: 16px;
+  margin-inline-end: -16px;
   @include scroller();
 }

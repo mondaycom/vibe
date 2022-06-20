@@ -1,15 +1,33 @@
 @import "../../styles/themes.scss";
 
-.monday-style-modal-header {
-    display: flex;
-    align-items: center;
-    .title {
-      font-size: var(--font-size-h2);
-      font-weight: var(--font-weight-bold);
-      color: var(--primary-text-color);
-      flex-grow: 1;
-      &:focus {
-        color: red;
-      }
+.mondayStyleModalHeader {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  margin-block-end: 24px;
+
+  .title {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-text-color);
+    flex-grow: 1;
+    margin-block-end: 0;
+
+  }
+
+  .icon {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  .description {
+    font: var(--font-subtext);
+    margin-block-start: 8px;
+  }
+
+  .closeButton {
+    position: absolute;
+    right: 20px;
+    top: 20px;
   }
 }
