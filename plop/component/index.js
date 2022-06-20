@@ -16,7 +16,7 @@ module.exports = plop => {
       },
       {
         type: "add",
-        path: "src/components/{{properCase componentName}}/{{properCase componentName}}.scss",
+        path: "src/components/{{properCase componentName}}/{{properCase componentName}}.module.scss",
         templateFile: "plop/component/component-scss.txt"
       },
       {
@@ -31,8 +31,7 @@ module.exports = plop => {
       },
       {
         type: "add",
-        path:
-          "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-snapshot-tests.jest.js",
+        path: "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-snapshot-tests.jest.js",
         templateFile: "plop/general/component-snapshot-tests-jest.txt"
       },
       {
