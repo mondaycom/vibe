@@ -12,10 +12,11 @@
 
 
   &-buttons {
-    padding-block-start: 24px;
-    align-self: end;
+    display: flex;
+    justify-content: end;
+    margin-top: 24px;
     button+button {
-      margin-inline-start: 24px;
+      margin-inline-start: 12px;
     }
 
   }

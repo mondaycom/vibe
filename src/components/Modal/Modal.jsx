@@ -1,11 +1,10 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, cloneElement } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import styles from "./Modal.module.scss";
 import { useA11yDialog } from "./a11YDialog";
-import { IconButton } from "components";
-import { CloseSmall } from "components/Icon/Icons";
+import { ModalContent, ModalFooter, ModalHeader } from "components";
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 
 const DIALOG_SIZES = {
@@ -15,11 +14,22 @@ const DIALOG_SIZES = {
   FULL_WIDTH: "full_width"
 };
 
-const Modal = ({ classNames, id, show, title, onHide, isAlertDialog, children, triggerElement, size }) => {
+const Modal = ({
+  classNames,
+  id,
+  show,
+  title,
+  onClose,
+  isAlertDialog,
+  children,
+  triggerElement,
+  size,
+  hideCloseButton,
+  closeButtonAriaLabel
+}) => {
   const [instance, attr] = useA11yDialog({
     id,
-    title,
-    onHide,
+    onClose,
     isAlertDialog
   });
 
@@ -76,6 +86,53 @@ const Modal = ({ classNames, id, show, title, onHide, isAlertDialog, children, t
     [instance, triggerElement]
   );
 
+  const getHeader = () => {
+    // const header = React.Children.toArray(children).find(child => child?.props?.mdxType === ModalHeader.displayName);
+
+    const header = React.Children.toArray(children).find(
+      child => child.type === ModalHeader || child?.props?.mdxType === ModalHeader.displayName
+    );
+
+    if (header) {
+      return cloneElement(header, { attr });
+    }
+
+    return (
+      <ModalHeader
+        title={title}
+        attr={attr}
+        hideCloseButton={hideCloseButton}
+        closeButtonAriaLabel={closeButtonAriaLabel}
+      />
+    );
+  };
+
+  const getContent = () => {
+    return (
+      React.Children.toArray(children).find(
+        child => child.type === ModalContent || child.props.mdxType === ModalContent.displayName
+      ) || (
+        <ModalContent>
+          {React.Children.toArray(children).filter(
+            child =>
+              child.type !== ModalHeader &&
+              child.type !== ModalFooter &&
+              child?.props?.mdxType !== ModalHeader.displayName &&
+              child?.props?.mdxType !== ModalFooter.displayName
+          )}
+        </ModalContent>
+      )
+    );
+  };
+
+  const getFooter = () => {
+    return (
+      React.Children.toArray(children).find(
+        child => child.type === ModalFooter || child.props.mdxType === ModalFooter.displayName
+      ) || null
+    );
+  };
+
   // show/hide and animate the modal
   useEffect(() => {
     if (show) {
@@ -90,33 +147,18 @@ const Modal = ({ classNames, id, show, title, onHide, isAlertDialog, children, t
   const dialog = ReactDOM.createPortal(
     <div {...attr.container} className={cx(styles.container, classNames.container)}>
       <div {...attr.overlay} className={cx(styles.overlay, classNames.overlay)} />
-      <div className={styles.contentWrapper}>
-        <div
-          {...attr.dialog}
-          className={cx(styles.content, classNames.dialog, {
-            [styles.small]: size === DIALOG_SIZES.SMALL,
-            [styles.medium]: size === DIALOG_SIZES.MEDIUM,
-            [styles.large]: size === DIALOG_SIZES.LARGE,
-            [styles.full]: size === DIALOG_SIZES.FULL_WIDTH
-          })}
-        >
-          <div className={styles.titleWrapper}>
-            <p {...attr.title} className={cx(classNames.title, styles.title)}>
-              {title}
-            </p>
-
-            <IconButton
-              key="xxs"
-              {...attr.closeButton}
-              ariaLabel="close"
-              className={cx(classNames.closeButton)}
-              icon={CloseSmall}
-              kind={IconButton.kinds.TERTIARY}
-              size={IconButton.sizes.SMALL}
-            />
-          </div>
-          <div className={cx(styles.innerContentWrapper, classNames.content)}>{children}</div>
-        </div>
+      <div
+        {...attr.dialog}
+        className={cx(styles.dialog, classNames.modal, {
+          [styles.small]: size === DIALOG_SIZES.SMALL,
+          [styles.medium]: size === DIALOG_SIZES.MEDIUM,
+          [styles.large]: size === DIALOG_SIZES.LARGE,
+          [styles.full]: size === DIALOG_SIZES.FULL_WIDTH
+        })}
+      >
+        {getHeader()}
+        {getContent()}
+        {getFooter()}
       </div>
     </div>,
     document.body
@@ -142,7 +184,7 @@ Modal.propTypes = {
   /**
    * Called when the modal is hidden (by close button/click outside/esc key
    */
-  onHide: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   /**
    *  Makes the dialog behave like a modal (preventing closing on click outside of
    *  ESC key)..
@@ -157,12 +199,20 @@ Modal.propTypes = {
    */
   size: PropTypes.oneOf(Object.values(DIALOG_SIZES)),
   /**
+   *  used for the fromOrigin animation
+   */
+  hideCloseButton: PropTypes.bool,
+  /**
+   *  used for the fromOrigin animation
+   */
+  closeButtonAriaLabel: PropTypes.string,
+  /**
    *  classNames for specific parts of the dialog
    */
   classNames: PropTypes.exact({
     container: PropTypes.string,
     overlay: PropTypes.string,
-    dialog: PropTypes.string,
+    modal: PropTypes.string,
     title: PropTypes.string,
     content: PropTypes.string,
     closeButton: PropTypes.string
@@ -185,7 +235,9 @@ Modal.defaultProps = {
     title: "",
     content: "",
     closeButton: ""
-  }
+  },
+  hideCloseButton: false,
+  closeButtonAriaLabel: "close"
 };
 
 export default Modal;

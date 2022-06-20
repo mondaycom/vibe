@@ -5,41 +5,37 @@
    */
 .container,
 .overlay {
-  position: fixed; /* 1 */
-  top: 0; /* 1 */
-  right: 0; /* 1 */
-  bottom: 0; /* 1 */
-  left: 0; /* 1 */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .container {
   z-index: 2;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container[aria-hidden="true"] {
   display: none;
+
 }
 
 .overlay {
   background-color: rgba(41, 47, 76, 0.7);
 }
 
-.contentWrapper {
-  margin: auto;
+.dialog {
   z-index: 2;
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.3);
-}
-
-.content {
   display: flex;
   flex-direction: column;
   padding: 0 30px;
-  overflow: auto;
-  flex-grow: 1;
+  padding-block-end: 24px;
+  border-radius: 16px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
   background-color: var(--secondary-background-color);
   max-height: 90vh;
   max-width: 90vw;
@@ -55,24 +51,6 @@
   }
   &.full {
     width: 100vw;
-  }
-
-  .titleWrapper {
-    display: flex;
-    align-items: center;
-    .title {
-      font-size: var(--font-size-h2);
-      font-weight: var(--font-weight-bold);
-      color: var(--primary-text-color);
-      flex-grow: 1;
-      &:focus {
-        color: red;
-      }
-    }
-  }
-
-  .innerContentWrapper {
-    flex-grow: 1;
   }
 }
 

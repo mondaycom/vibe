@@ -76,4 +76,7 @@ export { default as Slider } from "./Slider/Slider";
 export { default as IconButton } from "./IconButton/IconButton";
 export { default as Flex } from "./Flex/Flex";
 export { default as MenuGridItem } from "./Menu/MenuGridItem/MenuGridItem";
-export { default as DialogNew } from "./Modal/Modal";
+export { default as Modal } from "./Modal/Modal";
+export { default as ModalHeader } from "./ModalHeader/ModalHeader";
+export { default as ModalContent } from "./ModalContent/ModalContent";
+export { default as ModalFooter } from "./ModalFooter/ModalFooter";

@@ -1,12 +1,12 @@
 import Modal from "../Modal";
+import { useStorybookModalHelper } from "./helpers";
 import { useRef, useState } from "react";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import "./Modal.stories.scss";
 import Button from "../../Button/Button";
-import { Flex, TextField } from "components"; import {
-  StoryDescription
-} from "../../../storybook/components/story-description/story-description";
+import { Flex, ModalContent, ModalFooter, ModalHeader, TextField } from "components";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 
 export const metaSettings = createStoryMetaSettings({
   component: Modal,
@@ -15,24 +15,18 @@ export const metaSettings = createStoryMetaSettings({
   actionPropsArray: [] // List the component's actions here
 });
 
-<Meta
-  title="Feedback/Modal"
-  component={Modal}
-  argTypes={metaSettings.argTypes}
-  decorators={metaSettings.decorators}
-/>
+<Meta title="Feedback/Modal" component={Modal} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
 
 <!--- Component template -->
 
-[//]: # "export const modalNewTemplate = createComponentTemplate(ModalNew);"
-
 export const ModalTemplate = ({
-  id = 'sample-id',
+  id = "sample-id",
   buttonTitle = "Open Modal",
   content = <p>Modal Content</p>,
   title = "Modal title",
-  isAlertModal = false,
-  size = 'medium'
+  isAlertDialog = false,
+  size = "medium",
+  hideCloseButton = false
 }) => {
   const [show, setShow] = useState(false);
   const buttonRef = useRef(null);
@@ -46,21 +40,23 @@ export const ModalTemplate = ({
         id={id}
         show={show}
         title={title}
-        isAlertModal={isAlertModal}
-        onHide={hideModal}
+        isAlertDialog={isAlertDialog}
+        onClose={hideModal}
         size={size}
         triggerElement={buttonRef.current}
-        classNames={{ content: "monday-storybook-modal-new-content-wrapper" }}
       >
-        {content}
-        <div className="monday-storybook-modal-new-buttons">
-          <Button kind={Button.kinds.SECONDARY} onClick={hideModal}>
-            Cancel
-          </Button>
-          <Button kind={Button.kinds.PRIMARY} onClick={hideModal}>
-            Confirm
-          </Button>
-        </div>
+        <ModalHeader title={title} hideCloseButton={hideCloseButton} />
+        <ModalContent>{content}</ModalContent>
+        <ModalFooter>
+          <div className="monday-storybook-modal-new-buttons">
+            <Button kind={Button.kinds.SECONDARY} onClick={hideModal}>
+              Cancel
+            </Button>
+            <Button kind={Button.kinds.PRIMARY} onClick={hideModal}>
+              Confirm
+            </Button>
+          </div>
+        </ModalFooter>
       </Modal>
     </div>
   );
@@ -84,11 +80,23 @@ export const ModalTemplate = ({
 An easy to use accessible Modal component
 
 <Canvas>
-  <Story
-    name="Overview"
-    args={{ title: "Modal title", buttonTitle: "open Modal", content: <p>Modal content goes here</p> }}
-  >
-    {ModalTemplate.bind({})}
+  <Story name="Overview">
+    {() => {
+      const { openDialogButton, modalButtons, modalProps} = useStorybookModalHelper({title: 'Modal title', id: 'test-modal'});
+      return (
+        <div>
+          {openDialogButton}
+          <Modal
+            {...modalProps}
+          >
+            <ModalContent>sadasdsadad</ModalContent>
+            <ModalFooter>
+              {modalButtons}
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -97,14 +105,15 @@ An easy to use accessible Modal component
 <ArgsTable of={Modal} />
 
 ## Usage
+
 ### Showing the Modal
+
 You show/hide the Modal by passing the <b>show</b> prop. This gives you complete control on when to show and hide the Modal.
 One thing to consider is when the user initiate closing the Modal by
 
 ### Modal content
 
 ### Design and customizations
-
 
 <UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
 
@@ -116,7 +125,7 @@ One thing to consider is when the user initiate closing the Modal by
 
 This Modal will NOT be closed when you click outside or click ESC key. Only way to close it is to use the close button.
 
-<UsageGuidelines guidelines={["set `isAlertModal` to `true` in order to turn a Modal to modal."]} />
+<UsageGuidelines guidelines={["set `isAlertDialog` to `true` in order to turn a Modal to modal."]} />
 
 <Canvas>
   <Story
@@ -124,7 +133,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
     args={{
       title: "Modal title",
       buttonTitle: "open Modal",
-      isAlertModal: true,
+      isAlertDialog: true,
       content: <p>Use the close button to dismiss this Modal.</p>
     }}
   >
@@ -147,7 +156,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
     args={{
       title: "Modal title",
       buttonTitle: "open From Modal",
-      isAlertModal: true,
+      isAlertDialog: true,
       content: (
         <form>
           <TextField title="Your Name" autoFocus size={TextField.sizes.MEDIUM} placeholder="John Doe" />
@@ -170,22 +179,22 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
     <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
       <StoryDescription description="S" vertical align={Flex.align.START}>
         <div className="monday-storybook-loader_size-variants_container">
-          <ModalTemplate size={'small'} />
+          <ModalTemplate size={"small"} />
         </div>
       </StoryDescription>
       <StoryDescription description="M" vertical align={Flex.align.START}>
         <div className="monday-storybook-loader_size-variants_container">
-          <ModalTemplate size={'medium'} />
+          <ModalTemplate size={"medium"} />
         </div>
       </StoryDescription>
       <StoryDescription description="L" vertical align={Flex.align.START}>
         <div className="monday-storybook-loader_size-variants_container">
-          <ModalTemplate size={'large'} />
+          <ModalTemplate size={"large"} />
         </div>
       </StoryDescription>
       <StoryDescription description="Full Width" vertical align={Flex.align.START}>
         <div className="monday-storybook-loader_size-variants_container">
-          <ModalTemplate size={'full_width'} />
+          <ModalTemplate size={"full_width"} />
         </div>
       </StoryDescription>
     </Flex>

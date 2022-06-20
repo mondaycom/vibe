@@ -13,7 +13,7 @@ const useA11yDialogInstance = () => {
 
 export const useA11yDialog = props => {
   const [instance, ref] = useA11yDialogInstance();
-  const { onHide, isAlertDialog, id } = props;
+  const { onClose, isAlertDialog, id } = props;
   const role = isAlertDialog ? "alertdialog" : "dialog";
   const titleId = props.titleId || id + "-title";
 
@@ -36,9 +36,9 @@ export const useA11yDialog = props => {
         "aria-hidden": true,
         "aria-labelledby": titleId
       },
-      overlay: { onClick: isAlertDialog ? undefined : onHide },
+      overlay: { onClick: isAlertDialog ? undefined : onClose },
       dialog: { role: "document" },
-      closeButton: { type: "button", onClick: onHide },
+      closeButton: { type: "button", onClick: onClose },
       // Using a paragraph with accessibility mapping can be useful to work
       // around SEO concerns of having multiple <h1> per page.
       title: { role: "heading", "aria-level": 1, id: titleId }
@@ -54,11 +54,6 @@ useA11yDialog.propTypes = {
   // The HTML `id` attribute of the dialog element, internally used by
   // a11y-dialog to manipulate the dialog.
   id: PropTypes.string.isRequired,
-
-  // The title of the dialog, mandatory in the document to provide context to
-  // assistive technology. Could be hidden (while remaining accessible) with
-  // CSS though.
-  title: PropTypes.node.isRequired,
 
   // The HTML `id` attribute of the dialog’s title element, used by assistive
   // technologies to provide context and meaning to the dialog window. Falls

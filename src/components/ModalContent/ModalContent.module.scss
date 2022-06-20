@@ -1,0 +1,10 @@
+@import "../../styles/themes.scss";
+@import "../../styles/states";
+
+.mondayStyleModalContent {
+  flex-grow: 1;
+  overflow: auto;
+  padding-inline-end: 10px;
+  margin-inline-end: -10px;
+  @include scroller();
+}
