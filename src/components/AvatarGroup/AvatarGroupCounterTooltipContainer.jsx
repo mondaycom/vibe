@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Tooltip from "../Tooltip/Tooltip";
 import Dialog from "../Dialog/Dialog";
@@ -17,6 +17,7 @@ const AvatarGroupCounterTooltipContainer = ({
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList
 }) => {
+  const [shouldUpdate, setShouldUpdate] = useState(false);
   const tooltipContentContainerRef = useRef(null);
   const tooltipContent = useMemo(
     () =>
@@ -36,7 +37,8 @@ const AvatarGroupCounterTooltipContainer = ({
     counterContainerRef,
     tooltipContentContainerRef,
     focusPrevPlaceholderRef,
-    focusNextPlaceholderRef
+    focusNextPlaceholderRef,
+    setShouldUpdate
   });
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {

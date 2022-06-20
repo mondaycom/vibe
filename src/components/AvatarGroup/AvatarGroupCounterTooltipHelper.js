@@ -9,7 +9,8 @@ export function useTooltipContentTabNavigation({
   counterContainerRef = undefined,
   tooltipContentContainerRef,
   focusPrevPlaceholderRef,
-  focusNextPlaceholderRef
+  focusNextPlaceholderRef,
+  setShouldUpdate
 }) {
   // For Counter
   useKeyEvent({
@@ -22,6 +23,7 @@ export function useTooltipContentTabNavigation({
         e.preventDefault();
         // console.log("TAB avatarGroup (1) counterContainerRef, focusing (2) tooltipContentContainerRef");
         tooltipContentContainerRef.current && tooltipContentContainerRef.current.focus();
+        setShouldUpdate(prev => !prev);
       }
     }
   });
@@ -43,8 +45,7 @@ export function useTooltipContentTabNavigation({
   // For Tooltip content
   useKeyEvent({
     keys: ["Tab"],
-    // TODO optimize: no ref - so listening for all document events
-    // ref: tooltipContentContainerRef // - doesn't work because there is no value at the moment of hook creation
+    ref: tooltipContentContainerRef,
     withoutAnyModifier: true,
     callback: e => {
       // console.log("TAB tooltipContentContainerRef", tooltipContentContainerRef);
@@ -58,8 +59,7 @@ export function useTooltipContentTabNavigation({
   // For Tooltip content
   useKeyEvent({
     keys: ["Tab"],
-    // TODO optimize: no ref - so listening for all document events
-    // ref: tooltipContentContainerRef // - doesn't work because there is no value at the moment of hook creation
+    ref: tooltipContentContainerRef,
     modifier: useKeyEvent.modifiers.SHIFT,
     callback: e => {
       // console.log("SHIFT+TAB tooltipContentContainerRef", tooltipContentContainerRef);
