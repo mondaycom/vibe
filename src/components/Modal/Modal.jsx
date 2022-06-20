@@ -7,10 +7,8 @@ import { useA11yDialog } from "./a11YDialog";
 import { ModalContent, ModalFooter, ModalHeader } from "components";
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 
-const DIALOG_SIZES = {
-  SMALL: "small",
-  MEDIUM: "medium",
-  LARGE: "large",
+export const MODAL_SIZE = {
+  DEFAULT: "default",
   FULL_WIDTH: "full_width"
 };
 
@@ -89,9 +87,7 @@ const Modal = ({
   const getHeader = () => {
     // const header = React.Children.toArray(children).find(child => child?.props?.mdxType === ModalHeader.displayName);
 
-    const header = React.Children.toArray(children).find(
-      child => child.type === ModalHeader || child?.props?.mdxType === ModalHeader.displayName
-    );
+    const header = React.Children.toArray(children).find(child => child.type === ModalHeader);
 
     if (header) {
       return cloneElement(header, { attr });
@@ -109,28 +105,16 @@ const Modal = ({
 
   const getContent = () => {
     return (
-      React.Children.toArray(children).find(
-        child => child.type === ModalContent || child.props.mdxType === ModalContent.displayName
-      ) || (
+      React.Children.toArray(children).find(child => child.type === ModalContent) || (
         <ModalContent>
-          {React.Children.toArray(children).filter(
-            child =>
-              child.type !== ModalHeader &&
-              child.type !== ModalFooter &&
-              child?.props?.mdxType !== ModalHeader.displayName &&
-              child?.props?.mdxType !== ModalFooter.displayName
-          )}
+          {React.Children.toArray(children).filter(child => child.type !== ModalHeader && child.type !== ModalFooter)}
         </ModalContent>
       )
     );
   };
 
   const getFooter = () => {
-    return (
-      React.Children.toArray(children).find(
-        child => child.type === ModalFooter || child.props.mdxType === ModalFooter.displayName
-      ) || null
-    );
+    return React.Children.toArray(children).find(child => child.type === ModalFooter) || null;
   };
 
   // show/hide and animate the modal
@@ -150,10 +134,8 @@ const Modal = ({
       <div
         {...attr.dialog}
         className={cx(styles.dialog, classNames.modal, {
-          [styles.small]: size === DIALOG_SIZES.SMALL,
-          [styles.medium]: size === DIALOG_SIZES.MEDIUM,
-          [styles.large]: size === DIALOG_SIZES.LARGE,
-          [styles.full]: size === DIALOG_SIZES.FULL_WIDTH
+          [styles.default]: size === MODAL_SIZE.DEFAULT,
+          [styles.full]: size === MODAL_SIZE.FULL_WIDTH
         })}
       >
         {getHeader()}
@@ -197,7 +179,7 @@ Modal.propTypes = {
   /**
    *  used for the fromOrigin animation
    */
-  size: PropTypes.oneOf(Object.values(DIALOG_SIZES)),
+  size: PropTypes.oneOf(Object.values(MODAL_SIZE)),
   /**
    *  used for the fromOrigin animation
    */
@@ -223,15 +205,19 @@ Modal.propTypes = {
   children: PropTypes.node
 };
 
+Modal.Header = ModalHeader;
+
+Modal.Size = MODAL_SIZE;
+
 Modal.defaultProps = {
   triggerElement: null,
   isAlertDialog: false,
   children: undefined,
-  size: DIALOG_SIZES.MEDIUM,
+  size: MODAL_SIZE.DEFAULT,
   classNames: {
     container: "",
     overlay: "",
-    dialog: "",
+    modal: "",
     title: "",
     content: "",
     closeButton: ""

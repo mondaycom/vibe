@@ -17,51 +17,6 @@ export const metaSettings = createStoryMetaSettings({
 
 <Meta title="Feedback/Modal" component={Modal} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
 
-<!--- Component template -->
-
-export const ModalTemplate = ({
-  id = "sample-id",
-  buttonTitle = "Open Modal",
-  content = <p>Modal Content</p>,
-  title = "Modal title",
-  isAlertDialog = false,
-  size = "medium",
-  hideCloseButton = false
-}) => {
-  const [show, setShow] = useState(false);
-  const buttonRef = useRef(null);
-  const hideModal = () => setShow(false);
-  return (
-    <div>
-      <Button ref={buttonRef} onClick={() => setShow(true)}>
-        {buttonTitle}
-      </Button>
-      <Modal
-        id={id}
-        show={show}
-        title={title}
-        isAlertDialog={isAlertDialog}
-        onClose={hideModal}
-        size={size}
-        triggerElement={buttonRef.current}
-      >
-        <ModalHeader title={title} hideCloseButton={hideCloseButton} />
-        <ModalContent>{content}</ModalContent>
-        <ModalFooter>
-          <div className="monday-storybook-modal-new-buttons">
-            <Button kind={Button.kinds.SECONDARY} onClick={hideModal}>
-              Cancel
-            </Button>
-            <Button kind={Button.kinds.PRIMARY} onClick={hideModal}>
-              Confirm
-            </Button>
-          </div>
-        </ModalFooter>
-      </Modal>
-    </div>
-  );
-};
-
 <!--- Component documentation -->
 
 # Modal
@@ -82,14 +37,19 @@ An easy to use accessible Modal component
 <Canvas>
   <Story name="Overview">
     {() => {
-      const { openDialogButton, modalButtons, modalProps} = useStorybookModalHelper({title: 'Modal title', id: 'test-modal'});
+      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper();
       return (
         <div>
           {openDialogButton}
           <Modal
-            {...modalProps}
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            closeButtonAriaLabel={"close"}
           >
-            <ModalContent>sadasdsadad</ModalContent>
+            <ModalContent>Modal content goes here</ModalContent>
             <ModalFooter>
               {modalButtons}
             </ModalFooter>
@@ -130,14 +90,29 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
 <Canvas>
   <Story
     name="Alert Modal"
-    args={{
-      title: "Modal title",
-      buttonTitle: "open Modal",
-      isAlertDialog: true,
-      content: <p>Use the close button to dismiss this Modal.</p>
-    }}
   >
-    {ModalTemplate.bind({})}
+    {() => {
+      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper();
+      return (
+        <div>
+          {openDialogButton}
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            isAlertDialog
+            closeButtonAriaLabel={"close"}
+          >
+            <p>Use the close button to dismiss this Modal.</p>
+            <ModalFooter>
+              {modalButtons}
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -153,51 +128,90 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
 <Canvas>
   <Story
     name="Form Modal"
-    args={{
-      title: "Modal title",
-      buttonTitle: "open From Modal",
-      isAlertDialog: true,
-      content: (
-        <form>
-          <TextField title="Your Name" autoFocus size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-        </form>
-      )
-    }}
   >
-    {ModalTemplate.bind({})}
+    {() => {
+      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper();
+      return (
+        <div>
+          {openDialogButton}
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            isAlertDialog
+            closeButtonAriaLabel={"close"}
+          >
+            <ModalContent>
+              <form>
+                <TextField title="Your Name" autoFocus size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              </form>
+            </ModalContent>
+            <ModalFooter>
+              {modalButtons}
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
   </Story>
 </Canvas>
 
 ### Size variants
 
 <Canvas>
-  <Story name="Size variants">
-    <Flex direction={Flex.directions.ROW} gap={Flex.gaps.SMALL}>
-      <StoryDescription description="S" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <ModalTemplate size={"small"} />
+  <Story name="Size variants - Normal">
+    {() => {
+      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper({openButtonTitle: 'Default'});
+      return (
+        <div>
+          {openDialogButton}
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            closeButtonAriaLabel={"close"}
+            size={Modal.Size.DEFAULT}
+          >
+            <p>Normal modal</p>
+            <ModalFooter>
+              {modalButtons}
+            </ModalFooter>
+          </Modal>
         </div>
-      </StoryDescription>
-      <StoryDescription description="M" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <ModalTemplate size={"medium"} />
+      );
+    }}
+  </Story>
+  <Story name="Size variants - Full">
+    {() => {
+      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper({openButtonTitle: 'Full width'});
+      return (
+        <div>
+          {openDialogButton}
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            size={Modal.Size.FULL_WIDTH}
+            closeButtonAriaLabel={"close"}
+          >
+            <p>Full width modal</p>
+            <ModalFooter>
+              {modalButtons}
+            </ModalFooter>
+          </Modal>
         </div>
-      </StoryDescription>
-      <StoryDescription description="L" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <ModalTemplate size={"large"} />
-        </div>
-      </StoryDescription>
-      <StoryDescription description="Full Width" vertical align={Flex.align.START}>
-        <div className="monday-storybook-loader_size-variants_container">
-          <ModalTemplate size={"full_width"} />
-        </div>
-      </StoryDescription>
-    </Flex>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -210,52 +224,65 @@ The height of Modal with long content will be limited to 90% of screen height, a
 <Canvas>
   <Story
     name="Modal with vertical scroll"
-    args={{
-      title: "Modal title",
-      buttonTitle: "open long Modal",
-      content: (
-        <form>
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-          <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-        </form>
-      )
-    }}
   >
-    {ModalTemplate.bind({})}
+    {() => {
+      const { openDialogButton, modalButtons, show, closeModal, ref} = useStorybookModalHelper({openButtonTitle: 'Default'});
+      return (
+        <div>
+          {openDialogButton}
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            closeButtonAriaLabel={"close"}
+          >
+            <form>
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+            </form>
+            <ModalFooter>
+              {modalButtons}
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
   </Story>
 </Canvas>
 

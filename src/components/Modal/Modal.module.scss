@@ -40,15 +40,10 @@
   max-height: 90vh;
   max-width: 90vw;
 
-  &.small {
-    width: 350px;
-  }
-  &.medium {
+  &.default {
     width: 550px;
   }
-  &.large {
-    width: 750px;
-  }
+
   &.full {
     width: 100vw;
   }

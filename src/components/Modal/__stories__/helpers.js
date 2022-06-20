@@ -1,14 +1,14 @@
 import { Button, Flex } from "components";
 import React, { useRef, useState } from "react";
 
-export const useStorybookModalHelper = props => {
+export const useStorybookModalHelper = ({ openButtonTitle = "Open", ...props } = {}) => {
   const [show, setShow] = useState(false);
   const buttonRef = useRef(null);
   const closeModal = () => setShow(false);
 
   const openDialogButton = (
     <Button onClick={() => setShow(true)} ref={buttonRef}>
-      Open
+      {openButtonTitle}
     </Button>
   );
 
