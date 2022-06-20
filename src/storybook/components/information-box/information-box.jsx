@@ -12,7 +12,7 @@ export const InformationBox = ({ component, title, description }) => {
 
   return (
     <section className={BASE_CSS_CLASS}>
-      <figure className={bemHelper({ element: "component" })}>{component}</figure>
+      {component && <figure className={bemHelper({ element: "component" })}>{component}</figure>}
       {overrideTitle}
       <section className={bemHelper({ element: "description" })}>{description}</section>
     </section>

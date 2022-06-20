@@ -5,5 +5,5 @@ export const AnimationOverview = ({ videoSrc, title, description }) => {
   const AnimationOverviewVideo = (
     <video className={styles.video} controls src={videoSrc}/>
   );
-  return <InformationBox component={AnimationOverviewVideo} title={title} description={description} />;
+  return <InformationBox className={styles.animationOverviewWrapper} component={AnimationOverviewVideo} title={title} description={description} />;
 };

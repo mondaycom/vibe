@@ -1,7 +1,9 @@
 import { Meta } from "@storybook/addon-docs";
 import { ComponentName } from "../../components";
 import { AnimationOverviews } from "./animation-overviews/animation-overviews";
-import { DurationTokens } from "./duration-tokens/duration-tokens";
+import { DurationProductiveTokens } from "./duration-productive-tokens/duration-productive-tokens";
+import { DurationExpressiveTokens } from "./duration-expressive-tokens/duration-expressive-tokens";
+import { EasingOverviews } from "./easing-overviews/easing-overviews";
 import { ComingSoon } from "../../components/coming-soon/coming-soon";
 
 <Meta title="Foundations/Motion" />
@@ -27,11 +29,20 @@ When elements change their state or position, the duration of the animation shou
 
 The style and size of the motion determine the duration. There are two Styles, Productive motion and Expressive motion. The productive motion duration range is between 70 - 150 ms, while expressive motion scopes between 250 to 400 ms
 
-<DurationTokens />
+#### Productive motion
+Use Productive motion for moments when the user needs to focus on completing tasks.
+<DurationProductiveTokens />
+
+#### Expressive motion
+Use expressive motion when the movement itself conveys a meaning that the user needs to be noticed.
+<DurationExpressiveTokens />
+
 
 ### Ease - acceleration over time
 
 Since linear movements appear unnatural to a human eye, they should never be linear. Objects should move with some acceleration or deceleration — just like all live objects in the physical world.
+
+<EasingOverviews/>
 
 ## Do's and don'ts
 

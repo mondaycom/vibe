@@ -1,19 +1,40 @@
 import { Flex } from "../../../../components/";
 import { AnimationOverview } from "../animation-overview/animation-overview";
-import { Focus } from "../assets";
+import { Delight, Feedback, Focus, Orientation } from "../assets";
 import styles from "./animation-overviews.module.scss";
+
+const OVERVIEW = [
+  {
+    videoSrc: Orientation,
+    title: "Orientation & Continuity",
+    description:
+      "Motion give us a familiar feeling of enviorment, by helping us understand where things are located, where they're coming from and where to find them again."
+  },
+  {
+    videoSrc: Feedback,
+    title: "feedback & status -  mediation",
+    description:
+      "We use motion to earn the feeling of reassurance and control.It informs us when actions are in process and make us feel things happen faster than they really are."
+  },
+  {
+    videoSrc: Focus,
+    title: "Focus",
+    description: "Motion helps us focus attention on what's important, without creating unnecessary distraction"
+  },
+  {
+    videoSrc: Delight,
+    title: "Delight",
+    description:
+      "Motion celebrates moments in our journey, create emotional commitment, and express our brand's personality and style."
+  }
+];
 
 export const AnimationOverviews = () => {
   return (
-    <div>
-      <Flex gap={64} className={styles.row}>
-        <AnimationOverview videoSrc={Focus} title={"sdsdsd"} description={"dfdf"} />
-        <AnimationOverview videoSrc={Focus} title={"sdsdsd"} description={"dfdf"} />
-      </Flex>
-      <Flex gap={64} className={styles.row}>
-        <AnimationOverview videoSrc={Focus} title={"sdsdsd"} description={"dfdf"} />
-        <AnimationOverview videoSrc={Focus} title={"sdsdsd"} description={"dfdf"} />
-      </Flex>
+    <div className={styles.animationOverviewGrid}>
+      {OVERVIEW.map(({ videoSrc, title, description }) => (
+        <AnimationOverview key={title} videoSrc={videoSrc} title={title} description={description} />
+      ))}
     </div>
   );
 };
