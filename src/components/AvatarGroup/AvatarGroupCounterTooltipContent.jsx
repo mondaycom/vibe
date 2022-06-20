@@ -23,7 +23,7 @@ const AvatarGroupCounterTooltipContent = ({
       value: { ...avatar.props, tooltipContent: getTooltipContent(avatar.props) }
     }));
     const displayAsGrid = !avatarItems.some(item => item.value.tooltipContent);
-    const tooltipContainerAriaLabel = displayAsGrid
+    const tooltipContainerAriaLabel = !displayAsGrid
       ? avatarItems.map(item => item.value.tooltipContent).join(",")
       : undefined;
     return { avatarItems, displayAsGrid, tooltipContainerAriaLabel };
