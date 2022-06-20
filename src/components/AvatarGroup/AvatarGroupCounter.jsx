@@ -59,11 +59,10 @@ const AvatarGroupCounter = ({
       <MenuButton
         component={counterComponent}
         zIndex={1}
-        dialogClassName={styles.menu}
         componentClassName={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
         ariaLabel={`${counterValue} additional items`}
       >
-        <Menu id="menu" size={Menu.sizes.MEDIUM}>
+        <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu}>
           {counterTooltipAvatars.map((avatar, index) => {
             return (
               <MenuItem
