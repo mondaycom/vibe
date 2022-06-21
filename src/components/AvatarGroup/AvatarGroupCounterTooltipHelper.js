@@ -14,7 +14,7 @@ export function useTooltipContentTabNavigation({
   setIsTooltipVisible
 }) {
   const hideTooltip = () => {
-    // :D
+    // Tricky way to close the tooltip
     setTimeout(() => {
       setIsTooltipVisible(false);
       setIsTooltipVisible(true);
@@ -27,10 +27,8 @@ export function useTooltipContentTabNavigation({
     withoutAnyModifier: true,
     ref: counterContainerRef,
     callback: e => {
-      // console.log("TAB avatarGroup");
       if (e.target === counterContainerRef.current) {
         e.preventDefault();
-        // console.log("TAB avatarGroup (1) counterContainerRef, focusing (2) tooltipContentContainerRef");
         tooltipContentContainerRef.current && tooltipContentContainerRef.current.focus();
         setShouldUpdate(prev => !prev);
       }
@@ -43,9 +41,7 @@ export function useTooltipContentTabNavigation({
     modifier: useKeyEvent.modifiers.SHIFT,
     ref: counterContainerRef,
     callback: e => {
-      // console.log("SHIFT+TAB avatarGroup");
       if (e.target === counterContainerRef.current) {
-        // console.log("SHIFT+TAB avatarGroup (1) counterContainerRef, focusing (0) focusPrevPlaceholderRef");
         focusPrevPlaceholderRef?.current && focusPrevPlaceholderRef.current.focus();
         hideTooltip();
       }
@@ -58,9 +54,7 @@ export function useTooltipContentTabNavigation({
     ref: tooltipContentContainerRef,
     withoutAnyModifier: true,
     callback: e => {
-      // console.log("TAB tooltipContentContainerRef", tooltipContentContainerRef);
       if (e.target === tooltipContentContainerRef.current) {
-        // console.log("TAB tooltipContent (2) tooltipContentContainerRef, focusing (3) focusNextPlaceholderRef");
         focusNextPlaceholderRef?.current && focusNextPlaceholderRef.current.focus();
         hideTooltip();
       }
@@ -73,10 +67,8 @@ export function useTooltipContentTabNavigation({
     ref: tooltipContentContainerRef,
     modifier: useKeyEvent.modifiers.SHIFT,
     callback: e => {
-      // console.log("SHIFT+TAB tooltipContentContainerRef", tooltipContentContainerRef);
       if (e.target === tooltipContentContainerRef.current) {
         e.preventDefault();
-        // console.log("SHIFT+TAB tooltipContent (2) tooltipContentContainerRef, focusing (1) counterContainerRef");
         counterContainerRef.current && counterContainerRef.current.focus();
       }
     }
