@@ -7,6 +7,8 @@
   align-items: center;
   margin-left: calc(-1 * var(--spacing-small));
   z-index: 1;
+  border: 1px solid;
+  @include theme-prop(border-color, primary-background-color);
 
   &:focus-visible,
   &.focus-visible {
