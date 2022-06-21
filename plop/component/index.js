@@ -42,8 +42,10 @@ module.exports = plop => {
       {
         type: "append",
         path: "src/components/index.js",
+        pattern: /(\n$)/gm,
+        separator: "",
         template:
-          'export { default as {{properCase componentName}} } from "./{{properCase componentName}}/{{properCase componentName}}";'
+          'export { default as {{properCase componentName}} } from "./{{properCase componentName}}/{{properCase componentName}}";\n'
       },
       {
         type: "append",
