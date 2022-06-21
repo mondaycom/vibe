@@ -6,7 +6,7 @@ import { DurationExpressiveTokens } from "./duration-expressive-tokens/duration-
 import { DurationTokenTable } from "./duration-token-table/duration-token-table";
 import { EasingOverviews } from "./easing-overviews/easing-overviews";
 import { EasingTokenTable } from "./easing-token-table/easing-token-table";
-
+import { EasingDo, EasingDont, ConsistencyDo, ConsistencyDont, SimplicityDo, SimplicityDont } from "./assets";
 import { ComingSoon } from "../../components/coming-soon/coming-soon";
 
 <Meta title="Foundations/Motion" />
@@ -35,6 +35,7 @@ The style and size of the motion determine the duration. There are two Styles, P
 #### Productive motion
 
 Use Productive motion for moments when the user needs to focus on completing tasks.
+
 <DurationProductiveTokens />
 
 #### Expressive motion
@@ -44,16 +45,33 @@ Use expressive motion when the movement itself conveys a meaning that the user n
 <DurationExpressiveTokens />
 
 #### Summary: duration values
+
 <DurationTokenTable />
 
 ### Ease - acceleration over time
 
 Since linear movements appear unnatural to a human eye, they should never be linear. Objects should move with some acceleration or deceleration — just like all live objects in the physical world.
 
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: [<video height="190px" src={EasingDo} controls loop />],
+        description: "Using ease to make movement feel natural."
+      },
+      negative: {
+        component: [<video height="190px" src={EasingDont} controls loop/>],
+        description: "Linear motion feels mechanical and unnatural."
+      }
+    }
+  ]}
+/>
+
 <EasingOverviews />
 
 #### Summary: easing values
-<EasingTokenTable/>
+
+<EasingTokenTable />
 
 ## Do's and don'ts
 
@@ -62,14 +80,70 @@ Since linear movements appear unnatural to a human eye, they should never be lin
 Similar elements must have similar moves, Implement easing curves and timing with a consistent rhythm.
 Things should be predictable and familiar.
 
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: [<video height="190px" src={ConsistencyDo} controls loop />],
+        description: "Using ease to make movement feel natural."
+      },
+      negative: {
+        component: [<video height="190px" src={ConsistencyDont} controls loop/>],
+        description: "Linear motion feels mechanical and unnatural."
+      }
+    }
+  ]}
+/>
+
 ### Simplicity
 
 Simple movements make it easier for the user to follow along and convey a clear message. Keep it simple and clever, removing gets in the way of users' understanding.
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: [<video height="180px" src={SimplicityDo} controls loop />],
+        description: "Use only one primary action within a single view."
+      },
+      negative: {
+        component: [<video height="180px" src={SimplicityDont} controls loop />],
+        description: "Don’t use multiple primary buttons within a single view."
+      }
+    }
+  ]}
+/>
 
 ### Don’t delay the user
 
 The user should never get the feeling that he’s waiting for the animation to end.
 
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        description: "Use only one primary action within a single view."
+      },
+      negative: {
+        description: "Don’t use multiple primary buttons within a single view."
+      }
+    }
+  ]}
+/>
+
 ### Scale
 
 When scaling, components should not be streched, keep the X and Y proporsions locked
+
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        description: "Use only one primary action within a single view."
+      },
+      negative: {
+        description: "Don’t use multiple primary buttons within a single view."
+      }
+    }
+  ]}
+/>

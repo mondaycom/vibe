@@ -6,17 +6,17 @@ export const EasingTokenTable = () => {
     const tbodyData = [
         {
             id: "1",
-            items: ["motion-timing-enter", "Entence", ""]
+            items: ["motion-timing-enter", "Entence", "",""]
         },
         {
             id: "2",
-            items: ["motion-timing-exit", "Small expansions, small notifications",""]
+            items: ["motion-timing-exit", "Small expansions, small notifications","",""]
         },
         {
             id: "3",
-            items: ["motion-timing-transition", "expansions,  distance movment", ""]
+            items: ["motion-timing-transition", "expansions,  distance movment", "",""]
         },
-        { id: "4", items: ["motion-timing-emphesize - short", "Notification - elastic / bounce",""] },
+        { id: "4", items: ["motion-timing-emphesize - short", "Notification - elastic / bounce","",""] },
     ];
     return (
         <div>

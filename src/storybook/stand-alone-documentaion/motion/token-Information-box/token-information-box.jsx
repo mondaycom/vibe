@@ -1,11 +1,12 @@
 import { InformationBox } from "../../../components/information-box/information-box";
 
-export const TokenInformationBox = ({ imgSrc, alt, title, description, tokenDescription }) => {
-  const TokenInformationBoxImg = imgSrc ? <img src={imgSrc} alt={alt} /> : null;
+export const TokenInformationBox = ({ className, videoSrc, title, description, tokenInfo, tokenDescription }) => {
+  const TokenInformationBoxImg = videoSrc ? <video src={videoSrc} controls loop /> : null;
 
   return (
-    <div>
+    <div className={className}>
       <InformationBox component={TokenInformationBoxImg} title={title} description={description} />
+      <p>{tokenInfo}</p>
       <p>{tokenDescription}</p>
     </div>
   );

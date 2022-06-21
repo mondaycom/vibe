@@ -2,13 +2,19 @@ import { TokenInformationBox } from "../token-Information-box/token-information-
 import { Flex } from "../../../../components";
 import styles from "./easing-overview.module.scss";
 
-export const EasingOverview = ({ videoSrc, title, description, tokenDescription }) => {
-  const EasingOverviewVideoSrc = <video className={styles.video} src={videoSrc} controls />;
+export const EasingOverview = ({ videoSrc, title, description, tokenInfo, tokenDescription }) => {
+  const EasingOverviewVideoSrc = <video className={styles.video} src={videoSrc} controls loop />;
 
   return (
     <div className={styles.row}>
       <Flex justify={Flex.justify.SPACE_BETWEEN} align={Flex.align.START} gap={Flex.gaps.LARGE}>
-        <TokenInformationBox title={title} description={description} tokenDescription={tokenDescription} />
+        <TokenInformationBox
+          className={styles.easingInformationBox}
+          title={title}
+          description={description}
+          tokenInfo={tokenInfo}
+          tokenDescription={tokenDescription}
+        />
         {EasingOverviewVideoSrc}
       </Flex>
     </div>
