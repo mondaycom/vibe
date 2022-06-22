@@ -121,7 +121,7 @@ const Avatar = ({
   };
 
   return (
-    <div className={cx(AVATAR_CSS_BASE_CLASS, className, bemHelper({ state: size }))}>
+    <div className={cx(AVATAR_CSS_BASE_CLASS, className, bemHelper({ state: size }))} style={sizeStyle}>
       <ClickableWrapper>
         <Tooltip
           showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
@@ -136,7 +136,7 @@ const Avatar = ({
             })}
             aria-hidden={ariaHidden}
             tabIndex={tabIndex}
-            style={{ ...backgroundColorStyle, ...sizeStyle }}
+            style={{ ...backgroundColorStyle }}
           >
             <AvatarContent
               type={type}
