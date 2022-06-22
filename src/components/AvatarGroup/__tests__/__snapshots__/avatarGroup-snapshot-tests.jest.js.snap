@@ -5,11 +5,12 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
   className=""
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -60,11 +61,12 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
   className=""
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -123,11 +125,12 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
   className=""
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -185,11 +188,12 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
   className=""
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -240,11 +244,12 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
   className=""
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -260,11 +265,12 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
     </div>
   </div>
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -287,11 +293,12 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
   className="dummy-class-name"
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -314,11 +321,12 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
   className=""
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -369,11 +377,12 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
   className=""
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -389,11 +398,12 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
     </div>
   </div>
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text monday-style-avatar_circle--large"
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
