@@ -10,7 +10,7 @@ module.exports = options => {
   const nodeExternals = require("webpack-node-externals");
   const styleLoaders = [
     IS_DEV || options.storybook
-        ? {
+      ? {
           loader: "style-loader",
           options: {
             injectType: "singletonStyleTag",
@@ -28,7 +28,7 @@ module.exports = options => {
             }
           }
         }
-        : {
+      : {
           loader: MiniCssExtractPlugin.loader
         },
     {
