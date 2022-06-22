@@ -1,0 +1,54 @@
+// Values from last prod before change
+$debug-black-theme-keys-map: (
+        primary-color: var(--color-basic_blue),
+        primary-on-secondary-color: var(--color-basic_blue),
+        primary-hover-color: #0060b9,
+        primary-hover-on-secondary-color: #0060b9,
+        primary-selected-color: #133774,
+        primary-text-color: #eeeeee,
+        text-color-on-inverted: #111111,
+        secondary-text-color: #aaaaaa,
+        placeholder-color: #aaaaaa,
+        icon-color: #aaaaaa,
+        link-color: #69a7ef,
+        primary-background-color: #111111,
+        primary-background-hover-color: #636363,
+        secondary-background-color: #2c2c2c,
+        grey-background-color: #111111,
+        inverted-color-background: #eeeeee,
+        disabled-background-color: #3a3a3a,
+        disabled-text-color: #5d5d5d,
+        positive-color: var(--color-success),
+        positive-color-hover: var(--color-success-hover),
+        positive-color-selected: #26503e,
+        negative-color: var(--color-error),
+        negative-color-hover: var(--color-error-hover),
+        negative-color-selected: #642830,
+        private-color: var(--color-private),
+        shareable-color: #a358df,
+        ui-border-color: #8d8d8d,
+        layout-border-color: #636363,
+);
+
+// Value from current code
+$debug-output-black-theme-keys: $theme-black-keys;
+
+// Custom properties values the equal hard coded values
+$debug-black-theme-keys-custom-props-reference: (
+);
+
+$debug-black-theme-keys-custom-props-converted: (
+        primary-color: $theme-black-primary-color,
+        primary-on-secondary-color: $theme-black-primary-on-secondary-color,
+        positive-color: $theme-black-positive-color,
+        positive-color-hover: $theme-black-positive-color-hover,
+        negative-color: $theme-black-negative-color,
+        negative-color-hover: $theme-black-negative-color-hover,
+        private-color: $theme-black-private-color,
+);
+
+// White list
+$debug-black-theme-keys-white-list: (
+        shareable-color: $theme-black-shareable-color,
+)
+;

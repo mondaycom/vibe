@@ -1,0 +1,55 @@
+//  BLACK THEME TOKENS: LEGACY KEYS
+// - This partial defines Black Theme's legacy keys tokens
+// - Legacy keys are colors that are not part of the theme's keys
+// - Legacy keys are currently presented as custom properties
+// - Due to separation between Registration and Semantic candidates sort order between group is important
+//   - Some Semantic candidates are aliases or Registration colors (as it should be)
+// - Legacy keys might be in use within themes.
+// - Per now they cannot be deprecated.
+// - We define a token as a legacy key when:
+//   - It has a legacy registration color as value.(value duplication)
+//   - It has name that indicates a certain role
+//   - It is abstract and not tied to a specific use. (such as some legacy tokens)
+//   - Some other token is using them and it makes a sense (connection is clear)
+// - This way we eliminate duplication for hard coded value declaration.
+
+// # Not in Vibe UI definitions
+$theme-black-primary-on-secondary-color: $color-basic_blue;
+$theme-black-primary-hover-on-secondary-color: $color-dark_blue;
+$theme-black-primary-selected-color-rgb: extract-rgb($color-ocean_blue);
+$theme-black-primary-selected-on-secondary-color: $color-ocean_blue;
+$theme-black-primary-text-on-secondary-color: $color-smog;
+
+$theme-black-primary-background-color-rgb: extract-rgb($color-vanta);
+$theme-black-primary-background-hover-on-secondary-color: $color-dust;
+$theme-black-secondary-background-color-rgb: extract-rgb($color-night);
+
+$theme-black-secondary-text-on-secondary-color: $color-jaco_gray;
+$theme-black-link-on-secondary-color: $color-arctic_blue;
+
+$theme-black-modal-background-color: $color-midnight;
+$theme-black-dark-background-color: $color-night;
+$theme-black-dark-background-on-secondary-color: $color-silver;
+$theme-black-dialog-background-color: $color-night;
+
+$theme-black-label-background-color: $color-buster_blue; // todo: fix, not part of Vibe colors
+$theme-black-label-background-on-secondary-color: $color-buster_blue; // todo: fix, not part of Vibe colors
+
+$theme-black-icon-on-secondary-color: $color-mouse;
+$theme-black-placeholder-color-with-opacity: rgba($color-mouse, 0.1);
+$theme-black-placeholder-on-secondary-color: $color-mouse;
+
+// States
+$theme-black-disabled-text-on-secondary-color: $theme-black-disabled-text-color;
+$theme-black-disabled-background-on-secondary-color: $theme-black-disabled-background-color;
+
+// borders
+$theme-black-ui-border-on-secondary-color: $color-smoke;
+$theme-black-layout-border-on-secondary-color: $color-dust;
+
+// legacy shadow
+$theme-black-box-shadow-mediun: var(--box-shadow-medium);
+
+
+
+

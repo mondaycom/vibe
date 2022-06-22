@@ -1,0 +1,38 @@
+// Values from last prod before change
+$debug-black-theme-legacy-keys-map: (
+        primary-selected-color-rgb: (19, 55, 116),
+        primary-selected-on-secondary-color: #133774,
+        primary-text-on-secondary-color: #eeeeee,
+        primary-background-color-rgb: (17, 17, 17),
+        primary-background-hover-on-secondary-color: #636363,
+        ui-border-on-secondary-color: #8d8d8d,
+        layout-border-on-secondary-color: #636363,
+        placeholder-color-with-opacity: rgba(170, 170, 170, 0.1),
+        placeholder-on-secondary-color: #aaaaaa,
+        icon-on-secondary-color: #aaaaaa,
+        disabled-background-on-secondary-color: #3a3a3a,
+        disabled-text-on-secondary-color: #5d5d5d,
+        dark-background-color: #2c2c2c,
+        dark-background-on-secondary-color: #4b4e69,
+        secondary-background-color-rgb: (44, 44, 44),
+        dialog-background-color: #2c2c2c,
+        label-background-color: #404b69,
+        label-background-on-secondary-color: #404b69,
+        secondary-text-on-secondary-color: var(--color-jaco_gray),
+        link-on-secondary-color: #69a7ef,
+);
+
+// Value from current code
+$debug-output-black-theme-legacy-keys: $theme-black-legacy-keys;
+
+// Custom properties values the equal hard coded values
+$debug-black-theme-legacy-custom-props-reference: (
+);
+
+$debug-black-theme-legacy-keys-custom-props-converted: (
+        secondary-text-on-secondary-color:$theme-black-secondary-text-on-secondary-color
+);
+
+// White list
+$debug-black-theme-legacy-keys-white-list: (
+);

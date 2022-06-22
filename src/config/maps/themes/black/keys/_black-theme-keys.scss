@@ -1,0 +1,46 @@
+// BLACK THEME COLOR KEYS MAP: This partial defines the black theme's keys color map.
+// - Map include semantic color keys scope tokens.
+// - Map is collected into the $theme-black-settings map and is interpolated into custom properties.
+
+$theme-black-keys: (
+        primary-color: $theme-black-primary-color,
+        primary-on-secondary-color: $theme-black-primary-on-secondary-color,
+        primary-hover-color: $theme-black-primary-hover-color,
+        primary-selected-color: $theme-black-primary-selected-color,
+        primary-text-color: $theme-black-primary-text-color,
+        text-color-on-primary: $theme-black-text-color-on-primary,
+        text-color-on-inverted: $theme-black-text-color-on-inverted,
+        secondary-text-color: $theme-black-secondary-text-color,
+        placeholder-color: $theme-black-placeholder-color,
+        icon-color: $theme-black-icon-color,
+        link-color: $theme-black-link-color,
+        primary-background-color: $theme-black-primary-background-color,
+        primary-background-hover-color: $theme-black-primary-background-hover-color,
+        secondary-background-color: $theme-black-secondary-background-color,
+        grey-background-color: $theme-black-grey-background-color,
+        allgrey-background-color: $theme-black-allgrey-background-color,
+        inverted-color-background: $theme-black-inverted-color-background,
+        disabled-text-color: $theme-black-disabled-text-color,
+        disabled-background-color: $theme-black-disabled-background-color,
+        positive-color: $theme-black-positive-color,
+        positive-color-hover: $theme-black-positive-color-hover,
+        positive-color-selected: $theme-black-positive-color-selected,
+        negative-color: $theme-black-negative-color,
+        negative-color-hover: $theme-black-negative-color-hover,
+        negative-color-selected: $theme-black-negative-color-selected,
+        private-color: $theme-black-private-color,
+        shareable-color: $theme-black-shareable-color,
+        ui-border-color: $theme-black-ui-border-color,
+        layout-border-color: $theme-black-layout-border-color,
+);
+
+// DARK THEME SHADOW MAP: dark theme's shadow color map.
+// - Map include shadow scope tokens.
+// - Map is collected into the $theme-black-settings map and is interpolated into custom properties.
+
+$theme-black-shadow-keys: (
+        box-shadow-xs: $theme-black-box-shadow-xs,
+        box-shadow-small: $theme-black-box-shadow-small,
+        box-shadow-medium: $theme-black-box-shadow-medium,
+        box-shadow-large: $theme-black-box-shadow-large,
+);

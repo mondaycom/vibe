@@ -1,0 +1,7 @@
+// BLACK THEME SETTINGS: This partial Defines a Unified settings map for the BLACK THEME Scope.
+// - Map collect function is used in order to merge multiple maps.
+
+$theme-black-settings: map-collect(
+                $theme-black-keys,
+                $theme-black-shadow-keys,
+);

@@ -1,0 +1,24 @@
+// DARK THEME: This partial loads DARK THEME scope related Custom properties
+// - TODO: Dark Theme experience Guidelines should be shortly described here
+// - Properties are Theme Specific and goes under a Theme Specific Class based Selectors.
+
+@import "dark/dark-theme-settings";
+@import "dark/dark-theme-legacy-settings";
+@import "dark/dark-theme-content-colors";
+
+.dark-app-theme {
+  @include generate-custom-properties($theme-dark-settings);
+  @include define-dark-theme-content-colors();
+
+  /*
+
+  LEGACY VALUES
+
+  These values are not within Vibe's UI definitions and are on a deprecation path.
+  Please stop using them and make efforts to replace theme with their Vibe corresponding keys.
+
+  */
+
+  @include generate-custom-properties($theme-dark-legacy-settings);
+}
+

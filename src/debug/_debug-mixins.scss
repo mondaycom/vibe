@@ -81,7 +81,7 @@
         @debug "[#{$i}] ⬜ FALSE FAIL ,[WHITE LISTED] --#{$key} #{$value} changed to  #{map-get($white-list,$key)}";
         $num-white-list: $num-white-list + 1;
       } @else {
-        @debug "[#{$i}] ❌ FAIL, --#{$key},#{map-get($prod,$key)} , ⭕ #{map-get($dev,$key)} ";
+        @warn "[#{$i}] ❌ FAIL, --#{$key},#{map-get($prod,$key)} , ⭕ #{map-get($dev,$key)} ";
         $num-fail: $num-fail + 1;
       }
     } @else {

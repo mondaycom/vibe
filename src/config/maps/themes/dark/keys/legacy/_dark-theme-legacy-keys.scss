@@ -1,0 +1,33 @@
+// DARK THEME LEGACY KEYS MAP: This partial defines the dark theme's legacy keys color map.
+// - Map include legacy keys scope tokens.
+// - Its main Purpose is to separate legacy tokens to registration tokens and key tokens.
+// - This map is for Key Tokens.
+//   - Legacy Key tokens are aliases of registration tokens or content color tokens with a semantic meaning.
+// - Map is collected into the $theme-dark-settings map and is interpolated into custom properties.
+
+$theme-dark-legacy-keys: (
+        primary-on-secondary-color: $theme-dark-primary-on-secondary-color,
+        primary-hover-on-secondary-color:$theme-dark-primary-hover-on-secondary-color,
+        primary-selected-color-rgb: $theme-dark-primary-selected-color-rgb,
+        primary-selected-on-secondary-color: $theme-dark-primary-selected-on-secondary-color,
+        primary-text-on-secondary-color: $theme-dark-primary-text-on-secondary-color,
+        primary-background-color-rgb: $theme-dark-primary-background-color-rgb,
+        primary-background-hover-on-secondary-color: $theme-dark-primary-background-hover-on-secondary-color,
+        secondary-background-color-rgb: $theme-dark-secondary-background-color-rgb,
+        secondary-text-on-secondary-color:$theme-dark-secondary-text-on-secondary-color,
+        link-on-secondary-color: $theme-dark-link-on-secondary-color,
+        modal-background-color: $theme-dark-modal-background-color,
+        dark-background-color: $theme-dark-dark-background-color,
+        dark-background-on-secondary-color: $theme-dark-dark-background-on-secondary-color,
+        dialog-background-color: $theme-dark-dialog-background-color,
+        label-background-color: $theme-dark-label-background-color,
+        label-background-on-secondary-color: $theme-dark-label-background-on-secondary-color,
+        icon-on-secondary-color: $theme-dark-icon-on-secondary-color,
+        placeholder-color-with-opacity: $theme-dark-placeholder-color-with-opacity,
+        placeholder-on-secondary-color: $theme-dark-placeholder-on-secondary-color,
+        ui-border-on-secondary-color: $theme-dark-ui-border-on-secondary-color,
+        layout-border-on-secondary-color: $theme-dark-layout-border-on-secondary-color,
+        disabled-background-on-secondary-color: $theme-dark-disabled-background-on-secondary-color,
+        disabled-text-on-secondary-color: $theme-dark-disabled-text-on-secondary-color,
+        box-shadow-mediun: $box-shadow-mediun,
+);

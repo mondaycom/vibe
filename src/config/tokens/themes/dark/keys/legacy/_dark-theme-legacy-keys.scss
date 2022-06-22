@@ -1,0 +1,54 @@
+//  DARK THEME TOKENS: LEGACY KEYS
+// - This partial defines Dark Theme's legacy keys tokens
+// - Legacy keys are colors that are not part of the theme's keys
+// - Legacy keys are currently presented as custom properties
+// - Due to separation between Registration and Semantic candidates sort order between group is important
+//   - Some Semantic candidates are aliases or Registration colors (as it should be)
+// - Legacy keys might be in use within themes.
+// - Per now they cannot be deprecated.
+// - We define a token as a legacy key when:
+//   - It has a legacy registration color as value.(value duplication)
+//   - It has name that indicates a certain role
+//   - It is abstract and not tied to a specific use. (such as some legacy tokens)
+//   - Some other token is using them and it makes a sense (connection is clear)
+// - This way we eliminate duplication for hard coded value declaration.
+
+// # Not in Vibe UI definitions
+$theme-dark-primary-on-secondary-color: $color-basic_blue;
+$theme-dark-primary-hover-on-secondary-color: $color-dark_blue;
+$theme-dark-primary-selected-color-rgb: extract-rgb($color-ocean_blue);
+$theme-dark-primary-selected-on-secondary-color: $color-ocean_blue;
+$theme-dark-primary-text-on-secondary-color: $color-snow;
+
+$theme-dark-primary-background-color-rgb: extract-rgb($color-midnight);
+$theme-dark-primary-background-hover-on-secondary-color: $color-silver;
+$theme-dark-secondary-background-color-rgb: extract-rgb($color-graphite);
+
+$theme-dark-secondary-text-on-secondary-color: $color-jaco_gray;
+$theme-dark-link-on-secondary-color: $color-arctic_blue;
+
+$theme-dark-modal-background-color: $color-midnight;
+$theme-dark-dark-background-color: $color-carbon_blue; // todo: fix, not part of Vibe colors
+$theme-dark-dark-background-on-secondary-color: $color-silver;
+$theme-dark-dialog-background-color: $color-graphite;
+
+$theme-dark-label-background-color: $color-buster_blue; // todo: fix, not part of Vibe colors
+$theme-dark-label-background-on-secondary-color: $color-buster_blue; // todo: fix, not part of Vibe colors
+
+$theme-dark-icon-on-secondary-color: $color-wolf_gray;; // todo: fix, theme basic natural color
+$theme-dark-placeholder-color-with-opacity: $color-wolf_gray-with-opacity; // todo: fix, theme basic natural color
+$theme-dark-placeholder-on-secondary-color: $color-wolf_gray; // todo: fix, theme basic natural color
+
+// States
+$theme-dark-ui-border-on-secondary-color: $color-fog;
+$theme-dark-layout-border-on-secondary-color: $color-silver;
+
+$theme-dark-disabled-text-on-secondary-color: $theme-dark-disabled-text-color;
+$theme-dark-disabled-background-on-secondary-color: $theme-dark-disabled-background-color;
+
+// legacy shadow
+$theme-dark-box-shadow-mediun: var(--box-shadow-medium);
+
+
+
+

@@ -30,8 +30,6 @@ $primary-background-hover-color: $color-ui_grey;
 $secondary-background-color: $color-snow_white;
 $grey-background-color: $color-riverstone_gray;
 $allgrey-background-color: $color-riverstone_gray;
-
-
 // - contrast hook
 $inverted-color-background: $color-mud_black;
 
@@ -54,6 +52,10 @@ $ui-border-color: $color-wolf_gray;
 $layout-border-color: #d0d4e4; // Todo: TBD, should be - var(--color-ui_grey)
 
 // - Shadows
+$shadow-xs-opacity: $opacity-10;
+$shadow-small-opacity: $opacity-20;
+$shadow-medium-opacity: $shadow-small-opacity;
+$shadow-large-opacity: $opacity-30;
 $shadow-color: $color-black;
 
 $box-shadow-xs: $shadow-size-xs rgba($shadow-color, $shadow-xs-opacity);

@@ -64,6 +64,64 @@
       );
     }
   }
+  @if $debug-dark-theme {
+    // DARK THEME
+    // - Theme keys
+    @if $debug-keys {
+      @include debug-compare-values(
+              $prod: $debug-dark-theme-keys-map,
+              $dev: $debug-output-dark-theme-keys,
+              $custom-props-values: $debug-dark-theme-keys-custom-props-reference,
+              $custom-props-converted: $debug-dark-theme-keys-custom-props-converted,
+              $white-list: $debug-dark-theme-keys-white-list,
+              $reference-key-map: $debug-basic-theme-keys-map,
+              $title: "🔑 theme key values",
+              $scope: "dark theme",
+      );
+    }
+    // - Theme legacy keys
+    @if $debug-legacy-keys {
+      @include debug-compare-values(
+              $prod: $debug-dark-theme-legacy-keys-map,
+              $dev: $debug-output-dark-theme-legacy-keys,
+              $custom-props-values: $debug-dark-theme-legacy-custom-props-reference,
+              $custom-props-converted: $debug-dark-theme-legacy-keys-custom-props-converted,
+              $white-list: $debug-dark-theme-legacy-white-list,
+              $reference-key-map: $debug-basic-theme-legacy-keys-map,
+              $title: "🗝️ legacy key values",
+              $scope: "dark theme",
+      );
+    }
+  }
+  @if $debug-black-theme {
+    //BLACK THEME
+    // - Theme keys
+    @if $debug-keys {
+      @include debug-compare-values(
+              $prod: $debug-black-theme-keys-map,
+              $dev: $debug-output-black-theme-keys,
+              $custom-props-values: $debug-black-theme-keys-custom-props-reference,
+              $custom-props-converted: $debug-black-theme-keys-custom-props-converted,
+              $white-list: $debug-black-theme-keys-white-list,
+              $reference-key-map: $debug-basic-theme-keys-map,
+              $title: "🔑 theme key values",
+              $scope: "black theme",
+      );
+    }
+    // - Theme legacy keys
+    @if $debug-legacy-keys {
+      @include debug-compare-values(
+              $prod: $debug-black-theme-legacy-keys-map,
+              $dev: $debug-output-black-theme-legacy-keys,
+              $custom-props-values: $debug-black-theme-legacy-custom-props-reference,
+              $custom-props-converted: $debug-black-theme-legacy-keys-custom-props-converted,
+              $white-list: $debug-black-theme-legacy-keys-white-list,
+              $reference-key-map: $debug-basic-theme-legacy-keys-map,
+              $title: "🗝️ legacy key values",
+              $scope: "black theme",
+      );
+    }
+  }
 
   // Example use for validate tokens using reference map
   @if $debug-example-verify-vibe-keys {
