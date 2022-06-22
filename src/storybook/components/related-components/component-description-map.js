@@ -127,8 +127,8 @@ descriptionTypesMap.set(CLICKABLE, <ClickableDescription />);
 descriptionTypesMap.set(HIDDEN_TEXT, <HiddenTextDescription />);
 descriptionTypesMap.set(LIST, <ListDescription />);
 descriptionTypesMap.set(FLEX, <FlexDescription />);
-descriptionTypesMap.set(DIVIDER, <DividerDescription/>);
-descriptionTypesMap.set(DIALOG_CONTENT_CONTAINER, <DialogContentContainerDescription/>);
+descriptionTypesMap.set(DIVIDER, <DividerDescription />);
+descriptionTypesMap.set(DIALOG_CONTENT_CONTAINER, <DialogContentContainerDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
