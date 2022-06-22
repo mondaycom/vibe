@@ -41,7 +41,6 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
     aria-disabled={false}
     className="chip-icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
-    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -101,7 +100,6 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
     aria-disabled={false}
     className="chip-icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
-    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -153,17 +151,18 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
   }
 >
   <div
-    className="monday-style-avatar chip-avatar left"
+    className="monday-style-avatar chip-avatar left monday-style-avatar--large"
+    style={
+      Object {
+        "height": 16,
+        "width": 16,
+      }
+    }
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
-      style={
-        Object {
-          "height": 16,
-          "width": 16,
-        }
-      }
+      className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--without-border"
+      style={Object {}}
       tabIndex={0}
     >
       <img
@@ -234,17 +233,18 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
     
   </div>
   <div
-    className="monday-style-avatar chip-avatar right"
+    className="monday-style-avatar chip-avatar right monday-style-avatar--large"
+    style={
+      Object {
+        "height": 16,
+        "width": 16,
+      }
+    }
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--large monday-style-avatar_circle--without-border"
-      style={
-        Object {
-          "height": 16,
-          "width": 16,
-        }
-      }
+      className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--without-border"
+      style={Object {}}
       tabIndex={0}
     >
       <img
@@ -313,7 +313,6 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
     aria-disabled={false}
     className="chip-icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
-    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}

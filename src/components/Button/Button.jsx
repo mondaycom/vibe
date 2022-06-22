@@ -91,13 +91,13 @@ const Button = forwardRef(
 
     const onMouseUp = useCallback(() => {
       const button = buttonRef.current;
-      if (!button) {
+      if (disabled || !button) {
         return;
       }
       if (blurOnMouseUp) {
         button.blur();
       }
-    }, [buttonRef, blurOnMouseUp]);
+    }, [disabled, buttonRef, blurOnMouseUp]);
 
     const onButtonClicked = useCallback(
       event => {
@@ -144,31 +144,32 @@ const Button = forwardRef(
           "monday-style-button--right-flat": rightFlat,
           "monday-style-button--left-flat": leftFlat,
           "monday-style-button--prevent-click-animation": preventClickAnimation,
-          "monday-style-button--no-side-padding": noSidePadding
+          "monday-style-button--no-side-padding": noSidePadding,
+          "monday-style-button--disabled": disabled
         }
       );
     }, [
-      size,
-      kind,
+      success,
       color,
       className,
-      success,
+      size,
+      kind,
+      hasSizeStyle,
       loading,
       active,
       marginRight,
       marginLeft,
-      noSidePadding,
-      preventClickAnimation,
-      leftFlat,
       rightFlat,
-      hasSizeStyle
+      leftFlat,
+      preventClickAnimation,
+      noSidePadding,
+      disabled
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
 
     const buttonProps = useMemo(() => {
       return {
-        disabled,
         ref: mergedRef,
         type,
         className: classNames,
