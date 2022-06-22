@@ -87,7 +87,7 @@ exports[`IconButton renders correctly with active 1`] = `
 
 exports[`IconButton renders correctly with aria label 1`] = `
 <span
-  className=""
+  className="referenceContainer"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}

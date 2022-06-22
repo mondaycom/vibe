@@ -1848,8 +1848,12 @@ exports[`Dropdown renders correctly with multi 1`] = `
     <div
       className=" css-yilbcx-Component"
     >
-      <div>
-        <div>
+      <div
+        className="value-container"
+      >
+        <div
+          className="placeholder-container"
+        >
           <div
             className=" css-1dtegfv-placeholder"
           >
@@ -1857,7 +1861,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
           </div>
         </div>
         <div
-          className=""
+          className="value-container-chips"
           data-testid="value-container-chips"
         >
           <div
