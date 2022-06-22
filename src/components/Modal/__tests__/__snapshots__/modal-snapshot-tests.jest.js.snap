@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal renders correctly with base props 1`] = `
+<div
+  aria-hidden={true}
+  aria-labelledby="modal-id-title"
+  aria-modal={true}
+  className="container"
+  data-testid="monday-dialog-container"
+  id="modal-id"
+  role="dialog"
+  tabIndex={-1}
+>
+  <div
+    className="overlay"
+    data-testid="monday-modal-overlay"
+    onClick={[Function]}
+  />
+  <div
+    className="dialog default"
+    role="document"
+  >
+    <div
+      className="mondayStyleModalHeader"
+    >
+      <p
+        aria-level={1}
+        className="title"
+        id="modal-id-title"
+        role="heading"
+      >
+        Modal Title
+      </p>
+      
+      <div
+        className="closeButton"
+      >
+        <span
+          className="referenceContainer"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <button
+            aria-disabled={false}
+            aria-label="close"
+            className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+            data-testid="icon-button"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseDown={[Function]}
+            onMouseUp={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "height": "32px",
+                "justifyContent": "center",
+                "padding": 0,
+                "width": "32px",
+              }
+            }
+            type="button"
+          >
+            <svg
+              aria-hidden={true}
+              className="icon_component icon-button-padding icon_component--no-focus-style"
+              fill="currentColor"
+              height="24"
+              onClick={[Function]}
+              viewBox="0 0 20 20"
+              width="24"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div
+      className="mondayStyleModalContent"
+    />
+  </div>
+</div>
+`;

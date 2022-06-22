@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import ModalFooter from "../ModalFooter";
+import { Button } from "components";
 
 /**
  * There are cases where the component we want to test in the snapshot test will contain additional components.
@@ -34,17 +35,13 @@ jest.mock("../../Button/Button", () => {
 
 describe("ModalFooter renders correctly", () => {
   it("with empty props", () => {
-    const tree = renderer.create(<ModalFooter />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with x", () => {
-    const tree = renderer.create(<ModalFooter />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with y", () => {
-    const tree = renderer.create(<ModalFooter />).toJSON();
+    const tree = renderer
+      .create(
+        <ModalFooter>
+          <Button />
+        </ModalFooter>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

@@ -33,18 +33,8 @@ jest.mock("../../Button/Button", () => {
 **/
 
 describe("ModalHeader renders correctly", () => {
-  it("with empty props", () => {
-    const tree = renderer.create(<ModalHeader />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with x", () => {
-    const tree = renderer.create(<ModalHeader />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with y", () => {
-    const tree = renderer.create(<ModalHeader />).toJSON();
+  it("with required props", () => {
+    const tree = renderer.create(<ModalHeader title={"Title"} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

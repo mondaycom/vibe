@@ -4,11 +4,7 @@ import cx from "classnames";
 import classes from "./ModalContent.module.scss";
 
 const ModalContent = ({ className, children }) => {
-  return (
-    <div className={cx(classes.mondayStyleModalContent, className)} data-model-content={true}>
-      {children}
-    </div>
-  );
+  return <div className={cx(classes.mondayStyleModalContent, className)}>{children}</div>;
 };
 
 ModalContent.propTypes = {

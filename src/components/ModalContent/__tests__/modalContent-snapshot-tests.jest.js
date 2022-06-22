@@ -38,13 +38,14 @@ describe("ModalContent renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with x", () => {
-    const tree = renderer.create(<ModalContent />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with y", () => {
-    const tree = renderer.create(<ModalContent />).toJSON();
+  it("with children", () => {
+    const tree = renderer
+      .create(
+        <ModalContent>
+          <div>children</div>
+        </ModalContent>
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
