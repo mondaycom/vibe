@@ -125,7 +125,7 @@ const Avatar = ({
   };
 
   return (
-    <div className={cx(AVATAR_CSS_BASE_CLASS, className)}>
+    <div className={cx(AVATAR_CSS_BASE_CLASS, className, bemHelper({ state: size }))} style={sizeStyle}>
       <ClickableWrapper>
         <Tooltip
           showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
@@ -133,19 +133,14 @@ const Avatar = ({
           {...overrideTooltipProps}
         >
           <div
-            className={cx(
-              bemHelper({ element: "circle" }),
-              bemHelper({ element: "circle", state: type }),
-              bemHelper({ element: "circle", state: size }),
-              {
-                [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
-                [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare,
-                [bemHelper({ element: "circle", state: "without-border" })]: withoutBorder
-              }
-            )}
+            className={cx(bemHelper({ element: "circle" }), bemHelper({ element: "circle", state: type }), {
+              [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
+              [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare,
+              [bemHelper({ element: "circle", state: "without-border" })]: withoutBorder
+            })}
             aria-hidden={ariaHidden}
             tabIndex={tabIndex}
-            style={{ ...backgroundColorStyle, ...sizeStyle }}
+            style={{ ...backgroundColorStyle }}
           >
             <AvatarContent
               type={type}
