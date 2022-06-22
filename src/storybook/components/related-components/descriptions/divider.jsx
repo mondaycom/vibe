@@ -9,7 +9,7 @@ import { Settings, Bolt } from "../../../../components/Icon/Icons";
 export const DividerDescription = () => {
   const component = useMemo(() => {
     return (
-      <div style={{ width: "200px" }}>
+      <div style={{ width: "220px" }}>
         <Menu>
           <MenuItem
             title="My Item (stuck red)"
