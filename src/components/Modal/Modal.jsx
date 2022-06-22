@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, cloneElement } from "react";
+import React, { useCallback, useEffect, cloneElement, useMemo } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -85,11 +85,8 @@ const Modal = ({
     [instance, triggerElement]
   );
 
-  const getHeader = () => {
-    // const header = React.Children.toArray(children).find(child => child?.props?.mdxType === ModalHeader.displayName);
-
+  const header = useMemo(() => {
     const header = React.Children.toArray(children).find(child => child.type === ModalHeader);
-
     if (header) {
       return cloneElement(header, { attr });
     }
@@ -103,9 +100,9 @@ const Modal = ({
         closeButtonAriaLabel={closeButtonAriaLabel}
       />
     );
-  };
+  }, [children, attr, title, description, hideCloseButton, closeButtonAriaLabel]);
 
-  const getContent = () => {
+  const content = useMemo(() => {
     return (
       React.Children.toArray(children).find(child => child.type === ModalContent) || (
         <ModalContent>
@@ -113,26 +110,37 @@ const Modal = ({
         </ModalContent>
       )
     );
-  };
+  }, [children]);
 
-  const getFooter = () => {
+  const footer = useMemo(() => {
     return React.Children.toArray(children).find(child => child.type === ModalFooter) || null;
-  };
+  }, [children]);
 
   // show/hide and animate the modal
   useEffect(() => {
-    if (show) {
-      instance?.show();
-      instance?.$el.childNodes[1].animate(...getAnimationProps());
-    } else {
-      const animation = instance?.$el.childNodes[1].animate(...getAnimationProps(true));
-      animation?.finished.then(() => instance?.hide());
+    if (instance) {
+      const animate = instance?.$el.childNodes[1].animate;
+      if (show) {
+        instance?.show();
+        if (animate) instance?.$el.childNodes[1].animate?.(...getAnimationProps());
+      } else {
+        if (animate) {
+          const animation = instance?.$el.childNodes[1]?.animate(...getAnimationProps(true));
+          animation?.finished.then(() => instance?.hide());
+        } else {
+          instance?.hide();
+        }
+      }
     }
   }, [show, instance, getAnimationProps]);
 
   const dialog = ReactDOM.createPortal(
-    <div {...attr.container} className={cx(styles.container, classNames.container)}>
-      <div {...attr.overlay} className={cx(styles.overlay, classNames.overlay)} />
+    <div
+      {...attr.container}
+      className={cx(styles.container, classNames.container)}
+      data-testid="monday-dialog-container"
+    >
+      <div {...attr.overlay} className={cx(styles.overlay, classNames.overlay)} data-testid="monday-modal-overlay" />
       <div
         {...attr.dialog}
         className={cx(styles.dialog, classNames.modal, {
@@ -140,9 +148,9 @@ const Modal = ({
           [styles.full]: size === MODAL_SIZE.FULL_WIDTH
         })}
       >
-        {getHeader()}
-        {getContent()}
-        {getFooter()}
+        {header}
+        {content}
+        {footer}
       </div>
     </div>,
     document.body

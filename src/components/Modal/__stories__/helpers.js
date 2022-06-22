@@ -1,12 +1,13 @@
 import { Button, Flex } from "components";
 import React, { useRef, useState } from "react";
 
-export const useStorybookModalHelper = ({ openButtonTitle = "Open", ...props } = {}) => {
-  const [show, setShow] = useState(false);
+// internal custom hook to help with writing tests and stories.
+export const useModalHelper = ({ openButtonTitle = "Open", openOnStart = false, ...props } = {}) => {
+  const [show, setShow] = useState(openOnStart);
   const buttonRef = useRef(null);
   const closeModal = () => setShow(false);
 
-  const openDialogButton = (
+  const openModalButton = (
     <Button onClick={() => setShow(true)} ref={buttonRef}>
       {openButtonTitle}
     </Button>
@@ -21,7 +22,7 @@ export const useStorybookModalHelper = ({ openButtonTitle = "Open", ...props } =
     triggerElement: buttonRef.current
   };
 
-  return { modalProps, openDialogButton, modalButtons, show, closeModal, ref: buttonRef };
+  return { modalProps, openModalButton, modalButtons, show, closeModal, ref: buttonRef };
 };
 
 export const ModalButtons = ({ closeModal }) => {
