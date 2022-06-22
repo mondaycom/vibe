@@ -5,6 +5,8 @@ import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 
+const KEYS = ["Tab"];
+
 export function useTooltipContentTabNavigation({
   counterContainerRef = undefined,
   tooltipContentContainerRef,
@@ -23,7 +25,7 @@ export function useTooltipContentTabNavigation({
 
   // For Counter
   useKeyEvent({
-    keys: ["Tab"],
+    keys: KEYS,
     withoutAnyModifier: true,
     ref: counterContainerRef,
     callback: e => {
@@ -37,7 +39,7 @@ export function useTooltipContentTabNavigation({
 
   // For Counter
   useKeyEvent({
-    keys: ["Tab"],
+    keys: KEYS,
     modifier: useKeyEvent.modifiers.SHIFT,
     ref: counterContainerRef,
     callback: e => {
@@ -50,7 +52,7 @@ export function useTooltipContentTabNavigation({
 
   // For Tooltip content
   useKeyEvent({
-    keys: ["Tab"],
+    keys: KEYS,
     ref: tooltipContentContainerRef,
     withoutAnyModifier: true,
     callback: e => {
@@ -63,7 +65,7 @@ export function useTooltipContentTabNavigation({
 
   // For Tooltip content
   useKeyEvent({
-    keys: ["Tab"],
+    keys: KEYS,
     ref: tooltipContentContainerRef,
     modifier: useKeyEvent.modifiers.SHIFT,
     callback: e => {
