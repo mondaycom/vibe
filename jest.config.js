@@ -1,8 +1,9 @@
 /*
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/en/configuration.html
+ *
  */
-
+require("identity-obj-proxy");
 const JEST_END_FILES = process.env.TEST_END_FILES || "jest";
 
 module.exports = {
@@ -78,7 +79,7 @@ module.exports = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    "\\.(css|less|sass|scss)$": "identity-obj-proxy"
   },
 
   modulePaths: ["<rootDir>/src"],
