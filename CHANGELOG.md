@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.36.0 (2022-06-19)
+
+#### Bug Fixes
+* [#705](https://github.com/mondaycom/monday-ui-react-core/pull/705) fix button tooltip hidden when stop hovering + tipseen useless wrapper ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#694](https://github.com/mondaycom/monday-ui-react-core/pull/694) Feature/sergeyro/avatar group ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.35.1 (2022-06-15)
+
+#### Bug Fixes
+* [#699](https://github.com/mondaycom/monday-ui-react-core/pull/699) Fix: Add prop to preserve radio button on select behaviour with children ([@DorShakedMonday](https://github.com/DorShakedMonday))
+
+## 1.35.0 (2022-06-14)
+
+#### New Features
+* [#698](https://github.com/mondaycom/monday-ui-react-core/pull/698) Feature/yonatanari/add shadow xs example ([@3dyonic](https://github.com/3dyonic))
+* [#697](https://github.com/mondaycom/monday-ui-react-core/pull/697) * Update version "monday-ui-style": "0.1.118", ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.34.0 (2022-06-08)
 
 #### New Features

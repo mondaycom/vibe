@@ -17,6 +17,7 @@ export const ShadowExample = ({ size }) => {
   );
 };
 ShadowExample.size = {
+  XS: "xs",
   SMALL: "small",
   MEDIUM: "medium",
   LARGE: "large"

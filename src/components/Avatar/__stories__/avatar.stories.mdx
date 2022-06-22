@@ -1,10 +1,24 @@
 import Avatar from "../Avatar";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { TOOLTIP, LABEL, CHIP } from "../../../storybook/components/related-components/component-description-map";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
+import {
+  AVATAR_GROUP,
+  LABEL,
+  TOOLTIP
+} from "../../../storybook/components/related-components/component-description-map";
 import { WhatsNew } from "../../Icon/Icons";
-import { MultipleStoryElementsWrapper } from "../../../storybook/components";
-import { home, guest, minus, person1, person2, person3, maleIcon, femaleIcon, owner } from "./assets";
+import {
+  ComponentRules,
+  Link,
+  MultipleStoryElementsWrapper,
+  RelatedComponents,
+  Tip
+} from "../../../storybook/components";
+import Tooltip from "../../Tooltip/Tooltip";
+import { Counter, Flex } from "components";
+import { femaleIcon, guest, home, maleIcon, minus, owner, person1, person2, person3 } from "./assets";
+import { useCallback, useState } from "react";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import "./avatar.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -13,11 +27,11 @@ export const metaSettings = createStoryMetaSettings({
   iconPropNamesArray: ["icon"]
 });
 
-<Meta 
-  title="Media/Avatar"
+<Meta
+  title="Media/Avatar/Avatar"
   component={Avatar}
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -27,6 +41,7 @@ export const avatarTemplate = createComponentTemplate(Avatar);
 <!--- Component documentation -->
 
 # Avatar
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -37,19 +52,29 @@ export const avatarTemplate = createComponentTemplate(Avatar);
 - [Feedback](#feedback)
 
 ## Overview
+
 Avatar is a graphical representation of a person through a profile picture, image, icon, or set of initials.
 
 <Canvas>
-  <Story name="Overview"
-         args={{size: Avatar.sizes.LARGE, src: person1, type: Avatar.types.IMG, backgroundColor: Avatar.backgroundColors.DONE_GREEN}}>>
-      {avatarTemplate.bind({})}
+  <Story
+    name="Overview"
+    args={{
+      size: Avatar.sizes.LARGE,
+      src: person1,
+      type: Avatar.types.IMG,
+      ariaLabel: "Hadas Fahri"
+    }}
+  >
+    {avatarTemplate.bind({})}
   </Story>
-</Canvas> 
+</Canvas>
 
 ## Props
+
 <ArgsTable of={Avatar} />
 
 ## Usage
+
 <UsageGuidelines
   guidelines={[
     "Use an avatar to help a user in the platform efficiently identify another person or a team.",
@@ -60,19 +85,32 @@ Avatar is a graphical representation of a person through a profile picture, imag
   ]}
 />
 
+<Tip>
+  If you want to stack multiple avatars together, check out
+  <Link href="/?path=/docs/media-avatar-avatargroup--overview" size={Link.sizes.SMALL}>
+    AvatarGroup
+  </Link>
+  component
+</Tip>
+
 ## Variants
+
 ### Size
+
 Avatars appear in 3 sizes: Small, Medium, and Large.
+
 <Canvas>
   <Story name="Size">
-    <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
-    <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} />
-    <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
+    <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} ariaLabel="Hadas Fahri" />
+    <Avatar size={Avatar.sizes.MEDIUM} src={person1} type={Avatar.types.IMG} ariaLabel="Hadas Fahri" />
+    <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} ariaLabel="Hadas Fahri" />
   </Story>
 </Canvas>
 
 ### Disabled
+
 Use when a user is inactive in the system.
+
 <Canvas>
   <Story name="Disable">
     <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} disabled />
@@ -82,27 +120,72 @@ Use when a user is inactive in the system.
 </Canvas>
 
 ### Avatar with text
+
 Use when a user’s image is not available, use their initials.
+
 <Canvas>
   <Story name="Avatar with text">
-    <Avatar size={Avatar.sizes.SMALL} type={Avatar.types.TEXT} text="RM" backgroundColor={Avatar.colors.LIPSTICK} />
-    <Avatar size={Avatar.sizes.MEDIUM} type={Avatar.types.TEXT} text="RM" backgroundColor={Avatar.colors.LIPSTICK} />
-    <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.TEXT} text="RM" backgroundColor={Avatar.colors.DONE_GREEN} />
+    <Avatar
+      size={Avatar.sizes.SMALL}
+      type={Avatar.types.TEXT}
+      text="RM"
+      backgroundColor={Avatar.colors.LIPSTICK}
+      ariaLabel="Ron Meir"
+    />
+    <Avatar
+      size={Avatar.sizes.MEDIUM}
+      type={Avatar.types.TEXT}
+      text="RM"
+      backgroundColor={Avatar.colors.LIPSTICK}
+      ariaLabel="Ron Meir"
+    />
+    <Avatar
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.TEXT}
+      text="RM"
+      backgroundColor={Avatar.colors.DONE_GREEN}
+      ariaLabel="Ron Meir"
+    />
   </Story>
 </Canvas>
 
 ### Initials avatar custom text format
+
 While Default initials typography sizes and styles do not suit the design use this custom class to customize it.
+
 <Canvas>
   <Story name="Avatar with formatted text">
-    <Avatar size={Avatar.sizes.SMALL} type={Avatar.types.TEXT} text="RM" backgroundColor={Avatar.colors.BRIGHT_BLUE} textClassName="text-formatted--small" />
-    <Avatar size={Avatar.sizes.MEDIUM} type={Avatar.types.TEXT} text="RM" backgroundColor={Avatar.colors.LIPSTICK} textClassName="text-formatted--medium" />
-    <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.TEXT} text="RM" backgroundColor={Avatar.colors.DONE_GREEN} textClassName="text-formatted--large" />
+    <Avatar
+      size={Avatar.sizes.SMALL}
+      type={Avatar.types.TEXT}
+      text="RM"
+      backgroundColor={Avatar.colors.BRIGHT_BLUE}
+      textClassName="text-formatted--small"
+      ariaLabel="Ron Meir"
+    />
+    <Avatar
+      size={Avatar.sizes.MEDIUM}
+      type={Avatar.types.TEXT}
+      text="RM"
+      backgroundColor={Avatar.colors.LIPSTICK}
+      textClassName="text-formatted--medium"
+      ariaLabel="Ron Meir"
+    />
+    <Avatar
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.TEXT}
+      text="RM"
+      backgroundColor={Avatar.colors.DONE_GREEN}
+      textClassName="text-formatted--large"
+      ariaLabel="Ron Meir"
+    />
   </Story>
 </Canvas>
 
 ### Square avatar with icon or text
+
 Use for non-person avatars, such as a workspace or team.
+
 <Canvas>
   <Story name="Square avatar">
     <Avatar
@@ -111,6 +194,7 @@ Use for non-person avatars, such as a workspace or team.
       text="R"
       backgroundColor={Avatar.colors.BRIGHT_BLUE}
       square
+      ariaLabel="Ron"
     />
     <Avatar
       size={Avatar.sizes.MEDIUM}
@@ -118,6 +202,7 @@ Use for non-person avatars, such as a workspace or team.
       icon={WhatsNew}
       backgroundColor={Avatar.colors.AQUAMARINE}
       square
+      ariaLabel="Present"
     />
     <Avatar
       size={Avatar.sizes.LARGE}
@@ -125,97 +210,171 @@ Use for non-person avatars, such as a workspace or team.
       text="RM"
       backgroundColor={Avatar.colors.WORKING_ORANGE}
       square
+      ariaLabel="Ron Meir"
     />
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
       positive: {
-        component: 
+        component: (
           <div className="monday-style-story-avatar_multiple-reverse">
             <Avatar size={Avatar.sizes.LARGE} src={person1} type={Avatar.types.IMG} />
             <Avatar size={Avatar.sizes.LARGE} src={person2} type={Avatar.types.IMG} />
             <Avatar size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
-          </div>,
-        description:"Use consistent avatar sizes for common use cases to convey their purpose."
+          </div>
+        ),
+        description: "Use consistent avatar sizes for common use cases to convey their purpose."
       },
       negative: {
-        component:
+        component: (
           <div className="monday-style-story-avatar_multiple-reverse">
             <Avatar size={Avatar.sizes.SMALL} src={person1} type={Avatar.types.IMG} />
             <Avatar size={Avatar.sizes.MEDIUM} src={person2} type={Avatar.types.IMG} />
             <Avatar size={Avatar.sizes.LARGE} src={person3} type={Avatar.types.IMG} />
-          </div>,
-        description:"Avoid using a mix of avatar sizes that display together and create design imbalance."
+          </div>
+        ),
+        description: "Avoid using a mix of avatar sizes that display together and create design imbalance."
       }
     },
     {
       positive: {
-        component:<Avatar src={maleIcon} type={Avatar.types.IMG} />,
-        description:"Use branded generic avatars when a user has not set their avatar image."
+        component: <Avatar src={maleIcon} type={Avatar.types.IMG} />,
+        description: "Use branded generic avatars when a user has not set their avatar image."
       },
       negative: {
-        component:<Avatar src={femaleIcon} type={Avatar.types.IMG} />,
-        description:"Don’t make assumptions and use gendered placeholder avatars."
+        component: <Avatar src={femaleIcon} type={Avatar.types.IMG} />,
+        description: "Don’t make assumptions and use gendered placeholder avatars."
       }
     }
   ]}
 />
 
 ## Use cases and examples
+
 ### Multiple avatars
+
 When there is more than one avatar, use an -8 margin between avatars.
+
 <Canvas>
-  <Story name="Multiple avatars" >
+  <Story name="Multiple avatars">
     <MultipleStoryElementsWrapper className="monday-style-story-avatar_multiple">
-      <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1}  />
-      <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person2} />
-      <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person3} />
-  </MultipleStoryElementsWrapper>
+      <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+      <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
+      <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+    </MultipleStoryElementsWrapper>
   </Story>
 </Canvas>
 
 ### Avatar with right badge
+
 Use to indicate the user’s permissions such as: Guest, owner.
 
 <Canvas>
   <Story name="Avatar with right badge">
     <Avatar
-        size={Avatar.sizes.LARGE} 
-        type={Avatar.types.IMG} 
-        src={person1} 
-        bottomRightBadgeProps={{src: guest}}
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.IMG}
+      src={person1}
+      bottomRightBadgeProps={{ src: guest }}
+      ariaLabel="Hadas Fahri"
     />
     <Avatar
-        size={Avatar.sizes.LARGE} 
-        type={Avatar.types.IMG} 
-        src={person1} 
-        bottomRightBadgeProps={{src: owner}}
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.IMG}
+      src={person1}
+      bottomRightBadgeProps={{ src: owner }}
+      ariaLabel="Hadas Fahri"
     />
   </Story>
-</Canvas> 
+</Canvas>
 
 ### Avatar with left badge
+
 Use to indicate the status of a user such as: Working from home, out of office etc.
+
 <Canvas>
   <Story name="Avatar with left badge">
-    <Avatar 
-        size={Avatar.sizes.LARGE} 
-        type={Avatar.types.IMG} 
-        src={person1} 
-        bottomLeftBadgeProps={{src: home}} 
+    <Avatar
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.IMG}
+      src={person1}
+      bottomLeftBadgeProps={{ src: home }}
+      ariaLabel="Hadas Fahri"
     />
     <Avatar
-        size={Avatar.sizes.LARGE} 
-        type={Avatar.types.IMG} 
-        src={person1} 
-        bottomLeftBadgeProps={{src: minus}}
+      size={Avatar.sizes.LARGE}
+      type={Avatar.types.IMG}
+      src={person1}
+      bottomLeftBadgeProps={{ src: minus }}
+      ariaLabel="Hadas Fahri"
     />
   </Story>
-</Canvas> 
+</Canvas>
+
+### Avatar with tooltip
+
+Use to display tooltip on onHover Avatar event.
+
+<Canvas>
+  <Story name="Avatar with tooltip">
+    <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE} align={Flex.align.START}>
+      <StoryDescription description="Aria label tooltip" vertical align={Flex.align.START}>
+        <Avatar size={Avatar.sizes.LARGE} type={Avatar.types.IMG} src={person1} ariaLabel={"Hadas Fahri"} />
+      </StoryDescription>
+      <StoryDescription description="Text tooltip" vertical align={Flex.align.START}>
+        <Avatar
+          size={Avatar.sizes.LARGE}
+          type={Avatar.types.IMG}
+          src={person1}
+          tooltipProps={{ content: "Hadas Farhi" }}
+          ariaLabel={"Hadas Fahri"}
+        />
+      </StoryDescription>
+      <StoryDescription description="JSX tooltip" vertical align={Flex.align.START}>
+        <Avatar
+          size={Avatar.sizes.LARGE}
+          type={Avatar.types.IMG}
+          src={person1}
+          tooltipProps={{ content: <b>Hadas Farhi</b>, position: Tooltip.positions.BOTTOM }}
+          ariaLabel={"Hadas Fahri"}
+        />
+      </StoryDescription>
+    </Flex>
+  </Story>
+</Canvas>
+
+### Clickable avatar
+
+Use to fire actions on avatar click event.
+
+<Canvas>
+  <Story name="Clickable avatar">
+    {() => {
+      const [count, setCount] = useState(0);
+      const incrementCount = useCallback(e => {
+        setCount(prevState => prevState + 1);
+      }, []);
+      return (
+        <Flex direction={Flex.directions.COLUMN} gap={Flex.gaps.MEDIUM}>
+          <Avatar
+            size={Avatar.sizes.LARGE}
+            type={Avatar.types.IMG}
+            src={person1}
+            ariaLabel="Hadas Fahri"
+            onClick={incrementCount}
+          />
+          <Counter count={count} />
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[TOOLTIP, LABEL, CHIP]}/>
+
+<RelatedComponents componentsNames={[AVATAR_GROUP, TOOLTIP, LABEL]} />
