@@ -8,19 +8,19 @@ const DURATION_PRODUCIVE = [
     videoSrc: DurationProductiveShort,
     title: "Small motion - 70ms",
     description: "Use when components has a small amounts of change, Micro-Interactions and fades.",
-    tokenDescription: "Token: motion-productive-small"
+    tokenDescription: "--motion-productive-small"
   },
   {
     videoSrc: DurationProductiveMedium,
     title: "Medium motion - 100ms",
     description: "Use when components has a medium amounts of change, Small expansions and notifications.",
-    tokenDescription: "Token: motion-productive-medium"
+    tokenDescription: "--motion-productive-medium"
   },
   {
     videoSrc: DurationProductiveLong,
     title: "Large motion - 150ms",
     description: "Use when components has a large amounts of change, expansions, distance movment.",
-    tokenDescription: "Token: motion-productive-long"
+    tokenDescription: "--motion-productive-long"
   }
 ];
 

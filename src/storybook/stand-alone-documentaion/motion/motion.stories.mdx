@@ -6,7 +6,17 @@ import { DurationExpressiveTokens } from "./duration-expressive-tokens/duration-
 import { DurationTokenTable } from "./duration-token-table/duration-token-table";
 import { EasingOverviews } from "./easing-overviews/easing-overviews";
 import { EasingTokenTable } from "./easing-token-table/easing-token-table";
-import { EasingDo, EasingDont, ConsistencyDo, ConsistencyDont, SimplicityDo, SimplicityDont } from "./assets";
+import { AnimationTypes } from "./animation-types/animation-types";
+import {
+  EasingDo,
+  EasingDont,
+  ConsistencyDo,
+  ConsistencyDont,
+  SimplicityDo,
+  SimplicityDont,
+  DontDelayDo,
+  DontDelayDont
+} from "./assets";
 import { ComingSoon } from "../../components/coming-soon/coming-soon";
 
 <Meta title="Foundations/Motion" />
@@ -56,11 +66,11 @@ Since linear movements appear unnatural to a human eye, they should never be lin
   rules={[
     {
       positive: {
-        component: [<video height="190px" src={EasingDo} controls loop />],
+        component: <video height="190px" src={EasingDo} controls loop />,
         description: "Using ease to make movement feel natural."
       },
       negative: {
-        component: [<video height="190px" src={EasingDont} controls loop/>],
+        component: <video height="190px" src={EasingDont} controls loop />,
         description: "Linear motion feels mechanical and unnatural."
       }
     }
@@ -84,11 +94,11 @@ Things should be predictable and familiar.
   rules={[
     {
       positive: {
-        component: [<video height="190px" src={ConsistencyDo} controls loop />],
+        component: <video height="190px" src={ConsistencyDo} controls loop />,
         description: "Using ease to make movement feel natural."
       },
       negative: {
-        component: [<video height="190px" src={ConsistencyDont} controls loop/>],
+        component: <video height="190px" src={ConsistencyDont} controls loop />,
         description: "Linear motion feels mechanical and unnatural."
       }
     }
@@ -103,11 +113,11 @@ Simple movements make it easier for the user to follow along and convey a clear 
   rules={[
     {
       positive: {
-        component: [<video height="180px" src={SimplicityDo} controls loop />],
+        component: <video height="190px" src={SimplicityDo} controls loop />,
         description: "Use only one primary action within a single view."
       },
       negative: {
-        component: [<video height="180px" src={SimplicityDont} controls loop />],
+        component: <video height="190px" src={SimplicityDont} controls loop />,
         description: "Don’t use multiple primary buttons within a single view."
       }
     }
@@ -122,28 +132,17 @@ The user should never get the feeling that he’s waiting for the animation to e
   rules={[
     {
       positive: {
+        component: <video height="190px" src={DontDelayDo} controls loop />,
         description: "Use only one primary action within a single view."
       },
       negative: {
+        component: <video height="190px" src={DontDelayDont} controls loop />,
         description: "Don’t use multiple primary buttons within a single view."
       }
     }
   ]}
 />
 
-### Scale
+## Animation Types
 
-When scaling, components should not be streched, keep the X and Y proporsions locked
-
-<ComponentRules
-  rules={[
-    {
-      positive: {
-        description: "Use only one primary action within a single view."
-      },
-      negative: {
-        description: "Don’t use multiple primary buttons within a single view."
-      }
-    }
-  ]}
-/>
+<AnimationTypes />

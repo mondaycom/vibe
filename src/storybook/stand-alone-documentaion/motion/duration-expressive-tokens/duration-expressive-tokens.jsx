@@ -1,20 +1,20 @@
 import { Flex } from "../../../../components/";
 import { TokenInformationBox } from "../token-Information-box/token-information-box";
-import { DurationProductiveShort, DurationExpressiveLong } from "../assets";
+import { DurationExpressiveShort, DurationExpressiveLong } from "../assets";
 import styles from "./duaration-expressive-tokens.module.scss";
 
 const DURATION_EXPRESSIVE = [
   {
-    videoSrc: DurationProductiveShort,
+    videoSrc: DurationExpressiveShort,
     title: "Small motion - 250ms",
     description: "System aletrs, notifications, atention and midiation.",
-    tokenDescription: "Token: motion-expressive-short"
+    tokenDescription: "--motion-expressive-short"
   },
   {
     videoSrc: DurationExpressiveLong,
     title: "Large motion - 400ms",
     description: "System aletrs, notifications, atention and midiation that enter screen with movment.",
-    tokenDescription: "Token: motion-expressive-long"
+    tokenDescription: "--motion-expressive-long"
   }
 ];
 

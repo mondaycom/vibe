@@ -6,8 +6,8 @@ export const TokenInformationBox = ({ className, videoSrc, title, description, t
   return (
     <div className={className}>
       <InformationBox component={TokenInformationBoxImg} title={title} description={description} />
-      <p>{tokenInfo}</p>
-      <p>{tokenDescription}</p>
+      {tokenInfo && <p>{tokenInfo}</p>}
+      {tokenDescription && <p>Token: {tokenDescription}</p>}
     </div>
   );
 };

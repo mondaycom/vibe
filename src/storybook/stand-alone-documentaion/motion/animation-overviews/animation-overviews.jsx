@@ -1,5 +1,5 @@
 import { Flex } from "../../../../components/";
-import { AnimationOverview } from "../animation-overview/animation-overview";
+import { AnimationInformationBox } from "../animation-information-box/animation-information-box";
 import { Delight, Feedback, Focus, Orientation } from "../assets";
 import styles from "./animation-overviews.module.scss";
 
@@ -33,7 +33,7 @@ export const AnimationOverviews = () => {
   return (
     <div className={styles.animationOverviewGrid}>
       {OVERVIEW.map(({ videoSrc, title, description }) => (
-        <AnimationOverview key={title} videoSrc={videoSrc} title={title} description={description} />
+        <AnimationInformationBox key={title} videoSrc={videoSrc} title={title} description={description} />
       ))}
     </div>
   );
