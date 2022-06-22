@@ -46,37 +46,20 @@ const AvatarGroupCounterTooltipContent = ({
     );
   }
 
-  // TODO separate to different component or commit e6cee718?
-  if (displayAsGrid) {
-    return (
-      <Flex
-        ref={tooltipContentContainerRef}
-        tabIndex={-1}
-        role="treegrid"
-        ariaLabel={tooltipContainerAriaLabel}
-        className={cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)}
-        direction={Flex.directions.ROW}
-        gap={Flex.gaps.XS}
-        wrap
-      >
-        {renderedItems}
-      </Flex>
-    );
-  }
+  const flexProps = {
+    ref: tooltipContentContainerRef,
+    tabIndex: -1,
+    role: "treegrid",
+    ariaLabel: tooltipContainerAriaLabel,
+    className: displayAsGrid
+      ? cx(styles.scrollableContainer, styles.tooltipContainer, styles.tooltipGridContainer, className)
+      : cx(styles.scrollableContainer, styles.tooltipContainer, className),
+    direction: displayAsGrid ? Flex.directions.ROW : Flex.directions.COLUMN,
+    gap: displayAsGrid ? Flex.gaps.XS : Flex.gaps.SMALL,
+    wrap: displayAsGrid
+  };
 
-  return (
-    <Flex
-      ref={tooltipContentContainerRef}
-      tabIndex={-1}
-      role="treegrid"
-      ariaLabel={tooltipContainerAriaLabel}
-      className={cx(styles.scrollableContainer, styles.tooltipContainer, className)}
-      direction={Flex.directions.COLUMN}
-      gap={Flex.gaps.SMALL}
-    >
-      {renderedItems}
-    </Flex>
-  );
+  return <Flex {...flexProps}>{renderedItems}</Flex>;
 };
 
 AvatarGroupCounterTooltipContent.propTypes = {
