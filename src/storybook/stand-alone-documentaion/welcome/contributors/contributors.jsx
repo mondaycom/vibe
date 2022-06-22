@@ -1,8 +1,10 @@
+import React from "react";
+import { Flex } from "components";
 import { Contributor } from "../contributor/contributor";
-import { Evgeniy, Hadas, Orr, Sahar, Moshe, Nik, Omri, Yonatan } from "../assets";
+import { Evgeniy, Hadas, Moshe, Nik, Omri, Orr, Sahar, Yonatan } from "../assets";
 import "./contributors.scss";
 
-const CONTRIBUTERS = [
+const CONTRIBUTORS = [
   {
     imgSrc: Orr,
     fullName: "Orr Gottlieb",
@@ -62,9 +64,18 @@ const CONTRIBUTERS = [
 ];
 
 export const Contributors = () => (
-  <div className="monday-storybook-welcome-contributors">
-    {CONTRIBUTERS.map(({ imgSrc, fullName, email, title, className }) => (
-      <Contributor key={email} imgSrc={imgSrc} fullName={fullName} email={email} title={title} className={className} />
+  <Flex direction={Flex.directions.ROW} wrap className="monday-storybook-welcome-contributors" gap={160}>
+    {CONTRIBUTORS.map(({ imgSrc, fullName, email, title, className }, index) => (
+      <div key={index} className="monday-storybook-welcome-contributors_contributor-container">
+        <Contributor
+          key={email}
+          imgSrc={imgSrc}
+          fullName={fullName}
+          email={email}
+          title={title}
+          className={className}
+        />
+      </div>
     ))}
-  </div>
+  </Flex>
 );

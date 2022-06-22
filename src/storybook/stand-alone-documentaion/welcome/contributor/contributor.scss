@@ -3,7 +3,7 @@
 .monday-storybook-welcome-contributor {
   &_visual-element {
     position: relative;
-    width: 100%;
+    width: 320px;
     height: 182px;
     border-radius: $border-radius-small;
     background-repeat: no-repeat;
@@ -11,10 +11,8 @@
   }
   &_image {
     position: absolute;
-    bottom: 0;
     width: 271px;
-    margin-left: auto;
-    margin-right: auto;
+    bottom: 0;
     left: 0;
     right: 0;
   }
