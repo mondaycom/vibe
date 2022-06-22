@@ -50,7 +50,6 @@ exports[`Modal renders correctly with base props 1`] = `
             aria-label="close"
             className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
             data-testid="icon-button"
-            disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}

@@ -8,7 +8,6 @@ exports[`ModalFooter renders correctly with empty props 1`] = `
     aria-disabled={false}
     className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
     data-testid="button"
-    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
