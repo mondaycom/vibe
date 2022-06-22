@@ -1,6 +1,5 @@
-import { Flex } from "../../../../components/";
 import { AnimationInformationBox } from "../animation-information-box/animation-information-box";
-import { TypeCss, TypeEmpty,TypeLike,TypeStatus } from "../assets";
+import { TypeCss, TypeEmpty, TypeLike, TypeStatus } from "../assets";
 import styles from "./animation-types.module.scss";
 
 const TYPES = [
@@ -19,7 +18,8 @@ const TYPES = [
   {
     videoSrc: TypeLike,
     title: "SVG - lightweight, scalable, easy to replace",
-    description: "SVG animated file, exported from an Animation software. Better to use on icons or multiple assets. easy to replace and adjust throught time."
+    description:
+      "SVG animated file, exported from an Animation software. Better to use on icons or multiple assets. easy to replace and adjust throught time."
   },
   {
     videoSrc: TypeStatus,

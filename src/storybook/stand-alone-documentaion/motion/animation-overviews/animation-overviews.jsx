@@ -1,4 +1,3 @@
-import { Flex } from "../../../../components/";
 import { AnimationInformationBox } from "../animation-information-box/animation-information-box";
 import { Delight, Feedback, Focus, Orientation } from "../assets";
 import styles from "./animation-overviews.module.scss";

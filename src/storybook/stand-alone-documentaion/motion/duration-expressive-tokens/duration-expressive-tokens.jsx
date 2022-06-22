@@ -1,4 +1,3 @@
-import { Flex } from "../../../../components/";
 import { TokenInformationBox } from "../token-Information-box/token-information-box";
 import { DurationExpressiveShort, DurationExpressiveLong } from "../assets";
 import styles from "./duaration-expressive-tokens.module.scss";
@@ -21,7 +20,7 @@ const DURATION_EXPRESSIVE = [
 export const DurationExpressiveTokens = () => {
   return (
     <div className={styles.durationTokensGrid}>
-      {DURATION_EXPRESSIVE.map(({ videoSrc, alt, title, description, tokenDescription }) => (
+      {DURATION_EXPRESSIVE.map(({ videoSrc, title, description, tokenDescription }) => (
         <TokenInformationBox
           key={title}
           videoSrc={videoSrc}

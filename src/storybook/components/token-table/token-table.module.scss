@@ -1,5 +1,5 @@
-.tableWrapper{
-  width:100%;
+.tableWrapper {
+  width: 100%;
   overflow-x: scroll;
   margin-bottom: var(--spacing-xxxl);
 }
@@ -11,7 +11,7 @@
 
 tbody {
   border-radius: var(--border-radius-small);
-  overflow:hidden;
+  overflow: hidden;
 }
 
 thead {
@@ -27,7 +27,8 @@ thead {
   }
 }
 
-th, td {
+th,
+td {
   font-size: 13px;
   line-height: 20px;
   text-align: left;

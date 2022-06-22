@@ -34,7 +34,7 @@ const EASING = [
     videoSrc: EmphesizeElasticEasing,
     title: "Emphesize - Elastic easing",
     description: "System aletrs, notifications, atention and midiation.",
-    tokenInfo:"cubic-bezier(0,0,0.2,1.4), Duration must be over 200ms",
+    tokenInfo: "cubic-bezier(0,0,0.2,1.4), Duration must be over 200ms",
     tokenDescription: "--motion-timing-emphesize"
   }
 ];
@@ -42,7 +42,7 @@ const EASING = [
 export const EasingOverviews = () => {
   return (
     <div className={styles.container}>
-      {EASING.map(({ videoSrc, title, description, tokenInfo,tokenDescription }) => (
+      {EASING.map(({ videoSrc, title, description, tokenInfo, tokenDescription }) => (
         <EasingOverview
           key={title}
           videoSrc={videoSrc}

@@ -1,6 +1,5 @@
-import { Flex } from "../../../../components/";
 import { TokenInformationBox } from "../token-Information-box/token-information-box";
-import { DurationProductiveShort, DurationProductiveMedium, DurationProductiveLong} from "../assets";
+import { DurationProductiveShort, DurationProductiveMedium, DurationProductiveLong } from "../assets";
 import styles from "./duaration-productive-tokens.module.scss";
 
 const DURATION_PRODUCIVE = [
@@ -24,17 +23,13 @@ const DURATION_PRODUCIVE = [
   }
 ];
 
-
-
 export const DurationProductiveTokens = () => {
   return (
-
     <div>
       <div className={styles.durationTokensGrid}>
-        {DURATION_PRODUCIVE.map(({videoSrc, alt, title, description, tokenDescription }) => (
+        {DURATION_PRODUCIVE.map(({ videoSrc, title, description, tokenDescription }) => (
           <TokenInformationBox
             key={title}
-            alt={alt}
             videoSrc={videoSrc}
             title={title}
             description={description}
