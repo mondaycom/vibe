@@ -50,39 +50,39 @@ const ModalHeader = ({
 
 ModalHeader.propTypes = {
   /**
-   * title of the modal
+   * Title of the modal
    */
   title: PropTypes.string.isRequired,
   /**
-   * title of the modal
+   * Description of the modal
    */
   description: PropTypes.string,
   /**
-   * Icon to be rendered
+   * Icon to be rendered before the title
    */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.node, PropTypes.element, PropTypes.func]),
   /**
-   * class name to be add to the wrapper
+   * Class name for the wrapper
    */
   className: PropTypes.string,
   /**
-   * class name to be add to the wrapper
+   * Class name for the title
    */
   titleClassName: PropTypes.string,
   /**
-   * class name to be add to the wrapper
+   * Class name for the description
    */
   descriptionClassName: PropTypes.string,
   /**
-   * class name to be add to the wrapper
+   * Size of the icon
    */
   iconSize: PropTypes.number,
   /**
-   * class name to be add to the wrapper
+   * class name for the icon
    */
   iconClassName: PropTypes.string,
   /**
-   * class name to be add to the wrapper
+   * Aria label for the close button
    */
   closeButtonAriaLabel: PropTypes.string
 };

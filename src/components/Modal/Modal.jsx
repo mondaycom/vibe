@@ -13,6 +13,10 @@ export const MODAL_SIZE = {
   FULL_WIDTH: "full_width"
 };
 
+const isModalHeader = child => child.type === ModalHeader;
+const isModalContent = child => child.type === ModalContent;
+const isModalFooter = child => child.type === ModalFooter;
+
 const Modal = ({
   classNames,
   id,
@@ -69,7 +73,7 @@ const Modal = ({
   }, [show, instance, getAnimationProps]);
 
   const header = useMemo(() => {
-    const header = React.Children.toArray(children).find(child => child.type === ModalHeader);
+    const header = React.Children.toArray(children).find(isModalHeader);
     if (header) {
       return cloneElement(header, { attr });
     }
@@ -87,16 +91,16 @@ const Modal = ({
 
   const content = useMemo(() => {
     return (
-      React.Children.toArray(children).find(child => child.type === ModalContent) || (
+      React.Children.toArray(children).find(isModalContent) || (
         <ModalContent>
-          {React.Children.toArray(children).filter(child => child.type !== ModalHeader && child.type !== ModalFooter)}
+          {React.Children.toArray(children).filter(child => !isModalHeader(child) && !isModalFooter(child))}
         </ModalContent>
       )
     );
   }, [children]);
 
   const footer = useMemo(() => {
-    return React.Children.toArray(children).find(child => child.type === ModalFooter) || null;
+    return React.Children.toArray(children).find(isModalFooter) || null;
   }, [children]);
 
   const dialog = ReactDOM.createPortal(
@@ -134,9 +138,23 @@ Modal.propTypes = {
    */
   show: PropTypes.bool.isRequired,
   /**
-   * Title for the modal, required for accessibility
+   * Title for the modal, mandatory when ModalHeader isn't provided in children
    */
-  title: PropTypes.string.isRequired,
+  title: function (props, propName, componentName) {
+    const { children, title } = props;
+    const hasHeaderComponent = React.Children.toArray(children).some(isModalHeader);
+    if (hasHeaderComponent) return;
+
+    if (!title) {
+      return new Error(
+        `Title prop is mandatory for ${componentName} when HeaderModal isn't provided. Validation failed.`
+      );
+    } else {
+      if (typeof props[propName] !== "string") {
+        return new Error(`Invalid prop ${propName} supplied to ${componentName}. Validation failed."`);
+      }
+    }
+  },
   /**
    * Description for the modal title
    */
@@ -194,7 +212,8 @@ Modal.defaultProps = {
   },
   hideCloseButton: false,
   description: "",
-  closeButtonAriaLabel: "close"
+  closeButtonAriaLabel: "close",
+  title: ""
 };
 
 export default Modal;
