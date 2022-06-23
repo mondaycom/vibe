@@ -4,7 +4,6 @@ import Modal from "../Modal";
 import { useModalHelper } from "components/Modal/__stories__/helpers";
 import { ModalHeader } from "components";
 import "@testing-library/jest-dom";
-import renderer from "react-test-renderer";
 
 const MODAL_TITLE_TEXT = "Modal title";
 const MODAL_ID = "story-book-modal";
