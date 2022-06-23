@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.36.1 (2022-06-23)
+
+#### Bug Fixes
+* [#709](https://github.com/mondaycom/monday-ui-react-core/pull/709) Avatar custom size by classname ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#708](https://github.com/mondaycom/monday-ui-react-core/pull/708) Feature/sergeyro/plop component fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.36.0 (2022-06-19)
 
 #### Bug Fixes
