@@ -2,6 +2,7 @@
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/en/configuration.html
  */
+
 const JEST_END_FILES = process.env.TEST_END_FILES || "jest";
 
 module.exports = {
