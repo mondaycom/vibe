@@ -7,6 +7,10 @@ import Tooltip from "../Tooltip/Tooltip";
 import AvatarGroupCounter from "./AvatarGroupCounter";
 import styles from "./AvatarGroup.module.scss";
 
+const avatarOnClick = avatarProps => {
+  avatarProps?.onClick && avatarProps.onClick(avatarProps?.id);
+};
+
 const AvatarGroup = ({
   className,
   avatarClassName,
@@ -31,10 +35,6 @@ const AvatarGroup = ({
     return null;
   }
 
-  const avatarOnClick = avatar => {
-    avatar.props?.onClick && avatar.props.onClick(avatar.props);
-  };
-
   return (
     <div className={cx(styles.avatarGroupContainer, className)} id={id}>
       {displayAvatars.map((avatar, index) => {
@@ -44,7 +44,7 @@ const AvatarGroup = ({
           size: size || avatar?.props?.size,
           type: type || avatar?.props?.type,
           className: cx(styles.avatarContainer, avatarClassName),
-          onClick: () => avatarOnClick(avatar)
+          onClick: () => avatarOnClick(avatar.props)
         });
       })}
       <AvatarGroupCounter

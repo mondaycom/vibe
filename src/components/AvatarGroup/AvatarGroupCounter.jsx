@@ -10,6 +10,10 @@ import Menu from "../Menu/Menu/Menu";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
 import styles from "./AvatarGroupCounter.module.scss";
 
+const avatarOnClick = avatarProps => {
+  avatarProps?.onClick && avatarProps.onClick(avatarProps?.id);
+};
+
 const AvatarGroupCounter = ({
   counterTooltipAvatars,
   counterProps,
@@ -48,10 +52,6 @@ const AvatarGroupCounter = ({
     return null;
   }
 
-  const avatarOnClick = avatar => {
-    avatar.props?.onClick && avatar.props.onClick(avatar.props);
-  };
-
   const areAvatarsClickable = counterTooltipAvatars.some(a => a.props?.onClick);
   if (areAvatarsClickable) {
     return (
@@ -67,7 +67,7 @@ const AvatarGroupCounter = ({
               <MenuItem
                 key={index}
                 title={avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel}
-                onClick={() => avatarOnClick(avatar)}
+                onClick={() => avatarOnClick(avatar.props)}
                 iconComponent={<Avatar {...avatar.props} size={Avatar.sizes.SMALL} ariaLabel="" tabIndex="-1" />}
               />
             );

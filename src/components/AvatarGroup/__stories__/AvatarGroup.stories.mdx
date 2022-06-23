@@ -56,7 +56,7 @@ Use this component if you need to stack avatars as a group.
       <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
       <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
       <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+      <Avatar type={Avatar.types.TEXT} text="MR" ariaLabel="Mark Roytstein" />
     </AvatarGroup>
   </Story>
 </Canvas>
@@ -269,9 +269,21 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
 <Canvas>
   <Story name="Hover vs Clickable">
     {() => {
-      const [lastClickedName, setLastClickedName] = useState("-");
-      const avatarOnClick = useCallback(avatarProps => {
-        setLastClickedName(avatarProps.ariaLabel);
+      const [lastClickedAvatarId, setLastClickedAvatarId] = useState("-");
+      const avatarOnClick = useCallback(avatarId => {
+        setLastClickedAvatarId(avatarId);
+      }, []);
+      const avatarsProps = [
+        { type: Avatar.types.IMG, src: person1, ariaLabel: "Hadas Fahri" },
+        { type: Avatar.types.IMG, src: person2, ariaLabel: "Sergey Roytman" },
+        { type: Avatar.types.IMG, src: person3, ariaLabel: "Yonatan Lev Ari" }
+      ];
+      const getDummyAvatarsProps = useCallback(multiplier => {
+        let result = [];
+        for (let i = 0; i < multiplier; ++i) {
+          result = result.concat(avatarsProps);
+        }
+        return result;
       }, []);
       return (
         <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
@@ -281,39 +293,19 @@ Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
               max={3}
               counterTooltipCustomProps={{ position: Tooltip.positions.BOTTOM }}
             >
-              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-              <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
-              <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
-              <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-              <Avatar text="MR" type={Avatar.types.TEXT} ariaLabel="Mark Roytstein" />
+              {getDummyAvatarsProps(4).map(avatarProps => (
+                <Avatar {...avatarProps} />
+              ))}
             </AvatarGroup>
           </StoryDescription>
           <StoryDescription description="Counter click" vertical align={Flex.align.START}>
             <Flex>
               <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
-                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
-                <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
-                <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
-                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
-                <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
-                <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
-                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
-                <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
-                <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
-                <Avatar type={Avatar.types.IMG} src={person1} onClick={avatarOnClick} ariaLabel="Hadas Fahri" />
-                <Avatar type={Avatar.types.IMG} src={person2} onClick={avatarOnClick} ariaLabel="Sergey Roytman" />
-                <Avatar type={Avatar.types.IMG} src={person3} onClick={avatarOnClick} ariaLabel="Yonatan Lev Ari" />
-                <Avatar text="MR" type={Avatar.types.TEXT} onClick={avatarOnClick} ariaLabel="Mark Roytstein" />
+                {getDummyAvatarsProps(4).map((avatarProps, index) => (
+                  <Avatar {...avatarProps} onClick={avatarOnClick} id={`${index}`} />
+                ))}
               </AvatarGroup>
-              <div className={styles.lastClickedAvatarNameText}>Last clicked avatar's name: {lastClickedName}</div>
+              <div className={styles.lastClickedAvatarIdText}>Last clicked avatar's id: {lastClickedAvatarId}</div>
             </Flex>
           </StoryDescription>
         </Flex>
