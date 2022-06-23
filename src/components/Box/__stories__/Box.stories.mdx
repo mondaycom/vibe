@@ -13,6 +13,8 @@ import styles from "./Box.stories.module.scss";
 export const metaSettings = createStoryMetaSettings({
   component: Box,
   enumPropNamesArray: [
+    "className",
+    "id",
     "children",
     "disabled",
     "border",
@@ -75,7 +77,7 @@ export const boxTemplate = args => {
 The Box is container for composited components.
 
 Its purpose is to help scaffold compositions while using Vibe's prop keys without writing new CSS. It can be used as a container for
-atom based compositions, and it can accept all Vibe style related props.
+atom based compositions, it can accept all Vibe style related props and have a semantic html tag.
 
 <Canvas>
   <Story name="Overview" args={{ children: "Box composite component" }}>

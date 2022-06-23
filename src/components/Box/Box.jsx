@@ -40,6 +40,7 @@ const Box = forwardRef(
     {
       className,
       id,
+      elementType,
       children,
       disabled,
       border,
@@ -75,9 +76,9 @@ const Box = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-
+    const Element = elementType;
     return (
-      <div
+      <Element
         ref={mergedRef}
         className={cx(
           styles.box,
@@ -115,7 +116,7 @@ const Box = forwardRef(
         id={id}
       >
         {children}
-      </div>
+      </Element>
     );
   }
 );
@@ -150,9 +151,9 @@ Box.backgroundColors = BACKGROUND_COLORS;
 Box.textColors = COLORS;
 
 Box.propTypes = {
-  /**
-   * class name to be add to the wrapper
-   */
+  className: PropTypes.string,
+  id: PropTypes.string,
+  elementType: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node),
@@ -361,14 +362,11 @@ Box.propTypes = {
     Box.backgroundColors.INVERTED_COLOR_BACKGROUND,
     Box.backgroundColors.DISABLED_BACKGROUND_COLOR
   ]),
-  className: PropTypes.string,
-  /**
-   * id to be add to the wrapper
-   */
-  id: PropTypes.string
 };
 Box.defaultProps = {
   className: "",
+  id: undefined,
+  elementType: "div",
   children: undefined,
   disabled: undefined,
   border: undefined,
@@ -398,8 +396,7 @@ Box.defaultProps = {
   paddingBottom: undefined,
   paddingStart: undefined,
   textColor: undefined,
-  backgroundColor: undefined,
-  id: undefined
+  backgroundColor: undefined
 };
 
 export default Box;
