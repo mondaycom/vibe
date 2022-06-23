@@ -8,6 +8,11 @@ describe("Box renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("with children", () => {
+    const tree = renderer.create(<Box>Child</Box>).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  
   it("with border prop", () => {
     const tree = renderer.create(<Box border={Box.borders.DEFAULT} />).toJSON();
     expect(tree).toMatchSnapshot();

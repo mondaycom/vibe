@@ -42,6 +42,14 @@ exports[`Box renders correctly with borderTop prop 1`] = `
 />
 `;
 
+exports[`Box renders correctly with children 1`] = `
+<div
+  className="box"
+>
+  Child
+</div>
+`;
+
 exports[`Box renders correctly with empty props 1`] = `
 <div
   className="box"
