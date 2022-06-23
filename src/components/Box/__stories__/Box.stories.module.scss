@@ -1,6 +1,6 @@
 @import "../../../styles/themes";
 
-.mondayStorybookBoxWrapper {
+.boxWrapper {
   max-width: 100%;
   width: 100%;
 
@@ -11,7 +11,7 @@
   }
 }
 
-.mondayStorybookBoxWrapperExample {
+.boxWrapperExample {
   max-width: 100%;
   width: 100%;
 
@@ -22,7 +22,7 @@
   }
 }
 
-.mondayStorybookBoxMarginWrapper {
+.boxMarginWrapper {
   overflow: hidden;
   margin: 0;
   min-height: inherit;
@@ -31,7 +31,7 @@
   border-bottom: 1px solid var(--inverted-color-background);
 }
 
-.mondayStorybookBoxPaddingWrapper {
+.boxPaddingWrapper {
   overflow: hidden;
   padding: 0;
 
@@ -56,7 +56,7 @@
   }
 }
 
-.mondayStorybookBoxPaddingInner {
+.boxPaddingInner {
   background: white;
   position: relative;
 }

@@ -53,7 +53,7 @@ export const metaSettings = createStoryMetaSettings({
 
 export const boxTemplate = args => {
   return (
-    <div className={styles.mondayStorybookBoxWrapper}>
+    <div className={styles.boxWrapper}>
       <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM} {...args}></Box>
     </div>
   );
@@ -103,7 +103,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
 
 <Canvas>
   <Story name="Background colors">
-    <div className={styles.mondayStorybookBoxWrapper}>
+    <div className={styles.boxWrapper}>
       <Box backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}>
         Box.backgroundColors.PRIMARY_BACKGROUND_COLOR
       </Box>
@@ -134,7 +134,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
 
 <Canvas>
   <Story name="Text Colors">
-    <div className={styles.mondayStorybookBoxWrapper}>
+    <div className={styles.boxWrapper}>
       <Box textColor={Box.textColors.PRIMARY_COLOR}>Box.textColors.PRIMARY_COLOR</Box>
       <Box textColor={Box.textColors.PRIMARY_HOVER_COLOR}>Box.textColors.PRIMARY_HOVER_COLOR</Box>
       <Box textColor={Box.textColors.PRIMARY_SELECTED_COLOR}>Box.textColors.PRIMARY_SELECTED_COLOR</Box>
@@ -164,7 +164,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
 
 <Canvas>
   <Story name="Border ">
-    <div className={styles.mondayStorybookBoxWrapper}>
+    <div className={styles.boxWrapper}>
       <Box border={Box.borders.NONE}>Box.borders.NONE</Box>
       <Box border={Box.borders.DEFAULT}>Box.borders.DEFAULT</Box>
       <Box border={Box.borders.DEFAULT} borderTop={Box.borderTops.NONE}>
@@ -191,7 +191,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
 
 <Canvas>
   <Story name="Border Color">
-    <div className={styles.mondayStorybookBoxWrapper}>
+    <div className={styles.boxWrapper}>
       <Box border={Box.borders.DEFAULT} borderColor={Box.borderColors.UI_BORDER_COLOR}>
         Box.borderColors.UI_BORDER_COLOR}
       </Box>
@@ -208,7 +208,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
 
 <Canvas>
   <Story name="Round Corners">
-    <div className={styles.mondayStorybookBoxWrapper}>
+    <div className={styles.boxWrapper}>
       <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.NONE}>
         Box.roundeds.NONE
       </Box>
@@ -238,7 +238,7 @@ roundedStart
 Property variations example
 
 <Preview>
-  <div className={styles.mondayStorybookBoxWrapper}>
+  <div className={styles.boxWrapper}>
     <Box border={Box.borders.DEFAULT} roundedTop={Box.roundedTops.MEDIUM}>
       Box.roundedTops.MEDIUM
     </Box>
@@ -261,7 +261,7 @@ Property variations example
 
 <Canvas>
   <Story name="Shadow">
-    <div className={styles.mondayStorybookBoxWrapper}>
+    <div className={styles.boxWrapper}>
       <Box shadow={Box.shadows.XS}>Box.shadows.XS</Box>
       <Box shadow={Box.shadows.SMALL}>Box.shadows.SMALL</Box>
       <Box shadow={Box.shadows.MEDIUM}>Box.shadows.MEDIUM</Box>
@@ -276,8 +276,8 @@ Property variations example
 
 <Canvas>
   <Story name="Margin">
-    <div className={styles.mondayStorybookBoxWrapper}>
-      <div className={styles.mondayStorybookBoxMarginWrapper}>
+    <div className={styles.boxWrapper}>
+      <div className={styles.boxMarginWrapper}>
         <Box
           backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
           border={Box.borders.DEFAULT}
@@ -286,7 +286,7 @@ Property variations example
           Box.margins.NONE
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxMarginWrapper}>
+      <div className={styles.boxMarginWrapper}>
         <Box
           backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
           border={Box.borders.DEFAULT}
@@ -295,7 +295,7 @@ Property variations example
           Box.margins.XS
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxMarginWrapper}>
+      <div className={styles.boxMarginWrapper}>
         <Box
           backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
           border={Box.borders.DEFAULT}
@@ -304,7 +304,7 @@ Property variations example
           Box.margins.SMALL
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxMarginWrapper}>
+      <div className={styles.boxMarginWrapper}>
         <Box
           backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
           border={Box.borders.DEFAULT}
@@ -313,7 +313,7 @@ Property variations example
           Box.margins.MEDIUM
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxMarginWrapper}>
+      <div className={styles.boxMarginWrapper}>
         <Box
           backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
           border={Box.borders.DEFAULT}
@@ -322,7 +322,7 @@ Property variations example
           Box.margins.LARGE
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxMarginWrapper}>
+      <div className={styles.boxMarginWrapper}>
         <Box
           backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
           border={Box.borders.DEFAULT}
@@ -331,7 +331,7 @@ Property variations example
           Box.margins.XL
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxMarginWrapper}>
+      <div className={styles.boxMarginWrapper}>
         <Box
           backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
           border={Box.borders.DEFAULT}
@@ -340,7 +340,7 @@ Property variations example
           Box.margins.XXL
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxMarginWrapper}>
+      <div className={styles.boxMarginWrapper}>
         <Box
           backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
           border={Box.borders.DEFAULT}
@@ -380,45 +380,45 @@ NONE
 
 <Canvas>
   <Story name="Padding">
-    <div className={styles.mondayStorybookBoxWrapper}>
-      <div className={styles.mondayStorybookBoxPaddingWrapper}>
+    <div className={styles.boxWrapper}>
+      <div className={styles.boxPaddingWrapper}>
         <Box border={Box.borders.DEFAULT} padding={Box.paddings.NONE}>
-          <div className={styles.mondayStorybookBoxPaddingInner}>Box.paddings.NONE</div>
+          <div className={styles.boxPaddingInner}>Box.paddings.NONE</div>
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxPaddingWrapper}>
+      <div className={styles.boxPaddingWrapper}>
         <Box border={Box.borders.DEFAULT} padding={Box.paddings.XS}>
-          <div className={styles.mondayStorybookBoxPaddingInner}>Box.paddings.XS</div>
+          <div className={styles.boxPaddingInner}>Box.paddings.XS</div>
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxPaddingWrapper}>
+      <div className={styles.boxPaddingWrapper}>
         <Box border={Box.borders.DEFAULT} padding={Box.paddings.SMALL}>
-          <div className={styles.mondayStorybookBoxPaddingInner}>Box.paddings.SMALL</div>
+          <div className={styles.boxPaddingInner}>Box.paddings.SMALL</div>
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxPaddingWrapper}>
+      <div className={styles.boxPaddingWrapper}>
         <Box border={Box.borders.DEFAULT} padding={Box.paddings.MEDIUM}>
-          <div className={styles.mondayStorybookBoxPaddingInner}>Box.paddings.MEDIUM</div>
+          <div className={styles.boxPaddingInner}>Box.paddings.MEDIUM</div>
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxPaddingWrapper}>
+      <div className={styles.boxPaddingWrapper}>
         <Box border={Box.borders.DEFAULT} padding={Box.paddings.LARGE}>
-          <div className={styles.mondayStorybookBoxPaddingInner}>Box.paddings.LARGE</div>
+          <div className={styles.boxPaddingInner}>Box.paddings.LARGE</div>
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxPaddingWrapper}>
+      <div className={styles.boxPaddingWrapper}>
         <Box border={Box.borders.DEFAULT} padding={Box.paddings.XL}>
-          <div className={styles.mondayStorybookBoxPaddingInner}>Box.paddings.XL</div>
+          <div className={styles.boxPaddingInner}>Box.paddings.XL</div>
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxPaddingWrapper}>
+      <div className={styles.boxPaddingWrapper}>
         <Box border={Box.borders.DEFAULT} padding={Box.paddings.XXL}>
-          <div className={styles.mondayStorybookBoxPaddingInner}>Box.paddings.XXL</div>
+          <div className={styles.boxPaddingInner}>Box.paddings.XXL</div>
         </Box>
       </div>
-      <div className={styles.mondayStorybookBoxPaddingWrapper}>
+      <div className={styles.boxPaddingWrapper}>
         <Box border={Box.borders.DEFAULT} padding={Box.paddings.XXXL}>
-          <div className={styles.mondayStorybookBoxPaddingInner}>Box.paddings.XXXL</div>
+          <div className={styles.boxPaddingInner}>Box.paddings.XXXL</div>
         </Box>
       </div>
     </div>
@@ -441,7 +441,7 @@ paddingStart
 
 <Canvas>
   <Story name="Disabled">
-    <div className={styles.mondayStorybookBoxWrapper}>
+    <div className={styles.boxWrapper}>
       <Box disabled>Box.disabled.DISABLED</Box>
     </div>
   </Story>
@@ -453,7 +453,7 @@ Panel Example with content and actionable footer
 
 <Canvas>
   <Story name="Box composite example">
-    <div className={styles.mondayStorybookBoxWrapperExample}>
+    <div className={styles.boxWrapperExample}>
       <Box shadow={Box.shadows.SMALL} rounded={Box.roundeds.MEDIUM}>
         <Box
           backgroundColor={Box.backgroundColors.GREY_BACKGROUND_COLOR}
