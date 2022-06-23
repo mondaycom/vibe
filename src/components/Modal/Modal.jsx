@@ -142,7 +142,7 @@ Modal.propTypes = {
    */
   description: PropTypes.string,
   /**
-   * Called when the modal is hidden (by close button/click outside/esc key
+   * Called when the modal is closed (by close button/click outside/esc key
    */
   onClose: PropTypes.func.isRequired,
   /**
@@ -151,7 +151,7 @@ Modal.propTypes = {
    */
   isAlertDialog: PropTypes.bool,
   /**
-   *  used for the fromOrigin animation
+   *  Used for the fromOrigin animation
    */
   triggerElement: PropTypes.instanceOf(Element),
   /**
@@ -159,7 +159,7 @@ Modal.propTypes = {
    */
   size: PropTypes.oneOf(Object.values(MODAL_SIZE)),
   /**
-   *  used for the fromOrigin animation
+   *  Hide the modal close button
    */
   hideCloseButton: PropTypes.bool,
   /**
