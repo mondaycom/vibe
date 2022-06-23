@@ -58,13 +58,11 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
     type="button"
   >
     <svg
-      aria-hidden={false}
-      className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+      aria-hidden={true}
+      className="icon_component icon-button-padding icon_component--no-focus-style"
       fill="currentColor"
       height="16"
       onClick={[Function]}
-      role="button"
-      tabIndex={0}
       viewBox="0 0 20 20"
       width="16"
     >
@@ -117,13 +115,11 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
     type="button"
   >
     <svg
-      aria-hidden={false}
-      className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+      aria-hidden={true}
+      className="icon_component icon-button-padding icon_component--no-focus-style"
       fill="currentColor"
       height="16"
       onClick={[Function]}
-      role="button"
-      tabIndex={0}
       viewBox="0 0 20 20"
       width="16"
     >
@@ -330,13 +326,11 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
     type="button"
   >
     <svg
-      aria-hidden={false}
-      className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+      aria-hidden={true}
+      className="icon_component icon-button-padding icon_component--no-focus-style"
       fill="currentColor"
       height="16"
       onClick={[Function]}
-      role="button"
-      tabIndex={0}
       viewBox="0 0 20 20"
       width="16"
     >
