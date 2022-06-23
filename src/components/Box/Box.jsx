@@ -361,7 +361,7 @@ Box.propTypes = {
     Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR,
     Box.backgroundColors.INVERTED_COLOR_BACKGROUND,
     Box.backgroundColors.DISABLED_BACKGROUND_COLOR
-  ]),
+  ])
 };
 Box.defaultProps = {
   className: "",
