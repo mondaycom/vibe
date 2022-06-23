@@ -1,11 +1,12 @@
-import React, { useCallback, useEffect, cloneElement, useMemo } from "react";
+import React, { cloneElement, useEffect, useMemo } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import styles from "./Modal.module.scss";
 import { useA11yDialog } from "./a11YDialog";
 import { ModalContent, ModalFooter, ModalHeader } from "components";
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
+import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
+import useAnimationProps from "components/Modal/useAnimationProps";
 
 export const MODAL_SIZE = {
   DEFAULT: "default",
@@ -32,6 +33,8 @@ const Modal = ({
     isAlertDialog
   });
 
+  const getAnimationProps = useAnimationProps(triggerElement, instance);
+
   // clear all scroll locks on unmount (just to be safe)
   useEffect(() => {
     return () => clearAllBodyScrollLocks();
@@ -47,43 +50,23 @@ const Modal = ({
     };
   }, [instance]);
 
-  const getAnimationProps = useCallback(
-    (hideAnimation = false) => {
-      let animationStart, animationEnd;
-      if (triggerElement) {
-        const { top: sourceTop, left: sourceLeft } = triggerElement.getBoundingClientRect();
-        const {
-          top: destinationTop,
-          left: destinationLeft,
-          width,
-          height
-        } = instance?.$el.childNodes[1].getBoundingClientRect();
-
-        animationStart = {
-          transform: `translate(${sourceLeft - destinationLeft - width / 2}px, ${
-            sourceTop - destinationTop - height / 2
-          }px) scale(0.2)`,
-          opacity: 0.2
-        };
-        animationEnd = { transform: `translate(0, 0) scale(1)`, opacity: 1 };
+  // show/hide and animate the modal
+  useEffect(() => {
+    if (instance) {
+      const animate = instance?.$el.childNodes[1].animate;
+      if (show) {
+        instance?.show();
+        if (animate) instance?.$el.childNodes[1].animate?.(...getAnimationProps());
       } else {
-        animationStart = {
-          transform: `scale(0.2)`,
-          opacity: 0.2
-        };
-        animationEnd = { transform: `scale(1)`, opacity: 1 };
-      }
-
-      return [
-        hideAnimation ? [animationEnd, animationStart] : [animationStart, animationEnd],
-        {
-          duration: hideAnimation ? 0 : 200,
-          easing: "ease-in"
+        if (animate) {
+          const animation = instance?.$el.childNodes[1]?.animate(...getAnimationProps(true));
+          animation?.finished.then(() => instance?.hide());
+        } else {
+          instance?.hide();
         }
-      ];
-    },
-    [instance, triggerElement]
-  );
+      }
+    }
+  }, [show, instance, getAnimationProps]);
 
   const header = useMemo(() => {
     const header = React.Children.toArray(children).find(child => child.type === ModalHeader);
@@ -115,24 +98,6 @@ const Modal = ({
   const footer = useMemo(() => {
     return React.Children.toArray(children).find(child => child.type === ModalFooter) || null;
   }, [children]);
-
-  // show/hide and animate the modal
-  useEffect(() => {
-    if (instance) {
-      const animate = instance?.$el.childNodes[1].animate;
-      if (show) {
-        instance?.show();
-        if (animate) instance?.$el.childNodes[1].animate?.(...getAnimationProps());
-      } else {
-        if (animate) {
-          const animation = instance?.$el.childNodes[1]?.animate(...getAnimationProps(true));
-          animation?.finished.then(() => instance?.hide());
-        } else {
-          instance?.hide();
-        }
-      }
-    }
-  }, [show, instance, getAnimationProps]);
 
   const dialog = ReactDOM.createPortal(
     <div
