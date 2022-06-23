@@ -6,14 +6,14 @@ export const metaSettings = createStoryMetaSettings({
   component: ModalHeader,
   enumPropNamesArray: [], // List enum props here
   iconPropNamesArray: [], // List props that are typed as icons here
-  actionPropsArray: [], // List the component's actions here
+  actionPropsArray: [] // List the component's actions here
 });
 
 <Meta
   title="Feedback/Modal/ModalHeader"
-  component={ ModalHeader }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
+  component={ModalHeader}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -23,6 +23,7 @@ export const modalHeaderTemplate = createComponentTemplate(ModalHeader);
 <!--- Component documentation -->
 
 # ModalHeader
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -33,112 +34,15 @@ export const modalHeaderTemplate = createComponentTemplate(ModalHeader);
 - [Feedback](#feedback)
 
 ## Overview
+
 Please write here the component description
 
 <Canvas>
-  <Story name="Overview"
-         args={ {prop1: "prop's default value", prop2: "prop's default value"} }>
-    { modalHeaderTemplate.bind({}) }
+  <Story name="Overview" args={{ title: "title" }}>
+    {modalHeaderTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ ModalHeader } />
 
-## Usage
-<UsageGuidelines guidelines={[
-  "Usage guideline 1",
-  "Usage guideline 2",
-  "Usage guideline 3",
-]}/>
-
-<Tip title="Not what you were looking for?">Tip content</Tip>
-
-## Variants
-### Story title 1
-Description of story 1
-<Canvas>
-  <Story name="Story title 1">
-    <ModalHeader />
-    <ModalHeader />
-  </Story>
-</Canvas>
-
-### Story title 2
-Description of story 2
-<Canvas>
-  <Story name="Story title 2">
-    <ModalHeader />
-    <ModalHeader />
-  </Story>
-</Canvas>
-
-## Do’s and Don’ts
-<ComponentRules
-  rules={[
-    {
-      positive: {
-        component:<ModalHeader />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<ModalHeader />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<ModalHeader />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<ModalHeader />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<ModalHeader />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<ModalHeader />,
-        description:"Bad practice description."
-      }
-    },
-    {
-      positive: {
-        component:<ModalHeader />,
-        description:"Best practice description."
-      },
-      negative: {
-        component:<ModalHeader />,
-        description:"Bad practice description."
-      }
-    }
-  ]}
-/>
-
-
-## Use cases and examples
-
-### Story title 3
-Description of story 3
-<Canvas>
-  <Story name="Story title 3">
-    <ModalHeader />
-    <ModalHeader />
-  </Story>
-</Canvas>
-
-### Story title 4
-Description of story 4
-<Canvas>
-  <Story name="Story title 4">
-    <ModalHeader />
-    <ModalHeader />
-  </Story>
-</Canvas>
-
-## Related components
-<RelatedComponents componentsNames={[]} />
+<ArgsTable of={ModalHeader} />
