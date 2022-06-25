@@ -2,10 +2,11 @@
 
 exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
 <div
-  className=""
+  className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       className="monday-style-clickable monday-style-clickable--disable-text-selection"
@@ -35,7 +36,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
     </div>
   </div>
   <div
-    className=""
+    className="counterContainer medium light"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -81,10 +82,11 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
 
 exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel default-tooltip 1`] = `
 <div
-  className=""
+  className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       className="monday-style-clickable monday-style-clickable--disable-text-selection"
@@ -122,7 +124,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     </div>
   </div>
   <div
-    className=""
+    className="counterContainer medium light"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -168,10 +170,11 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
 
 exports[`AvatarGroup renders correctly renders correctly with counter default-tooltip 1`] = `
 <div
-  className=""
+  className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       className="monday-style-clickable monday-style-clickable--disable-text-selection"
@@ -208,7 +211,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
     </div>
   </div>
   <div
-    className=""
+    className="counterContainer medium light"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -254,10 +257,11 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
 
 exports[`AvatarGroup renders correctly renders correctly with custom counter tooltip 1`] = `
 <div
-  className=""
+  className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       className="monday-style-clickable monday-style-clickable--disable-text-selection"
@@ -287,7 +291,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
     </div>
   </div>
   <div
-    className=""
+    className="counterContainer medium light"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -333,10 +337,11 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
 
 exports[`AvatarGroup renders correctly renders correctly with custom counter value 1`] = `
 <div
-  className=""
+  className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       className="monday-style-clickable monday-style-clickable--disable-text-selection"
@@ -366,7 +371,8 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
     </div>
   </div>
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       className="monday-style-clickable monday-style-clickable--disable-text-selection"
@@ -400,10 +406,11 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
 
 exports[`AvatarGroup renders correctly renders correctly with dummy class name 1`] = `
 <div
-  className="dummy-class-name"
+  className="avatarGroupContainer dummy-class-name"
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       className="monday-style-clickable monday-style-clickable--disable-text-selection"
@@ -437,10 +444,11 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
 
 exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
 <div
-  className=""
+  className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       className="monday-style-clickable monday-style-clickable--disable-text-selection"
@@ -470,7 +478,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
     </div>
   </div>
   <div
-    className=""
+    className="counterContainer large light"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -516,10 +524,11 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
 
 exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
 <div
-  className=""
+  className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       className="monday-style-clickable monday-style-clickable--disable-text-selection"
@@ -549,7 +558,8 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
     </div>
   </div>
   <div
-    className="monday-style-avatar"
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
   >
     <div
       className="monday-style-clickable monday-style-clickable--disable-text-selection"
