@@ -11,7 +11,7 @@ import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipConta
 import styles from "./AvatarGroupCounter.module.scss";
 
 const avatarOnClick = avatarProps => {
-  avatarProps?.onClick && avatarProps.onClick(avatarProps?.id);
+  return avatarProps?.onClick && (() => avatarProps.onClick(avatarProps?.id));
 };
 
 const AvatarGroupCounter = ({
@@ -68,7 +68,7 @@ const AvatarGroupCounter = ({
               <AvatarMenuItem
                 key={index}
                 title={avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel}
-                onClick={() => avatarOnClick(avatar.props)}
+                onClick={avatarOnClick(avatar.props)}
                 avatarProps={{ ...avatar.props, size: Avatar.sizes.SMALL, ariaLabel: "", tabIndex: "-1" }}
               />
             );

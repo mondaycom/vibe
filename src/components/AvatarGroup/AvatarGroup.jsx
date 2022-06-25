@@ -8,7 +8,7 @@ import AvatarGroupCounter from "./AvatarGroupCounter";
 import styles from "./AvatarGroup.module.scss";
 
 const avatarOnClick = avatarProps => {
-  avatarProps?.onClick && avatarProps.onClick(avatarProps?.id);
+  return avatarProps?.onClick && (() => avatarProps.onClick(avatarProps?.id));
 };
 
 const AvatarGroup = ({
@@ -44,7 +44,7 @@ const AvatarGroup = ({
           size: size || avatar?.props?.size,
           type: type || avatar?.props?.type,
           className: cx(styles.avatarContainer, avatarClassName),
-          onClick: () => avatarOnClick(avatar.props)
+          onClick: avatarOnClick(avatar.props)
         });
       })}
       <AvatarGroupCounter
