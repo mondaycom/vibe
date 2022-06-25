@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import Tooltip from "../Tooltip/Tooltip";
 import Avatar from "../Avatar/Avatar";
-import MenuButton from "../MenuButton/MenuButton";
 import Counter from "../Counter/Counter";
-import MenuItem from "../Menu/MenuItem/MenuItem";
+import MenuButton from "../MenuButton/MenuButton";
 import Menu from "../Menu/Menu/Menu";
+import AvatarMenuItem from "../Menu/MenuItem/AvatarMenuItem";
 import AvatarGroupCounterTooltipContainer from "./AvatarGroupCounterTooltipContainer";
 import styles from "./AvatarGroupCounter.module.scss";
 
@@ -64,11 +64,11 @@ const AvatarGroupCounter = ({
         <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
           {counterTooltipAvatars.map((avatar, index) => {
             return (
-              <MenuItem
+              <AvatarMenuItem
                 key={index}
                 title={avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel}
                 onClick={() => avatarOnClick(avatar.props)}
-                iconComponent={<Avatar {...avatar.props} size={Avatar.sizes.SMALL} ariaLabel="" tabIndex="-1" />}
+                avatarProps={{ ...avatar.props, size: Avatar.sizes.SMALL, ariaLabel: "", tabIndex: "-1" }}
               />
             );
           })}
