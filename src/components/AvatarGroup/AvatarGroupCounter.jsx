@@ -26,7 +26,8 @@ const AvatarGroupCounter = ({
     color: counterColor = Counter.colors.LIGHT,
     count: counterValue = counterTooltipAvatars.length,
     prefix: counterPrefix = "+",
-    maxDigits: counterMaxDigits = 3
+    maxDigits: counterMaxDigits = 3,
+    ariaLabelItemsName: counterAriaLabelItemsName = "items"
   } = counterProps || {};
 
   const counterSizeStyle = styles[size?.toString()];
@@ -43,10 +44,10 @@ const AvatarGroupCounter = ({
         count={counterValue}
         prefix={counterPrefix}
         maxDigits={counterMaxDigits}
-        ariaLabel="Tab for more items"
+        ariaLabel={`Tab for more ${counterAriaLabelItemsName}`}
       />
     );
-  }, [counterColor, counterMaxDigits, counterPrefix, counterValue]);
+  }, [counterAriaLabelItemsName, counterColor, counterMaxDigits, counterPrefix, counterValue]);
 
   if (!counterTooltipAvatars.length && !counterValue) {
     return null;
@@ -59,7 +60,7 @@ const AvatarGroupCounter = ({
         component={counterComponent}
         zIndex={1}
         componentClassName={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
-        ariaLabel={`${counterValue} additional items`}
+        ariaLabel={`${counterValue} additional ${counterAriaLabelItemsName}`}
       >
         <Menu id="menu" size={Menu.sizes.MEDIUM} className={styles.menu} focusItemIndexOnMount={0}>
           {counterTooltipAvatars.map((avatar, index) => {
@@ -110,7 +111,13 @@ AvatarGroupCounter.propTypes = {
   /**
    * Counter.propTypes: props for counter
    */
-  counterProps: PropTypes.shape(Counter.propTypes),
+  counterProps: PropTypes.shape({
+    color: PropTypes.oneOf([Counter.colors.LIGHT, Counter.colors.DARK]),
+    count: PropTypes.number,
+    prefix: PropTypes.string,
+    maxDigits: PropTypes.number,
+    ariaLabelItemsName: PropTypes.string
+  }),
   counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
   counterTooltipIsVirtualizedList: PropTypes.bool,
   size: PropTypes.oneOf(Object.values(Avatar.sizes)),

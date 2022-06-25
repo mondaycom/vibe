@@ -71,13 +71,14 @@ AvatarGroup.propTypes = {
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   max: PropTypes.number,
   /**
-   * 4 `Counter.props` for customization
+   * 4 `Counter.props` for customization + ariaLabelItemsName for specifying the "items" name in aria label
    */
   counterProps: PropTypes.shape({
     color: PropTypes.oneOf([Counter.colors.LIGHT, Counter.colors.DARK]),
     count: PropTypes.number,
     prefix: PropTypes.string,
-    maxDigits: PropTypes.number
+    maxDigits: PropTypes.number,
+    ariaLabelItemsName: PropTypes.string
   }),
   /**
    * `Tooltip.propTypes`: props for custom counter tooltip
