@@ -1,12 +1,14 @@
 import cx from "classnames";
-import { InformationBox } from "../../../components/information-box/information-box";
-import { InformationBoxTitle } from "../../../components/information-box-title/information-box-title";
+import { BEMClass } from "helpers/bem-helper";
 import { elementColorsNames } from "utils/colors-vars-map";
 import { Flex, IconButton } from "components";
+import { InformationBox } from "../../../components/information-box/information-box";
+import { InformationBoxTitle } from "../../../components/information-box-title/information-box-title";
 import { Email } from "../../../../components/Icon/Icons";
 import "./contributor.scss";
 
 const BASE_CLASS = "monday-storybook-welcome-contributor";
+const bemHelper = BEMClass(BASE_CLASS);
 
 export const Contributor = ({ imgSrc, className, fullName, title, email }) => {
   const contributorTitle = (
@@ -20,8 +22,8 @@ export const Contributor = ({ imgSrc, className, fullName, title, email }) => {
     </Flex>
   );
   const contributorVisualImage = (
-    <div className={cx(`${BASE_CLASS}_visual-element`, className)}>
-      <img src={imgSrc} alt="" className={`${BASE_CLASS}_image`} />
+    <div className={cx(bemHelper({ element: "visual-element" }), className)}>
+      <img src={imgSrc} alt="" className={bemHelper({ element: "image" })} />
     </div>
   );
   return <InformationBox component={contributorVisualImage} title={contributorTitle} description={title} />;

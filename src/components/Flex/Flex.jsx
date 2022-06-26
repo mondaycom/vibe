@@ -1,10 +1,10 @@
 import { BASE_POSITIONS } from "constants/positions";
-import React, { useRef, forwardRef, useMemo } from "react";
+import React, { forwardRef, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "hooks/useMergeRefs";
 import Clickable from "components/Clickable/Clickable";
-import { FLEX_POSITIONS, FLEX_GAPS, FLEX_DIRECTIONS } from "./FlexConstants";
+import { FLEX_DIRECTIONS, FLEX_GAPS, FLEX_POSITIONS } from "./FlexConstants";
 import classes from "./Flex.module.scss";
 
 const Flex = forwardRef(
@@ -19,6 +19,8 @@ const Flex = forwardRef(
       justify,
       align,
       gap,
+      gapRow,
+      gapColumn,
       onClick,
       style,
       ariaLabelledby,
@@ -29,7 +31,11 @@ const Flex = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
+    const overrideStyle = useMemo(() => {
+      const overrideGapRow = gapRow || gap;
+      const overrideGapColumn = gapColumn || gap;
+      return { ...style, rowGap: overrideGapRow, columnGap: overrideGapColumn };
+    }, [gap, gapRow, gapColumn, style]);
     const onClickProps = useMemo(() => {
       if (onClick) return { elementType, ariaLabelledby };
       return { "aria-labelledby": ariaLabelledby };
@@ -98,6 +104,14 @@ Flex.propTypes = {
     PropTypes.oneOf([Flex.gaps.NONE, Flex.gaps.SMALL, Flex.gaps.MEDIUM, Flex.gaps.LARGE]),
     PropTypes.number
   ]),
+  gapRow: PropTypes.oneOfType([
+    PropTypes.oneOf([Flex.gaps.NONE, Flex.gaps.SMALL, Flex.gaps.MEDIUM, Flex.gaps.LARGE]),
+    PropTypes.number
+  ]),
+  gapColumn: PropTypes.oneOfType([
+    PropTypes.oneOf([Flex.gaps.NONE, Flex.gaps.SMALL, Flex.gaps.MEDIUM, Flex.gaps.LARGE]),
+    PropTypes.number
+  ]),
   ariaLabel: PropTypes.string,
   tabIndex: PropTypes.number
 };
@@ -113,6 +127,8 @@ Flex.defaultProps = {
   justify: Flex.justify.START,
   align: Flex.align.CENTER,
   gap: Flex.gaps.NONE,
+  gapRow: Flex.gaps.NONE,
+  gapColumn: Flex.gaps.NONE,
   ariaLabel: undefined,
   tabIndex: undefined
 };

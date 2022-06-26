@@ -64,18 +64,15 @@ const CONTRIBUTORS = [
 ];
 
 export const Contributors = () => (
-  <Flex direction={Flex.directions.ROW} wrap className="monday-storybook-welcome-contributors" gap={160}>
-    {CONTRIBUTORS.map(({ imgSrc, fullName, email, title, className }, index) => (
-      <div key={index} className="monday-storybook-welcome-contributors_contributor-container">
-        <Contributor
-          key={email}
-          imgSrc={imgSrc}
-          fullName={fullName}
-          email={email}
-          title={title}
-          className={className}
-        />
-      </div>
+  <Flex
+    direction={Flex.directions.ROW}
+    wrap
+    className="monday-storybook-welcome-contributors"
+    gapRow={90}
+    gapColumn={20}
+  >
+    {CONTRIBUTORS.map(({ imgSrc, fullName, email, title, className }) => (
+      <Contributor key={email} imgSrc={imgSrc} fullName={fullName} email={email} title={title} className={className} />
     ))}
   </Flex>
 );
