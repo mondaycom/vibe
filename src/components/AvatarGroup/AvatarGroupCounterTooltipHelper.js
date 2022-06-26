@@ -97,7 +97,7 @@ export const avatarRenderer = (item, index, style = {}, type, displayAsGrid) => 
   return (
     <ClickableWrapper
       key={index}
-      isClickable={avatarProps?.onClick}
+      isClickable={!!avatarProps?.onClick}
       clickableProps={{ onClick: avatarProps.onClick, tabIndex: "-1" }}
     >
       <div style={overrideStyle}>

@@ -116,7 +116,7 @@ const Avatar = ({
   return (
     <div id={id} className={cx(AVATAR_CSS_BASE_CLASS, className, bemHelper({ state: size }))} style={sizeStyle}>
       <ClickableWrapper
-        isClickable={onClick}
+        isClickable={!!onClick}
         clickableProps={{ onClick: onClick, tabIndex: "-1", className: bemHelper({ element: "clickableWrapper" }) }}
       >
         <Tooltip
