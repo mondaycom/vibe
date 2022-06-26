@@ -5,7 +5,8 @@ exports[`Flex renders correctly Horizontal display with align 1`] = `
   className=""
   style={
     Object {
-      "gap": "0px",
+      "columnGap": 0,
+      "rowGap": 0,
     }
   }
 >
@@ -26,7 +27,8 @@ exports[`Flex renders correctly Horizontal display with align 2`] = `
   className=""
   style={
     Object {
-      "gap": "0px",
+      "columnGap": 0,
+      "rowGap": 0,
     }
   }
 >
@@ -47,7 +49,8 @@ exports[`Flex renders correctly Horizontal display with children 1`] = `
   className=""
   style={
     Object {
-      "gap": "0px",
+      "columnGap": 0,
+      "rowGap": 0,
     }
   }
 >
@@ -68,7 +71,8 @@ exports[`Flex renders correctly Horizontal display with gap 1`] = `
   className=""
   style={
     Object {
-      "gap": "24px",
+      "columnGap": 24,
+      "rowGap": 24,
     }
   }
 >
@@ -89,7 +93,8 @@ exports[`Flex renders correctly Horizontal display with justify 1`] = `
   className=""
   style={
     Object {
-      "gap": "0px",
+      "columnGap": 0,
+      "rowGap": 0,
     }
   }
 >
@@ -110,7 +115,8 @@ exports[`Flex renders correctly Horizontal display with wrap 1`] = `
   className="undefined"
   style={
     Object {
-      "gap": "0px",
+      "columnGap": 0,
+      "rowGap": 0,
     }
   }
 >
@@ -131,7 +137,8 @@ exports[`Flex renders correctly Vertical display with align 1`] = `
   className=""
   style={
     Object {
-      "gap": "0px",
+      "columnGap": 0,
+      "rowGap": 0,
     }
   }
 >
@@ -152,7 +159,8 @@ exports[`Flex renders correctly Vertical display with children 1`] = `
   className=""
   style={
     Object {
-      "gap": "0px",
+      "columnGap": 0,
+      "rowGap": 0,
     }
   }
 >
@@ -173,7 +181,8 @@ exports[`Flex renders correctly Vertical display with justify 1`] = `
   className=""
   style={
     Object {
-      "gap": "0px",
+      "columnGap": 0,
+      "rowGap": 0,
     }
   }
 >
@@ -194,7 +203,8 @@ exports[`Flex renders correctly Vertical display with wrap 1`] = `
   className="undefined"
   style={
     Object {
-      "gap": "0px",
+      "columnGap": 0,
+      "rowGap": 0,
     }
   }
 >
@@ -215,7 +225,8 @@ exports[`Flex renders correctly with empty props 1`] = `
   className=""
   style={
     Object {
-      "gap": "0px",
+      "columnGap": 0,
+      "rowGap": 0,
     }
   }
 />
