@@ -1,11 +1,9 @@
-import { clarity, delight, speed, path } from "../assets";
+import { Flex } from "components";
+import { clarity, delight, path, speed } from "../assets";
 import { Principle } from "../principle/principle";
-import "./principles.scss";
-
-const BASE_CLASS = "monday-storybook-principles";
 
 export const Principles = () => (
-  <div className={BASE_CLASS}>
+  <Flex direction={Flex.directions.ROW} wrap gapColumn={20} gapRow={90} align={Flex.align.START}>
     <Principle
       imgSrc={clarity}
       title="Clarity"
@@ -26,5 +24,5 @@ export const Principles = () => (
       title="Delightful Experience"
       description="Users will continue using the platform if it makes them feel empowered."
     />
-  </div>
+  </Flex>
 );

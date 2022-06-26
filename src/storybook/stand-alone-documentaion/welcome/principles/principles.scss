@@ -1,9 +1,0 @@
-@import "../../../../styles/global-css-settings";
-@import "../../../styles/content-spacing";
-
-.monday-storybook-principles {
-  margin-top: $spacing-between-section-items;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: $spacing-large;
-}

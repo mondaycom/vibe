@@ -65,9 +65,10 @@ const CONTRIBUTORS = [
 
 export const Contributors = () => (
   <Flex
-    direction={Flex.directions.ROW}
-    wrap
     className="monday-storybook-welcome-contributors"
+    direction={Flex.directions.ROW}
+    align={Flex.align.START}
+    wrap
     gapRow={90}
     gapColumn={20}
   >

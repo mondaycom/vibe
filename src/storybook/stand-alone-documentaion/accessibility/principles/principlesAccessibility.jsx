@@ -1,11 +1,9 @@
-import { principleClarity, principleSpeed, principleIntuative, principleDelight } from "../assets";
+import { Flex } from "components";
+import { principleClarity, principleDelight, principleIntuative, principleSpeed } from "../assets";
 import { Principle } from "../../welcome/principle/principle";
-import "../../welcome/principles/principles.scss";
 
-const BASE_CLASS = "monday-storybook-principles";
-
-export const PrinciplesAccesability = () => (
-  <div className={BASE_CLASS}>
+export const PrinciplesAccessibility = () => (
+  <Flex direction={Flex.directions.ROW} wrap gapColumn={20} gapRow={90} align={Flex.align.START}>
     <Principle
       imgSrc={principleClarity}
       title="Clear"
@@ -26,5 +24,5 @@ export const PrinciplesAccesability = () => (
       title="Robust"
       description="Create robust content that can accommodate a wide variety of users."
     />
-  </div>
+  </Flex>
 );
