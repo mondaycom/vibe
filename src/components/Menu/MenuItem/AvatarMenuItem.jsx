@@ -8,7 +8,9 @@ const AvatarMenuItem = forwardRef((props, ref) => {
   const { avatarProps } = props;
   // All props except avatarProps, can be simplified, but just for clarity
   const menuItemProps = { avatarProps: undefined, ...props };
+
   const renderAvatar = useCallback(() => <Avatar {...avatarProps} />, [avatarProps]);
+
   return <MenuItem {...menuItemProps} icon={renderAvatar} ref={ref} />;
 });
 
