@@ -66,7 +66,7 @@ const AvatarGroupCounter = ({
           {counterTooltipAvatars.map((avatar, index) => {
             return (
               <AvatarMenuItem
-                key={index}
+                key={avatar.props?.id || index}
                 title={avatar.props?.tooltipProps?.content || avatar?.props?.ariaLabel}
                 onClick={avatarOnClick(avatar.props)}
                 avatarProps={{ ...avatar.props, size: Avatar.sizes.SMALL, ariaLabel: "", tabIndex: "-1" }}
