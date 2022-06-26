@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import Avatar from "../Avatar/Avatar";
 import Counter from "../Counter/Counter";
-import Flex from "../Flex/Flex";
 import Tooltip from "../Tooltip/Tooltip";
 import AvatarGroupCounter from "./AvatarGroupCounter";
 import styles from "./AvatarGroup.module.scss";
@@ -37,14 +36,7 @@ const AvatarGroup = ({
   }
 
   return (
-    <Flex
-      id={id}
-      className={cx(styles.avatarGroupContainer, className)}
-      direction={Flex.directions.ROW}
-      align={Flex.align.START}
-      justify={Flex.justify.START}
-      wrap
-    >
+    <div className={cx(styles.avatarGroupContainer, className)} id={id}>
       {displayAvatars.map((avatar, index) => {
         return React.cloneElement(avatar, {
           key: index,
@@ -63,7 +55,7 @@ const AvatarGroup = ({
         size={size}
         type={type}
       />
-    </Flex>
+    </div>
   );
 };
 
