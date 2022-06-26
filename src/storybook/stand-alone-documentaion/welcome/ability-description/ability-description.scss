@@ -2,12 +2,14 @@
 @import "../../../../styles/themes";
 
 .monday-storybook-ability-description {
+  min-width: 50px;
+  max-width: 275px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   border: 1px solid;
   @include theme-prop(border-color, layout-border-color);
-  padding: $spacing-large;
-  width: 100%;
+  padding: var(--spacing-large);
   &_image {
     height: 48px;
     width: 48px;
@@ -21,6 +23,6 @@
 
   &_content {
     @include small-text;
-    margin-bottom: $spacing-large;
+    margin-bottom: var(--spacing-large);
   }
 }

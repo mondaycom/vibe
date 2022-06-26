@@ -1,9 +1,9 @@
 import { AbilityDescription } from "../ability-description/ability-description";
 import { components, foundations, gettingStarted } from "../assets";
-import "./abilities-description.scss";
+import { Flex } from "components";
 
 export const AbilitiesDescription = () => (
-  <div className="monday-storybook-abilities-description">
+  <Flex direction={Flex.directions.ROW} wrap gap={20} align={Flex.align.START}>
     <AbilityDescription
       title="Getting started"
       imageSrc={gettingStarted}
@@ -17,5 +17,5 @@ export const AbilitiesDescription = () => (
     <AbilityDescription title="Components" imageSrc={components} linkHref="/?path=/docs/buttons">
       All the information and guidelines you’ll ever need on each component
     </AbilityDescription>
-  </div>
+  </Flex>
 );

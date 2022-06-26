@@ -3,7 +3,7 @@ import { clarity, delight, path, speed } from "../assets";
 import { Principle } from "../principle/principle";
 
 export const Principles = () => (
-  <Flex direction={Flex.directions.ROW} wrap gapColumn={20} gapRow={90} align={Flex.align.START}>
+  <Flex direction={Flex.directions.ROW} wrap gap={20} align={Flex.align.START}>
     <Principle
       imgSrc={clarity}
       title="Clarity"
