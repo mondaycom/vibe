@@ -9,7 +9,7 @@ import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip from "../Tooltip/Tooltip";
-import Clickable from "../Clickable/Clickable";
+import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
 import "./Avatar.scss";
 
@@ -113,21 +113,12 @@ const Avatar = ({
     return badges.length > 0 ? <div className={cx(bemHelper({ element: "badges" }))}>{badges}</div> : null;
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
-  const ClickableWrapper = ({ children }) => {
-    if (!onClick) {
-      return children;
-    }
-
-    return (
-      <Clickable onClick={onClick} tabIndex="-1" className={bemHelper({ element: "clickableWrapper" })}>
-        {children}
-      </Clickable>
-    );
-  };
-
   return (
     <div id={id} className={cx(AVATAR_CSS_BASE_CLASS, className, bemHelper({ state: size }))} style={sizeStyle}>
-      <ClickableWrapper>
+      <ClickableWrapper
+        isClickable={onClick}
+        clickableProps={{ onClick: onClick, tabIndex: "-1", className: bemHelper({ element: "clickableWrapper" }) }}
+      >
         <Tooltip
           showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
           hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}

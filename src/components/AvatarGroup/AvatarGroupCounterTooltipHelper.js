@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { useKeyEvent } from "hooks";
-import Clickable from "../Clickable/Clickable";
 import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
+import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 
 const KEYS = ["Tab"];
@@ -89,25 +89,17 @@ export function useTooltipContentTabNavigation({
   });
 }
 
-const ClickableWrapper = ({ children, avatarProps }) => {
-  if (!avatarProps.onClick) {
-    return children;
-  }
-
-  return (
-    <Clickable onClick={avatarProps.onClick} tabIndex="-1">
-      {children}
-    </Clickable>
-  );
-};
-
 export const avatarRenderer = (item, index, style = {}, type, displayAsGrid) => {
   const avatarProps = item.value;
   const overrideStyle = { ...style, width: displayAsGrid ? undefined : "100%" };
   const labelId = `tooltip-item-${index}-label`;
 
   return (
-    <ClickableWrapper key={index} avatarProps={avatarProps}>
+    <ClickableWrapper
+      key={index}
+      isClickable={avatarProps?.onClick}
+      clickableProps={{ onClick: avatarProps.onClick, tabIndex: "-1" }}
+    >
       <div style={overrideStyle}>
         <Flex direction={Flex.directions.ROW} gap={Flex.gaps.XS} ariaLabelledby={labelId}>
           <Avatar
