@@ -4,6 +4,12 @@ import VirtualizedList from "../VirtualizedList/VirtualizedList";
 import Avatar from "../Avatar/Avatar";
 import styles from "./AvatarGroupCounterTooltipContentVirtualizedList.module.scss";
 
+const LIST_OPTIONS = Object.freeze({
+  maxItemsWithoutScroll: 10,
+  itemLineHeight: 34,
+  itemLineWidth: 150
+});
+
 const AvatarGroupCounterTooltipContentVirtualizedList = ({
   avatarItems,
   avatarRenderer,
@@ -11,20 +17,16 @@ const AvatarGroupCounterTooltipContentVirtualizedList = ({
   tooltipContainerAriaLabel,
   tooltipContentContainerRef
 }) => {
-  const maxOptionsWithoutScroll = 10;
-  const optionLineHeight = 34;
-  const optionLineWidth = 150;
   const virtualizedItems = useMemo(
-    () => avatarItems.map(item => ({ ...item, height: optionLineHeight })),
+    () => avatarItems.map(item => ({ ...item, height: LIST_OPTIONS.itemLineHeight })),
     [avatarItems]
   );
 
-  let virtualizedListStyle;
-  if (maxOptionsWithoutScroll) {
-    // Adding 0.5 to show next option to indicate scroll is available
-    const minCount = Math.min(avatarItems.length, maxOptionsWithoutScroll + 0.5);
-    virtualizedListStyle = { height: optionLineHeight * minCount, minWidth: optionLineWidth };
-  }
+  const minCount = Math.min(avatarItems.length, LIST_OPTIONS.maxItemsWithoutScroll);
+  const virtualizedListStyle = {
+    height: LIST_OPTIONS.itemLineHeight * minCount,
+    minWidth: LIST_OPTIONS.itemLineWidth
+  };
 
   return (
     <div
