@@ -32,7 +32,7 @@ export function useTooltipContentTabNavigation({
       e => {
         if (e.target === counterContainerRef.current) {
           e.preventDefault();
-          tooltipContentContainerRef.current && tooltipContentContainerRef.current.focus();
+          tooltipContentContainerRef?.current && tooltipContentContainerRef.current.focus();
           setShouldUpdate(prev => !prev);
         }
       },
@@ -81,7 +81,7 @@ export function useTooltipContentTabNavigation({
       e => {
         if (e.target === tooltipContentContainerRef.current) {
           e.preventDefault();
-          counterContainerRef.current && counterContainerRef.current.focus();
+          counterContainerRef?.current && counterContainerRef.current.focus();
         }
       },
       [counterContainerRef, tooltipContentContainerRef.current]
