@@ -28,7 +28,7 @@ const changeSliderValueByClickingOnTrackTest = async canvas => {
   // go to middle
   userEvent.click(elRail, { clientX: Math.floor(rect.left + rect.width * 0.5) });
   await delay(CHANGES_DELAY);
-  await expect(elThumb.getAttribute("aria-valuenow")).toBe("50");
+  await expect(elThumb.getAttribute("aria-valuenow")).toBe("51");
 };
 
 // Decrease value by drug Thumb of Slider (NON-Ranged)
