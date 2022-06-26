@@ -1,19 +1,23 @@
 import React, { forwardRef, useCallback } from "react";
+import PropTypes from "prop-types";
 import MenuItem from "./MenuItem";
 import Avatar from "../../Avatar/Avatar";
-import PropTypes from "prop-types";
 
-// MenuItem with Avatar instead of icon
+// MenuItem with Avatar instead of Icon
 const AvatarMenuItem = forwardRef((props, ref) => {
-  const renderAvatar = useCallback(() => <Avatar {...props.avatarProps} />, [props.avatarProps]);
-  return <MenuItem {...props} icon={renderAvatar} ref={ref} />;
+  const { avatarProps } = props;
+  // All props except avatarProps, can be simplified, but just for clarity
+  const menuItemProps = { avatarProps: undefined, ...props };
+  const renderAvatar = useCallback(() => <Avatar {...avatarProps} />, [avatarProps]);
+  return <MenuItem {...menuItemProps} icon={renderAvatar} ref={ref} />;
 });
 
 AvatarMenuItem.propTypes = {
-  props: PropTypes.shape({ ...MenuItem.propTypes, avatarProps: PropTypes.shape(Avatar.propTypes) })
+  ...MenuItem.propTypes,
+  avatarProps: PropTypes.shape(Avatar.propTypes)
 };
 AvatarMenuItem.defaultProps = {
-  props: undefined
+  avatarProps: {}
 };
 
 AvatarMenuItem.isMenuChild = true;
