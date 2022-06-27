@@ -29,6 +29,7 @@ const getAddons = () => {
     "@storybook/addon-a11y",
     "storybook-addon-performance/register",
     "@storybook/addon-docs",
+    "@storybook/addon-toolbars",
     "@storybook/addon-actions"
   ];
 
