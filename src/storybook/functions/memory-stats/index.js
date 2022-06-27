@@ -27,4 +27,4 @@ export function stopMemoryStats() {
     stats.domElement.remove();
     stats = null;
   }
-};
+}
