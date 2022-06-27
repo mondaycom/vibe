@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.36.1",
+  "version": "1.36.2",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "module": "dist/esm.js",
@@ -84,6 +84,7 @@
     "@storybook/addon-interactions": "^6.5.7",
     "@storybook/addon-links": "6.5.7",
     "@storybook/addon-storyshots": "6.5.7",
+    "@storybook/addon-toolbars": "^6.5.9",
     "@storybook/addons": "6.5.7",
     "@storybook/builder-webpack5": "6.5.7",
     "@storybook/jest": "^0.0.10",
