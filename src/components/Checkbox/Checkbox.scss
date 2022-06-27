@@ -58,12 +58,6 @@ $checkbox-size: 16px;
     visibility: hidden;
   }
 
-  &__disabled {
-    .monday-style-checkbox__label {
-      @include theme-prop(color, disabled-text-color);
-    }
-  }
-
   &__label {
     @include font-input();
     cursor: pointer;
