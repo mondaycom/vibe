@@ -1,5 +1,6 @@
 /* eslint-disable */
 /* tslint:disable */
+export {default as Academy} from './components/Academy';
 export {default as Activity} from './components/Activity';
 export {default as Add} from './components/Add';
 export {default as AddNewDoc} from './components/AddNewDoc';
@@ -74,6 +75,7 @@ export {default as DropdownChevronUp} from './components/DropdownChevronUp';
 export {default as DueDate} from './components/DueDate';
 export {default as Duplicate} from './components/Duplicate';
 export {default as Edit} from './components/Edit';
+export {default as Education} from './components/Education';
 export {default as Email} from './components/Email';
 export {default as Embed} from './components/Embed';
 export {default as Emoji} from './components/Emoji';
@@ -88,6 +90,7 @@ export {default as File} from './components/File';
 export {default as Filter} from './components/Filter';
 export {default as Folder} from './components/Folder';
 export {default as Formula} from './components/Formula';
+export {default as Forum} from './components/Forum';
 export {default as Fullscreen} from './components/Fullscreen';
 export {default as FullscreenClose} from './components/FullscreenClose';
 export {default as Gallery} from './components/Gallery';
@@ -103,6 +106,7 @@ export {default as Hide} from './components/Hide';
 export {default as Highlight} from './components/Highlight';
 export {default as HighlightColorBucket} from './components/HighlightColorBucket';
 export {default as Home} from './components/Home';
+export {default as Idea} from './components/Idea';
 export {default as Image} from './components/Image';
 export {default as Inbox} from './components/Inbox';
 export {default as Info} from './components/Info';
