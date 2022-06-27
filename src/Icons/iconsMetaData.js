@@ -5,45 +5,73 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
-      name: "Offline",
-      file: "Offline.svg",
-      description: "Offline",
-      tags: "Offline,Cloud,Internet"
+      name: "Idea",
+      file: "Idea.svg",
+      description: "Lightbulb that is on",
+      tags: "light,bulb,on,flash,idea,electricty",
   },
 
   {
-      name: "Timeline",
-      file: "Timeline.svg",
-      description: "Timeline",
-      tags: "Timeline"
+      name: "Forum",
+      file: "Forum.svg",
+      description: "Two overlapping chat bubbles facing each other",
+      tags: "chat,forum,community,message,talk",
   },
 
   {
-      name: "Tags",
-      file: "Tags.svg",
-      description: "Tags",
-      tags: "Hash Tag Mention"
+      name: "Education",
+      file: "Education.svg",
+      description: "Open book with empty pages",
+      tags: "book,page,pages,open,learn,education",
   },
 
   {
-      name: "Dropdown",
-      file: "Dropdown.svg",
-      description: "Dropdown",
-      tags: "Dropdown, column"
+      name: "Academy",
+      file: "Academy.svg",
+      description: "Graduation cap with tassle",
+      tags: "graduation,hat,cap,academy,tassle,learn",
   },
 
   {
-      name: "Country",
-      file: "Country.svg",
-      description: "Country, Flag",
-      tags: "Country,flag"
+    name: "Offline",
+    file: "Offline.svg",
+    description: "Offline",
+    tags: "Offline,Cloud,Internet",
   },
 
   {
-      name: "MondayDoc",
-      file: "MondayDoc.svg",
-      description: "Monday Doc",
-      tags: "Doc, Document"
+    name: "Timeline",
+    file: "Timeline.svg",
+    description: "Timeline",
+    tags: "Timeline",
+  },
+
+  {
+    name: "Tags",
+    file: "Tags.svg",
+    description: "Tags",
+    tags: "Hash Tag Mention",
+  },
+
+  {
+    name: "Dropdown",
+    file: "Dropdown.svg",
+    description: "Dropdown",
+    tags: "Dropdown, column",
+  },
+
+  {
+    name: "Country",
+    file: "Country.svg",
+    description: "Country, Flag",
+    tags: "Country,flag",
+  },
+
+  {
+    name: "MondayDoc",
+    file: "MondayDoc.svg",
+    description: "Monday Doc",
+    tags: "Doc, Document",
   },
 
   {
@@ -1319,7 +1347,7 @@ export const iconsMetaData = [
     name: "RecycleBin",
     file: "RecycleBin.svg",
     description: "Recycle bin",
-    tags: "Recycle bin, Trash, Recycle, Bin"
+    tags: "Recycle bin, Trash, Recycle, Bin",
   },
 
   {
