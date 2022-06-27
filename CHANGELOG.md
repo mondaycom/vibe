@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.36.3 (2022-06-27)
+
+#### Bug Fixes
+* [#720](https://github.com/mondaycom/monday-ui-react-core/pull/720) Fix/yonatanari/fix disabled text color issues ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#719](https://github.com/mondaycom/monday-ui-react-core/pull/719) feat(storybook): memory stats for stories ([@niksa-monday](https://github.com/niksa-monday))
+* [#718](https://github.com/mondaycom/monday-ui-react-core/pull/718) feat(storybook): enable storybook performance addon ([@niksa-monday](https://github.com/niksa-monday))
+
 ## 1.36.2 (2022-06-27)
 
 #### Internal Changes
