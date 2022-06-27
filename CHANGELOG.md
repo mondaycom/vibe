@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.36.2 (2022-06-27)
+
+#### Internal Changes
+* [#713](https://github.com/mondaycom/monday-ui-react-core/pull/713) Jest snapshot css modules ([@eran-cohen](https://github.com/eran-cohen))
+
+#### New Icons
+* [#717](https://github.com/mondaycom/monday-ui-react-core/pull/717) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.36.1 (2022-06-23)
 
 #### Bug Fixes
