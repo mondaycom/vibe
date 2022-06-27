@@ -3,7 +3,7 @@ import { principleClarity, principleDelight, principleIntuative, principleSpeed 
 import { Principle } from "../../welcome/principle/principle";
 
 export const PrinciplesAccessibility = () => (
-  <Flex direction={Flex.directions.ROW} wrap gapColumn={20} gapRow={90} align={Flex.align.START}>
+  <Flex direction={Flex.directions.ROW} wrap gap={Flex.gaps.LARGE} align={Flex.align.START}>
     <Principle
       imgSrc={principleClarity}
       title="Clear"
