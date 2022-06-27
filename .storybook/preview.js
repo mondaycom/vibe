@@ -1,21 +1,22 @@
 import { addParameters } from "@storybook/react";
-import { DocsPage, DocsContainer } from "@storybook/addon-docs";
+import { DocsContainer, DocsPage } from "@storybook/addon-docs";
+import { withPerformance } from "storybook-addon-performance";
 import {
-  SectionName,
-  Title,
-  Tip,
   AnchorListItem,
-  ComponentRules,
   ComponentName,
-  UsageGuidelines,
-  FunctionArguments,
-  FunctionArgument,
-  RelatedComponents,
+  ComponentRules,
   DocFooter,
+  FunctionArgument,
+  FunctionArguments,
+  LinkComponent,
   MultipleStoryElementsWrapper,
   Paragraph,
-  LinkComponent
-} from "../src/storybook/components";
+  RelatedComponents,
+  SectionName,
+  Tip,
+  Title,
+  UsageGuidelines
+} from "../src/storybook";
 
 addParameters({
   controls: {
@@ -82,6 +83,7 @@ addParameters({
 });
 
 export const decorators = [
+  withPerformance,
   (Story, { className }) => {
     return (
       <MultipleStoryElementsWrapper className={className}>
