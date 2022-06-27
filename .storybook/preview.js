@@ -15,7 +15,8 @@ import {
   SectionName,
   Tip,
   Title,
-  UsageGuidelines
+  UsageGuidelines,
+  withMemoryStats
 } from "../src/storybook";
 
 addParameters({
@@ -82,6 +83,21 @@ addParameters({
   }
 });
 
+export const globalTypes = {
+  memoryStats: {
+    name: "Memory Stats",
+    description: "Add Memory Stat tracker",
+    defaultValue: "no",
+    toolbar: {
+      icon: "memory",
+      items: [
+        { value: "no", right: "🚫", title: "Hide Memory Stat" },
+        { value: "yes", right: "✅", title: "Show Memory Stat" }
+      ]
+    }
+  }
+};
+
 export const decorators = [
   withPerformance,
   (Story, { className }) => {
@@ -90,5 +106,6 @@ export const decorators = [
         <Story />
       </MultipleStoryElementsWrapper>
     );
-  }
+  },
+  withMemoryStats
 ];
