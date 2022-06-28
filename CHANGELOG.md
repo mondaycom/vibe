@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.36.4 (2022-06-28)
+
+#### Bug Fixes
+* [#724](https://github.com/mondaycom/monday-ui-react-core/pull/724) fix medium 2 min width to 1280 ([@liatmaor](https://github.com/liatmaor))
+
 ## 1.36.3 (2022-06-27)
 
 #### Bug Fixes
