@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/addon-docs";
-import { ComponentName, Frame, Link, UnstyledList, UnstyledListItem } from "../../components";
+import { ComponentName, Frame, Link, RelatedComponents, Tip, UnstyledList, UnstyledListItem } from "../../components";
 import { PrinciplesAccessibility } from "./principles/principlesAccessibility";
 import { COLORS, HIDDEN_TEXT, TYPOGRAPHY } from "../../components/related-components/component-description-map";
 import {
@@ -37,7 +37,7 @@ Web Accessibility is based on guidelines published by The World Wide Web Consort
 <Tip title="Get our Accessibility checklist">
   <Link href={accessibilityCheckList} target="_blank">
     Download
-  </Link>{" "}
+  </Link>
   our accessibility checklist file.
 </Tip>
 
@@ -82,10 +82,10 @@ UI Components - Visual information required to identify active UI components and
 Graphical Objects - Parts of graphics required to understand the content
 
 <Tip title="Use color contrast tools for code and design">
-  To check color contrast in design use{" "}
+  To check color contrast in design use
   <Link href="https://www.figma.com/community/plugin/748533339900865323/Contrast" target="_blank">
     Contrast figma plugin
-  </Link>{" "}
+  </Link>
   and inspect elements accessibility tab for live code verification
 </Tip>
 
@@ -207,7 +207,7 @@ Screen reader users navigate the virtual buffer in Virtual Mode or Browse Mode:
 
 <UnstyledList>
   <UnstyledListItem>
-    With shorstcut keys like H for the next heading, E for the next editable field, B for the next button, etc..
+    With shortcut keys like H for the next heading, E for the next editable field, B for the next button, etc..
   </UnstyledListItem>
   <UnstyledListItem>With the keyboard arrow keys. The navigation is object by object.</UnstyledListItem>
 </UnstyledList>
@@ -223,7 +223,7 @@ For example:
 <UnstyledList>
   <UnstyledListItem>
     Screen readers that read aloud web content for people who cannot read the text, usually blind people and people with
-    cognitive impairmants. For example: JAWS and NVDA on windows machines, VoiceOver for MacOS.
+    cognitive impairments. For example: JAWS and NVDA on windows machines, VoiceOver for MacOS.
   </UnstyledListItem>
   <UnstyledListItem>Screen magnifiers for people with low vision. For example: Zoomtext</UnstyledListItem>
   <UnstyledListItem>
