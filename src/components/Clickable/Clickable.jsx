@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import React, { useRef, forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import NOOP from "lodash/noop";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -22,9 +22,10 @@ const Clickable = forwardRef(
       role,
       onClick,
       enableTextSelection,
-      ariaLabel,
       onMouseDown,
+      ariaLabel,
       ariaHidden,
+      ariaHasPopup,
       tabIndex,
       disabled,
       style,
@@ -51,6 +52,7 @@ const Clickable = forwardRef(
         tabIndex={disabled ? -1 : tabIndex}
         aria-label={ariaLabel}
         aria-hidden={ariaHidden}
+        aria-haspopup={ariaHasPopup}
         onMouseDown={onMouseDown}
         style={style}
       >
@@ -70,14 +72,15 @@ Clickable.propTypes = {
    */
   id: PropTypes.string,
   role: PropTypes.string,
-  ariaLabel: PropTypes.string,
   onClick: PropTypes.func,
   onMouseDown: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   enableTextSelection: PropTypes.bool,
   disabled: PropTypes.bool,
   elementType: PropTypes.string,
+  ariaLabel: PropTypes.string,
   ariaHidden: PropTypes.bool,
+  ariaHasPopup: PropTypes.bool,
   tabIndex: PropTypes.string,
   style: PropTypes.object
 };
@@ -85,14 +88,15 @@ Clickable.defaultProps = {
   className: "",
   id: undefined,
   role: "button",
-  ariaLabel: undefined,
   onClick: NOOP,
   onMouseDown: NOOP,
   children: undefined,
   disabled: false,
   enableTextSelection: false,
   elementType: "div",
+  ariaLabel: undefined,
   ariaHidden: undefined,
+  ariaHasPopup: undefined,
   tabIndex: "0",
   style: undefined
 };
