@@ -9,7 +9,7 @@
   border-radius: 4px;
   padding: 1px 8px;
   align-items: center;
-  margin: 0 4px;
+  margin: 0 var(--spacing-xs);
   user-select: none;
   animation: chipsEnter 100ms;
   animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
@@ -28,7 +28,7 @@
   }
 
   &.withClose {
-    padding-right: 4px;
+    padding-right: var(--spacing-xs);
   }
 
   .icon, .avatar {
