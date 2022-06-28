@@ -29,10 +29,10 @@
   display: flex;
   position: relative;
   flex-direction: column;
-  padding: 0 30px;
-  padding-block-end: 24px;
-  border-radius: 16px;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+  padding: 0 var(--spacing-xl);
+  padding-block-end: var(--spacing-large);
+  border-radius: var(--border-radius-big);
+  box-shadow: var(--box-shadow-large);
   background-color: var(--secondary-background-color);
   max-height: 90vh;
   max-width: 90vw;

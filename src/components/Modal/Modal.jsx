@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import styles from "./Modal.module.scss";
-import { useA11yDialog } from "./a11YDialog";
+import { useA11yDialog } from "./a11yDialog";
 import { ModalContent, ModalFooter, ModalHeader } from "components";
 import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import useAnimationProps from "components/Modal/useAnimationProps";
@@ -104,7 +104,7 @@ const Modal = ({
     const { id } = attr.title;
     const header = React.Children.toArray(children).find(isModalHeader);
     if (header) {
-      return cloneElement(header, { id });
+      return cloneElement(header, { id, closeModal: onClose });
     }
 
     return (

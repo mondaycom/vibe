@@ -5,7 +5,10 @@ exports[`ModalHeader renders correctly with classNames 1`] = `
   className="mondayStyleModalHeader className"
 >
   <p
+    aria-level={1}
     className="titleClassName title"
+    id="modal-title-id"
+    role="heading"
   >
     Title
   </p>
@@ -71,7 +74,10 @@ exports[`ModalHeader renders correctly with close button hidden 1`] = `
   className="mondayStyleModalHeader"
 >
   <p
+    aria-level={1}
     className="title"
+    id="modal-title-id"
+    role="heading"
   >
     Title
   </p>
@@ -84,7 +90,10 @@ exports[`ModalHeader renders correctly with description 1`] = `
   className="mondayStyleModalHeader"
 >
   <p
+    aria-level={1}
     className="title"
+    id="modal-title-id"
+    role="heading"
   >
     Title
   </p>
@@ -154,7 +163,10 @@ exports[`ModalHeader renders correctly with icon 1`] = `
   className="mondayStyleModalHeader"
 >
   <p
+    aria-level={1}
     className="title"
+    id="modal-title-id"
+    role="heading"
   >
     <span
       className="icon"
@@ -240,7 +252,10 @@ exports[`ModalHeader renders correctly with required props 1`] = `
   className="mondayStyleModalHeader"
 >
   <p
+    aria-level={1}
     className="title"
+    id="modal-title-id"
+    role="heading"
   >
     Title
   </p>

@@ -4,7 +4,7 @@
   display: flex;
   align-items: start;
   flex-direction: column;
-  margin-block-end: 24px;
+  margin-block-end: var(--spacing-large);
 
   .title {
     font-size: var(--font-size-h2);
@@ -17,12 +17,12 @@
 
   .icon {
     vertical-align: middle;
-    margin-right: 8px;
+    margin-right: var(--spacing-small);
   }
 
   .description {
     font: var(--font-subtext);
-    margin-block-start: 8px;
+    margin-block-start: var(--spacing-small);
   }
 
   .closeButton {
