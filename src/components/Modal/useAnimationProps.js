@@ -31,7 +31,7 @@ export default function useAnimationProps(triggerElement, instance) {
       return [
         hideAnimation ? [animationEnd, animationStart] : [animationStart, animationEnd],
         {
-          duration: hideAnimation ? 0 : 200,
+          duration: hideAnimation ? 100 : 200,
           easing: "ease-in"
         }
       ];

@@ -1,4 +1,4 @@
-import React, { cloneElement, useEffect, useMemo } from "react";
+import React, { cloneElement, useCallback, useEffect, useMemo } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -7,8 +7,9 @@ import { useA11yDialog } from "./a11YDialog";
 import { ModalContent, ModalFooter, ModalHeader } from "components";
 import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import useAnimationProps from "components/Modal/useAnimationProps";
+import { useKeyEvent } from "../../hooks";
 
-export const MODAL_SIZE = {
+export const MODAL_WIDTH = {
   DEFAULT: "default",
   FULL_WIDTH: "full_width"
 };
@@ -27,15 +28,31 @@ const Modal = ({
   isAlertDialog,
   children,
   triggerElement,
-  size,
+  width,
   hideCloseButton,
   closeButtonAriaLabel
 }) => {
   const [instance, attr] = useA11yDialog({
     id,
-    onClose,
     isAlertDialog
   });
+
+  useKeyEvent({
+    callback: event => {
+      if (instance?.$el.contains(document.activeElement)) {
+        event.stopPropagation();
+        closeDialogIfNeeded();
+      }
+    },
+    capture: true,
+    keys: ["Escape"]
+  });
+
+  const closeDialogIfNeeded = useCallback(() => {
+    if (!isAlertDialog) {
+      onClose();
+    }
+  }, [isAlertDialog, onClose]);
 
   const getAnimationProps = useAnimationProps(triggerElement, instance);
 
@@ -50,6 +67,13 @@ const Modal = ({
     instance?.on("hide", () => enableBodyScroll(instance.$el));
     return () => {
       instance?.off("show");
+      instance?.off("hide");
+    };
+  }, [instance]);
+
+  useEffect(() => {
+    instance?.on("hide", () => onClose());
+    return () => {
       instance?.off("hide");
     };
   }, [instance]);
@@ -72,17 +96,23 @@ const Modal = ({
     }
   }, [show, instance, getAnimationProps]);
 
+  // const hideModal = useCallback(() => {
+  //   instance.hide();
+  // }, [instance]);
+
   const header = useMemo(() => {
+    const { id } = attr.title;
     const header = React.Children.toArray(children).find(isModalHeader);
     if (header) {
-      return cloneElement(header, { attr });
+      return cloneElement(header, { id });
     }
 
     return (
       <ModalHeader
         title={title}
         description={description}
-        attr={attr}
+        closeModal={onClose}
+        id={id}
         hideCloseButton={hideCloseButton}
         closeButtonAriaLabel={closeButtonAriaLabel}
       />
@@ -109,12 +139,17 @@ const Modal = ({
       className={cx(styles.container, classNames.container)}
       data-testid="monday-dialog-container"
     >
-      <div {...attr.overlay} className={cx(styles.overlay, classNames.overlay)} data-testid="monday-modal-overlay" />
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+      <div
+        onClick={closeDialogIfNeeded}
+        className={cx(styles.overlay, classNames.overlay)}
+        data-testid="monday-modal-overlay"
+      />
       <div
         {...attr.dialog}
         className={cx(styles.dialog, classNames.modal, {
-          [styles.default]: size === MODAL_SIZE.DEFAULT,
-          [styles.full]: size === MODAL_SIZE.FULL_WIDTH
+          [styles.default]: width === MODAL_WIDTH.DEFAULT,
+          [styles.full]: width === MODAL_WIDTH.FULL_WIDTH
         })}
       >
         {header}
@@ -175,7 +210,7 @@ Modal.propTypes = {
   /**
    *  Define modal width
    */
-  size: PropTypes.oneOf(Object.values(MODAL_SIZE)),
+  width: PropTypes.oneOf(Object.values(MODAL_WIDTH)),
   /**
    *  Hide the modal close button
    */
@@ -198,13 +233,13 @@ Modal.propTypes = {
   children: PropTypes.node
 };
 
-Modal.Size = MODAL_SIZE;
+Modal.Width = MODAL_WIDTH;
 
 Modal.defaultProps = {
   triggerElement: null,
   isAlertDialog: false,
   children: undefined,
-  size: MODAL_SIZE.DEFAULT,
+  width: MODAL_WIDTH.DEFAULT,
   classNames: {
     container: "",
     overlay: "",

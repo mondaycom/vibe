@@ -150,10 +150,10 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
   </Story>
 </Canvas>
 
-### Size variants
+### Width variants
 
 <Canvas>
-  <Story name="Size variants - Normal">
+  <Story name="Width variants - Normal">
     {() => {
       const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
         openButtonTitle: "Default"
@@ -168,7 +168,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
             show={show}
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
-            size={Modal.Size.DEFAULT}
+            width={Modal.Width.DEFAULT}
           >
             <p>Normal modal</p>
             <ModalFooter>{modalButtons}</ModalFooter>
@@ -177,7 +177,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
       );
     }}
   </Story>
-  <Story name="Size variants - Full">
+  <Story name="Width variants - Full">
     {() => {
       const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
         openButtonTitle: "Full width"
@@ -191,7 +191,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
             triggerElement={ref.current}
             show={show}
             onClose={closeModal}
-            size={Modal.Size.FULL_WIDTH}
+            width={Modal.Width.FULL_WIDTH}
             closeButtonAriaLabel={"close"}
           >
             <p>Full width modal</p>

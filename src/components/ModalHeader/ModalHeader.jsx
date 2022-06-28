@@ -13,15 +13,16 @@ const ModalHeader = ({
   description,
   descriptionClassName,
   icon,
+  closeModal,
   iconSize,
   iconClassName,
   hideCloseButton,
   closeButtonAriaLabel,
-  attr = {}
+  id
 }) => {
   return (
     <div className={cx(styles.mondayStyleModalHeader, className)}>
-      <p {...attr.title} className={cx(titleClassName, styles.title)}>
+      <p role="heading" aria-level={1} id={id} className={cx(titleClassName, styles.title)}>
         {icon && (
           <span className={cx(styles.icon, iconClassName)}>
             <Icon icon={icon} iconType={Icon.type.SVG} iconSize={iconSize} ignoreFocusStyle clickable={false} />
@@ -36,7 +37,7 @@ const ModalHeader = ({
         <div className={cx(styles.closeButton)}>
           <IconButton
             key="xxs"
-            {...attr.closeButton}
+            onClick={closeModal}
             ariaLabel={closeButtonAriaLabel}
             icon={CloseSmall}
             kind={IconButton.kinds.TERTIARY}
@@ -70,6 +71,14 @@ ModalHeader.propTypes = {
    */
   titleClassName: PropTypes.string,
   /**
+   * closes the Modal. No need to provide it, it is being provided by the modal
+   */
+  closeModal: PropTypes.func,
+  /**  /**
+   * ID for the title, needed for accessibility. No need to provide it, it is being provided by the modal
+   */
+  id: PropTypes.string,
+  /**
    * Class name for the description
    */
   descriptionClassName: PropTypes.string,
@@ -87,6 +96,7 @@ ModalHeader.propTypes = {
   closeButtonAriaLabel: PropTypes.string
 };
 ModalHeader.defaultProps = {
+  id: "",
   className: "",
   description: "",
   icon: undefined,
@@ -94,7 +104,8 @@ ModalHeader.defaultProps = {
   titleClassName: "",
   descriptionClassName: "",
   iconClassName: "",
-  closeButtonAriaLabel: "close"
+  closeButtonAriaLabel: "close",
+  closeModal: () => {}
 };
 
 ModalHeader.displayName = "ModalHeader";
