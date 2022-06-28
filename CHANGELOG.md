@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.37.0 (2022-06-28)
+
+#### New Features
+* [#725](https://github.com/mondaycom/monday-ui-react-core/pull/725) Clickable: ariaHasPopup prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.36.5 (2022-06-28)
 
 #### New Icons
