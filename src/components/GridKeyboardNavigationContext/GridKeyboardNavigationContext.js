@@ -1,7 +1,7 @@
 import React, { useContext, useCallback, useMemo } from "react";
 import useEventListener from "../../hooks/useEventListener";
+import { useLastNavigationDirection } from "../Menu/Menu/hooks/useLastNavigationDirection";
 import {
-  focusElementWithDirection,
   getDirectionMaps,
   getNextElementToFocusInDirection,
   getOppositeDirection,
@@ -15,36 +15,35 @@ export const GridKeyboardNavigationContext = React.createContext();
  * {leftElement: React.MutableRefObject, rightElement: React.MutableRefObject})[]} positions - the positions of the navigable items
  * @param {*} wrapperRef - a reference for a wrapper element which contains all the referenced elements
  */
-export const useGridKeyboardNavigationContext = (positions, wrapperRef) => {
+export const useGridKeyboardNavigationContext = (positions, wrapperRef, { disabled } = { disabled: false }) => {
   const directionMaps = useMemo(() => getDirectionMaps(positions), [positions]);
   const upperContext = useContext(GridKeyboardNavigationContext);
+  const { lastNavigationDirectionRef } = useLastNavigationDirection();
 
-  const onWrapperFocus = useCallback(
-    e => {
-      const keyboardDirection = e?.detail?.keyboardDirection;
-      if (!keyboardDirection) {
-        return;
-      }
-      const oppositeDirection = getOppositeDirection(keyboardDirection);
-      const elementToFocus = getOutmostElementInDirection(directionMaps, oppositeDirection);
-      focusElementWithDirection(elementToFocus, keyboardDirection);
-    },
-    [directionMaps]
-  );
+  const onWrapperFocus = useCallback(() => {
+    const keyboardDirection = lastNavigationDirectionRef.current;
+    if (!keyboardDirection || disabled) {
+      return;
+    }
+    const oppositeDirection = getOppositeDirection(keyboardDirection);
+    const refToFocus = getOutmostElementInDirection(directionMaps, oppositeDirection);
+    refToFocus?.current?.focus();
+  }, [directionMaps, disabled, lastNavigationDirectionRef]);
   useEventListener({ eventName: "focus", callback: onWrapperFocus, ref: wrapperRef });
 
   const onOutboundNavigation = useCallback(
     (elementRef, direction) => {
+      if (disabled) return;
       const maybeNextElement = getNextElementToFocusInDirection(directionMaps[direction], elementRef);
       if (maybeNextElement) {
         elementRef.current?.blur();
-        focusElementWithDirection(maybeNextElement, direction);
+        maybeNextElement.current?.focus();
         return;
       }
       // nothing on that direction - try updating the upper context
       upperContext?.onOutboundNavigation(wrapperRef, direction);
     },
-    [directionMaps, upperContext, wrapperRef]
+    [directionMaps, upperContext, wrapperRef, disabled]
   );
   return { onOutboundNavigation };
 };

@@ -1,5 +1,5 @@
-@import "../../../styles/themes.scss";
-@import "../../../styles/typography.scss";
+@import "../../../styles/themes";
+@import "../../../styles/typography";
 
 .monday-style-attention-box {
   &_column-wrapper {
@@ -76,7 +76,7 @@
     font-size: 14px;
 
     span {
-      @include theme-prop(color, disabled-text-color);
+      @include theme-prop(color, secondary-text-color);
     }
   }
 

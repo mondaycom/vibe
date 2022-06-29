@@ -22,19 +22,33 @@ const buildConfig = config => {
   return config;
 };
 
-module.exports = {
-  stories: ["../src/**/*.stories.mdx"],
-  webpackFinal: async config => {
-    return buildConfig(config);
-  },
-  addons: [
+const getAddons = () => {
+  const addons = [
     "@storybook/addon-controls",
     "storybook-addon-themes",
     "@storybook/addon-a11y",
     "storybook-addon-performance/register",
     "@storybook/addon-docs",
+    "@storybook/addon-toolbars",
     "@storybook/addon-actions"
-  ],
+  ];
+
+  if (process.env.NODE_ENV !== "production") {
+    addons.push("@storybook/addon-interactions");
+  }
+
+  return addons;
+};
+
+module.exports = {
+  stories: ["../src/**/*.stories.mdx"],
+  webpackFinal: async config => {
+    return buildConfig(config);
+  },
+  features: {
+    interactionsDebugger: true
+  },
+  addons: getAddons(),
   core: {
     builder: "webpack5"
   }

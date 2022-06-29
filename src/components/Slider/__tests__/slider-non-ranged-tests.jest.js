@@ -1,5 +1,5 @@
 import React from "react";
-import { act, screen } from "@testing-library/react";
+import { act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { snapshotDiff } from "../../../../jest/utils";
 import { renderSliderInNonRangeMode } from "./slider-tests.utils";
@@ -7,10 +7,9 @@ import { renderSliderInNonRangeMode } from "./slider-tests.utils";
 jest.useFakeTimers();
 
 jest.mock("../../TextField/TextField", () => {
-  const TextField = props => {
+  return props => {
     return <div data-testid="mock-text-field-comp">{JSON.stringify(props)}</div>;
   };
-  return TextField;
 });
 
 it("a. Non-ranged Slider: basic renderer", async () => {
@@ -146,57 +145,6 @@ describe("c. Non-ranged Slider Key Events", () => {
       await userEvent.keyboard("{arrowright}");
       await userEvent.keyboard("{arrowright}");
       // jest.advanceTimersByTime(999);
-      after = asFragment().firstChild;
-    });
-    expect(snapshotDiff(before, after)).toMatchSnapshot();
-  });
-});
-
-describe("d. Non-ranged Slider Mouse Events", () => {
-  let getBoundingClientRectMock;
-  beforeAll(async () => {
-    getBoundingClientRectMock = jest.spyOn(global.HTMLElement.prototype, "getBoundingClientRect");
-    getBoundingClientRectMock.mockImplementation(() => ({
-      bottom: 32,
-      height: 16,
-      left: 24,
-      right: 508,
-      top: 16,
-      width: 484,
-      x: 24,
-      y: 16
-    }));
-  });
-
-  afterAll(async () => {
-    getBoundingClientRectMock.mockRestore();
-  });
-
-  it("01. decrease by mouse click on Track", async () => {
-    let before;
-    let after;
-    await act(async () => {
-      const { asFragment } = await renderSliderInNonRangeMode({ showValue: true });
-      const elRail = screen.getByTestId("monday-slider__rail");
-      jest.advanceTimersByTime(999);
-      before = asFragment().firstChild;
-      userEvent.click(elRail, { clientX: 100 });
-      jest.advanceTimersByTime(999);
-      after = asFragment().firstChild;
-    });
-    expect(snapshotDiff(before, after)).toMatchSnapshot();
-  });
-
-  it("02. increase value by mouse click on Track", async () => {
-    let before;
-    let after;
-    await act(async () => {
-      const { asFragment } = await renderSliderInNonRangeMode({ showValue: true });
-      const elRail = screen.getByTestId("monday-slider__rail");
-      jest.advanceTimersByTime(999);
-      before = asFragment().firstChild;
-      userEvent.click(elRail, { clientX: 200 });
-      jest.advanceTimersByTime(999);
       after = asFragment().firstChild;
     });
     expect(snapshotDiff(before, after)).toMatchSnapshot();

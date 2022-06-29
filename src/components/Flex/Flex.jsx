@@ -9,20 +9,37 @@ import classes from "./Flex.module.scss";
 
 const Flex = forwardRef(
   (
-    { className, id, elementType, direction, wrap, children, justify, align, gap, onClick, style, ariaLabelledby },
+    {
+      className,
+      id,
+      elementType,
+      direction,
+      wrap,
+      children,
+      justify,
+      align,
+      gap,
+      onClick,
+      style,
+      ariaLabelledby,
+      ariaLabel,
+      tabIndex
+    },
     ref
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideStyle = useMemo(() => ({ ...style, gap: `${gap}px` }), [style, gap]);
+    const onClickProps = useMemo(() => {
+      if (onClick) return { elementType, ariaLabelledby };
+      return { "aria-labelledby": ariaLabelledby };
+    }, [onClick, elementType, ariaLabelledby]);
     const Element = onClick ? Clickable : elementType;
 
     return (
       <Element
         id={id}
-        ariaLabelledby={ariaLabelledby}
-        // in case the element is clickable, we will pass the real element type in this prop
-        elementType={elementType}
+        {...onClickProps}
         ref={mergedRef}
         className={cx(
           classes.container,
@@ -34,8 +51,10 @@ const Flex = forwardRef(
             [classes.wrap]: wrap
           }
         )}
+        tabIndex={tabIndex}
         onClick={onClick}
         style={overrideStyle}
+        aria-label={ariaLabel}
       >
         {children}
       </Element>
@@ -61,7 +80,12 @@ Flex.propTypes = {
   direction: PropTypes.oneOf([Flex.directions.ROW, Flex.directions.COLUMN]),
   elementType: PropTypes.string,
   wrap: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element)
+  ]),
   justify: PropTypes.oneOf([
     Flex.justify.START,
     Flex.justify.CENTER,
@@ -69,11 +93,13 @@ Flex.propTypes = {
     Flex.justify.SPACE_BETWEEN,
     Flex.justify.SPACE_AROUND
   ]),
-  align: PropTypes.oneOf([Flex.align.START, Flex.align.CENTER, Flex.align.END]),
+  align: PropTypes.oneOf([Flex.align.START, Flex.align.CENTER, Flex.align.END, Flex.align.STRETCH]),
   gap: PropTypes.oneOfType([
     PropTypes.oneOf([Flex.gaps.NONE, Flex.gaps.SMALL, Flex.gaps.MEDIUM, Flex.gaps.LARGE]),
     PropTypes.number
-  ])
+  ]),
+  ariaLabel: PropTypes.string,
+  tabIndex: PropTypes.number
 };
 
 Flex.defaultProps = {
@@ -86,7 +112,9 @@ Flex.defaultProps = {
   direction: Flex.directions.ROW,
   justify: Flex.justify.START,
   align: Flex.align.CENTER,
-  gap: Flex.gaps.NONE
+  gap: Flex.gaps.NONE,
+  ariaLabel: undefined,
+  tabIndex: undefined
 };
 
 export default Flex;

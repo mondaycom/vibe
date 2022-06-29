@@ -1,5 +1,5 @@
-@import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
+@import "../../styles/themes";
+@import "../../styles/typography";
 
 .text-with-highlight--wrapper {
   overflow: hidden;
@@ -10,5 +10,9 @@
     @include theme-prop(background-color, primary-selected-color);
     @include theme-prop(color, primary-text-color);
     border-radius: 2px;
+  }
+
+  &.with-ellipsis {
+    @include line-clamp(var(--heading-clamp-lines));
   }
 }

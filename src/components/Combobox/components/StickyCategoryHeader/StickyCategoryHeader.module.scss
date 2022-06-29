@@ -1,0 +1,9 @@
+.stickyCategoryHeader {
+  position: absolute;
+  z-index: 10;
+  width:  calc(100% - 12px);
+  background-color: var(--primary-background-color);
+  padding-top: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+}

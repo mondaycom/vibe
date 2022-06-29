@@ -1,7 +1,7 @@
-@import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
-@import "../../styles/global-css-settings.scss";
-@import "../../styles/states.scss";
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
 
 .menu-button--wrapper {
   @include reset-button();
@@ -74,8 +74,12 @@
     @include theme-prop(border-color, disabled-background-color);
     @include theme-prop(color, disabled-text-color);
     cursor: not-allowed;
-    opacity: 0.4;
+    &:hover{
+      background-color: transparent;
+    }
+
   }
+
   &--text {
     width: 100%;
   }

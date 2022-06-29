@@ -47,6 +47,7 @@ const publishedComponents = {
   MenuItemButton: "components/Menu/MenuItemButton/MenuItemButton.jsx",
   MenuDivider: "components/Menu/MenuDivider/MenuDivider.jsx",
   Menu: "components/Menu/Menu/Menu.jsx",
+  MenuGridItem: "components/Menu/MenuGridItem/MenuGridItem.jsx",
   Dialog: "components/Dialog/Dialog.jsx",
   DialogContentContainer: "components/DialogContentContainer/DialogContentContainer.jsx",
   AttentionBox: "components/AttentionBox/AttentionBox.jsx",
@@ -84,7 +85,8 @@ const publishedComponents = {
   Avatar: "components/Avatar/Avatar.jsx",
   IconButton: "components/IconButton/IconButton.jsx",
   Slider: "components/Slider/Slider.jsx",
-  // hooks
+  // Don't remove next line
+  // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index.js",
   useEventListener: "hooks/useEventListener/index.js",
   useDebounceEvent: "hooks/useDebounceEvent/index.js",
@@ -92,9 +94,15 @@ const publishedComponents = {
   useResizeObserver: "hooks/useResizeObserver.js",
   useAfterFirstRender: "hooks/useAfterFirstRender/index.js",
   useTimeout: "hooks/useTimeout/index.js",
-  usePrevious: "hooks/usePrevious.js",
+  usePrevious: "hooks/usePrevious/index.js",
+  useSetFocus: "hooks/useSetFocus/index.js",
   useMergeRefs: "hooks/useMergeRefs.js",
-  useIsMouseOver: "hooks/useIsMouseOver.js"
+  useIsMouseOver: "hooks/useIsMouseOver.js",
+  useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
+  useIsOverflowing: "hooks/useIsOverflowing",
+  useMediaQuery: "hooks/useMediaQuery",
+  useVibeMediaQuery: "hooks/useVibeMediaQuery",
+  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
 };
 
 function getPublishedComponents() {
@@ -110,16 +118,14 @@ function getPublishedComponents() {
 function exposeIcons() {
   const files = fs.readdirSync(ICONS_PATH);
 
-  return files.reduce(
-    (acc, file) => ({
-      ...acc,
-      [`/icons/${file.split(".")[0]}`]: `${ICONS_PATH}/${file}`
-    }),
-    {}
-  );
+  return files.reduce((acc, file) => {
+    acc[`/icons/${file.split(".")[0]}`] = `${ICONS_PATH}/${file}`;
+    return acc;
+  }, {});
 }
 
 module.exports = {
   publishedComponents,
-  getPublishedComponents
+  getPublishedComponents,
+  exposeIcons
 };

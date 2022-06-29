@@ -1,7 +1,7 @@
-@import "../../styles/global-css-settings.scss";
-@import "../../styles/typography.scss";
-@import "../../styles/themes.scss";
-@import "../../styles/states.scss";
+@import "../../styles/global-css-settings";
+@import "../../styles/typography";
+@import "../../styles/themes";
+@import "../../styles/states";
 
 .monday-style-button {
   --loader-padding: 8px;
@@ -81,7 +81,6 @@
   }
 
   &--size {
-
     &-xxs {
       @include font-input();
       padding: $spacing-xxs $spacing-xs;
@@ -157,18 +156,16 @@
               backdrop-filter: brightness(85%);
               @include focus-style-on-primary();
             }
-            &:disabled {
+            &.monday-style-button--disabled {
               color: var(--text-color-on-primary);
-              opacity: 0.4;
             }
           }
         }
-        &:disabled {
+        &.monday-style-button--disabled {
           @include theme-prop(background-color, disabled-background-color);
           @include theme-prop(color, disabled-text-color);
           cursor: not-allowed;
           pointer-events: none;
-          opacity: 0.4;
         }
       }
     }
@@ -227,19 +224,17 @@
               backdrop-filter: brightness(85%);
               @include focus-style-on-primary();
             }
-            &:disabled {
+            &.monday-style-button--disabled {
               color: var(--text-color-on-primary);
-              opacity: 0.4;
             }
           }
         }
       }
-      &:disabled {
+      &.monday-style-button--disabled {
         @include theme-prop(border-color, disabled-background-color);
         @include theme-prop(color, disabled-text-color);
         cursor: not-allowed;
         pointer-events: none;
-        opacity: 0.4;
         &:hover {
           background-color: transparent;
         }
@@ -282,9 +277,8 @@
               backdrop-filter: brightness(85%);
               @include focus-style-on-primary();
             }
-            &:disabled {
+            &.monday-style-button--disabled {
               color: var(--text-color-on-primary);
-              opacity: 0.4;
             }
           }
           &-on-inverted-background {
@@ -297,11 +291,10 @@
           }
         }
       }
-      &:disabled {
+      &.monday-style-button--disabled {
         @include theme-prop(color, disabled-text-color);
         cursor: not-allowed;
         pointer-events: none;
-        opacity: 0.4;
         &:hover {
           background-color: transparent;
         }
@@ -315,4 +308,8 @@
   }
 
   @include focus-style();
+
+  &.inset-focus-style {
+    @include focus-style-inset();
+  }
 }

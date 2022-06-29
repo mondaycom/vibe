@@ -16,7 +16,7 @@ module.exports = plop => {
       },
       {
         type: "add",
-        path: "src/components/{{properCase componentName}}/{{properCase componentName}}.scss",
+        path: "src/components/{{properCase componentName}}/{{properCase componentName}}.module.scss",
         templateFile: "plop/component/component-scss.txt"
       },
       {
@@ -26,13 +26,12 @@ module.exports = plop => {
       },
       {
         type: "add",
-        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.scss",
+        path: "src/components/{{properCase componentName}}/__stories__/{{properCase componentName}}.stories.module.scss",
         templateFile: "plop/general/component-stories-scss.txt"
       },
       {
         type: "add",
-        path:
-          "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-snapshot-tests.jest.js",
+        path: "src/components/{{properCase componentName}}/__tests__/{{camelCase componentName}}-snapshot-tests.jest.js",
         templateFile: "plop/general/component-snapshot-tests-jest.txt"
       },
       {
@@ -43,8 +42,10 @@ module.exports = plop => {
       {
         type: "append",
         path: "src/components/index.js",
+        pattern: /(\n$)/gm,
+        separator: "",
         template:
-          'export { default as {{properCase componentName}} } from "./{{properCase componentName}}/{{properCase componentName}}";'
+          'export { default as {{properCase componentName}} } from "./{{properCase componentName}}/{{properCase componentName}}";\n'
       },
       {
         type: "append",

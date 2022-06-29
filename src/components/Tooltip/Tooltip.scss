@@ -1,6 +1,6 @@
-@import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
-@import "../../styles/global-css-settings.scss";
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
 
 
 $tooltip-z-index: 9999999999999999;
@@ -37,7 +37,6 @@ $tooltip-z-index: 9999999999999999;
   background-color: $white-theme-bg-color;
   color: $white-theme-font-color;
   @include theme-prop(box-shadow, box-shadow-medium);
-  border: $white-theme-border;
 }
 
 .monday-style-tooltip-primary,

@@ -1,5 +1,6 @@
 export const BASE_POSITIONS = {
   START: "Start",
   CENTER: "Center",
-  END: "End"
+  END: "End",
+  STRETCH: "Stretch"
 };

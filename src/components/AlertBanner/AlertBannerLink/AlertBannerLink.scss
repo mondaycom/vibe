@@ -1,6 +1,6 @@
-@import "../../../styles/global-css-settings.scss";
-@import "../../../styles/typography.scss";
-@import "../../../styles/themes.scss";
+@import "../../../styles/global-css-settings";
+@import "../../../styles/typography";
+@import "../../../styles/themes";
 
 .monday-style-link.monday-style-alert-banner-link {
   @include theme-prop(color, text-color-on-primary);

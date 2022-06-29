@@ -3,6 +3,7 @@
 exports[`Combobox renders correctly when disabled 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -26,12 +27,13 @@ exports[`Combobox renders correctly when disabled 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={true}
             id="combobox-search"
             maxLength={null}
@@ -47,58 +49,66 @@ exports[`Combobox renders correctly when disabled 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
   </div>
 </div>
 `;
@@ -106,6 +116,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
 exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -129,12 +140,13 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -150,58 +162,66 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
   </div>
 </div>
 `;
@@ -209,6 +229,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 exports[`Combobox renders correctly with autoFocus 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -232,12 +253,13 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -253,58 +275,66 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
   </div>
 </div>
 `;
@@ -312,6 +342,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
 exports[`Combobox renders correctly with className 1`] = `
 <div
   className="combobox--wrapper test size-medium empty"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -335,12 +366,13 @@ exports[`Combobox renders correctly with className 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -356,54 +388,274 @@ exports[`Combobox renders correctly with className 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
+  </div>
+</div>
+`;
+
+exports[`Combobox renders correctly with divider 1`] = `
+<div
+  className="combobox--wrapper size-medium"
+  data-testid="combobox"
+  id=""
+>
+  <div
+    className="combobox--wrapper-list"
+    role="listbox"
+    style={
+      Object {
+        "maxHeight": undefined,
+      }
+    }
+  >
+    <div
+      aria-busy={false}
+      className="input-component combobox--wrapper-search-wrapper search_component_wrapper"
+      role="search"
+    >
+      <div
+        className="input-component__label--wrapper"
+      >
+        <div
+          className="input-component__input-wrapper input-component__input-wrapper--size-medium"
+        >
+          <input
+            aria-activedescendant=""
+            aria-invalid={null}
+            aria-label="Search for content"
+            aria-owns=""
+            autoComplete="off"
+            className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
+            disabled={false}
+            id="combobox-search"
+            maxLength={null}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            placeholder=""
+            readOnly={false}
+            required={false}
+            role=""
+            type="search"
+            value=""
+          />
+          <div
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+            role="button"
+            tabIndex="-1"
+          >
+            <svg
+              aria-hidden={true}
+              aria-label="Search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
+              onClick={[Function]}
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+            role="button"
+            tabIndex="-1"
+          >
+            <svg
+              aria-hidden={true}
+              aria-label="Clear Search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
+              onClick={[Function]}
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    >
+      <div
+        className="comboboxItemContainer sticky"
+      >
+        <div
+          aria-label="cat1"
+          aria-level={1}
+          className="combobox-category categoryWithOptions firstCategory"
+          id="combobox-category-cat1"
+          role="row"
+        >
+          cat1
+        </div>
+      </div>
+      <div
+        className="comboboxItemContainer"
+      >
+        <div
+          aria-label="Option 1"
+          aria-level={1}
+          aria-selected={false}
+          className="combobox-option first"
+          id="combobox-item-1"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          role="row"
+          style={
+            Object {
+              "height": 32,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div
+            className="option-label"
+          >
+            Option 1
+          </div>
+        </div>
+      </div>
+      <div
+        className="comboboxItemContainer"
+      >
+        <div
+          className="dividerContainer"
+          style={
+            Object {
+              "height": 17,
+            }
+          }
+        >
+          <div
+            className="monday-style-divider divider monday-style-divider--horizontal"
+          />
+        </div>
+      </div>
+      <div
+        className="comboboxItemContainer sticky"
+      >
+        <div
+          aria-label="cat2"
+          aria-level={1}
+          className="combobox-category categoryWithOptions"
+          id="combobox-category-cat2"
+          role="row"
+        >
+          cat2
+        </div>
+      </div>
+      <div
+        className="comboboxItemContainer"
+      >
+        <div
+          aria-label="Option 2"
+          aria-level={1}
+          aria-selected={false}
+          className="combobox-option"
+          id="combobox-item-2"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          role="row"
+          style={
+            Object {
+              "height": 32,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div
+            className="option-label"
+          >
+            Option 2
           </div>
         </div>
       </div>
@@ -415,6 +667,7 @@ exports[`Combobox renders correctly with className 1`] = `
 exports[`Combobox renders correctly with empty props 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -438,12 +691,13 @@ exports[`Combobox renders correctly with empty props 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -459,58 +713,66 @@ exports[`Combobox renders correctly with empty props 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
   </div>
 </div>
 `;
@@ -518,6 +780,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
 exports[`Combobox renders correctly with id 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox_test"
   id="test"
 >
   <div
@@ -541,12 +804,13 @@ exports[`Combobox renders correctly with id 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -562,58 +826,66 @@ exports[`Combobox renders correctly with id 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
   </div>
 </div>
 `;
@@ -621,6 +893,7 @@ exports[`Combobox renders correctly with id 1`] = `
 exports[`Combobox renders correctly with loading 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -644,12 +917,13 @@ exports[`Combobox renders correctly with loading 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -671,16 +945,16 @@ exports[`Combobox renders correctly with loading 1`] = `
               className="input-component__loader"
             >
               <div
-                className="monday-loader-component"
+                className="monday-loader-component loaderContainer"
                 role="alert"
                 title="loading"
               >
                 <svg
-                  className="circle-loader-spinner input-component__loader-svg"
+                  className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
                   viewBox="0 0 50 50"
                 >
                   <circle
-                    className="circle-loader-spinner-path"
+                    className="circle-loader-spinner-path circleLoaderSpinnerPath"
                     cx="25"
                     cy="25"
                     fill="none"
@@ -692,58 +966,66 @@ exports[`Combobox renders correctly with loading 1`] = `
             </div>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
   </div>
 </div>
 `;
@@ -751,6 +1033,7 @@ exports[`Combobox renders correctly with loading 1`] = `
 exports[`Combobox renders correctly with optionLineHeight 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -774,12 +1057,13 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -795,58 +1079,66 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
   </div>
 </div>
 `;
@@ -854,6 +1146,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
 exports[`Combobox renders correctly with optionRenderer 1`] = `
 <div
   className="combobox--wrapper size-medium"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -877,12 +1170,13 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -898,100 +1192,119 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
     <div
-      aria-label="Option 1"
-      aria-selected={false}
-      className="combobox-option first"
-      id="combobox-item-0"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="option"
-      style={
-        Object {
-          "height": 32,
-        }
-      }
-      tabIndex="-1"
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
     >
-      <div>
-        some render of 
-        Option 1
+      <div
+        className="comboboxItemContainer"
+      >
+        <div
+          aria-label="Option 1"
+          aria-level={1}
+          aria-selected={false}
+          className="combobox-option first"
+          id="combobox-item-1"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          role="row"
+          style={
+            Object {
+              "height": 32,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            some render of 
+            Option 1
+          </div>
+        </div>
       </div>
-    </div>
-    <div
-      aria-label="Option 2"
-      aria-selected={false}
-      className="combobox-option"
-      id="combobox-item-1"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      role="option"
-      style={
-        Object {
-          "height": 32,
-        }
-      }
-      tabIndex="-1"
-    >
-      <div>
-        some render of 
-        Option 2
+      <div
+        className="comboboxItemContainer"
+      >
+        <div
+          aria-label="Option 2"
+          aria-level={1}
+          aria-selected={false}
+          className="combobox-option"
+          id="combobox-item-2"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          role="row"
+          style={
+            Object {
+              "height": 32,
+            }
+          }
+          tabIndex="-1"
+        >
+          <div>
+            some render of 
+            Option 2
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1001,6 +1314,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
 exports[`Combobox renders correctly with optionsListHeight 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -1024,12 +1338,13 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1045,58 +1360,66 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
   </div>
 </div>
 `;
@@ -1104,6 +1427,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
 exports[`Combobox renders correctly with placeholder 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -1127,12 +1451,13 @@ exports[`Combobox renders correctly with placeholder 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1148,58 +1473,66 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
   </div>
 </div>
 `;
@@ -1207,6 +1540,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
 exports[`Combobox renders correctly with size 1`] = `
 <div
   className="combobox--wrapper size-large empty"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -1230,12 +1564,13 @@ exports[`Combobox renders correctly with size 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-large"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1251,58 +1586,66 @@ exports[`Combobox renders correctly with size 1`] = `
             value=""
           />
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-search"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M8.65191 2.37299C6.9706 2.37299 5.35814 3.04089 4.16927 4.22976C2.9804 5.41863 2.3125 7.03108 2.3125 8.7124C2.3125 10.3937 2.9804 12.0062 4.16927 13.195C5.35814 14.3839 6.9706 15.0518 8.65191 15.0518C10.0813 15.0518 11.4609 14.5691 12.5728 13.6939L16.4086 17.5303C16.7014 17.8232 17.1763 17.8232 17.4692 17.5303C17.7621 17.2375 17.7622 16.7626 17.4693 16.4697L13.6334 12.6333C14.5086 11.5214 14.9913 10.1418 14.9913 8.7124C14.9913 7.03108 14.3234 5.41863 13.1346 4.22976C11.9457 3.04089 10.3332 2.37299 8.65191 2.37299ZM12.091 12.1172C12.9878 11.2113 13.4913 9.98783 13.4913 8.7124C13.4913 7.42891 12.9815 6.19798 12.0739 5.29042C11.1663 4.38285 9.9354 3.87299 8.65191 3.87299C7.36842 3.87299 6.1375 4.38285 5.22993 5.29042C4.32237 6.19798 3.8125 7.42891 3.8125 8.7124C3.8125 9.99589 4.32237 11.2268 5.22993 12.1344C6.1375 13.0419 7.36842 13.5518 8.65191 13.5518C9.92736 13.5518 11.1509 13.0483 12.0568 12.1514C12.0623 12.1455 12.0679 12.1397 12.0737 12.134C12.0794 12.1283 12.0851 12.1227 12.091 12.1172Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
           <div
-            className="input-component__icon--container input-component__icon--container-has-icon"
+            className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
-            onDragStart={[Function]}
             onKeyDown={[Function]}
-            onKeyUp={[Function]}
             onMouseDown={[Function]}
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchCancel={[Function]}
-            onTouchEnd={[Function]}
-            onTouchMove={[Function]}
-            onTouchStart={[Function]}
             role="button"
             tabIndex="-1"
           >
-            <span
+            <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component input-component__icon icon_component--no-focus-style fa fa-close"
+              className="icon_component input-component__icon icon_component--no-focus-style"
+              fill="currentColor"
+              height="18px"
               onClick={[Function]}
-              role="img"
-            />
+              viewBox="0 0 20 20"
+              width="18px"
+            >
+              <path
+                clipRule="evenodd"
+                d="M6.53033 5.46967C6.23744 5.17678 5.76256 5.17678 5.46967 5.46967C5.17678 5.76256 5.17678 6.23744 5.46967 6.53033L8.62562 9.68628L5.47045 12.8415C5.17756 13.1343 5.17756 13.6092 5.47045 13.9021C5.76334 14.195 6.23822 14.195 6.53111 13.9021L9.68628 10.7469L12.8415 13.9021C13.1343 14.195 13.6092 14.195 13.9021 13.9021C14.195 13.6092 14.195 13.1343 13.9021 12.8415L10.7469 9.68628L13.9029 6.53033C14.1958 6.23744 14.1958 5.76256 13.9029 5.46967C13.61 5.17678 13.1351 5.17678 12.8422 5.46967L9.68628 8.62562L6.53033 5.46967Z"
+                fill="currentColor"
+                fillRule="evenodd"
+              />
+            </svg>
           </div>
         </div>
       </div>
     </div>
+    <div
+      className="scrollableContainer optionsContainer"
+      role="treegrid"
+    />
   </div>
 </div>
 `;

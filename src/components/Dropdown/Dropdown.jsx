@@ -39,6 +39,7 @@ const Dropdown = ({
   ValueRenderer,
   valueRenderer,
   menuRenderer,
+  menuPlacement,
   rtl,
   size,
   asyncOptions,
@@ -60,7 +61,8 @@ const Dropdown = ({
   onInputChange,
   closeMenuOnSelect = !multi,
   ref,
-  withMandatoryDefaultOptions
+  withMandatoryDefaultOptions,
+  isOptionSelected
 }) => {
   const overrideDefaultValue = useMemo(() => {
     if (defaultValue) {
@@ -256,6 +258,7 @@ const Dropdown = ({
       theme={customTheme}
       maxMenuHeight={maxMenuHeight}
       menuPortalTarget={menuPortalTarget}
+      menuPlacement={menuPlacement}
       menuIsOpen={menuIsOpen}
       tabIndex={tabIndex}
       id={id}
@@ -263,6 +266,7 @@ const Dropdown = ({
       closeMenuOnSelect={closeMenuOnSelect}
       ref={ref}
       withMandatoryDefaultOptions={withMandatoryDefaultOptions}
+      isOptionSelected={isOptionSelected}
       {...asyncAdditions}
       {...additions}
     />
@@ -283,6 +287,7 @@ Dropdown.defaultProps = {
   onInputChange: NOOP,
   searchable: true,
   options: [],
+  menuPlacement: "bottom",
   noOptionsMessage: NOOP,
   clearable: true,
   size: SIZES.MEDIUM,
@@ -374,6 +379,10 @@ Dropdown.propTypes = {
    */
   menuRenderer: PropTypes.func,
   /**
+   * Default placement of the Dropdown menu in relation to its control. Use "auto" to flip the menu when there isn't enough space below the control.
+   */
+  menuPlacement: PropTypes.oneOf(["bottom", "top", "auto"]),
+  /**
    * If set to true, the dropdown will be in Right to Left mode
    */
   rtl: PropTypes.bool,
@@ -451,10 +460,6 @@ Dropdown.propTypes = {
    */
   tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   /**
-   * Called when one of the selected options of the drop down is removed.
-   */
-  onOptionRemove: PropTypes.func,
-  /**
    * ID for the select container
    */
   id: PropTypes.string,
@@ -487,7 +492,11 @@ Dropdown.propTypes = {
   /**
    The options set by default will be set as mandatory and the user will not be able to cancel their selection
    */
-  withMandatoryDefaultOptions: PropTypes.bool
+  withMandatoryDefaultOptions: PropTypes.bool,
+  /**
+   * Override the built-in logic to detect whether an option is selected.
+   */
+  isOptionSelected: PropTypes.func
 };
 
 export default Dropdown;

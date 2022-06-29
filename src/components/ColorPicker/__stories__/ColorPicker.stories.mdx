@@ -10,6 +10,7 @@ import {
   colorPickerSelectedIconTemplate,
   colorPickerCircleShapeTemplate
 } from "./ColorPicker.stories";
+import { noColorInteractionSuite, multiSelectionInteractionSuite } from "../__tests__/ColorPicker.interactions.js"
 
 export const metaSettings = createStoryMetaSettings({
   component: ColorPicker,
@@ -71,7 +72,7 @@ ColorPicker is our component for selecting our content colors
 Ability to revert to initial color
 
 <Canvas>
-  <Story name="No color">{colorPickerNoColorTemplate.bind({})}</Story>
+  <Story name="No color" play={noColorInteractionSuite}>{colorPickerNoColorTemplate.bind({})}</Story>
 </Canvas>
 
 ### Selected icon
@@ -79,7 +80,7 @@ Ability to revert to initial color
 Selected colors indication, when using multi-selection
 
 <Canvas>
-  <Story name="Selected icon">{colorPickerSelectedIconTemplate.bind({})}</Story>
+  <Story name="Selected icon" play={multiSelectionInteractionSuite}>{colorPickerSelectedIconTemplate.bind({})}</Story>
 </Canvas>
 
 ### Shapes

@@ -1,6 +1,6 @@
-@import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
-@import "../../styles/global-css-settings.scss";
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
 
 
 .monday-style-counter {
@@ -70,16 +70,20 @@
       &.monday-style-counter {
         &--color {
           &-primary {
-            @include theme-prop(color, text-color-on-primary);
-            @include theme-prop(background-color, primary-color);
+            color: var(--text-color-on-primary);
+            background-color: var(--primary-color);
           }
           &-dark {
-            @include theme-prop(color, text-color-on-inverted);
-            @include theme-prop(background-color, inverted-color-background);
+            color: var(--text-color-on-inverted);
+            background-color: var(--inverted-color-background);
           }
           &-negative {
-            @include theme-prop(color, text-color-on-primary);
-            @include theme-prop(background-color, negative-color);
+            color: var(--text-color-on-primary);
+            background-color: var(--negative-color);
+          }
+          &-light {
+            color: var(--primary-text-color);
+            background-color: var(--primary-background-hover-color);
           }
         }
       }
@@ -97,6 +101,10 @@
           }
           &-negative {
             @include theme-prop(color, negative-color);
+          }
+          &-light {
+            color: var(--primary-text-color);
+            box-shadow: 0 0 0 1px var(--primary-background-hover-color) inset !important;
           }
         }
       }

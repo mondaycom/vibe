@@ -1,6 +1,5 @@
 import {ArgsTable, Canvas, Meta, Story} from "@storybook/addon-docs";
 import {
-  ComponentRules,
   createComponentTemplate,
   createStoryMetaSettings,
   Link,
@@ -19,6 +18,7 @@ import Slider from "../Slider";
 import Sound from "../../Icon/Icons/components/Sound";
 import Video from "../../Icon/Icons/components/Video";
 import Chips from "../../Chips/Chips";
+import { nonRangedSliderMouseEventsPlaySuite, rangedSliderMouseEventsPlaySuite } from "../__tests__/Slider.interactions"
 
 export const argTypes = createStoryMetaSettings({
   component: Slider,
@@ -86,9 +86,9 @@ Sizes small/medium/large are available.
 Slider can define range instead of single value
 
 <Canvas>
-  <Story name="Ranged">
-    <Slider size={Slider.sizes.SMALL} ranged={true} />
-    <Slider size={Slider.sizes.MEDIUM} ranged={true} defaultValue={[12, 55]} />
+  <Story name="Ranged" play={rangedSliderMouseEventsPlaySuite}>
+    <Slider data-testid={"monday-ranged-slider-s"} size={Slider.sizes.SMALL} ranged={true} />
+    <Slider data-testid={"monday-ranged-slider-m"} size={Slider.sizes.MEDIUM} ranged={true} defaultValue={[12, 55]} />
     <Slider size={Slider.sizes.LARGE} ranged={true} defaultValue={[25, 32]} />
   </Story>
 </Canvas>
@@ -137,10 +137,10 @@ Indicate selection at Label, Add Prefix and/or Postfix Icons or Labels
 Always show value of slider (instead of Tooltip).
 
 <Canvas>
-  <Story name="ShowValue">
-    <Slider showValue={true} defaultValue={12} size={Slider.sizes.SMALL} />
-    <Slider showValue={true} defaultValue={55} size={Slider.sizes.MEDIUM} />
-    <Slider showValue={true} defaultValue={89} size={Slider.sizes.LARGE} />
+  <Story name="ShowValue" play={nonRangedSliderMouseEventsPlaySuite}>
+    <Slider data-testid={"monday-slider-show-value-s"} showValue={true} defaultValue={12} size={Slider.sizes.SMALL} />
+    <Slider data-testid={"monday-slider-show-value-m"} showValue={true} defaultValue={55} size={Slider.sizes.MEDIUM} />
+    <Slider data-testid={"monday-slider-show-value-l"} showValue={true} defaultValue={89} size={Slider.sizes.LARGE} />
   </Story>
 </Canvas>
 

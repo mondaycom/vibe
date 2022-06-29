@@ -1,18 +1,11 @@
-@import "../../../styles/global-css-settings.scss";
-@import "../../styles/typography.scss";
+@import "../../../styles/global-css-settings";
+@import "../../styles/typography";
 
 .monday-storybook-information-box {
   &_component {
     width: 100%;
     height: fit-content;
     margin: 0 0 $spacing-medium;
-  }
-
-  &_title {
-    @include content-text;
-    font-weight: bold;
-    margin-bottom: $spacing-xs;
-    margin-top: $spacing-xs;
   }
 
   &_description {

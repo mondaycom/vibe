@@ -1,6 +1,6 @@
-@import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
-@import "../../styles/global-css-settings.scss";
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
 
 .monday-style-radio-button-component {
   display: grid;
@@ -62,9 +62,6 @@
 
   &.disabled {
     cursor: not-allowed;
-    .monday-style-radio-button-component__radio-label {
-      @include theme-prop(color, disabled-text-color);
-    }
   }
 
   &__radio-input-container input:focus-visible + &__radio-input-container__radio-control {

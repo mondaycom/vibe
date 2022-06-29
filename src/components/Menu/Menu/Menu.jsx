@@ -1,6 +1,5 @@
 import { SIZES } from "constants/sizes";
 import React, { useMemo, forwardRef, useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
-import { useFocusWithin } from "@react-aria/interactions";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "hooks/useMergeRefs";
@@ -12,6 +11,9 @@ import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
 import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
 import useMouseLeave from "./hooks/useMouseLeave";
 import "./Menu.scss";
+import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
+import { useFocusWithin } from "hooks/useFocusWithin";
+import usePrevious from "../../../hooks/usePrevious";
 
 const Menu = forwardRef(
   (
@@ -76,9 +78,12 @@ const Menu = forwardRef(
 
     useClickOutside({ ref, callback: onCloseMenu });
     useCloseMenuOnKeyEvent(hasOpenSubMenu, onCloseMenu, ref, onClose, isSubMenu, useDocumentEventListeners);
+
+    const { getNextSelectableIndex, getPreviousSelectableIndex } = useAdjacentSelectableMenuIndex({ children });
     useMenuKeyboardNavigation(
       hasOpenSubMenu,
-      children,
+      getNextSelectableIndex,
+      getPreviousSelectableIndex,
       activeItemIndex,
       onSetActiveItemIndexCallback,
       isVisible,
@@ -91,14 +96,14 @@ const Menu = forwardRef(
       setIsInitialSelectedState(true);
     }, [setIsInitialSelectedState]);
 
-    useLayoutEffect(() => {
+    const previousHasOpenSubMenu = usePrevious(hasOpenSubMenu);
+    useEffect(() => {
       if (hasOpenSubMenu || useDocumentEventListeners) return;
-      if (activeItemIndex > -1) {
-        requestAnimationFrame(() => {
-          ref && ref.current && ref.current.focus();
-        });
+      if (activeItemIndex > -1 && previousHasOpenSubMenu) {
+        // the submenu was just closed, so we want to focus the menu to capture keyboard events
+        ref?.current?.focus();
       }
-    }, [activeItemIndex, hasOpenSubMenu, useDocumentEventListeners]);
+    }, [activeItemIndex, hasOpenSubMenu, previousHasOpenSubMenu, useDocumentEventListeners]);
 
     useLayoutEffect(() => {
       if (!focusOnMount || useDocumentEventListeners) return;
@@ -147,7 +152,10 @@ const Menu = forwardRef(
                   menuId: id,
                   useDocumentEventListeners,
                   isInitialSelectedState,
-                  shouldScrollMenu
+                  shouldScrollMenu,
+                  getNextSelectableIndex,
+                  getPreviousSelectableIndex,
+                  isUnderSubMenu: isSubMenu
                 })
               : null;
           })}

@@ -1,6 +1,6 @@
-@import "../../styles/themes.scss";
-@import "../../styles/states.scss";
-@import "../../styles/typography.scss";
+@import "../../styles/themes";
+@import "../../styles/states";
+@import "../../styles/typography";
 
 .list-item {
   display: flex;
@@ -17,17 +17,22 @@
   &:hover {
     background-color: var(--primary-background-hover-color);
   }
+
   &--disabled {
     cursor: not-allowed;
     color: var(--disabled-text-color);
-    opacity: 0.4;
+    &:hover{
+      background-color: transparent;
+    }
   }
+
   &--selected {
     background-color: var(--primary-selected-color);
     &:hover {
       background-color: var(--primary-selected-color);
     }
   }
+
   &--small {
     height: 32px;
   }

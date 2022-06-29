@@ -2,8 +2,7 @@
 
 exports[`Flex renders correctly Horizontal display with align 1`] = `
 <div
-  className=""
-  elementType="div"
+  className="container directionRow justifyStart alignEnd"
   style={
     Object {
       "gap": "0px",
@@ -24,8 +23,7 @@ exports[`Flex renders correctly Horizontal display with align 1`] = `
 
 exports[`Flex renders correctly Horizontal display with align 2`] = `
 <div
-  className=""
-  elementType="div"
+  className="container directionRow justifyStart alignEnd"
   style={
     Object {
       "gap": "0px",
@@ -46,8 +44,7 @@ exports[`Flex renders correctly Horizontal display with align 2`] = `
 
 exports[`Flex renders correctly Horizontal display with children 1`] = `
 <div
-  className=""
-  elementType="div"
+  className="container directionRow justifyStart alignCenter"
   style={
     Object {
       "gap": "0px",
@@ -68,8 +65,7 @@ exports[`Flex renders correctly Horizontal display with children 1`] = `
 
 exports[`Flex renders correctly Horizontal display with gap 1`] = `
 <div
-  className=""
-  elementType="div"
+  className="container directionRow justifyStart alignCenter"
   style={
     Object {
       "gap": "24px",
@@ -90,8 +86,7 @@ exports[`Flex renders correctly Horizontal display with gap 1`] = `
 
 exports[`Flex renders correctly Horizontal display with justify 1`] = `
 <div
-  className=""
-  elementType="div"
+  className="container directionRow justifySpaceBetween alignCenter"
   style={
     Object {
       "gap": "0px",
@@ -112,8 +107,7 @@ exports[`Flex renders correctly Horizontal display with justify 1`] = `
 
 exports[`Flex renders correctly Horizontal display with wrap 1`] = `
 <div
-  className="undefined"
-  elementType="div"
+  className="container directionRow justifyStart alignCenter wrap"
   style={
     Object {
       "gap": "0px",
@@ -134,8 +128,7 @@ exports[`Flex renders correctly Horizontal display with wrap 1`] = `
 
 exports[`Flex renders correctly Vertical display with align 1`] = `
 <div
-  className=""
-  elementType="div"
+  className="container directionColumn justifyStart alignEnd"
   style={
     Object {
       "gap": "0px",
@@ -156,8 +149,7 @@ exports[`Flex renders correctly Vertical display with align 1`] = `
 
 exports[`Flex renders correctly Vertical display with children 1`] = `
 <div
-  className=""
-  elementType="div"
+  className="container directionColumn justifyStart alignCenter"
   style={
     Object {
       "gap": "0px",
@@ -178,8 +170,7 @@ exports[`Flex renders correctly Vertical display with children 1`] = `
 
 exports[`Flex renders correctly Vertical display with justify 1`] = `
 <div
-  className=""
-  elementType="div"
+  className="container directionColumn justifySpaceBetween alignCenter"
   style={
     Object {
       "gap": "0px",
@@ -200,8 +191,7 @@ exports[`Flex renders correctly Vertical display with justify 1`] = `
 
 exports[`Flex renders correctly Vertical display with wrap 1`] = `
 <div
-  className="undefined"
-  elementType="div"
+  className="container directionColumn justifyStart alignCenter wrap"
   style={
     Object {
       "gap": "0px",
@@ -222,8 +212,7 @@ exports[`Flex renders correctly Vertical display with wrap 1`] = `
 
 exports[`Flex renders correctly with empty props 1`] = `
 <div
-  className=""
-  elementType="div"
+  className="container directionRow justifyStart alignCenter"
   style={
     Object {
       "gap": "0px",

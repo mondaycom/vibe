@@ -1,0 +1,92 @@
+import MenuGridItem from "../MenuGridItem";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import {
+  createComponentTemplate,
+  createStoryMetaSettings
+} from "../../../../storybook/functions/create-component-story";
+import { MENU_BUTTON, MENU } from "../../../../storybook/components/related-components/component-description-map";
+import { menuGridItemTemplate, menuGridItemWithDisabled, menuGridItemInSubMenus } from "./MenuGridItem.stories";
+import "./MenuGridItem.stories.scss";
+
+export const metaSettings = createStoryMetaSettings({
+  component: MenuGridItem,
+  enumPropNamesArray: [], // List enum props here
+  iconPropNamesArray: [], // List props that are typed as icons here
+  actionPropsArray: [] // List the component's actions here
+});
+
+<Meta
+  title="Navigation/Menu/MenuGridItem"
+  component={MenuGridItem}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
+
+<!--- Component documentation -->
+
+# MenuGridItem
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+<code>MenuGridItem</code> can be used to place a grid-like, keyboard navigable container, inside a Menu. 
+The user will be able to interact and navigate into and from the grid in a natural way.
+
+<Canvas>
+  <Story name="Overview">
+    {menuGridItemTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+Since <code>MenuGridItem</code> should be used only inside a <code>Menu</code>, almost all of the props below will be supplied automatically by the wrapping <code>Menu</code>.
+
+<ArgsTable of={MenuGridItem} />
+
+## Usage
+
+<UsageGuidelines guidelines={[
+  "MenuGridItem should always be used inside a Menu component",
+  "A MenuGridItem can only have a single child",
+  "The child of MenuGridItem should use the useGridKeyboardNavigation hook",
+  "The child should use forwardRef, and have the same referenced element for useGridKeyboardNavigation.",
+  <>Also, the referenced element should have a <code>tabIndex</code> value (probably -1).</>,
+  <>MenuGridItem will pass the <code>disabled</code> prop to the child. The child should handle this prop and disable interactions.</>,
+  <>To support a "disabled" mode, the child must have a prop named <code>disabled</code> (it will be automatically detected).</>,
+  <>NOTE: Due to technical limitations, <code>useDocumentEventListeners</code> is not fully supported.</>,
+]} />
+
+<Tip title="Looking for a single button in a menu?">Check the MenuItem or MenuItemButton components</Tip>
+
+## Use cases and examples
+
+### With disabled states
+
+Disabled items will be "skipped" when using keyboard navigation. Try it for yourself!
+
+<Canvas>
+  <Story name="With disabled states">
+    {menuGridItemWithDisabled.bind({})}
+  </Story>
+</Canvas>
+
+### Inside sub-menus
+
+Keyboard navigation is also supported in sub-menus
+
+<Canvas>
+  <Story name="Inside sub-menus">
+    {menuGridItemInSubMenus.bind({})}
+  </Story>
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[MENU, MENU_BUTTON]} />

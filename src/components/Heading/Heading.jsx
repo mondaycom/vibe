@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import Tooltip from "components/Tooltip/Tooltip";
 import useIsOverflowing from "hooks/useIsOverflowing";
+import useStyle from "hooks/useStyle";
 import useRefWithCallback from "hooks/useRefWithCallback";
+import TextWithHighlight from "components/TextWithHighlight/TextWithHighlight";
 import { TYPES } from "./HeadingConstants";
 import "./Heading.scss";
 
@@ -15,16 +17,19 @@ const Heading = ({
   size,
   ariaLabel,
   id,
+  customColor,
   ellipsis,
   ellipsisMaxLines,
   style,
   tooltipPosition,
+  highlightTerm,
   suggestEditOnHover,
   nonEllipsisTooltip // tooltip to show when no overflow
 }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines)
   );
+  const finalStyle = useStyle(style, { color: customColor });
   const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
@@ -32,8 +37,19 @@ const Heading = ({
   });
   const Element = React.createElement(
     type,
-    { className: classNames, "aria-label": ariaLabel, id, ref: setRef, style },
-    value
+    { className: classNames, "aria-label": ariaLabel, id, ref: setRef, style: finalStyle },
+    highlightTerm ? (
+      <TextWithHighlight
+        highlightTerm={highlightTerm}
+        text={value}
+        linesToClamp={ellipsisMaxLines}
+        useEllipsis={ellipsis}
+        nonEllipsisTooltip={nonEllipsisTooltip}
+        tooltipPosition={tooltipPosition}
+      />
+    ) : (
+      value
+    )
   );
 
   const isOverflowing = useIsOverflowing({ ref: ellipsis && componentRef });
@@ -44,13 +60,16 @@ const Heading = ({
     }
   }, [componentRef, ellipsisMaxLines, isOverflowing]);
 
-  if (isOverflowing || nonEllipsisTooltip) {
-    const tooltipContent = isOverflowing ? value : nonEllipsisTooltip;
-    return (
-      <Tooltip content={tooltipContent} position={tooltipPosition}>
-        {Element}
-      </Tooltip>
-    );
+  // When using highlight term - use tooltip there
+  if (!highlightTerm) {
+    if (isOverflowing || nonEllipsisTooltip) {
+      const tooltipContent = isOverflowing ? value : nonEllipsisTooltip;
+      return (
+        <Tooltip content={tooltipContent} position={tooltipPosition}>
+          {Element}
+        </Tooltip>
+      );
+    }
   }
   return Element;
 };
@@ -75,8 +94,11 @@ Heading.propTypes = {
   ellipsisMaxLines: PropTypes.number,
   suggestEditOnHover: PropTypes.bool,
   nonEllipsisTooltip: PropTypes.string,
-  size: PropTypes.oneOf([Heading.sizes.SMALL, Heading.sizes.MEDIUM, Heading.sizes.LARGE])
+  size: PropTypes.oneOf([Heading.sizes.SMALL, Heading.sizes.MEDIUM, Heading.sizes.LARGE]),
+  highlightTerm: PropTypes.string,
+  customColor: PropTypes.string
 };
+
 Heading.defaultProps = {
   className: "",
   type: TYPES.h1,
@@ -87,7 +109,9 @@ Heading.defaultProps = {
   ellipsisMaxLines: 1,
   suggestEditOnHover: false,
   nonEllipsisTooltip: null,
-  size: SIZES.LARGE
+  size: SIZES.LARGE,
+  highlightTerm: null,
+  customColor: undefined
 };
 
 Heading.types = TYPES;

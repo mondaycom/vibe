@@ -3,20 +3,25 @@ import cx from "classnames";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing";
-import "./ComboboxOption.scss";
 import { keyCodes } from "../../../../constants/KeyCodes";
+import { getOptionId } from "../../ComboboxHelpers/ComboboxHelpers";
+import "./ComboboxOption.scss";
 
 const ComboboxOption = ({
   index,
   option,
   isActive,
-  isActiveByKeyboard,
+  visualFocus,
   onOptionClick,
   onOptionLeave,
   onOptionHover,
   optionLineHeight,
   shouldScrollWhenActive,
-  optionRenderer
+  optionRenderer,
+  /**
+   * temporary flag for investigate a bug - will remove very soon
+   */
+  forceUndoScrollNullCheck = false
 }) => {
   const {
     id,
@@ -28,7 +33,8 @@ const ComboboxOption = ({
     iconSize = 16,
     disabled,
     selected,
-    ariaLabel
+    ariaLabel,
+    belongToCategory = false
   } = option;
   let { tooltipContent } = option;
 
@@ -39,10 +45,14 @@ const ComboboxOption = ({
 
   useEffect(() => {
     const element = ref.current;
-    if (isActive && element && shouldScrollWhenActive) {
-      element.scrollIntoView({ behaviour: "smooth" });
+    if (visualFocus && element && shouldScrollWhenActive) {
+      if (forceUndoScrollNullCheck) {
+        element?.scrollIntoView?.({ behaviour: "smooth" });
+      } else {
+        element.scrollIntoView?.({ behaviour: "smooth" });
+      }
     }
-  }, [ref, isActive, shouldScrollWhenActive]);
+  }, [ref, visualFocus, shouldScrollWhenActive, forceUndoScrollNullCheck]);
 
   const renderIcon = (icon, iconType, className) => {
     if (iconType === ComboboxOption.iconTypes.RENDERER) {
@@ -114,11 +124,12 @@ const ComboboxOption = ({
       <div
         ref={ref}
         key={id || label}
-        role="option"
+        role="row"
+        aria-level={belongToCategory ? 2 : 1}
         aria-selected={isActive}
         tabIndex="-1"
         aria-label={ariaLabel || label}
-        id={`combobox-item-${index}`}
+        id={getOptionId(id, index)}
         onMouseEnter={onMouseEnter}
         onClick={onClick}
         onKeyDown={onKeyDown}
@@ -127,7 +138,7 @@ const ComboboxOption = ({
           disabled,
           selected,
           active: isActive,
-          "active-outline": isActiveByKeyboard && isActive,
+          "active-outline": visualFocus,
           first: index === 0
         })}
         style={{ height: optionLineHeight }}

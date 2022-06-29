@@ -11,10 +11,6 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
   >
     <ul
       className="tabs-list"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
       role="tablist"
       tabIndex={0}
     >
@@ -81,10 +77,6 @@ exports[`TabsContext renders correctly with className 1`] = `
   >
     <ul
       className="tabs-list"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
       role="tablist"
       tabIndex={0}
     >
@@ -130,10 +122,6 @@ exports[`TabsContext renders correctly with empty props 1`] = `
   >
     <ul
       className="tabs-list"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
       role="tablist"
       tabIndex={0}
     >
@@ -179,10 +167,6 @@ exports[`TabsContext renders correctly with id 1`] = `
   >
     <ul
       className="tabs-list"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
-      onKeyUp={[Function]}
       role="tablist"
       tabIndex={0}
     >

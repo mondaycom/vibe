@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect } from "react";
+import React, { useRef, useCallback, useEffect, forwardRef } from "react";
 import NOOP from "lodash/noop";
 import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
@@ -10,93 +10,100 @@ import { backwardCompatibilityForProperties } from "../../helpers/backwardCompat
 import { useSupportFirefoxLabelClick } from "./hooks/useSupportFirefoxLabelClick";
 
 import "./Checkbox.scss";
+import useMergeRefs from "../../hooks/useMergeRefs";
 
 const BASE_CLASS_NAME = "monday-style-checkbox";
 
-export const Checkbox = ({
-  className,
-  // Backward compatibility for props naming
-  componentClassName,
-  ariaLabel,
-  label,
-  ariaLabelledBy,
-  onChange,
-  checked,
-  indeterminate,
-  disabled,
-  defaultChecked,
-  value,
-  name,
-  id
-}) => {
-  const iconContainerRef = useRef(null);
-  const inputRef = useRef(null);
-  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-  const onMouseUpCallback = useCallback(() => {
-    const input = inputRef.current;
-    if (!input) return;
+export const Checkbox = forwardRef(
+  (
+    {
+      className,
+      // Backward compatibility for props naming
+      componentClassName,
+      ariaLabel,
+      label,
+      ariaLabelledBy,
+      onChange,
+      checked,
+      indeterminate,
+      disabled,
+      defaultChecked,
+      value,
+      name,
+      id
+    },
+    ref
+  ) => {
+    const iconContainerRef = useRef(null);
+    const inputRef = useRef(null);
+    const mergedInputRef = useMergeRefs({ refs: [ref, inputRef] });
+    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
+    const onMouseUpCallback = useCallback(() => {
+      const input = inputRef.current;
+      if (!input) return;
 
-    window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        input.blur();
+        window.requestAnimationFrame(() => {
+          input.blur();
+        });
       });
-    });
-  }, [inputRef]);
+    }, [inputRef]);
 
-  const checkboxClassNames = [`${BASE_CLASS_NAME}__checkbox`, `${BASE_CLASS_NAME}__prevent-animation`];
-  let overrideDefaultChecked = defaultChecked;
+    const checkboxClassNames = [`${BASE_CLASS_NAME}__checkbox`, `${BASE_CLASS_NAME}__prevent-animation`];
+    let overrideDefaultChecked = defaultChecked;
 
-  // If component did not receive default checked and checked props, choose default checked as
-  // default behavior (handle isChecked logic inside input) and set default value
-  if (isNil(overrideDefaultChecked) && isNil(checked)) {
-    overrideDefaultChecked = false;
-  }
-
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.indeterminate = indeterminate;
+    // If component did not receive default checked and checked props, choose default checked as
+    // default behavior (handle isChecked logic inside input) and set default value
+    if (isNil(overrideDefaultChecked) && isNil(checked)) {
+      overrideDefaultChecked = false;
     }
-  }, [inputRef, indeterminate]);
 
-  const { onClickCapture: onClickCaptureLabel } = useSupportFirefoxLabelClick({ inputRef });
+    useEffect(() => {
+      if (inputRef.current) {
+        inputRef.current.indeterminate = indeterminate;
+      }
+    }, [inputRef, indeterminate]);
 
-  return (
-    // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <label
-      className={cx(BASE_CLASS_NAME, overrideClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
-      onMouseUp={onMouseUpCallback}
-      htmlFor={id}
-      onClickCapture={onClickCaptureLabel}
-    >
-      <input
-        ref={inputRef}
-        id={id}
-        className={`${BASE_CLASS_NAME}__input`}
-        value={value}
-        name={name}
-        type="checkbox"
-        onChange={onChange}
-        defaultChecked={overrideDefaultChecked}
-        disabled={disabled}
-        aria-label={ariaLabel || label}
-        aria-labelledby={ariaLabelledBy}
-        checked={checked}
-      />
-      <div className={cx(...checkboxClassNames)} ref={iconContainerRef}>
-        <Icon
-          className={`${BASE_CLASS_NAME}__icon`}
-          iconType={Icon.type.SVG}
-          icon={indeterminate ? Remove : Check}
-          ignoreFocusStyle
-          clickable={false}
-          ariaHidden={true}
-          iconSize="16"
+    const { onClickCapture: onClickCaptureLabel } = useSupportFirefoxLabelClick({ inputRef });
+
+    return (
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+      <label
+        className={cx(BASE_CLASS_NAME, overrideClassName, { [`${BASE_CLASS_NAME}__disabled`]: disabled })}
+        onMouseUp={onMouseUpCallback}
+        htmlFor={id}
+        onClickCapture={onClickCaptureLabel}
+      >
+        <input
+          ref={mergedInputRef}
+          id={id}
+          className={`${BASE_CLASS_NAME}__input`}
+          value={value}
+          name={name}
+          type="checkbox"
+          onChange={onChange}
+          defaultChecked={overrideDefaultChecked}
+          disabled={disabled}
+          aria-label={ariaLabel || label}
+          aria-labelledby={ariaLabelledBy}
+          checked={checked}
         />
-      </div>
-      <span className={`${BASE_CLASS_NAME}__label`}>{label}</span>
-    </label>
-  );
-};
+        <div className={cx(...checkboxClassNames)} ref={iconContainerRef}>
+          <Icon
+            className={`${BASE_CLASS_NAME}__icon`}
+            iconType={Icon.type.SVG}
+            icon={indeterminate ? Remove : Check}
+            ignoreFocusStyle
+            clickable={false}
+            ariaHidden={true}
+            iconSize="16"
+          />
+        </div>
+        <span className={`${BASE_CLASS_NAME}__label`}>{label}</span>
+      </label>
+    );
+  }
+);
 
 Checkbox.propTypes = {
   id: PropTypes.string,
@@ -110,7 +117,10 @@ Checkbox.propTypes = {
   value: PropTypes.string,
   disabled: PropTypes.bool,
   name: PropTypes.string,
-  ariaLabel: PropTypes.string
+  ariaLabel: PropTypes.string,
+  ref: PropTypes.shape({
+    current: PropTypes.element
+  })
 };
 
 Checkbox.defaultProps = {
@@ -125,7 +135,8 @@ Checkbox.defaultProps = {
   checked: undefined,
   indeterminate: false,
   defaultChecked: undefined,
-  ariaLabel: undefined
+  ariaLabel: undefined,
+  ref: undefined
 };
 
 export default Checkbox;

@@ -1,0 +1,23 @@
+@import "../../../../styles/states";
+
+.scrollableContainer {
+  @include scroller;
+}
+
+.optionsContainer {
+  overflow-x: visible;
+  overflow-y: auto;
+  margin-top: var(--spacing-small);
+}
+
+.firstCategory {
+  padding-top: 0;
+}
+
+.categoryWithOptions {
+  margin-bottom: var(--spacing-xs);
+}
+
+.categoryWithoutOptions {
+  margin-bottom: 0;
+}

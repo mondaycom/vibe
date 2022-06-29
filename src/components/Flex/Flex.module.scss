@@ -1,4 +1,4 @@
-@import "../../styles/themes.scss";
+@import "../../styles/themes";
 
 .container {
   display: flex;
@@ -35,6 +35,10 @@
 
     &Center {
       align-items: center;
+    }
+
+    &Stretch {
+      align-items: stretch;
     }
   }
   &.direction {

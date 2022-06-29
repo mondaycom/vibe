@@ -1,7 +1,7 @@
-@import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
-@import "../../styles/states.scss";
-@import "../../styles/global-css-settings.scss";
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/states";
+@import "../../styles/global-css-settings";
 
 .input-component {
   position: relative;
@@ -38,6 +38,10 @@
         pointer-events: none;
         @include theme-prop(background-color, disabled-background-color);
         cursor: not-allowed;
+
+        &::placeholder {
+          @include theme-prop(color, disabled-text-color);
+        }
       }
       .input-component__icon--container.input-component__icon--container-has-icon {
         &:hover {

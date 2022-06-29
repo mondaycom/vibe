@@ -8,6 +8,41 @@ const excludedDevelopers = new Set();
 excludedDevelopers.add(41898282); // github-actions[bot]
 excludedDevelopers.add(49699333); // dependabot[bot]
 
+const STATIC_CONTRIBUTERS = [
+  {
+    name: "Devorah Friedman",
+    href: "mailto:devorahfr@monday.com"
+  },
+  {
+    name: "Dmitry Kogan",
+    href: "mailto:dimako@monday.com"
+  },
+  {
+    name: "Meytal Badichi",
+    href: "mailto:mailto:meytal@monday.com"
+  },
+  {
+    name: "Shay Cohen",
+    href: "mailto:shay@monday.com"
+  },
+  {
+    name: "Eylon Goren",
+    href: "mailto:eylon@monday.com"
+  },
+  {
+    name: "Noa Fenko",
+    href: "mailto:noafe@monday.com"
+  },
+  {
+    name: "RotemDekel",
+    href: "https://il.linkedin.com/in/rotem-dekel-7a8b12133"
+  },
+  {
+    name: "LeanyLabs",
+    href: "https://github.com/LeanyLabs"
+  }
+];
+
 export const OtherContributorsList = () => {
   const [contributorsJson, setContributorsJson] = useState();
   useEffect(() => {
@@ -17,29 +52,17 @@ export const OtherContributorsList = () => {
   }, []);
 
   const contributors = useMemo(() => {
-    const finalContributors = [];
     if (contributorsJson) {
-      // Add manually contributors which not inside git list
-      finalContributors.push(
-        <Link href="https://il.linkedin.com/in/rotem-dekel-7a8b12133" className={`${BASE_CLASS}_developer`}>
-          Rotem Dekel
-        </Link>
-      );
-
-      finalContributors.push(
-        <Link href="https://github.com/LeanyLabs" className={`${BASE_CLASS}_developer`}>
-          LeanyLabs
-        </Link>
-      );
-
       // developer contributors
       const developerContributors = contributorsJson
         .filter(contributor => !excludedDevelopers.has(contributor.id))
-        .map(contributor => (
-          <Link href={contributor.html_url} className={`${BASE_CLASS}_developer`} key={contributor.id}>
-            {contributor.login}
-          </Link>
-        ));
+        .map(contributor => ({ name: contributor.login, href: contributor.html_url, key: contributor.id }));
+
+      return STATIC_CONTRIBUTERS.concat(developerContributors).map(({ name, href, key }) => (
+        <Link key={key || href} href={href} className={`${BASE_CLASS}_developer`}>
+          {name}
+        </Link>
+      ));
 
       finalContributors.push(...developerContributors);
       return finalContributors;

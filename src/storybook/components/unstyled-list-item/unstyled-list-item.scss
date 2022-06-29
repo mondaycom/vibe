@@ -1,0 +1,15 @@
+@import "../../../styles/global-css-settings";
+@import "../../styles/typography";
+
+.monday-storybook-unstyled-list-item {
+  font-size: 1rem;
+  line-height: $text-line-height;
+
+  &:not(:last-child) {
+    margin-bottom: $spacing-small;
+  }
+
+  a {
+    color: inherit;
+  }
+}

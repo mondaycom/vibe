@@ -14,16 +14,21 @@ const EditableHeading = props => {
   const {
     id,
     className,
+    inputClassName,
+    dataTestId,
     value,
     editing,
     disabled,
     onFinishEditing,
     onCancelEditing,
+    onIgnoreBlurEvent,
     errorClassTimeout,
     style,
+    customColor,
     onStartEditing,
     contentRenderer,
-    tooltip
+    tooltip,
+    highlightTerm
   } = props;
 
   // State
@@ -36,17 +41,20 @@ const EditableHeading = props => {
   const ref = useRef(null);
 
   // Callbacks
-  const onClick = useCallback(() => {
-    if (disabled || isEditing) return;
-    setIsEditing(true);
-    onStartEditing && onStartEditing();
-  }, [isEditing, disabled, setIsEditing, onStartEditing]);
+  const onClick = useCallback(
+    event => {
+      if (disabled || isEditing) return;
+      setIsEditing(true);
+      onStartEditing && onStartEditing(event);
+    },
+    [isEditing, disabled, setIsEditing, onStartEditing]
+  );
 
   const onFinishEditingCallback = useCallback(
     (newValue, event) => {
       setIsEditing(false);
       setValueState(newValue);
-      onFinishEditing && onFinishEditing(newValue, event);
+      onFinishEditing?.(newValue, event);
     },
     [onFinishEditing, setIsEditing, setValueState]
   );
@@ -54,9 +62,16 @@ const EditableHeading = props => {
   const onCancelEditingCallback = useCallback(
     event => {
       setIsEditing(false);
-      onCancelEditing && onCancelEditing(event);
+      onCancelEditing?.(event);
     },
     [onCancelEditing, setIsEditing]
+  );
+
+  const onIgnoreBlurEventCallback = useCallback(
+    value => {
+      onIgnoreBlurEvent?.(value);
+    },
+    [onIgnoreBlurEvent]
   );
 
   const clearErrorState = useCallback(() => {
@@ -80,10 +95,8 @@ const EditableHeading = props => {
   }, [editing, value, prevValue, valueState, setValueState]);
 
   useEffect(() => {
-    // update isEditing state if "editing" prop changed to true
-    if (editing) {
-      setIsEditing(true);
-    }
+    // update isEditing state if "editing" prop changed
+    setIsEditing(editing);
   }, [editing]);
 
   useLayoutEffect(() => {
@@ -108,11 +121,13 @@ const EditableHeading = props => {
     return {
       value: props.displayPlaceholderInTextMode ? valueOrPlaceholder : valueState,
       type: props.type,
+      customColor,
       suggestEditOnHover,
       tooltipPosition: props.tooltipPosition,
       ellipsisMaxLines: props.ellipsisMaxLines,
       nonEllipsisTooltip: props.tooltip,
-      size: props.size
+      size: props.size,
+      highlightTerm
     };
   };
   const renderContentComponent = () => {
@@ -129,11 +144,12 @@ const EditableHeading = props => {
     const inputType = props.inputType || textAreaType;
     return {
       value: valueState,
-      className: `editable-heading-input element-type-${props.type} size-${props.size}`,
+      className: cx(`editable-heading-input`, `element-type-${props.type}`, `size-${props.size}`, inputClassName),
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,
       onClick: props.onClick,
+      customColor,
       onTabHandler: props.onTabHandler,
       onArrowKeyDown: props.onArrowKeyDown,
       autoComplete: props.autoComplete,
@@ -147,6 +163,7 @@ const EditableHeading = props => {
       textareaSubmitOnEnter: props.textareaSubmitOnEnter,
       onFinishEditing: onFinishEditingCallback,
       onCancelEditing: onCancelEditingCallback,
+      onIgnoreBlurEvent: onIgnoreBlurEventCallback,
       onError: onInputErrorCallback,
       onSuccess: onInputSuccessCallback,
       ariaLabel: props.inputAriaLabel
@@ -159,6 +176,8 @@ const EditableHeading = props => {
     return <EditableInput {...inputProps} />;
   };
 
+  const shouldEdit = !disabled && isEditing;
+
   return (
     <div
       ref={ref}
@@ -166,9 +185,10 @@ const EditableHeading = props => {
       className={cx("editable-heading--wrapper", className)}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
+      data-testid={dataTestId}
     >
-      <Clickable role={isEditing ? "button" : "input"} onClick={onClick}>
-        {isEditing ? renderInputComponent() : renderContentComponent()}
+      <Clickable role={shouldEdit ? "button" : "input"} onClick={onClick} disabled={disabled}>
+        {shouldEdit ? renderInputComponent() : renderContentComponent()}
       </Clickable>
     </div>
   );
@@ -183,9 +203,25 @@ EditableHeading.propTypes = {
    */
   className: PropTypes.string,
   /**
+   * Class name to be added to the input element
+   */
+  inputClassName: PropTypes.string,
+  /**
+   * data-testid name to be added to the header wrapper
+   */
+  dataTestId: PropTypes.string,
+  /**
+   * Style to be added to the header wrapper
+   */
+  style: PropTypes.string,
+  /**
    * Id to be added to the header wrapper
    */
   id: PropTypes.string,
+  /**
+   * Max Length to be added to the header wrapper
+   */
+  maxLength: PropTypes.number,
   /**
    * Header type
    */
@@ -204,7 +240,16 @@ EditableHeading.propTypes = {
   inputAriaLabel: PropTypes.string,
   placeholder: PropTypes.string,
   errorClass: PropTypes.string,
-  errorClassTimeout: PropTypes.number
+  errorClassTimeout: PropTypes.number,
+  highlightTerm: PropTypes.string,
+  customColor: PropTypes.string,
+  ignoreBlurClass: PropTypes.string,
+  /** Callback when editing is finished (with final value) */
+  onFinishEditing: PropTypes.func,
+  /** Callback when editing is canceled (i.e. ESC) */
+  onCancelEditing: PropTypes.func,
+  /** Callback (with current value) when clicked on element that matches ignoreBlurClass */
+  onIgnoreBlurEvent: PropTypes.func
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -217,7 +262,17 @@ EditableHeading.defaultProps = {
   suggestEditOnHover: true,
   autoSize: true,
   size: SIZES.LARGE,
-  inputAriaLabel: undefined
+  inputAriaLabel: undefined,
+  highlightTerm: null,
+  customColor: undefined,
+  ignoreBlurClass: undefined,
+  onFinishEditing: undefined,
+  onCancelEditing: undefined,
+  onIgnoreBlurEvent: undefined,
+  style: undefined,
+  dataTestId: "",
+  inputClassName: "",
+  maxLength: undefined
 };
 
 EditableHeading.types = TYPES;

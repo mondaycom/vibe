@@ -34,7 +34,7 @@ export default function useMenuItemMouseEvents(
       }
     }
 
-    if (isActive) {
+    if (isActive && hasChildren) {
       setSubMenuIsOpenByIndex(index, !!isMouseEnter);
     }
   }, [

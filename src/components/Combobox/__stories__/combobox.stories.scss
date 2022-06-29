@@ -1,6 +1,10 @@
-@import "../../../styles/states.scss";
+@import "../../../styles/states";
 
 .combobox-stories-styles {
+  &_category-wrapper {
+    width: 300px;
+  }
+
   &_row {
     display: flex;
     flex-direction: row;
@@ -50,7 +54,7 @@
     font-size: 13px;
 
     span {
-      @include theme-prop(color, disabled-text-color);
+      @include theme-prop(color, secondary-text-color);
       margin-left: 4px;
     }
   }

@@ -1,7 +1,7 @@
 @import "../../styles/global-css-settings";
-@import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
-@import "../../styles/states.scss";
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/states";
 
 $checkbox-size: 16px;
 
@@ -56,12 +56,6 @@ $checkbox-size: 16px;
     width: 100%;
     @include theme-prop(color, text-color-on-primary);
     visibility: hidden;
-  }
-
-  &__disabled {
-    .monday-style-checkbox__label {
-      @include theme-prop(color, disabled-text-color);
-    }
   }
 
   &__label {

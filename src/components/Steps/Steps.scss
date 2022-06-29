@@ -57,6 +57,8 @@
     &_icon {
       @include theme-prop(color, icon-color);
       width: 15.5px;
+      height: 15.5px;
+
     }
 
     &--backward {
@@ -66,8 +68,6 @@
         margin-right: $spacing-small-medium;
       }
     }
-
-    height: 15.5px;
 
     &--forward {
       margin-left: $spacing-small;

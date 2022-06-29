@@ -131,22 +131,6 @@ const ButtonGroup = forwardRef(
 ButtonGroup.sizes = Button.sizes;
 ButtonGroup.kinds = Button.kinds;
 
-ButtonGroup.defaultProps = {
-  className: undefined,
-  value: "",
-  name: "",
-  disabled: false,
-  size: ButtonGroup.sizes.SMALL,
-  kind: ButtonGroup.kinds.SECONDARY,
-  groupAriaLabel: "",
-  tooltipContainerSelector: undefined,
-  tooltipPosition: undefined,
-  tooltipHideDelay: undefined,
-  tooltipShowDelay: undefined,
-  tooltipMoveBy: undefined,
-  onSelect: undefined
-};
-
 ButtonGroup.propTypes = {
   className: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -161,6 +145,22 @@ ButtonGroup.propTypes = {
   tooltipShowDelay: PropTypes.number,
   tooltipContainerSelector: PropTypes.string,
   tooltipMoveBy: PropTypes.object
+};
+
+ButtonGroup.defaultProps = {
+  className: undefined,
+  value: "",
+  name: "",
+  disabled: false,
+  size: ButtonGroup.sizes.SMALL,
+  kind: ButtonGroup.kinds.SECONDARY,
+  groupAriaLabel: "",
+  tooltipContainerSelector: undefined,
+  tooltipPosition: undefined,
+  tooltipHideDelay: undefined,
+  tooltipShowDelay: undefined,
+  tooltipMoveBy: undefined,
+  onSelect: undefined
 };
 
 export default ButtonGroup;

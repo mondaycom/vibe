@@ -4,10 +4,13 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import { BEMClass } from "helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
-import { getElementColor, elementColorsNames } from "utils/colors-vars-map";
+import { elementColorsNames, getElementColor } from "utils/colors-vars-map";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
+import Tooltip from "../Tooltip/Tooltip";
+import Clickable from "../Clickable/Clickable";
+import Dialog from "../Dialog/Dialog";
 import "./Avatar.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
@@ -16,12 +19,15 @@ const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 const Avatar = ({
   type,
   className,
+  textClassName,
   size,
   src,
   icon,
   text,
-  role,
+  tooltipProps,
   ariaLabel,
+  withoutTooltip,
+  role,
   backgroundColor,
   square,
   disabled,
@@ -34,13 +40,31 @@ const Avatar = ({
   topLeftBadgeProps,
   topRightBadgeProps,
   bottomLeftBadgeProps,
-  bottomRightBadgeProps
+  bottomRightBadgeProps,
+  withoutBorder,
+  customSize,
+  customBackgroundColor,
+  onClick
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const backgroundColorStyle = useMemo(() => {
-    return src ? undefined : { backgroundColor: getElementColor(backgroundColor) };
-  }, [src, backgroundColor]);
+    if (customBackgroundColor) return { backgroundColor: customBackgroundColor };
+    return src ? {} : { backgroundColor: getElementColor(backgroundColor) };
+  }, [src, backgroundColor, customBackgroundColor]);
+  const sizeStyle = useMemo(() => {
+    return customSize ? { height: customSize, width: customSize } : {};
+  }, [customSize]);
+
+  const overrideTooltipProps = useMemo(() => {
+    if (withoutTooltip) return undefined;
+
+    if (tooltipProps) {
+      return { content: ariaLabel, ...tooltipProps };
+    } else {
+      return { content: ariaLabel };
+    }
+  }, [ariaLabel, tooltipProps, withoutTooltip]);
 
   const badgesContainer = useMemo(() => {
     const badges = [];
@@ -88,25 +112,46 @@ const Avatar = ({
     return badges.length > 0 ? <div className={cx(bemHelper({ element: "badges" }))}>{badges}</div> : null;
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
+  const ClickableWrapper = ({ children }) => {
+    if (!onClick) {
+      return children;
+    }
+
+    return <Clickable onClick={onClick}>{children}</Clickable>;
+  };
+
   return (
-    <div className={cx(AVATAR_CSS_BASE_CLASS, className)}>
-      <div
-        className={cx(
-          bemHelper({ element: "circle" }),
-          bemHelper({ element: "circle", state: type }),
-          bemHelper({ element: "circle", state: size }),
-          {
-            [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
-            [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare
-          }
-        )}
-        aria-hidden={ariaHidden}
-        tabIndex={tabIndex}
-        style={backgroundColorStyle}
-      >
-        <AvatarContent type={type} size={size} src={src} icon={icon} text={text} ariaLabel={ariaLabel} role={role} />
-      </div>
-      {badgesContainer}
+    <div className={cx(AVATAR_CSS_BASE_CLASS, className, bemHelper({ state: size }))} style={sizeStyle}>
+      <ClickableWrapper>
+        <Tooltip
+          showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
+          hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}
+          {...overrideTooltipProps}
+        >
+          <div
+            className={cx(bemHelper({ element: "circle" }), bemHelper({ element: "circle", state: type }), {
+              [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
+              [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare,
+              [bemHelper({ element: "circle", state: "without-border" })]: withoutBorder
+            })}
+            aria-hidden={ariaHidden}
+            tabIndex={tabIndex}
+            style={{ ...backgroundColorStyle }}
+          >
+            <AvatarContent
+              type={type}
+              size={size}
+              src={src}
+              icon={icon}
+              text={text}
+              ariaLabel={ariaLabel}
+              role={role}
+              textClassName={textClassName}
+            />
+          </div>
+          {badgesContainer}
+        </Tooltip>
+      </ClickableWrapper>
     </div>
   );
 };
@@ -119,13 +164,18 @@ Avatar.backgroundColors = elementColorsNames;
 Avatar.propTypes = {
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   text: PropTypes.string,
+  tooltipProps: PropTypes.shape(Tooltip.propTypes),
+  ariaLabel: PropTypes.string,
+  withoutTooltip: PropTypes.bool,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   className: PropTypes.string,
+  textClassName: PropTypes.string,
   backgroundColor: PropTypes.oneOf(Object.values(Avatar.colors)),
+  customBackgroundColor: PropTypes.string,
   role: PropTypes.string,
-  ariaLabel: PropTypes.string,
   size: PropTypes.oneOf([Avatar.sizes.LARGE, Avatar.sizes.MEDIUM, Avatar.sizes.SMALL]),
+  customSize: PropTypes.number,
   tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   ariaHidden: PropTypes.bool,
   disabled: PropTypes.bool,
@@ -133,19 +183,28 @@ Avatar.propTypes = {
   topLeftBadgeProps: PropTypes.object,
   topRightBadgeProps: PropTypes.object,
   bottomLeftBadgeProps: PropTypes.object,
-  bottomRightBadgeProps: PropTypes.object
+  bottomRightBadgeProps: PropTypes.object,
+  withoutBorder: PropTypes.bool,
+  /**
+   * (event) => void
+   */
+  onClick: PropTypes.func
 };
-
 Avatar.defaultProps = {
   src: undefined,
   className: "",
+  textClassName: "",
   icon: undefined,
   text: undefined,
+  tooltipProps: undefined,
+  ariaLabel: undefined,
+  withoutTooltip: false,
   type: AVATAR_TYPES.TEXT,
   backgroundColor: elementColorsNames.CHILI_BLUE,
+  customBackgroundColor: null,
   role: undefined,
-  ariaLabel: undefined,
   size: AVATAR_SIZES.LARGE,
+  customSize: null,
   tabIndex: 0,
   ariaHidden: false,
   disabled: undefined,
@@ -153,7 +212,9 @@ Avatar.defaultProps = {
   topLeftBadgeProps: undefined,
   topRightBadgeProps: undefined,
   bottomLeftBadgeProps: undefined,
-  bottomRightBadgeProps: undefined
+  bottomRightBadgeProps: undefined,
+  withoutBorder: false,
+  onClick: undefined
 };
 
 export default Avatar;

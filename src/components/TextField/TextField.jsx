@@ -3,7 +3,6 @@ import React, { forwardRef, useRef, useMemo, useCallback, useEffect } from "reac
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import useDebounceEvent from "../../hooks/useDebounceEvent";
-import "./TextField.scss";
 import Icon from "../Icon/Icon";
 import Loader from "../Loader/Loader";
 import { FEEDBACK_CLASSES, FEEDBACK_STATES, sizeMapper } from "./TextFieldHelpers";
@@ -11,7 +10,9 @@ import FieldLabel from "../FieldLabel/FieldLabel";
 import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
 import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { useButton } from "@react-aria/button";
+import Clickable from "components/Clickable/Clickable";
+import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import "./TextField.scss";
 
 const NOOP = () => {
 };
@@ -53,7 +54,9 @@ const TextField = forwardRef(
       trim,
       role,
       required,
-      loading
+      loading,
+      dataTestId,
+      secondaryDataTestId
     },
     ref
   ) => {
@@ -100,11 +103,6 @@ const TextField = forwardRef(
     const shouldFocusOnSecondaryIcon = secondaryIconName && isSecondary && !!inputValue;
 
     const mergedRef = useMergeRefs({ refs: [ref, inputRef, setRef] });
-    const { buttonProps } = useButton({
-      onPress: onIconClickCallback,
-      elementType: "div"
-    });
-
     useEffect(() => {
       if (inputRef.current && autoFocus) {
         const animationFrame = requestAnimationFrame(() => inputRef.current.focus());
@@ -148,6 +146,7 @@ const TextField = forwardRef(
               aria-owns={searchResultsContainerId}
               aria-activedescendant={activeDescendant}
               required={required}
+              data-testid={dataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD, id)}
             />
             {loading && (
               <div
@@ -160,12 +159,12 @@ const TextField = forwardRef(
                 </div>
               </div>
             )}
-            <div
+            <Clickable
               className={classNames("input-component__icon--container", {
                 "input-component__icon--container-has-icon": hasIcon,
                 "input-component__icon--container-active": isPrimary
               })}
-              {...buttonProps}
+              onClick={onIconClickCallback}
               tabIndex={onIconClick !== NOOP && inputValue && iconName.length && isPrimary ? "0" : "-1"}
             >
               <Icon
@@ -178,14 +177,15 @@ const TextField = forwardRef(
                 ignoreFocusStyle
                 iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
               />
-            </div>
-            <div
+            </Clickable>
+            <Clickable
               className={classNames("input-component__icon--container", {
                 "input-component__icon--container-has-icon": hasIcon,
                 "input-component__icon--container-active": isSecondary
               })}
-              {...buttonProps}
+              onClick={onIconClickCallback}
               tabIndex={!shouldFocusOnSecondaryIcon ? "-1" : "0"}
+              dataTestId={secondaryDataTestId || getTestId(ELEMENT_TYPES.TEXT_FIELD_SECONDARY_BUTTON, id)}
             >
               <Icon
                 icon={secondaryIconName}
@@ -197,7 +197,7 @@ const TextField = forwardRef(
                 ignoreFocusStyle
                 iconSize={size === TextField.sizes.SMALL ? "16px" : "18px"}
               />
-            </div>
+            </Clickable>
           </div>
           {shouldShowExtraText && (
             <div className="input-component__sub-text-container">
