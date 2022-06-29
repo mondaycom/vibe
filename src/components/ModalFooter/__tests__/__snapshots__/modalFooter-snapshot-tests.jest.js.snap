@@ -1,19 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModalFooter renders correctly with empty props 1`] = `
+exports[`ModalFooter with className 1`] = `
+Snapshot Diff:
+- Default Render
++ Current Render: {"className":"className"}
+
+@@ --- --- @@
+  <div
+-   class="mondayStyleModalFooter"
++   class="mondayStyleModalFooter className"
+  >
+    <div>
+      footer content
+`;
+
+exports[`ModalFooter with required props 1`] = `
 <div
-  className="mondayStyleModalFooter"
+  class="mondayStyleModalFooter"
 >
-  <button
-    aria-disabled={false}
-    className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
-    data-testid="button"
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onMouseDown={[Function]}
-    onMouseUp={[Function]}
-    type="button"
-  />
+  <div>
+    footer content
+  </div>
 </div>
 `;

@@ -9,7 +9,7 @@ async function renderModalHeader(props) {
   return asFragment().firstChild;
 }
 
-describe("ModalHeader renders correctly", () => {
+describe("ModalHeader", () => {
   let defaultRender;
   beforeAll(async () => {
     defaultRender = await renderModalHeader();

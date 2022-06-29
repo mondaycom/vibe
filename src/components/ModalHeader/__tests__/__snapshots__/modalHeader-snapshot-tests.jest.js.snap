@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ModalHeader renders correctly with classNames 1`] = `
+exports[`ModalHeader with classNames 1`] = `
 Snapshot Diff:
 - Default Render
 + Current Render: {"className":"className","descriptionClassName":"descriptionClassName","iconClassName":"iconClassName","titleClassName":"titleClassName"}
@@ -19,7 +19,7 @@ Snapshot Diff:
     >
 `;
 
-exports[`ModalHeader renders correctly with close button hidden 1`] = `
+exports[`ModalHeader with close button hidden 1`] = `
 Snapshot Diff:
 - Default Render
 + Current Render: {"hideCloseButton":true}
@@ -63,7 +63,7 @@ Snapshot Diff:
   </div>
 `;
 
-exports[`ModalHeader renders correctly with description 1`] = `
+exports[`ModalHeader with description 1`] = `
 Snapshot Diff:
 - Default Render
 + Current Render: {"description":"description"}
@@ -82,7 +82,7 @@ Snapshot Diff:
       <span
 `;
 
-exports[`ModalHeader renders correctly with icon 1`] = `
+exports[`ModalHeader with icon 1`] = `
 Snapshot Diff:
 - Default Render
 + Current Render: {}
@@ -115,7 +115,7 @@ Snapshot Diff:
     <div
 `;
 
-exports[`ModalHeader renders correctly with required props 1`] = `
+exports[`ModalHeader with required props 1`] = `
 <div
   class="mondayStyleModalHeader"
 >
