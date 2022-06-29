@@ -124,7 +124,7 @@ The Dropdown component supports multiple options selection in two different stat
           value: "Dor",
           label: "Dor Yehuda",
         }], []);
-      return (<Flex gap={Flex.gaps.MEDIUM}>
+      return (<Flex wrap gap={Flex.gaps.MEDIUM}>
         <StoryDescription description="Single line" vertical>
           <div style={{width: "400px"}}>
             <Dropdown
@@ -145,6 +145,18 @@ The Dropdown component supports multiple options selection in two different stat
               multi
               multiline
               className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+        <StoryDescription description="Mandatory default values" vertical>
+          <div style={{width: "400px"}}>
+            <Dropdown
+              defaultValue={[options[0]]}
+              options={options}
+              multi
+              multiline
+              className="dropdown-stories-styles_with-chips"
+              withMandatoryDefaultOptions
             />
           </div>
         </StoryDescription>

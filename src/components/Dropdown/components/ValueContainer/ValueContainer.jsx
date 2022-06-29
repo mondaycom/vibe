@@ -10,7 +10,7 @@ import Chips from "../../../Chips/Chips";
 import classes from "./ValueContainer.module.scss";
 
 export default function Container({ children, selectProps, ...otherProps }) {
-  const { placeholder, inputValue, selectProps: customProps = {} } = selectProps;
+  const { placeholder, inputValue, selectProps: customProps = {}, withMandatoryDefaultOptions } = selectProps;
   const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
@@ -38,10 +38,11 @@ export default function Container({ children, selectProps, ...otherProps }) {
             onMouseDown={e => {
               e.stopPropagation();
             }}
+            readOnly={withMandatoryDefaultOptions && option.isMandatory}
           />
         ) : null
       ),
-    [selectedOptions, onSelectedDelete, chipClassName]
+    [selectedOptions, chipClassName, onSelectedDelete, withMandatoryDefaultOptions]
   );
 
   return (
