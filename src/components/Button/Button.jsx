@@ -56,7 +56,8 @@ const Button = forwardRef(
       ariaExpanded,
       ariaControls,
       blurOnMouseUp,
-      dataTestId
+      dataTestId,
+      insetFocus
     },
     ref
   ) => {
@@ -145,7 +146,8 @@ const Button = forwardRef(
           "monday-style-button--left-flat": leftFlat,
           "monday-style-button--prevent-click-animation": preventClickAnimation,
           "monday-style-button--no-side-padding": noSidePadding,
-          "monday-style-button--disabled": disabled
+          "monday-style-button--disabled": disabled,
+          "inset-focus-style": insetFocus
         }
       );
     }, [
@@ -359,7 +361,9 @@ Button.propTypes = {
   preventClickAnimation: PropTypes.bool,
   noSidePadding: PropTypes.bool,
   /** Default text color in `ON_PRIMARY_COLOR` kind (should be any type of css color (rgb, var, hex...) */
-  defaultTextColorOnPrimaryColor: PropTypes.string
+  defaultTextColorOnPrimaryColor: PropTypes.string,
+  /** Change the focus indicator from around the button to within it */
+  insetFocus: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -395,7 +399,8 @@ Button.defaultProps = {
   ariaExpanded: undefined,
   ariaControls: undefined,
   ariaLabel: undefined,
-  ariaLabeledBy: undefined
+  ariaLabeledBy: undefined,
+  insetFocus: false
 };
 
 export default Button;
