@@ -1,5 +1,45 @@
 # Changelog
 
+## 1.37.0 (2022-06-28)
+
+#### New Features
+* [#725](https://github.com/mondaycom/monday-ui-react-core/pull/725) Clickable: ariaHasPopup prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.36.5 (2022-06-28)
+
+#### New Icons
+* [#722](https://github.com/mondaycom/monday-ui-react-core/pull/722) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.36.4 (2022-06-28)
+
+#### Bug Fixes
+* [#724](https://github.com/mondaycom/monday-ui-react-core/pull/724) fix medium 2 min width to 1280 ([@liatmaor](https://github.com/liatmaor))
+
+## 1.36.3 (2022-06-27)
+
+#### Bug Fixes
+* [#720](https://github.com/mondaycom/monday-ui-react-core/pull/720) Fix/yonatanari/fix disabled text color issues ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#719](https://github.com/mondaycom/monday-ui-react-core/pull/719) feat(storybook): memory stats for stories ([@niksa-monday](https://github.com/niksa-monday))
+* [#718](https://github.com/mondaycom/monday-ui-react-core/pull/718) feat(storybook): enable storybook performance addon ([@niksa-monday](https://github.com/niksa-monday))
+
+## 1.36.2 (2022-06-27)
+
+#### Internal Changes
+* [#713](https://github.com/mondaycom/monday-ui-react-core/pull/713) Jest snapshot css modules ([@eran-cohen](https://github.com/eran-cohen))
+
+#### New Icons
+* [#717](https://github.com/mondaycom/monday-ui-react-core/pull/717) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.36.1 (2022-06-23)
+
+#### Bug Fixes
+* [#709](https://github.com/mondaycom/monday-ui-react-core/pull/709) Avatar custom size by classname ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#708](https://github.com/mondaycom/monday-ui-react-core/pull/708) Feature/sergeyro/plop component fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.36.0 (2022-06-19)
 
 #### Bug Fixes

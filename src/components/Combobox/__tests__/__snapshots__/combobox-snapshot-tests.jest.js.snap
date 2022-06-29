@@ -106,7 +106,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -219,7 +219,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -332,7 +332,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -445,7 +445,7 @@ exports[`Combobox renders correctly with className 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -558,16 +558,16 @@ exports[`Combobox renders correctly with divider 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     >
       <div
-        className=""
+        className="comboboxItemContainer sticky"
       >
         <div
           aria-label="cat1"
           aria-level={1}
-          className="combobox-category undefined"
+          className="combobox-category categoryWithOptions firstCategory"
           id="combobox-category-cat1"
           role="row"
         >
@@ -575,7 +575,7 @@ exports[`Combobox renders correctly with divider 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 1"
@@ -603,9 +603,10 @@ exports[`Combobox renders correctly with divider 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
+          className="dividerContainer"
           style={
             Object {
               "height": 17,
@@ -613,17 +614,17 @@ exports[`Combobox renders correctly with divider 1`] = `
           }
         >
           <div
-            className="monday-style-divider monday-style-divider--horizontal"
+            className="monday-style-divider divider monday-style-divider--horizontal"
           />
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer sticky"
       >
         <div
           aria-label="cat2"
           aria-level={1}
-          className="combobox-category"
+          className="combobox-category categoryWithOptions"
           id="combobox-category-cat2"
           role="row"
         >
@@ -631,7 +632,7 @@ exports[`Combobox renders correctly with divider 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 2"
@@ -769,7 +770,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -882,7 +883,7 @@ exports[`Combobox renders correctly with id 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -944,16 +945,16 @@ exports[`Combobox renders correctly with loading 1`] = `
               className="input-component__loader"
             >
               <div
-                className="monday-loader-component"
+                className="monday-loader-component loaderContainer"
                 role="alert"
                 title="loading"
               >
                 <svg
-                  className="circle-loader-spinner input-component__loader-svg"
+                  className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
                   viewBox="0 0 50 50"
                 >
                   <circle
-                    className="circle-loader-spinner-path"
+                    className="circle-loader-spinner-path circleLoaderSpinnerPath"
                     cx="25"
                     cy="25"
                     fill="none"
@@ -1022,7 +1023,7 @@ exports[`Combobox renders correctly with loading 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -1135,7 +1136,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -1248,11 +1249,11 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     >
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 1"
@@ -1279,7 +1280,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 2"
@@ -1416,7 +1417,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -1529,7 +1530,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -1642,7 +1643,7 @@ exports[`Combobox renders correctly with size 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
