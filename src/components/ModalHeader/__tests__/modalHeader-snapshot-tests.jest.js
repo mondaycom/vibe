@@ -1,44 +1,55 @@
 import React from "react";
-import renderer from "react-test-renderer";
 import ModalHeader from "../ModalHeader";
 import { Settings } from "components/Icon/Icons";
+import { cleanup, render } from "@testing-library/react";
+import { snapshotDiff } from "../../../../jest/utils";
+
+async function renderModalHeader(props) {
+  const { asFragment } = render(<ModalHeader id="modal-title-id" title={"Default title"} {...props} />);
+  return asFragment().firstChild;
+}
 
 describe("ModalHeader renders correctly", () => {
+  let defaultRender;
+  beforeAll(async () => {
+    defaultRender = await renderModalHeader();
+    cleanup();
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
   it("with required props", () => {
-    const tree = renderer.create(<ModalHeader id="modal-title-id" title={"Title"} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(defaultRender).toMatchSnapshot();
   });
 
-  it("with close button hidden", () => {
-    const tree = renderer.create(<ModalHeader id="modal-title-id" title={"Title"} hideCloseButton />).toJSON();
-    expect(tree).toMatchSnapshot();
+  it("with close button hidden", async () => {
+    const props = { hideCloseButton: true };
+    const currentRender = await renderModalHeader(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
-  it("with description", () => {
-    const tree = renderer
-      .create(<ModalHeader id="modal-title-id" title={"Title"} description="description" />)
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+  it("with description", async () => {
+    const props = { description: "description" };
+    const currentRender = await renderModalHeader(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
-  it("with icon", () => {
-    const tree = renderer.create(<ModalHeader id="modal-title-id" title={"Title"} icon={Settings} />).toJSON();
-    expect(tree).toMatchSnapshot();
+  it("with icon", async () => {
+    const props = { icon: Settings };
+    const currentRender = await renderModalHeader(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
-  it("with classNames", () => {
-    const tree = renderer
-      .create(
-        <ModalHeader
-          id="modal-title-id"
-          title={"Title"}
-          className="className"
-          descriptionClassName="descriptionClassName"
-          iconClassName="iconClassName"
-          titleClassName="titleClassName"
-        />
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+  it("with classNames", async () => {
+    const props = {
+      className: "className",
+      descriptionClassName: "descriptionClassName",
+      iconClassName: "iconClassName",
+      titleClassName: "titleClassName"
+    };
+    const currentRender = await renderModalHeader(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 });
