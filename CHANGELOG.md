@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.38.0 (2022-06-29)
+
+#### New Features
+* [#727](https://github.com/mondaycom/monday-ui-react-core/pull/727) Butotn inset focus style ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.37.0 (2022-06-28)
 
 #### New Features
