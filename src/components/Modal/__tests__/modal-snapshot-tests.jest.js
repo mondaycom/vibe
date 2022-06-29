@@ -1,7 +1,8 @@
 import React from "react";
-import renderer from "react-test-renderer";
 import Modal from "../Modal";
 import { ModalContent, ModalFooter, ModalHeader } from "components";
+import { cleanup, render } from "@testing-library/react";
+import { snapshotDiff } from "../../../../jest/utils";
 
 const baseProps = {
   id: "modal-id",
@@ -13,46 +14,109 @@ const baseProps = {
 const content = <p>content</p>;
 const footerContent = <p>footer</p>;
 
-describe("Modal renders correctly", () => {
-  it("with base props", () => {
-    const tree = renderer.create(<Modal {...baseProps}>{content}</Modal>).toJSON();
-    expect(tree).toMatchSnapshot();
+const withContent = props => {
+  return { content, ...props };
+};
+
+async function renderModal(props = {}) {
+  const { content, ...rest } = props;
+  const { asFragment } = render(
+    <Modal {...baseProps} {...rest}>
+      {content}
+    </Modal>
+  );
+  return asFragment().firstChild;
+}
+
+describe("Modal", () => {
+  let defaultRender;
+  beforeAll(async () => {
+    defaultRender = await renderModal({ content });
+    cleanup();
   });
 
-  it("with Header", () => {
-    const tree = renderer
-      .create(
-        <Modal {...baseProps}>
+  afterEach(() => {
+    cleanup();
+  });
+
+  it("with base props", () => {
+    expect(defaultRender).toMatchSnapshot();
+  });
+
+  it("with Header", async () => {
+    const props = {
+      content: (
+        <>
           <ModalHeader title={"ModalHeader Title"} />
           {content}
-        </Modal>
+        </>
       )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    };
+
+    const currentRender = await renderModal(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
-  it("with Footer", () => {
-    const tree = renderer
-      .create(
-        <Modal {...baseProps}>
+  it("with Footer", async () => {
+    const props = {
+      content: (
+        <>
           {content}
           <ModalFooter>{footerContent}</ModalFooter>
-        </Modal>
+        </>
       )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    };
+    const currentRender = await renderModal(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
-  it("with all parts", () => {
-    const tree = renderer
-      .create(
-        <Modal {...baseProps}>
+  it("with description", async () => {
+    const props = withContent({ description: "description" });
+    const currentRender = await renderModal(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  });
+
+  it("with isAlertDialog", async () => {
+    const props = withContent({ isAlertDialog: true });
+    const currentRender = await renderModal(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  });
+
+  it("with hideCloseButton", async () => {
+    const props = withContent({ hideCloseButton: true });
+    const currentRender = await renderModal(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  });
+
+  it("with closeButtonAriaLabel", async () => {
+    const props = withContent({ closeButtonAriaLabel: "closeButtonAriaLabel" });
+    const currentRender = await renderModal(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  });
+
+  it("with full width", async () => {
+    const props = withContent({ width: Modal.Width.FULL_WIDTH });
+    const currentRender = await renderModal(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  });
+
+  it("with class names", async () => {
+    const props = withContent({ classNames: { container: "container", overlay: "overlay", modal: "modal" } });
+    const currentRender = await renderModal(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
+  });
+
+  it("with all parts", async () => {
+    const props = {
+      content: (
+        <>
           <ModalHeader title={"ModalHeader Title"} />
           <ModalContent>{content}</ModalContent>
           <ModalFooter>{footerContent}</ModalFooter>
-        </Modal>
+        </>
       )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    };
+    const currentRender = await renderModal(props);
+    expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 });
