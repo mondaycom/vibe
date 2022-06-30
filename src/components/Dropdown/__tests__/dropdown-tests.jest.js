@@ -112,7 +112,7 @@ describe("Dropdown", () => {
       expect(component.chips.values).toEqual([]);
     });
 
-    it("should not show the X in default value chips", () => {
+    it("should not show the X in default value chips in default options  are mandatory state", () => {
       component = new DropdownDriver()
         .withMandatoryDefaultOptions()
         .withMulti()
