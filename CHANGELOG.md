@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.39.1 (2022-06-30)
+
+#### Bug Fixes
+* [#731](https://github.com/mondaycom/monday-ui-react-core/pull/731) fix clickable PropType and inset focus for heading compoennt ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.39.0 (2022-06-30)
 
 #### New Features
