@@ -222,6 +222,10 @@ EditableHeading.propTypes = {
    */
   id: PropTypes.string,
   /**
+   * Max Length to be added to the header wrapper
+   */
+  maxLength: PropTypes.number,
+  /**
    * Header type
    */
   type: PropTypes.oneOf([
@@ -272,7 +276,8 @@ EditableHeading.defaultProps = {
   style: undefined,
   dataTestId: "",
   inputClassName: "",
-  insetFocus: false
+  insetFocus: false,
+  maxLength: undefined
 };
 
 EditableHeading.types = TYPES;

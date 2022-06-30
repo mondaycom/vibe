@@ -61,9 +61,20 @@ const Dropdown = ({
   onInputChange,
   closeMenuOnSelect = !multi,
   ref,
+  withMandatoryDefaultOptions,
   isOptionSelected
 }) => {
-  const [selected, setSelected] = useState(defaultValue || []);
+  const overrideDefaultValue = useMemo(() => {
+    if (defaultValue) {
+      return Array.isArray(defaultValue)
+        ? defaultValue.map(df => ({ ...df, isMandatory: true }))
+        : { ...defaultValue, isMandatory: true };
+    }
+
+    return defaultValue;
+  }, [defaultValue]);
+
+  const [selected, setSelected] = useState(overrideDefaultValue || []);
   const [isDialogShown, setIsDialogShown] = useState(false);
   const finalOptionRenderer = optionRenderer || OptionRenderer;
   const finalValueRenderer = valueRenderer || ValueRenderer;
@@ -185,7 +196,8 @@ const Dropdown = ({
         }
 
         if (!isControlled) {
-          setSelected([]);
+          if (withMandatoryDefaultOptions) setSelected(overrideDefaultValue);
+          else setSelected([]);
         }
         break;
     }
@@ -253,6 +265,7 @@ const Dropdown = ({
       autoFocus={autoFocus}
       closeMenuOnSelect={closeMenuOnSelect}
       ref={ref}
+      withMandatoryDefaultOptions={withMandatoryDefaultOptions}
       isOptionSelected={isOptionSelected}
       {...asyncAdditions}
       {...additions}
@@ -284,7 +297,8 @@ Dropdown.defaultProps = {
   id: undefined,
   autoFocus: false,
   closeMenuOnSelect: undefined,
-  ref: undefined
+  ref: undefined,
+  withMandatoryDefaultOptions: false
 };
 
 Dropdown.propTypes = {
@@ -475,6 +489,10 @@ Dropdown.propTypes = {
    Pass Ref for reference of the actual dropdown component
    */
   ref: PropTypes.func,
+  /**
+   The options set by default will be set as mandatory and the user will not be able to cancel their selection
+   */
+  withMandatoryDefaultOptions: PropTypes.bool,
   /**
    * Override the built-in logic to detect whether an option is selected.
    */

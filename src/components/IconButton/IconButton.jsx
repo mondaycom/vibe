@@ -27,7 +27,8 @@ const IconButton = forwardRef(
       disabledReason,
       onClick,
       color,
-      dataTestId
+      dataTestId,
+      insetFocus
     },
     ref
   ) => {
@@ -89,6 +90,7 @@ const IconButton = forwardRef(
           noSidePadding
           active={active}
           style={overrideStyle}
+          insetFocus={insetFocus}
         >
           <Icon
             icon={icon}
@@ -96,6 +98,7 @@ const IconButton = forwardRef(
             iconSize={iconSize}
             ignoreFocusStyle
             className="icon-button-padding"
+            clickable={false}
           />
         </Button>
       </ToolTip>
@@ -162,7 +165,9 @@ IconButton.propTypes = {
    * if disabled - this will be shown in the tooltip
    */
   disabledReason: PropTypes.string,
-  dataTestId: PropTypes.string
+  dataTestId: PropTypes.string,
+  /** Change the focus indicator from around the button to within it */
+  insetFocus: PropTypes.bool
 };
 
 IconButton.defaultProps = {
@@ -177,7 +182,8 @@ IconButton.defaultProps = {
   disabled: false,
   disabledReason: undefined,
   color: undefined,
-  dataTestId: undefined
+  dataTestId: undefined,
+  insetFocus: false
 };
 
 export default IconButton;
