@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.39.0 (2022-06-30)
+
+#### New Features
+* [#730](https://github.com/mondaycom/monday-ui-react-core/pull/730) dropdown with mandatory default values ([@maxiozer](https://github.com/maxiozer))
+
 ## 1.38.1 (2022-06-29)
 
 #### Bug Fixes
