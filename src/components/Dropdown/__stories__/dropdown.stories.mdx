@@ -141,55 +141,60 @@ The Dropdown component supports multiple options selection in two different stat
 <Canvas>
   <Story name="Multi-choice with different states">
     {() => {
-      const options = useMemo(
-        () => [
-          {
-            value: "Rotem",
-            label: "Rotem Dekel"
-          },
-          {
-            value: "Hadas",
-            label: "Hadas Farhi"
-          },
-          {
-            value: "Netta",
-            label: "Netta Muller"
-          },
-          {
-            value: "Dor",
-            label: "Dor Yehuda"
-          }
-        ],
-        []
-      );
-      return (
-        <Flex gap={Flex.gaps.MEDIUM}>
-          <StoryDescription description="Single line" vertical>
-            <div style={{ width: "400px" }}>
-              <Dropdown
-                placeholder="Single line multi state"
-                defaultValue={[options[0]]}
-                options={options}
-                multi
-                className="dropdown-stories-styles_with-chips"
-              />
-            </div>
-          </StoryDescription>
-          <StoryDescription description="Multiple lines" vertical>
-            <div style={{ width: "400px" }}>
-              <Dropdown
-                placeholder="Multiple line multi state"
-                defaultValue={[options[0]]}
-                options={options}
-                multi
-                multiline
-                className="dropdown-stories-styles_with-chips"
-              />
-            </div>
-          </StoryDescription>
-        </Flex>
-      );
-    }}
+      const options = useMemo( () => [
+        {
+          value: "Rotem",
+          label: "Rotem Dekel"
+        }, {
+          value:"Hadas",
+          label: "Hadas Farhi"
+        }, {
+          value: "Netta",
+          label: "Netta Muller",
+        },
+        {
+          value: "Dor",
+          label: "Dor Yehuda",
+        }], []);
+      return (<Flex wrap gap={Flex.gaps.MEDIUM}>
+        <StoryDescription description="Single line" vertical>
+          <div style={{width: "400px"}}>
+            <Dropdown
+              placeholder="Single line multi state"
+              defaultValue={[options[0]]}
+              options={options}
+              multi
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+        <StoryDescription description="Multiple lines" vertical>
+          <div style={{width: "400px"}}>
+            <Dropdown
+              placeholder="Multiple line multi state"
+              defaultValue={[options[0]]}
+              options={options}
+              multi
+              multiline
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+        <StoryDescription description="Mandatory default values" vertical>
+          <div style={{width: "400px"}}>
+            <Dropdown
+              defaultValue={[options[0]]}
+              options={options}
+              multi
+              multiline
+              className="dropdown-stories-styles_with-chips"
+              withMandatoryDefaultOptions
+            />
+          </div>
+        </StoryDescription>
+      </Flex>);
+      }
+    }
   </Story>
 </Canvas>
 

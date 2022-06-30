@@ -90,7 +90,7 @@ export default class DropdownDriver {
     });
   }
 
-  removeOption(index) {
+  getCloseButton(index) {
     this.ensureRendered();
 
     const id = this.options[index].value;
@@ -100,7 +100,11 @@ export default class DropdownDriver {
       throw new Error(`Option #${index} was not selected`);
     }
 
-    const closeButton = chip.querySelector(`[data-testid="${CHIP_TESTID}-close"]`);
+    return chip.querySelector(`[data-testid="${CHIP_TESTID}-close"]`);
+  }
+
+  removeOption(index) {
+    const closeButton = this.getCloseButton(index);
 
     const event = document.createEvent("SVGEvents");
     event.initEvent("click", true, true);
@@ -172,6 +176,14 @@ export default class DropdownDriver {
 
   withOpenMenuOnFocus() {
     return this.setProp("openMenuOnFocus", true);
+  }
+
+  withMandatoryDefaultOptions() {
+    return this.setProp("withMandatoryDefaultOptions", true);
+  }
+
+  withDefaultValue(defaultValue) {
+    return this.setProp("defaultValue", defaultValue);
   }
 
   withExtraStyles(extraStyles) {
