@@ -28,7 +28,8 @@ const EditableHeading = props => {
     onStartEditing,
     contentRenderer,
     tooltip,
-    highlightTerm
+    highlightTerm,
+    insetFocus
   } = props;
 
   // State
@@ -182,7 +183,9 @@ const EditableHeading = props => {
     <div
       ref={ref}
       style={style}
-      className={cx("editable-heading--wrapper", className)}
+      className={cx("editable-heading--wrapper", className, {
+        "inset-focus": insetFocus
+      })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
       data-testid={dataTestId}
@@ -245,7 +248,8 @@ EditableHeading.propTypes = {
   /** Callback when editing is canceled (i.e. ESC) */
   onCancelEditing: PropTypes.func,
   /** Callback (with current value) when clicked on element that matches ignoreBlurClass */
-  onIgnoreBlurEvent: PropTypes.func
+  onIgnoreBlurEvent: PropTypes.func,
+  insetFocus: PropTypes.bool
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -267,7 +271,8 @@ EditableHeading.defaultProps = {
   onIgnoreBlurEvent: undefined,
   style: undefined,
   dataTestId: "",
-  inputClassName: ""
+  inputClassName: "",
+  insetFocus: false
 };
 
 EditableHeading.types = TYPES;
