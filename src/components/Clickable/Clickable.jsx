@@ -80,7 +80,7 @@ Clickable.propTypes = {
   elementType: PropTypes.string,
   ariaLabel: PropTypes.string,
   ariaHidden: PropTypes.bool,
-  ariaHasPopup: PropTypes.bool,
+  ariaHasPopup: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   tabIndex: PropTypes.string,
   style: PropTypes.object
 };
