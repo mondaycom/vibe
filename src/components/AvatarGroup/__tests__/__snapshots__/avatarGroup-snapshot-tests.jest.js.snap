@@ -26,6 +26,17 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
     </div>
   </div>
   <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
     className="counterContainer medium light"
     onBlur={[Function]}
     onClick={[Function]}
@@ -37,7 +48,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
     tabIndex={0}
   >
     <span
-      aria-label="Additional items 1"
+      aria-label="Tab for more items 1"
       aria-labelledby=""
       onMouseDown={[Function]}
     >
@@ -52,6 +63,9 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
         </span>
       </div>
     </span>
+    <div
+      tabIndex={-1}
+    />
   </div>
 </div>
 `;
@@ -90,6 +104,17 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     </div>
   </div>
   <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
     className="counterContainer medium light"
     onBlur={[Function]}
     onClick={[Function]}
@@ -101,7 +126,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     tabIndex={0}
   >
     <span
-      aria-label="Additional items 1"
+      aria-label="Tab for more items 1"
       aria-labelledby=""
       onMouseDown={[Function]}
     >
@@ -116,6 +141,9 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
         </span>
       </div>
     </span>
+    <div
+      tabIndex={-1}
+    />
   </div>
 </div>
 `;
@@ -153,6 +181,17 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
     </div>
   </div>
   <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
     className="counterContainer medium light"
     onBlur={[Function]}
     onClick={[Function]}
@@ -164,7 +203,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
     tabIndex={0}
   >
     <span
-      aria-label="Additional items 1"
+      aria-label="Tab for more items 1"
       aria-labelledby=""
       onMouseDown={[Function]}
     >
@@ -179,6 +218,9 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
         </span>
       </div>
     </span>
+    <div
+      tabIndex={-1}
+    />
   </div>
 </div>
 `;
@@ -209,6 +251,17 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
     </div>
   </div>
   <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
     className="counterContainer medium light"
     onBlur={[Function]}
     onClick={[Function]}
@@ -220,7 +273,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
     tabIndex={0}
   >
     <span
-      aria-label="Additional items 1"
+      aria-label="Tab for more items 1"
       aria-labelledby=""
       onMouseDown={[Function]}
     >
@@ -235,6 +288,9 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
         </span>
       </div>
     </span>
+    <div
+      tabIndex={-1}
+    />
   </div>
 </div>
 `;
@@ -342,6 +398,17 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
     </div>
   </div>
   <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
     className="counterContainer large light"
     onBlur={[Function]}
     onClick={[Function]}
@@ -353,7 +420,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
     tabIndex={0}
   >
     <span
-      aria-label="Additional items 1"
+      aria-label="Tab for more items 1"
       aria-labelledby=""
       onMouseDown={[Function]}
     >
@@ -368,6 +435,9 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
         </span>
       </div>
     </span>
+    <div
+      tabIndex={-1}
+    />
   </div>
 </div>
 `;

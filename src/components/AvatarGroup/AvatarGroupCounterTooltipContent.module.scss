@@ -1,9 +1,4 @@
-@import "../../styles/themes";
 @import "../../styles/states";
-
-.tooltipAvatarFlexItemContainer {
-  padding: var(--spacing-xs);
-}
 
 .tooltipAvatarItemTitle {
   white-space: nowrap;
@@ -16,13 +11,17 @@
   overflow-x: visible;
   overflow-y: auto;
   margin-top: var(--spacing-small);
+  &:focus,
+  &:focus-visible,
+  &.focus-visible {
+    outline: none;
+  }
 }
 
 .tooltipGridContainer {
   max-width: 160px;
   padding-right: 0;
 }
-
 .scrollableContainer {
-  @include scroller;
+  @include scroller();
 }

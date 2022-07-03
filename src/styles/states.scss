@@ -100,9 +100,10 @@
   }
 }
 
-@mixin scroller($width: 4px, $color: var(--ui-border-color)) {
+@mixin scroller($width: 4px, $height: 6px, $color: var(--ui-border-color)) {
   &::-webkit-scrollbar {
     width: $width;
+    height: $height;
   }
 
   @include _scrollerThumb($color);

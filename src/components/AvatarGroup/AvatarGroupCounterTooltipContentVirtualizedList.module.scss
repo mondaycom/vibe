@@ -1,0 +1,17 @@
+@import "../../styles/states";
+
+.scrollableContainer {
+  @include scroller();
+}
+
+.virtualizedTooltipContainer {
+  align-items: flex-start !important;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: visible;
+  &:focus,
+  &:focus-visible,
+  &.focus-visible {
+    outline: none;
+  }
+}
