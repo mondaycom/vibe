@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.40.1 (2022-07-03)
+
+#### Bug Fixes
+* [#733](https://github.com/mondaycom/monday-ui-react-core/pull/733) AvatarGroup component export ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.40.0 (2022-07-03)
 
 #### Bug Fixes
