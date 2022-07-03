@@ -17,6 +17,10 @@ import { OptionRenderer } from "./OptionRenderer.js";
 import Flex from "../../../components/Flex/Flex";
 import "./dropdown.stories.scss";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import {
+  Attach,
+  Email
+} from "components/Icon/Icons";
 
 export const metaSettings = createStoryMetaSettings({
   component: Dropdown,
@@ -156,6 +160,31 @@ The Dropdown component supports multiple options selection in two different stat
           value: "Dor",
           label: "Dor Yehuda",
         }], []);
+      const optionsAvatar = useMemo( () => [
+        {
+          value: "Rotem",
+          label: "Rotem Dekel",
+          leftAvatar: person1
+        }, {
+          value:"Hadas",
+          label: "Hadas Farhi",
+          leftAvatar: person2
+        }, {
+          value: "Netta",
+          label: "Netta Muller",
+          leftAvatar: person3
+        }], []);
+      const optionsIcons = useMemo(()=>[
+        {
+          value: "email",
+          label: "Email",
+          leftIcon: Email
+        }, {
+          value:"attach",
+          label: "Attach",
+          leftIcon: Attach
+        }
+      ], [])
       return (<Flex wrap gap={Flex.gaps.MEDIUM}>
         <StoryDescription description="Single line" vertical>
           <div style={{width: "400px"}}>
@@ -174,6 +203,28 @@ The Dropdown component supports multiple options selection in two different stat
               placeholder="Multiple line multi state"
               defaultValue={[options[0]]}
               options={options}
+              multi
+              multiline
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+        <StoryDescription description="Left Avatar" vertical>
+          <div style={{width: "400px"}}>
+            <Dropdown
+              defaultValue={[optionsAvatar[0]]}
+              options={optionsAvatar}
+              multi
+              multiline
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+        <StoryDescription description="Left Icon" vertical>
+          <div style={{width: "400px"}}>
+            <Dropdown
+              defaultValue={[optionsIcons[0]]}
+              options={optionsIcons}
               multi
               multiline
               className="dropdown-stories-styles_with-chips"
