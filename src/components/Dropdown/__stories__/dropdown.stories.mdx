@@ -17,6 +17,10 @@ import { OptionRenderer } from "./OptionRenderer.js";
 import Flex from "../../../components/Flex/Flex";
 import "./dropdown.stories.scss";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import {
+  Attach,
+  Email
+} from "components/Icon/Icons";
 
 export const metaSettings = createStoryMetaSettings({
   component: Dropdown,
@@ -195,6 +199,71 @@ The Dropdown component supports multiple options selection in two different stat
       </Flex>);
       }
     }
+  </Story>
+</Canvas>
+
+### Dropdown with avatar
+
+<Canvas>
+  <Story name="Dropdown with avatar">
+    {()=>{
+      const optionsAvatar = useMemo( () => [
+        {
+          value: "Rotem",
+          label: "Rotem Dekel",
+          leftAvatar: person1
+        }, {
+          value:"Hadas",
+          label: "Hadas Farhi",
+          leftAvatar: person2
+        }, {
+          value: "Netta",
+          label: "Netta Muller",
+          leftAvatar: person3
+        }], []);
+    return (<StoryDescription vertical>
+      <div>
+        <Dropdown
+          defaultValue={[optionsAvatar[0]]}
+          options={optionsAvatar}
+          multi
+          multiline
+          className="dropdown-stories-styles_with-chips"
+        />
+      </div>
+    </StoryDescription>)
+    }}
+  </Story>
+</Canvas>
+
+
+### Dropdown with icon
+<Canvas>
+  <Story name="Dropdown with icon">
+    {()=> {
+      const optionsIcons = useMemo(()=>[
+        {
+          value: "email",
+          label: "Email",
+          leftIcon: Email
+        }, {
+          value:"attach",
+          label: "Attach",
+          leftIcon: Attach
+        }
+      ], [])
+      return (<StoryDescription vertical>
+        <div>
+          <Dropdown
+            defaultValue={[optionsIcons[0]]}
+            options={optionsIcons}
+            multi
+            multiline
+            className="dropdown-stories-styles_with-chips"
+          />
+        </div>
+      </StoryDescription>)
+    }}
   </Story>
 </Canvas>
 

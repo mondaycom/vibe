@@ -39,6 +39,8 @@ export default function Container({ children, selectProps, ...otherProps }) {
               e.stopPropagation();
             }}
             readOnly={withMandatoryDefaultOptions && option.isMandatory}
+            leftAvatar={option.leftAvatar}
+            leftIcon={option.leftIcon}
           />
         ) : null
       ),
