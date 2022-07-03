@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.41.0 (2022-07-03)
+
+#### New Features
+* [#706](https://github.com/mondaycom/monday-ui-react-core/pull/706) Feature/sergeyro/avatar group a11y ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.40.1 (2022-07-03)
 
 #### Bug Fixes
