@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.40.0 (2022-07-03)
+
+#### Bug Fixes
+* [#723](https://github.com/mondaycom/monday-ui-react-core/pull/723) Add css module support for chips component ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#732](https://github.com/mondaycom/monday-ui-react-core/pull/732) adding leftIcon and leftAvatar to dropdown chips ([@maxiozer](https://github.com/maxiozer))
+
 ## 1.39.1 (2022-06-30)
 
 #### Bug Fixes
