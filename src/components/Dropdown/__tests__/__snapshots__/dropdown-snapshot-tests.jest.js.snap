@@ -1856,7 +1856,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
           data-testid="value-container-chips"
         >
           <div
-            className="chips--wrapper multiselect-chip-multi-line with-close no-animation"
+            className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
             data-testid="value-container-chip"
             id="ocean"
             onMouseDown={[Function]}
@@ -1867,7 +1867,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
             }
           >
             <div
-              className="monday-style-avatar chip-avatar left monday-style-avatar--large"
+              className="monday-style-avatar avatar left monday-style-avatar--large"
               style={
                 Object {
                   "height": 16,
@@ -1894,7 +1894,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
             </div>
             <button
               aria-disabled={false}
-              className="chip-icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+              className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
               data-testid="value-container-chip-close"
               onBlur={[Function]}
               onClick={[Function]}
@@ -2074,7 +2074,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
           data-testid="value-container-chips"
         >
           <div
-            className="chips--wrapper multiselect-chip-multi-line with-close no-animation"
+            className="chips chips--wrapper multiselect-chip-multi-line withClose noAnimation"
             data-testid="value-container-chip"
             id="ocean"
             onMouseDown={[Function]}
@@ -2086,7 +2086,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
           >
             <svg
               aria-hidden={true}
-              className="icon_component chip-icon left icon_component--no-focus-style"
+              className="icon_component icon left icon_component--no-focus-style"
               fill="currentColor"
               height="16"
               onClick={[Function]}
@@ -2107,7 +2107,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
             </div>
             <button
               aria-disabled={false}
-              className="chip-icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+              className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
               data-testid="value-container-chip-close"
               onBlur={[Function]}
               onClick={[Function]}
