@@ -24,6 +24,7 @@ function useActiveDescendantListFocus({
   itemsIds,
   isItemSelectable,
   onItemClick,
+  chooseFirstOnFocus = false,
   focusedElementRole = ROLES.GROUP,
   isHorizontalList = false,
   useDocumentEventListeners = false
@@ -112,6 +113,13 @@ function useActiveDescendantListFocus({
     setVisualFocusItemIndex(-1);
   }, [setVisualFocusItemIndex]);
 
+  const onFocusCallback = useCallback(() => {
+    if(visualFocusItemIndex === -1 && chooseFirstOnFocus) {
+      triggerByKeyboard.current = true;
+      setVisualFocusItemIndex(0);
+    }
+  }, [setVisualFocusItemIndex, chooseFirstOnFocus, visualFocusItemIndex]);
+
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;
 
@@ -145,6 +153,13 @@ function useActiveDescendantListFocus({
     ref: focusedElementRef,
     callback: onBlurCallback
   });
+
+  useEventListener({
+    eventName: "focus",
+    ref: focusedElementRef,
+    callback: onFocusCallback
+  });
+
 
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
   return {

@@ -24,6 +24,7 @@ const Combobox = forwardRef(
       id,
       placeholder,
       size,
+      chooseFirstOnFocus,
       optionLineHeight,
       optionsListHeight,
       autoFocus,
@@ -123,12 +124,13 @@ const Combobox = forwardRef(
       visualFocusItemId,
       onItemClickCallback: onOptionClick
     } = useActiveDescendantListFocus({
-      focusedElementRef: inputRef,
-      containerElementRef: resultsContainerRef,
-      focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
-      itemsIds: filteredOptionsIds,
-      onItemClick: overrideOnClick,
-      isItemSelectable: isChildSelectable
+        chooseFirstOnFocus,
+        focusedElementRef: inputRef,
+        containerElementRef: resultsContainerRef,
+        focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
+        itemsIds: filteredOptionsIds,
+        onItemClick: overrideOnClick,
+        isItemSelectable: isChildSelectable
     });
 
     const hasResults = filteredOptions.length > 0;
@@ -287,6 +289,7 @@ Combobox.propTypes = {
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
+  chooseFirstOnFocus: PropTypes.bool,
   /** Clear the filter/search on selection (click or enter) */
   clearFilterOnSelection: PropTypes.bool,
   /**
@@ -332,6 +335,7 @@ Combobox.defaultProps = {
   stickyCategories: false,
   optionRenderer: null,
   clearFilterOnSelection: false,
+  chooseFirstOnFocus: false,
   renderOnlyVisibleOptions: false,
   onClick: _optionData => {}
 };
