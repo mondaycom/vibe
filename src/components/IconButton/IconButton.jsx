@@ -16,7 +16,7 @@ const IconButton = forwardRef(
   (
     {
       className,
-      containerClassName,
+      wrapperClassName,
       id,
       icon,
       size,
@@ -77,8 +77,8 @@ const IconButton = forwardRef(
     }, [disabled, disabledReason, tooltipContent, ariaLabel]);
 
     return (
-      <div className={cx(containerClassName, styles.container)}>
-        <ToolTip content={content} referenceWrapperClassName={styles.referenceContainer}>
+      <div className={cx(wrapperClassName, styles.wrapper)}>
+        <ToolTip content={content} referenceWrapperClassName={styles.referenceWrapper}>
           <Button
             onClick={onClick}
             disabled={disabled}
@@ -88,9 +88,9 @@ const IconButton = forwardRef(
             ref={mergedRef}
             id={id}
             dataTestId={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
-            className={cx(className)}
             noSidePadding
             active={active}
+            className={className}
             style={overrideStyle}
             insetFocus={insetFocus}
           >
@@ -127,9 +127,9 @@ IconButton.propTypes = {
    */
   className: PropTypes.string,
   /**
-   * class to be added to the button container
+   * class to be added to the button wrapper
    */
-  containerClassName: PropTypes.string,
+  wrapperClassName: PropTypes.string,
   /**
    * Icon to be rendered
    */
@@ -179,7 +179,7 @@ IconButton.propTypes = {
 
 IconButton.defaultProps = {
   className: undefined,
-  containerClassName: undefined,
+  wrapperClassName: undefined,
   onClick: NOOP,
   id: undefined,
   icon: AddSmall,
