@@ -44,7 +44,12 @@ function useActiveDescendantListFocus({
     if (chooseFirstOnFocus) {
       if (previousItemIds !== itemsIds) {
         if (visualFocusItemId !== prevVisualFocusItemId && previousVisualFocusItemIndex === visualFocusItemIndex) {
-          setVisualFocusItemIndex(0);
+          const foundIndex = itemsIds.indexOf(prevVisualFocusItemId);
+          if (foundIndex >= 0) {
+            setVisualFocusItemIndex(foundIndex);
+          } else {
+            setVisualFocusItemIndex(0);
+          }
         }
       }
     }
