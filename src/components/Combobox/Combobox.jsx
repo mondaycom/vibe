@@ -289,11 +289,7 @@ Combobox.propTypes = {
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
-<<<<<<< Updated upstream
-=======
-  chooseFirstOnFocus: PropTypes.bool,
   scrollInCombobox: PropTypes.bool,
->>>>>>> Stashed changes
   /** Clear the filter/search on selection (click or enter) */
   clearFilterOnSelection: PropTypes.bool,
   /**
