@@ -3,7 +3,6 @@ import React, { forwardRef, useMemo, useRef } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import useMergeRefs from "hooks/useMergeRefs";
 import ToolTip from "components/Tooltip/Tooltip";
 import Button from "components/Button/Button";
@@ -16,9 +15,7 @@ import styles from "./IconButton.modules.scss";
 const IconButton = forwardRef(
   (
     {
-      // Backward compatibility for props naming: className (deprecated) -> buttonClassName
       className,
-      buttonClassName,
       containerClassName,
       id,
       icon,
@@ -36,7 +33,6 @@ const IconButton = forwardRef(
     },
     ref
   ) => {
-    const overrideClassName = backwardCompatibilityForProperties([className, buttonClassName]);
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const buttonAriaLabel = useMemo(() => {
@@ -92,7 +88,7 @@ const IconButton = forwardRef(
             ref={mergedRef}
             id={id}
             dataTestId={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
-            className={cx(overrideClassName)}
+            className={cx(className)}
             noSidePadding
             active={active}
             style={overrideStyle}
@@ -129,7 +125,7 @@ IconButton.propTypes = {
   /**
    * class to be added to the button
    */
-  buttonClassName: PropTypes.string,
+  className: PropTypes.string,
   /**
    * class to be added to the button container
    */
@@ -182,7 +178,7 @@ IconButton.propTypes = {
 };
 
 IconButton.defaultProps = {
-  buttonClassName: undefined,
+  className: undefined,
   containerClassName: undefined,
   onClick: NOOP,
   id: undefined,
