@@ -49,7 +49,7 @@ const ComboboxOption = ({
   useEffect(() => {
     const element = ref.current;
     if (visualFocus && element && shouldScrollWhenActive) {
-      if(scrollInCombobox && scrollRef?.current && element) {
+      if (scrollInCombobox && scrollRef?.current && element) {
         scrollRef.current.scrollTop = element.offsetTop - scrollOffset;
       } else {
         if (forceUndoScrollNullCheck) {
@@ -59,7 +59,7 @@ const ComboboxOption = ({
         }
       }
     }
-  }, [ref, visualFocus, shouldScrollWhenActive, forceUndoScrollNullCheck]);
+  }, [ref, visualFocus, shouldScrollWhenActive, forceUndoScrollNullCheck, scrollRef, scrollOffset, scrollInCombobox]);
 
   const renderIcon = (icon, iconType, className) => {
     if (iconType === ComboboxOption.iconTypes.RENDERER) {
