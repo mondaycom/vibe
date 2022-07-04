@@ -1,8 +1,9 @@
 import { SIZES } from "constants/sizes";
-import React, { useRef, forwardRef, useMemo } from "react";
+import React, { forwardRef, useMemo, useRef } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
+import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
 import useMergeRefs from "hooks/useMergeRefs";
 import ToolTip from "components/Tooltip/Tooltip";
 import Button from "components/Button/Button";
@@ -15,7 +16,10 @@ import styles from "./IconButton.modules.scss";
 const IconButton = forwardRef(
   (
     {
+      // Backward compatibility for props naming: className (deprecated) -> buttonClassName
       className,
+      buttonClassName,
+      containerClassName,
       id,
       icon,
       size,
@@ -32,6 +36,7 @@ const IconButton = forwardRef(
     },
     ref
   ) => {
+    const overrideClassName = backwardCompatibilityForProperties([className, buttonClassName]);
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const buttonAriaLabel = useMemo(() => {
@@ -60,7 +65,7 @@ const IconButton = forwardRef(
       }
 
       if (active && kind === IconButton.kinds.SECONDARY) {
-        style.borderColor = "var(--primary-color";
+        style.borderColor = "var(--primary-color)";
       }
 
       if (size) {
@@ -76,32 +81,34 @@ const IconButton = forwardRef(
     }, [disabled, disabledReason, tooltipContent, ariaLabel]);
 
     return (
-      <ToolTip content={content} referenceWrapperClassName={styles.referenceContainer}>
-        <Button
-          onClick={onClick}
-          disabled={disabled}
-          color={color}
-          kind={kind}
-          ariaLabel={buttonAriaLabel}
-          ref={mergedRef}
-          id={id}
-          dataTestId={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
-          className={cx(className)}
-          noSidePadding
-          active={active}
-          style={overrideStyle}
-          insetFocus={insetFocus}
-        >
-          <Icon
-            icon={icon}
-            iconType={Icon.type.SVG}
-            iconSize={iconSize}
-            ignoreFocusStyle
-            className="icon-button-padding"
-            clickable={false}
-          />
-        </Button>
-      </ToolTip>
+      <div className={cx(containerClassName, styles.container)}>
+        <ToolTip content={content} referenceWrapperClassName={styles.referenceContainer}>
+          <Button
+            onClick={onClick}
+            disabled={disabled}
+            color={color}
+            kind={kind}
+            ariaLabel={buttonAriaLabel}
+            ref={mergedRef}
+            id={id}
+            dataTestId={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
+            className={cx(overrideClassName)}
+            noSidePadding
+            active={active}
+            style={overrideStyle}
+            insetFocus={insetFocus}
+          >
+            <Icon
+              icon={icon}
+              iconType={Icon.type.SVG}
+              iconSize={iconSize}
+              ignoreFocusStyle
+              className="icon-button-padding"
+              clickable={false}
+            />
+          </Button>
+        </ToolTip>
+      </div>
     );
   }
 );
@@ -120,9 +127,13 @@ IconButton.propTypes = {
    */
   onClick: PropTypes.func,
   /**
-   * class to be added to the element
+   * class to be added to the button
    */
-  className: PropTypes.string,
+  buttonClassName: PropTypes.string,
+  /**
+   * class to be added to the button container
+   */
+  containerClassName: PropTypes.string,
   /**
    * Icon to be rendered
    */
@@ -171,7 +182,8 @@ IconButton.propTypes = {
 };
 
 IconButton.defaultProps = {
-  className: undefined,
+  buttonClassName: undefined,
+  containerClassName: undefined,
   onClick: NOOP,
   id: undefined,
   icon: AddSmall,
