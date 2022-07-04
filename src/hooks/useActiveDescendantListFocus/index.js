@@ -1,7 +1,7 @@
-import {useCallback, useEffect, useMemo, useRef, useState} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useKeyEvent from "../useKeyEvent";
 import useEventListener from "../useEventListener";
-import {usePrevious} from "../index";
+import { usePrevious } from "../index";
 
 const ARROW_DIRECTIONS = {
   UP: "ArrowUp",
@@ -41,15 +41,21 @@ function useActiveDescendantListFocus({
   const prevVisualFocusItemId = usePrevious(itemsIds[visualFocusItemIndex]);
 
   useEffect(() => {
-    if(chooseFirstOnFocus) {
+    if (chooseFirstOnFocus) {
       if (previousItemIds !== itemsIds) {
-        if(visualFocusItemId !== prevVisualFocusItemId && previousVisualFocusItemIndex === visualFocusItemIndex) {
+        if (visualFocusItemId !== prevVisualFocusItemId && previousVisualFocusItemIndex === visualFocusItemIndex) {
           setVisualFocusItemIndex(0);
         }
       }
     }
-
-  }, [previousVisualFocusItemIndex, prevVisualFocusItemId, visualFocusItemId, visualFocusItemIndex, itemsIds, previousItemIds]);
+  }, [
+    previousVisualFocusItemIndex,
+    prevVisualFocusItemId,
+    visualFocusItemId,
+    visualFocusItemIndex,
+    itemsIds,
+    previousItemIds
+  ]);
 
   const triggerByKeyboard = useRef(false);
   const onArrowKeyEvent = useCallback(
