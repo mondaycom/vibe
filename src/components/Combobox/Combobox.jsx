@@ -335,7 +335,7 @@ Combobox.defaultProps = {
   stickyCategories: false,
   optionRenderer: null,
   clearFilterOnSelection: false,
-  chooseFirstOnFocus: false,
+  chooseFirstOnFocus: true,
   renderOnlyVisibleOptions: false,
   onClick: _optionData => {}
 };
