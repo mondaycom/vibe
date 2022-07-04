@@ -74,6 +74,8 @@ export const ComboboxItems = forwardRef(
         onOptionLeave,
         optionLineHeight,
         optionRenderer,
+        scrollInCombobox,
+        ref,
         visualFocusItemIndex,
         activeItemIndex,
         shouldScrollToSelectedItem,
