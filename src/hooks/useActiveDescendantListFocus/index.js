@@ -114,7 +114,7 @@ function useActiveDescendantListFocus({
   }, [setVisualFocusItemIndex]);
 
   const onFocusCallback = useCallback(() => {
-    if(visualFocusItemIndex === -1 && chooseFirstOnFocus) {
+    if (visualFocusItemIndex === -1 && chooseFirstOnFocus) {
       triggerByKeyboard.current = true;
       setVisualFocusItemIndex(0);
     }
@@ -159,7 +159,6 @@ function useActiveDescendantListFocus({
     ref: focusedElementRef,
     callback: onFocusCallback
   });
-
 
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
   return {

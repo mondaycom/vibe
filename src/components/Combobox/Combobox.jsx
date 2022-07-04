@@ -124,13 +124,13 @@ const Combobox = forwardRef(
       visualFocusItemId,
       onItemClickCallback: onOptionClick
     } = useActiveDescendantListFocus({
-        chooseFirstOnFocus,
-        focusedElementRef: inputRef,
-        containerElementRef: resultsContainerRef,
-        focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
-        itemsIds: filteredOptionsIds,
-        onItemClick: overrideOnClick,
-        isItemSelectable: isChildSelectable
+      chooseFirstOnFocus,
+      focusedElementRef: inputRef,
+      containerElementRef: resultsContainerRef,
+      focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
+      itemsIds: filteredOptionsIds,
+      onItemClick: overrideOnClick,
+      isItemSelectable: isChildSelectable
     });
 
     const hasResults = filteredOptions.length > 0;
