@@ -21,6 +21,7 @@ export const ComboboxItems = forwardRef(
       withCategoriesDivider,
       optionRenderer,
       activeItemIndex,
+      scrollInCombobox,
       visualFocusItemIndex,
       onOptionClick,
       onOptionEnter,
@@ -59,6 +60,8 @@ export const ComboboxItems = forwardRef(
             optionLineHeight,
             optionRenderer,
             visualFocusItemIndex,
+            scrollRef: scrollInCombobox && ref,
+            scrollInCombobox,
             activeItemIndex,
             shouldScrollToSelectedItem,
             forceUndoScrollNullCheck

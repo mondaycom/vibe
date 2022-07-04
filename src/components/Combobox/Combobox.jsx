@@ -26,6 +26,7 @@ const Combobox = forwardRef(
       size,
       optionLineHeight,
       optionsListHeight,
+      scrollInCombobox,
       autoFocus,
       disabled,
       options,
@@ -205,6 +206,7 @@ const Combobox = forwardRef(
             categories={categories}
             options={filteredOptions}
             filterValue={filterValue}
+            scrollInCombobox={scrollInCombobox}
             withCategoriesDivider={withCategoriesDivider}
             optionRenderer={optionRenderer}
             activeItemIndex={activeOptionIndex}
@@ -287,6 +289,11 @@ Combobox.propTypes = {
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
+<<<<<<< Updated upstream
+=======
+  chooseFirstOnFocus: PropTypes.bool,
+  scrollInCombobox: PropTypes.bool,
+>>>>>>> Stashed changes
   /** Clear the filter/search on selection (click or enter) */
   clearFilterOnSelection: PropTypes.bool,
   /**
@@ -330,6 +337,7 @@ Combobox.defaultProps = {
   shouldScrollToSelectedItem: true,
   noResultsRenderer: undefined,
   stickyCategories: false,
+  scrollInCombobox: false,
   optionRenderer: null,
   clearFilterOnSelection: false,
   renderOnlyVisibleOptions: false,

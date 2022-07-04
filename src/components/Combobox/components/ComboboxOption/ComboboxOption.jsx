@@ -12,6 +12,9 @@ const ComboboxOption = ({
   option,
   isActive,
   visualFocus,
+  scrollRef,
+  scrollOffset,
+  scrollInCombobox,
   onOptionClick,
   onOptionLeave,
   onOptionHover,
@@ -46,10 +49,14 @@ const ComboboxOption = ({
   useEffect(() => {
     const element = ref.current;
     if (visualFocus && element && shouldScrollWhenActive) {
-      if (forceUndoScrollNullCheck) {
-        element?.scrollIntoView?.({ behaviour: "smooth" });
+      if(scrollInCombobox && scrollRef?.current && element) {
+        scrollRef.current.scrollTop = element.offsetTop - scrollOffset;
       } else {
-        element.scrollIntoView?.({ behaviour: "smooth" });
+        if (forceUndoScrollNullCheck) {
+          element?.scrollIntoView?.({ behaviour: "smooth" });
+        } else {
+          element.scrollIntoView?.({ behaviour: "smooth" });
+        }
       }
     }
   }, [ref, visualFocus, shouldScrollWhenActive, forceUndoScrollNullCheck]);
@@ -156,7 +163,8 @@ ComboboxOption.iconTypes = {
 
 ComboboxOption.defaultProps = {
   shouldScrollWhenActive: true,
-  optionRenderer: null
+  optionRenderer: null,
+  scrollOffset: 100
 };
 
 export default ComboboxOption;
