@@ -1,10 +1,25 @@
 @import "../../../../styles/global-css-settings";
 @import "../../../styles/content-spacing";
 
+:root {
+  --modifier: calc(768px - 100%);
+}
+
 .monday-storybook-abilities-description {
   margin-top: $spacing-between-section-items;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: $spacing-large;
+  gap: $spacing-large;
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: calc(var(--modifier) * 999);
+    max-width: calc(50% - #{$spacing-large / 2});
+  }
+
+  * img {
+    object-fit: contain;
+  }
 }

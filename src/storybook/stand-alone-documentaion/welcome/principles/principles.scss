@@ -1,9 +1,27 @@
 @import "../../../../styles/global-css-settings";
 @import "../../../styles/content-spacing";
 
+:root {
+  --modifier: calc(768px - 100%);
+}
+
 .monday-storybook-principles {
   margin-top: $spacing-between-section-items;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: $spacing-large;
+  display: flex;
+  gap: $spacing-large;
+  flex-wrap: wrap;
+
+  > * {
+    flex-shrink:1;
+    flex-grow:1;
+    flex-basis: calc(var(--modifier) * 999);
+    max-width: calc(50% - #{$spacing-large / 2});
+  }
+
+  img{
+    object-fit: contain;
+    max-height: calc( 80px + 10vw);
+    object-position: left;
+    background: transparent;
+  }
 }

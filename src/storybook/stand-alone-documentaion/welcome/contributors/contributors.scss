@@ -1,32 +1,43 @@
 @import "../../../../styles/global-css-settings";
 @import "../../../styles/content-spacing";
 
+:root {
+  --modifier: calc(768px - 100%);
+}
+
 .monday-storybook-welcome-contributors {
   margin-top: 68px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: $spacing-large;
-  grid-row-gap: 90px;
+  gap: $spacing-large;
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    min-width: 270px;
+    max-width: 100%;
+    flex-basis: calc(var(--multiplier) * 999);
+    flex-grow: 1;
+    margin-bottom: $spacing-xxxl;
+  }
 
   &_contributor {
     &--bg-pattern-1 {
-      background-image: url('../assets/BackgroundPattern1.png');
+      background-image: url("../assets/BackgroundPattern1.png");
     }
 
     &--bg-pattern-2 {
-      background-image: url('../assets/BackgroundPattern2.png');
+      background-image: url("../assets/BackgroundPattern2.png");
     }
 
     &--bg-pattern-3 {
-      background-image: url('../assets/BackgroundPattern3.png');
+      background-image: url("../assets/BackgroundPattern3.png");
     }
 
     &--bg-pattern-4 {
-      background-image: url('../assets/BackgroundPattern4.png');
+      background-image: url("../assets/BackgroundPattern4.png");
     }
 
     &--bg-pattern-5 {
-      background-image: url('../assets/BackgroundPattern5.png');
+      background-image: url("../assets/BackgroundPattern5.png");
     }
   }
 }
