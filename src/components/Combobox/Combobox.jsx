@@ -333,7 +333,7 @@ Combobox.defaultProps = {
   shouldScrollToSelectedItem: true,
   noResultsRenderer: undefined,
   stickyCategories: false,
-  scrollInCombobox: true,
+  scrollInCombobox: false,
   optionRenderer: null,
   clearFilterOnSelection: false,
   renderOnlyVisibleOptions: false,
