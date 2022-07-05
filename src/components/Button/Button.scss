@@ -81,7 +81,6 @@
   }
 
   &--size {
-
     &-xxs {
       @include font-input();
       padding: $spacing-xxs $spacing-xs;
@@ -309,4 +308,8 @@
   }
 
   @include focus-style();
+
+  &.inset-focus-style {
+    @include focus-style-inset();
+  }
 }

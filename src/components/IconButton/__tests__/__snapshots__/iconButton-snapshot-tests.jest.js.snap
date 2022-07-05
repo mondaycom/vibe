@@ -22,13 +22,11 @@ exports[`IconButton renders correctly with 1`] = `
   type="button"
 >
   <svg
-    aria-hidden={false}
-    className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+    aria-hidden={true}
+    className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
     height="24"
     onClick={[Function]}
-    role="button"
-    tabIndex={0}
     viewBox="0 0 20 20"
     width="24"
   >
@@ -65,13 +63,11 @@ exports[`IconButton renders correctly with active 1`] = `
   type="button"
 >
   <svg
-    aria-hidden={false}
-    className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+    aria-hidden={true}
+    className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
     height="24"
     onClick={[Function]}
-    role="button"
-    tabIndex={0}
     viewBox="0 0 20 20"
     width="24"
   >
@@ -87,7 +83,7 @@ exports[`IconButton renders correctly with active 1`] = `
 
 exports[`IconButton renders correctly with aria label 1`] = `
 <span
-  className="referenceContainer"
+  className="referenceWrapper"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -118,13 +114,11 @@ exports[`IconButton renders correctly with aria label 1`] = `
     type="button"
   >
     <svg
-      aria-hidden={false}
-      className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+      aria-hidden={true}
+      className="icon_component icon-button-padding icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
-      role="button"
-      tabIndex={0}
       viewBox="0 0 20 20"
       width="24"
     >
@@ -161,13 +155,11 @@ exports[`IconButton renders correctly with disabled 1`] = `
   type="button"
 >
   <svg
-    aria-hidden={false}
-    className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+    aria-hidden={true}
+    className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
     height="24"
     onClick={[Function]}
-    role="button"
-    tabIndex={0}
     viewBox="0 0 20 20"
     width="24"
   >
@@ -203,13 +195,11 @@ exports[`IconButton renders correctly with empty props 1`] = `
   type="button"
 >
   <svg
-    aria-hidden={false}
-    className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+    aria-hidden={true}
+    className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
     height="24"
     onClick={[Function]}
-    role="button"
-    tabIndex={0}
     viewBox="0 0 20 20"
     width="24"
   >
@@ -246,13 +236,11 @@ exports[`IconButton renders correctly with id 1`] = `
   type="button"
 >
   <svg
-    aria-hidden={false}
-    className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+    aria-hidden={true}
+    className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
     height="24"
     onClick={[Function]}
-    role="button"
-    tabIndex={0}
     viewBox="0 0 20 20"
     width="24"
   >
@@ -288,13 +276,11 @@ exports[`IconButton renders correctly with size - large 1`] = `
   type="button"
 >
   <svg
-    aria-hidden={false}
-    className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+    aria-hidden={true}
+    className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
     height="24"
     onClick={[Function]}
-    role="button"
-    tabIndex={0}
     viewBox="0 0 20 20"
     width="24"
   >
@@ -330,13 +316,11 @@ exports[`IconButton renders correctly with size - medium 1`] = `
   type="button"
 >
   <svg
-    aria-hidden={false}
-    className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+    aria-hidden={true}
+    className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
     height="24"
     onClick={[Function]}
-    role="button"
-    tabIndex={0}
     viewBox="0 0 20 20"
     width="24"
   >
@@ -372,13 +356,11 @@ exports[`IconButton renders correctly with size - small 1`] = `
   type="button"
 >
   <svg
-    aria-hidden={false}
-    className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+    aria-hidden={true}
+    className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
     height="24"
     onClick={[Function]}
-    role="button"
-    tabIndex={0}
     viewBox="0 0 20 20"
     width="24"
   >
@@ -414,13 +396,11 @@ exports[`IconButton renders correctly with size - xs 1`] = `
   type="button"
 >
   <svg
-    aria-hidden={false}
-    className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+    aria-hidden={true}
+    className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
     height="16"
     onClick={[Function]}
-    role="button"
-    tabIndex={0}
     viewBox="0 0 20 20"
     width="16"
   >
@@ -456,13 +436,11 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
   type="button"
 >
   <svg
-    aria-hidden={false}
-    className="icon_component icon-button-padding icon_component--clickable icon_component--no-focus-style"
+    aria-hidden={true}
+    className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
     height="16"
     onClick={[Function]}
-    role="button"
-    tabIndex={0}
     viewBox="0 0 20 20"
     width="16"
   >

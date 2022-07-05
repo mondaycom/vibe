@@ -1,16 +1,17 @@
-import { useState } from "react";
-import AvatarGroup from "../AvatarGroup";
+import { useCallback, useState } from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { StoryDescription } from "../../../storybook/components/story-description/story-description";
+import { Link, RelatedComponents, UsageGuidelines } from "../../../storybook";
+import { AVATAR, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
 import { person1, person2, person3 } from "./assets";
+import AvatarGroup from "../AvatarGroup";
 import Avatar from "../../Avatar/Avatar";
 import Counter from "../../Counter/Counter";
 import Flex from "../../Flex/Flex";
-import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import Slider from "../../Slider/Slider";
 import Divider from "../../Divider/Divider";
-import { Link, RelatedComponents, UsageGuidelines } from "../../../storybook";
-import { AVATAR, COUNTER, TOOLTIP } from "../../../storybook/components/related-components/component-description-map";
+import Tooltip from "../../Tooltip/Tooltip";
 import styles from "./AvatarGroup.stories.module.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -55,7 +56,7 @@ Use this component if you need to stack avatars as a group.
       <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
       <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />
       <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
-      <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />
+      <Avatar type={Avatar.types.TEXT} text="MR" ariaLabel="Mark Roytstein" />
     </AvatarGroup>
   </Story>
 </Canvas>
@@ -260,6 +261,87 @@ Choose the maximum amount of avatars you want to display.
   </Story>
 </Canvas>
 
+### Hover vs Clickable
+
+If avatars are clickable, they will be displayed via<Link href="/?path=/docs/navigation-menu-menu--overview">Menu</Link>and user will be able to navigate each additional item.
+Otherwise, avatars will be displayed in a Tooltip with no item's navigation.
+
+<Canvas>
+  <Story name="Hover vs Clickable">
+    {() => {
+      const [lastClickedAvatarId, setLastClickedAvatarId] = useState("-");
+      const avatarOnClick = useCallback(avatarId => {
+        setLastClickedAvatarId(avatarId);
+      }, []);
+      const avatarsProps = [
+        { type: Avatar.types.IMG, src: person1, ariaLabel: "Hadas Fahri" },
+        { type: Avatar.types.IMG, src: person2, ariaLabel: "Sergey Roytman" },
+        { type: Avatar.types.IMG, src: person3, ariaLabel: "Yonatan Lev Ari" }
+      ];
+      const getDummyAvatarsProps = useCallback(multiplier => {
+        let result = [];
+        for (let i = 0; i < multiplier; ++i) {
+          result = result.concat(avatarsProps);
+        }
+        return result;
+      }, []);
+      return (
+        <Flex direction={Flex.directions.ROW} gap={Flex.gaps.LARGE}>
+          <StoryDescription description="Counter hover" vertical align={Flex.align.START}>
+            <AvatarGroup
+              size={Avatar.sizes.LARGE}
+              max={3}
+              counterTooltipCustomProps={{ position: Tooltip.positions.BOTTOM }}
+            >
+              {getDummyAvatarsProps(4).map(avatarProps => (
+                <Avatar {...avatarProps} />
+              ))}
+            </AvatarGroup>
+          </StoryDescription>
+          <StoryDescription description="Counter click" vertical align={Flex.align.START}>
+            <Flex>
+              <AvatarGroup size={Avatar.sizes.LARGE} max={3}>
+                {getDummyAvatarsProps(4).map((avatarProps, index) => (
+                  <Avatar {...avatarProps} onClick={avatarOnClick} id={`${index}`} />
+                ))}
+              </AvatarGroup>
+              <div className={styles.lastClickedAvatarIdText}>Last clicked avatar's id: {lastClickedAvatarId}</div>
+            </Flex>
+          </StoryDescription>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Virtualized list
+
+Should be used only to display large amount of avatars in default counter tooltip
+
+<Canvas>
+  <Story name="Virtualized list">
+    {() => {
+      const avatars = [
+        <Avatar type={Avatar.types.IMG} src={person1} ariaLabel="Hadas Fahri" />,
+        <Avatar type={Avatar.types.IMG} src={person2} ariaLabel="Sergey Roytman" />,
+        <Avatar type={Avatar.types.IMG} src={person3} ariaLabel="Yonatan Lev Ari" />
+      ];
+      const getDummyAvatars = multiplier => {
+        let result = [];
+        for (let i = 0; i < multiplier; ++i) {
+          result = result.concat(avatars);
+        }
+        return result;
+      };
+      return (
+        <AvatarGroup size={Avatar.sizes.LARGE} max={3} counterTooltipIsVirtualizedList={true}>
+          {getDummyAvatars(334)}
+        </AvatarGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Counter custom tooltip content
 
 Counter tooltip props can be specified in order to render tooltip with custom content.
@@ -335,7 +417,7 @@ Counter tooltip props can be specified in order to render tooltip with custom co
           </td>
           <td align="left">Developer</td>
           <td align="left">
-            <AvatarGroup size={Avatar.sizes.MEDIUM} max={2}>
+            <AvatarGroup size={Avatar.sizes.MEDIUM} max={2} counterProps={{ ariaLabelItemsName: "teams" }}>
               <Avatar
                 type={Avatar.types.TEXT}
                 text="T1"

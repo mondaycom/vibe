@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.37.0",
+  "version": "1.41.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "dist/main.js",
   "module": "dist/esm.js",
@@ -150,6 +150,7 @@
     "storybook-addon-performance": "^0.16.1",
     "storybook-addon-react-docgen": "^1.2.43-canary.135.1793.0",
     "storybook-addon-themes": "^6.1.0",
+    "storybook-docs-toc": "^1.7.0",
     "style-loader": "^3.3.1",
     "stylelint": "^14.2.0",
     "stylelint-config-recommended": "^7.0.0",

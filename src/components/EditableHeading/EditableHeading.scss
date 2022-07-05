@@ -16,4 +16,7 @@
   .heading-component {
     margin: 0;
   }
+  &.inset-focus {
+    @include focus-style-inset();
+  }
 }

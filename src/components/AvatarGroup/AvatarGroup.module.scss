@@ -3,6 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   position: relative;
+  padding: var(--spacing-xs) var(--spacing-small) var(--spacing-xs) var(--spacing-medium);
 }
 
 .avatarContainer {

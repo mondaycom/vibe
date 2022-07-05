@@ -1,5 +1,48 @@
 # Changelog
 
+## 1.41.1 (2022-07-05)
+
+#### Bug Fixes
+* [#735](https://github.com/mondaycom/monday-ui-react-core/pull/735) IconButton: added wrapperClassName prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.41.0 (2022-07-03)
+
+#### New Features
+* [#706](https://github.com/mondaycom/monday-ui-react-core/pull/706) Feature/sergeyro/avatar group a11y ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.40.1 (2022-07-03)
+
+#### Bug Fixes
+* [#733](https://github.com/mondaycom/monday-ui-react-core/pull/733) AvatarGroup component export ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.40.0 (2022-07-03)
+
+#### Bug Fixes
+* [#723](https://github.com/mondaycom/monday-ui-react-core/pull/723) Add css module support for chips component ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#732](https://github.com/mondaycom/monday-ui-react-core/pull/732) adding leftIcon and leftAvatar to dropdown chips ([@maxiozer](https://github.com/maxiozer))
+
+## 1.39.1 (2022-06-30)
+
+#### Bug Fixes
+* [#731](https://github.com/mondaycom/monday-ui-react-core/pull/731) fix clickable PropType and inset focus for heading compoennt ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.39.0 (2022-06-30)
+
+#### New Features
+* [#730](https://github.com/mondaycom/monday-ui-react-core/pull/730) dropdown with mandatory default values ([@maxiozer](https://github.com/maxiozer))
+
+## 1.38.1 (2022-06-29)
+
+#### Bug Fixes
+* [#729](https://github.com/mondaycom/monday-ui-react-core/pull/729) add max length as a prop ([@mayaAssayag](https://github.com/mayaAssayag))
+
+## 1.38.0 (2022-06-29)
+
+#### New Features
+* [#727](https://github.com/mondaycom/monday-ui-react-core/pull/727) Butotn inset focus style ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.37.0 (2022-06-28)
 
 #### New Features
