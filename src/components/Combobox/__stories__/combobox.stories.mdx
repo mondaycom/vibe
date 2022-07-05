@@ -312,20 +312,12 @@ If combo box requires action, use button component at the end of the list.
           { id: "3", label: "Option 3", leftIcon: Time },
           { id: "4", label: "Option 4", leftIcon: Update },
           { id: "4", label: "Option 4", leftIcon: Update },
-          { id: "4", label: "Option 4", leftIcon: Update },
-          { id: "4", label: "Option 4", leftIcon: Update },
-          { id: "4", label: "Option 4", leftIcon: Update },
-          { id: "4", label: "Option 4", leftIcon: Update },
-          { id: "4", label: "Option 4", leftIcon: Update },
-          { id: "4", label: "Option 4", leftIcon: Update },
-          { id: "4", label: "Option 4", leftIcon: Update },
-          { id: "4", label: "Option 4", leftIcon: Update },
           { id: "5", label: "Option 5", leftIcon: Upgrade }
         ],
         []
       );
       return (
-        <DialogContentContainer style={{ height: "200px" }}>
+        <DialogContentContainer>
           <Combobox options={options} placeholder="Placeholder text here" />
           <Button kind={Button.kinds.TERTIARY} className="combobox-stories-styles_btn" leftIcon={Edit}>
             Edit
