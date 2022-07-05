@@ -14,7 +14,6 @@ const ComboboxOption = ({
   visualFocus,
   scrollRef,
   scrollOffset,
-  scrollInCombobox,
   onOptionClick,
   onOptionLeave,
   onOptionHover,
@@ -49,7 +48,8 @@ const ComboboxOption = ({
   useEffect(() => {
     const element = ref.current;
     if (visualFocus && element && shouldScrollWhenActive) {
-      if (scrollInCombobox && scrollRef?.current && element) {
+      if (scrollRef?.current && element) {
+        // not supported with virtualized atm, need their scrollRef (element with overflow-y auto that has the scroll)
         scrollRef.current.scrollTop = element.offsetTop - scrollOffset;
       } else {
         if (forceUndoScrollNullCheck) {
@@ -59,7 +59,7 @@ const ComboboxOption = ({
         }
       }
     }
-  }, [ref, visualFocus, shouldScrollWhenActive, forceUndoScrollNullCheck, scrollRef, scrollOffset, scrollInCombobox]);
+  }, [ref, visualFocus, shouldScrollWhenActive, forceUndoScrollNullCheck, scrollRef, scrollOffset, belongToCategory]);
 
   const renderIcon = (icon, iconType, className) => {
     if (iconType === ComboboxOption.iconTypes.RENDERER) {
