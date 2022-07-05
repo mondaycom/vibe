@@ -130,6 +130,7 @@ Box.propTypes = {
   ]),
   disabled: PropTypes.bool,
   border: PropTypes.oneOf([Box.borders.DEFAULT]),
+  borderColor: PropTypes.oneOf([Box.borderColors.UI_BORDER_COLOR, Box.borderColors.LAYOUT_BORDER_COLOR]),
   rounded: PropTypes.oneOf([Box.roundeds.SMALL, Box.roundeds.MEDIUM, Box.roundeds.BIG]),
   shadow: PropTypes.oneOf([Box.shadows.XS, Box.shadows.SMALL, Box.shadows.MEDIUM, Box.shadows.LARGE]),
   margin: PropTypes.oneOf([

@@ -12,33 +12,9 @@ exports[`Box renders correctly with border prop 1`] = `
 />
 `;
 
-exports[`Box renders correctly with borderBottom prop 1`] = `
-<div
-  className="box borderBottom"
-/>
-`;
-
 exports[`Box renders correctly with borderColor prop 1`] = `
 <div
   className="box borderColorUiBorderColor"
-/>
-`;
-
-exports[`Box renders correctly with borderEnd prop 1`] = `
-<div
-  className="box borderEnd"
-/>
-`;
-
-exports[`Box renders correctly with borderStart prop 1`] = `
-<div
-  className="box borderStart"
-/>
-`;
-
-exports[`Box renders correctly with borderTop prop 1`] = `
-<div
-  className="box borderTop"
 />
 `;
 
@@ -137,30 +113,6 @@ exports[`Box renders correctly with paddingY prop 1`] = `
 exports[`Box renders correctly with rounded prop 1`] = `
 <div
   className="box roundedSmall"
-/>
-`;
-
-exports[`Box renders correctly with roundedBottom prop 1`] = `
-<div
-  className="box roundedTopSmall"
-/>
-`;
-
-exports[`Box renders correctly with roundedEnd prop 1`] = `
-<div
-  className="box roundedTopSmall"
-/>
-`;
-
-exports[`Box renders correctly with roundedStart prop 1`] = `
-<div
-  className="box roundedStartSmall"
-/>
-`;
-
-exports[`Box renders correctly with roundedTop prop 1`] = `
-<div
-  className="box roundedTopSmall"
 />
 `;
 

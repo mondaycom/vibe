@@ -18,26 +18,6 @@ describe("Box renders correctly", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("with borderTop prop", () => {
-    const tree = renderer.create(<Box borderTop={Box.borderTops.DEFAULT} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with borderEnd prop", () => {
-    const tree = renderer.create(<Box borderEnd={Box.borderEnds.DEFAULT} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with borderBottom prop", () => {
-    const tree = renderer.create(<Box borderBottom={Box.borderBottoms.DEFAULT} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with borderStart prop", () => {
-    const tree = renderer.create(<Box borderStart={Box.borderStarts.DEFAULT} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
   it("with borderColor prop", () => {
     const tree = renderer.create(<Box borderColor={Box.borderColors.UI_BORDER_COLOR} />).toJSON();
     expect(tree).toMatchSnapshot();
@@ -45,26 +25,6 @@ describe("Box renders correctly", () => {
 
   it("with rounded prop", () => {
     const tree = renderer.create(<Box rounded={Box.roundeds.SMALL} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with roundedTop prop", () => {
-    const tree = renderer.create(<Box roundedTop={Box.roundedTops.SMALL} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with roundedEnd prop", () => {
-    const tree = renderer.create(<Box roundedTop={Box.roundedTops.SMALL} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with roundedBottom prop", () => {
-    const tree = renderer.create(<Box roundedTop={Box.roundedTops.SMALL} />).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("with roundedStart prop", () => {
-    const tree = renderer.create(<Box roundedStart={Box.roundedStarts.SMALL} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
