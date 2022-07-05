@@ -1,5 +1,5 @@
 import { SIZES } from "constants/sizes";
-import React, { forwardRef, useMemo, useRef } from "react";
+import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
@@ -76,8 +76,10 @@ const IconButton = forwardRef(
       return ariaLabel;
     }, [disabled, disabledReason, tooltipContent, ariaLabel]);
 
+    const IconButtonWrapper = wrapperClassName ? "div" : Fragment;
+
     return (
-      <div className={cx(wrapperClassName, styles.wrapper)}>
+      <IconButtonWrapper className={cx(wrapperClassName, styles.wrapper)}>
         <ToolTip content={content} referenceWrapperClassName={styles.referenceWrapper}>
           <Button
             onClick={onClick}
@@ -104,7 +106,7 @@ const IconButton = forwardRef(
             />
           </Button>
         </ToolTip>
-      </div>
+      </IconButtonWrapper>
     );
   }
 );
