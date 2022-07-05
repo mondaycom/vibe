@@ -372,12 +372,14 @@ paddingBottom
 paddingStart
 ```
 
-### Disabled
+### Component Disabled
 
 <Canvas>
   <Story name="Disabled">
     <div className={styles.boxWrapper}>
-      <Box disabled>Box.disabled.DISABLED</Box>
+      <Box backgroundColor={Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR} border={Box.borders.DEFAULT} disabled>
+        Box.disabled.DISABLED
+      </Box>
     </div>
   </Story>
 </Canvas>
