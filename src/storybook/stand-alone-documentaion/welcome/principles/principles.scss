@@ -5,10 +5,14 @@ $principles-cell-min-width: 180px;
 
 .monday-storybook-principles {
   margin-top: $spacing-between-section-items;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(#{$principles-cell-min-width}, 1fr));
-  column-gap: $spacing-large;
-  row-gap: $spacing-xxxl;
 
-  * img{ object-fit: cover}
+  @include grid-auto-fit(
+    $grid-column-gap: $spacing-large,
+    $grid-row-gap: $spacing-xxxl,
+    $grid-cell-min-width: $principles-cell-min-width
+  );
+
+  * img {
+    object-fit: cover;
+  }
 }

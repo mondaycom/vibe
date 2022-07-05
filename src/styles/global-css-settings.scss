@@ -44,3 +44,11 @@ $expand-animation-timing: cubic-bezier(0, 0, 0.35, 1);
   height: 0;
   position: absolute;
 }
+
+@mixin grid-auto-fit($grid-gap: null, $grid-column-gap: null, $grid-row-gap: null, $grid-cell-min-width) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(#{$grid-cell-min-width}, 1fr));
+  gap: $grid-gap;
+  column-gap: $grid-column-gap;
+  row-gap: $grid-row-gap;
+}

@@ -5,10 +5,14 @@ $contributor-cell-min-width: 280px;
 
 .monday-storybook-welcome-contributors {
   margin-top: 68px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(#{$contributor-cell-min-width}, 1fr));
-  column-gap: $spacing-large;
-  row-gap: $spacing-xxxl;
+
+  @include grid-auto-fit(
+          $grid-column-gap: $spacing-large,
+          $grid-row-gap: 90px,
+          $grid-cell-min-width: $contributor-cell-min-width
+  );
+
+
 
   &_contributor {
     &--bg-pattern-1 {

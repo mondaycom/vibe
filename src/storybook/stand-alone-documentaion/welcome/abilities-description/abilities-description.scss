@@ -5,7 +5,6 @@ $abilities-cell-min-width: 180px;
 
 .monday-storybook-abilities-description {
   margin-top: $spacing-between-section-items;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(#{$abilities-cell-min-width}, 1fr));
-  grid-gap: $spacing-large;
+
+  @include grid-auto-fit($grid-gap: $spacing-large, $grid-cell-min-width: $abilities-cell-min-width);
 }
