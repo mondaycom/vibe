@@ -10,40 +10,7 @@ $utilities-modules: (
         "border": (
                 property: border,
                 values: (
-                        null: var(--border-width) var(--border-style) var(--ui-border-color),
-                        0: 0,
-                )
-        ),
-        "borderTop": (
-                property: border-top,
-                class: borderTop,
-                values: (
-                        null: var(--border-width) var(--border-style) var(--ui-border-color),
-                        0: 0,
-                )
-        ),
-        "borderEnd": (
-                property: border-inline-end,
-                class: borderEnd,
-                values: (
-                        null: var(--border-width) var(--border-style) var(--ui-border-color),
-                        0: 0,
-                )
-        ),
-        "borderBottom": (
-                property: border-bottom,
-                class: borderBottom,
-                values: (
-                        null: var(--border-width) var(--border-style) var(--ui-border-color),
-                        0: 0,
-                )
-        ),
-        "borderStart": (
-                property: border-inline-start,
-                class: borderStart,
-                values: (
-                        null: var(--border-width) var(--border-style) var(--ui-border-color),
-                        0: 0,
+                        null: var(--border-width) var(--border-style) var(--ui-border-color)
                 )
         ),
         "borderColor": (
@@ -54,46 +21,6 @@ $utilities-modules: (
         "rounded": (
                 property: border-radius,
                 class: rounded,
-                values: (
-                        0: 0,
-                        small: var(--border-radius-small),
-                        medium: var(--border-radius-medium),
-                        big: var(--border-radius-big),
-                ),
-        ),
-        "roundedTop": (
-                property: border-top-left-radius border-top-right-radius,
-                class: roundedTop,
-                values: (
-                        0: 0,
-                        small: var(--border-radius-small),
-                        medium: var(--border-radius-medium),
-                        big: var(--border-radius-big),
-                ),
-        ),
-        "roundedEnd": (
-                property: border-top-right-radius border-bottom-right-radius,
-                class: roundedEnd,
-                values: (
-                        0: 0,
-                        small: var(--border-radius-small),
-                        medium: var(--border-radius-medium),
-                        big: var(--border-radius-big),
-                ),
-        ),
-        "roundedBottom": (
-                property: border-bottom-right-radius border-bottom-left-radius,
-                class: roundedBottom,
-                values: (
-                        0: 0,
-                        small: var(--border-radius-small),
-                        medium: var(--border-radius-medium),
-                        big: var(--border-radius-big),
-                ),
-        ),
-        "roundedStart": (
-                property: border-bottom-left-radius border-top-left-radius,
-                class: roundedStart,
                 values: (
                         0: 0,
                         small: var(--border-radius-small),

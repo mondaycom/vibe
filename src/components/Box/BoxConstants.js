@@ -5,28 +5,7 @@ export const DISABLED = Object.freeze({
 });
 
 export const BORDER = Object.freeze({
-  NONE: styles.border0,
   DEFAULT: styles.border
-});
-
-export const BORDER_TOP = Object.freeze({
-  NONE: styles.borderTop0,
-  DEFAULT: styles.borderTop
-});
-
-export const BORDER_END = Object.freeze({
-  NONE: styles.borderEnd0,
-  DEFAULT: styles.borderEnd
-});
-
-export const BORDER_BOTTOM = Object.freeze({
-  NONE: styles.borderBottom0,
-  DEFAULT: styles.borderBottom
-});
-
-export const BORDER_START = Object.freeze({
-  NONE: styles.borderStart0,
-  DEFAULT: styles.borderStart
 });
 
 export const BORDER_COLOR = Object.freeze({
@@ -35,38 +14,9 @@ export const BORDER_COLOR = Object.freeze({
 });
 
 export const ROUNDED = Object.freeze({
-  NONE: styles.rounded0,
   SMALL: styles.roundedSmall,
   MEDIUM: styles.roundedMedium,
   BIG: styles.roundedBig
-});
-
-export const ROUNDED_TOP = Object.freeze({
-  NONE: styles.roundedTop0,
-  SMALL: styles.roundedTopSmall,
-  MEDIUM: styles.roundedTopMedium,
-  BIG: styles.roundedTopBig
-});
-
-export const ROUNDED_END = Object.freeze({
-  NONE: styles.roundedEnd0,
-  SMALL: styles.roundedEndSmall,
-  MEDIUM: styles.roundedEndMedium,
-  BIG: styles.roundedEndBig
-});
-
-export const ROUNDED_BOTTOM = Object.freeze({
-  NONE: styles.roundedBottom0,
-  SMALL: styles.roundedBottomSmall,
-  MEDIUM: styles.roundedBottomMedium,
-  BIG: styles.roundedBottomBig
-});
-
-export const ROUNDED_START = Object.freeze({
-  NONE: styles.roundedStart0,
-  SMALL: styles.roundedStartSmall,
-  MEDIUM: styles.roundedStartMedium,
-  BIG: styles.roundedStartBig
 });
 
 export const SHADOW = Object.freeze({
@@ -77,7 +27,6 @@ export const SHADOW = Object.freeze({
 });
 
 export const MARGIN = Object.freeze({
-  NONE: styles.m0,
   AUTO: styles.mAuto,
   XS: styles.mXs,
   SMALL: styles.mSmall,
@@ -89,7 +38,6 @@ export const MARGIN = Object.freeze({
 });
 
 export const MARGIN_X = Object.freeze({
-  NONE: styles.mx0,
   AUTO: styles.mxAuto,
   XS: styles.mxXs,
   SMALL: styles.mxSmall,
@@ -101,7 +49,6 @@ export const MARGIN_X = Object.freeze({
 });
 
 export const MARGIN_Y = Object.freeze({
-  NONE: styles.my0,
   AUTO: styles.myAuto,
   XS: styles.myXs,
   SMALL: styles.mySmall,
@@ -113,7 +60,6 @@ export const MARGIN_Y = Object.freeze({
 });
 
 export const MARGIN_TOP = Object.freeze({
-  NONE: styles.mt0,
   AUTO: styles.mtAuto,
   XS: styles.mtXs,
   SMALL: styles.mtSmall,
@@ -125,7 +71,6 @@ export const MARGIN_TOP = Object.freeze({
 });
 
 export const MARGIN_END = Object.freeze({
-  NONE: styles.me0,
   AUTO: styles.meAuto,
   XS: styles.meXs,
   SMALL: styles.meSmall,
@@ -137,7 +82,6 @@ export const MARGIN_END = Object.freeze({
 });
 
 export const MARGIN_BOTTOM = Object.freeze({
-  NONE: styles.mb0,
   AUTO: styles.mbAuto,
   XS: styles.mbXs,
   SMALL: styles.mbSmall,
@@ -149,7 +93,6 @@ export const MARGIN_BOTTOM = Object.freeze({
 });
 
 export const MARGIN_START = Object.freeze({
-  NONE: styles.ms0,
   AUTO: styles.msAuto,
   XS: styles.msXs,
   SMALL: styles.msSmall,
@@ -161,7 +104,6 @@ export const MARGIN_START = Object.freeze({
 });
 
 export const PADDING = Object.freeze({
-  NONE: styles.p0,
   XS: styles.pXs,
   SMALL: styles.pSmall,
   MEDIUM: styles.pMedium,
@@ -172,7 +114,6 @@ export const PADDING = Object.freeze({
 });
 
 export const PADDING_X = Object.freeze({
-  NONE: styles.px0,
   XS: styles.pxXs,
   SMALL: styles.pxSmall,
   MEDIUM: styles.pxMedium,
@@ -183,7 +124,6 @@ export const PADDING_X = Object.freeze({
 });
 
 export const PADDING_Y = Object.freeze({
-  NONE: styles.py0,
   XS: styles.pyXs,
   SMALL: styles.pySmall,
   MEDIUM: styles.pyMedium,
@@ -194,7 +134,6 @@ export const PADDING_Y = Object.freeze({
 });
 
 export const PADDING_TOP = Object.freeze({
-  NONE: styles.pt0,
   XS: styles.ptXs,
   SMALL: styles.ptSmall,
   MEDIUM: styles.ptMedium,
@@ -205,7 +144,6 @@ export const PADDING_TOP = Object.freeze({
 });
 
 export const PADDING_END = Object.freeze({
-  NONE: styles.pe0,
   XS: styles.peXs,
   SMALL: styles.peSmall,
   MEDIUM: styles.peMedium,
@@ -216,7 +154,6 @@ export const PADDING_END = Object.freeze({
 });
 
 export const PADDING_BOTTOM = Object.freeze({
-  NONE: styles.pb0,
   XS: styles.pbXs,
   SMALL: styles.pbSmall,
   MEDIUM: styles.pbMedium,
@@ -227,7 +164,6 @@ export const PADDING_BOTTOM = Object.freeze({
 });
 
 export const PADDING_START = Object.freeze({
-  NONE: styles.ps0,
   XS: styles.psXs,
   SMALL: styles.psSmall,
   MEDIUM: styles.psMedium,
@@ -239,7 +175,6 @@ export const PADDING_START = Object.freeze({
 
 export const BACKGROUND_COLORS = Object.freeze({
   PRIMARY_BACKGROUND_COLOR: styles.bgPrimaryBackgroundColor,
-  PRIMARY_HOVER_BACKGROUND_COLOR: styles.bgPrimaryBackgroundHoverColor,
   SECONDARY_BACKGROUND_COLOR: styles.bgSecondaryBackgroundColor,
   GREY_BACKGROUND_COLOR: styles.bgGreyBackgroundColor,
   ALL_GREY_BACKGROUND_COLOR: styles.bgAllgreyBackgroundColor,
@@ -249,8 +184,6 @@ export const BACKGROUND_COLORS = Object.freeze({
 
 export const COLORS = Object.freeze({
   PRIMARY_COLOR: styles.textPrimaryColor,
-  PRIMARY_HOVER_COLOR: styles.textPrimaryHoverColor,
-  PRIMARY_SELECTED_COLOR: styles.textPrimarySelectedColor,
   PRIMARY_TEXT_COLOR: styles.textPrimaryTextColor,
   TEXT_COLOR_ON_PRIMARY: styles.textTextColorOnPrimary,
   TEXT_COLOR_ON_INVERTED: styles.textTextColorOnInverted,

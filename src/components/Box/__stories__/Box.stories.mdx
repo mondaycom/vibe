@@ -1,5 +1,5 @@
 import { Box, Flex, Skeleton, Button, Heading, Icon } from "../../../components";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { ArgsTable, Story, Canvas, Meta, Preview } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { Time, Item } from "../../Icon/Icons";
 import { RelatedComponents, UsageGuidelines } from "../../../storybook";
@@ -18,16 +18,8 @@ export const metaSettings = createStoryMetaSettings({
     "children",
     "disabled",
     "border",
-    "borderTop",
-    "borderEnd",
-    "borderBottom",
-    "borderStart",
     "borderColor",
     "rounded",
-    "roundedTop",
-    "roundedEnd",
-    "roundedBottom",
-    "roundedStart",
     "shadow",
     "margin",
     "marginX",
@@ -107,9 +99,6 @@ atom based compositions, it can accept all Vibe style related props and have a s
       <Box backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}>
         Box.backgroundColors.PRIMARY_BACKGROUND_COLOR
       </Box>
-      <Box backgroundColor={Box.backgroundColors.PRIMARY_HOVER_BACKGROUND_COLOR}>
-        Box.backgroundColors.PRIMARY_HOVER_BACKGROUND_COLOR
-      </Box>
       <Box backgroundColor={Box.backgroundColors.SECONDARY_BACKGROUND_COLOR}>
         Box.backgroundColors.SECONDARY_BACKGROUND_COLOR
       </Box>
@@ -136,8 +125,6 @@ atom based compositions, it can accept all Vibe style related props and have a s
   <Story name="Text Colors">
     <div className={styles.boxWrapper}>
       <Box textColor={Box.textColors.PRIMARY_COLOR}>Box.textColors.PRIMARY_COLOR</Box>
-      <Box textColor={Box.textColors.PRIMARY_HOVER_COLOR}>Box.textColors.PRIMARY_HOVER_COLOR</Box>
-      <Box textColor={Box.textColors.PRIMARY_SELECTED_COLOR}>Box.textColors.PRIMARY_SELECTED_COLOR</Box>
       <Box textColor={Box.textColors.PRIMARY_TEXT_COLOR}>Box.textColors.PRIMARY_textColor_COLOR</Box>
       <Box
         backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
@@ -155,7 +142,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
       <Box textColor={Box.textColors.PLACEHOLDER_TEXT_COLOR}>Box.textColors.PLACEHOLDER_textColor_COLOR</Box>
       <Box textColor={Box.textColors.ICON_TEXT_COLOR}>Box.icon.PLACEHOLDER_textColor_COLOR</Box>
       <Box textColor={Box.textColors.LINK_COLOR}>Box.icon.LINK_COLOR</Box>
-      <Box textColor={Box.textColors.DISABLED_TEXT}>Box.icon.DISABLED_textColor</Box>
+      <Box textColor={Box.textColors.DISABLED_TEXT}>Box.icDISABLED_textColor</Box>
     </div>
   </Story>
 </Canvas>
@@ -165,24 +152,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
 <Canvas>
   <Story name="Border ">
     <div className={styles.boxWrapper}>
-      <Box border={Box.borders.NONE}>Box.borders.NONE</Box>
       <Box border={Box.borders.DEFAULT}>Box.borders.DEFAULT</Box>
-      <Box border={Box.borders.DEFAULT} borderTop={Box.borderTops.NONE}>
-        Box.borderTops.NONE
-      </Box>
-      <Box borderTop={Box.borderTops.DEFAULT}>Box.borderTops.DEFAULT</Box>
-      <Box border={Box.borders.DEFAULT} borderEnd={Box.borderEnds.NONE}>
-        Box.borderEnds.NONE
-      </Box>
-      <Box borderEnd={Box.borderEnds.DEFAULT}>Box.borderEnds.DEFAULT</Box>
-      <Box border={Box.borders.DEFAULT} borderBottom={Box.borderBottoms.NONE}>
-        Box.borderBottom.NONE
-      </Box>
-      <Box borderBottom={Box.borderBottoms.DEFAULT}>Box.bordersBottom.DEFAULT</Box>
-      <Box border={Box.borders.DEFAULT} borderStart={Box.borderStarts.NONE}>
-        Box.borderStarts.NONE
-      </Box>
-      <Box borderStart={Box.borderStarts.DEFAULT}>Box.borderStarts.DEFAULT</Box>
     </div>
   </Story>
 </Canvas>
@@ -209,9 +179,6 @@ atom based compositions, it can accept all Vibe style related props and have a s
 <Canvas>
   <Story name="Round Corners">
     <div className={styles.boxWrapper}>
-      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.NONE}>
-        Box.roundeds.NONE
-      </Box>
       <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.SMALL}>
         Box.roundeds.SMALL
       </Box>
@@ -224,38 +191,6 @@ atom based compositions, it can accept all Vibe style related props and have a s
     </div>
   </Story>
 </Canvas>
-
-#### Property variations per each size:
-
-```
-rounded
-roundedTop
-roundedEnd
-roundedBottom
-roundedStart
-```
-
-Property variations example
-
-<Preview>
-  <div className={styles.boxWrapper}>
-    <Box border={Box.borders.DEFAULT} roundedTop={Box.roundedTops.MEDIUM}>
-      Box.roundedTops.MEDIUM
-    </Box>
-    <Box border={Box.borders.DEFAULT} roundedEnd={Box.roundedEnds.MEDIUM}>
-      Box.roundedEnds.MEDIUM
-    </Box>
-    <Box border={Box.borders.DEFAULT} roundedEnd={Box.roundedEnds.MEDIUM}>
-      Box.roundedEnds.MEDIUM
-    </Box>
-    <Box border={Box.borders.DEFAULT} roundedBottom={Box.roundedBottoms.MEDIUM}>
-      Box.roundedBottoms.MEDIUM
-    </Box>
-    <Box border={Box.borders.DEFAULT} roundedStart={Box.roundedStarts.MEDIUM}>
-      Box.roundedStarts.MEDIUM
-    </Box>
-  </div>
-</Preview>
 
 ### SHADOW
 
@@ -444,110 +379,6 @@ paddingStart
     <div className={styles.boxWrapper}>
       <Box disabled>Box.disabled.DISABLED</Box>
     </div>
-  </Story>
-</Canvas>
-
-### Box composite example 1
-
-Panel Example with content and actionable footer
-
-<Canvas>
-  <Story name="Box composite example">
-    <div className={styles.boxWrapperExample}>
-      <Box shadow={Box.shadows.SMALL} rounded={Box.roundeds.MEDIUM}>
-        <Box
-          backgroundColor={Box.backgroundColors.GREY_BACKGROUND_COLOR}
-          padding={Box.paddings.MEDIUM}
-          borderBottom={Box.borderBottoms.DEFAULT}
-          borderColor={Box.borderColors.LAYOUT_BORDER_COLOR}
-        >
-          A composite panel header
-        </Box>
-        <Box paddingX={Box.paddingXs.MEDIUM} paddingY={Box.paddingYs.XL}>
-          <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.CENTER}>
-            <Skeleton width={400} height={100} />
-            <Heading type={Heading.types.h3} value="Panel content heading" />
-            <p>Please approve the content of this paragraph</p>
-          </Flex>
-        </Box>
-        <Box
-          borderTop={Box.borderTops.DEFAULT}
-          borderColor={Box.borderColors.LAYOUT_BORDER_COLOR}
-          padding={Box.paddings.MEDIUM}
-        >
-          <Flex justify={Flex.justify.END} gap={Flex.gaps.SMALL}>
-            <Button kind={Button.kinds.TERTIARY}>Cancel</Button>
-            <Button>Ok</Button>
-          </Flex>
-        </Box>
-      </Box>
-    </div>
-  </Story>
-</Canvas>
-
-### Box composite example 2
-
-Small compositions with boxed containers
-
-<Canvas>
-  <Story name="Box composite example 2">
-    <Box>
-      <Box
-        border={Box.borders.DEFAULT}
-        roundedTop={Box.roundedTops.MEDIUM}
-        paddingX={Box.paddingXs.MEDIUM}
-        paddingY={Box.paddingYs.SMALL}
-      >
-        <Flex justify={Flex.justify.START} gap={Flex.gaps.LARGE}>
-          <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.CENTER}>
-            <Icon icon={Item} iconSize={40} />
-          </Flex>
-          <Flex direction={Flex.directions.COLUMN} align={Flex.justify.START} ariaLabelledby="monday-recycle-bin-title">
-            <Flex gap={Flex.gaps.XS}>
-              <span>Hello World</span>
-            </Flex>
-            <Flex gap={Flex.gaps.XS}>
-              <Icon icon={Time} />
-              <span>13m</span>
-              <span>(Available for restore in the next 1M)</span>
-            </Flex>
-          </Flex>
-        </Flex>
-      </Box>
-      <Box
-        border={Box.borders.DEFAULT}
-        borderTop={Box.borderTops.NONE}
-        paddingX={Box.paddingXs.MEDIUM}
-        paddingY={Box.paddingYs.SMALL}
-      >
-        <Flex justify={Flex.justify.START} gap={Flex.gaps.LARGE}>
-          <Flex direction={Flex.directions.COLUMN} justify={Flex.justify.CENTER}>
-            <Icon icon={Item} iconSize={40} />
-          </Flex>
-          <Flex direction={Flex.directions.COLUMN} align={Flex.justify.START} ariaLabelledby="monday-recycle-bin-title">
-            <Flex gap={Flex.gaps.XS}>
-              <span>Goodbye World</span>
-            </Flex>
-            <Flex gap={Flex.gaps.XS}>
-              <Icon icon={Time} />
-              <span>13m</span>
-              <span>(Available for restore in the next 2M)</span>
-            </Flex>
-          </Flex>
-        </Flex>
-      </Box>
-      <Box
-        border={Box.borders.DEFAULT}
-        borderTop={Box.borderTops.NONE}
-        roundedBottom={Box.roundedBottoms.MEDIUM}
-        paddingX={Box.paddingXs.MEDIUM}
-        paddingY={Box.paddingYs.SMALL}
-      >
-        <Flex justify={Flex.justify.END}>
-          <Button>Save</Button>
-        </Flex>
-      </Box>
-    </Box>
   </Story>
 </Canvas>
 
