@@ -59,6 +59,7 @@ function useActiveDescendantListFocus({
     prevVisualFocusItemId,
     visualFocusItemId,
     visualFocusItemIndex,
+    keepOptionSelected,
     itemsIds,
     previousItemIds
   ]);
