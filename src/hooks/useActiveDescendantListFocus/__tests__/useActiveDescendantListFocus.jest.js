@@ -52,17 +52,23 @@ function runListUnitTest({ isHorizontal, keepOptionSelected }) {
     act(() => {
       userEvent.keyboard(moveForwardKey);
     });
+    act(() => {
+      userEvent.keyboard(moveForwardKey);
+    });
 
     const beforeIndex = result.current.visualFocusItemIndex;
     const beforeId = result.current.visualFocusItemId;
-    rerender({ ...props, itemsIds: ITEM_IDS.slice(1) });
+
+    const removeItems = 2;
+    const itemsAfterRemove = ITEM_IDS.slice(removeItems);
+    rerender({ ...props, itemsIds: itemsAfterRemove});
 
     if (!keepOptionSelected) {
-      expect(result.current.visualFocusItemId).toEqual(ITEM_IDS[2]);
+      expect(result.current.visualFocusItemId).toEqual(itemsAfterRemove[beforeIndex]);
       expect(result.current.visualFocusItemIndex).toEqual(beforeIndex);
     } else {
       expect(result.current.visualFocusItemId).toEqual(beforeId);
-      expect(result.current.visualFocusItemIndex).toEqual(beforeIndex - 1);
+      expect(result.current.visualFocusItemIndex).toEqual(beforeIndex - removeItems);
     }
   });
 
