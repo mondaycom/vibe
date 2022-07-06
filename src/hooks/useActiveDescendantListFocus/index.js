@@ -164,7 +164,7 @@ function useActiveDescendantListFocus({
       onBlurCallback();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [focusedElementRef.current, previousFocusedElementRef.current, onBlurCallback]);
+  }, [focusedElementRef.current, previousFocusedElementRef, onBlurCallback]);
 
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
   return {
