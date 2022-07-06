@@ -5,7 +5,10 @@ import userEvent from "@testing-library/user-event";
 let element;
 const FIRST_ITEM_ID = "id-1";
 const SECOND_ITEM_ID = "id-2";
-const ITEM_IDS = [FIRST_ITEM_ID, SECOND_ITEM_ID];
+const THIRD_ITEM_ID = "id-3";
+const FOURTH_ITEM_ID = "id-4";
+const FIFTH_ITEM_ID = "id-5";
+const ITEM_IDS = [FIRST_ITEM_ID, SECOND_ITEM_ID, THIRD_ITEM_ID, FOURTH_ITEM_ID, FIFTH_ITEM_ID];
 
 function renderHookForTest({
   onItemClick = jest.fn(),
@@ -17,28 +20,55 @@ function renderHookForTest({
   element.tabIndex = -1; // some tests focus the element - a tabIndex value is required for updating the document.activeIndex value
   document.body.appendChild(element);
 
-  return renderHook(() =>
-    useActiveDescendantListFocus({
-      focusedElementRef: {
-        current: element
-      },
-      keepOptionSelected,
-      itemsIds: ITEM_IDS,
-      isItemSelectable: isItemSelectable,
-      onItemClick,
-      isHorizontalList: isHorizontal
-    })
-  );
+  const props = {
+    focusedElementRef: {
+      current: element
+    },
+    keepOptionSelected,
+    itemsIds: ITEM_IDS,
+    isItemSelectable: isItemSelectable,
+    onItemClick,
+    isHorizontalList: isHorizontal
+  };
+  return renderHook(argprops => useActiveDescendantListFocus({ ...props, ...argprops }));
 }
 
 function runListUnitTest({ isHorizontal, keepOptionSelected }) {
   const moveForwardKey = isHorizontal ? "{arrowRight}" : "{arrowDown}";
   const oppositeMoveForwardKey = !isHorizontal ? "{arrowRight}" : "{arrowDown}";
-  const naturalIndex = keepOptionSelected ? 1 : 0;
+  const naturalIndex = keepOptionSelected ? 0 : undefined;
 
-  it("should focus first item after index", async () => {
+  it("should focus same item after item changed", async () => {
     const onItemClick = jest.fn();
-    renderHookForTest({ onItemClick, isHorizontal, keepOptionSelected });
+    const { result, rerender, props } = renderHookForTest({ onItemClick, isHorizontal, keepOptionSelected });
+
+    act(() => {
+      // set focus on the list's element which in charge on natural focus element
+      element.focus();
+    });
+    act(() => {
+      userEvent.keyboard(moveForwardKey);
+    });
+    act(() => {
+      userEvent.keyboard(moveForwardKey);
+    });
+
+    const beforeIndex = result.current.visualFocusItemIndex;
+    const beforeId = result.current.visualFocusItemId;
+    rerender({ ...props, itemsIds: ITEM_IDS.slice(1) });
+
+    if (!keepOptionSelected) {
+      expect(result.current.visualFocusItemId).toEqual(ITEM_IDS[2]);
+      expect(result.current.visualFocusItemIndex).toEqual(beforeIndex);
+    } else {
+      expect(result.current.visualFocusItemId).toEqual(beforeId);
+      expect(result.current.visualFocusItemIndex).toEqual(beforeIndex - 1);
+    }
+  });
+
+  it("should focus correct item on focus", async () => {
+    const onItemClick = jest.fn();
+    const { result } = renderHookForTest({ onItemClick, isHorizontal, keepOptionSelected });
 
     act(() => {
       // set focus on the list's element which in charge on natural focus element
@@ -46,6 +76,26 @@ function runListUnitTest({ isHorizontal, keepOptionSelected }) {
     });
 
     expect(result.current.visualFocusItemIndex).toEqual(naturalIndex);
+  });
+
+  it("should focus correct item keyboard forward", async () => {
+    const onItemClick = jest.fn();
+    const { result } = renderHookForTest({ onItemClick, isHorizontal, keepOptionSelected });
+
+    act(() => {
+      // set focus on the list's element which in charge on natural focus element
+      element.focus();
+    });
+    act(() => {
+      // move visual focus to first item
+      userEvent.keyboard(moveForwardKey);
+    });
+    act(() => {
+      // move visual focus to first item
+      userEvent.keyboard(moveForwardKey);
+    });
+
+    expect(result.current.visualFocusItemIndex).toEqual((naturalIndex === undefined ? -1 : naturalIndex) + 2);
   });
 
   it("should trigger onClick when focused element has natural focus and user navigate to item and press enter", async () => {
@@ -70,7 +120,7 @@ function runListUnitTest({ isHorizontal, keepOptionSelected }) {
 
   it("should not trigger onClick when focused element does not have natural focus and user navigate to item and press enter", async () => {
     const onItemClick = jest.fn();
-    renderHookForTest({ onItemClick, isHorizontal, keepOptionSelected });
+    const { result } = renderHookForTest({ onItemClick, isHorizontal, keepOptionSelected });
 
     act(() => {
       // move visual focus to first item
@@ -113,7 +163,7 @@ function runListUnitTest({ isHorizontal, keepOptionSelected }) {
       userEvent.keyboard(oppositeMoveForwardKey);
     });
 
-    expect(result.current.visualFocusItemIndex).not.toEqual(naturalIndex);
+    expect(result.current.visualFocusItemIndex).not.toEqual(naturalIndex + 1);
   });
 }
 
