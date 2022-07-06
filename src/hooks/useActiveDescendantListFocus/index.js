@@ -121,7 +121,7 @@ function useActiveDescendantListFocus({
     if (visualFocusItemIndex !== -1) {
       setVisualFocusItemIndex(-1);
     }
-  }, [setVisualFocusItemIndex]);
+  }, [visualFocusItemIndex]);
 
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;
@@ -163,7 +163,8 @@ function useActiveDescendantListFocus({
     if (focusedElementRef?.current === null && previousFocusedElementRef?.current !== null) {
       onBlurCallback();
     }
-  }, [focusedElementRef, previousFocusedElementRef, onBlurCallback]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focusedElementRef.current, previousFocusedElementRef.current, onBlurCallback]);
 
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
   return {
