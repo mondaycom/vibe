@@ -43,7 +43,8 @@ UseActiveDescendantListFocus.propTypes = {
     useActiveDescendantListFocus.roles.GROUP,
     useActiveDescendantListFocus.roles.COMBOBOX,
     useActiveDescendantListFocus.roles.COMPOSITE,
-    useActiveDescendantListFocus.roles.TEXTBOX
+    useActiveDescendantListFocus.roles.TEXTBOX,
+    useActiveDescendantListFocus.roles.MENU
   ]),
   /**
    * Is the layout of the component option's is horizontal or vertical
@@ -60,7 +61,8 @@ UseActiveDescendantListFocus.defaultProps = {
   isItemSelectable: _itemIndex => {},
   onItemClick: (_event, _itemIndex) => {},
   focusedElementRole: useActiveDescendantListFocus.roles.GROUP,
-  isHorizontalList: false
+  isHorizontalList: false,
+  isIgnoreSpaceAsItemSelection: false
 };
 
 export default UseActiveDescendantListFocus;
