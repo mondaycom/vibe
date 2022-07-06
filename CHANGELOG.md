@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.41.2 (2022-07-06)
+
+#### Bug Fixes
+* [#739](https://github.com/mondaycom/monday-ui-react-core/pull/739) Few fixes for supporting useActiveDescendantListFocus in menus ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.41.1 (2022-07-05)
 
 #### Bug Fixes
