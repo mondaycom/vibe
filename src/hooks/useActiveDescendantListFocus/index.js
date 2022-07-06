@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useKeyEvent from "../useKeyEvent";
 import usePrevious from "../usePrevious";
 import useEventListener from "../useEventListener";
-import { usePrevious } from "../index";
 
 const ARROW_DIRECTIONS = {
   UP: "ArrowUp",
