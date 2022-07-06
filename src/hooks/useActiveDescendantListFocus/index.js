@@ -1,5 +1,6 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useKeyEvent from "../useKeyEvent";
+import usePrevious from "../usePrevious";
 import useEventListener from "../useEventListener";
 
 const ARROW_DIRECTIONS = {
@@ -9,14 +10,16 @@ const ARROW_DIRECTIONS = {
   LEFT: "ArrowLeft"
 };
 
-const ENTER_KEYS = ["Enter"];
+const ENTER_KEY = "Enter";
+const SPACE_KEY = " ";
 
 const ROLES = {
   APPLICATION: "application",
   COMBOBOX: "combobox",
   COMPOSITE: "composite",
   GROUP: "group",
-  TEXTBOX: "textbox"
+  TEXTBOX: "textbox",
+  MENU: "menu"
 };
 
 function useActiveDescendantListFocus({
@@ -26,9 +29,15 @@ function useActiveDescendantListFocus({
   onItemClick,
   focusedElementRole = ROLES.GROUP,
   isHorizontalList = false,
-  useDocumentEventListeners = false
+  useDocumentEventListeners = false,
+  isIgnoreSpaceAsItemSelection = false
 }) {
+  const pressKeys = useMemo(
+    () => (isIgnoreSpaceAsItemSelection ? [ENTER_KEY] : [ENTER_KEY, SPACE_KEY]),
+    [isIgnoreSpaceAsItemSelection]
+  );
   const itemsCount = itemsIds.length;
+  const previousFocusedElementRef = usePrevious(focusedElementRef);
   const nextArrow = isHorizontalList ? ARROW_DIRECTIONS.RIGHT : ARROW_DIRECTIONS.DOWN;
   const backArrow = isHorizontalList ? ARROW_DIRECTIONS.LEFT : ARROW_DIRECTIONS.UP;
 
@@ -109,8 +118,10 @@ function useActiveDescendantListFocus({
   );
 
   const onBlurCallback = useCallback(() => {
-    setVisualFocusItemIndex(-1);
-  }, [setVisualFocusItemIndex]);
+    if (visualFocusItemIndex !== -1) {
+      setVisualFocusItemIndex(-1);
+    }
+  }, [visualFocusItemIndex]);
 
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;
@@ -135,7 +146,7 @@ function useActiveDescendantListFocus({
   });
 
   useKeyEvent({
-    keys: ENTER_KEYS,
+    keys: pressKeys,
     callback: keyboardOnSelectCallback,
     ...listenerOptions
   });
@@ -145,6 +156,15 @@ function useActiveDescendantListFocus({
     ref: focusedElementRef,
     callback: onBlurCallback
   });
+
+  // if element unmount act like element got blur event
+  useEffect(() => {
+    // if element unmount
+    if (focusedElementRef?.current === null && previousFocusedElementRef?.current !== null) {
+      onBlurCallback();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focusedElementRef.current, previousFocusedElementRef, onBlurCallback]);
 
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
   return {
