@@ -130,7 +130,8 @@ const Combobox = forwardRef(
       focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
       itemsIds: filteredOptionsIds,
       onItemClick: overrideOnClick,
-      isItemSelectable: isChildSelectable
+      isItemSelectable: isChildSelectable,
+      isIgnoreSpaceAsItemSelection: true
     });
 
     const hasResults = filteredOptions.length > 0;
