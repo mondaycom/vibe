@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.42.0 (2022-07-07)
+
+#### New Features
+* [#742](https://github.com/mondaycom/monday-ui-react-core/pull/742) Mute Notification Icon ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#737](https://github.com/mondaycom/monday-ui-react-core/pull/737) Feature/yonatanari/wellcome page responsive without media ([@3dyonic](https://github.com/3dyonic))
+
+#### New Icons
+* [#740](https://github.com/mondaycom/monday-ui-react-core/pull/740) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.41.2 (2022-07-06)
 
 #### Bug Fixes
