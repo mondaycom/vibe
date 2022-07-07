@@ -21,7 +21,8 @@ const RadioButton = forwardRef(
       children,
       onSelect,
       checked,
-      retainChildClick
+      retainChildClick,
+      childrenTabIndex
     },
     ref
   ) => {
@@ -62,7 +63,7 @@ const RadioButton = forwardRef(
         </span>
         {text && <span className={`${baseClassName}__radio-label`}>{text}</span>}
         {children && (
-          <Clickable className="radio-children-wrapper" onClick={onChildClick}>
+          <Clickable className="radio-children-wrapper" onClick={onChildClick} tabIndex={childrenTabIndex}>
             {children}
           </Clickable>
         )}
@@ -80,7 +81,8 @@ RadioButton.defaultProps = {
   defaultChecked: false,
   checked: undefined,
   onSelect: undefined,
-  retainChildClick: true
+  retainChildClick: true,
+  childrenTabIndex: "0"
 };
 RadioButton.propTypes = {
   className: PropTypes.string,
@@ -94,7 +96,9 @@ RadioButton.propTypes = {
   checked: PropTypes.bool,
   onSelect: PropTypes.func,
   /** If set to false, will revert to base `onSelect` behaviour */
-  retainChildClick: PropTypes.bool
+  retainChildClick: PropTypes.bool,
+  /** Sets the tabindex for the passed children prop */
+  childrenTabIndex: PropTypes.string
 };
 
 export default RadioButton;
