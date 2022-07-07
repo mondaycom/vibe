@@ -158,6 +158,7 @@ export {default as Night} from './components/Night';
 export {default as NoColor} from './components/NoColor';
 export {default as Note} from './components/Note';
 export {default as Notifications} from './components/Notifications';
+export {default as NotificationsMuted} from './components/NotificationsMuted';
 export {default as Numbers} from './components/Numbers';
 export {default as Offline} from './components/Offline';
 export {default as Open} from './components/Open';
