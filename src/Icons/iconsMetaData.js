@@ -5,6 +5,13 @@ export const iconsMetaData = [
   // DO NOT REMOVE THIS FOLLOWING LINE!
   // plop_marker:icon_metadata
   {
+      name: "Connect",
+      file: "Connect.svg",
+      description: "Diagonal arrow from the left bottom to the right top",
+      tags: "diagonal,connect,arrow"
+  },
+
+  {
       name: "Idea",
       file: "Idea.svg",
       description: "Lightbulb that is on",
