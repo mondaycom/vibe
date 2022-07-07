@@ -44,6 +44,7 @@ export {default as CollapseRound} from './components/CollapseRound';
 export {default as Column} from './components/Column';
 export {default as Comment} from './components/Comment';
 export {default as Completed} from './components/Completed';
+export {default as Connect} from './components/Connect';
 export {default as ConnectedDoc} from './components/ConnectedDoc';
 export {default as ConvertToItem} from './components/ConvertToItem';
 export {default as ConvertToSubitem} from './components/ConvertToSubitem';
