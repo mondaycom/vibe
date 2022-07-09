@@ -79,7 +79,7 @@ const IconButton = forwardRef(
     const IconButtonWrapper = wrapperClassName ? "div" : Fragment;
     const iconButtonWrapperProps = useMemo(() => {
       return wrapperClassName ? { className: cx(wrapperClassName, styles.wrapper) } : {};
-    }, [wrapperClassName, styles.wrapper]);
+    }, [wrapperClassName]);
 
     return (
       <IconButtonWrapper {...iconButtonWrapperProps}>
