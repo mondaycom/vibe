@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.44.0 (2022-07-10)
+
+#### New Features
+* [#744](https://github.com/mondaycom/monday-ui-react-core/pull/744) Icon button fix and link alignment ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.43.0 (2022-07-10)
 
 #### New Features
