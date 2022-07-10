@@ -36,54 +36,6 @@ function renderHookForTest({
 function runListUnitTest({ isHorizontal, keepOptionSelected }) {
   const moveForwardKey = isHorizontal ? "{arrowRight}" : "{arrowDown}";
   const oppositeMoveForwardKey = !isHorizontal ? "{arrowRight}" : "{arrowDown}";
-  const naturalIndex = keepOptionSelected ? 0 : undefined;
-  const naturalIndexAfterInitial = keepOptionSelected ? 0 : -1;
-
-  it("should focus same item after item changed", async () => {
-    const onItemClick = jest.fn();
-    const { result, rerender } = renderHookForTest({ onItemClick, isHorizontal, keepOptionSelected });
-
-    act(() => {
-      // set focus on the list's element which in charge on natural focus element
-      element.focus();
-    });
-    act(() => {
-      userEvent.keyboard(moveForwardKey);
-    });
-    act(() => {
-      userEvent.keyboard(moveForwardKey);
-    });
-    act(() => {
-      userEvent.keyboard(moveForwardKey);
-    });
-
-    const beforeIndex = result.current.visualFocusItemIndex;
-    const beforeId = result.current.visualFocusItemId;
-
-    const removeItems = 2;
-    const itemsAfterRemove = ITEM_IDS.slice(removeItems);
-    rerender({ itemsIds: itemsAfterRemove });
-
-    if (!keepOptionSelected) {
-      expect(result.current.visualFocusItemId).toEqual(itemsAfterRemove[beforeIndex]);
-      expect(result.current.visualFocusItemIndex).toEqual(beforeIndex);
-    } else {
-      expect(result.current.visualFocusItemId).toEqual(beforeId);
-      expect(result.current.visualFocusItemIndex).toEqual(beforeIndex - removeItems);
-    }
-  });
-
-  it("should focus correct item on focus", async () => {
-    const onItemClick = jest.fn();
-    const { result } = renderHookForTest({ onItemClick, isHorizontal, keepOptionSelected });
-
-    act(() => {
-      // set focus on the list's element which in charge on natural focus element
-      element.focus();
-    });
-
-    expect(result.current.visualFocusItemIndex).toEqual(naturalIndex);
-  });
 
   it("should focus correct item keyboard forward", async () => {
     const onItemClick = jest.fn();
@@ -94,6 +46,11 @@ function runListUnitTest({ isHorizontal, keepOptionSelected }) {
       element.focus();
     });
 
+    act(() => {
+      // move visual focus to first item
+      userEvent.keyboard(moveForwardKey);
+    });
+    let before = result.current.visualFocusItemIndex;
     const keyboardTimes = 2;
     for (let i = 0; i < keyboardTimes; i++) {
       act(() => {
@@ -102,7 +59,7 @@ function runListUnitTest({ isHorizontal, keepOptionSelected }) {
       });
     }
 
-    expect(result.current.visualFocusItemIndex).toEqual(naturalIndexAfterInitial + keyboardTimes);
+    expect(result.current.visualFocusItemIndex).toEqual(before + keyboardTimes);
   });
 
   it("should trigger onClick when focused element has natural focus and user navigate to item and press enter", async () => {
@@ -158,6 +115,13 @@ function runListUnitTest({ isHorizontal, keepOptionSelected }) {
     expect(result.current.visualFocusItemIndex).toEqual(3);
   });
 
+  it("no visual focus if no focus", async () => {
+    const onItemClick = jest.fn();
+    const { result } = renderHookForTest({ onItemClick, isHorizontal, keepOptionSelected });
+
+    expect(result.current.visualFocusItemIndex).toEqual(undefined);
+  });
+
   it("should not navigate to next item when user try to navigate by using keys for the  opposite dimension to the list dimension ", async () => {
     const onItemClick = jest.fn();
     const { result } = renderHookForTest({ onItemClick, isHorizontal, keepOptionSelected });
@@ -165,12 +129,17 @@ function runListUnitTest({ isHorizontal, keepOptionSelected }) {
     act(() => {
       // set focus on the list's element which in charge on natural focus element
       element.focus();
-
       // move visual focus to first item
       userEvent.keyboard(oppositeMoveForwardKey);
     });
 
-    expect(result.current.visualFocusItemIndex).not.toEqual(naturalIndex + 1);
+    let before = result.current.visualFocusItemIndex;
+    act(() => {
+      // move visual focus to first item
+      userEvent.keyboard(oppositeMoveForwardKey);
+    });
+
+    expect(result.current.visualFocusItemIndex).toEqual(before);
   });
 }
 
@@ -223,4 +192,73 @@ describe("useActiveDescendantListFocus", () => {
       runListUnitTest(featureComb);
     });
   }
+
+  describe("keepOptionSelected option", () => {
+    const keepOptionSelected = true;
+    it("should focus same item after item changed", async () => {
+      const onItemClick = jest.fn();
+      const { result, rerender } = renderHookForTest({ onItemClick, keepOptionSelected });
+      const moveForwardKey = "{arrowDown}";
+      act(() => {
+        // set focus on the list's element which in charge on natural focus element
+        element.focus();
+      });
+      for (let idx = 0; idx < 3; idx++) {
+        act(() => {
+          userEvent.keyboard(moveForwardKey);
+        });
+      }
+
+      const beforeIndex = result.current.visualFocusItemIndex;
+      const beforeId = result.current.visualFocusItemId;
+
+      const removeItems = 2;
+      const itemsAfterRemove = ITEM_IDS.slice(removeItems);
+      rerender({ itemsIds: itemsAfterRemove });
+
+      expect(result.current.visualFocusItemId).toEqual(beforeId);
+      expect(result.current.visualFocusItemIndex).toEqual(beforeIndex - removeItems);
+    });
+
+    it("should focus correct item on focus", async () => {
+      const onItemClick = jest.fn();
+      const { result } = renderHookForTest({ onItemClick, keepOptionSelected });
+
+      act(() => {
+        // set focus on the list's element which in charge on natural focus element
+        element.focus();
+      });
+
+      expect(result.current.visualFocusItemIndex).toEqual(0);
+    });
+
+    it("should focus first selectable one only", async () => {
+      const onItemClick = jest.fn();
+      const isItemSelectable = i => i >= 3;
+      const { result } = renderHookForTest({ onItemClick, keepOptionSelected, isItemSelectable });
+
+      act(() => {
+        // set focus on the list's element which in charge on natural focus element
+        element.focus();
+      });
+
+      expect(result.current.visualFocusItemIndex).toEqual(3);
+    });
+  });
+
+  describe("no keepOptionSelected option", () => {
+    const keepOptionSelected = false;
+
+    it("should not change keyboard item on focus", async () => {
+      const onItemClick = jest.fn();
+      const { result } = renderHookForTest({ onItemClick, keepOptionSelected });
+
+      act(() => {
+        // set focus on the list's element which in charge on natural focus element
+        element.focus();
+      });
+
+      expect(result.current.visualFocusItemIndex).toEqual(undefined);
+    });
+  });
 });

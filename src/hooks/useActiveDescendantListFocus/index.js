@@ -48,6 +48,14 @@ function useActiveDescendantListFocus({
   const previousVisualFocusItemIndex = usePrevious(visualFocusItemIndex);
   const prevVisualFocusItemId = usePrevious(itemsIds[visualFocusItemIndex]);
 
+  const getFirstSelectable = () => {
+    for (let idx=0; idx<itemsIds.length; idx++) {
+      if (isItemSelectable(idx)) {
+        return idx;
+      }
+    }
+  };
+
   useEffect(() => {
     if (keepOptionSelected) {
       const itemsChanged = previousItemIds !== itemsIds;
@@ -55,10 +63,10 @@ function useActiveDescendantListFocus({
       const itemPlacementTheSame = previousVisualFocusItemIndex === visualFocusItemIndex;
       if (itemsChanged && itemFocusedChanged && itemPlacementTheSame) {
         const foundIndex = itemsIds.indexOf(prevVisualFocusItemId);
-        if (foundIndex >= 0) {
+        if (foundIndex >= 0 && isItemSelectable(foundIndex)) {
           setVisualFocusItemIndex(foundIndex);
         } else {
-          setVisualFocusItemIndex(0);
+          setVisualFocusItemIndex(getFirstSelectable());
         }
       }
     }
@@ -156,9 +164,9 @@ function useActiveDescendantListFocus({
   const onFocusCallback = useCallback(() => {
     if (visualFocusItemIndex === -1 && keepOptionSelected) {
       triggerByKeyboard.current = true;
-      setVisualFocusItemIndex(0);
+      setVisualFocusItemIndex(getFirstSelectable());
     }
-  }, [setVisualFocusItemIndex, keepOptionSelected, visualFocusItemIndex]);
+  }, [setVisualFocusItemIndex, itemsIds, keepOptionSelected, visualFocusItemIndex]);
 
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;
