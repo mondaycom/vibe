@@ -3,6 +3,7 @@
 @import "../../styles/global-css-settings";
 
 .dialog-content-container {
+  color: var(--primary-text-color);
   &:focus {
     outline: none;
   }
