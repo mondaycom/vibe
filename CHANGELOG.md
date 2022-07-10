@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.43.0 (2022-07-10)
+
+#### New Features
+* [#743](https://github.com/mondaycom/monday-ui-react-core/pull/743) Feat: Add prop set the tabindex for RadioButton.jsx rendered children ([@DorShakedMonday](https://github.com/DorShakedMonday))
+
 ## 1.42.0 (2022-07-07)
 
 #### New Features
