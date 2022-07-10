@@ -49,7 +49,7 @@ function useActiveDescendantListFocus({
   const prevVisualFocusItemId = usePrevious(itemsIds[visualFocusItemIndex]);
 
   const getFirstSelectable = () => {
-    for (let idx=0; idx<itemsIds.length; idx++) {
+    for (let idx = 0; idx < itemsIds.length; idx++) {
       if (isItemSelectable(idx)) {
         return idx;
       }
