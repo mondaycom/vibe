@@ -27,7 +27,7 @@ function useActiveDescendantListFocus({
   itemsIds,
   isItemSelectable,
   onItemClick,
-  keepOptionSelected = false,
+  defaultVisualFocusFirstItem = false,
   focusedElementRole = ROLES.GROUP,
   isHorizontalList = false,
   useDocumentEventListeners = false,
@@ -57,7 +57,7 @@ function useActiveDescendantListFocus({
   };
 
   useEffect(() => {
-    if (keepOptionSelected) {
+    if (defaultVisualFocusFirstItem) {
       const itemsChanged = previousItemIds !== itemsIds;
       const itemFocusedChanged = visualFocusItemId !== prevVisualFocusItemId;
       const itemPlacementTheSame = previousVisualFocusItemIndex === visualFocusItemIndex;
@@ -75,7 +75,7 @@ function useActiveDescendantListFocus({
     prevVisualFocusItemId,
     visualFocusItemId,
     visualFocusItemIndex,
-    keepOptionSelected,
+    defaultVisualFocusFirstItem,
     itemsIds,
     previousItemIds
   ]);
@@ -162,11 +162,11 @@ function useActiveDescendantListFocus({
   }, [visualFocusItemIndex]);
 
   const onFocusCallback = useCallback(() => {
-    if (visualFocusItemIndex === -1 && keepOptionSelected) {
+    if (visualFocusItemIndex === -1 && defaultVisualFocusFirstItem) {
       triggerByKeyboard.current = true;
       setVisualFocusItemIndex(getFirstSelectable());
     }
-  }, [setVisualFocusItemIndex, itemsIds, keepOptionSelected, visualFocusItemIndex]);
+  }, [setVisualFocusItemIndex, itemsIds, defaultVisualFocusFirstItem, visualFocusItemIndex]);
 
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;

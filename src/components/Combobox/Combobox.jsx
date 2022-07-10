@@ -24,7 +24,7 @@ const Combobox = forwardRef(
       id,
       placeholder,
       size,
-      keepOptionSelected,
+      defaultVisualFocusFirstItem,
       optionLineHeight,
       optionsListHeight,
       autoFocus,
@@ -124,7 +124,7 @@ const Combobox = forwardRef(
       visualFocusItemId,
       onItemClickCallback: onOptionClick
     } = useActiveDescendantListFocus({
-      keepOptionSelected,
+      defaultVisualFocusFirstItem,
       focusedElementRef: inputRef,
       containerElementRef: resultsContainerRef,
       focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
@@ -291,7 +291,7 @@ Combobox.propTypes = {
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
   /** By default have an option selected, when focusing selecting the first option, or when changing items */
-  keepOptionSelected: PropTypes.bool,
+  defaultVisualFocusFirstItem: PropTypes.bool,
   /** Clear the filter/search on selection (click or enter) */
   clearFilterOnSelection: PropTypes.bool,
   /**
@@ -337,7 +337,7 @@ Combobox.defaultProps = {
   stickyCategories: false,
   optionRenderer: null,
   clearFilterOnSelection: false,
-  keepOptionSelected: false,
+  defaultVisualFocusFirstItem: false,
   renderOnlyVisibleOptions: false,
   onClick: _optionData => {}
 };
