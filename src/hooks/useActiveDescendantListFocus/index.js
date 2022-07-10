@@ -48,13 +48,13 @@ function useActiveDescendantListFocus({
   const previousVisualFocusItemIndex = usePrevious(visualFocusItemIndex);
   const prevVisualFocusItemId = usePrevious(itemsIds[visualFocusItemIndex]);
 
-  const getFirstSelectable = () => {
+  const getFirstSelectable = useMemo(() => {
     for (let idx = 0; idx < itemsIds.length; idx++) {
       if (isItemSelectable(idx)) {
         return idx;
       }
     }
-  };
+  }, [itemsIds]);
 
   useEffect(() => {
     if (defaultVisualFocusFirstItem) {
@@ -77,6 +77,7 @@ function useActiveDescendantListFocus({
     visualFocusItemIndex,
     defaultVisualFocusFirstItem,
     itemsIds,
+    getFirstSelectable,
     previousItemIds
   ]);
 
@@ -166,7 +167,7 @@ function useActiveDescendantListFocus({
       triggerByKeyboard.current = true;
       setVisualFocusItemIndex(getFirstSelectable());
     }
-  }, [setVisualFocusItemIndex, itemsIds, defaultVisualFocusFirstItem, visualFocusItemIndex]);
+  }, [setVisualFocusItemIndex, getFirstSelectable, defaultVisualFocusFirstItem, visualFocusItemIndex]);
 
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;
