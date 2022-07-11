@@ -54,6 +54,7 @@ function useActiveDescendantListFocus({
         return idx;
       }
     }
+    return -1;
   }, [itemsIds]);
 
   useEffect(() => {
