@@ -48,16 +48,13 @@ function useActiveDescendantListFocus({
   const previousVisualFocusItemIndex = usePrevious(visualFocusItemIndex);
   const prevVisualFocusItemId = usePrevious(itemsIds[visualFocusItemIndex]);
 
-  const getFirstSelectable = useMemo(
-    () => () => {
-      for (let idx = 0; idx < itemsIds.length; idx++) {
-        if (isItemSelectable(idx)) {
-          return idx;
-        }
+  const getFirstSelectable = useCallback(() => {
+    for (let idx = 0; idx < itemsIds.length; idx++) {
+      if (isItemSelectable(idx)) {
+        return idx;
       }
-    },
-    [itemsIds]
-  );
+    }
+  }, [itemsIds]);
 
   useEffect(() => {
     if (defaultVisualFocusFirstItem) {
