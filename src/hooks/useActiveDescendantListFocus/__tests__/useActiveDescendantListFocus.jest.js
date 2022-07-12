@@ -37,7 +37,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstItem }) {
   const moveForwardKey = isHorizontal ? "{arrowRight}" : "{arrowDown}";
   const oppositeMoveForwardKey = !isHorizontal ? "{arrowRight}" : "{arrowDown}";
 
-  it("should focus correct item keyboard forward", async () => {
+  it("should focus index + 1 item when user press keyboard forward", async () => {
     const onItemClick = jest.fn();
     const { result } = renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusFirstItem });
 
