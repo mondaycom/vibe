@@ -220,7 +220,7 @@ describe("useActiveDescendantListFocus", () => {
       expect(result.current.visualFocusItemIndex).toEqual(beforeIndex - removeItems);
     });
 
-    it("should focus correct item on focus", async () => {
+    it("should visually focus on the first item when menu is focused", async () => {
       const onItemClick = jest.fn();
       const { result } = renderHookForTest({ onItemClick, defaultVisualFocusFirstItem });
 
