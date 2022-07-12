@@ -249,7 +249,7 @@ describe("useActiveDescendantListFocus", () => {
   describe("no defaultVisualFocusFirstItem option", () => {
     const defaultVisualFocusFirstItem = false;
 
-    it("should not change keyboard item on focus", async () => {
+    it("should not set any item as visually focus when menu is focused", async () => {
       const onItemClick = jest.fn();
       const { result } = renderHookForTest({ onItemClick, defaultVisualFocusFirstItem });
 
