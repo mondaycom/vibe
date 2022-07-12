@@ -124,6 +124,6 @@ exports[`Box renders correctly with shadow prop 1`] = `
 
 exports[`Box renders correctly with text prop 1`] = `
 <div
-  className="box textPrimaryColor"
+  className="box textPrimaryTextColor"
 />
 `;

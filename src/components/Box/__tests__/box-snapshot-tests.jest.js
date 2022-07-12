@@ -104,7 +104,7 @@ describe("Box renders correctly", () => {
   });
 
   it("with text prop", () => {
-    const tree = renderer.create(<Box textColor={Box.textColors.PRIMARY_COLOR} />).toJSON();
+    const tree = renderer.create(<Box textColor={Box.textColors.PRIMARY_TEXT_COLOR} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

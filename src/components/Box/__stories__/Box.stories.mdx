@@ -66,9 +66,9 @@ export const boxTemplate = args => {
 
 ## Overview
 
-The Box is container for composited components.
+Box component is used as a wrapper component.
 
-Its purpose is to help scaffold compositions while using Vibe's prop keys without writing new CSS. It can be used as a container for
+Its purpose is to help scaffold compositions while using Vibe's prop keys without writing new CSS. <br/>It can be used as a container for
 atom based compositions, it can accept all Vibe style related props and have a semantic html tag.
 
 <Canvas>
@@ -84,7 +84,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
 ## Usage
 
 <UsageGuidelines
-  guidelines={["Use as a styled container", "Use to add spacing", "Use as an inner component for spacing or styles"]}
+  guidelines={["Use as a styled container", "Use to add spacing, borders, and rounded corners to areas of content", "Use as an inner component for spacing or styles"]}
 />
 
 <Tip title="Benefits of the Box component">Easily add Vibe styles without adding css</Tip>
@@ -112,9 +112,6 @@ atom based compositions, it can accept all Vibe style related props and have a s
       >
         Box.backgroundColors.INVERTED_COLOR_BACKGROUND
       </Box>
-      <Box backgroundColor={Box.backgroundColors.DISABLED_BACKGROUND_COLOR}>
-        Box.backgroundColors.DISABLED_BACKGROUND_COLOR
-      </Box>
     </div>
   </Story>
 </Canvas>
@@ -124,14 +121,7 @@ atom based compositions, it can accept all Vibe style related props and have a s
 <Canvas>
   <Story name="Text Colors">
     <div className={styles.boxWrapper}>
-      <Box textColor={Box.textColors.PRIMARY_COLOR}>Box.textColors.PRIMARY_COLOR</Box>
       <Box textColor={Box.textColors.PRIMARY_TEXT_COLOR}>Box.textColors.PRIMARY_textColor_COLOR</Box>
-      <Box
-        backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
-        textColor={Box.textColors.TEXT_COLOR_ON_PRIMARY}
-      >
-        Box.textColors.textColor_COLOR_ON_PRIMARY
-      </Box>
       <Box
         backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
         textColor={Box.textColors.TEXT_COLOR_ON_INVERTED}
@@ -139,10 +129,6 @@ atom based compositions, it can accept all Vibe style related props and have a s
         Box.textColors.textColor_COLOR_ON_INVERTED
       </Box>
       <Box textColor={Box.textColors.SECONDARY_TEXT_COLOR}>Box.textColors.SECONDARY_textColor_COLOR</Box>
-      <Box textColor={Box.textColors.PLACEHOLDER_TEXT_COLOR}>Box.textColors.PLACEHOLDER_textColor_COLOR</Box>
-      <Box textColor={Box.textColors.ICON_TEXT_COLOR}>Box.icon.PLACEHOLDER_textColor_COLOR</Box>
-      <Box textColor={Box.textColors.LINK_COLOR}>Box.icon.LINK_COLOR</Box>
-      <Box textColor={Box.textColors.DISABLED_TEXT}>Box.icDISABLED_textColor</Box>
     </div>
   </Story>
 </Canvas>

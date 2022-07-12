@@ -267,23 +267,16 @@ Box.propTypes = {
     Box.paddingStarts.XXXL
   ]),
   textColor: PropTypes.oneOf([
-    Box.textColors.PRIMARY_COLOR,
     Box.textColors.PRIMARY_TEXT_COLOR,
-    Box.textColors.TEXT_COLOR_ON_PRIMARY,
     Box.textColors.TEXT_COLOR_ON_INVERTED,
-    Box.textColors.SECONDARY_TEXT_COLOR,
-    Box.textColors.PLACEHOLDER_COLOR,
-    Box.textColors.ICON_COLOR,
-    Box.textColors.LINK_COLOR,
-    Box.textColors.DISABLED_TEXT_COLOR
+    Box.textColors.SECONDARY_TEXT_COLOR
   ]),
   backgroundColor: PropTypes.oneOf([
     Box.backgroundColors.PRIMARY_BACKGROUND_COLOR,
     Box.backgroundColors.SECONDARY_BACKGROUND_COLOR,
     Box.backgroundColors.GREY_BACKGROUND_COLOR,
     Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR,
-    Box.backgroundColors.INVERTED_COLOR_BACKGROUND,
-    Box.backgroundColors.DISABLED_BACKGROUND_COLOR
+    Box.backgroundColors.INVERTED_COLOR_BACKGROUND
   ])
 };
 Box.defaultProps = {
