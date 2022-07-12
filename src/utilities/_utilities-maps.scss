@@ -19,25 +19,15 @@ $utility-border-colors-vars: (
 );
 
 $utility-colors-vars: (
-        primaryColor: var(--primary-color),
-        primaryHoverColor: var(--primary-hover-color),
-        primarySelectedColor: var(--primary-selected-color),
         primaryTextColor: var(--primary-text-color),
-        textColorOnPrimary: var(--text-color-on-primary),
         textColorOnInverted: var(--text-color-on-inverted),
         secondaryTextColor: var(--secondary-text-color),
-        placeholderColor: var(--placeholder-color),
-        iconColor: var(--icon-color),
-        linkColor: var(--link-color),
-        disabledTextColor: var(--disabled-text-color),
 );
 
 $utility-background-colors-vars: (
         primaryBackgroundColor: var(--primary-background-color),
-        primaryBackgroundHoverColor: var(--primary-background-hover-color),
         secondaryBackgroundColor: var(--secondary-background-color),
         greyBackgroundColor: var(--grey-background-color),
         allgreyBackgroundColor: var(--allgrey-background-color),
         invertedColorBackground: var(--inverted-color-background),
-        disabledBackgroundColor: var(--disabled-background-color),
 );
