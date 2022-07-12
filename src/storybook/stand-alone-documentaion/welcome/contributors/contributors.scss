@@ -1,32 +1,38 @@
 @import "../../../../styles/global-css-settings";
 @import "../../../styles/content-spacing";
 
+$contributor-cell-min-width: 280px;
+
 .monday-storybook-welcome-contributors {
   margin-top: 68px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: $spacing-large;
-  grid-row-gap: 90px;
+
+  @include grid-auto-fit(
+          $grid-column-gap: $spacing-large,
+          $grid-row-gap: 90px,
+          $grid-cell-min-width: $contributor-cell-min-width
+  );
+
+
 
   &_contributor {
     &--bg-pattern-1 {
-      background-image: url('../assets/BackgroundPattern1.png');
+      background-image: url("../assets/BackgroundPattern1.png");
     }
 
     &--bg-pattern-2 {
-      background-image: url('../assets/BackgroundPattern2.png');
+      background-image: url("../assets/BackgroundPattern2.png");
     }
 
     &--bg-pattern-3 {
-      background-image: url('../assets/BackgroundPattern3.png');
+      background-image: url("../assets/BackgroundPattern3.png");
     }
 
     &--bg-pattern-4 {
-      background-image: url('../assets/BackgroundPattern4.png');
+      background-image: url("../assets/BackgroundPattern4.png");
     }
 
     &--bg-pattern-5 {
-      background-image: url('../assets/BackgroundPattern5.png');
+      background-image: url("../assets/BackgroundPattern5.png");
     }
   }
 }

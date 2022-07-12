@@ -77,9 +77,12 @@ const IconButton = forwardRef(
     }, [disabled, disabledReason, tooltipContent, ariaLabel]);
 
     const IconButtonWrapper = wrapperClassName ? "div" : Fragment;
+    const iconButtonWrapperProps = useMemo(() => {
+      return wrapperClassName ? { className: cx(wrapperClassName, styles.wrapper) } : {};
+    }, [wrapperClassName]);
 
     return (
-      <IconButtonWrapper className={cx(wrapperClassName, styles.wrapper)}>
+      <IconButtonWrapper {...iconButtonWrapperProps}>
         <ToolTip content={content} referenceWrapperClassName={styles.referenceWrapper}>
           <Button
             onClick={onClick}

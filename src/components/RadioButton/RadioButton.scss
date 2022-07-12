@@ -27,6 +27,7 @@
       width: 1em;
       height: 1em;
       border: 0.1em solid;
+      box-sizing: border-box;
       @include theme-prop(border-color, ui-border-color);
       border-radius: 50%;
       transition: border-width 100ms $expand-animation-timing;

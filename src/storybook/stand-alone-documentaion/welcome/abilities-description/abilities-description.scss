@@ -1,10 +1,10 @@
 @import "../../../../styles/global-css-settings";
 @import "../../../styles/content-spacing";
 
+$abilities-cell-min-width: 180px;
+
 .monday-storybook-abilities-description {
   margin-top: $spacing-between-section-items;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: $spacing-large;
+
+  @include grid-auto-fit($grid-gap: $spacing-large, $grid-cell-min-width: $abilities-cell-min-width);
 }

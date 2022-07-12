@@ -1,9 +1,18 @@
 @import "../../../../styles/global-css-settings";
 @import "../../../styles/content-spacing";
 
+$principles-cell-min-width: 180px;
+
 .monday-storybook-principles {
   margin-top: $spacing-between-section-items;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: $spacing-large;
+
+  @include grid-auto-fit(
+    $grid-column-gap: $spacing-large,
+    $grid-row-gap: $spacing-xxxl,
+    $grid-cell-min-width: $principles-cell-min-width
+  );
+
+  * img {
+    object-fit: cover;
+  }
 }
