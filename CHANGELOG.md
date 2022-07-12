@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.44.1 (2022-07-12)
+
+#### Bug Fixes
+* [#746](https://github.com/mondaycom/monday-ui-react-core/pull/746) adding property box-sizing to RadioButton ([@rami-monday](https://github.com/rami-monday))
+
 ## 1.44.0 (2022-07-10)
 
 #### New Features
