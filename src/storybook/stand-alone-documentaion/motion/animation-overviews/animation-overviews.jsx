@@ -18,7 +18,8 @@ const OVERVIEW = [
   {
     videoSrc: Focus,
     title: "Focus",
-    description: "We use motion to helps focus user attention on what's important, without adding unnecessary distractions."
+    description:
+      "We use motion to helps focus user attention on what's important, without adding unnecessary distractions."
   },
   {
     videoSrc: Delight,
