@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.46.0 (2022-07-13)
+
+#### New Features
+* [#749](https://github.com/mondaycom/monday-ui-react-core/pull/749) Support set use active descendant list visual focus from outside ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.45.0 (2022-07-13)
 
 #### New Features
