@@ -1,21 +1,23 @@
 import { addParameters } from "@storybook/react";
-import { DocsPage, DocsContainer } from "@storybook/addon-docs";
+import { DocsContainer, DocsPage } from "@storybook/addon-docs";
+import { withPerformance } from "storybook-addon-performance";
 import {
-  SectionName,
-  Title,
-  Tip,
   AnchorListItem,
-  ComponentRules,
   ComponentName,
-  UsageGuidelines,
-  FunctionArguments,
-  FunctionArgument,
-  RelatedComponents,
+  ComponentRules,
   DocFooter,
+  FunctionArgument,
+  FunctionArguments,
+  LinkComponent,
   MultipleStoryElementsWrapper,
   Paragraph,
-  LinkComponent
-} from "../src/storybook/components";
+  RelatedComponents,
+  SectionName,
+  Tip,
+  Title,
+  UsageGuidelines,
+  withMemoryStats
+} from "../src/storybook";
 
 addParameters({
   controls: {
@@ -81,12 +83,29 @@ addParameters({
   }
 });
 
+export const globalTypes = {
+  memoryStats: {
+    name: "Memory Stats",
+    description: "Add Memory Stat tracker",
+    defaultValue: "no",
+    toolbar: {
+      icon: "memory",
+      items: [
+        { value: "no", right: "🚫", title: "Hide Memory Stat" },
+        { value: "yes", right: "✅", title: "Show Memory Stat" }
+      ]
+    }
+  }
+};
+
 export const decorators = [
+  withPerformance,
   (Story, { className }) => {
     return (
       <MultipleStoryElementsWrapper className={className}>
         <Story />
       </MultipleStoryElementsWrapper>
     );
-  }
+  },
+  withMemoryStats
 ];

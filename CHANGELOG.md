@@ -1,5 +1,135 @@
 # Changelog
 
+## 1.46.0 (2022-07-13)
+
+#### New Features
+* [#749](https://github.com/mondaycom/monday-ui-react-core/pull/749) Support set use active descendant list visual focus from outside ([@hadasfa](https://github.com/hadasfa))
+
+## 1.45.0 (2022-07-13)
+
+#### New Features
+* [#748](https://github.com/mondaycom/monday-ui-react-core/pull/748) Clickable: ariaExpanded prop added ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.44.1 (2022-07-12)
+
+#### Bug Fixes
+* [#746](https://github.com/mondaycom/monday-ui-react-core/pull/746) adding property box-sizing to RadioButton ([@rami-monday](https://github.com/rami-monday))
+
+## 1.44.0 (2022-07-10)
+
+#### New Features
+* [#744](https://github.com/mondaycom/monday-ui-react-core/pull/744) Icon button fix and link alignment ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.43.0 (2022-07-10)
+
+#### New Features
+* [#743](https://github.com/mondaycom/monday-ui-react-core/pull/743) Feat: Add prop set the tabindex for RadioButton.jsx rendered children ([@DorShakedMonday](https://github.com/DorShakedMonday))
+
+## 1.42.0 (2022-07-07)
+
+#### New Features
+* [#742](https://github.com/mondaycom/monday-ui-react-core/pull/742) Mute Notification Icon ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#737](https://github.com/mondaycom/monday-ui-react-core/pull/737) Feature/yonatanari/wellcome page responsive without media ([@3dyonic](https://github.com/3dyonic))
+
+#### New Icons
+* [#740](https://github.com/mondaycom/monday-ui-react-core/pull/740) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.41.2 (2022-07-06)
+
+#### Bug Fixes
+* [#739](https://github.com/mondaycom/monday-ui-react-core/pull/739) Few fixes for supporting useActiveDescendantListFocus in menus ([@hadasfa](https://github.com/hadasfa))
+
+## 1.41.1 (2022-07-05)
+
+#### Bug Fixes
+* [#735](https://github.com/mondaycom/monday-ui-react-core/pull/735) IconButton: added wrapperClassName prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.41.0 (2022-07-03)
+
+#### New Features
+* [#706](https://github.com/mondaycom/monday-ui-react-core/pull/706) Feature/sergeyro/avatar group a11y ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.40.1 (2022-07-03)
+
+#### Bug Fixes
+* [#733](https://github.com/mondaycom/monday-ui-react-core/pull/733) AvatarGroup component export ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.40.0 (2022-07-03)
+
+#### Bug Fixes
+* [#723](https://github.com/mondaycom/monday-ui-react-core/pull/723) Add css module support for chips component ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#732](https://github.com/mondaycom/monday-ui-react-core/pull/732) adding leftIcon and leftAvatar to dropdown chips ([@maxiozer](https://github.com/maxiozer))
+
+## 1.39.1 (2022-06-30)
+
+#### Bug Fixes
+* [#731](https://github.com/mondaycom/monday-ui-react-core/pull/731) fix clickable PropType and inset focus for heading compoennt ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.39.0 (2022-06-30)
+
+#### New Features
+* [#730](https://github.com/mondaycom/monday-ui-react-core/pull/730) dropdown with mandatory default values ([@maxiozer](https://github.com/maxiozer))
+
+## 1.38.1 (2022-06-29)
+
+#### Bug Fixes
+* [#729](https://github.com/mondaycom/monday-ui-react-core/pull/729) add max length as a prop ([@mayaAssayag](https://github.com/mayaAssayag))
+
+## 1.38.0 (2022-06-29)
+
+#### New Features
+* [#727](https://github.com/mondaycom/monday-ui-react-core/pull/727) Butotn inset focus style ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.37.0 (2022-06-28)
+
+#### New Features
+* [#725](https://github.com/mondaycom/monday-ui-react-core/pull/725) Clickable: ariaHasPopup prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.36.5 (2022-06-28)
+
+#### New Icons
+* [#722](https://github.com/mondaycom/monday-ui-react-core/pull/722) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.36.4 (2022-06-28)
+
+#### Bug Fixes
+* [#724](https://github.com/mondaycom/monday-ui-react-core/pull/724) fix medium 2 min width to 1280 ([@liatmaor](https://github.com/liatmaor))
+
+## 1.36.3 (2022-06-27)
+
+#### Bug Fixes
+* [#720](https://github.com/mondaycom/monday-ui-react-core/pull/720) Fix/yonatanari/fix disabled text color issues ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#719](https://github.com/mondaycom/monday-ui-react-core/pull/719) feat(storybook): memory stats for stories ([@niksa-monday](https://github.com/niksa-monday))
+* [#718](https://github.com/mondaycom/monday-ui-react-core/pull/718) feat(storybook): enable storybook performance addon ([@niksa-monday](https://github.com/niksa-monday))
+
+## 1.36.2 (2022-06-27)
+
+#### Internal Changes
+* [#713](https://github.com/mondaycom/monday-ui-react-core/pull/713) Jest snapshot css modules ([@eran-cohen](https://github.com/eran-cohen))
+
+#### New Icons
+* [#717](https://github.com/mondaycom/monday-ui-react-core/pull/717) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.36.1 (2022-06-23)
+
+#### Bug Fixes
+* [#709](https://github.com/mondaycom/monday-ui-react-core/pull/709) Avatar custom size by classname ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### Internal Changes
+* [#708](https://github.com/mondaycom/monday-ui-react-core/pull/708) Feature/sergeyro/plop component fix ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.36.0 (2022-06-19)
+
+#### Bug Fixes
+* [#705](https://github.com/mondaycom/monday-ui-react-core/pull/705) fix button tooltip hidden when stop hovering + tipseen useless wrapper ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#694](https://github.com/mondaycom/monday-ui-react-core/pull/694) Feature/sergeyro/avatar group ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.35.1 (2022-06-15)
 
 #### Bug Fixes

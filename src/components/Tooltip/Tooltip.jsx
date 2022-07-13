@@ -107,7 +107,19 @@ export default class Tooltip extends React.PureComponent {
   }
 
   render() {
-    const { withoutDialog, moveBy, justify, children, getContainer, theme, paddingSize, tip } = this.props;
+    const {
+      withoutDialog,
+      moveBy,
+      justify,
+      children,
+      getContainer,
+      theme,
+      paddingSize,
+      tip,
+      showTrigger,
+      hideTrigger,
+      showOnDialogEnter
+    } = this.props;
 
     if (!children) {
       return null;
@@ -128,7 +140,10 @@ export default class Tooltip extends React.PureComponent {
       animationType: "expand",
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
-      getDynamicShowDelay: this.getShowDelay
+      getDynamicShowDelay: this.getShowDelay,
+      showTrigger,
+      hideTrigger,
+      showOnDialogEnter
     };
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }
@@ -138,26 +153,6 @@ Tooltip.positions = DialogPositions;
 Tooltip.animationTypes = DIALOG_ANIMATION_TYPES;
 Tooltip.themes = TOOLTIP_THEMES;
 Tooltip.justifyTypes = TOOLTIP_JUSTIFY_TYPES;
-Tooltip.defaultProps = {
-  style: undefined,
-  arrowPosition: "center", // begin, center, end
-  moveBy: { main: 4, secondary: 0 },
-  theme: Tooltip.themes.Dark,
-  position: Tooltip.positions.TOP,
-  justify: Tooltip.justifyTypes.CENTER,
-  hideDelay: 0,
-  showDelay: 300,
-  disableDialogSlide: true,
-  animationType: "expand",
-  withoutDialog: false,
-  containerSelector: "#tooltips-container",
-  immediateShowDelay: null,
-  tip: true,
-  hideWhenReferenceHidden: false,
-  onTooltipHide: null,
-  onTooltipShow: null,
-  modifiers: []
-};
 
 Tooltip.propTypes = {
   style: PropTypes.object,
@@ -180,5 +175,40 @@ Tooltip.propTypes = {
   /**
    * [PopperJS Modifiers](https://popper.js.org/docs/v2/modifiers/) type.
    */
-  modifiers: PropTypes.array
+  modifiers: PropTypes.array,
+  /**
+   * an array of hide/show trigger -
+   * Dialog.hideShowTriggers
+   */
+  showTrigger: PropTypes.any,
+  /**
+   * an array of hide/show trigger -
+   * Dialog.hideShowTriggers
+   */
+  hideTrigger: PropTypes.any,
+  showOnDialogEnter: PropTypes.bool
+};
+
+Tooltip.defaultProps = {
+  style: undefined,
+  arrowPosition: "center", // begin, center, end
+  moveBy: { main: 4, secondary: 0 },
+  theme: Tooltip.themes.Dark,
+  position: Tooltip.positions.TOP,
+  justify: Tooltip.justifyTypes.CENTER,
+  hideDelay: 0,
+  showDelay: 300,
+  disableDialogSlide: true,
+  animationType: "expand",
+  withoutDialog: false,
+  containerSelector: "#tooltips-container",
+  immediateShowDelay: null,
+  tip: true,
+  hideWhenReferenceHidden: false,
+  onTooltipHide: null,
+  onTooltipShow: null,
+  modifiers: [],
+  showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
+  hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE,
+  showOnDialogEnter: false
 };

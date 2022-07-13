@@ -83,6 +83,7 @@ const publishedComponents = {
   Toggle: "components/Toggle/Toggle.jsx",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   Avatar: "components/Avatar/Avatar.jsx",
+  AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
   IconButton: "components/IconButton/IconButton.jsx",
   Slider: "components/Slider/Slider.jsx",
   // Don't remove next line

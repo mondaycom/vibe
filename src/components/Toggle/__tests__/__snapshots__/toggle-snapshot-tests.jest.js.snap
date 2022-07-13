@@ -7,7 +7,7 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
   <input
     aria-checked={true}
     checked={true}
-    className="monday-style-toggle_input"
+    className="hidden-switch monday-style-toggle_input"
     disabled={true}
     onChange={[Function]}
     role="switch"
@@ -37,7 +37,7 @@ exports[`Toggle renders correctly renders correctly when labels are hidden 1`] =
   <input
     aria-checked={true}
     checked={true}
-    className="monday-style-toggle_input"
+    className="hidden-switch monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
     role="switch"
@@ -57,7 +57,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
   <input
     aria-checked={false}
     checked={false}
-    className="monday-style-toggle_input"
+    className="hidden-switch monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
     role="switch"
@@ -87,7 +87,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
   <input
     aria-checked={true}
     checked={true}
-    className="monday-style-toggle_input"
+    className="hidden-switch monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
     role="switch"
@@ -117,7 +117,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
   <input
     aria-checked={false}
     checked={false}
-    className="monday-style-toggle_input"
+    className="hidden-switch monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
     role="switch"
@@ -147,7 +147,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
   <input
     aria-checked={true}
     checked={true}
-    className="monday-style-toggle_input"
+    className="hidden-switch monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
     role="switch"
@@ -178,7 +178,7 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
     aria-checked={true}
     aria-controls="aria controls"
     checked={true}
-    className="monday-style-toggle_input"
+    className="hidden-switch monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
     role="switch"
@@ -208,7 +208,7 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
   <input
     aria-checked={true}
     checked={true}
-    className="monday-style-toggle_input"
+    className="hidden-switch monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
     role="switch"
@@ -238,7 +238,7 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
   <input
     aria-checked={true}
     checked={true}
-    className="monday-style-toggle_input"
+    className="hidden-switch monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
     role="switch"
@@ -268,7 +268,7 @@ exports[`Toggle renders correctly renders correctly with not default onOverrideT
   <input
     aria-checked={true}
     checked={true}
-    className="monday-style-toggle_input"
+    className="hidden-switch monday-style-toggle_input"
     disabled={false}
     onChange={[Function]}
     role="switch"

@@ -60,7 +60,8 @@ import styles from "./useActiveDescendantListFocus.module.scss"; import {
           itemsIds,
           onItemClick,
           isItemSelectable,
-          isHorizontalList: false
+          isHorizontalList: false,
+          isIgnoreSpaceAsItemSelection: true
       });
         return (
           <Flex direction={Flex.directions.COLUMN}>
@@ -125,6 +126,11 @@ import styles from "./useActiveDescendantListFocus.module.scss"; import {
             name="focusedElementProps"
             type="{role, aria-activedescendant}"
             description="All the required props which should be defined inside the naturally focused element inside your component according to the accessibility standards"
+        />
+        <FunctionArgument
+            name="setVisualFocusItemId"
+            type="(visualFocusItemId, isTriggeredByKeyboard) => {}"
+            description="A function for controlling the visual focused item from outside."
         />
     </FunctionArgument>
 </FunctionArguments>

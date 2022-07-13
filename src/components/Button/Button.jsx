@@ -56,7 +56,8 @@ const Button = forwardRef(
       ariaExpanded,
       ariaControls,
       blurOnMouseUp,
-      dataTestId
+      dataTestId,
+      insetFocus
     },
     ref
   ) => {
@@ -91,13 +92,13 @@ const Button = forwardRef(
 
     const onMouseUp = useCallback(() => {
       const button = buttonRef.current;
-      if (!button) {
+      if (disabled || !button) {
         return;
       }
       if (blurOnMouseUp) {
         button.blur();
       }
-    }, [buttonRef, blurOnMouseUp]);
+    }, [disabled, buttonRef, blurOnMouseUp]);
 
     const onButtonClicked = useCallback(
       event => {
@@ -144,31 +145,34 @@ const Button = forwardRef(
           "monday-style-button--right-flat": rightFlat,
           "monday-style-button--left-flat": leftFlat,
           "monday-style-button--prevent-click-animation": preventClickAnimation,
-          "monday-style-button--no-side-padding": noSidePadding
+          "monday-style-button--no-side-padding": noSidePadding,
+          "monday-style-button--disabled": disabled,
+          "inset-focus-style": insetFocus
         }
       );
     }, [
-      size,
-      kind,
+      success,
       color,
       className,
-      success,
+      size,
+      kind,
+      hasSizeStyle,
       loading,
       active,
       marginRight,
       marginLeft,
-      noSidePadding,
-      preventClickAnimation,
-      leftFlat,
       rightFlat,
-      hasSizeStyle
+      leftFlat,
+      preventClickAnimation,
+      noSidePadding,
+      disabled,
+      insetFocus
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
 
     const buttonProps = useMemo(() => {
       return {
-        disabled,
         ref: mergedRef,
         type,
         className: classNames,
@@ -358,7 +362,9 @@ Button.propTypes = {
   preventClickAnimation: PropTypes.bool,
   noSidePadding: PropTypes.bool,
   /** Default text color in `ON_PRIMARY_COLOR` kind (should be any type of css color (rgb, var, hex...) */
-  defaultTextColorOnPrimaryColor: PropTypes.string
+  defaultTextColorOnPrimaryColor: PropTypes.string,
+  /** Change the focus indicator from around the button to within it */
+  insetFocus: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -394,7 +400,8 @@ Button.defaultProps = {
   ariaExpanded: undefined,
   ariaControls: undefined,
   ariaLabel: undefined,
-  ariaLabeledBy: undefined
+  ariaLabeledBy: undefined,
+  insetFocus: false
 };
 
 export default Button;

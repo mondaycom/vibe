@@ -1,5 +1,5 @@
 import { SIZES } from "constants/sizes";
-import React, { useRef, forwardRef, useMemo } from "react";
+import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
@@ -16,6 +16,7 @@ const IconButton = forwardRef(
   (
     {
       className,
+      wrapperClassName,
       id,
       icon,
       size,
@@ -27,7 +28,8 @@ const IconButton = forwardRef(
       disabledReason,
       onClick,
       color,
-      dataTestId
+      dataTestId,
+      insetFocus
     },
     ref
   ) => {
@@ -59,7 +61,7 @@ const IconButton = forwardRef(
       }
 
       if (active && kind === IconButton.kinds.SECONDARY) {
-        style.borderColor = "var(--primary-color";
+        style.borderColor = "var(--primary-color)";
       }
 
       if (size) {
@@ -74,31 +76,40 @@ const IconButton = forwardRef(
       return ariaLabel;
     }, [disabled, disabledReason, tooltipContent, ariaLabel]);
 
+    const IconButtonWrapper = wrapperClassName ? "div" : Fragment;
+    const iconButtonWrapperProps = useMemo(() => {
+      return wrapperClassName ? { className: cx(wrapperClassName, styles.wrapper) } : {};
+    }, [wrapperClassName]);
+
     return (
-      <ToolTip content={content} referenceWrapperClassName={styles.referenceContainer}>
-        <Button
-          onClick={onClick}
-          disabled={disabled}
-          color={color}
-          kind={kind}
-          ariaLabel={buttonAriaLabel}
-          ref={mergedRef}
-          id={id}
-          dataTestId={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
-          className={cx(className)}
-          noSidePadding
-          active={active}
-          style={overrideStyle}
-        >
-          <Icon
-            icon={icon}
-            iconType={Icon.type.SVG}
-            iconSize={iconSize}
-            ignoreFocusStyle
-            className="icon-button-padding"
-          />
-        </Button>
-      </ToolTip>
+      <IconButtonWrapper {...iconButtonWrapperProps}>
+        <ToolTip content={content} referenceWrapperClassName={styles.referenceWrapper}>
+          <Button
+            onClick={onClick}
+            disabled={disabled}
+            color={color}
+            kind={kind}
+            ariaLabel={buttonAriaLabel}
+            ref={mergedRef}
+            id={id}
+            dataTestId={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
+            noSidePadding
+            active={active}
+            className={className}
+            style={overrideStyle}
+            insetFocus={insetFocus}
+          >
+            <Icon
+              icon={icon}
+              iconType={Icon.type.SVG}
+              iconSize={iconSize}
+              ignoreFocusStyle
+              className="icon-button-padding"
+              clickable={false}
+            />
+          </Button>
+        </ToolTip>
+      </IconButtonWrapper>
     );
   }
 );
@@ -117,9 +128,13 @@ IconButton.propTypes = {
    */
   onClick: PropTypes.func,
   /**
-   * class to be added to the element
+   * class to be added to the button
    */
   className: PropTypes.string,
+  /**
+   * class to be added to the button wrapper
+   */
+  wrapperClassName: PropTypes.string,
   /**
    * Icon to be rendered
    */
@@ -162,11 +177,14 @@ IconButton.propTypes = {
    * if disabled - this will be shown in the tooltip
    */
   disabledReason: PropTypes.string,
-  dataTestId: PropTypes.string
+  dataTestId: PropTypes.string,
+  /** Change the focus indicator from around the button to within it */
+  insetFocus: PropTypes.bool
 };
 
 IconButton.defaultProps = {
   className: undefined,
+  wrapperClassName: undefined,
   onClick: NOOP,
   id: undefined,
   icon: AddSmall,
@@ -177,7 +195,8 @@ IconButton.defaultProps = {
   disabled: false,
   disabledReason: undefined,
   color: undefined,
-  dataTestId: undefined
+  dataTestId: undefined,
+  insetFocus: false
 };
 
 export default IconButton;

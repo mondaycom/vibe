@@ -1,0 +1,11 @@
+.avatarGroupContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: relative;
+  padding: var(--spacing-xs) var(--spacing-small) var(--spacing-xs) var(--spacing-medium);
+}
+
+.avatarContainer {
+  margin-left: calc(-1 * var(--spacing-small));
+}

@@ -1,5 +1,5 @@
 @import "../../../styles/themes.scss";
 
-.monday-storybook-{{dashCase componentName}} {
+.{{camelCase componentName}} {
 
 }
