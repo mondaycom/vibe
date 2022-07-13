@@ -10,8 +10,8 @@ import Icon from "components/Icon/Icon";
 import Loader from "components/Loader/Loader";
 import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
-import "./Button.scss";
 import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import "./Button.scss";
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
@@ -43,18 +43,19 @@ const Button = forwardRef(
       marginLeft,
       type,
       onMouseDown,
-      ariaLabel,
       rightFlat,
       leftFlat,
+      defaultTextColorOnPrimaryColor,
       preventClickAnimation,
       noSidePadding,
       onFocus,
       onBlur,
+      ariaLabel,
       ariaLabeledBy,
-      defaultTextColorOnPrimaryColor,
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
+      tabIndex,
       blurOnMouseUp,
       dataTestId,
       insetFocus
@@ -191,7 +192,8 @@ const Button = forwardRef(
         "aria-busy": loading ? "true" : undefined,
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
-        "aria-controls": ariaControls
+        "aria-controls": ariaControls,
+        tabIndex
       };
     }, [
       disabled,
@@ -212,7 +214,8 @@ const Button = forwardRef(
       loading,
       ariaHasPopup,
       ariaExpanded,
-      ariaControls
+      ariaControls,
+      tabIndex
     ]);
 
     const leftIconSize = useMemo(() => {
@@ -363,6 +366,8 @@ Button.propTypes = {
   noSidePadding: PropTypes.bool,
   /** Default text color in `ON_PRIMARY_COLOR` kind (should be any type of css color (rgb, var, hex...) */
   defaultTextColorOnPrimaryColor: PropTypes.string,
+  /** Change how component participate in sequential keyboard navigation. Default value = 0 */
+  tabIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   /** Change the focus indicator from around the button to within it */
   insetFocus: PropTypes.bool
 };
@@ -401,6 +406,7 @@ Button.defaultProps = {
   ariaControls: undefined,
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
+  tabIndex: undefined, // = 0
   insetFocus: false
 };
 
