@@ -12,29 +12,29 @@ const EASING = [
   {
     videoSrc: EnterDeceleratedEasing,
     title: "Enter - Decelerated easing ",
-    description: "We use when object enter from out of screen to reveal extra information.",
+    description: "Use when object enter from out of screen to reveal extra information.",
     tokenInfo: "cubic-bezier(0,0,0.35,1) ",
     tokenDescription: "--motion-timing-enter"
   },
   {
     videoSrc: ExitAcceleratedEasing,
     title: "Exit - Accelerated easing",
-    description: "We use when object leave the screen to hide element",
+    description: "Use when object leaves the screen to hide element.",
     tokenInfo: "cubic-bezier(0.4,0,1,1)",
     tokenDescription: "--motion-timing-exit"
   },
   {
     videoSrc: TransitionStandardEasing,
-    title: "Transition - Standard easing ",
-    description: "Transition between different states of the same element in screen",
-    tokenInfo: "cubic-bezier(0.4,0,0.35,1)",
+    title: "Transition - Standard easing",
+    description: "Use to transition between different states of the same element in screen.",
+    tokenInfo: "cubic-bezier((0.4,0,0.2,1))",
     tokenDescription: "--motion-timing-transition"
   },
   {
     videoSrc: EmphesizeElasticEasing,
     title: "Emphesize - Elastic easing",
-    description: "System aletrs, notifications, atention and midiation.",
-    tokenInfo: "cubic-bezier(0,0,0.2,1.4), Duration must be over 200ms",
+    description: "Use to draw attention to a specific action or specific information.",
+    tokenInfo: "cubic-bezier((0,0,0.2,1.4),(Duration must be over 200ms)",
     tokenDescription: "--motion-timing-emphesize"
   }
 ];

@@ -5,27 +5,27 @@ import styles from "./animation-types.module.scss";
 const TYPES = [
   {
     videoSrc: TypeCss,
-    title: "Css - basic transitions (Position, Rotation, Scale)",
+    title: "CSS - basic transitions (Position, Rotation, Scale)",
     description:
-      "CSS animations and transitions should primarily be used for UI elements and other basic transitions and animations."
+      "Use CSS animations and transitions primarily for UI elements and other basic transitions and animations."
   },
   {
     videoSrc: TypeEmpty,
     title: "Lottie - complex and custom animations",
     description:
-      "Lottie is a Json file exported directly from After Effects. The file is Lightweight and scaleable. Mainly used in mobile, however, can be used in unique or inteactive animations."
+      "Lottie is a Json file exported directly from After Effects. The file is Lightweight and scaleable. To be used mainly in mobile, however, can be utilized also in unique or inteactive animations in the Descktop."
   },
   {
     videoSrc: TypeLike,
     title: "SVG - lightweight, scalable, easy to replace",
     description:
-      "SVG animated file, exported from an Animation software. Better to use on icons or multiple assets. easy to replace and adjust throught time."
+      "SVG animated file, exported from an animation software. Ideally to be used on icons or multiple assets. Easy to replace and adjust over time."
   },
   {
     videoSrc: TypeStatus,
     title: "Sprite",
     description:
-      "A spritesheet is a PNG file that containes sequence of animation. It has improved performances when loading, but, it is not scaleable"
+      "A spritesheet is a PNG file that contains sequences of animation. It has improved performances when loading, but is not scaleable."
   }
 ];
 
