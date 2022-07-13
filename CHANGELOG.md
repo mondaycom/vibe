@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.45.0 (2022-07-13)
+
+#### New Features
+* [#748](https://github.com/mondaycom/monday-ui-react-core/pull/748) Clickable: ariaExpanded prop added ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.44.1 (2022-07-12)
 
 #### Bug Fixes
