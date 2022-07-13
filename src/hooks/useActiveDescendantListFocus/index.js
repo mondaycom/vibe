@@ -117,6 +117,17 @@ function useActiveDescendantListFocus({
     [baseOnClickCallback]
   );
 
+  const setVisualFocusItemId = useCallback(
+    (visualFocusItemId, isTriggeredByKeyboard) => {
+      triggerByKeyboard.current = isTriggeredByKeyboard;
+      const itemIndex = itemsIds.indexOf(visualFocusItemId);
+      if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {
+        setVisualFocusItemIndex(itemIndex);
+      }
+    },
+    [itemsIds, visualFocusItemIndex]
+  );
+
   const onBlurCallback = useCallback(() => {
     if (visualFocusItemIndex !== -1) {
       setVisualFocusItemIndex(-1);
@@ -172,7 +183,8 @@ function useActiveDescendantListFocus({
     visualFocusItemId: triggerByKeyboard.current ? visualFocusItemId : undefined,
     createOnItemClickCallback,
     onItemClickCallback: baseOnClickCallback,
-    focusedElementProps: { "aria-activedescendant": visualFocusItemId, role: focusedElementRole }
+    focusedElementProps: { "aria-activedescendant": visualFocusItemId, role: focusedElementRole },
+    setVisualFocusItemId
   };
 }
 
