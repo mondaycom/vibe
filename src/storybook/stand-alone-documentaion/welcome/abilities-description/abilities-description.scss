@@ -2,9 +2,14 @@
 @import "../../../styles/content-spacing";
 
 $abilities-cell-min-width: 180px;
+$abilities-grid-gap: $spacing-large;
+$abilities-grid-cell-array-calc: calc(33.3% - #{$abilities-grid-gap});
 
 .monday-storybook-abilities-description {
   margin-top: $spacing-between-section-items;
 
-  @include grid-auto-fit($grid-gap: $spacing-large, $grid-cell-min-width: $abilities-cell-min-width);
+  @include grid-auto-fit(
+          $grid-gap: $abilities-grid-gap,
+          $grid-cell-min-width: $abilities-cell-min-width,
+          $grid-cell-array-calc: $abilities-grid-cell-array-calc);
 }
