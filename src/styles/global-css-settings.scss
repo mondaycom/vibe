@@ -56,10 +56,12 @@ $expand-animation-timing: cubic-bezier(0, 0, 0.35, 1);
 // - $grid-column-gap: null,  defines grid "column-gap" attribute.
 // - $grid-row-gap: null,  defines grid "row-gap" attribute.
 // - $grid-cell-min-width: {mandatory}, defined min value in for grid-template-columns
+// - $grid-cell-array-calc: {mandatory}, defined max num of items using calc
 
-@mixin grid-auto-fit($grid-gap: null, $grid-column-gap: null, $grid-row-gap: null, $grid-cell-min-width) {
+
+@mixin grid-auto-fit($grid-gap: null, $grid-column-gap: null, $grid-row-gap: null, $grid-cell-min-width, $grid-cell-array-calc:null) {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(#{$grid-cell-min-width}, 1fr));
+  grid-template-columns:repeat(auto-fit, minmax(clamp(#{$grid-cell-array-calc}, #{$grid-cell-min-width}, 100%), 1fr));
   gap: $grid-gap;
   column-gap: $grid-column-gap;
   row-gap: $grid-row-gap;
