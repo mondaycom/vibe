@@ -22,6 +22,12 @@ $spacing-xxxl: 64px;
 
 $expand-animation-timing: cubic-bezier(0, 0, 0.35, 1);
 
+// Grid auto fit sizes
+$grid-auto-fit-cell-width-small: 120px;
+$grid-auto-fit-cell-width-medium: 180px;
+$grid-auto-fit-cell-width-large: 300px;
+
+
 @mixin box-shadow-xs() {
   @include theme-prop(box-shadow, box-shadow-xs);
 }
