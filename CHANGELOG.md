@@ -1,5 +1,39 @@
 # Changelog
 
+## 1.46.0 (2022-07-13)
+
+#### New Features
+* [#749](https://github.com/mondaycom/monday-ui-react-core/pull/749) Support set use active descendant list visual focus from outside ([@hadasfa](https://github.com/hadasfa))
+
+## 1.45.0 (2022-07-13)
+
+#### New Features
+* [#748](https://github.com/mondaycom/monday-ui-react-core/pull/748) Clickable: ariaExpanded prop added ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.44.1 (2022-07-12)
+
+#### Bug Fixes
+* [#746](https://github.com/mondaycom/monday-ui-react-core/pull/746) adding property box-sizing to RadioButton ([@rami-monday](https://github.com/rami-monday))
+
+## 1.44.0 (2022-07-10)
+
+#### New Features
+* [#744](https://github.com/mondaycom/monday-ui-react-core/pull/744) Icon button fix and link alignment ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.43.0 (2022-07-10)
+
+#### New Features
+* [#743](https://github.com/mondaycom/monday-ui-react-core/pull/743) Feat: Add prop set the tabindex for RadioButton.jsx rendered children ([@DorShakedMonday](https://github.com/DorShakedMonday))
+
+## 1.42.0 (2022-07-07)
+
+#### New Features
+* [#742](https://github.com/mondaycom/monday-ui-react-core/pull/742) Mute Notification Icon ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#737](https://github.com/mondaycom/monday-ui-react-core/pull/737) Feature/yonatanari/wellcome page responsive without media ([@3dyonic](https://github.com/3dyonic))
+
+#### New Icons
+* [#740](https://github.com/mondaycom/monday-ui-react-core/pull/740) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.41.2 (2022-07-06)
 
 #### Bug Fixes

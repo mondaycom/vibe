@@ -1,7 +1,7 @@
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import Link from "../Link.jsx";
 import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
-import { ExternalPage, Gallery } from "../../Icon/Icons"
+import { ExternalPage, Gallery } from "../../Icon/Icons";
 import { BUTTON, CHIP, BREADCRUBMS } from "../../../storybook/components/related-components/component-description-map";
 import { Link as StorybookLink } from "../../../storybook/components";
 import "./Link.stories.scss";
@@ -12,12 +12,7 @@ export const metaSettings = createStoryMetaSettings({
   iconPropNamesArray: ["icon"]
 });
 
-<Meta
-  title="Navigation/Link"
-  component={ Link }
-  argTypes={ metaSettings.argTypes }
-  decorators={ metaSettings.decorators }
-/>
+<Meta title="Navigation/Link" component={Link} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
 
 <!--- Component template -->
 
@@ -26,6 +21,7 @@ export const linkTemplate = createComponentTemplate(Link);
 <!--- Component documentation -->
 
 # Link
+
 - [Overview](#overview)
 - [Props](#props)
 - [Usage](#usage)
@@ -36,77 +32,71 @@ export const linkTemplate = createComponentTemplate(Link);
 - [Feedback](#feedback)
 
 ## Overview
+
 Link is an actionable text componet with connection to another web pages.
 
 <Canvas>
-  <Story name="Overview"
-         args={{ text: "Read more", href: "https://www.monday.com" }}>
-    { linkTemplate.bind({}) }
+  <Story name="Overview" args={{ text: "Read more", href: "https://www.monday.com" }}>
+    {linkTemplate.bind({})}
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Link } />
+
+<ArgsTable of={Link} />
 
 ## Usage
-<UsageGuidelines guidelines={[
-  "Use links only as part of the text or scentence.",
-  "Use links in order to redirect people outside of the system.",
-  "Links should be short with a clear action name. read more, go to, etc...",
-]}/>
 
-<Tip>If you need an action that does not have context with text <StorybookLink href="/?path=/docs/inputs-combobox--overview" size={StorybookLink.sizes.SMALL} withoutSpacing>Button</StorybookLink>.</Tip>
+<UsageGuidelines
+  guidelines={[
+    "Use links only as part of the text or scentence.",
+    "Use links in order to redirect people outside of the system.",
+    "Links should be short with a clear action name. read more, go to, etc..."
+  ]}
+/>
+
+<Tip>
+  If you need an action that does not have context with text{" "}
+  <StorybookLink href="/?path=/docs/inputs-combobox--overview" size={StorybookLink.sizes.SMALL} withoutSpacing>
+    Button
+  </StorybookLink>
+  .
+</Tip>
 
 ## Variants
+
 ### States
+
 <Canvas>
   <Story name="States">
-    <Link
-      text="Default"
-      href="https://www.monday.com"
-    />
+    <Link text="Default" href="https://www.monday.com" />
   </Story>
 </Canvas>
 
 ### Right to left
+
 <Canvas>
   <Story name="Right to left">
-      <Link
-        text="اقرأ أكثر"
-        href="https://www.monday.com"
-        icon="fa fa-link"
-      />
-      <Link
-        text="קרא עוד"
-        href="https://www.monday.com"
-        iconPosition={Link.iconPositions.END}
-        icon="fa fa-info"
-      />
+    <Link text="اقرأ أكثر" href="https://www.monday.com" icon="fa fa-link" />
+    <Link text="קרא עוד" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon="fa fa-info" />
   </Story>
 </Canvas>
 
 ### With icons
+
 <Canvas>
   <Story name="With icons">
-    <Link
-      text="Read more"
-      href="https://www.monday.com"
-      icon={ExternalPage}
-    />
-    <Link
-      text="Read more"
-      href="https://www.monday.com"
-      iconPosition={Link.iconPositions.END}
-      icon={ExternalPage}
-    />
+    <Link text="Read more" href="https://www.monday.com" icon={ExternalPage} />
+    <Link text="Read more" href="https://www.monday.com" iconPosition={Link.iconPositions.END} icon={ExternalPage} />
   </Story>
 </Canvas>
 
 ## Do’s and Don’ts
+
 <ComponentRules
   rules={[
     {
-      positive: { 
+      positive: {
         component: <Link text="Read more" href="https://www.monday.com" />,
         description: "Keep the copy short and to the point."
       },
@@ -117,12 +107,18 @@ Link is an actionable text componet with connection to another web pages.
     },
     {
       positive: {
-        component: <Link text="Read more" iconPosition={Link.iconPositions.START} href="https://www.monday.com" icon={ExternalPage} />,
+        component: (
+          <Link
+            text="Read more"
+            iconPosition={Link.iconPositions.START}
+            href="https://www.monday.com"
+            icon={ExternalPage}
+          />
+        ),
         description: "Use icon from the left or right side of the link"
       },
       negative: {
-        component: 
-        [
+        component: [
           <Link icon={Gallery} iconPosition={Link.iconPositions.END} />,
           <Link icon={ExternalPage} text="Read more" iconPosition={Link.iconPositions.END} />
         ],
@@ -135,13 +131,12 @@ Link is an actionable text componet with connection to another web pages.
         description: "Use only one link in context in text"
       },
       negative: {
-        component:
-         [
-            <Link text="Read this" href="https://www.monday.com"/>,
-            <span class="monday-storybook-link_text">or</span>,
-            <Link text="this" href="https://www.monday.com" />,
-            <Link text="Nice article" href="https://www.monday.com" />,
-         ],
+        component: [
+          <Link text="Read this" href="https://www.monday.com" />,
+          <span class="monday-storybook-link_text">or</span>,
+          <Link text="this" href="https://www.monday.com" />,
+          <Link text="Nice article" href="https://www.monday.com" />
+        ],
         description: "Don’t use multiple links near each other"
       }
     }
@@ -149,21 +144,35 @@ Link is an actionable text componet with connection to another web pages.
 />
 
 ## Use cases and examples
+
 ### Reference link
+
 Use this menu to allow a user to either select one or more items from the list.
+
 <Canvas>
   <Story name="Reference link">
-    <>Lorem Ipsum has been the industry's <Link text="standard" href="https://www.monday.com" /> dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </>
+    <div>
+      Lorem Ipsum has been the industry's{" "}
+      <Link inlineText inheritFontSize text="standard" href="https://www.monday.com" /> dummy text ever since the 1500s,
+      when an unknown printer took a galley of type and scrambled it to make a type specimen book.{" "}
+    </div>
   </Story>
 </Canvas>
 
 ### Shortening texts
-Use read more to shorten long paragraphs of text 
+
+Use read more to shorten long paragraphs of text
+
 <Canvas>
   <Story name="Shortening texts">
-    <>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<Link text="Read more..." href="https://www.monday.com" /></>
+    <div>
+      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+      galley of type and scrambled it to make a type specimen book.
+      <Link text=" Read more..." href="https://www.monday.com" inheritFontSize inlineText />
+    </div>
   </Story>
 </Canvas>
 
 ## Related components
+
 <RelatedComponents componentsNames={[BUTTON, BREADCRUBMS, CHIP]} />

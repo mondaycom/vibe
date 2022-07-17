@@ -165,7 +165,8 @@ const Button = forwardRef(
       leftFlat,
       preventClickAnimation,
       noSidePadding,
-      disabled
+      disabled,
+      insetFocus
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });

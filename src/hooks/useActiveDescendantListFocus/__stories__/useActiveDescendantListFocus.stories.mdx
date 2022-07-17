@@ -127,6 +127,11 @@ import styles from "./useActiveDescendantListFocus.module.scss"; import {
             type="{role, aria-activedescendant}"
             description="All the required props which should be defined inside the naturally focused element inside your component according to the accessibility standards"
         />
+        <FunctionArgument
+            name="setVisualFocusItemId"
+            type="(visualFocusItemId, isTriggeredByKeyboard) => {}"
+            description="A function for controlling the visual focused item from outside."
+        />
     </FunctionArgument>
 </FunctionArguments>
 
