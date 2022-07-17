@@ -19,7 +19,6 @@ $small-empty-state-height: 12px;
 // Main Heading (h1)
 @mixin font-main {
   @include base-font(var(--font-h1));
-  letter-spacing: -1px;
 }
 
 // Secondary Heading (h2)
@@ -100,6 +99,8 @@ $small-empty-state-height: 12px;
   &.size-small,
   &.size-medium {
     @include font-title();
+    letter-spacing: inherit;
+    font-family: var(--h1-font-family);
   }
 }
 
