@@ -86,12 +86,20 @@ function useActiveDescendantListFocus({
     setVisualFocusItemIndex
   });
 
+  // this callback function is not needed anymore (the developer not need to replace is element on click with this callback)
+  // and we keep returning it only for backward compatibility
+  const createOnItemClickCallback = useCallback(itemIndex => event => onItemClick(event, itemIndex), [onItemClick]);
+
   return {
     visualFocusItemIndex: triggerByKeyboard ? visualFocusItemIndex : undefined,
     visualFocusItemId: triggerByKeyboard ? visualFocusItemId : undefined,
     focusedElementProps: {
       "aria-activedescendant": triggerByKeyboard ? visualFocusItemId : undefined,
-      role: focusedElementRole
+      role: focusedElementRole,
+      // this callback function is not needed anymore (the developer not need to replace is element on click with this callback)
+      // and we keep returning it only for backward compatibility
+      onItemClickCallback: onItemClick,
+      createOnItemClickCallback
     }
   };
 }

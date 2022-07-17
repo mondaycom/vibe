@@ -127,7 +127,6 @@ const ComboboxOption = ({
         role="row"
         aria-level={belongToCategory ? 2 : 1}
         aria-selected={isActive}
-        tabIndex="-1"
         aria-label={ariaLabel || label}
         id={getOptionId(id, index)}
         onMouseEnter={onMouseEnter}
