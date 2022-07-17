@@ -1,5 +1,5 @@
 @import "./theme-mixin";
-
+$h1-medium-size: 22px;
 $h1-empty-state-height: 32px;
 $h2-empty-state-height: 24px;
 $h3-empty-state-height: 24px;
@@ -19,6 +19,7 @@ $small-empty-state-height: 12px;
 // Main Heading (h1)
 @mixin font-main {
   @include base-font(var(--font-h1));
+  letter-spacing: -1px;
 }
 
 // Secondary Heading (h2)
@@ -98,8 +99,8 @@ $small-empty-state-height: 12px;
   @include font-main();
   &.size-small,
   &.size-medium {
-    @include font-title();
-    letter-spacing: inherit;
+    font-size: $h1-medium-size;
+    line-height: var(--font-line-height-h2);
     font-family: var(--h1-font-family);
   }
 }
