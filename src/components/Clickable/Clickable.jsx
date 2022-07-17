@@ -26,6 +26,7 @@ const Clickable = forwardRef(
       ariaLabel,
       ariaHidden,
       ariaHasPopup,
+      ariaExpanded,
       tabIndex,
       disabled,
       style,
@@ -53,6 +54,7 @@ const Clickable = forwardRef(
         aria-label={ariaLabel}
         aria-hidden={ariaHidden}
         aria-haspopup={ariaHasPopup}
+        aria-expanded={ariaExpanded}
         onMouseDown={onMouseDown}
         style={style}
       >
@@ -81,6 +83,7 @@ Clickable.propTypes = {
   ariaLabel: PropTypes.string,
   ariaHidden: PropTypes.bool,
   ariaHasPopup: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  ariaExpanded: PropTypes.bool,
   tabIndex: PropTypes.string,
   style: PropTypes.object
 };
@@ -97,6 +100,7 @@ Clickable.defaultProps = {
   ariaLabel: undefined,
   ariaHidden: undefined,
   ariaHasPopup: undefined,
+  ariaExpanded: undefined,
   tabIndex: "0",
   style: undefined
 };
