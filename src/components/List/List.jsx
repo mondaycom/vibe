@@ -40,10 +40,12 @@ const List = forwardRef(
       } else {
         childrenRefs.current = childrenRefs.current.slice(0, override.length);
         override = React.Children.map(override, (child, index) =>
-          React.cloneElement(child, {
-            ref: ref => (childrenRefs.current[index] = ref),
-            tabIndex: focusIndex === index ? "0" : "-1"
-          })
+          typeof child === "string"
+            ? child
+            : React.cloneElement(child, {
+                ref: ref => (childrenRefs.current[index] = ref),
+                tabIndex: focusIndex === index ? 0 : -1
+              })
         );
       }
 
@@ -62,7 +64,7 @@ const List = forwardRef(
         id={id}
         aria-label={ariaLabel}
         aria-describedby={ariaDescribedBy}
-        tabIndex="-1"
+        tabIndex={-1}
       >
         {overrideChildren}
       </Component>
