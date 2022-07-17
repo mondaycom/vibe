@@ -7,13 +7,13 @@ $font-reg-size-14: 14px;
 $font-reg-size-16: 16px;
 $font-reg-size-18: 18px;
 $font-reg-size-24: 24px;
-$font-reg-size-32: 32px;
+$font-reg-size-30: 30px;
 
 // - Line heights (numeric units)
 $font-reg-line-height-18: 18px;
 $font-reg-line-height-24: 24px;
 $font-reg-line-height-32: 32px;
-$font-reg-line-height-52: 52px;
+$font-reg-line-height-42: 42px;
 
 // GLOBAL FONT TOKENS
 $font-size-base: $font-reg-size-16;
@@ -31,3 +31,6 @@ $h1-font-family: "Poppins", "Roboto", "Rubik", "Noto Kufi Arabic", "Noto Sans JP
 // - Font smoothing
 $font-smoothing-webkit: antialiased;
 $font-smoothing-moz: grayscale;
+
+// h1 letter spacing -0.1px
+// h2 letter spacing -0.2px
