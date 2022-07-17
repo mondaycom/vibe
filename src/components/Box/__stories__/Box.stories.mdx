@@ -1,0 +1,375 @@
+import { Box, Flex, Skeleton, Button, Heading, Icon } from "../../../components";
+import { ArgsTable, Story, Canvas, Meta, Preview } from "@storybook/addon-docs";
+import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { Time, Item } from "../../Icon/Icons";
+import { RelatedComponents, UsageGuidelines } from "../../../storybook";
+import {
+  DIVIDER,
+  FLEX,
+  DIALOG_CONTENT_CONTAINER
+} from "../../../storybook/components/related-components/component-description-map";
+import styles from "./Box.stories.module.scss";
+
+export const metaSettings = createStoryMetaSettings({
+  component: Box,
+  enumPropNamesArray: [
+    "className",
+    "id",
+    "children",
+    "disabled",
+    "border",
+    "borderColor",
+    "rounded",
+    "shadow",
+    "margin",
+    "marginX",
+    "marginY",
+    "marginTop",
+    "marginEnd",
+    "marginStart",
+    "padding",
+    "paddingX",
+    "paddingY",
+    "paddingTop",
+    "paddingEnd",
+    "paddingBottom",
+    "paddingStart",
+    "backgroundColor",
+    "textColor"
+  ]
+});
+
+<Meta title="Layout/Box" component={Box} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+
+<!--- Component template -->
+
+export const boxTemplate = args => {
+  return (
+    <div className={styles.boxWrapper}>
+      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM} {...args}></Box>
+    </div>
+  );
+};
+
+<!--- Component documentation -->
+
+# Box
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Box component is used as a wrapper component.
+
+Its purpose is to help scaffold compositions while using Vibe's prop keys without writing new CSS. <br/>It can be used as a container for
+atom based compositions, it can accept all Vibe style related props and have a semantic html tag.
+
+<Canvas>
+  <Story name="Overview" args={{ children: "Box composite component" }}>
+    {boxTemplate.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<ArgsTable of={Box} />
+
+## Usage
+
+<UsageGuidelines
+  guidelines={["Use as a styled container", "Use to add spacing, borders, and rounded corners to areas of content", "Use as an inner component for spacing or styles"]}
+/>
+
+<Tip title="Benefits of the Box component">Easily add Vibe styles without adding css</Tip>
+
+## Utility props
+
+### BACKGROUNDS COLORS
+
+<Canvas>
+  <Story name="Background colors">
+    <div className={styles.boxWrapper}>
+      <Box backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}>
+        Box.backgroundColors.PRIMARY_BACKGROUND_COLOR
+      </Box>
+      <Box backgroundColor={Box.backgroundColors.SECONDARY_BACKGROUND_COLOR}>
+        Box.backgroundColors.SECONDARY_BACKGROUND_COLOR
+      </Box>
+      <Box backgroundColor={Box.backgroundColors.GREY_BACKGROUND_COLOR}>Box.backgroundColors.GREY_BACKGROUND_COLOR</Box>
+      <Box backgroundColor={Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR}>
+        Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR
+      </Box>
+      <Box
+        textColor={Box.textColors.TEXT_COLOR_ON_INVERTED}
+        backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
+      >
+        Box.backgroundColors.INVERTED_COLOR_BACKGROUND
+      </Box>
+    </div>
+  </Story>
+</Canvas>
+
+### TEXT COLORS
+
+<Canvas>
+  <Story name="Text Colors">
+    <div className={styles.boxWrapper}>
+      <Box textColor={Box.textColors.PRIMARY_TEXT_COLOR}>Box.textColors.PRIMARY_textColor_COLOR</Box>
+      <Box
+        backgroundColor={Box.backgroundColors.INVERTED_COLOR_BACKGROUND}
+        textColor={Box.textColors.TEXT_COLOR_ON_INVERTED}
+      >
+        Box.textColors.textColor_COLOR_ON_INVERTED
+      </Box>
+      <Box textColor={Box.textColors.SECONDARY_TEXT_COLOR}>Box.textColors.SECONDARY_textColor_COLOR</Box>
+    </div>
+  </Story>
+</Canvas>
+
+### BORDER
+
+<Canvas>
+  <Story name="Border ">
+    <div className={styles.boxWrapper}>
+      <Box border={Box.borders.DEFAULT}>Box.borders.DEFAULT</Box>
+    </div>
+  </Story>
+</Canvas>
+
+### BORDER COLOR
+
+<Canvas>
+  <Story name="Border Color">
+    <div className={styles.boxWrapper}>
+      <Box border={Box.borders.DEFAULT} borderColor={Box.borderColors.UI_BORDER_COLOR}>
+        Box.borderColors.UI_BORDER_COLOR}
+      </Box>
+      <Box border={Box.borders.DEFAULT} borderColor={Box.borderColors.LAYOUT_BORDER_COLOR}>
+        Box.borderColors.LAYOUT_BORDER_COLOR}
+      </Box>
+    </div>
+  </Story>
+</Canvas>
+
+### ROUNDED CORNERS
+
+#### Size props
+
+<Canvas>
+  <Story name="Round Corners">
+    <div className={styles.boxWrapper}>
+      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.SMALL}>
+        Box.roundeds.SMALL
+      </Box>
+      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.MEDIUM}>
+        Box.roundeds.MEDIUM
+      </Box>
+      <Box border={Box.borders.DEFAULT} rounded={Box.roundeds.BIG}>
+        Box.roundeds.BIG
+      </Box>
+    </div>
+  </Story>
+</Canvas>
+
+### SHADOW
+
+<Canvas>
+  <Story name="Shadow">
+    <div className={styles.boxWrapper}>
+      <Box shadow={Box.shadows.XS}>Box.shadows.XS</Box>
+      <Box shadow={Box.shadows.SMALL}>Box.shadows.SMALL</Box>
+      <Box shadow={Box.shadows.MEDIUM}>Box.shadows.MEDIUM</Box>
+      <Box shadow={Box.shadows.LARGE}>Box.shadows.LARGE</Box>
+    </div>
+  </Story>
+</Canvas>
+
+### MARGIN
+
+#### Size props
+
+<Canvas>
+  <Story name="Margin">
+    <div className={styles.boxWrapper}>
+      <div className={styles.boxMarginWrapper}>
+        <Box
+          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
+          border={Box.borders.DEFAULT}
+          margin={Box.margins.NONE}
+        >
+          Box.margins.NONE
+        </Box>
+      </div>
+      <div className={styles.boxMarginWrapper}>
+        <Box
+          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
+          border={Box.borders.DEFAULT}
+          margin={Box.margins.XS}
+        >
+          Box.margins.XS
+        </Box>
+      </div>
+      <div className={styles.boxMarginWrapper}>
+        <Box
+          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
+          border={Box.borders.DEFAULT}
+          margin={Box.margins.SMALL}
+        >
+          Box.margins.SMALL
+        </Box>
+      </div>
+      <div className={styles.boxMarginWrapper}>
+        <Box
+          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
+          border={Box.borders.DEFAULT}
+          margin={Box.margins.MEDIUM}
+        >
+          Box.margins.MEDIUM
+        </Box>
+      </div>
+      <div className={styles.boxMarginWrapper}>
+        <Box
+          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
+          border={Box.borders.DEFAULT}
+          margin={Box.margins.LARGE}
+        >
+          Box.margins.LARGE
+        </Box>
+      </div>
+      <div className={styles.boxMarginWrapper}>
+        <Box
+          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
+          border={Box.borders.DEFAULT}
+          margin={Box.margins.XL}
+        >
+          Box.margins.XL
+        </Box>
+      </div>
+      <div className={styles.boxMarginWrapper}>
+        <Box
+          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
+          border={Box.borders.DEFAULT}
+          margin={Box.margins.XXL}
+        >
+          Box.margins.XXL
+        </Box>
+      </div>
+      <div className={styles.boxMarginWrapper}>
+        <Box
+          backgroundColor={Box.backgroundColors.PRIMARY_BACKGROUND_COLOR}
+          border={Box.borders.DEFAULT}
+          margin={Box.margins.XXXL}
+        >
+          Box.margins.XXXL
+        </Box>
+      </div>
+    </div>
+  </Story>
+</Canvas>
+
+#### Property variations per each size:
+
+```
+margin
+marginX (x axis: left, right)
+marginY (y axis: top, bottom)
+marginTop
+marginEnd
+marginBottom
+marginStart
+```
+
+#### Aligning Auto and none
+
+each property variation can hold additional values for:
+
+```
+AUTO
+NONE
+```
+
+### PADDING
+
+#### Size props
+
+<Canvas>
+  <Story name="Padding">
+    <div className={styles.boxWrapper}>
+      <div className={styles.boxPaddingWrapper}>
+        <Box border={Box.borders.DEFAULT} padding={Box.paddings.NONE}>
+          <div className={styles.boxPaddingInner}>Box.paddings.NONE</div>
+        </Box>
+      </div>
+      <div className={styles.boxPaddingWrapper}>
+        <Box border={Box.borders.DEFAULT} padding={Box.paddings.XS}>
+          <div className={styles.boxPaddingInner}>Box.paddings.XS</div>
+        </Box>
+      </div>
+      <div className={styles.boxPaddingWrapper}>
+        <Box border={Box.borders.DEFAULT} padding={Box.paddings.SMALL}>
+          <div className={styles.boxPaddingInner}>Box.paddings.SMALL</div>
+        </Box>
+      </div>
+      <div className={styles.boxPaddingWrapper}>
+        <Box border={Box.borders.DEFAULT} padding={Box.paddings.MEDIUM}>
+          <div className={styles.boxPaddingInner}>Box.paddings.MEDIUM</div>
+        </Box>
+      </div>
+      <div className={styles.boxPaddingWrapper}>
+        <Box border={Box.borders.DEFAULT} padding={Box.paddings.LARGE}>
+          <div className={styles.boxPaddingInner}>Box.paddings.LARGE</div>
+        </Box>
+      </div>
+      <div className={styles.boxPaddingWrapper}>
+        <Box border={Box.borders.DEFAULT} padding={Box.paddings.XL}>
+          <div className={styles.boxPaddingInner}>Box.paddings.XL</div>
+        </Box>
+      </div>
+      <div className={styles.boxPaddingWrapper}>
+        <Box border={Box.borders.DEFAULT} padding={Box.paddings.XXL}>
+          <div className={styles.boxPaddingInner}>Box.paddings.XXL</div>
+        </Box>
+      </div>
+      <div className={styles.boxPaddingWrapper}>
+        <Box border={Box.borders.DEFAULT} padding={Box.paddings.XXXL}>
+          <div className={styles.boxPaddingInner}>Box.paddings.XXXL</div>
+        </Box>
+      </div>
+    </div>
+  </Story>
+</Canvas>
+
+#### Property variations per each size:
+
+```
+padding
+paddingX (x axis: left, right)
+paddingY (y axis: top, bottom)
+paddingTop
+paddingEnd
+paddingBottom
+paddingStart
+```
+
+### Component Disabled
+
+<Canvas>
+  <Story name="Disabled">
+    <div className={styles.boxWrapper}>
+      <Box backgroundColor={Box.backgroundColors.ALL_GREY_BACKGROUND_COLOR} border={Box.borders.DEFAULT} disabled>
+        Box.disabled.DISABLED
+      </Box>
+    </div>
+  </Story>
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[FLEX, DIVIDER, DIALOG_CONTENT_CONTAINER]} />
