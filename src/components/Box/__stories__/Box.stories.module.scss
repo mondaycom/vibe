@@ -1,0 +1,62 @@
+@import "../../../styles/themes";
+
+.boxWrapper {
+  max-width: 100%;
+  width: 100%;
+
+  > * {
+    margin-bottom: var(--spacing-medium);
+    padding: var(--spacing-large);
+    font-family: monospace;
+  }
+}
+
+.boxWrapperExample {
+  max-width: 100%;
+  width: 100%;
+
+  > * {
+    margin-bottom: inherit;
+    padding: inherit;
+    font-family: inherit;
+  }
+}
+
+.boxMarginWrapper {
+  overflow: hidden;
+  margin: 0;
+  min-height: inherit;
+  padding: 0;
+  background-color: var(--grey-background-color);
+  border-bottom: 1px solid var(--inverted-color-background);
+}
+
+.boxPaddingWrapper {
+  overflow: hidden;
+  padding: 0;
+
+  > * {
+    position: relative;
+    padding: 0;
+    background: white;
+
+    &::before {
+      background-color: var(--color-error-highlight);
+      opacity: 0.5;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      content: "";
+    }
+  }
+}
+
+.boxPaddingInner {
+  background: white;
+  position: relative;
+}

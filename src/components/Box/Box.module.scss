@@ -1,0 +1,15 @@
+@import "../../styles/themes";
+
+// Monday ui styles dependencies
+@import "~monday-ui-style/src/common";
+
+// Utilities map
+@import "../../styles/utilities/utilities-settings";
+
+.box{
+  overflow: hidden;
+}
+
+// Generating Utility class locally for Box component
+@include utility-class-factory($utilities-modules, $export: "modules");
+

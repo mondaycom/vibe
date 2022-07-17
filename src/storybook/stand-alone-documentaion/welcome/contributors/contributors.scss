@@ -1,18 +1,19 @@
 @import "../../../../styles/global-css-settings";
 @import "../../../styles/content-spacing";
 
-$contributor-cell-min-width: 280px;
+$contributor-cell-min-width: $grid-auto-fit-cell-width-large;
+$contributor-grid-column-gap: $spacing-large;
+$contributor-grid-row-gap: 90px;
+$contributor-grid-cell-array-calc: calc(33.3% - #{$contributor-grid-column-gap});
 
 .monday-storybook-welcome-contributors {
   margin-top: 68px;
 
   @include grid-auto-fit(
-          $grid-column-gap: $spacing-large,
-          $grid-row-gap: 90px,
-          $grid-cell-min-width: $contributor-cell-min-width
-  );
-
-
+          $grid-column-gap: $contributor-grid-column-gap,
+          $grid-row-gap: $contributor-grid-row-gap,
+          $grid-cell-min-width: $contributor-cell-min-width,
+          $grid-cell-array-calc: $contributor-grid-cell-array-calc);
 
   &_contributor {
     &--bg-pattern-1 {
@@ -35,4 +36,5 @@ $contributor-cell-min-width: 280px;
       background-image: url("../assets/BackgroundPattern5.png");
     }
   }
+
 }
