@@ -13,35 +13,23 @@ const List = forwardRef(
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const Component = component;
     const childrenRefs = useRef([]);
-    const changeFocus = focusIndex => {
-      setFocusIndex(focusIndex);
-      childrenRefs.current[focusIndex].focus();
-    };
     const onKeyDown = useCallback(
       event => {
         const isUpKey = event.keyCode === keyCodes.UP_ARROW;
         const isDownKey = event.keyCode === keyCodes.DOWN_ARROW;
+        let overrideFocusIndex = undefined;
         if (isUpKey || isDownKey) {
           if (isDownKey && focusIndex + 1 < childrenRefs.current.length) {
-            changeFocus(focusIndex + 1);
+            overrideFocusIndex = focusIndex + 1;
           } else if (isUpKey && focusIndex > 0) {
-            changeFocus(focusIndex - 1);
+            overrideFocusIndex = focusIndex - 1;
           }
           event.preventDefault();
-        }
-      },
-      [focusIndex]
-    );
-    const childMapping = useCallback(
-      (child, index) => {
-        return {
-          ...child,
-          ref: ref => (childrenRefs.current[index] = ref),
-          props: {
-            ...child.props,
-            tabIndex: focusIndex === index ? "0" : "-1"
+          if (overrideFocusIndex !== undefined) {
+            setFocusIndex(overrideFocusIndex);
+            childrenRefs.current[overrideFocusIndex].focus();
           }
-        };
+        }
       },
       [focusIndex]
     );
@@ -50,11 +38,17 @@ const List = forwardRef(
       if (renderOnlyVisibleItems) {
         override = <VirtualizedListItems>{override}</VirtualizedListItems>;
       } else {
-        override = override.map(childMapping);
+        childrenRefs.current = childrenRefs.current.slice(0, override.length);
+        override = React.Children.map(override, (child, index) =>
+          React.cloneElement(child, {
+            ref: ref => (childrenRefs.current[index] = ref),
+            tabIndex: focusIndex === index ? "0" : "-1"
+          })
+        );
       }
 
       return override;
-    }, [childMapping, children, renderOnlyVisibleItems]);
+    }, [children, focusIndex, renderOnlyVisibleItems]);
 
     return (
       <Component
