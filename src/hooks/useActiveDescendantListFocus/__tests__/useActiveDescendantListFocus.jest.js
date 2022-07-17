@@ -52,6 +52,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusItemIndex }) {
     });
     let before = result.current.visualFocusItemIndex;
     const keyboardTimes = 2;
+
     for (let i = 0; i < keyboardTimes; i++) {
       act(() => {
         // move visual focus to first item
@@ -60,6 +61,34 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusItemIndex }) {
     }
 
     expect(result.current.visualFocusItemIndex).toEqual(before + keyboardTimes);
+  });
+
+  it("should keep visual focus on same item after item list changed", async () => {
+    const onItemClick = jest.fn();
+    const { result, rerender } = renderHookForTest({
+      onItemClick,
+      defaultVisualFocusItemIndex
+    });
+    const moveForwardKey = "{arrowDown}";
+    act(() => {
+      // set focus on the list's element which in charge on natural focus element
+      element.focus();
+    });
+    for (let idx = 0; idx < 3; idx++) {
+      act(() => {
+        userEvent.keyboard(moveForwardKey);
+      });
+    }
+
+    const beforeIndex = result.current.visualFocusItemIndex;
+    const beforeId = result.current.visualFocusItemId;
+
+    const removeItems = 2;
+    const itemsAfterRemove = ITEM_IDS.slice(removeItems);
+    rerender({ itemsIds: itemsAfterRemove });
+
+    expect(result.current.visualFocusItemId).toEqual(beforeId);
+    expect(result.current.visualFocusItemIndex).toEqual(beforeIndex - removeItems);
   });
 
   it("should trigger onClick when focused element has natural focus and user navigate to item and press enter", async () => {
@@ -115,7 +144,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusItemIndex }) {
     expect(result.current.visualFocusItemIndex).toEqual(3);
   });
 
-  it("no visual focus if no focus", async () => {
+  it("should not return any visual focus if wrapper is not focused", async () => {
     const onItemClick = jest.fn();
     const { result } = renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusItemIndex });
 
@@ -195,35 +224,8 @@ describe("useActiveDescendantListFocus", () => {
 
   describe("defaultVisualFocusItemIndex option", () => {
     const defaultVisualFocusItemIndex = 0;
-    it("should focus same item after item changed", async () => {
-      const onItemClick = jest.fn();
-      const { result, rerender } = renderHookForTest({
-        onItemClick,
-        defaultVisualFocusItemIndex
-      });
-      const moveForwardKey = "{arrowDown}";
-      act(() => {
-        // set focus on the list's element which in charge on natural focus element
-        element.focus();
-      });
-      for (let idx = 0; idx < 3; idx++) {
-        act(() => {
-          userEvent.keyboard(moveForwardKey);
-        });
-      }
 
-      const beforeIndex = result.current.visualFocusItemIndex;
-      const beforeId = result.current.visualFocusItemId;
-
-      const removeItems = 2;
-      const itemsAfterRemove = ITEM_IDS.slice(removeItems);
-      rerender({ itemsIds: itemsAfterRemove });
-
-      expect(result.current.visualFocusItemId).toEqual(beforeId);
-      expect(result.current.visualFocusItemIndex).toEqual(beforeIndex - removeItems);
-    });
-
-    it("should visually focus on the first item when menu is focused", async () => {
+    it("should visually focus on defaultVisualFocusItemIndex item when wrapper element is focused (not by mouse)", async () => {
       const onItemClick = jest.fn();
       const { result } = renderHookForTest({ onItemClick, defaultVisualFocusItemIndex });
 
@@ -235,7 +237,7 @@ describe("useActiveDescendantListFocus", () => {
       expect(result.current.visualFocusItemIndex).toEqual(0);
     });
 
-    it("should focus first selectable one only", async () => {
+    it("should visually focus on closest item to defaultVisualFocusItemIndex when wrapper element is focused and defaultVisualFocusItemIndex is disable (not by mouse) ", async () => {
       const onItemClick = jest.fn();
       const isItemSelectable = i => i >= 3;
       const { result } = renderHookForTest({ onItemClick, defaultVisualFocusItemIndex, isItemSelectable });
@@ -250,7 +252,7 @@ describe("useActiveDescendantListFocus", () => {
   });
 
   describe("no defaultVisualFocusItemIndex option", () => {
-    it("should not set any item as visually focus when menu is focused", async () => {
+    it("should not set any item as visually focus when wrapper element is focused", async () => {
       const onItemClick = jest.fn();
       const { result } = renderHookForTest({ onItemClick });
 
