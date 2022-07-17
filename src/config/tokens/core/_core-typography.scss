@@ -40,7 +40,7 @@ $font-line-height-paragraph: var(--font-line-height-30);
 $font-line-height-subtext: var(--font-line-height-10);
 
 // - Font definition shorthands per semantics atom definitions
-$font-h1: var(--font-weight-bold) var(--font-size-h1) / var(--font-line-height-h1) var(--font-family);
+$font-h1: var(--font-weight-bold) var(--font-size-h1) / var(--font-line-height-h1) var(--h1-font-family);
 $font-h2: var(--font-weight-bold) var(--font-size-h2) / var(--font-line-height-h2) var(--font-family);
 $font-h3: var(--font-weight-light) var(--font-size-h3) / var(--font-line-height-h3) var(--font-family);
 $font-h4: var(--font-weight-bold) var(--font-size-h4) / var(--font-line-height-h4) var(--font-family);
