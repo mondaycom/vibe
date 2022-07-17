@@ -38,6 +38,9 @@ import { MenuButtonDescription } from "./descriptions/menu-button-description";
 import { ClickableDescription } from "./descriptions/clickable-description/clickable-description";
 import { HiddenTextDescription } from "./descriptions/hidden-text-description";
 import { ListDescription } from "./descriptions/list";
+import { FlexDescription } from "./descriptions/flex";
+import { DividerDescription } from "./descriptions/divider";
+import { DialogContentContainerDescription } from "./descriptions/dialog-content-container";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -75,6 +78,9 @@ export const MENU_BUTTON = "menu-button";
 export const CLICKABLE = "clickable";
 export const HIDDEN_TEXT = "hidden-text-description";
 export const LIST = "list";
+export const FLEX = "flex";
+export const DIVIDER = "divider";
+export const DIALOG_CONTENT_CONTAINER = "dialog-content-container-description";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
@@ -120,6 +126,9 @@ descriptionTypesMap.set(HEADING, <HeadingDescription />);
 descriptionTypesMap.set(CLICKABLE, <ClickableDescription />);
 descriptionTypesMap.set(HIDDEN_TEXT, <HiddenTextDescription />);
 descriptionTypesMap.set(LIST, <ListDescription />);
+descriptionTypesMap.set(FLEX, <FlexDescription />);
+descriptionTypesMap.set(DIVIDER, <DividerDescription />);
+descriptionTypesMap.set(DIALOG_CONTENT_CONTAINER, <DialogContentContainerDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);
