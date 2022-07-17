@@ -12,7 +12,7 @@ const ITEM_IDS = [FIRST_ITEM_ID, SECOND_ITEM_ID, THIRD_ITEM_ID, FOURTH_ITEM_ID, 
 
 function renderHookForTest({
   onItemClick = jest.fn(),
-  defaultVisualFocusFirstItem = false,
+  defaultVisualFocusItemIndex = -1,
   isItemSelectable = () => true,
   isHorizontal = false
 }) {
@@ -24,7 +24,7 @@ function renderHookForTest({
     focusedElementRef: {
       current: element
     },
-    defaultVisualFocusFirstItem,
+    defaultVisualFocusItemIndex,
     itemsIds: ITEM_IDS,
     isItemSelectable: isItemSelectable,
     onItemClick,
@@ -33,13 +33,13 @@ function renderHookForTest({
   return renderHook(argprops => useActiveDescendantListFocus({ ...props, ...argprops }));
 }
 
-function runListUnitTest({ isHorizontal, defaultVisualFocusFirstItem }) {
+function runListUnitTest({ isHorizontal, defaultVisualFocusItemIndex }) {
   const moveForwardKey = isHorizontal ? "{arrowRight}" : "{arrowDown}";
   const oppositeMoveForwardKey = !isHorizontal ? "{arrowRight}" : "{arrowDown}";
 
   it("should focus index + 1 item when user press keyboard forward", async () => {
     const onItemClick = jest.fn();
-    const { result } = renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusFirstItem });
+    const { result } = renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusItemIndex });
 
     act(() => {
       // set focus on the list's element which in charge on natural focus element
@@ -64,7 +64,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstItem }) {
 
   it("should trigger onClick when focused element has natural focus and user navigate to item and press enter", async () => {
     const onItemClick = jest.fn();
-    renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusFirstItem });
+    renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusItemIndex });
 
     act(() => {
       // set focus on the list's element which in charge on natural focus element
@@ -84,7 +84,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstItem }) {
 
   it("should not trigger onClick when focused element does not have natural focus and user navigate to item and press enter", async () => {
     const onItemClick = jest.fn();
-    renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusFirstItem });
+    renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusItemIndex });
 
     act(() => {
       // move visual focus to first item
@@ -102,7 +102,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstItem }) {
   it("should skip not selectable item when user try to navigate to it", async () => {
     const onItemClick = jest.fn();
     const isItemSelectable = i => i >= 3;
-    const { result } = renderHookForTest({ onItemClick, isItemSelectable, isHorizontal, defaultVisualFocusFirstItem });
+    const { result } = renderHookForTest({ onItemClick, isItemSelectable, isHorizontal, defaultVisualFocusItemIndex });
 
     act(() => {
       // set focus on the list's element which in charge on natural focus element
@@ -117,14 +117,14 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstItem }) {
 
   it("no visual focus if no focus", async () => {
     const onItemClick = jest.fn();
-    const { result } = renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusFirstItem });
+    const { result } = renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusItemIndex });
 
     expect(result.current.visualFocusItemIndex).toEqual(undefined);
   });
 
   it("should not navigate to next item when user try to navigate by using keys for the  opposite dimension to the list dimension ", async () => {
     const onItemClick = jest.fn();
-    const { result } = renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusFirstItem });
+    const { result } = renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusItemIndex });
 
     act(() => {
       // set focus on the list's element which in charge on natural focus element
@@ -180,7 +180,7 @@ describe("useActiveDescendantListFocus", () => {
 
   const features = {
     isHorizontal: { yes: "Horizontal", no: "Vertical" },
-    defaultVisualFocusFirstItem: { yes: "KeepOpen", no: "" }
+    defaultVisualFocusItemIndex: { yes: "KeepOpen", no: "" }
   };
 
   const featureCombinations = combineFeatures(Object.keys(features));
@@ -193,11 +193,14 @@ describe("useActiveDescendantListFocus", () => {
     });
   }
 
-  describe("defaultVisualFocusFirstItem option", () => {
-    const defaultVisualFocusFirstItem = true;
+  describe("defaultVisualFocusItemIndex option", () => {
+    const defaultVisualFocusItemIndex = 0;
     it("should focus same item after item changed", async () => {
       const onItemClick = jest.fn();
-      const { result, rerender } = renderHookForTest({ onItemClick, defaultVisualFocusFirstItem });
+      const { result, rerender } = renderHookForTest({
+        onItemClick,
+        defaultVisualFocusItemIndex
+      });
       const moveForwardKey = "{arrowDown}";
       act(() => {
         // set focus on the list's element which in charge on natural focus element
@@ -222,7 +225,7 @@ describe("useActiveDescendantListFocus", () => {
 
     it("should visually focus on the first item when menu is focused", async () => {
       const onItemClick = jest.fn();
-      const { result } = renderHookForTest({ onItemClick, defaultVisualFocusFirstItem });
+      const { result } = renderHookForTest({ onItemClick, defaultVisualFocusItemIndex });
 
       act(() => {
         // set focus on the list's element which in charge on natural focus element
@@ -235,7 +238,7 @@ describe("useActiveDescendantListFocus", () => {
     it("should focus first selectable one only", async () => {
       const onItemClick = jest.fn();
       const isItemSelectable = i => i >= 3;
-      const { result } = renderHookForTest({ onItemClick, defaultVisualFocusFirstItem, isItemSelectable });
+      const { result } = renderHookForTest({ onItemClick, defaultVisualFocusItemIndex, isItemSelectable });
 
       act(() => {
         // set focus on the list's element which in charge on natural focus element
@@ -246,12 +249,10 @@ describe("useActiveDescendantListFocus", () => {
     });
   });
 
-  describe("no defaultVisualFocusFirstItem option", () => {
-    const defaultVisualFocusFirstItem = false;
-
+  describe("no defaultVisualFocusItemIndex option", () => {
     it("should not set any item as visually focus when menu is focused", async () => {
       const onItemClick = jest.fn();
-      const { result } = renderHookForTest({ onItemClick, defaultVisualFocusFirstItem });
+      const { result } = renderHookForTest({ onItemClick });
 
       act(() => {
         // set focus on the list's element which in charge on natural focus element

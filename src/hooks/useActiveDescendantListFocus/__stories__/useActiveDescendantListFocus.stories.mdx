@@ -51,9 +51,7 @@ import styles from "./useActiveDescendantListFocus.module.scss"; import {
       }, []);
       const {
           focusedElementProps,
-          visualFocusItemIndex,
           visualFocusItemId,
-          createOnItemClickCallback,
       } = useActiveDescendantListFocus({
           focusedElementRef,
           focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
@@ -63,26 +61,28 @@ import styles from "./useActiveDescendantListFocus.module.scss"; import {
           isHorizontalList: false,
           isIgnoreSpaceAsItemSelection: true
       });
+        console.log(focusedElementProps,
+            visualFocusItemId);
         return (
           <Flex direction={Flex.directions.COLUMN}>
               <Search ref={focusedElementRef} role={focusedElementProps.role} activeDescendant={focusedElementProps["aria-activedescendant"]}/>
               <ul>
                   <li
-                      onClick={createOnItemClickCallback(0)}
+                      onClick={onItemClick}
                       className={cx({[styles.visualFocus] : visualFocusItemId === "id-1"})}
                       id="id-1"
                       key="id-1">
                       Item 1
                   </li>
                   <li
-                      onClick={createOnItemClickCallback(1)}
+                      onClick={onItemClick}
                       className={cx({[styles.visualFocus] : visualFocusItemId === "id-2"})}
                       id="id-2"
                       key="id-2">
                       Item 2
                   </li>
                   <li
-                      onClick={createOnItemClickCallback(2)}
+                      onClick={onItemClick}
                       className={cx({[styles.visualFocus] : visualFocusItemId === "id-3"})}
                       id="id-3"
                       key="id-3">
