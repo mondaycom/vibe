@@ -24,16 +24,19 @@ const Heading = ({
   tooltipPosition,
   highlightTerm,
   suggestEditOnHover,
+  brandFont,
   nonEllipsisTooltip // tooltip to show when no overflow
 }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines)
   );
   const finalStyle = useStyle(style, { color: customColor });
+  console.log(brandFont);
   const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
-    "suggest-edit-on-hover": suggestEditOnHover
+    "suggest-edit-on-hover": suggestEditOnHover,
+    "brand-font":  brandFont
   });
   const Element = React.createElement(
     type,
@@ -96,7 +99,8 @@ Heading.propTypes = {
   nonEllipsisTooltip: PropTypes.string,
   size: PropTypes.oneOf([Heading.sizes.SMALL, Heading.sizes.MEDIUM, Heading.sizes.LARGE]),
   highlightTerm: PropTypes.string,
-  customColor: PropTypes.string
+  customColor: PropTypes.string,
+  brandFont: PropTypes.bool
 };
 
 Heading.defaultProps = {
@@ -111,6 +115,7 @@ Heading.defaultProps = {
   nonEllipsisTooltip: null,
   size: SIZES.LARGE,
   highlightTerm: null,
+  brandFont: false,
   customColor: undefined
 };
 
