@@ -1,5 +1,5 @@
-import { SIZES } from "constants/sizes";
-import React, { useLayoutEffect } from "react";
+import {SIZES} from "constants/sizes";
+import React, {useLayoutEffect} from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Tooltip from "components/Tooltip/Tooltip";
