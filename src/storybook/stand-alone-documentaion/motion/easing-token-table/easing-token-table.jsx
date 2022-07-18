@@ -18,7 +18,7 @@ export const EasingTokenTable = () => {
     },
     {
       id: "4",
-      items: ["--motion-timing-emphesize - short", "Emphasized easing draws extra attention", "(0,0,0.2,1.4)", null]
+      items: ["--motion-timing-emphesize", "Emphasized easing draws extra attention", "(0,0,0.2,1.4)", null]
     }
   ];
   return (
