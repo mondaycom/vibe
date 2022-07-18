@@ -1,0 +1,21 @@
+@import "../../../../styles/global-css-settings";
+
+$duration-grid-column-gap:  var(--spacing-large);
+$duration-cell-min-width: $grid-auto-fit-cell-width-medium;
+$duration-grid-cell-array-calc: calc(33.3% - #{$duration-grid-column-gap});
+$duration-grid-row-gap: var(--spacing-xxl);
+
+.durationTokensGrid {
+  @include grid-auto-fit(
+          $grid-column-gap: $duration-grid-column-gap,
+          $grid-row-gap: $duration-grid-row-gap,
+          $grid-cell-min-width: $duration-cell-min-width,
+          $grid-cell-array-calc: $duration-grid-cell-array-calc);
+  margin-bottom:var(--spacing-xxxl);
+
+  * video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
