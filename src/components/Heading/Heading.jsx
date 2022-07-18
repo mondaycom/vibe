@@ -1,5 +1,5 @@
-import {SIZES} from "constants/sizes";
-import React, {useLayoutEffect} from "react";
+import { SIZES } from "constants/sizes";
+import React, { useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Tooltip from "components/Tooltip/Tooltip";
@@ -36,7 +36,7 @@ const Heading = ({
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
     "suggest-edit-on-hover": suggestEditOnHover,
-    "brand-font":  brandFont
+    "brand-font": brandFont
   });
   const Element = React.createElement(
     type,
