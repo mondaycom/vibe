@@ -14,7 +14,8 @@ const DURATION_EXPRESSIVE = [
     title: "Large motion - 400ms",
     description: "System alerts, notifications, attentions, and mediations that enter the screen with movement.",
     tokenDescription: "--motion-expressive-long"
-  }
+  },
+  {}
 ];
 
 export const DurationExpressiveTokens = () => {
