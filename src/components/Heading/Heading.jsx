@@ -31,7 +31,6 @@ const Heading = ({
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines)
   );
   const finalStyle = useStyle(style, { color: customColor });
-  console.log(brandFont);
   const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
