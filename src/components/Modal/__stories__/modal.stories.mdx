@@ -4,7 +4,11 @@ import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import "./Modal.stories.scss";
 import { ModalContent, ModalFooter, ModalHeader, TextField } from "components";
-import {TOOLTIP, ALERT_BANNER, Tipseen } from "../../../storybook/components/related-components/component-description-map";
+import {
+  TOOLTIP,
+  ALERT_BANNER,
+  Tipseen
+} from "../../../storybook/components/related-components/component-description-map";
 import { Settings } from "components/Icon/Icons";
 import { RelatedComponents } from "../../../storybook";
 
@@ -15,7 +19,13 @@ export const metaSettings = createStoryMetaSettings({
   actionPropsArray: [] // List the component's actions here
 });
 
-<Meta title="Feedback/Modal" component={Modal} argTypes={metaSettings.argTypes} decorators={metaSettings.decorators} />
+<Meta
+  title="Feedback/Modal"
+  component={Modal}
+  subcomponents={{ModalHeader, ModalContent, ModalFooter}}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
 
 <!--- Component documentation -->
 
@@ -69,7 +79,10 @@ An easy to use accessible Modal component
 You show/hide the Modal by passing the <b>show</b> prop. This gives you complete control on when to show and hide the Modal.
 One thing to consider is when the user initiate closing the Modal by
 
-### Modal content
+### Composing the Modal
+#### Header
+#### Content
+#### Footer and Buttons
 
 ### Design and customizations
 
@@ -102,48 +115,6 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
             closeButtonAriaLabel={"close"}
           >
             <p>Use the close button to dismiss this Modal.</p>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Modal with a form
-
-<UsageGuidelines
-  guidelines={[
-    "The Modal is capturing the focus. Use TAB ket to jump throw the close button and the inputs.",
-    "Use Alert Modal so the user won't close the Modal by mistake and loose changes."
-  ]}
-/>
-
-<Canvas>
-  <Story name="Form Modal">
-    {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper();
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            isAlertDialog
-            closeButtonAriaLabel={"close"}
-          >
-            <ModalContent>
-              <form>
-                <TextField title="Your Name" autoFocus size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              </form>
-            </ModalContent>
             <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
@@ -206,6 +177,48 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
 </Canvas>
 
 ## Use cases and examples
+
+### Modal with a form
+
+<UsageGuidelines
+  guidelines={[
+    "The Modal is capturing the focus. Use TAB ket to jump throw the close button and the inputs.",
+    "Use Alert Modal so the user won't close the Modal by mistake and loose changes."
+  ]}
+/>
+
+<Canvas>
+  <Story name="Form Modal">
+    {() => {
+      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper();
+      return (
+        <div>
+          {openModalButton}
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            isAlertDialog
+            closeButtonAriaLabel={"close"}
+          >
+            <ModalContent>
+              <form>
+                <TextField title="Your Name" autoFocus size={TextField.sizes.MEDIUM} placeholder="John Doe" />
+                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
+              </form>
+            </ModalContent>
+            <ModalFooter>{modalButtons}</ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ### Modal with vertical scroll
 
@@ -306,4 +319,5 @@ Header with description and icon
 </Canvas>
 
 ## Related components
-<RelatedComponents componentsNames={[ TOOLTIP, ALERT_BANNER, Tipseen]} />
+
+<RelatedComponents componentsNames={[TOOLTIP, ALERT_BANNER, Tipseen]} />
