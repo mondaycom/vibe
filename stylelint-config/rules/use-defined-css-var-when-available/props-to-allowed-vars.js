@@ -53,20 +53,19 @@ const FONT_LINE_HEIGHTS = [
 ];
 
 const ANIMATION_TIMING = [
-  "--animation-timing-enter",
-  "--animation-timing-exit",
-  "--animation-timing-transition",
-  "--animation-timing-emphasize",
+  "--motion-timing-enter",
+  "--motion-timing-exit",
+  "--motion-timing-transition",
+  "--motion-timing-emphasize",
   "--expand-animation-timing"
 ];
 
 const ANIMATION_DURATION = [
-  "--animation-productive-short",
-  "--animation-productive-medium",
-  "--animation-productive-long",
-  "--animation-expressive-short",
-  "--animation-expressive-medium",
-  "--animation-expressive-long"
+  "--motion-productive-short",
+  "--motion-productive-medium",
+  "--motion-productive-long",
+  "--motion-expressive-short",
+  "--motion-expressive-long"
 ];
 
 const SPACING_PROPS = [

@@ -2,35 +2,34 @@
 // This partial defines global motion tokens
 
 // ## Registration: not exposed externally
-$animation-duration-70ms: 70ms;
-$animation-duration-100ms: 100ms;
-$animation-duration-150ms: 150ms;
-$animation-duration-250ms: 250ms;
-$animation-duration-400ms: 400ms;
+$motion-duration-70ms: 70ms;
+$motion-duration-100ms: 100ms;
+$motion-duration-150ms: 150ms;
+$motion-duration-250ms: 250ms;
+$motion-duration-400ms: 400ms;
 
-$animation-easing-in: cubic-bezier(0, 0, 0.35, 1);
-$animation-easing-out: cubic-bezier(0.4, 0, 1, 1);
-$animation-easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-$easing-in-elastic: cubic-bezier(0, 0, 0.2, 1.4);
+$motion-easing-in: cubic-bezier(0, 0, 0.35, 1);
+$motion-easing-out: cubic-bezier(0.4, 0, 1, 1);
+$motion-easing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$motion-easing-in-elastic: cubic-bezier(0, 0, 0.2, 1.4);
 
 // ## BASE:  properties API tokens
 // - Productive: small UI, small affect transitions
-$animation-productive-short: $animation-duration-70ms;
-$animation-productive-medium: $animation-duration-100ms;
-$animation-productive-long: $animation-duration-150ms;
+$motion-productive-short: $motion-duration-70ms;
+$motion-productive-medium: $motion-duration-100ms;
+$motion-productive-long: $motion-duration-150ms;
 
 // - Expressive, Layout UI, Larger affect, elements with content, feedback.
 // -- Duration
-$animation-expressive-short: $animation-duration-150ms;
-$animation-expressive-medium: $animation-duration-250ms;
-$animation-expressive-long: $animation-duration-400ms;
+$motion-expressive-short: $motion-duration-250ms;
+$motion-expressive-long: $motion-duration-400ms;
 
 // -- Timing
-$animation-timing-enter: $animation-easing-in;
-$animation-timing-exit: $animation-easing-out;
-$animation-timing-transition: $animation-easing-in-out;
-$animation-timing-emphasize: $easing-in-elastic;
+$motion-timing-enter: $motion-easing-in;
+$motion-timing-exit: $motion-easing-out;
+$motion-timing-transition: $motion-easing-in-out;
+$motion-timing-emphasize: $motion-easing-in-elastic;
 
 // ###  Common, Global: Aliases for Base API, in more specific use casing.
 // - This is the layer we would like to emphasize although base layer can also be used when a case is not specified.
-$expand-animation-timing: var(--animation-timing-enter);
+$expand-animation-timing: var(--motion-timing-enter);
