@@ -38,7 +38,7 @@ const List = forwardRef(
       if (renderOnlyVisibleItems) {
         override = <VirtualizedListItems>{override}</VirtualizedListItems>;
       } else {
-        childrenRefs.current = childrenRefs.current.slice(0, override.length);
+        childrenRefs.current = childrenRefs.current.slice(0, override?.length);
         override = React.Children.map(override, (child, index) =>
           typeof child === "string"
             ? child
