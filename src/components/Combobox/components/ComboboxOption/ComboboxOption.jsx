@@ -124,7 +124,6 @@ const ComboboxOption = ({
       <div
         ref={ref}
         key={id || label}
-        role="option"
         aria-level={belongToCategory ? 2 : 1}
         aria-selected={isActive}
         aria-label={ariaLabel || label}

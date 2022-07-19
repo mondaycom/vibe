@@ -117,7 +117,6 @@ export function useSupportPressItemKeyboardNavigation({
     [isIgnoreSpaceAsItemSelection]
   );
 
-  // i will replace it with a code that listen to clicks and chang selected menu items according to it
   const baseOnClickCallback = useCallback(
     (event, itemIndex) => {
       const hasValidIndex = itemIndex >= 0 && itemIndex < itemsCount;
@@ -139,17 +138,11 @@ export function useSupportPressItemKeyboardNavigation({
     [baseOnClickCallback, focusedElementRef, visualFocusItemIndex]
   );
 
-  const createOnItemClickCallback = useCallback(
-    itemIndex => event => baseOnClickCallback(event, itemIndex),
-    [baseOnClickCallback]
-  );
-
   useKeyEvent({
     keys: pressKeys,
     callback: keyboardOnSelectCallback,
     ...listenerOptions
   });
-  return { createOnItemClickCallback };
 }
 
 export function SetDefaultItemOnFocusEvent({
@@ -181,7 +174,14 @@ export function SetDefaultItemOnFocusEvent({
         setVisualFocusItemIndex(newVisualFocusIndex);
       }
     }
-  }, [visualFocusItemIndex, defaultVisualFocusItemIndex, isItemSelectable, setVisualFocusItemIndex, itemsCount]);
+  }, [
+    triggerByKeyboard,
+    visualFocusItemIndex,
+    defaultVisualFocusItemIndex,
+    isItemSelectable,
+    setVisualFocusItemIndex,
+    itemsCount
+  ]);
 
   // if element unmount act like element got blur event
   useEffect(() => {
