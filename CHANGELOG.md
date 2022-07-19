@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.47.0 (2022-07-19)
+
+#### New Features
+* [#753](https://github.com/mondaycom/monday-ui-react-core/pull/753) Navigate in list with keyboard. ([@samitc](https://github.com/samitc))
+* [#687](https://github.com/mondaycom/monday-ui-react-core/pull/687) Feature/yonatanari/box component ([@3dyonic](https://github.com/3dyonic))
+* [#752](https://github.com/mondaycom/monday-ui-react-core/pull/752) Feature/yonatan ari/storybook repsoinsive tweaks ([@3dyonic](https://github.com/3dyonic))
+
+#### Documentation
+* [#712](https://github.com/mondaycom/monday-ui-react-core/pull/712) Feature/yonatanari/motion page ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.46.0 (2022-07-13)
 
 #### New Features

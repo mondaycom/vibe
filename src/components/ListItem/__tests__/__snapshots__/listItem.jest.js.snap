@@ -8,7 +8,7 @@ exports[`renders correctly with disabled 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="listitem"
-  tabIndex="-1"
+  tabIndex={0}
 />
 `;
 
@@ -44,7 +44,7 @@ exports[`renders correctly with selected and disabled 1`] = `
   onClick={[Function]}
   onKeyDown={[Function]}
   role="listitem"
-  tabIndex="-1"
+  tabIndex={0}
 />
 `;
 
