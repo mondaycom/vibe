@@ -112,7 +112,7 @@ $small-empty-state-height: 12px;
 
   &.size-small,
   &.size-medium {
-    font-size: $h1-legacy-font-size;
+    font-size: var(--font-size-h2);
     line-height: var(--font-line-height-h2);
 
     &.brand-font {
