@@ -120,6 +120,7 @@ export {default as ItemDefaultValues} from './components/ItemDefaultValues';
 export {default as ItemHeightTriple} from './components/ItemHeightTriple';
 export {default as Keyboard} from './components/Keyboard';
 export {default as Labs} from './components/Labs';
+export {default as Launch} from './components/Launch';
 export {default as Layout} from './components/Layout';
 export {default as LearnMore} from './components/LearnMore';
 export {default as Lines} from './components/Lines';
