@@ -128,7 +128,7 @@ import styles from "./useActiveDescendantListFocus.module.scss"; import {
         <FunctionArgument
             name="setVisualFocusItemId"
             type="(visualFocusItemId, isTriggeredByKeyboard) => {}"
-            description="A function for controlling the visual focused item from outside."
+            description="A function for controlling the visual focused item from outside (needed for cases such as exit sub menu or dialog, when we want to return the focus to the last focused item."
         />
     </FunctionArgument>
 </FunctionArguments>
