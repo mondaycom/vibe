@@ -49,7 +49,7 @@ const ListItem = forwardRef(({ className, id, onClick, selected, disabled, size,
       onClick={componentOnClick}
       onKeyDown={onKeyDown}
       role="listitem"
-      tabIndex={tabIndex}
+      tabIndex={disabled ? "-1" : tabIndex}
     >
       {children}
     </div>
