@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.48.0 (2022-07-19)
+
+#### New Features
+* [#758](https://github.com/mondaycom/monday-ui-react-core/pull/758) Add Poppins font-family to h1 heading ([@3dyonic](https://github.com/3dyonic))
+
+#### New Icons
+* [#762](https://github.com/mondaycom/monday-ui-react-core/pull/762) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.47.0 (2022-07-19)
 
 #### New Features
