@@ -1,5 +1,7 @@
 @import "./theme-mixin";
-
+$h1-legacy-font-size: 32px;
+$h1-legacy-line-height: 52px;
+$h1-medium-font-size: 22px;
 $h1-empty-state-height: 32px;
 $h2-empty-state-height: 24px;
 $h3-empty-state-height: 24px;
@@ -96,10 +98,26 @@ $small-empty-state-height: 12px;
 
 // Override tags styles
 .element-type-h1 {
-  @include font-main();
+  font-size: $h1-legacy-font-size;
+  line-height: $h1-legacy-line-height;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family);
+  letter-spacing: -1px;
+  -webkit-font-smoothing: var(--font-smoothing-webkit);
+  -moz-osx-font-smoothing: var(--font-smoothing-moz);
+
+  &.brand-font {
+    font: var(--font-h1)
+  }
+
   &.size-small,
   &.size-medium {
-    @include font-title();
+    font-size: var(--font-size-h2);
+    line-height: var(--font-line-height-h2);
+
+    &.brand-font {
+      font-size: $h1-medium-font-size;
+    }
   }
 }
 
