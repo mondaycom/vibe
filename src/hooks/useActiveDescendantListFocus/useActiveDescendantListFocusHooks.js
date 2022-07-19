@@ -1,8 +1,9 @@
-import { useCallback, useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import useKeyEvent from "../useKeyEvent";
 import useEventListener from "../useEventListener";
 import usePrevious from "../usePrevious";
 import { getNextSelectableIndex, getPreviousSelectableIndex } from "./useActiveDescendantListFocusHelpers";
+import { useListenFocusTriggers } from "hooks/useListenFocusTriggers";
 
 const ARROW_DIRECTIONS = {
   UP: "ArrowUp",
@@ -90,6 +91,15 @@ export function useSupportArrowsKeyboardNavigation({
     callback: onArrowBack,
     ...listenerOptions
   });
+}
+
+export function useIsTriggerByKeyboard({ focusedElementRef }) {
+  const [triggerByKeyboard, setTriggerByKeyboard] = useState(false);
+  const onFocusByKeyboard = useCallback(() => !triggerByKeyboard && setTriggerByKeyboard(true), [triggerByKeyboard]);
+  const onFocusByMouse = useCallback(() => triggerByKeyboard && setTriggerByKeyboard(false), [triggerByKeyboard]);
+  useListenFocusTriggers({ ref: focusedElementRef, onFocusByKeyboard, onFocusByMouse });
+
+  return { triggerByKeyboard, setTriggerByKeyboard };
 }
 
 export function useSupportPressItemKeyboardNavigation({

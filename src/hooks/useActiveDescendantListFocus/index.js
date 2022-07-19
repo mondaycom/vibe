@@ -3,9 +3,9 @@ import {
   useSupportArrowsKeyboardNavigation,
   useSupportPressItemKeyboardNavigation,
   SetDefaultItemOnFocusEvent,
-  useKeepFocusOnItemWhenListChanged
+  useKeepFocusOnItemWhenListChanged,
+  useIsTriggerByKeyboard
 } from "hooks/useActiveDescendantListFocus/useActiveDescendantListFocusHooks";
-import { useListenFocusTriggers } from "hooks/useListenFocusTriggers";
 
 const ROLES = {
   APPLICATION: "application",
@@ -21,12 +21,13 @@ function useActiveDescendantListFocus({
   itemsIds,
   isItemSelectable,
   onItemClick,
-  defaultVisualFocusItemIndex = -1,
+  defaultVisualFocusFirstIndex = false,
   focusedElementRole = ROLES.GROUP,
   isHorizontalList = false,
   useDocumentEventListeners = false,
   isIgnoreSpaceAsItemSelection = false
 }) {
+  const defaultVisualFocusItemIndex = defaultVisualFocusFirstIndex ? 0 : -1;
   const itemsCount = itemsIds.length;
   const [visualFocusItemIndex, setVisualFocusItemIndex] = useState(defaultVisualFocusItemIndex);
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
@@ -41,11 +42,17 @@ function useActiveDescendantListFocus({
       stopPropagation: true
     };
   }, [useDocumentEventListeners, focusedElementRef]);
-  const [triggerByKeyboard, setTriggerByKeyboard] = useState(false);
-  const onFocusByKeyboard = useCallback(() => !triggerByKeyboard && setTriggerByKeyboard(true), [triggerByKeyboard]);
-  const onFocusByMouse = useCallback(() => triggerByKeyboard && setTriggerByKeyboard(false), [triggerByKeyboard]);
-  useListenFocusTriggers({ ref: focusedElementRef, onFocusByKeyboard, onFocusByMouse });
-
+  const { triggerByKeyboard, setTriggerByKeyboard } = useIsTriggerByKeyboard({ focusedElementRef });
+  const setVisualFocusItemId = useCallback(
+    (visualFocusItemId, isTriggeredByKeyboard) => {
+      if (!triggerByKeyboard) setTriggerByKeyboard(isTriggeredByKeyboard);
+      const itemIndex = itemsIds.indexOf(visualFocusItemId);
+      if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {
+        setVisualFocusItemIndex(itemIndex);
+      }
+    },
+    [itemsIds, setTriggerByKeyboard, triggerByKeyboard, visualFocusItemIndex]
+  );
   useSupportArrowsKeyboardNavigation({
     itemsCount,
     focusedElementRef,
@@ -99,7 +106,8 @@ function useActiveDescendantListFocus({
       // this callback function is not needed anymore (the developer not need to replace is element on click with this callback)
       // and we keep returning it only for backward compatibility
       onItemClickCallback: onItemClick,
-      createOnItemClickCallback
+      createOnItemClickCallback,
+      setVisualFocusItemId
     }
   };
 }
