@@ -61,8 +61,6 @@ import styles from "./useActiveDescendantListFocus.module.scss"; import {
           isHorizontalList: false,
           isIgnoreSpaceAsItemSelection: true
       });
-        console.log(focusedElementProps,
-            visualFocusItemId);
         return (
           <Flex direction={Flex.directions.COLUMN}>
               <Search ref={focusedElementRef} role={focusedElementProps.role} activeDescendant={focusedElementProps["aria-activedescendant"]}/>

@@ -170,7 +170,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
 
     expect(result.current.visualFocusItemIndex).toEqual(before);
   });
-  it("should change visually focused item when calling x with triggeredWithKeyboard argument", async () => {
+  it("should change visually focused item when calling setVisualFocusItemId with triggeredWithKeyboard argument", async () => {
     const { result } = renderHookForTest({ isHorizontal, defaultVisualFocusFirstIndex });
 
     act(() => {
