@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.48.2 (2022-07-20)
+
+#### Bug Fixes
+* [#767](https://github.com/mondaycom/monday-ui-react-core/pull/767) Box: added to published-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.48.1 (2022-07-20)
 
 #### New Icons
