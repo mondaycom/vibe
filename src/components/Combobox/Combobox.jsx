@@ -11,9 +11,9 @@ import { SIZES } from "../../constants/sizes";
 import Button from "../Button/Button";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
-import { ComboboxItems } from "components/Combobox/components/ComboboxItems/ComboboxItems";
-import { StickyCategoryHeader } from "components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
-import useActiveDescendantListFocus from "hooks/useActiveDescendantListFocus";
+import { ComboboxItems } from "../../components/Combobox/components/ComboboxItems/ComboboxItems";
+import { StickyCategoryHeader } from "../../components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
+import useActiveDescendantListFocus from "../../hooks/useActiveDescendantListFocus";
 import { getOptionId } from "./ComboboxHelpers/ComboboxHelpers";
 import "./Combobox.scss";
 

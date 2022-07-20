@@ -1,7 +1,7 @@
 import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "hooks/useMergeRefs";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import styles from "./Box.module.scss";
 import {
   DISABLED,

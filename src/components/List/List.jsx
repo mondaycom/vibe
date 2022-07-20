@@ -2,7 +2,7 @@ import React, { useRef, forwardRef, useMemo, useState, useCallback } from "react
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { VirtualizedListItems } from "components/List/VirtualizedListItems/VirtualizedListItems";
+import { VirtualizedListItems } from "../../components/List/VirtualizedListItems/VirtualizedListItems";
 import "./List.scss";
 import { keyCodes } from "../../constants/KeyCodes";
 

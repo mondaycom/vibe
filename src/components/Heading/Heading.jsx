@@ -1,12 +1,12 @@
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../constants/sizes";
 import React, { useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import Tooltip from "components/Tooltip/Tooltip";
-import useIsOverflowing from "hooks/useIsOverflowing";
-import useStyle from "hooks/useStyle";
-import useRefWithCallback from "hooks/useRefWithCallback";
-import TextWithHighlight from "components/TextWithHighlight/TextWithHighlight";
+import Tooltip from "../../components/Tooltip/Tooltip";
+import useIsOverflowing from "../../hooks/useIsOverflowing";
+import useStyle from "../../hooks/useStyle";
+import useRefWithCallback from "../../hooks/useRefWithCallback";
+import TextWithHighlight from "../../components/TextWithHighlight/TextWithHighlight";
 import { TYPES } from "./HeadingConstants";
 import "./Heading.scss";
 

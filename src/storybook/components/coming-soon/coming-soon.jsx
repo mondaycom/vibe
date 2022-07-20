@@ -1,4 +1,4 @@
-import Heading from "components/Heading/Heading";
+import Heading from "../../components/Heading/Heading";
 import { comingSoon } from "./assets";
 import classes from "./coming-soon.module.scss";
 

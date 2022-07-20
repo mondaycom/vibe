@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
-import NavigationChevronRight from "components/Icon/Icons/components/NavigationChevronRight";
-import NavigationChevronLeft from "components/Icon/Icons/components/NavigationChevronLeft";
-import { BEMClass } from "helpers/bem-helper";
-import Icon from "components/Icon/Icon";
-import Button from "components/Button/Button";
-import { NOOP } from "utils/function-utils";
+import NavigationChevronRight from "../../components/Icon/Icons/components/NavigationChevronRight";
+import NavigationChevronLeft from "../../components/Icon/Icons/components/NavigationChevronLeft";
+import { BEMClass } from "../../helpers/bem-helper";
+import Icon from "../../components/Icon/Icon";
+import Button from "../../components/Button/Button";
+import { NOOP } from "../../utils/function-utils";
 import {
   NEXT_DESCRIPTION,
   BACK_DESCRIPTION,

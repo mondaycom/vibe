@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
-import ComboboxOption from "components/Combobox/components/ComboboxOption/ComboboxOption";
-import ComboboxCategory from "components/Combobox/components/ComboboxCategory/ComboboxCategory";
+import ComboboxOption from "../components/ComboboxOption/ComboboxOption";
+import ComboboxCategory from "../components/ComboboxCategory/ComboboxCategory";
 import Divider from "../../Divider/Divider";
 import { COMBOBOX_DIVIDER_ITEM, COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../components/ComboboxConstants";
 import styles from "./ComboboxHelpers.module.scss";

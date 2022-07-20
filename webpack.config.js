@@ -105,12 +105,14 @@ module.exports = options => {
     output: {
       path: path.join(__dirname, "/dist/"),
       filename: "[name].js",
-      library: "monday-style",
-      libraryTarget: "umd",
+      libraryTarget: "module",
       globalObject: "this"
     },
     optimization: {
       minimizer: [new TerserJSPlugin({})]
+    },
+    experiments: {
+      outputModule: true
     },
     plugins: [
       new CopyPlugin({

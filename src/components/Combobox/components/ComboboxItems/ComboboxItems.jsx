@@ -1,15 +1,15 @@
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
-import { getOptionsByCategories } from "components/Combobox/ComboboxService";
+import { getOptionsByCategories } from "../../ComboboxService";
 import {
   comboboxItemRenderer,
   createCategoryItemObject,
   createDividerItemObject,
   createOptionItemObject
-} from "components/Combobox/ComboboxHelpers/ComboboxHelpers";
-import VirtualizedList from "components/VirtualizedList/VirtualizedList";
-import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "components/Combobox/components/ComboboxConstants";
-import styles from "./ComboboxItems.modules.scss";
+} from "../../ComboboxHelpers/ComboboxHelpers";
+import VirtualizedList from "../../../../components/VirtualizedList/VirtualizedList";
+import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "../../components/ComboboxConstants";
+import styles from "./ComboboxItems.module.scss";
 
 export const ComboboxItems = forwardRef(
   (
