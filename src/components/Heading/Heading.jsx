@@ -99,6 +99,7 @@ Heading.propTypes = {
   size: PropTypes.oneOf([Heading.sizes.SMALL, Heading.sizes.MEDIUM, Heading.sizes.LARGE]),
   highlightTerm: PropTypes.string,
   customColor: PropTypes.string,
+  /** Custom font flag, use to enable new font family on H1 headers */
   brandFont: PropTypes.bool
 };
 

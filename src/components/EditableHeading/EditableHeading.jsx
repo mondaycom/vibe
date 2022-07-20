@@ -242,6 +242,7 @@ EditableHeading.propTypes = {
   size: PropTypes.oneOf([EditableHeading.sizes.SMALL, EditableHeading.sizes.MEDIUM, EditableHeading.sizes.LARGE]),
   displayPlaceholderInTextMode: PropTypes.bool,
   suggestEditOnHover: PropTypes.bool,
+  /** Custom font flag, use to enable new font family on H1 headers */
   brandFont: PropTypes.bool,
   autoSize: PropTypes.bool,
   inputAriaLabel: PropTypes.string,
