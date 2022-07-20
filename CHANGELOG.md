@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.49.0 (2022-07-20)
+
+#### Bug Fixes
+* [#763](https://github.com/mondaycom/monday-ui-react-core/pull/763) Add test for list without props. ([@samitc](https://github.com/samitc))
+
+#### New Features
+* [#750](https://github.com/mondaycom/monday-ui-react-core/pull/750) Feature/yonatanari/change logo href ([@3dyonic](https://github.com/3dyonic))
+* [#765](https://github.com/mondaycom/monday-ui-react-core/pull/765) Enable brandFont prop for heading within editable heading. ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.48.3 (2022-07-20)
 
 #### New Icons
