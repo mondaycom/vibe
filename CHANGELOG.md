@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.50.0 (2022-07-20)
+
+#### New Features
+* [#770](https://github.com/mondaycom/monday-ui-react-core/pull/770) Manually update monday-ui-style version to 0.1.132 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.49.0 (2022-07-20)
 
 #### Bug Fixes
