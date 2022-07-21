@@ -233,7 +233,7 @@ describe("useActiveDescendantListFocus", () => {
   for (const featureComb of featureCombinations) {
     describe(`${Object.entries(featureComb)
       .map(([feat, value]) => (value ? features[feat].yes : features[feat].no))
-      .filter(b => b)
+      .filter(Boolean)
       .join(", ")} list`, () => {
       runListUnitTest(featureComb);
     });
