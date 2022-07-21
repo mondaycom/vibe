@@ -42,7 +42,7 @@ export function useSupportArrowsKeyboardNavigation({
       if (!triggerByKeyboard) {
         setTriggerByKeyboard(true);
 
-        // If the focusedElementRef is naturally focus but this is the first keyboard interaction of the user, we want only to display to item
+        // If the focusedElementRef is naturally focus but this is the first keyboard interaction of the user, we want only to display the item
         // which right now visually focus, but not change it.
         if (visualFocusItemIndex > -1) {
           return;
