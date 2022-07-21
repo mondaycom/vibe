@@ -7,7 +7,7 @@ Converts React components using imported CSS stylesheets to equivalent CSS Modul
 Given this (simpilified) CSS file and React component:
 
 ```css
-/* button.css */
+/* sample-button.css */
 .button {
   flex: 1;
   background-color: #eee;
@@ -16,8 +16,8 @@ Given this (simpilified) CSS file and React component:
 ```
 
 ```ts
-/* button.tsx */
-import "./button.css";
+/* sample-button.tsx */
+import "./sample-button.css";
 
 export default ({ children }) => <div className="button">{children}</div>;
 ```
@@ -25,8 +25,8 @@ export default ({ children }) => <div className="button">{children}</div>;
 It will product the following, _modified_ component:
 
 ```ts
-/* button.tsx */
-import * as styles from "./button.css";
+/* sample-button.tsx */
+import * as styles from "./sample-button.css";
 
 export default ({ children }) => <div className={styles["button"]}>{children}</div>;
 ```

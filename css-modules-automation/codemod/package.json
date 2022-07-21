@@ -13,7 +13,9 @@
     "modify anchor-list-item": "npx codemod -p src/index.ts tests/anchor-list-item.jsx",
     "modify anchor-list-item-expression": "npx codemod -p src/index.ts tests/anchor-list-item-expression.jsx",
     "modify combobox": "npx codemod -p src/index.ts tests/Combobox.jsx",
-    "modify toast": "npx codemod -p src/index.ts tests/Toast.jsx"
+    "modify toast": "npx codemod -p src/index.ts tests/Toast.jsx",
+    "modify sample-body": "npx codemod -p src/index.ts tests/sample-body",
+    "modify sample-button": "npx codemod -p src/index.ts tests/sample-button"
   },
   "keywords": [
     "babel-plugin",

@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import NOOP from "lodash/noop";
 import cx from "classnames";
-import { getTestId, ELEMENT_TYPES } from "../../utils/test-utils";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { SIZES } from "../../constants/sizes";
@@ -259,12 +259,12 @@ Combobox.propTypes = {
   optionsListHeight: PropTypes.number,
   autoFocus: PropTypes.bool,
   /**
-   * Callback that called after clicking on the add new combo box button.
+   * Callback that called after clicking on the add new combo box sample-button.
    * @param {string} _filterValue
    */
   onAddNew: PropTypes.func,
   /**
-   * The label of the button that appears at the end of the combo box when the search does not return appropriate options
+   * The label of the sample-button that appears at the end of the combo box when the search does not return appropriate options
    */
   addNewLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   filter: PropTypes.func,

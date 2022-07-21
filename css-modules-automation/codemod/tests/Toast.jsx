@@ -1,5 +1,5 @@
 import NOOP from "lodash/noop";
-import React, { useMemo, useCallback, useRef } from "react";
+import React, { useCallback, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { CSSTransition } from "react-transition-group";
@@ -11,7 +11,7 @@ import Info from "components/Icon/Icons/components/Info";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
-import { TOAST_TYPES, TOAST_ACTION_TYPES } from "./ToastConstants";
+import { TOAST_ACTION_TYPES, TOAST_TYPES } from "./ToastConstants";
 import "./Toast.scss";
 
 const defaultIconMap = {
@@ -149,7 +149,7 @@ Toast.propTypes = {
   hideIcon: PropTypes.bool,
   /** The action to display */
   action: PropTypes.element,
-  /** If false, won't show the close button */
+  /** If false, won't show the close sample-button */
   closeable: PropTypes.bool,
   onClose: PropTypes.func,
   /** The number of milliseconds to wait before
