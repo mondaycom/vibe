@@ -1,9 +1,15 @@
 import { NodePath } from "@babel/traverse";
 
-const LOGGING = true;
+const SHOULD_LOGGING = false;
+
+export const printWithCondition = (shouldLogging: boolean, msg: string, ...args: any[]) => {
+  if (shouldLogging) {
+    console.log(msg, ...args);
+  }
+};
 
 export const print = (msg: string, ...args: any[]) => {
-  if (LOGGING) {
+  if (SHOULD_LOGGING) {
     console.log(msg, ...args);
   }
 };
