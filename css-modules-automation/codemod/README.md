@@ -9,9 +9,9 @@ Given this (simpilified) CSS file and React component:
 ```css
 /* button.css */
 .button {
-	flex: 1;
-	background-color: #eee;
-	color: #222;
+  flex: 1;
+  background-color: #eee;
+  color: #222;
 }
 ```
 
@@ -28,9 +28,7 @@ It will product the following, _modified_ component:
 /* button.tsx */
 import * as styles from "./button.css";
 
-export default ({ children }) => (
-	<div className={styles["button"]}>{children}</div>
-);
+export default ({ children }) => <div className={styles["button"]}>{children}</div>;
 ```
 
 ## Usage

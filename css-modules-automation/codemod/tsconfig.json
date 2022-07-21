@@ -1,12 +1,12 @@
 {
-	"compilerOptions": {
-		"outDir": "lib",
-		"target": "es5",
-		"lib": ["es2016", "es2017", "es2018", "esnext"],
-		"strict": true,
-		"allowJs": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true
-	},
-	"include": ["./src/**/*"]
+  "compilerOptions": {
+    "outDir": "lib",
+    "target": "es5",
+    "lib": ["es2016", "es2017", "es2018", "esnext"],
+    "strict": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./src/**/*"]
 }

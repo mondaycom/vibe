@@ -16,18 +16,15 @@ import { join } from "path";
  * @returns Set of valid classnames within the CSS file
  */
 export const getModuleClassNames = (filename: string) => {
-	if (!existsSync(filename)) {
-		throw new Error("Referenced CSS file does not exist: " + filename);
-	}
+  if (!existsSync(filename)) {
+    throw new Error("Referenced CSS file does not exist: " + filename);
+  }
 
-	const { stdout, stderr } = execa.sync("node", [
-		join(__dirname, "..", "postcss", "shell.js"),
-		filename
-	]);
+  const { stdout, stderr } = execa.sync("node", [join(__dirname, "..", "postcss", "shell.js"), filename]);
 
-	if (stderr) {
-		throw new Error(stderr);
-	}
+  if (stderr) {
+    throw new Error(stderr);
+  }
 
-	return new Set<string>(Object.keys(JSON.parse(stdout)));
+  return new Set<string>(Object.keys(JSON.parse(stdout)));
 };

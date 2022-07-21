@@ -1,4 +1,4 @@
 module.exports = {
-	syntax: "postcss-scss",
-	plugins: {}
+  syntax: "postcss-scss",
+  plugins: {}
 };
