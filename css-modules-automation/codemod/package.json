@@ -8,7 +8,11 @@
 		"test": "npm run test:postcss && npm run test:codemod",
 		"test:postcss": "node -r ts-node/register src/postcss/__tests__/shell.ts",
 		"test:codemod": "node -r ts-node/register src/__tests__/codemod.ts",
-		"modify": "npx codemod -p src/index.ts input"
+		"modify": "npx codemod -p src/index.ts input",
+		"modify divider": "npx codemod -p src/index.ts input/Divider.jsx",
+		"modify anchor-list-item": "npx codemod -p src/index.ts input/anchor-list-item.jsx",
+		"modify combobox": "npx codemod -p src/index.ts input/Combobox.jsx",
+		"modify toast": "npx codemod -p src/index.ts input/Toast.jsx"
 	},
 	"keywords": [
 		"babel-plugin",
