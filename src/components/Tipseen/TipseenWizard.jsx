@@ -4,7 +4,7 @@ import Steps from "components/Steps/Steps";
 import Button from "components/Button/Button";
 import { BEMClass } from "helpers/bem-helper";
 import TipseenBasicContent from "./TipseenBasicContent";
-import "./TipseenWizard.scss";
+import styles from "./TipseenWizard.module.scss";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-wizard";
 const bemHelper = BEMClass(BASE_CSS_CLASS);
@@ -24,9 +24,9 @@ const TipseenWizard = ({ title, className, ...stepsProps }) => {
     []
   );
   return (
-    <TipseenBasicContent title={title} className={cx(BASE_CSS_CLASS, className)}>
+    <TipseenBasicContent title={title} className={cx(styles.tipseenWizard, BASE_CSS_CLASS, className)}>
       <Steps
-        className={bemHelper({ element: "wizard" })}
+        className={cx(styles.tipseenWizardWizard, bemHelper({ element: "wizard" }))}
         isOnPrimary
         isContentOnTop
         areButtonsIconsHidden

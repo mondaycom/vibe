@@ -1,0 +1,9 @@
+@import "./TipseenContent.module";
+.tipseenWizard {
+  display: flex;
+  flex-direction: column;
+
+  &Wizard {
+    width: 100%;
+  }
+}
