@@ -23,8 +23,8 @@ export function useSupportArrowsKeyboardNavigation({
   isHorizontalList,
   isItemSelectable,
   listenerOptions,
-  triggerByKeyboard,
-  setTriggerByKeyboard
+  triggeredByKeyboard,
+  setTriggeredByKeyboard
 }) {
   const nextArrow = isHorizontalList ? ARROW_DIRECTIONS.RIGHT : ARROW_DIRECTIONS.DOWN;
   const backArrow = isHorizontalList ? ARROW_DIRECTIONS.LEFT : ARROW_DIRECTIONS.UP;
@@ -39,8 +39,8 @@ export function useSupportArrowsKeyboardNavigation({
 
       // If the focusedElementRef is naturally focus but this is the first keyboard interaction of the user, we need our hook to understand
       // that from now on the interactions are trigger by keyboard (until the next mosue interaction)
-      if (!triggerByKeyboard) {
-        setTriggerByKeyboard(true);
+      if (!triggeredByKeyboard) {
+        setTriggeredByKeyboard(true);
 
         // If the focusedElementRef is naturally focus but this is the first keyboard interaction of the user, we want only to display to item
         // which right now visually focus, but not change it.
@@ -62,8 +62,8 @@ export function useSupportArrowsKeyboardNavigation({
     },
     [
       focusedElementRef,
-      triggerByKeyboard,
-      setTriggerByKeyboard,
+      triggeredByKeyboard,
+      setTriggeredByKeyboard,
       nextArrow,
       backArrow,
       visualFocusItemIndex,
@@ -93,13 +93,16 @@ export function useSupportArrowsKeyboardNavigation({
   });
 }
 
-export function useIsTriggerByKeyboard({ focusedElementRef }) {
-  const [triggerByKeyboard, setTriggerByKeyboard] = useState(false);
-  const onFocusByKeyboard = useCallback(() => !triggerByKeyboard && setTriggerByKeyboard(true), [triggerByKeyboard]);
-  const onFocusByMouse = useCallback(() => triggerByKeyboard && setTriggerByKeyboard(false), [triggerByKeyboard]);
+export function useIsTriggeredByKeyboard({ focusedElementRef }) {
+  const [triggeredByKeyboard, setTriggeredByKeyboard] = useState(false);
+  const onFocusByKeyboard = useCallback(
+    () => !triggeredByKeyboard && setTriggeredByKeyboard(true),
+    [triggeredByKeyboard]
+  );
+  const onFocusByMouse = useCallback(() => triggeredByKeyboard && setTriggeredByKeyboard(false), [triggeredByKeyboard]);
   useListenFocusTriggers({ ref: focusedElementRef, onFocusByKeyboard, onFocusByMouse });
 
-  return { triggerByKeyboard, setTriggerByKeyboard };
+  return { triggeredByKeyboard, setTriggeredByKeyboard };
 }
 
 export function useSupportPressItemKeyboardNavigation({
@@ -145,13 +148,13 @@ export function useSupportPressItemKeyboardNavigation({
   });
 }
 
-export function SetDefaultItemOnFocusEvent({
+export function useSetDefaultItemOnFocusEvent({
   focusedElementRef,
   isItemSelectable,
   visualFocusItemIndex,
   setVisualFocusItemIndex,
   itemsCount,
-  triggerByKeyboard,
+  triggeredByKeyboard,
   defaultVisualFocusItemIndex = -1
 }) {
   const previousFocusedElementRef = usePrevious(focusedElementRef);
@@ -162,7 +165,7 @@ export function SetDefaultItemOnFocusEvent({
   }, [setVisualFocusItemIndex, visualFocusItemIndex]);
 
   const onFocusCallback = useCallback(() => {
-    if (triggerByKeyboard && visualFocusItemIndex !== defaultVisualFocusItemIndex) {
+    if (triggeredByKeyboard && visualFocusItemIndex !== defaultVisualFocusItemIndex) {
       if (isItemSelectable(defaultVisualFocusItemIndex)) {
         setVisualFocusItemIndex(defaultVisualFocusItemIndex);
       } else {
@@ -175,7 +178,7 @@ export function SetDefaultItemOnFocusEvent({
       }
     }
   }, [
-    triggerByKeyboard,
+    triggeredByKeyboard,
     visualFocusItemIndex,
     defaultVisualFocusItemIndex,
     isItemSelectable,
