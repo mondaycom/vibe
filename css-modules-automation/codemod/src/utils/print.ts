@@ -1,18 +1,18 @@
 import { NodePath } from "@babel/traverse";
 
-const LOGGING = false;
+const LOGGING = true;
 
-export const print = (consoleLog: () => void) => {
+export const print = (msg: string, ...args: any[]) => {
   if (LOGGING) {
-    consoleLog();
+    console.log(msg, ...args);
   }
 };
 
 export const printNodeType = (msg: string, path: NodePath) => {
-  print(() => console.log("### printNodeType: ", msg));
+  print("### printNodeType: ", msg);
 
   const type = path.type;
-  print(() => console.log("### index, printNodeType, path.type = ", type));
+  print("### index, printNodeType, path.type = ", type);
 
   // const isObjectProperty = path.isObjectProperty();
   // console.log(

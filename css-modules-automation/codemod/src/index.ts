@@ -29,7 +29,7 @@ const PLUGIN_DEFAULTS = {
 const stringLiteralReplacementVisitors: Visitor<State> = {
   StringLiteral: (path, { classNames, opts }) => {
     // Ignore strings inside object lookups i.e. obj["className"]
-    print(() => console.log("### index, path isStringLiteral, path.node.value = ", path.node.value));
+    print("### index, path isStringLiteral, path.node.value = ", path.node.value);
 
     const parentPath = path.parentPath;
 
@@ -41,7 +41,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
     if (!parentPath.isJSXExpressionContainer() && !parentPath.isCallExpression() && !parentPath.isObjectProperty()) {
       // Converting to JSX expression
-      print(() => console.log("### index, wrapWithJSXExpressionContainer"));
+      print("### index, wrapWithJSXExpressionContainer");
       const newPath = wrapWithJSXExpressionContainer(parentPath.node);
       path.replaceWith(newPath);
       return;
@@ -50,7 +50,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     // Generate a new string
     const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path.node);
 
-    print(() => console.log("### index, Generate a new string, newPath = ", newPath));
+    print("### index, Generate a new string, newPath = ", newPath);
 
     // printNodeType("### path", path);
     // printNodeType("### parentPath", parentPath);
@@ -61,17 +61,15 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
     if (isObjectProperty) {
       const overrideParentPath = parentPath as NodePath<t.ObjectProperty>;
-      print(() => console.log("### index, parentPath.node.value = ", overrideParentPath.node.value));
+      print("### index, parentPath.node.value = ", overrideParentPath.node.value);
       overrideParentPath.replaceWith(t.objectProperty(newPath, overrideParentPath.node.value, true, false));
     }
     // Otherwise just replace the literal completely
     else {
-      print(() =>
-        console.log(
-          `### index, Otherwise just replace the literal completely, path.node.value = ${
-            path.node.value
-          }, newPath = ${JSON.stringify(newPath)}`
-        )
+      print(
+        `### index, Otherwise just replace the literal completely, path.node.value = ${
+          path.node.value
+        }, newPath = ${JSON.stringify(newPath)}`
       );
 
       path.replaceWith(newPath as any);
