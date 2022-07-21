@@ -50,16 +50,20 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
     // Generate a new string
     const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path);
+    if (path.shouldSkip) {
+      path.replaceWith(newPath);
+      return;
+    }
 
     print("### index, Generate a new string, newPath = ", newPath);
     printNodeType("### index, Generate a new string, newPath = ", newPath);
 
-    // If the literal is inside an object property definition, we need to change
-    // it to be a computed value instead.
     const isObjectProperty = parentPath.isObjectProperty();
     print("### index, isObjectProperty", isObjectProperty);
 
     if (isObjectProperty) {
+      // If the literal is inside an object property definition, we need to change
+      // it to be a computed value instead.
       const overrideParentPath = parentPath as NodePath<t.ObjectProperty>;
 
       print("### index, parentPath.node.value = ", overrideParentPath.node.value);

@@ -31,6 +31,7 @@ export const replaceClassNamesInStringLiteral = (
         "*** replaceClassNamesInStringLiteral, If the class name isn't in the modular class name list, skip, literalNode",
         literalNode
       );
+      path.skip();
       return literalNode;
     }
 
