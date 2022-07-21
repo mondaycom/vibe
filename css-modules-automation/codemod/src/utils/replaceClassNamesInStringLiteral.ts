@@ -12,7 +12,11 @@ import { NodePath } from "@babel/traverse";
  * @param path Path to the node
  * @returns New classname string
  */
-export const replaceClassNamesInStringLiteral = (classNames: Set<string>, importIdentifier: string, path: NodePath) => {
+export const replaceClassNamesInStringLiteral = (
+  classNames: Set<string>,
+  importIdentifier: string,
+  path: NodePath
+): t.StringLiteral | t.MemberExpression | t.Statement => {
   const literalNode = path.node as t.StringLiteral;
   print("*** replaceClassNamesInStringLiteral, literalNode.value", literalNode.value);
   // Check if this is a single class name
@@ -44,7 +48,7 @@ export const replaceClassNamesInStringLiteral = (classNames: Set<string>, import
   const templateParts = classNameArr.map(v => (classNames.has(v) ? `\${${importIdentifier}["${v}"]}` : v));
 
   print("*** replaceClassNamesInStringLiteral, templateParts", templateParts);
-  const res = template(`\`${templateParts.join(" ")}\``)();
+  const res = template(`\`${templateParts.join(" ")}\``)() as t.Statement;
   print("*** replaceClassNamesInStringLiteral, res", res);
   return res;
 };

@@ -6,7 +6,7 @@ import { getModuleClassNames } from "./utils/getModuleClassNames";
 import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
 import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
-import { print, printNodeType } from "./utils/print";
+import { print, printNodeType, printWithCondition } from "./utils/print";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -37,7 +37,8 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       return;
     }
 
-    printNodeType("### index, parentPath", parentPath);
+    printNodeType("### index, path.type", path);
+    printNodeType("### index, parentPath.type", parentPath);
 
     if (parentPath.isJSXAttribute()) {
       // Converting to JSX expression
@@ -51,19 +52,20 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path);
 
     print("### index, Generate a new string, newPath = ", newPath);
-
-    // printNodeType("### path", path);
-    // printNodeType("### parentPath", parentPath);
+    printNodeType("### index, Generate a new string, newPath = ", newPath);
 
     // If the literal is inside an object property definition, we need to change
     // it to be a computed value instead.
     const isObjectProperty = parentPath.isObjectProperty();
-    // print("### index, isObjectProperty", isObjectProperty);
+    print("### index, isObjectProperty", isObjectProperty);
 
     if (isObjectProperty) {
       const overrideParentPath = parentPath as NodePath<t.ObjectProperty>;
+
       print("### index, parentPath.node.value = ", overrideParentPath.node.value);
-      overrideParentPath.replaceWith(t.objectProperty(newPath, overrideParentPath.node.value, true, false));
+      const overrideNewPath = t.objectProperty(newPath, overrideParentPath.node.value, true, false);
+      printWithCondition(true, "### index, overrideNewPath = ", overrideNewPath);
+      overrideParentPath.replaceWith(overrideNewPath);
     }
     // Otherwise just replace the literal completely
     else {
