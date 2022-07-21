@@ -22,6 +22,9 @@ const PLUGIN_DEFAULTS = {
 
 const printInfo = (msg: string, path: NodePath) => {
   console.log("### PrintInfo: ", msg);
+
+  const type = path.type;
+  console.log("### index, printInfo, path.type = ", type);
   // const isObjectProperty = path.isObjectProperty();
   // console.log(
   // 	"### index, path.isObjectProperty = ",
@@ -40,8 +43,17 @@ const printInfo = (msg: string, path: NodePath) => {
   // 	isIdentifier
   // );
 
-  const isJSXExpressionContainer = path.isJSXExpressionContainer();
-  console.log("### index, path.isJSXExpressionContainer = ", isJSXExpressionContainer);
+  // const isJSXExpressionContainer = path.isJSXExpressionContainer();
+  // console.log("### index, path.isJSXExpressionContainer = ", isJSXExpressionContainer);
+  //
+  // const isCallExpression = path.isCallExpression();
+  // console.log("### index, path.isCallExpression = ", isCallExpression);
+  //
+  // const isAssignmentExpression = path.isAssignmentExpression();
+  // console.log("### index, path.isAssignmentExpression = ", isAssignmentExpression);
+  //
+  // const isAssignmentPattern = path.isAssignmentPattern();
+  // console.log("### index, path.isAssignmentPattern = ", isAssignmentPattern);
 };
 
 /**
@@ -54,14 +66,18 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     // Ignore strings inside object lookups i.e. obj["className"]
     console.log("### index, path isStringLiteral, path.node.value = ", path.node.value);
 
-    if (path.parentPath.isMemberExpression()) {
+    const parentPath = path.parentPath;
+
+    if (parentPath.isMemberExpression()) {
       return;
     }
 
-    if (!path.parentPath.isJSXExpressionContainer() && !path.parentPath.isCallExpression()) {
+    printInfo("### index, parentPath", parentPath);
+
+    if (!parentPath.isJSXExpressionContainer() && !parentPath.isCallExpression() && !parentPath.isObjectProperty()) {
       // Converting to JSX expression
       console.log("### index, wrapWithJSXExpressionContainer");
-      const newPath = wrapWithJSXExpressionContainer(path.parentPath.node);
+      const newPath = wrapWithJSXExpressionContainer(parentPath.node);
       path.replaceWith(newPath);
       return;
     }
@@ -71,35 +87,26 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
     console.log("### index, Generate a new string, newPath = ", newPath);
 
-    printInfo("### path", path);
-    printInfo("### path.parentPath", path.parentPath);
+    // printInfo("### path", path);
+    // printInfo("### parentPath", parentPath);
 
     // If the literal is inside an object property definition, we need to change
     // it to be a computed value instead.
-    const isObjectProperty = path.parentPath.isObjectProperty();
+    const isObjectProperty = parentPath.isObjectProperty();
 
     if (isObjectProperty) {
-      const parentPath = path.parentPath as NodePath<t.ObjectProperty>;
-      console.log("### index, parentPath.node.value = ", parentPath.node.value);
-      parentPath.replaceWith(t.objectProperty(newPath, parentPath.node.value, true, false));
+      const overrideParentPath = parentPath as NodePath<t.ObjectProperty>;
+      console.log("### index, parentPath.node.value = ", overrideParentPath.node.value);
+      overrideParentPath.replaceWith(t.objectProperty(newPath, overrideParentPath.node.value, true, false));
     }
     // Otherwise just replace the literal completely
     else {
-      // const overrideNewPath = newPath as MemberExpression;
       console.log(
         `### index, Otherwise just replace the literal completely, path.node.value = ${
           path.node.value
         }, newPath = ${JSON.stringify(newPath)}`
       );
 
-      // if (t.isAssignmentExpression(newPath)) {
-      // 	// path.insertBefore(newPath as any);
-      // 	path.assertAssignmentExpression(
-      // 		newPath as AssignmentExpression
-      // 	);
-      // 	// path.replaceWith(overrideNewPath);
-      // 	// path.insertBefore(overrideNewPath);
-      // }
       path.replaceWith(newPath as any);
       return;
     }
