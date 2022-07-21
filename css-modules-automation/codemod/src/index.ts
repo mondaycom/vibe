@@ -42,13 +42,13 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     if (parentPath.isJSXAttribute()) {
       // Converting to JSX expression
       print("### index, wrapWithJSXExpressionContainer");
-      const newPath = wrapWithJSXExpressionContainer(parentPath.node);
+      const newPath = wrapWithJSXExpressionContainer(parentPath);
       path.replaceWith(newPath);
       return;
     }
 
     // Generate a new string
-    const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path.node);
+    const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path);
 
     print("### index, Generate a new string, newPath = ", newPath);
 
@@ -58,6 +58,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     // If the literal is inside an object property definition, we need to change
     // it to be a computed value instead.
     const isObjectProperty = parentPath.isObjectProperty();
+    // print("### index, isObjectProperty", isObjectProperty);
 
     if (isObjectProperty) {
       const overrideParentPath = parentPath as NodePath<t.ObjectProperty>;
