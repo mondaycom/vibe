@@ -47,18 +47,22 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
     });
 
     act(() => {
-      // move visual focus to first item
+      // move visual focus to current item index + 1
       userEvent.keyboard(moveForwardKey);
     });
-    let before = result.current.visualFocusItemIndex;
+
+    const before = result.current.visualFocusItemIndex;
     const keyboardTimes = 2;
 
-    for (let i = 0; i < keyboardTimes; i++) {
-      act(() => {
-        // move visual focus to first item
-        userEvent.keyboard(moveForwardKey);
-      });
-    }
+    act(() => {
+      // move visual focus to current item index + 2
+      userEvent.keyboard(moveForwardKey);
+    });
+
+    act(() => {
+      //move visual focus to current item index + 3
+      userEvent.keyboard(moveForwardKey);
+    });
 
     expect(result.current.visualFocusItemIndex).toEqual(before + keyboardTimes);
   });
