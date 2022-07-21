@@ -37,7 +37,7 @@ export function useSupportArrowsKeyboardNavigation({
         return;
       }
 
-      // If the focusedElementRef is naturally focus but this is the first keyboard interaction of the user, we need our hook to understand
+      // If the focusedElementRef is naturally focus but this is the first keyboard interaction of the user, we will mark future user interactions as trigger by keyboard (until the next mouse interaction)
       // that from now on the interactions are trigger by keyboard (until the next mosue interaction)
       if (!triggerByKeyboard) {
         setTriggerByKeyboard(true);
