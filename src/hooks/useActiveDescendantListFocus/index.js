@@ -4,7 +4,7 @@ import {
   useSupportPressItemKeyboardNavigation,
   useSetDefaultItemOnFocusEvent,
   useKeepFocusOnItemWhenListChanged,
-  useIsTriggeredByKeyboard
+  useCleanVisualFocusOnBlur
 } from "hooks/useActiveDescendantListFocus/useActiveDescendantListFocusHooks";
 
 const ROLES = {
@@ -29,7 +29,7 @@ function useActiveDescendantListFocus({
 }) {
   const defaultVisualFocusItemIndex = defaultVisualFocusFirstIndex ? 0 : -1;
   const itemsCount = itemsIds.length;
-  const [visualFocusItemIndex, setVisualFocusItemIndex] = useState(defaultVisualFocusItemIndex);
+  const [visualFocusItemIndex, setVisualFocusItemIndex] = useState(-1);
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
 
   const listenerOptions = useMemo(() => {
@@ -41,24 +41,33 @@ function useActiveDescendantListFocus({
       stopPropagation: true
     };
   }, [useDocumentEventListeners, focusedElementRef]);
-  const { triggeredByKeyboard, setTriggeredByKeyboard } = useIsTriggeredByKeyboard({ focusedElementRef });
+
+  const { triggeredByKeyboard } = useSetDefaultItemOnFocusEvent({
+    focusedElementRef,
+    isItemSelectable,
+    visualFocusItemIndex,
+    setVisualFocusItemIndex,
+    itemsCount,
+    defaultVisualFocusItemIndex
+  });
+
   const setVisualFocusItemId = useCallback(
     (visualFocusItemId, isTriggeredByKeyboard) => {
-      if (!triggeredByKeyboard) setTriggeredByKeyboard(isTriggeredByKeyboard);
+      triggeredByKeyboard.current = isTriggeredByKeyboard;
       const itemIndex = itemsIds.indexOf(visualFocusItemId);
       if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {
         setVisualFocusItemIndex(itemIndex);
       }
     },
-    [itemsIds, setTriggeredByKeyboard, triggeredByKeyboard, visualFocusItemIndex]
+    [itemsIds, triggeredByKeyboard, visualFocusItemIndex]
   );
+
   useSupportArrowsKeyboardNavigation({
     itemsCount,
     focusedElementRef,
     visualFocusItemIndex,
     setVisualFocusItemIndex,
     triggeredByKeyboard,
-    setTriggeredByKeyboard,
     isHorizontalList,
     isItemSelectable,
     listenerOptions
@@ -75,16 +84,6 @@ function useActiveDescendantListFocus({
     isIgnoreSpaceAsItemSelection
   });
 
-  useSetDefaultItemOnFocusEvent({
-    focusedElementRef,
-    isItemSelectable,
-    visualFocusItemIndex,
-    setVisualFocusItemIndex,
-    itemsCount,
-    triggeredByKeyboard,
-    defaultVisualFocusItemIndex
-  });
-
   useKeepFocusOnItemWhenListChanged({
     visualFocusItemIndex,
     itemsIds,
@@ -92,18 +91,20 @@ function useActiveDescendantListFocus({
     setVisualFocusItemIndex
   });
 
+  useCleanVisualFocusOnBlur({ focusedElementRef, visualFocusItemIndex, setVisualFocusItemIndex });
+
   // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
   // we keep it for backward compatibility
   const backwardCompatibilityCreateOnClickCallback = useCallback(
     itemIndex => event => onItemClick(event, itemIndex),
     [onItemClick]
   );
-
+  console.log(triggeredByKeyboard);
   return {
-    visualFocusItemIndex: triggeredByKeyboard ? visualFocusItemIndex : undefined,
-    visualFocusItemId: triggeredByKeyboard ? visualFocusItemId : undefined,
+    visualFocusItemIndex: triggeredByKeyboard.current ? visualFocusItemIndex : undefined,
+    visualFocusItemId: triggeredByKeyboard.current ? visualFocusItemId : undefined,
     focusedElementProps: {
-      "aria-activedescendant": triggeredByKeyboard ? visualFocusItemId : undefined,
+      "aria-activedescendant": triggeredByKeyboard.current ? visualFocusItemId : undefined,
       role: focusedElementRole
     },
     // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).

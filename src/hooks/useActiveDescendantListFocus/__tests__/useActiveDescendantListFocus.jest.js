@@ -97,7 +97,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
 
   it("should trigger onClick when focused element has natural focus and user navigate to item and press enter", async () => {
     const onItemClick = jest.fn();
-    renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusFirstIndex });
+    const { result } = renderHookForTest({ onItemClick, isHorizontal, defaultVisualFocusFirstIndex });
 
     act(() => {
       // set focus on the list's element which in charge on natural focus element
@@ -106,13 +106,15 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
       userEvent.keyboard(moveForwardKey);
     });
 
+    const selectedIndex = result.current.visualFocusItemIndex;
+
     act(() => {
       // Trigger on click by press enter
       userEvent.keyboard("{Enter}");
     });
 
     expect(onItemClick).toHaveBeenCalledTimes(1);
-    expect(onItemClick).toHaveBeenCalledWith(expect.objectContaining({}), 0);
+    expect(onItemClick).toHaveBeenCalledWith(expect.objectContaining({}), selectedIndex);
   });
 
   it("should not trigger onClick when focused element does not have natural focus and user navigate to item and press enter", async () => {
@@ -189,7 +191,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
     });
 
     // Now the visual focus item index should be the index of THIRD_ITEM_ID item
-    expect(result.current.visualFocusItemIndex).toEqual(3);
+    expect(result.current.visualFocusItemIndex).toEqual(2);
   });
 }
 
@@ -282,7 +284,7 @@ describe("useActiveDescendantListFocus", () => {
         element.focus();
       });
 
-      expect(result.current.visualFocusItemIndex).toEqual(-1);
+      expect(result.current.visualFocusItemIndex).toEqual(undefined);
     });
   });
 });
