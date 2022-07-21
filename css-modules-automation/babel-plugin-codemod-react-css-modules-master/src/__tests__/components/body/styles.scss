@@ -1,0 +1,79 @@
+.body {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    font-weight: 400;
+    color: $text-black-color;
+    text-align: left;
+}
+
+.body--large {
+    font-size: 1.7rem;
+    line-height: 2.6rem;
+}
+
+.body--importance-one {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+}
+
+.body--importance-two {
+    font-size: 1.3rem;
+    line-height: 1.9rem;
+}
+
+.body--importance-three {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+}
+
+.body--weight-thin {
+    font-weight: 100;
+}
+
+.body--weight-light {
+    font-weight: 300;
+}
+
+.body--weight-regular {
+    font-weight: 400;
+}
+
+.body--weight-medium {
+    font-weight: 500;
+}
+
+.body--weight-bold {
+    font-weight: 700;
+}
+
+.body--color-black {
+    color: $text-black-color;
+}
+
+.body--color-grey {
+    color: $text-grey-color;
+}
+
+.body--color-white {
+    color: $text-white-color;
+}
+
+.body--color-red {
+    color: $text-red-color;
+}
+
+.body--color-green {
+    color: $text-green-color;
+}
+
+.body--alignment-left {
+    text-align: left;
+}
+
+.body--alignment-center {
+    text-align: center;
+}
+
+.body--alignment-right {
+    text-align: right;
+}

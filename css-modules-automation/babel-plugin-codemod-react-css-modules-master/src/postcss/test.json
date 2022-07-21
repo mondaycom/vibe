@@ -1,0 +1,8 @@
+CssSyntaxError: /home/craig/Git/scss-css-modules-transform/src/__tests__/components/button/styles.scss:2:11: Unknown word
+You tried to parse SCSS with the standard CSS parser; try again with the postcss-scss parser
+
+  1 | // .button-toolbar {
+> 2 | //     // margin: 5px;
+    |           ^
+  3 | //     @include flexBox(row, center, flex-start);
+  4 | // }
