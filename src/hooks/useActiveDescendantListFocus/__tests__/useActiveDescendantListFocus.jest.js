@@ -282,7 +282,7 @@ describe("useActiveDescendantListFocus", () => {
         element.focus();
       });
 
-      expect(result.current.visualFocusItemIndex).toEqual(undefined);
+      expect(result.current.visualFocusItemIndex).toEqual(-1);
     });
   });
 });
