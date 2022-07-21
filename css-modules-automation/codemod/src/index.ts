@@ -6,6 +6,7 @@ import { getModuleClassNames } from "./utils/getModuleClassNames";
 import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
 import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
+import { print, printNodeType } from "./utils/print";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -20,42 +21,6 @@ const PLUGIN_DEFAULTS = {
   importIdentifier: "styles"
 };
 
-const printInfo = (msg: string, path: NodePath) => {
-  console.log("### PrintInfo: ", msg);
-
-  const type = path.type;
-  console.log("### index, printInfo, path.type = ", type);
-  // const isObjectProperty = path.isObjectProperty();
-  // console.log(
-  // 	"### index, path.isObjectProperty = ",
-  // 	isObjectProperty
-  // );
-  //
-  // const isProperty = path.isProperty();
-  // console.log(
-  // 	"### index, path.isProperty = ",
-  // 	isProperty
-  // );
-  //
-  // const isIdentifier = path.isIdentifier();
-  // console.log(
-  // 	"### index, path.isIdentifier = ",
-  // 	isIdentifier
-  // );
-
-  // const isJSXExpressionContainer = path.isJSXExpressionContainer();
-  // console.log("### index, path.isJSXExpressionContainer = ", isJSXExpressionContainer);
-  //
-  // const isCallExpression = path.isCallExpression();
-  // console.log("### index, path.isCallExpression = ", isCallExpression);
-  //
-  // const isAssignmentExpression = path.isAssignmentExpression();
-  // console.log("### index, path.isAssignmentExpression = ", isAssignmentExpression);
-  //
-  // const isAssignmentPattern = path.isAssignmentPattern();
-  // console.log("### index, path.isAssignmentPattern = ", isAssignmentPattern);
-};
-
 /**
  * These visitors take a string literal, checks to see if it's a valid CSS module
  * class name (from `State.classNames`), and if so replaces them with the corresponding
@@ -64,7 +29,7 @@ const printInfo = (msg: string, path: NodePath) => {
 const stringLiteralReplacementVisitors: Visitor<State> = {
   StringLiteral: (path, { classNames, opts }) => {
     // Ignore strings inside object lookups i.e. obj["className"]
-    console.log("### index, path isStringLiteral, path.node.value = ", path.node.value);
+    print(() => console.log("### index, path isStringLiteral, path.node.value = ", path.node.value));
 
     const parentPath = path.parentPath;
 
@@ -72,11 +37,11 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       return;
     }
 
-    printInfo("### index, parentPath", parentPath);
+    printNodeType("### index, parentPath", parentPath);
 
     if (!parentPath.isJSXExpressionContainer() && !parentPath.isCallExpression() && !parentPath.isObjectProperty()) {
       // Converting to JSX expression
-      console.log("### index, wrapWithJSXExpressionContainer");
+      print(() => console.log("### index, wrapWithJSXExpressionContainer"));
       const newPath = wrapWithJSXExpressionContainer(parentPath.node);
       path.replaceWith(newPath);
       return;
@@ -85,10 +50,10 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     // Generate a new string
     const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path.node);
 
-    console.log("### index, Generate a new string, newPath = ", newPath);
+    print(() => console.log("### index, Generate a new string, newPath = ", newPath));
 
-    // printInfo("### path", path);
-    // printInfo("### parentPath", parentPath);
+    // printNodeType("### path", path);
+    // printNodeType("### parentPath", parentPath);
 
     // If the literal is inside an object property definition, we need to change
     // it to be a computed value instead.
@@ -96,15 +61,17 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
     if (isObjectProperty) {
       const overrideParentPath = parentPath as NodePath<t.ObjectProperty>;
-      console.log("### index, parentPath.node.value = ", overrideParentPath.node.value);
+      print(() => console.log("### index, parentPath.node.value = ", overrideParentPath.node.value));
       overrideParentPath.replaceWith(t.objectProperty(newPath, overrideParentPath.node.value, true, false));
     }
     // Otherwise just replace the literal completely
     else {
-      console.log(
-        `### index, Otherwise just replace the literal completely, path.node.value = ${
-          path.node.value
-        }, newPath = ${JSON.stringify(newPath)}`
+      print(() =>
+        console.log(
+          `### index, Otherwise just replace the literal completely, path.node.value = ${
+            path.node.value
+          }, newPath = ${JSON.stringify(newPath)}`
+        )
       );
 
       path.replaceWith(newPath as any);

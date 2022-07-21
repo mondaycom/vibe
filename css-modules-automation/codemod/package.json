@@ -8,6 +8,7 @@
     "test": "npm run test:postcss && npm run test:codemod",
     "test:postcss": "node -r ts-node/register src/postcss/__tests__/shell.ts",
     "test:codemod": "node -r ts-node/register src/__tests__/codemod.ts",
+    "modify monday-ui-react-core": "npx codemod -p src/index.ts ../../src/components",
     "modify": "npx codemod -p src/index.ts tests",
     "modify divider": "npx codemod -p src/index.ts tests/Divider.jsx",
     "modify anchor-list-item": "npx codemod -p src/index.ts tests/anchor-list-item.jsx",
