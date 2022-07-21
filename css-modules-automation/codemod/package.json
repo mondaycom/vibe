@@ -9,14 +9,14 @@
     "test:postcss": "node -r ts-node/register src/postcss/__tests__/shell.ts",
     "test:codemod": "node -r ts-node/register src/__tests__/codemod.ts",
     "modify monday-ui-react-core": "npx codemod -p src/index.ts ../../src/components",
-    "modify": "npx codemod -p src/index.ts tests",
-    "modify divider": "npx codemod -p src/index.ts tests/Divider.jsx",
-    "modify anchor-list-item": "npx codemod -p src/index.ts tests/anchor-list-item.jsx",
-    "modify anchor-list-item-expression": "npx codemod -p src/index.ts tests/anchor-list-item-expression.jsx",
-    "modify combobox": "npx codemod -p src/index.ts tests/Combobox.jsx",
-    "modify toast": "npx codemod -p src/index.ts tests/Toast.jsx",
-    "modify sample-body": "npx codemod -p src/index.ts tests/sample-body",
-    "modify sample-button": "npx codemod -p src/index.ts tests/sample-button"
+    "modify tests": "npx codemod -p src/index.ts tests",
+    "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
+    "modify tests/anchor-list-item": "npx codemod -p src/index.ts tests/anchor-list-item.jsx",
+    "modify tests/anchor-list-item-expression": "npx codemod -p src/index.ts tests/anchor-list-item-expression.jsx",
+    "modify tests/combobox": "npx codemod -p src/index.ts tests/Combobox.jsx",
+    "modify tests/toast": "npx codemod -p src/index.ts tests/Toast.jsx",
+    "modify tests/sample-body": "npx codemod -p src/index.ts tests/sample-body",
+    "modify tests/sample-button": "npx codemod -p src/index.ts tests/sample-button"
   },
   "keywords": [
     "babel-plugin",
