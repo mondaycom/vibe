@@ -93,7 +93,7 @@ function useActiveDescendantListFocus({
     setVisualFocusItemIndex
   });
 
-  // this callback function is not needed anymore (the developer not need to replace is element on click with this callback)
+  // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback)  - we keep it for backward compatibility
   // and we keep returning it only for backward compatibility
   const createOnItemClickCallback = useCallback(itemIndex => event => onItemClick(event, itemIndex), [onItemClick]);
 
