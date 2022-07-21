@@ -39,7 +39,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
     printNodeType("### index, parentPath", parentPath);
 
-    if (!parentPath.isJSXExpressionContainer() && !parentPath.isCallExpression() && !parentPath.isObjectProperty()) {
+    if (parentPath.isJSXAttribute()) {
       // Converting to JSX expression
       print("### index, wrapWithJSXExpressionContainer");
       const newPath = wrapWithJSXExpressionContainer(parentPath.node);
