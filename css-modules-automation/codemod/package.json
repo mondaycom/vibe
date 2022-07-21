@@ -11,6 +11,7 @@
 		"modify": "npx codemod -p src/index.ts input",
 		"modify divider": "npx codemod -p src/index.ts input/Divider.jsx",
 		"modify anchor-list-item": "npx codemod -p src/index.ts input/anchor-list-item.jsx",
+		"modify anchor-list-item-exporession": "npx codemod -p src/index.ts input/anchor-list-item-ex.jsx",
 		"modify combobox": "npx codemod -p src/index.ts input/Combobox.jsx",
 		"modify toast": "npx codemod -p src/index.ts input/Toast.jsx"
 	},
