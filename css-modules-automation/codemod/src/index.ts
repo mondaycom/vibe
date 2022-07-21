@@ -5,6 +5,7 @@ import { dirname, resolve } from "path";
 import { getModuleClassNames } from "./utils/getModuleClassNames";
 import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
 import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
+import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
 
 type PluginOptions = {
 	importIdentifier: "styles";
@@ -16,7 +17,34 @@ type State = {
 };
 
 const PLUGIN_DEFAULTS = {
-	importIdentifier: "styles"
+	importIdentifier: "styles",
+};
+
+const printInfo = (msg: string, path: NodePath) => {
+	console.log("### PrintInfo: ", msg);
+	// const isObjectProperty = path.isObjectProperty();
+	// console.log(
+	// 	"### index, path.isObjectProperty = ",
+	// 	isObjectProperty
+	// );
+	//
+	// const isProperty = path.isProperty();
+	// console.log(
+	// 	"### index, path.isProperty = ",
+	// 	isProperty
+	// );
+	//
+	// const isIdentifier = path.isIdentifier();
+	// console.log(
+	// 	"### index, path.isIdentifier = ",
+	// 	isIdentifier
+	// );
+
+	const isJSXExpressionContainer = path.isJSXExpressionContainer();
+	console.log(
+		"### index, path.isJSXExpressionContainer = ",
+		isJSXExpressionContainer
+	);
 };
 
 /**
@@ -27,7 +55,22 @@ const PLUGIN_DEFAULTS = {
 const stringLiteralReplacementVisitors: Visitor<State> = {
 	StringLiteral: (path, { classNames, opts }) => {
 		// Ignore strings inside object lookups i.e. obj["className"]
+		console.log(
+			"### index, path isStringLiteral, path.node.value = ",
+			path.node.value
+		);
+
 		if (path.parentPath.isMemberExpression()) {
+			return;
+		}
+
+		if (!path.parentPath.isJSXExpressionContainer()) {
+			// Converting to JSX expression
+			console.log("### index, addJSXExpression");
+			const newPath = wrapWithJSXExpressionContainer(
+				path.parentPath.node
+			);
+			path.replaceWith(newPath);
 			return;
 		}
 
@@ -38,21 +81,46 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 			path.node
 		);
 
+		console.log("### index, Generate a new string, newPath = ", newPath);
+
+		printInfo("### path", path);
+		printInfo("### path.parentPath", path.parentPath);
+
 		// If the literal is inside an object property definition, we need to change
 		// it to be a computed value instead.
-		const isProperty = path.parentPath.isObjectProperty();
-		if (isProperty) {
+		const isObjectProperty = path.parentPath.isObjectProperty();
+
+		if (isObjectProperty) {
 			const parentPath = path.parentPath as NodePath<t.ObjectProperty>;
+			console.log(
+				"### index, parentPath.node.value = ",
+				parentPath.node.value
+			);
 			parentPath.replaceWith(
 				t.objectProperty(newPath, parentPath.node.value, true, false)
 			);
 		}
-
 		// Otherwise just replace the literal completely
 		else {
+			// const overrideNewPath = newPath as MemberExpression;
+			console.log(
+				`### index, Otherwise just replace the literal completely, path.node.value = ${
+					path.node.value
+				}, newPath = ${JSON.stringify(newPath)}`
+			);
+
+			// if (t.isAssignmentExpression(newPath)) {
+			// 	// path.insertBefore(newPath as any);
+			// 	path.assertAssignmentExpression(
+			// 		newPath as AssignmentExpression
+			// 	);
+			// 	// path.replaceWith(overrideNewPath);
+			// 	// path.insertBefore(overrideNewPath);
+			// }
 			path.replaceWith(newPath as any);
+			return;
 		}
-	}
+	},
 };
 
 /**
@@ -70,7 +138,7 @@ const classNameReplacementVisitors: Visitor<State> = {
 		}
 
 		binding.path.traverse(stringLiteralReplacementVisitors, state);
-	}
+	},
 };
 
 /**
@@ -85,7 +153,7 @@ const classNameAttributeVisitors: Visitor<State> = {
 		}
 
 		path.traverse(classNameReplacementVisitors, state);
-	}
+	},
 };
 
 /**
@@ -121,7 +189,7 @@ const importVisitors: Visitor<State> = {
 				[
 					t.importNamespaceSpecifier(
 						t.identifier(state.opts.importIdentifier)
-					)
+					),
 				],
 				node.source
 			)
@@ -130,9 +198,9 @@ const importVisitors: Visitor<State> = {
 		// Traverse the top-level program path for JSX className attributes
 		hub.file.path.traverse(classNameAttributeVisitors, {
 			...state,
-			classNames
+			classNames,
 		});
-	}
+	},
 };
 
 export default (): PluginObj<State> => ({
@@ -141,8 +209,8 @@ export default (): PluginObj<State> => ({
 		Program: (programPath, state) => {
 			programPath.traverse(importVisitors, {
 				...state,
-				opts: defaults({}, state.opts, PLUGIN_DEFAULTS)
+				opts: defaults({}, state.opts, PLUGIN_DEFAULTS),
 			});
-		}
-	}
+		},
+	},
 });
