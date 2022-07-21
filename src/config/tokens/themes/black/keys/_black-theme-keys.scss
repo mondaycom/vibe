@@ -32,7 +32,7 @@ $theme-black-allgrey-background-color: $color-night;
 $theme-black-inverted-color-background: $color-smog;
 
 // System Semantics (state, status)
-$theme-black-disabled-text-color: $color-mouse;
+$theme-black-disabled-text-color: rgba($theme-black-primary-text-color, var(--disabled-component-opacity));
 $theme-black-disabled-background-color: $color-dust-muted;
 
 $theme-black-positive-color: $positive-color;

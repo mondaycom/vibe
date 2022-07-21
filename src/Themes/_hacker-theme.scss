@@ -53,8 +53,8 @@
   // disabled
   --disabled-background-color: #595959;
   --disabled-background-on-secondary-color: #595959;
-  --disabled-text-color: #{$color-wolf_gray-muted};
-  --disabled-text-on-secondary-color: #{$color-wolf_gray-muted};
+  --disabled-text-color: rgba(#{extract-rgb(#d5d8df)},0.1);
+  --disabled-text-on-secondary-color: rgba(#{extract-rgb(#d5d8df)},0.1);
 
   --dark-background-color: #303241;
   --dark-background-on-secondary-color: #595959;

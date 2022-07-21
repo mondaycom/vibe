@@ -33,7 +33,7 @@ $theme-dark-allgrey-background-color: $color-graphite;
 $theme-dark-inverted-color-background: $color-snow_white; // todo: fix, value from basic theme
 
 // System Semantics (state, status)
-$theme-dark-disabled-text-color: $color-wolf_gray-muted;
+$theme-dark-disabled-text-color: rgba($theme-dark-primary-text-color, var(--disabled-component-opacity));
 $theme-dark-disabled-background-color: $color-silver_muted;
 
 $theme-dark-positive-color: $positive-color;

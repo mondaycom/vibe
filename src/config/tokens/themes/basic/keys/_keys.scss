@@ -34,7 +34,7 @@ $allgrey-background-color: $color-riverstone_gray;
 $inverted-color-background: $color-mud_black;
 
 // System Semantics (state, status)
-$disabled-text-color: $color-asphalt;
+$disabled-text-color: rgba($primary-text-color, var(--disabled-component-opacity));
 $disabled-background-color: $color-ui_grey-muted;
 
 $positive-color: $color-success;
