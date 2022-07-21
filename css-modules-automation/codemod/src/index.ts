@@ -68,9 +68,8 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     // Otherwise just replace the literal completely
     else {
       print(
-        `### index, Otherwise just replace the literal completely, path.node.value = ${
-          path.node.value
-        }, newPath = ${JSON.stringify(newPath)}`
+        `### index, Otherwise just replace the literal completely, path.node.value = ${path.node.value}, newPath = `,
+        newPath
       );
 
       path.replaceWith(newPath as any);
