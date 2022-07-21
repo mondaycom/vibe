@@ -1,5 +1,52 @@
 # Changelog
 
+## 1.50.0 (2022-07-20)
+
+#### New Features
+* [#770](https://github.com/mondaycom/monday-ui-react-core/pull/770) Manually update monday-ui-style version to 0.1.132 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.49.0 (2022-07-20)
+
+#### Bug Fixes
+* [#763](https://github.com/mondaycom/monday-ui-react-core/pull/763) Add test for list without props. ([@samitc](https://github.com/samitc))
+
+#### New Features
+* [#750](https://github.com/mondaycom/monday-ui-react-core/pull/750) Feature/yonatanari/change logo href ([@3dyonic](https://github.com/3dyonic))
+* [#765](https://github.com/mondaycom/monday-ui-react-core/pull/765) Enable brandFont prop for heading within editable heading. ([@3dyonic](https://github.com/3dyonic))
+
+## 1.48.3 (2022-07-20)
+
+#### New Icons
+* [#768](https://github.com/mondaycom/monday-ui-react-core/pull/768) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.48.2 (2022-07-20)
+
+#### Bug Fixes
+* [#767](https://github.com/mondaycom/monday-ui-react-core/pull/767) Box: added to published-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.48.1 (2022-07-20)
+
+#### New Icons
+* [#764](https://github.com/mondaycom/monday-ui-react-core/pull/764) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.48.0 (2022-07-19)
+
+#### New Features
+* [#758](https://github.com/mondaycom/monday-ui-react-core/pull/758) Add Poppins font-family to h1 heading ([@3dyonic](https://github.com/3dyonic))
+
+#### New Icons
+* [#762](https://github.com/mondaycom/monday-ui-react-core/pull/762) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.47.0 (2022-07-19)
+
+#### New Features
+* [#753](https://github.com/mondaycom/monday-ui-react-core/pull/753) Navigate in list with keyboard. ([@samitc](https://github.com/samitc))
+* [#687](https://github.com/mondaycom/monday-ui-react-core/pull/687) Feature/yonatanari/box component ([@3dyonic](https://github.com/3dyonic))
+* [#752](https://github.com/mondaycom/monday-ui-react-core/pull/752) Feature/yonatan ari/storybook repsoinsive tweaks ([@3dyonic](https://github.com/3dyonic))
+
+#### Documentation
+* [#712](https://github.com/mondaycom/monday-ui-react-core/pull/712) Feature/yonatanari/motion page ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.46.0 (2022-07-13)
 
 #### New Features
