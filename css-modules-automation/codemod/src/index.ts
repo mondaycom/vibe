@@ -9,7 +9,8 @@ import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionCon
 import { print, printNodeType, printWithCondition } from "./utils/print";
 import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
 import { ImportDeclaration, StringLiteral } from "@babel/types";
-import { isComponentJsxFile } from "./utils/isComponentJsxFile";
+import { isComponentFile } from "./utils/isComponentFile";
+import { isFileContainsCssImports } from "./utils/isFileContainsCssImports";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -133,7 +134,13 @@ const importVisitors: Visitor<State> = {
     // @ts-ignore
     const file = hub["file"];
 
-    if (!isComponentJsxFile(file)) {
+    if (!isComponentFile(file)) {
+      printWithCondition(false, "### index, isComponentJsxFile = false", file.opts.filename);
+      return;
+    }
+
+    if (!isFileContainsCssImports(file)) {
+      printWithCondition(false, "### index, isFileContainsCssImports = false", file.opts.filename);
       return;
     }
 

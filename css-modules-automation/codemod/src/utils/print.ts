@@ -1,4 +1,4 @@
-const SHOULD_LOGGING = true;
+const SHOULD_LOGGING = false;
 
 export const printWithCondition = (shouldLogging: boolean, msg: string, ...args: any[]) => {
   if (shouldLogging) {
