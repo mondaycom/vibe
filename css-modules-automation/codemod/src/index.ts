@@ -7,6 +7,8 @@ import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
 import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
 import { print, printNodeType, printWithCondition } from "./utils/print";
+import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
+import { ImportDeclaration, StringLiteral } from "@babel/types";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -15,6 +17,7 @@ type PluginOptions = {
 type State = {
   opts: PluginOptions;
   classNames: Set<string>;
+  cxImported: boolean;
 };
 
 const PLUGIN_DEFAULTS = {
@@ -27,7 +30,7 @@ const PLUGIN_DEFAULTS = {
  * CSS module lookup e.g. `style["className"]`.
  */
 const stringLiteralReplacementVisitors: Visitor<State> = {
-  StringLiteral: (path, { classNames, opts }) => {
+  StringLiteral: (path: NodePath<StringLiteral>, { classNames, opts }) => {
     // Ignore strings inside object lookups i.e. obj["className"]
     print("### index, path isStringLiteral, path.node.value = ", path.node.value);
 
@@ -124,10 +127,25 @@ const classNameAttributeVisitors: Visitor<State> = {
  * information in `State.classNames`, to be used in the above processing steps
  */
 const importVisitors: Visitor<State> = {
-  ImportDeclaration: (path, state) => {
+  ImportDeclaration: (path: NodePath<ImportDeclaration>, state: State) => {
     const { hub, node } = path;
     // @ts-ignore
     const file = hub["file"];
+
+    // Inserts "import cx from classNames;"
+    if (!state.cxImported) {
+      path.insertBefore(
+        t.importDeclaration([t.importDefaultSpecifier(t.identifier("cx"))], t.stringLiteral("classnames"))
+      );
+      state.cxImported = true;
+      print("### index, new cx import inserted");
+    }
+
+    if (isClassNamesImportDeclaration(node) && node.start !== undefined) {
+      print("### index, cx removed!");
+      path.remove();
+      return;
+    }
 
     // Ignore imports of non-CSS files
     if (!isCssImportDeclaration(node)) {
