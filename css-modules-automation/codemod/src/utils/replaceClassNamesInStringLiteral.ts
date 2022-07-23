@@ -1,23 +1,23 @@
 import * as t from "@babel/types";
+import { StringLiteral } from "@babel/types";
 import template from "@babel/template";
 import { print } from "./print";
 import { NodePath } from "@babel/traverse";
 
 /**
- * Replaces all class names within the given className string, with
- * those that are supplied in the map.
+ * Replaces all class names within the given className string, with importIdentifier["className"], if className exists in classNames
  *
  * @param classNames Set of classnames
  * @param importIdentifier Name of the identifier to reference class names via
- * @param path Path to the node
+ * @param path Path to the StringLiteral node
  * @returns New classname string
  */
 export const replaceClassNamesInStringLiteral = (
   classNames: Set<string>,
   importIdentifier: string,
-  path: NodePath
+  path: NodePath<StringLiteral>
 ): t.StringLiteral | t.MemberExpression | t.Statement => {
-  const literalNode = path.node as t.StringLiteral;
+  const literalNode = path.node;
   print("*** replaceClassNamesInStringLiteral, literalNode.value", literalNode.value);
   // Check if this is a single class name
   const classNameArr = literalNode.value.trim().split(" ");
