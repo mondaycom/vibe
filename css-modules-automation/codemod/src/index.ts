@@ -67,7 +67,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       const overrideParentPath = parentPath as NodePath<t.ObjectProperty>;
 
       print("### index, parentPath.node.value = ", overrideParentPath.node.value);
-      const overrideNewPath = t.objectProperty(newPath, overrideParentPath.node.value, true, false);
+      const overrideNewPath = t.objectProperty(newPath as any, overrideParentPath.node.value, true, false);
       printWithCondition(true, "### index, overrideNewPath = ", overrideNewPath);
       overrideParentPath.replaceWith(overrideNewPath);
     }
