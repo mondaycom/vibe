@@ -9,6 +9,7 @@ import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionCon
 import { print, printNodeType, printWithCondition } from "./utils/print";
 import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
 import { ImportDeclaration, StringLiteral } from "@babel/types";
+import { isComponentJsxFile } from "./utils/isComponentJsxFile";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -132,6 +133,10 @@ const importVisitors: Visitor<State> = {
     // @ts-ignore
     const file = hub["file"];
 
+    if (!isComponentJsxFile(file)) {
+      return;
+    }
+
     // Inserts "import cx from classNames;"
     if (!state.cxImported) {
       path.insertBefore(
@@ -141,8 +146,9 @@ const importVisitors: Visitor<State> = {
       print("### index, new cx import inserted");
     }
 
+    // Remove duplicated imports from classnames
     if (isClassNamesImportDeclaration(node) && node.start !== undefined) {
-      print("### index, cx removed!");
+      print("### index, cx import removed!");
       path.remove();
       return;
     }
