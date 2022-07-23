@@ -1,4 +1,6 @@
+// @ts-ignore
 import React from "react";
+// @ts-ignore
 import BalanceText from "@hive/react-balance-text";
 import classnames from "classnames";
 // import Layout, { LayoutProps } from "components/atoms/layout";

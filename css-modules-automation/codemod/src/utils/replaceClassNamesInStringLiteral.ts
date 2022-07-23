@@ -35,7 +35,6 @@ export const replaceClassNamesInStringLiteral = (
       return literalNode;
     }
 
-    // printNodeType("*** replaceClassNamesInStringLiteral, printNodeType", literalNode)
     const res = t.memberExpression(t.identifier(importIdentifier), t.stringLiteral(literalNode.value), true);
     print(
       '*** replaceClassNamesInStringLiteral, Otherwise return a computed MemberExpression i.e. styles["className"], res',

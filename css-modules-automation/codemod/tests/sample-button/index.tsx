@@ -1,5 +1,7 @@
+// @ts-ignore
 import React from "react";
 import classnames from "classnames";
+// @ts-ignore
 import { SvgIconProps } from "components/atoms/icons/SvgIcon";
 import "./styles.scss";
 
