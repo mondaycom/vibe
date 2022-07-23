@@ -15,6 +15,7 @@
     "modify tests/anchor-list-item-expression": "npx codemod -p src/index.ts tests/anchor-list-item-expression.jsx",
     "modify tests/anchor-list-item-conditional": "npx codemod -p src/index.ts tests/anchor-list-item-conditional.jsx",
     "modify tests/anchor-list-item-no-such-style": "npx codemod -p src/index.ts tests/anchor-list-item-no-such-style.jsx",
+    "modify tests/anchor-list-item-cx": "npx codemod -p src/index.ts tests/anchor-list-item-cx.jsx",
     "modify tests/combobox": "npx codemod -p src/index.ts tests/Combobox.jsx",
     "modify tests/toast": "npx codemod -p src/index.ts tests/Toast.jsx",
     "modify tests/sample-body": "npx codemod -p src/index.ts tests/sample-body",
