@@ -126,6 +126,8 @@ const classNameAttributeVisitors: Visitor<State> = {
 const importVisitors: Visitor<State> = {
   ImportDeclaration: (path, state) => {
     const { hub, node } = path;
+    // @ts-ignore
+    const file = hub["file"];
 
     // Ignore imports of non-CSS files
     if (!isCssImportDeclaration(node)) {
@@ -133,7 +135,7 @@ const importVisitors: Visitor<State> = {
     }
 
     // Calculate the file path relative to the current file
-    const scssFilename = resolve(dirname(hub.file.opts.filename), node.source.value);
+    const scssFilename = resolve(dirname(file.opts.filename), node.source.value);
 
     // Get all relevant class names from the file
     const classNames = getModuleClassNames(scssFilename);
@@ -147,7 +149,7 @@ const importVisitors: Visitor<State> = {
     );
 
     // Traverse the top-level program path for JSX className attributes
-    hub.file.path.traverse(classNameAttributeVisitors, {
+    file.path.traverse(classNameAttributeVisitors, {
       ...state,
       classNames
     });
