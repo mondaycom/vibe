@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import cx from "classnames";
-import "./anchor-list-item.scss";
+import "./anchor-list-item-conditional.scss";
 
 export const AnchorListItem = ({ children }) => {
   return <li className={cx({ "monday-storybook-anchor-list-item-conditional": true })}>{children}</li>;
