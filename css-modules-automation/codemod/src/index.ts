@@ -139,13 +139,8 @@ const importVisitors: Visitor<State> = {
       return;
     }
 
-    if (!isFileContainsCssImports(file)) {
-      printWithCondition(false, "### index, isFileContainsCssImports = false", file.opts.filename);
-      return;
-    }
-
     // Inserts "import cx from classNames;"
-    if (!state.cxImported) {
+    if (!state.cxImported && isFileContainsCssImports(file)) {
       path.insertBefore(
         t.importDeclaration([t.importDefaultSpecifier(t.identifier("cx"))], t.stringLiteral("classnames"))
       );
