@@ -1,30 +1,11 @@
-@import "../../../styles/global-css-settings";
-@import "../../styles/typography";
+.class-1 {
 
-.monday-storybook-anchor-list-item-multiple-classes-1 {
-  @include theme-prop(color, link-color);
-  font-size: $anchor-font-size;
-  line-height: $text-line-height;
-
-  &:not(:last-child) {
-    margin-bottom: $spacing-small;
-  }
-
-  a {
-    @include theme-prop(color, link-color);
-  }
 }
 
-.monday-storybook-anchor-list-item-multiple-classes-2 {
-  @include theme-prop(color, link-color);
-  font-size: $anchor-font-size;
-  line-height: $text-line-height;
+.class-2 {
 
-  &:not(:last-child) {
-    margin-bottom: $spacing-small;
-  }
+}
 
-  a {
-    @include theme-prop(color, link-color);
-  }
+.class-3 {
+
 }
