@@ -6,7 +6,7 @@ import { getModuleClassNames } from "./utils/getModuleClassNames";
 import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
 import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
-import { print, printNodeType, printWithCondition } from "./utils/print";
+import { print, printNodeType } from "./utils/print";
 import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
 import { ImportDeclaration, StringLiteral } from "@babel/types";
 import { isComponentFile } from "./utils/isComponentFile";
@@ -68,21 +68,18 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
     // If 'className={...}' then convert to 'className={cx(...)}'
     if (parentPath.isJSXExpressionContainer() && !isCxCallExpression(path as NodePath)) {
-      printWithCondition(true, "### index, parentPath.isCallExpression, path", path);
+      print("### index, parentPath.isCallExpression, path", path);
       const newPath = wrapWithCxCallExpression(parentPath);
       path.replaceWith(newPath);
       return;
     }
 
-    // Generate a new string
     // Replace all className strings with styles["className"]
     const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path);
     if (path.shouldSkip) {
       path.replaceWith(newPath);
       return;
     }
-
-    print("### index, Generate a new string, newPath = ", newPath);
 
     const isObjectProperty = parentPath.isObjectProperty();
     print("### index, isObjectProperty", isObjectProperty);
@@ -94,7 +91,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
       print("### index, parentPath.node.value = ", overrideParentPath.node.value);
       const overrideNewPath = t.objectProperty(newPath as any, overrideParentPath.node.value, true, false);
-      printWithCondition(false, "### index, overrideNewPath = ", overrideNewPath);
+      print("### index, overrideNewPath = ", overrideNewPath);
       overrideParentPath.replaceWith(overrideNewPath);
     }
     // Otherwise just replace the literal completely
@@ -156,7 +153,7 @@ const importVisitors: Visitor<State> = {
     const file = hub["file"];
 
     if (!isComponentFile(file)) {
-      printWithCondition(false, "### index, isComponentJsxFile = false", file.opts.filename);
+      print("### index, isComponentJsxFile = false", file.opts.filename);
       return;
     }
 
