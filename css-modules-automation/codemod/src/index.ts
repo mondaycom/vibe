@@ -13,6 +13,7 @@ import { isFileContainsCssImports } from "./utils/isFileContainsCssImports";
 import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./utils/wrapWithCxCallExpression";
 import { isCxCallExpression } from "./utils/isCxCallExpression";
 import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
+import { splitClassNames } from "./utils/splitClassNames";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -76,17 +77,8 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
     // Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
     if (path.node.value.trim().includes(" ")) {
-      const parentNode = parentPath.node as t.CallExpression;
-      const parts = path.node.value.trim().split(" ");
-      const currentNodePosition = parentNode.arguments.findIndex(
-        a => t.isStringLiteral(a) && a.start === path.node.start && a.end === path.node.end
-      );
-      let newArgs = parentNode.arguments.slice(0, currentNodePosition);
-      for (let i = 0; i < parts.length; ++i) {
-        newArgs.push(t.stringLiteral(parts[i]));
-      }
-      newArgs = [...newArgs, ...parentNode.arguments.slice(currentNodePosition + 1)];
-      parentPath.replaceWith(t.callExpression(parentNode.callee, newArgs));
+      const newPath = splitClassNames(path);
+      parentPath.replaceWith(newPath);
       return;
     }
 
