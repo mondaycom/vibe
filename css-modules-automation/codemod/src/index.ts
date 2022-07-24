@@ -74,12 +74,13 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       return;
     }
 
+    const parentNode = parentPath.node as t.CallExpression;
+
     // Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
     if (path.node.value.trim().includes(" ")) {
       const parts = path.node.value.trim().split(" ");
-      const parentNode = parentPath.node as t.CallExpression;
       const currentNodePosition = parentNode.arguments.findIndex(
-        a => t.isStringLiteral(a) && a.value === path.node.value
+        a => t.isStringLiteral(a) && a.start === path.node.start && a.end === path.node.end
       );
       let newArgs = parentNode.arguments.slice(0, currentNodePosition);
       for (let i = 0; i < parts.length; ++i) {
@@ -92,10 +93,6 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
     // Replace all className strings with styles["className"]
     const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path);
-    if (path.shouldSkip) {
-      path.replaceWith(newPath);
-      return;
-    }
 
     const isObjectProperty = parentPath.isObjectProperty();
     print("### index, isObjectProperty", isObjectProperty);
