@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.50.2 (2022-07-24)
+
+#### Bug Fixes
+* [#777](https://github.com/mondaycom/monday-ui-react-core/pull/777) Bug/hadas/attention box close ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.50.1 (2022-07-24)
 
 #### Bug Fixes
