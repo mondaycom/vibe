@@ -9,3 +9,11 @@ exports[`renders correctly with empty props 1`] = `
   Something
 </ul>
 `;
+
+exports[`renders correctly without props 1`] = `
+<ul
+  className="monday-style-list"
+  onKeyDown={[Function]}
+  tabIndex={-1}
+/>
+`;
