@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.50.1 (2022-07-24)
+
+#### Bug Fixes
+* [#775](https://github.com/mondaycom/monday-ui-react-core/pull/775) Fix button group css specificity ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#773](https://github.com/mondaycom/monday-ui-react-core/pull/773) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.50.0 (2022-07-20)
 
 #### New Features
