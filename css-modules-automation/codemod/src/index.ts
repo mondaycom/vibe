@@ -93,6 +93,10 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 
     // Replace all className strings with styles["className"]
     const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path);
+    if (path.shouldSkip) {
+      // Classnames is not found in set of classnames from .scss file
+      return;
+    }
 
     const isObjectProperty = parentPath.isObjectProperty();
     print("### index, isObjectProperty", isObjectProperty);
