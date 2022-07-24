@@ -74,10 +74,9 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       return;
     }
 
-    const parentNode = parentPath.node as t.CallExpression;
-
     // Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
     if (path.node.value.trim().includes(" ")) {
+      const parentNode = parentPath.node as t.CallExpression;
       const parts = path.node.value.trim().split(" ");
       const currentNodePosition = parentNode.arguments.findIndex(
         a => t.isStringLiteral(a) && a.start === path.node.start && a.end === path.node.end
@@ -98,18 +97,15 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       return;
     }
 
-    const isObjectProperty = parentPath.isObjectProperty();
-    print("### index, isObjectProperty", isObjectProperty);
-
-    if (isObjectProperty) {
+    // Conditional style
+    if (parentPath.isObjectProperty()) {
       // If the literal is inside an object property definition, we need to change
       // it to be a computed value instead.
-      const overrideParentPath = parentPath as NodePath<t.ObjectProperty>;
-
-      print("### index, parentPath.node.value = ", overrideParentPath.node.value);
-      const overrideNewPath = t.objectProperty(newPath as any, overrideParentPath.node.value, true, false);
+      const parentNode = parentPath.node as t.ObjectProperty;
+      print("### index, isObjectProperty, parentNode.value = ", parentNode.value);
+      const overrideNewPath = t.objectProperty(newPath as any, parentNode.value, true, false);
       print("### index, overrideNewPath = ", overrideNewPath);
-      overrideParentPath.replaceWith(overrideNewPath);
+      parentPath.replaceWith(overrideNewPath);
     }
     // Otherwise just replace the literal completely
     else {
