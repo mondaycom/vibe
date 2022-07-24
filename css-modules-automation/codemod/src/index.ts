@@ -11,6 +11,8 @@ import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclara
 import { ImportDeclaration, StringLiteral } from "@babel/types";
 import { isComponentFile } from "./utils/isComponentFile";
 import { isFileContainsCssImports } from "./utils/isFileContainsCssImports";
+import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./utils/wrapWithCxCallExpression";
+import { isCxCallExpression } from "./utils/isCxCallExpression";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -45,6 +47,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     printNodeType("### index, path.type", path);
     printNodeType("### index, parentPath.type", parentPath);
 
+    // If 'className="..."' then convert to 'className={"..."}'
     if (parentPath.isJSXAttribute()) {
       // Converting to JSX expression
       print("### index, wrapWithJSXExpressionContainer");
@@ -53,7 +56,26 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       return;
     }
 
+    // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
+    if (
+      parentPath.isCallExpression() &&
+      parentPath.node.callee.type === "Identifier" &&
+      parentPath.node.callee.name.toLowerCase() === "classnames"
+    ) {
+      const newPath = renameClassnamesToCxCallExpression(parentPath);
+      parentPath.replaceWith(newPath);
+    }
+
+    // If 'className={...}' then convert to 'className={cx(...)}'
+    if (parentPath.isJSXExpressionContainer() && !isCxCallExpression(path as NodePath)) {
+      printWithCondition(true, "### index, parentPath.isCallExpression, path", path);
+      const newPath = wrapWithCxCallExpression(parentPath);
+      path.replaceWith(newPath);
+      return;
+    }
+
     // Generate a new string
+    // Replace all className strings with styles["className"]
     const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path);
     if (path.shouldSkip) {
       path.replaceWith(newPath);
@@ -61,7 +83,6 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     }
 
     print("### index, Generate a new string, newPath = ", newPath);
-    printNodeType("### index, Generate a new string, newPath = ", newPath);
 
     const isObjectProperty = parentPath.isObjectProperty();
     print("### index, isObjectProperty", isObjectProperty);
