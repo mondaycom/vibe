@@ -61,10 +61,18 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       // If the literal is inside an object property definition, we need to change
       // it to be a computed value instead.
       const parentNode = parentPath.node as t.ObjectProperty;
-      print("### index, isObjectProperty, parentNode.value = ", parentNode.value);
+      printWithCondition(true, "### index, isObjectProperty, parentNode.value = ", parentNode.value);
       const overrideNewPath = t.objectProperty(newPath as any, parentNode.value, true, false);
-      print("### index, overrideNewPath = ", overrideNewPath);
-      parentPath.replaceWith(overrideNewPath);
+      printWithCondition(true, "### index, overrideNewPath = ", overrideNewPath);
+      // parentPath.replaceWith(overrideNewPath);
+      const insertedPaths = parentPath.replaceInline([
+        overrideNewPath,
+        t.objectProperty(t.stringLiteral(path.node.value), parentNode.value, true, false)
+      ]);
+      printWithCondition(true, "### index, replaceInline, insertedPaths", insertedPaths);
+      insertedPaths.forEach(p => {
+        p.skip();
+      });
     }
     // Otherwise just replace the literal completely
     else {
