@@ -12,7 +12,6 @@ while read -r line; do
   cd "$fileDirPath" || (echo "Error such path as $fileDirPath doesn't exists! Paths to files should be absolute" && exit)
 
   if test -f "$fileName.scss"; then
-      echo "$fileName.scss exists."
       cp "$fileName.scss" "$fileName.module.scss"
       rm "$fileName.scss"
   fi
