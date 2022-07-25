@@ -5,15 +5,15 @@ import { dirname, resolve } from "path";
 import { getModuleClassNames } from "./utils/getModuleClassNames";
 import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
-import { print, printNodeType } from "./utils/print";
+import { print, printNodeType, printWithCondition } from "./utils/print";
 import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
 import { ImportDeclaration, StringLiteral } from "@babel/types";
 import { isComponentFile } from "./utils/isComponentFile";
 import { isFileContainsCssImports } from "./utils/isFileContainsCssImports";
-import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./utils/wrapWithCxCallExpression";
-import { isCxCallExpression } from "./utils/isCxCallExpression";
 import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
 import { splitClassNames } from "./utils/splitClassNames";
+import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./utils/wrapWithCxCallExpression";
+import { isCxCallExpression } from "./utils/isCxCallExpression";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -37,7 +37,8 @@ const PLUGIN_DEFAULTS = {
 const stringLiteralReplacementVisitors: Visitor<State> = {
   StringLiteral: (path: NodePath<StringLiteral>, { classNames, opts }) => {
     // Ignore strings inside object lookups i.e. obj["className"]
-    print("### index, path isStringLiteral, path.node.value = ", path.node.value);
+    const pathNodeStringValue = path.node.value;
+    print("### index, path isStringLiteral, pathNodeStringValue = ", pathNodeStringValue);
 
     const parentPath = path.parentPath;
 
@@ -76,7 +77,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     }
 
     // Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
-    if (path.node.value.trim().includes(" ")) {
+    if (pathNodeStringValue.trim().includes(" ")) {
       const newPath = splitClassNames(path);
       parentPath.replaceWith(newPath);
       return;
@@ -102,11 +103,18 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     // Otherwise just replace the literal completely
     else {
       print(
-        `### index, Otherwise just replace the literal completely, path.node.value = ${path.node.value}, newPath = `,
+        `### index, Otherwise just replace the literal completely, pathNodeStringValue = ${pathNodeStringValue}, newPath = `,
         newPath
       );
 
-      path.replaceWith(newPath as any);
+      // TODO replaceInline sometimes crashed due to previous changes
+      printWithCondition(true, "### index, before replaceInline");
+      const insertedPaths = path.replaceInline([path.node, newPath]);
+      printWithCondition(true, "### index, replaceInline, insertedPaths", insertedPaths);
+      insertedPaths.forEach(p => {
+        p.skip();
+      });
+
       return;
     }
   }

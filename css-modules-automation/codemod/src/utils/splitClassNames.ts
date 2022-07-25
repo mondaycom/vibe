@@ -16,6 +16,5 @@ export const splitClassNames = (path: NodePath<t.StringLiteral>): t.CallExpressi
     newArgs.push(t.stringLiteral(parts[i]));
   }
   newArgs = [...newArgs, ...parentNode.arguments.slice(currentNodePosition + 1)];
-  // parentPath.replaceWith();
   return t.callExpression(parentNode.callee, newArgs);
 };
