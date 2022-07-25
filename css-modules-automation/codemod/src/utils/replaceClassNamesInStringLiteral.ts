@@ -15,7 +15,7 @@ export const replaceClassNamesInStringLiteral = (
   classNames: Set<string>,
   importIdentifier: string,
   path: NodePath<StringLiteral>
-): t.StringLiteral | t.MemberExpression | t.Statement => {
+): t.StringLiteral | t.MemberExpression => {
   const classNameString = path.node.value;
   const literalNode = path.node;
   print("*** replaceClassNamesInStringLiteral, classNameString", classNameString);

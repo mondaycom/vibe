@@ -5,7 +5,7 @@ import { dirname, resolve } from "path";
 import { getModuleClassNames } from "./utils/getModuleClassNames";
 import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
-import { print, printNodeType, printWithCondition } from "./utils/print";
+import { print, printNodeType } from "./utils/print";
 import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
 import { ImportDeclaration, StringLiteral } from "@babel/types";
 import { isComponentFile } from "./utils/isComponentFile";
@@ -69,7 +69,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       insertedPaths.forEach(p => {
         p.skip();
       });
-      print("### index, , stringLiteralReplacementVisitors, isObjectProperty, insertedPaths", insertedPaths);
+      print("### index, stringLiteralReplacementVisitors, isObjectProperty, insertedPaths", insertedPaths);
       return;
     }
     // Otherwise just replace the literal completely
@@ -83,7 +83,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
         p.skip();
       });
 
-      printWithCondition(false, "### index, stringLiteralReplacementVisitors, isLiteral, insertedPaths", insertedPaths);
+      print("### index, stringLiteralReplacementVisitors, isLiteral, insertedPaths", insertedPaths);
       return;
     }
   }
@@ -175,7 +175,7 @@ const importVisitors: Visitor<State> = {
     const file = hub["file"];
 
     if (!isComponentFile(file)) {
-      print("### index, isComponentJsxFile = false", file.opts.filename);
+      print("### index, importVisitors, isComponentFile = false", file.opts.filename);
       return;
     }
 
@@ -185,12 +185,12 @@ const importVisitors: Visitor<State> = {
         t.importDeclaration([t.importDefaultSpecifier(t.identifier("cx"))], t.stringLiteral("classnames"))
       );
       state.cxImported = true;
-      print("### index, new cx import inserted");
+      print("### index, importVisitors, new cx import inserted");
     }
 
     // Remove duplicated imports from classnames
     if (isClassNamesImportDeclaration(node) && node.start !== undefined) {
-      print("### index, cx import removed!");
+      print("### index, importVisitors, cx import removed!");
       path.remove();
       return;
     }
