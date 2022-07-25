@@ -14,6 +14,7 @@ import Clickable from "../../../../components/Clickable/Clickable";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";
+import { useKeyEvent } from "../../../../hooks";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
