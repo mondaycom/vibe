@@ -1,4 +1,5 @@
 import * as t from "@babel/types";
+import { print } from "./print";
 
 /**
  * Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
@@ -15,5 +16,7 @@ export const splitClassNames = (node: t.CallExpression): t.JSXExpressionContaine
     }
   });
   const nodeCallee = node.callee as t.Identifier;
-  return t.jsxExpressionContainer(t.callExpression(nodeCallee, newArguments));
+  const res = t.jsxExpressionContainer(t.callExpression(nodeCallee, newArguments));
+  print("^^^ splitClassNames, newArguments", newArguments);
+  return res;
 };

@@ -1,6 +1,7 @@
 import { JSXAttribute, JSXExpressionContainer } from "@babel/types";
 import { NodePath } from "@babel/traverse";
 import { types as t } from "@babel/core";
+import { print } from "./print";
 
 /**
  * Replace className="..." with className={"..."}
@@ -10,5 +11,6 @@ export const wrapWithJSXExpressionContainer = (path: NodePath<JSXAttribute>): JS
   const node = path.node.value as t.StringLiteral;
   const stringValue = node.value;
   const res = t.jsxExpressionContainer(t.stringLiteral(stringValue));
+  print("$$$ wrapWithJSXExpressionContainer, classname stringValue", stringValue);
   return res;
 };

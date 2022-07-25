@@ -6,11 +6,8 @@ import { print } from "./print";
  * @param node JSXAttribute node
  */
 export const wrapWithCxCallExpression = (node: t.JSXExpressionContainer): t.JSXExpressionContainer => {
-  print("%%% wrapWithCxCallExpression, node", node);
   const nodeExpressionValue = node.expression as t.StringLiteral;
-
   const res = t.jsxExpressionContainer(t.callExpression(t.identifier("cx"), [nodeExpressionValue]));
-
   print("%%% wrapWithCxCallExpression, res", res);
   return res;
 };

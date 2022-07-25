@@ -36,18 +36,17 @@ const PLUGIN_DEFAULTS = {
  */
 const stringLiteralReplacementVisitors: Visitor<State> = {
   StringLiteral: (path: NodePath<StringLiteral>, { classNames, opts }) => {
-    // Ignore strings inside object lookups i.e. obj["className"]
     const pathNodeStringValue = path.node.value;
-    print("### index, path isStringLiteral, pathNodeStringValue = ", pathNodeStringValue);
-
     const parentPath = path.parentPath;
 
+    print("### index, path isStringLiteral, pathNodeStringValue = ", pathNodeStringValue);
+    printNodeType("### index, path.type", path);
+    printNodeType("### index, parentPath.type", parentPath);
+
+    // Ignore strings inside object lookups i.e. obj["className"]
     if (parentPath.isMemberExpression()) {
       return;
     }
-
-    printNodeType("### index, path.type", path);
-    printNodeType("### index, parentPath.type", parentPath);
 
     // Replace all className strings with styles["className"]
     const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path);
@@ -61,33 +60,30 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       // If the literal is inside an object property definition, we need to change
       // it to be a computed value instead.
       const parentNode = parentPath.node as t.ObjectProperty;
-      printWithCondition(true, "### index, isObjectProperty, parentNode.value = ", parentNode.value);
+      print("### index, stringLiteralReplacementVisitors, isObjectProperty, parentNode.value = ", parentNode.value);
       const overrideNewPath = t.objectProperty(newPath as any, parentNode.value, true, false);
-      printWithCondition(true, "### index, overrideNewPath = ", overrideNewPath);
-      // parentPath.replaceWith(overrideNewPath);
       const insertedPaths = parentPath.replaceInline([
         overrideNewPath,
         t.objectProperty(t.stringLiteral(path.node.value), parentNode.value, true, false)
       ]);
-      printWithCondition(true, "### index, replaceInline, insertedPaths", insertedPaths);
       insertedPaths.forEach(p => {
         p.skip();
       });
+      print("### index, , stringLiteralReplacementVisitors, isObjectProperty, insertedPaths", insertedPaths);
+      return;
     }
     // Otherwise just replace the literal completely
     else {
       print(
-        `### index, Otherwise just replace the literal completely, pathNodeStringValue = ${pathNodeStringValue}, newPath = `,
+        `### index, stringLiteralReplacementVisitors, isLiteral, pathNodeStringValue = ${pathNodeStringValue}, newPath = `,
         newPath
       );
-
-      printWithCondition(false, "### index, before replaceInline");
       const insertedPaths = path.replaceInline([newPath, t.stringLiteral(path.node.value)]);
-      printWithCondition(false, "### index, replaceInline, insertedPaths", insertedPaths);
       insertedPaths.forEach(p => {
         p.skip();
       });
 
+      printWithCondition(false, "### index, stringLiteralReplacementVisitors, isLiteral, insertedPaths", insertedPaths);
       return;
     }
   }
@@ -126,7 +122,6 @@ const classNameAttributeVisitors: Visitor<State> = {
     // If 'className="..."' then convert to 'className={"..."}'
     if (!t.isJSXExpressionContainer(node) && path.node.value?.type === "StringLiteral") {
       // Converting to JSX expression
-      print("### index, wrapWithJSXExpressionContainer");
       const newPath = wrapWithJSXExpressionContainer(path);
       path.replaceWith(t.jsxAttribute(path.node.name, newPath));
       return;
@@ -140,7 +135,6 @@ const classNameAttributeVisitors: Visitor<State> = {
         nodeExpression.callee.type === "Identifier" &&
         nodeExpression.callee.name.toLowerCase() === "classnames"
       ) {
-        print("### index, renameClassnamesToCxCallExpression nodeExpression", nodeExpression);
         const newPath = renameClassnamesToCxCallExpression(nodeExpression);
         path.replaceWith(t.jsxAttribute(path.node.name, newPath));
         return;
@@ -149,7 +143,6 @@ const classNameAttributeVisitors: Visitor<State> = {
 
     // If 'className={...}' then convert to 'className={cx(...)}'
     if (t.isJSXExpressionContainer(node) && !isCxCallExpression(node.expression)) {
-      print("### index, wrapWithCxCallExpression, path", path);
       const newPath = wrapWithCxCallExpression(node);
       path.replaceWith(t.jsxAttribute(path.node.name, newPath));
       return;
