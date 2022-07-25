@@ -1,12 +1,12 @@
-import { NodePath } from "@babel/traverse";
+import * as t from "@babel/types";
 import { print } from "./print";
 
 /**
  * Returns true for cx(...) expression
- * @param path node path
+ * @param node node
  */
-export const isCxCallExpression = (path: NodePath) => {
-  const res = path.isCallExpression() && path.node.callee.type === "Identifier" && path.node.callee.name === "cx";
-  print("@@@ isCxCallExpression, res, path", res, path);
+export const isCxCallExpression = (node: t.Node) => {
+  const res = t.isCallExpression(node) && node.callee.type === "Identifier" && node.callee.name === "cx";
+  print("@@@ isCxCallExpression, res, node", res, node);
   return res;
 };

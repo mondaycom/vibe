@@ -1,20 +1,19 @@
 import * as t from "@babel/types";
-import { NodePath } from "@babel/traverse";
 
 /**
  * Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
- * @param path Path to "1 2 3" stringLiteral
+ * @param node - CallExpression
  */
-export const splitClassNames = (path: NodePath<t.StringLiteral>): t.CallExpression => {
-  const parentNode = path.parentPath.node as t.CallExpression;
-  const parts = path.node.value.trim().split(" ");
-  const currentNodePosition = parentNode.arguments.findIndex(
-    a => a.start === path.node.start && a.end === path.node.end
-  );
-  let newArgs = parentNode.arguments.slice(0, currentNodePosition);
-  for (let i = 0; i < parts.length; ++i) {
-    newArgs.push(t.stringLiteral(parts[i]));
-  }
-  newArgs = [...newArgs, ...parentNode.arguments.slice(currentNodePosition + 1)];
-  return t.callExpression(parentNode.callee, newArgs);
+export const splitClassNames = (node: t.CallExpression): t.JSXExpressionContainer => {
+  const newArguments: (t.Expression | t.SpreadElement | t.JSXNamespacedName | t.ArgumentPlaceholder)[] = [];
+  node.arguments.forEach(a => {
+    if (t.isStringLiteral(a) && a.value.trim().includes(" ")) {
+      const parts = a.value.trim().split(" ");
+      parts.forEach(p => newArguments.push(t.stringLiteral(p)));
+    } else {
+      newArguments.push(a);
+    }
+  });
+  const nodeCallee = node.callee as t.Identifier;
+  return t.jsxExpressionContainer(t.callExpression(nodeCallee, newArguments));
 };

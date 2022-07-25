@@ -1,19 +1,15 @@
 import * as t from "@babel/types";
-import { NodePath } from "@babel/traverse";
 import { print } from "./print";
 
 /**
  * Adds cx(...) wrapper to the classNames
- * @param path Path to parrent JSXAttribute node
+ * @param node JSXAttribute node
  */
-export const wrapWithCxCallExpression = (
-  path: NodePath<t.Node> & NodePath<t.JSXExpressionContainer>
-): t.CallExpression => {
-  print("%%% wrapWithCxCallExpression, path", path);
-  const node = path.node as t.JSXExpressionContainer;
+export const wrapWithCxCallExpression = (node: t.JSXExpressionContainer): t.JSXExpressionContainer => {
+  print("%%% wrapWithCxCallExpression, node", node);
   const nodeExpressionValue = node.expression as t.StringLiteral;
 
-  const res = t.callExpression(t.identifier("cx"), [nodeExpressionValue]);
+  const res = t.jsxExpressionContainer(t.callExpression(t.identifier("cx"), [nodeExpressionValue]));
 
   print("%%% wrapWithCxCallExpression, res", res);
   return res;
@@ -21,13 +17,10 @@ export const wrapWithCxCallExpression = (
 
 /**
  * Replace classnames(...) wrapper with cx(...) wrapper
- * @param path node path
+ * @param node
  */
-export const renameClassnamesToCxCallExpression = (
-  path: NodePath<t.Node> & NodePath<t.CallExpression>
-): t.CallExpression => {
-  const node = path.node as t.CallExpression;
-  const res = t.callExpression(t.identifier("cx"), [...node.arguments]);
+export const renameClassnamesToCxCallExpression = (node: t.CallExpression): t.JSXExpressionContainer => {
+  const res = t.jSXExpressionContainer(t.callExpression(t.identifier("cx"), [...node.arguments]));
   print("%%% wrapWithCxCallExpression, renameClassnamesToCxCallExpression, res", res);
   return res;
 };

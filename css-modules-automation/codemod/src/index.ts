@@ -49,40 +49,6 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     printNodeType("### index, path.type", path);
     printNodeType("### index, parentPath.type", parentPath);
 
-    // If 'className="..."' then convert to 'className={"..."}'
-    if (parentPath.isJSXAttribute()) {
-      // Converting to JSX expression
-      print("### index, wrapWithJSXExpressionContainer");
-      const newPath = wrapWithJSXExpressionContainer(parentPath);
-      path.replaceWith(newPath);
-      return;
-    }
-
-    // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
-    if (
-      parentPath.isCallExpression() &&
-      parentPath.node.callee.type === "Identifier" &&
-      parentPath.node.callee.name.toLowerCase() === "classnames"
-    ) {
-      const newPath = renameClassnamesToCxCallExpression(parentPath);
-      parentPath.replaceWith(newPath);
-    }
-
-    // If 'className={...}' then convert to 'className={cx(...)}'
-    if (parentPath.isJSXExpressionContainer() && !isCxCallExpression(path as NodePath)) {
-      print("### index, parentPath.isCallExpression, path", path);
-      const newPath = wrapWithCxCallExpression(parentPath);
-      path.replaceWith(newPath);
-      return;
-    }
-
-    // Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
-    if (pathNodeStringValue.trim().includes(" ")) {
-      const newPath = splitClassNames(path);
-      parentPath.replaceWith(newPath);
-      return;
-    }
-
     // Replace all className strings with styles["className"]
     const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path);
     if (path.shouldSkip) {
@@ -107,10 +73,9 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
         newPath
       );
 
-      // TODO replaceInline sometimes crashed due to previous changes
-      printWithCondition(true, "### index, before replaceInline");
-      const insertedPaths = path.replaceInline([path.node, newPath]);
-      printWithCondition(true, "### index, replaceInline, insertedPaths", insertedPaths);
+      printWithCondition(false, "### index, before replaceInline");
+      const insertedPaths = path.replaceInline([newPath, t.stringLiteral(path.node.value)]);
+      printWithCondition(false, "### index, replaceInline, insertedPaths", insertedPaths);
       insertedPaths.forEach(p => {
         p.skip();
       });
@@ -147,6 +112,49 @@ const classNameAttributeVisitors: Visitor<State> = {
     const { name } = path.node.name;
     if (name !== "className") {
       return;
+    }
+    const node = path.node.value;
+
+    // If 'className="..."' then convert to 'className={"..."}'
+    if (!t.isJSXExpressionContainer(node) && path.node.value?.type === "StringLiteral") {
+      // Converting to JSX expression
+      print("### index, wrapWithJSXExpressionContainer");
+      const newPath = wrapWithJSXExpressionContainer(path);
+      path.replaceWith(t.jsxAttribute(path.node.name, newPath));
+      return;
+    }
+
+    // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
+    if (t.isJSXExpressionContainer(node)) {
+      const nodeExpression = node.expression;
+      if (
+        t.isCallExpression(nodeExpression) &&
+        nodeExpression.callee.type === "Identifier" &&
+        nodeExpression.callee.name.toLowerCase() === "classnames"
+      ) {
+        print("### index, renameClassnamesToCxCallExpression nodeExpression", nodeExpression);
+        const newPath = renameClassnamesToCxCallExpression(nodeExpression);
+        path.replaceWith(t.jsxAttribute(path.node.name, newPath));
+        return;
+      }
+    }
+
+    // If 'className={...}' then convert to 'className={cx(...)}'
+    if (t.isJSXExpressionContainer(node) && !isCxCallExpression(node.expression)) {
+      print("### index, wrapWithCxCallExpression, path", path);
+      const newPath = wrapWithCxCallExpression(node);
+      path.replaceWith(t.jsxAttribute(path.node.name, newPath));
+      return;
+    }
+
+    // Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
+    if (t.isJSXExpressionContainer(node) && isCxCallExpression(node.expression)) {
+      const callExpression = node.expression as t.CallExpression;
+      if (callExpression.arguments.some(a => a.type === "StringLiteral" && a.value.includes(" "))) {
+        const newPath = splitClassNames(callExpression);
+        path.replaceWith(t.jsxAttribute(path.node.name, newPath));
+        return;
+      }
     }
 
     path.traverse(classNameReplacementVisitors, state);
