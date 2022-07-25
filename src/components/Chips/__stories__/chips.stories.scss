@@ -42,7 +42,7 @@
     font-size: 14px;
 
     span {
-      @include theme-prop(color, disabled-text-color);
+      @include theme-prop(color, secondary-text-color);
     }
   }
 }
