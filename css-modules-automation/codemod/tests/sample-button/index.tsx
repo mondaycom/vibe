@@ -3,7 +3,7 @@ import React from "react";
 import classnames from "classnames";
 // @ts-ignore
 import { SvgIconProps } from "components/atoms/icons/SvgIcon";
-import "./styles.scss";
+import "./index.scss";
 
 export interface ButtonProps {
   disabled?: boolean;

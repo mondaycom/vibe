@@ -4,7 +4,7 @@ import React from "react";
 import BalanceText from "@hive/react-balance-text";
 import classnames from "classnames";
 // import Layout, { LayoutProps } from "components/atoms/layout";
-import "./styles.scss";
+import "./index.scss";
 
 export interface BodyProps {
   large?: boolean;

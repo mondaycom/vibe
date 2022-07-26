@@ -15,9 +15,9 @@ import { join } from "path";
  * @param filename Fully qualified filename (path) to the CSS file
  * @returns Set of valid classnames within the CSS file
  */
-export const getModuleClassNames = (filename: string) => {
+export const convertToModuleClassNames = (filename: string) => {
   if (!existsSync(filename)) {
-    throw new Error("Referenced CSS file does not exist: " + filename);
+    throw new Error("### Referenced CSS file does not exist: " + filename);
   }
 
   const { stdout, stderr } = execa.sync("node", [join(__dirname, "..", "postcss", "shell.js"), filename]);

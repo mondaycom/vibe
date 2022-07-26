@@ -2,10 +2,10 @@ import { PluginObj, types as t, Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import { defaults } from "lodash";
 import { dirname, resolve } from "path";
-import { getModuleClassNames } from "./utils/getModuleClassNames";
+import { convertToModuleClassNames } from "./utils/convertToModuleClassNames";
 import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
-import { print, printNodeType } from "./utils/print";
+import { print, printNodeType, printWithCondition } from "./utils/print";
 import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
 import { ImportDeclaration, StringLiteral } from "@babel/types";
 import { isComponentFile } from "./utils/isComponentFile";
@@ -14,6 +14,7 @@ import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStr
 import { splitClassNames } from "./utils/splitClassNames";
 import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./utils/wrapWithCxCallExpression";
 import { isCxCallExpression } from "./utils/isCxCallExpression";
+import { renameStylesheetFile } from "./utils/renameStylesheetFile";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -170,55 +171,82 @@ const classNameAttributeVisitors: Visitor<State> = {
  */
 const importVisitors: Visitor<State> = {
   ImportDeclaration: (path: NodePath<ImportDeclaration>, state: State) => {
-    const { hub, node } = path;
-    // @ts-ignore
-    const file = hub["file"];
+    try {
+      const { hub, node } = path;
+      // @ts-ignore
+      const file = hub["file"];
 
-    if (!isComponentFile(file)) {
-      print("### index, importVisitors, isComponentFile = false", file.opts.filename);
-      return;
+      try {
+        if (!isComponentFile(file)) {
+          print("### index, importVisitors, isComponentFile = false", file.opts.filename);
+          return;
+        }
+
+        // Inserts "import cx from classNames;"
+        if (!state.cxImported && isFileContainsCssImports(file)) {
+          path.insertBefore(
+            t.importDeclaration([t.importDefaultSpecifier(t.identifier("cx"))], t.stringLiteral("classnames"))
+          );
+          state.cxImported = true;
+          print("### index, importVisitors, new cx import inserted");
+        }
+
+        // Remove duplicated imports from classnames
+        if (isClassNamesImportDeclaration(node) && node.start !== undefined) {
+          print("### index, importVisitors, cx import removed!");
+          path.remove();
+          return;
+        }
+
+        // Ignore imports of non-CSS files
+        if (!isCssImportDeclaration(node)) {
+          return;
+        }
+      } catch (e) {
+        console.log("### error - b");
+      }
+
+      // Calculate the file path relative to the current file
+      let scssFilename;
+      try {
+        scssFilename = resolve(dirname(file.opts.filename), node.source.value);
+      } catch (e) {
+        console.log("### error - a");
+      }
+
+      let classNames: Set<string>;
+      try {
+        // Get all relevant class names from the file
+        classNames = convertToModuleClassNames(scssFilename);
+        printWithCondition(true, "### index, convertToModuleClassNames, classNames", classNames);
+
+        // Replace the existing import with a wildcard import, namespaced under
+        // a module-scope identifier we can reference the keys of. This will be
+        // the CSS module classname map provided by webpack css-loader with modules
+        // enabled usually, or possibly PostCSS modules plugin like we use here.
+        path.replaceWith(
+          t.importDeclaration(
+            [t.importNamespaceSpecifier(t.identifier(state.opts.importIdentifier))],
+            t.stringLiteral(node.source.value.replace(".scss", ".module.scss"))
+          )
+        );
+      } catch (e) {
+        console.log("### error - c", e);
+      }
+
+      // Traverse the top-level program path for JSX className attributes
+      try {
+        file.path.traverse(classNameAttributeVisitors, {
+          ...state,
+          classNames
+        });
+        renameStylesheetFile(node.source.value);
+      } catch (e) {
+        console.log("### error - d", e, file);
+      }
+    } catch (e) {
+      console.log("### error - e", e);
     }
-
-    // Inserts "import cx from classNames;"
-    if (!state.cxImported && isFileContainsCssImports(file)) {
-      path.insertBefore(
-        t.importDeclaration([t.importDefaultSpecifier(t.identifier("cx"))], t.stringLiteral("classnames"))
-      );
-      state.cxImported = true;
-      print("### index, importVisitors, new cx import inserted");
-    }
-
-    // Remove duplicated imports from classnames
-    if (isClassNamesImportDeclaration(node) && node.start !== undefined) {
-      print("### index, importVisitors, cx import removed!");
-      path.remove();
-      return;
-    }
-
-    // Ignore imports of non-CSS files
-    if (!isCssImportDeclaration(node)) {
-      return;
-    }
-
-    // Calculate the file path relative to the current file
-    const scssFilename = resolve(dirname(file.opts.filename), node.source.value);
-
-    // Get all relevant class names from the file
-    const classNames = getModuleClassNames(scssFilename);
-
-    // Replace the existing import with a wildcard import, namespaced under
-    // a module-scope identifier we can reference the keys of. This will be
-    // the CSS module classname map provided by webpack css-loader with modules
-    // enabled usually, or possibly PostCSS modules plugin like we use here.
-    path.replaceWith(
-      t.importDeclaration([t.importNamespaceSpecifier(t.identifier(state.opts.importIdentifier))], node.source)
-    );
-
-    // Traverse the top-level program path for JSX className attributes
-    file.path.traverse(classNameAttributeVisitors, {
-      ...state,
-      classNames
-    });
   }
 };
 

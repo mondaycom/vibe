@@ -1,34 +1,35 @@
 const postcss = require("postcss");
 const postcssrc = require("postcss-load-config");
-// const postCssModules = require("postcss-modules");
+const postCssModules = require("postcss-modules");
 
 const { readFileSync, writeFileSync, renameSync } = require("fs");
 
-const getCssModulesFileName = path => {
-  return path.replace(".scss", ".module.scss");
-};
-
 const execute = async filename => {
-  // let classNames = {};
-  // const modulesPlugin = postCssModules({
-  //   getJSON: (_, json) => {
-  //     classNames = json;
-  //   }
-  // });
+  let classNames = {};
+  try {
+    const modulesPlugin = postCssModules({
+      getJSON: (_, json) => {
+        classNames = json;
+      },
+      generateScopedName: "[local]"
+    });
 
-  const { plugins, options } = await postcssrc({
-    filename
-  });
+    const { plugins, options } = await postcssrc({
+      filename
+    });
 
-  options.from = filename;
-  options.to = null;
+    options.from = filename;
+    options.to = null;
 
-  const contents = readFileSync(filename).toString();
-  const res = await postcss([...plugins]).process(contents, options);
+    const contents = readFileSync(filename).toString();
+    const res = await postcss([modulesPlugin, ...plugins]).process(contents, options);
 
-  writeFileSync(filename, res.css);
-  renameSync(filename, getCssModulesFileName(filename));
-  return res.css;
+    writeFileSync(filename, res.css);
+  } catch (e) {
+    console.log();
+  }
+
+  return classNames;
 };
 
 module.exports = execute;

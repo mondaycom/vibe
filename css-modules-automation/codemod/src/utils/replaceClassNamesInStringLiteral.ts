@@ -21,7 +21,7 @@ export const replaceClassNamesInStringLiteral = (
   print("*** replaceClassNamesInStringLiteral, classNameString", classNameString);
 
   // If the class name isn't in the modular class name list, skip
-  if (!classNames.has(classNameString)) {
+  if (classNames && !classNames.has(classNameString)) {
     print(
       "*** replaceClassNamesInStringLiteral, If the class name isn't in the modular class name list, skip, literalNode",
       literalNode

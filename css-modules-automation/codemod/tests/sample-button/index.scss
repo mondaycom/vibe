@@ -19,45 +19,45 @@
   font-weight: 400;
   padding: 15px 0;
   cursor: pointer;
+}
 
-  & > span {
+.button > span {
     padding: 0 20px;
   }
 
-  &.button--medium {
+.button.button--medium {
     padding: 9px 0;
     font-size: 1.5rem;
   }
 
-  &.button--small {
+.button.button--small {
     padding: 5px 0;
     font-size: 1.3rem;
   }
 
-  &.button--tiny {
+.button.button--tiny {
     padding: 0;
     font-size: 1rem;
-
-    & > span {
-      padding: 0 5px;
-    }
   }
 
-  &.button--tiny {
+.button.button--tiny > span {
+      padding: 0 5px;
+    }
+
+.button.button--tiny {
     padding: 0;
     font-size: 1rem;
     text-transform: uppercase;
-
-    & > span {
-      padding: 0 5px;
-    }
   }
 
-  &.button--block {
+.button.button--tiny > span {
+      padding: 0 5px;
+    }
+
+.button.button--block {
     display: block;
     width: 100%;
   }
-}
 
 .button--disabled {
   opacity: 0.6;
@@ -69,20 +69,20 @@
   color: $hive-grey-color;
   border: 1px solid darken($hive-yellow-color, 4%);
   box-shadow: 0 4px 0 0 darken($hive-yellow-color, 8%);
+}
 
-  &:hover,
-  &:focus {
+.button--primary:hover,
+  .button--primary:focus {
     background: lighten($hive-yellow-color, 5%);
     border: 1px solid lighten($hive-yellow-color, 1%);
     box-shadow: 0 4px 0 0 darken($hive-yellow-color, 3%);
   }
 
-  &:active {
+.button--primary:active {
     background: $hive-yellow-color;
     border: 1px solid darken($hive-yellow-color, 4%);
     box-shadow: 0 4px 0 0 darken($hive-yellow-color, 8%);
   }
-}
 
 .button--secondary {
   background: $light-color;
@@ -96,102 +96,102 @@
   color: $hive-white-color;
   border: 1px solid darken($success-color, 6%);
   box-shadow: 0 4px 0 0 darken($success-color, 10%);
+}
 
-  &:focus {
+.button--success:focus {
     border: 1px solid darken($success-color, 16%);
     box-shadow: 0 4px 0 0 darken($success-color, 20%);
   }
 
-  &:hover {
+.button--success:hover {
     background: lighten($success-color, 5%);
     border: 1px solid lighten($success-color, 1%);
     box-shadow: 0 4px 0 0 darken($success-color, 5%);
   }
 
-  &:active {
+.button--success:active {
     background: $success-color;
     border: 1px solid darken($success-color, 6%);
     box-shadow: 0 4px 0 0 darken($success-color, 10%);
   }
 
-  span {
+.button--success span {
     position: relative;
     top: 1px;
   }
-}
 
 .button--subtle-success {
   background: lighten($success-color, 44%);
   color: $success-color;
   border: 1px solid darken($success-color, 6%);
   box-shadow: 0 1px 0 0 rgba(51, 58, 77, 0.05);
+}
 
-  &:focus {
+.button--subtle-success:focus {
     background: lighten($success-color, 42%);
     color: darken($success-color, 6%);
     border: 1px solid darken($success-color, 12%);
   }
 
-  &:hover {
+.button--subtle-success:hover {
     background: darken($success-color, 6%);
     color: $hive-white-color;
   }
 
-  &:active {
+.button--subtle-success:active {
     border: 1px solid darken($success-color, 6%);
   }
-}
 
 .button--danger {
   background: $danger-color;
   color: $hive-white-color;
   border: 1px solid darken($danger-color, 6%);
   box-shadow: 0 4px 0 0 darken($danger-color, 10%);
+}
 
-  &:focus {
+.button--danger:focus {
     border: 1px solid darken($danger-color, 16%);
     box-shadow: 0 4px 0 0 darken($danger-color, 20%);
   }
 
-  &:hover {
+.button--danger:hover {
     background: lighten($danger-color, 5%);
     border: 1px solid lighten($danger-color, 1%);
     box-shadow: 0 4px 0 0 darken($danger-color, 5%);
   }
 
-  &:active {
+.button--danger:active {
     background: $danger-color;
     border: 1px solid darken($danger-color, 6%);
     box-shadow: 0 4px 0 0 darken($danger-color, 10%);
   }
 
-  span {
+.button--danger span {
     position: relative;
     top: 1px;
   }
-}
 
 .button--subtle-danger {
   background: lighten($danger-color, 44%);
   color: $danger-color;
   border: 1px solid darken($danger-color, 6%);
   box-shadow: 0 1px 0 0 rgba(51, 58, 77, 0.05);
+}
 
-  &:focus {
+.button--subtle-danger:focus {
     background: lighten($danger-color, 42%);
     color: darken($danger-color, 6%);
     border: 1px solid darken($danger-color, 12%);
   }
 
-  &:hover {
+.button--subtle-danger:hover {
     background: darken($danger-color, 6%);
     color: $hive-white-color;
   }
 
-  &:active {
+.button--subtle-danger:active {
     border: 1px solid darken($danger-color, 6%);
   }
-}
 
 .button--large {
   font-size: 2.16rem;
@@ -216,23 +216,23 @@
   line-height: 1;
   box-shadow: 0 1px 0 0 rgba(51, 58, 77, 0.05);
   padding: 5px;
+}
 
-  svg {
+.button--icon svg {
     margin: auto;
     // fill: #3f536e;
     height: 18px;
     width: 18px;
   }
 
-  &.button--small {
+.button--icon.button--small {
     font-size: 1rem;
     padding: 2px;
+  }
 
-    svg {
+.button--icon.button--small svg {
       margin: auto;
       fill: #3f536e;
       height: 14px;
       width: 14px;
     }
-  }
-}
