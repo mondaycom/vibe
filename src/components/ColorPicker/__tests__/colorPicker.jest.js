@@ -4,7 +4,7 @@ import { render, fireEvent, act, screen } from "@testing-library/react";
 import _difference from "lodash/difference";
 import ColorPicker from "../ColorPicker";
 import { contentColors } from "../../../utils/colors-vars-map";
-import { ColorPickerColorsGrid } from "components/ColorPicker/components/ColorPickerContent/ColorPickerColorsGrid";
+import { ColorPickerColorsGrid } from "../../ColorPicker/components/ColorPickerContent/ColorPickerColorsGrid";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ColorPicker />).toJSON();

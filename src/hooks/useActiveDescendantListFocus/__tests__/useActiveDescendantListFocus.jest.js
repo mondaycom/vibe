@@ -1,5 +1,5 @@
 import { renderHook, cleanup, act } from "@testing-library/react-hooks";
-import useActiveDescendantListFocus from "hooks/useActiveDescendantListFocus";
+import useActiveDescendantListFocus from "../../useActiveDescendantListFocus";
 import userEvent from "@testing-library/user-event";
 
 let element;

@@ -2,8 +2,8 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
-import { person1 } from "components/Avatar/__stories__/assets";
-import { Email } from "components/Icon/Icons";
+import { person1 } from "../../Avatar/__stories__/assets";
+import { Email } from "../../Icon/Icons";
 
 const mockOptions = [
   { value: "ocean", label: "Ocean", isFixed: true },

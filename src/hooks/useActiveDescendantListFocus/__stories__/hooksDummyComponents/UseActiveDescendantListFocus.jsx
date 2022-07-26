@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
-import useActiveDescendantListFocus from "hooks/useActiveDescendantListFocus";
-import Search from "components/Search/Search";
+import useActiveDescendantListFocus from "../../../useActiveDescendantListFocus";
+import Search from "../../../../components/Search/Search";
 
 const UseActiveDescendantListFocus = ({
   focusedElementRef, // the reference for the component that listens to keyboard
