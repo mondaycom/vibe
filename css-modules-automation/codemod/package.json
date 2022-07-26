@@ -5,9 +5,6 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "test": "npm run test:postcss && npm run test:codemod",
-    "test:postcss": "node -r ts-node/register src/postcss/__tests__/shell.ts",
-    "test:codemod": "node -r ts-node/register src/__tests__/codemod.ts",
     "modify monday-ui-react-core": "npx codemod -p src/index.ts ../../src/components",
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
