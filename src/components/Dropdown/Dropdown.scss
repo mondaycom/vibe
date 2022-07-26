@@ -11,7 +11,7 @@
     border-radius: $border-radius-small;
     margin: 0 8px;
     padding: 0 8px;
-    transition: all 0.1s $expand-animation-timing;
+    transition: all var(--motion-productive-medium) var(--expand-animation-timing);
 
     &:disabled {
       background-color: transparent;
