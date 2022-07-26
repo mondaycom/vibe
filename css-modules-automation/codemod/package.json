@@ -44,15 +44,17 @@
     "classnames": "^2.2.6",
     "execa": "^1.0.0",
     "lodash": "^4.17.11",
-    "postcss": "^7.0.14",
-    "postcss-load-config": "^2.0.0",
-    "postcss-modules": "^1.4.1",
-    "postcss-scss": "^2.0.0",
+    "postcss-load-config": "^4.0.1",
+    "postcss-modules": "^4.3.1",
+    "postcss-scss": "^4.0.4",
     "prettier": "^2.5.1",
     "ts-node": "^8.0.2",
     "typescript": "^3.2.4"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-optional-chaining": "^7.18.9"
+    "@babel/plugin-proposal-optional-chaining": "^7.18.9",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "postcss-nested": "^5.0.6"
   }
 }
