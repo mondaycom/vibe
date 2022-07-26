@@ -2,7 +2,11 @@ const postcss = require("postcss");
 const postcssrc = require("postcss-load-config");
 // const postCssModules = require("postcss-modules");
 
-const { readFileSync } = require("fs");
+const { readFileSync, writeFileSync, renameSync } = require("fs");
+
+const getCssModulesFileName = path => {
+  return path.replace(".scss", ".module.scss");
+};
 
 const execute = async filename => {
   // let classNames = {};
@@ -20,9 +24,10 @@ const execute = async filename => {
   options.to = null;
 
   const contents = readFileSync(filename).toString();
-  // await postcss([...plugins, modulesPlugin]).process(contents, options);
   const res = await postcss([...plugins]).process(contents, options);
 
+  writeFileSync(filename, res.css);
+  renameSync(filename, getCssModulesFileName(filename));
   return res.css;
 };
 
