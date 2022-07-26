@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.51.0 (2022-07-26)
+
+#### Bug Fixes
+* [#787](https://github.com/mondaycom/monday-ui-react-core/pull/787) add validation ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#759](https://github.com/mondaycom/monday-ui-react-core/pull/759) Allow defaultVisualFocusItemIndex on use useActiveDescendantListFocus and combobox ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.50.2 (2022-07-24)
 
 #### Bug Fixes
