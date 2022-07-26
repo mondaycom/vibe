@@ -1,4 +1,5 @@
 import execute from "../shell";
+import { print } from "../../utils/print";
 
 const filename =
   "/Users/sergeyro/Development/monday-ui-react-core/css-modules-automation/codemod/tests/sample-button/styles.scss";
@@ -8,8 +9,7 @@ const filename =
 
 const main = async () => {
   const result = await execute(filename);
-  // console.log(JSON.stringify(result, null, 4));
-  console.log(result);
+  print("!!! postcss, result", result);
 };
 
 main();
