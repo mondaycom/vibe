@@ -39,14 +39,17 @@ const List = forwardRef(
         override = <VirtualizedListItems>{override}</VirtualizedListItems>;
       } else {
         childrenRefs.current = childrenRefs.current.slice(0, override?.length);
-        override = React.Children.map(override, (child, index) =>
-          typeof child === "string"
+        override = React.Children.map(override, (child, index) => {
+          if (!React.isValidElement(child)) {
+            return child;
+          }
+          return typeof child === "string"
             ? child
             : React.cloneElement(child, {
                 ref: ref => (childrenRefs.current[index] = ref),
                 tabIndex: focusIndex === index ? 0 : -1
-              })
-        );
+              });
+        });
       }
 
       return override;
