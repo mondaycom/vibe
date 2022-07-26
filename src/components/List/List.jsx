@@ -41,7 +41,7 @@ const List = forwardRef(
         childrenRefs.current = childrenRefs.current.slice(0, override?.length);
         override = React.Children.map(override, (child, index) => {
           if (!React.isValidElement(child)) {
-            return null;
+            return child;
           }
           return typeof child === "string"
             ? child
