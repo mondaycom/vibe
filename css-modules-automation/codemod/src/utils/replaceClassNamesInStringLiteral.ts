@@ -12,16 +12,18 @@ import { NodePath } from "@babel/traverse";
  * @returns New classname string
  */
 export const replaceClassNamesInStringLiteral = (
-  classNames: Set<string>,
+  classNames: Map<string, string>,
   importIdentifier: string,
   path: NodePath<StringLiteral>
 ): t.StringLiteral | t.MemberExpression => {
-  const classNameString = path.node.value;
+  const oldClassNameString = path.node.value;
+  const newClassNameString: string = (classNames.has(oldClassNameString) && classNames.get(oldClassNameString)) || "";
+
   const literalNode = path.node;
-  print("*** replaceClassNamesInStringLiteral, classNameString", classNameString);
+  print("*** replaceClassNamesInStringLiteral, oldClassNameString", oldClassNameString);
 
   // If the class name isn't in the modular class name list, skip
-  if (classNames && !classNames.has(classNameString)) {
+  if (classNames && !classNames.has(oldClassNameString)) {
     print(
       "*** replaceClassNamesInStringLiteral, If the class name isn't in the modular class name list, skip, literalNode",
       literalNode
@@ -30,7 +32,7 @@ export const replaceClassNamesInStringLiteral = (
     return literalNode;
   }
 
-  const res = t.memberExpression(t.identifier(importIdentifier), t.stringLiteral(classNameString), true);
+  const res = t.memberExpression(t.identifier(importIdentifier), t.identifier(newClassNameString));
   print(
     '*** replaceClassNamesInStringLiteral, Otherwise return a computed MemberExpression i.e. styles["className"], res',
     res

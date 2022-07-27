@@ -15,7 +15,7 @@ import { join } from "path";
  * @param filename Fully qualified filename (path) to the CSS file
  * @returns Set of valid classnames within the CSS file
  */
-export const convertToModuleClassNames = (filename: string) => {
+export const convertToModuleClassNames = (filename: string): Map<string, string> => {
   if (!existsSync(filename)) {
     throw new Error("### Referenced CSS file does not exist: " + filename);
   }
@@ -26,5 +26,5 @@ export const convertToModuleClassNames = (filename: string) => {
     throw new Error(stderr);
   }
 
-  return new Set<string>(Object.keys(JSON.parse(stdout)));
+  return new Map<string, string>(Object.entries(JSON.parse(stdout)));
 };

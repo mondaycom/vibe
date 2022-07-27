@@ -5,7 +5,7 @@ import { dirname, resolve } from "path";
 import { convertToModuleClassNames } from "./utils/convertToModuleClassNames";
 import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
-import { print, printNodeType, printWithCondition } from "./utils/print";
+import { print, printNodeType } from "./utils/print";
 import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
 import { ImportDeclaration, StringLiteral } from "@babel/types";
 import { isComponentFile } from "./utils/isComponentFile";
@@ -21,7 +21,7 @@ type PluginOptions = {
 
 type State = {
   opts: PluginOptions;
-  classNames: Set<string>;
+  classNames: Map<string, string>;
   cxImported: boolean;
 };
 
@@ -203,8 +203,7 @@ const importVisitors: Visitor<State> = {
     // Calculate the file path relative to the current file
     const scssFilename: string = resolve(dirname(file.opts.filename), node.source.value);
     // Get all relevant class names from the file
-    const classNames: Set<string> = convertToModuleClassNames(scssFilename);
-    printWithCondition(true, "### index, convertToModuleClassNames, classNames", classNames);
+    const classNames: Map<string, string> = convertToModuleClassNames(scssFilename);
 
     // Replace the existing import with a wildcard import, namespaced under
     // a module-scope identifier we can reference the keys of. This will be
