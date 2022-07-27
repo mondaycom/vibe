@@ -14,7 +14,7 @@ import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStr
 import { splitClassNames } from "./utils/splitClassNames";
 import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./utils/wrapWithCxCallExpression";
 import { isCxCallExpression } from "./utils/isCxCallExpression";
-import { getCssModulesFileName } from "./utils/renameStylesheetFile";
+import { getCssModulesFileName, renameStylesheetFile } from "./utils/renameStylesheetFile";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -210,6 +210,7 @@ const importVisitors: Visitor<State> = {
     if (!filesClassNamesMap.has(scssFilename)) {
       classNames = convertToModuleClassNames(scssFilename);
       filesClassNamesMap.set(scssFilename, classNames);
+      renameStylesheetFile(scssFilename);
     } else {
       classNames = filesClassNamesMap.get(scssFilename)!;
     }
