@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.51.1 (2022-07-27)
+
+#### Bug Fixes
+* [#736](https://github.com/mondaycom/monday-ui-react-core/pull/736) scroll combobox fix ([@mentaman](https://github.com/mentaman))
+
 ## 1.51.0 (2022-07-26)
 
 #### Bug Fixes
