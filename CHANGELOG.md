@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.52.0 (2022-07-27)
+
+#### New Features
+* [#780](https://github.com/mondaycom/monday-ui-react-core/pull/780) Remove aliases ([@eran-cohen](https://github.com/eran-cohen))
+
+#### Internal Changes
+* [#776](https://github.com/mondaycom/monday-ui-react-core/pull/776) add exports to package.json + build icons esm file ([@eran-cohen](https://github.com/eran-cohen))
+
 ## 1.51.1 (2022-07-27)
 
 #### Bug Fixes
