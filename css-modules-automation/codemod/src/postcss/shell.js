@@ -4,7 +4,7 @@ const postCssModules = require("postcss-modules");
 const { readFileSync, writeFileSync } = require("fs");
 
 function camelCase(str) {
-  return str.split("-").reduce((a, b) => a + b.charAt(0).toUpperCase() + b.slice(1));
+  return str.split(/[-_]+/).reduce((a, b) => a + b.charAt(0).toUpperCase() + b.slice(1));
 }
 
 const execute = async filename => {
