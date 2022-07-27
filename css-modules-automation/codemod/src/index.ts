@@ -14,6 +14,7 @@ import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStr
 import { splitClassNames } from "./utils/splitClassNames";
 import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./utils/wrapWithCxCallExpression";
 import { isCxCallExpression } from "./utils/isCxCallExpression";
+import { getCssModulesFileName } from "./utils/renameStylesheetFile";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -221,7 +222,7 @@ const importVisitors: Visitor<State> = {
     path.replaceWith(
       t.importDeclaration(
         [t.importNamespaceSpecifier(t.identifier(state.opts.importIdentifier))],
-        t.stringLiteral(node.source.value.replace(".scss", ".module.scss"))
+        t.stringLiteral(getCssModulesFileName(node.source.value))
       )
     );
 
