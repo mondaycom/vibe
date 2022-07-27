@@ -1,8 +1,7 @@
 import { useMemo } from "react";
 import { RelatedComponent } from "../../related-component/related-component";
 import { person1, person2, person3 } from "../../../../components/Avatar/__stories__/assets";
-import Avatar from "../../../../components/Avatar/Avatar";
-import { AvatarGroup } from "components";
+import { AvatarGroup, Avatar } from "../../../../components";
 
 export const AvatarGroupDescription = () => {
   const component = useMemo(

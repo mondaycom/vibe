@@ -1,5 +1,44 @@
 # Changelog
 
+## 1.52.1 (2022-07-27)
+
+#### Bug Fixes
+* [#791](https://github.com/mondaycom/monday-ui-react-core/pull/791) removed hooks alias usage ([@eran-cohen](https://github.com/eran-cohen))
+
+## 1.52.0 (2022-07-27)
+
+#### New Features
+* [#780](https://github.com/mondaycom/monday-ui-react-core/pull/780) Remove aliases ([@eran-cohen](https://github.com/eran-cohen))
+
+#### Internal Changes
+* [#776](https://github.com/mondaycom/monday-ui-react-core/pull/776) add exports to package.json + build icons esm file ([@eran-cohen](https://github.com/eran-cohen))
+
+## 1.51.1 (2022-07-27)
+
+#### Bug Fixes
+* [#736](https://github.com/mondaycom/monday-ui-react-core/pull/736) scroll combobox fix ([@mentaman](https://github.com/mentaman))
+
+## 1.51.0 (2022-07-26)
+
+#### Bug Fixes
+* [#787](https://github.com/mondaycom/monday-ui-react-core/pull/787) add validation ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#759](https://github.com/mondaycom/monday-ui-react-core/pull/759) Allow defaultVisualFocusItemIndex on use useActiveDescendantListFocus and combobox ([@hadasfa](https://github.com/hadasfa))
+
+## 1.50.2 (2022-07-24)
+
+#### Bug Fixes
+* [#777](https://github.com/mondaycom/monday-ui-react-core/pull/777) Bug/hadas/attention box close ([@hadasfa](https://github.com/hadasfa))
+
+## 1.50.1 (2022-07-24)
+
+#### Bug Fixes
+* [#775](https://github.com/mondaycom/monday-ui-react-core/pull/775) Fix button group css specificity ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#773](https://github.com/mondaycom/monday-ui-react-core/pull/773) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.50.0 (2022-07-20)
 
 #### New Features

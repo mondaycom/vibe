@@ -4,9 +4,9 @@ import NOOP from "lodash/noop";
 import cx from "classnames";
 import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
-import usePrevious from "hooks/usePrevious";
-import useThrottledCallback from "hooks/useThrottledCallback";
-import useMergeRefs from "hooks/useMergeRefs";
+import usePrevious from "../../hooks/usePrevious";
+import useThrottledCallback from "../../hooks/useThrottledCallback";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import {
   getNormalizedItems,
   easeInOutQuint,
@@ -15,7 +15,7 @@ import {
   isVerticalScrollbarVisible
 } from "../../services/virtualized-service";
 import "./VirtualizedList.scss";
-import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 
 const VirtualizedList = forwardRef(
   (

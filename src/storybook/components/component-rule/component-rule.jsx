@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import cx from "classnames";
-import Check from "components/Icon/Icons/components/Check";
-import CloseSmall from "components/Icon/Icons/components/CloseSmall";
-import Icon from "components/Icon/Icon";
-import { BEMClass } from "helpers/bem-helper";
+import Check from "../../../../src/components/Icon/Icons/components/Check";
+import CloseSmall from "../../../../src/components/Icon/Icons/components/CloseSmall";
+import Icon from "../../../../src/components/Icon/Icon";
+import { BEMClass } from "../../../../src/helpers/bem-helper";
 import { RECOMMENDED_TITLE, NOT_RECOMMENDED_TITLE, COMPONENT_RULE_BASE_CSS_CLASS } from "./component-rule-constants";
 import "./component-rule.scss";
 

@@ -10,12 +10,11 @@ import FieldLabel from "../FieldLabel/FieldLabel";
 import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
 import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import Clickable from "components/Clickable/Clickable";
-import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import Clickable from "../../components/Clickable/Clickable";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import "./TextField.scss";
 
-const NOOP = () => {
-};
+const NOOP = () => {};
 
 const EMPTY_OBJECT = { primary: "", secondary: "", label: "" };
 const TextField = forwardRef(
@@ -270,7 +269,13 @@ TextField.propTypes = {
     secondary: PropTypes.string
   }),
   /** TEXT_TYPES is exposed on the component itself */
-  type: PropTypes.oneOf([TextField.types.TEXT, TextField.types.PASSWORD, TextField.types.SEARCH, TextField.types.DATE, TextField.types.DATE_TIME]),
+  type: PropTypes.oneOf([
+    TextField.types.TEXT,
+    TextField.types.PASSWORD,
+    TextField.types.SEARCH,
+    TextField.types.DATE,
+    TextField.types.DATE_TIME
+  ]),
   maxLength: PropTypes.number,
   trim: PropTypes.bool,
   /** ARIA role for container landmark */

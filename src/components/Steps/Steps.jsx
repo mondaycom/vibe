@@ -1,9 +1,9 @@
 import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { BEMClass } from "helpers/bem-helper";
-import { NOOP } from "utils/function-utils";
-import useMergeRefs from "hooks/useMergeRefs";
+import { BEMClass } from "../../helpers/bem-helper";
+import { NOOP } from "../../utils/function-utils";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import { StepsHeader } from "./StepsHeader";
 import { STEPS_GALLERY_TYPE, STEPS_CSS_BASE_CLASS, STEPS_TYPES } from "./StepsConstants";
 import "./Steps.scss";

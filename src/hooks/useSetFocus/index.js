@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import useEventListener from "../useEventListener";
-import { usePrevious } from "hooks";
+import { usePrevious } from "../../hooks";
 
 export default function useSetFocus({ ref, focusCallback, blurCallback }) {
   const [isFocused, setIsFocused] = useState(false);

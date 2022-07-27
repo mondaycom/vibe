@@ -1,12 +1,12 @@
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../constants/sizes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import useEventListener from "hooks/useEventListener";
-import useAfterFirstRender from "hooks/useAfterFirstRender";
-import { NOOP } from "utils/function-utils";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
+import useEventListener from "../../hooks/useEventListener";
+import useAfterFirstRender from "../../hooks/useAfterFirstRender";
+import { NOOP } from "../../utils/function-utils";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { COUNTER_COLORS, COUNTER_TYPES, getActualSize } from "./CounterConstants";
 import "./Counter.scss";
 

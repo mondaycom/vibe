@@ -1,17 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import useKeyEvent from "../useKeyEvent";
-import usePrevious from "../usePrevious";
-import useEventListener from "../useEventListener";
-
-const ARROW_DIRECTIONS = {
-  UP: "ArrowUp",
-  DOWN: "ArrowDown",
-  RIGHT: "ArrowRight",
-  LEFT: "ArrowLeft"
-};
-
-const ENTER_KEY = "Enter";
-const SPACE_KEY = " ";
+import { useMemo, useState, useCallback } from "react";
+import {
+  useSupportArrowsKeyboardNavigation,
+  useSupportPressItemKeyboardNavigation,
+  useSetDefaultItemOnFocusEvent,
+  useKeepFocusOnItemWhenListChanged,
+  useCleanVisualFocusOnBlur
+} from "./useActiveDescendantListFocusHooks";
 
 const ROLES = {
   APPLICATION: "application",
@@ -27,112 +21,16 @@ function useActiveDescendantListFocus({
   itemsIds,
   isItemSelectable,
   onItemClick,
+  defaultVisualFocusFirstIndex = false,
   focusedElementRole = ROLES.GROUP,
   isHorizontalList = false,
   useDocumentEventListeners = false,
   isIgnoreSpaceAsItemSelection = false
 }) {
-  const pressKeys = useMemo(
-    () => (isIgnoreSpaceAsItemSelection ? [ENTER_KEY] : [ENTER_KEY, SPACE_KEY]),
-    [isIgnoreSpaceAsItemSelection]
-  );
+  const defaultVisualFocusItemIndex = defaultVisualFocusFirstIndex ? 0 : -1;
   const itemsCount = itemsIds.length;
-  const previousFocusedElementRef = usePrevious(focusedElementRef);
-  const nextArrow = isHorizontalList ? ARROW_DIRECTIONS.RIGHT : ARROW_DIRECTIONS.DOWN;
-  const backArrow = isHorizontalList ? ARROW_DIRECTIONS.LEFT : ARROW_DIRECTIONS.UP;
-
   const [visualFocusItemIndex, setVisualFocusItemIndex] = useState(-1);
-  const triggerByKeyboard = useRef(false);
-  const onArrowKeyEvent = useCallback(
-    direction => {
-      // we desire to change the visual focus item only if the user pressed on the keyboard arrows keys while
-      // the focusedElementRef is naturally focus
-      if (document.activeElement === focusedElementRef.current) {
-        let newIndex;
-        triggerByKeyboard.current = true;
-
-        if (direction === nextArrow) {
-          if (visualFocusItemIndex > itemsCount - 1) return;
-          // Go over all the next items until found one which is selectable
-          for (let offset = 1; offset <= itemsCount; offset++) {
-            const nextIndex = (visualFocusItemIndex + offset) % itemsCount;
-            if (isItemSelectable(nextIndex)) {
-              newIndex = nextIndex;
-              break;
-            }
-          }
-        } else if (direction === backArrow) {
-          for (let offset = 1; offset <= itemsCount - 1; offset++) {
-            let prevIndex = visualFocusItemIndex - offset;
-            if (prevIndex < 0) {
-              prevIndex = itemsCount + prevIndex;
-            }
-            if (isItemSelectable(prevIndex)) {
-              newIndex = prevIndex;
-              break;
-            }
-          }
-        }
-
-        if (newIndex > -1 && newIndex !== visualFocusItemIndex) setVisualFocusItemIndex(newIndex);
-      }
-    },
-    [focusedElementRef, nextArrow, backArrow, visualFocusItemIndex, itemsCount, isItemSelectable]
-  );
-  const onArrowBack = useCallback(() => {
-    onArrowKeyEvent(backArrow);
-  }, [backArrow, onArrowKeyEvent]);
-
-  const onArrowNext = useCallback(() => {
-    onArrowKeyEvent(nextArrow);
-  }, [nextArrow, onArrowKeyEvent]);
-
-  const baseOnClickCallback = useCallback(
-    (event, itemIndex) => {
-      const hasValidIndex = itemIndex >= 0 && itemIndex < itemsCount;
-      if (!onItemClick || !hasValidIndex || !isItemSelectable(itemIndex)) return;
-      if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
-      onItemClick(event, itemIndex);
-      triggerByKeyboard.current = event instanceof MouseEvent;
-      // If click is triggered by keyboard return focus on the input again
-      if (!triggerByKeyboard.current) {
-        requestAnimationFrame(() => focusedElementRef.current?.focus());
-      }
-    },
-    [itemsCount, onItemClick, isItemSelectable, visualFocusItemIndex, focusedElementRef]
-  );
-
-  const keyboardOnSelectCallback = useCallback(
-    event => {
-      // we desire to change the trigger the active item on click callback only if the user pressed on the keyboard arrows keys while
-      // the focusedElementRef is naturally focus
-      if (focusedElementRef.current.contains(document.activeElement)) {
-        baseOnClickCallback(event, visualFocusItemIndex);
-      }
-    },
-    [baseOnClickCallback, focusedElementRef, visualFocusItemIndex]
-  );
-  const createOnItemClickCallback = useCallback(
-    itemIndex => event => baseOnClickCallback(event, itemIndex),
-    [baseOnClickCallback]
-  );
-
-  const setVisualFocusItemId = useCallback(
-    (visualFocusItemId, isTriggeredByKeyboard) => {
-      triggerByKeyboard.current = isTriggeredByKeyboard;
-      const itemIndex = itemsIds.indexOf(visualFocusItemId);
-      if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {
-        setVisualFocusItemIndex(itemIndex);
-      }
-    },
-    [itemsIds, visualFocusItemIndex]
-  );
-
-  const onBlurCallback = useCallback(() => {
-    if (visualFocusItemIndex !== -1) {
-      setVisualFocusItemIndex(-1);
-    }
-  }, [visualFocusItemIndex]);
+  const visualFocusItemId = itemsIds[visualFocusItemIndex];
 
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;
@@ -144,46 +42,75 @@ function useActiveDescendantListFocus({
     };
   }, [useDocumentEventListeners, focusedElementRef]);
 
-  useKeyEvent({
-    keys: [nextArrow],
-    callback: onArrowNext,
-    ...listenerOptions
+  const { triggeredByKeyboard } = useSetDefaultItemOnFocusEvent({
+    focusedElementRef,
+    isItemSelectable,
+    visualFocusItemIndex,
+    setVisualFocusItemIndex,
+    itemsCount,
+    defaultVisualFocusItemIndex
   });
 
-  useKeyEvent({
-    keys: [backArrow],
-    callback: onArrowBack,
-    ...listenerOptions
+  const setVisualFocusItemId = useCallback(
+    (visualFocusItemId, isTriggeredByKeyboard) => {
+      triggeredByKeyboard.current = isTriggeredByKeyboard;
+      const itemIndex = itemsIds.indexOf(visualFocusItemId);
+      if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {
+        setVisualFocusItemIndex(itemIndex);
+      }
+    },
+    [itemsIds, triggeredByKeyboard, visualFocusItemIndex]
+  );
+
+  useSupportArrowsKeyboardNavigation({
+    itemsCount,
+    focusedElementRef,
+    visualFocusItemIndex,
+    setVisualFocusItemIndex,
+    triggeredByKeyboard,
+    isHorizontalList,
+    isItemSelectable,
+    listenerOptions
   });
 
-  useKeyEvent({
-    keys: pressKeys,
-    callback: keyboardOnSelectCallback,
-    ...listenerOptions
+  useSupportPressItemKeyboardNavigation({
+    visualFocusItemIndex,
+    itemsCount,
+    focusedElementRef,
+    setVisualFocusItemIndex,
+    onItemClick,
+    isItemSelectable,
+    listenerOptions,
+    isIgnoreSpaceAsItemSelection
   });
 
-  useEventListener({
-    eventName: "blur",
-    ref: focusedElementRef,
-    callback: onBlurCallback
+  useKeepFocusOnItemWhenListChanged({
+    visualFocusItemIndex,
+    itemsIds,
+    isItemSelectable,
+    setVisualFocusItemIndex
   });
 
-  // if element unmount act like element got blur event
-  useEffect(() => {
-    // if element unmount
-    if (focusedElementRef?.current === null && previousFocusedElementRef?.current !== null) {
-      onBlurCallback();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [focusedElementRef.current, previousFocusedElementRef, onBlurCallback]);
+  useCleanVisualFocusOnBlur({ focusedElementRef, visualFocusItemIndex, setVisualFocusItemIndex });
 
-  const visualFocusItemId = itemsIds[visualFocusItemIndex];
+  // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
+  // we keep it for backward compatibility
+  const backwardCompatibilityCreateOnClickCallback = useCallback(
+    itemIndex => event => onItemClick(event, itemIndex),
+    [onItemClick]
+  );
+  console.log(triggeredByKeyboard);
   return {
-    visualFocusItemIndex: triggerByKeyboard.current ? visualFocusItemIndex : undefined,
-    visualFocusItemId: triggerByKeyboard.current ? visualFocusItemId : undefined,
-    createOnItemClickCallback,
-    onItemClickCallback: baseOnClickCallback,
-    focusedElementProps: { "aria-activedescendant": visualFocusItemId, role: focusedElementRole },
+    visualFocusItemIndex: triggeredByKeyboard.current ? visualFocusItemIndex : undefined,
+    visualFocusItemId: triggeredByKeyboard.current ? visualFocusItemId : undefined,
+    focusedElementProps: {
+      "aria-activedescendant": triggeredByKeyboard.current ? visualFocusItemId : undefined,
+      role: focusedElementRole
+    },
+    // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
+    // we keep it for backward compatibility
+    onItemClickCallback: onItemClick,
+    createOnItemClickCallback: backwardCompatibilityCreateOnClickCallback,
     setVisualFocusItemId
   };
 }

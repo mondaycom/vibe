@@ -1,9 +1,9 @@
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../constants/sizes";
 import React, { useRef, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "hooks/useMergeRefs";
-import { BEMClass } from "helpers/bem-helper";
+import useMergeRefs from "../../hooks/useMergeRefs";
+import { BEMClass } from "../../helpers/bem-helper";
 
 import "./DialogContentContainer.scss";
 
