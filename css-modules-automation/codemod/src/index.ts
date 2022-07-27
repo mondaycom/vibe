@@ -29,6 +29,8 @@ const PLUGIN_DEFAULTS = {
   importIdentifier: "styles"
 };
 
+const filesClassNamesMap: Map<string, Map<string, string>> = new Map();
+
 /**
  * These visitors take a string literal, checks to see if it's a valid CSS module
  * class name (from `State.classNames`), and if so replaces them with the corresponding
@@ -203,7 +205,14 @@ const importVisitors: Visitor<State> = {
     // Calculate the file path relative to the current file
     const scssFilename: string = resolve(dirname(file.opts.filename), node.source.value);
     // Get all relevant class names from the file
-    const classNames: Map<string, string> = convertToModuleClassNames(scssFilename);
+    let classNames: Map<string, string>;
+    if (!filesClassNamesMap.has(scssFilename)) {
+      classNames = convertToModuleClassNames(scssFilename);
+      filesClassNamesMap.set(scssFilename, classNames);
+    } else {
+      classNames = filesClassNamesMap.get(scssFilename)!;
+    }
+    print("### convertToModuleClassNames, classNames", classNames);
 
     // Replace the existing import with a wildcard import, namespaced under
     // a module-scope identifier we can reference the keys of. This will be

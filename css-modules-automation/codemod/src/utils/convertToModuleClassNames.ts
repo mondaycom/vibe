@@ -1,6 +1,7 @@
 import execa from "execa";
 import { existsSync } from "fs";
 import { join } from "path";
+import { print } from "./print";
 
 /**
  * Takes a CSS file, parses it with PostCSS into CSS modules syntax, and returns
@@ -21,6 +22,7 @@ export const convertToModuleClassNames = (filename: string): Map<string, string>
   }
 
   const { stdout, stderr } = execa.sync("node", [join(__dirname, "..", "postcss", "shell.js"), filename]);
+  print("&&& convertToModuleClassNames, executed, filename", filename);
 
   if (stderr) {
     throw new Error(stderr);
