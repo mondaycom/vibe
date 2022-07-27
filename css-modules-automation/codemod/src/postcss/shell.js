@@ -4,30 +4,32 @@ const postCssModules = require("postcss-modules");
 
 const { readFileSync, writeFileSync, renameSync } = require("fs");
 
+function camelCase(str) {
+  return str.split("-").reduce((a, b) => a + b.charAt(0).toUpperCase() + b.slice(1));
+}
+
 const execute = async filename => {
   let classNames = {};
-  try {
-    const modulesPlugin = postCssModules({
-      getJSON: (_, json) => {
-        classNames = json;
-      },
-      generateScopedName: "[local]"
-    });
+  const modulesPlugin = postCssModules({
+    getJSON: (_, json) => {
+      classNames = json;
+    },
+    generateScopedName: function (name) {
+      return camelCase(name);
+    }
+  });
 
-    const { plugins, options } = await postcssrc({
-      filename
-    });
+  const { plugins, options } = await postcssrc({
+    filename
+  });
 
-    options.from = filename;
-    options.to = null;
+  options.from = filename;
+  options.to = null;
 
-    const contents = readFileSync(filename).toString();
-    const res = await postcss([modulesPlugin, ...plugins]).process(contents, options);
+  const contents = readFileSync(filename).toString();
+  const res = await postcss([modulesPlugin, ...plugins]).process(contents, options);
 
-    writeFileSync(filename, res.css);
-  } catch (e) {
-    console.log();
-  }
+  writeFileSync(filename, res.css);
 
   return classNames;
 };
