@@ -6,7 +6,7 @@ import "./MenuGridItem.scss";
 import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
-import { useFocusWithin } from "hooks/useFocusWithin";
+import { useFocusWithin } from "../../../hooks/useFocusWithin";
 
 const MenuGridItem = forwardRef(
   (

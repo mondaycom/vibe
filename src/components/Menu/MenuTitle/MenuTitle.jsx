@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
+import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { CAPTION_POSITIONS } from "./MenuTitleConstants";
 import "./MenuTitle.scss";
 

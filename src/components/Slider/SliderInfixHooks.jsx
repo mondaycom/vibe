@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "components/Icon/Icon";
+import Icon from "../../components/Icon/Icon";
 import { INFIX_KIND } from "./SliderConstants";
 import { useSliderInfix, useSliderSelection } from "./SliderContext";
 import SelectionIndicator from "./SelectionIndicator";

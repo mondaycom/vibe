@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { BEMClass } from "helpers/bem-helper";
+import { BEMClass } from "../../../helpers/bem-helper";
 import { InformationBoxTitle } from "../information-box-title/information-box-title";
 import "./information-box.scss";
 

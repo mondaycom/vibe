@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { LABEL_COLORS, LABEL_TYPES } from "./LabelConstants";
 import Leg from "./Leg";
 import "./Label.scss";

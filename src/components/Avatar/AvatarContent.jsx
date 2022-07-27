@@ -1,7 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
-import { BEMClass } from "helpers/bem-helper";
+import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../Icon/Icon";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import "./AvatarContent.scss";

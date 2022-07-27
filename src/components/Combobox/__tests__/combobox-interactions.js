@@ -11,7 +11,7 @@ import {
   pressNavigationKey
 } from "../../../__tests__/interactions-helper";
 import { queryByText } from "@storybook/testing-library";
-import { getTestId, NAVIGATIONS_COMMANDS } from "utils/test-utils";
+import { getTestId, NAVIGATIONS_COMMANDS } from "../../../utils/test-utils";
 
 async function getComponentElements(canvas) {
   const comboboxElement = await getByTestId(canvas, ELEMENT_TYPES.COMBOBOX);

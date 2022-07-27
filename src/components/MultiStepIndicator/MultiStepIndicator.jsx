@@ -2,11 +2,11 @@
 import React, { useRef, forwardRef, useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "hooks/useMergeRefs";
-import Icon from "components/Icon/Icon";
-import Check from "components/Icon/Icons/components/Check";
-import Divider from "components/Divider/Divider";
-import { NOOP } from "utils/function-utils";
+import useMergeRefs from "../../hooks/useMergeRefs";
+import Icon from "../../components/Icon/Icon";
+import Check from "../../components/Icon/Icons/components/Check";
+import Divider from "../../components/Divider/Divider";
+import { NOOP } from "../../utils/function-utils";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
 import { MULTI_STEP_TYPES, STEP_STATUSES, TEXT_PLACEMENTS } from "./MultiStepConstants";
 import "./MultiStepIndicator.scss";

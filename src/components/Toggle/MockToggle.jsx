@@ -1,8 +1,8 @@
-import ToggleText from "components/Toggle/ToggleText";
+import ToggleText from "../../components/Toggle/ToggleText";
 import cx from "classnames";
 import React from "react";
-import { BEMClass } from "helpers/bem-helper";
-import { BASE_TOGGLE_CLASS_NAME } from "components/Toggle/ToggleConstants";
+import { BEMClass } from "../../helpers/bem-helper";
+import { BASE_TOGGLE_CLASS_NAME } from "../../components/Toggle/ToggleConstants";
 
 const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
 export const MockToggle = ({ areLabelsHidden, checked, offOverrideText, onOverrideText, className }) => (
