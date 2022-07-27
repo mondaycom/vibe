@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.52.1 (2022-07-27)
+
+#### Bug Fixes
+* [#791](https://github.com/mondaycom/monday-ui-react-core/pull/791) removed hooks alias usage ([@eran-cohen](https://github.com/eran-cohen))
+
 ## 1.52.0 (2022-07-27)
 
 #### New Features
