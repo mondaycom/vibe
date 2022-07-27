@@ -2,8 +2,15 @@
   "name": "monday-ui-react-core",
   "version": "1.51.1",
   "description": "Official monday.com UI resources for application development in React.js",
-  "main": "dist/main.js",
-  "module": "dist/esm.js",
+  "main": "./dist/main.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm.js",
+      "default": "./dist/main.js"
+    },
+    "./dist/": "./dist/",
+    "./icons": "./dist/icons/index.js"
+  },
   "scripts": {
     "auto:bump-patch": "node scripts/autobump_patch.js",
     "auto:bump-minor": "node scripts/autobump_minor.js",
