@@ -5,7 +5,7 @@ import {
   useSetDefaultItemOnFocusEvent,
   useKeepFocusOnItemWhenListChanged,
   useCleanVisualFocusOnBlur
-} from "hooks/useActiveDescendantListFocus/useActiveDescendantListFocusHooks";
+} from "./useActiveDescendantListFocusHooks";
 
 const ROLES = {
   APPLICATION: "application",

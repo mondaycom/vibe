@@ -3,7 +3,7 @@ import useKeyEvent from "../useKeyEvent";
 import useEventListener from "../useEventListener";
 import usePrevious from "../usePrevious";
 import { getNextSelectableIndex, getPreviousSelectableIndex } from "./useActiveDescendantListFocusHelpers";
-import { useListenFocusTriggers } from "hooks/useListenFocusTriggers";
+import { useListenFocusTriggers } from "../useListenFocusTriggers";
 
 const ARROW_DIRECTIONS = {
   UP: "ArrowUp",
