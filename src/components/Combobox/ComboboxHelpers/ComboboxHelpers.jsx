@@ -107,6 +107,7 @@ export function optionItemRenderer({
   onOptionLeave,
   optionLineHeight,
   optionRenderer,
+  scrollRef,
   shouldScrollToSelectedItem,
   activeItemIndex,
   belongToCategory,
@@ -119,6 +120,7 @@ export function optionItemRenderer({
       key={id}
       option={option}
       optionRenderer={optionRenderer}
+      scrollRef={scrollRef}
       isActive={activeItemIndex === index}
       visualFocus={index === visualFocusItemIndex}
       onOptionClick={onOptionClick}

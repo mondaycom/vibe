@@ -59,6 +59,7 @@ export const ComboboxItems = forwardRef(
             optionLineHeight,
             optionRenderer,
             visualFocusItemIndex,
+            scrollRef: renderOnlyVisibleOptions ? null : ref,
             activeItemIndex,
             shouldScrollToSelectedItem,
             forceUndoScrollNullCheck
@@ -71,6 +72,7 @@ export const ComboboxItems = forwardRef(
         onOptionLeave,
         optionLineHeight,
         optionRenderer,
+        ref,
         visualFocusItemIndex,
         activeItemIndex,
         shouldScrollToSelectedItem,
