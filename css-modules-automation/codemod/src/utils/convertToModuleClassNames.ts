@@ -18,14 +18,14 @@ import { print } from "./print";
  */
 export const convertToModuleClassNames = (filename: string): Map<string, string> => {
   if (!existsSync(filename)) {
-    throw new Error("### Referenced CSS file does not exist: " + filename);
+    throw new Error("&&& convertToModuleClassNames, referenced CSS file does not exist: " + filename);
   }
 
   const { stdout, stderr } = execa.sync("node", [join(__dirname, "..", "postcss", "shell.js"), filename]);
   print("&&& convertToModuleClassNames, executed, filename", filename);
 
   if (stderr) {
-    throw new Error(stderr);
+    throw new Error("&&& convertToModuleClassNames, error: " + stderr);
   }
 
   return new Map<string, string>(Object.entries(JSON.parse(stdout)));
