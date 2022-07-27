@@ -1,13 +1,13 @@
 import cx from "classnames";
 import PropTypes from "prop-types";
 import TipseenTitle from "./TipseenTitle";
-import "./TipseenBasicContent.scss";
+import styles from "./TipseenBasicContent.module.scss";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-basic-content";
 
 const TipseenBasicContent = ({ title, children, className }) => {
   return (
-    <div className={cx(BASE_CSS_CLASS, className)}>
+    <div className={cx(styles.tipseenBasicContent, BASE_CSS_CLASS, className)}>
       <TipseenTitle text={title} />
       {children}
     </div>

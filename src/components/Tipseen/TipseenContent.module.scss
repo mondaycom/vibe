@@ -1,14 +1,14 @@
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
-@import "./Tipseen";
+@import "./Tipseen.module";
 
-.monday-style-tipseen-content {
-  &_buttons {
+.tipseenContent {
+  &Buttons {
     margin-top: $spacing-medium;
     display: flex;
     justify-content: flex-end;
-    .monday-style-tipseen-content_dismiss {
+    &Dismiss {
       margin-right: $spacing-small;
     }
   }

@@ -2,7 +2,7 @@
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
-.monday-style-tipseen-image {
+.tipseenImage {
   object-fit: cover;
   border: solid 2px;
   @include theme-prop(border-color, primary-color);

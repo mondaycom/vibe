@@ -6,7 +6,7 @@ import Button from "../../components/Button/Button";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { DISMISS_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "./TipseenConstants";
 import TipseenBasicContent from "./TipseenBasicContent";
-import "./TipseenContent.scss";
+import styles from "./TipseenContent.module.scss";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-content";
 const bemHelper = BEMClass(BASE_CSS_CLASS);
@@ -50,13 +50,15 @@ const TipseenContent = ({
   const overrideSubmitOnClick = backwardCompatibilityForProperties([onSubmit, submitDeprecatedOnClick], NOOP);
   return (
     <TipseenBasicContent title={title} className={BASE_CSS_CLASS}>
-      {children ? <span className={bemHelper({ element: "content" })}>{children}</span> : null}
-      <div className={bemHelper({ element: "buttons" })}>
+      {children ? (
+        <span className={cx(styles.tipseenContent, bemHelper({ element: "content" }))}>{children}</span>
+      ) : null}
+      <div className={cx(styles.tipseenContentButtons, bemHelper({ element: "buttons" }))}>
         {isDismissHidden ? null : (
           <Button
             kind={Button.kinds.TERTIARY}
             color={Button.colors.ON_PRIMARY_COLOR}
-            className={cx(bemHelper({ element: "dismiss" }), dismissClassName)}
+            className={cx(styles.tipseenContentButtonsDismiss, bemHelper({ element: "dismiss" }), dismissClassName)}
             size={Button.sizes.SMALL}
             onClick={overrideDismissOnClick}
             {...otherDismissButtonProps}

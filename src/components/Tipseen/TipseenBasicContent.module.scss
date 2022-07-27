@@ -1,9 +1,9 @@
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
-@import "./Tipseen";
+@import "./Tipseen.module.scss";
 
-.monday-style-tipseen-basic-content {
+.tipseenBasicContent {
   @include tipseen-content-padding;
   display: flex;
   flex-direction: column;

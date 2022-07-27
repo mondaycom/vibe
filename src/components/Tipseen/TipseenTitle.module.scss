@@ -1,7 +1,7 @@
 @import "../../styles/typography";
-@import "./TipseenContent";
+@import "./TipseenContent.module";
 
-.monday-style-tipseen-title {
+.tipseenTitle {
   max-width: 70%;
   @include font-paragraph-bold;
   @include theme-prop(color, text-color-on-primary);
