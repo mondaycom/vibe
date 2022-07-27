@@ -2,6 +2,7 @@ const postcss = require("postcss");
 const postcssrc = require("postcss-load-config");
 const postCssModules = require("postcss-modules");
 const { readFileSync, writeFileSync } = require("fs");
+const prettify = require("postcss-prettify");
 
 function camelCase(str) {
   return str.split(/[-_]+/).reduce((a, b) => a + b.charAt(0).toUpperCase() + b.slice(1));
@@ -26,9 +27,11 @@ const execute = async filename => {
   options.to = null;
 
   const contents = readFileSync(filename).toString();
-  const res = await postcss([modulesPlugin, ...plugins]).process(contents, options);
+  const res = await postcss([modulesPlugin, prettify, ...plugins]).process(contents, options);
 
-  writeFileSync(filename, res.css);
+  // Prettify css: for some reason doesn't work if is inserted to plugins
+  const prettifiedRes = prettify.process(res.css);
+  writeFileSync(filename, prettifiedRes.css);
 
   return classNames;
 };
