@@ -1,8 +1,8 @@
 const postcss = require("postcss");
 const postcssrc = require("postcss-load-config");
 const postCssModules = require("postcss-modules");
-const { readFileSync, writeFileSync } = require("fs");
 const prettify = require("postcss-prettify");
+const { readFileSync, writeFileSync } = require("fs");
 
 function camelCase(str) {
   return str.split(/[-_]+/).reduce((a, b) => a + b.charAt(0).toUpperCase() + b.slice(1));
