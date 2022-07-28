@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.52.2 (2022-07-28)
+
+#### Bug Fixes
+* [#771](https://github.com/mondaycom/monday-ui-react-core/pull/771) Tipseen: css modules ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.52.1 (2022-07-27)
 
 #### Bug Fixes
