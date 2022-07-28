@@ -45,7 +45,7 @@ const execute = async filename => {
   options.to = null;
 
   const contents = readFileSync(filename).toString();
-  const res = await postcss([modulesPlugin, prettify, ...plugins]).process(contents, options);
+  const res = await postcss([modulesPlugin, ...plugins]).process(contents, options);
 
   // Prettify css: for some reason doesn't work if is inserted to plugins
   const prettifiedRes = prettify.process(res.css);
