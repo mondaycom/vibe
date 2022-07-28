@@ -3,28 +3,9 @@ const postcssrc = require("postcss-load-config");
 const postCssModules = require("postcss-modules");
 const prettify = require("postcss-prettify");
 const { readFileSync, writeFileSync } = require("fs");
-
-function removeEmptyLinesBetweenImports(css) {
-  let res = "";
-  const lines = css.split("\n");
-  for (let i = 0; i < lines.length; ++i) {
-    if (
-      lines[i] === "" &&
-      i > 0 &&
-      lines[i - 1].startsWith("@import") &&
-      i < lines.length - 1 &&
-      lines[i + 1].startsWith("@import")
-    ) {
-      continue;
-    }
-    res += lines[i] + "\n";
-  }
-  return res;
-}
-
-function camelCase(str) {
-  return str.split(/[-_]+/).reduce((a, b) => a + b.charAt(0).toUpperCase() + b.slice(1));
-}
+const replaceSingleLineCommentsWithMultiline = require("./utils/replaceSingleLineCommentsWithMultiline");
+const removeEmptyLinesBetweenImports = require("./utils/removeEmptyLinesBetweenImports");
+const convertToCamelCase = require("./utils/convertToCamelCase");
 
 const execute = async filename => {
   let classNames = {};
@@ -33,7 +14,7 @@ const execute = async filename => {
       classNames = json;
     },
     generateScopedName: function (name) {
-      return camelCase(name);
+      return convertToCamelCase(name);
     }
   });
 
@@ -48,9 +29,11 @@ const execute = async filename => {
   const res = await postcss([modulesPlugin, ...plugins]).process(contents, options);
 
   // Prettify css: for some reason doesn't work if is inserted to plugins
-  // TODO doesn't ignore comments, so can edit them or crash on them
-  const prettifiedRes = prettify.process(res.css);
+  const cssWithMultilineComments = replaceSingleLineCommentsWithMultiline(res.css);
+  const prettifiedRes = prettify.process(cssWithMultilineComments);
   const prettifiedCss = removeEmptyLinesBetweenImports(prettifiedRes.css);
+
+  // Write css to the same file
   writeFileSync(filename, prettifiedCss);
 
   return classNames;
