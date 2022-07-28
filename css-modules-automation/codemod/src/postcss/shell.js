@@ -48,6 +48,7 @@ const execute = async filename => {
   const res = await postcss([modulesPlugin, ...plugins]).process(contents, options);
 
   // Prettify css: for some reason doesn't work if is inserted to plugins
+  // TODO doesn't ignore comments, so can edit them or crash on them
   const prettifiedRes = prettify.process(res.css);
   const prettifiedCss = removeEmptyLinesBetweenImports(prettifiedRes.css);
   writeFileSync(filename, prettifiedCss);
