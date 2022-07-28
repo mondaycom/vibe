@@ -1,5 +1,5 @@
-@import "../../../../../styles/themes.scss";
-@import "../../../../styles/typography.scss";
+@import "../../../../../styles/themes";
+@import "../../../../styles/typography";
 
 .spacing-xs {
   height: var(--spacing-xs);
@@ -40,6 +40,7 @@
   flex-direction: column;
   margin: 0 var(--spacing-medium);
   align-items: center;
+  justify-content: flex-end;
 
   &_title-container {
     display: flex;

@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState, useContext, useRef } from "react";
-import { GridKeyboardNavigationContext } from "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
-import useFullKeyboardListeners from "hooks/useFullKeyboardListeners";
-import useEventListener from "hooks/useEventListener";
+import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
+import useFullKeyboardListeners from "../../hooks/useFullKeyboardListeners";
+import useEventListener from "../../hooks/useEventListener";
 import {
   calcActiveIndexAfterArrowNavigation,
   getActiveIndexFromInboundNavigation
 } from "./gridKeyboardNavigationHelper";
+import { useLastNavigationDirection } from "../../components/Menu/Menu/hooks/useLastNavigationDirection";
 
 const NO_ACTIVE_INDEX = -1;
 
@@ -80,24 +81,22 @@ export default function useGridKeyboardNavigation({
 
   const blurTargetElement = useCallback(() => ref.current?.blur(), [ref]);
 
-  const onFocus = useCallback(
-    e => {
-      const direction = e.detail?.keyboardDirection;
-      if (direction) {
-        // if we did not already focused on any grid item, set focus according to the item which selected
-        if (activeIndex === -1) {
-          const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
-          setActiveIndex(newIndex);
-        }
-        setIsUsingKeyboardNav(true);
-        return;
+  const { lastNavigationDirectionRef } = useLastNavigationDirection();
+  const onFocus = useCallback(() => {
+    const direction = lastNavigationDirectionRef.current;
+    if (direction) {
+      // if we did not already focused on any grid item, set focus according to the item which selected
+      if (activeIndex === -1) {
+        const newIndex = getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount });
+        setActiveIndex(newIndex);
       }
-      if (activeIndex === NO_ACTIVE_INDEX) {
-        setActiveIndex(0);
-      }
-    },
-    [activeIndex, itemsCount, numberOfItemsInLine, setIsUsingKeyboardNav]
-  );
+      setIsUsingKeyboardNav(true);
+      return;
+    }
+    if (activeIndex === NO_ACTIVE_INDEX) {
+      setActiveIndex(0);
+    }
+  }, [activeIndex, itemsCount, lastNavigationDirectionRef, numberOfItemsInLine]);
 
   const onMouseDown = useCallback(() => {
     // If the user clicked on the grid element we assume that that what will caused the focus

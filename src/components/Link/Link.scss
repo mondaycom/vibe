@@ -1,7 +1,7 @@
-@import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
-@import "../../styles/global-css-settings.scss";
-@import "../../styles/states.scss";
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
 
 .monday-style-link {
   display: flex;
@@ -15,6 +15,14 @@
     .monday-style-link--text {
       text-decoration: underline;
     }
+  }
+  &.inline-text {
+    display: inline-flex;
+    align-items: unset;
+  }
+  &.inherit-font-size {
+    font-size: inherit;
+    line-height: inherit;
   }
   &--icon-start {
     line-height: 24px;

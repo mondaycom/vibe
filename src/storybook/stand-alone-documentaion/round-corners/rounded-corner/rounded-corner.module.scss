@@ -1,6 +1,6 @@
-@import "../../../../styles/themes.scss";
-@import "../../../../styles/global-css-settings.scss";
-@import "../../../../styles/typography.scss";
+@import "../../../../styles/themes";
+@import "../../../../styles/global-css-settings";
+@import "../../../../styles/typography";
 
 .rounded-corner-component {
   @include font-paragraph-bold();

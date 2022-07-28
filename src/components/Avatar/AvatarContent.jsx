@@ -1,14 +1,14 @@
 import React from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
-import { BEMClass } from "helpers/bem-helper";
+import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../Icon/Icon";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import "./AvatarContent.scss";
 
 const AVATAR_CONTENT_CSS_BASE_CLASS = "monday-style-avatar-content";
 const bemHelper = BEMClass(AVATAR_CONTENT_CSS_BASE_CLASS);
-export const AvatarContent = ({ type, src, icon, text, ariaLabel, role, size }) => {
+export const AvatarContent = ({ type, src, icon, text, ariaLabel, role, size, textClassName }) => {
   const className = cx(bemHelper({ element: type }), bemHelper({ element: type, state: size }));
   switch (type) {
     case AVATAR_TYPES.IMG:
@@ -26,7 +26,7 @@ export const AvatarContent = ({ type, src, icon, text, ariaLabel, role, size }) 
       );
     case AVATAR_TYPES.TEXT:
       return (
-        <span aria-label={ariaLabel} role={role} className={className}>
+        <span aria-label={ariaLabel} role={role} className={cx(className, textClassName)}>
           {text}
         </span>
       );
@@ -46,6 +46,7 @@ AvatarContent.propTypes = {
   ariaLabel: PropTypes.string,
   /** we support two types of icons - SVG and FONT (classname) so this prop is either the name of the icon or the component */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  textClassName: PropTypes.string,
   text: PropTypes.string
 };
 
@@ -56,5 +57,6 @@ AvatarContent.defaultProps = {
   role: undefined,
   ariaLabel: undefined,
   size: AVATAR_SIZES.LARGE,
+  textClassName: "",
   text: undefined
 };

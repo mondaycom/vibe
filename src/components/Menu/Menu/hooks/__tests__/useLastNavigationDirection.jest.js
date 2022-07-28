@@ -68,6 +68,19 @@ describe("useLastNavigationDirection", () => {
     });
   });
 
+  it("should clear the last navigation direction after using the mouse", () => {
+    const { result } = renderHookForTest();
+
+    act(() => {
+      userEvent.keyboard("{ArrowUp}");
+    });
+    act(() => {
+      userEvent.click(document.body);
+    });
+
+    expect(result.current.lastNavigationDirectionRef.current).toBe(undefined);
+  });
+
   function renderHookForTest() {
     return renderHook(() => useLastNavigationDirection());
   }

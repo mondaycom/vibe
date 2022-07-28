@@ -9,11 +9,12 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { SIZES } from "../../constants/sizes";
 import Button from "../Button/Button";
-import useListKeyboardNavigation from "../../hooks/useListKeyboardNavigation";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
-import { ComboboxItems } from "components/Combobox/components/ComboboxItems/ComboboxItems";
-import { StickyCategoryHeader } from "components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
+import { ComboboxItems } from "../../components/Combobox/components/ComboboxItems/ComboboxItems";
+import { StickyCategoryHeader } from "../../components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
+import useActiveDescendantListFocus from "../../hooks/useActiveDescendantListFocus";
+import { getOptionId } from "./ComboboxHelpers/ComboboxHelpers";
 import "./Combobox.scss";
 
 const Combobox = forwardRef(
@@ -23,6 +24,7 @@ const Combobox = forwardRef(
       id,
       placeholder,
       size,
+      defaultVisualFocusFirstIndex,
       optionLineHeight,
       optionsListHeight,
       autoFocus,
@@ -45,14 +47,18 @@ const Combobox = forwardRef(
       stickyCategories,
       optionRenderer,
       renderOnlyVisibleOptions,
-      clearFilterOnSelection
+      clearFilterOnSelection,
+      maxOptionsWithoutScroll,
+      /**
+       * temporary flag for investigate a bug - will remove very soon
+       */
+      forceUndoScrollNullCheck = false
     },
     ref
   ) => {
     const componentRef = useRef(null);
     const inputRef = useRef(null);
-    const [activeItemIndex, setActiveItemIndex] = useState(-1);
-    const [isActiveByKeyboard, setIsActiveByKeyboard] = useState(false);
+    const resultsContainerRef = useRef(null);
     const [filterValue, setFilterValue] = useState("");
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const onChangeCallback = useCallback(
@@ -65,38 +71,11 @@ const Combobox = forwardRef(
       [setFilterValue, onFilterChanged]
     );
 
-    const setActiveItemIndexKeyboardNav = useCallback(
-      index => {
-        setActiveItemIndex(index);
-        setIsActiveByKeyboard(true);
-      },
-      [setActiveItemIndex]
-    );
-
-    const onOptionClick = useCallback(
-      (_event, index, option, mouseClick) => {
-        if (option.disabled) return;
-        onClick && onClick(option);
-        setActiveItemIndex(index);
-        if (mouseClick) {
-          // set focus on input again
-          requestAnimationFrame(() => inputRef.current?.focus());
-        }
-        setIsActiveByKeyboard(!mouseClick);
-        if (clearFilterOnSelection) {
-          // clear filter after adding
-          onChangeCallback("");
-        }
-      },
-      [onClick, onChangeCallback, clearFilterOnSelection]
-    );
-
     const onOptionHoverCB = useCallback(
       (event, index, option) => {
-        setActiveItemIndex(-1);
         onOptionHover(event, index, option);
       },
-      [setActiveItemIndex, onOptionHover]
+      [onOptionHover]
     );
 
     const filteredOptions = useMemo(() => {
@@ -106,9 +85,19 @@ const Combobox = forwardRef(
       return filter(filterValue, options);
     }, [options, filterValue, filter, disableFilter]);
 
-    const isChildSelectable = useCallback(option => {
-      return option && !option.disabled;
-    }, []);
+    const [activeOptionIndex, setActiveOptionIndex] = useState(-1);
+
+    const isChildSelectable = useCallback(
+      index => {
+        return index !== undefined && filteredOptions[index] && !filteredOptions[index].disabled;
+      },
+      [filteredOptions]
+    );
+
+    const filteredOptionsIds = useMemo(
+      () => filteredOptions.map((option, index) => getOptionId(option?.id, index)),
+      [filteredOptions]
+    );
 
     const onAddNewCallback = useCallback(() => {
       onAddNew && onAddNew(filterValue);
@@ -116,14 +105,34 @@ const Combobox = forwardRef(
       setFilterValue("");
     }, [onAddNew, filterValue, setFilterValue]);
 
-    useListKeyboardNavigation(
-      inputRef,
-      filteredOptions,
-      activeItemIndex,
-      setActiveItemIndexKeyboardNav,
-      isChildSelectable,
-      onOptionClick
+    const overrideOnClick = useCallback(
+      (event, itemIndex) => {
+        onClick(filteredOptions[itemIndex]);
+        if (isChildSelectable(itemIndex)) {
+          setActiveOptionIndex(itemIndex);
+        }
+        if (clearFilterOnSelection) {
+          // clear filter after adding
+          onChangeCallback("");
+        }
+      },
+      [onClick, filteredOptions, isChildSelectable, clearFilterOnSelection, onChangeCallback]
     );
+
+    const {
+      visualFocusItemIndex,
+      visualFocusItemId,
+      onItemClickCallback: onOptionClick
+    } = useActiveDescendantListFocus({
+      defaultVisualFocusFirstIndex,
+      focusedElementRef: inputRef,
+      containerElementRef: resultsContainerRef,
+      focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
+      itemsIds: filteredOptionsIds,
+      onItemClick: overrideOnClick,
+      isItemSelectable: isChildSelectable,
+      isIgnoreSpaceAsItemSelection: true
+    });
 
     const hasResults = filteredOptions.length > 0;
     const hasFilter = filterValue.length > 0;
@@ -142,8 +151,8 @@ const Combobox = forwardRef(
 
       return (
         <div className="combobox--wrapper-no-results">
-          <div className="message-wrapper">
-            <span className="message">{noResultsMessage}</span>
+          <div className="combobox-message-wrapper">
+            <span className="combobox-message">{noResultsMessage}</span>
           </div>
           {onAddNew && !disabled && (
             <Button className="add-new-button" size={size} kind={Button.kinds.TERTIARY} onClick={onAddNewCallback}>
@@ -183,7 +192,7 @@ const Combobox = forwardRef(
             wrapperClassName="combobox--wrapper-search-wrapper"
             className="combobox--wrapper-search"
             inputAriaLabel="Search for content"
-            activeDescendant={`combobox-item-${activeItemIndex}`}
+            activeDescendant={visualFocusItemId}
             id="combobox-search"
             placeholder={placeholder}
             size={size}
@@ -194,13 +203,15 @@ const Combobox = forwardRef(
           />
           {stickyCategories && <StickyCategoryHeader label={activeCategoryLabel} />}
           <ComboboxItems
+            forceUndoScrollNullCheck={forceUndoScrollNullCheck}
+            ref={resultsContainerRef}
             categories={categories}
             options={filteredOptions}
             filterValue={filterValue}
             withCategoriesDivider={withCategoriesDivider}
             optionRenderer={optionRenderer}
-            activeItemIndex={activeItemIndex}
-            isActiveByKeyboard={isActiveByKeyboard}
+            activeItemIndex={activeOptionIndex}
+            visualFocusItemIndex={visualFocusItemIndex}
             onActiveCategoryChanged={onActiveCategoryChanged}
             onOptionClick={onOptionClick}
             onOptionEnter={onOptionHoverCB}
@@ -208,6 +219,7 @@ const Combobox = forwardRef(
             optionLineHeight={optionLineHeight}
             shouldScrollToSelectedItem={shouldScrollToSelectedItem}
             renderOnlyVisibleOptions={renderOnlyVisibleOptions}
+            maxOptionsWithoutScroll={maxOptionsWithoutScroll}
           />
         </div>
         {hasFilter && !hasResults && !loading && renderNoResults()}
@@ -248,6 +260,10 @@ Combobox.propTypes = {
   optionLineHeight: PropTypes.number,
   optionsListHeight: PropTypes.number,
   autoFocus: PropTypes.bool,
+  /**
+   * Callback that called after clicking on the add new combo box button.
+   * @param {string} _filterValue
+   */
   onAddNew: PropTypes.func,
   /**
    * The label of the button that appears at the end of the combo box when the search does not return appropriate options
@@ -274,13 +290,26 @@ Combobox.propTypes = {
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
+  /** By default the first option will be selected, when focusing selecting the first option, or when changing items */
+  defaultVisualFocusFirstIndex: PropTypes.bool,
   /** Clear the filter/search on selection (click or enter) */
   clearFilterOnSelection: PropTypes.bool,
   /**
    * Replace the regular appearance of combo box option with custom renderer.
    */
-  optionRenderer: PropTypes.func
+  optionRenderer: PropTypes.func,
+  /** Maximum options count without scroll */
+  maxOptionsWithoutScroll: PropTypes.number,
+  /**
+   * Using virtualized list for rendering only the items which visible to the user in any given user (performance optimization)
+   */
+  renderOnlyVisibleOptions: PropTypes.bool,
+  /**
+   * On option click callback
+   */
+  onClick: PropTypes.func
 };
+
 Combobox.defaultProps = {
   className: "",
   placeholder: "",
@@ -294,19 +323,12 @@ Combobox.defaultProps = {
   optionLineHeight: 32,
   optionsListHeight: undefined,
   autoFocus: false,
-  /**
-   * Callback that called after clicking on the add new combo box button.
-   */
+  maxOptionsWithoutScroll: undefined,
   onAddNew: undefined,
-  /**
-   * The button label appears at the end of the combo box when the search does not return appropriate options.
-   * The button will not be displayed if you have not passed a function for the onAddNew prop
-   */
   addNewLabel: "Add new",
   filter: defaultFilter,
   disableFilter: false,
   onFilterChanged: undefined,
-  /** shows loading animation */
   loading: false,
   onOptionHover: NOOP,
   onOptionLeave: NOOP,
@@ -314,7 +336,10 @@ Combobox.defaultProps = {
   noResultsRenderer: undefined,
   stickyCategories: false,
   optionRenderer: null,
-  clearFilterOnSelection: false
+  clearFilterOnSelection: false,
+  defaultVisualFocusFirstIndex: undefined,
+  renderOnlyVisibleOptions: false,
+  onClick: _optionData => {}
 };
 
 export default Combobox;

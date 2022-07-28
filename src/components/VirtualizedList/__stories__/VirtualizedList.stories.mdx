@@ -1,14 +1,44 @@
 import VirtualizedList from "../VirtualizedList";
-import Button from "../../Button/Button";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
-import { generateItems, itemRenderer } from "./virtualizedList.components";
+import { generateItems } from "./virtualizedList.components";
+import {useCallback} from "react";
+import styles from "./virtualizedList.module.scss";
 
 <Meta title="Navigation/VirtualizedList" component={VirtualizedList} />
 
 <!--- Component template -->
 
-export const virtualizedListTemplate = createComponentTemplate(VirtualizedList);
+export const virtualizedListTemplate = (args) => {
+    const itemRenderer = useCallback((item, index, style) => {
+        const backgroundColor = index % 2 === 0 ? "white" : "#f8f8f0";
+        return (
+            <div key={index} style={style}>
+                <div
+                    className={styles.virtualizedListItem}
+                    style={{
+                        backgroundColor,
+                        height: item.height
+                    }}
+                >
+                    {item.value}
+                </div>
+            </div>
+        );
+    }, []);
+    return (<div
+        style={{
+            width: 430,
+            height: 300,
+            overflow: "hidden",
+            display: "flex",
+            alignItems: "center"
+        }}
+    >
+        <div style={{ width: 200, height: "100%" }}>
+            <VirtualizedList {...args} items={generateItems(30, 1000)} itemRenderer={itemRenderer} />
+        </div>
+    </div>);
+}
 
 <!--- Component documentation -->
 
@@ -26,20 +56,8 @@ VirtualizedList is a component which only renders visible list items, it is a lo
 Under the hood we are using - [react-window](https://github.com/bvaughn/react-window) and [react-virtualized-auto-sizer](https://github.com/bvaughn/react-virtualized-auto-sizer)
 
 <Canvas>
-  <Story name="Overview" args={{}}>
-    <div
-      style={{
-        width: 430,
-        height: 300,
-        overflow: "hidden",
-        display: "flex",
-        alignItems: "center"
-      }}
-    >
-      <div style={{ width: 200, height: "100%" }}>
-        <VirtualizedList items={generateItems(30, 1000)} itemRenderer={itemRenderer} id="Knobs" scrollDuration={200} />
-      </div>
-    </div>
+  <Story name="Overview">
+      { virtualizedListTemplate.bind({}) }
   </Story>
 </Canvas>
 
@@ -50,3 +68,6 @@ Under the hood we are using - [react-window](https://github.com/bvaughn/react-wi
 ## Usage
 
 <UsageGuidelines guidelines={["Use this when you expect to have many items in your list"]} />
+
+<Tip title="Are your list items not rendered correctly?"> Please make sure you inject the style parameter of the itemRenderer function to the item element's wrapper style.</Tip>
+

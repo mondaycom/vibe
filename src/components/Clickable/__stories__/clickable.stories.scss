@@ -1,9 +1,19 @@
+@mixin clickable-element {
+  padding: var(--spacing-small);
+  border-radius: var(--border-radius-small);
+  color: var(--primary-text-color);
+  width: 40%;
+}
+
 .monday-story-clickable {
   &_first-element {
-    padding: var(--spacing-small);
-    border-radius: var(--border-radius-small);
+    @include clickable-element;
     background-color: var(--primary-selected-color);
-    color: var(--primary-text-color);
-    width: 40%;
+  }
+
+  &_disabled-element {
+    @include clickable-element;
+    background-color: var(--disabled-background-color);
+
   }
 }

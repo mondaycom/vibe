@@ -1,0 +1,15 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+@import "./Tipseen.module";
+
+.tipseenContent {
+  &Buttons {
+    margin-top: $spacing-medium;
+    display: flex;
+    justify-content: flex-end;
+    &Dismiss {
+      margin-right: $spacing-small;
+    }
+  }
+}

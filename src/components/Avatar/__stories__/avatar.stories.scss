@@ -1,5 +1,5 @@
 .monday-style-story-avatar {
-  &_multiplue {
+  &_multiple {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9,7 +9,7 @@
     }
   }
 
-  &_multiplue-reverse {
+  &_multiple-reverse {
     display: flex;
     align-items: flex-start;
 
@@ -23,4 +23,19 @@
       }
     }
   }
+}
+
+.text-formatted--large {
+  font-size: 26px;
+  font-weight: normal;
+}
+
+.text-formatted--medium {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.text-formatted--small {
+  font-size: 10px;
+  font-weight: bold;
 }

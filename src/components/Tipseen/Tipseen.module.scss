@@ -1,0 +1,44 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+
+@mixin tipseen-content-padding{
+  padding: $spacing-medium;
+}
+
+.tipseen {
+  &Wrapper {
+    min-width: 100px;
+    min-height: 40px;
+    padding: 0;
+    border-radius: $border-radius-medium;
+
+    &WithoutCustomWidth {
+      max-width: 320px;
+    }
+  }
+
+  &Header {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &Title {
+    padding: $spacing-medium $spacing-medium 0 $spacing-medium;
+  }
+
+  &Content {
+    @include font-default;
+    @include theme-prop(color, text-color-on-primary);
+  }
+
+  &CloseButton {
+    position: absolute;
+    top: $spacing-xs;
+    right: $spacing-xs;
+
+    &OnImage {
+      z-index: 2;
+    }
+  }
+}

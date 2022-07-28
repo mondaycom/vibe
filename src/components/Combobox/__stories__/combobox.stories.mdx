@@ -1,18 +1,17 @@
 import Combobox from "../Combobox";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import person1 from "./assets/person1.png";
 import person2 from "./assets/person2.png";
 import person3 from "./assets/person3.png";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { onSelectClearsFilterTest } from "./interactions";
+import { defaultPlaySuite } from "../__tests__/combobox-interactions";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer.jsx";
 import Button from "../../Button/Button";
 import Dialog from "../../Dialog/Dialog";
-import { Update, Time, Upgrade, ThumbsUp, Wand } from "../../Icon/Icons";
+import { Update, Time, Upgrade, ThumbsUp, Wand, Person } from "../../Icon/Icons";
 import { TOOLTIP, BREADCRUBMS, CHIP } from "../../../storybook/components/related-components/component-description-map";
 import { Link } from "../../../storybook";
 import { Edit } from "../../Icon/Icons";
-import Clickable from "../../Clickable/Clickable";
 import Avatar from "../../Avatar/Avatar";
 import Flex from "../../Flex/Flex";
 import { optionRenderer } from "./OptionRenderer";
@@ -57,10 +56,10 @@ Combo box allowing users to filter longer lists to only the selections matching 
         { id: "2", label: "Option 2" },
         { id: "3", label: "Option 3" }
       ],
+        onClick: () =>  alert("clicked"),
       placeholder: "Placeholder text here",
       clearFilterOnSelection: true
     }}
-    play={onSelectClearsFilterTest}
   >
     {comboboxTemplate.bind({})}
   </Story>
@@ -86,11 +85,14 @@ Combo box allowing users to filter longer lists to only the selections matching 
   When there are fewer than five items, consider using{" "}
   <Link href="/?path=/docs/inputs-radio-button--overview" size={Link.sizes.SMALL} withoutSpacing>
     Radio buttons
-  </Link>{" "}
-  (if only one item can be selected) or{" "}
-  <Link href="/?path=/docs/inputs-checkbox--overview" size={Link.sizes.SMALL} withoutSpacing>
+  </Link>
+  (if only one item can be selected) or <Link
+    href="/?path=/docs/inputs-checkbox--overview"
+    size={Link.sizes.SMALL}
+    withoutSpacing
+  >
     Checkboxes
-  </Link>{" "}
+  </Link>
   (if multiple items can be selected).
 </Tip>
 
@@ -101,7 +103,7 @@ Combo box allowing users to filter longer lists to only the selections matching 
 Default combo box can be used without dialog or as part of the layout.
 
 <Canvas>
-  <Story name="Default">
+  <Story name="Default" play={defaultPlaySuite}>
     {() => {
       const options = useMemo(
         () => [
@@ -208,13 +210,18 @@ When having a lot of options, you may use headings to categorize them.
           justify={Flex.justify.SPACE_AROUND}
           align={Flex.align.START}
         >
-          <StoryDescription description="Categories without divider" vertical>
-            <DialogContentContainer>
+          <StoryDescription description="Regular categories" vertical>
+            <DialogContentContainer style={{ height: "200px" }}>
+              <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
+            </DialogContentContainer>
+          </StoryDescription>
+          <StoryDescription description="Categories with sticky mode" vertical>
+            <DialogContentContainer style={{ height: "200px" }}>
               <Combobox options={options} categories={categories} placeholder="Placeholder text here" />
             </DialogContentContainer>
           </StoryDescription>
           <StoryDescription description="Categories with divider" vertical>
-            <DialogContentContainer>
+            <DialogContentContainer style={{ height: "200px" }}>
               <Combobox
                 options={options}
                 categories={categories}
@@ -264,14 +271,27 @@ When having a lot of options, you may use headings to categorize them.
           { id: "2", label: "Option 2" },
           { id: "3", label: "Option 3" },
           { id: "4", label: "Option 4" },
-          { id: "5", label: "Option 5" }
+          { id: "5", label: "Option 5" },
+          { id: "6", label: "Option 6" },
+          { id: "7", label: "Option 7" },
+          { id: "8", label: "Option 8" },
+          { id: "9", label: "Option 9" }
         ],
         []
       );
-      const optionRenderer = option => <div>I can render anything with {option.label}</div>;
+      const optionRenderer = option => (
+        <div>
+          <Icon icon={Person} /> I can render anything with {option.label}
+        </div>
+      );
       return (
         <DialogContentContainer>
-          <Combobox options={options} optionRenderer={optionRenderer} placeholder="Placeholder text here" />
+          <Combobox
+            options={options}
+            optionRenderer={optionRenderer}
+            placeholder="Placeholder text here"
+            maxOptionsWithoutScroll={3}
+          />
         </DialogContentContainer>
       );
     }}
@@ -361,8 +381,13 @@ better user experience.
             headerStyle={{ width: "70%", textAlign: "start" }}
           >
             <div style={{ width: "300px" }}>
-              <DialogContentContainer style={{ height: "200px" }}>
-                <Combobox options={options} renderOnlyVisibleOptions placeholder="Placeholder text here" />
+              <DialogContentContainer>
+                <Combobox
+                  options={options}
+                  renderOnlyVisibleOptions
+                  placeholder="Placeholder text here"
+                  maxOptionsWithoutScroll={3}
+                />
               </DialogContentContainer>
             </div>
           </StoryDescription>
@@ -373,12 +398,13 @@ better user experience.
             headerStyle={{ width: "70%", textAlign: "start" }}
           >
             <div style={{ width: "300px" }}>
-              <DialogContentContainer style={{ height: "200px" }}>
+              <DialogContentContainer>
                 <Combobox
                   options={options}
                   renderOnlyVisibleOptions
                   categories={categories}
                   placeholder="Placeholder text here"
+                  maxOptionsWithoutScroll={3}
                 />
               </DialogContentContainer>
             </div>

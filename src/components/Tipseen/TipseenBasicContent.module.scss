@@ -1,0 +1,10 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+@import "./Tipseen.module.scss";
+
+.tipseenBasicContent {
+  @include tipseen-content-padding;
+  display: flex;
+  flex-direction: column;
+}

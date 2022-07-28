@@ -1,0 +1,494 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
+<div
+  className="avatarGroupContainer"
+>
+  <div
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue",
+        }
+      }
+      tabIndex={0}
+    >
+      <span
+        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      >
+        P1
+      </span>
+    </div>
+  </div>
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
+    className="counterContainer medium light"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={0}
+  >
+    <span
+      aria-label="Tab for more items 1"
+      aria-labelledby=""
+      onMouseDown={[Function]}
+    >
+      <div
+        aria-label={1}
+        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+      >
+        <span
+          id="counter-"
+        >
+          +1
+        </span>
+      </div>
+    </span>
+    <div
+      tabIndex={-1}
+    />
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel default-tooltip 1`] = `
+<div
+  className="avatarGroupContainer"
+>
+  <div
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue",
+        }
+      }
+      tabIndex={0}
+    >
+      <span
+        aria-label="Person 1"
+        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      >
+        P1
+      </span>
+    </div>
+  </div>
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
+    className="counterContainer medium light"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={0}
+  >
+    <span
+      aria-label="Tab for more items 1"
+      aria-labelledby=""
+      onMouseDown={[Function]}
+    >
+      <div
+        aria-label={1}
+        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+      >
+        <span
+          id="counter-"
+        >
+          +1
+        </span>
+      </div>
+    </span>
+    <div
+      tabIndex={-1}
+    />
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup renders correctly renders correctly with counter default-tooltip 1`] = `
+<div
+  className="avatarGroupContainer"
+>
+  <div
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue",
+        }
+      }
+      tabIndex={0}
+    >
+      <span
+        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      >
+        P1
+      </span>
+    </div>
+  </div>
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
+    className="counterContainer medium light"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={0}
+  >
+    <span
+      aria-label="Tab for more items 1"
+      aria-labelledby=""
+      onMouseDown={[Function]}
+    >
+      <div
+        aria-label={1}
+        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+      >
+        <span
+          id="counter-"
+        >
+          +1
+        </span>
+      </div>
+    </span>
+    <div
+      tabIndex={-1}
+    />
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup renders correctly renders correctly with custom counter tooltip 1`] = `
+<div
+  className="avatarGroupContainer"
+>
+  <div
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue",
+        }
+      }
+      tabIndex={0}
+    >
+      <span
+        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      >
+        P1
+      </span>
+    </div>
+  </div>
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
+    className="counterContainer medium light"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={0}
+  >
+    <span
+      aria-label="Tab for more items 1"
+      aria-labelledby=""
+      onMouseDown={[Function]}
+    >
+      <div
+        aria-label={1}
+        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+      >
+        <span
+          id="counter-"
+        >
+          +1
+        </span>
+      </div>
+    </span>
+    <div
+      tabIndex={-1}
+    />
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup renders correctly renders correctly with custom counter value 1`] = `
+<div
+  className="avatarGroupContainer"
+>
+  <div
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue",
+        }
+      }
+      tabIndex={0}
+    >
+      <span
+        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      >
+        P1
+      </span>
+    </div>
+  </div>
+  <div
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue",
+        }
+      }
+      tabIndex={0}
+    >
+      <span
+        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      >
+        P2
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup renders correctly renders correctly with dummy class name 1`] = `
+<div
+  className="avatarGroupContainer dummy-class-name"
+>
+  <div
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue",
+        }
+      }
+      tabIndex={0}
+    >
+      <span
+        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      >
+        P1
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
+<div
+  className="avatarGroupContainer"
+>
+  <div
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue",
+        }
+      }
+      tabIndex={0}
+    >
+      <span
+        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      >
+        P1
+      </span>
+    </div>
+  </div>
+  <div
+    className=""
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={-1}
+  />
+  <div
+    className="counterContainer large light"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    tabIndex={0}
+  >
+    <span
+      aria-label="Tab for more items 1"
+      aria-labelledby=""
+      onMouseDown={[Function]}
+    >
+      <div
+        aria-label={1}
+        className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
+      >
+        <span
+          id="counter-"
+        >
+          +1
+        </span>
+      </div>
+    </span>
+    <div
+      tabIndex={-1}
+    />
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
+<div
+  className="avatarGroupContainer"
+>
+  <div
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue",
+        }
+      }
+      tabIndex={0}
+    >
+      <span
+        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      >
+        P1
+      </span>
+    </div>
+  </div>
+  <div
+    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    style={Object {}}
+  >
+    <div
+      aria-hidden={false}
+      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      style={
+        Object {
+          "backgroundColor": "var(--color-chili-blue",
+        }
+      }
+      tabIndex={0}
+    >
+      <span
+        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+      >
+        P2
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AvatarGroup renders correctly with empty props 1`] = `null`;

@@ -1,9 +1,22 @@
+@import "../../../../styles/global-css-settings";
 @import "../../../styles/content-spacing";
+
+$spacing-grid-column-gap: $spacing-small;
+$spacing-grid-row-gap: $spacing-xl;
+$spacing-cell-min-width: $grid-auto-fit-cell-width-small;
+$spacing-grid-cell-array-calc: calc(12.5% - #{$spacing-grid-column-gap});
 
 .monday-storybook-spacing-sizes {
   margin: $spacing-between-section-items 0;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: flex-end;
+
+  > * {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include grid-auto-fit(
+          $grid-column-gap: $spacing-grid-column-gap,
+          $grid-row-gap: $spacing-grid-row-gap,
+          $grid-cell-min-width: $spacing-cell-min-width,
+          $grid-cell-array-calc: $spacing-grid-cell-array-calc);
 }

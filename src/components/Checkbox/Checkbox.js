@@ -39,7 +39,7 @@ export const Checkbox = forwardRef(
     const mergedInputRef = useMergeRefs({ refs: [ref, inputRef] });
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const onMouseUpCallback = useCallback(() => {
-      const input = mergedInputRef.current;
+      const input = inputRef.current;
       if (!input) return;
 
       window.requestAnimationFrame(() => {
@@ -47,7 +47,7 @@ export const Checkbox = forwardRef(
           input.blur();
         });
       });
-    }, [mergedInputRef]);
+    }, [inputRef]);
 
     const checkboxClassNames = [`${BASE_CLASS_NAME}__checkbox`, `${BASE_CLASS_NAME}__prevent-animation`];
     let overrideDefaultChecked = defaultChecked;
@@ -59,12 +59,12 @@ export const Checkbox = forwardRef(
     }
 
     useEffect(() => {
-      if (mergedInputRef.current) {
-        mergedInputRef.current.indeterminate = indeterminate;
+      if (inputRef.current) {
+        inputRef.current.indeterminate = indeterminate;
       }
-    }, [mergedInputRef, indeterminate]);
+    }, [inputRef, indeterminate]);
 
-    const { onClickCapture: onClickCaptureLabel } = useSupportFirefoxLabelClick({ mergedInputRef });
+    const { onClickCapture: onClickCaptureLabel } = useSupportFirefoxLabelClick({ inputRef });
 
     return (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions

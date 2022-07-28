@@ -1,17 +1,17 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { DialogPositions } from "constants/sizes";
-import React, { useCallback, useRef, useLayoutEffect, useMemo, useEffect, forwardRef } from "react";
+import { DialogPositions } from "../../../constants/sizes";
+import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import cx from "classnames";
-import Tooltip from "components/Tooltip/Tooltip";
-import Icon from "components/Icon/Icon";
-import DropdownChevronRight from "components/Icon/Icons/components/DropdownChevronRight";
-import DialogContentContainer from "components/DialogContentContainer/DialogContentContainer";
-import useMergeRefs from "hooks/useMergeRefs";
-import useIsOverflowing from "hooks/useIsOverflowing";
-import usePopover from "hooks/usePopover";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
+import Tooltip from "../../../components/Tooltip/Tooltip";
+import Icon from "../../../components/Icon/Icon";
+import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
+import DialogContentContainer from "../../../components/DialogContentContainer/DialogContentContainer";
+import useMergeRefs from "../../../hooks/useMergeRefs";
+import useIsOverflowing from "../../../hooks/useIsOverflowing";
+import usePopover from "../../../hooks/usePopover";
+import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
 import "./MenuItem.scss";
@@ -90,7 +90,7 @@ const MenuItem = forwardRef(
         if (referenceElement.scrollIntoViewIfNeeded) {
           referenceElement.scrollIntoViewIfNeeded({ behaviour: "smooth" });
         } else {
-          referenceElement.scrollIntoView({ behavior: "smooth", block: "center" });
+          referenceElement.scrollIntoView?.({ behavior: "smooth", block: "center" });
         }
       }
     }, [isActive, referenceElement, shouldScrollMenu]);

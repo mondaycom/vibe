@@ -14,16 +14,10 @@ import {
   Calendar,
   Filter,
   Wand
-} from "components/Icon/Icons";
-import DialogContentContainer from "components/DialogContentContainer/DialogContentContainer";
-import Menu from "components/Menu/Menu/Menu";
-import MenuItem from "components/Menu/MenuItem/MenuItem";
-import Search from "components/Search/Search";
-import MenuTitle from "components/Menu/MenuTitle/MenuTitle";
-import MenuDivider from "components/Menu/MenuDivider/MenuDivider";
+} from "../../../Icon/Icons";
+import { DialogContentContainer, Menu, MenuItem, Search, MenuTitle, MenuDivider, MenuGridItem } from "../../..";
 import classes from "./Menu.stories.module.scss";
 import { DummyNavigableGrid } from "../../../GridKeyboardNavigationContext/__stories__/useGridKeyboardNavigationContext.stories";
-import MenuGridItem from "components/Menu/MenuGridItem/MenuGridItem";
 
 export const menuTemplate = args => (
   <Menu {...args}>

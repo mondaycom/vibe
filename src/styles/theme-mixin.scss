@@ -53,6 +53,7 @@ $theme: (
   "dark-background-on-secondary-color": $riverstone-gray,
   "dialog-background-color": $snow-white,
   "modal-background-color": $snow-white,
+  "box-shadow-xs": 0 4px 6px -4px rgb(0 0 0 / 10%),
   "box-shadow-small": 0 4px 8px rgb(0 0 0 / 20%),
   "box-shadow-medium": 0 6px 20px rgb(0 0 0 / 20%),
   "box-shadow-large": 0 15px 50px rgb(0 0 0 / 30%)
@@ -91,6 +92,7 @@ $theme-var: (
   "dark-background-on-secondary-color": var(--dark-background-on-secondary-color),
   "dialog-background-color": var(--dialog-background-color),
   "modal-background-color": var(--modal-background-color),
+  "box-shadow-xs": var(--box-shadow-xs),
   "box-shadow-small": var(--box-shadow-small),
   "box-shadow-medium": var(--box-shadow-medium),
   "box-shadow-large": var(--box-shadow-large)

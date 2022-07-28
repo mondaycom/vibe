@@ -1,4 +1,4 @@
-@import "../../../styles/global-css-settings.scss";
+@import "../../../styles/global-css-settings";
 
 .monday-storybook_multiple-story-elements-wrapper {
   display: flex;
@@ -6,4 +6,12 @@
   & > * {
     margin-right: $spacing-medium;
   }
+}
+
+.monday-storybook_focus-trap {
+  position: fixed;
+  top: -2000px;
+  left: -2000px;
+  width: 2px;
+  height: 2px;
 }

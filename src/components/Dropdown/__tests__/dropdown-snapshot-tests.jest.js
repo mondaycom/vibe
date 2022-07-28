@@ -2,6 +2,8 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Dropdown from "../Dropdown";
 import DropdownDriver from "./driver";
+import { person1 } from "../../Avatar/__stories__/assets";
+import { Email } from "../../Icon/Icons";
 
 const mockOptions = [
   { value: "ocean", label: "Ocean", isFixed: true },
@@ -65,6 +67,30 @@ describe("Dropdown renders correctly", () => {
 
   it("with multiline", () => {
     const tree = renderer.create(<Dropdown multiline />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with leftAvatar", () => {
+    const options = [
+      {
+        value: "ocean",
+        label: "Ocean",
+        leftAvatar: person1
+      }
+    ];
+    const tree = renderer.create(<Dropdown options={options} defaultValue={[options[0]]} multi multiline />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("with leftIcon", () => {
+    const options = [
+      {
+        value: "ocean",
+        label: "Ocean",
+        leftIcon: Email
+      }
+    ];
+    const tree = renderer.create(<Dropdown options={options} defaultValue={[options[0]]} multi multiline />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

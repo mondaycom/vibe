@@ -36,7 +36,8 @@ const ColorPickerContentComponent = forwardRef(
       tooltipContentByColor,
       focusOnMount,
       colorShape,
-      forceUseRawColorList
+      forceUseRawColorList,
+      showColorNameTooltip
     },
     ref
   ) => {
@@ -95,6 +96,7 @@ const ColorPickerContentComponent = forwardRef(
             colorSize={colorSize}
             tooltipContentByColor={tooltipContentByColor}
             colorShape={colorShape}
+            showColorNameTooltip={showColorNameTooltip && !forceUseRawColorList}
           />
           {noColorText && (
             <ColorPickerClearButton Icon={NoColorIcon} onClick={onClearButton} text={noColorText} ref={buttonRef} />
@@ -134,7 +136,8 @@ ColorPickerContentComponent.propTypes = {
   focusOnMount: PropTypes.bool,
   colorShape: PropTypes.oneOf(Object.values(ColorPickerContentComponent.colorShapes)),
   isMultiselect: PropTypes.bool,
-  forceUseRawColorList: PropTypes.bool
+  forceUseRawColorList: PropTypes.bool,
+  showColorNameTooltip: PropTypes.bool
 };
 
 ColorPickerContentComponent.defaultProps = {
@@ -159,7 +162,13 @@ ColorPickerContentComponent.defaultProps = {
    * Used to force the component render the colorList prop as is. Usually, this flag should not be used. It's intended only for edge cases.
    * Usually, only "monday colors" will be rendered (unless blacklist mode is used). This flag will override this behavior.
    */
-  forceUseRawColorList: false
+  forceUseRawColorList: false,
+  /**
+   * Used to enable color name tooltip on each color in the component. it's incompatible with forceUseRawColorList flag.
+   * When "tooltipContentByColor" is supplied, it will override the color name tooltip.
+   *
+   */
+  showColorNameTooltip: false
 };
 
 export default ColorPickerContentComponent;

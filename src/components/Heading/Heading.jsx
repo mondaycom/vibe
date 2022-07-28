@@ -1,12 +1,12 @@
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../constants/sizes";
 import React, { useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import Tooltip from "components/Tooltip/Tooltip";
-import useIsOverflowing from "hooks/useIsOverflowing";
-import useStyle from "hooks/useStyle";
-import useRefWithCallback from "hooks/useRefWithCallback";
-import TextWithHighlight from "components/TextWithHighlight/TextWithHighlight";
+import Tooltip from "../../components/Tooltip/Tooltip";
+import useIsOverflowing from "../../hooks/useIsOverflowing";
+import useStyle from "../../hooks/useStyle";
+import useRefWithCallback from "../../hooks/useRefWithCallback";
+import TextWithHighlight from "../../components/TextWithHighlight/TextWithHighlight";
 import { TYPES } from "./HeadingConstants";
 import "./Heading.scss";
 
@@ -24,6 +24,7 @@ const Heading = ({
   tooltipPosition,
   highlightTerm,
   suggestEditOnHover,
+  brandFont,
   nonEllipsisTooltip // tooltip to show when no overflow
 }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
@@ -33,7 +34,8 @@ const Heading = ({
   const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
-    "suggest-edit-on-hover": suggestEditOnHover
+    "suggest-edit-on-hover": suggestEditOnHover,
+    "brand-font": brandFont
   });
   const Element = React.createElement(
     type,
@@ -96,7 +98,9 @@ Heading.propTypes = {
   nonEllipsisTooltip: PropTypes.string,
   size: PropTypes.oneOf([Heading.sizes.SMALL, Heading.sizes.MEDIUM, Heading.sizes.LARGE]),
   highlightTerm: PropTypes.string,
-  customColor: PropTypes.string
+  customColor: PropTypes.string,
+  /** Custom font flag, use to enable new font family on H1 headers */
+  brandFont: PropTypes.bool
 };
 
 Heading.defaultProps = {
@@ -111,6 +115,7 @@ Heading.defaultProps = {
   nonEllipsisTooltip: null,
   size: SIZES.LARGE,
   highlightTerm: null,
+  brandFont: false,
   customColor: undefined
 };
 

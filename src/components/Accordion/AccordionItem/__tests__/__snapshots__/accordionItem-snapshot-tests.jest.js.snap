@@ -3,19 +3,21 @@
 exports[`AccordionItem renders correctly with children 1`] = `
 <div
   className="accordion"
+  data-testid="monday-accordion"
 >
   <div
     className="accordion-item"
+    id="monday-accordion--item-0"
   >
     <div
       className="expand-collapse--wrapper"
-      id=""
+      id="expand-collapse--monday-accordion--item-0"
     >
       <div
         className="expand-collapse"
       >
         <button
-          aria-controls="-controls"
+          aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
@@ -41,7 +43,7 @@ exports[`AccordionItem renders correctly with children 1`] = `
         </button>
         <div
           className="expand-collapse__content expand-collapse__section animate-expand-collapse__content"
-          id="-controls"
+          id="expand-collapse--monday-accordion--item-0-controls"
           role="region"
         >
           Test Children
@@ -55,19 +57,21 @@ exports[`AccordionItem renders correctly with children 1`] = `
 exports[`AccordionItem renders correctly with className 1`] = `
 <div
   className="accordion"
+  data-testid="monday-accordion"
 >
   <div
     className="accordion-item test"
+    id="monday-accordion--item-0"
   >
     <div
       className="expand-collapse--wrapper"
-      id=""
+      id="expand-collapse--monday-accordion--item-0"
     >
       <div
         className="expand-collapse"
       >
         <button
-          aria-controls="-controls"
+          aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
@@ -93,7 +97,7 @@ exports[`AccordionItem renders correctly with className 1`] = `
         </button>
         <div
           className="expand-collapse__content expand-collapse__section animate-expand-collapse__content"
-          id="-controls"
+          id="expand-collapse--monday-accordion--item-0-controls"
           role="region"
         />
       </div>
@@ -105,19 +109,21 @@ exports[`AccordionItem renders correctly with className 1`] = `
 exports[`AccordionItem renders correctly with iconSize 1`] = `
 <div
   className="accordion"
+  data-testid="monday-accordion"
 >
   <div
     className="accordion-item"
+    id="monday-accordion--item-0"
   >
     <div
       className="expand-collapse--wrapper"
-      id=""
+      id="expand-collapse--monday-accordion--item-0"
     >
       <div
         className="expand-collapse"
       >
         <button
-          aria-controls="-controls"
+          aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
@@ -143,7 +149,7 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
         </button>
         <div
           className="expand-collapse__content expand-collapse__section animate-expand-collapse__content"
-          id="-controls"
+          id="expand-collapse--monday-accordion--item-0-controls"
           role="region"
         />
       </div>
@@ -155,6 +161,7 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
 exports[`AccordionItem renders correctly with id 1`] = `
 <div
   className="accordion"
+  data-testid="monday-accordion"
 >
   <div
     className="accordion-item"
@@ -162,13 +169,13 @@ exports[`AccordionItem renders correctly with id 1`] = `
   >
     <div
       className="expand-collapse--wrapper"
-      id=""
+      id="expand-collapse--test"
     >
       <div
         className="expand-collapse"
       >
         <button
-          aria-controls="-controls"
+          aria-controls="expand-collapse--test-controls"
           aria-expanded={true}
           className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
@@ -194,7 +201,7 @@ exports[`AccordionItem renders correctly with id 1`] = `
         </button>
         <div
           className="expand-collapse__content expand-collapse__section animate-expand-collapse__content"
-          id="-controls"
+          id="expand-collapse--test-controls"
           role="region"
         />
       </div>
@@ -206,19 +213,21 @@ exports[`AccordionItem renders correctly with id 1`] = `
 exports[`AccordionItem renders correctly with title 1`] = `
 <div
   className="accordion"
+  data-testid="monday-accordion"
 >
   <div
     className="accordion-item"
+    id="monday-accordion--item-0"
   >
     <div
       className="expand-collapse--wrapper"
-      id=""
+      id="expand-collapse--monday-accordion--item-0"
     >
       <div
         className="expand-collapse"
       >
         <button
-          aria-controls="-controls"
+          aria-controls="expand-collapse--monday-accordion--item-0-controls"
           aria-expanded={true}
           className="expand-collapse__header expand-collapse__section expand-collapse__header--open"
           onClickCapture={[Function]}
@@ -251,7 +260,7 @@ exports[`AccordionItem renders correctly with title 1`] = `
         </button>
         <div
           className="expand-collapse__content expand-collapse__section animate-expand-collapse__content"
-          id="-controls"
+          id="expand-collapse--monday-accordion--item-0-controls"
           role="region"
         />
       </div>

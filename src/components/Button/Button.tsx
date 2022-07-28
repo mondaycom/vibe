@@ -1,13 +1,14 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { SIZES } from "constants/sizes";
-import useResizeObserver from "hooks/useResizeObserver";
-import useMergeRefs from "hooks/useMergeRefs";
-import { NOOP } from "utils/function-utils";
-import Icon from "components/Icon/Icon";
-import Loader from "components/Loader/Loader";
+import { SIZES } from "../../constants/sizes";
+import useResizeObserver from "../../hooks/useResizeObserver";
+import useMergeRefs from "../../hooks/useMergeRefs";
+import { NOOP } from "../../utils/function-utils";
+import Icon from "../../components/Icon/Icon";
+import Loader from "../../components/Loader/Loader";
 import { ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import "./Button.scss";
 
 // @ts-ignore
@@ -78,6 +79,10 @@ export interface ButtonProps {
   noSidePadding?: boolean;
   /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
   defaultTextColorOnPrimaryColor?: string;
+  dataTestId: string;
+  /** Change the focus indicator from around the button to within it */
+  insetFocus: boolean;
+  children: string;
 }
 
 const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> & {
@@ -122,7 +127,9 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       ariaHasPopup,
       ariaExpanded,
       ariaControls,
-      blurOnMouseUp
+      blurOnMouseUp,
+      dataTestId,
+      insetFocus
     },
     ref
   ) => {
@@ -157,13 +164,13 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
 
     const onMouseUp = useCallback(() => {
       const button = buttonRef.current;
-      if (!button) {
+      if (disabled || !button) {
         return;
       }
       if (blurOnMouseUp) {
         button.blur();
       }
-    }, [buttonRef, blurOnMouseUp]);
+    }, [disabled, buttonRef, blurOnMouseUp]);
 
     const onButtonClicked = useCallback(
       event => {
@@ -210,31 +217,34 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
           "monday-style-button--right-flat": rightFlat,
           "monday-style-button--left-flat": leftFlat,
           "monday-style-button--prevent-click-animation": preventClickAnimation,
-          "monday-style-button--no-side-padding": noSidePadding
+          "monday-style-button--no-side-padding": noSidePadding,
+          "monday-style-button--disabled": disabled,
+          "inset-focus-style": insetFocus
         }
       );
     }, [
-      size,
-      kind,
+      success,
       color,
       className,
-      success,
+      size,
+      kind,
+      hasSizeStyle,
       loading,
       active,
       marginRight,
       marginLeft,
-      noSidePadding,
-      preventClickAnimation,
-      leftFlat,
       rightFlat,
-      hasSizeStyle
+      leftFlat,
+      preventClickAnimation,
+      noSidePadding,
+      disabled,
+      insetFocus
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
 
     const buttonProps = useMemo(() => {
       const props: Record<string, any> = {
-        disabled,
         ref: mergedRef,
         type,
         className: classNames,
@@ -245,6 +255,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         id,
         onFocus,
         onBlur,
+        "data-testid": dataTestId || getTestId(ELEMENT_TYPES.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-labelledby": ariaLabeledBy,
@@ -261,45 +272,40 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       return props;
     }, [
       disabled,
+      mergedRef,
+      type,
       classNames,
       name,
       onMouseUp,
       style,
       onButtonClicked,
       id,
-      type,
-      onMouseDownClicked,
-      ariaLabel,
-      loading,
       onFocus,
       onBlur,
-      mergedRef,
+      dataTestId,
+      onMouseDownClicked,
       ariaLabeledBy,
-      ariaControls,
+      ariaLabel,
+      loading,
+      ariaHasPopup,
       ariaExpanded,
-      ariaHasPopup
+      ariaControls
     ]);
 
     const leftIconSize = useMemo(() => {
       if (typeof leftIcon !== "function") return;
-      if (size === SIZES.SMALL) return "20";
-      if (size === SIZES.MEDIUM) return "24";
       return "24";
-    }, [leftIcon, size]);
+    }, [leftIcon]);
 
     const rightIconSize = useMemo(() => {
       if (typeof rightIcon !== "function") return;
-      if (size === SIZES.SMALL) return "20";
-      if (size === SIZES.MEDIUM) return "24";
       return "24";
-    }, [rightIcon, size]);
+    }, [rightIcon]);
 
     const successIconSize = useMemo(() => {
       if (typeof successIcon !== "function") return;
-      if (size === SIZES.SMALL) return "20";
-      if (size === SIZES.MEDIUM) return "24";
       return "24";
-    }, [successIcon, size]);
+    }, [successIcon]);
 
     if (loading) {
       return (
@@ -395,7 +401,13 @@ Button.defaultProps = {
   onFocus: NOOP,
   onBlur: NOOP,
   defaultTextColorOnPrimaryColor: TRANSPARENT_COLOR,
-  blurOnMouseUp: true
+  ariaHasPopup: undefined,
+  blurOnMouseUp: true,
+  ariaExpanded: undefined,
+  ariaControls: undefined,
+  ariaLabel: undefined,
+  ariaLabeledBy: undefined,
+  insetFocus: false
 };
 
 export default Button;

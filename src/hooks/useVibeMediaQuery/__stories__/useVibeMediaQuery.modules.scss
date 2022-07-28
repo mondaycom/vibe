@@ -1,0 +1,40 @@
+.container {
+  width: 100px;
+  height: 400px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    background: var(--color-egg_yolk);
+  }
+}
+
+@media screen and (max-width: 1023px) and (min-width: 768px) {
+  .container {
+    background: var(--color-orange);
+  }
+}
+
+@media screen and (max-width: 1279px) and (min-width: 1024px) {
+  .container {
+    background: var(--color-red-shadow);
+  }
+}
+
+@media screen and (max-width: 1439px) and (min-width: 1278px) {
+  .container {
+    background: var(--color-green-haze);
+  }
+}
+
+@media screen and (max-width: 1919px) and (min-width: 1440px) {
+  .container {
+    background:var(--color-purple);
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .container {
+    background: var(--color-american_gray);
+  }
+}

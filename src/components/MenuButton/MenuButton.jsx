@@ -51,7 +51,8 @@ const MenuButton = ({
   tooltipPosition,
   startingEdge,
   removeTabCloseTrigger,
-  tooltipReferenceClassName
+  tooltipReferenceClassName,
+  hideWhenReferenceHidden
 }) => {
   const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
@@ -164,6 +165,7 @@ const MenuButton = ({
       showTrigger={TOOLTIP_SHOW_TRIGGER}
       hideTrigger={tooltipTriggers}
       referenceWrapperClassName={tooltipReferenceClassName}
+      hideWhenReferenceHidden={hideWhenReferenceHidden}
     >
       <Dialog
         wrapperClassName={dialogClassName}
@@ -182,6 +184,7 @@ const MenuButton = ({
         referenceWrapperClassName={BEMClass("reference-icon")}
         zIndex={zIndex}
         isOpen={isOpen}
+        hideWhenReferenceHidden={hideWhenReferenceHidden}
       >
         <button
           id={id}
@@ -330,7 +333,11 @@ MenuButton.propTypes = {
   /**
    * Tooltip Element Wrapper ClassName
    */
-  tooltipReferenceClassName: PropTypes.string
+  tooltipReferenceClassName: PropTypes.string,
+  /**
+   * When the MenuButton is hidden hide the dialog and tooltip as well
+   */
+  hideWhenReferenceHidden: PropTypes.bool
 };
 MenuButton.defaultProps = {
   id: undefined,
@@ -358,7 +365,8 @@ MenuButton.defaultProps = {
   removeTabCloseTrigger: false,
   tooltipTriggers: [MenuButton.hideTriggers.MOUSE_LEAVE],
   tooltipPosition: MenuButton.dialogPositions.RIGHT,
-  tooltipReferenceClassName: undefined
+  tooltipReferenceClassName: undefined,
+  hideWhenReferenceHidden: false
 };
 
 export default MenuButton;

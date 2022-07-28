@@ -1,0 +1,9 @@
+@import "../../../styles/global-css-settings";
+@import "../../styles/typography";
+
+.monday-storybook-information-box-title{
+  @include content-text;
+  font-weight: bold;
+  margin-bottom: $spacing-xs;
+  margin-top: $spacing-xs;
+}

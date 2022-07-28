@@ -1,0 +1,60 @@
+@import "../../components/Avatar/Avatar";
+
+.counterContainer {
+  background: var(--primary-background-hover-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: calc(-1 * var(--spacing-small));
+  z-index: 1;
+  border: 1px solid;
+  @include theme-prop(border-color, primary-background-color);
+
+  &:focus-visible,
+  &.focus-visible {
+    outline: none;
+    @include focus-style(50%);
+  }
+
+  @mixin counterSize($size) {
+    height: $size;
+    min-width: $size;
+    border-radius: $size / 2;
+  }
+  &.small {
+    @include counterSize($avatar-size-small);
+    padding: 0 1px;
+  }
+  &.medium {
+    @include counterSize($avatar-size-medium);
+    padding: 0 2px;
+  }
+  &.large {
+    @include counterSize($avatar-size-large);
+    padding: 0 var(--spacing-xs);
+  }
+
+  &.primary {
+    color: var(--text-color-on-primary);
+    background-color: var(--primary-color);
+  }
+  &.dark {
+    color: var(--text-color-on-inverted);
+    background-color: var(--inverted-color-background);
+  }
+  &.negative {
+    color: var(--text-color-on-primary);
+    background-color: var(--negative-color);
+  }
+  &.light {
+    color: var(--primary-text-color);
+    background-color: var(--primary-background-hover-color);
+  }
+}
+
+.menu {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include scroller();
+}

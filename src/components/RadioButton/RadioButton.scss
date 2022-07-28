@@ -1,6 +1,6 @@
-@import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
-@import "../../styles/global-css-settings.scss";
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
 
 .monday-style-radio-button-component {
   display: grid;
@@ -27,6 +27,7 @@
       width: 1em;
       height: 1em;
       border: 0.1em solid;
+      box-sizing: border-box;
       @include theme-prop(border-color, ui-border-color);
       border-radius: 50%;
       transition: border-width 100ms $expand-animation-timing;
@@ -62,9 +63,6 @@
 
   &.disabled {
     cursor: not-allowed;
-    .monday-style-radio-button-component__radio-label {
-      @include theme-prop(color, disabled-text-color);
-    }
   }
 
   &__radio-input-container input:focus-visible + &__radio-input-container__radio-control {

@@ -3,7 +3,7 @@
 exports[`Combobox renders correctly when disabled 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -27,12 +27,13 @@ exports[`Combobox renders correctly when disabled 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={true}
             id="combobox-search"
             maxLength={null}
@@ -49,6 +50,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -75,6 +77,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -103,7 +106,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -113,7 +116,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
 exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -137,12 +140,13 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -159,6 +163,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -185,6 +190,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -213,7 +219,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -223,7 +229,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 exports[`Combobox renders correctly with autoFocus 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -247,12 +253,13 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -269,6 +276,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -295,6 +303,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -323,7 +332,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -333,7 +342,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
 exports[`Combobox renders correctly with className 1`] = `
 <div
   className="combobox--wrapper test size-medium empty"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -357,12 +366,13 @@ exports[`Combobox renders correctly with className 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -379,6 +389,7 @@ exports[`Combobox renders correctly with className 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -405,6 +416,7 @@ exports[`Combobox renders correctly with className 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -433,7 +445,7 @@ exports[`Combobox renders correctly with className 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -443,7 +455,7 @@ exports[`Combobox renders correctly with className 1`] = `
 exports[`Combobox renders correctly with divider 1`] = `
 <div
   className="combobox--wrapper size-medium"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -467,12 +479,13 @@ exports[`Combobox renders correctly with divider 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -489,6 +502,7 @@ exports[`Combobox renders correctly with divider 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -515,6 +529,7 @@ exports[`Combobox renders correctly with divider 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -543,16 +558,16 @@ exports[`Combobox renders correctly with divider 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     >
       <div
-        className=""
+        className="comboboxItemContainer sticky"
       >
         <div
           aria-label="cat1"
           aria-level={1}
-          className="combobox-category undefined"
+          className="combobox-category categoryWithOptions firstCategory"
           id="combobox-category-cat1"
           role="row"
         >
@@ -560,25 +575,23 @@ exports[`Combobox renders correctly with divider 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 1"
           aria-level={1}
           aria-selected={false}
           className="combobox-option first"
-          id="combobox-item-0"
+          id="combobox-item-1"
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="row"
           style={
             Object {
               "height": 32,
             }
           }
-          tabIndex="-1"
         >
           <div
             className="option-label"
@@ -588,9 +601,10 @@ exports[`Combobox renders correctly with divider 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
+          className="dividerContainer"
           style={
             Object {
               "height": 17,
@@ -598,17 +612,17 @@ exports[`Combobox renders correctly with divider 1`] = `
           }
         >
           <div
-            className="monday-style-divider monday-style-divider--horizontal"
+            className="monday-style-divider divider monday-style-divider--horizontal"
           />
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer sticky"
       >
         <div
           aria-label="cat2"
           aria-level={1}
-          className="combobox-category"
+          className="combobox-category categoryWithOptions"
           id="combobox-category-cat2"
           role="row"
         >
@@ -616,25 +630,23 @@ exports[`Combobox renders correctly with divider 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 2"
           aria-level={1}
           aria-selected={false}
           className="combobox-option"
-          id="combobox-item-1"
+          id="combobox-item-2"
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="row"
           style={
             Object {
               "height": 32,
             }
           }
-          tabIndex="-1"
         >
           <div
             className="option-label"
@@ -651,7 +663,7 @@ exports[`Combobox renders correctly with divider 1`] = `
 exports[`Combobox renders correctly with empty props 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -675,12 +687,13 @@ exports[`Combobox renders correctly with empty props 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -697,6 +710,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -723,6 +737,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -751,7 +766,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -785,12 +800,13 @@ exports[`Combobox renders correctly with id 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -807,6 +823,7 @@ exports[`Combobox renders correctly with id 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -833,6 +850,7 @@ exports[`Combobox renders correctly with id 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -861,7 +879,7 @@ exports[`Combobox renders correctly with id 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -871,7 +889,7 @@ exports[`Combobox renders correctly with id 1`] = `
 exports[`Combobox renders correctly with loading 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -895,12 +913,13 @@ exports[`Combobox renders correctly with loading 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -922,16 +941,16 @@ exports[`Combobox renders correctly with loading 1`] = `
               className="input-component__loader"
             >
               <div
-                className="monday-loader-component"
+                className="monday-loader-component loaderContainer"
                 role="alert"
                 title="loading"
               >
                 <svg
-                  className="circle-loader-spinner input-component__loader-svg"
+                  className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
                   viewBox="0 0 50 50"
                 >
                   <circle
-                    className="circle-loader-spinner-path"
+                    className="circle-loader-spinner-path circleLoaderSpinnerPath"
                     cx="25"
                     cy="25"
                     fill="none"
@@ -944,6 +963,7 @@ exports[`Combobox renders correctly with loading 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -970,6 +990,7 @@ exports[`Combobox renders correctly with loading 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -998,7 +1019,7 @@ exports[`Combobox renders correctly with loading 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -1008,7 +1029,7 @@ exports[`Combobox renders correctly with loading 1`] = `
 exports[`Combobox renders correctly with optionLineHeight 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -1032,12 +1053,13 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1054,6 +1076,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1080,6 +1103,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1108,7 +1132,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -1118,7 +1142,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
 exports[`Combobox renders correctly with optionRenderer 1`] = `
 <div
   className="combobox--wrapper size-medium"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -1142,12 +1166,13 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1164,6 +1189,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1190,6 +1216,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1218,29 +1245,27 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     >
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 1"
           aria-level={1}
           aria-selected={false}
           className="combobox-option first"
-          id="combobox-item-0"
+          id="combobox-item-1"
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="row"
           style={
             Object {
               "height": 32,
             }
           }
-          tabIndex="-1"
         >
           <div>
             some render of 
@@ -1249,25 +1274,23 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
         </div>
       </div>
       <div
-        className=""
+        className="comboboxItemContainer"
       >
         <div
           aria-label="Option 2"
           aria-level={1}
           aria-selected={false}
           className="combobox-option"
-          id="combobox-item-1"
+          id="combobox-item-2"
           onClick={[Function]}
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="row"
           style={
             Object {
               "height": 32,
             }
           }
-          tabIndex="-1"
         >
           <div>
             some render of 
@@ -1283,7 +1306,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
 exports[`Combobox renders correctly with optionsListHeight 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -1307,12 +1330,13 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1329,6 +1353,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1355,6 +1380,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1383,7 +1409,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -1393,7 +1419,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
 exports[`Combobox renders correctly with placeholder 1`] = `
 <div
   className="combobox--wrapper size-medium empty"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -1417,12 +1443,13 @@ exports[`Combobox renders correctly with placeholder 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-medium"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1439,6 +1466,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1465,6 +1493,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1493,7 +1522,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>
@@ -1503,7 +1532,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
 exports[`Combobox renders correctly with size 1`] = `
 <div
   className="combobox--wrapper size-large empty"
-  data-testid="combobox_"
+  data-testid="combobox"
   id=""
 >
   <div
@@ -1527,12 +1556,13 @@ exports[`Combobox renders correctly with size 1`] = `
           className="input-component__input-wrapper input-component__input-wrapper--size-large"
         >
           <input
-            aria-activedescendant="combobox-item--1"
+            aria-activedescendant=""
             aria-invalid={null}
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
             className="combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
             maxLength={null}
@@ -1549,6 +1579,7 @@ exports[`Combobox renders correctly with size 1`] = `
           />
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+            data-testid="clickable"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1575,6 +1606,7 @@ exports[`Combobox renders correctly with size 1`] = `
           </div>
           <div
             className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+            data-testid="clean-search-button_combobox-search"
             onClick={[Function]}
             onKeyDown={[Function]}
             onMouseDown={[Function]}
@@ -1603,7 +1635,7 @@ exports[`Combobox renders correctly with size 1`] = `
       </div>
     </div>
     <div
-      className=""
+      className="scrollableContainer optionsContainer"
       role="treegrid"
     />
   </div>

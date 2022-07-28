@@ -10,7 +10,7 @@ import Chips from "../../../Chips/Chips";
 import classes from "./ValueContainer.module.scss";
 
 export default function Container({ children, selectProps, ...otherProps }) {
-  const { placeholder, inputValue, selectProps: customProps = {} } = selectProps;
+  const { placeholder, inputValue, selectProps: customProps = {}, withMandatoryDefaultOptions } = selectProps;
   const { selectedOptions, onSelectedDelete, setIsDialogShown, isDialogShown, isMultiline } = customProps;
   const clickHandler = children[1];
   const [ref, setRef] = useState();
@@ -28,7 +28,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
       selectedOptions.map((option, index) =>
         index >= from && index < to ? (
           <Chips
-            data-testid="value-container-chip"
+            dataTestId="value-container-chip"
             key={option.value}
             className={chipClassName}
             noAnimation
@@ -38,10 +38,13 @@ export default function Container({ children, selectProps, ...otherProps }) {
             onMouseDown={e => {
               e.stopPropagation();
             }}
+            readOnly={withMandatoryDefaultOptions && option.isMandatory}
+            leftAvatar={option.leftAvatar}
+            leftIcon={option.leftIcon}
           />
         ) : null
       ),
-    [selectedOptions, onSelectedDelete, chipClassName]
+    [selectedOptions, chipClassName, onSelectedDelete, withMandatoryDefaultOptions]
   );
 
   return (

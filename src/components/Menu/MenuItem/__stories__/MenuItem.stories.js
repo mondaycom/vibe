@@ -2,7 +2,7 @@
 import React from "react";
 import MenuItem from "../MenuItem";
 import Menu from "../../Menu/Menu";
-import { Activity, Settings, Bolt } from "../../../Icon/Icons";
+import { Activity, Bolt, Settings } from "../../../Icon/Icons";
 import Icon from "../../../Icon/Icon";
 
 export const menuItemTemplate = args => (

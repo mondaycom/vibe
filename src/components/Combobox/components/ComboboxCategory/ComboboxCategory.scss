@@ -1,6 +1,6 @@
-@import "../../../../styles/themes.scss";
-@import "../../../../styles/typography.scss";
-@import "../../../../styles/states.scss";
+@import "../../../../styles/themes";
+@import "../../../../styles/typography";
+@import "../../../../styles/states";
 
 .combobox-category {
   @include theme-prop(color, placeholder-color);

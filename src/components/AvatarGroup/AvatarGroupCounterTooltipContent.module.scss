@@ -1,0 +1,27 @@
+@import "../../styles/states";
+
+.tooltipAvatarItemTitle {
+  white-space: nowrap;
+}
+
+.tooltipContainer {
+  max-height: 300px;
+  padding-right: var(--spacing-medium);
+  align-items: flex-start !important;
+  overflow-x: visible;
+  overflow-y: auto;
+  margin-top: var(--spacing-small);
+  &:focus,
+  &:focus-visible,
+  &.focus-visible {
+    outline: none;
+  }
+}
+
+.tooltipGridContainer {
+  max-width: 160px;
+  padding-right: 0;
+}
+.scrollableContainer {
+  @include scroller();
+}

@@ -12,7 +12,7 @@ exports[`BreadcrumbsItem renders correctly  when disabled item 1`] = `
       <span
         aria-disabled="true"
         className="breadcrumb-content disabled"
-        tabIndex="0"
+        tabIndex="-1"
       >
         <span
           className="breadcrumb-text"

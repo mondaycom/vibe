@@ -1,0 +1,145 @@
+import { useRef, useCallback } from "react"
+import cx from "classnames";
+import {Flex, Search} from "../../../components";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import useActiveDescendantListFocus from "../index";
+import UseActiveDescendantListFocus from "./hooksDummyComponents/UseActiveDescendantListFocus";
+import {
+    FunctionArgument, FunctionArguments,
+    UnstyledList, UnstyledListItem
+} from "../../../storybook";
+import styles from "./useActiveDescendantListFocus.module.scss";
+import {
+    overviewInteractionSuite
+} from "../__tests__/useActiveDescendantListFocus.interactions";
+
+<Meta
+  title="Hooks/use Active Descendant List Focus"
+  component={ UseActiveDescendantListFocus }
+/>
+
+# useActiveDescendantListFocus
+- [Overview](#overview)
+- [Props](#props)
+- [Returns](#returns)
+- [Usage](#usage)
+- [Feedback](#feedback)
+
+## Overview
+<b>Using this hook for not its intended purpose will hurt your component accessibility.</b> <br/>
+<UnstyledList>
+    <UnstyledListItem>
+        Please use this hook only if your component role is one of the following: "composite" widget, "combobox", "textbox", "group", or "application".
+    </UnstyledListItem>
+    <UnstyledListItem>
+        This hook is part of a group of hooks we implement for you to ease the development of accessible components in the context of managing focus and keyboard navigation.
+    </UnstyledListItem>
+    <UnstyledListItem>
+        Use this hook only when you want the browser's natural focus to be on a specific element (usually text input or search) when at the same time, the user will see a visual focus on one of the items in the list depending on the use of the arrow keyboard buttons.
+        Meanwhile, the user can navigate between items and select one of them by using the keyboard. but the focus on the list's item is always only visual (the real focus always be on a specific element, as explained before.)
+    </UnstyledListItem>
+</UnstyledList>
+
+<Canvas>
+  <Story name="Overview" play={overviewInteractionSuite}>
+    {() => {
+      const focusedElementRef = useRef(null);
+      const itemsIds = ["id-1", "id-2", "id-3"];
+      const isItemSelectable = useCallback(() => true, []);
+      const onItemClick = useCallback(() =>
+      {
+          alert("clicked");
+      }, []);
+      const {
+          focusedElementProps,
+          visualFocusItemId,
+      } = useActiveDescendantListFocus({
+          focusedElementRef,
+          focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
+          itemsIds,
+          onItemClick,
+          isItemSelectable,
+          isHorizontalList: false,
+          isIgnoreSpaceAsItemSelection: true
+      });
+        return (
+          <Flex direction={Flex.directions.COLUMN}>
+              <Search ref={focusedElementRef} role={focusedElementProps.role} activeDescendant={focusedElementProps["aria-activedescendant"]}/>
+              <ul>
+                  <li
+                      onClick={onItemClick}
+                      className={cx({[styles.visualFocus] : visualFocusItemId === "id-1"})}
+                      id="id-1"
+                      key="id-1">
+                      Item 1
+                  </li>
+                  <li
+                      onClick={onItemClick}
+                      className={cx({[styles.visualFocus] : visualFocusItemId === "id-2"})}
+                      id="id-2"
+                      key="id-2">
+                      Item 2
+                  </li>
+                  <li
+                      onClick={onItemClick}
+                      className={cx({[styles.visualFocus] : visualFocusItemId === "id-3"})}
+                      id="id-3"
+                      key="id-3">
+                      Item 3
+                  </li>
+              </ul>
+          </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Props
+<ArgsTable of={ UseActiveDescendantListFocus } />
+
+## Returns
+<FunctionArguments>
+    <FunctionArgument name="result" type="Object">
+        <FunctionArgument name="visualFocusItemIndex" type="number" description="The index of the currently visually focused item element." />
+        <FunctionArgument
+            name="visualFocusItemId"
+            type="number"
+            description="The id of the currently visually focused item element."
+        />
+        <FunctionArgument
+            name="createOnItemClickCallback"
+            type="(itemId) => onItemClickCallback(event, itemId)"
+            description={
+                <>
+                    Higher order function which creates and returns a onclick callback function for item element according to the item id which received as parameter. <br/>
+                    If you prefer to create the item's on click callback by yourself, you can use the onItemClickCallback field in this hook return value.
+                </>
+            }
+        />
+        <FunctionArgument
+            name="onItemClickCallback"
+            type="(event, itemId) => {}"
+            description="Most in time you will not need to use this return value field. This function is the general function which will be activate for all items when clicked. you can set it directly as the item's element on click callback only if you make sure you pass the item index parameter correctly to the function."
+        />
+        <FunctionArgument
+            name="focusedElementProps"
+            type="{role, aria-activedescendant}"
+            description="All the required props which should be defined inside the naturally focused element inside your component according to the accessibility standards"
+        />
+        <FunctionArgument
+            name="setVisualFocusItemId"
+            type="(visualFocusItemId, isTriggeredByKeyboard) => {}"
+            description="A function for controlling the visual focused item from outside (needed for cases such as exiting sub menu or dialog, when we want to return the focus to the last focused item."
+        />
+    </FunctionArgument>
+</FunctionArguments>
+
+## Usage
+
+This hook contains the implementation of all the logic needed for managing the focus of a component that fits the following description:
+<UnstyledList>
+    <UnstyledListItem>The component displays a list of values shown in one dimension - horizontal or vertical.</UnstyledListItem>
+    <UnstyledListItem>The user can interact with the component items, and therefore, the component is focusable.</UnstyledListItem>
+    <UnstyledListItem>When the user focuses on the component, the browser's real focus will always be on an element that is not one of the component's items. Most of the time, the focus will be on the component's Search item or different Text input item.</UnstyledListItem>
+    <UnstyledListItem>Meanwhile, the user can navigate between items and select one of them by using the keyboard. but the focus on the list's item is always only visual (the real focus always be on a specific element, as explained before.)</UnstyledListItem>
+</UnstyledList>

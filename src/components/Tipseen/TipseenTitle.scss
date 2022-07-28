@@ -1,8 +1,0 @@
-@import "../../styles/typography.scss";
-@import "./TipseenContent.scss";
-
-.monday-style-tipseen-title {
-  max-width: 70%;
-  @include font-paragraph-bold;
-  @include theme-prop(color, text-color-on-primary);
-}

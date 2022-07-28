@@ -7,7 +7,7 @@ import { useCallback } from "react";
 import ListItem from "../../ListItem/ListItem";
 import ListItemIcon from "../../ListItemIcon/ListItemIcon";
 import ListTitle from "../../ListTitle/ListTitle";
-import { Link } from "../../../storybook/components";
+import {Link, Tip} from "../../../storybook/components";
 import { MENU, TABS, WIZARD } from "../../../storybook/components/related-components/component-description-map";
 import Combobox from "../../Combobox/Combobox";
 import Add from "../../Icon/Icons/components/Add";
@@ -17,7 +17,10 @@ import Divider from "../../Divider/Divider";
 import Avatar from "../../Avatar/Avatar";
 import { Icon } from "../../index";
 import DropdownChevronDown from "../../Icon/Icons/components/DropdownChevronDown";
-import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
+import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer"; import {
+    StoryDescription
+} from "../../../storybook/components/story-description/story-description";
+import {Flex} from "../../";
 
 <Meta
   title="Navigation/List/List"
@@ -122,6 +125,108 @@ Lists is a group of actionable items containing primary and supplemental actions
     </List>
   </Story>
 </Canvas>
+
+### List with virtualization optimization
+
+When you display a large number of items, you may want to render only the options shown at a given moment to allow better performance and a
+better user experience.
+<Canvas>
+    <Story name="List with virtualization optimization">
+        <Flex align={Flex.align.START} gap={Flex.gaps.LARGE} style={{width:"100%"}}direction={Flex.directions.COLUMN}>
+            <StoryDescription description="Regular">
+                <DialogContentContainer style={{height: "162px", width: "200px"}}>
+                    <List renderOnlyVisibleItems style={{height: "100%", width: "100%"}}>
+                    <ListItem>
+                        List item 1
+                    </ListItem>
+                    <ListItem>
+                        List item 2
+                    </ListItem>
+                    <ListItem>
+                        List item 3
+                    </ListItem>
+                    <ListItem>
+                        List item 4
+                    </ListItem>
+                    <ListItem>
+                        List item 5
+                    </ListItem>
+                    <ListItem>
+                        List item 6
+                    </ListItem>
+                    <ListItem>
+                        List item 7
+                    </ListItem>
+                    <ListItem>
+                        List item 8
+                    </ListItem>
+                    <ListItem>
+                        List item 9
+                    </ListItem>
+                    <ListItem>
+                        List item 10
+                    </ListItem>
+                    <ListItem>
+                        List item 11
+                    </ListItem>
+                    <ListItem>
+                        List item 12
+                    </ListItem>
+                </List>
+                </DialogContentContainer>
+            </StoryDescription>
+            <StoryDescription description="With categories">
+                <DialogContentContainer style={{height: "159px", width: "200px"}}>
+                    <List renderOnlyVisibleItems style={{height: "100%", width: "100%"}}>
+                        <ListTitle>First category</ListTitle>
+                        <ListItem>
+                            List item 1
+                        </ListItem>
+                        <ListItem>
+                            List item 2
+                        </ListItem>
+                        <ListTitle>Second category</ListTitle>
+                        <ListItem>
+                            List item 3
+                        </ListItem>
+                        <ListItem>
+                            List item 4
+                        </ListItem>
+                        <ListItem>
+                            List item 5
+                        </ListItem>
+                        <ListItem>
+                            List item 6
+                        </ListItem>
+                        <ListItem>
+                            List item 7
+                        </ListItem>
+                        <ListItem>
+                            List item 8
+                        </ListItem>
+                        <ListItem>
+                            List item 9
+                        </ListItem>
+                        <ListItem>
+                            List item 10
+                        </ListItem>
+                        <ListItem>
+                            List item 11
+                        </ListItem>
+                        <ListItem>
+                            List item 12
+                        </ListItem>
+                    </List>
+                </DialogContentContainer>
+            </StoryDescription>
+        </Flex>
+    </Story>
+</Canvas>
+
+<Tip>
+    While using virtualization optimization on your list component, please be aware your list needs to contain a constant height and width
+    for function properly
+</Tip>
 
 ## Do’s and Don’ts
 <ComponentRules

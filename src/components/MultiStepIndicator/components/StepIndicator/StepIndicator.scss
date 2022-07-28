@@ -1,5 +1,5 @@
-@import "../../../../styles/themes.scss";
-@import "../../../../styles/typography.scss";
+@import "../../../../styles/themes";
+@import "../../../../styles/typography";
 
 .monday-style-step-indicator-component {
   @include theme-prop(color, text-color-on-primary);
@@ -31,7 +31,7 @@
     &__subtitle__text {
       width: 100%;
       font-size: var(--font-size-general-label);
-      @include theme-prop(color, disabled-text-color);
+      @include theme-prop(color, secondary-text-color);
     }
   }
 

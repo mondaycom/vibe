@@ -1,18 +1,18 @@
-import { DialogPositions } from "constants/sizes";
-import { DIALOG_ANIMATION_TYPES } from "constants/AnimationTypes";
-import { useRef, forwardRef, useMemo } from "react";
+import { DialogPositions } from "../../constants/sizes";
+import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
+import { useRef, forwardRef, useMemo, Fragment } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "hooks/useMergeRefs";
-import Tooltip from "components/Tooltip/Tooltip";
-import Button from "components/Button/Button";
-import { BEMClass } from "helpers/bem-helper";
-import Icon from "components/Icon/Icon";
-import CloseSmall from "components/Icon/Icons/components/CloseSmall";
-import { TOOLTIP_JUSTIFY_TYPES } from "components/Tooltip/TooltipConstants";
+import useMergeRefs from "../../hooks/useMergeRefs";
+import Tooltip from "../../components/Tooltip/Tooltip";
+import Button from "../../components/Button/Button";
+import { BEMClass } from "../../helpers/bem-helper";
+import Icon from "../../components/Icon/Icon";
+import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
+import { TOOLTIP_JUSTIFY_TYPES } from "../../components/Tooltip/TooltipConstants";
 import TipseenTitle from "./TipseenTitle";
 import { TIPSEEN_CLOSE_BUTTON_ARIA_LABEL } from "./TipseenConstants";
-import "./Tipseen.scss";
+import styles from "./Tipseen.module.scss";
 
 const TIPSEEN_BASE_CSS_CLASS = "monday-style-tipseen";
 const bemHelper = BEMClass(TIPSEEN_BASE_CSS_CLASS);
@@ -47,13 +47,15 @@ const Tipseen = forwardRef(
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const overrideCloseAriaLabel = closeAriaLabel || TIPSEEN_CLOSE_BUTTON_ARIA_LABEL;
+    const TipseenWrapper = ref || id ? "div" : Fragment;
     const tooltipContent = useMemo(
       () => (
-        <div className={TIPSEEN_BASE_CSS_CLASS}>
-          <div className={bemHelper({ element: "header" })}>
+        <div className={cx(styles.tipseen, TIPSEEN_BASE_CSS_CLASS)}>
+          <div className={cx(styles.tipseenHeader, bemHelper({ element: "header" }))}>
             {isCloseButtonHidden ? null : (
               <Button
-                className={cx(bemHelper({ element: "close-button" }), {
+                className={cx(styles.tipseenCloseButton, bemHelper({ element: "close-button" }), {
+                  [styles.tipseenCloseButtonOnImage]: isCloseButtonOnImage,
                   [bemHelper({ element: "close-button", state: "on-image" })]: isCloseButtonOnImage
                 })}
                 onClick={onClose}
@@ -65,18 +67,19 @@ const Tipseen = forwardRef(
                 <Icon clickable={false} icon={CloseSmall} iconSize={20} ignoreFocusStyle />
               </Button>
             )}
-            <TipseenTitle text={title} className={bemHelper({ element: "title" })} />
+            <TipseenTitle text={title} className={cx(styles.tipseenTitle, bemHelper({ element: "title" }))} />
           </div>
-          <div className={bemHelper({ element: "content" })}>{content}</div>
+          <div className={cx(styles.tipseenContent, bemHelper({ element: "content" }))}>{content}</div>
         </div>
       ),
       [content, isCloseButtonHidden, isCloseButtonOnImage, onClose, overrideCloseAriaLabel, title]
     );
 
     return (
-      <div ref={mergedRef} id={id}>
+      <TipseenWrapper ref={mergedRef} id={id}>
         <Tooltip
-          className={cx(`${TIPSEEN_BASE_CSS_CLASS}-wrapper`, className, {
+          className={cx(styles.tipseenWrapper, `${TIPSEEN_BASE_CSS_CLASS}-wrapper`, className, {
+            [styles.tipseenWrapperWithoutCustomWidth]: !width,
             [`${TIPSEEN_BASE_CSS_CLASS}-wrapper--without-custom-width`]: !width
           })}
           style={width ? { width } : undefined}
@@ -98,7 +101,7 @@ const Tipseen = forwardRef(
         >
           {children}
         </Tooltip>
-      </div>
+      </TipseenWrapper>
     );
   }
 );
@@ -144,6 +147,7 @@ Tipseen.propTypes = {
    */
   modifiers: PropTypes.array
 };
+
 Tipseen.defaultProps = {
   className: "",
   id: "",

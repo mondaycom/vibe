@@ -1,0 +1,70 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/states";
+
+.chips {
+  display: inline-flex;
+  overflow: hidden;
+  height: 24px;
+  border-radius: 4px;
+  padding: 1px 8px;
+  align-items: center;
+  margin: 0 var(--spacing-xs);
+  user-select: none;
+  animation: chipsEnter 100ms;
+  animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
+
+  &.withUserSelect {
+    user-select: text;
+  }
+
+  .label {
+    @include font-general-text();
+    @include ellipsis();
+  }
+
+  &.noAnimation {
+    animation: none;
+  }
+
+  &.withClose {
+    padding-right: var(--spacing-xs);
+  }
+
+  .icon, .avatar {
+    &.left {
+      margin-right: var(--spacing-xs);
+    }
+    &.right {
+      margin-left: var(--spacing-xs);
+    }
+    &.close {
+      margin-left: var(--spacing-xs);
+      color: var(--primary-text-color);
+    }
+  }
+
+  &.disabled {
+    .icon {
+      @include theme-prop(color, disabled-text-color);
+    }
+    .label {
+      @include theme-prop(color, disabled-text-color);
+    }
+  }
+}
+
+@keyframes chipsEnter {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

@@ -4,6 +4,7 @@ import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { DummyNavigableGrid, LayoutWithInnerKeyboardNavigation } from "./useGridKeyboardNavigationContext.stories";
 import { Flex } from "../..";
+import { useGridContextMultipleDepthsPlaySuite } from "../__tests__/useGridKeyboardNavigationContext.interactions"
 
 export const metaSettings = createStoryMetaSettings({
   component: useGridKeyboardNavigationContext
@@ -43,8 +44,8 @@ A hook used to specify a connection between multiple navigable components, which
       return (
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
           <Flex ref={wrapperRef}>
-            <DummyNavigableGrid ref={leftElRef} itemsCount={15} numberOfItemsInLine={4} itemPrefix="L " />
-            <DummyNavigableGrid ref={rightElRef} itemsCount={7} numberOfItemsInLine={2} itemPrefix="R " />
+            <DummyNavigableGrid ref={leftElRef} itemsCount={15} numberOfItemsInLine={4} itemPrefix="L" />
+            <DummyNavigableGrid ref={rightElRef} itemsCount={7} numberOfItemsInLine={2} itemPrefix="R" />
           </Flex>
         </GridKeyboardNavigationContext.Provider>
       );
@@ -127,9 +128,9 @@ Disabled components can be skipped by adding a `disabled` (or `data-disabled`) t
             justify={Flex.align.CENTER}
             className="use-grid-keyboard-dummy-grid-wrapper"
           >
-            <DummyNavigableGrid ref={topElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="T " />
-            <DummyNavigableGrid ref={middleElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="M " disabled />
-            <DummyNavigableGrid ref={bottomElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="B " />
+            <DummyNavigableGrid ref={topElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="T" />
+            <DummyNavigableGrid ref={middleElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="M" disabled />
+            <DummyNavigableGrid ref={bottomElRef} itemsCount={3} numberOfItemsInLine={3} itemPrefix="B" />
           </Flex>
         </GridKeyboardNavigationContext.Provider>
       );
@@ -142,7 +143,7 @@ Disabled components can be skipped by adding a `disabled` (or `data-disabled`) t
 The hook can be used inside multiple depths, in more complex layout requirements.
 
 <Canvas>
-  <Story name="Multiple Depths">
+  <Story name="Multiple Depths" play={useGridContextMultipleDepthsPlaySuite}>
     {() => {
       const wrapperRef = useRef(null);
       const topElRef = useRef(null);
@@ -153,9 +154,9 @@ The hook can be used inside multiple depths, in more complex layout requirements
       );
       return (
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
-          <Flex ref={wrapperRef} direction={Flex.directions.COLUMN}>
-            <LayoutWithInnerKeyboardNavigation ref={topElRef} />
-            <LayoutWithInnerKeyboardNavigation ref={bottomElRef} />
+          <Flex id="twoGridLayoutsWrapper" ref={wrapperRef} direction={Flex.directions.COLUMN} tabIndex={-1}>
+            <LayoutWithInnerKeyboardNavigation id="gridLayoutTop" itemPrefix="T" ref={topElRef} />
+            <LayoutWithInnerKeyboardNavigation id="gridLayoutBottom" itemPrefix="B" ref={bottomElRef} />
           </Flex>
         </GridKeyboardNavigationContext.Provider>
       );

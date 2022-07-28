@@ -1,7 +1,7 @@
 import React from "react";
-import MenuTitle from "components/Menu/MenuTitle/MenuTitle";
-import Menu from "components/Menu/Menu/Menu";
-import MenuItem from "components/Menu/MenuItem/MenuItem";
+import MenuTitle from "../../MenuTitle/MenuTitle";
+import Menu from "../../../Menu/Menu/Menu";
+import MenuItem from "../../../Menu/MenuItem/MenuItem";
 import { createComponentTemplate } from "../../../../storybook";
 
 export const menuTitleTemplate = createComponentTemplate(MenuTitle);

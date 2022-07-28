@@ -1,7 +1,7 @@
-@import "../../styles/themes.scss";
-@import "../../styles/typography.scss";
-@import "../../styles/global-css-settings.scss";
-@import "../../styles/states.scss";
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
 
 .editable-heading--wrapper {
   width: 100%;
@@ -15,5 +15,8 @@
   }
   .heading-component {
     margin: 0;
+  }
+  &.inset-focus {
+    @include focus-style-inset();
   }
 }

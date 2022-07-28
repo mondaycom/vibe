@@ -14,6 +14,10 @@
     width: 81px;
     height: 81px;
 
+    &--xs {
+      @include box-shadow-xs;
+    }
+
     &--small {
       @include box-shadow-small;
     }
@@ -30,7 +34,7 @@
   &_title {
     @include shadow-example-text;
     font-weight: 500;
-    margin: $spacing-medium 0;
+    margin: $spacing-small 0;
   }
 
   &_code {

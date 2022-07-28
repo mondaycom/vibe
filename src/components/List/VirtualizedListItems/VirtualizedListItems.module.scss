@@ -1,0 +1,8 @@
+@import "../../../styles/states";
+
+.scrollableContainer {
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  @include scroller();
+}

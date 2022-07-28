@@ -64,9 +64,6 @@ export const getOppositeDirection = direction => {
   }
 };
 
-export const focusElementWithDirection = (elementRef, direction) =>
-  elementRef?.current?.dispatchEvent(new CustomEvent("focus", { detail: { keyboardDirection: direction } }));
-
 export const getOutmostElementInDirection = (directionMaps, direction) => {
   const directionMap = directionMaps[direction];
   const firstEntry = [...directionMap][0]; // start with any element

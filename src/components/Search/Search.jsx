@@ -1,13 +1,14 @@
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../constants/sizes";
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import SearchIcon from "components/Icon/Icons/components/Search";
-import CloseIcon from "components/Icon/Icons/components/CloseSmall";
-import TextField from "components/TextField/TextField";
-import useMergeRefs from "hooks/useMergeRefs";
+import SearchIcon from "../../components/Icon/Icons/components/Search";
+import CloseIcon from "../../components/Icon/Icons/components/CloseSmall";
+import TextField from "../../components/TextField/TextField";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import { TYPES } from "./SearchConstats";
 import "./Search.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 
 const NOOP = () => {};
 
@@ -57,10 +58,10 @@ const Search = forwardRef(
     ref
   ) => {
     const mergedRef = useMergeRefs({ refs: [ref, setRef] });
-
     return (
       <TextField
         id={id}
+        dataTestId={getTestId(ELEMENT_TYPES.SEARCH, id)}
         iconName={iconName}
         value={value}
         onChange={onChange}
@@ -71,6 +72,7 @@ const Search = forwardRef(
         debounceRate={debounceRate}
         className={classNames(className, "search_component", getType(type))}
         secondaryIconName={secondaryIconName}
+        secondaryDataTestId={getTestId(ELEMENT_TYPES.CLEAN_SEARCH_BUTTON, id)}
         wrapperClassName={classNames(wrapperClassName, "search_component_wrapper")}
         onBlur={onBlur}
         onFocus={onFocus}

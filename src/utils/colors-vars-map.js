@@ -91,7 +91,8 @@ export const colorsMap = [
   // Backgrounds
   { color: "--primary-background-color", description: "Primary background color" },
   { color: "--secondary-background-color", description: "Secondary background color" },
-  { color: "--grey-background-color", description: "Grey background color " }
+  { color: "--grey-background-color", description: "Grey background color" },
+  { color: "--allgrey-background-color", description: "Grey background color, stays grey in dark and black themes" }
 ];
 
 export const colorsHashMap = colorsMap.reduce((map, current) => {

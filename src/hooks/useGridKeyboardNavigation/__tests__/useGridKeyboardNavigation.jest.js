@@ -2,7 +2,7 @@ import { renderHook, cleanup, act } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/react";
 import range from "lodash/range";
 import useGridKeyboardNavigation from "../useGridKeyboardNavigation";
-import { NAV_DIRECTIONS } from "../../useFullKeyboardListeners";
+import userEvent from "@testing-library/user-event";
 
 describe("useGridKeyboardNavigation", () => {
   let element;
@@ -12,12 +12,13 @@ describe("useGridKeyboardNavigation", () => {
     cleanup();
   });
 
-  it("should consider the navigation direction when focusing the element with a custom event", () => {
+  it("should consider the last navigation direction when focusing the element", () => {
     const items = itemsArray(9);
     const { result } = renderHookForTest({ items, numberOfItemsInLine: 3 });
 
     act(() => {
-      element.dispatchEvent(new CustomEvent("focus", { detail: { keyboardDirection: NAV_DIRECTIONS.LEFT } }));
+      userEvent.keyboard("{ArrowLeft}"); // make sure there's a value for lastNavigationDirection
+      element.focus();
     });
 
     expect(result.current.activeIndex).toBe(5); // last index of the right-most line
@@ -28,13 +29,14 @@ describe("useGridKeyboardNavigation", () => {
     const { result } = renderHookForTest({ items, numberOfItemsInLine: 3 });
 
     act(() => {
-      // this should set the activeIndex to 5
-      element.dispatchEvent(new CustomEvent("focus", { detail: { keyboardDirection: NAV_DIRECTIONS.LEFT } }));
+      // this should set the activeIndex to 5. Focusing the element after pressing "left", is like like the user pressed left to focus into the wrapper element.
+      userEvent.keyboard("{ArrowLeft}");
+      element.focus();
     });
     expect(result.current.activeIndex).toBe(5);
     act(() => {
-      // this would have set the active index to 1 - but it should be ignored, since the element is already focused.
-      element.dispatchEvent(new CustomEvent("focus", { detail: { keyboardDirection: NAV_DIRECTIONS.DOWN } }));
+      // this would have set the active index to 1 - but it should be ignored, since the wrapper element is already focused.
+      element.focus();
     });
 
     expect(result.current.activeIndex).toBe(5);

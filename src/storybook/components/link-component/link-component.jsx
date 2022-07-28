@@ -10,7 +10,7 @@ const LinkComponent = ({ children, href, target: originalTarget, rel }) => {
     if (target) {
       event.preventDefault();
       event.stopPropagation();
-      target.scrollIntoView();
+      target.scrollIntoView?.();
     }
   };
   return (

@@ -2,8 +2,8 @@ import React, { useRef, forwardRef, useLayoutEffect, useCallback, useState, useE
 import PropTypes from "prop-types";
 import cx from "classnames";
 import autosize from "autosize";
-import useStyle from "hooks/useStyle";
-import useMergeRefs from "hooks/useMergeRefs";
+import useStyle from "../../hooks/useStyle";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import {
   isEnterEvent,
   isEscapeEvent,

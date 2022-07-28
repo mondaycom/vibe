@@ -6,6 +6,7 @@ const ICONS_PATH = path.join(SRC_PATH, "components/Icon/Icons/components");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  Box: "components/Box/Box.jsx",
   AccordionItem: "components/Accordion/AccordionItem/AccordionItem.jsx",
   Accordion: "components/Accordion/Accordion/Accordion.jsx",
   Clickable: "components/Clickable/Clickable.jsx",
@@ -83,9 +84,11 @@ const publishedComponents = {
   Toggle: "components/Toggle/Toggle.jsx",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   Avatar: "components/Avatar/Avatar.jsx",
+  AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
   IconButton: "components/IconButton/IconButton.jsx",
   Slider: "components/Slider/Slider.jsx",
-  // hooks
+  // Don't remove next line
+  // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index.js",
   useEventListener: "hooks/useEventListener/index.js",
   useDebounceEvent: "hooks/useDebounceEvent/index.js",
@@ -93,11 +96,15 @@ const publishedComponents = {
   useResizeObserver: "hooks/useResizeObserver.js",
   useAfterFirstRender: "hooks/useAfterFirstRender/index.js",
   useTimeout: "hooks/useTimeout/index.js",
-  usePrevious: "hooks/usePrevious.js",
+  usePrevious: "hooks/usePrevious/index.js",
+  useSetFocus: "hooks/useSetFocus/index.js",
   useMergeRefs: "hooks/useMergeRefs.js",
   useIsMouseOver: "hooks/useIsMouseOver.js",
   useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.js",
-  useIsOverflowing: "hooks/useIsOverflowing"
+  useIsOverflowing: "hooks/useIsOverflowing",
+  useMediaQuery: "hooks/useMediaQuery",
+  useVibeMediaQuery: "hooks/useVibeMediaQuery",
+  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
 };
 
 function getPublishedComponents() {

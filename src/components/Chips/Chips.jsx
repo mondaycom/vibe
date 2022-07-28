@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useMemo, useCallback } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
@@ -7,8 +7,10 @@ import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
 import { NOOP } from "../../utils/function-utils";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
-import "./Chips.scss";
 import Avatar from "../Avatar/Avatar";
+import IconButton from "../../components/IconButton/IconButton";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./Chips.module.scss";
 
 const Chips = forwardRef(
   (
@@ -28,10 +30,11 @@ const Chips = forwardRef(
       onDelete,
       onMouseDown,
       noAnimation,
-      "data-testid": dataTestId
+      dataTestId
     },
     ref
   ) => {
+    const overrideDataTestId = dataTestId || getTestId(ELEMENT_TYPES.CHIP, id);
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -53,21 +56,21 @@ const Chips = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx("chips--wrapper", className, {
+        className={cx(styles.chips, "chips--wrapper", className, {
           disabled,
-          "with-close": hasCloseButton,
-          "no-animation": noAnimation,
-          "with-user-select": allowTextSelection
+          [styles.withClose]: hasCloseButton,
+          [styles.noAnimation]: noAnimation,
+          [styles.withUserSelect]: allowTextSelection
         })}
         id={id}
         style={backgroundColorStyle}
         onMouseDown={onMouseDown}
-        data-testid={dataTestId}
+        data-testid={overrideDataTestId}
       >
         {leftAvatar ? (
           <Avatar
             withoutBorder
-            className="chip-avatar left"
+            className={cx(styles.avatar, styles.left)}
             customSize={16}
             src={leftAvatar}
             type={Avatar.types.IMG}
@@ -76,7 +79,7 @@ const Chips = forwardRef(
         ) : null}
         {leftIcon ? (
           <Icon
-            className="chip-icon left"
+            className={cx(styles.icon, styles.left)}
             iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={leftIcon}
@@ -84,10 +87,10 @@ const Chips = forwardRef(
             ignoreFocusStyle
           />
         ) : null}
-        <div className="label">{label}</div>
+        <div className={styles.label}>{label}</div>
         {rightIcon ? (
           <Icon
-            className="chip-icon right"
+            className={cx(styles.icon, styles.right)}
             iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={rightIcon}
@@ -98,7 +101,7 @@ const Chips = forwardRef(
         {rightAvatar ? (
           <Avatar
             withoutBorder
-            className="chip-avatar right"
+            className={cx(styles.avatar, styles.right)}
             customSize={16}
             src={rightAvatar}
             type={Avatar.types.IMG}
@@ -106,15 +109,15 @@ const Chips = forwardRef(
           />
         ) : null}
         {hasCloseButton && (
-          <Icon
+          <IconButton
+            size={IconButton.sizes.XXS}
+            color={IconButton.colors.ON_PRIMARY_COLOR}
+            className={cx(styles.icon, styles.close)}
             aria-label={`Remove ${label}`}
-            className="chip-icon close"
-            iconType={Icon.type.SVG}
-            clickable
             icon={CloseSmall}
             iconSize={18}
             onClick={onDeleteCallback}
-            data-testid={`${dataTestId}-close`}
+            dataTestId={`${overrideDataTestId}-close`}
           />
         )}
       </div>
@@ -130,6 +133,7 @@ Chips.propTypes = {
   label: PropTypes.string,
   disabled: PropTypes.bool,
   readOnly: PropTypes.bool,
+  dataTestId: PropTypes.string,
   /** Icon to place on the right */
   rightIcon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /** Icon to place on the left */
@@ -160,6 +164,7 @@ Chips.defaultProps = {
   id: "",
   label: "",
   disabled: false,
+  dataTestId: undefined,
   readOnly: false,
   rightIcon: null,
   leftIcon: null,
@@ -167,7 +172,7 @@ Chips.defaultProps = {
   rightAvatar: null,
   color: Chips.colors.PRIMARY,
   iconSize: 16,
-  onDelete: NOOP,
+  onDelete: (_id, _e) => {},
   onMouseDown: NOOP,
   noAnimation: false,
   allowTextSelection: false

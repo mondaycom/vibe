@@ -23,6 +23,7 @@ import { ComboboxDescription } from "./descriptions/combobox-description";
 import { StepperDescription } from "./descriptions/stepper-description";
 import { ColorsDescription } from "./descriptions/colors-description/colors-description";
 import { AvatarDescription } from "./descriptions/avatar-description";
+import { AvatarGroupDescription } from "./descriptions/avatar-group-description";
 import { IconsDescription } from "./descriptions/icons-description";
 import { SpinnerDescription } from "./descriptions/spinner-description";
 import { SkeletonDescription } from "./descriptions/skeleton-description";
@@ -37,6 +38,9 @@ import { MenuButtonDescription } from "./descriptions/menu-button-description";
 import { ClickableDescription } from "./descriptions/clickable-description/clickable-description";
 import { HiddenTextDescription } from "./descriptions/hidden-text-description";
 import { ListDescription } from "./descriptions/list";
+import { FlexDescription } from "./descriptions/flex";
+import { DividerDescription } from "./descriptions/divider";
+import { DialogContentContainerDescription } from "./descriptions/dialog-content-container";
 
 export const SPLIT_BUTTON = "split-button";
 export const BUTTON_GROUP = "button-group";
@@ -61,6 +65,7 @@ export const TEXT_FIELD = "text-field";
 export const SEARCH = "search";
 export const COMBOBOX = "combobox";
 export const AVATAR = "avatar";
+export const AVATAR_GROUP = "avatar-group";
 export const ICONS = "icons";
 export const STEPPER = "stepper";
 export const SPINNER = "spinner";
@@ -73,6 +78,9 @@ export const MENU_BUTTON = "menu-button";
 export const CLICKABLE = "clickable";
 export const HIDDEN_TEXT = "hidden-text-description";
 export const LIST = "list";
+export const FLEX = "flex";
+export const DIVIDER = "divider";
+export const DIALOG_CONTENT_CONTAINER = "dialog-content-container-description";
 
 // General description names (not related to specific components)
 export const COLORS = "colors";
@@ -105,6 +113,7 @@ descriptionTypesMap.set(TEXT_FIELD, <TextFieldDescription />);
 descriptionTypesMap.set(SEARCH, <SearchDescription />);
 descriptionTypesMap.set(COMBOBOX, <ComboboxDescription />);
 descriptionTypesMap.set(AVATAR, <AvatarDescription />);
+descriptionTypesMap.set(AVATAR_GROUP, <AvatarGroupDescription />);
 descriptionTypesMap.set(ICONS, <IconsDescription />);
 descriptionTypesMap.set(STEPPER, <StepperDescription />);
 descriptionTypesMap.set(SPINNER, <SpinnerDescription />);
@@ -117,6 +126,9 @@ descriptionTypesMap.set(HEADING, <HeadingDescription />);
 descriptionTypesMap.set(CLICKABLE, <ClickableDescription />);
 descriptionTypesMap.set(HIDDEN_TEXT, <HiddenTextDescription />);
 descriptionTypesMap.set(LIST, <ListDescription />);
+descriptionTypesMap.set(FLEX, <FlexDescription />);
+descriptionTypesMap.set(DIVIDER, <DividerDescription />);
+descriptionTypesMap.set(DIALOG_CONTENT_CONTAINER, <DialogContentContainerDescription />);
 
 // General description (not related to specific components)
 descriptionTypesMap.set(COLORS, <ColorsDescription />);

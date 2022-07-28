@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     @include content-text;
-    @include theme-prop(color, disabled-text-color);
+    @include theme-prop(color, secondary-text-color);
     &:not(:last-child) {
       margin-bottom: 24px;
     }

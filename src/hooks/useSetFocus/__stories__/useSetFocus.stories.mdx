@@ -1,0 +1,84 @@
+import { Story, Canvas, Meta } from "@storybook/addon-docs";
+import { useRef } from "react";
+import {Button, Flex, InputField} from "../../../components";
+import useSetFocus from "../../useSetFocus/index";
+import { FunctionArgument, FunctionArguments } from "../../../storybook";
+import styles from "./useSetFocus.stories.module.scss";
+
+<Meta title="Hooks/useSetFocus" />
+
+# useSetFocus
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+Hook for controlling focus on specific component e.g. Input.
+
+<Canvas>
+  <Story name="Overview">
+    {() => {
+      const focusCallback = () => {};
+      const blurCallback = () => {};
+      const ref = useRef(null);
+      const { isFocused, focus, blur } = useSetFocus({ ref, focusCallback, blurCallback });
+      return (
+        <Flex direction={Flex.directions.COLUMN}>
+          <InputField ref={ref} placeholder="Input..." />
+          <Button onClick={focus} className={styles.controlButton}>
+            Focus
+          </Button>
+          <Button onClick={blur} className={styles.controlButton}>
+            Blur
+          </Button>
+          <div className={styles.focusLabel}>
+            Is focused: {isFocused?.toString()}
+          </div>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument name="options" type="Object">
+    <FunctionArgument
+      name="ref"
+      type="React.MutableRefObject"
+      description={<>A React <a href="https://reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener noreferrer">ref</a> object.</>}
+      required
+    />
+    <FunctionArgument
+      name="focusCallback"
+      type="() => void"
+      description="Callback function to execute on the ref's element focus event."
+    />
+    <FunctionArgument
+      name="blurCallback"
+      type="() => void"
+      description="Callback function to execute on the ref's element blur event."
+    />
+  </FunctionArgument>
+</FunctionArguments>
+
+## Returns
+<FunctionArguments>
+  <FunctionArgument name="result" type="Object">
+    <FunctionArgument name="isFocused" type="bool" description="Is the element focused or not." />
+    <FunctionArgument
+      name="focus"
+      type="() => void"
+      description="Function for focusing the element."
+    />
+    <FunctionArgument
+      name="blur"
+      type="() => void"
+      description="Function for blurring the element."
+    />
+  </FunctionArgument>
+</FunctionArguments>

@@ -1,6 +1,7 @@
 import {Meta} from "@storybook/addon-docs";
-import {ComponentName, Frame, UnstyledList, UnstyledListItem} from "../../components";
+import {ComponentName, Frame, UnstyledList, UnstyledListItem, Link} from "../../components";
 import {PrinciplesAccesability} from "./principles/principlesAccesability";
+import {COLORS, TYPOGRAPHY, HIDDEN_TEXT} from "../../components/related-components/component-description-map";
 import {
     accessibilityCheckList,
     colorContrastImage,
@@ -36,7 +37,8 @@ Web Accessibility is based on guidelines published by The World Wide Web Consort
 
 [WCAG Quick Reference](https://www.w3.org/WAI/WCAG21/quickref/?currentsidebar=%23col_customize#principle1)
 
-<Tip title="Get our Accessibility checklist"><a href={accessibilityCheckList} target="_blank">Download</a> our accessibility checklist file.</Tip>
+<Tip title="Get our Accessibility checklist"><Link href={accessibilityCheckList} target="_blank">Download</Link> our
+    accessibility checklist file.</Tip>
 
 ## Accessibility principles
 <PrinciplesAccesability/>
@@ -51,9 +53,11 @@ The visual presentation of text and images should have a contrast ratio of at le
 </Frame>
 
 Except for:
-Large Text - at least 18pt (typically 24px) or 14pt (typically 18.66px) and bold must have a contrast ratio of at least 3:1<br/>
-Incidental - inactive user interface (disabled items), decorative (icons, Illustartions) non-visible, insignificant part of a picture<br/>
-Logotypes - Text that is part of a logo or brand name
+<UnstyledList>
+    <UnstyledListItem>Large Text - at least 18pt (typically 24px) or 14pt (typically 18.66px) and bold must have a contrast ratio of at least 3:1</UnstyledListItem>
+    <UnstyledListItem>Incidental - inactive user interface (disabled items), decorative (icons, Illustartions) non-visible, insignificant part of a picture</UnstyledListItem>
+    <UnstyledListItem>Logotypes - Text that is part of a logo or brand name</UnstyledListItem>
+</UnstyledList>
 
 ### Non-Text Color Contrast
 The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color
@@ -65,9 +69,9 @@ The visual presentation of the following have a contrast ratio of at least 3:1 a
 UI Components - Visual information required to identify active UI components and states (including borders for input elements (text input, radio buttons, checkboxes, etc.) as well as Focus Indicator (visible focus around active elements when they receive keyboard focus)<br/>
 Graphical Objects - Parts of graphics required to understand the content
 
-<Tip title="Use color contrast tools for code and design">To check color contrast in design use <a
+<Tip title="Use color contrast tools for code and design">To check color contrast in design use <Link
     href="https://www.figma.com/community/plugin/748533339900865323/Contrast" target="_blank">Contrast figma
-    plugin</a> and inspect elements accessibility tab for live code verification</Tip>
+    plugin</Link> and inspect elements accessibility tab for live code verification</Tip>
 
 ## Imagery
 People with vision impairments or difficulties reading rely on text alternatives for most of the visual content.
@@ -79,6 +83,7 @@ People with vision impairments or difficulties reading rely on text alternatives
 Note: Alternative text is very important since it is adaptable. Assistive technology can convey this content to the user in different ways: visually, enlarged, spoken aloud,  and rendered in a tactile form.
 
 ### Information Images
+
 Are all images that convey important information and communicate information visually:
 <UnstyledList>
     <UnstyledListItem>The alt-text needs to convey the same information as the image</UnstyledListItem>
@@ -184,5 +189,9 @@ For example:
         people and people with cognitive impairmants. For example: JAWS and NVDA on windows machines, VoiceOver for
         MacOS.</UnstyledListItem>
     <UnstyledListItem>Screen magnifiers for people with low vision. For example: Zoomtext</UnstyledListItem>
-    <UnstyledListItem>Voice recognition software and selection switches for people who cannot use a keyboard or a mouse. For example: Dragon Naturally Speaking</UnstyledListItem>
+    <UnstyledListItem>Voice recognition software and selection switches for people who cannot use a keyboard or a mouse.
+        For example: Dragon Naturally Speaking</UnstyledListItem>
 </UnstyledList>
+
+## Up next
+<RelatedComponents componentsNames={[COLORS, TYPOGRAPHY, HIDDEN_TEXT]}/>

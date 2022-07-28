@@ -1,14 +1,19 @@
 import Accordion from "../Accordion";
 import AccordionItem from "../../AccordionItem/AccordionItem";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createComponentTemplate } from "../../../../storybook/functions/create-component-story";
 import Checkbox from "../../../Checkbox/Checkbox.js";
 import { WIZARD, BREADCRUBMS, STEPPER } from "../../../../storybook/components/related-components/component-description-map";
 import "./accordion.stories.scss";
+import { accordionSingleActivePlaySuite, accordionMultiActivePlaySuite } from "../__tests__/accordion.interactions"
 
 <Meta
   title="Data display/Accordion"
   component={ Accordion }
+  subcomponents = {{AccordionItem}}
+  argTypes={{
+    children: { control: false },
+    defaultIndex: { control: false }
+  }}
 />
 
 <!--- Component template -->
@@ -45,14 +50,13 @@ export const accordionTemplate = (args) => {
 Accordion is a vertically stacked list of items. Each item can be "expanded" or "collapsed" to reveal the content within with that item.
 
 <Canvas>
-  <Story name="Overview"
-         args={ {} }>
+  <Story name="Overview" args={ {} }>
     { accordionTemplate.bind({}) }
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Accordion } />
+<ArgsTable story="Overview" />
 
 ## Usage
 <UsageGuidelines guidelines={[
@@ -66,7 +70,7 @@ Accordion is a vertically stacked list of items. Each item can be "expanded" or 
 ### Multi active
 Each section can be expanded without closing the others
 <Canvas>
-  <Story name="Multi active">
+  <Story name="Multi active" play={accordionMultiActivePlaySuite}>
     <Accordion className="monday-storybook-accordion_small-wrapepr" allowMultiple defaultIndex={[1, 3]}>
       <AccordionItem title="Notifications"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
       <AccordionItem title="Setting"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
@@ -80,7 +84,7 @@ Each section can be expanded without closing the others
 ### Single active
 Only one section can be open at the time
 <Canvas>
-  <Story name="Single active">
+  <Story name="Single active" play={accordionSingleActivePlaySuite}>
     <Accordion className="monday-storybook-accordion_small-wrapepr" defaultIndex={[1]}>
       <AccordionItem title="Notifications"><div className="monday-storybook-accordion_small-box" /></AccordionItem>
       <AccordionItem title="Setting"><div className="monday-storybook-accordion_small-box" /></AccordionItem>

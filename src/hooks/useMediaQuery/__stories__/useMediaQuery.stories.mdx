@@ -1,0 +1,76 @@
+import { useRef, useCallback, useState } from "react";
+import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import useMediaQuery from "..";
+import "../../__stories__/general-hooks-stories.scss";
+
+<Meta title="Hooks/useMediaQuery" />
+
+# useMediaQuery
+
+- [Overview](#overview)
+- [Arguments](#arguments)
+- [Returns](#returns)
+- [Feedback](#feedback)
+
+## Overview
+
+This hook helps maps if a media query is matched or not
+
+<Canvas>
+  <Story name="Single Rule">
+    {() => {
+      const [mediaQueryIsMatching] = useMediaQuery(["screen and (max-width: 1023px) and (min-width: 768px)"]);
+      return (
+        <div>
+          media query - "screen and (max-width: 1023px) and (min-width: 768px)" is matching:{" "}
+          {mediaQueryIsMatching ? "true" : "false"}
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Multiple Rules">
+    {() => {
+      const [screenSizeMediaQuery, preferDarkColorScheme] = useMediaQuery([
+        "screen and (max-width: 1280px) and (min-width: 768px)",
+        "prefers-color-scheme: dark"
+      ]);
+      return (
+        <div>
+          <div>
+            media query - "screen and (max-width: 1280px) and (min-width: 768px)" is matching:{" "}
+            {screenSizeMediaQuery ? "true" : "false"}
+          </div>
+          <div>media query - prefers-color-scheme: dark is matching: {preferDarkColorScheme ? "true" : "false"}</div>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Arguments
+
+<FunctionArguments>
+  <FunctionArgument
+    name="query"
+    type="string | Array<string>"
+    description={<>A string (or an array of strings) which represent a valid media query</>}
+  />
+</FunctionArguments>
+
+## Returns
+
+<FunctionArguments>
+  <FunctionArgument
+    name="result"
+    type="Array<boolean>"
+    description={
+      <>
+        An array with the matching media query set to true for example:
+        <br /> <code>[true, false]</code> - the first media query applies and the second is not
+      </>
+    }
+  />
+</FunctionArguments>

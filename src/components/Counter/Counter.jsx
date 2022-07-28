@@ -1,13 +1,13 @@
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../constants/sizes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { SwitchTransition, CSSTransition } from "react-transition-group";
-import useEventListener from "hooks/useEventListener";
-import useAfterFirstRender from "hooks/useAfterFirstRender";
-import { NOOP } from "utils/function-utils";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
-import { COUNTER_COLORS, getActualSize, COUNTER_TYPES } from "./CounterConstants";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
+import useEventListener from "../../hooks/useEventListener";
+import useAfterFirstRender from "../../hooks/useAfterFirstRender";
+import { NOOP } from "../../utils/function-utils";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { COUNTER_COLORS, COUNTER_TYPES, getActualSize } from "./CounterConstants";
 import "./Counter.scss";
 
 const Counter = ({
@@ -125,7 +125,7 @@ Counter.propTypes = {
   /** Counter Description */
   ariaLabel: PropTypes.string,
   size: PropTypes.oneOf([Counter.sizes.LARGE, Counter.sizes.SMALL]),
-  color: PropTypes.oneOf([Counter.colors.PRIMARY, Counter.colors.DARK, Counter.colors.NEGATIVE]),
+  color: PropTypes.oneOf([Counter.colors.PRIMARY, Counter.colors.DARK, Counter.colors.NEGATIVE, Counter.colors.LIGHT]),
   kind: PropTypes.oneOf([Counter.kinds.FILL, Counter.kinds.LINE]),
   /** maximum number of digits to display (see relevant story) */
   maxDigits: PropTypes.number,

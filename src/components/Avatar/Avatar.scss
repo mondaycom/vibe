@@ -1,6 +1,6 @@
-@import "../../styles/themes.scss";
-@import "../../styles/states.scss";
-@import "../../styles/global-css-settings.scss";
+@import "../../styles/themes";
+@import "../../styles/states";
+@import "../../styles/global-css-settings";
 
 $avatar-size-large: 50px;
 $avatar-size-medium: 36px;
@@ -8,7 +8,30 @@ $avatar-size-small: 28px;
 
 .monday-style-avatar {
   position: relative;
+
+  &--large {
+    height: $avatar-size-large;
+    width: $avatar-size-large;
+  }
+
+  &--medium {
+    height: $avatar-size-medium;
+    width: $avatar-size-medium;
+  }
+
+  &--small {
+    height: $avatar-size-small;
+    width: $avatar-size-small;
+  }
+
+  &_clickableWrapper {
+    height: 100%;
+    width: 100%;
+  }
+
   &_circle {
+    height: 100%;
+    width: 100%;
     position: relative;
     border: 1px solid;
     border-radius: 50%;
@@ -21,21 +44,6 @@ $avatar-size-small: 28px;
     &:focus {
       outline: none;
       @include focus-style(50%);
-    }
-
-    &--large {
-      height: $avatar-size-large;
-      width: $avatar-size-large;
-    }
-
-    &--medium {
-      height: $avatar-size-medium;
-      width: $avatar-size-medium;
-    }
-
-    &--small {
-      height: $avatar-size-small;
-      width: $avatar-size-small;
     }
 
     &--img {

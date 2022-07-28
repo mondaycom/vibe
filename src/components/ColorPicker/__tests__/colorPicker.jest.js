@@ -1,9 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { render, fireEvent, act } from "@testing-library/react";
+import { render, fireEvent, act, screen } from "@testing-library/react";
 import _difference from "lodash/difference";
 import ColorPicker from "../ColorPicker";
 import { contentColors } from "../../../utils/colors-vars-map";
+import { ColorPickerColorsGrid } from "../../ColorPicker/components/ColorPickerContent/ColorPickerColorsGrid";
 
 it("renders correctly with empty props", () => {
   const tree = renderer.create(<ColorPicker />).toJSON();
@@ -105,5 +106,61 @@ describe("ColorPicker", () => {
     const colorsElements = colorList.map(color => getByLabelText(color));
 
     expect(colorsElements.length).toBe(colorsElements.length);
+  });
+
+  it("should render tooltip with color name if showColorNameTooltip is true", () => {
+    const colorPicker = render(<ColorPicker showColorNameTooltip />);
+    const colorName = "done-green";
+    const colorNameTooltip = "Done Green";
+
+    const component = colorPicker.getByLabelText(colorName);
+    act(() => {
+      fireEvent.mouseOver(component);
+    });
+    jest.advanceTimersByTime(1000);
+    const content = screen.getByText(colorNameTooltip);
+    expect(content).toBeTruthy();
+  });
+
+  it("should not render tooltip with the color name if showColorNameTooltip is true and forceUseRawColorList is true", () => {
+    const colorName = "done-green";
+    const colorNameTooltip = "Done Green";
+    const colorList = [colorName];
+    const colorPicker = render(<ColorPicker colorsList={colorList} showColorNameTooltip forceUseRawColorList />);
+
+    const component = colorPicker.getByLabelText(colorName);
+    act(() => {
+      fireEvent.mouseOver(component);
+    });
+    jest.advanceTimersByTime(1000);
+    const content = screen.queryByText(colorNameTooltip);
+    expect(content).toBeNull();
+  });
+
+  it("should render tooltip with tooltipContentByColor value if tooltipContentByColor of the color exist", () => {
+    const colorName = "done-green";
+    const colorNameTooltip = "Done Green";
+    const contentByColorTooltip = "Custom tooltip";
+    const tooltipContentByColor = { "done-green": contentByColorTooltip };
+    const colorsToRender = [colorName];
+
+    const colorPicker = render(
+      <ColorPickerColorsGrid
+        colorsToRender={colorsToRender}
+        tooltipContentByColor={tooltipContentByColor}
+        showColorNameTooltip
+      />
+    );
+
+    const component = colorPicker.getByLabelText(colorName);
+    act(() => {
+      fireEvent.mouseOver(component);
+    });
+    jest.advanceTimersByTime(1000);
+    const contentByName = screen.queryByText(colorNameTooltip);
+    const expected = screen.getByText(contentByColorTooltip);
+
+    expect(contentByName).toBeNull();
+    expect(expected).toBeTruthy();
   });
 });
