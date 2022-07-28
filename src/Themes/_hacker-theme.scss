@@ -51,10 +51,10 @@
   --icon-on-secondary-color: var(--color-wolf_gray);
 
   // disabled
-  --disabled-background-color: #595959;
-  --disabled-background-on-secondary-color: #595959;
-  --disabled-text-color: rgba(#{extract-rgb(#d5d8df)},0.1);
-  --disabled-text-on-secondary-color: rgba(#{extract-rgb(#d5d8df)},0.1);
+  --disabled-background-color: #{$theme-black-disabled-background-color};
+  --disabled-background-on-secondary-color: #{$theme-black-disabled-background-color};
+  --disabled-text-color: #{$theme-black-disabled-text-color};
+  --disabled-text-on-secondary-color:  #{$theme-black-disabled-text-color};
 
   --dark-background-color: #303241;
   --dark-background-on-secondary-color: #595959;
