@@ -4,6 +4,24 @@ const postCssModules = require("postcss-modules");
 const prettify = require("postcss-prettify");
 const { readFileSync, writeFileSync } = require("fs");
 
+function removeEmptyLinesBetweenImports(css) {
+  let res = "";
+  const lines = css.split("\n");
+  for (let i = 0; i < lines.length; ++i) {
+    if (
+      lines[i] === "" &&
+      i > 0 &&
+      lines[i - 1].startsWith("@import") &&
+      i < lines.length - 1 &&
+      lines[i + 1].startsWith("@import")
+    ) {
+      continue;
+    }
+    res += lines[i] + "\n";
+  }
+  return res;
+}
+
 function camelCase(str) {
   return str.split(/[-_]+/).reduce((a, b) => a + b.charAt(0).toUpperCase() + b.slice(1));
 }
@@ -31,7 +49,8 @@ const execute = async filename => {
 
   // Prettify css: for some reason doesn't work if is inserted to plugins
   const prettifiedRes = prettify.process(res.css);
-  writeFileSync(filename, prettifiedRes.css);
+  const prettifiedCss = removeEmptyLinesBetweenImports(prettifiedRes.css);
+  writeFileSync(filename, prettifiedCss);
 
   return classNames;
 };
