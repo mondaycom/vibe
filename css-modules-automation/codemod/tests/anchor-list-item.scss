@@ -7,10 +7,12 @@
   line-height: $text-line-height;
 
   &:not(:last-child) {
+    /* some multiline-comment */
     margin-bottom: $spacing-small;
   }
 
   a {
+    // some line-comment
     @include theme-prop(color, link-color);
   }
 }
