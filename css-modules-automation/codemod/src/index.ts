@@ -1,13 +1,13 @@
-import { PluginObj, types as t, Visitor } from "@babel/core";
+import { PluginObj, Visitor } from "@babel/core";
+import * as t from "@babel/types";
 import { NodePath } from "@babel/traverse";
 import { defaults } from "lodash";
 import { dirname, resolve } from "path";
 import { convertToModuleClassNames } from "./utils/convertToModuleClassNames";
 import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
-import { print, printNodeType } from "./utils/print";
+import { print, printNodeType, printWithCondition } from "./utils/print";
 import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
-import { ImportDeclaration, StringLiteral } from "@babel/types";
 import { isComponentFile } from "./utils/isComponentFile";
 import { isFileContainsCssImports } from "./utils/isFileContainsCssImports";
 import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
@@ -15,6 +15,7 @@ import { splitClassNames } from "./utils/splitClassNames";
 import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./utils/wrapWithCxCallExpression";
 import { isCxCallExpression } from "./utils/isCxCallExpression";
 import { getCssModulesFileName, renameStylesheetFile } from "./utils/renameStylesheetFile";
+import { BEMClass } from "./utils/bemHelper";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -38,7 +39,7 @@ const filesClassNamesMap: Map<string, Map<string, string>> = new Map();
  * CSS module lookup e.g. `style["className"]`.
  */
 const stringLiteralReplacementVisitors: Visitor<State> = {
-  StringLiteral: (path: NodePath<StringLiteral>, { classNames, opts }) => {
+  StringLiteral: (path: NodePath<t.StringLiteral>, { classNames, opts }) => {
     const pathNodeStringValue = path.node.value;
     const parentPath = path.parentPath;
 
@@ -111,8 +112,8 @@ const classNameReplacementVisitors: Visitor<State> = {
 };
 
 /**
- * Theese visitors process all JSX `className` attributes and traverses them
- * them using the `replacementVisitors`.
+ * These visitors process all JSX `className` attributes and traverses them
+ * using the `replacementVisitors`.
  */
 const classNameAttributeVisitors: Visitor<State> = {
   JSXAttribute: (path, state) => {
@@ -166,13 +167,40 @@ const classNameAttributeVisitors: Visitor<State> = {
 };
 
 /**
+ * These visitors process all base class assignments expressions
+ */
+const bemHelperCallExpressionsVisitors: Visitor<State> = {
+  CallExpression: (path: NodePath<t.CallExpression>, state: State) => {
+    if (path.node.callee.type === "Identifier" && path.node.callee.name === "bemHelper") {
+      const oldClassNames = Array.from(state.classNames.keys());
+      // TODO now it's just a shortest className, but will have to find classname from BEMClass(...) and const ..._CSS_BASE_CLASS = expressions
+      const baseCssClassName = oldClassNames.reduce(function (a, b) {
+        return a.length <= b.length ? a : b;
+      });
+      const bemHelper = BEMClass(baseCssClassName);
+      const bemArguments = path.node.arguments;
+      if (bemArguments.length === 1 && t.isObjectExpression(bemArguments[0])) {
+        const properties = bemArguments[0].properties as t.ObjectProperty[];
+        const bemElement = properties.find(p => t.isIdentifier(p.key) && p.key.name === "element")
+          ?.value as t.StringLiteral;
+        const bemState = properties.find(p => t.isIdentifier(p.key) && p.key.name === "state")
+          ?.value as t.StringLiteral;
+        const bemClassName = bemHelper({ element: bemElement?.value, state: bemState?.value });
+        print("~~~ CallExpression, bemHelper, bemClassName", bemClassName);
+        path.replaceWith(t.stringLiteral(bemClassName));
+      }
+    }
+  }
+};
+
+/**
  * These visitors process top-level import statements, looking for all CSS imports.
  * When found, we'll retrieve and parse the CSS using PostCSS, to return the top
  * level CSS module class names that can be used in the code. We'll then store this
  * information in `State.classNames`, to be used in the above processing steps
  */
 const importVisitors: Visitor<State> = {
-  ImportDeclaration: (path: NodePath<ImportDeclaration>, state: State) => {
+  ImportDeclaration: (path: NodePath<t.ImportDeclaration>, state: State) => {
     const { hub, node } = path;
     // @ts-ignore
     const file = hub["file"];
@@ -214,7 +242,12 @@ const importVisitors: Visitor<State> = {
     } else {
       classNames = filesClassNamesMap.get(scssFilename)!;
     }
-    print("### convertToModuleClassNames, classNames", classNames);
+    printWithCondition(false, "### convertToModuleClassNames, classNames", classNames);
+
+    state = {
+      ...state,
+      classNames
+    };
 
     // Replace the existing import with a wildcard import, namespaced under
     // a module-scope identifier we can reference the keys of. This will be
@@ -227,11 +260,11 @@ const importVisitors: Visitor<State> = {
       )
     );
 
+    // Traverse the top-level program path for BEM call expressions
+    file.path.traverse(bemHelperCallExpressionsVisitors, state);
+
     // Traverse the top-level program path for JSX className attributes
-    file.path.traverse(classNameAttributeVisitors, {
-      ...state,
-      classNames
-    });
+    file.path.traverse(classNameAttributeVisitors, state);
   }
 };
 
