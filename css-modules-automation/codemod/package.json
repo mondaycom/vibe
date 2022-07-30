@@ -7,6 +7,7 @@
   "scripts": {
     "modify react-core": "npx codemod -p src/index.ts ../../src/components",
     "modify react-core/steps-header": "npx codemod -p src/index.ts ../../src/components/Steps/StepsHeader.jsx",
+    "modify react-core/color-picker-item-component": "npx codemod -p src/index.ts ../../src/components/ColorPicker/components/ColorPickerItemComponent",
 
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
