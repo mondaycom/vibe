@@ -2,6 +2,7 @@ const postcss = require("postcss");
 const postcssrc = require("postcss-load-config");
 const postCssModules = require("postcss-modules");
 const prettify = require("postcss-prettify");
+const postcssNested = require("postcss-nested");
 const { readFileSync, writeFileSync } = require("fs");
 const replaceSingleLineCommentsWithMultiline = require("./utils/replaceSingleLineCommentsWithMultiline");
 const removeEmptyLinesBetweenImports = require("./utils/removeEmptyLinesBetweenImports");
@@ -21,12 +22,13 @@ const execute = async filename => {
   const { plugins, options } = await postcssrc({
     filename
   });
+  const postcssNestedPlugin = postcssNested({ unwrap: ["mixin"] });
 
   options.from = filename;
   options.to = null;
 
   const contents = readFileSync(filename).toString();
-  const res = await postcss([modulesPlugin, ...plugins]).process(contents, options);
+  const res = await postcss([postcssNestedPlugin, modulesPlugin, ...plugins]).process(contents, options);
 
   // Prettify css: for some reason doesn't work if is inserted to plugins
   const cssWithMultilineComments = replaceSingleLineCommentsWithMultiline(res.css);
