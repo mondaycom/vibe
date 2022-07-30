@@ -192,7 +192,7 @@ const importVisitors: Visitor<State> = {
     }
 
     // Remove duplicated imports from classnames
-    if (isClassNamesImportDeclaration(node) && node.start !== undefined) {
+    if (state.cxImported && isClassNamesImportDeclaration(node) && node.start !== undefined) {
       print("### index, importVisitors, cx import removed!");
       path.remove();
       return;
