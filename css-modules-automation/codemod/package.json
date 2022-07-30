@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "modify monday-ui-react-core": "npx codemod -p src/index.ts ../../src/components",
+    "modify react-core": "npx codemod -p src/index.ts ../../src/components",
     "modify react-core/steps-header": "npx codemod -p src/index.ts ../../src/components/Steps/StepsHeader.jsx",
 
     "modify tests": "npx codemod -p src/index.ts tests",
