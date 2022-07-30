@@ -1,5 +1,5 @@
 import * as t from "@babel/types";
-import { print } from "./print";
+import { printWithCondition } from "./print";
 
 /**
  * Adds cx(...) wrapper to the classNames
@@ -8,7 +8,7 @@ import { print } from "./print";
 export const wrapWithCxCallExpression = (node: t.JSXExpressionContainer): t.JSXExpressionContainer => {
   const nodeExpressionValue = node.expression as t.StringLiteral;
   const res = t.jsxExpressionContainer(t.callExpression(t.identifier("cx"), [nodeExpressionValue]));
-  print("%%% wrapWithCxCallExpression, res", res);
+  printWithCondition(false, "%%% wrapWithCxCallExpression, res", res);
   return res;
 };
 
@@ -18,6 +18,6 @@ export const wrapWithCxCallExpression = (node: t.JSXExpressionContainer): t.JSXE
  */
 export const renameClassnamesToCxCallExpression = (node: t.CallExpression): t.JSXExpressionContainer => {
   const res = t.jSXExpressionContainer(t.callExpression(t.identifier("cx"), [...node.arguments]));
-  print("%%% wrapWithCxCallExpression, renameClassnamesToCxCallExpression, res", res);
+  printWithCondition(false, "%%% wrapWithCxCallExpression, renameClassnamesToCxCallExpression, res", res);
   return res;
 };

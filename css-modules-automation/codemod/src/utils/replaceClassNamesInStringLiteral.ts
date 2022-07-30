@@ -1,6 +1,6 @@
 import * as t from "@babel/types";
 import { StringLiteral } from "@babel/types";
-import { print } from "./print";
+import { printWithCondition } from "./print";
 import { NodePath } from "@babel/traverse";
 
 /**
@@ -20,11 +20,12 @@ export const replaceClassNamesInStringLiteral = (
   const newClassNameString: string = (classNames.has(oldClassNameString) && classNames.get(oldClassNameString)) || "";
 
   const literalNode = path.node;
-  print("*** replaceClassNamesInStringLiteral, oldClassNameString", oldClassNameString);
+  printWithCondition(false, "*** replaceClassNamesInStringLiteral, oldClassNameString", oldClassNameString);
 
   // If the class name isn't in the modular class name list, skip
   if (classNames && !classNames.has(oldClassNameString)) {
-    print(
+    printWithCondition(
+      false,
       "*** replaceClassNamesInStringLiteral, If the class name isn't in the modular class name list, skip, literalNode",
       literalNode
     );
@@ -33,7 +34,8 @@ export const replaceClassNamesInStringLiteral = (
   }
 
   const res = t.memberExpression(t.identifier(importIdentifier), t.identifier(newClassNameString));
-  print(
+  printWithCondition(
+    false,
     '*** replaceClassNamesInStringLiteral, Otherwise return a computed MemberExpression i.e. styles["className"], res',
     res
   );

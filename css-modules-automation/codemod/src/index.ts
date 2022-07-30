@@ -44,7 +44,6 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     const parentPath = path.parentPath;
 
     print("### index, path isStringLiteral, pathNodeStringValue = ", pathNodeStringValue);
-    printNodeType("### index, path.type", path);
     printNodeType("### index, parentPath.type", parentPath);
 
     // Ignore strings inside object lookups i.e. obj["className"]
@@ -186,7 +185,7 @@ const bemHelperCallExpressionsVisitors: Visitor<State> = {
         const bemState = properties.find(p => t.isIdentifier(p.key) && p.key.name === "state")
           ?.value as t.StringLiteral;
         const bemClassName = bemHelper({ element: bemElement?.value, state: bemState?.value });
-        print("~~~ CallExpression, bemHelper, bemClassName", bemClassName);
+        printWithCondition(false, "~~~ CallExpression, bemHelper, bemClassName", bemClassName);
         path.replaceWith(t.stringLiteral(bemClassName));
       }
     }

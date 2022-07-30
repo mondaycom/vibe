@@ -5,7 +5,7 @@ import { ImportDeclaration } from "@babel/types";
  * @param node
  */
 export const isClassNamesImportDeclaration = (node: ImportDeclaration) => {
-  // print("^^^ isClassNamesImportDeclaration, node", node);
+  // printWithCondition(false, "^^^ isClassNamesImportDeclaration, node", node);
 
   if (
     node.source.value === "classnames" &&
