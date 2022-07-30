@@ -6,6 +6,8 @@
   "license": "MIT",
   "scripts": {
     "modify monday-ui-react-core": "npx codemod -p src/index.ts ../../src/components",
+    "modify react-core/steps-header": "npx codemod -p src/index.ts ../../src/components/Steps/StepsHeader.jsx",
+
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
     "modify tests/anchor-list-item": "npx codemod -p src/index.ts tests/anchor-list-item.jsx",
