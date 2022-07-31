@@ -1,0 +1,123 @@
+@import "../../styles/themes";
+@import "../../styles/states";
+@import "../../styles/global-css-settings";
+
+$avatar-size-large: 50px;
+$avatar-size-medium: 36px;
+$avatar-size-small: 28px;
+
+.monday-style-avatar {
+  position: relative;
+
+  &--large {
+    height: $avatar-size-large;
+    width: $avatar-size-large;
+  }
+
+  &--medium {
+    height: $avatar-size-medium;
+    width: $avatar-size-medium;
+  }
+
+  &--small {
+    height: $avatar-size-small;
+    width: $avatar-size-small;
+  }
+
+  &_clickableWrapper {
+    height: 100%;
+    width: 100%;
+  }
+
+  &_circle {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border: 1px solid;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include theme-prop(color, text-color-on-primary);
+
+    &:focus {
+      outline: none;
+      @include focus-style(50%);
+    }
+
+    &--img {
+      @include theme-prop(border-color, primary-background-color);
+    }
+
+    &--text {
+      @include theme-prop(border-color, layout-border-color);
+    }
+
+    &--is-disabled {
+      &:before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        opacity: 0.7;
+        @include theme-prop(background, primary-background-color);
+      }
+    }
+
+    &--is-square {
+      border-radius: $border-radius-small;
+      &:focus {
+        outline: none;
+        @include focus-style($border-radius-small);
+      }
+    }
+
+    &--without-border {
+      border: none;
+    }
+  }
+
+  &_badges {
+    position: absolute;
+    top: 50%;
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 110%;
+    width: 110%;
+
+    .monday-style-avatar_badge {
+      display: flex;
+      &--top-left {
+        grid-row: 1;
+        grid-column: 1;
+        justify-self: start;
+      }
+
+      &--top-right {
+        grid-row: 1;
+        grid-column: 2;
+        justify-self: end;
+      }
+
+      &--bottom-left {
+        grid-row: 2;
+        grid-column: 1;
+        justify-self: start;
+        align-self: end;
+      }
+
+      &--bottom-right {
+        grid-row: 2;
+        grid-column: 2;
+        justify-self: end;
+        align-self: end;
+      }
+    }
+  }
+}
