@@ -1,7 +1,7 @@
 import { PluginObj, Visitor } from "@babel/core";
 import * as t from "@babel/types";
 import { NodePath } from "@babel/traverse";
-import { defaults } from "lodash";
+import { camelCase, defaults } from "lodash";
 import { dirname, resolve } from "path";
 import { convertToModuleClassNames } from "./utils/convertToModuleClassNames";
 import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
@@ -37,7 +37,7 @@ const filesClassNamesMap: Map<string, Map<string, string>> = new Map();
 /**
  * These visitors take a string literal, checks to see if it's a valid CSS module
  * class name (from `State.classNames`), and if so replaces them with the corresponding
- * CSS module lookup e.g. `style["className"]`.
+ * CSS module lookup e.g. `style.className`.
  */
 const stringLiteralReplacementVisitors: Visitor<State> = {
   StringLiteral: (path: NodePath<t.StringLiteral>, { classNames, opts }) => {
@@ -90,6 +90,32 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       print("### index, stringLiteralReplacementVisitors, isLiteral, insertedPaths", insertedPaths);
       return;
     }
+  }
+};
+
+/**
+ * These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
+ * with `styles[`${camelCase("mondayStyleAvatarCircle"+type)}`]`
+ */
+const templateLiteralReplacementVisitors: Visitor<State> = {
+  TemplateLiteral: (path: NodePath<t.TemplateLiteral>, { classNames, opts }) => {
+    printWithCondition(false, "### index, TemplateLiteral, path.node", path.node);
+
+    const quasisString = path.node.quasis.map(q => q.value.cooked).join("");
+    const expressions = path.node.expressions.map(e => t.isIdentifier(e) && e.name);
+
+    const newPath = t.memberExpression(
+      t.identifier(opts.importIdentifier),
+      t.identifier(`\`\$\{camelCase("${camelCase(quasisString)}"+${expressions.join("+")})\}\``),
+      true
+    );
+
+    const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
+    insertedPaths.forEach(p => {
+      p.skip();
+    });
+    printWithCondition(false, "### index, TemplateLiteral, replaced with newPath", newPath);
+    return;
   }
 };
 
@@ -162,6 +188,7 @@ const classNameAttributeVisitors: Visitor<State> = {
       }
     }
 
+    path.traverse(templateLiteralReplacementVisitors, state);
     path.traverse(classNameReplacementVisitors, state);
   }
 };
