@@ -1,7 +1,7 @@
 import React, { useMemo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { formatNumber, formatNumberConsts } from "helpers/textManipulations";
+import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
 import { baseClassName } from "./FormattedNumberConsts";
 import { validateValue } from "./FormattedNumberHelpers";
 import "./FormattedNumber.scss";

@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from "react";
 import cx from "classnames";
-import ListItem from "components/ListItem/ListItem";
-import ListTitle from "components/ListTitle/ListTitle";
-import VirtualizedList from "components/VirtualizedList/VirtualizedList";
+import ListItem from "../../../components/ListItem/ListItem";
+import ListTitle from "../../../components/ListTitle/ListTitle";
+import VirtualizedList from "../../../components/VirtualizedList/VirtualizedList";
 import styles from "./VirtualizedListItems.module.scss";
 
 const ITEM_CHILDREN_TYPES = {

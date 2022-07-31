@@ -4,10 +4,14 @@ import NOOP from "lodash/noop";
 import cx from "classnames";
 import { VariableSizeGrid as Grid } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
-import { getNormalizedItems, getOnItemsRenderedData, isVerticalScrollbarVisible } from "services/virtualized-service";
-import usePrevious from "hooks/usePrevious";
-import useThrottledCallback from "hooks/useThrottledCallback";
-import useMergeRefs from "hooks/useMergeRefs";
+import {
+  getNormalizedItems,
+  getOnItemsRenderedData,
+  isVerticalScrollbarVisible
+} from "../../services/virtualized-service";
+import usePrevious from "../../hooks/usePrevious";
+import useThrottledCallback from "../../hooks/useThrottledCallback";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import "./VirtualizedGrid.scss";
 
 const VirtualizedGrid = forwardRef(

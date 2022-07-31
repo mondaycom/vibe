@@ -1,7 +1,7 @@
 import React from "react";
 import { cleanup } from "@testing-library/react-hooks";
 import { fireEvent, render } from "@testing-library/react";
-import { Avatar } from "components";
+import { Avatar } from "../..";
 import { ELEMENT_TYPES } from "../../../__tests__/interactions-helper";
 
 const renderComponent = props => {

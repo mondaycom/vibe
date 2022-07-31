@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "hooks/useMergeRefs";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import { ICON_TYPES } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";

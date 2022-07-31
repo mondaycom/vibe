@@ -1,8 +1,8 @@
 import React, { useRef, forwardRef, useMemo, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import Tooltip from "components/Tooltip/Tooltip";
-import useIsOverflowing from "hooks/useIsOverflowing";
+import Tooltip from "../../components/Tooltip/Tooltip";
+import useIsOverflowing from "../../hooks/useIsOverflowing";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./TextWithHighlight.scss";
 

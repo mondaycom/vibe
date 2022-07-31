@@ -1,4 +1,4 @@
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../../constants/sizes";
 import React, { useMemo, forwardRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
