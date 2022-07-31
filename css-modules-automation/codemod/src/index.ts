@@ -16,6 +16,7 @@ import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./
 import { isCxCallExpression } from "./utils/isCxCallExpression";
 import { getCssModulesFileName, renameStylesheetFile } from "./utils/renameStylesheetFile";
 import { replaceBemHelperCallExpression } from "./utils/replaceBemHelperCallExpression";
+import { isBemHelperImportDeclaration } from "./utils/isBemHelperImportDeclaration";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -206,6 +207,12 @@ const importVisitors: Visitor<State> = {
     // Remove duplicated imports from classnames
     if (state.cxImported && isClassNamesImportDeclaration(node) && node.start !== undefined) {
       print("### index, importVisitors, cx import removed!");
+      path.remove();
+      return;
+    }
+
+    if (isBemHelperImportDeclaration(node)) {
+      print("### index, importVisitors, bemHelper import removed!");
       path.remove();
       return;
     }
