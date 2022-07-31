@@ -13,6 +13,7 @@
 
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
+    "modify tests/avatar": "npx codemod -p src/index.ts tests/Avatar.jsx",
     "modify tests/anchor-list-item": "npx codemod -p src/index.ts tests/anchor-list-item.jsx",
     "modify tests/anchor-list-item-expression": "npx codemod -p src/index.ts tests/anchor-list-item-expression.jsx",
     "modify tests/anchor-list-item-conditional": "npx codemod -p src/index.ts tests/anchor-list-item-conditional.jsx",
