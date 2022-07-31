@@ -173,7 +173,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
     }, [disabled, buttonRef, blurOnMouseUp]);
 
     const onButtonClicked = useCallback(
-      event => {
+      (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         if (disabled || loading || success) {
           event.preventDefault();
           return;
@@ -187,7 +187,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
     );
 
     const onMouseDownClicked = useCallback(
-      event => {
+      (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         if (disabled || loading || success) {
           event.preventDefault();
           return;

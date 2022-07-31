@@ -36,7 +36,7 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
     const enums = component[enumName];
     if (enums && enums instanceof Object) {
       argTypes[prop] = {
-        options: Object.values(enums)
+        options: enums
       };
     }
   });
