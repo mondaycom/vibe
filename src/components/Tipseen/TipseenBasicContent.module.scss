@@ -1,7 +1,6 @@
-@import "../../styles/themes";
-@import "../../styles/typography";
-@import "../../styles/global-css-settings";
-@import "./Tipseen.module.scss";
+@mixin tipseen-content-padding {
+  padding: var(--spacing-medium);
+}
 
 .tipseenBasicContent {
   @include tipseen-content-padding;
