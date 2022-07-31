@@ -51,12 +51,5 @@ module.exports = {
   addons: getAddons(),
   core: {
     builder: "webpack5"
-  },
-  typescript: {
-    reactDocgen: "react-docgen-typescript",
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      shouldRemoveUndefinedFromOptional: true
-    }
   }
 };
