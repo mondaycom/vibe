@@ -2,10 +2,6 @@
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
-@mixin tipseen-content-padding{
-  padding: $spacing-medium;
-}
-
 .tipseen {
   &Wrapper {
     min-width: 100px;
