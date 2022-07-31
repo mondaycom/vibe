@@ -15,7 +15,7 @@ import { splitClassNames } from "./utils/splitClassNames";
 import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./utils/wrapWithCxCallExpression";
 import { isCxCallExpression } from "./utils/isCxCallExpression";
 import { getCssModulesFileName, renameStylesheetFile } from "./utils/renameStylesheetFile";
-import { replaceBemHelperCallExpressions } from "./utils/replaceBemHelperCallExpressions";
+import { replaceBemHelperCallExpression } from "./utils/replaceBemHelperCallExpression";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -171,7 +171,7 @@ const classNameAttributeVisitors: Visitor<State> = {
 const bemHelperCallExpressionsVisitors: Visitor<State> = {
   CallExpression: (path: NodePath<t.CallExpression>, { classNames }) => {
     if (path.node.callee.type === "Identifier" && path.node.callee.name === "bemHelper") {
-      const newPath = replaceBemHelperCallExpressions(classNames, path);
+      const newPath = replaceBemHelperCallExpression(classNames, path);
       path.replaceWith(newPath as any);
     }
   }

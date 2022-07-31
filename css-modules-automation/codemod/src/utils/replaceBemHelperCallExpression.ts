@@ -9,7 +9,7 @@ import { template } from "@babel/core";
  * @param classNames Set of classnames
  * @param path Path to the CallExpression node
  */
-export const replaceBemHelperCallExpressions = (
+export const replaceBemHelperCallExpression = (
   classNames: Map<string, string>,
   path: NodePath<t.CallExpression>
 ): t.StringLiteral | t.Statement | t.Statement[] | undefined => {
