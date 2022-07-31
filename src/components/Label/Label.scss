@@ -25,7 +25,7 @@
   }
 
   &--with-animation {
-    animation: label-pop var(--motion-expressive-short) var(--motion-timing-enter);
+    animation: label-pop var(--motion-expressive-short) var(--motion-timing-emphasize);
     transform-origin: bottom left;
   }
 
