@@ -1,0 +1,22 @@
+@import "../../../styles/global-css-settings";
+@import "../../styles/typography";
+
+.monday-storybook-anchor-list-item-const-base-class {
+  @include theme-prop(color, link-color);
+  font-size: $anchor-font-size;
+  line-height: $text-line-height;
+
+  &:not(:last-child) {
+    /* some multiline-comment */
+    margin-bottom: $spacing-small;
+  }
+
+  a {
+    // some line-comment
+    @include theme-prop(color, link-color);
+  }
+
+  &--disabled {
+
+  }
+}

@@ -22,6 +22,7 @@
     "modify tests/anchor-list-item-cx": "npx codemod -p src/index.ts tests/anchor-list-item-cx.jsx",
     "modify tests/anchor-list-item-classnames": "npx codemod -p src/index.ts tests/anchor-list-item-classnames.jsx",
     "modify tests/anchor-list-item-multiple-classes": "npx codemod -p src/index.ts tests/anchor-list-item-multiple-classes.jsx",
+    "modify tests/anchor-list-item-const-base-class": "npx codemod -p src/index.ts tests/anchor-list-item-const-base-class.jsx",
     "modify tests/combobox": "npx codemod -p src/index.ts tests/Combobox.jsx",
     "modify tests/toast": "npx codemod -p src/index.ts tests/Toast.jsx",
     "modify tests/sample-body": "npx codemod -p src/index.ts tests/sample-body",
