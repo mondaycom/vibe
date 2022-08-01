@@ -363,3 +363,10 @@ export default (): PluginObj<State> => ({
     }
   }
 });
+
+// TODO remove const bemHelper = BEMClass(...), e.g. AvatarContent
+
+// TODO add styles[`camelCase(${AVATAR_CSS_BASE_CLASS})`] or styles.avatarCssBaseClass* (* value of the const -> through map)
+//  e.g. Avatar usage of AVATAR_CSS_BASE_CLASS
+
+// TODO solve duplicates for AvatarContent case
