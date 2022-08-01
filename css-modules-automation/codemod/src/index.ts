@@ -296,11 +296,13 @@ const importVisitors: Visitor<State> = {
       return;
     }
 
+    let firstFileRun = false;
     // Calculate the file path relative to the current file
     const scssFilename: string = resolve(dirname(file.opts.filename), node.source.value);
     // Get all relevant class names from the file
     let classNames: Map<string, string>;
     if (!filesClassNamesMap.has(scssFilename)) {
+      firstFileRun = true;
       classNames = convertToModuleClassNames(scssFilename);
       filesClassNamesMap.set(scssFilename, classNames);
       renameStylesheetFile(scssFilename);
@@ -325,15 +327,17 @@ const importVisitors: Visitor<State> = {
       )
     );
 
-    // Traverse the top-level program path for BEM call expressions
-    file.path.traverse(bemHelperCallExpressionsVisitors, state);
+    if (firstFileRun) {
+      // Traverse the top-level program path for BEM call expressions
+      file.path.traverse(bemHelperCallExpressionsVisitors, state);
 
-    // Traverse the top-level program path for JSX className attributes
-    file.path.traverse(classNameAttributeVisitors, state);
+      // Traverse the top-level program path for JSX className attributes
+      file.path.traverse(classNameAttributeVisitors, state);
 
-    // Adds camel case import if needed
-    if (state.camelCaseImportNeeded && !state.camelCaseImported) {
-      addCamelCaseImport(path.hub, state);
+      // Adds camel case import if needed
+      if (state.camelCaseImportNeeded && !state.camelCaseImported) {
+        addCamelCaseImport(path.hub, state);
+      }
     }
   }
 };
