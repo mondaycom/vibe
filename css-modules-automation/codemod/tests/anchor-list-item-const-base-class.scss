@@ -1,6 +1,9 @@
 @import "../../../styles/global-css-settings";
 @import "../../styles/typography";
 
+.before--monday-storybook-anchor-list-item-const-base-class--after {
+}
+
 .monday-storybook-anchor-list-item-const-base-class {
   @include theme-prop(color, link-color);
   font-size: $anchor-font-size;
