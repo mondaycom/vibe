@@ -1,7 +1,7 @@
 import { PluginObj, Visitor } from "@babel/core";
 import * as t from "@babel/types";
 import { NodePath } from "@babel/traverse";
-import { camelCase, defaults } from "lodash";
+import { defaults } from "lodash";
 import { dirname, resolve } from "path";
 import { convertToModuleClassNames } from "./utils/convertToModuleClassNames";
 import { isCssImportDeclaration } from "./utils/logical/isCssImportDeclaration";
@@ -22,6 +22,7 @@ import { replaceBemHelperCallExpression } from "./utils/replaceBemHelperCallExpr
 import { isBemHelperImportDeclaration } from "./utils/logical/isBemHelperImportDeclaration";
 import { addCamelCaseImport } from "./utils/traversers/addCamelCaseImport";
 import { getModularClassnameForStringLiteral } from "./utils/getModularClassnameForStringLiteral";
+import { buildClassnameStringFromTemplateLiteral } from "./utils/buildClassnameStringFromTemplateLiteral";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -129,22 +130,16 @@ const classNameReplacementVisitors: Visitor<State> = {
  */
 const templateLiteralReplacementVisitors: Visitor<State> = {
   TemplateLiteral: (path: NodePath<t.TemplateLiteral>, state) => {
-    printWithCondition(false, "### index, TemplateLiteral, path.node", path.node);
+    printWithCondition(false, "### templateLiteralReplacementVisitors, path.node", path.node);
 
-    const quasisString = path.node.quasis.map(q => q.value.cooked).join("");
-    const expressions = path.node.expressions.map(e => t.isIdentifier(e) && e.name);
-
-    const newPath = t.memberExpression(
-      t.identifier(state.opts.importIdentifier),
-      t.identifier(`\`\$\{camelCase("${camelCase(quasisString)}"+${expressions.join("+")})\}\``),
-      true
-    );
+    const newString = buildClassnameStringFromTemplateLiteral(path.node);
+    const newPath = t.memberExpression(t.identifier(state.opts.importIdentifier), t.identifier(newString), true);
 
     const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
     insertedPaths.forEach(p => {
       p.skip();
     });
-    printWithCondition(false, "### index, TemplateLiteral, replaced with newPath", newPath);
+    printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
 
     state.camelCaseImportNeeded = true;
   }
