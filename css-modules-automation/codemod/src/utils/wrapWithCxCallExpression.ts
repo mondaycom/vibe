@@ -13,6 +13,16 @@ export const wrapWithCxCallExpression = (node: t.JSXExpressionContainer): t.JSXE
 };
 
 /**
+ * Adds cx(...) wrapper to the classNames
+ * @param node JSXAttribute node
+ */
+export const wrapStringLiteralWithCxCallExpression = (node: t.StringLiteral): t.CallExpression => {
+  const res = t.callExpression(t.identifier("cx"), [node]);
+  printWithCondition(false, "%%% wrapWithCxCallExpression, res", res);
+  return res;
+};
+
+/**
  * Replace classnames(...) wrapper with cx(...) wrapper
  * @param node
  */

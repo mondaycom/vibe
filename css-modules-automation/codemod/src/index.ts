@@ -12,7 +12,11 @@ import { isComponentFile } from "./utils/isComponentFile";
 import { isFileContainsCssImports } from "./utils/isFileContainsCssImports";
 import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
 import { splitClassNames } from "./utils/splitClassNames";
-import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "./utils/wrapWithCxCallExpression";
+import {
+  renameClassnamesToCxCallExpression,
+  wrapStringLiteralWithCxCallExpression,
+  wrapWithCxCallExpression
+} from "./utils/wrapWithCxCallExpression";
 import { isCxCallExpression } from "./utils/isCxCallExpression";
 import { getCssModulesFileName, renameStylesheetFile } from "./utils/renameStylesheetFile";
 import { replaceBemHelperCallExpression } from "./utils/replaceBemHelperCallExpression";
@@ -190,6 +194,45 @@ const classNameAttributeVisitors: Visitor<State> = {
 
     path.traverse(templateLiteralReplacementVisitors, state);
     path.traverse(classNameReplacementVisitors, state);
+  },
+  ObjectProperty: (path, state) => {
+    if (
+      path.node.key.type === "Identifier" &&
+      path.node.key.name === "className" &&
+      path.node.value.type === "StringLiteral"
+    ) {
+      const stringLiteralNode = path.node.value as t.StringLiteral;
+      // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
+      // if (
+      //   t.isCallExpression(path) &&
+      //     path.callee.type === "Identifier" &&
+      //     path.callee.name.toLowerCase() === "classnames"
+      // ) {
+      //   const newPath = renameClassnamesToCxCallExpression(path);
+      //   path.replaceWith(t.jsxAttribute(path.node.name, newPath));
+      //   return;
+      // }
+
+      // If 'className={...}' then convert to 'className={cx(...)}'
+      if (!isCxCallExpression(path.node)) {
+        const newPath = wrapStringLiteralWithCxCallExpression(stringLiteralNode);
+        path.replaceWith(t.objectProperty(t.identifier("className"), newPath));
+        // return;
+      }
+
+      // Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
+      // if (isCxCallExpression(node.expression)) {
+      //   const callExpression = node.expression as t.CallExpression;
+      //   if (callExpression.arguments.some(a => a.type === "StringLiteral" && a.value.includes(" "))) {
+      //     const newPath = splitClassNames(callExpression);
+      //     path.replaceWith(t.jsxAttribute(path.node.name, newPath));
+      //     return;
+      //   }
+      // }
+
+      path.traverse(templateLiteralReplacementVisitors, state);
+      path.traverse(classNameReplacementVisitors, state);
+    }
   }
 };
 
