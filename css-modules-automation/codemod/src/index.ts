@@ -218,7 +218,7 @@ const classNameAttributeVisitors: Visitor<State> = {
       // }
 
       // If 'className={...}' then convert to 'className={cx(...)}'
-      if (!isCxCallExpression(path.node)) {
+      if (!isCxCallExpression(path.node) && stringLiteralNode.value) {
         const newPath = wrapStringLiteralWithCxCallExpression(stringLiteralNode);
         path.replaceWith(t.objectProperty(t.identifier("className"), newPath));
         // return;
