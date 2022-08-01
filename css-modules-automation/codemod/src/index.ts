@@ -158,7 +158,7 @@ const classNameAttributeVisitors: Visitor<State> = {
     const node = path.node.value;
 
     // If 'className="..."' then convert to 'className={"..."}'
-    if (!t.isJSXExpressionContainer(node) && path.node.value?.type === "StringLiteral") {
+    if (!t.isJSXExpressionContainer(node) && node?.type === "StringLiteral") {
       // Converting to JSX expression
       const newPath = wrapWithJSXExpressionContainer(path);
       path.replaceWith(t.jsxAttribute(path.node.name, newPath));
