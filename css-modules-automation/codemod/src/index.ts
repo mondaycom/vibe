@@ -4,22 +4,22 @@ import { NodePath } from "@babel/traverse";
 import { camelCase, defaults } from "lodash";
 import { dirname, resolve } from "path";
 import { convertToModuleClassNames } from "./utils/convertToModuleClassNames";
-import { isCssImportDeclaration } from "./utils/isCssImportDeclaration";
+import { isCssImportDeclaration } from "./utils/logical/isCssImportDeclaration";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
 import { print, printNodeType, printWithCondition } from "./utils/print";
-import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
-import { isComponentFile } from "./utils/isComponentFile";
-import { isFileContainsCssImports } from "./utils/isFileContainsCssImports";
+import { isClassNamesImportDeclaration } from "./utils/logical/isClassNamesImportDeclaration";
+import { isComponentFile } from "./utils/logical/isComponentFile";
+import { isFileContainsCssImports } from "./utils/logical/isFileContainsCssImports";
 import { splitClassNames } from "./utils/splitClassNames";
 import {
   renameClassnamesToCxCallExpression,
   wrapStringLiteralWithCxCallExpression,
   wrapWithCxCallExpression
 } from "./utils/wrapWithCxCallExpression";
-import { isCxCallExpression } from "./utils/isCxCallExpression";
+import { isCxCallExpression } from "./utils/logical/isCxCallExpression";
 import { getCssModulesFileName, renameStylesheetFile } from "./utils/renameStylesheetFile";
 import { replaceBemHelperCallExpression } from "./utils/replaceBemHelperCallExpression";
-import { isBemHelperImportDeclaration } from "./utils/isBemHelperImportDeclaration";
+import { isBemHelperImportDeclaration } from "./utils/logical/isBemHelperImportDeclaration";
 import { addCamelCaseImport } from "./utils/addCamelCaseImport";
 import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
 

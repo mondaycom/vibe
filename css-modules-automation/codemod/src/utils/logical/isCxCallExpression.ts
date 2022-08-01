@@ -1,5 +1,5 @@
 import * as t from "@babel/types";
-import { printWithCondition } from "./print";
+import { printWithCondition } from "../print";
 
 /**
  * Returns true for cx(...) expression
