@@ -107,25 +107,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 };
 
 /**
- * 6. These visitors look within JSX `className` attributes, looking for string literals
- * which we can process into `style["className"]` lookups, as well as variable references
- * in the containing scope which also contain string literals.
- */
-const classNameReplacementVisitors: Visitor<State> = {
-  ...stringLiteralReplacementVisitors,
-
-  Identifier: ({ node, scope }, state) => {
-    const binding = scope.getBinding(node.name);
-    if (binding == null) {
-      return;
-    }
-
-    binding.path.traverse(stringLiteralReplacementVisitors, state);
-  }
-};
-
-/**
- * 5. These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
+ * 6. These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
  * with `styles[`${camelCase("mondayStyleAvatarCircle"+type)}`]`
  */
 const templateLiteralReplacementVisitors: Visitor<State> = {
@@ -142,6 +124,26 @@ const templateLiteralReplacementVisitors: Visitor<State> = {
     printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
 
     state.camelCaseImportNeeded = true;
+  }
+};
+
+/**
+ * 5. These visitors look within JSX `className` attributes, looking for string literals
+ * which we can process into `style["className"]` lookups, as well as variable references
+ * in the containing scope which also contain string literals.
+ */
+const classNameReplacementVisitors: Visitor<State> = {
+  ...templateLiteralReplacementVisitors,
+  ...stringLiteralReplacementVisitors,
+
+  Identifier: ({ node, scope }, state) => {
+    const binding = scope.getBinding(node.name);
+    if (binding == null) {
+      return;
+    }
+
+    binding.path.traverse(templateLiteralReplacementVisitors, state);
+    binding.path.traverse(stringLiteralReplacementVisitors, state);
   }
 };
 
@@ -196,7 +198,6 @@ const classNameAttributeVisitors: Visitor<State> = {
       }
     }
 
-    path.traverse(templateLiteralReplacementVisitors, state);
     path.traverse(classNameReplacementVisitors, state);
   },
   ObjectProperty: (path, state) => {
@@ -234,7 +235,6 @@ const classNameAttributeVisitors: Visitor<State> = {
       //   }
       // }
 
-      path.traverse(templateLiteralReplacementVisitors, state);
       path.traverse(classNameReplacementVisitors, state);
     }
   }
