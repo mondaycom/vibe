@@ -7,7 +7,7 @@
   "scripts": {
     "modify react-core": "npx codemod -p src/index.ts ../../src/components",
     "modify react-core/accordion": "npx codemod -p src/index.ts ../../src/components/Accordion",
-    "modify react-core/avatar": "npx codemod -p src/index.ts ../../src/components/Avatar/Avatar.jsx",
+    "modify react-core/avatar": "npx codemod -p src/index.ts ../../src/components/Avatar",
     "modify react-core/attention-box": "npx codemod -p src/index.ts ../../src/components/AttentionBox/AttentionBox.jsx",
     "modify react-core/alert-banner": "npx codemod -p src/index.ts ../../src/components/AlertBanner/AlertBanner.jsx",
     "modify react-core/steps-header": "npx codemod -p src/index.ts ../../src/components/Steps/StepsHeader.jsx",
