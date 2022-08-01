@@ -85,22 +85,26 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       ]);
       insertedPaths.forEach(p => {
         p.skip();
+        p.getPrevSibling().skip();
       });
       print("### stringLiteralReplacementVisitors, isObjectProperty, insertedPaths", insertedPaths);
       return;
     }
     // Otherwise just replace the literal completely
     else {
-      print(
-        `### stringLiteralReplacementVisitors, isLiteral, pathNodeStringValue = ${pathNodeStringValue}, newPath = `,
-        newPath
+      printWithCondition(
+        true,
+        `### stringLiteralReplacementVisitors, isLiteral, pathNodeStringValue = ${pathNodeStringValue}`
       );
+      printWithCondition(false, "### stringLiteralReplacementVisitors, path.parentPath", path.parentPath);
+
       const insertedPaths = path.replaceInline([newPath, t.stringLiteral(path.node.value)]);
       insertedPaths.forEach(p => {
         p.skip();
+        p.getPrevSibling().skip();
       });
+      printWithCondition(false, "### stringLiteralReplacementVisitors, isLiteral, insertedPaths", insertedPaths);
 
-      print("### stringLiteralReplacementVisitors, isLiteral, insertedPaths", insertedPaths);
       return;
     }
   }
@@ -120,6 +124,8 @@ const templateLiteralReplacementVisitors: Visitor<State> = {
     const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
     insertedPaths.forEach(p => {
       p.skip();
+      p.getPrevSibling().skip();
+      p.getNextSibling().skip();
     });
     printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
 
