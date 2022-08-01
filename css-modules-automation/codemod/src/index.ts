@@ -10,7 +10,6 @@ import { print, printNodeType, printWithCondition } from "./utils/print";
 import { isClassNamesImportDeclaration } from "./utils/isClassNamesImportDeclaration";
 import { isComponentFile } from "./utils/isComponentFile";
 import { isFileContainsCssImports } from "./utils/isFileContainsCssImports";
-import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
 import { splitClassNames } from "./utils/splitClassNames";
 import {
   renameClassnamesToCxCallExpression,
@@ -22,6 +21,7 @@ import { getCssModulesFileName, renameStylesheetFile } from "./utils/renameStyle
 import { replaceBemHelperCallExpression } from "./utils/replaceBemHelperCallExpression";
 import { isBemHelperImportDeclaration } from "./utils/isBemHelperImportDeclaration";
 import { addCamelCaseImport } from "./utils/addCamelCaseImport";
+import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
 
 type PluginOptions = {
   importIdentifier: "styles";
