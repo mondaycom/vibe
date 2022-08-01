@@ -38,8 +38,8 @@
       border-width: 0.3em;
       &--label-animation {
         animation-name: radio-checked-animation;
-        animation-duration: 100ms;
-        animation-timing-function: $expand-animation-timing;
+        animation-duration: var(--motion-productive-medium);
+        animation-timing-function: var(--expand-animation-timing);
         animation-fill-mode: forwards;
       }
     }
