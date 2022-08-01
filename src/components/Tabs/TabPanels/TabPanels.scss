@@ -15,7 +15,7 @@
 
     &.active {
       display: block;
-      animation: panel-slide-in 150ms forwards cubic-bezier(0,0,0.35,1);
+      animation: panel-slide-in var(--motion-productive-long) forwards var(--motion-timing-enter);
     }
   }
 
