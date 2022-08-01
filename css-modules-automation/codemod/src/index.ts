@@ -21,15 +21,18 @@ import { isCxCallExpression } from "./utils/isCxCallExpression";
 import { getCssModulesFileName, renameStylesheetFile } from "./utils/renameStylesheetFile";
 import { replaceBemHelperCallExpression } from "./utils/replaceBemHelperCallExpression";
 import { isBemHelperImportDeclaration } from "./utils/isBemHelperImportDeclaration";
+import { addCamelCaseImport } from "./utils/addCamelCaseImport";
 
 type PluginOptions = {
   importIdentifier: "styles";
 };
 
-type State = {
+export type State = {
   opts: PluginOptions;
   classNames: Map<string, string>;
   cxImported: boolean;
+  camelCaseImported: boolean;
+  camelCaseImportNeeded: boolean;
 };
 
 const PLUGIN_DEFAULTS = {
@@ -102,14 +105,14 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
  * with `styles[`${camelCase("mondayStyleAvatarCircle"+type)}`]`
  */
 const templateLiteralReplacementVisitors: Visitor<State> = {
-  TemplateLiteral: (path: NodePath<t.TemplateLiteral>, { classNames, opts }) => {
+  TemplateLiteral: (path: NodePath<t.TemplateLiteral>, state) => {
     printWithCondition(false, "### index, TemplateLiteral, path.node", path.node);
 
     const quasisString = path.node.quasis.map(q => q.value.cooked).join("");
     const expressions = path.node.expressions.map(e => t.isIdentifier(e) && e.name);
 
     const newPath = t.memberExpression(
-      t.identifier(opts.importIdentifier),
+      t.identifier(state.opts.importIdentifier),
       t.identifier(`\`\$\{camelCase("${camelCase(quasisString)}"+${expressions.join("+")})\}\``),
       true
     );
@@ -119,7 +122,8 @@ const templateLiteralReplacementVisitors: Visitor<State> = {
       p.skip();
     });
     printWithCondition(false, "### index, TemplateLiteral, replaced with newPath", newPath);
-    return;
+
+    state.camelCaseImportNeeded = true;
   }
 };
 
@@ -326,6 +330,11 @@ const importVisitors: Visitor<State> = {
 
     // Traverse the top-level program path for JSX className attributes
     file.path.traverse(classNameAttributeVisitors, state);
+
+    // Adds camel case import if needed
+    if (state.camelCaseImportNeeded && !state.camelCaseImported) {
+      addCamelCaseImport(path.hub, state);
+    }
   }
 };
 
@@ -334,7 +343,10 @@ export default (): PluginObj<State> => ({
   visitor: {
     Program: (programPath, state) => {
       programPath.traverse(importVisitors, {
-        ...state,
+        cxImported: false,
+        camelCaseImported: false,
+        camelCaseImportNeeded: false,
+        classNames: new Map<string, string>(),
         opts: defaults({}, state.opts, PLUGIN_DEFAULTS)
       });
     }
