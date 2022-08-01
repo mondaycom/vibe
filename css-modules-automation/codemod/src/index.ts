@@ -6,7 +6,7 @@ import { dirname, resolve } from "path";
 import { convertToModuleClassNames } from "./utils/convertToModuleClassNames";
 import { isCssImportDeclaration } from "./utils/logical/isCssImportDeclaration";
 import { wrapWithJSXExpressionContainer } from "./utils/wrapWithJSXExpressionContainer";
-import { print, printNodeType, printWithCondition } from "./utils/print";
+import { print, printWithCondition } from "./utils/print";
 import { isClassNamesImportDeclaration } from "./utils/logical/isClassNamesImportDeclaration";
 import { isComponentFile } from "./utils/logical/isComponentFile";
 import { isFileContainsCssImports } from "./utils/logical/isFileContainsCssImports";
@@ -51,14 +51,19 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     const pathNodeStringValue = path.node.value;
     const parentPath = path.parentPath;
 
-    print("### index, path isStringLiteral, pathNodeStringValue = ", pathNodeStringValue);
-    printNodeType("### index, parentPath.type", parentPath);
+    print("### stringLiteralReplacementVisitors, pathNodeStringValue = ", pathNodeStringValue);
+    print("### stringLiteralReplacementVisitors, parentPath.node = ", parentPath.node);
 
     // Ignore strings inside object lookups i.e. obj["className"]
     if (parentPath.isMemberExpression()) {
       return;
     }
 
+    // Ignore strings inside variable declarations i.e. `const CSS_BASE_CLASS = "base-class";`
+    if (parentPath.isVariableDeclarator() && parentPath.node.id.type === "Identifier") {
+      //  && parentPath.node.id.name.includes("CSS_BASE_CLASS")
+      return;
+    }
     // Replace all className strings with styles["className"]
     const newPath = getModularClassnameForStringLiteral(classNames, opts.importIdentifier, path.node);
     if (newPath.type === "StringLiteral") {
@@ -71,7 +76,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       // If the literal is inside an object property definition, we need to change
       // it to be a computed value instead.
       const parentNode = parentPath.node as t.ObjectProperty;
-      print("### index, stringLiteralReplacementVisitors, isObjectProperty, parentNode.value = ", parentNode.value);
+      print("### stringLiteralReplacementVisitors, isObjectProperty, parentNode.value = ", parentNode.value);
       const overrideNewPath = t.objectProperty(newPath as any, parentNode.value, true, false);
       const insertedPaths = parentPath.replaceInline([
         overrideNewPath,
@@ -80,13 +85,13 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
       insertedPaths.forEach(p => {
         p.skip();
       });
-      print("### index, stringLiteralReplacementVisitors, isObjectProperty, insertedPaths", insertedPaths);
+      print("### stringLiteralReplacementVisitors, isObjectProperty, insertedPaths", insertedPaths);
       return;
     }
     // Otherwise just replace the literal completely
     else {
       print(
-        `### index, stringLiteralReplacementVisitors, isLiteral, pathNodeStringValue = ${pathNodeStringValue}, newPath = `,
+        `### stringLiteralReplacementVisitors, isLiteral, pathNodeStringValue = ${pathNodeStringValue}, newPath = `,
         newPath
       );
       const insertedPaths = path.replaceInline([newPath, t.stringLiteral(path.node.value)]);
@@ -94,7 +99,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
         p.skip();
       });
 
-      print("### index, stringLiteralReplacementVisitors, isLiteral, insertedPaths", insertedPaths);
+      print("### stringLiteralReplacementVisitors, isLiteral, insertedPaths", insertedPaths);
       return;
     }
   }
