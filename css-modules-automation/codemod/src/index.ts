@@ -20,8 +20,8 @@ import { isCxCallExpression } from "./utils/logical/isCxCallExpression";
 import { getCssModulesFileName, renameStylesheetFile } from "./utils/renameStylesheetFile";
 import { replaceBemHelperCallExpression } from "./utils/replaceBemHelperCallExpression";
 import { isBemHelperImportDeclaration } from "./utils/logical/isBemHelperImportDeclaration";
-import { addCamelCaseImport } from "./utils/addCamelCaseImport";
-import { replaceClassNamesInStringLiteral } from "./utils/replaceClassNamesInStringLiteral";
+import { addCamelCaseImport } from "./utils/traversers/addCamelCaseImport";
+import { getModularClassnameForStringLiteral } from "./utils/getModularClassnameForStringLiteral";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -60,8 +60,8 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     }
 
     // Replace all className strings with styles["className"]
-    const newPath = replaceClassNamesInStringLiteral(classNames, opts.importIdentifier, path);
-    if (path.shouldSkip) {
+    const newPath = getModularClassnameForStringLiteral(classNames, opts.importIdentifier, path.node);
+    if (newPath.type === "StringLiteral") {
       // Classnames is not found in set of classnames from .scss file
       return;
     }

@@ -1,42 +1,39 @@
 import * as t from "@babel/types";
 import { StringLiteral } from "@babel/types";
 import { printWithCondition } from "./print";
-import { NodePath } from "@babel/traverse";
 
 /**
- * Replaces all class names within the given className string, with importIdentifier["className"], if className exists in classNames
+ * Check if given classname exists in classnames, if yes, then return styles.newClassName, otherwise return original classname
  *
  * @param classNames Set of classnames
  * @param importIdentifier Name of the identifier to reference class names via
- * @param path Path to the StringLiteral node
+ * @param node StringLiteral node
  * @returns New classname string
  */
-export const replaceClassNamesInStringLiteral = (
+export const getModularClassnameForStringLiteral = (
   classNames: Map<string, string>,
   importIdentifier: string,
-  path: NodePath<StringLiteral>
+  node: StringLiteral
 ): t.StringLiteral | t.MemberExpression => {
-  const oldClassNameString = path.node.value;
+  const oldClassNameString = node.value;
   const newClassNameString: string = (classNames.has(oldClassNameString) && classNames.get(oldClassNameString)) || "";
 
-  const literalNode = path.node;
-  printWithCondition(false, "*** replaceClassNamesInStringLiteral, oldClassNameString", oldClassNameString);
+  printWithCondition(false, "*** getModularClassnameForStringLiteral, oldClassNameString", oldClassNameString);
 
   // If the class name isn't in the modular class name list, skip
   if (classNames && !classNames.has(oldClassNameString)) {
     printWithCondition(
       false,
-      "*** replaceClassNamesInStringLiteral, If the class name isn't in the modular class name list, skip, literalNode",
-      literalNode
+      "*** getModularClassnameForStringLiteral, If the class name isn't in the modular class name list, skip, literalNode",
+      node
     );
-    path.skip();
-    return literalNode;
+    return node;
   }
 
   const res = t.memberExpression(t.identifier(importIdentifier), t.identifier(newClassNameString));
   printWithCondition(
     false,
-    '*** replaceClassNamesInStringLiteral, Otherwise return a computed MemberExpression i.e. styles["className"], res',
+    '*** getModularClassnameForStringLiteral, Otherwise return a computed MemberExpression i.e. styles["className"], res',
     res
   );
   return res;

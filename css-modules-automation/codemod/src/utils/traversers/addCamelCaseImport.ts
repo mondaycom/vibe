@@ -1,8 +1,8 @@
-import { State } from "../index";
+import { State } from "../../index";
 import { Hub, NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
 import { Visitor } from "@babel/core";
-import { printWithCondition } from "./print";
+import { printWithCondition } from "../print";
 
 // 8.
 export const addCamelCaseImport = (hub: Hub, state: State) => {
