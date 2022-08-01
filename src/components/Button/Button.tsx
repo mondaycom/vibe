@@ -258,17 +258,13 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         "data-testid": dataTestId || getTestId(ELEMENT_TYPES.BUTTON, id),
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
+        "aria-busy": loading,
         "aria-labelledby": ariaLabeledBy,
         "aria-label": ariaLabel,
         "aria-haspopup": ariaHasPopup,
         "aria-expanded": ariaExpanded,
         "aria-controls": ariaControls
       };
-
-      if (loading) {
-        props["aria-busy"] = "true";
-      }
-
       return props;
     }, [
       disabled,
