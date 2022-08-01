@@ -11,8 +11,7 @@
   align-items: center;
   margin: 0 var(--spacing-xs);
   user-select: none;
-  animation: chipsEnter 100ms;
-  animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
+  animation: chipsEnter var(--motion-productive-medium) var(--motion-timing-emphasize);
 
   &.withUserSelect {
     user-select: text;

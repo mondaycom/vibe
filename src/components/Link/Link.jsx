@@ -2,8 +2,8 @@ import React, { forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
-import Icon from "components/Icon/Icon";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import Icon from "../../components/Icon/Icon";
 import { LINK_TARGET, ICON_POSITION } from "./LinkConsts";
 import "./Link.scss";
 

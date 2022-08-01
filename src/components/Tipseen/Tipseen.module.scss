@@ -2,42 +2,38 @@
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
-@mixin tipseen-content-padding{
-  padding: $spacing-medium;
-}
-
-.monday-style-tipseen {
-  &-wrapper {
+.tipseen {
+  &Wrapper {
     min-width: 100px;
     min-height: 40px;
     padding: 0;
     border-radius: $border-radius-medium;
 
-    &--without-custom-width {
+    &WithoutCustomWidth {
       max-width: 320px;
     }
   }
 
-  &_header {
+  &Header {
     display: flex;
     justify-content: flex-start;
   }
 
-  &_title {
+  &Title {
     padding: $spacing-medium $spacing-medium 0 $spacing-medium;
   }
 
-  &_content {
+  &Content {
     @include font-default;
     @include theme-prop(color, text-color-on-primary);
   }
 
-  &_close-button {
+  &CloseButton {
     position: absolute;
     top: $spacing-xs;
     right: $spacing-xs;
 
-    &--on-image {
+    &OnImage {
       z-index: 2;
     }
   }

@@ -34,12 +34,14 @@
     }
 
     input:checked + &__radio-control {
-      animation-name: radio-checked-animation;
-      animation-duration: var(--motion-productive-medium);
-      animation-timing-function: var(--expand-animation-timing);
-      animation-fill-mode: forwards;
       @include theme-prop(border-color, primary-color);
       border-width: 0.3em;
+      &--label-animation {
+        animation-name: radio-checked-animation;
+        animation-duration: 100ms;
+        animation-timing-function: $expand-animation-timing;
+        animation-fill-mode: forwards;
+      }
     }
 
     input:disabled + &__radio-control {

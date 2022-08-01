@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.52.3 (2022-08-01)
+
+#### Bug Fixes
+* [#799](https://github.com/mondaycom/monday-ui-react-core/pull/799) allow disable label animation on radio button ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#793](https://github.com/mondaycom/monday-ui-react-core/pull/793) Tipseen: fix styleint errors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.52.2 (2022-07-28)
+
+#### Bug Fixes
+* [#771](https://github.com/mondaycom/monday-ui-react-core/pull/771) Tipseen: css modules ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.52.1 (2022-07-27)
+
+#### Bug Fixes
+* [#791](https://github.com/mondaycom/monday-ui-react-core/pull/791) removed hooks alias usage ([@eran-cohen](https://github.com/eran-cohen))
+
+## 1.52.0 (2022-07-27)
+
+#### New Features
+* [#780](https://github.com/mondaycom/monday-ui-react-core/pull/780) Remove aliases ([@eran-cohen](https://github.com/eran-cohen))
+
+#### Internal Changes
+* [#776](https://github.com/mondaycom/monday-ui-react-core/pull/776) add exports to package.json + build icons esm file ([@eran-cohen](https://github.com/eran-cohen))
+
 ## 1.51.1 (2022-07-27)
 
 #### Bug Fixes

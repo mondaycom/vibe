@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
-import { Switch } from "components/Switch/Switch";
-import { MockToggle } from "components/Toggle/MockToggle";
-import { BEMClass } from "helpers/bem-helper";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
+import { Switch } from "../../components/Switch/Switch";
+import { MockToggle } from "../../components/Toggle/MockToggle";
+import { BEMClass } from "../../helpers/bem-helper";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
 import "./Toggle.scss";
 

@@ -54,16 +54,16 @@
 
   .animate-icon-open {
     transform: rotate(-180deg);
-    transition: transform 200ms ease;
+    transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
   }
 
   .animate-icon-close {
     transform: rotate(-360deg);
-    transition: transform 200ms ease;
+    transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
   }
 
   .animate-expand-collapse__content {
-    animation: expandContentAnimation 0.1s $expand-animation-timing;
+    animation: expandContentAnimation var(--motion-productive-medium) var(--expand-animation-timing);
   }
 
   @keyframes expandContentAnimation {

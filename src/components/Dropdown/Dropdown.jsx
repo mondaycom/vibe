@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../constants/sizes";
 import React, { useCallback, useMemo, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";

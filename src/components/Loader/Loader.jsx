@@ -2,7 +2,7 @@ import React, { forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { LOADER_COLORS, LOADER_SIZES, LOADER_TYPES } from "components/Loader/LoaderConstants";
+import { LOADER_COLORS, LOADER_SIZES } from "../../components/Loader/LoaderConstants";
 import styles from "./Loader.module.scss";
 
 const Loader = forwardRef(
@@ -67,7 +67,6 @@ const Loader = forwardRef(
 
 Loader.colors = LOADER_COLORS;
 Loader.sizes = LOADER_SIZES;
-Loader.types = LOADER_TYPES;
 
 Loader.propTypes = {
   id: PropTypes.string,

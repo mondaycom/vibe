@@ -32,7 +32,7 @@ $checkbox-size: 16px;
     border: 1px solid;
     @include theme-prop(border-color, ui-border-color);
     border-radius: $border-radius-extra-small;
-    transition: transform 50ms $expand-animation-timing;
+    transition: transform var(--motion-productive-short) var(--expand-animation-timing);
     position: relative;
     overflow: hidden;
 
@@ -100,7 +100,7 @@ $checkbox-size: 16px;
 
       & + .monday-style-checkbox {
         &__checkbox {
-          animation: checkbox-grow-animation 50ms;
+          animation: checkbox-grow-animation var(--motion-productive-short);
           &__prevent-animation {
             animation-duration: 0ms;
           }
@@ -120,7 +120,7 @@ $checkbox-size: 16px;
             @include theme-prop(background-color, primary-color);
             height: $checkbox-size;
             transform: scaleX(0);
-            transition: transform 200ms;
+            transition: transform var(--motion-productive-long);
             transform-origin: right;
             left: 0;
           }
