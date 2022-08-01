@@ -16,7 +16,7 @@ exports[`RadioButton renders correctly when checked 1`] = `
       value=""
     />
     <span
-      className="monday-style-radio-button-component__radio-input-container__radio-control"
+      className="monday-style-radio-button-component__radio-input-container__radio-control monday-style-radio-button-component__radio-input-container__radio-control--label-animation"
     />
   </span>
   
@@ -39,7 +39,7 @@ exports[`RadioButton renders correctly when default checked 1`] = `
       value=""
     />
     <span
-      className="monday-style-radio-button-component__radio-input-container__radio-control"
+      className="monday-style-radio-button-component__radio-input-container__radio-control monday-style-radio-button-component__radio-input-container__radio-control--label-animation"
     />
   </span>
   
@@ -62,7 +62,7 @@ exports[`RadioButton renders correctly when disabled 1`] = `
       value=""
     />
     <span
-      className="monday-style-radio-button-component__radio-input-container__radio-control"
+      className="monday-style-radio-button-component__radio-input-container__radio-control monday-style-radio-button-component__radio-input-container__radio-control--label-animation"
     />
   </span>
   
@@ -85,7 +85,7 @@ exports[`RadioButton renders correctly when unchecked 1`] = `
       value=""
     />
     <span
-      className="monday-style-radio-button-component__radio-input-container__radio-control"
+      className="monday-style-radio-button-component__radio-input-container__radio-control monday-style-radio-button-component__radio-input-container__radio-control--label-animation"
     />
   </span>
   
@@ -108,7 +108,7 @@ exports[`RadioButton renders correctly with componentClassName 1`] = `
       value=""
     />
     <span
-      className="monday-style-radio-button-component__radio-input-container__radio-control"
+      className="monday-style-radio-button-component__radio-input-container__radio-control monday-style-radio-button-component__radio-input-container__radio-control--label-animation"
     />
   </span>
   
@@ -131,7 +131,7 @@ exports[`RadioButton renders correctly with empty props 1`] = `
       value=""
     />
     <span
-      className="monday-style-radio-button-component__radio-input-container__radio-control"
+      className="monday-style-radio-button-component__radio-input-container__radio-control monday-style-radio-button-component__radio-input-container__radio-control--label-animation"
     />
   </span>
   
@@ -154,7 +154,7 @@ exports[`RadioButton renders correctly with name 1`] = `
       value=""
     />
     <span
-      className="monday-style-radio-button-component__radio-input-container__radio-control"
+      className="monday-style-radio-button-component__radio-input-container__radio-control monday-style-radio-button-component__radio-input-container__radio-control--label-animation"
     />
   </span>
   
@@ -177,7 +177,7 @@ exports[`RadioButton renders correctly with text 1`] = `
       value=""
     />
     <span
-      className="monday-style-radio-button-component__radio-input-container__radio-control"
+      className="monday-style-radio-button-component__radio-input-container__radio-control monday-style-radio-button-component__radio-input-container__radio-control--label-animation"
     />
   </span>
   <span
@@ -204,7 +204,7 @@ exports[`RadioButton renders correctly with value 1`] = `
       value="optionValue"
     />
     <span
-      className="monday-style-radio-button-component__radio-input-container__radio-control"
+      className="monday-style-radio-button-component__radio-input-container__radio-control monday-style-radio-button-component__radio-input-container__radio-control--label-animation"
     />
   </span>
   

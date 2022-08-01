@@ -22,7 +22,8 @@ const RadioButton = forwardRef(
       onSelect,
       checked,
       retainChildClick,
-      childrenTabIndex
+      childrenTabIndex,
+      noLabelAnimation
     },
     ref
   ) => {
@@ -59,7 +60,11 @@ const RadioButton = forwardRef(
             onChange={onSelect}
             ref={mergedRef}
           />
-          <span className={`${baseClassName}__radio-input-container__radio-control`} />
+          <span
+            className={cx(`${baseClassName}__radio-input-container__radio-control`, {
+              [`${baseClassName}__radio-input-container__radio-control--label-animation`]: !noLabelAnimation
+            })}
+          />
         </span>
         {text && <span className={`${baseClassName}__radio-label`}>{text}</span>}
         {children && (
@@ -72,18 +77,6 @@ const RadioButton = forwardRef(
   }
 );
 
-RadioButton.defaultProps = {
-  className: undefined,
-  text: "",
-  value: "",
-  name: "",
-  disabled: false,
-  defaultChecked: false,
-  checked: undefined,
-  onSelect: undefined,
-  retainChildClick: true,
-  childrenTabIndex: "0"
-};
 RadioButton.propTypes = {
   className: PropTypes.string,
   text: PropTypes.string,
@@ -98,7 +91,23 @@ RadioButton.propTypes = {
   /** If set to false, will revert to base `onSelect` behaviour */
   retainChildClick: PropTypes.bool,
   /** Sets the tabindex for the passed children prop */
-  childrenTabIndex: PropTypes.string
+  childrenTabIndex: PropTypes.string,
+  /** Disable label animation when selected radio button, for preventing label to jump because of css
+      overrides implements on the radio button container */
+  noLabelAnimation: PropTypes.bool
 };
 
+RadioButton.defaultProps = {
+  className: undefined,
+  text: "",
+  value: "",
+  name: "",
+  disabled: false,
+  defaultChecked: false,
+  checked: undefined,
+  onSelect: undefined,
+  retainChildClick: true,
+  childrenTabIndex: "0",
+  noLabelAnimation: false
+};
 export default RadioButton;
