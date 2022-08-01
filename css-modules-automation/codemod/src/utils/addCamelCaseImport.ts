@@ -4,6 +4,7 @@ import * as t from "@babel/types";
 import { Visitor } from "@babel/core";
 import { printWithCondition } from "./print";
 
+// 8.
 export const addCamelCaseImport = (hub: Hub, state: State) => {
   // @ts-ignore
   const file = hub["file"];

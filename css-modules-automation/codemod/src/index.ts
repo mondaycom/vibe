@@ -42,7 +42,7 @@ const PLUGIN_DEFAULTS = {
 const filesClassNamesMap: Map<string, Map<string, string>> = new Map();
 
 /**
- * These visitors take a string literal, checks to see if it's a valid CSS module
+ * 7. These visitors take a string literal, checks to see if it's a valid CSS module
  * class name (from `State.classNames`), and if so replaces them with the corresponding
  * CSS module lookup e.g. `style.className`.
  */
@@ -101,7 +101,25 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 };
 
 /**
- * These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
+ * 6. These visitors look within JSX `className` attributes, looking for string literals
+ * which we can process into `style["className"]` lookups, as well as variable references
+ * in the containing scope which also contain string literals.
+ */
+const classNameReplacementVisitors: Visitor<State> = {
+  ...stringLiteralReplacementVisitors,
+
+  Identifier: ({ node, scope }, state) => {
+    const binding = scope.getBinding(node.name);
+    if (binding == null) {
+      return;
+    }
+
+    binding.path.traverse(stringLiteralReplacementVisitors, state);
+  }
+};
+
+/**
+ * 5. These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
  * with `styles[`${camelCase("mondayStyleAvatarCircle"+type)}`]`
  */
 const templateLiteralReplacementVisitors: Visitor<State> = {
@@ -128,25 +146,7 @@ const templateLiteralReplacementVisitors: Visitor<State> = {
 };
 
 /**
- * These visitors look within JSX `className` attributes, looking for string literals
- * which we can process into `style["className"]` lookups, as well as variable references
- * in the containing scope which also contain string literals.
- */
-const classNameReplacementVisitors: Visitor<State> = {
-  ...stringLiteralReplacementVisitors,
-
-  Identifier: ({ node, scope }, state) => {
-    const binding = scope.getBinding(node.name);
-    if (binding == null) {
-      return;
-    }
-
-    binding.path.traverse(stringLiteralReplacementVisitors, state);
-  }
-};
-
-/**
- * These visitors process all JSX `className` attributes and traverses them
+ * 4. These visitors process all JSX `className` attributes and traverses them
  * using the `replacementVisitors`.
  */
 const classNameAttributeVisitors: Visitor<State> = {
@@ -241,7 +241,7 @@ const classNameAttributeVisitors: Visitor<State> = {
 };
 
 /**
- * These visitors process all bemHelpers function calls
+ * 3. These visitors process all bemHelpers function calls
  */
 const bemHelperCallExpressionsVisitors: Visitor<State> = {
   CallExpression: (path: NodePath<t.CallExpression>, { classNames }) => {
@@ -253,7 +253,7 @@ const bemHelperCallExpressionsVisitors: Visitor<State> = {
 };
 
 /**
- * These visitors process top-level import statements, looking for all CSS imports.
+ * 2. These visitors process top-level import statements, looking for all CSS imports.
  * When found, we'll retrieve and parse the CSS using PostCSS, to return the top
  * level CSS module class names that can be used in the code. We'll then store this
  * information in `State.classNames`, to be used in the above processing steps
@@ -338,6 +338,7 @@ const importVisitors: Visitor<State> = {
   }
 };
 
+// 1. Starting point for traverse process
 export default (): PluginObj<State> => ({
   name: "react-css-modules",
   visitor: {
