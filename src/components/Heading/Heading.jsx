@@ -35,7 +35,7 @@ const Heading = ({
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
     "suggest-edit-on-hover": suggestEditOnHover,
-    "brand-font": type===TYPES.h1 && brandFont
+    "brand-font": type === TYPES.h1 && brandFont
   });
   const Element = React.createElement(
     type,
