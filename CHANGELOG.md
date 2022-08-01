@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.53.0 (2022-08-01)
+
+#### Bug Fixes
+* [#800](https://github.com/mondaycom/monday-ui-react-core/pull/800) Fix h1 style gaps in Editable heading edit mode. ([@3dyonic](https://github.com/3dyonic))
+
+#### New Features
+* [#782](https://github.com/mondaycom/monday-ui-react-core/pull/782) Use motion tokens on Chips.module.scss ([@3dyonic](https://github.com/3dyonic))
+* [#789](https://github.com/mondaycom/monday-ui-react-core/pull/789) Use motion tokens on StepIndicator.scss ([@3dyonic](https://github.com/3dyonic))
+* [#779](https://github.com/mondaycom/monday-ui-react-core/pull/779) Use motion tokens on  Button.scss ([@3dyonic](https://github.com/3dyonic))
+* [#784](https://github.com/mondaycom/monday-ui-react-core/pull/784) Feature/yonatanari/motion tokens counter ([@3dyonic](https://github.com/3dyonic))
+* [#785](https://github.com/mondaycom/monday-ui-react-core/pull/785) Use motion tokens on Dropdown.scss and dropdown/menu.scss ([@3dyonic](https://github.com/3dyonic))
+* [#788](https://github.com/mondaycom/monday-ui-react-core/pull/788) Use motion tokens on MenuButton.scss ([@3dyonic](https://github.com/3dyonic))
+* [#781](https://github.com/mondaycom/monday-ui-react-core/pull/781) Use motion tokens on Checkbox.scss ([@3dyonic](https://github.com/3dyonic))
+* [#778](https://github.com/mondaycom/monday-ui-react-core/pull/778) Use motion tokens on ExpandCollapse.scss ([@3dyonic](https://github.com/3dyonic))
+* [#772](https://github.com/mondaycom/monday-ui-react-core/pull/772) New disabled-text-color tokens, component disabled update. ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.52.3 (2022-08-01)
 
 #### Bug Fixes
