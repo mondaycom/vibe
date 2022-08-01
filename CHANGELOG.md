@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.52.3 (2022-08-01)
+
+#### Bug Fixes
+* [#799](https://github.com/mondaycom/monday-ui-react-core/pull/799) allow disable label animation on radio button ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#793](https://github.com/mondaycom/monday-ui-react-core/pull/793) Tipseen: fix styleint errors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.52.2 (2022-07-28)
 
 #### Bug Fixes
