@@ -42,7 +42,7 @@ function useActiveDescendantListFocus({
     };
   }, [useDocumentEventListeners, focusedElementRef]);
 
-  const { triggeredByKeyboard } = useSetDefaultItemOnFocusEvent({
+  const { triggeredByKeyboard, setTriggeredByKeyboard } = useSetDefaultItemOnFocusEvent({
     focusedElementRef,
     isItemSelectable,
     visualFocusItemIndex,
@@ -53,13 +53,15 @@ function useActiveDescendantListFocus({
 
   const setVisualFocusItemId = useCallback(
     (visualFocusItemId, isTriggeredByKeyboard) => {
-      triggeredByKeyboard.current = isTriggeredByKeyboard;
+      if (triggeredByKeyboard !== isTriggeredByKeyboard) {
+        setTriggeredByKeyboard(isTriggeredByKeyboard);
+      }
       const itemIndex = itemsIds.indexOf(visualFocusItemId);
       if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {
         setVisualFocusItemIndex(itemIndex);
       }
     },
-    [itemsIds, triggeredByKeyboard, visualFocusItemIndex]
+    [itemsIds, setTriggeredByKeyboard, triggeredByKeyboard, visualFocusItemIndex]
   );
 
   useSupportArrowsKeyboardNavigation({
@@ -68,6 +70,7 @@ function useActiveDescendantListFocus({
     visualFocusItemIndex,
     setVisualFocusItemIndex,
     triggeredByKeyboard,
+    setTriggeredByKeyboard,
     isHorizontalList,
     isItemSelectable,
     listenerOptions
@@ -99,19 +102,19 @@ function useActiveDescendantListFocus({
     itemIndex => event => onItemClick(event, itemIndex),
     [onItemClick]
   );
-  console.log(triggeredByKeyboard);
   return {
-    visualFocusItemIndex: triggeredByKeyboard.current ? visualFocusItemIndex : undefined,
-    visualFocusItemId: triggeredByKeyboard.current ? visualFocusItemId : undefined,
+    visualFocusItemIndex: triggeredByKeyboard ? visualFocusItemIndex : undefined,
+    visualFocusItemId: triggeredByKeyboard ? visualFocusItemId : undefined,
     focusedElementProps: {
-      "aria-activedescendant": triggeredByKeyboard.current ? visualFocusItemId : undefined,
+      "aria-activedescendant": triggeredByKeyboard ? visualFocusItemId : undefined,
       role: focusedElementRole
     },
     // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
     // we keep it for backward compatibility
     onItemClickCallback: onItemClick,
     createOnItemClickCallback: backwardCompatibilityCreateOnClickCallback,
-    setVisualFocusItemId
+    setVisualFocusItemId,
+    setTriggeredByKeyboard
   };
 }
 

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
+import React, { useRef, useState, forwardRef, useMemo, useCallback, useEffect } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import NOOP from "lodash/noop";
@@ -16,6 +16,7 @@ import { StickyCategoryHeader } from "../../components/Combobox/components/Stick
 import useActiveDescendantListFocus from "../../hooks/useActiveDescendantListFocus";
 import { getOptionId } from "./ComboboxHelpers/ComboboxHelpers";
 import "./Combobox.scss";
+import { useEventListener, usePrevious } from "../../hooks";
 
 const Combobox = forwardRef(
   (
@@ -49,6 +50,7 @@ const Combobox = forwardRef(
       renderOnlyVisibleOptions,
       clearFilterOnSelection,
       maxOptionsWithoutScroll,
+      mountedByKeyboard,
       /**
        * temporary flag for investigate a bug - will remove very soon
        */
@@ -77,6 +79,10 @@ const Combobox = forwardRef(
       },
       [onOptionHover]
     );
+
+    // Hide visual focus on mount when trigger is mouse
+    const prevInputRef = usePrevious(inputRef);
+    const [shouldHideVisualFocusManually, setShouldHideVisualFocusManually] = useState(false);
 
     const filteredOptions = useMemo(() => {
       if (disableFilter) {
@@ -122,7 +128,8 @@ const Combobox = forwardRef(
     const {
       visualFocusItemIndex,
       visualFocusItemId,
-      onItemClickCallback: onOptionClick
+      onItemClickCallback: onOptionClick,
+      setTriggeredByKeyboard
     } = useActiveDescendantListFocus({
       defaultVisualFocusFirstIndex,
       focusedElementRef: inputRef,
@@ -133,6 +140,37 @@ const Combobox = forwardRef(
       isItemSelectable: isChildSelectable,
       isIgnoreSpaceAsItemSelection: true
     });
+
+    // When mount, display or hide items visual focus according to the component mount trigger
+    useEffect(() => {
+      const isFirstInputRender =
+        (prevInputRef === undefined || inputRef.current === undefined) && inputRef.current !== undefined;
+      console.log(
+        prevInputRef,
+        inputRef,
+        "first render",
+        isFirstInputRender,
+        autoFocus && defaultVisualFocusFirstIndex && !mountedByKeyboard
+      );
+      if (isFirstInputRender && autoFocus && defaultVisualFocusFirstIndex && !mountedByKeyboard) {
+        console.log("first");
+
+        setShouldHideVisualFocusManually(true);
+      }
+    }, [autoFocus, defaultVisualFocusFirstIndex, mountedByKeyboard, prevInputRef, inputRef, setTriggeredByKeyboard]);
+
+    console.log("is it magic");
+    const onInputFocus = useCallback(() => {
+      console.log("whyyy");
+      if (shouldHideVisualFocusManually) {
+        setTriggeredByKeyboard(false);
+        setShouldHideVisualFocusManually(false);
+      }
+    }, [setTriggeredByKeyboard, shouldHideVisualFocusManually]);
+    console.log("is it magic2");
+    debugger;
+    useEventListener({ eventName: "focus", ref: inputRef, callback: () => console.log("why why why") });
+    console.log("is it magic3");
 
     const hasResults = filteredOptions.length > 0;
     const hasFilter = filterValue.length > 0;
@@ -307,7 +345,12 @@ Combobox.propTypes = {
   /**
    * On option click callback
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  /**
+   *If combobox is mounted by keyboard, we will not display visual focus on mount. Instead we will only display it when
+   * the user start typing
+   */
+  mountedByKeyboard: PropTypes.bool
 };
 
 Combobox.defaultProps = {
@@ -339,7 +382,8 @@ Combobox.defaultProps = {
   clearFilterOnSelection: false,
   defaultVisualFocusFirstIndex: undefined,
   renderOnlyVisibleOptions: false,
-  onClick: _optionData => {}
+  onClick: _optionData => {},
+  mountedByKeyboard: false
 };
 
 export default Combobox;
