@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.54.0 (2022-08-03)
+
+#### Bug Fixes
+* [#807](https://github.com/mondaycom/monday-ui-react-core/pull/807) Fix typo in color menuColorsExample.png ([@3dyonic](https://github.com/3dyonic))
+
+#### New Features
+* [#796](https://github.com/mondaycom/monday-ui-react-core/pull/796) Use motion tokens on SliderBase.scss ([@3dyonic](https://github.com/3dyonic))
+* [#797](https://github.com/mondaycom/monday-ui-react-core/pull/797) Use motion tokens on SplitButton.scss ([@3dyonic](https://github.com/3dyonic))
+* [#798](https://github.com/mondaycom/monday-ui-react-core/pull/798) Use motion tokens on Steps.scss ([@3dyonic](https://github.com/3dyonic))
+* [#802](https://github.com/mondaycom/monday-ui-react-core/pull/802) Use motion tokens on TextField.scss ([@3dyonic](https://github.com/3dyonic))
+* [#803](https://github.com/mondaycom/monday-ui-react-core/pull/803) Use motion tokens on Toggle.scss ([@3dyonic](https://github.com/3dyonic))
+* [#804](https://github.com/mondaycom/monday-ui-react-core/pull/804) Use motion tokens on Toast.scss ([@3dyonic](https://github.com/3dyonic))
+* [#805](https://github.com/mondaycom/monday-ui-react-core/pull/805) Use motion tokens on TabPanels.scss ([@3dyonic](https://github.com/3dyonic))
+* [#786](https://github.com/mondaycom/monday-ui-react-core/pull/786) Use motion tokens on Label.scss ([@3dyonic](https://github.com/3dyonic))
+* [#801](https://github.com/mondaycom/monday-ui-react-core/pull/801) Use motion tokens on Tab.scss ([@3dyonic](https://github.com/3dyonic))
+* [#795](https://github.com/mondaycom/monday-ui-react-core/pull/795) Use motion tokens on RadioButton.scss ([@3dyonic](https://github.com/3dyonic))
+* [#790](https://github.com/mondaycom/monday-ui-react-core/pull/790) Use motion tokens on LinearProgressBar.scss ([@3dyonic](https://github.com/3dyonic))
+* [#806](https://github.com/mondaycom/monday-ui-react-core/pull/806) Use motion tokens on Skeleton.scss ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#809](https://github.com/mondaycom/monday-ui-react-core/pull/809) fix issue for externals ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.53.0 (2022-08-01)
 
 #### Bug Fixes
