@@ -227,7 +227,14 @@ const classNameAttributeVisitors: Visitor<State> = {
  */
 const templateLiteralReplacementVisitors: Visitor<State> = {
   TemplateLiteral: (path: NodePath<t.TemplateLiteral>, state) => {
-    printWithCondition(true, "### templateLiteralReplacementVisitors, path", path);
+    printWithCondition(true, "### templateLiteralReplacementVisitors, path.node", path.node);
+
+    // Filter for freshly inserted TemplateLiterals - skip didn't work for some reason
+    if (!path.node.loc) {
+      path.skip();
+      return;
+    }
+
     // TODO conditions to replace only classNames related templateLiterals
     // if (path.parentPath) {
     //
@@ -235,6 +242,7 @@ const templateLiteralReplacementVisitors: Visitor<State> = {
 
     const newString = buildClassnameStringFromTemplateLiteral(path.node);
     const newPath = t.memberExpression(t.identifier(state.opts.importIdentifier), t.identifier(newString), true);
+    printWithCondition(true, "### templateLiteralReplacementVisitors, newString", newString);
 
     const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
     insertedPaths.forEach(p => {
@@ -372,7 +380,5 @@ export default (): PluginObj<State> => ({
 
 // TODO add styles[`camelCase(${AVATAR_CSS_BASE_CLASS})`] or styles.avatarCssBaseClass* (* value of the const -> through map)
 //  e.g. Avatar usage of AVATAR_CSS_BASE_CLASS
-
-// TODO newly inserted templateLiterals doesn't have proper location, so templateExpressions are not always carried correctly
 
 // TODO in ObjecyProperty visitor: sometimes identifiers can be just stringLiterals e.g. empty class Combobox
