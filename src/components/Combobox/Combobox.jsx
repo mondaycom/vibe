@@ -129,7 +129,7 @@ const Combobox = forwardRef(
       visualFocusItemIndex,
       visualFocusItemId,
       onItemClickCallback: onOptionClick,
-      setTriggeredByKeyboard
+      setVisualFocusItemId
     } = useActiveDescendantListFocus({
       defaultVisualFocusFirstIndex,
       focusedElementRef: inputRef,
@@ -143,12 +143,11 @@ const Combobox = forwardRef(
 
     // When mount, display or hide items visual focus according to the component mount trigger
     useEffect(() => {
-      const isFirstInputRender =
-        (prevInputRef === undefined || inputRef.current === undefined) && inputRef.current !== undefined;
+      const isFirstInputRender = prevInputRef === undefined && inputRef.current !== undefined;
       if (isFirstInputRender && autoFocus && defaultVisualFocusFirstIndex && !mountedByKeyboard) {
         setShouldHideVisualFocusManually(true);
       }
-    }, [autoFocus, defaultVisualFocusFirstIndex, mountedByKeyboard, prevInputRef, inputRef, setTriggeredByKeyboard]);
+    }, [autoFocus, defaultVisualFocusFirstIndex, mountedByKeyboard, prevInputRef, inputRef]);
 
     const isInputFocused = document.activeElement === inputRef.current;
 
@@ -156,16 +155,20 @@ const Combobox = forwardRef(
     // changes this way
     useEffect(() => {
       if (isInputFocused && shouldHideVisualFocusManually) {
-        setTriggeredByKeyboard(false);
+        setVisualFocusItemId(null, false);
         setShouldHideVisualFocusManually(false);
       }
     }, [isInputFocused, shouldHideVisualFocusManually]);
 
+    console.log("Render", visualFocusItemId, visualFocusItemIndex);
     // When user start to type, display visual focus of combobox items list if it was hidden
     const onTyping = useCallback(() => {
-      console.log("yes");
-      setTriggeredByKeyboard(true);
-    }, []);
+      if (filteredOptionsIds.length > 0 && filteredOptionsIds && visualFocusItemId === undefined) {
+        console.log("change to", filteredOptionsIds[0]);
+        const nextVisuallyFocusId = filteredOptionsIds[0];
+        setVisualFocusItemId(nextVisuallyFocusId, true);
+      }
+    }, [visualFocusItemId, filteredOptionsIds]);
 
     useEventListener({ eventName: "keyup", ref: inputRef, callback: onTyping });
 

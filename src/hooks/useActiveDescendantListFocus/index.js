@@ -51,17 +51,30 @@ function useActiveDescendantListFocus({
     defaultVisualFocusItemIndex
   });
 
+  console.log(triggeredByKeyboard, visualFocusItemId, visualFocusItemIndex);
+
   const setVisualFocusItemId = useCallback(
     (visualFocusItemId, isTriggeredByKeyboard) => {
-      if (triggeredByKeyboard !== isTriggeredByKeyboard) {
-        setTriggeredByKeyboard(isTriggeredByKeyboard);
-      }
-      const itemIndex = itemsIds.indexOf(visualFocusItemId);
-      if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {
-        setVisualFocusItemIndex(itemIndex);
+      setTriggeredByKeyboard(isTriggeredByKeyboard);
+      if (visualFocusItemId == null || undefined) {
+        setVisualFocusItemIndex(-1);
+      } else {
+        const itemIndex = itemsIds.indexOf(visualFocusItemId);
+
+        if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {
+          console.log("change to ---!", visualFocusItemId, itemIndex, itemsIds, visualFocusItemIndex);
+          setVisualFocusItemIndex(itemIndex);
+        }
       }
     },
-    [itemsIds, setTriggeredByKeyboard, triggeredByKeyboard, visualFocusItemIndex]
+    [
+      itemsIds,
+      setTriggeredByKeyboard,
+      setVisualFocusItemIndex,
+      triggeredByKeyboard,
+      visualFocusItemIndex,
+      visualFocusItemIndex
+    ]
   );
 
   useSupportArrowsKeyboardNavigation({

@@ -178,12 +178,12 @@ export function useSetDefaultItemOnFocusEvent({
   defaultVisualFocusItemIndex = -1
 }) {
   const [triggeredByKeyboard, baseSetTriggeredByKeyboard] = useState(false);
-  console.log("current ", triggeredByKeyboard);
+  console.log("trig---ger", triggeredByKeyboard);
+
   const setTriggeredByKeyboard = useCallback(
     isTriggeredByKeyboard => {
-      console.log("debug");
+      console.log("trigger", isTriggeredByKeyboard, triggeredByKeyboard);
       if (isTriggeredByKeyboard !== triggeredByKeyboard) {
-        console.log("change to ", isTriggeredByKeyboard);
         baseSetTriggeredByKeyboard(isTriggeredByKeyboard);
       }
     },
@@ -201,8 +201,10 @@ export function useSetDefaultItemOnFocusEvent({
           visualFocusItemIndex: defaultVisualFocusItemIndex
         });
       }
+      console.log("new", visualFocusItemIndex);
       setVisualFocusItemIndex(newVisualFocusIndex);
     }
+    setTriggeredByKeyboard(true);
   }, [
     defaultVisualFocusItemIndex,
     isItemSelectable,
@@ -212,9 +214,14 @@ export function useSetDefaultItemOnFocusEvent({
     visualFocusItemIndex
   ]);
   const onFocusByMouse = useCallback(() => {
+    // If until now focus was managed by keyboard, now it switch to be handled by mouse
     setTriggeredByKeyboard(false);
   }, [setTriggeredByKeyboard]);
-  useListenFocusTriggers({ ref: focusedElementRef, onFocusByKeyboard, onFocusByMouse });
+  useListenFocusTriggers({
+    ref: focusedElementRef,
+    onFocusByKeyboard: onFocusByKeyboard,
+    onFocusByMouse: onFocusByMouse
+  });
 
   return { triggeredByKeyboard, setTriggeredByKeyboard };
 }
