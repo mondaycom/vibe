@@ -43,7 +43,7 @@ const PLUGIN_DEFAULTS = {
 const filesClassNamesMap: Map<string, Map<string, string>> = new Map();
 
 /**
- * 7. These visitors take a string literal, checks to see if it's a valid CSS module
+ * 8. These visitors take a string literal, checks to see if it's a valid CSS module
  * class name (from `State.classNames`), and if so replaces them with the corresponding
  * CSS module lookup e.g. `style.className`.
  */
@@ -111,50 +111,25 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
 };
 
 /**
- * 6. These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
- * with `styles[`${camelCase("mondayStyleAvatarCircle"+type)}`]`
- */
-const templateLiteralReplacementVisitors: Visitor<State> = {
-  TemplateLiteral: (path: NodePath<t.TemplateLiteral>, state) => {
-    printWithCondition(false, "### templateLiteralReplacementVisitors, path.node", path.node);
-
-    const newString = buildClassnameStringFromTemplateLiteral(path.node);
-    const newPath = t.memberExpression(t.identifier(state.opts.importIdentifier), t.identifier(newString), true);
-
-    const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
-    insertedPaths.forEach(p => {
-      p.skip();
-      p.getPrevSibling().skip();
-      p.getNextSibling().skip();
-    });
-    printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
-
-    state.camelCaseImportNeeded = true;
-  }
-};
-
-/**
- * 5. These visitors look within JSX `className` attributes, looking for string literals
+ * 6. These visitors look within JSX `className` attributes, looking for string literals
  * which we can process into `style["className"]` lookups, as well as variable references
  * in the containing scope which also contain string literals.
  */
 const classNameReplacementVisitors: Visitor<State> = {
-  ...templateLiteralReplacementVisitors,
   ...stringLiteralReplacementVisitors,
 
   Identifier: ({ node, scope }, state) => {
     const binding = scope.getBinding(node.name);
-    if (binding == null) {
+    if (!binding) {
       return;
     }
 
-    binding.path.traverse(templateLiteralReplacementVisitors, state);
     binding.path.traverse(stringLiteralReplacementVisitors, state);
   }
 };
 
 /**
- * 4. These visitors process all JSX `className` attributes and traverses them
+ * 5. These visitors process all JSX `className` attributes and traverses them
  * using the `replacementVisitors`.
  */
 const classNameAttributeVisitors: Visitor<State> = {
@@ -247,6 +222,32 @@ const classNameAttributeVisitors: Visitor<State> = {
 };
 
 /**
+ * 4. These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
+ * with `styles[`${camelCase("mondayStyleAvatarCircle"+type)}`]`
+ */
+const templateLiteralReplacementVisitors: Visitor<State> = {
+  TemplateLiteral: (path: NodePath<t.TemplateLiteral>, state) => {
+    printWithCondition(true, "### templateLiteralReplacementVisitors, path", path);
+    // TODO conditions to replace only classNames related templateLiterals
+    // if (path.parentPath) {
+    //
+    // }
+
+    const newString = buildClassnameStringFromTemplateLiteral(path.node);
+    const newPath = t.memberExpression(t.identifier(state.opts.importIdentifier), t.identifier(newString), true);
+
+    const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
+    insertedPaths.forEach(p => {
+      p.skip();
+      p.getPrevSibling().skip();
+    });
+    printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
+
+    state.camelCaseImportNeeded = true;
+  }
+};
+
+/**
  * 3. These visitors process all bemHelpers function calls
  */
 const bemHelperCallExpressionsVisitors: Visitor<State> = {
@@ -334,10 +335,13 @@ const importVisitors: Visitor<State> = {
     );
 
     if (firstFileRun) {
-      // Traverse the top-level program path for BEM call expressions
+      // 3. Traverse the top-level program path for BEM call expressions
       file.path.traverse(bemHelperCallExpressionsVisitors, state);
 
-      // Traverse the top-level program path for JSX className attributes
+      // 4. Traverse
+      file.path.traverse(templateLiteralReplacementVisitors, state);
+
+      // 5. Traverse the top-level program path for JSX className attributes
       file.path.traverse(classNameAttributeVisitors, state);
 
       // Adds camel case import if needed
@@ -369,6 +373,6 @@ export default (): PluginObj<State> => ({
 // TODO add styles[`camelCase(${AVATAR_CSS_BASE_CLASS})`] or styles.avatarCssBaseClass* (* value of the const -> through map)
 //  e.g. Avatar usage of AVATAR_CSS_BASE_CLASS
 
-// TODO solve duplicates for AvatarContent case
-
 // TODO newly inserted templateLiterals doesn't have proper location, so templateExpressions are not always carried correctly
+
+// TODO in ObjecyProperty visitor: sometimes identifiers can be just stringLiterals e.g. empty class Combobox
