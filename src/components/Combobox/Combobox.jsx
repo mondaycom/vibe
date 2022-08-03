@@ -173,7 +173,7 @@ const Combobox = forwardRef(
       }
     }, [filteredOptionsIds, visualFocusItemId, defaultVisualFocusFirstIndex, setVisualFocusItemId]);
 
-    // Hide visual focus when use click on clear button (we turn it on manually when user start typing which cause this edge case)
+    // Hide visual focus when user click on clear button (we turn it on manually when user start typing which cause this edge case)
     const onClearClick = useCallback(() => {
       setVisualFocusItemId(null, false);
     }, [setVisualFocusItemId]);
