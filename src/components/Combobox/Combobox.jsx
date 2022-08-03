@@ -158,17 +158,24 @@ const Combobox = forwardRef(
         setVisualFocusItemId(null, false);
         setShouldHideVisualFocusManually(false);
       }
-    }, [isInputFocused, shouldHideVisualFocusManually]);
+    }, [isInputFocused, setVisualFocusItemId, shouldHideVisualFocusManually]);
 
-    console.log("Render", visualFocusItemId, visualFocusItemIndex);
     // When user start to type, display visual focus of combobox items list if it was hidden
     const onTyping = useCallback(() => {
-      if (filteredOptionsIds.length > 0 && filteredOptionsIds && visualFocusItemId === undefined) {
-        console.log("change to", filteredOptionsIds[0]);
+      if (
+        filteredOptionsIds.length > 0 &&
+        filteredOptionsIds &&
+        visualFocusItemId === undefined &&
+        defaultVisualFocusFirstIndex
+      ) {
         const nextVisuallyFocusId = filteredOptionsIds[0];
         setVisualFocusItemId(nextVisuallyFocusId, true);
       }
-    }, [visualFocusItemId, filteredOptionsIds]);
+    }, [filteredOptionsIds, visualFocusItemId, defaultVisualFocusFirstIndex, setVisualFocusItemId]);
+
+    const onClearClick = useCallback(() => {
+      setVisualFocusItemId(null, false);
+    }, [setVisualFocusItemId]);
 
     useEventListener({ eventName: "keyup", ref: inputRef, callback: onTyping });
 
@@ -226,6 +233,7 @@ const Combobox = forwardRef(
         <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
           <Search
             ref={inputRef}
+            onIconClick={onClearClick}
             value={filterValue}
             wrapperClassName="combobox--wrapper-search-wrapper"
             className="combobox--wrapper-search"
