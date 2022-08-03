@@ -370,3 +370,5 @@ export default (): PluginObj<State> => ({
 //  e.g. Avatar usage of AVATAR_CSS_BASE_CLASS
 
 // TODO solve duplicates for AvatarContent case
+
+// TODO newly inserted templateLiterals doesn't have proper location, so templateExpressions are not always carried correctly
