@@ -230,7 +230,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
     });
 
     // Now the visual focus item index should be undef because the focus trigger is not a keyboard
-    expect(result.current.visualFocusItemIndex).toBeEmpty();
+    expect(result.current.visualFocusItemIndex).not.toBeDefined();
   });
 
   it("should return active visual index when setTriggeredByKeyboard called with true value", () => {
@@ -242,7 +242,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
     });
 
     // Focus happen by click and this is why we should not get access to the visually focus index
-    expect(result.current.visualFocusItemIndex).toBeEmpty();
+    expect(result.current.visualFocusItemIndex).not.toBeDefined();
 
     act(() => {
       const isTriggeredByKeyboard = true;
@@ -343,7 +343,7 @@ describe("useActiveDescendantListFocus", () => {
         element.focus();
       });
 
-      expect(result.current.visualFocusItemIndex).toEqual(undefined);
+      expect(result.current.visualFocusItemIndex).toEqual(-1);
     });
   });
 });
