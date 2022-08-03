@@ -145,32 +145,29 @@ const Combobox = forwardRef(
     useEffect(() => {
       const isFirstInputRender =
         (prevInputRef === undefined || inputRef.current === undefined) && inputRef.current !== undefined;
-      console.log(
-        prevInputRef,
-        inputRef,
-        "first render",
-        isFirstInputRender,
-        autoFocus && defaultVisualFocusFirstIndex && !mountedByKeyboard
-      );
       if (isFirstInputRender && autoFocus && defaultVisualFocusFirstIndex && !mountedByKeyboard) {
-        console.log("first");
-
         setShouldHideVisualFocusManually(true);
       }
     }, [autoFocus, defaultVisualFocusFirstIndex, mountedByKeyboard, prevInputRef, inputRef, setTriggeredByKeyboard]);
 
-    console.log("is it magic");
-    const onInputFocus = useCallback(() => {
-      console.log("whyyy");
-      if (shouldHideVisualFocusManually) {
+    const isInputFocused = document.activeElement === inputRef.current;
+
+    // First focus happens right after mounting. Sometimes using listen to focus event create race condition and this is why we listen to focus
+    // changes this way
+    useEffect(() => {
+      if (isInputFocused && shouldHideVisualFocusManually) {
         setTriggeredByKeyboard(false);
         setShouldHideVisualFocusManually(false);
       }
-    }, [setTriggeredByKeyboard, shouldHideVisualFocusManually]);
-    console.log("is it magic2");
-    debugger;
-    useEventListener({ eventName: "focus", ref: inputRef, callback: () => console.log("why why why") });
-    console.log("is it magic3");
+    }, [isInputFocused, shouldHideVisualFocusManually]);
+
+    // When user start to type, display visual focus of combobox items list if it was hidden
+    const onTyping = useCallback(() => {
+      console.log("yes");
+      setTriggeredByKeyboard(true);
+    }, []);
+
+    useEventListener({ eventName: "keyup", ref: inputRef, callback: onTyping });
 
     const hasResults = filteredOptions.length > 0;
     const hasFilter = filterValue.length > 0;

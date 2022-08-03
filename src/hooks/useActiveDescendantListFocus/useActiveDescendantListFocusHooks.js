@@ -135,14 +135,23 @@ export function useSupportPressItemKeyboardNavigation({
   });
 }
 
-export function useCleanVisualFocusOnBlur({ focusedElementRef, visualFocusItemIndex, setVisualFocusItemIndex }) {
+export function useCleanVisualFocusOnBlur({
+  focusedElementRef,
+  visualFocusItemIndex,
+  setVisualFocusItemIndex,
+  triggeredByKeyboard,
+  setTriggeredByKeyboard
+}) {
   const previousFocusedElementRef = usePrevious(focusedElementRef);
 
   const onBlurCallback = useCallback(() => {
     if (visualFocusItemIndex !== -1) {
       setVisualFocusItemIndex(-1);
     }
-  }, [setVisualFocusItemIndex, visualFocusItemIndex]);
+    if (triggeredByKeyboard) {
+      setTriggeredByKeyboard(false);
+    }
+  }, [setVisualFocusItemIndex, visualFocusItemIndex, triggeredByKeyboard]);
 
   // if element unmount act like element got blur event
   useEffect(() => {
@@ -169,15 +178,18 @@ export function useSetDefaultItemOnFocusEvent({
   defaultVisualFocusItemIndex = -1
 }) {
   const [triggeredByKeyboard, baseSetTriggeredByKeyboard] = useState(false);
+  console.log("current ", triggeredByKeyboard);
   const setTriggeredByKeyboard = useCallback(
     isTriggeredByKeyboard => {
-      console.log("!", isTriggeredByKeyboard);
-      if (isTriggeredByKeyboard !== triggeredByKeyboard) baseSetTriggeredByKeyboard(isTriggeredByKeyboard);
+      console.log("debug");
+      if (isTriggeredByKeyboard !== triggeredByKeyboard) {
+        console.log("change to ", isTriggeredByKeyboard);
+        baseSetTriggeredByKeyboard(isTriggeredByKeyboard);
+      }
     },
     [triggeredByKeyboard]
   );
   const onFocusByKeyboard = useCallback(() => {
-    setTriggeredByKeyboard(true);
     if (visualFocusItemIndex !== defaultVisualFocusItemIndex) {
       let newVisualFocusIndex;
       if (isItemSelectable(defaultVisualFocusItemIndex)) {

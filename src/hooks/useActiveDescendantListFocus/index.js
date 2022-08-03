@@ -94,7 +94,13 @@ function useActiveDescendantListFocus({
     setVisualFocusItemIndex
   });
 
-  useCleanVisualFocusOnBlur({ focusedElementRef, visualFocusItemIndex, setVisualFocusItemIndex });
+  useCleanVisualFocusOnBlur({
+    focusedElementRef,
+    visualFocusItemIndex,
+    setVisualFocusItemIndex,
+    triggeredByKeyboard,
+    setTriggeredByKeyboard
+  });
 
   // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
   // we keep it for backward compatibility
