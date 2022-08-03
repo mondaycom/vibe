@@ -41,6 +41,7 @@ const PLUGIN_DEFAULTS = {
 };
 
 const filesClassNamesMap: Map<string, Map<string, string>> = new Map();
+const filesJsxSet: Set<string> = new Set();
 
 /**
  * 8. These visitors take a string literal, checks to see if it's a valid CSS module
@@ -231,7 +232,6 @@ const templateLiteralReplacementVisitors: Visitor<State> = {
 
     // Filter for freshly inserted TemplateLiterals - skip didn't work for some reason
     if (!path.node.loc) {
-      path.skip();
       return;
     }
 
@@ -311,13 +311,12 @@ const importVisitors: Visitor<State> = {
       return;
     }
 
-    let firstFileRun = false;
     // Calculate the file path relative to the current file
-    const scssFilename: string = resolve(dirname(file.opts.filename), node.source.value);
+    const filename = file.opts.filename;
+    const scssFilename: string = resolve(dirname(filename), node.source.value);
     // Get all relevant class names from the file
     let classNames: Map<string, string>;
     if (!filesClassNamesMap.has(scssFilename)) {
-      firstFileRun = true;
       classNames = convertToModuleClassNames(scssFilename);
       filesClassNamesMap.set(scssFilename, classNames);
       renameStylesheetFile(scssFilename);
@@ -342,7 +341,8 @@ const importVisitors: Visitor<State> = {
       )
     );
 
-    if (firstFileRun) {
+    // Ensure this is run only once per file
+    if (!filesJsxSet.has(filename)) {
       // 3. Traverse the top-level program path for BEM call expressions
       file.path.traverse(bemHelperCallExpressionsVisitors, state);
 
@@ -356,6 +356,8 @@ const importVisitors: Visitor<State> = {
       if (state.camelCaseImportNeeded && !state.camelCaseImported) {
         addCamelCaseImport(path.hub, state);
       }
+
+      filesJsxSet.add(filename);
     }
   }
 };
