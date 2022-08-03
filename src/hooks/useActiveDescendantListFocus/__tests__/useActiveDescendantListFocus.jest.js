@@ -176,6 +176,7 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
 
     expect(result.current.visualFocusItemIndex).toEqual(before);
   });
+
   it("should change visually focused item when calling setVisualFocusItemId with triggeredWithKeyboard argument", async () => {
     const { result } = renderHookForTest({ isHorizontal, defaultVisualFocusFirstIndex });
 
@@ -192,6 +193,64 @@ function runListUnitTest({ isHorizontal, defaultVisualFocusFirstIndex }) {
 
     // Now the visual focus item index should be the index of THIRD_ITEM_ID item
     expect(result.current.visualFocusItemIndex).toEqual(2);
+  });
+
+  it("should remove visually focused item when calling setVisualFocusItemId with null as index", async () => {
+    const { result } = renderHookForTest({ isHorizontal, defaultVisualFocusFirstIndex });
+
+    act(() => {
+      // set focus on the list's element which in charge on natural focus element
+      element.focus();
+    });
+
+    act(() => {
+      const isTriggeredByKeyboard = true;
+      // Change visually focused item by using setVisualFocusItemId function
+      result.current.setVisualFocusItemId(null, isTriggeredByKeyboard);
+    });
+
+    // Now the visual focus item index should be the index of THIRD_ITEM_ID item
+    expect(result.current.visualFocusItemIndex).toEqual(-1);
+  });
+
+  it("should hide active visual index when setTriggeredByKeyboard called with false value", () => {
+    const { result } = renderHookForTest({ isHorizontal, defaultVisualFocusFirstIndex });
+
+    act(() => {
+      // set focus on the list's element which in charge on natural focus element
+      element.focus();
+    });
+
+    // Focus happen programmatically and this is why we should get access to the visually focus index
+    expect(result.current.visualFocusItemIndex).toBeDefined();
+
+    act(() => {
+      const isTriggeredByKeyboard = false;
+      result.current.setTriggeredByKeyboard(isTriggeredByKeyboard);
+    });
+
+    // Now the visual focus item index should be undef because the focus trigger is not a keyboard
+    expect(result.current.visualFocusItemIndex).toBeEmpty();
+  });
+
+  it("should return active visual index when setTriggeredByKeyboard called with true value", () => {
+    const { result } = renderHookForTest({ isHorizontal, defaultVisualFocusFirstIndex });
+
+    act(() => {
+      // set focus on the list's element which in charge on natural focus element
+      element.click();
+    });
+
+    // Focus happen by click and this is why we should not get access to the visually focus index
+    expect(result.current.visualFocusItemIndex).toBeEmpty();
+
+    act(() => {
+      const isTriggeredByKeyboard = true;
+      result.current.setTriggeredByKeyboard(isTriggeredByKeyboard);
+    });
+
+    // Now the visual focus item index should contain a value because the focus trigger is a keyboard
+    expect(result.current.visualFocusItemIndex).toBeDefined();
   });
 }
 

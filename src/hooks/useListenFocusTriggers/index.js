@@ -1,8 +1,6 @@
 import useEventListener from "../useEventListener";
 import { useCallback, useRef } from "react";
 
-const KEYBOARD_INTERACTION = "keyboard";
-const MOUSE_INTERACTION = "mouse";
 export function useListenFocusTriggers({ ref, onFocusByKeyboard, onFocusByMouse }) {
   const isElementMouseDown = useRef(false);
   const onMouseDown = useCallback(() => {
