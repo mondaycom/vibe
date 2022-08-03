@@ -51,18 +51,15 @@ function useActiveDescendantListFocus({
     defaultVisualFocusItemIndex
   });
 
-  console.log(triggeredByKeyboard, visualFocusItemId, visualFocusItemIndex);
-
   const setVisualFocusItemId = useCallback(
-    (visualFocusItemId, isTriggeredByKeyboard) => {
-      setTriggeredByKeyboard(isTriggeredByKeyboard);
-      if (visualFocusItemId == null || undefined) {
+    (nextVisualFocusItemId, isTriggeredByKeyboard) => {
+      setTriggeredByKeyboard(isTriggeredByKeyboard, isTriggeredByKeyboard);
+      if (nextVisualFocusItemId == null || undefined) {
         setVisualFocusItemIndex(-1);
       } else {
-        const itemIndex = itemsIds.indexOf(visualFocusItemId);
+        const itemIndex = itemsIds.indexOf(nextVisualFocusItemId);
 
         if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {
-          console.log("change to ---!", visualFocusItemId, itemIndex, itemsIds, visualFocusItemIndex);
           setVisualFocusItemIndex(itemIndex);
         }
       }

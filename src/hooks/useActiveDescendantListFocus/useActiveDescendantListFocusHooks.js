@@ -178,19 +178,12 @@ export function useSetDefaultItemOnFocusEvent({
   defaultVisualFocusItemIndex = -1
 }) {
   const [triggeredByKeyboard, baseSetTriggeredByKeyboard] = useState(false);
-  console.log("trig---ger", triggeredByKeyboard);
 
-  const setTriggeredByKeyboard = useCallback(
-    isTriggeredByKeyboard => {
-      console.log("trigger", isTriggeredByKeyboard, triggeredByKeyboard);
-      if (isTriggeredByKeyboard !== triggeredByKeyboard) {
-        baseSetTriggeredByKeyboard(isTriggeredByKeyboard);
-      }
-    },
-    [triggeredByKeyboard]
-  );
+  const setTriggeredByKeyboard = nextTriggeredByKeyboard => {
+    if (triggeredByKeyboard !== nextTriggeredByKeyboard) baseSetTriggeredByKeyboard(nextTriggeredByKeyboard);
+  };
   const onFocusByKeyboard = useCallback(() => {
-    if (visualFocusItemIndex !== defaultVisualFocusItemIndex) {
+    if (visualFocusItemIndex !== defaultVisualFocusItemIndex && defaultVisualFocusItemIndex > -1) {
       let newVisualFocusIndex;
       if (isItemSelectable(defaultVisualFocusItemIndex)) {
         newVisualFocusIndex = defaultVisualFocusItemIndex;
@@ -201,7 +194,6 @@ export function useSetDefaultItemOnFocusEvent({
           visualFocusItemIndex: defaultVisualFocusItemIndex
         });
       }
-      console.log("new", visualFocusItemIndex);
       setVisualFocusItemIndex(newVisualFocusIndex);
     }
     setTriggeredByKeyboard(true);

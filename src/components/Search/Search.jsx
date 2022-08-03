@@ -52,6 +52,7 @@ const Search = forwardRef(
       inputAriaLabel,
       searchResultsContainerId,
       activeDescendant,
+      onIconClick,
       iconNames,
       loading
     },
@@ -81,6 +82,7 @@ const Search = forwardRef(
         size={size}
         clearOnIconClick
         validation={validation}
+        onIconClick={onIconClick}
         inputAriaLabel={inputAriaLabel}
         searchResultsContainerId={searchResultsContainerId}
         activeDescendant={activeDescendant}
