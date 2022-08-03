@@ -80,10 +80,6 @@ const Combobox = forwardRef(
       [onOptionHover]
     );
 
-    // Hide visual focus on mount when trigger is mouse
-    const prevInputRef = usePrevious(inputRef);
-    const [shouldHideVisualFocusManually, setShouldHideVisualFocusManually] = useState(false);
-
     const filteredOptions = useMemo(() => {
       if (disableFilter) {
         return options;
@@ -141,13 +137,17 @@ const Combobox = forwardRef(
       isIgnoreSpaceAsItemSelection: true
     });
 
+    const prevInputRef = usePrevious(inputRef);
+    const isFirstInputRender = prevInputRef === undefined && inputRef.current !== undefined;
+
+    const [shouldHideVisualFocusManually, setShouldHideVisualFocusManually] = useState(false);
+
     // When mount, display or hide items visual focus according to the component mount trigger
     useEffect(() => {
-      const isFirstInputRender = prevInputRef === undefined && inputRef.current !== undefined;
       if (isFirstInputRender && autoFocus && defaultVisualFocusFirstIndex && !mountedByKeyboard) {
         setShouldHideVisualFocusManually(true);
       }
-    }, [autoFocus, defaultVisualFocusFirstIndex, mountedByKeyboard, prevInputRef, inputRef]);
+    }, [autoFocus, defaultVisualFocusFirstIndex, mountedByKeyboard, prevInputRef, inputRef, isFirstInputRender]);
 
     const isInputFocused = document.activeElement === inputRef.current;
 
@@ -160,7 +160,7 @@ const Combobox = forwardRef(
       }
     }, [isInputFocused, setVisualFocusItemId, shouldHideVisualFocusManually]);
 
-    // When user start to type, display visual focus of combobox items list if it was hidden
+    // When user start to type, display visual focus of combobox items list if it was hidden in defaultVisualFocusFirstIndex state
     const onTyping = useCallback(() => {
       if (
         filteredOptionsIds.length > 0 &&
@@ -173,6 +173,7 @@ const Combobox = forwardRef(
       }
     }, [filteredOptionsIds, visualFocusItemId, defaultVisualFocusFirstIndex, setVisualFocusItemId]);
 
+    // Hide visual focus when use click on clear button (we turn it on manually when user start typing which cause this edge case)
     const onClearClick = useCallback(() => {
       setVisualFocusItemId(null, false);
     }, [setVisualFocusItemId]);
@@ -355,8 +356,8 @@ Combobox.propTypes = {
    */
   onClick: PropTypes.func,
   /**
-   *If combobox is mounted by keyboard, we will not display visual focus on mount. Instead we will only display it when
-   * the user start typing
+   *If combobox is mounted by mouse, we will not display visual focus on mount. Instead we will only display it when
+   * the user start typing (only relevant for defaultVisualFocusFirstIndex state).
    */
   mountedByKeyboard: PropTypes.bool
 };
