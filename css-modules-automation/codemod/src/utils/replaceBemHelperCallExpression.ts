@@ -2,6 +2,7 @@ import * as t from "@babel/types";
 import { printWithCondition } from "./print";
 import { NodePath } from "@babel/traverse";
 import { BEMClass } from "./bemHelper";
+import { getCssBaseClassName } from "./getCssBaseClassName";
 
 /**
  * Replace all bemHelper functions like bemHelper({element: element, state: "state"}) with full classname = `${baseClassName}_${element}__state`
@@ -13,19 +14,19 @@ export const replaceBemHelperCallExpression = (
   path: NodePath<t.CallExpression>
 ): t.StringLiteral | t.TemplateLiteral | t.CallExpression | t.Statement | t.Statement[] => {
   // TODO Refactor - simplify the logic
+  printWithCondition(false, "~~~ CallExpression, bemHelper, path", path);
 
-  const oldClassNames = Array.from(classNames.keys());
-  // TODO now it's just a shortest className, but will have to find classname from BEMClass(...) and const ..._CSS_BASE_CLASS = expressions
-  const baseCssClassName = oldClassNames.reduce(function (a, b) {
-    return a.length <= b.length ? a : b;
-  });
-  const bemHelper = BEMClass(baseCssClassName);
   const bemArguments = path.node.arguments;
   // Arguments should contain one object {element: ..., state: ...}
   if (bemArguments.length === 1 && t.isObjectExpression(bemArguments[0])) {
     const properties = bemArguments[0].properties as t.ObjectProperty[];
     const bemElement = properties.find(p => t.isIdentifier(p.key) && p.key.name === "element")?.value;
     const bemState = properties.find(p => t.isIdentifier(p.key) && p.key.name === "state")?.value;
+
+    const oldClassNames = Array.from(classNames.keys());
+    const baseCssClassName = getCssBaseClassName(oldClassNames, path.hub.getCode());
+    printWithCondition(false, "~~~ CallExpression, bemHelper, baseCssClassName", baseCssClassName);
+    const bemHelper = BEMClass(baseCssClassName);
 
     // If all arguments are StringLiterals
     if ((!bemElement || bemElement.type === "StringLiteral") && (!bemState || bemState.type === "StringLiteral")) {

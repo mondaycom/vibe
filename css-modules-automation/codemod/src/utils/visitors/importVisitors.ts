@@ -84,6 +84,7 @@ export const importVisitors: Visitor<State> = {
       // 3: process .scss file
       classNames = convertToModuleClassNames(scssFilename);
       filesClassNamesMap.set(scssFilename, classNames);
+      // Rename .scss to .module.scss
       renameStylesheetFile(scssFilename);
     } else {
       classNames = filesClassNamesMap.get(scssFilename)!;
