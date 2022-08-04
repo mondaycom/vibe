@@ -6,7 +6,7 @@ import { replaceBemHelperCallExpression } from "../replaceBemHelperCallExpressio
 import { State } from "../../index";
 
 /**
- * 3: These visitors process all bemHelpers function calls
+ * 4: These visitors process all bemHelpers function calls
  */
 export const bemHelperCallExpressionsVisitors: Visitor<State> = {
   CallExpression: (path: NodePath<t.CallExpression>, { classNames }) => {

@@ -9,7 +9,7 @@ import { buildClassnameStringFromTemplateLiteral } from "../buildClassnameString
 import { State } from "../../index";
 
 /**
- * 4: These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
+ * 5: These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
  * with `styles[`${camelCase("mondayStyleAvatarCircle"+type)}`]`
  */
 export const templateLiteralReplacementVisitors: Visitor<State> = {

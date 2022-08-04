@@ -16,7 +16,14 @@ import { classNameAttributeVisitors } from "./classNameAttributeVisitors";
 import { addCamelCaseImportVisitors } from "./addCamelCaseImportVisitors";
 import { State } from "../../index";
 
+/**
+ * Map: key - processed .scss file, value - map (key - old classname, value - new modular classname)
+ */
 const filesClassNamesMap: Map<string, Map<string, string>> = new Map();
+
+/**
+ * Set of processed .jsx files
+ */
 const filesJsxSet: Set<string> = new Set();
 
 const classNamesImportDeclaration = t.importDeclaration(
@@ -36,6 +43,7 @@ export const importVisitors: Visitor<State> = {
     // @ts-ignore
     const file = hub["file"];
 
+    // Should be .jsx file
     if (!isComponentFile(file)) {
       print("### importVisitors, isComponentFile = false", file.opts.filename);
       return;
@@ -73,6 +81,7 @@ export const importVisitors: Visitor<State> = {
     // Get all relevant class names from the file
     let classNames: Map<string, string>;
     if (!filesClassNamesMap.has(scssFilename)) {
+      // 3: process .scss file
       classNames = convertToModuleClassNames(scssFilename);
       filesClassNamesMap.set(scssFilename, classNames);
       renameStylesheetFile(scssFilename);
@@ -100,16 +109,16 @@ export const importVisitors: Visitor<State> = {
 
     // Ensure this is run only once per file
     if (!filesJsxSet.has(filename)) {
-      // 3: Traverse the top-level program path for BEM call expressions
+      // 4: Traverse the top-level program path for BEM call expressions
       file.path.traverse(bemHelperCallExpressionsVisitors, state);
 
-      // 4: Traverse for TemplateLiterals in className attributes values
+      // 5: Traverse for TemplateLiterals in className attributes values
       file.path.traverse(templateLiteralReplacementVisitors, state);
 
-      // 5-7: Traverse the top-level program path for JSX className attributes
+      // 6-8: Traverse the top-level program path for JSX className attributes
       file.path.traverse(classNameAttributeVisitors, state);
 
-      // 8: Adds camel case import if needed
+      // 9: Adds camel case import if needed
       if (state.camelCaseImportNeeded && !state.camelCaseImported) {
         file.path.traverse(addCamelCaseImportVisitors, state);
       }

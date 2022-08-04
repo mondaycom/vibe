@@ -6,7 +6,7 @@ import { getModularClassnameForStringLiteral } from "../getModularClassnameForSt
 import { State } from "../../index";
 
 /**
- * 7: These visitors take a string literal, checks to see if it's a valid CSS module
+ * 8: These visitors take a string literal, checks to see if it's a valid CSS module
  * class name (from `State.classNames`), and if so replaces them with the corresponding
  * CSS module lookup e.g. `style.className`.
  */

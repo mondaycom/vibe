@@ -1,10 +1,10 @@
-import execa from "execa";
+import * as execa from "execa";
 import { existsSync } from "fs";
 import { join } from "path";
 import { printWithCondition } from "./print";
 
 /**
- * Takes a CSS file, parses it with PostCSS into CSS modules syntax, and returns
+ * 3: Takes a CSS file, parses it with PostCSS into CSS modules syntax, and returns
  * all valid class names that can be used by it
  *
  * PostCSS implements async processors, so we can't call it directly from within the plugin
