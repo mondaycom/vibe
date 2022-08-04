@@ -16,5 +16,5 @@ export const printNodeType = (msg: string, path: { type: string }) => {
   print("### printNodeType: ", msg);
 
   const type = path.type;
-  print("### index, printNodeType, path.type = ", type);
+  print("### printNodeType, path.type = ", type);
 };
