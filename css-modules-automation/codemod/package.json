@@ -10,6 +10,7 @@
     "modify react-core/avatar": "npx codemod -p src/index.ts ../../src/components/Avatar",
     "modify react-core/attention-box": "npx codemod -p src/index.ts ../../src/components/AttentionBox/AttentionBox.jsx",
     "modify react-core/alert-banner": "npx codemod -p src/index.ts ../../src/components/AlertBanner/AlertBanner.jsx",
+    "modify react-core/clickable": "npx codemod -p src/index.ts ../../src/components/Clickable/Clickable.jsx",
     "modify react-core/steps-header": "npx codemod -p src/index.ts ../../src/components/Steps/StepsHeader.jsx",
     "modify react-core/color-picker-item-component": "npx codemod -p src/index.ts ../../src/components/ColorPicker/components/ColorPickerItemComponent",
 
