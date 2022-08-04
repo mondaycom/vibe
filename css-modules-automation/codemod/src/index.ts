@@ -414,3 +414,5 @@ export default (): PluginObj<State> => ({
 //  e.g. Avatar usage of AVATAR_CSS_BASE_CLASS
 
 // TODO in ObjecyProperty visitor: sometimes identifiers can be just stringLiterals e.g. empty class Combobox
+
+// TODO replace TemplateLiteral inside ObjectProperty
