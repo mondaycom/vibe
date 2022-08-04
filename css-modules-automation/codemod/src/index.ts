@@ -23,7 +23,7 @@ export default (): PluginObj<State> => ({
   name: "react-css-modules",
   visitor: {
     Program: (programPath, state) => {
-      // 2
+      // 2:
       programPath.traverse(importVisitors, {
         cxImported: false,
         camelCaseImported: false,
