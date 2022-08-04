@@ -290,9 +290,23 @@ const templateLiteralReplacementVisitors: Visitor<State> = {
  */
 const bemHelperCallExpressionsVisitors: Visitor<State> = {
   CallExpression: (path: NodePath<t.CallExpression>, { classNames }) => {
-    if (path.node.callee.type === "Identifier" && path.node.callee.name === "bemHelper") {
-      const newPath = replaceBemHelperCallExpression(classNames, path);
-      path.replaceWith(newPath as any);
+    if (t.isIdentifier(path.node.callee)) {
+      printWithCondition(
+        false,
+        "=== bemHelperCallExpressionsVisitors, isIdentifier, path.node.callee.name",
+        path.node.callee?.name
+      );
+
+      // Replace bemHelper(...) functions
+      if (path.node.callee?.name === "bemHelper") {
+        const newPath = replaceBemHelperCallExpression(classNames, path);
+        path.replaceWith(newPath as any);
+      }
+
+      // Remove BEMClass function calls
+      if (path.node.callee?.name === "BEMClass") {
+        path.parentPath.remove();
+      }
     }
   }
 };
@@ -407,8 +421,6 @@ export default (): PluginObj<State> => ({
     }
   }
 });
-
-// TODO remove const bemHelper = BEMClass(...), e.g. AvatarContent
 
 // TODO add styles[`camelCase(${AVATAR_CSS_BASE_CLASS})`] or styles.avatarCssBaseClass* (* value of the const -> through map)
 //  e.g. Avatar usage of AVATAR_CSS_BASE_CLASS
