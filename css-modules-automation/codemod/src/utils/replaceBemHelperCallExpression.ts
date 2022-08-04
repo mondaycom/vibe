@@ -16,6 +16,8 @@ export const replaceBemHelperCallExpression = (
   // TODO Refactor - simplify the logic
   printWithCondition(false, "~~~ CallExpression, bemHelper, path", path);
 
+  // TODO remember baseCssClass in state - both identifier name and value - can be used later to replace baseCssClass occurences
+
   const bemArguments = path.node.arguments;
   // Arguments should contain one object {element: ..., state: ...}
   if (bemArguments.length === 1 && t.isObjectExpression(bemArguments[0])) {
