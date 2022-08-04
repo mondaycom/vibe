@@ -4,7 +4,7 @@ import * as t from "@babel/types";
 import { Visitor } from "@babel/core";
 import { printWithCondition } from "../print";
 
-// 8.
+// 8. Adds `import { camelCase } from "lodash"` to the top of the imports
 export const addCamelCaseImport = (hub: Hub, state: State) => {
   // @ts-ignore
   const file = hub["file"];
