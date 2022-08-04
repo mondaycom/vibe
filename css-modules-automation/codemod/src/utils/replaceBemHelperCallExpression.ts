@@ -50,7 +50,7 @@ export const replaceBemHelperCallExpression = (
       printWithCondition(false, "~~~ CallExpression, bemHelper, bemStateString", bemStateString);
 
       const bemClassName = bemHelper({ element: bemElementString, state: bemStateString });
-      printWithCondition(true, "~~~ CallExpression, bemHelper, bemClassName", bemClassName);
+      printWithCondition(false, "~~~ CallExpression, bemHelper, bemClassName", bemClassName);
 
       const quasis: t.TemplateElement[] = [];
       const expressions: (t.Expression | t.TSType)[] = [];
@@ -58,16 +58,16 @@ export const replaceBemHelperCallExpression = (
       let start = 0;
       let stringLeft = bemClassName;
       while (stringLeft) {
-        printWithCondition(true, "~~~ CallExpression, bemHelper, iteration, stringLeft", stringLeft);
+        printWithCondition(false, "~~~ CallExpression, bemHelper, iteration, stringLeft", stringLeft);
         if (stringLeft.indexOf("${") > 0) {
           const expressionPart = stringLeft.substr(0, stringLeft.indexOf("${"));
-          printWithCondition(true, "~~~ CallExpression, bemHelper, iteration, expressionPart", expressionPart);
+          printWithCondition(false, "~~~ CallExpression, bemHelper, iteration, expressionPart", expressionPart);
           quasis.push({ ...t.templateElement({ raw: expressionPart, cooked: expressionPart }), start: ++start });
           stringLeft = stringLeft.substr(stringLeft.indexOf("${"));
         } else {
           if (stringLeft.indexOf("${") == 0) {
             const quasisPart = stringLeft.substring(2, stringLeft.indexOf("}"));
-            printWithCondition(true, "~~~ CallExpression, bemHelper, iteration, quasisPart", quasisPart);
+            printWithCondition(false, "~~~ CallExpression, bemHelper, iteration, quasisPart", quasisPart);
             expressions.push({ ...t.identifier(quasisPart), start: ++start });
             const closedQuasisIndex = stringLeft.indexOf("}");
             if (closedQuasisIndex !== stringLeft.length - 1) {

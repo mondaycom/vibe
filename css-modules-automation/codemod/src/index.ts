@@ -23,6 +23,7 @@ import { isBemHelperImportDeclaration } from "./utils/logical/isBemHelperImportD
 import { addCamelCaseImport } from "./utils/traversers/addCamelCaseImport";
 import { getModularClassnameForStringLiteral } from "./utils/getModularClassnameForStringLiteral";
 import { buildClassnameStringFromTemplateLiteral } from "./utils/buildClassnameStringFromTemplateLiteral";
+import { isClassNameJsxAttribute } from "./utils/logical/isClassNameJsxAttribute";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -94,7 +95,7 @@ const stringLiteralReplacementVisitors: Visitor<State> = {
     // Otherwise just replace the literal completely
     else {
       printWithCondition(
-        true,
+        false,
         `### stringLiteralReplacementVisitors, isLiteral, pathNodeStringValue = ${pathNodeStringValue}`
       );
       printWithCondition(false, "### stringLiteralReplacementVisitors, path.parentPath", path.parentPath);
@@ -228,30 +229,59 @@ const classNameAttributeVisitors: Visitor<State> = {
  */
 const templateLiteralReplacementVisitors: Visitor<State> = {
   TemplateLiteral: (path: NodePath<t.TemplateLiteral>, state) => {
-    printWithCondition(true, "### templateLiteralReplacementVisitors, path.node", path.node);
+    printWithCondition(false, "### templateLiteralReplacementVisitors, path.node", path.node);
 
-    // Filter for freshly inserted TemplateLiterals - skip didn't work for some reason
-    if (!path.node.loc) {
-      return;
+    // TODO or const declaration
+    if (isClassNameJsxAttribute(path.parentPath.parentPath)) {
+      // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
+      if (t.isJSXExpressionContainer(path.parent)) {
+        const nodeExpression = path.parent.expression;
+        if (
+          t.isCallExpression(nodeExpression) &&
+          nodeExpression.callee.type === "Identifier" &&
+          nodeExpression.callee.name.toLowerCase() === "classnames"
+        ) {
+          const newPath = renameClassnamesToCxCallExpression(nodeExpression);
+          path.parentPath.replaceWith(newPath);
+          return;
+        }
+      }
+
+      // If 'className={...}' then convert to 'className={cx(...)}'
+      if (t.isJSXExpressionContainer(path.parent) && !isCxCallExpression(path.parent.expression)) {
+        const newPath = wrapWithCxCallExpression(path.parent);
+        path.parentPath.replaceWith(newPath);
+        return;
+      }
     }
 
-    // TODO conditions to replace only classNames related templateLiterals
-    // if (path.parentPath) {
-    //
-    // }
+    if (isCxCallExpression(path.parent)) {
+      const newString = buildClassnameStringFromTemplateLiteral(path.node);
+      const newPath = t.memberExpression(t.identifier(state.opts.importIdentifier), t.identifier(newString), true);
+      printWithCondition(false, "### templateLiteralReplacementVisitors, newString", newString);
+      printWithCondition(false, "### templateLiteralReplacementVisitors, path.parent", path.parent);
+      printWithCondition(
+        false,
+        "### templateLiteralReplacementVisitors, isCxCallExpression, path.parentPath.parent",
+        path.parentPath.parent
+      );
 
-    const newString = buildClassnameStringFromTemplateLiteral(path.node);
-    const newPath = t.memberExpression(t.identifier(state.opts.importIdentifier), t.identifier(newString), true);
-    printWithCondition(true, "### templateLiteralReplacementVisitors, newString", newString);
+      const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
+      insertedPaths.forEach(p => {
+        p.skip();
+        p.getPrevSibling().skip();
+      });
 
-    const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
-    insertedPaths.forEach(p => {
-      p.skip();
-      p.getPrevSibling().skip();
-    });
-    printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
+      printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
 
-    state.camelCaseImportNeeded = true;
+      state.camelCaseImportNeeded = true;
+    } else {
+      printWithCondition(
+        false,
+        "### templateLiteralReplacementVisitors, not processed, path.parentPath",
+        path.parentPath
+      );
+    }
   }
 };
 
@@ -346,7 +376,7 @@ const importVisitors: Visitor<State> = {
       // 3. Traverse the top-level program path for BEM call expressions
       file.path.traverse(bemHelperCallExpressionsVisitors, state);
 
-      // 4. Traverse
+      // 4. Traverse for TemplateLiterals in className attributes values
       file.path.traverse(templateLiteralReplacementVisitors, state);
 
       // 5. Traverse the top-level program path for JSX className attributes
