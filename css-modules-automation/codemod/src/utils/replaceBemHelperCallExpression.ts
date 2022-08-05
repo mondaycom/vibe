@@ -26,9 +26,13 @@ export const replaceBemHelperCallExpression = (
     const bemState = properties.find(p => t.isIdentifier(p.key) && p.key.name === "state")?.value;
 
     const oldClassNames = Array.from(classNames.keys());
+
     const baseCssClassName = getCssBaseClassName(oldClassNames, path.hub.getCode());
-    printWithCondition(false, "~~~ CallExpression, bemHelper, baseCssClassName", baseCssClassName);
-    const bemHelper = BEMClass(baseCssClassName);
+    const { value: baseCssClassNameValue, variableName: baseCssClassNameVariableName } = baseCssClassName;
+    path.state = { ...path.state, baseCssClassName };
+
+    printWithCondition(false, "~~~ CallExpression, bemHelper, baseCssClassNameValue", baseCssClassNameValue);
+    const bemHelper = BEMClass(baseCssClassNameValue);
 
     // If all arguments are StringLiterals
     if ((!bemElement || bemElement.type === "StringLiteral") && (!bemState || bemState.type === "StringLiteral")) {

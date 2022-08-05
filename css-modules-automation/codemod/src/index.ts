@@ -1,6 +1,7 @@
 import { PluginObj } from "@babel/core";
 import { defaults } from "lodash";
 import { importVisitors } from "./utils/visitors/importVisitors";
+import { CssBaseClass } from "./utils/getCssBaseClassName";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -12,6 +13,7 @@ export type State = {
   cxImported: boolean;
   camelCaseImported: boolean;
   camelCaseImportNeeded: boolean;
+  baseCssClassName: CssBaseClass | undefined;
 };
 
 const PLUGIN_DEFAULTS = {
@@ -29,6 +31,7 @@ export default (): PluginObj<State> => ({
         camelCaseImported: false,
         camelCaseImportNeeded: false,
         classNames: new Map<string, string>(),
+        baseCssClassName: undefined,
         opts: defaults({}, state.opts, PLUGIN_DEFAULTS)
       });
     }

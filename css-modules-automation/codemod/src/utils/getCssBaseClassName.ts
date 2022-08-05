@@ -1,11 +1,16 @@
 import { printWithCondition } from "./print";
 
+export type CssBaseClass = {
+  variableName: string | undefined;
+  value: string;
+};
+
 /**
  * Returns cssBaseClassName either from code via regex, either from oldClassNames
  * @param oldClassNames
  * @param code
  */
-export const getCssBaseClassName = (oldClassNames: string[], code: string | undefined): string => {
+export const getCssBaseClassName = (oldClassNames: string[], code: string | undefined): CssBaseClass => {
   if (code) {
     // Get BEMClass argument value
     const bemClassMatches = code.match(/const(\s)*(\w)*\s*=\s*BEMClass\(.*\);/);
@@ -18,7 +23,7 @@ export const getCssBaseClassName = (oldClassNames: string[], code: string | unde
       // It can either be a string, variable
       if (bemClass.includes('"')) {
         // string - return string  value
-        return bemClass.replace('"', "");
+        return { variableName: undefined, value: bemClass.replace('"', "") };
       } else {
         // variable - return variable value
         const baseClassMatches = code.match(RegExp("const(\\s)*(\\w)*" + bemClass + "(\\s)*=(\\s)*(.)*;"));
@@ -29,14 +34,17 @@ export const getCssBaseClassName = (oldClassNames: string[], code: string | unde
             .replace(RegExp("const(\\s)*(\\w)*" + bemClass + '(\\s)*=(\\s)"'), "")
             .replace('";', "");
           printWithCondition(false, "$$$ getCssBaseClassName, baseClass", baseClass);
-          return baseClass;
+          return { variableName: bemClass, value: baseClass };
         }
       }
     }
   }
 
   // Return the shortest string
-  return oldClassNames.reduce(function (a, b) {
-    return a.length <= b.length ? a : b;
-  });
+  return {
+    variableName: undefined,
+    value: oldClassNames.reduce(function (a, b) {
+      return a.length <= b.length ? a : b;
+    })
+  };
 };

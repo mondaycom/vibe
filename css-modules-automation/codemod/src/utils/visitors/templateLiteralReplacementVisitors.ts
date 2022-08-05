@@ -17,7 +17,7 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
     printWithCondition(false, "### templateLiteralReplacementVisitors, path.node", path.node);
 
     // TODO or const declaration
-    if (isClassNameJsxAttribute(path.parentPath.parentPath)) {
+    if (path.parentPath.parentPath && isClassNameJsxAttribute(path.parentPath.parentPath)) {
       // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
       if (t.isJSXExpressionContainer(path.parent)) {
         const nodeExpression = path.parent.expression;
