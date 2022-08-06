@@ -1,1 +1,3 @@
 monday-ui-react-core/src/components/MenuButton/MenuButton.jsx // Use of custom BEMClass function - replace with common use
+monday-ui-react-core/src/components/Slider/SliderBase.jsx // Use of custom BEMClass function - replace with common use
+monday-ui-react-core/src/components/Slider/Slider.jsx // Use of custom BEMClass function - replace with common use
