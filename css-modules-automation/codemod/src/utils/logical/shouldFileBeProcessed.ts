@@ -8,7 +8,7 @@ export const shouldFileBeProcessed = (file: any): boolean => {
   const fileCode = file.code;
 
   // Should be .jsx file
-  if (!isComponentFile(file)) {
+  if (!isComponentFile(filename)) {
     print("### importVisitors, file is not .jsx, so won't be processed", filename);
     return false;
   }
