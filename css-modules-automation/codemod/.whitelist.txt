@@ -1,2 +1,3 @@
 monday-ui-react-core/src/components/Toggle/MockToggle.jsx // Use bemHelper but has no css import
+monday-ui-react-core/src/components/Steps/StepsCommand.jsx // Use bemHelper but has no css import
 monday-ui-react-core/src/components/MenuButton/MenuButton.jsx // Use of custom BEMClass function - replace with common use
