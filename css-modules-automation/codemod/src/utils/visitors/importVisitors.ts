@@ -117,7 +117,6 @@ export const importVisitors: Visitor<State> = {
 
       // 4: Traverse the top-level program path for BEM call expressions
       file.path.traverse(bemHelperCallExpressionsVisitors, state);
-      printWithCondition(true, "");
 
       // 5: Wrap baseClass usages with templateLiteral
       file.path.traverse(baseClassIdentifiersReplacementVisitors, state);
