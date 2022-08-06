@@ -1,14 +1,13 @@
 /**
  * Returns true file is .jsx|.tsx extension and not in __stories__ or __tests__ or hooks folder
- * @param file
+ * @param filename
  */
-export const isComponentFile = (file: any) => {
-  const filepath = file.opts.filename;
-  const filename = filepath.split("/").pop();
+export const isComponentFile = (filename: any) => {
+  const filenameLastPart = filename.split("/").pop();
   return !!(
-    (filename.endsWith(".jsx") || filename.endsWith(".tsx")) &&
-    !filepath.includes("__stories__") &&
-    !filepath.includes("__tests__") &&
-    !filepath.includes("hooks")
+    (filenameLastPart.endsWith(".jsx") || filenameLastPart.endsWith(".tsx")) &&
+    !filename.includes("__stories__") &&
+    !filename.includes("__tests__") &&
+    !filename.includes("hooks")
   );
 };

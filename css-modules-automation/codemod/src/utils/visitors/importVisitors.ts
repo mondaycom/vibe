@@ -1,9 +1,8 @@
 import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
-import { isComponentFile } from "../logical/isComponentFile";
 import { print, printWithCondition } from "../print";
-import { isFileContainsCssImports } from "../logical/isFileContainsCssImports";
+import { doesFileContainsCssImports } from "../logical/doesFileContainsCssImports";
 import { isClassNamesImportDeclaration } from "../logical/isClassNamesImportDeclaration";
 import { isBemHelperImportDeclaration } from "../logical/isBemHelperImportDeclaration";
 import { isCssImportDeclaration } from "../logical/isCssImportDeclaration";
@@ -17,7 +16,7 @@ import { addCamelCaseImportVisitors } from "./addCamelCaseImportVisitors";
 import { State } from "../../index";
 import { baseClassIdentifiersReplacementVisitors } from "./baseClassIdentifiersReplacementVisitors";
 import { getCssBaseClass } from "../getCssBaseClass";
-import { isWhitelistedFile } from "../logical/isWhitelistedFile";
+import { shouldFileBeProcessed } from "../logical/shouldFileBeProcessed";
 
 /**
  * Map: key - processed .scss file, value - map (key - old classname, value - new modular classname)
@@ -43,26 +42,19 @@ const classNamesImportDeclaration = t.importDeclaration(
 export const importVisitors: Visitor<State> = {
   ImportDeclaration: (path: NodePath<t.ImportDeclaration>, state: State) => {
     const { hub, node } = path;
+
     // @ts-ignore
     const file = hub["file"];
-
     const filename: string = file.opts.filename;
 
-    // Should be .jsx file
-    if (!isComponentFile(file)) {
-      print("### importVisitors, isComponentFile = false", filename);
-      path.stop();
-      return;
-    }
-
-    if (isWhitelistedFile(filename)) {
-      print("### importVisitors, file is white listed and won't be processed ", filename);
+    // Check if file is to be processed further or not
+    if (!shouldFileBeProcessed(file)) {
       path.stop();
       return;
     }
 
     // Inserts "import cx from classNames;"
-    if (!state.cxImported && isFileContainsCssImports(file)) {
+    if (!state.cxImported && doesFileContainsCssImports(file)) {
       path.insertBefore(classNamesImportDeclaration);
       state.cxImported = true;
       print("### importVisitors, new cx import inserted");
