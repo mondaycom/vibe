@@ -12,7 +12,7 @@ import { State } from "../../index";
 import { classNameReplacementVisitors } from "./classNameReplacementVisitors";
 
 /**
- * 6: These visitors process all JSX `className` attributes and traverses them
+ * 7: These visitors process all JSX `className` attributes and traverses them
  * using the `replacementVisitors`.
  */
 export const classNameAttributeVisitors: Visitor<State> = {
@@ -34,12 +34,8 @@ export const classNameAttributeVisitors: Visitor<State> = {
     // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
     if (t.isJSXExpressionContainer(node)) {
       const nodeExpression = node.expression;
-      if (
-        t.isCallExpression(nodeExpression) &&
-        nodeExpression.callee.type === "Identifier" &&
-        nodeExpression.callee.name.toLowerCase() === "classnames"
-      ) {
-        const newPath = renameClassnamesToCxCallExpression(nodeExpression);
+      if (isCxCallExpression(nodeExpression, ["classNames", "classnames"])) {
+        const newPath = renameClassnamesToCxCallExpression(nodeExpression as t.CallExpression);
         path.replaceWith(t.jsxAttribute(path.node.name, newPath));
         return;
       }
@@ -62,7 +58,7 @@ export const classNameAttributeVisitors: Visitor<State> = {
       }
     }
 
-    // 7:
+    // 8:
     path.traverse(classNameReplacementVisitors, state);
   },
   ObjectProperty: (path, state) => {
@@ -100,7 +96,7 @@ export const classNameAttributeVisitors: Visitor<State> = {
       //   }
       // }
 
-      // 7:
+      // 8:
       path.traverse(classNameReplacementVisitors, state);
     }
   }

@@ -10,7 +10,7 @@ export type CssBaseClass = {
  * @param oldClassNames
  * @param code
  */
-export const getCssBaseClassName = (oldClassNames: string[], code: string | undefined): CssBaseClass => {
+export const getCssBaseClass = (oldClassNames: string[], code: string | undefined): CssBaseClass => {
   if (code) {
     // Get BEMClass argument value
     const bemClassMatches = code.match(/const(\s)*(\w)*\s*=\s*BEMClass\(.*\);/);

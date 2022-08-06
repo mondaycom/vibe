@@ -9,7 +9,7 @@ import { State } from "../../index";
  * 4: These visitors process all bemHelpers function calls
  */
 export const bemHelperCallExpressionsVisitors: Visitor<State> = {
-  CallExpression: (path: NodePath<t.CallExpression>, { classNames }) => {
+  CallExpression: (path: NodePath<t.CallExpression>, state) => {
     if (t.isIdentifier(path.node.callee)) {
       printWithCondition(
         false,
@@ -19,7 +19,7 @@ export const bemHelperCallExpressionsVisitors: Visitor<State> = {
 
       // Replace bemHelper(...) functions
       if (path.node.callee?.name === "bemHelper") {
-        const newPath = replaceBemHelperCallExpression(classNames, path);
+        const newPath = replaceBemHelperCallExpression(state, path);
         path.replaceWith(newPath as any);
       }
 

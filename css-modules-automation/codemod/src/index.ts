@@ -1,7 +1,7 @@
 import { PluginObj } from "@babel/core";
 import { defaults } from "lodash";
 import { importVisitors } from "./utils/visitors/importVisitors";
-import { CssBaseClass } from "./utils/getCssBaseClassName";
+import { CssBaseClass } from "./utils/getCssBaseClass";
 
 type PluginOptions = {
   importIdentifier: "styles";
@@ -13,7 +13,7 @@ export type State = {
   cxImported: boolean;
   camelCaseImported: boolean;
   camelCaseImportNeeded: boolean;
-  baseCssClassName: CssBaseClass | undefined;
+  baseCssClass: CssBaseClass | undefined;
 };
 
 const PLUGIN_DEFAULTS = {
@@ -31,15 +31,12 @@ export default (): PluginObj<State> => ({
         camelCaseImported: false,
         camelCaseImportNeeded: false,
         classNames: new Map<string, string>(),
-        baseCssClassName: undefined,
+        baseCssClass: undefined,
         opts: defaults({}, state.opts, PLUGIN_DEFAULTS)
       });
     }
   }
 });
-
-// TODO add styles[`camelCase(${AVATAR_CSS_BASE_CLASS})`] or styles.avatarCssBaseClass* (* value of the const -> through map)
-//  e.g. Avatar usage of AVATAR_CSS_BASE_CLASS
 
 // TODO in ObjecyProperty visitor: sometimes identifiers can be just stringLiterals e.g. empty class Combobox
 

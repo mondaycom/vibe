@@ -2,21 +2,19 @@ import * as t from "@babel/types";
 import { printWithCondition } from "./print";
 import { NodePath } from "@babel/traverse";
 import { BEMClass } from "./bemHelper";
-import { getCssBaseClassName } from "./getCssBaseClassName";
+import { State } from "../index";
 
 /**
  * Replace all bemHelper functions like bemHelper({element: element, state: "state"}) with full classname = `${baseClassName}_${element}__state`
- * @param classNames Set of classnames
  * @param path Path to the CallExpression node
+ * @param state current common state
  */
 export const replaceBemHelperCallExpression = (
-  classNames: Map<string, string>,
+  state: State,
   path: NodePath<t.CallExpression>
 ): t.StringLiteral | t.TemplateLiteral | t.CallExpression | t.Statement | t.Statement[] => {
   // TODO Refactor - simplify the logic
   printWithCondition(false, "~~~ CallExpression, bemHelper, path", path);
-
-  // TODO remember baseCssClass in state - both identifier name and value - can be used later to replace baseCssClass occurences
 
   const bemArguments = path.node.arguments;
   // Arguments should contain one object {element: ..., state: ...}
@@ -25,14 +23,8 @@ export const replaceBemHelperCallExpression = (
     const bemElement = properties.find(p => t.isIdentifier(p.key) && p.key.name === "element")?.value;
     const bemState = properties.find(p => t.isIdentifier(p.key) && p.key.name === "state")?.value;
 
-    const oldClassNames = Array.from(classNames.keys());
-
-    const baseCssClassName = getCssBaseClassName(oldClassNames, path.hub.getCode());
-    const { value: baseCssClassNameValue, variableName: baseCssClassNameVariableName } = baseCssClassName;
-    path.state = { ...path.state, baseCssClassName };
-
-    printWithCondition(false, "~~~ CallExpression, bemHelper, baseCssClassNameValue", baseCssClassNameValue);
-    const bemHelper = BEMClass(baseCssClassNameValue);
+    printWithCondition(false, "~~~ CallExpression, bemHelper, state.baseCssClass", state.baseCssClass);
+    const bemHelper = BEMClass(state.baseCssClass?.value);
 
     // If all arguments are StringLiterals
     if ((!bemElement || bemElement.type === "StringLiteral") && (!bemState || bemState.type === "StringLiteral")) {

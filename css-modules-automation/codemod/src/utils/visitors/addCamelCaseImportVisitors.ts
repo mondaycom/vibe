@@ -9,7 +9,7 @@ const camelCaseImportDeclaration = t.importDeclaration(
   t.stringLiteral("lodash")
 );
 
-// 9: Adds `import { camelCase } from "lodash"` to the top of the imports
+// 10: Adds `import { camelCase } from "lodash"` to the top of the imports
 export const addCamelCaseImportVisitors: Visitor<State> = {
   ImportDeclaration: (path: NodePath<t.ImportDeclaration>, state: State) => {
     if (state.camelCaseImported) {
