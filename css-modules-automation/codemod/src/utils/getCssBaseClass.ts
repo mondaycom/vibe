@@ -2,7 +2,7 @@ import { printWithCondition } from "./print";
 
 export type CssBaseClass = {
   variableName: string | undefined;
-  value: string;
+  value: string | undefined;
 };
 
 /**
@@ -43,8 +43,10 @@ export const getCssBaseClass = (oldClassNames: string[], code: string | undefine
   // Return the shortest string
   return {
     variableName: undefined,
-    value: oldClassNames.reduce(function (a, b) {
-      return a.length <= b.length ? a : b;
-    })
+    value: oldClassNames.length
+      ? oldClassNames.reduce(function (a, b) {
+          return a.length <= b.length ? a : b;
+        })
+      : undefined
   };
 };

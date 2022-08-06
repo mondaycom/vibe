@@ -109,8 +109,10 @@ export const importVisitors: Visitor<State> = {
 
     // Ensure this is run only once per file
     if (!filesJsxSet.has(filename)) {
+      const oldClassNamesArray = Array.from(classNames.keys());
+
       // Update state with baseCssClass
-      state.baseCssClass = getCssBaseClass(Array.from(classNames.keys()), path.hub.getCode());
+      state.baseCssClass = getCssBaseClass(oldClassNamesArray, path.hub.getCode());
       printWithCondition(false, "### importVisitors, state.baseCssClassName", state.baseCssClass);
 
       // 4: Traverse the top-level program path for BEM call expressions
