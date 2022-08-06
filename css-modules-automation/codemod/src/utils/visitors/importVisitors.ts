@@ -17,6 +17,7 @@ import { addCamelCaseImportVisitors } from "./addCamelCaseImportVisitors";
 import { State } from "../../index";
 import { baseClassIdentifiersReplacementVisitors } from "./baseClassIdentifiersReplacementVisitors";
 import { getCssBaseClass } from "../getCssBaseClass";
+import { isWhitelistedFile } from "../logical/isWhitelistedFile";
 
 /**
  * Map: key - processed .scss file, value - map (key - old classname, value - new modular classname)
@@ -45,9 +46,18 @@ export const importVisitors: Visitor<State> = {
     // @ts-ignore
     const file = hub["file"];
 
+    const filename: string = file.opts.filename;
+
     // Should be .jsx file
     if (!isComponentFile(file)) {
-      print("### importVisitors, isComponentFile = false", file.opts.filename);
+      print("### importVisitors, isComponentFile = false", filename);
+      path.stop();
+      return;
+    }
+
+    if (isWhitelistedFile(filename)) {
+      print("### importVisitors, file is white listed and won't be processed ", filename);
+      path.stop();
       return;
     }
 
@@ -78,7 +88,6 @@ export const importVisitors: Visitor<State> = {
     }
 
     // Calculate the file path relative to the current file
-    const filename = file.opts.filename;
     const scssFilename: string = resolve(dirname(filename), node.source.value);
     // Get all relevant class names from the file
     let classNames: Map<string, string>;
