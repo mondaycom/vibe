@@ -13,6 +13,7 @@
     "modify react-core/clickable": "npx codemod -p src/index.ts ../../src/components/Clickable/Clickable.jsx",
     "modify react-core/steps-header": "npx codemod -p src/index.ts ../../src/components/Steps/StepsHeader.jsx",
     "modify react-core/color-picker-item-component": "npx codemod -p src/index.ts ../../src/components/ColorPicker/components/ColorPickerItemComponent",
+    "modify react-core/dialog-content-container": "npx codemod -p src/index.ts ../../src/components/DialogContentContainer/DialogContentContainer.jsx",
 
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
