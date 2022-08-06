@@ -23,7 +23,7 @@ export const getCssBaseClass = (oldClassNames: string[], code: string | undefine
       // It can either be a string, variable
       if (bemClass.includes('"')) {
         // string - return string  value
-        return { variableName: undefined, value: bemClass.replace('"', "") };
+        return { variableName: undefined, value: bemClass.replaceAll('"', "") };
       } else {
         // variable - return variable value
         const baseClassMatches = code.match(RegExp("const(\\s)*(\\w)*" + bemClass + "(\\s)*=(\\s)*(.)*;"));
