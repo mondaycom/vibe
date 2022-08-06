@@ -15,6 +15,7 @@
     "modify react-core/color-picker-item-component": "npx codemod -p src/index.ts ../../src/components/ColorPicker/components/ColorPickerItemComponent",
     "modify react-core/dialog-content-container": "npx codemod -p src/index.ts ../../src/components/DialogContentContainer/DialogContentContainer.jsx",
     "modify react-core/mock-toggle": "npx codemod -p src/index.ts ../../src/components/Toggle/MockToggle.jsx",
+    "modify react-core/steps-command": "npx codemod -p src/index.ts ../../src/components/Steps/StepsCommand.jsx",
 
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
