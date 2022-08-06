@@ -6,7 +6,7 @@ const WHITELIST_PATH = ".whitelist.txt";
 export const getWhitelistedFiles = (): Set<string> => {
   const content = readFileSync(WHITELIST_PATH).toString();
   const set = new Set<string>(content.split("\n").map(filename => shortenAbsolutePath(removeComments(filename))));
-  printWithCondition(true, "getWhitelistedFiles set", set);
+  printWithCondition(false, "getWhitelistedFiles set", set);
   return set;
 };
 
