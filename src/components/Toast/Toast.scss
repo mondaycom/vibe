@@ -11,7 +11,7 @@
   top: 0;
   left: 50%;
   right: auto;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   padding: $spacing-small;
   align-items: center;
   display: flex;
@@ -37,7 +37,8 @@
   &-action {
     margin-left: $spacing-medium;
     display: flex;
-    &_button, &_link {
+    &_button,
+    &_link {
       margin-left: $spacing-small;
     }
   }
@@ -55,18 +56,18 @@
   }
 
   &-animation {
-    &-enter-active, &-exit-active {
+    &-enter-active,
+    &-exit-active {
       animation-iteration-count: 1;
-      animation-direction: forwards;
       animation-fill-mode: forwards;
     }
     &-enter-active {
-      animation-duration: 400ms;
+      animation-duration: var(--motion-expressive-long);
       animation-name: toast-pop-in;
     }
 
     &-exit-active {
-      animation-duration: 160ms;
+      animation-duration: var(--motion-productive-long);
       animation-name: toast-pop-out;
     }
   }
@@ -78,35 +79,34 @@
 
 @keyframes toast-pop-in {
   0% {
-    transform: translate(-50%,-115px);
+    transform: translate(-50%, -115px);
   }
   25% {
     // down 130 px
-    transform: translate(-50%,15px);
-    animation-timing-function: cubic-bezier(0,0,0.35,1);
+    transform: translate(-50%, 15px);
+    animation-timing-function: var(--motion-timing-enter);
   }
-  
+
   66% {
     // up 20 px
-    transform: translate(-50%,-5px);
-    animation-timing-function: cubic-bezier(0.4,0,1,1);
+    transform: translate(-50%, -5px);
+    animation-timing-function: var(--motion-timing-exit);
   }
-  
+
   100% {
     // down 5 px
-    transform: translate(-50%,0px);
-    animation-timing-function: cubic-bezier(0.4,0,1,1);
+    transform: translate(-50%, 0px);
+    animation-timing-function: var(--motion-timing-exit);
   }
 }
 
-
 @keyframes toast-pop-out {
   0% {
-    transform: translate(-50%,0);
+    transform: translate(-50%, 0);
   }
   100% {
     // up 130 px
-    transform: translate(-50%,-130px);
-    animation-timing-function: cubic-bezier(0,0,0.35,1);
+    transform: translate(-50%, -130px);
+    animation-timing-function: var(--motion-timing-enter);
   }
 }

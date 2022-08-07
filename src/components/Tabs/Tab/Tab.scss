@@ -64,7 +64,7 @@
   &.active {
     &:after {
       transform: scaleX(1);
-      transition: transform 100ms cubic-bezier(0, 0, 0.35, 1);
+      transition: transform var(--motion-productive-medium) var(--motion-timing-enter);
     }
   }
 

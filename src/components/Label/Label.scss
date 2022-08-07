@@ -25,9 +25,8 @@
   }
 
   &--with-animation {
-    animation: label-pop 200ms;
+    animation: label-pop var(--motion-expressive-short) var(--motion-timing-emphasize);
     transform-origin: bottom left;
-    animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
   }
 
   &--kind {
@@ -126,7 +125,6 @@
     }
 
     70% {
-      transform: rotate(-5deg);
       opacity: 1;
     }
 

@@ -1,5 +1,51 @@
 # Changelog
 
+## 1.54.0 (2022-08-03)
+
+#### Bug Fixes
+* [#807](https://github.com/mondaycom/monday-ui-react-core/pull/807) Fix typo in color menuColorsExample.png ([@3dyonic](https://github.com/3dyonic))
+
+#### New Features
+* [#796](https://github.com/mondaycom/monday-ui-react-core/pull/796) Use motion tokens on SliderBase.scss ([@3dyonic](https://github.com/3dyonic))
+* [#797](https://github.com/mondaycom/monday-ui-react-core/pull/797) Use motion tokens on SplitButton.scss ([@3dyonic](https://github.com/3dyonic))
+* [#798](https://github.com/mondaycom/monday-ui-react-core/pull/798) Use motion tokens on Steps.scss ([@3dyonic](https://github.com/3dyonic))
+* [#802](https://github.com/mondaycom/monday-ui-react-core/pull/802) Use motion tokens on TextField.scss ([@3dyonic](https://github.com/3dyonic))
+* [#803](https://github.com/mondaycom/monday-ui-react-core/pull/803) Use motion tokens on Toggle.scss ([@3dyonic](https://github.com/3dyonic))
+* [#804](https://github.com/mondaycom/monday-ui-react-core/pull/804) Use motion tokens on Toast.scss ([@3dyonic](https://github.com/3dyonic))
+* [#805](https://github.com/mondaycom/monday-ui-react-core/pull/805) Use motion tokens on TabPanels.scss ([@3dyonic](https://github.com/3dyonic))
+* [#786](https://github.com/mondaycom/monday-ui-react-core/pull/786) Use motion tokens on Label.scss ([@3dyonic](https://github.com/3dyonic))
+* [#801](https://github.com/mondaycom/monday-ui-react-core/pull/801) Use motion tokens on Tab.scss ([@3dyonic](https://github.com/3dyonic))
+* [#795](https://github.com/mondaycom/monday-ui-react-core/pull/795) Use motion tokens on RadioButton.scss ([@3dyonic](https://github.com/3dyonic))
+* [#790](https://github.com/mondaycom/monday-ui-react-core/pull/790) Use motion tokens on LinearProgressBar.scss ([@3dyonic](https://github.com/3dyonic))
+* [#806](https://github.com/mondaycom/monday-ui-react-core/pull/806) Use motion tokens on Skeleton.scss ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#809](https://github.com/mondaycom/monday-ui-react-core/pull/809) fix issue for externals ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.53.0 (2022-08-01)
+
+#### Bug Fixes
+* [#800](https://github.com/mondaycom/monday-ui-react-core/pull/800) Fix h1 style gaps in Editable heading edit mode. ([@3dyonic](https://github.com/3dyonic))
+
+#### New Features
+* [#782](https://github.com/mondaycom/monday-ui-react-core/pull/782) Use motion tokens on Chips.module.scss ([@3dyonic](https://github.com/3dyonic))
+* [#789](https://github.com/mondaycom/monday-ui-react-core/pull/789) Use motion tokens on StepIndicator.scss ([@3dyonic](https://github.com/3dyonic))
+* [#779](https://github.com/mondaycom/monday-ui-react-core/pull/779) Use motion tokens on  Button.scss ([@3dyonic](https://github.com/3dyonic))
+* [#784](https://github.com/mondaycom/monday-ui-react-core/pull/784) Feature/yonatanari/motion tokens counter ([@3dyonic](https://github.com/3dyonic))
+* [#785](https://github.com/mondaycom/monday-ui-react-core/pull/785) Use motion tokens on Dropdown.scss and dropdown/menu.scss ([@3dyonic](https://github.com/3dyonic))
+* [#788](https://github.com/mondaycom/monday-ui-react-core/pull/788) Use motion tokens on MenuButton.scss ([@3dyonic](https://github.com/3dyonic))
+* [#781](https://github.com/mondaycom/monday-ui-react-core/pull/781) Use motion tokens on Checkbox.scss ([@3dyonic](https://github.com/3dyonic))
+* [#778](https://github.com/mondaycom/monday-ui-react-core/pull/778) Use motion tokens on ExpandCollapse.scss ([@3dyonic](https://github.com/3dyonic))
+* [#772](https://github.com/mondaycom/monday-ui-react-core/pull/772) New disabled-text-color tokens, component disabled update. ([@3dyonic](https://github.com/3dyonic))
+
+## 1.52.3 (2022-08-01)
+
+#### Bug Fixes
+* [#799](https://github.com/mondaycom/monday-ui-react-core/pull/799) allow disable label animation on radio button ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#793](https://github.com/mondaycom/monday-ui-react-core/pull/793) Tipseen: fix styleint errors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.52.2 (2022-07-28)
 
 #### Bug Fixes
