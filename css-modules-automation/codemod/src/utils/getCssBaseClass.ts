@@ -38,6 +38,25 @@ export const getCssBaseClass = (oldClassNames: string[], code: string | undefine
         }
       }
     }
+
+    // If unsuccessful then try to get plain baseClass declaration
+    const baseCssClassMatches = code.match(/const(.)*BASE_CSS_CLASS(\s)*=(\s)*"(.)*"(\s)*;/);
+    if (baseCssClassMatches?.length) {
+      const baseCssClassFirstMatch = baseCssClassMatches[0];
+      printWithCondition(false, "$$$ getCssBaseClassName, baseCssClassFirstMatch", baseCssClassFirstMatch);
+
+      const baseCssClassVariableName = baseCssClassFirstMatch
+        .replace(/const(\s)*/, "")
+        .replace(/(\s)*=(\s)*"(.)*"(\s)*;/, "");
+      printWithCondition(false, "$$$ getCssBaseClassName, baseCssClassVariableName", baseCssClassVariableName);
+
+      const baseCssClassValue = baseCssClassFirstMatch.slice(
+        baseCssClassFirstMatch.indexOf('"') + 1,
+        baseCssClassFirstMatch.lastIndexOf('"') - 1
+      );
+      printWithCondition(false, "$$$ getCssBaseClassName, baseCssClassValue", baseCssClassValue);
+      return { variableName: baseCssClassVariableName, value: baseCssClassValue };
+    }
   }
 
   // Return the shortest string
