@@ -105,7 +105,7 @@ export const importVisitors: Visitor<State> = {
     // enabled usually, or possibly PostCSS modules plugin like we use here.
     path.replaceWith(
       t.importDeclaration(
-        [t.importNamespaceSpecifier(t.identifier(state.opts.importIdentifier))],
+        [t.importDefaultSpecifier(t.identifier(state.opts.importIdentifier))],
         t.stringLiteral(getCssModulesFileName(node.source.value))
       )
     );
