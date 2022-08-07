@@ -1,6 +1,6 @@
 import { isComponentFile } from "./isComponentFile";
 import { isWhitelistedFile } from "./isWhitelistedFile";
-import { print } from "../print";
+import { print } from "../commonProcess/print";
 import { doesFileContainsCssImports } from "./doesFileContainsCssImports";
 
 export const shouldFileBeProcessed = (file: any): boolean => {

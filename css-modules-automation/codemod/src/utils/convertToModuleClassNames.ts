@@ -1,7 +1,7 @@
 import * as execa from "execa";
 import { existsSync } from "fs";
 import { join } from "path";
-import { printWithCondition } from "./print";
+import { printWithCondition } from "./commonProcess/print";
 
 /**
  * 3: Takes a CSS file, parses it with PostCSS into CSS modules syntax, and returns

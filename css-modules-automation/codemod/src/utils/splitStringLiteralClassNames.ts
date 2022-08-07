@@ -1,11 +1,11 @@
 import * as t from "@babel/types";
-import { printWithCondition } from "./print";
+import { printWithCondition } from "./commonProcess/print";
 
 /**
  * Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
  * @param node - CallExpression
  */
-export const splitClassNames = (node: t.CallExpression): t.JSXExpressionContainer => {
+export const splitStringLiteralClassNames = (node: t.CallExpression): t.JSXExpressionContainer => {
   const newArguments: (t.Expression | t.SpreadElement | t.JSXNamespacedName | t.ArgumentPlaceholder)[] = [];
   node.arguments.forEach(a => {
     if (t.isStringLiteral(a) && a.value.trim().includes(" ")) {
@@ -17,6 +17,6 @@ export const splitClassNames = (node: t.CallExpression): t.JSXExpressionContaine
   });
   const nodeCallee = node.callee as t.Identifier;
   const res = t.jsxExpressionContainer(t.callExpression(nodeCallee, newArguments));
-  printWithCondition(false, "^^^ splitClassNames, newArguments", newArguments);
+  printWithCondition(false, "^^^ splitStringLiteralClassNames, newArguments", newArguments);
   return res;
 };

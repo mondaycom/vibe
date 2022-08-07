@@ -2,7 +2,7 @@ import { State } from "../../index";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
 import { Visitor } from "@babel/core";
-import { printWithCondition } from "../print";
+import { printWithCondition } from "../commonProcess/print";
 
 const camelCaseImportDeclaration = t.importDeclaration(
   [t.importSpecifier(t.identifier("camelCase"), t.identifier("camelCase"))],

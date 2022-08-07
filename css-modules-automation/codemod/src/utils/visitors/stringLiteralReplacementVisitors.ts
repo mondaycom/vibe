@@ -1,7 +1,7 @@
 import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
-import { print, printWithCondition } from "../print";
+import { print, printWithCondition } from "../commonProcess/print";
 import { getModularClassnameForStringLiteral } from "../getModularClassnameForStringLiteral";
 import { State } from "../../index";
 

@@ -1,6 +1,6 @@
 import * as t from "@babel/types";
 import { StringLiteral } from "@babel/types";
-import { printWithCondition } from "./print";
+import { printWithCondition } from "./commonProcess/print";
 
 /**
  * Check if given classname exists in classnames, if yes, then return styles.newClassName, otherwise return original classname

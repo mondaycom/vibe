@@ -6,8 +6,8 @@ import {
   wrapStringLiteralWithCxCallExpression,
   wrapWithCxCallExpression
 } from "../wrapWithCxCallExpression";
-import { isCxCallExpression } from "../logical/isCxCallExpression";
-import { splitClassNames } from "../splitClassNames";
+import { CX_NAMES_CLASSNAMES, isCxCallExpression } from "../logical/isCxCallExpression";
+import { splitStringLiteralClassNames } from "../splitStringLiteralClassNames";
 import { State } from "../../index";
 import { classNameReplacementVisitors } from "./classNameReplacementVisitors";
 
@@ -34,7 +34,7 @@ export const classNameAttributeVisitors: Visitor<State> = {
     // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
     if (t.isJSXExpressionContainer(node)) {
       const nodeExpression = node.expression;
-      if (isCxCallExpression(nodeExpression, ["classNames", "classnames"])) {
+      if (isCxCallExpression(nodeExpression, CX_NAMES_CLASSNAMES)) {
         const newPath = renameClassnamesToCxCallExpression(nodeExpression as t.CallExpression);
         path.replaceWith(t.jsxAttribute(path.node.name, newPath));
         return;
@@ -52,7 +52,7 @@ export const classNameAttributeVisitors: Visitor<State> = {
     if (t.isJSXExpressionContainer(node) && isCxCallExpression(node.expression)) {
       const callExpression = node.expression as t.CallExpression;
       if (callExpression.arguments.some(a => a.type === "StringLiteral" && a.value.includes(" "))) {
-        const newPath = splitClassNames(callExpression);
+        const newPath = splitStringLiteralClassNames(callExpression);
         path.replaceWith(t.jsxAttribute(path.node.name, newPath));
         return;
       }

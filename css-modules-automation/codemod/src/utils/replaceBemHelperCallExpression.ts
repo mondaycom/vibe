@@ -1,13 +1,14 @@
 import * as t from "@babel/types";
-import { printWithCondition } from "./print";
+import { printWithCondition } from "./commonProcess/print";
 import { NodePath } from "@babel/traverse";
 import { BEMClass } from "./bemHelper";
 import { State } from "../index";
+import { createTemplateLiteralFromString } from "./templateLiterals/createTemplateLiteralFromString";
 
 /**
  * Replace all bemHelper functions like bemHelper({element: element, state: "state"}) with full classname = `${baseClassName}_${element}__state`
  * @param path Path to the CallExpression node
- * @param state current common state
+ * @param state current commonProcess state
  */
 export const replaceBemHelperCallExpression = (
   state: State,
@@ -54,36 +55,7 @@ export const replaceBemHelperCallExpression = (
       const bemClassName = bemHelper({ element: bemElementString, state: bemStateString });
       printWithCondition(false, "~~~ CallExpression, bemHelper, bemClassName", bemClassName);
 
-      const quasis: t.TemplateElement[] = [];
-      const expressions: (t.Expression | t.TSType)[] = [];
-
-      let start = 0;
-      let stringLeft = bemClassName;
-      while (stringLeft) {
-        printWithCondition(false, "~~~ CallExpression, bemHelper, iteration, stringLeft", stringLeft);
-        if (stringLeft.indexOf("${") > 0) {
-          const expressionPart = stringLeft.substr(0, stringLeft.indexOf("${"));
-          printWithCondition(false, "~~~ CallExpression, bemHelper, iteration, expressionPart", expressionPart);
-          quasis.push({ ...t.templateElement({ raw: expressionPart, cooked: expressionPart }), start: ++start });
-          stringLeft = stringLeft.substr(stringLeft.indexOf("${"));
-        } else {
-          if (stringLeft.indexOf("${") == 0) {
-            const quasisPart = stringLeft.substring(2, stringLeft.indexOf("}"));
-            printWithCondition(false, "~~~ CallExpression, bemHelper, iteration, quasisPart", quasisPart);
-            expressions.push({ ...t.identifier(quasisPart), start: ++start });
-            const closedQuasisIndex = stringLeft.indexOf("}");
-            if (closedQuasisIndex !== stringLeft.length - 1) {
-              stringLeft = stringLeft.substr(closedQuasisIndex + 1);
-            } else {
-              stringLeft = "";
-            }
-          }
-        }
-      }
-
-      quasis.push({ ...t.templateElement({ raw: "", cooked: "" }), start: ++start });
-
-      return t.templateLiteral(quasis, expressions);
+      return createTemplateLiteralFromString(bemClassName);
     }
   }
   printWithCondition(true, "~~~ CallExpression, bemHelper, wasn't able to replace path", path);

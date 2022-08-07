@@ -1,7 +1,7 @@
 import { JSXAttribute, JSXExpressionContainer } from "@babel/types";
 import { NodePath } from "@babel/traverse";
 import { types as t } from "@babel/core";
-import { printWithCondition } from "./print";
+import { printWithCondition } from "./commonProcess/print";
 
 /**
  * Replace className="..." with className={"..."}

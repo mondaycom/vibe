@@ -1,4 +1,4 @@
-import { getWhitelistedFiles, shortenAbsolutePath } from "../getWhitelistedFiles";
+import { getWhitelistedFiles, shortenAbsolutePath } from "../commonProcess/getWhitelistedFiles";
 
 const whitelistedFiles: Set<string> = getWhitelistedFiles();
 

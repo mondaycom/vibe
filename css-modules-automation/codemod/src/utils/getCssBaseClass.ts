@@ -1,4 +1,4 @@
-import { printWithCondition } from "./print";
+import { printWithCondition } from "./commonProcess/print";
 
 export type CssBaseClass = {
   variableName: string | undefined;

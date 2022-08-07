@@ -1,5 +1,5 @@
 import * as t from "@babel/types";
-import { printWithCondition } from "../print";
+import { printWithCondition } from "../commonProcess/print";
 import { NodePath } from "@babel/traverse";
 
 /**

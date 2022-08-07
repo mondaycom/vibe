@@ -1,5 +1,5 @@
 import { copyFileSync, existsSync } from "fs";
-import { printWithCondition } from "./print";
+import { printWithCondition } from "./commonProcess/print";
 
 export const getCssModulesFileName = (path: string) => {
   return path.replace(".scss", ".module.scss");
