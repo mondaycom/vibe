@@ -16,6 +16,13 @@
     "modify react-core/dialog-content-container": "npx codemod -p src/index.ts ../../src/components/DialogContentContainer/DialogContentContainer.jsx",
     "modify react-core/mock-toggle": "npx codemod -p src/index.ts ../../src/components/Toggle/MockToggle.jsx",
     "modify react-core/steps-command": "npx codemod -p src/index.ts ../../src/components/Steps/StepsCommand.jsx",
+    "modify react-core/tooltip": "npx codemod -p src/index.ts ../../src/components/Tooltip/Tooltip.jsx",
+    "modify react-core/toggle": "npx codemod -p src/index.ts ../../src/components/Toggle/Toggle.jsx",
+    "modify react-core/toast-link": "npx codemod -p src/index.ts ../../src/components/Toast/ToastLink/ToastLink.jsx",
+    "modify react-core/tipseen-image": "npx codemod -p src/index.ts ../../src/components/Tipseen/TipseenImage.jsx",
+    "modify react-core/tipseen-basic-content": "npx codemod -p src/index.ts ../../src/components/Tipseen/TipseenBasicContent.jsx",
+    "modify react-core/tipseen": "npx codemod -p src/index.ts ../../src/components/Tipseen/Tipseen.jsx",
+    "modify react-core/tab": "npx codemod -p src/index.ts ../../src/components/Tabs/Tab/Tab.jsx",
 
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
