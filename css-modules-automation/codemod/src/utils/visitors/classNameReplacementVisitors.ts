@@ -8,7 +8,7 @@ import { stringLiteralReplacementVisitors } from "./stringLiteralReplacementVisi
  * in the containing scope which also contain string literals.
  */
 export const classNameReplacementVisitors: Visitor<State> = {
-  // 9:
+  // 10:
   ...stringLiteralReplacementVisitors,
 
   Identifier: ({ node, scope }, state) => {
@@ -18,7 +18,7 @@ export const classNameReplacementVisitors: Visitor<State> = {
     }
 
     // TODO is that needed??
-    // 9:
+    // 10:
     binding.path.traverse(stringLiteralReplacementVisitors, state);
   }
 };

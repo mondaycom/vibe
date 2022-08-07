@@ -12,7 +12,7 @@ import { State } from "../../index";
 import { classNameReplacementVisitors } from "./classNameReplacementVisitors";
 
 /**
- * 7: These visitors process all JSX `className` attributes and traverses them
+ * 8: These visitors process all JSX `className` attributes and traverses them
  * using the `replacementVisitors`.
  */
 export const classNameAttributeVisitors: Visitor<State> = {
@@ -58,7 +58,7 @@ export const classNameAttributeVisitors: Visitor<State> = {
       }
     }
 
-    // 8:
+    // 9:
     path.traverse(classNameReplacementVisitors, state);
   },
   ObjectProperty: (path, state) => {
@@ -96,7 +96,7 @@ export const classNameAttributeVisitors: Visitor<State> = {
       //   }
       // }
 
-      // 8:
+      // 9:
       path.traverse(classNameReplacementVisitors, state);
     }
   }

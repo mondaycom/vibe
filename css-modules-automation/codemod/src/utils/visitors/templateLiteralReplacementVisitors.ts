@@ -11,7 +11,7 @@ import { buildClassnameStringFromTemplateLiteral } from "../templateLiterals/bui
 import { splitTemplateLiteralClassNames } from "../templateLiterals/splitTemplateLiteralClassNames";
 
 /**
- * 6: These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
+ * 7: These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`
  * with `styles[`${camelCase("mondayStyleAvatarCircle"+type)}`]`
  */
 export const templateLiteralReplacementVisitors: Visitor<State> = {

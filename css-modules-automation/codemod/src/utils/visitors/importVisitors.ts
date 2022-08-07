@@ -17,6 +17,7 @@ import { State } from "../../index";
 import { baseClassIdentifiersReplacementVisitors } from "./baseClassIdentifiersReplacementVisitors";
 import { getCssBaseClass } from "../getCssBaseClass";
 import { shouldFileBeProcessed } from "../logical/shouldFileBeProcessed";
+import { objectPropertyClassnameIdentifiersReplacementVisitors } from "./objectPropertyClassnameIdentifiersReplacementVisitors";
 
 /**
  * Map: key - processed .scss file, value - map (key - old classname, value - new modular classname)
@@ -123,13 +124,16 @@ export const importVisitors: Visitor<State> = {
       // 5: Wrap baseClass usages with templateLiteral
       file.path.traverse(baseClassIdentifiersReplacementVisitors, state);
 
-      // 6: Traverse for TemplateLiterals in className attributes values
+      // 6: Replace className identifier in objectProperty with stringLiteral
+      file.path.traverse(objectPropertyClassnameIdentifiersReplacementVisitors, state);
+
+      // 7: Traverse for TemplateLiterals in className attributes values
       file.path.traverse(templateLiteralReplacementVisitors, state);
 
-      // 7-9: Traverse the top-level program path for JSX className attributes
+      // 8-10: Traverse the top-level program path for JSX className attributes
       file.path.traverse(classNameAttributeVisitors, state);
 
-      // 10: Adds camel case import if needed
+      // 11: Adds camel case import if needed
       if (state.camelCaseImportNeeded && !state.camelCaseImported) {
         file.path.traverse(addCamelCaseImportVisitors, state);
       }

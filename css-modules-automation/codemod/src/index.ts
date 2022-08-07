@@ -40,6 +40,6 @@ export default (): PluginObj<State> => ({
 
 // TODO in ObjecyProperty visitor: sometimes identifiers can be just stringLiterals e.g. empty class Combobox
 
-// TODO replace TemplateLiteral inside ObjectProperty (Tab, TipseenTitle, Tipseen...)
+// TODO replace TemplateLiteral inside ObjectProperty (Tipseen...)
 
 // TODO incorrect baseClassName: Toggle
