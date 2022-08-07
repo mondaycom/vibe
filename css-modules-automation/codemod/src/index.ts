@@ -42,7 +42,7 @@ export default (): PluginObj<State> => ({
 
 // TODO replace TemplateLiteral inside ObjectProperty (Tab, TipseenTitle, Tipseen...)
 
-// TODO no cx import: Tooltip
+// TODO split templateLiteral classes?: Tooltip
 
 // TODO incorrect baseClassName: Toggle
 

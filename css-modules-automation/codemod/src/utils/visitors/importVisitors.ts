@@ -46,6 +46,7 @@ export const importVisitors: Visitor<State> = {
     // @ts-ignore
     const file = hub["file"];
     const filename: string = file.opts.filename;
+    const fileCode: string = file.code;
 
     // Check if file is to be processed further or not
     if (!shouldFileBeProcessed(file)) {
@@ -54,7 +55,7 @@ export const importVisitors: Visitor<State> = {
     }
 
     // Inserts "import cx from classNames;"
-    if (!state.cxImported && doesFileContainsCssImports(file)) {
+    if (!state.cxImported && doesFileContainsCssImports(fileCode)) {
       path.insertBefore(classNamesImportDeclaration);
       state.cxImported = true;
       print("### importVisitors, new cx import inserted");
