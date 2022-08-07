@@ -26,8 +26,8 @@ export const wrapStringLiteralWithCxCallExpression = (node: t.StringLiteral): t.
  * Replace classnames(...) wrapper with cx(...) wrapper
  * @param node
  */
-export const renameClassnamesToCxCallExpression = (node: t.CallExpression): t.JSXExpressionContainer => {
-  const res = t.jSXExpressionContainer(t.callExpression(t.identifier("cx"), [...node.arguments]));
+export const renameClassnamesToCxCallExpression = (node: t.CallExpression): t.CallExpression => {
+  const res = t.callExpression(t.identifier("cx"), [...node.arguments]);
   printWithCondition(false, "%%% wrapWithCxCallExpression, renameClassnamesToCxCallExpression, res", res);
   return res;
 };

@@ -1,12 +1,8 @@
 import { Visitor } from "@babel/core";
 import * as t from "@babel/types";
 import { wrapWithJSXExpressionContainer } from "../wrapWithJSXExpressionContainer";
-import {
-  renameClassnamesToCxCallExpression,
-  wrapStringLiteralWithCxCallExpression,
-  wrapWithCxCallExpression
-} from "../wrapWithCxCallExpression";
-import { CX_NAMES_ALL, CX_NAMES_CLASSNAMES, isCxCallExpression } from "../logical/isCxCallExpression";
+import { wrapStringLiteralWithCxCallExpression, wrapWithCxCallExpression } from "../wrapWithCxCallExpression";
+import { CX_NAMES_ALL, isCxCallExpression } from "../logical/isCxCallExpression";
 import { splitStringLiteralClassNames } from "../splitStringLiteralClassNames";
 import { State } from "../../index";
 import { classNameReplacementVisitors } from "./classNameReplacementVisitors";
@@ -30,16 +26,6 @@ export const classNameAttributeVisitors: Visitor<State> = {
       const newPath = wrapWithJSXExpressionContainer(path);
       path.replaceWith(t.jsxAttribute(path.node.name, newPath));
       return;
-    }
-
-    // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
-    if (t.isJSXExpressionContainer(node)) {
-      const nodeExpression = node.expression;
-      if (isCxCallExpression(nodeExpression, CX_NAMES_CLASSNAMES)) {
-        const newPath = renameClassnamesToCxCallExpression(nodeExpression as t.CallExpression);
-        path.replaceWith(t.jsxAttribute(path.node.name, newPath));
-        return;
-      }
     }
 
     // If 'className={...}' then convert to 'className={cx(...)}'
