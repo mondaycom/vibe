@@ -18,7 +18,7 @@ import { baseClassIdentifiersReplacementVisitors } from "./baseClassIdentifiersR
 import { getCssBaseClass } from "../getCssBaseClass";
 import { shouldFileBeProcessed } from "../logical/shouldFileBeProcessed";
 import { objectPropertyClassnameIdentifiersReplacementVisitors } from "./objectPropertyClassnameIdentifiersReplacementVisitors";
-import { classNamesRenameCallExpressionVisitors } from "./classNamesRenameCallExpressionVisitors";
+import { classNamesCallExpressionRenameVisitors } from "./classNamesCallExpressionRenameVisitors";
 
 /**
  * Map: key - processed .scss file, value - map (key - old classname, value - new modular classname)
@@ -120,7 +120,7 @@ export const importVisitors: Visitor<State> = {
       printWithCondition(false, "### importVisitors, state.baseCssClassName", state.baseCssClass);
 
       // 4*: Rename all classNames(...) occurrences to cx(...)
-      file.path.traverse(classNamesRenameCallExpressionVisitors, state);
+      file.path.traverse(classNamesCallExpressionRenameVisitors, state);
 
       // 4: Traverse the top-level program path for BEM call expressions
       file.path.traverse(bemHelperCallExpressionsVisitors, state);

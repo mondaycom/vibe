@@ -8,7 +8,7 @@ import { renameClassnamesToCxCallExpression } from "../wrapWithCxCallExpression"
 /**
  * 4*: Rename all classNames(...) occurrences to cx(...)
  */
-export const classNamesRenameCallExpressionVisitors: Visitor<State> = {
+export const classNamesCallExpressionRenameVisitors: Visitor<State> = {
   CallExpression: (path: NodePath<t.CallExpression>) => {
     if (isCxCallExpression(path.node, CX_NAMES_CLASSNAMES)) {
       const newPath: t.CallExpression = renameClassnamesToCxCallExpression(path.node as t.CallExpression);
