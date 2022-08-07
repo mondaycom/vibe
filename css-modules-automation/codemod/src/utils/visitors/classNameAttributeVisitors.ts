@@ -10,13 +10,13 @@ import { CX_NAMES_ALL, CX_NAMES_CLASSNAMES, isCxCallExpression } from "../logica
 import { splitStringLiteralClassNames } from "../splitStringLiteralClassNames";
 import { State } from "../../index";
 import { classNameReplacementVisitors } from "./classNameReplacementVisitors";
+import { printWithCondition } from "../commonProcess/print";
 
 /**
  * 8: These visitors process all JSX `className` attributes and traverses them
  * using the `replacementVisitors`.
  */
 export const classNameAttributeVisitors: Visitor<State> = {
-  // TODO maybe separate JSX attribute preparation to a previous step
   JSXAttribute: (path, state) => {
     const { name } = path.node.name;
     if (name !== "className") {
@@ -59,20 +59,10 @@ export const classNameAttributeVisitors: Visitor<State> = {
       }
     }
 
-    // 9:
+    // 9: Replace StringLiteral and ObjectProperties classnames inside
     path.traverse(classNameReplacementVisitors, state);
   },
   ObjectProperty: (path, state) => {
-    // If objectProperty is insides cx(...)
-    if (
-      t.isObjectExpression(path.parent) &&
-      path.parentPath.parent &&
-      isCxCallExpression(path.parentPath.parent, CX_NAMES_ALL)
-    ) {
-      path.traverse(classNameReplacementVisitors, state);
-      return;
-    }
-
     // Replace constructions like {"className": "..."}
     if (
       path.node.key.type === "Identifier" &&
@@ -80,16 +70,6 @@ export const classNameAttributeVisitors: Visitor<State> = {
       path.node.value.type === "StringLiteral"
     ) {
       const stringLiteralNode = path.node.value as t.StringLiteral;
-      // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
-      // if (
-      //   t.isCallExpression(path) &&
-      //     path.callee.type === "Identifier" &&
-      //     path.callee.name.toLowerCase() === "classnames"
-      // ) {
-      //   const newPath = renameClassnamesToCxCallExpression(path);
-      //   path.replaceWith(t.jsxAttribute(path.node.name, newPath));
-      //   return;
-      // }
 
       // If 'className={...}' then convert to 'className={cx(...)}'
       if (!isCxCallExpression(path.node) && stringLiteralNode.value) {
@@ -108,7 +88,24 @@ export const classNameAttributeVisitors: Visitor<State> = {
       //   }
       // }
 
-      // 9:
+      // 9: Replace StringLiteral and ObjectProperties classnames inside
+      path.traverse(classNameReplacementVisitors, state);
+    }
+  },
+  CallExpression: (path, state) => {
+    // cx(...) expression
+    if (isCxCallExpression(path.node, CX_NAMES_ALL)) {
+      // But not inside JSXAttribute - cause it's already processed
+      if (t.isJSXExpressionContainer(path.parent) && t.isJSXAttribute(path.parentPath.parentPath)) {
+        return;
+      }
+      printWithCondition(
+        false,
+        "@@@ classNameAttributeVisitors, CX CallExpression, not inside JSX attribute",
+        path.node
+      );
+
+      // 9: Replace StringLiteral and ObjectProperties classnames inside
       path.traverse(classNameReplacementVisitors, state);
     }
   }
