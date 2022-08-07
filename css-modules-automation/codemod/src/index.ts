@@ -43,5 +43,3 @@ export default (): PluginObj<State> => ({
 // TODO replace TemplateLiteral inside ObjectProperty (Tab, TipseenTitle, Tipseen...)
 
 // TODO incorrect baseClassName: Toggle
-
-// TODO not replaced: ToastLink, TipseenImage, TipseenBasicContent
