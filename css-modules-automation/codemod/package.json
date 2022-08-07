@@ -23,6 +23,7 @@
     "modify react-core/tipseen-basic-content": "npx codemod -p src/index.ts ../../src/components/Tipseen/TipseenBasicContent.jsx",
     "modify react-core/tipseen": "npx codemod -p src/index.ts ../../src/components/Tipseen/Tipseen.jsx",
     "modify react-core/tab": "npx codemod -p src/index.ts ../../src/components/Tabs/Tab/Tab.jsx",
+    "modify react-core/button": "npx codemod -p src/index.ts ../../src/components/Button/Button.jsx",
 
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
