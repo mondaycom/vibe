@@ -144,7 +144,7 @@
         @include theme-prop(color, icon-color);
         will-change: transform;
         pointer-events: none;
-        transition: color var(--motion-productive-medium) var(--expand-animation-timing), transform var(--motion-productive-medium) var(--expand-animation-timing);
+        transition: color var(--motion-productive-medium) var(--motion-timing-enter), transform var(--motion-productive-medium) var(--motion-timing-enter);
         font-size: 14px;
       }
     }
