@@ -16,6 +16,7 @@ import { classNameReplacementVisitors } from "./classNameReplacementVisitors";
  * using the `replacementVisitors`.
  */
 export const classNameAttributeVisitors: Visitor<State> = {
+  // TODO maybe separate JSX attribute preparation to a previous step
   JSXAttribute: (path, state) => {
     const { name } = path.node.name;
     if (name !== "className") {
