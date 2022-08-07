@@ -6,7 +6,7 @@ import {
   wrapStringLiteralWithCxCallExpression,
   wrapWithCxCallExpression
 } from "../wrapWithCxCallExpression";
-import { CX_NAMES_CLASSNAMES, isCxCallExpression } from "../logical/isCxCallExpression";
+import { CX_NAMES_ALL, CX_NAMES_CLASSNAMES, isCxCallExpression } from "../logical/isCxCallExpression";
 import { splitStringLiteralClassNames } from "../splitStringLiteralClassNames";
 import { State } from "../../index";
 import { classNameReplacementVisitors } from "./classNameReplacementVisitors";
@@ -62,6 +62,17 @@ export const classNameAttributeVisitors: Visitor<State> = {
     path.traverse(classNameReplacementVisitors, state);
   },
   ObjectProperty: (path, state) => {
+    // If objectProperty is insides cx(...)
+    if (
+      t.isObjectExpression(path.parent) &&
+      path.parentPath.parent &&
+      isCxCallExpression(path.parentPath.parent, CX_NAMES_ALL)
+    ) {
+      path.traverse(classNameReplacementVisitors, state);
+      return;
+    }
+
+    // Replace constructions like {"className": "..."}
     if (
       path.node.key.type === "Identifier" &&
       path.node.key.name === "className" &&
@@ -83,7 +94,7 @@ export const classNameAttributeVisitors: Visitor<State> = {
       if (!isCxCallExpression(path.node) && stringLiteralNode.value) {
         const newPath = wrapStringLiteralWithCxCallExpression(stringLiteralNode);
         path.replaceWith(t.objectProperty(t.identifier("className"), newPath));
-        // return;
+        return;
       }
 
       // Split className={cx("1 2 3")} into className={cx("1", "2", "3")}
