@@ -2,7 +2,7 @@ import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
 import { State } from "../../index";
-import { CX_NAMES_ALL, isCxCallExpression } from "../logical/isCxCallExpression";
+import { isCxCallExpression } from "../logical/isCxCallExpression";
 import { printWithCondition } from "../commonProcess/print";
 
 /**
@@ -16,7 +16,7 @@ export const objectPropertyClassnameIdentifiersReplacementVisitors: Visitor<Stat
       t.isObjectProperty(path.parent) &&
       t.isObjectExpression(path.parentPath.parent) &&
       path.parentPath.parentPath?.parent &&
-      isCxCallExpression(path.parentPath.parentPath?.parent, CX_NAMES_ALL) &&
+      isCxCallExpression(path.parentPath.parentPath?.parent) &&
       state.classNames.has(variableName)
     ) {
       printWithCondition(

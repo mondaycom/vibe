@@ -3,8 +3,8 @@ import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
 import { printWithCondition } from "../commonProcess/print";
 import { isClassNameJsxAttribute } from "../logical/isClassNameJsxAttribute";
-import { renameClassnamesToCxCallExpression, wrapWithCxCallExpression } from "../wrapWithCxCallExpression";
-import { CX_NAMES_ALL, CX_NAMES_CLASSNAMES, isCxCallExpression } from "../logical/isCxCallExpression";
+import { wrapWithCxCallExpression } from "../wrapWithCxCallExpression";
+import { isCxCallExpression } from "../logical/isCxCallExpression";
 import { State } from "../../index";
 import { isTemplateLiteralNeedToBeSplit } from "../logical/isTemplateLiteralNeedToBeSplit";
 import { buildClassnameStringFromTemplateLiteral } from "../templateLiterals/buildClassnameStringFromTemplateLiteral";
@@ -22,17 +22,8 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
     // TODO or const declaration
     if (
       (path.parentPath.parentPath && isClassNameJsxAttribute(path.parentPath.parentPath)) ||
-      isCxCallExpression(path.parent, CX_NAMES_ALL)
+      isCxCallExpression(path.parent)
     ) {
-      // If 'className={classnames(...)}' then convert to 'className={cx(...)}'
-      if (isCxCallExpression(path.parent, CX_NAMES_CLASSNAMES)) {
-        const callExpression = path.parent as t.CallExpression;
-        const newPath = renameClassnamesToCxCallExpression(callExpression);
-        path.parentPath.parentPath?.replaceWith(newPath);
-        printWithCondition(false, "### templateLiteralReplacementVisitors, renamedClassnamesToCxCallExpression");
-        return;
-      }
-
       // If 'className={...}' then convert to 'className={cx(...)}'
       if (t.isJSXExpressionContainer(path.parent) && !isCxCallExpression(path.parent.expression)) {
         const newPath = wrapWithCxCallExpression(path.parent);
