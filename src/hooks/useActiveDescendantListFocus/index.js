@@ -99,7 +99,6 @@ function useActiveDescendantListFocus({
     itemIndex => event => onItemClick(event, itemIndex),
     [onItemClick]
   );
-  console.log(triggeredByKeyboard);
   return {
     visualFocusItemIndex: triggeredByKeyboard.current ? visualFocusItemIndex : undefined,
     visualFocusItemId: triggeredByKeyboard.current ? visualFocusItemId : undefined,
