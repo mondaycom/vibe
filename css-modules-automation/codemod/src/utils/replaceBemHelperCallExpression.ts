@@ -35,7 +35,6 @@ export const replaceBemHelperCallExpression = (
   state: State,
   path: NodePath<t.CallExpression>
 ): t.StringLiteral | t.TemplateLiteral | t.CallExpression | t.Statement | t.Statement[] => {
-  // TODO Refactor - simplify the logic
   printWithCondition(false, "~~~ CallExpression, bemHelper, path", path);
 
   const bemArguments = path.node.arguments;
