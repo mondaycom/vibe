@@ -17,14 +17,22 @@ export const objectPropertyClassnameIdentifiersReplacementVisitors: Visitor<Stat
       t.isObjectExpression(path.parentPath.parent) &&
       path.parentPath.parentPath?.parent &&
       isCxCallExpression(path.parentPath.parentPath?.parent) &&
+      path.parent.key.type === "Identifier" &&
       state.classNames.has(variableName)
     ) {
       printWithCondition(
-        false,
+        true,
         "*** objectPropertyClassnameIdentifiersReplacementVisitors, replaced variableName with stringLiteral - ",
         variableName
       );
-      path.replaceWith(t.stringLiteral(variableName));
+
+      if (!path.parent.shorthand) {
+        path.replaceWith(t.stringLiteral(variableName));
+      } else {
+        path.parentPath.replaceWith(
+          t.objectProperty(t.stringLiteral(variableName), t.identifier(variableName), false, false)
+        );
+      }
     }
   }
 };
