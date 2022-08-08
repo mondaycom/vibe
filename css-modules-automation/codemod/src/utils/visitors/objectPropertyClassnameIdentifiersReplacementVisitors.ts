@@ -21,7 +21,7 @@ export const objectPropertyClassnameIdentifiersReplacementVisitors: Visitor<Stat
       state.classNames.has(variableName)
     ) {
       printWithCondition(
-        true,
+        false,
         "*** objectPropertyClassnameIdentifiersReplacementVisitors, replaced variableName with stringLiteral - ",
         variableName
       );
