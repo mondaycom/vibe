@@ -26,6 +26,10 @@
     "modify react-core/button": "npx codemod -p src/index.ts ../../src/components/Button/Button.jsx",
     "modify react-core/counter": "npx codemod -p src/index.ts ../../src/components/Counter/Counter.jsx",
     "modify react-core/combobox-option": "npx codemod -p src/index.ts ../../src/components/Combobox/components/ComboboxOption/ComboboxOption.jsx",
+    "modify react-core/menu-button": "npx codemod -p src/index.ts ../../src/components/MenuButton/MenuButton.jsx",
+    "modify react-core/slider-base": "npx codemod -p src/index.ts ../../src/components/Slider/SliderBase/SliderBase.jsx",
+    "modify react-core/slider": "npx codemod -p src/index.ts ../../src/components/Slider/Slider.jsx",
+    "modify react-core/list-item": "npx codemod -p src/index.ts ../../src/components/ListItem/ListItem.jsx",
 
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
