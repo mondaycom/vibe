@@ -1,5 +1,6 @@
 import * as t from "@babel/types";
 import { printWithCondition } from "../commonProcess/print";
+import { buildStringFromCallExpression } from "./buildStringFromCallExpression";
 
 export type TemplateLiteralPart = {
   value: string | undefined;
@@ -8,16 +9,37 @@ export type TemplateLiteralPart = {
 };
 
 export const getTemplateLiteralParts = (node: t.TemplateLiteral): TemplateLiteralPart[] => {
+  printWithCondition(false, "))) getTemplateLiteralParts, node.quasis", node.quasis);
+  printWithCondition(false, "))) getTemplateLiteralParts, node.expressions", node.expressions);
+
   const quasis: TemplateLiteralPart[] = node.quasis.map(q => ({
     value: q.value.cooked,
     start: q.start,
     type: q.type as string
   }));
-  const expressions: TemplateLiteralPart[] = (node.expressions as t.Identifier[]).map(e => ({
-    value: e.name,
-    start: e.start,
-    type: e.type as string
-  }));
+  const expressions: TemplateLiteralPart[] = node.expressions.map(e => {
+    if (e.type === "Identifier") {
+      return {
+        value: e.name,
+        start: e.start,
+        type: e.type as string
+      };
+    }
+
+    if (e.type === "CallExpression") {
+      return {
+        value: buildStringFromCallExpression(e),
+        start: e.start,
+        type: e.type as string
+      };
+    }
+
+    return {
+      value: undefined,
+      start: e.start,
+      type: e.type as string
+    };
+  });
   const parts: TemplateLiteralPart[] = [...quasis, ...expressions]
     .filter(p => !!p.value)
     .sort((a, b) => {

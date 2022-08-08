@@ -41,5 +41,3 @@ export default (): PluginObj<State> => ({
 // TODO replace TemplateLiteral inside ObjectProperty (Tipseen...)
 
 // TODO incorrect baseClassName from imports: Toggle
-
-// TODO templateLiteralReplacementVisitors: not only variables, but functions too as in Button `monday-style-button--size-${getActualSize(size)}`
