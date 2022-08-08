@@ -40,10 +40,6 @@ export default (): PluginObj<State> => ({
 
 // TODO replace TemplateLiteral inside ObjectProperty (Tipseen...)
 
-// TODO incorrect baseClassName: Toggle
+// TODO incorrect baseClassName from imports: Toggle
 
 // TODO templateLiteralReplacementVisitors: not only variables, but functions too as in Button `monday-style-button--size-${getActualSize(size)}`
-
-// TODO Button: objectProperty styles weren't replaced
-
-// TODO !!! Button: Incorrect way of starting classNameReplacementVisitors - only from JSXAttributes. Should add calls from cx() functions. Should work on classNameAttributeVisitors - separate, add more visitors?

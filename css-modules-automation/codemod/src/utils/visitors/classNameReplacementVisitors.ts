@@ -9,16 +9,17 @@ import { stringLiteralReplacementVisitors } from "./stringLiteralReplacementVisi
  */
 export const classNameReplacementVisitors: Visitor<State> = {
   // 10:
-  ...stringLiteralReplacementVisitors,
+  ...stringLiteralReplacementVisitors
 
-  Identifier: ({ node, scope }, state) => {
-    const binding = scope.getBinding(node.name);
-    if (!binding) {
-      return;
-    }
-
-    // TODO is that needed??
-    // 10:
-    binding.path.traverse(stringLiteralReplacementVisitors, state);
-  }
+  // Identifier: ({ node, scope }, state) => {
+  //   const binding = scope.getBinding(node.name);
+  //   if (!binding) {
+  //     return;
+  //   }
+  //
+  //   // TODO is that needed??
+  //   // 10:
+  //   // printWithCondition(true, "&&& starting stringLiteralReplacementVisitors Identifier node.name", node.name);
+  //   // binding.path.traverse(stringLiteralReplacementVisitors, state);
+  // }
 };
