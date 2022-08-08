@@ -1,7 +1,7 @@
 import { isComponentFile } from "./isComponentFile";
 import { isWhitelistedFile } from "./isWhitelistedFile";
 import { print } from "../commonProcess/print";
-import { doesFileContainsCssImports } from "./doesFileContainsCssImports";
+import { doesFileContainsPureCssImports } from "./doesFileContainsPureCssImports";
 
 export const shouldFileBeProcessed = (file: any): boolean => {
   const filename = file.opts.filename;
@@ -20,7 +20,7 @@ export const shouldFileBeProcessed = (file: any): boolean => {
   }
 
   // Should contain css import
-  if (!doesFileContainsCssImports(fileCode)) {
+  if (!doesFileContainsPureCssImports(fileCode)) {
     print("### importVisitors, file doesn't contain css imports and won't be processed ", filename);
     return false;
   }

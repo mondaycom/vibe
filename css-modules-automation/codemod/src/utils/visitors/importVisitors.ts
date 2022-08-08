@@ -2,7 +2,6 @@ import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
 import { print, printWithCondition } from "../commonProcess/print";
-import { doesFileContainsCssImports } from "../logical/doesFileContainsCssImports";
 import { isClassNamesImportDeclaration } from "../logical/isClassNamesImportDeclaration";
 import { isBemHelperImportDeclaration } from "../logical/isBemHelperImportDeclaration";
 import { isCssImportDeclaration } from "../logical/isCssImportDeclaration";
@@ -57,7 +56,7 @@ export const importVisitors: Visitor<State> = {
     }
 
     // Inserts "import cx from classNames;"
-    if (!state.cxImported && doesFileContainsCssImports(fileCode)) {
+    if (!state.cxImported) {
       path.insertBefore(classNamesImportDeclaration);
       state.cxImported = true;
       print("### importVisitors, new cx import inserted");
