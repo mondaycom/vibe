@@ -3,4 +3,24 @@ monday-ui-react-core/src/components/MenuButton/MenuButton.jsx // Use of custom B
 monday-ui-react-core/src/components/Slider/SliderBase.jsx // Use of custom BEMClass function - replace with common use
 monday-ui-react-core/src/components/Slider/Slider.jsx // Use of custom BEMClass function - replace with common use
 monday-ui-react-core/src/components/Toast/ToastLink/ToastLink.jsx // Use of custom className prop - do manually
+monday-ui-react-core/src/components/Combobox/components/ComboboxItems/ComboboxItems.jsx // import not ".module.scss", but ".modules.scss" - rename
+monday-ui-react-core/src/components/Accordion/Accordion/Accordion.jsx // code looks correct, but can spot border style difference - investigate
+/Users/sergeyro/Development/monday-ui-react-core/src/components/AlertBanner/AlertBannerLink/AlertBannerLink.jsx // componentClassName was not replaced, cause troubles for AlertBanner
+/Users/sergeyro/Development/monday-ui-react-core/src/components/AttentionBox/AttentionBox.jsx // const classNameWithType wasn't replaced
+/Users/sergeyro/Development/monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx // { current: isCurrent } wasn't replaced
+/Users/sergeyro/Development/monday-ui-react-core/src/components/ButtonGroup/ButtonGroup.jsx // baseClassName wasn't replaced - rename to CSS_BASE_CLASS
+/Users/sergeyro/Development/monday-ui-react-core/src/components/Clickable/Clickable.jsx // code looks good, but pointer is not displayed - investigate
+/Users/sergeyro/Development/monday-ui-react-core/src/components/ColorPicker/ColorPicker.jsx // code looks good, but not displayed as a grid - investigate
+/Users/sergeyro/Development/monday-ui-react-core/src/components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx // code looks good, but not displayed as a grid - investigate
+/Users/sergeyro/Development/monday-ui-react-core/src/components/ColorPicker/components/ColorPickerItemComponent/ColorPickerItemComponent.jsx // code looks good, but not displayed as a grid - investigate
 // Checked - correct
+/Users/sergeyro/Development/monday-ui-react-core/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx
+/Users/sergeyro/Development/monday-ui-react-core/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx
+/Users/sergeyro/Development/monday-ui-react-core/src/components/AlertBanner/AlertBanner.jsx
+/Users/sergeyro/Development/monday-ui-react-core/src/components/Avatar/Avatar.jsx
+/Users/sergeyro/Development/monday-ui-react-core/src/components/Avatar/AvatarBadge.jsx
+/Users/sergeyro/Development/monday-ui-react-core/src/components/Avatar/AvatarContent.jsx
+/Users/sergeyro/Development/monday-ui-react-core/src/components/Banner/Banner.jsx
+/Users/sergeyro/Development/monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbsBar.jsx
+/Users/sergeyro/Development/monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbContent/BreadcrumbContent.jsx
+/Users/sergeyro/Development/monday-ui-react-core/src/components/Button/Button.jsx

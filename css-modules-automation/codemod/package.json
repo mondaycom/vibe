@@ -25,6 +25,7 @@
     "modify react-core/tab": "npx codemod -p src/index.ts ../../src/components/Tabs/Tab/Tab.jsx",
     "modify react-core/button": "npx codemod -p src/index.ts ../../src/components/Button/Button.jsx",
     "modify react-core/counter": "npx codemod -p src/index.ts ../../src/components/Counter/Counter.jsx",
+    "modify react-core/combobox-option": "npx codemod -p src/index.ts ../../src/components/Combobox/components/ComboboxOption/ComboboxOption.jsx",
 
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
