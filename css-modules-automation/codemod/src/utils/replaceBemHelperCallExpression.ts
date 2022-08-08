@@ -1,9 +1,30 @@
 import * as t from "@babel/types";
+import { Expression, PatternLike } from "@babel/types";
 import { printWithCondition } from "./commonProcess/print";
 import { NodePath } from "@babel/traverse";
-import { BEMClass } from "./bemHelper";
 import { State } from "../index";
+import { buildClassnameStringFromTemplateLiteral } from "./templateLiterals/buildClassnameStringFromTemplateLiteral";
 import { createTemplateLiteralFromString } from "./templateLiterals/createTemplateLiteralFromString";
+
+const getBemArgumentStringValue = (node: Expression | PatternLike | undefined): string | undefined => {
+  if (!node) {
+    return undefined;
+  }
+
+  if (t.isStringLiteral(node)) {
+    return node.value;
+  }
+
+  if (t.isIdentifier(node)) {
+    return `\$\{${node.name}\}`;
+  }
+
+  if (t.isTemplateLiteral(node)) {
+    return buildClassnameStringFromTemplateLiteral(node, false, false);
+  }
+
+  return undefined;
+};
 
 /**
  * Replace all bemHelper functions like bemHelper({element: element, state: "state"}) with full classname = `${baseClassName}_${element}__state`
@@ -25,36 +46,23 @@ export const replaceBemHelperCallExpression = (
     const bemState = properties.find(p => t.isIdentifier(p.key) && p.key.name === "state")?.value;
 
     printWithCondition(false, "~~~ CallExpression, bemHelper, state.baseCssClass", state.baseCssClass);
-    const bemHelper = BEMClass(state.baseCssClass?.value);
+    printWithCondition(false, "~~~ CallExpression, bemHelper, bemElement", bemElement);
+    printWithCondition(false, "~~~ CallExpression, bemHelper, bemState", bemState);
 
-    // If all arguments are StringLiterals or doesn't exist
-    if ((!bemElement || bemElement.type === "StringLiteral") && (!bemState || bemState.type === "StringLiteral")) {
-      const bemClassName = bemHelper({
-        element: bemElement?.type === "StringLiteral" ? bemElement?.value : undefined,
-        state: bemState?.type === "StringLiteral" ? bemState?.value : undefined
-      });
-      printWithCondition(false, "~~~ CallExpression, bemHelper, bemClassName", bemClassName);
+    let bemElementStringValue: string | undefined = getBemArgumentStringValue(bemElement);
+    bemElementStringValue = bemElementStringValue ? `_${bemElementStringValue}` : "";
+    let bemStateStringValue: string | undefined = getBemArgumentStringValue(bemState);
+    bemStateStringValue = bemStateStringValue ? `--${bemStateStringValue}` : "";
+
+    printWithCondition(false, "~~~ CallExpression, bemHelper, bemElementStringValue", bemElementStringValue);
+    printWithCondition(false, "~~~ CallExpression, bemHelper, bemStateStringValue", bemStateStringValue);
+
+    const bemClassName = `${state.baseCssClass?.value}${bemElementStringValue}${bemStateStringValue}`;
+    printWithCondition(false, "~~~ CallExpression, bemHelper, bemClassName", bemClassName);
+
+    if (!bemClassName.includes("${")) {
       return t.stringLiteral(bemClassName);
-    } else if (
-      // If all arguments are either String Literals either Identifiers either doesn't exists
-      (!bemElement || bemElement.type === "StringLiteral" || bemElement.type === "Identifier") &&
-      (!bemState || bemState.type === "StringLiteral" || bemState.type === "Identifier")
-    ) {
-      // Either state either element is Identifier (variable)
-      let bemElementString = bemElement && bemElement.type === "StringLiteral" && bemElement.value;
-      let bemStateString = bemState && bemState.type === "StringLiteral" && bemState.value;
-      if (bemElement?.type === "Identifier") {
-        bemElementString = `\$\{${bemElement.name}\}`;
-      }
-      if (bemState?.type === "Identifier") {
-        bemStateString = `\$\{${bemState.name}\}`;
-      }
-      printWithCondition(false, "~~~ CallExpression, bemHelper, bemElementString", bemElementString);
-      printWithCondition(false, "~~~ CallExpression, bemHelper, bemStateString", bemStateString);
-
-      const bemClassName = bemHelper({ element: bemElementString, state: bemStateString });
-      printWithCondition(false, "~~~ CallExpression, bemHelper, bemClassName", bemClassName);
-
+    } else {
       return createTemplateLiteralFromString(bemClassName);
     }
   }

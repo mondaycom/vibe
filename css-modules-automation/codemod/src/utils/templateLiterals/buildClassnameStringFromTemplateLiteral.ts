@@ -57,22 +57,38 @@ export const getTemplateLiteralParts = (node: t.TemplateLiteral): TemplateLitera
  * Build classname string concatenating parts of TemplateLiteral
  * Example: `before--${ANCHOR_LIST_ITEM_CSS_BASE_CLASS}--after` -> `${camelCase("before--" + ANCHOR_LIST_ITEM_CSS_BASE_CLASS + "--after")}`
  * @param node TemplateLiteral node
+ * @param addCamelCaseWrapping should resut be wrapped in camelCase function or not
+ * @param separateIdentifiers
  */
-export const buildClassnameStringFromTemplateLiteral = (node: t.TemplateLiteral): string => {
+export const buildClassnameStringFromTemplateLiteral = (
+  node: t.TemplateLiteral,
+  addCamelCaseWrapping: boolean = true,
+  separateIdentifiers: boolean = true
+): string => {
   const parts: TemplateLiteralPart[] = getTemplateLiteralParts(node);
 
   let newString = "";
   for (let i = 0; i < parts.length; ++i) {
     const p = parts[i];
     if (p.type === "TemplateElement") {
-      if (i !== 0) newString += " + ";
-      newString += `"${p.value}"`;
-      if (i !== parts.length - 1) newString += " + ";
+      if (separateIdentifiers) {
+        if (i !== 0) newString += " + ";
+        newString += `"${p.value}"`;
+        if (i !== parts.length - 1) newString += " + ";
+      } else {
+        newString += p.value;
+      }
     } else {
-      newString += p.value;
+      if (separateIdentifiers) {
+        newString += p.value;
+      } else {
+        newString += `\$\{${p.value}\}`;
+      }
     }
   }
-  newString = `\`\$\{camelCase(${newString})\}\``;
+  if (addCamelCaseWrapping) {
+    newString = `\`\$\{camelCase(${newString})\}\``;
+  }
 
   printWithCondition(false, "))) buildStringFromTemplateLiteral, newString", newString);
 
