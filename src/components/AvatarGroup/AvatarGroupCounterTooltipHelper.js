@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useKeyEvent } from "../../hooks";
+import { useEventListener, useKeyEvent } from "../../hooks";
 import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
@@ -19,7 +19,8 @@ export function useTooltipContentTabNavigation({
     // Tricky way to close the tooltip
     setTimeout(() => {
       setIsTooltipVisible(false);
-      setIsTooltipVisible(true);
+      console.log("close tooltip");
+      // setIsTooltipVisible(true);
     });
   }, [setIsTooltipVisible]);
 
@@ -54,6 +55,14 @@ export function useTooltipContentTabNavigation({
       },
       [counterContainerRef, focusPrevPlaceholderRef, hideTooltip]
     )
+  });
+
+  useEventListener({
+    eventName: "focus",
+    ref: counterContainerRef,
+    callback: useCallback(e => {
+      setIsTooltipVisible(true);
+    })
   });
 
   // For Tooltip content

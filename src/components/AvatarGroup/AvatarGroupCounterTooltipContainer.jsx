@@ -20,7 +20,7 @@ const AvatarGroupCounterTooltipContainer = ({
   // Dummy state to rerender the component, when tooltip appear, so useTooltipContentTabNavigation will have an existing tooltipContentContainerRef
   const [, setShouldUpdate] = useState(false);
   // Used to close tooltip
-  const [isTooltipVisible, setIsTooltipVisible] = useState(true);
+  const [isTooltipVisible, setIsTooltipVisible] = useState(false);
 
   const tooltipContentContainerRef = useRef(null);
   const tooltipContent = useMemo(
@@ -46,6 +46,8 @@ const AvatarGroupCounterTooltipContainer = ({
     setIsTooltipVisible
   });
 
+  console.log("isTooltipVisible", isTooltipVisible);
+
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
     return children;
   }
@@ -56,7 +58,6 @@ const AvatarGroupCounterTooltipContainer = ({
 
   return (
     <Tooltip
-      showOnDialogEnter
       hideDelay={200}
       showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
       hideTrigger={[Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.MOUSE_LEAVE]}

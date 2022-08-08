@@ -37,18 +37,6 @@ const AvatarGroupCounter = ({
   const focusNextPlaceholderRef = useRef(null);
   const counterContainerRef = useRef(null);
 
-  const counterComponent = useCallback(() => {
-    return (
-      <Counter
-        color={counterColor}
-        count={counterValue}
-        prefix={counterPrefix}
-        maxDigits={counterMaxDigits}
-        ariaLabel={`Tab for more ${counterAriaLabelItemsName}`}
-      />
-    );
-  }, [counterAriaLabelItemsName, counterColor, counterMaxDigits, counterPrefix, counterValue]);
-
   if (!counterTooltipAvatars.length && !counterValue) {
     return null;
   }
@@ -95,8 +83,13 @@ const AvatarGroupCounter = ({
         className={cx(styles.counterContainer, counterSizeStyle, counterColorStyle)}
         ref={counterContainerRef}
       >
-        {/* eslint-enable jsx-a11y/no-noninteractive-tabindex */}
-        {counterComponent()}
+        <Counter
+          color={counterColor}
+          count={counterValue}
+          prefix={counterPrefix}
+          maxDigits={counterMaxDigits}
+          ariaLabel={`Tab for more ${counterAriaLabelItemsName}`}
+        />
         <div tabIndex={-1} ref={focusNextPlaceholderRef} />
       </div>
     </AvatarGroupCounterTooltipContainer>
