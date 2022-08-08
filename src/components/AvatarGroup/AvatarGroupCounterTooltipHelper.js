@@ -36,7 +36,7 @@ export function useTooltipContentTabNavigation({
           setShouldUpdate(prev => !prev);
         }
       },
-      [counterContainerRef.current, setShouldUpdate, tooltipContentContainerRef]
+      [counterContainerRef, setShouldUpdate, tooltipContentContainerRef]
     )
   });
 
@@ -52,7 +52,7 @@ export function useTooltipContentTabNavigation({
           hideTooltip();
         }
       },
-      [counterContainerRef.current, focusPrevPlaceholderRef, hideTooltip]
+      [counterContainerRef, focusPrevPlaceholderRef, hideTooltip]
     )
   });
 
@@ -68,7 +68,7 @@ export function useTooltipContentTabNavigation({
           hideTooltip();
         }
       },
-      [focusNextPlaceholderRef, hideTooltip, tooltipContentContainerRef.current]
+      [focusNextPlaceholderRef, hideTooltip, tooltipContentContainerRef]
     )
   });
 
@@ -84,7 +84,7 @@ export function useTooltipContentTabNavigation({
           counterContainerRef?.current && counterContainerRef.current.focus();
         }
       },
-      [counterContainerRef, tooltipContentContainerRef.current]
+      [counterContainerRef, tooltipContentContainerRef]
     )
   });
 }
