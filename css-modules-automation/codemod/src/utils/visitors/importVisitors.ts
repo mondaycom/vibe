@@ -47,7 +47,6 @@ export const importVisitors: Visitor<State> = {
     // @ts-ignore
     const file = hub["file"];
     const filename: string = file.opts.filename;
-    const fileCode: string = file.code;
 
     // Check if file is to be processed further or not
     if (!shouldFileBeProcessed(file)) {
