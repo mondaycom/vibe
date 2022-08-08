@@ -1,5 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { useCallback, useState, useMemo, useRef, useLayoutEffect } from "react";
+import React, { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -9,10 +9,10 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 import "./MenuButton.scss";
 import Tooltip from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { BEMClass } from "helpers/bem-helper";
 
-function BEMClass(className) {
-  return `menu-button--wrapper--${className}`;
-}
+const CSS_BASE_CLASS = "menu-button--wrapper";
+const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 const TOOLTIP_SHOW_TRIGGER = [Dialog.hideShowTriggers.MOUSE_ENTER];
 
@@ -181,7 +181,7 @@ const MenuButton = ({
         useDerivedStateFromProps={true}
         onDialogDidShow={onDialogDidShow}
         onDialogDidHide={onDialogDidHide}
-        referenceWrapperClassName={BEMClass("reference-icon")}
+        referenceWrapperClassName={bemHelper({ state: "reference-icon" })}
         zIndex={zIndex}
         isOpen={isOpen}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
@@ -190,11 +190,11 @@ const MenuButton = ({
           id={id}
           ref={buttonRef}
           type="button"
-          className={cx("menu-button--wrapper", overrideClassName, BEMClass(`size-${size}`), {
-            [BEMClass("open")]: isOpen,
+          className={cx(CSS_BASE_CLASS, overrideClassName, bemHelper({ state: `size-${size}` }), {
+            [bemHelper({ state: "open" })]: isOpen,
             [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
-            [BEMClass("disabled")]: disabled,
-            [BEMClass("text")]: text
+            [bemHelper({ state: "disabled" })]: disabled,
+            [bemHelper({ state: "text" })]: text
           })}
           aria-haspopup="true"
           aria-expanded={isOpen}
@@ -203,7 +203,7 @@ const MenuButton = ({
           aria-disabled={disabled}
         >
           <Icon size={Math.min(iconSize, 28).toString()} role="img" aria-hidden="true" />
-          {text && <span className={BEMClass("inner-text")}>{text}</span>}
+          {text && <span className={bemHelper({ state: "inner-text" })}>{text}</span>}
         </button>
       </Dialog>
     </Tooltip>
