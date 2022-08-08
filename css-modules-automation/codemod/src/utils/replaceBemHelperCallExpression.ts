@@ -27,7 +27,7 @@ export const replaceBemHelperCallExpression = (
     printWithCondition(false, "~~~ CallExpression, bemHelper, state.baseCssClass", state.baseCssClass);
     const bemHelper = BEMClass(state.baseCssClass?.value);
 
-    // If all arguments are StringLiterals
+    // If all arguments are StringLiterals or doesn't exist
     if ((!bemElement || bemElement.type === "StringLiteral") && (!bemState || bemState.type === "StringLiteral")) {
       const bemClassName = bemHelper({
         element: bemElement?.type === "StringLiteral" ? bemElement?.value : undefined,
@@ -36,7 +36,7 @@ export const replaceBemHelperCallExpression = (
       printWithCondition(false, "~~~ CallExpression, bemHelper, bemClassName", bemClassName);
       return t.stringLiteral(bemClassName);
     } else if (
-      //
+      // If all arguments are either String Literals either Identifiers either doesn't exists
       (!bemElement || bemElement.type === "StringLiteral" || bemElement.type === "Identifier") &&
       (!bemState || bemState.type === "StringLiteral" || bemState.type === "Identifier")
     ) {
