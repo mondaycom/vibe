@@ -6,9 +6,9 @@ import { Switch } from "components/Switch/Switch";
 import { MockToggle } from "components/Toggle/MockToggle";
 import { BEMClass } from "helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
-import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
 import "./Toggle.scss";
 
+const BASE_TOGGLE_CLASS_NAME = "monday-style-toggle";
 const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
 
 const Toggle = ({
