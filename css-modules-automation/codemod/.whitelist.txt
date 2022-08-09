@@ -1,4 +1,4 @@
-// Troubles: 45
+// Troubles: 41
 
 // Use of custom BEMClass function - replace with common use: 2
 monday-ui-react-core/src/components/Slider/Slider.jsx // Use of custom BEMClass function - replace with common use
@@ -23,14 +23,7 @@ monday-ui-react-core/src/components/Search/Search.jsx // Custom getType() wasn't
 monday-ui-react-core/src/components/Link/Link.jsx // getIcon() arg wasn't replaced
 monday-ui-react-core/src/components/MultiStepIndicator/components/StepIndicator/StepIndicator.jsx // custom function getClassNamesWithSuffix wasn't replaced
 
-// Base class name: 5
-monday-ui-react-core/src/components/ButtonGroup/ButtonGroup.jsx // baseClassName wasn't replaced - rename to CSS_BASE_CLASS
-monday-ui-react-core/src/components/RadioButton/RadioButton.jsx // baseClassName wasn't replaced - rename to CSS_BASE_CLASS
-monday-ui-react-core/src/components/ResponsiveList/ResponsiveList.jsx // rootClassName wasn't replaced - rename to CSS_BASE_CLASS
-monday-ui-react-core/src/components/Steps/Steps.jsx // STEPS_CSS_BASE_CLASS - wasn't replaced cause it's imported
-monday-ui-react-core/src/components/Toggle/Toggle.jsx // incorrect base class replacement - imported base class
-
-// To investigate: 20
+// To investigate: 15
 monday-ui-react-core/src/components/Accordion/Accordion/Accordion.jsx // code looks correct, but can spot border style difference - investigate
 monday-ui-react-core/src/components/Clickable/Clickable.jsx // code looks good, but pointer is not displayed - investigate
 monday-ui-react-core/src/components/ColorPicker/ColorPicker.jsx // code looks good, but not displayed as a grid - investigate
@@ -45,6 +38,7 @@ monday-ui-react-core/src/components/Tabs/TabPanels/TabPanels.jsx // looks ok, bu
 monday-ui-react-core/src/components/TextField/TextField.jsx // looks ok, but smth is wrong with sizes
 monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx // { current: isCurrent } wasn't replaced - investigate
 monday-ui-react-core/src/components/storybook-helpers/flex-layout/flex-layout.jsx // looks ok, but need to investigate direction prop
+monday-ui-react-core/src/components/ButtonGroup/ButtonGroup.jsx // (M) code looks good, but apperance have changed - investigate
 // Troubles - menu: 6
 monday-ui-react-core/src/components/Menu/Menu/Menu.jsx // Code looks, but probably menuItems have gone wrong - investigate
 monday-ui-react-core/src/components/Menu/MenuGridItem/MenuGridItem.jsx // looks good, but mb related to Menu trouble
@@ -62,7 +56,7 @@ monday-ui-react-core/src/components/Combobox/components/ComboboxItems/ComboboxIt
 monday-ui-react-core/src/components/IconButton/IconButton.jsx // Modular styles already, but still come changes appear
 monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary expression in cx(...)
 
-// Checked - correct automatically: 44
+// Checked - correct automatically: 43
 monday-ui-react-core/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx
 monday-ui-react-core/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx
 monday-ui-react-core/src/components/AlertBanner/AlertBanner.jsx
@@ -105,7 +99,15 @@ monday-ui-react-core/src/components/Tipseen/TipseenWizard.jsx
 monday-ui-react-core/src/components/Toast/Toast.jsx
 monday-ui-react-core/src/components/VirtualizedGrid/VirtualizedGrid.jsx
 monday-ui-react-core/src/components/VirtualizedList/VirtualizedList.jsx
+monday-ui-react-core/src/components/ResponsiveList/ResponsiveList.jsx
 
-// Checked - correct manually + automatically: 2
-// monday-ui-react-core/src/components/MenuButton/MenuButton.jsx // Use of custom BEMClass function - replace with common use
-// monday-ui-react-core/src/components/Slider/SliderBase/SliderBase.jsx // Use of custom BEMClass function - replace with common use
+// Checked - correct manually (M) + automatically: 5
+
+// Use of custom BEMClass function - replace with common use: 2
+// monday-ui-react-core/src/components/MenuButton/MenuButton.jsx
+// monday-ui-react-core/src/components/Slider/SliderBase/SliderBase.jsx
+
+// Base class name: 3
+// monday-ui-react-core/src/components/RadioButton/RadioButton.jsx
+// monday-ui-react-core/src/components/Steps/Steps.jsx
+// monday-ui-react-core/src/components/Toggle/Toggle.jsx // After migration need to make a quick fix
