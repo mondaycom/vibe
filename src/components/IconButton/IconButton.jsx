@@ -10,7 +10,7 @@ import Icon from "components/Icon/Icon";
 import AddSmall from "components/Icon/Icons/components/AddSmall";
 import { getWidthHeight } from "./services/IconButton-helpers";
 import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
-import styles from "./IconButton.modules.scss";
+import styles from "./IconButton.module.scss";
 
 const IconButton = forwardRef(
   (
