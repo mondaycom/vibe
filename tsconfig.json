@@ -4,7 +4,7 @@
     "allowJs": true,
     "target": "es6",
     "module": "commonjs",
-    "sourceMap": false,
+    "sourceMap": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "strict": true,
