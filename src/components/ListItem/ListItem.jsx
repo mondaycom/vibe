@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
-import React, { useRef, forwardRef, useCallback } from "react";
+import React, { forwardRef, useCallback, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -7,12 +7,10 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import "./ListItem.scss";
 import { SIZES } from "../../constants/sizes";
 import { keyCodes } from "../../constants/KeyCodes";
+import { BEMClass } from "helpers/bem-helper";
 
-const BEM_BASE_CLASS = "list-item";
-
-function BEMHelper(state) {
-  return `${BEM_BASE_CLASS}--${state}`;
-}
+const CSS_BASE_CLASS = "list-item";
+const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 const ListItem = forwardRef(({ className, id, onClick, selected, disabled, size, tabIndex, children }, ref) => {
   const componentRef = useRef(null);
@@ -40,9 +38,9 @@ const ListItem = forwardRef(({ className, id, onClick, selected, disabled, size,
   return (
     <div
       ref={mergedRef}
-      className={cx("list-item", className, BEMHelper(size), {
-        [BEMHelper("selected")]: selected && !disabled,
-        [BEMHelper("disabled")]: disabled
+      className={cx(CSS_BASE_CLASS, className, bemHelper({ state: size }), {
+        [bemHelper({ state: "selected" })]: selected && !disabled,
+        [bemHelper({ state: "disabled" })]: disabled
       })}
       id={id}
       aria-disabled={disabled}
