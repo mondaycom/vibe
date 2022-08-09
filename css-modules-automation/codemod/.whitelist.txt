@@ -1,8 +1,6 @@
-// Troubles: 47
+// Troubles: 45
 
-// Use of custom BEMClass function - replace with common use: 4
-monday-ui-react-core/src/components/MenuButton/MenuButton.jsx // Use of custom BEMClass function - replace with common use
-monday-ui-react-core/src/components/Slider/SliderBase/SliderBase.jsx // Use of custom BEMClass function - replace with common use
+// Use of custom BEMClass function - replace with common use: 2
 monday-ui-react-core/src/components/Slider/Slider.jsx // Use of custom BEMClass function - replace with common use
 monday-ui-react-core/src/components/ListItem/ListItem.jsx // Use of custom BEMHelper function - replace with common use
 
@@ -64,7 +62,7 @@ monday-ui-react-core/src/components/Combobox/components/ComboboxItems/ComboboxIt
 monday-ui-react-core/src/components/IconButton/IconButton.jsx // Modular styles already, but still come changes appear
 monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary expression in cx(...)
 
-// Checked - correct: 42
+// Checked - correct automatically: 44
 monday-ui-react-core/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx
 monday-ui-react-core/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx
 monday-ui-react-core/src/components/AlertBanner/AlertBanner.jsx
@@ -107,3 +105,7 @@ monday-ui-react-core/src/components/Tipseen/TipseenWizard.jsx
 monday-ui-react-core/src/components/Toast/Toast.jsx
 monday-ui-react-core/src/components/VirtualizedGrid/VirtualizedGrid.jsx
 monday-ui-react-core/src/components/VirtualizedList/VirtualizedList.jsx
+
+// Checked - correct manually + automatically: 2
+// monday-ui-react-core/src/components/MenuButton/MenuButton.jsx // Use of custom BEMClass function - replace with common use
+// monday-ui-react-core/src/components/Slider/SliderBase/SliderBase.jsx // Use of custom BEMClass function - replace with common use
