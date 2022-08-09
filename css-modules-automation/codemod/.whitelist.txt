@@ -1,4 +1,4 @@
-// Troubles: 41
+// Troubles: 39
 
 // Use of custom BEMClass function - replace with common use: 2
 monday-ui-react-core/src/components/Slider/Slider.jsx // Use of custom BEMClass function - replace with common use
@@ -49,59 +49,57 @@ monday-ui-react-core/src/components/Menu/MenuTitle/MenuTitle.jsx  // looks good,
 
 // ObjectProperty templateLiteral troubles: 2
 monday-ui-react-core/src/components/Tipseen/Tipseen.jsx // ObjectProperty templateLiteral wasn't replaced
-monday-ui-react-core/src/components/Dialog/DialogContent/DialogContent.jsx // ObjectProperty templateLiteral wasn't replaced§
+monday-ui-react-core/src/components/Dialog/DialogContent/DialogContent.jsx // ObjectProperty templateLiteral wasn't replaced
 
-// The rest: 3
-monday-ui-react-core/src/components/Combobox/components/ComboboxItems/ComboboxItems.jsx // import not ".module.scss", but ".modules.scss" - rename
-monday-ui-react-core/src/components/IconButton/IconButton.jsx // Modular styles already, but still come changes appear
+// The rest: 1
 monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary expression in cx(...)
 
 // Checked - correct automatically: 43
-monday-ui-react-core/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx
-monday-ui-react-core/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx
-monday-ui-react-core/src/components/AlertBanner/AlertBanner.jsx
-monday-ui-react-core/src/components/Avatar/Avatar.jsx
-monday-ui-react-core/src/components/Avatar/AvatarBadge.jsx
-monday-ui-react-core/src/components/Avatar/AvatarContent.jsx
-monday-ui-react-core/src/components/Banner/Banner.jsx
-monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbsBar.jsx
-monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbContent/BreadcrumbContent.jsx
-monday-ui-react-core/src/components/Button/Button.jsx
-monday-ui-react-core/src/components/Combobox/components/ComboboxCategory/ComboboxCategory.jsx
-monday-ui-react-core/src/components/Combobox/components/ComboboxOption/ComboboxOption.jsx
-monday-ui-react-core/src/components/Counter/Counter.jsx
-monday-ui-react-core/src/components/DialogContentContainer/DialogContentContainer.jsx
-monday-ui-react-core/src/components/Divider/Divider.jsx
-monday-ui-react-core/src/components/Dropdown/Dropdown.jsx
-monday-ui-react-core/src/components/Dropdown/components/menu/menu.jsx
-monday-ui-react-core/src/components/Dropdown/components/option/option.jsx
-monday-ui-react-core/src/components/EditableInput/EditableInput.jsx
-monday-ui-react-core/src/components/FormattedNumber/FormattedNumber.jsx
-monday-ui-react-core/src/components/HiddenText/HiddenText.jsx
-monday-ui-react-core/src/components/Label/Label.jsx
-monday-ui-react-core/src/components/List/List.jsx
-monday-ui-react-core/src/components/ListItemIcon/ListItemIcon.jsx
-monday-ui-react-core/src/components/ListTitle/ListTitle.jsx
-monday-ui-react-core/src/components/Skeleton/Skeleton.jsx
-monday-ui-react-core/src/components/storybook-helpers/color-item/color-item.jsx
-monday-ui-react-core/src/components/storybook-helpers/component-state-description/ComponentStateDescription.jsx
-monday-ui-react-core/src/components/storybook-helpers/description-label/description-label.jsx
-monday-ui-react-core/src/components/storybook-helpers/Divider/Divider.jsx
-monday-ui-react-core/src/components/storybook-helpers/story-state-column/story-state-column.jsx
-monday-ui-react-core/src/components/Tabs/Tab/Tab.jsx
-monday-ui-react-core/src/components/Tabs/TabPanel/TabPanel.jsx
-monday-ui-react-core/src/components/Tabs/TabsContext/TabsContext.jsx // empty styles
-monday-ui-react-core/src/components/TextWithHighlight/TextWithHighlight.jsx
-monday-ui-react-core/src/components/Tipseen/TipseenBasicContent.jsx
-monday-ui-react-core/src/components/Tipseen/TipseenImage.jsx
-monday-ui-react-core/src/components/Tipseen/TipseenTitle.jsx
-monday-ui-react-core/src/components/Tipseen/TipseenWizard.jsx
-monday-ui-react-core/src/components/Toast/Toast.jsx
-monday-ui-react-core/src/components/VirtualizedGrid/VirtualizedGrid.jsx
-monday-ui-react-core/src/components/VirtualizedList/VirtualizedList.jsx
-monday-ui-react-core/src/components/ResponsiveList/ResponsiveList.jsx
+// monday-ui-react-core/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx
+// monday-ui-react-core/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx
+// monday-ui-react-core/src/components/AlertBanner/AlertBanner.jsx
+// monday-ui-react-core/src/components/Avatar/Avatar.jsx
+// monday-ui-react-core/src/components/Avatar/AvatarBadge.jsx
+// monday-ui-react-core/src/components/Avatar/AvatarContent.jsx
+// monday-ui-react-core/src/components/Banner/Banner.jsx
+// monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbsBar.jsx
+// monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbContent/BreadcrumbContent.jsx
+// monday-ui-react-core/src/components/Button/Button.jsx
+// monday-ui-react-core/src/components/Combobox/components/ComboboxCategory/ComboboxCategory.jsx
+// monday-ui-react-core/src/components/Combobox/components/ComboboxOption/ComboboxOption.jsx
+// monday-ui-react-core/src/components/Counter/Counter.jsx
+// monday-ui-react-core/src/components/DialogContentContainer/DialogContentContainer.jsx
+// monday-ui-react-core/src/components/Divider/Divider.jsx
+// monday-ui-react-core/src/components/Dropdown/Dropdown.jsx
+// monday-ui-react-core/src/components/Dropdown/components/menu/menu.jsx
+// monday-ui-react-core/src/components/Dropdown/components/option/option.jsx
+// monday-ui-react-core/src/components/EditableInput/EditableInput.jsx
+// monday-ui-react-core/src/components/FormattedNumber/FormattedNumber.jsx
+// monday-ui-react-core/src/components/HiddenText/HiddenText.jsx
+// monday-ui-react-core/src/components/Label/Label.jsx
+// monday-ui-react-core/src/components/List/List.jsx
+// monday-ui-react-core/src/components/ListItemIcon/ListItemIcon.jsx
+// monday-ui-react-core/src/components/ListTitle/ListTitle.jsx
+// monday-ui-react-core/src/components/Skeleton/Skeleton.jsx
+// monday-ui-react-core/src/components/storybook-helpers/color-item/color-item.jsx
+// monday-ui-react-core/src/components/storybook-helpers/component-state-description/ComponentStateDescription.jsx
+// monday-ui-react-core/src/components/storybook-helpers/description-label/description-label.jsx
+// monday-ui-react-core/src/components/storybook-helpers/Divider/Divider.jsx
+// monday-ui-react-core/src/components/storybook-helpers/story-state-column/story-state-column.jsx
+// monday-ui-react-core/src/components/Tabs/Tab/Tab.jsx
+// monday-ui-react-core/src/components/Tabs/TabPanel/TabPanel.jsx
+// monday-ui-react-core/src/components/Tabs/TabsContext/TabsContext.jsx // empty styles
+// monday-ui-react-core/src/components/TextWithHighlight/TextWithHighlight.jsx
+// monday-ui-react-core/src/components/Tipseen/TipseenBasicContent.jsx
+// monday-ui-react-core/src/components/Tipseen/TipseenImage.jsx
+// monday-ui-react-core/src/components/Tipseen/TipseenTitle.jsx
+// monday-ui-react-core/src/components/Tipseen/TipseenWizard.jsx
+// monday-ui-react-core/src/components/Toast/Toast.jsx
+// monday-ui-react-core/src/components/VirtualizedGrid/VirtualizedGrid.jsx
+// monday-ui-react-core/src/components/VirtualizedList/VirtualizedList.jsx
+// monday-ui-react-core/src/components/ResponsiveList/ResponsiveList.jsx
 
-// Checked - correct manually (M) + automatically: 5
+// Checked - correct manually (M) + automatically: 7
 
 // Use of custom BEMClass function - replace with common use: 2
 // monday-ui-react-core/src/components/MenuButton/MenuButton.jsx
@@ -111,3 +109,7 @@ monday-ui-react-core/src/components/ResponsiveList/ResponsiveList.jsx
 // monday-ui-react-core/src/components/RadioButton/RadioButton.jsx
 // monday-ui-react-core/src/components/Steps/Steps.jsx
 // monday-ui-react-core/src/components/Toggle/Toggle.jsx // After migration need to make a quick fix
+
+// Import of .modules.scss instead of .module.scss: 2
+// monday-ui-react-core/src/components/Combobox/components/ComboboxItems/ComboboxItems.jsx
+// monday-ui-react-core/src/components/IconButton/IconButton.jsx
