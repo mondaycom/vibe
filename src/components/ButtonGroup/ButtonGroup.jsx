@@ -1,13 +1,14 @@
-import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Button from "components/Button/Button";
 import usePrevious from "hooks/usePrevious";
 import useMergeRefs from "hooks/useMergeRefs";
 import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
-import { baseClassName } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import "./ButtonGroup.scss";
+
+const CSS_BASE_CLASS = "monday-style-button-group-component";
 
 const ButtonGroup = forwardRef(
   (
@@ -76,7 +77,7 @@ const ButtonGroup = forwardRef(
             tooltipShowDelay={tooltipShowDelay}
             tooltipContainerSelector={tooltipContainerSelector}
             tooltipMoveBy={tooltipMoveBy}
-            className={cx(`${baseClassName}__option-text`, {
+            className={cx(`${CSS_BASE_CLASS}__option-text`, {
               selected: isSelected,
               disabled,
               "button-disabled": option.disabled
@@ -109,19 +110,19 @@ const ButtonGroup = forwardRef(
 
     return (
       <div
-        className={cx(baseClassName, overrideClassName, `${baseClassName}--kind-${kind}`, { disabled })}
+        className={cx(CSS_BASE_CLASS, overrideClassName, `${CSS_BASE_CLASS}--kind-${kind}`, { disabled })}
         ref={mergedRef}
       >
         <div
           role="group"
           aria-label={groupAriaLabel}
-          className={cx(`${baseClassName}__buttons-container`)}
+          className={cx(`${CSS_BASE_CLASS}__buttons-container`)}
           aria-disabled={disabled}
         >
           {Buttons}
         </div>
         {selectedOption && selectedOption.subText && (
-          <div className={`${baseClassName}__sub-text-container`}>{selectedOption.subText}</div>
+          <div className={`${CSS_BASE_CLASS}__sub-text-container`}>{selectedOption.subText}</div>
         )}
       </div>
     );
