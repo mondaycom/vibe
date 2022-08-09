@@ -9,7 +9,7 @@ import {
 } from "components/Combobox/ComboboxHelpers/ComboboxHelpers";
 import VirtualizedList from "components/VirtualizedList/VirtualizedList";
 import { COMBOBOX_CATEGORY_ITEM, COMBOBOX_OPTION_ITEM } from "components/Combobox/components/ComboboxConstants";
-import styles from "./ComboboxItems.modules.scss";
+import styles from "./ComboboxItems.module.scss";
 
 export const ComboboxItems = forwardRef(
   (
