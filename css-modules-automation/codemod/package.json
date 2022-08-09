@@ -17,7 +17,6 @@
     "modify react-core/mock-toggle": "npx codemod -p src/index.ts ../../src/components/Toggle/MockToggle.jsx",
     "modify react-core/steps-command": "npx codemod -p src/index.ts ../../src/components/Steps/StepsCommand.jsx",
     "modify react-core/tooltip": "npx codemod -p src/index.ts ../../src/components/Tooltip/Tooltip.jsx",
-    "modify react-core/toggle": "npx codemod -p src/index.ts ../../src/components/Toggle/Toggle.jsx",
     "modify react-core/toast-link": "npx codemod -p src/index.ts ../../src/components/Toast/ToastLink/ToastLink.jsx",
     "modify react-core/tipseen-image": "npx codemod -p src/index.ts ../../src/components/Tipseen/TipseenImage.jsx",
     "modify react-core/tipseen-basic-content": "npx codemod -p src/index.ts ../../src/components/Tipseen/TipseenBasicContent.jsx",
@@ -26,10 +25,17 @@
     "modify react-core/button": "npx codemod -p src/index.ts ../../src/components/Button/Button.jsx",
     "modify react-core/counter": "npx codemod -p src/index.ts ../../src/components/Counter/Counter.jsx",
     "modify react-core/combobox-option": "npx codemod -p src/index.ts ../../src/components/Combobox/components/ComboboxOption/ComboboxOption.jsx",
+
     "modify react-core/menu-button": "npx codemod -p src/index.ts ../../src/components/MenuButton/MenuButton.jsx",
     "modify react-core/slider-base": "npx codemod -p src/index.ts ../../src/components/Slider/SliderBase/SliderBase.jsx",
     "modify react-core/slider": "npx codemod -p src/index.ts ../../src/components/Slider/Slider.jsx",
     "modify react-core/list-item": "npx codemod -p src/index.ts ../../src/components/ListItem/ListItem.jsx",
+
+    "modify react-core/button-group": "npx codemod -p src/index.ts ../../src/components/ButtonGroup/ButtonGroup.jsx",
+    "modify react-core/radio-button": "npx codemod -p src/index.ts ../../src/components/RadioButton/RadioButton.jsx",
+    "modify react-core/responsive-list": "npx codemod -p src/index.ts ../../src/components/ResponsiveList/ResponsiveList.jsx",
+    "modify react-core/toggle": "npx codemod -p src/index.ts ../../src/components/Toggle/Toggle.jsx",
+    "modify react-core/steps": "npx codemod -p src/index.ts ../../src/components/Steps/Steps.jsx",
 
     "modify tests": "npx codemod -p src/index.ts tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx",
