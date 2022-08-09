@@ -10,7 +10,7 @@ Please go over the checklist and make sure all conditions are met.
 - [ ] New component is functional and uses Hooks. 
 - [ ] Component defines [`PropTypes`](https://reactjs.org/docs/typechecking-with-proptypes.html).
 #### Style
-- [ ] Styles are added to `NewComponent.modules.scss` file inside of the `NewComponent` folder.
+- [ ] Styles are added to `NewComponent.module.scss` file inside of the `NewComponent` folder.
 - [ ] Component uses CSS Modules.
 - [ ] Design is compatible with [Monday Design System](https://design.monday.com/).
 #### Storybook
