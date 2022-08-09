@@ -4,7 +4,7 @@
 
 // Use of custom BEMClass function - replace with common use: 2
 monday-ui-react-core/src/components/Slider/Slider.jsx // Use of custom BEMClass function - replace with common use
-monday-ui-react-core/src/components/ListItem/ListItem.jsx // Use of custom BEMHelper function - replace with common use
+monday-ui-react-core/src/components/Slider/SliderBase/SliderBase.jsx // Use of custom BEMClass function - replace with common use
 
 // Custom components className props: 7
 monday-ui-react-core/src/components/Toast/ToastLink/ToastLink.jsx // Use of custom className prop
@@ -105,7 +105,7 @@ monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary
 
 // Use of custom BEMClass function - replace with common use: 2
 // monday-ui-react-core/src/components/MenuButton/MenuButton.jsx
-// monday-ui-react-core/src/components/Slider/SliderBase/SliderBase.jsx
+// monday-ui-react-core/src/components/ListItem/ListItem.jsx
 
 // Base class name: 3
 // monday-ui-react-core/src/components/RadioButton/RadioButton.jsx
