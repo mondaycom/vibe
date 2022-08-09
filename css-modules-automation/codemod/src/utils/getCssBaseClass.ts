@@ -40,7 +40,7 @@ export const getCssBaseClass = (oldClassNames: string[], code: string | undefine
     }
 
     // If unsuccessful then try to get plain baseClass declaration
-    const baseCssClassMatches = code.match(/const(.)*BASE_CSS_CLASS(\s)*=(\s)*"(.)*"(\s)*;/);
+    const baseCssClassMatches = code.match(/const(.)*(BASE_CSS_CLASS|CSS_BASE_CLASS)(\s)*=(\s)*"(.)*"(\s)*;/);
     if (baseCssClassMatches?.length) {
       const baseCssClassFirstMatch = baseCssClassMatches[0];
       printWithCondition(false, "$$$ getCssBaseClassName, baseCssClassFirstMatch", baseCssClassFirstMatch);
