@@ -1,11 +1,12 @@
-import React, { useRef, forwardRef, useCallback, useMemo } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "hooks/useMergeRefs";
 import Clickable from "components/Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
-import { baseClassName } from "./RadioButtonConstants";
 import "./RadioButton.scss";
+
+const CSS_BASE_CLASS = "monday-style-radio-button-component";
 
 const RadioButton = forwardRef(
   (
@@ -47,10 +48,10 @@ const RadioButton = forwardRef(
     }, [checked, defaultChecked]);
 
     return (
-      <label className={cx(baseClassName, overrideClassName, { disabled })}>
-        <span className={`${baseClassName}__radio-input-container`}>
+      <label className={cx(CSS_BASE_CLASS, overrideClassName, { disabled })}>
+        <span className={`${CSS_BASE_CLASS}__radio-input-container`}>
           <input
-            className={`${baseClassName}__radio-input-container__radio-input`}
+            className={`${CSS_BASE_CLASS}__radio-input-container__radio-input`}
             type="radio"
             value={value}
             name={name}
@@ -59,9 +60,9 @@ const RadioButton = forwardRef(
             onChange={onSelect}
             ref={mergedRef}
           />
-          <span className={`${baseClassName}__radio-input-container__radio-control`} />
+          <span className={`${CSS_BASE_CLASS}__radio-input-container__radio-control`} />
         </span>
-        {text && <span className={`${baseClassName}__radio-label`}>{text}</span>}
+        {text && <span className={`${CSS_BASE_CLASS}__radio-label`}>{text}</span>}
         {children && (
           <Clickable className="radio-children-wrapper" onClick={onChildClick} tabIndex={childrenTabIndex}>
             {children}
