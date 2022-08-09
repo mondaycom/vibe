@@ -1,4 +1,6 @@
-// Troubles: 39
+/// Total processed files: 89
+
+/// Troubles: 39
 
 // Use of custom BEMClass function - replace with common use: 2
 monday-ui-react-core/src/components/Slider/Slider.jsx // Use of custom BEMClass function - replace with common use
@@ -54,7 +56,7 @@ monday-ui-react-core/src/components/Dialog/DialogContent/DialogContent.jsx // Ob
 // The rest: 1
 monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary expression in cx(...)
 
-// Checked - correct automatically: 43
+/// Checked - correct automatically: 43
 // monday-ui-react-core/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx
 // monday-ui-react-core/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx
 // monday-ui-react-core/src/components/AlertBanner/AlertBanner.jsx
@@ -99,7 +101,7 @@ monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary
 // monday-ui-react-core/src/components/VirtualizedList/VirtualizedList.jsx
 // monday-ui-react-core/src/components/ResponsiveList/ResponsiveList.jsx
 
-// Checked - correct manually (M) + automatically: 7
+/// Checked - correct manually (M) + automatically: 7
 
 // Use of custom BEMClass function - replace with common use: 2
 // monday-ui-react-core/src/components/MenuButton/MenuButton.jsx
