@@ -3,9 +3,9 @@ import { printWithCondition } from "./commonProcess/print";
 
 /**
  * Adds cx(...) wrapper to the classNames
- * @param node JSXAttribute node
+ * @param node JSXExpressionContainer node
  */
-export const wrapWithCxCallExpression = (node: t.JSXExpressionContainer): t.JSXExpressionContainer => {
+export const embedCxCallExpression = (node: t.JSXExpressionContainer): t.JSXExpressionContainer => {
   const nodeExpressionValue = node.expression as t.StringLiteral;
   const res = t.jsxExpressionContainer(t.callExpression(t.identifier("cx"), [nodeExpressionValue]));
   printWithCondition(false, "%%% wrapWithCxCallExpression, res", res);
@@ -14,9 +14,9 @@ export const wrapWithCxCallExpression = (node: t.JSXExpressionContainer): t.JSXE
 
 /**
  * Adds cx(...) wrapper to the classNames
- * @param node JSXAttribute node
+ * @param node t.StringLiteral | t.Identifier node
  */
-export const wrapStringLiteralWithCxCallExpression = (node: t.StringLiteral): t.CallExpression => {
+export const wrapWithCxCallExpression = (node: t.StringLiteral | t.Identifier): t.CallExpression => {
   const res = t.callExpression(t.identifier("cx"), [node]);
   printWithCondition(false, "%%% wrapWithCxCallExpression, res", res);
   return res;

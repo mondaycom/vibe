@@ -1,5 +1,4 @@
 import * as t from "@babel/types";
-import { StringLiteral } from "@babel/types";
 import { printWithCondition } from "./commonProcess/print";
 
 /**
@@ -7,15 +6,18 @@ import { printWithCondition } from "./commonProcess/print";
  *
  * @param classNames Set of classnames
  * @param importIdentifier Name of the identifier to reference class names via
- * @param node StringLiteral node
+ * @param oldClassNameString StringLiteral className
  * @returns New classname string
  */
-export const getModularClassnameForStringLiteral = (
+export const convertClassnameToModular = (
   classNames: Map<string, string>,
   importIdentifier: string,
-  node: StringLiteral
+  oldClassNameString: string | undefined
 ): null | t.MemberExpression => {
-  const oldClassNameString = node.value;
+  if (!oldClassNameString) {
+    return null;
+  }
+
   const newClassNameString: string = (classNames.has(oldClassNameString) && classNames.get(oldClassNameString)) || "";
 
   printWithCondition(false, "*** getModularClassnameForStringLiteral, oldClassNameString", oldClassNameString);
@@ -24,17 +26,13 @@ export const getModularClassnameForStringLiteral = (
   if (classNames && !classNames.has(oldClassNameString)) {
     printWithCondition(
       false,
-      "*** getModularClassnameForStringLiteral, If the class name isn't in the modular class name list, skip, literalNode",
-      node
+      "*** getModularClassnameForStringLiteral, skip cause class name isn't in the modular class name list",
+      oldClassNameString
     );
     return null;
   }
 
   const res = t.memberExpression(t.identifier(importIdentifier), t.identifier(newClassNameString));
-  printWithCondition(
-    false,
-    '*** getModularClassnameForStringLiteral, Otherwise return a computed MemberExpression i.e. styles["className"], res',
-    res
-  );
+  printWithCondition(false, "*** getModularClassnameForStringLiteral, return MemberExpression, res = ", res);
   return res;
 };

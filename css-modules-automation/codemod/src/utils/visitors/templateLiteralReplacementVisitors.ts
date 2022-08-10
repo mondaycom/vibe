@@ -3,7 +3,7 @@ import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
 import { printWithCondition } from "../commonProcess/print";
 import { isClassNameJsxAttribute } from "../logical/isClassNameJsxAttribute";
-import { wrapWithCxCallExpression } from "../wrapWithCxCallExpression";
+import { embedCxCallExpression } from "../wrapWithCxCallExpression";
 import { isCxCallExpression } from "../logical/isCxCallExpression";
 import { State } from "../../index";
 import { isTemplateLiteralNeedToBeSplit } from "../logical/isTemplateLiteralNeedToBeSplit";
@@ -26,7 +26,7 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
     ) {
       // If 'className={...}' then convert to 'className={cx(...)}'
       if (t.isJSXExpressionContainer(path.parent) && !isCxCallExpression(path.parent.expression)) {
-        const newPath = wrapWithCxCallExpression(path.parent);
+        const newPath = embedCxCallExpression(path.parent);
         path.parentPath.replaceWith(newPath);
         printWithCondition(false, "### templateLiteralReplacementVisitors, wrappedWithCxCallExpression");
         return;

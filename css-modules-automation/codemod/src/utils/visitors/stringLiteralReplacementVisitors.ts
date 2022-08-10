@@ -2,7 +2,7 @@ import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
 import { print, printWithCondition } from "../commonProcess/print";
-import { getModularClassnameForStringLiteral } from "../getModularClassnameForStringLiteral";
+import { convertClassnameToModular } from "../convertClassnameToModular";
 import { State } from "../../index";
 
 /**
@@ -29,8 +29,8 @@ export const stringLiteralReplacementVisitors: Visitor<State> = {
       return;
     }
     // Replace all className strings with styles.className
-    const newPath = getModularClassnameForStringLiteral(classNames, opts.importIdentifier, path.node);
-    if (!newPath) {
+    const modularClassnameNode = convertClassnameToModular(classNames, opts.importIdentifier, path.node.value);
+    if (!modularClassnameNode) {
       // Classnames is not found in set of classnames from .scss file
       return;
     }
@@ -41,7 +41,7 @@ export const stringLiteralReplacementVisitors: Visitor<State> = {
       // it to be a computed value instead.
       const parentNode = parentPath.node as t.ObjectProperty;
       print("### stringLiteralReplacementVisitors, isObjectProperty, parentNode.value = ", parentNode.value);
-      const overrideNewPath = t.objectProperty(newPath as any, parentNode.value, true, false);
+      const overrideNewPath = t.objectProperty(modularClassnameNode, parentNode.value, true, false);
       const insertedPaths = parentPath.replaceInline([
         overrideNewPath,
         t.objectProperty(t.stringLiteral(path.node.value), parentNode.value, true, false)
@@ -60,7 +60,7 @@ export const stringLiteralReplacementVisitors: Visitor<State> = {
       );
       printWithCondition(false, "### stringLiteralReplacementVisitors, path.parentPath", path.parentPath);
 
-      const insertedPaths = path.replaceInline([newPath, t.stringLiteral(path.node.value)]);
+      const insertedPaths = path.replaceInline([modularClassnameNode, t.stringLiteral(path.node.value)]);
       insertedPaths.forEach(p => {
         p.skip();
         p.getPrevSibling().skip();
