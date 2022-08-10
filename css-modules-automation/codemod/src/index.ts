@@ -41,3 +41,5 @@ export default (): PluginObj<State> => ({
 // TODO replace TemplateLiteral inside ObjectProperty (Tipseen...)
 
 // TODO incorrect baseClassName from imports: Toggle
+
+// TODO Tipseen: replace TIPSEEN_BASE_CSS_CLASS with camelCase value, not function call!
