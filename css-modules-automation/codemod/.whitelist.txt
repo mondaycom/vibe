@@ -1,6 +1,6 @@
 /// Total processed files: 89
 
-/// Troubles: 39
+/// Troubles: 38
 
 // Use of custom BEMClass function - replace with common use: 2
 monday-ui-react-core/src/components/Slider/Slider.jsx // Use of custom BEMClass function - replace with common use
@@ -49,8 +49,7 @@ monday-ui-react-core/src/components/Menu/MenuItemButton/MenuItemButton.jsx // lo
 monday-ui-react-core/src/components/Menu/MenuDivider/MenuDivider.jsx // custom component classname prop wasn't replaced
 monday-ui-react-core/src/components/Menu/MenuTitle/MenuTitle.jsx  // looks good, but mb related to Menu trouble
 
-// ObjectProperty templateLiteral troubles: 2
-monday-ui-react-core/src/components/Tipseen/Tipseen.jsx // ObjectProperty templateLiteral wasn't replaced
+// ObjectProperty templateLiteral troubles: 1
 monday-ui-react-core/src/components/Dialog/DialogContent/DialogContent.jsx // ObjectProperty templateLiteral wasn't replaced
 
 // The rest: 1
@@ -101,7 +100,7 @@ monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary
 // monday-ui-react-core/src/components/VirtualizedList/VirtualizedList.jsx
 // monday-ui-react-core/src/components/ResponsiveList/ResponsiveList.jsx
 
-/// Checked - correct manually (M) + automatically: 7
+/// Checked - correct manually (M) + automatically: 8
 
 // Use of custom BEMClass function - replace with common use: 2
 // monday-ui-react-core/src/components/MenuButton/MenuButton.jsx
@@ -115,3 +114,6 @@ monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary
 // Import of .modules.scss instead of .module.scss: 2
 // monday-ui-react-core/src/components/Combobox/components/ComboboxItems/ComboboxItems.jsx
 // monday-ui-react-core/src/components/IconButton/IconButton.jsx
+
+// ObjectProperty templateLiteral troubles: 1
+//monday-ui-react-core/src/components/Tipseen/Tipseen.jsx
