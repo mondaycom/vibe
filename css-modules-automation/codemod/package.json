@@ -20,7 +20,6 @@
     "modify react-core/toast-link": "npx codemod -p src/index.ts ../../src/components/Toast/ToastLink/ToastLink.jsx && prettier -w ../../src/components/Toast/ToastLink/ToastLink.jsx",
     "modify react-core/tipseen-image": "npx codemod -p src/index.ts ../../src/components/Tipseen/TipseenImage.jsx && prettier -w ../../src/components/Tipseen/TipseenImage.jsx",
     "modify react-core/tipseen-basic-content": "npx codemod -p src/index.ts ../../src/components/Tipseen/TipseenBasicContent.jsx && prettier -w ../../src/components/Tipseen/TipseenBasicContent.jsx",
-    "modify react-core/tipseen": "npx codemod -p src/index.ts ../../src/components/Tipseen/Tipseen.jsx && prettier -w ../../src/components/Tipseen/Tipseen.jsx",
     "modify react-core/tab": "npx codemod -p src/index.ts ../../src/components/Tabs/Tab/Tab.jsx && prettier -w ../../src/components/Tabs/Tab/Tab.jsx",
     "modify react-core/button": "npx codemod -p src/index.ts ../../src/components/Button/Button.jsx && prettier -w ../../src/components/Button/Button.jsx",
     "modify react-core/counter": "npx codemod -p src/index.ts ../../src/components/Counter/Counter.jsx && prettier -w ../../src/components/Counter/Counter.jsx",
@@ -37,6 +36,10 @@
     "modify react-core/toggle": "npx codemod -p src/index.ts ../../src/components/Toggle/Toggle.js && prettier -w ../../src/components/Toggle/Toggle.js",
     "modify react-core/steps": "npx codemod -p src/index.ts ../../src/components/Steps/Steps.jsx && prettier -w ../../src/components/Steps/Steps.jsx",
 
+    "modify react-core/tipseen": "npx codemod -p src/index.ts ../../src/components/Tipseen/Tipseen.jsx && prettier -w ../../src/components/Tipseen/Tipseen.jsx",
+    "modify react-core/dialog-content": "npx codemod -p src/index.ts ../../src/components/Dialog/DialogContent/DialogContent.jsx && prettier -w ../../src/components/Dialog/DialogContent/DialogContent.jsx",
+
+    
     "modify tests": "npx codemod -p src/index.ts tests && prettier -w tests",
     "modify tests/divider": "npx codemod -p src/index.ts tests/Divider.jsx && prettier -w tests/Divider.jsx",
     "modify tests/avatar": "npx codemod -p src/index.ts tests/Avatar.jsx && prettier -w tests/Avatar.jsx",
