@@ -49,25 +49,37 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
     }
 
     if (isCxCallExpression(path.parent)) {
-      const newString = buildClassnameStringFromTemplateLiteral(path.node);
-      const newPath = t.memberExpression(t.identifier(state.opts.importIdentifier), t.identifier(newString), true);
-      printWithCondition(false, "### templateLiteralReplacementVisitors, newString", newString);
-      printWithCondition(false, "### templateLiteralReplacementVisitors, path.parent", path.parent);
-      printWithCondition(
-        false,
-        "### templateLiteralReplacementVisitors, isCxCallExpression, path.parentPath.parent",
-        path.parentPath.parent
-      );
+      const modularClassnameString = buildClassnameStringFromTemplateLiteral(path.node, state);
+      if (modularClassnameString.includes("+")) {
+        const newPath = t.memberExpression(
+          t.identifier(state.opts.importIdentifier),
+          t.identifier(modularClassnameString),
+          true
+        );
+        printWithCondition(
+          false,
+          "### templateLiteralReplacementVisitors, modularClassnameString",
+          modularClassnameString
+        );
+        printWithCondition(false, "### templateLiteralReplacementVisitors, path.parent", path.parent);
+        printWithCondition(
+          false,
+          "### templateLiteralReplacementVisitors, isCxCallExpression, path.parentPath.parent",
+          path.parentPath.parent
+        );
 
-      const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
-      insertedPaths.forEach(p => {
-        p.skip();
-        p.getPrevSibling().skip();
-      });
+        const insertedPaths = path.replaceInline([newPath, t.templateLiteral(path.node.quasis, path.node.expressions)]);
+        insertedPaths.forEach(p => {
+          p.skip();
+          p.getPrevSibling().skip();
+        });
 
-      printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
+        printWithCondition(false, "### templateLiteralReplacementVisitors, replaced with newPath", newPath);
 
-      state.camelCaseImportNeeded = true;
+        state.camelCaseImportNeeded = true;
+      } else {
+        path.replaceWith(t.stringLiteral(modularClassnameString));
+      }
     } else {
       printWithCondition(
         false,

@@ -1,6 +1,7 @@
 import * as t from "@babel/types";
 import { printWithCondition } from "../commonProcess/print";
 import { buildStringFromCallExpression } from "./buildStringFromCallExpression";
+import { State } from "../../index";
 
 export type TemplateLiteralPart = {
   value: string | undefined;
@@ -59,9 +60,11 @@ export const getTemplateLiteralParts = (node: t.TemplateLiteral): TemplateLitera
  * @param node TemplateLiteral node
  * @param addCamelCaseWrapping should resut be wrapped in camelCase function or not
  * @param separateIdentifiers
+ * @param state
  */
 export const buildClassnameStringFromTemplateLiteral = (
   node: t.TemplateLiteral,
+  state: State,
   addCamelCaseWrapping: boolean = true,
   separateIdentifiers: boolean = true
 ): string => {
@@ -72,21 +75,33 @@ export const buildClassnameStringFromTemplateLiteral = (
     const p = parts[i];
     if (p.type === "TemplateElement") {
       if (separateIdentifiers) {
-        if (i !== 0) newString += " + ";
-        newString += `"${p.value}"`;
-        if (i !== parts.length - 1) newString += " + ";
+        if (i !== 0 && parts[i - 1].type !== "Identifier" && parts[i - 1].value === state.baseCssClass?.variableName)
+          newString += ' + "';
+        newString += p.value;
+        if (
+          i !== parts.length - 1 &&
+          parts[i + 1].type !== "Identifier" &&
+          parts[i + 1].value === state.baseCssClass?.variableName
+        )
+          newString += '" + ';
       } else {
         newString += p.value;
       }
     } else {
       if (separateIdentifiers) {
-        newString += p.value;
+        if (p.type === "Identifier" && p.value === state.baseCssClass?.variableName) {
+          newString += state.baseCssClass?.value;
+        } else {
+          newString += p.value;
+        }
       } else {
         newString += `\$\{${p.value}\}`;
       }
     }
+    printWithCondition(false, "))) buildStringFromTemplateLiteral, newString", newString);
   }
-  if (addCamelCaseWrapping) {
+
+  if (addCamelCaseWrapping && newString.includes("+")) {
     newString = `\`\$\{camelCase(${newString})\}\``;
   }
 

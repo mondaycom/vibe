@@ -6,7 +6,7 @@ import { State } from "../index";
 import { buildClassnameStringFromTemplateLiteral } from "./templateLiterals/buildClassnameStringFromTemplateLiteral";
 import { createTemplateLiteralFromString } from "./templateLiterals/createTemplateLiteralFromString";
 
-const getBemArgumentStringValue = (node: Expression | PatternLike | undefined): string | undefined => {
+const getBemArgumentStringValue = (node: Expression | PatternLike | undefined, state: State): string | undefined => {
   if (!node) {
     return undefined;
   }
@@ -20,7 +20,7 @@ const getBemArgumentStringValue = (node: Expression | PatternLike | undefined): 
   }
 
   if (t.isTemplateLiteral(node)) {
-    return buildClassnameStringFromTemplateLiteral(node, false, false);
+    return buildClassnameStringFromTemplateLiteral(node, state, false, false);
   }
 
   return undefined;
@@ -48,9 +48,9 @@ export const replaceBemHelperCallExpression = (
     printWithCondition(false, "~~~ CallExpression, bemHelper, bemElement", bemElement);
     printWithCondition(false, "~~~ CallExpression, bemHelper, bemState", bemState);
 
-    let bemElementStringValue: string | undefined = getBemArgumentStringValue(bemElement);
+    let bemElementStringValue: string | undefined = getBemArgumentStringValue(bemElement, state);
     bemElementStringValue = bemElementStringValue ? `_${bemElementStringValue}` : "";
-    let bemStateStringValue: string | undefined = getBemArgumentStringValue(bemState);
+    let bemStateStringValue: string | undefined = getBemArgumentStringValue(bemState, state);
     bemStateStringValue = bemStateStringValue ? `--${bemStateStringValue}` : "";
 
     printWithCondition(false, "~~~ CallExpression, bemHelper, bemElementStringValue", bemElementStringValue);
