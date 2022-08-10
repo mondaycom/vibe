@@ -2,6 +2,7 @@ import * as t from "@babel/types";
 import { printWithCondition } from "../commonProcess/print";
 import { buildStringFromCallExpression } from "./buildStringFromCallExpression";
 import { State } from "../../index";
+import { isTemplateLiteralPartBaseClassIdentifier } from "../logical/IsTemplateLiteralPartBaseClassIdentifier";
 
 export type TemplateLiteralPart = {
   value: string | undefined;
@@ -58,7 +59,7 @@ export const getTemplateLiteralParts = (node: t.TemplateLiteral): TemplateLitera
  * Build classname string concatenating parts of TemplateLiteral
  * Example: `before--${ANCHOR_LIST_ITEM_CSS_BASE_CLASS}--after` -> `${camelCase("before--" + ANCHOR_LIST_ITEM_CSS_BASE_CLASS + "--after")}`
  * @param node TemplateLiteral node
- * @param addCamelCaseWrapping should resut be wrapped in camelCase function or not
+ * @param addCamelCaseWrapping should result be wrapped in camelCase function or not
  * @param separateIdentifiers
  * @param state
  */
@@ -68,28 +69,32 @@ export const buildClassnameStringFromTemplateLiteral = (
   addCamelCaseWrapping: boolean = true,
   separateIdentifiers: boolean = true
 ): string => {
+  printWithCondition(false, "))) buildStringFromTemplateLiteral, node", node);
+
   const parts: TemplateLiteralPart[] = getTemplateLiteralParts(node);
+  printWithCondition(false, "))) buildStringFromTemplateLiteral, parts", parts);
 
   let newString = "";
   for (let i = 0; i < parts.length; ++i) {
     const p = parts[i];
     if (p.type === "TemplateElement") {
       if (separateIdentifiers) {
-        if (i !== 0 && parts[i - 1].type !== "Identifier" && parts[i - 1].value === state.baseCssClass?.variableName)
-          newString += ' + "';
+        const baseClassNameIsPrev: boolean =
+          i !== 0 && isTemplateLiteralPartBaseClassIdentifier(parts[i - 1], state.baseCssClass);
+        const baseClassNameIsNext: boolean =
+          i !== parts.length - 1 && isTemplateLiteralPartBaseClassIdentifier(parts[i + 1], state.baseCssClass);
+
+        if (!baseClassNameIsPrev && i !== 0) newString += " + ";
+        if (!baseClassNameIsPrev && !baseClassNameIsNext) newString += "'";
         newString += p.value;
-        if (
-          i !== parts.length - 1 &&
-          parts[i + 1].type !== "Identifier" &&
-          parts[i + 1].value === state.baseCssClass?.variableName
-        )
-          newString += '" + ';
+        if (!baseClassNameIsPrev && !baseClassNameIsNext) newString += "'";
+        if (!baseClassNameIsNext && i !== parts.length - 1) newString += " + ";
       } else {
         newString += p.value;
       }
     } else {
       if (separateIdentifiers) {
-        if (p.type === "Identifier" && p.value === state.baseCssClass?.variableName) {
+        if (isTemplateLiteralPartBaseClassIdentifier(p, state.baseCssClass)) {
           newString += state.baseCssClass?.value;
         } else {
           newString += p.value;

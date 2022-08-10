@@ -1,6 +1,6 @@
 /// Total processed files: 89
 
-/// Troubles: 38
+/// Troubles: 37
 
 // Use of custom BEMClass function - replace with common use: 2
 monday-ui-react-core/src/components/Slider/Slider.jsx // Use of custom BEMClass function - replace with common use
@@ -49,13 +49,10 @@ monday-ui-react-core/src/components/Menu/MenuItemButton/MenuItemButton.jsx // lo
 monday-ui-react-core/src/components/Menu/MenuDivider/MenuDivider.jsx // custom component classname prop wasn't replaced
 monday-ui-react-core/src/components/Menu/MenuTitle/MenuTitle.jsx  // looks good, but mb related to Menu trouble
 
-// ObjectProperty templateLiteral troubles: 1
-monday-ui-react-core/src/components/Dialog/DialogContent/DialogContent.jsx // ObjectProperty templateLiteral wasn't replaced
-
 // The rest: 1
 monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary expression in cx(...)
 
-/// Checked - correct automatically: 43
+/// Checked - correct automatically: 46
 // monday-ui-react-core/src/components/AlertBanner/AlertBannerButton/AlertBannerButton.jsx
 // monday-ui-react-core/src/components/AlertBanner/AlertBannerText/AlertBannerText.jsx
 // monday-ui-react-core/src/components/AlertBanner/AlertBanner.jsx
@@ -99,6 +96,8 @@ monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary
 // monday-ui-react-core/src/components/VirtualizedGrid/VirtualizedGrid.jsx
 // monday-ui-react-core/src/components/VirtualizedList/VirtualizedList.jsx
 // monday-ui-react-core/src/components/ResponsiveList/ResponsiveList.jsx
+// monday-ui-react-core/src/components/Tipseen/Tipseen.jsx
+// monday-ui-react-core/src/components/Dialog/DialogContent/DialogContent.jsx
 
 /// Checked - correct manually (M) + automatically: 8
 
@@ -114,6 +113,3 @@ monday-ui-react-core/src/components/ExpandCollapse/ExpandCollapse.jsx // ternary
 // Import of .modules.scss instead of .module.scss: 2
 // monday-ui-react-core/src/components/Combobox/components/ComboboxItems/ComboboxItems.jsx
 // monday-ui-react-core/src/components/IconButton/IconButton.jsx
-
-// ObjectProperty templateLiteral troubles: 1
-//monday-ui-react-core/src/components/Tipseen/Tipseen.jsx
