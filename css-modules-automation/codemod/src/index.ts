@@ -38,6 +38,4 @@ export default (): PluginObj<State> => ({
   }
 });
 
-// TODO replace TemplateLiteral inside ObjectProperty (Tipseen...)
-
 // TODO incorrect baseClassName from imports: Toggle

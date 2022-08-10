@@ -48,13 +48,17 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
       }
     }
 
+    const modularClassnameString = buildClassnameStringFromTemplateLiteral(path.node, state);
+    const modularClassnameNode = modularClassnameString.includes("+")
+      ? t.identifier(modularClassnameString)
+      : t.stringLiteral(modularClassnameString);
+
     if (isCxCallExpression(path.parent)) {
-      const modularClassnameString = buildClassnameStringFromTemplateLiteral(path.node, state);
       if (modularClassnameString.includes("+")) {
         const newPath = t.memberExpression(
           t.identifier(state.opts.importIdentifier),
-          t.identifier(modularClassnameString),
-          true
+          modularClassnameNode,
+          t.isIdentifier(modularClassnameNode)
         );
         printWithCondition(
           false,
@@ -78,14 +82,27 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
 
         state.camelCaseImportNeeded = true;
       } else {
-        path.replaceWith(t.stringLiteral(modularClassnameString));
+        path.replaceWith(modularClassnameNode);
       }
-    } else {
+    }
+
+    if (t.isObjectProperty(path.parent)) {
       printWithCondition(
-        false,
-        "### templateLiteralReplacementVisitors, not processed, path.parentPath",
-        path.parentPath
+        true,
+        "### templateLiteralReplacementVisitors, isObjectProperty, parentNode.value = ",
+        path.parent.value
       );
+      const overrideNewPath = t.objectProperty(
+        modularClassnameNode,
+        path.parent.value,
+        t.isIdentifier(modularClassnameNode),
+        false
+      );
+      const insertedPaths = path.parentPath.replaceWith(overrideNewPath);
+      insertedPaths.forEach(p => {
+        p.skip();
+        p.getPrevSibling().skip();
+      });
     }
   }
 };
