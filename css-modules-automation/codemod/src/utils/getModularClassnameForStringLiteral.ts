@@ -14,7 +14,7 @@ export const getModularClassnameForStringLiteral = (
   classNames: Map<string, string>,
   importIdentifier: string,
   node: StringLiteral
-): t.StringLiteral | t.MemberExpression => {
+): null | t.MemberExpression => {
   const oldClassNameString = node.value;
   const newClassNameString: string = (classNames.has(oldClassNameString) && classNames.get(oldClassNameString)) || "";
 
@@ -27,7 +27,7 @@ export const getModularClassnameForStringLiteral = (
       "*** getModularClassnameForStringLiteral, If the class name isn't in the modular class name list, skip, literalNode",
       node
     );
-    return node;
+    return null;
   }
 
   const res = t.memberExpression(t.identifier(importIdentifier), t.identifier(newClassNameString));

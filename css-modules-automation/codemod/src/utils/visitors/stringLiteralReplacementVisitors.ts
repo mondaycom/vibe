@@ -28,9 +28,9 @@ export const stringLiteralReplacementVisitors: Visitor<State> = {
       //  && parentPath.node.id.name.includes("CSS_BASE_CLASS")
       return;
     }
-    // Replace all className strings with styles["className"]
+    // Replace all className strings with styles.className
     const newPath = getModularClassnameForStringLiteral(classNames, opts.importIdentifier, path.node);
-    if (newPath.type === "StringLiteral") {
+    if (!newPath) {
       // Classnames is not found in set of classnames from .scss file
       return;
     }
