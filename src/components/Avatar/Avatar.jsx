@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
 import cx from "classnames";
@@ -113,11 +113,25 @@ const Avatar = ({
     return badges.length > 0 ? <div className={cx(bemHelper({ element: "badges" }))}>{badges}</div> : null;
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
+  const clickHandler = useCallback(
+    event => {
+      event.preventDefault();
+      if (onClick) {
+        onClick(event);
+      }
+    },
+    [onClick]
+  );
+
   return (
     <div id={id} className={cx(AVATAR_CSS_BASE_CLASS, className, bemHelper({ state: size }))} style={sizeStyle}>
       <ClickableWrapper
         isClickable={!!onClick}
-        clickableProps={{ onClick: onClick, tabIndex: "-1", className: bemHelper({ element: "clickableWrapper" }) }}
+        clickableProps={{
+          onClick: clickHandler,
+          tabIndex: "-1",
+          className: bemHelper({ element: "clickableWrapper" })
+        }}
       >
         <Tooltip
           showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
