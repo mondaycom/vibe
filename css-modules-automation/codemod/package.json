@@ -6,7 +6,6 @@
   "license": "MIT",
   "scripts": {
     "modify react-core": "shell_scripts/run.sh ../../src/components",
-    "modify react-core/run-accordion": "shell_scripts/run.sh ../../src/components/Accordion",
     "modify react-core/accordion": "shell_scripts/run.sh ../../src/components/Accordion",
     "modify react-core/avatar": "shell_scripts/run.sh ../../src/components/Avatar/Avatar.jsx",
     "modify react-core/attention-box": "shell_scripts/run.sh ../../src/components/AttentionBox/AttentionBox.jsx",
