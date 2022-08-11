@@ -37,5 +37,3 @@ export default (): PluginObj<State> => ({
     }
   }
 });
-
-// TODO incorrect baseClassName from imports: Toggle
