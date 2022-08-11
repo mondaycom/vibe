@@ -1,2 +1,0 @@
-/Users/sergeyro/Development/monday-ui-react-core/css-modules-automation/codemod/tests/anchor-list-item.jsx
-/Users/sergeyro/Development/monday-ui-react-core/css-modules-automation/codemod/tests/anchor-list-item-cx.jsx

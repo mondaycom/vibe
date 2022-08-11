@@ -7,7 +7,7 @@ import { isBemHelperImportDeclaration } from "../logical/isBemHelperImportDeclar
 import { isCssImportDeclaration } from "../logical/isCssImportDeclaration";
 import { dirname, resolve } from "path";
 import { convertToModuleClassNames } from "../convertToModuleClassNames";
-import { getCssModulesFileName, renameStylesheetFile } from "../renameStylesheetFile";
+import { markFileForRenaming } from "../markFileForRenaming";
 import { bemHelperCallExpressionsVisitors } from "./bemHelperCallExpressionsVisitors";
 import { templateLiteralReplacementVisitors } from "./templateLiteralReplacementVisitors";
 import { classNameAttributeVisitors } from "./classNameAttributeVisitors";
@@ -18,6 +18,7 @@ import { getCssBaseClass } from "../getCssBaseClass";
 import { shouldFileBeProcessed } from "../logical/shouldFileBeProcessed";
 import { objectPropertyClassnameIdentifiersReplacementVisitors } from "./objectPropertyClassnameIdentifiersReplacementVisitors";
 import { classNamesCallExpressionRenameVisitors } from "./classNamesCallExpressionRenameVisitors";
+import { getCssModulesFileName } from "../getCssModulesFileName";
 
 /**
  * Map: key - processed .scss file, value - map (key - old classname, value - new modular classname)
@@ -88,8 +89,7 @@ export const importVisitors: Visitor<State> = {
       // 3: process .scss file
       classNames = convertToModuleClassNames(scssFilename);
       filesClassNamesMap.set(scssFilename, classNames);
-      // Rename .scss to .module.scss
-      renameStylesheetFile(scssFilename);
+      markFileForRenaming(scssFilename);
     } else {
       classNames = filesClassNamesMap.get(scssFilename)!;
     }
