@@ -33,7 +33,7 @@
     "modify react-core/button-group": "npx codemod -p src/index.ts ../../src/components/ButtonGroup/ButtonGroup.jsx && prettier -w ../../src/components/ButtonGroup/ButtonGroup.jsx",
     "modify react-core/radio-button": "npx codemod -p src/index.ts ../../src/components/RadioButton/RadioButton.jsx && prettier -w ../../src/components/RadioButton/RadioButton.jsx",
     "modify react-core/responsive-list": "npx codemod -p src/index.ts ../../src/components/ResponsiveList/ResponsiveList.jsx && prettier -w ../../src/components/ResponsiveList/ResponsiveList.jsx",
-    "modify react-core/toggle": "npx codemod -p src/index.ts ../../src/components/Toggle/Toggle.js && prettier -w ../../src/components/Toggle/Toggle.js",
+    "modify react-core/toggle": "npx codemod -p src/index.ts ../../src/components/Toggle/Toggle.jsx && prettier -w ../../src/components/Toggle/Toggle.jsx",
     "modify react-core/steps": "npx codemod -p src/index.ts ../../src/components/Steps/Steps.jsx && prettier -w ../../src/components/Steps/Steps.jsx",
 
     "modify react-core/tipseen": "npx codemod -p src/index.ts ../../src/components/Tipseen/Tipseen.jsx && prettier -w ../../src/components/Tipseen/Tipseen.jsx",
