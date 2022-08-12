@@ -52,7 +52,7 @@ export const getCssBaseClass = (oldClassNames: string[], code: string | undefine
 
       const baseCssClassValue = baseCssClassFirstMatch.slice(
         baseCssClassFirstMatch.indexOf('"') + 1,
-        baseCssClassFirstMatch.lastIndexOf('"') - 1
+        baseCssClassFirstMatch.lastIndexOf('"')
       );
       printWithCondition(false, "$$$ getCssBaseClassName, baseCssClassValue", baseCssClassValue);
       return { variableName: baseCssClassVariableName, value: baseCssClassValue };
