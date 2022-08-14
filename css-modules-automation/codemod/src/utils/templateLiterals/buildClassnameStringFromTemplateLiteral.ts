@@ -79,23 +79,30 @@ export const buildClassnameStringFromTemplateLiteral = (
     const p = parts[i];
     if (p.type === "TemplateElement") {
       if (separateIdentifiers) {
+        printWithCondition(false, "))) buildStringFromTemplateLiteral, TemplateElement", i, p);
         const baseClassNameIsPrev: boolean =
           i !== 0 && isTemplateLiteralPartBaseClassIdentifier(parts[i - 1], state.baseCssClass);
         const baseClassNameIsNext: boolean =
           i !== parts.length - 1 && isTemplateLiteralPartBaseClassIdentifier(parts[i + 1], state.baseCssClass);
+        printWithCondition(false, "))) buildStringFromTemplateLiteral, baseClassNameIsPrev", baseClassNameIsPrev);
+        printWithCondition(false, "))) buildStringFromTemplateLiteral, baseClassNameIsNext", baseClassNameIsNext);
+        printWithCondition(false, "))) buildStringFromTemplateLiteral, before newString", newString);
 
         if (!baseClassNameIsPrev && i !== 0) newString += " + ";
-        if (!baseClassNameIsPrev && !baseClassNameIsNext) newString += "'";
+        if (!baseClassNameIsPrev || i === 0) newString += "'";
         newString += p.value;
-        if (!baseClassNameIsPrev && !baseClassNameIsNext) newString += "'";
+        if (!baseClassNameIsNext || i === parts.length - 1) newString += "'";
         if (!baseClassNameIsNext && i !== parts.length - 1) newString += " + ";
+        printWithCondition(false, "))) buildStringFromTemplateLiteral, after newString", newString);
       } else {
         newString += p.value;
       }
     } else {
       if (separateIdentifiers) {
         if (isTemplateLiteralPartBaseClassIdentifier(p, state.baseCssClass)) {
+          if (i === 0) newString += "'";
           newString += state.baseCssClass?.value;
+          if (i === parts.length - 1) newString += "'";
         } else {
           newString += p.value;
         }
@@ -104,6 +111,10 @@ export const buildClassnameStringFromTemplateLiteral = (
       }
     }
     printWithCondition(false, "))) buildStringFromTemplateLiteral, newString", newString);
+  }
+
+  if (newString.startsWith("'") && newString.endsWith("'") && !newString.slice(1, newString.length - 1).includes("'")) {
+    newString = newString.slice(1, newString.length - 1);
   }
 
   if (addCamelCaseWrapping && newString.includes("+")) {
