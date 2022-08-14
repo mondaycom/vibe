@@ -9,4 +9,4 @@ while read -r filePath; do
 done < "$INPUT_FILE"
 
 # Remove input file itself
-# rm "$INPUT_FILE";
+rm "$INPUT_FILE";
