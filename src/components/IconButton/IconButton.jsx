@@ -44,9 +44,9 @@ const IconButton = forwardRef(
     const iconSize = useMemo(() => {
       if (size === IconButton.sizes.XXS) return 16;
       if (size === IconButton.sizes.XS) return 16;
-      if (size === IconButton.sizes.SMALL) return 16;
-      if (size === IconButton.sizes.MEDIUM) return 16;
-      if (size === IconButton.sizes.LARGE) return 16;
+      if (size === IconButton.sizes.SMALL) return 20;
+      if (size === IconButton.sizes.MEDIUM) return 20;
+      if (size === IconButton.sizes.LARGE) return 20;
       return 24;
     }, [size]);
 
