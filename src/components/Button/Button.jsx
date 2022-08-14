@@ -217,17 +217,17 @@ const Button = forwardRef(
 
     const leftIconSize = useMemo(() => {
       if (typeof leftIcon !== "function") return;
-      return "24";
+      return "16";
     }, [leftIcon]);
 
     const rightIconSize = useMemo(() => {
       if (typeof rightIcon !== "function") return;
-      return "24";
+      return "16";
     }, [rightIcon]);
 
     const successIconSize = useMemo(() => {
       if (typeof successIcon !== "function") return;
-      return "24";
+      return "16";
     }, [successIcon]);
 
     if (loading) {
