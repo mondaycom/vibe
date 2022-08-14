@@ -11,7 +11,7 @@
   border-radius: $border-radius-small;
   cursor: pointer;
   white-space: nowrap;
-  transition: var(--motion-productive-short) transform, var(--motion-productive-medium) var(--expand-animation-timing) min-width;
+  transition: var(--motion-productive-short) transform, var(--motion-productive-medium) var(--motion-timing-transition) min-width;
   display: inline-flex;
   align-items: center;
   justify-content: center;

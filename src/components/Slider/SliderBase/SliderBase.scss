@@ -48,12 +48,12 @@
     font-size: 14px;
     top: 50%;
     transform: translate(-50%, -50%);
-    transition: transform var(--motion-productive-long) var(--expand-animation-timing);
+    transition: transform var(--motion-productive-long) var(--motion-timing-enter);
     &--dragging {
       cursor: grabbing !important;
       transform: translate(-50%, -50%) scale(1.33, 1.33);
       transform-origin: center center;
-      transition: transform var(--motion-productive-long) var(--expand-animation-timing);
+      transition: transform var(--motion-productive-long) var(--motion-timing-enter);
       @include box-shadow-small();
     }
     &--focused {

@@ -32,7 +32,7 @@ $checkbox-size: 16px;
     border: 1px solid;
     @include theme-prop(border-color, ui-border-color);
     border-radius: $border-radius-extra-small;
-    transition: transform var(--motion-productive-short) var(--expand-animation-timing);
+    transition: transform var(--motion-productive-short) var(--motion-timing-enter);
     position: relative;
     overflow: hidden;
 
