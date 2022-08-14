@@ -12,6 +12,8 @@ const ComboboxOption = ({
   option,
   isActive,
   visualFocus,
+  scrollRef,
+  scrollOffset,
   onOptionClick,
   onOptionLeave,
   onOptionHover,
@@ -46,13 +48,18 @@ const ComboboxOption = ({
   useEffect(() => {
     const element = ref.current;
     if (visualFocus && element && shouldScrollWhenActive) {
-      if (forceUndoScrollNullCheck) {
-        element?.scrollIntoView?.({ behaviour: "smooth" });
+      if (scrollRef?.current && element) {
+        // not supported with virtualized atm, need their scrollRef (element with overflow-y auto that has the scroll)
+        scrollRef.current.scrollTop = element.offsetTop - scrollOffset;
       } else {
-        element.scrollIntoView?.({ behaviour: "smooth" });
+        if (forceUndoScrollNullCheck) {
+          element?.scrollIntoView?.({ behaviour: "smooth" });
+        } else {
+          element.scrollIntoView?.({ behaviour: "smooth" });
+        }
       }
     }
-  }, [ref, visualFocus, shouldScrollWhenActive, forceUndoScrollNullCheck]);
+  }, [ref, visualFocus, shouldScrollWhenActive, forceUndoScrollNullCheck, scrollRef, scrollOffset, belongToCategory]);
 
   const renderIcon = (icon, iconType, className) => {
     if (iconType === ComboboxOption.iconTypes.RENDERER) {
@@ -124,10 +131,8 @@ const ComboboxOption = ({
       <div
         ref={ref}
         key={id || label}
-        role="row"
         aria-level={belongToCategory ? 2 : 1}
         aria-selected={isActive}
-        tabIndex="-1"
         aria-label={ariaLabel || label}
         id={getOptionId(id, index)}
         onMouseEnter={onMouseEnter}
@@ -156,7 +161,8 @@ ComboboxOption.iconTypes = {
 
 ComboboxOption.defaultProps = {
   shouldScrollWhenActive: true,
-  optionRenderer: null
+  optionRenderer: null,
+  scrollOffset: 100
 };
 
 export default ComboboxOption;

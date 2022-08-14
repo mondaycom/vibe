@@ -2,7 +2,7 @@ import React, { useRef, forwardRef, useMemo, useState, useCallback } from "react
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { VirtualizedListItems } from "components/List/VirtualizedListItems/VirtualizedListItems";
+import { VirtualizedListItems } from "../../components/List/VirtualizedListItems/VirtualizedListItems";
 import "./List.scss";
 import { keyCodes } from "../../constants/KeyCodes";
 
@@ -39,14 +39,17 @@ const List = forwardRef(
         override = <VirtualizedListItems>{override}</VirtualizedListItems>;
       } else {
         childrenRefs.current = childrenRefs.current.slice(0, override?.length);
-        override = React.Children.map(override, (child, index) =>
-          typeof child === "string"
+        override = React.Children.map(override, (child, index) => {
+          if (!React.isValidElement(child)) {
+            return child;
+          }
+          return typeof child === "string"
             ? child
             : React.cloneElement(child, {
                 ref: ref => (childrenRefs.current[index] = ref),
                 tabIndex: focusIndex === index ? 0 : -1
-              })
-        );
+              });
+        });
       }
 
       return override;

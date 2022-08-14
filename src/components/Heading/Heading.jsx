@@ -1,12 +1,12 @@
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../constants/sizes";
 import React, { useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import Tooltip from "components/Tooltip/Tooltip";
-import useIsOverflowing from "hooks/useIsOverflowing";
-import useStyle from "hooks/useStyle";
-import useRefWithCallback from "hooks/useRefWithCallback";
-import TextWithHighlight from "components/TextWithHighlight/TextWithHighlight";
+import Tooltip from "../../components/Tooltip/Tooltip";
+import useIsOverflowing from "../../hooks/useIsOverflowing";
+import useStyle from "../../hooks/useStyle";
+import useRefWithCallback from "../../hooks/useRefWithCallback";
+import TextWithHighlight from "../../components/TextWithHighlight/TextWithHighlight";
 import { TYPES } from "./HeadingConstants";
 import "./Heading.scss";
 
@@ -35,7 +35,7 @@ const Heading = ({
     "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
     "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
     "suggest-edit-on-hover": suggestEditOnHover,
-    "brand-font": brandFont
+    "brand-font": type === TYPES.h1 && brandFont
   });
   const Element = React.createElement(
     type,

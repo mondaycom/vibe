@@ -8,8 +8,8 @@ import { getCSSVar } from "../../services/themes";
 import { NOOP } from "../../utils/function-utils";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
-import IconButton from "components/IconButton/IconButton";
-import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import IconButton from "../../components/IconButton/IconButton";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import styles from "./Chips.module.scss";
 
 const Chips = forwardRef(

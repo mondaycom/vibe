@@ -11,7 +11,7 @@
   transform-origin: center;
 
   &--with-animation {
-    animation: circle-pop 250ms;
+    animation: circle-pop var(--motion-expressive-short);
   }
 
   &--size {
@@ -21,6 +21,7 @@
       line-height: 18px;
       padding: 0 $spacing-xs;
     }
+
     &-medium {
       @include font-caption();
       min-width: 18px;
@@ -46,7 +47,7 @@
     &-enter-active {
       position: relative;
       opacity: 1;
-      transition: transform 150ms cubic-bezier(0, 0, 0.35, 1), opacity 70ms;
+      transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
       transform: translateY(0);
     }
 
@@ -61,7 +62,7 @@
       position: relative;
       opacity: 0;
       transform: translateY(-15px);
-      transition: transform 150ms cubic-bezier(0, 0, 0.35, 1), opacity 70ms;
+      transition: transform var(--motion-productive-long) var(--motion-timing-enter), opacity var(--motion-productive-short);
     }
   }
 
@@ -73,14 +74,17 @@
             color: var(--text-color-on-primary);
             background-color: var(--primary-color);
           }
+
           &-dark {
             color: var(--text-color-on-inverted);
             background-color: var(--inverted-color-background);
           }
+
           &-negative {
             color: var(--text-color-on-primary);
             background-color: var(--negative-color);
           }
+
           &-light {
             color: var(--primary-text-color);
             background-color: var(--primary-background-hover-color);
@@ -91,17 +95,21 @@
 
     &-line {
       box-shadow: 0 0 0 1px currentColor inset;
+
       &.monday-style-counter {
         &--color {
           &-primary {
             @include theme-prop(color, primary-color);
           }
+
           &-dark {
             @include theme-prop(color, inverted-color-background);
           }
+
           &-negative {
             @include theme-prop(color, negative-color);
           }
+
           &-light {
             color: var(--primary-text-color);
             box-shadow: 0 0 0 1px var(--primary-background-hover-color) inset !important;

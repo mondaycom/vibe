@@ -28,7 +28,7 @@
       @include focus-style;
       transform-origin: center;
       transform: scale(1);
-      transition: transform 0.2s $expand-animation-timing, background 0.2s $expand-animation-timing;
+      transition: transform var(--motion-productive-long) var(--expand-animation-timing), background var(--motion-productive-long) var(--expand-animation-timing);
       &:hover {
         transform: scale(1.3);
       }

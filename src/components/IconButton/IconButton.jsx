@@ -1,15 +1,15 @@
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../constants/sizes";
 import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
-import useMergeRefs from "hooks/useMergeRefs";
-import ToolTip from "components/Tooltip/Tooltip";
-import Button from "components/Button/Button";
-import Icon from "components/Icon/Icon";
-import AddSmall from "components/Icon/Icons/components/AddSmall";
+import useMergeRefs from "../../hooks/useMergeRefs";
+import ToolTip from "../../components/Tooltip/Tooltip";
+import Button from "../../components/Button/Button";
+import Icon from "../../components/Icon/Icon";
+import AddSmall from "../../components/Icon/Icons/components/AddSmall";
 import { getWidthHeight } from "./services/IconButton-helpers";
-import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import styles from "./IconButton.module.scss";
 
 const IconButton = forwardRef(

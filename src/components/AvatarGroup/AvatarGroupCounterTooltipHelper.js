@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { useKeyEvent } from "hooks";
+import useKeyEvent from "../../hooks/useKeyEvent";
 import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
 import ClickableWrapper from "../Clickable/ClickableWrapper";

@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import cx from "classnames";
-import "./TipseenImage.scss";
+import styles from "./TipseenImage.module.scss";
 
 const BASE_CSS_CLASS = "monday-style-tipseen-image";
 const TipseenImage = ({ src, alt, className }) => {
-  return <img src={src} alt={alt} className={cx(BASE_CSS_CLASS, className)} />;
+  return <img src={src} alt={alt} className={cx(styles.tipseenImage, BASE_CSS_CLASS, className)} />;
 };
 
 TipseenImage.propTypes = {

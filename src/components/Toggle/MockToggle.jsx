@@ -1,4 +1,4 @@
-import ToggleText from "components/Toggle/ToggleText";
+import ToggleText from "../../components/Toggle/ToggleText";
 import cx from "classnames";
 import React from "react";
 import { BEMClass } from "helpers/bem-helper";

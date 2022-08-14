@@ -19,7 +19,7 @@
       border: 1px solid;
       @include theme-prop(background-color, primary-background-color);
       @include theme-prop(border-color, ui-border-color);
-      &--color {
+      &.monday-style-button--color {
         &-primary {
           &-active {
             z-index: 20;

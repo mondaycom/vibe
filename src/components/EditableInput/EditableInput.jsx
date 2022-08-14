@@ -2,8 +2,8 @@ import React, { useRef, forwardRef, useLayoutEffect, useCallback, useState, useE
 import PropTypes from "prop-types";
 import cx from "classnames";
 import autosize from "autosize";
-import useStyle from "hooks/useStyle";
-import useMergeRefs from "hooks/useMergeRefs";
+import useStyle from "../../hooks/useStyle";
+import useMergeRefs from "../../hooks/useMergeRefs";
 import {
   isEnterEvent,
   isEscapeEvent,
@@ -52,7 +52,8 @@ const EditableInput = forwardRef(
       onCancelEditing,
       textareaSubmitOnEnter,
       onArrowKeyDown,
-      ariaLabel
+      ariaLabel,
+      brandFont
     },
     ref
   ) => {
@@ -201,7 +202,8 @@ const EditableInput = forwardRef(
         id={id}
         style={style}
         className={cx("editable-input--wrapper", className, {
-          "no-resize": autoSize
+          "no-resize": autoSize,
+          "brand-font": brandFont
         })}
         onChange={onChangeCallback}
         onKeyDown={onKeyDownCallback}
@@ -236,7 +238,8 @@ EditableInput.propTypes = {
   onCancelEditing: PropTypes.func,
   textareaSubmitOnEnter: PropTypes.bool,
   ariaLabel: PropTypes.string,
-  customColor: PropTypes.string
+  customColor: PropTypes.string,
+  brandFont: PropTypes.bool
 };
 EditableInput.defaultProps = {
   className: "",
@@ -252,7 +255,8 @@ EditableInput.defaultProps = {
   onCancelEditing: undefined,
   textareaSubmitOnEnter: false,
   ariaLabel: undefined,
-  customColor: undefined
+  customColor: undefined,
+  brandFont: false
 };
 
 export default EditableInput;

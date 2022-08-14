@@ -5,7 +5,7 @@ import {
   interactionSuite,
   resetFocus
 } from "../../../__tests__/interactions-helper";
-import { NAVIGATIONS_COMMANDS } from "utils/test-utils";
+import { NAVIGATIONS_COMMANDS } from "../../../utils/test-utils";
 
 async function states_onClickTabFocusElementTest(canvas) {
   const CLICKABLE_LABEL = "clickable button";

@@ -1,16 +1,16 @@
 /* eslint-disable no-param-reassign */
-import { DialogPositions } from "constants/sizes";
-import { DIALOG_ANIMATION_TYPES } from "constants/AnimationTypes";
+import { DialogPositions } from "../../constants/sizes";
+import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
 import React, { PureComponent } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import { Manager, Reference, Popper } from "react-popper";
 import cx from "classnames";
 import isFunction from "lodash/isFunction";
-import { chainFunctions, convertToArray } from "utils/function-utils";
-import { DialogContent } from "components/Dialog/DialogContent/DialogContent";
-import { isInsideClass } from "utils/dom-utils";
-import { Refable } from "components/Refable/Refable";
+import { chainFunctions, convertToArray } from "../../utils/function-utils";
+import { DialogContent } from "./DialogContent/DialogContent";
+import { isInsideClass } from "../../utils/dom-utils";
+import { Refable } from "../../components/Refable/Refable";
 import { HIDE_SHOW_EVENTS } from "./consts/dialog-show-hide-event";
 import "./Dialog.scss";
 
