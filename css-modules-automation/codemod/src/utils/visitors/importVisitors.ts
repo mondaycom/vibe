@@ -19,6 +19,7 @@ import { shouldFileBeProcessed } from "../logical/shouldFileBeProcessed";
 import { objectPropertyClassnameIdentifiersReplacementVisitors } from "./objectPropertyClassnameIdentifiersReplacementVisitors";
 import { classNamesCallExpressionRenameVisitors } from "./classNamesCallExpressionRenameVisitors";
 import { getCssModulesFileName } from "../getCssModulesFileName";
+import { markFileForPrettier } from "../markFileForPrettier";
 
 /**
  * Map: key - processed .scss file, value - map (key - old classname, value - new modular classname)
@@ -90,6 +91,7 @@ export const importVisitors: Visitor<State> = {
       classNames = convertToModuleClassNames(scssFilename);
       filesClassNamesMap.set(scssFilename, classNames);
       markFileForRenaming(scssFilename);
+      markFileForPrettier(scssFilename);
     } else {
       classNames = filesClassNamesMap.get(scssFilename)!;
     }
@@ -140,6 +142,7 @@ export const importVisitors: Visitor<State> = {
         file.path.traverse(addCamelCaseImportVisitors, state);
       }
 
+      markFileForPrettier(filename);
       filesJsxSet.add(filename);
     }
   }
