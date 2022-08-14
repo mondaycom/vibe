@@ -1,9 +1,9 @@
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useMergeRefs from "hooks/useMergeRefs";
-import Clickable from "components/Clickable/Clickable";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
+import useMergeRefs from "../../hooks/useMergeRefs";
+import Clickable from "../Clickable/Clickable";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import "./RadioButton.scss";
 
 const CSS_BASE_CLASS = "monday-style-radio-button-component";

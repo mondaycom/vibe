@@ -1,7 +1,7 @@
 import ToggleText from "../../components/Toggle/ToggleText";
 import cx from "classnames";
 import React from "react";
-import { BEMClass } from "helpers/bem-helper";
+import { BEMClass } from "../../helpers/bem-helper";
 
 const BASE_TOGGLE_CLASS_NAME = "monday-style-toggle";
 const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);

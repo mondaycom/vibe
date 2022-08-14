@@ -1,10 +1,10 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import Button from "components/Button/Button";
-import usePrevious from "hooks/usePrevious";
-import useMergeRefs from "hooks/useMergeRefs";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
+import Button from "../Button/Button";
+import usePrevious from "../../hooks/usePrevious";
+import useMergeRefs from "../../hooks/useMergeRefs";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { ButtonWrapper } from "./ButtonWrapper";
 import "./ButtonGroup.scss";
 

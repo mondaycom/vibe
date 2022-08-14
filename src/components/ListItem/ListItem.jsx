@@ -7,7 +7,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import "./ListItem.scss";
 import { SIZES } from "../../constants/sizes";
 import { keyCodes } from "../../constants/KeyCodes";
-import { BEMClass } from "helpers/bem-helper";
+import { BEMClass } from "../../helpers/bem-helper";
 
 const CSS_BASE_CLASS = "list-item";
 const bemHelper = BEMClass(CSS_BASE_CLASS);

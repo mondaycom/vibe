@@ -9,7 +9,7 @@ import DialogContentContainer from "../DialogContentContainer/DialogContentConta
 import "./MenuButton.scss";
 import Tooltip from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { BEMClass } from "helpers/bem-helper";
+import { BEMClass } from "../../helpers/bem-helper";
 
 const CSS_BASE_CLASS = "menu-button--wrapper";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
