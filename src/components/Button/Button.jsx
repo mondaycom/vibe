@@ -8,7 +8,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
-import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize } from "./ButtonConstants";
+import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize, BUTTON_ICON_SIZE } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import "./Button.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
@@ -217,17 +217,17 @@ const Button = forwardRef(
 
     const leftIconSize = useMemo(() => {
       if (typeof leftIcon !== "function") return;
-      return "20";
+      return BUTTON_ICON_SIZE;
     }, [leftIcon]);
 
     const rightIconSize = useMemo(() => {
       if (typeof rightIcon !== "function") return;
-      return "20";
+      return BUTTON_ICON_SIZE;
     }, [rightIcon]);
 
     const successIconSize = useMemo(() => {
       if (typeof successIcon !== "function") return;
-      return "20";
+      return BUTTON_ICON_SIZE;
     }, [successIcon]);
 
     if (loading) {
