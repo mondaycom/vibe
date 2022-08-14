@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig-base.json",
+  "compilerOptions": {
+    "outDir": "../../dist1",
+    "composite": true,
+    "rootDirs": ["../hooks", "../utils", "../constants"]
+  },
+  "references": [
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../constants"
+    }
+  ]
+}

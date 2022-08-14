@@ -1,8 +1,5 @@
 const path = require("path");
-const fs = require("fs");
-const SRC_PATH = path.join(__dirname, "../src");
-const ICONS_PATH = path.join(SRC_PATH, "components/Icon/Icons/components");
-
+const { exposeIcons } = require("../src/utils/icon-utils");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
@@ -106,6 +103,7 @@ const publishedComponents = {
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
 };
+const SRC_PATH = path.join(__dirname, "../src");
 
 function getPublishedComponents() {
   return Object.entries(publishedComponents).reduce(
@@ -115,15 +113,6 @@ function getPublishedComponents() {
     }),
     exposeIcons()
   );
-}
-
-function exposeIcons() {
-  const files = fs.readdirSync(ICONS_PATH);
-
-  return files.reduce((acc, file) => {
-    acc[`/icons/${file.split(".")[0]}`] = `${ICONS_PATH}/${file}`;
-    return acc;
-  }, {});
 }
 
 module.exports = {

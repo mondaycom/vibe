@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext", "dom"],
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "target": "es6",
+    "module": "commonjs",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "baseUrl": "./src/constants",
+    "rootDir": ".",
+    "composite": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "hooks/*": ["src/hooks/*"],
+      "utils/*": ["src/utils/*"],
+      "components/*": ["src/components/*"],
+      "constants/*": ["src/constants/*"],
+      "services/*": ["src/services/*"],
+      "helpers/*": ["src/helpers/*"]
+    }
+  },
+  "in2clude": ["src/**/*"]
+}
