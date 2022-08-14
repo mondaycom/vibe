@@ -1,4 +1,5 @@
 import { SIZES } from "../../constants/sizes";
+import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import React, { forwardRef, Fragment, useMemo, useRef } from "react";
 import cx from "classnames";
 import PropTypes from "prop-types";
@@ -42,12 +43,17 @@ const IconButton = forwardRef(
     }, [ariaLabel, tooltipContent]);
 
     const iconSize = useMemo(() => {
-      if (size === IconButton.sizes.XXS) return 16;
-      if (size === IconButton.sizes.XS) return 16;
-      if (size === IconButton.sizes.SMALL) return 24;
-      if (size === IconButton.sizes.MEDIUM) return 24;
-      if (size === IconButton.sizes.LARGE) return 24;
-      return 24;
+      switch (size) {
+        case IconButton.sizes.XXS:
+        case IconButton.sizes.XS:
+          return 16;
+        case IconButton.sizes.SMALL:
+        case IconButton.sizes.MEDIUM:
+        case IconButton.sizes.LARGE:
+          return BUTTON_ICON_SIZE;
+        default:
+          return 24;
+      }
     }, [size]);
 
     const overrideStyle = useMemo(() => {
