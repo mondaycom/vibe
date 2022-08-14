@@ -83,6 +83,7 @@ $checkbox-size: 16px;
         @include hover-selected;
       }
     }
+
     &:focus-visible {
       & + .monday-style-checkbox__checkbox {
         outline: none;
@@ -93,7 +94,8 @@ $checkbox-size: 16px;
       }
     }
 
-    &:checked, &:indeterminate {
+    &:checked,
+    &:indeterminate {
       &:focus + .monday-style-checkbox__checkbox:after {
         @include theme-prop(background-color, primary-hover-color);
       }
@@ -101,9 +103,11 @@ $checkbox-size: 16px;
       & + .monday-style-checkbox {
         &__checkbox {
           animation: checkbox-grow-animation var(--motion-productive-short);
+
           &__prevent-animation {
             animation-duration: 0ms;
           }
+
           @include theme-prop(background-color, primary-color);
           border-color: transparent;
 
@@ -137,6 +141,7 @@ $checkbox-size: 16px;
         }
       }
     }
+
     &:disabled {
       & + .monday-style-checkbox {
         &__checkbox,
@@ -147,7 +152,12 @@ $checkbox-size: 16px;
           .monday-style-checkbox__icon {
             @include theme-prop(color, disabled-text-color);
           }
+
+          cursor: not-allowed;
         }
+      }
+      & ~ .monday-style-checkbox__label {
+        cursor: not-allowed;
       }
     }
   }
