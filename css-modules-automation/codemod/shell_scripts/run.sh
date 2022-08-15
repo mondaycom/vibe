@@ -8,9 +8,9 @@ fi
 
 # Traverse files at path
 # Add data-testid attributes
-codemod -p babel-plugin-react-data-testid "$1";
+codemod --extensions ".tsx,.jsx" -p babel-plugin-react-data-testid "$1";
 # Main traverse
-codemod -p src/index.ts "$1";
+codemod --extensions ".tsx,.jsx" -p src/index.ts "$1";
 
 # Prettify files from the list
 ./shell_scripts/prettify_modified_files.sh;

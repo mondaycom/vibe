@@ -18,7 +18,7 @@ export const dataTestIdVisitors: Visitor<State> = {
     }
     const node = path.node.value;
 
-    printWithCondition(true, "::: dataTestIdVisitors, path.node", path.node);
+    printWithCondition(false, "::: dataTestIdVisitors, path.node", path.node);
 
     if (!t.isJSXExpressionContainer(node) && node?.type === "StringLiteral") {
       const newPath = t.binaryExpression(

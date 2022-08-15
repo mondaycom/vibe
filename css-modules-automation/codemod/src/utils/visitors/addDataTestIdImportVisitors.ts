@@ -24,5 +24,9 @@ export const addDataTestIdImportVisitors: Visitor<State> = {
     newPaths.forEach(p => p.skip());
     state.dataTestIdImported = true;
     printWithCondition(false, "=== addDataTestIdImport, new dataTestId import inserted");
+
+    // @ts-ignore
+    const filename = path.hub.file.opts.filename;
+    // writeDownFileWithDataTestId(filename);
   }
 };
