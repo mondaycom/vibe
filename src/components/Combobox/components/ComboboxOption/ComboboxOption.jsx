@@ -32,6 +32,7 @@ const ComboboxOption = ({
     leftIconType,
     rightIconType,
     label,
+    iconColor,
     iconSize = 16,
     disabled,
     selected,
@@ -69,6 +70,7 @@ const ComboboxOption = ({
     return (
       <Icon
         className={cx("option-icon", className)}
+        style={{ color: iconColor }}
         iconType={Icon.type.ICON_FONT}
         clickable={false}
         icon={icon}
