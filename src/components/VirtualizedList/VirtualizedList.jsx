@@ -1,21 +1,21 @@
-import { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
+import cx from "classnames";
+import { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
-import cx from "classnames";
 import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import {
-  getNormalizedItems,
   easeInOutQuint,
   getMaxOffset,
+  getNormalizedItems,
   getOnItemsRenderedData,
   isVerticalScrollbarVisible
 } from "../../services/virtualized-service";
-import "./VirtualizedList.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./VirtualizedList.module.scss";
 
 const VirtualizedList = forwardRef(
   (
@@ -230,7 +230,7 @@ const VirtualizedList = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx("virtualized-list--wrapper", className)}
+        className={cx(styles.virtualizedListWrapper, "virtualized-list--wrapper", className)}
         id={id}
         role={role}
         data-testid={getTestId(ELEMENT_TYPES.VIRTUALIZED_LIST, id)}

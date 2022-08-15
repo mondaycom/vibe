@@ -1,16 +1,17 @@
-import React, { useRef, forwardRef, useMemo, useLayoutEffect } from "react";
-import PropTypes from "prop-types";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
+import React, { forwardRef, useLayoutEffect, useMemo, useRef } from "react";
+import PropTypes from "prop-types";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./TextWithHighlight.scss";
+import styles from "./TextWithHighlight.module.scss";
 
 const getTextPart = (text, key, shouldHighlight, wrappingTextTag = "em", wrappingElementClassName) => {
   const WrappingElement = wrappingTextTag;
   if (shouldHighlight) {
     return (
-      <WrappingElement className={cx("highlight-text", wrappingElementClassName)} key={key}>
+      <WrappingElement className={cx(styles.highlightText, "highlight-text", wrappingElementClassName)} key={key}>
         {text}
       </WrappingElement>
     );
@@ -33,7 +34,8 @@ const TextWithHighlight = forwardRef(
       nonEllipsisTooltip,
       tooltipPosition,
       wrappingTextTag,
-      wrappingElementClassName
+      wrappingElementClassName,
+      dataTestId
     },
     ref
   ) => {
@@ -76,10 +78,12 @@ const TextWithHighlight = forwardRef(
     let Element = (
       <div
         ref={mergedRef}
-        className={cx("text-with-highlight--wrapper", className, {
-          "with-ellipsis": useEllipsis
+        className={cx(styles.textWithHighlightWrapper, "text-with-highlight--wrapper", className, {
+          [styles.withEllipsis]: useEllipsis,
+          ["with-ellipsis"]: useEllipsis
         })}
         id={id}
+        data-testid={dataTestId | getTestId(ELEMENT_TYPES.TEXT_WITH_HIGHLIGHT)}
       >
         {textWithHighlights}
       </div>

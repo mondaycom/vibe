@@ -1,14 +1,15 @@
+import cx from "classnames";
 /* eslint-disable jsx-a11y/anchor-is-valid,jsx-a11y/click-events-have-key-events */
-import React, { useRef, forwardRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import NOOP from "lodash/noop";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import Icon from "../../Icon/Icon";
-import "./Tab.scss";
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import styles from "./Tab.module.scss";
 
 const Tab = forwardRef(
-  ({ className, id, value, disabled, active, focus, onClick, icon, iconType, iconSide, children }, ref) => {
+  ({ className, id, value, disabled, active, focus, onClick, icon, iconType, iconSide, children, dataTestId }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -21,7 +22,7 @@ const Tab = forwardRef(
           ariaHidden={true}
           iconType={iconType}
           icon={icon}
-          className={cx("tab-icon", iconSide)}
+          className={cx(styles.tabIcon, "tab-icon", iconSide)}
           iconSize={18}
           ignoreFocusStyle
         />
@@ -37,17 +38,21 @@ const Tab = forwardRef(
       <li
         ref={mergedRef}
         key={id}
-        className={cx("tab--wrapper", className, {
-          active,
-          disabled,
-          "tab-focus-visible-inset": focus
+        className={cx(styles.tabWrapper, "tab--wrapper", className, {
+          [styles.active]: active,
+          ["active"]: active,
+          [styles.disabled]: disabled,
+          ["disabled"]: disabled,
+          [styles.tabFocusVisibleInset]: focus,
+          ["tab-focus-visible-inset"]: focus
         })}
         id={id}
         role="tab"
         aria-selected={active}
         aria-disabled={disabled}
+        data-testid={dataTestId | getTestId(ELEMENT_TYPES.TAB)}
       >
-        <a className="tab-inner" onClick={() => !disabled && onClick(value)}>
+        <a className={cx(styles.tabInner, "tab-inner")} onClick={() => !disabled && onClick(value)}>
           {renderIconAndChildren()}
         </a>
       </li>
