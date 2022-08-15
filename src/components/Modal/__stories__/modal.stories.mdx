@@ -1,16 +1,16 @@
 import Modal from "../Modal";
 import { useModalHelper } from "./helpers";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
-import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+import { createStoryMetaSettings } from "../../../storybook";
 import "./Modal.stories.scss";
-import { ModalContent, ModalFooter, ModalHeader, TextField } from "components";
+import { Button, ModalContent, ModalFooter, ModalHeader, TextField } from "components";
 import {
   TOOLTIP,
   ALERT_BANNER,
   Tipseen
 } from "../../../storybook/components/related-components/component-description-map";
 import { Settings } from "components/Icon/Icons";
-import { RelatedComponents } from "../../../storybook";
+import { RelatedComponents } from "../../../storybook"; import { useState } from "react";
 
 export const metaSettings = createStoryMetaSettings({
   component: Modal,
@@ -22,7 +22,7 @@ export const metaSettings = createStoryMetaSettings({
 <Meta
   title="Feedback/Modal"
   component={Modal}
-  subcomponents={{ModalHeader, ModalContent, ModalFooter}}
+  subcomponents={{ ModalHeader, ModalContent, ModalFooter }}
   argTypes={metaSettings.argTypes}
   decorators={metaSettings.decorators}
 />
@@ -73,16 +73,6 @@ An easy to use accessible Modal component
 <ArgsTable of={Modal} />
 
 ## Usage
-
-### Showing the Modal
-
-You show/hide the Modal by passing the <b>show</b> prop. This gives you complete control on when to show and hide the Modal.
-One thing to consider is when the user initiate closing the Modal by
-
-### Composing the Modal
-#### Header
-#### Content
-#### Footer and Buttons
 
 ### Design and customizations
 
@@ -177,6 +167,108 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
 </Canvas>
 
 ## Use cases and examples
+
+### Showing the Modal
+
+You show/hide the Modal by passing the <b>show</b> prop. This gives you complete control on when to show and hide the modal.
+
+Keep in mind that when the user initiate closing the modal by clicking outside it or clicking the ESC key, you'll be responsible for closing the modal.
+Pass a callback to the <b>onClose</b> function to know when it happens.
+<Canvas>
+  <Story name="Showing the Modal">
+    {() => {
+      const { modalButtons } = useModalHelper();
+      const [show, setShow] = useState(false);
+      const closeModal = () => {
+        setShow(false);
+      }
+      return (
+        <div>
+          <Button onClick={() => setShow(true)}>Show</Button>
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            show={show}
+            onClose={closeModal}
+            closeButtonAriaLabel={"close"}
+          >
+            <ModalContent>Modal content goes here</ModalContent>
+            <ModalFooter>{modalButtons}</ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+
+### Modal with footer buttons
+
+As there are many possible combinations of buttons to display on the modal footer, we don't provide a build in support for footer buttons.
+However, you can use the <b>ModalFooter</b> component to place any content at the bottom of the modal, including buttons.
+
+<Canvas>
+  <Story name="Modal with footer buttons">
+    {() => {
+      const { openModalButton, show, closeModal, ref } = useModalHelper({
+        openButtonTitle: "Modal with buttons"
+      });
+      ;
+      return (
+        <div>
+          {openModalButton}
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            closeButtonAriaLabel={"close"}
+          >
+            <ModalHeader title={"Modal Title"} description={"Modal description goes here"} icon={Settings} />
+            <div>Modal content goes here</div>
+            <ModalFooter className="monday-storybook-modal-new-buttons">
+              <Button kind={Button.kinds.SECONDARY} onClick={closeModal}>Dismiss</Button>
+              <Button onClick={closeModal}>Close</Button>
+            </ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+
+### Modal with custom Header
+
+Use the <b>ModalHeader</b> component to render a Header with description and icon
+
+<Canvas>
+  <Story name="Modal with custom Header">
+    {() => {
+      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
+        openButtonTitle: "Custom Header"
+      });
+      return (
+        <div>
+          {openModalButton}
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            closeButtonAriaLabel={"close"}
+          >
+            <ModalHeader title={"Modal Title"} description={"Modal description goes here"} icon={Settings} />
+            <div>Modal content goes here</div>
+            <ModalFooter>{modalButtons}</ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ### Modal with a form
 
@@ -279,37 +371,6 @@ The height of Modal with long content will be limited to 90% of screen height, a
               <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
               <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
             </form>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Modal with custom Header
-
-Header with description and icon
-
-<Canvas>
-  <Story name="Modal with custom Header">
-    {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
-        openButtonTitle: "Custom Header"
-      });
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            closeButtonAriaLabel={"close"}
-          >
-            <ModalHeader title={"Modal Title"} description={"Modal description goes here"} icon={Settings} />
-            <div>Modal content goes here</div>
             <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
