@@ -1,13 +1,12 @@
 import { camelCase } from "lodash";
 import cx from "classnames";
 import PropTypes from "prop-types";
-import { BEMClass } from "../../helpers/bem-helper";
 import {
-  SKELETON_TYPES,
-  SKELETON_SIZES,
-  SKELETON_ALLOWED_TYPES,
   SKELETON_ALLOWED_SIZES,
-  SKELETON_CUSTOM_SIZE
+  SKELETON_ALLOWED_TYPES,
+  SKELETON_CUSTOM_SIZE,
+  SKELETON_SIZES,
+  SKELETON_TYPES
 } from "./SkeletonConstants";
 import styles from "./Skeleton.module.scss";
 
