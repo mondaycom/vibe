@@ -21,8 +21,8 @@ export const dataTestIdVisitors: Visitor<State> = {
     printWithCondition(false, "::: dataTestIdVisitors, path.node", path.node);
 
     if (!t.isJSXExpressionContainer(node) && node?.type === "StringLiteral") {
-      const newPath = t.binaryExpression(
-        "|",
+      const newPath = t.logicalExpression(
+        "||",
         t.identifier("dataTestId"),
         t.callExpression(t.identifier("getTestId"), [
           t.memberExpression(t.identifier("ELEMENT_TYPES"), t.identifier(convertFileNameToUpperCase(filename)))
