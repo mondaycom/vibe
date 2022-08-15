@@ -1,3 +1,4 @@
+import { camelCase } from "lodash";
 import cx from "classnames";
 import PropTypes from "prop-types";
 import { BEMClass } from "../../helpers/bem-helper";
@@ -8,21 +9,22 @@ import {
   SKELETON_ALLOWED_SIZES,
   SKELETON_CUSTOM_SIZE
 } from "./SkeletonConstants";
-import "./Skeleton.scss";
+import styles from "./Skeleton.module.scss";
 
 const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
-const bemHelper = BEMClass(SKELETON_CSS_BASE_CLASS);
 
 const Skeleton = ({ type, size, className, width, height }) => {
   const skeletonType = SKELETON_ALLOWED_TYPES.indexOf(type) > -1 ? type : SKELETON_TYPES.RECTANGLE;
   const typeDescription = skeletonType.toUpperCase();
   const skeletonSize = SKELETON_ALLOWED_SIZES[typeDescription].indexOf(size) > -1 ? size : SKELETON_CUSTOM_SIZE;
   return (
-    <div className={SKELETON_CSS_BASE_CLASS}>
+    <div className={cx(SKELETON_CSS_BASE_CLASS)}>
       <div
         className={cx(
-          bemHelper({ element: skeletonType }),
-          bemHelper({ element: skeletonType, state: skeletonSize }),
+          styles[`${camelCase("monday-style-skeleton_" + skeletonType)}`],
+          `monday-style-skeleton_${skeletonType}`,
+          styles[`${camelCase("monday-style-skeleton_" + skeletonType + "--" + skeletonSize)}`],
+          `monday-style-skeleton_${skeletonType}--${skeletonSize}`,
           className
         )}
         style={{ width, height }}

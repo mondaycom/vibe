@@ -1,7 +1,7 @@
+import cx from "classnames";
 import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
-import cx from "classnames";
 import { VariableSizeGrid as Grid } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import {
@@ -12,7 +12,7 @@ import {
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./VirtualizedGrid.scss";
+import styles from "./VirtualizedGrid.module.scss";
 
 const VirtualizedGrid = forwardRef(
   (
@@ -183,7 +183,11 @@ const VirtualizedGrid = forwardRef(
       }
     }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, gridHeight, idGetter]);
     return (
-      <div ref={mergedRef} className={cx("virtualized-grid--wrapper", className)} id={id}>
+      <div
+        ref={mergedRef}
+        className={cx(styles.virtualizedGridWrapper, "virtualized-grid--wrapper", className)}
+        id={id}
+      >
         <AutoSizer>
           {({ height, width }) => {
             updateGridSize(width, height);
@@ -198,7 +202,7 @@ const VirtualizedGrid = forwardRef(
                 rowCount={calcRowCount}
                 onScroll={onScrollCB}
                 onItemsRendered={onItemsRenderedCB}
-                className="virtualized-grid-scrollable-container"
+                className={cx("virtualized-grid-scrollable-container")}
               >
                 {cellRenderer}
               </Grid>
