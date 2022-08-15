@@ -20,6 +20,7 @@ import { objectPropertyClassnameIdentifiersReplacementVisitors } from "./objectP
 import { classNamesCallExpressionRenameVisitors } from "./classNamesCallExpressionRenameVisitors";
 import { getCssModulesFileName } from "../getCssModulesFileName";
 import { markFileForPrettier } from "../markFileForPrettier";
+import { dataTestIdVisitors } from "./dataTestIdVisitors";
 
 /**
  * Map: key - processed .scss file, value - map (key - old classname, value - new modular classname)
@@ -137,7 +138,10 @@ export const importVisitors: Visitor<State> = {
       // 8-10: Traverse the top-level program path for JSX className attributes
       file.path.traverse(classNameAttributeVisitors, state);
 
-      // 11: Adds camel case import if needed
+      // 11: Replace data-testid attributes, added by babel-plugin-react-data-testid
+      file.path.traverse(dataTestIdVisitors, state);
+
+      // 12: Adds camel case import if needed
       if (state.camelCaseImportNeeded && !state.camelCaseImported) {
         file.path.traverse(addCamelCaseImportVisitors, state);
       }

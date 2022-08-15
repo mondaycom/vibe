@@ -7,7 +7,10 @@ if [ -z "$1" ]
 fi
 
 # Traverse files at path
-codemod -p babel-plugin-react-data-testid -p src/index.ts "$1";
+# Add data-testid attributes
+codemod -p babel-plugin-react-data-testid "$1";
+# Main traverse
+codemod -p src/index.ts "$1";
 
 # Prettify files from the list
 ./shell_scripts/prettify_modified_files.sh;
