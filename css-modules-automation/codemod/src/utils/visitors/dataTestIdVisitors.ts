@@ -29,6 +29,8 @@ export const dataTestIdVisitors: Visitor<State> = {
         ])
       );
       path.replaceWith(t.jsxAttribute(path.node.name, t.jsxExpressionContainer(newPath)));
+
+      state.dataTestIdImportNeeded = true;
     }
   }
 };

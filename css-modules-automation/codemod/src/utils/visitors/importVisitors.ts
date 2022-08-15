@@ -21,6 +21,7 @@ import { classNamesCallExpressionRenameVisitors } from "./classNamesCallExpressi
 import { getCssModulesFileName } from "../getCssModulesFileName";
 import { markFileForPrettier } from "../markFileForPrettier";
 import { dataTestIdVisitors } from "./dataTestIdVisitors";
+import { addDataTestIdImportVisitors } from "./addDataTestIdImportVisitors";
 
 /**
  * Map: key - processed .scss file, value - map (key - old classname, value - new modular classname)
@@ -141,12 +142,19 @@ export const importVisitors: Visitor<State> = {
       // 11: Replace data-testid attributes, added by babel-plugin-react-data-testid
       file.path.traverse(dataTestIdVisitors, state);
 
-      // 12: Adds camel case import if needed
+      // 12: Adds dataTestId import if needed
+      if (state.dataTestIdImportNeeded && !state.dataTestIdImported) {
+        file.path.traverse(addDataTestIdImportVisitors, state);
+      }
+
+      // 13: Adds camel case import if needed
       if (state.camelCaseImportNeeded && !state.camelCaseImported) {
         file.path.traverse(addCamelCaseImportVisitors, state);
       }
 
+      // Write down filename to separate file to run prettier on it after
       markFileForPrettier(filename);
+
       filesJsxSet.add(filename);
     }
   }
