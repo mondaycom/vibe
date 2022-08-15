@@ -1,14 +1,14 @@
 import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
-import { print, printWithCondition } from "../commonProcess/print";
-import { isClassNameJsxAttribute } from "../logical/isClassNameJsxAttribute";
-import { embedCxCallExpression } from "../wrapWithCxCallExpression";
-import { isCxCallExpression } from "../logical/isCxCallExpression";
-import { State } from "../../index";
-import { isTemplateLiteralNeedToBeSplit } from "../logical/isTemplateLiteralNeedToBeSplit";
-import { buildClassnameStringFromTemplateLiteral } from "../templateLiterals/buildClassnameStringFromTemplateLiteral";
-import { splitTemplateLiteralClassNames } from "../templateLiterals/splitTemplateLiteralClassNames";
+import { print, printWithCondition } from "../utils/commonProcess/print";
+import { isClassNameJsxAttribute } from "../utils/logical/isClassNameJsxAttribute";
+import { embedCxCallExpression } from "../utils/wrapWithCxCallExpression";
+import { isCxCallExpression } from "../utils/logical/isCxCallExpression";
+import { State } from "../index";
+import { isTemplateLiteralNeedToBeSplit } from "../utils/logical/isTemplateLiteralNeedToBeSplit";
+import { buildClassnameStringFromTemplateLiteral } from "../utils/templateLiterals/buildClassnameStringFromTemplateLiteral";
+import { splitTemplateLiteralClassNames } from "../utils/templateLiterals/splitTemplateLiteralClassNames";
 
 /**
  * 7: These visitors replace classNames inside template strings e.g. `monday-style-avatar_circle--${type}`

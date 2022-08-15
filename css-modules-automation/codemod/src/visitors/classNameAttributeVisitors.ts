@@ -1,12 +1,12 @@
 import { Visitor } from "@babel/core";
 import * as t from "@babel/types";
-import { wrapWithJSXExpressionContainer } from "../wrapWithJSXExpressionContainer";
-import { embedCxCallExpression, wrapWithCxCallExpression } from "../wrapWithCxCallExpression";
-import { CX_NAMES_ALL, isCxCallExpression } from "../logical/isCxCallExpression";
-import { splitStringLiteralClassNames } from "../splitStringLiteralClassNames";
-import { State } from "../../index";
+import { wrapWithJSXExpressionContainer } from "../utils/wrapWithJSXExpressionContainer";
+import { embedCxCallExpression, wrapWithCxCallExpression } from "../utils/wrapWithCxCallExpression";
+import { CX_NAMES_ALL, isCxCallExpression } from "../utils/logical/isCxCallExpression";
+import { splitStringLiteralClassNames } from "../utils/splitStringLiteralClassNames";
+import { State } from "../index";
 import { classNameReplacementVisitors } from "./classNameReplacementVisitors";
-import { printWithCondition } from "../commonProcess/print";
+import { printWithCondition } from "../utils/commonProcess/print";
 
 /**
  * 8: These visitors process all JSX `className` attributes and traverses them

@@ -1,9 +1,9 @@
 import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
-import { print, printWithCondition } from "../commonProcess/print";
-import { convertClassnameToModular } from "../convertClassnameToModular";
-import { State } from "../../index";
+import { print, printWithCondition } from "../utils/commonProcess/print";
+import { convertClassnameToModular } from "../utils/convertClassnameToModular";
+import { State } from "../index";
 
 /**
  * 8: These visitors take a string literal, checks to see if it's a valid CSS module

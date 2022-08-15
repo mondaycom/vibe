@@ -1,8 +1,8 @@
 import { Visitor } from "@babel/core";
 import * as t from "@babel/types";
-import { State } from "../../index";
-import { printWithCondition } from "../commonProcess/print";
-import { convertFileNameToUpperCase } from "../convertFileNameToUpperCase";
+import { State } from "../index";
+import { printWithCondition } from "../utils/commonProcess/print";
+import { convertFileNameToUpperCase } from "../utils/convertFileNameToUpperCase";
 
 /**
  * 11. Replace data-testid attributes, added by babel-plugin-react-data-testid

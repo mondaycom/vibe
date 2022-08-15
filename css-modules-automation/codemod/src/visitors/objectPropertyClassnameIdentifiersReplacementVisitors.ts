@@ -1,9 +1,9 @@
 import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
-import { State } from "../../index";
-import { isCxCallExpression } from "../logical/isCxCallExpression";
-import { printWithCondition } from "../commonProcess/print";
+import { State } from "../index";
+import { isCxCallExpression } from "../utils/logical/isCxCallExpression";
+import { printWithCondition } from "../utils/commonProcess/print";
 
 /**
  * 6: Replace className identifier in objectProperty with stringLiteral

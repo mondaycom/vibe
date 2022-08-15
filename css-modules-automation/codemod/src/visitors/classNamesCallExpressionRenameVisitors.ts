@@ -1,9 +1,9 @@
 import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
-import { State } from "../../index";
-import { CX_NAMES_CLASSNAMES, isCxCallExpression } from "../logical/isCxCallExpression";
-import { renameClassnamesToCxCallExpression } from "../wrapWithCxCallExpression";
+import { State } from "../index";
+import { CX_NAMES_CLASSNAMES, isCxCallExpression } from "../utils/logical/isCxCallExpression";
+import { renameClassnamesToCxCallExpression } from "../utils/wrapWithCxCallExpression";
 
 /**
  * 4*: Rename all classNames(...) occurrences to cx(...)

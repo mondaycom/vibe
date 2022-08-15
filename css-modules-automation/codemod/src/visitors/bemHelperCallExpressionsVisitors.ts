@@ -1,9 +1,9 @@
 import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
-import { printWithCondition } from "../commonProcess/print";
-import { replaceBemHelperCallExpression } from "../replaceBemHelperCallExpression";
-import { State } from "../../index";
+import { printWithCondition } from "../utils/commonProcess/print";
+import { replaceBemHelperCallExpression } from "../utils/replaceBemHelperCallExpression";
+import { State } from "../index";
 
 /**
  * 4: These visitors process all bemHelpers function calls

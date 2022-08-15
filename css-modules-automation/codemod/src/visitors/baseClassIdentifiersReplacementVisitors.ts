@@ -1,11 +1,11 @@
 import { Visitor } from "@babel/core";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
-import { printWithCondition } from "../commonProcess/print";
-import { State } from "../../index";
-import { convertClassnameToModular } from "../convertClassnameToModular";
-import { isCxCallExpression } from "../logical/isCxCallExpression";
-import { embedCxCallExpression } from "../wrapWithCxCallExpression";
+import { printWithCondition } from "../utils/commonProcess/print";
+import { State } from "../index";
+import { convertClassnameToModular } from "../utils/convertClassnameToModular";
+import { isCxCallExpression } from "../utils/logical/isCxCallExpression";
+import { embedCxCallExpression } from "../utils/wrapWithCxCallExpression";
 
 /**
  * 5: Replace CSS_BASE_NAME usages with cx(styles.*CSS_BASE_NAME.value*, CSS_BASE_NAME)

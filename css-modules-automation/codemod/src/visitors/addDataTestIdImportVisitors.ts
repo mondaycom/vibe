@@ -1,8 +1,8 @@
-import { State } from "../../index";
+import { State } from "../index";
 import { NodePath } from "@babel/traverse";
 import * as t from "@babel/types";
 import { Visitor } from "@babel/core";
-import { printWithCondition } from "../commonProcess/print";
+import { printWithCondition } from "../utils/commonProcess/print";
 import * as p from "path";
 
 // 12: Adds `import { ELEMENT_TYPES, getTestId } from "src/utils/test-utils";` to the top of the imports

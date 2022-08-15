@@ -1,5 +1,5 @@
 import { Visitor } from "@babel/core";
-import { State } from "../../index";
+import { State } from "../index";
 import { stringLiteralReplacementVisitors } from "./stringLiteralReplacementVisitors";
 
 /**

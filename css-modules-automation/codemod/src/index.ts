@@ -1,6 +1,6 @@
 import { PluginObj } from "@babel/core";
 import { defaults } from "lodash";
-import { importVisitors } from "./utils/visitors/importVisitors";
+import { importVisitors } from "./visitors/importVisitors";
 import { CssBaseClass } from "./utils/getCssBaseClass";
 
 type PluginOptions = {
