@@ -50,7 +50,7 @@ const Tab = forwardRef(
         role="tab"
         aria-selected={active}
         aria-disabled={disabled}
-        data-testid={dataTestId | getTestId(ELEMENT_TYPES.TAB)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB)}
       >
         <a className={cx(styles.tabInner, "tab-inner")} onClick={() => !disabled && onClick(value)}>
           {renderIconAndChildren()}

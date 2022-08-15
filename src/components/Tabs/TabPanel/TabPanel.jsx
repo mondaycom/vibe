@@ -16,7 +16,7 @@ const TabPanel = forwardRef(({ className, id, children, index, dataTestId }, ref
       className={cx(styles.tabPanelWrapper, "tab-panel--wrapper", className)}
       id={id}
       role="tabpanel"
-      data-testid={dataTestId | getTestId(ELEMENT_TYPES.TAB_PANEL)}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB_PANEL)}
     >
       {children}
     </div>

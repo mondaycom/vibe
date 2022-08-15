@@ -83,7 +83,7 @@ const TextWithHighlight = forwardRef(
           ["with-ellipsis"]: useEllipsis
         })}
         id={id}
-        data-testid={dataTestId | getTestId(ELEMENT_TYPES.TEXT_WITH_HIGHLIGHT)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TEXT_WITH_HIGHLIGHT)}
       >
         {textWithHighlights}
       </div>
