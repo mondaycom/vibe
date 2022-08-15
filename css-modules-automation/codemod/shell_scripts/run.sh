@@ -7,7 +7,7 @@ if [ -z "$1" ]
 fi
 
 # Traverse files at path
-codemod -p src/index.ts "$1";
+codemod -p babel-plugin-react-data-testid -p src/index.ts "$1";
 
 # Prettify files from the list
 ./shell_scripts/prettify_modified_files.sh;

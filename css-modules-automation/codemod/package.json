@@ -24,22 +24,18 @@
     "modify react-core/button": "shell_scripts/run.sh ../../src/components/Button/Button.jsx",
     "modify react-core/counter": "shell_scripts/run.sh ../../src/components/Counter/Counter.jsx",
     "modify react-core/combobox-option": "shell_scripts/run.sh ../../src/components/Combobox/components/ComboboxOption/ComboboxOption.jsx",
-
     "modify react-core/menu-button": "shell_scripts/run.sh ../../src/components/MenuButton/MenuButton.jsx",
     "modify react-core/slider-base": "shell_scripts/run.sh ../../src/components/Slider/SliderBase/SliderBase.jsx",
     "modify react-core/slider": "shell_scripts/run.sh ../../src/components/Slider/Slider.jsx",
     "modify react-core/list-item": "shell_scripts/run.sh ../../src/components/ListItem/ListItem.jsx",
-
     "modify react-core/button-group": "shell_scripts/run.sh ../../src/components/ButtonGroup/ButtonGroup.jsx",
     "modify react-core/radio-button": "shell_scripts/run.sh ../../src/components/RadioButton/RadioButton.jsx",
     "modify react-core/responsive-list": "shell_scripts/run.sh ../../src/components/ResponsiveList/ResponsiveList.jsx",
     "modify react-core/toggle": "shell_scripts/run.sh ../../src/components/Toggle/Toggle.jsx",
     "modify react-core/steps": "shell_scripts/run.sh ../../src/components/Steps/Steps.jsx",
-
     "modify react-core/tipseen": "shell_scripts/run.sh ../../src/components/Tipseen/Tipseen.jsx",
     "modify react-core/dialog-content": "shell_scripts/run.sh ../../src/components/Dialog/DialogContent/DialogContent.jsx",
 
-    
     "modify tests": "shell_scripts/run.sh tests",
     "modify tests/divider": "shell_scripts/run.sh tests/Divider.jsx",
     "modify tests/avatar": "shell_scripts/run.sh tests/Avatar.jsx",
@@ -87,6 +83,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.18.9",
     "autoprefixer": "^10.4.7",
+    "babel-plugin-react-data-testid": "^0.2.0",
     "postcss": "^8.4.14",
     "postcss-nested": "^5.0.6",
     "postcss-prettify": "^0.3.4"
