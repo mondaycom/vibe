@@ -3,6 +3,7 @@
   "version": "1.54.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
+  "types": "./dist/bundle.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -70,7 +71,8 @@
     "react-transition-group": "^4.4.2",
     "react-virtualized-auto-sizer": "^1.0.6",
     "react-window": "^1.8.7",
-    "react-windowed-select": "^2.0.4"
+    "react-windowed-select": "^2.0.4",
+    "types-webpack-bundler": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

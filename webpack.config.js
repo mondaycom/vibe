@@ -3,6 +3,8 @@ const autoprefixer = require("autoprefixer");
 const CopyPlugin = require("copy-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const DeclarationBundlerPlugin = require("types-webpack-bundler");
+
 const { getPublishedComponents } = require("./webpack/published-components");
 
 module.exports = options => {
@@ -61,13 +63,19 @@ module.exports = options => {
       modules: [__dirname, "node_modules"],
       extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
-
     module: {
       rules: [
         {
           test: /\.(ts|tsx)$/,
           exclude: /node_modules/,
-          use: "ts-loader"
+          use: [
+            {
+              loader: "ts-loader",
+              options: {
+                onlyCompileBundledFiles: true
+              }
+            }
+          ]
         },
         {
           test: /\.(js|jsx)$/,
@@ -125,6 +133,10 @@ module.exports = options => {
         filename: "[name].css",
         chunkFilename: "[name].css",
         ignoreOrder: false // Enable to remove warnings about conflicting order
+      }),
+      new DeclarationBundlerPlugin({
+        moduleName: "vibe",
+        out: "bundle.d.ts"
       })
     ]
   };

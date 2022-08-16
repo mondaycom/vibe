@@ -1,8 +1,0 @@
-{
-  "extends": "../../tsconfig-base.json",
-  "compilerOptions": {
-    "outDir": "../../dist1",
-    "rootDir": ".",
-    "composite": true,
-  }
-}
