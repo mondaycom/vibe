@@ -1,12 +1,13 @@
-import React, { useRef, forwardRef, useState, useCallback, useEffect, useMemo } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import useGridKeyboardNavigation from "../../../hooks/useGridKeyboardNavigation/useGridKeyboardNavigation";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
-import "./TabList.scss";
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import styles from "./TabList.module.scss";
 
-const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, size, children }, ref) => {
+const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, size, children, dataTestId }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -75,8 +76,13 @@ const TabList = forwardRef(({ className, id, onTabChange, activeTabId, tabType, 
   }, [children, activeTabState, focusIndex, onSelectionAction]);
 
   return (
-    <div ref={mergedRef} className={cx("tabs--wrapper", className, tabType)} id={id}>
-      <ul ref={ulRef} tabIndex={0} className={cx("tabs-list", size)} role="tablist">
+    <div
+      ref={mergedRef}
+      className={cx(styles.tabsWrapper, "tabs--wrapper", className, tabType)}
+      id={id}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB_LIST, id)}
+    >
+      <ul ref={ulRef} tabIndex={0} className={cx(styles.tabsList, "tabs-list", styles[size], size)} role="tablist">
         {tabsToRender}
       </ul>
     </div>

@@ -1,11 +1,9 @@
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
-
-
 $tooltip-z-index: 9999999999999999;
 
-.monday-style-tooltip {
+.mondayStyleTooltip {
   position: relative;
   display: inline-block;
   border-radius: $border-radius-small;
@@ -14,71 +12,71 @@ $tooltip-z-index: 9999999999999999;
   @include font-input();
   max-width: 50vw;
   word-break: break-word;
-
-  &.padding-size-md {
-    border-radius: $border-radius-medium;
-    padding: $spacing-medium;
-    @include font-input();
-  }
-
-  a.tooltip-white-link {
-    color: #fff;
-  }
 }
 
-.monday-style-tooltip-dark,
-.monday-style-arrow-dark {
+.mondayStyleTooltip.paddingSizeMd {
+  border-radius: $border-radius-medium;
+  padding: $spacing-medium;
+  @include font-input();
+}
+
+.mondayStyleTooltip a.tooltipWhiteLink {
+  color: #fff;
+}
+
+.mondayStyleTooltipDark,
+.mondayStyleArrowDark {
   @include theme-prop(background-color, inverted-color-background);
   @include theme-prop(color, text-color-on-inverted);
 }
 
-.monday-style-tooltip-white,
-.monday-style-arrow-white {
+.mondayStyleTooltipWhite,
+.mondayStyleArrowWhite {
   background-color: $white-theme-bg-color;
   color: $white-theme-font-color;
   @include theme-prop(box-shadow, box-shadow-medium);
 }
 
-.monday-style-tooltip-primary,
-.monday-style-arrow-primary {
+.mondayStyleTooltipPrimary,
+.mondayStyleArrowPrimary {
   @include theme-prop(background-color, primary-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.monday-style-tooltip-success,
-.monday-style-arrow-success {
+.mondayStyleTooltipSuccess,
+.mondayStyleArrowSuccess {
   @include theme-prop(background-color, positive-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.monday-style-tooltip-surface,
-.monday-style-arrow-surface {
+.mondayStyleTooltipSurface,
+.mondayStyleArrowSurface {
   background-color: $surface-theme-bg-color;
   color: $surface-theme-font-color;
 }
 
-.monday-style-tooltip-private,
-.monday-style-arrow-private {
+.mondayStyleTooltipPrivate,
+.mondayStyleArrowPrivate {
   @include theme-prop(background-color, private-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.monday-style-tooltip-share,
-.monday-style-arrow-share {
+.mondayStyleTooltipShare,
+.mondayStyleArrowShare {
   @include theme-prop(background-color, shareable-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.monday-style-tooltip-error,
-.monday-style-arrow-error {
+.mondayStyleTooltipError,
+.mondayStyleArrowError {
   @include theme-prop(background-color, negative-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.monday-style-dialog-content-component {
+.mondayStyleDialogContentComponent {
   padding: 6px;
+}
 
-  &:focus {
-    outline: none;
-  }
+.mondayStyleDialogContentComponent:focus {
+  outline: none;
 }

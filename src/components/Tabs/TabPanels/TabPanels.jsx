@@ -1,29 +1,41 @@
-import React, { useRef, forwardRef, useMemo } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useMemo, useRef } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import "./TabPanels.scss";
+import { camelCase } from "lodash";
+import styles from "./TabPanels.module.scss";
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 
 const TabPanels = forwardRef(
-  ({ className, id, activeTabId, animationDirection, children, renderOnlyActiveTab }, ref) => {
+  ({ className, id, activeTabId, animationDirection, children, renderOnlyActiveTab, dataTestId }, ref) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const renderedTabs = useMemo(() => {
       return React.Children.map(children, (child, index) => {
         const isActiveTab = activeTabId === index;
         if (renderOnlyActiveTab && !isActiveTab) return null;
-        const activeClass = isActiveTab ? "active" : "non-active";
-        const animationClass = isActiveTab ? `animation-direction-${animationDirection}` : "";
+        const activeClass = isActiveTab ? cx(styles.active, "active") : "non-active";
+        const animationClass = isActiveTab
+          ? cx(
+              styles[camelCase(`animation-direction-${animationDirection}`)],
+              `animation-direction-${animationDirection}`
+            )
+          : "";
         return React.cloneElement(child, {
           index,
           ...child.props,
-          className: cx("tab-panel", activeClass, animationClass, child.props.className)
+          className: cx(styles.tabPanel, "tab-panel", activeClass, animationClass, child.props.className)
         });
       }).filter(Boolean);
     }, [children, activeTabId, renderOnlyActiveTab, animationDirection]);
 
     return (
-      <div ref={mergedRef} className={cx("tab-panels--wrapper", className)} id={id}>
+      <div
+        ref={mergedRef}
+        className={cx(styles.tabPanelsWrapper, "tab-panels--wrapper", className)}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB_PANELS, id)}
+      >
         {renderedTabs}
       </div>
     );

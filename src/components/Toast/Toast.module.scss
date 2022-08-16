@@ -1,0 +1,111 @@
+@import "../../styles/global-css-settings";
+@import "../../styles/typography";
+@import "../../styles/themes";
+
+.mondayStyleToast {
+  @include font-paragraph();
+  @include box-shadow-medium();
+  @include theme-prop(color, text-color-on-primary);
+  margin: $spacing-medium;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, 0);
+  padding: $spacing-small;
+  align-items: center;
+  display: flex;
+  min-width: 200px;
+  border-radius: $border-radius-small;
+}
+
+.mondayStyleToastIcon {
+  display: flex;
+  padding-left: $spacing-small;
+  padding-right: $spacing-small;
+}
+
+.mondayStyleToastContent {
+  display: inline-flex;
+  line-height: 22px;
+  font-size: 14px;
+  flex-grow: 1;
+}
+
+.mondayStyleToastContentNoIcon {
+  padding-left: $spacing-small;
+}
+
+.mondayStyleToastAction {
+  margin-left: $spacing-medium;
+  display: flex;
+}
+
+:global(.monday-style-toast-action_button),
+:global(.monday-style-toast-action_link) {
+  margin-left: $spacing-small;
+}
+
+.mondayStyleToastTypeNormal {
+  @include theme-prop(background-color, primary-color);
+}
+
+.mondayStyleToastTypePositive {
+  @include theme-prop(background-color, positive-color);
+}
+
+.mondayStyleToastTypeNegative {
+  @include theme-prop(background-color, negative-color);
+}
+
+.enterActive,
+.exitActive {
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.enterActive {
+  animation-duration: var(--motion-expressive-long);
+  animation-name: toastPopIn;
+}
+
+.exitActive {
+  animation-duration: var(--motion-productive-long);
+  animation-name: toastPopOut;
+}
+
+.mondayStyleToastCloseButton {
+  margin-left: $spacing-small;
+}
+
+@keyframes toastPopIn {
+  0% {
+    transform: translate(-50%, -115px);
+  }
+  25% {
+    /* down 130 px */
+    transform: translate(-50%, 15px);
+    animation-timing-function: var(--motion-timing-enter);
+  }
+  66% {
+    /* up 20 px */
+    transform: translate(-50%, -5px);
+    animation-timing-function: var(--motion-timing-exit);
+  }
+  100% {
+    /* down 5 px */
+    transform: translate(-50%, 0px);
+    animation-timing-function: var(--motion-timing-exit);
+  }
+}
+
+@keyframes toastPopOut {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  100% {
+    /* up 130 px */
+    transform: translate(-50%, -130px);
+    animation-timing-function: var(--motion-timing-enter);
+  }
+}
