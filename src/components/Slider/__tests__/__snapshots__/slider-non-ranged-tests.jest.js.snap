@@ -56,12 +56,12 @@ Snapshot Diff:
 +           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 +         >
 +           <div
-+             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
++             class="mondayStyleTooltip monday-style-tooltip mondayStyleTooltipDark monday-style-tooltip-dark paddingSizeUndefined padding-size-undefined"
 +           >
 +             20%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             class="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -90,12 +90,12 @@ Snapshot Diff:
 -           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 -         >
 -           <div
--             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+-             class="mondayStyleTooltip monday-style-tooltip mondayStyleTooltipDark monday-style-tooltip-dark paddingSizeUndefined padding-size-undefined"
 -           >
 -             20%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+-             class="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -131,12 +131,12 @@ Snapshot Diff:
 +           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 +         >
 +           <div
-+             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
++             class="mondayStyleTooltip monday-style-tooltip mondayStyleTooltipDark monday-style-tooltip-dark paddingSizeUndefined padding-size-undefined"
 +           >
 +             20%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             class="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 +             data-placement="top"
 +             style="position: absolute;"
             />
@@ -172,12 +172,12 @@ Snapshot Diff:
 -           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear monday-style-animation-expand-appear-active"
 -         >
 -           <div
--             class="monday-style-tooltip monday-style-tooltip-dark padding-size-undefined"
+-             class="mondayStyleTooltip monday-style-tooltip mondayStyleTooltipDark monday-style-tooltip-dark paddingSizeUndefined padding-size-undefined"
 -           >
 -             20%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+-             class="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 -             data-placement="top"
 -             style="position: absolute;"
         />

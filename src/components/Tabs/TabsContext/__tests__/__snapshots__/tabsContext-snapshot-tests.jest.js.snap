@@ -3,14 +3,16 @@
 exports[`TabsContext renders correctly with activeTabId 1`] = `
 <div
   className="tabs-context--wrapper"
+  data-testid="tab-list"
   id=""
 >
   <div
-    className="tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact"
+    data-testid="tab-list"
     id=""
   >
     <ul
-      className="tabs-list"
+      className="tabsList tabs-list undefined"
       role="tablist"
       tabIndex={0}
     >
@@ -45,18 +47,19 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
     </ul>
   </div>
   <div
-    className="tab-panels--wrapper"
+    className="tabPanelsWrapper tab-panels--wrapper"
+    data-testid="tab-panels"
     id=""
   >
     <div
-      className="tab-panel--wrapper tab-panel non-active"
+      className="tab-panel--wrapper tabPanel tab-panel non-active"
       id=""
       role="tabpanel"
     >
       First slide
     </div>
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
       id=""
       role="tabpanel"
     >
@@ -69,14 +72,16 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
 exports[`TabsContext renders correctly with className 1`] = `
 <div
   className="tabs-context--wrapper test"
+  data-testid="tab-list"
   id=""
 >
   <div
-    className="tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact"
+    data-testid="tab-list"
     id=""
   >
     <ul
-      className="tabs-list"
+      className="tabsList tabs-list undefined"
       role="tablist"
       tabIndex={0}
     >
@@ -97,11 +102,12 @@ exports[`TabsContext renders correctly with className 1`] = `
     </ul>
   </div>
   <div
-    className="tab-panels--wrapper"
+    className="tabPanelsWrapper tab-panels--wrapper"
+    data-testid="tab-panels"
     id=""
   >
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
       id=""
       role="tabpanel"
     >
@@ -114,14 +120,16 @@ exports[`TabsContext renders correctly with className 1`] = `
 exports[`TabsContext renders correctly with empty props 1`] = `
 <div
   className="tabs-context--wrapper"
+  data-testid="tab-list"
   id=""
 >
   <div
-    className="tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact"
+    data-testid="tab-list"
     id=""
   >
     <ul
-      className="tabs-list"
+      className="tabsList tabs-list undefined"
       role="tablist"
       tabIndex={0}
     >
@@ -142,11 +150,12 @@ exports[`TabsContext renders correctly with empty props 1`] = `
     </ul>
   </div>
   <div
-    className="tab-panels--wrapper"
+    className="tabPanelsWrapper tab-panels--wrapper"
+    data-testid="tab-panels"
     id=""
   >
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
       id=""
       role="tabpanel"
     >
@@ -159,14 +168,16 @@ exports[`TabsContext renders correctly with empty props 1`] = `
 exports[`TabsContext renders correctly with id 1`] = `
 <div
   className="tabs-context--wrapper"
+  data-testid="tab-list_test"
   id="test"
 >
   <div
-    className="tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact"
+    data-testid="tab-list"
     id=""
   >
     <ul
-      className="tabs-list"
+      className="tabsList tabs-list undefined"
       role="tablist"
       tabIndex={0}
     >
@@ -187,11 +198,12 @@ exports[`TabsContext renders correctly with id 1`] = `
     </ul>
   </div>
   <div
-    className="tab-panels--wrapper"
+    className="tabPanelsWrapper tab-panels--wrapper"
+    data-testid="tab-panels"
     id=""
   >
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
       id=""
       role="tabpanel"
     >
