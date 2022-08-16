@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform var(--motion-productive-short) var(--expand-animation-timing);
+  transition: transform var(--motion-productive-short) var(--motion-timing-transition);
   @include theme-prop(color, primary-text-color);
   @include focus-style();
 

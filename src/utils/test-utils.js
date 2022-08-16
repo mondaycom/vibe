@@ -4,6 +4,7 @@ export const ELEMENT_TYPES = {
   BUTTON: "button",
   CLICKABLE: "clickable",
   VIRTUALIZED_LIST: "virtualized-list",
+  VIRTUALIZED_GRID: "virtualized-grid",
   TEXT_FIELD: "text-field",
   TEXT_FIELD_SECONDARY_BUTTON: "text-field-secondary-button",
   SEARCH: "search",
@@ -43,7 +44,8 @@ export const ELEMENT_TYPES = {
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
   DIVIDER: "divider",
-  COMPONENT_STATE_DESCRIPTION: "component-state-description"
+  TAB: "tab",
+  TAB_PANEL: "tab-panel"
 };
 
 export const NAVIGATIONS_COMMANDS = {
