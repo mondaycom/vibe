@@ -39,8 +39,6 @@
     "modify react-core/dialog-content": "shell_scripts/run.sh ../../src/components/Dialog/DialogContent/DialogContent.jsx",
 
     "modify tests": "shell_scripts/run.sh tests",
-    "modify tests/divider": "shell_scripts/run.sh tests/Divider.jsx",
-    "modify tests/avatar": "shell_scripts/run.sh tests/Avatar.jsx",
     "modify tests/anchor-list-item": "shell_scripts/run.sh tests/anchor-list-item.jsx",
     "modify tests/anchor-list-item-expression": "shell_scripts/run.sh tests/anchor-list-item-expression.jsx",
     "modify tests/anchor-list-item-conditional": "shell_scripts/run.sh tests/anchor-list-item-conditional.jsx",
@@ -49,8 +47,6 @@
     "modify tests/anchor-list-item-classnames": "shell_scripts/run.sh tests/anchor-list-item-classnames.jsx",
     "modify tests/anchor-list-item-multiple-classes": "shell_scripts/run.sh tests/anchor-list-item-multiple-classes.jsx",
     "modify tests/anchor-list-item-const-base-class": "shell_scripts/run.sh tests/anchor-list-item-const-base-class.jsx",
-    "modify tests/combobox": "shell_scripts/run.sh tests/Combobox.jsx",
-    "modify tests/toast": "shell_scripts/run.sh tests/Toast.jsx",
     "modify tests/sample-body": "shell_scripts/run.sh tests/sample-body",
     "modify tests/sample-button": "shell_scripts/run.sh tests/sample-button"
   },
