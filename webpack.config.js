@@ -4,6 +4,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const DeclarationBundlerPlugin = require("types-webpack-bundler");
+const { TsconfigPathsPlugin } = require("tsconfig-paths-webpack-plugin");
 
 const { getPublishedComponents } = require("./webpack/published-components");
 
@@ -61,7 +62,8 @@ module.exports = options => {
     devtool,
     resolve: {
       modules: [__dirname, "node_modules"],
-      extensions: [".ts", ".tsx", ".js", ".jsx"]
+      extensions: [".ts", ".tsx", ".js", ".jsx"],
+      plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })]
     },
     module: {
       rules: [
@@ -72,7 +74,10 @@ module.exports = options => {
             {
               loader: "ts-loader",
               options: {
-                onlyCompileBundledFiles: true
+                onlyCompileBundledFiles: true,
+                context: __dirname
+                //  useCaseSensitiveFileNames: true,
+                // projectReferences: true
               }
             }
           ]
@@ -133,10 +138,6 @@ module.exports = options => {
         filename: "[name].css",
         chunkFilename: "[name].css",
         ignoreOrder: false // Enable to remove warnings about conflicting order
-      }),
-      new DeclarationBundlerPlugin({
-        moduleName: "vibe",
-        out: "bundle.d.ts"
       })
     ]
   };

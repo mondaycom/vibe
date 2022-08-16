@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "rootDir": ".",
+    "rootDir": "./src",
     "lib": ["esnext", "dom"],
     "allowJs": true,
     "target": "es6",
@@ -16,7 +16,8 @@
     "skipLibCheck": true,
     "noImplicitAny": true,
     "outDir": "dist1",
-    "baseUrl": ".",
+    "declarationDir": "sosHelp",
+
     "allowSyntheticDefaultImports": true,
     "paths": {
       "hooks/*": ["src/hooks/*"],
