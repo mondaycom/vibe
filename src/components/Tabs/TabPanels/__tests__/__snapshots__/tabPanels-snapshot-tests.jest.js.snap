@@ -6,21 +6,24 @@ exports[`TabPanels renders correctly with animation from left to right 1`] = `
   id=""
 >
   <div
-    className="tab-panel--wrapper tab-panel active animation-direction-ltr"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel active animation-direction-ltr"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
     First
   </div>
   <div
-    className="tab-panel--wrapper tab-panel non-active"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel non-active"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
     Second
   </div>
   <div
-    className="tab-panel--wrapper tab-panel non-active"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel non-active"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
@@ -35,21 +38,24 @@ exports[`TabPanels renders correctly with animation from right to left 1`] = `
   id=""
 >
   <div
-    className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel active animation-direction-rtl"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
     First
   </div>
   <div
-    className="tab-panel--wrapper tab-panel non-active"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel non-active"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
     Second
   </div>
   <div
-    className="tab-panel--wrapper tab-panel non-active"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel non-active"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
@@ -64,21 +70,24 @@ exports[`TabPanels renders correctly with empty props 1`] = `
   id=""
 >
   <div
-    className="tab-panel--wrapper tab-panel active animation-direction-rtl first"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel active animation-direction-rtl first"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
     First
   </div>
   <div
-    className="tab-panel--wrapper tab-panel non-active"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel non-active"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
     Second
   </div>
   <div
-    className="tab-panel--wrapper tab-panel non-active"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel non-active"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
@@ -93,21 +102,24 @@ exports[`TabPanels renders correctly with the given active tab panel 1`] = `
   id=""
 >
   <div
-    className="tab-panel--wrapper tab-panel non-active"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel non-active"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
     First
   </div>
   <div
-    className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel active animation-direction-rtl"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
     Second
   </div>
   <div
-    className="tab-panel--wrapper tab-panel non-active"
+    className="tabPanelWrapper tab-panel--wrapper tab-panel non-active"
+    data-testid="tab-panel"
     id=""
     role="tabpanel"
   >
