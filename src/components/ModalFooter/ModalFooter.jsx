@@ -4,7 +4,7 @@ import cx from "classnames";
 import classes from "./ModalFooter.module.scss";
 
 const ModalFooter = ({ className, children }) => {
-  return <div className={cx(classes.mondayStyleModalFooter, className)}>{children}</div>;
+  return <div className={cx(classes.container, className)}>{children}</div>;
 };
 
 ModalFooter.propTypes = {
