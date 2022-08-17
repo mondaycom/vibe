@@ -2,25 +2,15 @@ import { State } from "../index";
 import { Visitor } from "@babel/core";
 import * as t from "@babel/types";
 import { printWithCondition } from "../utils/commonProcess/print";
-import { getFileLastName } from "../utils/getFileLastName";
 import { forEach } from "lodash";
+import { isComponentPropsObjectPattern } from "../utils/logical/isComponentPropsObjectPattern";
 
 // 13: Adds id and data-testId props if needed
 export const addIdsPropsVisitors: Visitor<State> = {
   ObjectPattern: path => {
-    // @ts-ignore
-    const filename = getFileLastName(path.hub.file.opts.filename, false);
     printWithCondition(false, "<<< addDataTestIdPropsVisitors, path.parent", path.parent);
     printWithCondition(false, "<<< addDataTestIdPropsVisitors, path.parent.parent", path.parentPath.parent);
-    if (
-      t.isArrowFunctionExpression(path.parent) &&
-      ((t.isCallExpression(path.parentPath.parent) &&
-        t.isIdentifier(path.parentPath.parent.callee) &&
-        path.parentPath.parent.callee.name === "forwardRef") ||
-        (t.isVariableDeclarator(path.parentPath.parent) &&
-          t.isIdentifier(path.parentPath.parent.id) &&
-          path.parentPath.parent.id.name.toLowerCase() === filename.toLowerCase()))
-    ) {
+    if (isComponentPropsObjectPattern(path)) {
       printWithCondition(true, "<<< addDataTestIdPropsVisitors, true");
       const newProperties = [...path.node.properties];
       let idExists = false;
