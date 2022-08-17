@@ -10,6 +10,7 @@
     "modify react-core": "shell_scripts/run.sh ../../src/components",
     "modify react-core/accordion": "shell_scripts/run.sh ../../src/components/Accordion",
     "modify react-core/avatar": "shell_scripts/run.sh ../../src/components/Avatar/Avatar.jsx",
+    "modify react-core/avatar-group": "shell_scripts/run.sh ../../src/components/AvatarGroup/AvatarGroup.jsx",
     "modify react-core/attention-box": "shell_scripts/run.sh ../../src/components/AttentionBox/AttentionBox.jsx",
     "modify react-core/alert-banner": "shell_scripts/run.sh ../../src/components/AlertBanner/AlertBanner.jsx",
     "modify react-core/clickable": "shell_scripts/run.sh ../../src/components/Clickable/Clickable.jsx ",
@@ -38,6 +39,9 @@
     "modify react-core/tipseen": "shell_scripts/run.sh ../../src/components/Tipseen/Tipseen.jsx",
     "modify react-core/dialog-content": "shell_scripts/run.sh ../../src/components/Dialog/DialogContent/DialogContent.jsx",
     "modify react-core/hidden-text": "shell_scripts/run.sh ../../src/components/HiddenText/HiddenText.jsx",
+    "modify react-core/formatted-number": "shell_scripts/run.sh ../../src/components/FormattedNumber/FormattedNumber.jsx",
+    "modify react-core/field-label": "shell_scripts/run.sh ../../src/components/FieldLabel/FieldLabel.jsx",
+    "modify react-core/list-title": "shell_scripts/run.sh ../../src/components/ListTitle/ListTitle.jsx",
 
     "modify tests": "shell_scripts/run.sh tests",
     "modify tests/anchor-list-item": "shell_scripts/run.sh tests/anchor-list-item.jsx",
