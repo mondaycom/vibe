@@ -25,7 +25,8 @@ export const dataTestIdVisitors: Visitor<State> = {
         "||",
         t.identifier("dataTestId"),
         t.callExpression(t.identifier("getTestId"), [
-          t.memberExpression(t.identifier("ELEMENT_TYPES"), t.identifier(convertFileNameToUpperCase(filename)))
+          t.memberExpression(t.identifier("ELEMENT_TYPES"), t.identifier(convertFileNameToUpperCase(filename))),
+          t.identifier("id")
         ])
       );
       path.replaceWith(t.jsxAttribute(path.node.name, t.jsxExpressionContainer(newPath)));
