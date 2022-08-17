@@ -4,12 +4,16 @@ import * as t from "@babel/types";
 import { Visitor } from "@babel/core";
 import { printWithCondition } from "../utils/commonProcess/print";
 import * as p from "path";
+import { isTestUtilsImportDeclaration } from "../utils/logical/isTestUtilsImportDeclaration";
 
 // 12: Adds `import { ELEMENT_TYPES, getTestId } from "src/utils/test-utils";` to the top of the imports
 export const addDataTestIdImportVisitors: Visitor<State> = {
   ImportDeclaration: (path: NodePath<t.ImportDeclaration>, state: State) => {
     if (state.dataTestIdImported) {
-      path.skip();
+      // Remove previously existed imports
+      if (isTestUtilsImportDeclaration(path.node) && path.node.start !== undefined) {
+        path.remove();
+      }
       return;
     }
 
