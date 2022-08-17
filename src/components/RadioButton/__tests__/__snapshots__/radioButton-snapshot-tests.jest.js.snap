@@ -10,6 +10,7 @@ exports[`RadioButton renders correctly when checked 1`] = `
     <input
       checked={true}
       className="mondayStyleRadioButtonComponentRadioInputContainerRadioInput monday-style-radio-button-component__radio-input-container__radio-input"
+      data-testid="radio-button"
       disabled={false}
       name=""
       type="radio"
@@ -32,6 +33,7 @@ exports[`RadioButton renders correctly when default checked 1`] = `
   >
     <input
       className="mondayStyleRadioButtonComponentRadioInputContainerRadioInput monday-style-radio-button-component__radio-input-container__radio-input"
+      data-testid="radio-button"
       defaultChecked={true}
       disabled={false}
       name=""
@@ -55,6 +57,7 @@ exports[`RadioButton renders correctly when disabled 1`] = `
   >
     <input
       className="mondayStyleRadioButtonComponentRadioInputContainerRadioInput monday-style-radio-button-component__radio-input-container__radio-input"
+      data-testid="radio-button"
       defaultChecked={false}
       disabled={true}
       name=""
@@ -79,6 +82,7 @@ exports[`RadioButton renders correctly when unchecked 1`] = `
     <input
       checked={false}
       className="mondayStyleRadioButtonComponentRadioInputContainerRadioInput monday-style-radio-button-component__radio-input-container__radio-input"
+      data-testid="radio-button"
       disabled={false}
       name=""
       type="radio"
@@ -101,6 +105,7 @@ exports[`RadioButton renders correctly with componentClassName 1`] = `
   >
     <input
       className="mondayStyleRadioButtonComponentRadioInputContainerRadioInput monday-style-radio-button-component__radio-input-container__radio-input"
+      data-testid="radio-button"
       defaultChecked={false}
       disabled={false}
       name=""
@@ -124,6 +129,7 @@ exports[`RadioButton renders correctly with empty props 1`] = `
   >
     <input
       className="mondayStyleRadioButtonComponentRadioInputContainerRadioInput monday-style-radio-button-component__radio-input-container__radio-input"
+      data-testid="radio-button"
       defaultChecked={false}
       disabled={false}
       name=""
@@ -147,6 +153,7 @@ exports[`RadioButton renders correctly with name 1`] = `
   >
     <input
       className="mondayStyleRadioButtonComponentRadioInputContainerRadioInput monday-style-radio-button-component__radio-input-container__radio-input"
+      data-testid="radio-button"
       defaultChecked={false}
       disabled={false}
       name="radiosName"
@@ -170,6 +177,7 @@ exports[`RadioButton renders correctly with text 1`] = `
   >
     <input
       className="mondayStyleRadioButtonComponentRadioInputContainerRadioInput monday-style-radio-button-component__radio-input-container__radio-input"
+      data-testid="radio-button"
       defaultChecked={false}
       disabled={false}
       name=""
@@ -197,6 +205,7 @@ exports[`RadioButton renders correctly with value 1`] = `
   >
     <input
       className="mondayStyleRadioButtonComponentRadioInputContainerRadioInput monday-style-radio-button-component__radio-input-container__radio-input"
+      data-testid="radio-button"
       defaultChecked={false}
       disabled={false}
       name=""

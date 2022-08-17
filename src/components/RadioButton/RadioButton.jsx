@@ -5,6 +5,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import styles from "./RadioButton.module.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 
 const CSS_BASE_CLASS = "monday-style-radio-button-component";
 
@@ -24,7 +25,9 @@ const RadioButton = forwardRef(
       checked,
       retainChildClick,
       childrenTabIndex,
-      noLabelAnimation
+      noLabelAnimation,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -73,6 +76,8 @@ const RadioButton = forwardRef(
             {...checkedProps}
             onChange={onSelect}
             ref={mergedRef}
+            id={id}
+            data-testid={dataTestId || getTestId(ELEMENT_TYPES.RADIO_BUTTON, id)}
           />
           <span
             className={cx(

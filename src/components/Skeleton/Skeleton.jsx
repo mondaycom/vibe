@@ -13,12 +13,12 @@ import styles from "./Skeleton.module.scss";
 
 const SKELETON_CSS_BASE_CLASS = "monday-style-skeleton";
 
-const Skeleton = ({ type, size, className, width, height, dataTestId }) => {
+const Skeleton = ({ type, size, className, width, height, id, "data-testid": dataTestId }) => {
   const skeletonType = SKELETON_ALLOWED_TYPES.indexOf(type) > -1 ? type : SKELETON_TYPES.RECTANGLE;
   const typeDescription = skeletonType.toUpperCase();
   const skeletonSize = SKELETON_ALLOWED_SIZES[typeDescription].indexOf(size) > -1 ? size : SKELETON_CUSTOM_SIZE;
   return (
-    <div className={cx(SKELETON_CSS_BASE_CLASS)} data-testid={dataTestId || getTestId(ELEMENT_TYPES.SKELETON)}>
+    <div className={cx(SKELETON_CSS_BASE_CLASS)} data-testid={dataTestId || getTestId(ELEMENT_TYPES.SKELETON, id)}>
       <div
         className={cx(
           styles[`${camelCase("monday-style-skeleton_" + skeletonType)}`],

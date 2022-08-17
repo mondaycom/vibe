@@ -25,7 +25,7 @@ const ResponsiveList = forwardRef(
       resizeDebounceTime,
       menuButtonAriaLabel,
       menuButtonProps,
-      dataTestId
+      "data-testid": dataTestId
     },
     ref
   ) => {
