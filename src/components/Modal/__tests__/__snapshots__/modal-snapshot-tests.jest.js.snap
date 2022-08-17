@@ -10,7 +10,7 @@ Snapshot Diff:
           content
         </p>
 +       <div
-+         class="mondayStyleModalFooter"
++         class="container"
 +       >
 +         <p>
 +           footer
@@ -145,7 +145,7 @@ Snapshot Diff:
           </p>
 +       </div>
 +       <div
-+         class="mondayStyleModalFooter"
++         class="container"
 +       >
 +         <p>
 +           footer

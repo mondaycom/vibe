@@ -7,8 +7,8 @@ Snapshot Diff:
 
 @@ --- --- @@
   <div
--   class="mondayStyleModalFooter"
-+   class="mondayStyleModalFooter className"
+-   class="container"
++   class="container className"
   >
     <div>
       footer content
@@ -16,7 +16,7 @@ Snapshot Diff:
 
 exports[`ModalFooter with required props 1`] = `
 <div
-  class="mondayStyleModalFooter"
+  class="container"
 >
   <div>
     footer content

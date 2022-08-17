@@ -4,9 +4,11 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import styles from "./Modal.module.scss";
 import { useA11yDialog } from "./a11yDialog";
-import { ModalContent, ModalFooter, ModalHeader } from "components";
-import useBodyScrollLock from "components/Modal/useBodyScrollLock";
-import useShowHideModal from "components/Modal/useShowHideModal";
+import ModalContent from "../ModalContent/ModalContent";
+import ModalFooter from "../ModalFooter/ModalFooter";
+import ModalHeader from "../ModalHeader/ModalHeader";
+import useBodyScrollLock from "./useBodyScrollLock";
+import useShowHideModal from "./useShowHideModal";
 
 export const MODAL_WIDTH = {
   DEFAULT: "default",
