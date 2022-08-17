@@ -4,8 +4,8 @@ import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../Icon/Icon";
-import styles from "./ListItemIcon.module.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./ListItemIcon.module.scss";
 
 const ListItemIcon = forwardRef(({ className, id, icon, margin, "data-testid": dataTestId }, ref) => {
   const componentRef = useRef(null);

@@ -62,9 +62,9 @@ const Link = forwardRef(
         aria-labelledby={ariaLabeledBy}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.LINK, id)}
       >
-        {getIcon(isStart, icon, "monday-style-link--icon-start")}
+        {getIcon(isStart, icon, cx(styles.mondayStyleLinkIconStart, "monday-style-link--icon-start"))}
         <span className={cx(styles.mondayStyleLinkText, "monday-style-link--text")}>{text}</span>
-        {getIcon(!isStart, icon, "monday-style-link--icon-end")}
+        {getIcon(!isStart, icon, cx(styles.mondayStyleLinkIconEnd, "monday-style-link--icon-end"))}
       </a>
     );
   }

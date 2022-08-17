@@ -59,7 +59,8 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="iconComponent icon_component icon-button-padding iconComponentNoFocusStyle icon_component--no-focus-style"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -116,7 +117,8 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="iconComponent icon_component icon-button-padding iconComponentNoFocusStyle icon_component--no-focus-style"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}
@@ -189,7 +191,8 @@ exports[`Chips renders correctly renders correctly with left icon 1`] = `
 >
   <svg
     aria-hidden={true}
-    className="icon_component icon left icon_component--no-focus-style"
+    className="iconComponent icon_component icon left iconComponentNoFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="16"
     onClick={[Function]}
@@ -271,7 +274,8 @@ exports[`Chips renders correctly renders correctly with right icon 1`] = `
   </div>
   <svg
     aria-hidden={true}
-    className="icon_component icon right icon_component--no-focus-style"
+    className="iconComponent icon_component icon right iconComponentNoFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="16"
     onClick={[Function]}
@@ -327,7 +331,8 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component icon-button-padding icon_component--no-focus-style"
+      className="iconComponent icon_component icon-button-padding iconComponentNoFocusStyle icon_component--no-focus-style"
+      data-testid="icon"
       fill="currentColor"
       height="16"
       onClick={[Function]}

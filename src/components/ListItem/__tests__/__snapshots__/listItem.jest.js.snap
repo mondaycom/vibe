@@ -3,7 +3,8 @@
 exports[`renders correctly with disabled 1`] = `
 <div
   aria-disabled={true}
-  className="list-item list-item--small list-item--disabled"
+  className="listItem list-item listItemSmall list-item--small listItemDisabled list-item--disabled"
+  data-testid="list-item"
   id=""
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -15,7 +16,8 @@ exports[`renders correctly with disabled 1`] = `
 exports[`renders correctly with empty props 1`] = `
 <div
   aria-disabled={false}
-  className="list-item list-item--small"
+  className="listItem list-item listItemSmall list-item--small"
+  data-testid="list-item"
   id=""
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -27,7 +29,8 @@ exports[`renders correctly with empty props 1`] = `
 exports[`renders correctly with selected 1`] = `
 <div
   aria-disabled={false}
-  className="list-item list-item--small list-item--selected"
+  className="listItem list-item listItemSmall list-item--small listItemSelected list-item--selected"
+  data-testid="list-item"
   id=""
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -39,7 +42,8 @@ exports[`renders correctly with selected 1`] = `
 exports[`renders correctly with selected and disabled 1`] = `
 <div
   aria-disabled={true}
-  className="list-item list-item--small list-item--disabled"
+  className="listItem list-item listItemSmall list-item--small listItemDisabled list-item--disabled"
+  data-testid="list-item"
   id=""
   onClick={[Function]}
   onKeyDown={[Function]}
@@ -51,7 +55,8 @@ exports[`renders correctly with selected and disabled 1`] = `
 exports[`renders correctly with size 1`] = `
 <div
   aria-disabled={false}
-  className="list-item list-item--large"
+  className="listItem list-item listItemLarge list-item--large"
+  data-testid="list-item"
   id=""
   onClick={[Function]}
   onKeyDown={[Function]}

@@ -104,7 +104,8 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
         <a
           aria-label=""
           aria-labelledby=""
-          className="monday-style-link monday-style-alert-banner-link"
+          className="mondayStyleLink monday-style-link monday-style-alert-banner-link"
+          data-testid="link"
           href="https://monday.com"
           id=""
           onClick={[Function]}
@@ -112,7 +113,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
           target="_blank"
         >
           <span
-            className="monday-style-link--text"
+            className="mondayStyleLinkText monday-style-link--text"
           >
             Lorem ipsum
           </span>
@@ -191,7 +192,8 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
         <a
           aria-label=""
           aria-labelledby=""
-          className="monday-style-link monday-style-alert-banner-link"
+          className="mondayStyleLink monday-style-link monday-style-alert-banner-link"
+          data-testid="link"
           href="https://monday.com"
           id=""
           onClick={[Function]}
@@ -199,7 +201,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
           target="_blank"
         >
           <span
-            className="monday-style-link--text"
+            className="mondayStyleLinkText monday-style-link--text"
           >
             Lorem ipsum
           </span>

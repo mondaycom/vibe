@@ -10,7 +10,8 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="iconComponent icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon iconComponentNoFocusStyle icon_component--no-focus-style"
+      data-testid="icon"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -48,7 +49,8 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="iconComponent icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon iconComponentNoFocusStyle icon_component--no-focus-style"
+      data-testid="icon"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -86,7 +88,8 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-dark__title-container__icon icon_component--no-focus-style"
+      className="iconComponent icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-dark__title-container__icon iconComponentNoFocusStyle icon_component--no-focus-style"
+      data-testid="icon"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -124,7 +127,8 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="iconComponent icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon iconComponentNoFocusStyle icon_component--no-focus-style"
+      data-testid="icon"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -212,7 +216,8 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="iconComponent icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon iconComponentNoFocusStyle icon_component--no-focus-style"
+      data-testid="icon"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -240,7 +245,8 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
   <svg
     aria-hidden={false}
     aria-label="Close"
-    className="icon_component monday-style-attention-box-component__close-icon icon_component--clickable icon_component--no-focus-style"
+    className="iconComponent icon_component monday-style-attention-box-component__close-icon iconComponentClickable icon_component--clickable iconComponentNoFocusStyle icon_component--no-focus-style"
+    data-testid="icon"
     fill="currentColor"
     height="24"
     onClick={[Function]}
@@ -269,7 +275,8 @@ exports[`AttentionBox renders correctly renders with icon font type 1`] = `
   >
     <span
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style fa fa fa-star"
+      className="iconComponent icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon iconComponentNoFocusStyle icon_component--no-focus-style fa fa fa-star"
+      data-testid="icon"
       onClick={[Function]}
       role="img"
     />

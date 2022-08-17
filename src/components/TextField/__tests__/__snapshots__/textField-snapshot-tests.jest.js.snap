@@ -586,7 +586,8 @@ exports[`TextField renders correctly with icon 1`] = `
         <span
           aria-hidden={true}
           aria-label=""
-          className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          className="iconComponent icon_component input-component__icon iconComponentNoFocusStyle icon_component--no-focus-style fa fa-star"
+          data-testid="icon_input"
           onClick={[Function]}
           role="img"
         />
@@ -1002,7 +1003,8 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         <span
           aria-hidden={true}
           aria-label=""
-          className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          className="iconComponent icon_component input-component__icon iconComponentNoFocusStyle icon_component--no-focus-style fa fa-star"
+          data-testid="icon_input"
           onClick={[Function]}
           role="img"
         />

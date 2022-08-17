@@ -4,7 +4,8 @@ exports[`Link renders correctly with ariaLabelDescription 1`] = `
 <a
   aria-label="arialabel link"
   aria-labelledby=""
-  className="monday-style-link"
+  className="mondayStyleLink monday-style-link"
+  data-testid="link"
   href=""
   id=""
   onClick={[Function]}
@@ -12,7 +13,7 @@ exports[`Link renders correctly with ariaLabelDescription 1`] = `
   target="_blank"
 >
   <span
-    className="monday-style-link--text"
+    className="mondayStyleLinkText monday-style-link--text"
   >
     
   </span>
@@ -23,7 +24,8 @@ exports[`Link renders correctly with ariaLabeledBy 1`] = `
 <a
   aria-label=""
   aria-labelledby="aria label link"
-  className="monday-style-link"
+  className="mondayStyleLink monday-style-link"
+  data-testid="link"
   href=""
   id=""
   onClick={[Function]}
@@ -31,7 +33,7 @@ exports[`Link renders correctly with ariaLabeledBy 1`] = `
   target="_blank"
 >
   <span
-    className="monday-style-link--text"
+    className="mondayStyleLinkText monday-style-link--text"
   >
     
   </span>
@@ -42,7 +44,8 @@ exports[`Link renders correctly with className 1`] = `
 <a
   aria-label=""
   aria-labelledby=""
-  className="monday-style-link testClassName"
+  className="mondayStyleLink monday-style-link testClassName"
+  data-testid="link"
   href=""
   id=""
   onClick={[Function]}
@@ -50,7 +53,7 @@ exports[`Link renders correctly with className 1`] = `
   target="_blank"
 >
   <span
-    className="monday-style-link--text"
+    className="mondayStyleLinkText monday-style-link--text"
   >
     
   </span>
@@ -61,7 +64,8 @@ exports[`Link renders correctly with icon 1`] = `
 <a
   aria-label=""
   aria-labelledby=""
-  className="monday-style-link"
+  className="mondayStyleLink monday-style-link"
+  data-testid="link"
   href=""
   id=""
   onClick={[Function]}
@@ -70,12 +74,13 @@ exports[`Link renders correctly with icon 1`] = `
 >
   <span
     aria-hidden={true}
-    className="icon_component monday-style-link--icon-start fa fa fa-star"
+    className="iconComponent icon_component mondayStyleLinkIconStart monday-style-link--icon-start fa fa fa-star"
+    data-testid="icon"
     onClick={[Function]}
     role="img"
   />
   <span
-    className="monday-style-link--text"
+    className="mondayStyleLinkText monday-style-link--text"
   >
     
   </span>
@@ -86,7 +91,8 @@ exports[`Link renders correctly with id 1`] = `
 <a
   aria-label=""
   aria-labelledby=""
-  className="monday-style-link"
+  className="mondayStyleLink monday-style-link"
+  data-testid="link_TestId"
   href=""
   id="TestId"
   onClick={[Function]}
@@ -94,7 +100,7 @@ exports[`Link renders correctly with id 1`] = `
   target="_blank"
 >
   <span
-    className="monday-style-link--text"
+    className="mondayStyleLinkText monday-style-link--text"
   >
     
   </span>
@@ -105,7 +111,8 @@ exports[`Link renders correctly with right icon 1`] = `
 <a
   aria-label=""
   aria-labelledby=""
-  className="monday-style-link"
+  className="mondayStyleLink monday-style-link"
+  data-testid="link"
   href=""
   id=""
   onClick={[Function]}
@@ -113,13 +120,14 @@ exports[`Link renders correctly with right icon 1`] = `
   target="_blank"
 >
   <span
-    className="monday-style-link--text"
+    className="mondayStyleLinkText monday-style-link--text"
   >
     
   </span>
   <span
     aria-hidden={true}
-    className="icon_component monday-style-link--icon-end fa fa fa-star"
+    className="iconComponent icon_component mondayStyleLinkIconEnd monday-style-link--icon-end fa fa fa-star"
+    data-testid="icon"
     onClick={[Function]}
     role="img"
   />
@@ -130,7 +138,8 @@ exports[`Link renders correctly with text 1`] = `
 <a
   aria-label=""
   aria-labelledby=""
-  className="monday-style-link"
+  className="mondayStyleLink monday-style-link"
+  data-testid="link"
   href=""
   id=""
   onClick={[Function]}
@@ -138,7 +147,7 @@ exports[`Link renders correctly with text 1`] = `
   target="_blank"
 >
   <span
-    className="monday-style-link--text"
+    className="mondayStyleLinkText monday-style-link--text"
   >
     Link
   </span>
