@@ -1,0 +1,36 @@
+// Migrated
+// 1
+monday-ui-react-core/src/components/Tabs/Tab/Tab.jsx
+monday-ui-react-core/src/components/Tabs/TabPanel/TabPanel.jsx
+monday-ui-react-core/src/components/TextWithHighlight/TextWithHighlight.jsx
+monday-ui-react-core/src/components/VirtualizedGrid/VirtualizedGrid.jsx
+monday-ui-react-core/src/components/VirtualizedList/VirtualizedList.jsx
+// 2
+monday-ui-react-core/src/components/Toast/Toast.jsx
+monday-ui-react-core/src/components/Toast/ToastLink/ToastLink.jsx
+monday-ui-react-core/src/components/Tooltip/Tooltip.jsx
+monday-ui-react-core/src/components/Tabs/TabList/TabList.jsx
+monday-ui-react-core/src/components/Tabs/TabPanels/TabPanels.jsx
+monday-ui-react-core/src/components/Tabs/TabsContext/TabsContext.jsx
+// 3
+monday-ui-react-core/src/components/Search/Search.jsx
+monday-ui-react-core/src/components/Skeleton/Skeleton.jsx
+monday-ui-react-core/src/components/ResponsiveList/ResponsiveList.jsx
+monday-ui-react-core/src/components/RadioButton/RadioButton.jsx
+monday-ui-react-core/src/components/TextField/TextField.jsx
+// 4
+monday-ui-react-core/src/components/Icon/Icon.jsx
+monday-ui-react-core/src/components/Label/Label.jsx
+monday-ui-react-core/src/components/Link/Link.jsx
+monday-ui-react-core/src/components/List/List.jsx
+monday-ui-react-core/src/components/ListItem/ListItem.jsx
+monday-ui-react-core/src/components/ListItemIcon/ListItemIcon.jsx
+monday-ui-react-core/src/components/ListTitle/ListTitle.jsx
+
+// Troubles
+monday-ui-react-core/src/components/Slider/Slider.jsx // custom bem function is used - need to change that before migration
+monday-ui-react-core/src/components/Slider/SliderBase/SliderBase.jsx
+monday-ui-react-core/src/components/SplitButton/SplitButton.jsx // bad looking stylesheet, wrong animation on secondaryButton click
+monday-ui-react-core/src/components/MultiStepIndicator/components/StepIndicator/StepIndicator.jsx // custom bem function is used - need to change that before migration
+monday-ui-react-core/src/components/MultiStepIndicator/MultiStepIndicator.jsx // set cssBaseClass in a standard way and then rerun the migration
+monday-ui-react-core/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx // set cssBaseClass in a standard way and then rerun the migration

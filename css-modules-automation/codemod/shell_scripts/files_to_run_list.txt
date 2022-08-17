@@ -1,2 +1,1 @@
-monday-ui-react-core/src/components/VirtualizedGrid/VirtualizedGrid.jsx
-monday-ui-react-core/src/components/VirtualizedList/VirtualizedList.jsx
+
