@@ -40,7 +40,7 @@ const classNamesImportDeclaration = t.importDeclaration(
 );
 
 /**
- * 2: These visitors process top-level import statements, looking for all CSS imports.
+ * 1: These visitors process top-level import statements, looking for all CSS imports.
  * When found, we'll retrieve and parse the CSS using PostCSS, to return the top
  * level CSS module class names that can be used in the code. We'll then store this
  * information in `State.classNames`, to be used in the above processing steps
@@ -90,7 +90,7 @@ export const importVisitors: Visitor<State> = {
     // Get all relevant class names from the file
     let classNames: Map<string, string>;
     if (!filesClassNamesMap.has(scssFilename)) {
-      // 3: process .scss file
+      // 2: process .scss file
       classNames = convertToModuleClassNames(scssFilename);
       filesClassNamesMap.set(scssFilename, classNames);
       markFileForRenaming(scssFilename);
@@ -122,7 +122,7 @@ export const importVisitors: Visitor<State> = {
       state.baseCssClass = getCssBaseClass(oldClassNamesArray, path.hub.getCode());
       printWithCondition(false, "### importVisitors, state.baseCssClassName", state.baseCssClass);
 
-      // 4*: Rename all classNames(...) occurrences to cx(...)
+      // 3: Rename all classNames(...) occurrences to cx(...)
       file.path.traverse(classNamesCallExpressionRenameVisitors, state);
 
       // 4: Traverse the top-level program path for BEM call expressions

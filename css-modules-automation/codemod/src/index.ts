@@ -22,12 +22,12 @@ const PLUGIN_DEFAULTS = {
   importIdentifier: "styles"
 };
 
-// 1: Starting point for traverse process
+// 0: Starting point for traverse process
 export default (): PluginObj<State> => ({
   name: "react-css-modules",
   visitor: {
     Program: (programPath, state) => {
-      // 2:
+      // 1:
       programPath.traverse(importVisitors, {
         cxImported: false,
         camelCaseImported: false,

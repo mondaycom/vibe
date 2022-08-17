@@ -6,7 +6,7 @@ import { CX_NAMES_CLASSNAMES, isCxCallExpression } from "../utils/logical/isCxCa
 import { renameClassnamesToCxCallExpression } from "../utils/wrapWithCxCallExpression";
 
 /**
- * 4*: Rename all classNames(...) occurrences to cx(...)
+ * 3: Rename all classNames(...) occurrences to cx(...)
  */
 export const classNamesCallExpressionRenameVisitors: Visitor<State> = {
   CallExpression: (path: NodePath<t.CallExpression>) => {

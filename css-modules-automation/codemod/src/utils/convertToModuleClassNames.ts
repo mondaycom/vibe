@@ -4,7 +4,7 @@ import { join } from "path";
 import { printWithCondition } from "./commonProcess/print";
 
 /**
- * 3: Takes a CSS file, parses it with PostCSS into CSS modules syntax, and returns
+ * 2: Takes a CSS file, parses it with PostCSS into CSS modules syntax, and returns
  * all valid class names that can be used by it
  *
  * PostCSS implements async processors, so we can't call it directly from within the plugin
