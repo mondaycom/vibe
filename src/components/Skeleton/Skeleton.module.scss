@@ -1,0 +1,99 @@
+@import "../../styles/global-css-settings";
+@import "../../styles/typography";
+
+@mixin shine-animation() {
+  overflow: hidden;
+  &::before {
+    display: inline-block;
+    content: "";
+    opacity: 0.1;
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--placeholder-color) 30%,
+      var(--placeholder-color) 70%,
+      transparent 100%
+    );
+    width: 300%;
+    height: 300%;
+    margin-bottom: 20px;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shine;
+    animation-timing-function: var(--motion-timing-enter);
+  }
+  @keyframes shine {
+    0% {
+      margin-left: -500%;
+    }
+    100% {
+      margin-left: 500%;
+    }
+  }
+
+  /* the better options which does not work */
+  @keyframes shine2 {
+    0% {
+      background-position: 500px 0;
+    }
+    100% {
+      background-position: -500px 0;
+    }
+  }
+}
+
+@mixin skeleton($radius: $border-radius-small) {
+  @include theme-prop(background, disabled-background-color); /* should be replaced with all grey color */
+  border-radius: $radius;
+  @include shine-animation;
+}
+
+.mondayStyleSkeletonRectangle {
+  $rectangle-default-size: 160px;
+  height: $rectangle-default-size;
+  width: $rectangle-default-size;
+  @include skeleton;
+}
+
+.mondayStyleSkeletonCircle {
+  $circle-default-size: 40px;
+  $circle-radius: 50%;
+  height: $circle-default-size;
+  width: $circle-default-size;
+  @include skeleton($circle-radius);
+}
+
+.mondayStyleSkeletonText {
+  width: 162px;
+  @include skeleton;
+}
+
+.mondayStyleSkeletonTextH1 {
+  height: $h1-empty-state-height;
+}
+
+.mondayStyleSkeletonTextH2 {
+  height: $h2-empty-state-height;
+}
+
+.mondayStyleSkeletonTextH3 {
+  height: $h3-empty-state-height;
+}
+
+.mondayStyleSkeletonTextH4 {
+  height: $h4-empty-state-height;
+}
+
+.mondayStyleSkeletonTextH5 {
+  height: $h5-empty-state-height;
+}
+
+.mondayStyleSkeletonTextH6 {
+  height: $h6-empty-state-height;
+}
+
+.mondayStyleSkeletonTextSmall,
+.mondayStyleSkeletonTextCustom {
+  height: $small-empty-state-height;
+}

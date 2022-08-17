@@ -1,11 +1,12 @@
-import React, { useRef, forwardRef, useCallback, useMemo } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import Clickable from "../../components/Clickable/Clickable";
+import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { baseClassName } from "./RadioButtonConstants";
-import "./RadioButton.scss";
+import styles from "./RadioButton.module.scss";
+
+const CSS_BASE_CLASS = "monday-style-radio-button-component";
 
 const RadioButton = forwardRef(
   (
@@ -48,10 +49,23 @@ const RadioButton = forwardRef(
     }, [checked, defaultChecked]);
 
     return (
-      <label className={cx(baseClassName, overrideClassName, { disabled })}>
-        <span className={`${baseClassName}__radio-input-container`}>
+      <label
+        className={cx(styles.mondayStyleRadioButtonComponent, CSS_BASE_CLASS, overrideClassName, {
+          [styles.disabled]: disabled,
+          ["disabled"]: disabled
+        })}
+      >
+        <span
+          className={cx(
+            styles.mondayStyleRadioButtonComponentRadioInputContainer,
+            "monday-style-radio-button-component__radio-input-container"
+          )}
+        >
           <input
-            className={`${baseClassName}__radio-input-container__radio-input`}
+            className={cx(
+              styles.mondayStyleRadioButtonComponentRadioInputContainerRadioInput,
+              "monday-style-radio-button-component__radio-input-container__radio-input"
+            )}
             type="radio"
             value={value}
             name={name}
@@ -61,14 +75,30 @@ const RadioButton = forwardRef(
             ref={mergedRef}
           />
           <span
-            className={cx(`${baseClassName}__radio-input-container__radio-control`, {
-              [`${baseClassName}__radio-input-container__radio-control--label-animation`]: !noLabelAnimation
-            })}
+            className={cx(
+              styles.mondayStyleRadioButtonComponentRadioInputContainerRadioControl,
+              "monday-style-radio-button-component__radio-input-container__radio-control",
+              {
+                [styles.mondayStyleRadioButtonComponentRadioInputContainerRadioControlLabelAnimation]:
+                  !noLabelAnimation,
+                ["monday-style-radio-button-component__radio-input-container__radio-control--label-animation"]:
+                  !noLabelAnimation
+              }
+            )}
           />
         </span>
-        {text && <span className={`${baseClassName}__radio-label`}>{text}</span>}
+        {text && (
+          <span
+            className={cx(
+              styles.mondayStyleRadioButtonComponentRadioLabel,
+              "monday-style-radio-button-component__radio-label"
+            )}
+          >
+            {text}
+          </span>
+        )}
         {children && (
-          <Clickable className="radio-children-wrapper" onClick={onChildClick} tabIndex={childrenTabIndex}>
+          <Clickable className={cx("radio-children-wrapper")} onClick={onChildClick} tabIndex={childrenTabIndex}>
             {children}
           </Clickable>
         )}
