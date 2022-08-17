@@ -22,6 +22,7 @@ import { getCssModulesFileName } from "../utils/getCssModulesFileName";
 import { markFileForPrettier } from "../utils/markFileForPrettier";
 import { dataTestIdVisitors } from "./dataTestIdVisitors";
 import { addDataTestIdImportVisitors } from "./addDataTestIdImportVisitors";
+import { addIdsPropsVisitors } from "./addIdsPropsVisitors";
 
 /**
  * Map: key - processed .scss file, value - map (key - old classname, value - new modular classname)
@@ -147,7 +148,10 @@ export const importVisitors: Visitor<State> = {
         file.path.traverse(addDataTestIdImportVisitors, state);
       }
 
-      // 13: Adds camel case import if needed
+      // 13: Adds id and data-testId props if needed
+      file.path.traverse(addIdsPropsVisitors, state);
+
+      // 14: Adds camel case import if needed
       if (state.camelCaseImportNeeded && !state.camelCaseImported) {
         file.path.traverse(addCamelCaseImportVisitors, state);
       }
