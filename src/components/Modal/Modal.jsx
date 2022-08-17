@@ -1,13 +1,13 @@
-import React, { cloneElement, useCallback, useEffect, useMemo } from "react";
+import React, { cloneElement, useCallback, useMemo } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import styles from "./Modal.module.scss";
 import { useA11yDialog } from "./a11yDialog";
 import { ModalContent, ModalFooter, ModalHeader } from "components";
-import { clearAllBodyScrollLocks, disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import useAnimationProps from "components/Modal/useAnimationProps";
 import { useKeyEvent } from "../../hooks";
+import useBodyScrollLock from "components/Modal/useBodyScrollLock";
+import useShowHideModal from "components/Modal/useShowHideModal";
 
 export const MODAL_WIDTH = {
   DEFAULT: "default",
@@ -37,6 +37,10 @@ const Modal = ({
     isAlertDialog
   });
 
+  useBodyScrollLock({ instance });
+
+  useShowHideModal({ instance, show, triggerElement, onClose });
+
   useKeyEvent({
     callback: event => {
       if (instance?.$el.contains(document.activeElement)) {
@@ -53,52 +57,6 @@ const Modal = ({
       onClose();
     }
   }, [isAlertDialog, onClose]);
-
-  const getAnimationProps = useAnimationProps(triggerElement, instance);
-
-  // clear all scroll locks on unmount (just to be safe)
-  useEffect(() => {
-    return () => clearAllBodyScrollLocks();
-  }, []);
-
-  // lock body on modal show
-  useEffect(() => {
-    instance?.on("show", () => disableBodyScroll(instance.$el, { reserveScrollBarGap: true }));
-    instance?.on("hide", () => enableBodyScroll(instance.$el));
-    return () => {
-      instance?.off("show");
-      instance?.off("hide");
-    };
-  }, [instance]);
-
-  useEffect(() => {
-    instance?.on("hide", () => onClose());
-    return () => {
-      instance?.off("hide");
-    };
-  }, [instance]);
-
-  // show/hide and animate the modal
-  useEffect(() => {
-    if (instance) {
-      const animate = instance?.$el.childNodes[1].animate;
-      if (show) {
-        instance?.show();
-        if (animate) instance?.$el.childNodes[1].animate?.(...getAnimationProps());
-      } else {
-        if (animate) {
-          const animation = instance?.$el.childNodes[1]?.animate(...getAnimationProps(true));
-          animation?.finished.then(() => instance?.hide());
-        } else {
-          instance?.hide();
-        }
-      }
-    }
-  }, [show, instance, getAnimationProps]);
-
-  // const hideModal = useCallback(() => {
-  //   instance.hide();
-  // }, [instance]);
 
   const header = useMemo(() => {
     const { id } = attr.title;
@@ -117,7 +75,7 @@ const Modal = ({
         closeButtonAriaLabel={closeButtonAriaLabel}
       />
     );
-  }, [children, attr, title, description, hideCloseButton, closeButtonAriaLabel]);
+  }, [children, attr, title, description, hideCloseButton, closeButtonAriaLabel, onClose]);
 
   const content = useMemo(() => {
     return (
