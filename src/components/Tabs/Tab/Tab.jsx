@@ -9,7 +9,23 @@ import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import styles from "./Tab.module.scss";
 
 const Tab = forwardRef(
-  ({ className, id, value, disabled, active, focus, onClick, icon, iconType, iconSide, children, dataTestId }, ref) => {
+  (
+    {
+      className,
+      id,
+      value,
+      disabled,
+      active,
+      focus,
+      onClick,
+      icon,
+      iconType,
+      iconSide,
+      children,
+      "data-testid": dataTestId
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -50,7 +66,7 @@ const Tab = forwardRef(
         role="tab"
         aria-selected={active}
         aria-disabled={disabled}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB, id)}
       >
         <a className={cx(styles.tabInner, "tab-inner")} onClick={() => !disabled && onClick(value)}>
           {renderIconAndChildren()}

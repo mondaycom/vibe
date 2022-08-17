@@ -32,7 +32,7 @@ const VirtualizedGrid = forwardRef(
       onItemsRenderedThrottleMs,
       onSizeUpdate,
       onVerticalScrollbarVisiblityChange,
-      dataTestId
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -189,7 +189,7 @@ const VirtualizedGrid = forwardRef(
         ref={mergedRef}
         className={cx(styles.virtualizedGridWrapper, "virtualized-grid--wrapper", className)}
         id={id}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.VIRTUALIZED_GRID)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.VIRTUALIZED_GRID, id)}
       >
         <AutoSizer>
           {({ height, width }) => {

@@ -38,7 +38,8 @@ const VirtualizedList = forwardRef(
       virtualListRef,
       scrollableClassName,
       role,
-      style
+      style,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -233,7 +234,7 @@ const VirtualizedList = forwardRef(
         className={cx(styles.virtualizedListWrapper, "virtualized-list--wrapper", className)}
         id={id}
         role={role}
-        data-testid={getTestId(ELEMENT_TYPES.VIRTUALIZED_LIST, id)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.VIRTUALIZED_LIST, id)}
         style={style}
       >
         <AutoSizer>

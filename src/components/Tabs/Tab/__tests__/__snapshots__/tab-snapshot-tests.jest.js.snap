@@ -175,7 +175,7 @@ exports[`Tab renders correctly with id 1`] = `
   aria-disabled={false}
   aria-selected={false}
   className="tabWrapper tab--wrapper"
-  data-testid="tab"
+  data-testid="tab_test"
   id="test"
   role="tab"
 >
