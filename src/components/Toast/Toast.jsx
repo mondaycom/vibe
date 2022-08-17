@@ -50,7 +50,8 @@ const Toast = ({
   closeable,
   onClose,
   className,
-  dataTestId
+  id,
+  "data-testid": dataTestId
 }) => {
   const toastLinks = useMemo(() => {
     return actions
@@ -113,14 +114,13 @@ const Toast = ({
   const iconElement = !hideIcon && getIcon(type, icon);
 
   return (
-    <CSSTransition
-      in={open}
-      classNames={{ ...styles }}
-      timeout={400}
-      unmountOnExit
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOAST)}
-    >
-      <div className={cx(classNames)} role="alert" aria-live="polite">
+    <CSSTransition in={open} classNames={{ ...styles }} timeout={400} unmountOnExit>
+      <div
+        className={cx(classNames)}
+        role="alert"
+        aria-live="polite"
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOAST, id)}
+      >
         {iconElement && <div className={cx(styles.mondayStyleToastIcon, "monday-style-toast-icon")}>{iconElement}</div>}
         <div
           className={cx(styles.mondayStyleToastContent, "monday-style-toast-content", {

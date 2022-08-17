@@ -9,6 +9,7 @@ import { DialogPositions } from "../../constants/sizes";
 import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
 import { TOOLTIP_JUSTIFY_TYPES, TOOLTIP_THEMES } from "./TooltipConstants";
 import styles from "./Tooltip.module.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -124,7 +125,9 @@ export default class Tooltip extends React.PureComponent {
       tip,
       showTrigger,
       hideTrigger,
-      showOnDialogEnter
+      showOnDialogEnter,
+      id,
+      "data-testId": dataTestId
     } = this.props;
 
     if (!children) {
@@ -154,7 +157,8 @@ export default class Tooltip extends React.PureComponent {
       getDynamicShowDelay: this.getShowDelay,
       showTrigger,
       hideTrigger,
-      showOnDialogEnter
+      showOnDialogEnter,
+      "data-testid": dataTestId || getTestId(ELEMENT_TYPES.TOOLTIP, id)
     };
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }

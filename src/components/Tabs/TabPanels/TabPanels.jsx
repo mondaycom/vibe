@@ -3,11 +3,14 @@ import React, { forwardRef, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import { camelCase } from "lodash";
-import styles from "./TabPanels.module.scss";
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import styles from "./TabPanels.module.scss";
 
 const TabPanels = forwardRef(
-  ({ className, id, activeTabId, animationDirection, children, renderOnlyActiveTab, dataTestId }, ref) => {
+  (
+    { className, id, activeTabId, animationDirection, children, renderOnlyActiveTab, "data-testid": dataTestId },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
     const renderedTabs = useMemo(() => {

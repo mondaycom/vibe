@@ -5,7 +5,7 @@ import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 
-const TabsContext = forwardRef(({ className, id, activeTabId, children, dataTestId }, ref) => {
+const TabsContext = forwardRef(({ className, id, activeTabId, children, "data-testid": dataTestId }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 

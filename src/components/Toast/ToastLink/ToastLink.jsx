@@ -5,13 +5,13 @@ import React from "react";
 import Link from "../../Link/Link";
 import styles from "./ToastLink.module.scss";
 
-const ToastLink = ({ className, dataTestId, ...linkProps }) => {
+const ToastLink = ({ className, id, "data-testid": dataTestId, ...linkProps }) => {
   const classNames = cx(styles.mondayStyleToastActionLink, "monday-style-toast-action_link", className);
   return (
     <Link
       {...linkProps}
       componentClassName={classNames}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOAST_LINK)}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOAST_LINK, id)}
     />
   );
 };

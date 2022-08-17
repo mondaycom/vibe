@@ -43,6 +43,7 @@ export const ELEMENT_TYPES = {
   TOAST: "toast",
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
+  TOOLTIP: "tooltip",
   TAB: "tab",
   TAB_PANEL: "tab-panel",
   TAB_LIST: "tab-list",
