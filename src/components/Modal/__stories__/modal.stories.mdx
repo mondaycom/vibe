@@ -86,7 +86,7 @@ An easy to use accessible Modal component
 
 This Modal will NOT be closed when you click outside or click ESC key. Only way to close it is to use the close button.
 
-<UsageGuidelines guidelines={["set `isAlertDialog` to `true` in order to turn a Modal to modal."]} />
+<UsageGuidelines guidelines={["set `alertDialog` to `true` in order to turn a Modal to modal."]} />
 
 <Canvas>
   <Story name="Alert Modal">
@@ -101,7 +101,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
             triggerElement={ref.current}
             show={show}
             onClose={closeModal}
-            isAlertDialog
+            alertDialog
             closeButtonAriaLabel={"close"}
           >
             <p>Use the close button to dismiss this Modal.</p>
@@ -292,7 +292,7 @@ Use the <b>ModalHeader</b> component to render a Header with description and ico
             triggerElement={ref.current}
             show={show}
             onClose={closeModal}
-            isAlertDialog
+            alertDialog
             closeButtonAriaLabel={"close"}
           >
             <ModalContent>

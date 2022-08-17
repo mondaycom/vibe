@@ -350,10 +350,10 @@ Snapshot Diff:
         class="mondayStyleModalContent"
 `;
 
-exports[`Modal with isAlertDialog 1`] = `
+exports[`Modal with alertDialog 1`] = `
 Snapshot Diff:
 - Default Render
-+ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"isAlertDialog":true}
++ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"alertDialog":true}
 
 @@ --- --- @@
     class="container"

@@ -1,11 +1,10 @@
-import React, { cloneElement, useCallback, useMemo } from "react";
+import React, { cloneElement, useMemo } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import styles from "./Modal.module.scss";
 import { useA11yDialog } from "./a11yDialog";
 import { ModalContent, ModalFooter, ModalHeader } from "components";
-import { useKeyEvent } from "../../hooks";
 import useBodyScrollLock from "components/Modal/useBodyScrollLock";
 import useShowHideModal from "components/Modal/useShowHideModal";
 
@@ -25,7 +24,7 @@ const Modal = ({
   title,
   description,
   onClose,
-  isAlertDialog,
+  alertDialog,
   children,
   triggerElement,
   width,
@@ -34,29 +33,12 @@ const Modal = ({
 }) => {
   const [instance, attr] = useA11yDialog({
     id,
-    isAlertDialog
+    alertDialog
   });
 
   useBodyScrollLock({ instance });
 
-  useShowHideModal({ instance, show, triggerElement, onClose });
-
-  useKeyEvent({
-    callback: event => {
-      if (instance?.$el.contains(document.activeElement)) {
-        event.stopPropagation();
-        closeDialogIfNeeded();
-      }
-    },
-    capture: true,
-    keys: ["Escape"]
-  });
-
-  const closeDialogIfNeeded = useCallback(() => {
-    if (!isAlertDialog) {
-      onClose();
-    }
-  }, [isAlertDialog, onClose]);
+  const { closeDialogIfNeeded } = useShowHideModal({ instance, show, triggerElement, onClose, alertDialog });
 
   const header = useMemo(() => {
     const { id } = attr.title;
@@ -160,7 +142,7 @@ Modal.propTypes = {
    *  Makes the dialog behave like a modal (preventing closing on click outside of
    *  ESC key)..
    */
-  isAlertDialog: PropTypes.bool,
+  alertDialog: PropTypes.bool,
   /**
    *  Used for the fromOrigin animation
    */
@@ -195,7 +177,7 @@ Modal.Width = MODAL_WIDTH;
 
 Modal.defaultProps = {
   triggerElement: null,
-  isAlertDialog: false,
+  alertDialog: false,
   children: undefined,
   width: MODAL_WIDTH.DEFAULT,
   classNames: {

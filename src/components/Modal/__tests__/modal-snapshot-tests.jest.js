@@ -76,7 +76,7 @@ describe("Modal", () => {
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();
   });
 
-  it("with isAlertDialog", async () => {
+  it("with alertDialog", async () => {
     const props = withContent({ isAlertDialog: true });
     const currentRender = await renderModal(props);
     expect(snapshotDiff(defaultRender, currentRender, { props })).toMatchSnapshot();

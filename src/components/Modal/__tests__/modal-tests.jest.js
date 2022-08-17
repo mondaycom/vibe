@@ -20,7 +20,7 @@ const ModalManager = props => {
   return (
     <div>
       {openModalButton}
-      <Modal {...modalProps} id={MODAL_ID} title={title || MODAL_TITLE_TEXT} isAlertDialog={isAlertDialog}>
+      <Modal {...modalProps} id={MODAL_ID} title={title || MODAL_TITLE_TEXT} alertDialog={isAlertDialog}>
         {children}
       </Modal>
     </div>
@@ -80,7 +80,7 @@ describe("Modal tests", () => {
       expect(queryModal(component)).not.toBeInTheDocument();
     });
 
-    it("should NOT close on Esc or overlay click if isAlertDialog = true", async () => {
+    it("should NOT close on Esc or overlay click if alertDialog = true", async () => {
       const component = renderComponent({ openOnStart: true, isAlertDialog: true });
       fireEvent.keyDown(queryAlertModal(component), { key: "Escape", code: "Escape" });
       fireEvent.click(await findOverlay(component));

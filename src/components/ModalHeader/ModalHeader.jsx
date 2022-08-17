@@ -21,7 +21,7 @@ const ModalHeader = ({
   id
 }) => {
   return (
-    <div className={cx(styles.mondayStyleModalHeader, className)}>
+    <div className={cx(styles.container, className)}>
       <p role="heading" aria-level={1} id={id} className={cx(titleClassName, styles.title)}>
         {icon && (
           <span className={cx(styles.icon, iconClassName)}>
