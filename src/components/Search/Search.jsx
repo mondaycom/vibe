@@ -55,7 +55,7 @@ const Search = forwardRef(
       iconNames,
       loading,
       primaryDataTestId,
-      secondartDataTestId
+      secondaryDataTestId
     },
     ref
   ) => {
@@ -74,7 +74,7 @@ const Search = forwardRef(
         debounceRate={debounceRate}
         className={cx(className, styles.searchComponent, "search_component", getType(type))}
         secondaryIconName={secondaryIconName}
-        secondaryDataTestId={secondartDataTestId || getTestId(ELEMENT_TYPES.CLEAN_SEARCH_BUTTON, id)}
+        secondaryDataTestId={secondaryDataTestId || getTestId(ELEMENT_TYPES.CLEAN_SEARCH_BUTTON, id)}
         wrapperClassName={cx(wrapperClassName, styles.searchComponentWrapper, "search_component_wrapper")}
         onBlur={onBlur}
         onFocus={onFocus}

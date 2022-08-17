@@ -3,14 +3,14 @@
 exports[`TextField renders correctly when disabled 1`] = `
 <div
   aria-busy={false}
-  className="input-component input-component--disabled"
+  className="inputComponent input-component inputComponentDisabled input-component--disabled"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -18,7 +18,7 @@ exports[`TextField renders correctly when disabled 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={true}
         id="input"
@@ -35,7 +35,7 @@ exports[`TextField renders correctly when disabled 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -44,7 +44,7 @@ exports[`TextField renders correctly when disabled 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -60,14 +60,14 @@ exports[`TextField renders correctly when disabled 1`] = `
 exports[`TextField renders correctly when loading 1`] = `
 <div
   aria-busy={true}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -75,7 +75,7 @@ exports[`TextField renders correctly when loading 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -92,10 +92,10 @@ exports[`TextField renders correctly when loading 1`] = `
         value=""
       />
       <div
-        className="input-component__loader--container"
+        className="inputComponentLoaderContainer input-component__loader--container"
       >
         <div
-          className="input-component__loader"
+          className="inputComponentLoader input-component__loader"
         >
           <div
             className="monday-loader-component loaderContainer"
@@ -103,7 +103,7 @@ exports[`TextField renders correctly when loading 1`] = `
             title="loading"
           >
             <svg
-              className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
+              className="circle-loader-spinner circleLoaderSpinner inputComponentLoaderSvg input-component__loader-svg"
               viewBox="0 0 50 50"
             >
               <circle
@@ -119,7 +119,7 @@ exports[`TextField renders correctly when loading 1`] = `
         </div>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -128,7 +128,7 @@ exports[`TextField renders correctly when loading 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -144,14 +144,14 @@ exports[`TextField renders correctly when loading 1`] = `
 exports[`TextField renders correctly when readonly 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -159,7 +159,7 @@ exports[`TextField renders correctly when readonly 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -176,7 +176,7 @@ exports[`TextField renders correctly when readonly 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -185,7 +185,7 @@ exports[`TextField renders correctly when readonly 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -201,14 +201,14 @@ exports[`TextField renders correctly when readonly 1`] = `
 exports[`TextField renders correctly when required 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -216,7 +216,7 @@ exports[`TextField renders correctly when required 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -233,7 +233,7 @@ exports[`TextField renders correctly when required 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -242,7 +242,7 @@ exports[`TextField renders correctly when required 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -258,14 +258,14 @@ exports[`TextField renders correctly when required 1`] = `
 exports[`TextField renders correctly with another type 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -273,7 +273,7 @@ exports[`TextField renders correctly with another type 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -290,7 +290,7 @@ exports[`TextField renders correctly with another type 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -299,7 +299,7 @@ exports[`TextField renders correctly with another type 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -315,14 +315,14 @@ exports[`TextField renders correctly with another type 1`] = `
 exports[`TextField renders correctly with className 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -330,7 +330,7 @@ exports[`TextField renders correctly with className 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="testClassName input-component__input"
+        className="testClassName inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -347,7 +347,7 @@ exports[`TextField renders correctly with className 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -356,7 +356,7 @@ exports[`TextField renders correctly with className 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -372,14 +372,14 @@ exports[`TextField renders correctly with className 1`] = `
 exports[`TextField renders correctly with className 2`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -387,7 +387,7 @@ exports[`TextField renders correctly with className 2`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="testClassName input-component__input"
+        className="testClassName inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -404,7 +404,7 @@ exports[`TextField renders correctly with className 2`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -413,7 +413,7 @@ exports[`TextField renders correctly with className 2`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -429,14 +429,14 @@ exports[`TextField renders correctly with className 2`] = `
 exports[`TextField renders correctly with date type 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -444,7 +444,7 @@ exports[`TextField renders correctly with date type 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -461,7 +461,7 @@ exports[`TextField renders correctly with date type 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -470,7 +470,7 @@ exports[`TextField renders correctly with date type 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -486,14 +486,14 @@ exports[`TextField renders correctly with date type 1`] = `
 exports[`TextField renders correctly with date-time type 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -501,7 +501,7 @@ exports[`TextField renders correctly with date-time type 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -518,7 +518,7 @@ exports[`TextField renders correctly with date-time type 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -527,7 +527,7 @@ exports[`TextField renders correctly with date-time type 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -543,14 +543,14 @@ exports[`TextField renders correctly with date-time type 1`] = `
 exports[`TextField renders correctly with icon 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -558,7 +558,7 @@ exports[`TextField renders correctly with icon 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input input-component__input--has-icon"
+        className="inputComponentInput input-component__input inputComponentInputHasIcon input-component__input--has-icon"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -575,7 +575,7 @@ exports[`TextField renders correctly with icon 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerHasIcon input-component__icon--container-has-icon inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -586,13 +586,13 @@ exports[`TextField renders correctly with icon 1`] = `
         <span
           aria-hidden={true}
           aria-label=""
-          className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          className="icon_component inputComponentIcon input-component__icon icon_component--no-focus-style fa fa-star"
           onClick={[Function]}
           role="img"
         />
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -608,14 +608,14 @@ exports[`TextField renders correctly with icon 1`] = `
 exports[`TextField renders correctly with iconsNames 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -623,7 +623,7 @@ exports[`TextField renders correctly with iconsNames 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -640,7 +640,7 @@ exports[`TextField renders correctly with iconsNames 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -649,7 +649,7 @@ exports[`TextField renders correctly with iconsNames 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -665,14 +665,14 @@ exports[`TextField renders correctly with iconsNames 1`] = `
 exports[`TextField renders correctly with id 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -680,7 +680,7 @@ exports[`TextField renders correctly with id 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_testId"
         disabled={false}
         id="testId"
@@ -697,7 +697,7 @@ exports[`TextField renders correctly with id 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -706,7 +706,7 @@ exports[`TextField renders correctly with id 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_testId"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -722,14 +722,14 @@ exports[`TextField renders correctly with id 1`] = `
 exports[`TextField renders correctly with labelIconName 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -737,7 +737,7 @@ exports[`TextField renders correctly with labelIconName 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -754,7 +754,7 @@ exports[`TextField renders correctly with labelIconName 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -763,7 +763,7 @@ exports[`TextField renders correctly with labelIconName 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -779,14 +779,14 @@ exports[`TextField renders correctly with labelIconName 1`] = `
 exports[`TextField renders correctly with large size 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-large"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeLarge input-component__input-wrapper--size-large"
     >
       <input
         aria-activedescendant=""
@@ -794,7 +794,7 @@ exports[`TextField renders correctly with large size 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -811,7 +811,7 @@ exports[`TextField renders correctly with large size 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -820,7 +820,7 @@ exports[`TextField renders correctly with large size 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -836,14 +836,14 @@ exports[`TextField renders correctly with large size 1`] = `
 exports[`TextField renders correctly with placeholder 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -851,7 +851,7 @@ exports[`TextField renders correctly with placeholder 1`] = `
         aria-label="placeholder"
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -868,7 +868,7 @@ exports[`TextField renders correctly with placeholder 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -877,7 +877,7 @@ exports[`TextField renders correctly with placeholder 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -893,14 +893,14 @@ exports[`TextField renders correctly with placeholder 1`] = `
 exports[`TextField renders correctly with role 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role="button"
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -908,7 +908,7 @@ exports[`TextField renders correctly with role 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -925,7 +925,7 @@ exports[`TextField renders correctly with role 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -934,7 +934,7 @@ exports[`TextField renders correctly with role 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -950,14 +950,14 @@ exports[`TextField renders correctly with role 1`] = `
 exports[`TextField renders correctly with secondaryIconName 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -965,7 +965,7 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input input-component__input--has-icon"
+        className="inputComponentInput input-component__input inputComponentInputHasIcon input-component__input--has-icon"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -982,7 +982,7 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerHasIcon input-component__icon--container-has-icon inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -991,7 +991,7 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerHasIcon input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1002,7 +1002,7 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         <span
           aria-hidden={true}
           aria-label=""
-          className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          className="icon_component inputComponentIcon input-component__icon icon_component--no-focus-style fa fa-star"
           onClick={[Function]}
           role="img"
         />
@@ -1015,14 +1015,14 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
 exports[`TextField renders correctly with showCharCount 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -1030,7 +1030,7 @@ exports[`TextField renders correctly with showCharCount 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -1047,7 +1047,7 @@ exports[`TextField renders correctly with showCharCount 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1056,7 +1056,7 @@ exports[`TextField renders correctly with showCharCount 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1066,11 +1066,11 @@ exports[`TextField renders correctly with showCharCount 1`] = `
       />
     </div>
     <div
-      className="input-component__sub-text-container"
+      className="inputComponentSubTextContainer input-component__sub-text-container"
     >
       <span
         aria-label="Input char count"
-        className="input-component__sub-text-container-counter"
+        className="inputComponentSubTextContainerCounter input-component__sub-text-container-counter"
       >
         0
       </span>
@@ -1082,14 +1082,14 @@ exports[`TextField renders correctly with showCharCount 1`] = `
 exports[`TextField renders correctly with validation 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small input-component__input--error-validation"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small inputComponentInputErrorValidation input-component__input--error-validation"
     >
       <input
         aria-activedescendant=""
@@ -1097,7 +1097,7 @@ exports[`TextField renders correctly with validation 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -1114,7 +1114,7 @@ exports[`TextField renders correctly with validation 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1123,7 +1123,7 @@ exports[`TextField renders correctly with validation 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1133,11 +1133,11 @@ exports[`TextField renders correctly with validation 1`] = `
       />
     </div>
     <div
-      className="input-component__sub-text-container"
+      className="inputComponentSubTextContainer input-component__sub-text-container"
     >
       <span
         aria-label="Additional helper text"
-        className="input-component__sub-text-container-status"
+        className="inputComponentSubTextContainerStatus input-component__sub-text-container-status"
       >
         error
       </span>
@@ -1149,14 +1149,14 @@ exports[`TextField renders correctly with validation 1`] = `
 exports[`TextField renders correctly with value 1`] = `
 <div
   aria-busy={false}
-  className="input-component"
+  className="inputComponent input-component"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -1164,7 +1164,7 @@ exports[`TextField renders correctly with value 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -1181,7 +1181,7 @@ exports[`TextField renders correctly with value 1`] = `
         value="value"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1190,7 +1190,7 @@ exports[`TextField renders correctly with value 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1206,14 +1206,14 @@ exports[`TextField renders correctly with value 1`] = `
 exports[`TextField renders correctly with wrapperClassName 1`] = `
 <div
   aria-busy={false}
-  className="input-component testClassName"
+  className="inputComponent input-component testClassName"
   role=""
 >
   <div
-    className="input-component__label--wrapper"
+    className="inputComponentLabelWrapper input-component__label--wrapper"
   >
     <div
-      className="input-component__input-wrapper input-component__input-wrapper--size-small"
+      className="inputComponentInputWrapper input-component__input-wrapper inputComponentInputWrapperSizeSmall input-component__input-wrapper--size-small"
     >
       <input
         aria-activedescendant=""
@@ -1221,7 +1221,7 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
         aria-label=""
         aria-owns=""
         autoComplete="off"
-        className="input-component__input"
+        className="inputComponentInput input-component__input"
         data-testid="text-field_input"
         disabled={false}
         id="input"
@@ -1238,7 +1238,7 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1247,7 +1247,7 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
         tabIndex="-1"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="monday-style-clickable inputComponentIconContainer input-component__icon--container inputComponentIconContainerActive input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
