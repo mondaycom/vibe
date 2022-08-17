@@ -2,7 +2,7 @@
 
 exports[`ModalContent renders correctly with children 1`] = `
 <div
-  className="mondayStyleModalContent"
+  className="container"
 >
   <div>
     children
@@ -12,6 +12,6 @@ exports[`ModalContent renders correctly with children 1`] = `
 
 exports[`ModalContent renders correctly with empty props 1`] = `
 <div
-  className="mondayStyleModalContent"
+  className="container"
 />
 `;
