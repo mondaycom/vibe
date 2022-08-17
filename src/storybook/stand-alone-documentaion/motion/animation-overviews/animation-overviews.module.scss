@@ -1,0 +1,12 @@
+@import "../../../../styles/global-css-settings";
+
+$animation-overview-grid-gap: 64px;
+$animation-overview-cell-min-width: $grid-auto-fit-cell-width-large;
+$animation-overview-grid-cell-array-calc: calc(50% - #{$animation-overview-grid-gap});
+
+.animationOverviewGrid{
+  @include grid-auto-fit(
+          $grid-gap: $animation-overview-grid-gap,
+          $grid-cell-min-width: $animation-overview-cell-min-width,
+          $grid-cell-array-calc: $animation-overview-grid-cell-array-calc);
+}

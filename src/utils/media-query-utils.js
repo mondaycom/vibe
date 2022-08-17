@@ -9,7 +9,7 @@ export const MEDIA_QUERY_QUERIES = {
   [SMALL1]: "screen and (max-width: 767px)",
   [SMALL2]: "screen and (max-width: 1023px) and (min-width: 768px)",
   [MEDIUM1]: "screen and (max-width: 1279px) and (min-width: 1024px)",
-  [MEDIUM2]: "screen and (max-width: 1439px) and (min-width: 1278px)",
+  [MEDIUM2]: "screen and (max-width: 1439px) and (min-width: 1280px)",
   [LARGE]: "screen and (max-width: 1919px) and (min-width: 1440px)",
   [XLARGE]: "screen and (min-width: 1920px)"
 };

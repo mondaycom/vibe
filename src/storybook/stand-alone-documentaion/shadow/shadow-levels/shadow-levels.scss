@@ -1,5 +1,17 @@
+@import "../../../../styles/global-css-settings";
+@import "../../../styles/content-spacing";
+
+$shadow-level-grid-column-gap: $spacing-large;
+$shadow-level-grid-row-gap: $spacing-xl;
+$shadow-level-cell-min-width: $grid-auto-fit-cell-width-medium;
+$shadow-level-grid-cell-array-calc: calc(25% - #{$shadow-level-grid-column-gap});
+
 .monday-storybook-shadow-levels {
-  display: flex;
-  justify-content: space-between;
   padding: 32px;
+
+  @include grid-auto-fit(
+          $grid-column-gap: $shadow-level-grid-column-gap,
+          $grid-row-gap: $shadow-level-grid-row-gap,
+          $grid-cell-min-width: $shadow-level-cell-min-width,
+          $grid-cell-array-calc: $shadow-level-grid-cell-array-calc);
 }

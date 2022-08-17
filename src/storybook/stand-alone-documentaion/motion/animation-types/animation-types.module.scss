@@ -1,0 +1,12 @@
+@import "../../../../styles/global-css-settings";
+
+$animation-types-grid-gap: 64px;
+$animation-types-cell-min-width: $grid-auto-fit-cell-width-medium;
+$animation-types-grid-cell-array-calc: calc(50% - #{$animation-types-grid-gap});
+
+.animationTypesGrid{
+  @include grid-auto-fit(
+          $grid-gap: $animation-types-grid-gap,
+          $grid-cell-min-width: $animation-types-cell-min-width,
+          $grid-cell-array-calc: $animation-types-grid-cell-array-calc);
+}

@@ -44,7 +44,7 @@
       border-radius: $border-radius-small;
 
       &--animate {
-        transition: width 0.1s $expand-animation-timing;
+        transition: width var(--motion-productive-medium) var(--motion-timing-transition);
       }
 
       &--primary {

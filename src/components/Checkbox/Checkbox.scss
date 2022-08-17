@@ -32,7 +32,7 @@ $checkbox-size: 16px;
     border: 1px solid;
     @include theme-prop(border-color, ui-border-color);
     border-radius: $border-radius-extra-small;
-    transition: transform 50ms $expand-animation-timing;
+    transition: transform var(--motion-productive-short) var(--motion-timing-enter);
     position: relative;
     overflow: hidden;
 
@@ -56,12 +56,6 @@ $checkbox-size: 16px;
     width: 100%;
     @include theme-prop(color, text-color-on-primary);
     visibility: hidden;
-  }
-
-  &__disabled {
-    .monday-style-checkbox__label {
-      @include theme-prop(color, disabled-text-color);
-    }
   }
 
   &__label {
@@ -89,6 +83,7 @@ $checkbox-size: 16px;
         @include hover-selected;
       }
     }
+
     &:focus-visible {
       & + .monday-style-checkbox__checkbox {
         outline: none;
@@ -99,17 +94,20 @@ $checkbox-size: 16px;
       }
     }
 
-    &:checked, &:indeterminate {
+    &:checked,
+    &:indeterminate {
       &:focus + .monday-style-checkbox__checkbox:after {
         @include theme-prop(background-color, primary-hover-color);
       }
 
       & + .monday-style-checkbox {
         &__checkbox {
-          animation: checkbox-grow-animation 50ms;
+          animation: checkbox-grow-animation var(--motion-productive-short);
+
           &__prevent-animation {
             animation-duration: 0ms;
           }
+
           @include theme-prop(background-color, primary-color);
           border-color: transparent;
 
@@ -126,7 +124,7 @@ $checkbox-size: 16px;
             @include theme-prop(background-color, primary-color);
             height: $checkbox-size;
             transform: scaleX(0);
-            transition: transform 200ms;
+            transition: transform var(--motion-productive-long);
             transform-origin: right;
             left: 0;
           }
@@ -143,6 +141,7 @@ $checkbox-size: 16px;
         }
       }
     }
+
     &:disabled {
       & + .monday-style-checkbox {
         &__checkbox,
@@ -153,7 +152,12 @@ $checkbox-size: 16px;
           .monday-style-checkbox__icon {
             @include theme-prop(color, disabled-text-color);
           }
+
+          cursor: not-allowed;
         }
+      }
+      & ~ .monday-style-checkbox__label {
+        cursor: not-allowed;
       }
     }
   }

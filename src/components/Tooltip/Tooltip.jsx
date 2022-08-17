@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import classnames from "classnames";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
-import { DialogPositions } from "constants/sizes";
-import { DIALOG_ANIMATION_TYPES } from "constants/AnimationTypes";
+import { DialogPositions } from "../../constants/sizes";
+import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
 import { TOOLTIP_JUSTIFY_TYPES, TOOLTIP_THEMES } from "./TooltipConstants";
 import "./Tooltip.scss";
 

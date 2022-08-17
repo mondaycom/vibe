@@ -27,18 +27,21 @@
       width: 1em;
       height: 1em;
       border: 0.1em solid;
+      box-sizing: border-box;
       @include theme-prop(border-color, ui-border-color);
       border-radius: 50%;
-      transition: border-width 100ms $expand-animation-timing;
+      transition: border-width var(--motion-productive-medium) var(--motion-timing-enter);
     }
 
     input:checked + &__radio-control {
-      animation-name: radio-checked-animation;
-      animation-duration: 100ms;
-      animation-timing-function: $expand-animation-timing;
-      animation-fill-mode: forwards;
       @include theme-prop(border-color, primary-color);
       border-width: 0.3em;
+      &--label-animation {
+        animation-name: radio-checked-animation;
+        animation-duration: var(--motion-productive-medium);
+        animation-timing-function: var(--motion-timing-enter);
+        animation-fill-mode: forwards;
+      }
     }
 
     input:disabled + &__radio-control {
@@ -62,9 +65,6 @@
 
   &.disabled {
     cursor: not-allowed;
-    .monday-style-radio-button-component__radio-label {
-      @include theme-prop(color, disabled-text-color);
-    }
   }
 
   &__radio-input-container input:focus-visible + &__radio-input-container__radio-control {

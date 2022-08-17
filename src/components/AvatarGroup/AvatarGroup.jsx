@@ -7,6 +7,10 @@ import Tooltip from "../Tooltip/Tooltip";
 import AvatarGroupCounter from "./AvatarGroupCounter";
 import styles from "./AvatarGroup.module.scss";
 
+const avatarOnClick = avatarProps => {
+  return avatarProps?.onClick && (() => avatarProps.onClick(avatarProps?.id));
+};
+
 const AvatarGroup = ({
   className,
   avatarClassName,
@@ -16,7 +20,8 @@ const AvatarGroup = ({
   type,
   max,
   counterProps,
-  counterTooltipCustomProps
+  counterTooltipCustomProps,
+  counterTooltipIsVirtualizedList
 }) => {
   const { displayAvatars, counterTooltipAvatars } = useMemo(() => {
     const childrenArray = React.Children.toArray(children);
@@ -38,13 +43,15 @@ const AvatarGroup = ({
           ...avatar?.props,
           size: size || avatar?.props?.size,
           type: type || avatar?.props?.type,
-          className: cx(styles.avatarContainer, avatarClassName)
+          className: cx(styles.avatarContainer, avatarClassName),
+          onClick: avatarOnClick(avatar.props)
         });
       })}
       <AvatarGroupCounter
         counterTooltipAvatars={counterTooltipAvatars}
         counterProps={counterProps}
         counterTooltipCustomProps={counterTooltipCustomProps}
+        counterTooltipIsVirtualizedList={counterTooltipIsVirtualizedList}
         size={size}
         type={type}
       />
@@ -64,18 +71,23 @@ AvatarGroup.propTypes = {
   type: PropTypes.oneOf([Avatar.types.TEXT, Avatar.types.ICON, Avatar.types.IMG]),
   max: PropTypes.number,
   /**
-   * 4 `Counter.props` for customization
+   * 4 `Counter.props` for customization + ariaLabelItemsName for specifying the "items" name in aria label
    */
   counterProps: PropTypes.shape({
     color: PropTypes.oneOf([Counter.colors.LIGHT, Counter.colors.DARK]),
     count: PropTypes.number,
     prefix: PropTypes.string,
-    maxDigits: PropTypes.number
+    maxDigits: PropTypes.number,
+    ariaLabelItemsName: PropTypes.string
   }),
   /**
    * `Tooltip.propTypes`: props for custom counter tooltip
    */
-  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes)
+  counterTooltipCustomProps: PropTypes.shape(Tooltip.propTypes),
+  /**
+   * Using counter default tooltip virtualized list for rendering only visible items (performance optimization)
+   */
+  counterTooltipIsVirtualizedList: PropTypes.bool
 };
 AvatarGroup.defaultProps = {
   className: "",
@@ -86,7 +98,8 @@ AvatarGroup.defaultProps = {
   type: undefined,
   max: 5,
   counterProps: undefined,
-  counterTooltipCustomProps: undefined
+  counterTooltipCustomProps: undefined,
+  counterTooltipIsVirtualizedList: false
 };
 
 export default AvatarGroup;

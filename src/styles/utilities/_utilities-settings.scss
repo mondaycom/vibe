@@ -1,0 +1,121 @@
+@use "sass:map";
+
+$utilities-modules: (
+        "opacity": (
+                property: opacity,
+                values: (
+                        disabled: var(--disabled-component-opacity),
+                )
+        ),
+        "border": (
+                property: border,
+                values: (
+                        null: var(--border-width) var(--border-style) var(--ui-border-color)
+                )
+        ),
+        "borderColor": (
+                property: border-color,
+                class: borderColor,
+                values: $utility-border-colors-vars,
+        ),
+        "rounded": (
+                property: border-radius,
+                class: rounded,
+                values: (
+                        0: 0,
+                        small: var(--border-radius-small),
+                        medium: var(--border-radius-medium),
+                        big: var(--border-radius-big),
+                ),
+        ),
+        "shadow": (
+                property: box-shadow,
+                class: shadow,
+                values: (
+                        xs: var(--box-shadow-xs),
+                        small: var(--box-shadow-small),
+                        medium: var(--box-shadow-medium),
+                        large: var(--box-shadow-large),
+                )
+        ),
+        "margin": (
+                property: margin,
+                class: m,
+                values: map.merge($utility-spacing-vars, (auto: auto)),
+        ),
+        "marginX": (
+                property: margin-right margin-left,
+                class: mx,
+                values: map.merge($utility-spacing-vars, (auto: auto))
+        ),
+        "marginY": (
+                property: margin-top margin-bottom,
+                class: my,
+                values: map.merge($utility-spacing-vars, (auto: auto)),
+        ),
+        "marginTop": (
+                property: margin-top,
+                class: mt,
+                values: map.merge($utility-spacing-vars, (auto: auto)),
+        ),
+        "marginEnd": (
+                property: margin-inline-end,
+                class: me,
+                values: map.merge($utility-spacing-vars, (auto: auto)),
+        ),
+        "marginBottom": (
+                property: margin-bottom,
+                class: mb,
+                values: map.merge($utility-spacing-vars, (auto: auto)),
+        ),
+        "marginStart": (
+                property: margin-inline-start,
+                class: ms,
+                values: map.merge($utility-spacing-vars, (auto: auto)),
+        ),
+        "padding": (
+                property: padding,
+                class: p,
+                values: $utility-spacing-vars,
+        ),
+        "paddingX": (
+                property: padding-right padding-left,
+                class: px,
+                values: $utility-spacing-vars,
+        ),
+        "paddingY": (
+                property: padding-top padding-bottom,
+                class: py,
+                values: $utility-spacing-vars,
+        ),
+        "paddingTop": (
+                property: padding-top,
+                class: pt,
+                values: $utility-spacing-vars
+        ),
+        "paddingEnd": (
+                property: padding-inline-end,
+                class: pe,
+                values: $utility-spacing-vars
+        ),
+        "paddingBottom": (
+                property: padding-bottom,
+                class: pb,
+                values: $utility-spacing-vars
+        ),
+        "paddingStart": (
+                property: padding-inline-start,
+                class: ps,
+                values: $utility-spacing-vars
+        ),
+        "color": (
+                property: color,
+                class: text,
+                values: $utility-colors-vars,
+        ),
+        "backgroundColor": (
+                property: background-color,
+                class: bg,
+                values: $utility-background-colors-vars,
+        ),
+);

@@ -24,6 +24,11 @@ $avatar-size-small: 28px;
     width: $avatar-size-small;
   }
 
+  &_clickableWrapper {
+    height: 100%;
+    width: 100%;
+  }
+
   &_circle {
     height: 100%;
     width: 100%;

@@ -2,8 +2,8 @@ import React, { forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
-import Icon from "components/Icon/Icon";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import Icon from "../../components/Icon/Icon";
 import { LINK_TARGET, ICON_POSITION } from "./LinkConsts";
 import "./Link.scss";
 
@@ -23,7 +23,9 @@ const Link = forwardRef(
       iconPosition,
       id,
       ariaLabeledBy,
-      disableNavigation
+      disableNavigation,
+      inheritFontSize,
+      inlineText
     },
     ref
   ) => {
@@ -48,7 +50,10 @@ const Link = forwardRef(
         ref={ref}
         onClick={onClickWrapper}
         target={target}
-        className={cx("monday-style-link", overrideClassName)}
+        className={cx("monday-style-link", overrideClassName, {
+          "inherit-font-size": inheritFontSize,
+          "inline-text": inlineText
+        })}
         aria-label={ariaLabelDescription}
         aria-labelledby={ariaLabeledBy}
       >
@@ -73,12 +78,17 @@ Link.iconPositions = ICON_POSITION;
 Link.targets = LINK_TARGET;
 
 Link.propTypes = {
+  /** id added to the link component */
+  id: PropTypes.string,
+  /** class name to be added to the link component */
   className: PropTypes.string,
   /** Specifies the location (URL) of the external resource */
   href: PropTypes.string,
+  /** The link text */
   text: PropTypes.string,
   /** Defines the relationship between a linked resource and the current document */
   rel: PropTypes.string,
+  /** onClick function - MouseEvent */
   onClick: PropTypes.func,
   /** Specifies where to open the linked document */
   target: PropTypes.oneOf([Link.targets.NEW_WINDOW, Link.targets.PARENT, Link.targets.SELF, Link.targets.TOP]),
@@ -86,61 +96,33 @@ Link.propTypes = {
   ariaLabelDescription: PropTypes.string,
   /** element id to describe the counter accordingly */
   ariaLabeledBy: PropTypes.string,
+  /** Icon to add to the link element */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  /** the position of the icon in relation to the etext */
   iconPosition: PropTypes.oneOf([Link.iconPositions.START, Link.iconPositions.END]),
-  id: PropTypes.string,
-  disableNavigation: PropTypes.bool
+  /** disable navigation */
+  disableNavigation: PropTypes.bool,
+  /** inherit text size */
+  inheritFontSize: PropTypes.bool,
+  /** if the link is in part of other text content */
+  inlineText: PropTypes.bool
 };
 
 Link.defaultProps = {
-  /**
-   * Id to add to the
-   */
   id: "",
-  /**
-   * Classname to be added to the component container
-   */
   className: undefined,
-  /**
-   * the href to link the component to
-   */
   href: "",
-  /**
-   * the link text
-   */
   text: "",
-  /**
-   * The rel attribute defines the relationship between a linked resource and the current document
-   */
   rel: "noreferrer",
-  /**
-   * on link click callback
-   */
   onClick: NOOP,
-  /**
-   * the target window where the link should be open
-   */
   target: Link.targets.NEW_WINDOW,
-  /**
-   * Aria label
-   */
   ariaLabelDescription: "",
-  /**
-   * icon to add to the link
-   */
   icon: "",
-  /**
-   * where the icon should be located
-   */
   iconPosition: Link.position.START,
-  /**
-   * Id to add to the link element
-   */
   ariaLabeledBy: "",
-  /**
-   * Disable navigation on click
-   */
-  disableNavigation: false
+  disableNavigation: false,
+  inheritFontSize: false,
+  inlineText: false
 };
 
 export default Link;

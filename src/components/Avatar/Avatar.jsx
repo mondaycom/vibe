@@ -1,15 +1,15 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo } from "react";
 import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import { BEMClass } from "helpers/bem-helper";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
-import { elementColorsNames, getElementColor } from "utils/colors-vars-map";
+import { BEMClass } from "../../helpers/bem-helper";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
 import { AvatarBadge } from "./AvatarBadge";
 import { AvatarContent } from "./AvatarContent";
 import Tooltip from "../Tooltip/Tooltip";
-import Clickable from "../Clickable/Clickable";
+import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
 import "./Avatar.scss";
 
@@ -17,6 +17,7 @@ const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
 const Avatar = ({
+  id,
   type,
   className,
   textClassName,
@@ -112,17 +113,26 @@ const Avatar = ({
     return badges.length > 0 ? <div className={cx(bemHelper({ element: "badges" }))}>{badges}</div> : null;
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
-  const ClickableWrapper = ({ children }) => {
-    if (!onClick) {
-      return children;
-    }
-
-    return <Clickable onClick={onClick}>{children}</Clickable>;
-  };
+  const clickHandler = useCallback(
+    event => {
+      event.preventDefault();
+      if (onClick) {
+        onClick(event);
+      }
+    },
+    [onClick]
+  );
 
   return (
-    <div className={cx(AVATAR_CSS_BASE_CLASS, className, bemHelper({ state: size }))} style={sizeStyle}>
-      <ClickableWrapper>
+    <div id={id} className={cx(AVATAR_CSS_BASE_CLASS, className, bemHelper({ state: size }))} style={sizeStyle}>
+      <ClickableWrapper
+        isClickable={!!onClick}
+        clickableProps={{
+          onClick: clickHandler,
+          tabIndex: "-1",
+          className: bemHelper({ element: "clickableWrapper" })
+        }}
+      >
         <Tooltip
           showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
           hideTrigger={[Dialog.hideShowTriggers.BLUR, Dialog.hideShowTriggers.MOUSE_LEAVE]}
@@ -162,6 +172,7 @@ Avatar.colors = elementColorsNames;
 Avatar.backgroundColors = elementColorsNames;
 
 Avatar.propTypes = {
+  id: PropTypes.string,
   src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   text: PropTypes.string,
   tooltipProps: PropTypes.shape(Tooltip.propTypes),
@@ -191,6 +202,7 @@ Avatar.propTypes = {
   onClick: PropTypes.func
 };
 Avatar.defaultProps = {
+  id: undefined,
   src: undefined,
   className: "",
   textClassName: "",

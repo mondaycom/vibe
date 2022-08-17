@@ -6,6 +6,7 @@ const ICONS_PATH = path.join(SRC_PATH, "components/Icon/Icons/components");
 const publishedComponents = {
   // Don't remove next line
   // plop_marker:published-components
+  Box: "components/Box/Box.jsx",
   AccordionItem: "components/Accordion/AccordionItem/AccordionItem.jsx",
   Accordion: "components/Accordion/Accordion/Accordion.jsx",
   Clickable: "components/Clickable/Clickable.jsx",
@@ -83,6 +84,7 @@ const publishedComponents = {
   Toggle: "components/Toggle/Toggle.jsx",
   Skeleton: "components/Skeleton/Skeleton.jsx",
   Avatar: "components/Avatar/Avatar.jsx",
+  AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
   IconButton: "components/IconButton/IconButton.jsx",
   Slider: "components/Slider/Slider.jsx",
   Modal: "components/Modal/Modal.jsx",

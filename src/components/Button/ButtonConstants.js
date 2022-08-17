@@ -1,5 +1,7 @@
 import { SIZES } from "../../constants/sizes";
 
+export const BUTTON_ICON_SIZE = "20";
+
 export const BUTTON_TYPES = {
   PRIMARY: "primary",
   SECONDARY: "secondary",

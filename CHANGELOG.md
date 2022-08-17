@@ -1,5 +1,270 @@
 # Changelog
 
+## 1.55.0 (2022-08-14)
+
+#### Bug Fixes
+* [#818](https://github.com/mondaycom/monday-ui-react-core/pull/818) Fix icon button size ([@hadasfa](https://github.com/hadasfa))
+* [#815](https://github.com/mondaycom/monday-ui-react-core/pull/815) Avatar: prevent default (scroll) on click via space ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#813](https://github.com/mondaycom/monday-ui-react-core/pull/813) fix focus indicator to inset ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#810](https://github.com/mondaycom/monday-ui-react-core/pull/810) remove console.log ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#816](https://github.com/mondaycom/monday-ui-react-core/pull/816) Add Cursor not-allowed to disabled checkbox ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#814](https://github.com/mondaycom/monday-ui-react-core/pull/814) Fix useKeyEvent imports ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.54.0 (2022-08-03)
+
+#### Bug Fixes
+* [#807](https://github.com/mondaycom/monday-ui-react-core/pull/807) Fix typo in color menuColorsExample.png ([@3dyonic](https://github.com/3dyonic))
+
+#### New Features
+* [#796](https://github.com/mondaycom/monday-ui-react-core/pull/796) Use motion tokens on SliderBase.scss ([@3dyonic](https://github.com/3dyonic))
+* [#797](https://github.com/mondaycom/monday-ui-react-core/pull/797) Use motion tokens on SplitButton.scss ([@3dyonic](https://github.com/3dyonic))
+* [#798](https://github.com/mondaycom/monday-ui-react-core/pull/798) Use motion tokens on Steps.scss ([@3dyonic](https://github.com/3dyonic))
+* [#802](https://github.com/mondaycom/monday-ui-react-core/pull/802) Use motion tokens on TextField.scss ([@3dyonic](https://github.com/3dyonic))
+* [#803](https://github.com/mondaycom/monday-ui-react-core/pull/803) Use motion tokens on Toggle.scss ([@3dyonic](https://github.com/3dyonic))
+* [#804](https://github.com/mondaycom/monday-ui-react-core/pull/804) Use motion tokens on Toast.scss ([@3dyonic](https://github.com/3dyonic))
+* [#805](https://github.com/mondaycom/monday-ui-react-core/pull/805) Use motion tokens on TabPanels.scss ([@3dyonic](https://github.com/3dyonic))
+* [#786](https://github.com/mondaycom/monday-ui-react-core/pull/786) Use motion tokens on Label.scss ([@3dyonic](https://github.com/3dyonic))
+* [#801](https://github.com/mondaycom/monday-ui-react-core/pull/801) Use motion tokens on Tab.scss ([@3dyonic](https://github.com/3dyonic))
+* [#795](https://github.com/mondaycom/monday-ui-react-core/pull/795) Use motion tokens on RadioButton.scss ([@3dyonic](https://github.com/3dyonic))
+* [#790](https://github.com/mondaycom/monday-ui-react-core/pull/790) Use motion tokens on LinearProgressBar.scss ([@3dyonic](https://github.com/3dyonic))
+* [#806](https://github.com/mondaycom/monday-ui-react-core/pull/806) Use motion tokens on Skeleton.scss ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#809](https://github.com/mondaycom/monday-ui-react-core/pull/809) fix issue for externals ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.53.0 (2022-08-01)
+
+#### Bug Fixes
+* [#800](https://github.com/mondaycom/monday-ui-react-core/pull/800) Fix h1 style gaps in Editable heading edit mode. ([@3dyonic](https://github.com/3dyonic))
+
+#### New Features
+* [#782](https://github.com/mondaycom/monday-ui-react-core/pull/782) Use motion tokens on Chips.module.scss ([@3dyonic](https://github.com/3dyonic))
+* [#789](https://github.com/mondaycom/monday-ui-react-core/pull/789) Use motion tokens on StepIndicator.scss ([@3dyonic](https://github.com/3dyonic))
+* [#779](https://github.com/mondaycom/monday-ui-react-core/pull/779) Use motion tokens on  Button.scss ([@3dyonic](https://github.com/3dyonic))
+* [#784](https://github.com/mondaycom/monday-ui-react-core/pull/784) Feature/yonatanari/motion tokens counter ([@3dyonic](https://github.com/3dyonic))
+* [#785](https://github.com/mondaycom/monday-ui-react-core/pull/785) Use motion tokens on Dropdown.scss and dropdown/menu.scss ([@3dyonic](https://github.com/3dyonic))
+* [#788](https://github.com/mondaycom/monday-ui-react-core/pull/788) Use motion tokens on MenuButton.scss ([@3dyonic](https://github.com/3dyonic))
+* [#781](https://github.com/mondaycom/monday-ui-react-core/pull/781) Use motion tokens on Checkbox.scss ([@3dyonic](https://github.com/3dyonic))
+* [#778](https://github.com/mondaycom/monday-ui-react-core/pull/778) Use motion tokens on ExpandCollapse.scss ([@3dyonic](https://github.com/3dyonic))
+* [#772](https://github.com/mondaycom/monday-ui-react-core/pull/772) New disabled-text-color tokens, component disabled update. ([@3dyonic](https://github.com/3dyonic))
+
+## 1.52.3 (2022-08-01)
+
+#### Bug Fixes
+* [#799](https://github.com/mondaycom/monday-ui-react-core/pull/799) allow disable label animation on radio button ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#793](https://github.com/mondaycom/monday-ui-react-core/pull/793) Tipseen: fix styleint errors ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.52.2 (2022-07-28)
+
+#### Bug Fixes
+* [#771](https://github.com/mondaycom/monday-ui-react-core/pull/771) Tipseen: css modules ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.52.1 (2022-07-27)
+
+#### Bug Fixes
+* [#791](https://github.com/mondaycom/monday-ui-react-core/pull/791) removed hooks alias usage ([@eran-cohen](https://github.com/eran-cohen))
+
+## 1.52.0 (2022-07-27)
+
+#### New Features
+* [#780](https://github.com/mondaycom/monday-ui-react-core/pull/780) Remove aliases ([@eran-cohen](https://github.com/eran-cohen))
+
+#### Internal Changes
+* [#776](https://github.com/mondaycom/monday-ui-react-core/pull/776) add exports to package.json + build icons esm file ([@eran-cohen](https://github.com/eran-cohen))
+
+## 1.51.1 (2022-07-27)
+
+#### Bug Fixes
+* [#736](https://github.com/mondaycom/monday-ui-react-core/pull/736) scroll combobox fix ([@mentaman](https://github.com/mentaman))
+
+## 1.51.0 (2022-07-26)
+
+#### Bug Fixes
+* [#787](https://github.com/mondaycom/monday-ui-react-core/pull/787) add validation ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Features
+* [#759](https://github.com/mondaycom/monday-ui-react-core/pull/759) Allow defaultVisualFocusItemIndex on use useActiveDescendantListFocus and combobox ([@hadasfa](https://github.com/hadasfa))
+
+## 1.50.2 (2022-07-24)
+
+#### Bug Fixes
+* [#777](https://github.com/mondaycom/monday-ui-react-core/pull/777) Bug/hadas/attention box close ([@hadasfa](https://github.com/hadasfa))
+
+## 1.50.1 (2022-07-24)
+
+#### Bug Fixes
+* [#775](https://github.com/mondaycom/monday-ui-react-core/pull/775) Fix button group css specificity ([@hadasfa](https://github.com/hadasfa))
+
+#### New Icons
+* [#773](https://github.com/mondaycom/monday-ui-react-core/pull/773) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.50.0 (2022-07-20)
+
+#### New Features
+* [#770](https://github.com/mondaycom/monday-ui-react-core/pull/770) Manually update monday-ui-style version to 0.1.132 ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.49.0 (2022-07-20)
+
+#### Bug Fixes
+* [#763](https://github.com/mondaycom/monday-ui-react-core/pull/763) Add test for list without props. ([@samitc](https://github.com/samitc))
+
+#### New Features
+* [#750](https://github.com/mondaycom/monday-ui-react-core/pull/750) Feature/yonatanari/change logo href ([@3dyonic](https://github.com/3dyonic))
+* [#765](https://github.com/mondaycom/monday-ui-react-core/pull/765) Enable brandFont prop for heading within editable heading. ([@3dyonic](https://github.com/3dyonic))
+
+## 1.48.3 (2022-07-20)
+
+#### New Icons
+* [#768](https://github.com/mondaycom/monday-ui-react-core/pull/768) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.48.2 (2022-07-20)
+
+#### Bug Fixes
+* [#767](https://github.com/mondaycom/monday-ui-react-core/pull/767) Box: added to published-components ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.48.1 (2022-07-20)
+
+#### New Icons
+* [#764](https://github.com/mondaycom/monday-ui-react-core/pull/764) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.48.0 (2022-07-19)
+
+#### New Features
+* [#758](https://github.com/mondaycom/monday-ui-react-core/pull/758) Add Poppins font-family to h1 heading ([@3dyonic](https://github.com/3dyonic))
+
+#### New Icons
+* [#762](https://github.com/mondaycom/monday-ui-react-core/pull/762) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.47.0 (2022-07-19)
+
+#### New Features
+* [#753](https://github.com/mondaycom/monday-ui-react-core/pull/753) Navigate in list with keyboard. ([@samitc](https://github.com/samitc))
+* [#687](https://github.com/mondaycom/monday-ui-react-core/pull/687) Feature/yonatanari/box component ([@3dyonic](https://github.com/3dyonic))
+* [#752](https://github.com/mondaycom/monday-ui-react-core/pull/752) Feature/yonatan ari/storybook repsoinsive tweaks ([@3dyonic](https://github.com/3dyonic))
+
+#### Documentation
+* [#712](https://github.com/mondaycom/monday-ui-react-core/pull/712) Feature/yonatanari/motion page ([@3dyonic](https://github.com/3dyonic))
+
+## 1.46.0 (2022-07-13)
+
+#### New Features
+* [#749](https://github.com/mondaycom/monday-ui-react-core/pull/749) Support set use active descendant list visual focus from outside ([@hadasfa](https://github.com/hadasfa))
+
+## 1.45.0 (2022-07-13)
+
+#### New Features
+* [#748](https://github.com/mondaycom/monday-ui-react-core/pull/748) Clickable: ariaExpanded prop added ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.44.1 (2022-07-12)
+
+#### Bug Fixes
+* [#746](https://github.com/mondaycom/monday-ui-react-core/pull/746) adding property box-sizing to RadioButton ([@rami-monday](https://github.com/rami-monday))
+
+## 1.44.0 (2022-07-10)
+
+#### New Features
+* [#744](https://github.com/mondaycom/monday-ui-react-core/pull/744) Icon button fix and link alignment ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.43.0 (2022-07-10)
+
+#### New Features
+* [#743](https://github.com/mondaycom/monday-ui-react-core/pull/743) Feat: Add prop set the tabindex for RadioButton.jsx rendered children ([@DorShakedMonday](https://github.com/DorShakedMonday))
+
+## 1.42.0 (2022-07-07)
+
+#### New Features
+* [#742](https://github.com/mondaycom/monday-ui-react-core/pull/742) Mute Notification Icon ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#737](https://github.com/mondaycom/monday-ui-react-core/pull/737) Feature/yonatanari/wellcome page responsive without media ([@3dyonic](https://github.com/3dyonic))
+
+#### New Icons
+* [#740](https://github.com/mondaycom/monday-ui-react-core/pull/740) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.41.2 (2022-07-06)
+
+#### Bug Fixes
+* [#739](https://github.com/mondaycom/monday-ui-react-core/pull/739) Few fixes for supporting useActiveDescendantListFocus in menus ([@hadasfa](https://github.com/hadasfa))
+
+## 1.41.1 (2022-07-05)
+
+#### Bug Fixes
+* [#735](https://github.com/mondaycom/monday-ui-react-core/pull/735) IconButton: added wrapperClassName prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.41.0 (2022-07-03)
+
+#### New Features
+* [#706](https://github.com/mondaycom/monday-ui-react-core/pull/706) Feature/sergeyro/avatar group a11y ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.40.1 (2022-07-03)
+
+#### Bug Fixes
+* [#733](https://github.com/mondaycom/monday-ui-react-core/pull/733) AvatarGroup component export ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.40.0 (2022-07-03)
+
+#### Bug Fixes
+* [#723](https://github.com/mondaycom/monday-ui-react-core/pull/723) Add css module support for chips component ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#732](https://github.com/mondaycom/monday-ui-react-core/pull/732) adding leftIcon and leftAvatar to dropdown chips ([@maxiozer](https://github.com/maxiozer))
+
+## 1.39.1 (2022-06-30)
+
+#### Bug Fixes
+* [#731](https://github.com/mondaycom/monday-ui-react-core/pull/731) fix clickable PropType and inset focus for heading compoennt ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.39.0 (2022-06-30)
+
+#### New Features
+* [#730](https://github.com/mondaycom/monday-ui-react-core/pull/730) dropdown with mandatory default values ([@maxiozer](https://github.com/maxiozer))
+
+## 1.38.1 (2022-06-29)
+
+#### Bug Fixes
+* [#729](https://github.com/mondaycom/monday-ui-react-core/pull/729) add max length as a prop ([@mayaAssayag](https://github.com/mayaAssayag))
+
+## 1.38.0 (2022-06-29)
+
+#### New Features
+* [#727](https://github.com/mondaycom/monday-ui-react-core/pull/727) Butotn inset focus style ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.37.0 (2022-06-28)
+
+#### New Features
+* [#725](https://github.com/mondaycom/monday-ui-react-core/pull/725) Clickable: ariaHasPopup prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.36.5 (2022-06-28)
+
+#### New Icons
+* [#722](https://github.com/mondaycom/monday-ui-react-core/pull/722) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.36.4 (2022-06-28)
+
+#### Bug Fixes
+* [#724](https://github.com/mondaycom/monday-ui-react-core/pull/724) fix medium 2 min width to 1280 ([@liatmaor](https://github.com/liatmaor))
+
+## 1.36.3 (2022-06-27)
+
+#### Bug Fixes
+* [#720](https://github.com/mondaycom/monday-ui-react-core/pull/720) Fix/yonatanari/fix disabled text color issues ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#719](https://github.com/mondaycom/monday-ui-react-core/pull/719) feat(storybook): memory stats for stories ([@niksa-monday](https://github.com/niksa-monday))
+* [#718](https://github.com/mondaycom/monday-ui-react-core/pull/718) feat(storybook): enable storybook performance addon ([@niksa-monday](https://github.com/niksa-monday))
+
+## 1.36.2 (2022-06-27)
+
+#### Internal Changes
+* [#713](https://github.com/mondaycom/monday-ui-react-core/pull/713) Jest snapshot css modules ([@eran-cohen](https://github.com/eran-cohen))
+
+#### New Icons
+* [#717](https://github.com/mondaycom/monday-ui-react-core/pull/717) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.36.1 (2022-06-23)
 
 #### Bug Fixes

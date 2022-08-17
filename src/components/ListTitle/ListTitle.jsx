@@ -4,12 +4,19 @@ import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./ListTitle.scss";
 
-const ListTitle = forwardRef(({ className, id, children }, ref) => {
+const ListTitle = forwardRef(({ className, id, children, tabIndex }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
   return (
-    <div aria-level="3" role="heading" ref={mergedRef} className={cx("list-title", className)} id={id}>
+    <div
+      aria-level="3"
+      tabIndex={tabIndex}
+      role="heading"
+      ref={mergedRef}
+      className={cx("list-title", className)}
+      id={id}
+    >
       {children}
     </div>
   );

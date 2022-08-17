@@ -587,13 +587,11 @@ exports[`Combobox renders correctly with divider 1`] = `
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="row"
           style={
             Object {
               "height": 32,
             }
           }
-          tabIndex="-1"
         >
           <div
             className="option-label"
@@ -644,13 +642,11 @@ exports[`Combobox renders correctly with divider 1`] = `
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="row"
           style={
             Object {
               "height": 32,
             }
           }
-          tabIndex="-1"
         >
           <div
             className="option-label"
@@ -1265,13 +1261,11 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="row"
           style={
             Object {
               "height": 32,
             }
           }
-          tabIndex="-1"
         >
           <div>
             some render of 
@@ -1292,13 +1286,11 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
           onKeyDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          role="row"
           style={
             Object {
               "height": 32,
             }
           }
-          tabIndex="-1"
         >
           <div>
             some render of 

@@ -9,7 +9,7 @@ import {
   isPageUpEvent,
   isEndEvent,
   isHomeEvent
-} from "utils/dom-event-utils";
+} from "../../../utils/dom-event-utils";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
 import { bem, calcDimensions, getNearest, moveToPx, calculatePageStep } from "../SliderHelpers";
 import { useSliderRail } from "../SliderHooks";

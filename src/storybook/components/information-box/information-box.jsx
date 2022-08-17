@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { BEMClass } from "helpers/bem-helper";
+import { BEMClass } from "../../../helpers/bem-helper";
 import { InformationBoxTitle } from "../information-box-title/information-box-title";
 import "./information-box.scss";
 
@@ -12,7 +12,7 @@ export const InformationBox = ({ component, title, description }) => {
 
   return (
     <section className={BASE_CSS_CLASS}>
-      <figure className={bemHelper({ element: "component" })}>{component}</figure>
+      {component && <figure className={bemHelper({ element: "component" })}>{component}</figure>}
       {overrideTitle}
       <section className={bemHelper({ element: "description" })}>{description}</section>
     </section>

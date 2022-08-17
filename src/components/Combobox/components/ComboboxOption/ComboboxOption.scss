@@ -1,3 +1,4 @@
+
 @import "../../../../styles/themes";
 @import "../../../../styles/typography";
 @import "../../../../styles/global-css-settings";
@@ -32,7 +33,7 @@ $icon-margin: 4px;
   }
 
   &.active-outline {
-    @include focus-style-css();
+    @include focus-style-css-inset();
     background-color: var(--secondary-background-color);
   }
 

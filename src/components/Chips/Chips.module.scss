@@ -2,21 +2,18 @@
 @import "../../styles/typography";
 @import "../../styles/states";
 
-$icon-margin: 4px;
-
-.chips--wrapper {
+.chips {
   display: inline-flex;
   overflow: hidden;
   height: 24px;
   border-radius: 4px;
   padding: 1px 8px;
   align-items: center;
-  margin: 0 4px;
+  margin: 0 var(--spacing-xs);
   user-select: none;
-  animation: chips-enter 100ms;
-  animation-timing-function: cubic-bezier(0, 0, 0.35, 1);
+  animation: chipsEnter var(--motion-productive-medium) var(--motion-timing-emphasize);
 
-  &.with-user-select {
+  &.withUserSelect {
     user-select: text;
   }
 
@@ -25,29 +22,29 @@ $icon-margin: 4px;
     @include ellipsis();
   }
 
-  &.no-animation {
+  &.noAnimation {
     animation: none;
   }
 
-  &.with-close {
-    padding-right: 4px;
+  &.withClose {
+    padding-right: var(--spacing-xs);
   }
 
-  .chip-icon, .chip-avatar {
+  .icon, .avatar {
     &.left {
-      margin-right: $icon-margin;
+      margin-right: var(--spacing-xs);
     }
     &.right {
-      margin-left: $icon-margin;
+      margin-left: var(--spacing-xs);
     }
     &.close {
-      margin-left: $icon-margin;
+      margin-left: var(--spacing-xs);
       color: var(--primary-text-color);
     }
   }
 
   &.disabled {
-    .chip-icon {
+    .icon {
       @include theme-prop(color, disabled-text-color);
     }
     .label {
@@ -56,7 +53,7 @@ $icon-margin: 4px;
   }
 }
 
-@keyframes chips-enter {
+@keyframes chipsEnter {
   0% {
     transform: scale(0.3);
     opacity: 0;

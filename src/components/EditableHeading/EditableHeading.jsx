@@ -24,11 +24,13 @@ const EditableHeading = props => {
     onIgnoreBlurEvent,
     errorClassTimeout,
     style,
+    brandFont,
     customColor,
     onStartEditing,
     contentRenderer,
     tooltip,
-    highlightTerm
+    highlightTerm,
+    insetFocus
   } = props;
 
   // State
@@ -127,7 +129,8 @@ const EditableHeading = props => {
       ellipsisMaxLines: props.ellipsisMaxLines,
       nonEllipsisTooltip: props.tooltip,
       size: props.size,
-      highlightTerm
+      highlightTerm,
+      brandFont
     };
   };
   const renderContentComponent = () => {
@@ -158,6 +161,7 @@ const EditableHeading = props => {
       shouldFocusOnMount: props.shouldFocusOnMount,
       selectOnMount: props.selectOnMount,
       inputType,
+      brandFont,
       ignoreBlurClass: props.ignoreBlurClass,
       autoSize: props.autoSize,
       textareaSubmitOnEnter: props.textareaSubmitOnEnter,
@@ -182,7 +186,9 @@ const EditableHeading = props => {
     <div
       ref={ref}
       style={style}
-      className={cx("editable-heading--wrapper", className)}
+      className={cx("editable-heading--wrapper", className, {
+        "inset-focus": insetFocus
+      })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}
       data-testid={dataTestId}
@@ -219,6 +225,10 @@ EditableHeading.propTypes = {
    */
   id: PropTypes.string,
   /**
+   * Max Length to be added to the header wrapper
+   */
+  maxLength: PropTypes.number,
+  /**
    * Header type
    */
   type: PropTypes.oneOf([
@@ -232,6 +242,8 @@ EditableHeading.propTypes = {
   size: PropTypes.oneOf([EditableHeading.sizes.SMALL, EditableHeading.sizes.MEDIUM, EditableHeading.sizes.LARGE]),
   displayPlaceholderInTextMode: PropTypes.bool,
   suggestEditOnHover: PropTypes.bool,
+  /** Custom font flag, use to enable new font family on H1 headers */
+  brandFont: PropTypes.bool,
   autoSize: PropTypes.bool,
   inputAriaLabel: PropTypes.string,
   placeholder: PropTypes.string,
@@ -245,7 +257,8 @@ EditableHeading.propTypes = {
   /** Callback when editing is canceled (i.e. ESC) */
   onCancelEditing: PropTypes.func,
   /** Callback (with current value) when clicked on element that matches ignoreBlurClass */
-  onIgnoreBlurEvent: PropTypes.func
+  onIgnoreBlurEvent: PropTypes.func,
+  insetFocus: PropTypes.bool
 };
 EditableHeading.defaultProps = {
   className: "",
@@ -267,7 +280,10 @@ EditableHeading.defaultProps = {
   onIgnoreBlurEvent: undefined,
   style: undefined,
   dataTestId: "",
-  inputClassName: ""
+  inputClassName: "",
+  insetFocus: false,
+  brandFont: false,
+  maxLength: undefined
 };
 
 EditableHeading.types = TYPES;

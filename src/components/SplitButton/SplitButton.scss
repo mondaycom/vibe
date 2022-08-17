@@ -6,7 +6,7 @@
   display: inline-flex;
   align-items: center;
   border-radius: $border-radius-small;
-  transition: 50ms transform, 0.1s $expand-animation-timing min-width;
+  transition: var(--motion-productive-short) transform, var(--motion-productive-medium) var(--motion-timing-transition) min-width;
 
   .monday-style-split-button__main-button {
     margin-right: 0;

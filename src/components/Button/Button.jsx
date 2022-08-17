@@ -1,17 +1,17 @@
 /* eslint-disable react/jsx-props-no-spreading,react/button-has-type */
-import { SIZES } from "constants/sizes";
+import { SIZES } from "../../constants/sizes";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import useResizeObserver from "hooks/useResizeObserver";
-import useMergeRefs from "hooks/useMergeRefs";
-import { NOOP } from "utils/function-utils";
-import Icon from "components/Icon/Icon";
-import Loader from "components/Loader/Loader";
-import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize } from "./ButtonConstants";
+import useResizeObserver from "../../hooks/useResizeObserver";
+import useMergeRefs from "../../hooks/useMergeRefs";
+import { NOOP } from "../../utils/function-utils";
+import Icon from "../../components/Icon/Icon";
+import Loader from "../../components/Loader/Loader";
+import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize, BUTTON_ICON_SIZE } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import "./Button.scss";
-import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
@@ -56,7 +56,8 @@ const Button = forwardRef(
       ariaExpanded,
       ariaControls,
       blurOnMouseUp,
-      dataTestId
+      dataTestId,
+      insetFocus
     },
     ref
   ) => {
@@ -145,7 +146,8 @@ const Button = forwardRef(
           "monday-style-button--left-flat": leftFlat,
           "monday-style-button--prevent-click-animation": preventClickAnimation,
           "monday-style-button--no-side-padding": noSidePadding,
-          "monday-style-button--disabled": disabled
+          "monday-style-button--disabled": disabled,
+          "inset-focus-style": insetFocus
         }
       );
     }, [
@@ -163,7 +165,8 @@ const Button = forwardRef(
       leftFlat,
       preventClickAnimation,
       noSidePadding,
-      disabled
+      disabled,
+      insetFocus
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
@@ -214,17 +217,17 @@ const Button = forwardRef(
 
     const leftIconSize = useMemo(() => {
       if (typeof leftIcon !== "function") return;
-      return "24";
+      return BUTTON_ICON_SIZE;
     }, [leftIcon]);
 
     const rightIconSize = useMemo(() => {
       if (typeof rightIcon !== "function") return;
-      return "24";
+      return BUTTON_ICON_SIZE;
     }, [rightIcon]);
 
     const successIconSize = useMemo(() => {
       if (typeof successIcon !== "function") return;
-      return "24";
+      return BUTTON_ICON_SIZE;
     }, [successIcon]);
 
     if (loading) {
@@ -359,7 +362,9 @@ Button.propTypes = {
   preventClickAnimation: PropTypes.bool,
   noSidePadding: PropTypes.bool,
   /** Default text color in `ON_PRIMARY_COLOR` kind (should be any type of css color (rgb, var, hex...) */
-  defaultTextColorOnPrimaryColor: PropTypes.string
+  defaultTextColorOnPrimaryColor: PropTypes.string,
+  /** Change the focus indicator from around the button to within it */
+  insetFocus: PropTypes.bool
 };
 
 Button.defaultProps = {
@@ -395,7 +400,8 @@ Button.defaultProps = {
   ariaExpanded: undefined,
   ariaControls: undefined,
   ariaLabel: undefined,
-  ariaLabeledBy: undefined
+  ariaLabeledBy: undefined,
+  insetFocus: false
 };
 
 export default Button;

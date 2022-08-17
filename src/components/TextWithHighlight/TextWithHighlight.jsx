@@ -1,17 +1,18 @@
 import React, { useRef, forwardRef, useMemo, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import Tooltip from "components/Tooltip/Tooltip";
-import useIsOverflowing from "hooks/useIsOverflowing";
+import Tooltip from "../../components/Tooltip/Tooltip";
+import useIsOverflowing from "../../hooks/useIsOverflowing";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./TextWithHighlight.scss";
 
-const getTextPart = (text, key, shouldHighlight) => {
+const getTextPart = (text, key, shouldHighlight, wrappingTextTag = "em", wrappingElementClassName) => {
+  const WrappingElement = wrappingTextTag;
   if (shouldHighlight) {
     return (
-      <em className="highlight-text" key={key}>
+      <WrappingElement className={cx("highlight-text", wrappingElementClassName)} key={key}>
         {text}
-      </em>
+      </WrappingElement>
     );
   }
   return <span key={key}>{text}</span>;
@@ -30,7 +31,9 @@ const TextWithHighlight = forwardRef(
       ignoreCase,
       allowTermSplit,
       nonEllipsisTooltip,
-      tooltipPosition
+      tooltipPosition,
+      wrappingTextTag,
+      wrappingElementClassName
     },
     ref
   ) => {
@@ -54,13 +57,13 @@ const TextWithHighlight = forwardRef(
           // adding highlight part
           const isTermPart = i % 2 === 1;
           const shouldHighlight = isTermPart && (!limit || limit < 0 || highlightTermsCount < limit);
-          parts.push(getTextPart(tokens[i], key++, shouldHighlight));
+          parts.push(getTextPart(tokens[i], key++, shouldHighlight, wrappingTextTag, wrappingElementClassName));
           if (isTermPart) highlightTermsCount++;
         }
       }
 
       return parts;
-    }, [text, highlightTerm, limit, ignoreCase, allowTermSplit]);
+    }, [text, highlightTerm, limit, ignoreCase, allowTermSplit, wrappingTextTag, wrappingElementClassName]);
 
     const isOverflowing = useIsOverflowing({ ref: useEllipsis && componentRef });
 
@@ -97,8 +100,10 @@ const TextWithHighlight = forwardRef(
 TextWithHighlight.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
+  /** Text to wrap */
   text: PropTypes.string,
   highlightTerm: PropTypes.string,
+  /** Number of highlighted parts */
   limit: PropTypes.number,
   ignoreCase: PropTypes.bool,
   /** Should use ellipsis */
@@ -107,7 +112,10 @@ TextWithHighlight.propTypes = {
   allowTermSplit: PropTypes.bool,
   linesToClamp: PropTypes.number,
   /** Tooltip to show when there is no overflow */
-  nonEllipsisTooltip: PropTypes.string
+  nonEllipsisTooltip: PropTypes.string,
+  /** HTML tag to wrap the selected text */
+  wrappingTextTag: PropTypes.string,
+  wrappingElementClassName: PropTypes.string
 };
 
 TextWithHighlight.defaultProps = {
@@ -120,7 +128,9 @@ TextWithHighlight.defaultProps = {
   ignoreCase: true,
   useEllipsis: true,
   linesToClamp: 3,
-  nonEllipsisTooltip: null
+  nonEllipsisTooltip: null,
+  wrappingTextTag: "em",
+  wrappingElementClassName: undefined
 };
 
 export default TextWithHighlight;

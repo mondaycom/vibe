@@ -11,9 +11,9 @@ import { SIZES } from "../../constants/sizes";
 import Button from "../Button/Button";
 import ComboboxOption from "./components/ComboboxOption/ComboboxOption";
 import { defaultFilter } from "./ComboboxService";
-import { ComboboxItems } from "components/Combobox/components/ComboboxItems/ComboboxItems";
-import { StickyCategoryHeader } from "components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
-import useActiveDescendantListFocus from "hooks/useActiveDescendantListFocus";
+import { ComboboxItems } from "../../components/Combobox/components/ComboboxItems/ComboboxItems";
+import { StickyCategoryHeader } from "../../components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
+import useActiveDescendantListFocus from "../../hooks/useActiveDescendantListFocus";
 import { getOptionId } from "./ComboboxHelpers/ComboboxHelpers";
 import "./Combobox.scss";
 
@@ -24,6 +24,7 @@ const Combobox = forwardRef(
       id,
       placeholder,
       size,
+      defaultVisualFocusFirstIndex,
       optionLineHeight,
       optionsListHeight,
       autoFocus,
@@ -123,12 +124,14 @@ const Combobox = forwardRef(
       visualFocusItemId,
       onItemClickCallback: onOptionClick
     } = useActiveDescendantListFocus({
+      defaultVisualFocusFirstIndex,
       focusedElementRef: inputRef,
       containerElementRef: resultsContainerRef,
       focusedElementRole: useActiveDescendantListFocus.roles.COMBOBOX,
       itemsIds: filteredOptionsIds,
       onItemClick: overrideOnClick,
-      isItemSelectable: isChildSelectable
+      isItemSelectable: isChildSelectable,
+      isIgnoreSpaceAsItemSelection: true
     });
 
     const hasResults = filteredOptions.length > 0;
@@ -287,6 +290,8 @@ Combobox.propTypes = {
   shouldScrollToSelectedItem: PropTypes.bool,
   noResultsRenderer: PropTypes.func,
   stickyCategories: PropTypes.bool,
+  /** By default the first option will be selected, when focusing selecting the first option, or when changing items */
+  defaultVisualFocusFirstIndex: PropTypes.bool,
   /** Clear the filter/search on selection (click or enter) */
   clearFilterOnSelection: PropTypes.bool,
   /**
@@ -332,6 +337,7 @@ Combobox.defaultProps = {
   stickyCategories: false,
   optionRenderer: null,
   clearFilterOnSelection: false,
+  defaultVisualFocusFirstIndex: undefined,
   renderOnlyVisibleOptions: false,
   onClick: _optionData => {}
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { BEMClass } from "helpers/bem-helper";
+import { BEMClass } from "../../helpers/bem-helper";
 import { StepsCommand } from "./StepsCommand";
 import { StepsGalleryHeader } from "./StepsGalleryHeader";
 import { StepsNumbersHeader } from "./StepsNumbersHeader";

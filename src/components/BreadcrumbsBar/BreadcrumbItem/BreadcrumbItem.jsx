@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import useIsOverflowing from "hooks/useIsOverflowing";
-import Tooltip from "components/Tooltip/Tooltip";
-import { backwardCompatibilityForProperties } from "helpers/backwardCompatibilityForProperties";
+import useIsOverflowing from "../../../hooks/useIsOverflowing";
+import Tooltip from "../../../components/Tooltip/Tooltip";
+import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
 import "./BreadcrumbItem.scss";
 

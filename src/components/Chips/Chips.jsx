@@ -1,4 +1,4 @@
-import React, { useRef, forwardRef, useMemo, useCallback } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../Icon/Icon";
@@ -6,11 +6,11 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { getCSSVar } from "../../services/themes";
 import { NOOP } from "../../utils/function-utils";
-import "./Chips.scss";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import Avatar from "../Avatar/Avatar";
-import IconButton from "components/IconButton/IconButton";
-import { ELEMENT_TYPES, getTestId } from "utils/test-utils";
+import IconButton from "../../components/IconButton/IconButton";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./Chips.module.scss";
 
 const Chips = forwardRef(
   (
@@ -56,11 +56,11 @@ const Chips = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx("chips--wrapper", className, {
+        className={cx(styles.chips, "chips--wrapper", className, {
           disabled,
-          "with-close": hasCloseButton,
-          "no-animation": noAnimation,
-          "with-user-select": allowTextSelection
+          [styles.withClose]: hasCloseButton,
+          [styles.noAnimation]: noAnimation,
+          [styles.withUserSelect]: allowTextSelection
         })}
         id={id}
         style={backgroundColorStyle}
@@ -70,7 +70,7 @@ const Chips = forwardRef(
         {leftAvatar ? (
           <Avatar
             withoutBorder
-            className="chip-avatar left"
+            className={cx(styles.avatar, styles.left)}
             customSize={16}
             src={leftAvatar}
             type={Avatar.types.IMG}
@@ -79,7 +79,7 @@ const Chips = forwardRef(
         ) : null}
         {leftIcon ? (
           <Icon
-            className="chip-icon left"
+            className={cx(styles.icon, styles.left)}
             iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={leftIcon}
@@ -87,10 +87,10 @@ const Chips = forwardRef(
             ignoreFocusStyle
           />
         ) : null}
-        <div className="label">{label}</div>
+        <div className={styles.label}>{label}</div>
         {rightIcon ? (
           <Icon
-            className="chip-icon right"
+            className={cx(styles.icon, styles.right)}
             iconType={Icon.type.ICON_FONT}
             clickable={false}
             icon={rightIcon}
@@ -101,7 +101,7 @@ const Chips = forwardRef(
         {rightAvatar ? (
           <Avatar
             withoutBorder
-            className="chip-avatar right"
+            className={cx(styles.avatar, styles.right)}
             customSize={16}
             src={rightAvatar}
             type={Avatar.types.IMG}
@@ -112,7 +112,7 @@ const Chips = forwardRef(
           <IconButton
             size={IconButton.sizes.XXS}
             color={IconButton.colors.ON_PRIMARY_COLOR}
-            className="chip-icon close"
+            className={cx(styles.icon, styles.close)}
             aria-label={`Remove ${label}`}
             icon={CloseSmall}
             iconSize={18}

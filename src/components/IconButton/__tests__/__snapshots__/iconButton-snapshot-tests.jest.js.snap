@@ -25,10 +25,10 @@ exports[`IconButton renders correctly with 1`] = `
     aria-hidden={true}
     className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
-    height="24"
+    height="20"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="24"
+    width="20"
   >
     <path
       clipRule="evenodd"
@@ -66,10 +66,10 @@ exports[`IconButton renders correctly with active 1`] = `
     aria-hidden={true}
     className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
-    height="24"
+    height="20"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="24"
+    width="20"
   >
     <path
       clipRule="evenodd"
@@ -83,7 +83,7 @@ exports[`IconButton renders correctly with active 1`] = `
 
 exports[`IconButton renders correctly with aria label 1`] = `
 <span
-  className="referenceContainer"
+  className="referenceWrapper"
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -117,10 +117,10 @@ exports[`IconButton renders correctly with aria label 1`] = `
       aria-hidden={true}
       className="icon_component icon-button-padding icon_component--no-focus-style"
       fill="currentColor"
-      height="24"
+      height="20"
       onClick={[Function]}
       viewBox="0 0 20 20"
-      width="24"
+      width="20"
     >
       <path
         clipRule="evenodd"
@@ -158,10 +158,10 @@ exports[`IconButton renders correctly with disabled 1`] = `
     aria-hidden={true}
     className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
-    height="24"
+    height="20"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="24"
+    width="20"
   >
     <path
       clipRule="evenodd"
@@ -198,10 +198,10 @@ exports[`IconButton renders correctly with empty props 1`] = `
     aria-hidden={true}
     className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
-    height="24"
+    height="20"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="24"
+    width="20"
   >
     <path
       clipRule="evenodd"
@@ -239,10 +239,10 @@ exports[`IconButton renders correctly with id 1`] = `
     aria-hidden={true}
     className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
-    height="24"
+    height="20"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="24"
+    width="20"
   >
     <path
       clipRule="evenodd"
@@ -279,10 +279,10 @@ exports[`IconButton renders correctly with size - large 1`] = `
     aria-hidden={true}
     className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
-    height="24"
+    height="20"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="24"
+    width="20"
   >
     <path
       clipRule="evenodd"
@@ -319,10 +319,10 @@ exports[`IconButton renders correctly with size - medium 1`] = `
     aria-hidden={true}
     className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
-    height="24"
+    height="20"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="24"
+    width="20"
   >
     <path
       clipRule="evenodd"
@@ -359,10 +359,10 @@ exports[`IconButton renders correctly with size - small 1`] = `
     aria-hidden={true}
     className="icon_component icon-button-padding icon_component--no-focus-style"
     fill="currentColor"
-    height="24"
+    height="20"
     onClick={[Function]}
     viewBox="0 0 20 20"
-    width="24"
+    width="20"
   >
     <path
       clipRule="evenodd"

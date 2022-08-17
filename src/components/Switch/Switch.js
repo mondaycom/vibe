@@ -1,6 +1,6 @@
 import React, { useMemo, useRef } from "react";
 import cx from "classnames";
-import { useSwitchChecked } from "components/Switch/hooks/useSwitchChecked";
+import { useSwitchChecked } from "../../components/Switch/hooks/useSwitchChecked";
 import classes from "./Switch.module.scss";
 
 export const Switch = ({

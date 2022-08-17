@@ -112,6 +112,19 @@ describe("Dropdown", () => {
       expect(component.chips.values).toEqual([]);
     });
 
+    it("should not show the X in default value chips in default options  are mandatory state", () => {
+      component = new DropdownDriver()
+        .withMandatoryDefaultOptions()
+        .withMulti()
+        .withOptions()
+        .withDefaultValue([mockOptions[0]]);
+
+      const button = component.getCloseButton(0);
+      component.render();
+
+      expect(button).toBe(null);
+    });
+
     describe("Controlled", () => {
       let value;
 

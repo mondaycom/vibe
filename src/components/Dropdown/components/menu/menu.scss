@@ -2,7 +2,7 @@
 @import "../../../../styles/global-css-settings";
 
 .dropdown-menu-wrapper {
-  animation: fadeIn 0.1s $expand-animation-timing;
+  animation: fadeIn var(--motion-productive-medium) var(--motion-timing-enter);
 }
 
 @keyframes fadeIn {
