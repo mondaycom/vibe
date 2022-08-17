@@ -37,6 +37,7 @@
     "modify react-core/steps": "shell_scripts/run.sh ../../src/components/Steps/Steps.jsx",
     "modify react-core/tipseen": "shell_scripts/run.sh ../../src/components/Tipseen/Tipseen.jsx",
     "modify react-core/dialog-content": "shell_scripts/run.sh ../../src/components/Dialog/DialogContent/DialogContent.jsx",
+    "modify react-core/hidden-text": "shell_scripts/run.sh ../../src/components/HiddenText/HiddenText.jsx",
 
     "modify tests": "shell_scripts/run.sh tests",
     "modify tests/anchor-list-item": "shell_scripts/run.sh tests/anchor-list-item.jsx",
