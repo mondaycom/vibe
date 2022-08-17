@@ -8,10 +8,10 @@ export const isClassNamesImportDeclaration = (node: ImportDeclaration) => {
   // printWithCondition(false, "^^^ isClassNamesImportDeclaration, node", node);
 
   if (
-    node.source.value === "classnames" &&
+    node.source.value.toLowerCase() === "classnames" &&
     node.specifiers.length === 1 &&
     node.specifiers[0].type === "ImportDefaultSpecifier" &&
-    (node.specifiers[0].local.name === "cx" || node.specifiers[0].local.name === "classnames")
+    (node.specifiers[0].local.name === "cx" || node.specifiers[0].local.name.toLowerCase() === "classnames")
   ) {
     return true;
   }
