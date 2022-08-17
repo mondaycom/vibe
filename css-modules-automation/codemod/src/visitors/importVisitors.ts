@@ -148,7 +148,7 @@ export const importVisitors: Visitor<State> = {
         file.path.traverse(addDataTestIdImportVisitors, state);
       }
 
-      // 13: Adds id and data-testId props if needed
+      // 13: Adds id and data-testId to component props if needed
       file.path.traverse(addIdsPropsVisitors, state);
 
       // 14: Adds camel case import if needed
