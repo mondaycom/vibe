@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`react-data-testid arrow function: arrow function 1`] = `
+
+const Div = () => <div />
+
+const DivBody = () => {
+  return <div />
+}
+
+const Div2 = () => <Div />
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const Div = () => <div data-testid="Div" />
+
+const DivBody = () => {
+  return <div data-testid="DivBody" />
+}
+
+const Div2 = () => <Div data-testid="Div2" />
+
+
+`;
+
+exports[`react-data-testid export default: export default 1`] = `
+
+export default () => {
+  return <div>hello</div>
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+export default () => {
+  return <div>hello</div>
+}
+
+
+`;
+
+exports[`react-data-testid fragment: fragment 1`] = `
+
+import React from 'react'
+
+function Items() {
+  return <>
+    {items.map((item) => <Item key={item.key} />)}
+  </>
+}
+
+const Items2 = () => <React.Fragment>hello</React.Fragment>
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+import React from 'react'
+
+function Items() {
+  return (
+    <>
+      {items.map((item) => (
+        <Item key={item.key} />
+      ))}
+    </>
+  )
+}
+
+const Items2 = () => <React.Fragment data-testid="Items2">hello</React.Fragment>
+
+
+`;
+
+exports[`react-data-testid function Component: function Component 1`] = `
+
+function Div() {
+  return <div />
+}
+
+function Nested() {
+  return (
+    <div>
+      hello
+      <div>world</div>
+    </div>
+  )
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+function Div() {
+  return <div data-testid="Div" />
+}
+
+function Nested() {
+  return (
+    <div data-testid="Nested">
+      hello
+      <div>world</div>
+    </div>
+  )
+}
+
+
+`;
+
+exports[`react-data-testid jsx spread attribute: jsx spread attribute 1`] = `
+
+const Div = (props) => {
+  return <div {...props}>hello</div>
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const Div = (props) => {
+  return (
+    <div {...props} data-testid="Div">
+      hello
+    </div>
+  )
+}
+
+
+`;
+
+exports[`react-data-testid with children: with children 1`] = `
+
+const Div = ({ children }) => <div>{children}</div>
+
+function Div2({ children }) {
+  return <div>{children}</div>
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const Div = ({ children }) => <div data-testid="Div">{children}</div>
+
+function Div2({ children }) {
+  return <div data-testid="Div2">{children}</div>
+}
+
+
+`;
+
+exports[`react-data-testid with data-testid: with data-testid 1`] = `
+
+const Div = () => <div data-testid="hello" />
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const Div = () => <div data-testid="hello" />
+
+
+`;
+
+exports[`with attributes function Component: function Component 1`] = `
+
+function Div() {
+  return <div />
+}
+
+function Nested() {
+  return (
+    <div>
+      hello
+      <div>world</div>
+    </div>
+  )
+}
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+function Div() {
+  return <div data-testid="Div" data-cy="Div" />
+}
+
+function Nested() {
+  return (
+    <div data-testid="Nested" data-cy="Nested">
+      hello
+      <div>world</div>
+    </div>
+  )
+}
+
+
+`;
+
+exports[`with attributes with data-cy: with data-cy 1`] = `
+
+const Div = () => <div data-cy="hello" />
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const Div = () => <div data-cy="hello" data-testid="Div" />
+
+
+`;
