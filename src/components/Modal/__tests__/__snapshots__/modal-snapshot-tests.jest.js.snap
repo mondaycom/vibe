@@ -31,7 +31,7 @@ Snapshot Diff:
         class="mondayStyleModalContent"
       >
 +       <div
-+         class="mondayStyleModalHeader"
++         class="container"
 +       >
 +         <p
 +           aria-level="1"
@@ -79,6 +79,11 @@ Snapshot Diff:
         </p>
 `;
 
+exports[`Modal with alertDialog 1`] = `
+Snapshot Diff:
+Compared values have no visual difference.
+`;
+
 exports[`Modal with all parts 1`] = `
 Snapshot Diff:
 - Default Render
@@ -89,7 +94,7 @@ Snapshot Diff:
         class="mondayStyleModalContent"
       >
 +       <div
-+         class="mondayStyleModalHeader"
++         class="container"
 +       >
 +         <p
 +           aria-level="1"
@@ -170,7 +175,7 @@ exports[`Modal with base props 1`] = `
     role="document"
   >
     <div
-      class="mondayStyleModalHeader"
+      class="container"
     >
       <p
         aria-level="1"
@@ -348,20 +353,4 @@ Snapshot Diff:
       </div>
       <div
         class="mondayStyleModalContent"
-`;
-
-exports[`Modal with alertDialog 1`] = `
-Snapshot Diff:
-- Default Render
-+ Current Render: {"content":{"type":"p","key":null,"ref":null,"props":{"children":"content"},"_owner":null,"_store":{}},"alertDialog":true}
-
-@@ --- --- @@
-    class="container"
-    data-testid="monday-dialog-container"
-    id="modal-id"
--   role="dialog"
-+   role="alertdialog"
-    tabindex="-1"
-  >
-    <div
 `;

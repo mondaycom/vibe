@@ -7,8 +7,8 @@ Snapshot Diff:
 
 @@ --- --- @@
   <div
--   class="mondayStyleModalHeader"
-+   class="mondayStyleModalHeader className"
+-   class="container"
++   class="container className"
   >
     <p
       aria-level="1"
@@ -117,7 +117,7 @@ Snapshot Diff:
 
 exports[`ModalHeader with required props 1`] = `
 <div
-  class="mondayStyleModalHeader"
+  class="container"
 >
   <p
     aria-level="1"
