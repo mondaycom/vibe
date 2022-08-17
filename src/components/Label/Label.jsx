@@ -1,10 +1,12 @@
+import { camelCase } from "lodash";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { LABEL_COLORS, LABEL_TYPES } from "./LabelConstants";
 import Leg from "./Leg";
-import "./Label.scss";
+import styles from "./Label.module.scss";
 
 const Label = ({
   // Backward compatibility for enum naming
@@ -14,22 +16,36 @@ const Label = ({
   color,
   text = "",
   isAnimationDisabled,
-  isLegIncluded
+  isLegIncluded,
+  "data-testid": dataTestId,
+  id
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]);
   const classNames = useMemo(
     () =>
-      cx("monday-style-label", `monday-style-label--kind-${kind}`, `monday-style-label--color-${color}`, {
-        "monday-style-label--with-animation": !isAnimationDisabled,
-        "monday-style-label--with-leg": isLegIncluded
-      }),
+      cx(
+        styles.mondayStyleLabel,
+        "monday-style-label",
+        styles[`${camelCase("monday-style-label--kind-" + kind)}`],
+        `monday-style-label--kind-${kind}`,
+        styles[`${camelCase("monday-style-label--color-" + color)}`],
+        `monday-style-label--color-${color}`,
+        {
+          [styles.mondayStyleLabelWithAnimation]: !isAnimationDisabled,
+          ["monday-style-label--with-animation"]: !isAnimationDisabled,
+          [styles.mondayStyleLabelWithLeg]: isLegIncluded,
+          ["monday-style-label--with-leg"]: isLegIncluded
+        }
+      ),
     [kind, color, isAnimationDisabled, isLegIncluded]
   );
   return (
-    <span className={overrideClassName}>
-      <div className={classNames}>
+    <span className={cx(overrideClassName)} data-testid={dataTestId || getTestId(ELEMENT_TYPES.LABEL, id)}>
+      <div className={cx(classNames)}>
         <span>{text}</span>
-        <span className="monday-style-label__leg-wrapper">{isLegIncluded ? <Leg /> : null}</span>
+        <span className={cx(styles.mondayStyleLabelLegWrapper, "monday-style-label__leg-wrapper")}>
+          {isLegIncluded ? <Leg /> : null}
+        </span>
       </div>
     </span>
   );

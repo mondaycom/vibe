@@ -1,0 +1,120 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+
+.mondayStyleLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-small;
+  @include font-input();
+  padding: 0 $spacing-small;
+  position: relative;
+}
+
+.mondayStyleLabelWithLeg {
+  border-radius: $border-radius-small $border-radius-small $border-radius-small 0;
+}
+
+.mondayStyleLabelLegWrapper {
+  position: absolute;
+  height: 8px;
+  top: 100%;
+  left: 0;
+  display: inline-flex;
+}
+
+.mondayStyleLabelWithAnimation {
+  animation: labelPop var(--motion-expressive-short) var(--motion-timing-emphasize);
+  transform-origin: bottom left;
+}
+
+.mondayStyleLabelKindFill.mondayStyleLabelColorPrimary {
+  @include theme-prop(color, text-color-on-primary);
+  @include theme-prop(background-color, primary-color);
+}
+
+.mondayStyleLabelKindFill.mondayStyleLabelColorPrimary svg path {
+  @include theme-prop(fill, primary-color);
+}
+
+.mondayStyleLabelKindFill.mondayStyleLabelColorDark {
+  @include theme-prop(color, text-color-on-inverted);
+  @include theme-prop(background-color, inverted-color-background);
+}
+
+.mondayStyleLabelKindFill.mondayStyleLabelColorDark svg path {
+  @include theme-prop(fill, inverted-color-background);
+}
+
+.mondayStyleLabelKindFill.mondayStyleLabelColorNegative {
+  @include theme-prop(color, text-color-on-primary);
+  @include theme-prop(background-color, negative-color);
+}
+
+.mondayStyleLabelKindFill.mondayStyleLabelColorNegative svg path {
+  @include theme-prop(fill, negative-color);
+}
+
+.mondayStyleLabelKindFill.mondayStyleLabelColorPositive {
+  @include theme-prop(color, text-color-on-primary);
+  @include theme-prop(background-color, positive-color);
+}
+
+.mondayStyleLabelKindFill.mondayStyleLabelColorPositive svg path {
+  @include theme-prop(fill, positive-color);
+}
+
+.mondayStyleLabelKindLine {
+  border: 1px solid currentColor;
+}
+
+.mondayStyleLabelKindLine .mondayStyleLabelLegWrapper {
+  left: -1px;
+  top: calc(100% + 1px);
+}
+
+.mondayStyleLabelKindLine.mondayStyleLabelColorPrimary {
+  @include theme-prop(color, primary-color);
+}
+
+.mondayStyleLabelKindLine.mondayStyleLabelColorPrimary svg path {
+  @include theme-prop(fill, primary-color);
+}
+
+.mondayStyleLabelKindLine.mondayStyleLabelColorDark {
+  @include theme-prop(color, inverted-color-background);
+}
+
+.mondayStyleLabelKindLine.mondayStyleLabelColorDark svg path {
+  @include theme-prop(fill, inverted-color-background);
+}
+
+.mondayStyleLabelKindLine.mondayStyleLabelColorNegative {
+  @include theme-prop(color, negative-color);
+}
+
+.mondayStyleLabelKindLine.mondayStyleLabelColorNegative svg path {
+  @include theme-prop(fill, negative-color);
+}
+
+.mondayStyleLabelKindLine.mondayStyleLabelColorPositive {
+  @include theme-prop(color, positive-color);
+}
+
+.mondayStyleLabelKindLine.mondayStyleLabelColorPositive svg path {
+  @include theme-prop(fill, positive-color);
+}
+
+@keyframes labelPop {
+  0% {
+    transform: scale(0.8) rotate(25deg);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

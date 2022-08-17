@@ -1,60 +1,70 @@
-/* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
-import React, { useRef, forwardRef, useCallback } from "react";
-import PropTypes from "prop-types";
+import { camelCase } from "lodash";
 import cx from "classnames";
+/* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
+import React, { forwardRef, useCallback, useRef } from "react";
+import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./ListItem.scss";
 import { SIZES } from "../../constants/sizes";
 import { keyCodes } from "../../constants/KeyCodes";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./ListItem.module.scss";
 
-const BEM_BASE_CLASS = "list-item";
+const CSS_BASE_CLASS = "list-item";
 
-function BEMHelper(state) {
-  return `${BEM_BASE_CLASS}--${state}`;
-}
+const ListItem = forwardRef(
+  ({ className, id, onClick, selected, disabled, size, tabIndex, children, "data-testid": dataTestId }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-const ListItem = forwardRef(({ className, id, onClick, selected, disabled, size, tabIndex, children }, ref) => {
-  const componentRef = useRef(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-
-  const componentOnClick = useCallback(
-    event => {
-      if (disabled) return;
-      onClick(event, id);
-    },
-    [disabled, onClick, id]
-  );
-
-  const onKeyDown = useCallback(
-    event => {
-      if (disabled) return;
-      const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
-      if (KEYS.includes(event.key)) {
+    const componentOnClick = useCallback(
+      event => {
+        if (disabled) return;
         onClick(event, id);
-      }
-    },
-    [disabled, onClick, id]
-  );
+      },
+      [disabled, onClick, id]
+    );
 
-  return (
-    <div
-      ref={mergedRef}
-      className={cx("list-item", className, BEMHelper(size), {
-        [BEMHelper("selected")]: selected && !disabled,
-        [BEMHelper("disabled")]: disabled
-      })}
-      id={id}
-      aria-disabled={disabled}
-      onClick={componentOnClick}
-      onKeyDown={onKeyDown}
-      role="listitem"
-      tabIndex={tabIndex}
-    >
-      {children}
-    </div>
-  );
-});
+    const onKeyDown = useCallback(
+      event => {
+        if (disabled) return;
+        const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
+        if (KEYS.includes(event.key)) {
+          onClick(event, id);
+        }
+      },
+      [disabled, onClick, id]
+    );
+
+    return (
+      <div
+        ref={mergedRef}
+        className={cx(
+          styles.listItem,
+          CSS_BASE_CLASS,
+          className,
+          styles[`${camelCase("list-item--" + size)}`],
+          `list-item--${size}`,
+          {
+            [styles.listItemSelected]: selected && !disabled,
+            ["list-item--selected"]: selected && !disabled,
+            [styles.listItemDisabled]: disabled,
+            ["list-item--disabled"]: disabled
+          }
+        )}
+        id={id}
+        aria-disabled={disabled}
+        onClick={componentOnClick}
+        onKeyDown={onKeyDown}
+        role="listitem"
+        tabIndex={tabIndex}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LIST_ITEM, id)}
+      >
+        {children}
+      </div>
+    );
+  }
+);
 
 ListItem.sizes = SIZES;
 

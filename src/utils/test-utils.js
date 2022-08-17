@@ -33,6 +33,10 @@ export const ELEMENT_TYPES = {
   HEADING: "heading",
   LABEL: "label",
   LINK: "link",
+  LIST: "list",
+  LIST_ITEM: "list-item",
+  LIST_ITEM_ICON: "list-item-icon",
+  LIST_TITLE: "list-title",
   MENU_DIVIDER: "menu-divider",
   MENU_ITEM: "menu-item",
   MENU_ITEM_BUTTON: "menu-item-button",
@@ -45,7 +49,10 @@ export const ELEMENT_TYPES = {
   TOAST: "toast",
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
-  DIVIDER: "divider"
+  DIVIDER: "divider",
+  TAB: "tab",
+  TAB_PANEL: "tab-panel",
+  ICON: "icon"
 };
 
 export const NAVIGATIONS_COMMANDS = {

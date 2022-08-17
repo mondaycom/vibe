@@ -1,0 +1,51 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
+
+.mondayStyleLink {
+  display: flex;
+  align-items: center;
+  @include theme-prop(color, link-color);
+  @include font-link();
+  text-decoration: none;
+  writing-mode: horizontal-tb;
+  @include focus-style();
+}
+
+.mondayStyleLink:hover .mondayStyleLinkText {
+  text-decoration: underline;
+}
+
+.mondayStyleLink.inlineText {
+  display: inline-flex;
+  align-items: unset;
+}
+
+.mondayStyleLink.inheritFontSize {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.mondayStyleLinkIconStart {
+  line-height: 24px;
+  margin-right: $spacing-small;
+}
+
+.mondayStyleLinkIconEnd {
+  line-height: 24px;
+  margin-left: $spacing-small;
+}
+
+@supports (margin-inline-start: initial) {
+  .mondayStyleLinkIconStart {
+    line-height: 24px;
+    margin-right: 0;
+    margin-inline-end: $spacing-small;
+  }
+  .mondayStyleLinkIconEnd {
+    line-height: 24px;
+    margin-left: 0;
+    margin-inline-start: $spacing-small;
+  }
+}

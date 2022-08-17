@@ -1,0 +1,49 @@
+@import "../../styles/themes";
+@import "../../styles/states";
+@import "../../styles/typography";
+
+.listItem {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  color: var(--primary-text-color);
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  @include focus-style-inset();
+}
+
+.listItem:hover {
+  background-color: var(--primary-background-hover-color);
+}
+
+.listItemDisabled {
+  cursor: not-allowed;
+  color: var(--disabled-text-color);
+}
+
+.listItemDisabled:hover {
+  background-color: transparent;
+}
+
+.listItemSelected {
+  background-color: var(--primary-selected-color);
+}
+
+.listItemSelected:hover {
+  background-color: var(--primary-selected-color);
+}
+
+.listItemSmall {
+  height: 32px;
+}
+
+.listItemMedium {
+  height: 40px;
+}
+
+.listItemLarge {
+  height: 48px;
+}

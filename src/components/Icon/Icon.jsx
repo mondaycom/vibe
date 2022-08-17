@@ -1,12 +1,12 @@
+import cx from "classnames";
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { ICON_TYPES } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import "./Icon.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 
 const NOOP = () => {};
 
@@ -26,6 +26,7 @@ const Icon = forwardRef(
       style,
       useCurrentColor,
       customColor,
+      id,
       "data-testid": dataTestId
     },
     ref
@@ -55,9 +56,9 @@ const Icon = forwardRef(
           ref={isFunctionType ? undefined : mergedRef}
           size={iconSize.toString()}
           onClick={onClick}
-          className={computedClassName}
+          className={cx(computedClassName)}
           style={style}
-          data-testid={dataTestId}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
         />
       );
     }
@@ -71,7 +72,7 @@ const Icon = forwardRef(
           style={style}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
-          data-testid={dataTestId}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
         />
       );
     }
@@ -83,7 +84,7 @@ const Icon = forwardRef(
         ref={mergedRef}
         icon={icon}
         style={style}
-        data-testid={dataTestId}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
       />
     );
   }
