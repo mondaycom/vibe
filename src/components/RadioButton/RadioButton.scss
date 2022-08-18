@@ -30,7 +30,7 @@
       box-sizing: border-box;
       @include theme-prop(border-color, ui-border-color);
       border-radius: 50%;
-      transition: border-width var(--motion-productive-medium) var(--expand-animation-timing);
+      transition: border-width var(--motion-productive-medium) var(--motion-timing-enter);
     }
 
     input:checked + &__radio-control {
@@ -39,7 +39,7 @@
       &--label-animation {
         animation-name: radio-checked-animation;
         animation-duration: var(--motion-productive-medium);
-        animation-timing-function: var(--expand-animation-timing);
+        animation-timing-function: var(--motion-timing-enter);
         animation-fill-mode: forwards;
       }
     }

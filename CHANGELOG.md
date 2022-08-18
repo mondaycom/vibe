@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.55.0 (2022-08-14)
+
+#### Bug Fixes
+* [#818](https://github.com/mondaycom/monday-ui-react-core/pull/818) Fix icon button size ([@hadasfa](https://github.com/hadasfa))
+* [#815](https://github.com/mondaycom/monday-ui-react-core/pull/815) Avatar: prevent default (scroll) on click via space ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#813](https://github.com/mondaycom/monday-ui-react-core/pull/813) fix focus indicator to inset ([@orrgottlieb](https://github.com/orrgottlieb))
+* [#810](https://github.com/mondaycom/monday-ui-react-core/pull/810) remove console.log ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#816](https://github.com/mondaycom/monday-ui-react-core/pull/816) Add Cursor not-allowed to disabled checkbox ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#814](https://github.com/mondaycom/monday-ui-react-core/pull/814) Fix useKeyEvent imports ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.54.0 (2022-08-03)
 
 #### Bug Fixes
