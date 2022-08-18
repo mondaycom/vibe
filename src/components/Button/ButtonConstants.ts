@@ -36,6 +36,8 @@ export const BUTTON_KIND_CLASS_NAMES = {
   PRIMARY: ""
 };
 
+export const BUTTON_ICON_SIZE = 20;
+
 export enum ButtonInputType {
   BUTTON = "button",
   SUBMIT = "submit",
