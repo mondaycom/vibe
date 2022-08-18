@@ -35,7 +35,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+        className="monday-style-tooltip-arrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -85,7 +85,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+        className="monday-style-tooltip-arrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -135,7 +135,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+        className="monday-style-tooltip-arrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -185,7 +185,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+        className="monday-style-tooltip-arrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
         data-placement="left"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -240,7 +240,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+        className="monday-style-tooltip-arrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -290,7 +290,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowError paddingSizeUndefined monday-style-arrow monday-style-arrow-error padding-size-undefined"
+        className="monday-style-tooltip-arrow mondayStyleArrowError paddingSizeUndefined monday-style-arrow monday-style-arrow-error padding-size-undefined"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}

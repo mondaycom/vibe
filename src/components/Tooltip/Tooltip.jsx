@@ -8,8 +8,8 @@ import Dialog from "../Dialog/Dialog";
 import { DialogPositions } from "../../constants/sizes";
 import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
 import { TOOLTIP_JUSTIFY_TYPES, TOOLTIP_THEMES } from "./TooltipConstants";
-import styles from "./Tooltip.module.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./Tooltip.module.scss";
 
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -146,10 +146,11 @@ export default class Tooltip extends React.PureComponent {
       getContainer: getContainer || this.getContainer,
       moveBy,
       tooltipClassName: cx(
-        styles[camelCase("monday-style-arrow")],
         styles[camelCase("monday-style-arrow-" + theme)],
         styles[camelCase("padding-size-" + paddingSize)],
-        `monday-style-arrow monday-style-arrow-${theme} padding-size-${paddingSize}`
+        "monday-style-arrow",
+        `monday-style-arrow-${theme}`,
+        `padding-size-${paddingSize}`
       ),
       animationType: "expand",
       onDialogDidHide: this.onTooltipHide,

@@ -61,7 +61,7 @@ Snapshot Diff:
 +             20%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             class="monday-style-tooltip-arrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -95,7 +95,7 @@ Snapshot Diff:
 -             20%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+-             class="monday-style-tooltip-arrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -136,7 +136,7 @@ Snapshot Diff:
 +             20%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             class="monday-style-tooltip-arrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 +             data-placement="top"
 +             style="position: absolute;"
             />
@@ -177,7 +177,7 @@ Snapshot Diff:
 -             20%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow mondayStyleArrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+-             class="monday-style-tooltip-arrow mondayStyleArrowDark paddingSizeUndefined monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 -             data-placement="top"
 -             style="position: absolute;"
         />
