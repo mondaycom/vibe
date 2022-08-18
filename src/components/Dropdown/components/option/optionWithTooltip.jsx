@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import { components } from "react-select";
+import Tooltip from "../../../Tooltip/Tooltip";
 import TooltipWrapper from "../../../Tooltip/TooltipWrapper";
 import "./option.scss";
-import Tooltip from "../../../Tooltip/Tooltip";
 
-const Option = ({ Renderer, ...props }) => {
+const OptionWithTooltip = ({ ...props }) => {
   const { data } = props;
 
   return (
@@ -13,11 +13,9 @@ const Option = ({ Renderer, ...props }) => {
       wrapWithTooltip={!!data?.tooltipProps}
       tooltipProps={{ position: Tooltip.positions.RIGHT, ...data.tooltipProps }}
     >
-      <components.Option {...props} className="dropdown-wrapper__option--reset">
-        {Renderer && <Renderer {...data} />}
-      </components.Option>
+      <components.Option {...props} className="dropdown-wrapper__option--reset"></components.Option>
     </TooltipWrapper>
   );
 };
 
-export default Option;
+export default OptionWithTooltip;

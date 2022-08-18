@@ -10,10 +10,11 @@ import cx from "classnames";
 import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
 import OptionComponent from "./components/option/option";
+import OptionWithTooltipComponent from "./components/option/optionWithTooltip";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import ValueContainer from "./components/ValueContainer/ValueContainer";
-import { defaultCustomStyles, ADD_AUTO_HEIGHT_COMPONENTS } from "./DropdownConstants";
+import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 
@@ -78,6 +79,7 @@ const Dropdown = ({
   const [isDialogShown, setIsDialogShown] = useState(false);
   const finalOptionRenderer = optionRenderer || OptionRenderer;
   const finalValueRenderer = valueRenderer || ValueRenderer;
+  const isTooltipOptionRenderer = !finalOptionRenderer && options.some(o => o?.tooltipProps);
   const isControlled = !!customValue;
   const selectedOptions = customValue ?? selected;
   const selectedOptionsMap = useMemo(() => {
@@ -137,8 +139,13 @@ const Dropdown = ({
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
   const Option = useCallback(
-    props => <OptionComponent {...props} Renderer={finalOptionRenderer} />,
-    [finalOptionRenderer]
+    props =>
+      isTooltipOptionRenderer ? (
+        <OptionWithTooltipComponent {...props} />
+      ) : (
+        <OptionComponent {...props} Renderer={finalOptionRenderer} />
+      ),
+    [finalOptionRenderer, isTooltipOptionRenderer]
   );
 
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
@@ -229,7 +236,7 @@ const Dropdown = ({
         Menu,
         ClearIndicator,
         Input,
-        ...(finalOptionRenderer && { Option }),
+        ...((finalOptionRenderer || isTooltipOptionRenderer) && { Option }),
         ...(finalValueRenderer && { SingleValue }),
         ...(multi && {
           MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
