@@ -1,6 +1,6 @@
 import React from "react";
 import ModalHeader from "../ModalHeader";
-import { Settings } from "components/Icon/Icons";
+import { Settings } from "../../../components/Icon/Icons";
 import { cleanup, render } from "@testing-library/react";
 import { snapshotDiff } from "../../../../jest/utils";
 

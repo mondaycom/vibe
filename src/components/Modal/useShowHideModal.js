@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from "react";
 import useAnimationProps from "./useAnimationProps";
-import useKeyEvent from "hooks/useKeyEvent/index";
+import useKeyEvent from "../../hooks/useKeyEvent/index";
 
 export default function useShowHideModal({ instance, show, triggerElement, onClose, alertDialog }) {
   const getAnimationProps = useAnimationProps(triggerElement, instance);

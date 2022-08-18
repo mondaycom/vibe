@@ -1,4 +1,4 @@
-import { Button, Flex } from "components";
+import { Button, Flex } from "../../../components";
 import React, { useRef, useState } from "react";
 
 // internal custom hook to help with writing tests and stories.

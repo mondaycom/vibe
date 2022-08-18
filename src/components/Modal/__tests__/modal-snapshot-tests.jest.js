@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "../Modal";
-import { ModalContent, ModalFooter, ModalHeader } from "components";
+import { ModalContent, ModalFooter, ModalHeader } from "../../../components";
 import { cleanup, render } from "@testing-library/react";
 import { snapshotDiff } from "../../../../jest/utils";
 

@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import styles from "./ModalHeader.module.scss";
-import IconButton from "components/IconButton/IconButton";
-import CloseSmall from "components/Icon/Icons/components/CloseSmall";
-import Icon from "components/Icon/Icon";
+import IconButton from "../../components/IconButton/IconButton";
+import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
+import Icon from "../../components/Icon/Icon";
 
 const ModalHeader = ({
   className,

@@ -1,8 +1,8 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import Modal from "../Modal";
-import { useModalHelper } from "components/Modal/__stories__/helpers";
-import { ModalHeader } from "components";
+import { useModalHelper } from "../__stories__/helpers";
+import { ModalHeader } from "../../../components";
 import "@testing-library/jest-dom";
 
 const MODAL_TITLE_TEXT = "Modal title";
