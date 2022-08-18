@@ -61,8 +61,10 @@ export default class Tooltip extends React.PureComponent {
           "monday-style-tooltip",
           styles[`${camelCase("monday-style-tooltip-" + theme)}`],
           `monday-style-tooltip-${theme}`,
-          styles[`${camelCase("padding-size-" + paddingSize)}`],
-          `padding-size-${paddingSize}`,
+          {
+            [styles[`${camelCase("padding-size-" + paddingSize)}`]]: paddingSize,
+            [`padding-size-${paddingSize}`]: paddingSize
+          },
           className
         )}
       >
@@ -147,10 +149,12 @@ export default class Tooltip extends React.PureComponent {
       moveBy,
       tooltipClassName: cx(
         styles[camelCase("monday-style-arrow-" + theme)],
-        styles[camelCase("padding-size-" + paddingSize)],
         "monday-style-arrow",
         `monday-style-arrow-${theme}`,
-        `padding-size-${paddingSize}`
+        {
+          [styles[`${camelCase("padding-size-" + paddingSize)}`]]: paddingSize,
+          [`padding-size-${paddingSize}`]: paddingSize
+        }
       ),
       animationType: "expand",
       onDialogDidHide: this.onTooltipHide,
