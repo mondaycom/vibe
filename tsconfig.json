@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
     "rootDir": "./src",
     "lib": ["esnext", "dom"],
     "allowJs": true,
@@ -9,15 +8,14 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "strict": true,
+    "outDir": "dist",
+    "declarationDir": "dist/types",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "declaration": true,
     "skipLibCheck": true,
     "noImplicitAny": true,
-    "outDir": "dist1",
-    "declarationDir": "sosHelp",
-
+    "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "paths": {
       "hooks/*": ["src/hooks/*"],
