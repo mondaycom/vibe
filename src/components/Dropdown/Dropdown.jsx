@@ -10,7 +10,6 @@ import cx from "classnames";
 import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
 import OptionComponent from "./components/option/option";
-import OptionWithTooltipComponent from "./components/option/optionWithTooltip";
 import SingleValueComponent from "./components/singleValue/singleValue";
 import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator";
 import ValueContainer from "./components/ValueContainer/ValueContainer";
@@ -79,7 +78,6 @@ const Dropdown = ({
   const [isDialogShown, setIsDialogShown] = useState(false);
   const finalOptionRenderer = optionRenderer || OptionRenderer;
   const finalValueRenderer = valueRenderer || ValueRenderer;
-  const isTooltipOptionRenderer = !finalOptionRenderer && options.some(o => o?.tooltipProps);
   const isControlled = !!customValue;
   const selectedOptions = customValue ?? selected;
   const selectedOptionsMap = useMemo(() => {
@@ -139,13 +137,8 @@ const Dropdown = ({
   const DropdownIndicator = useCallback(props => <DropdownIndicatorComponent {...props} size={size} />, [size]);
 
   const Option = useCallback(
-    props =>
-      isTooltipOptionRenderer ? (
-        <OptionWithTooltipComponent {...props} />
-      ) : (
-        <OptionComponent {...props} Renderer={finalOptionRenderer} />
-      ),
-    [finalOptionRenderer, isTooltipOptionRenderer]
+    props => <OptionComponent {...props} Renderer={finalOptionRenderer} />,
+    [finalOptionRenderer]
   );
 
   const Input = useCallback(props => <components.Input {...props} aria-label="Dropdown input" />, []);
@@ -236,7 +229,7 @@ const Dropdown = ({
         Menu,
         ClearIndicator,
         Input,
-        ...((finalOptionRenderer || isTooltipOptionRenderer) && { Option }),
+        Option,
         ...(finalValueRenderer && { SingleValue }),
         ...(multi && {
           MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
