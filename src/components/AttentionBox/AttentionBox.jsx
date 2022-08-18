@@ -2,12 +2,15 @@ import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import Icon from "../../components/Icon/Icon";
+import IconButton from "../IconButton/IconButton";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import AlertIcon from "../../components/Icon/Icons/components/Alert";
 import { ICON_TYPES } from "../../components/Icon/IconConstants";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { baseClassName, closeClassName, compactClassName, ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
+import { ATTENTION_BOX_TYPES } from "./AttentionBoxConstants";
 import "./AttentionBox.scss";
+
+const ATTENTION_BOX_CSS_BASE_CLASS = "monday-style-attention-box-component";
 
 const AttentionBox = ({
   className,
@@ -37,42 +40,47 @@ const AttentionBox = ({
   }, [type]);
 
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-  const classNameWithType = `${baseClassName}--type-${type}`;
+  const classNameWithType = `${ATTENTION_BOX_CSS_BASE_CLASS}--type-${type}`;
   return (
     <aside
       className={cx(
-        baseClassName,
+        ATTENTION_BOX_CSS_BASE_CLASS,
         classNameWithType,
-        { [compactClassName]: compact },
-        { [closeClassName]: onClose },
+        { compact: compact, "with-close": onClose },
         overrideClassName
       )}
       role="alert"
     >
       {title && (
-        <h2 className={cx(`${baseClassName}__title-container`, `${classNameWithType}__title-container`)}>
+        <h2 className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__title-container`, `${classNameWithType}__title-container`)}>
           {!withoutIcon && (
             <Icon
               iconType={iconType}
               ariaHidden
               clickable={false}
               icon={icon}
-              className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
+              className={cx(
+                `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__icon`,
+                `${classNameWithType}__title-container__icon`
+              )}
               ignoreFocusStyle
               iconSize="24"
               iconLabel={iconLabel}
             />
           )}
           <span
-            className={cx(`${baseClassName}__title-container__title`, `${classNameWithType}__title-container__title`)}
+            className={cx(
+              `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__title`,
+              `${classNameWithType}__title-container__title`
+            )}
           >
             {title}
           </span>
         </h2>
       )}
       <div
-        className={cx(`${baseClassName}__text`, `${classNameWithType}__text`, {
-          [`${baseClassName}_text--compact`]: compact
+        className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__text`, `${classNameWithType}__text`, {
+          [`${ATTENTION_BOX_CSS_BASE_CLASS}_text--compact`]: compact
         })}
       >
         {!title && compact && !withoutIcon && withIconWithoutHeader && (
@@ -82,7 +90,10 @@ const AttentionBox = ({
             ariaHidden
             clickable={false}
             icon={icon}
-            className={cx(`${baseClassName}__title-container__icon`, `${classNameWithType}__title-container__icon`)}
+            className={cx(
+              `${ATTENTION_BOX_CSS_BASE_CLASS}__title-container__icon`,
+              `${classNameWithType}__title-container__icon`
+            )}
             ignoreFocusStyle
             iconLabel={iconLabel}
           />
@@ -90,14 +101,16 @@ const AttentionBox = ({
         {text}
       </div>
       {onClose && (
-        <Icon
-          iconType={Icon.type.SVG}
-          iconLabel="Close"
+        <IconButton
+          size={IconButton.sizes.SMALL}
+          color={IconButton.colors.ON_PRIMARY_COLOR}
+          className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon`, "icon")}
+          wrapperClassName={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon`, "wrapper", {
+            compact: compact
+          })}
+          ariaLabel="Close"
           icon={CloseSmall}
-          className={cx(`${baseClassName}__close-icon`, { [compactClassName]: compact })}
-          ignoreFocusStyle
           onClick={onClose}
-          iconSize="24"
         />
       )}
     </aside>

@@ -80,13 +80,17 @@
     }
   }
 
-  & &__close-icon {
-    position: absolute;
-    top: $spacing-small-medium;
-    right: $spacing-small-medium;
-
-    &.compact{
-      top: calc(50% - 12px);
+  &__close-icon {
+    &.wrapper {
+      position: absolute;
+      top: $spacing-small-medium;
+      right: $spacing-small-medium;
+    }
+    &.icon {
+      color: var(--primary-text-color);
+    }
+    &.compact {
+      top: calc(50% - 16px);
     }
   }
 }
