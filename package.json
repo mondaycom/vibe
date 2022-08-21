@@ -67,7 +67,7 @@
     "react-inlinesvg": "^2.3.0",
     "react-popper": "^2.3.0",
     "react-select": "^3.2.0",
-    "react-transition-group": "^4.4.2",
+    "react-transition-group": "^4.4.4",
     "react-virtualized-auto-sizer": "^1.0.6",
     "react-window": "^1.8.7",
     "react-windowed-select": "^2.0.4"
