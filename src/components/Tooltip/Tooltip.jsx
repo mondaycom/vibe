@@ -186,7 +186,11 @@ Tooltip.propTypes = {
    * Dialog.hideShowTriggers
    */
   hideTrigger: PropTypes.any,
-  showOnDialogEnter: PropTypes.bool
+  showOnDialogEnter: PropTypes.bool,
+  /**
+   * A Classname to be added to <spam> element which wraps the children
+   */
+  referenceWrapperClassName: PropTypes.string
 };
 
 Tooltip.defaultProps = {
@@ -210,5 +214,6 @@ Tooltip.defaultProps = {
   modifiers: [],
   showTrigger: Dialog.hideShowTriggers.MOUSE_ENTER,
   hideTrigger: Dialog.hideShowTriggers.MOUSE_LEAVE,
-  showOnDialogEnter: false
+  showOnDialogEnter: false,
+  referenceWrapperClassName: ""
 };
