@@ -13,23 +13,29 @@ const NOOP = () => {};
 const Icon = forwardRef(
   (
     {
-      onClick,
       className,
       icon,
-      clickable,
       iconLabel,
       iconType,
       iconSize,
-      ignoreFocusStyle,
       tabindex: externalTabIndex,
       ariaHidden,
       style,
       useCurrentColor,
       customColor,
-      "data-testid": dataTestId
+      "data-testid": dataTestId,
+      // deprecated - IconButton should be used ->
+      onClick,
+      clickable,
+      ignoreFocusStyle
+      // <- deprecated - IconButton should be used
     },
     ref
   ) => {
+    // Setting default values for hidden deprecated clickable props
+    onClick = onClick || NOOP;
+    clickable = clickable || false;
+
     const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
       onClick,
       iconLabel,
@@ -92,7 +98,6 @@ const Icon = forwardRef(
 Icon.type = ICON_TYPES;
 
 Icon.propTypes = {
-  onClick: PropTypes.func,
   /**
    * class name to be added to icon
    */
@@ -106,10 +111,6 @@ Icon.propTypes = {
    */
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   /**
-   * is in used for tabIndex
-   */
-  clickable: PropTypes.bool,
-  /**
    * icon aria label support
    */
   iconLabel: PropTypes.string,
@@ -117,10 +118,6 @@ Icon.propTypes = {
    * size for font icon
    */
   iconSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /**
-   * remove focus style
-   */
-  ignoreFocusStyle: PropTypes.bool,
   ariaHidden: PropTypes.bool,
   /**
    * when using svg from src (Icon.type.SRC) this boolean will transform the "fill" property to "currentColor"
@@ -133,14 +130,11 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-  onClick: NOOP,
   className: "",
   icon: "",
-  clickable: true,
   iconLabel: undefined,
   iconType: ICON_TYPES.SVG,
   iconSize: 16,
-  ignoreFocusStyle: false,
   ariaHidden: undefined,
   useCurrentColor: false,
   customColor: undefined
