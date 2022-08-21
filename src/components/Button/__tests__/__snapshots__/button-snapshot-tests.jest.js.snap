@@ -2,6 +2,7 @@
 
 exports[`Button renders correctly a11y renders correctly with a11y props (false) 1`] = `
 <button
+  aria-busy={false}
   aria-controls="area"
   aria-disabled={false}
   aria-expanded={false}
@@ -23,6 +24,7 @@ exports[`Button renders correctly a11y renders correctly with a11y props (false)
 
 exports[`Button renders correctly a11y renders correctly with a11y props (true) 1`] = `
 <button
+  aria-busy={false}
   aria-controls="area"
   aria-disabled={false}
   aria-expanded={true}
@@ -44,6 +46,7 @@ exports[`Button renders correctly a11y renders correctly with a11y props (true) 
 
 exports[`Button renders correctly renders Button color- negative 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-negative"
   data-testid="button"
@@ -60,6 +63,7 @@ exports[`Button renders correctly renders Button color- negative 1`] = `
 
 exports[`Button renders correctly renders Button color- on-inverted-background 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-on-inverted-background"
   data-testid="button"
@@ -76,6 +80,7 @@ exports[`Button renders correctly renders Button color- on-inverted-background 1
 
 exports[`Button renders correctly renders Button color- on-primary-color 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-on-primary-color"
   data-testid="button"
@@ -92,6 +97,7 @@ exports[`Button renders correctly renders Button color- on-primary-color 1`] = `
 
 exports[`Button renders correctly renders Button color- positive 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-positive"
   data-testid="button"
@@ -108,6 +114,7 @@ exports[`Button renders correctly renders Button color- positive 1`] = `
 
 exports[`Button renders correctly renders Button color- primary 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
   data-testid="button"
@@ -124,6 +131,7 @@ exports[`Button renders correctly renders Button color- primary 1`] = `
 
 exports[`Button renders correctly renders Button kind- primary 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
   data-testid="button"
@@ -140,6 +148,7 @@ exports[`Button renders correctly renders Button kind- primary 1`] = `
 
 exports[`Button renders correctly renders Button kind- secondary 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-secondary monday-style-button--color-primary"
   data-testid="button"
@@ -156,6 +165,7 @@ exports[`Button renders correctly renders Button kind- secondary 1`] = `
 
 exports[`Button renders correctly renders Button kind- tertiary 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
   data-testid="button"
@@ -172,6 +182,7 @@ exports[`Button renders correctly renders Button kind- tertiary 1`] = `
 
 exports[`Button renders correctly renders Button size- large 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-large monday-style-button--kind-primary monday-style-button--color-primary"
   data-testid="button"
@@ -188,6 +199,7 @@ exports[`Button renders correctly renders Button size- large 1`] = `
 
 exports[`Button renders correctly renders Button size- medium 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
   data-testid="button"
@@ -204,6 +216,7 @@ exports[`Button renders correctly renders Button size- medium 1`] = `
 
 exports[`Button renders correctly renders Button size- small 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
   data-testid="button"
@@ -220,6 +233,7 @@ exports[`Button renders correctly renders Button size- small 1`] = `
 
 exports[`Button renders correctly renders correctly with callbacks 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="test monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
   data-testid="button"
@@ -236,6 +250,7 @@ exports[`Button renders correctly renders correctly with callbacks 1`] = `
 
 exports[`Button renders correctly renders correctly with className 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="test monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
   data-testid="button"
@@ -252,6 +267,7 @@ exports[`Button renders correctly renders correctly with className 1`] = `
 
 exports[`Button renders correctly renders correctly with empty props 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
   data-testid="button"
@@ -268,6 +284,7 @@ exports[`Button renders correctly renders correctly with empty props 1`] = `
 
 exports[`Button renders correctly renders correctly with id 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
   data-testid="button_test"
@@ -283,27 +300,9 @@ exports[`Button renders correctly renders correctly with id 1`] = `
 </button>
 `;
 
-exports[`Button renders correctly renders correctly with leftIcon 1`] = `
-<button
-  aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
-  data-testid="button"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onMouseDown={[Function]}
-  onMouseUp={[Function]}
-  type="button"
->
-  <div
-    data-testid="icon-mock"
-  />
-  Button
-</button>
-`;
-
 exports[`Button renders correctly renders correctly with props change ui 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--margin-right monday-style-button--margin-left monday-style-button--right-flat monday-style-button--left-flat monday-style-button--no-side-padding"
   data-testid="button"
@@ -315,24 +314,5 @@ exports[`Button renders correctly renders correctly with props change ui 1`] = `
   type="button"
 >
   Button
-</button>
-`;
-
-exports[`Button renders correctly renders correctly with rightIcon 1`] = `
-<button
-  aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
-  data-testid="button"
-  onBlur={[Function]}
-  onClick={[Function]}
-  onFocus={[Function]}
-  onMouseDown={[Function]}
-  onMouseUp={[Function]}
-  type="button"
->
-  Button
-  <div
-    data-testid="icon-mock"
-  />
 </button>
 `;
