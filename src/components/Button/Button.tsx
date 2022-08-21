@@ -320,7 +320,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
           {successIcon ? (
             <Icon
               // @ts-ignore
-              iconType={Icon.type.ICON_FONT}
+              iconType={Icon?.type.ICON_FONT}
               clickable={false}
               icon={successIcon}
               iconSize={successIconSize}
@@ -340,7 +340,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         {leftIcon ? (
           <Icon
             // @ts-ignore
-            iconType={Icon.type.ICON_FONT}
+            iconType={Icon?.type.ICON_FONT}
             clickable={false}
             icon={leftIcon}
             iconSize={leftIconSize}
@@ -352,7 +352,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         {rightIcon ? (
           <Icon
             // @ts-ignore
-            iconType={Icon.type.ICON_FONT}
+            iconType={Icon?.type.ICON_FONT}
             clickable={false}
             icon={rightIcon}
             iconSize={rightIconSize}
