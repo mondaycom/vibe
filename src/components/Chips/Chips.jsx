@@ -114,6 +114,7 @@ const Chips = forwardRef(
             color={IconButton.colors.ON_PRIMARY_COLOR}
             className={cx(styles.icon, styles.close)}
             ariaLabel="Remove"
+            hideTooltip
             icon={CloseSmall}
             iconSize={18}
             onClick={onDeleteCallback}
