@@ -3,6 +3,7 @@ import { printWithCondition } from "../commonProcess/print";
 import { buildStringFromCallExpression } from "./buildStringFromCallExpression";
 import { State } from "../../index";
 import { isTemplateLiteralPartBaseClassIdentifier } from "../logical/IsTemplateLiteralPartBaseClassIdentifier";
+import { removeCommonPrefix } from "../../postcss/utils/classNameStringUtils";
 
 export type TemplateLiteralPart = {
   value: string | undefined;
@@ -118,6 +119,7 @@ export const buildClassnameStringFromTemplateLiteral = (
   }
 
   if (addCamelCaseWrapping && newString.includes("+")) {
+    newString = removeCommonPrefix(newString);
     newString = `\`\$\{camelCase(${newString})\}\``;
   }
 

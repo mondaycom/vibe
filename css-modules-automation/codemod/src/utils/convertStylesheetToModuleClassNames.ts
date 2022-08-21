@@ -16,7 +16,7 @@ import { printWithCondition } from "./commonProcess/print";
  * @param filename Fully qualified filename (path) to the CSS file
  * @returns Set of valid classnames within the CSS file
  */
-export const convertToModuleClassNames = (filename: string): Map<string, string> => {
+export const convertStylesheetToModuleClassNames = (filename: string): Map<string, string> => {
   if (!existsSync(filename)) {
     throw new Error("&&& convertToModuleClassNames, referenced CSS file does not exist: " + filename);
   }
@@ -28,5 +28,8 @@ export const convertToModuleClassNames = (filename: string): Map<string, string>
     throw new Error("&&& convertToModuleClassNames, error: " + stderr);
   }
 
-  return new Map<string, string>(Object.entries(JSON.parse(stdout)));
+  const classNamesMap = new Map<string, string>(Object.entries(JSON.parse(stdout)));
+  classNamesMap.forEach((value, key) => {});
+  printWithCondition(true, "&&& convertToModuleClassNames, classNamesMap", classNamesMap);
+  return classNamesMap;
 };

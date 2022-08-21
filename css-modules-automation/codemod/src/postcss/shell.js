@@ -6,7 +6,7 @@ const postcssNested = require("postcss-nested");
 const { readFileSync, writeFileSync } = require("fs");
 const replaceSingleLineCommentsWithMultiline = require("./utils/replaceSingleLineCommentsWithMultiline");
 const removeEmptyLinesBetweenImports = require("./utils/removeEmptyLinesBetweenImports");
-const convertToCamelCase = require("./utils/convertToCamelCase");
+const classNameStringUtils = require("./utils/classNameStringUtils");
 
 const execute = async filename => {
   let classNames = {};
@@ -15,7 +15,7 @@ const execute = async filename => {
       classNames = json;
     },
     generateScopedName: function (name) {
-      return convertToCamelCase(name);
+      return classNameStringUtils.convertToCamelCase(name);
     }
   });
 

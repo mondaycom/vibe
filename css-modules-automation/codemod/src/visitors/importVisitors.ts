@@ -6,7 +6,7 @@ import { isClassNamesImportDeclaration } from "../utils/logical/isClassNamesImpo
 import { isBemHelperImportDeclaration } from "../utils/logical/isBemHelperImportDeclaration";
 import { isCssImportDeclaration } from "../utils/logical/isCssImportDeclaration";
 import { dirname, resolve } from "path";
-import { convertToModuleClassNames } from "../utils/convertToModuleClassNames";
+import { convertStylesheetToModuleClassNames } from "../utils/convertStylesheetToModuleClassNames";
 import { markFileForRenaming } from "../utils/markFileForRenaming";
 import { bemHelperCallExpressionsVisitors } from "./bemHelperCallExpressionsVisitors";
 import { templateLiteralReplacementVisitors } from "./templateLiteralReplacementVisitors";
@@ -91,7 +91,7 @@ export const importVisitors: Visitor<State> = {
     let classNames: Map<string, string>;
     if (!filesClassNamesMap.has(scssFilename)) {
       // 2: process .scss file
-      classNames = convertToModuleClassNames(scssFilename);
+      classNames = convertStylesheetToModuleClassNames(scssFilename);
       filesClassNamesMap.set(scssFilename, classNames);
       markFileForRenaming(scssFilename);
       markFileForPrettier(scssFilename);
