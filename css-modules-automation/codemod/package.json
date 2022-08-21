@@ -21,6 +21,7 @@
     "modify react-core/steps-command": "shell_scripts/run.sh ../../src/components/Steps/StepsCommand.jsx",
     "modify react-core/tooltip": "shell_scripts/run.sh ../../src/components/Tooltip/Tooltip.jsx",
     "modify react-core/toast-link": "shell_scripts/run.sh ../../src/components/Toast/ToastLink/ToastLink.jsx",
+    "modify react-core/toast": "shell_scripts/run.sh ../../src/components/Toast/Toast.jsx",
     "modify react-core/tipseen-image": "shell_scripts/run.sh ../../src/components/Tipseen/TipseenImage.jsx",
     "modify react-core/tipseen-basic-content": "shell_scripts/run.sh ../../src/components/Tipseen/TipseenBasicContent.jsx",
     "modify react-core/tab": "shell_scripts/run.sh ../../src/components/Tabs/Tab/Tab.jsx",
