@@ -501,7 +501,9 @@ exports[`Search renders correctly with loading 1`] = `
             title="loading"
           >
             <svg
+              aria-hidden={true}
               className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
+              role="presentation"
               viewBox="0 0 50 50"
             >
               <circle
