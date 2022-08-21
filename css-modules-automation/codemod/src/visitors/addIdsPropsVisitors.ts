@@ -11,7 +11,7 @@ export const addIdsPropsVisitors: Visitor<State> = {
     printWithCondition(false, "<<< addDataTestIdPropsVisitors, path.parent", path.parent);
     printWithCondition(false, "<<< addDataTestIdPropsVisitors, path.parent.parent", path.parentPath.parent);
     if (isComponentPropsObjectPattern(path)) {
-      printWithCondition(true, "<<< addDataTestIdPropsVisitors, true");
+      printWithCondition(false, "<<< addDataTestIdPropsVisitors, true");
       const newProperties = [...path.node.properties];
       let idExists = false;
       let dataTestIdExists = false;
