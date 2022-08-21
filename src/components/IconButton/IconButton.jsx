@@ -23,7 +23,7 @@ const IconButton = forwardRef(
       size,
       tooltipContent,
       ariaLabel,
-      showTooltip,
+      hideTooltip,
       kind,
       active,
       disabled,
@@ -78,11 +78,11 @@ const IconButton = forwardRef(
     }, [active, kind, size]);
 
     const calculatedTooltipContent = useMemo(() => {
-      if (!showTooltip) return null;
+      if (hideTooltip) return null;
       if (disabled && disabledReason) return disabledReason;
       if (tooltipContent) return tooltipContent;
       return ariaLabel;
-    }, [showTooltip, disabled, disabledReason, tooltipContent, ariaLabel]);
+    }, [hideTooltip, disabled, disabledReason, tooltipContent, ariaLabel]);
 
     const IconButtonWrapper = wrapperClassName ? "div" : Fragment;
     const iconButtonWrapperProps = useMemo(() => {
@@ -164,7 +164,7 @@ IconButton.propTypes = {
   /**
    * Whether the tooltip should be displayed or not
    */
-  showTooltip: PropTypes.bool,
+  hideTooltip: PropTypes.bool,
   /**
    * Tooltip wraps the button icon, it will display in the tooltip, if not present the aria label will be shown
    */
@@ -202,7 +202,7 @@ IconButton.defaultProps = {
   icon: AddSmall,
   ariaLabel: undefined,
   size: IconButton.sizes.MEDIUM,
-  showTooltip: true,
+  hideTooltip: false,
   tooltipContent: undefined,
   kind: Button.kinds.TERTIARY,
   disabled: false,
