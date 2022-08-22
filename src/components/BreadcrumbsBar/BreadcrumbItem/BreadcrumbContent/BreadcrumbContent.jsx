@@ -22,13 +22,7 @@ export const BreadcrumbContent = forwardRef(
     if (isClickable && (link || onClick)) {
       if (link) {
         return (
-          <a
-            className={className}
-            href={link}
-            onKeyDown={onKeyDown}
-            aria-current={isCurrent ? "page" : undefined}
-            role="link"
-          >
+          <a className={className} href={link} onKeyDown={onKeyDown} aria-current={isCurrent ? "page" : undefined}>
             {Icon && <Icon className="breadcrumb-icon" size="14" clickable={false} />}
             <span ref={ref} className="breadcrumb-text">
               {text}
