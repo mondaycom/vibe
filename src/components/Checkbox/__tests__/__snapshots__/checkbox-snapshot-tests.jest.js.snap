@@ -7,6 +7,7 @@ exports[`Checkbox renders correctly when checked 1`] = `
   onMouseUp={[Function]}
 >
   <input
+    aria-disabled={false}
     checked={true}
     className="monday-style-checkbox__input"
     disabled={false}
@@ -48,6 +49,7 @@ exports[`Checkbox renders correctly when default checked 1`] = `
   onMouseUp={[Function]}
 >
   <input
+    aria-disabled={false}
     className="monday-style-checkbox__input"
     defaultChecked={true}
     disabled={false}
@@ -89,6 +91,7 @@ exports[`Checkbox renders correctly when disabled 1`] = `
   onMouseUp={[Function]}
 >
   <input
+    aria-disabled={true}
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={true}
@@ -130,6 +133,7 @@ exports[`Checkbox renders correctly when interminate 1`] = `
   onMouseUp={[Function]}
 >
   <input
+    aria-disabled={false}
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={false}
@@ -171,6 +175,7 @@ exports[`Checkbox renders correctly with ariaLabelledBy 1`] = `
   onMouseUp={[Function]}
 >
   <input
+    aria-disabled={false}
     aria-labelledby="aria"
     className="monday-style-checkbox__input"
     defaultChecked={false}
@@ -213,6 +218,7 @@ exports[`Checkbox renders correctly with empty props 1`] = `
   onMouseUp={[Function]}
 >
   <input
+    aria-disabled={false}
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={false}
@@ -254,6 +260,7 @@ exports[`Checkbox renders correctly with name 1`] = `
   onMouseUp={[Function]}
 >
   <input
+    aria-disabled={false}
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={false}
@@ -295,6 +302,7 @@ exports[`Checkbox renders correctly with props 1`] = `
   onMouseUp={[Function]}
 >
   <input
+    aria-disabled={false}
     aria-label="Option 1"
     className="monday-style-checkbox__input"
     defaultChecked={false}
@@ -339,6 +347,7 @@ exports[`Checkbox renders correctly with value 1`] = `
   onMouseUp={[Function]}
 >
   <input
+    aria-disabled={false}
     className="monday-style-checkbox__input"
     defaultChecked={false}
     disabled={false}
