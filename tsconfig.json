@@ -16,12 +16,6 @@
     "noImplicitAny": true,
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
-    "paths": {
-      "hooks/*": ["src/hooks/*"],
-      "utils/*": ["src/utils/*"],
-      "components/*": ["src/components/*"],
-      "constants/*": ["src/constants/*"]
-    },
     "jsx": "react-jsx"
 
   },

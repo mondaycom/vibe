@@ -64,7 +64,7 @@ module.exports = {
 
   // A set of global variables that need to be available in all test environments
   globals: {
-    extensionsToTreatAsEsm: [".ts", ".js"],
+    extensionsToTreatAsEsm: [".ts", ".tsx", ".js", ".jsx"],
     "ts-jest": {
       useESM: true
     }
