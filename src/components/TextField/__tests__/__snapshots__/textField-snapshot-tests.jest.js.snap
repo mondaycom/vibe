@@ -105,7 +105,6 @@ exports[`TextField renders correctly when loading 1`] = `
             <svg
               aria-hidden={true}
               className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
-              role="presentation"
               viewBox="0 0 50 50"
             >
               <circle

@@ -41,7 +41,6 @@ const Loader = forwardRef(
           viewBox="0 0 50 50"
           color={color}
           aria-hidden
-          role="presentation"
         >
           {hasBackground && (
             <circle
