@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect, forwardRef } from "react";
+import React, { forwardRef, useCallback, useEffect, useRef } from "react";
 import NOOP from "lodash/noop";
 import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
@@ -84,6 +84,7 @@ export const Checkbox = forwardRef(
           onChange={onChange}
           defaultChecked={overrideDefaultChecked}
           disabled={disabled}
+          aria-disabled={disabled}
           aria-label={ariaLabel || label}
           aria-labelledby={ariaLabelledBy}
           checked={checked}
