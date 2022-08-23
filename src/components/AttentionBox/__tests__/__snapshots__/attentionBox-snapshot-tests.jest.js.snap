@@ -238,7 +238,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
     Text
   </div>
   <div
-    className="monday-style-attention-box-component__close-icon wrapper wrapper"
+    className="monday-style-attention-box-component__close-icon--wrapper wrapper"
   >
     <span
       className="referenceWrapper"
@@ -253,7 +253,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       <button
         aria-disabled={false}
         aria-label="Close"
-        className="monday-style-attention-box-component__close-icon icon monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+        className="monday-style-attention-box-component__close-icon monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
         data-testid="icon-button"
         onBlur={[Function]}
         onClick={[Function]}
