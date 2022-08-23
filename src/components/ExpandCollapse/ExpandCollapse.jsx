@@ -1,4 +1,4 @@
-import React, { useState, useRef, forwardRef, useCallback } from "react";
+import React, { forwardRef, useCallback, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -43,6 +43,7 @@ const ExpandCollapse = forwardRef(
               iconSize={iconSize}
               tabindex="-1"
               clickable={false}
+              ignoreFocusStyle
             />
           </button>
           {isExpanded && (
