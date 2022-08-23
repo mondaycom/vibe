@@ -19,6 +19,7 @@ const MIN_BUTTON_HEIGHT_PX = isIE11 ? 32 : 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
 export interface ButtonProps {
+  children: string;
   /** Custom class names to pass to the component */
   className?: string;
   /** The button's kind */
@@ -79,10 +80,9 @@ export interface ButtonProps {
   noSidePadding?: boolean;
   /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
   defaultTextColorOnPrimaryColor?: string;
-  dataTestId: string;
+  dataTestId?: string;
   /** Change the focus indicator from around the button to within it */
-  insetFocus: boolean;
-  children: string;
+  insetFocus?: boolean;
 }
 
 const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> & {
