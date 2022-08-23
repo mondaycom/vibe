@@ -37,6 +37,7 @@ export const BreadcrumbContent = forwardRef(
           onKeyDown={onKeyDown}
           tabIndex={tabIndex}
           aria-current={isCurrent ? "page" : undefined}
+          role="button"
         >
           {Icon && <Icon className="breadcrumb-icon" size="14" clickable={false} />}
           <span ref={ref} className="breadcrumb-text">
