@@ -104,9 +104,9 @@ const AttentionBox = ({
         <IconButton
           size={IconButton.sizes.SMALL}
           color={IconButton.colors.ON_PRIMARY_COLOR}
-          className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon`, "icon")}
-          wrapperClassName={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon`, "wrapper", {
-            compact: compact
+          className={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon`)}
+          wrapperClassName={cx(`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon--wrapper`, {
+            [`${ATTENTION_BOX_CSS_BASE_CLASS}__close-icon--compact`]: compact
           })}
           ariaLabel="Close"
           icon={CloseSmall}
