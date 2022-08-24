@@ -32,7 +32,6 @@ const AvatarGroupCounterTooltipContainer = ({
     []
   );
 
-  // Used to close tooltip
   const [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible] = useState(false);
 
   const tooltipContentContainerRef = useRef(null);
@@ -51,31 +50,32 @@ const AvatarGroupCounterTooltipContainer = ({
     [avatars, className, counterTooltipCustomProps?.content, counterTooltipIsVirtualizedList, type]
   );
 
+  console.log("wtd", tooltipContentContainerRef);
+
   useTooltipContentTabNavigation({
     counterContainerRef,
     tooltipContentContainerRef,
     focusPrevPlaceholderRef,
     focusNextPlaceholderRef,
-    setIsKeyboardTooltipVisible
+    setIsKeyboardTooltipVisible,
+    isKeyboardTooltipVisible
   });
 
   // Tooltip props
   const onHide = useCallback(() => {
     setIsKeyboardTooltipVisible(false);
   }, []);
-  const showTrigger = useMemo(
-    () => [...keyboardTooltipTrigger.show, ...mouseTooltipTrigger.show],
-    [keyboardTooltipTrigger.show, mouseTooltipTrigger.show]
-  );
-  const hideTrigger = isKeyboardTooltipVisible ? keyboardTooltipTrigger.hide : mouseTooltipTrigger.hide;
+  const showTrigger = useMemo(() => [Dialog.hideShowTriggers.MOUSE_ENTER], []);
+  const hideTrigger = useMemo(() => [Dialog.hideShowTriggers.MOUSE_LEAVE], []);
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
     return children;
   }
-
   return (
     <Tooltip
+      // for disable close tooltip when hovering content
       showOnDialogEnter
+      open={isKeyboardTooltipVisible}
       hideDelay={200}
       showTrigger={showTrigger}
       hideTrigger={hideTrigger}
