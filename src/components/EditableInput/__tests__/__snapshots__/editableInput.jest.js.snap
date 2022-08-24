@@ -4,7 +4,8 @@ exports[`renders correctly with aria label 1`] = `
 <input
   aria-label="Edit input"
   autoComplete="on"
-  className="editable-input--wrapper"
+  className="editableInputWrapper editable-input--wrapper"
+  data-testid="editable-input"
   dir="auto"
   onBlur={[Function]}
   onChange={[Function]}
@@ -17,7 +18,8 @@ exports[`renders correctly with aria label 1`] = `
 exports[`renders correctly with empty props 1`] = `
 <input
   autoComplete="on"
-  className="editable-input--wrapper"
+  className="editableInputWrapper editable-input--wrapper"
+  data-testid="editable-input"
   dir="auto"
   onBlur={[Function]}
   onChange={[Function]}
