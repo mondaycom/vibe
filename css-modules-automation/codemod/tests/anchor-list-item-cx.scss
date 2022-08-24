@@ -1,7 +1,7 @@
 @import "../../../styles/global-css-settings";
 @import "../../styles/typography";
 
-.monday-storybook-anchor-list-item-cx {
+.monday-style-anchor-list-item-cx {
   @include theme-prop(color, link-color);
   font-size: $anchor-font-size;
   line-height: $text-line-height;
