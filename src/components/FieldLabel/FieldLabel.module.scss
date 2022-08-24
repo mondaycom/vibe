@@ -1,0 +1,21 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+
+.fieldLabel {
+  display: flex;
+  padding-bottom: $spacing-small;
+  align-items: center;
+}
+
+.fieldLabel .icon {
+  margin: 0 var(--spacing-small) 0 var(--spacing-xs);
+  line-height: 24px;
+  font-size: var(--font-size-general-label);
+  @include theme-prop(color, icon-color);
+}
+
+.fieldLabel .text {
+  @include font-paragraph-bold();
+  @include theme-prop(color, primary-text-color);
+}

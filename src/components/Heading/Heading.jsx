@@ -1,14 +1,16 @@
+import { camelCase } from "lodash";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
 import React, { useLayoutEffect } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import Tooltip from "../../components/Tooltip/Tooltip";
 import useIsOverflowing from "../../hooks/useIsOverflowing";
 import useStyle from "../../hooks/useStyle";
 import useRefWithCallback from "../../hooks/useRefWithCallback";
 import TextWithHighlight from "../../components/TextWithHighlight/TextWithHighlight";
 import { TYPES } from "./HeadingConstants";
-import "./Heading.scss";
+import styles from "./Heading.module.scss";
 
 const Heading = ({
   className,
@@ -25,18 +27,32 @@ const Heading = ({
   highlightTerm,
   suggestEditOnHover,
   brandFont,
-  nonEllipsisTooltip // tooltip to show when no overflow
+  // tooltip to show when no overflow
+  nonEllipsisTooltip,
+  "data-testId": dataTestId
 }) => {
   const [componentRef, setRef] = useRefWithCallback(node =>
     node.style.setProperty("--heading-clamp-lines", ellipsisMaxLines)
   );
   const finalStyle = useStyle(style, { color: customColor });
-  const classNames = cx("heading-component", className, `element-type-${type}`, `size-${size}`, {
-    "multi-line-ellipsis": ellipsis && ellipsisMaxLines > 1,
-    "single-line-ellipsis": ellipsis && ellipsisMaxLines <= 1,
-    "suggest-edit-on-hover": suggestEditOnHover,
-    "brand-font": type === TYPES.h1 && brandFont
-  });
+  const classNames = cx(
+    styles.headingComponent,
+    "heading-component",
+    className,
+    styles[`${camelCase("element-type-" + type)}`],
+    `element-type-${type}`,
+    styles[`${camelCase("size-" + size)}`],
+    `size-${size}`,
+    {
+      [styles.multiLineEllipsis]: ellipsis && ellipsisMaxLines > 1,
+      ["multi-line-ellipsis"]: ellipsis && ellipsisMaxLines > 1,
+      [styles.singleLineEllipsis]: ellipsis && ellipsisMaxLines <= 1,
+      ["single-line-ellipsis"]: ellipsis && ellipsisMaxLines <= 1,
+      [styles.suggestEditOnHover]: suggestEditOnHover,
+      ["suggest-edit-on-hover"]: suggestEditOnHover,
+      "brand-font": type === TYPES.h1 && brandFont
+    }
+  );
   const Element = React.createElement(
     type,
     { className: classNames, "aria-label": ariaLabel, id, ref: setRef, style: finalStyle },
@@ -48,6 +64,7 @@ const Heading = ({
         useEllipsis={ellipsis}
         nonEllipsisTooltip={nonEllipsisTooltip}
         tooltipPosition={tooltipPosition}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.HEADING, id)}
       />
     ) : (
       value
@@ -67,7 +84,11 @@ const Heading = ({
     if (isOverflowing || nonEllipsisTooltip) {
       const tooltipContent = isOverflowing ? value : nonEllipsisTooltip;
       return (
-        <Tooltip content={tooltipContent} position={tooltipPosition}>
+        <Tooltip
+          content={tooltipContent}
+          position={tooltipPosition}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.HEADING, id)}
+        >
           {Element}
         </Tooltip>
       );

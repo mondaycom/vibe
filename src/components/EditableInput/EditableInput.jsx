@@ -1,19 +1,20 @@
-import React, { useRef, forwardRef, useLayoutEffect, useCallback, useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import autosize from "autosize";
 import useStyle from "../../hooks/useStyle";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import {
-  isEnterEvent,
-  isEscapeEvent,
-  isTabEvent,
-  isArrowUpEvent,
   isArrowDownEvent,
   isArrowLeftEvent,
-  isArrowRightEvent
+  isArrowRightEvent,
+  isArrowUpEvent,
+  isEnterEvent,
+  isEscapeEvent,
+  isTabEvent
 } from "../../utils/dom-event-utils";
-import "./EditableInput.scss";
+import styles from "./EditableInput.module.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 
 export const TEXTAREA_TYPE = "textarea";
 
@@ -53,7 +54,8 @@ const EditableInput = forwardRef(
       textareaSubmitOnEnter,
       onArrowKeyDown,
       ariaLabel,
-      brandFont
+      brandFont,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -200,9 +202,11 @@ const EditableInput = forwardRef(
       <InputType
         ref={mergedRef}
         id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.EDITABLE_INPUT, id)}
         style={style}
-        className={cx("editable-input--wrapper", className, {
-          "no-resize": autoSize,
+        className={cx(styles.editableInputWrapper, "editable-input--wrapper", className, {
+          [styles.noResize]: autoSize,
+          ["no-resize"]: autoSize,
           "brand-font": brandFont
         })}
         onChange={onChangeCallback}

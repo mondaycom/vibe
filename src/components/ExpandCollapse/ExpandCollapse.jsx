@@ -1,43 +1,80 @@
-import React, { useState, useRef, forwardRef, useCallback } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./ExpandCollapse.scss";
 import Icon from "../Icon/Icon";
 import Heading from "../Heading/Heading";
 import { TYPES } from "../Heading/HeadingConstants";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
+import styles from "./ExpandCollapse.module.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 
 const ExpandCollapse = forwardRef(
-  ({ children, headerComponentRenderer, title, className, defaultOpenState, iconSize, id, open, onClick }, ref) => {
+  (
+    {
+      children,
+      headerComponentRenderer,
+      title,
+      className,
+      defaultOpenState,
+      iconSize,
+      id,
+      open,
+      onClick,
+      "data-testid": dataTestId
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
     const [isOpen, setIsOpen] = useState(defaultOpenState);
     const isExpanded = open === undefined ? isOpen : open;
 
-    const toogleExpand = () => {
+    const toggleExpand = () => {
       setIsOpen(!isOpen);
     };
     const renderHeader = useCallback(() => {
-      return <Heading type={TYPES.h5} value={title} className="expand-collapse__header-content" />;
+      return (
+        <Heading
+          type={TYPES.h5}
+          value={title}
+          className={cx(styles.expandCollapseHeaderContent, "expand-collapse__header-content")}
+        />
+      );
     }, [title]);
 
     return (
-      <div ref={mergedRef} className={cx("expand-collapse--wrapper", className)} id={id}>
-        <div className="expand-collapse">
+      <div
+        ref={mergedRef}
+        className={cx(styles.expandCollapseWrapper, "expand-collapse--wrapper", className)}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.EXPAND_COLLAPSE, id)}
+      >
+        <div className={cx(styles.expandCollapse, "expand-collapse")}>
           <button
             type="button"
-            className={cx("expand-collapse__header", "expand-collapse__section", {
-              "expand-collapse__header--open": isExpanded
-            })}
-            onClickCapture={onClick || toogleExpand}
+            className={cx(
+              styles.expandCollapseHeader,
+              "expand-collapse__header",
+              styles.expandCollapseSection,
+              "expand-collapse__section",
+              {
+                [styles.expandCollapseHeaderOpen]: isExpanded,
+                ["expand-collapse__header--open"]: isExpanded
+              }
+            )}
+            onClickCapture={onClick || toggleExpand}
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
           >
             {title.length !== 0 ? renderHeader() : headerComponentRenderer && headerComponentRenderer()}
             <Icon
-              className={isExpanded ? "animate-icon-open" : "animate-icon-close"}
+              className={
+                isExpanded
+                  ? cx(styles.animateIconOpen, "animate-icon-open")
+                  : cx(styles.animateIconClose, "animate-icon-close")
+              }
               iconType={Icon.type.SVG}
               icon={DropdownChevronDown}
               iconSize={iconSize}
@@ -47,9 +84,12 @@ const ExpandCollapse = forwardRef(
           </button>
           {isExpanded && (
             <div
-              className={`expand-collapse__content expand-collapse__section ${
-                isExpanded && "animate-expand-collapse__content"
-              }`}
+              className={cx(
+                styles.expandCollapseContent,
+                "expand-collapse__content",
+                styles.expandCollapseSection,
+                "expand-collapse__section"
+              )}
               id={`${id}-controls`}
               role="region"
             >

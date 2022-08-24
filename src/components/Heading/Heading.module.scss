@@ -1,0 +1,26 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+
+.headingComponent {
+  border: 1px solid transparent;
+  border-radius: $border-radius-small;
+  min-width: 0;
+  @include heading-padding();
+}
+
+.headingComponent.multiLineEllipsis {
+  @include line-clamp(var(--heading-clamp-lines));
+}
+
+/* This is needed to support ellipsis in the middle of the word */
+
+.headingComponent.singleLineEllipsis {
+  @include ellipsis();
+}
+
+.headingComponent.suggestEditOnHover:hover {
+  cursor: text;
+  border: 1px solid;
+  @include theme-prop(border-color, ui-border-color);
+}
