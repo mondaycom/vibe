@@ -16,7 +16,6 @@ export function useTooltipContentTabNavigation({
   setIsKeyboardTooltipVisible
 }) {
   const hideTooltip = useCallback(() => {
-    // Tricky way to close the tooltip
     setTimeout(() => {
       setIsKeyboardTooltipVisible(false);
     });

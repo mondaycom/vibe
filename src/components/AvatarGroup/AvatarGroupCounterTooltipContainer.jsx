@@ -32,9 +32,7 @@ const AvatarGroupCounterTooltipContainer = ({
   const [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible] = useState(false);
 
   const tooltipContentContainerRef = useRef(null);
-  useEffect(() => {
-    console.log(counterContainerRef);
-  }, [counterContainerRef]);
+
   const tooltipContent = useMemo(
     () =>
       counterTooltipCustomProps?.content || (
