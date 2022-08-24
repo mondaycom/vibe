@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.57.0 (2022-08-24)
+
+#### New Features
+* [#838](https://github.com/mondaycom/monday-ui-react-core/pull/838) Add color: var(--disabled-text-color) to disabled checkbox label ([@3dyonic](https://github.com/3dyonic))
+* [#828](https://github.com/mondaycom/monday-ui-react-core/pull/828) AttentionBox - close icon button instead of icon ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#836](https://github.com/mondaycom/monday-ui-react-core/pull/836) BreadcrumbContent: link and button roles are added ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#829](https://github.com/mondaycom/monday-ui-react-core/pull/829) Feature/sergeyro/dropdown item tooltip ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#835](https://github.com/mondaycom/monday-ui-react-core/pull/835) Feature/sergeyro/loader a11y attributes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#831](https://github.com/mondaycom/monday-ui-react-core/pull/831) IconButton: add showTooltip prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.56.0 (2022-08-21)
 
 #### Bug Fixes
