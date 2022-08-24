@@ -4,6 +4,7 @@ import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
+import { useEventListener } from "../../hooks";
 
 const KEYS = ["Tab"];
 
@@ -12,31 +13,28 @@ export function useTooltipContentTabNavigation({
   tooltipContentContainerRef,
   focusPrevPlaceholderRef,
   focusNextPlaceholderRef,
-  setShouldUpdate,
-  setIsTooltipVisible
+  setIsKeyboardTooltipVisible
 }) {
   const hideTooltip = useCallback(() => {
     // Tricky way to close the tooltip
     setTimeout(() => {
-      setIsTooltipVisible(false);
-      setIsTooltipVisible(true);
+      setIsKeyboardTooltipVisible(false);
     });
-  }, [setIsTooltipVisible]);
+  }, [setIsKeyboardTooltipVisible]);
 
   // For Counter
-  useKeyEvent({
-    keys: KEYS,
-    withoutAnyModifier: true,
+  useEventListener({
+    eventName: "focus",
     ref: counterContainerRef,
     callback: useCallback(
       e => {
         if (e.target === counterContainerRef.current) {
           e.preventDefault();
           tooltipContentContainerRef?.current && tooltipContentContainerRef.current.focus();
-          setShouldUpdate(prev => !prev);
+          setIsKeyboardTooltipVisible(true);
         }
       },
-      [counterContainerRef.current, setShouldUpdate, tooltipContentContainerRef]
+      [setIsKeyboardTooltipVisible, counterContainerRef, tooltipContentContainerRef]
     )
   });
 
@@ -52,7 +50,7 @@ export function useTooltipContentTabNavigation({
           hideTooltip();
         }
       },
-      [counterContainerRef.current, focusPrevPlaceholderRef, hideTooltip]
+      [counterContainerRef, focusPrevPlaceholderRef, hideTooltip]
     )
   });
 
@@ -68,7 +66,7 @@ export function useTooltipContentTabNavigation({
           hideTooltip();
         }
       },
-      [focusNextPlaceholderRef, hideTooltip, tooltipContentContainerRef.current]
+      [focusNextPlaceholderRef, hideTooltip, tooltipContentContainerRef]
     )
   });
 
@@ -84,7 +82,7 @@ export function useTooltipContentTabNavigation({
           counterContainerRef?.current && counterContainerRef.current.focus();
         }
       },
-      [counterContainerRef, tooltipContentContainerRef.current]
+      [counterContainerRef, tooltipContentContainerRef]
     )
   });
 }

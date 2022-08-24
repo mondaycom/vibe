@@ -36,7 +36,7 @@ const AvatarGroupCounter = ({
   const focusPrevPlaceholderRef = useRef(null);
   const focusNextPlaceholderRef = useRef(null);
   const counterContainerRef = useRef(null);
-
+  console.log("mewo", counterContainerRef);
   const counterComponent = useCallback(() => {
     return (
       <Counter

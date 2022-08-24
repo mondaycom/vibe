@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Tooltip from "../Tooltip/Tooltip";
 import Dialog from "../Dialog/Dialog";
@@ -19,10 +19,22 @@ const AvatarGroupCounterTooltipContainer = ({
 }) => {
   // Dummy state to rerender the component, when tooltip appear, so useTooltipContentTabNavigation will have an existing tooltipContentContainerRef
   const [, setShouldUpdate] = useState(false);
+  const keyboardTooltipTrigger = {
+    show: [Dialog.hideShowTriggers.FOCUS],
+    hide: [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY, Dialog.hideShowTriggers.CLICK_OUTSIDE]
+  };
+  const mouseTooltipTrigger = {
+    show: [Dialog.hideShowTriggers.MOUSE_ENTER],
+    hide: [Dialog.hideShowTriggers.MOUSE_LEAVE]
+  };
+
   // Used to close tooltip
-  const [isTooltipVisible, setIsTooltipVisible] = useState(true);
+  const [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible] = useState(false);
 
   const tooltipContentContainerRef = useRef(null);
+  useEffect(() => {
+    console.log(counterContainerRef);
+  }, [counterContainerRef]);
   const tooltipContent = useMemo(
     () =>
       counterTooltipCustomProps?.content || (
@@ -43,23 +55,27 @@ const AvatarGroupCounterTooltipContainer = ({
     focusPrevPlaceholderRef,
     focusNextPlaceholderRef,
     setShouldUpdate,
-    setIsTooltipVisible
+    setIsKeyboardTooltipVisible
   });
+
+  const onHide = useCallback(() => {
+    setIsKeyboardTooltipVisible(false);
+  }, []);
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
     return children;
   }
 
-  if (!isTooltipVisible) {
-    return children;
-  }
+  const showTrigger = [...keyboardTooltipTrigger.show, ...mouseTooltipTrigger.show];
+  const hideTrigger = isKeyboardTooltipVisible ? keyboardTooltipTrigger.hide : mouseTooltipTrigger.hide;
 
   return (
     <Tooltip
       showOnDialogEnter
       hideDelay={200}
-      showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
-      hideTrigger={[Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.MOUSE_LEAVE]}
+      showTrigger={showTrigger}
+      hideTrigger={hideTrigger}
+      onTooltipHide={onHide}
       {...(counterTooltipCustomProps || {})}
       content={tooltipContent}
     >
