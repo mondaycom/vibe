@@ -1,18 +1,19 @@
 const { camelCase } = require("lodash");
-const PREFIX = "monday-style-";
+const MONDAY_STYLE_PREFIX = "monday-style-";
+const BASE_CLASS_PREFIX_PATTERN = /monday-style-\w+?[-_]+/gm;
 
-function removeCommonPrefix(str) {
-  if (str.startsWith(PREFIX)) {
-    return str.slice(PREFIX.length);
+function removePrefix(str) {
+  if (BASE_CLASS_PREFIX_PATTERN.test(str)) {
+    return str.replace(BASE_CLASS_PREFIX_PATTERN, "");
   }
-  if (str.startsWith(`'${PREFIX}`)) {
-    return "'" + str.slice(PREFIX.length + 1);
+  if (str.startsWith(MONDAY_STYLE_PREFIX)) {
+    return str.slice(MONDAY_STYLE_PREFIX.length);
   }
   return str;
 }
 
 function convertToCamelCase(str) {
-  return camelCase(removeCommonPrefix(str));
+  return camelCase(removePrefix(str));
 }
 
-module.exports = { convertToCamelCase, removeCommonPrefix };
+module.exports = { convertToCamelCase, removePrefix };

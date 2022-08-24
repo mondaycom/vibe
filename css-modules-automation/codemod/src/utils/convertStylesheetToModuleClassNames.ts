@@ -29,7 +29,6 @@ export const convertStylesheetToModuleClassNames = (filename: string): Map<strin
   }
 
   const classNamesMap = new Map<string, string>(Object.entries(JSON.parse(stdout)));
-  classNamesMap.forEach((value, key) => {});
-  printWithCondition(true, "&&& convertToModuleClassNames, classNamesMap", classNamesMap);
+  printWithCondition(false, "&&& convertToModuleClassNames, classNamesMap", classNamesMap);
   return classNamesMap;
 };

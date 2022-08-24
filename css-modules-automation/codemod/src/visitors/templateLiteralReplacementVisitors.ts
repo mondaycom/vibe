@@ -54,9 +54,10 @@ export const templateLiteralReplacementVisitors: Visitor<State> = {
       "### templateLiteralReplacementVisitors, modularClassnameString = ",
       modularClassnameString
     );
-    const modularClassnameNode = modularClassnameString.includes("+")
-      ? t.identifier(modularClassnameString)
-      : t.stringLiteral(modularClassnameString);
+    const modularClassnameNode =
+      modularClassnameString.includes("+") || modularClassnameString.includes("${")
+        ? t.identifier(modularClassnameString)
+        : t.stringLiteral(modularClassnameString);
     const isModularClassnameNodeIdentifier = t.isIdentifier(modularClassnameNode);
 
     if (isCxCallExpression(path.parent)) {

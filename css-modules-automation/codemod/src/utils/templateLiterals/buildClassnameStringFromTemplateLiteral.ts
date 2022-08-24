@@ -3,7 +3,7 @@ import { printWithCondition } from "../commonProcess/print";
 import { buildStringFromCallExpression } from "./buildStringFromCallExpression";
 import { State } from "../../index";
 import { isTemplateLiteralPartBaseClassIdentifier } from "../logical/IsTemplateLiteralPartBaseClassIdentifier";
-import { removeCommonPrefix } from "../../postcss/utils/classNameStringUtils";
+import { removePrefix } from "../../postcss/utils/classNameStringUtils";
 
 export type TemplateLiteralPart = {
   value: string | undefined;
@@ -114,12 +114,19 @@ export const buildClassnameStringFromTemplateLiteral = (
     printWithCondition(false, "))) buildStringFromTemplateLiteral, newString", newString);
   }
 
-  if (newString.startsWith("'") && newString.endsWith("'") && !newString.slice(1, newString.length - 1).includes("'")) {
-    newString = newString.slice(1, newString.length - 1);
+  // if (newString.startsWith("'") && newString.endsWith("'") && !newString.slice(1, newString.length - 1).includes("'")) {
+  //   newString = newString.slice(1, newString.length - 1);
+  // }
+
+  printWithCondition(false, "))) buildStringFromTemplateLiteral, newString remove prefix", newString);
+  newString = removePrefix(newString);
+
+  const regex = /\s?\+?\s?''\s?\+?\s?/g;
+  if (regex.test(newString)) {
+    newString = newString.replaceAll(regex, "");
   }
 
-  if (addCamelCaseWrapping && newString.includes("+")) {
-    newString = removeCommonPrefix(newString);
+  if (addCamelCaseWrapping) {
     newString = `\`\$\{camelCase(${newString})\}\``;
   }
 
