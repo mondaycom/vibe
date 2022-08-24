@@ -5,6 +5,7 @@ import Avatar from "../Avatar/Avatar";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
 import useEventListener from "../../hooks/useEventListener";
+import { useListenFocusTriggers } from "../../hooks/useListenFocusTriggers";
 
 const KEYS = ["Tab"];
 const ESC = ["Escape"];
@@ -17,43 +18,30 @@ export function useTooltipContentTabNavigation({
   isKeyboardTooltipVisible,
   setIsKeyboardTooltipVisible
 }) {
-  // For Counter
-  useEventListener({
-    eventName: "focus",
+  const showKeyboardTooltip = useCallback(() => {
+    if (!isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(true);
+  }, [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]);
+
+  const hideKeyboardTooltip = useCallback(() => {
+    if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
+  }, [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]);
+
+  useListenFocusTriggers({
     ref: counterContainerRef,
-    callback: useCallback(
-      e => {
-        setIsKeyboardTooltipVisible(true);
-      },
-      [setIsKeyboardTooltipVisible]
-    )
+    onFocusByKeyboard: showKeyboardTooltip
   });
 
   useEventListener({
     eventName: "focus",
     ref: focusNextPlaceholderRef,
-    callback: useCallback(
-      e => {
-        console.log("%%%");
-        setIsKeyboardTooltipVisible(false);
-      },
-      [setIsKeyboardTooltipVisible]
-    )
+    callback: hideKeyboardTooltip
   });
 
   useEventListener({
     eventName: "blur",
     ref: tooltipContentContainerRef,
     ignoreDocumentFallback: true,
-    callback: useCallback(
-      e => {
-        console.log("%%%$", document.activeElement);
-        if (document.activeElement !== counterContainerRef?.current) {
-          setIsKeyboardTooltipVisible(false);
-        }
-      },
-      [setIsKeyboardTooltipVisible, counterContainerRef]
-    )
+    callback: hideKeyboardTooltip
   });
 
   // For Counter
@@ -61,22 +49,13 @@ export function useTooltipContentTabNavigation({
     keys: KEYS,
     modifier: useKeyEvent.modifiers.SHIFT,
     ref: counterContainerRef,
-    ignoreDocumentFallback: true,
-    callback: useCallback(
-      e => {
-        if (e.target === counterContainerRef.current) {
-          setIsKeyboardTooltipVisible(false);
-        }
-      },
-      [counterContainerRef, setIsKeyboardTooltipVisible]
-    )
+    callback: hideKeyboardTooltip
   });
 
   // For Tooltip content
   useKeyEvent({
     keys: KEYS,
     ref: counterContainerRef,
-    ignoreDocumentFallback: true,
     withoutAnyModifier: true,
     callback: useCallback(
       e => {
@@ -91,10 +70,9 @@ export function useTooltipContentTabNavigation({
   useKeyEvent({
     keys: KEYS,
     ref: tooltipContentContainerRef,
-    ignoreDocumentFallback: true,
     withoutAnyModifier: true,
     callback: useCallback(() => {
-      // We are not preventing default behivour here and that's why after moving focus to here we
+      // We are not preventing default behaviour here and that's why after moving focus to here we
       // the browser will move the focus to the next element in the focus order.
       focusNextPlaceholderRef?.current && focusNextPlaceholderRef.current.focus();
       if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
@@ -104,14 +82,28 @@ export function useTooltipContentTabNavigation({
   useKeyEvent({
     keys: KEYS,
     ref: tooltipContentContainerRef,
-    ignoreDocumentFallback: true,
     modifier: useKeyEvent.modifiers.SHIFT,
     callback: useCallback(() => {
-      // We are not preventing default behivour here and that's why after moving focus to here we
+      // We are not preventing default behaviour here and that's why after moving focus to here we
       // the browser will move the focus to the next element in the focus order.
       focusPrevPlaceholderRef?.current && focusPrevPlaceholderRef.current.focus();
       if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
     }, [focusPrevPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
+  });
+
+  useKeyEvent({
+    keys: ESC,
+    ref: tooltipContentContainerRef,
+    callback: useCallback(() => {
+      counterContainerRef?.current && counterContainerRef.current.focus();
+      if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
+    }, [counterContainerRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
+  });
+
+  useKeyEvent({
+    keys: ESC,
+    ref: counterContainerRef,
+    callback: hideKeyboardTooltip
   });
 }
 
