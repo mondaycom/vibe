@@ -27,7 +27,7 @@ const returnStatementVistor: Visitor<VisitorState> = {
     path.skip()
   },
   JSXElement(path, { name, attributes }) {
-    printWithCondition(true, '||| returnStatementVistor', name, attributes)
+    printWithCondition(false, '||| returnStatementVistor', name, attributes)
     const openingElement = path.get('openingElement')
 
     // topにあるJSX Elementのみ処理する
@@ -51,12 +51,12 @@ export type State = {
 }
 
 export default (): PluginObj<State> => {
-  printWithCondition(true, 'PluginObj')
+  printWithCondition(false, 'PluginObj')
   return {
     name: 'react-data-testid',
     visitor: {
       Program: (programPath, state) => {
-        printWithCondition(true, 'PluginObj Program')
+        printWithCondition(false, 'PluginObj Program')
         // programPath.traverse(functionVisitors, {
         //   opts: { attributes: [] },
         // })

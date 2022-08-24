@@ -4,6 +4,7 @@ import { buildStringFromCallExpression } from "./buildStringFromCallExpression";
 import { State } from "../../index";
 import { isTemplateLiteralPartBaseClassIdentifier } from "../logical/IsTemplateLiteralPartBaseClassIdentifier";
 import { removePrefix } from "../../postcss/utils/classNameStringUtils";
+import { buildStringFromMemberExpression } from "./buildStringFromMemberExpression";
 
 export type TemplateLiteralPart = {
   value: string | undefined;
@@ -32,6 +33,14 @@ export const getTemplateLiteralParts = (node: t.TemplateLiteral): TemplateLitera
     if (e.type === "CallExpression") {
       return {
         value: buildStringFromCallExpression(e),
+        start: e.start,
+        type: e.type as string
+      };
+    }
+
+    if (e.type === "MemberExpression") {
+      return {
+        value: buildStringFromMemberExpression(e),
         start: e.start,
         type: e.type as string
       };
@@ -121,9 +130,9 @@ export const buildClassnameStringFromTemplateLiteral = (
   printWithCondition(false, "))) buildStringFromTemplateLiteral, newString remove prefix", newString);
   newString = removePrefix(newString);
 
-  const regex = /\s?\+?\s?''\s?\+?\s?/g;
-  if (regex.test(newString)) {
-    newString = newString.replaceAll(regex, "");
+  const emptyStringRegex = /\s?\+?\s?''\s?\+?\s?/g;
+  if (emptyStringRegex.test(newString)) {
+    newString = newString.replaceAll(emptyStringRegex, "");
   }
 
   if (addCamelCaseWrapping) {

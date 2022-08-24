@@ -1,6 +1,6 @@
 import * as t from "@babel/types";
 import { Expression, PatternLike } from "@babel/types";
-import { printWithCondition } from "./commonProcess/print";
+import { printAlways, printWithCondition } from "./commonProcess/print";
 import { NodePath } from "@babel/traverse";
 import { State } from "../index";
 import { buildClassnameStringFromTemplateLiteral } from "./templateLiterals/buildClassnameStringFromTemplateLiteral";
@@ -65,7 +65,7 @@ export const replaceBemHelperCallExpression = (
       return createTemplateLiteralFromString(bemClassName);
     }
   }
-  printWithCondition(true, "~~~ CallExpression, bemHelper, wasn't able to replace path", path);
+  printAlways("~~~ CallExpression, bemHelper, wasn't able to replace path", path);
   path.skip();
   return path.node;
 };
