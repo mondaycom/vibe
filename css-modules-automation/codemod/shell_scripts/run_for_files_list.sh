@@ -1,7 +1,7 @@
 #!/bin/sh
 
 INPUT_FILE="shell_scripts/files_to_run_list.txt";
-ROOT_PATH="/Users/sergeyro/Development/";
+ROOT_PATH="/Users/sergeyro/Development/monday-ui-react-core/src/components/";
 
 while read -r filePath; do
   # Traverse files at path
