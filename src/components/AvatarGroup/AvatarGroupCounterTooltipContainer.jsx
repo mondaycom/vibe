@@ -17,16 +17,20 @@ const AvatarGroupCounterTooltipContainer = ({
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList
 }) => {
-  // Dummy state to rerender the component, when tooltip appear, so useTooltipContentTabNavigation will have an existing tooltipContentContainerRef
-  const [, setShouldUpdate] = useState(false);
-  const keyboardTooltipTrigger = {
-    show: [Dialog.hideShowTriggers.FOCUS],
-    hide: [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY, Dialog.hideShowTriggers.CLICK_OUTSIDE]
-  };
-  const mouseTooltipTrigger = {
-    show: [Dialog.hideShowTriggers.MOUSE_ENTER],
-    hide: [Dialog.hideShowTriggers.MOUSE_LEAVE]
-  };
+  const keyboardTooltipTrigger = useMemo(
+    () => ({
+      show: [Dialog.hideShowTriggers.FOCUS],
+      hide: [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY, Dialog.hideShowTriggers.CLICK_OUTSIDE]
+    }),
+    []
+  );
+  const mouseTooltipTrigger = useMemo(
+    () => ({
+      show: [Dialog.hideShowTriggers.MOUSE_ENTER],
+      hide: [Dialog.hideShowTriggers.MOUSE_LEAVE]
+    }),
+    []
+  );
 
   // Used to close tooltip
   const [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible] = useState(false);
@@ -52,20 +56,22 @@ const AvatarGroupCounterTooltipContainer = ({
     tooltipContentContainerRef,
     focusPrevPlaceholderRef,
     focusNextPlaceholderRef,
-    setShouldUpdate,
     setIsKeyboardTooltipVisible
   });
 
+  // Tooltip props
   const onHide = useCallback(() => {
     setIsKeyboardTooltipVisible(false);
   }, []);
+  const showTrigger = useMemo(
+    () => [...keyboardTooltipTrigger.show, ...mouseTooltipTrigger.show],
+    [keyboardTooltipTrigger.show, mouseTooltipTrigger.show]
+  );
+  const hideTrigger = isKeyboardTooltipVisible ? keyboardTooltipTrigger.hide : mouseTooltipTrigger.hide;
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
     return children;
   }
-
-  const showTrigger = [...keyboardTooltipTrigger.show, ...mouseTooltipTrigger.show];
-  const hideTrigger = isKeyboardTooltipVisible ? keyboardTooltipTrigger.hide : mouseTooltipTrigger.hide;
 
   return (
     <Tooltip
