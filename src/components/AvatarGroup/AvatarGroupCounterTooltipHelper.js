@@ -26,15 +26,10 @@ export function useTooltipContentTabNavigation({
     if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
   }, [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]);
 
+  // Open tooltip manually when keyboard focusing on counter
   useListenFocusTriggers({
     ref: counterContainerRef,
     onFocusByKeyboard: showKeyboardTooltip
-  });
-
-  useEventListener({
-    eventName: "focus",
-    ref: focusNextPlaceholderRef,
-    callback: hideKeyboardTooltip
   });
 
   useEventListener({
@@ -44,15 +39,7 @@ export function useTooltipContentTabNavigation({
     callback: hideKeyboardTooltip
   });
 
-  // For Counter
-  useKeyEvent({
-    keys: KEYS,
-    modifier: useKeyEvent.modifiers.SHIFT,
-    ref: counterContainerRef,
-    callback: hideKeyboardTooltip
-  });
-
-  // For Tooltip content
+  //Move focus to content by keyboard
   useKeyEvent({
     keys: KEYS,
     ref: counterContainerRef,
@@ -66,7 +53,13 @@ export function useTooltipContentTabNavigation({
     )
   });
 
-  // For Tooltip content
+  // Close tooltip by keyboard
+  useKeyEvent({
+    keys: KEYS,
+    modifier: useKeyEvent.modifiers.SHIFT,
+    ref: counterContainerRef,
+    callback: hideKeyboardTooltip
+  });
   useKeyEvent({
     keys: KEYS,
     ref: tooltipContentContainerRef,
@@ -78,7 +71,6 @@ export function useTooltipContentTabNavigation({
       if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
     }, [focusNextPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
   });
-
   useKeyEvent({
     keys: KEYS,
     ref: tooltipContentContainerRef,
@@ -90,7 +82,6 @@ export function useTooltipContentTabNavigation({
       if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
     }, [focusPrevPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
   });
-
   useKeyEvent({
     keys: ESC,
     ref: tooltipContentContainerRef,
@@ -99,10 +90,16 @@ export function useTooltipContentTabNavigation({
       if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
     }, [counterContainerRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
   });
-
   useKeyEvent({
     keys: ESC,
     ref: counterContainerRef,
+    callback: hideKeyboardTooltip
+  });
+
+  // Close tooltip when moving focus to next element
+  useEventListener({
+    eventName: "focus",
+    ref: focusNextPlaceholderRef,
     callback: hideKeyboardTooltip
   });
 }

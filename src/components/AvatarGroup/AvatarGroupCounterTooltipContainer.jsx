@@ -17,25 +17,8 @@ const AvatarGroupCounterTooltipContainer = ({
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList
 }) => {
-  const keyboardTooltipTrigger = useMemo(
-    () => ({
-      show: [Dialog.hideShowTriggers.FOCUS],
-      hide: [Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.TAB_KEY, Dialog.hideShowTriggers.CLICK_OUTSIDE]
-    }),
-    []
-  );
-  const mouseTooltipTrigger = useMemo(
-    () => ({
-      show: [Dialog.hideShowTriggers.MOUSE_ENTER],
-      hide: [Dialog.hideShowTriggers.MOUSE_LEAVE]
-    }),
-    []
-  );
-
   const [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible] = useState(false);
-
   const tooltipContentContainerRef = useRef(null);
-
   const tooltipContent = useMemo(
     () =>
       counterTooltipCustomProps?.content || (
@@ -49,8 +32,6 @@ const AvatarGroupCounterTooltipContainer = ({
       ),
     [avatars, className, counterTooltipCustomProps?.content, counterTooltipIsVirtualizedList, type]
   );
-
-  console.log("wtd", tooltipContentContainerRef);
 
   useTooltipContentTabNavigation({
     counterContainerRef,
