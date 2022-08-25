@@ -4,7 +4,6 @@ import cx from "classnames";
 import React from "react";
 import { components } from "react-select";
 import Tooltip from "../../../Tooltip/Tooltip";
-import "./option.scss";
 import styles from "./option.module.scss";
 
 const Option = ({ Renderer, data, id, "data-testid": dataTestId, ...props }) => {

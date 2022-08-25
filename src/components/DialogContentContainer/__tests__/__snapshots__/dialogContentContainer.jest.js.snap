@@ -4,7 +4,8 @@ exports[`renders correctly with empty props 1`] = `
 <div
   aria-describedby=""
   aria-labelledby=""
-  className="dialog-content-container dialog-content-container--popover dialog-content-container--medium"
+  className="dialogContentContainer dialog-content-container dialogContentContainerPopover dialog-content-container--popover dialogContentContainerMedium dialog-content-container--medium"
+  data-testid="dialog-content-container"
   role="dialog"
 />
 `;
