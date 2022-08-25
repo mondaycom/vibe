@@ -44,13 +44,10 @@ export function useTooltipContentTabNavigation({
     keys: KEYS,
     ref: counterContainerRef,
     withoutAnyModifier: true,
-    callback: useCallback(
-      e => {
-        e.preventDefault();
-        if (isKeyboardTooltipVisible) tooltipContentContainerRef?.current && tooltipContentContainerRef.current.focus();
-      },
-      [isKeyboardTooltipVisible, tooltipContentContainerRef]
-    )
+    preventDefault: true,
+    callback: useCallback(() => {
+      if (isKeyboardTooltipVisible) tooltipContentContainerRef?.current && tooltipContentContainerRef.current.focus();
+    }, [isKeyboardTooltipVisible, tooltipContentContainerRef])
   });
 
   // Close tooltip by keyboard
