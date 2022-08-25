@@ -76,7 +76,7 @@ export function useTooltipContentTabNavigation({
     ref: tooltipContentContainerRef,
     modifier: useKeyEvent.modifiers.SHIFT,
     callback: useCallback(() => {
-      // We are not preventing default behaviour here and that's why after moving focus to here we
+      // We are not preventing default behaviour here and that's why after pressing tab and after moving focus to here
       // the browser will move the focus to the next element in the focus order.
       focusPrevPlaceholderRef?.current && focusPrevPlaceholderRef.current.focus();
       if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
