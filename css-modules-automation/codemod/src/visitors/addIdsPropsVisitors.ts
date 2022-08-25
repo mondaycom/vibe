@@ -35,7 +35,7 @@ export const addIdsPropsVisitors: Visitor<State> = {
       }
 
       if (!dataTestIdExists) {
-        newProperties.push(t.objectProperty(t.stringLiteral("data-testId"), t.identifier("dataTestId"), false));
+        newProperties.push(t.objectProperty(t.stringLiteral("data-testid"), t.identifier("dataTestId"), false));
       }
 
       printWithCondition(false, "<<< addDataTestIdPropsVisitors, newProperties", newProperties);
