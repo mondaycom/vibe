@@ -27,8 +27,8 @@ export const ELEMENT_TYPES = {
   COMBOBOX_CATEGORY: "combobox-category",
   COMBOBOX_OPTION: "combobox-option",
   COUNTER: "counter",
-  MENU: "menu",
-  OPTION: "option",
+  DROPDOWN_MENU: "dropdown-menu",
+  DROPDOWN_OPTION: "dropdown-option",
   EDITABLE_HEADING: "editable-heading",
   HEADING: "heading",
   LABEL: "label",
@@ -45,7 +45,8 @@ export const ELEMENT_TYPES = {
   TOAST: "toast",
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
-  DIVIDER: "divider"
+  DIVIDER: "divider",
+  DIALOG_CONTENT_CONTAINER: "dialog-content-container"
 };
 
 export const NAVIGATIONS_COMMANDS = {
