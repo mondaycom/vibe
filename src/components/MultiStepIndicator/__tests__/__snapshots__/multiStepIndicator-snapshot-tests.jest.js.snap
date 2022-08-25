@@ -5,7 +5,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
   className="multi-step-indicator--wrapper test"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -73,7 +73,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -126,7 +126,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -183,7 +183,7 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
   className="multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -251,7 +251,7 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     className="monday-style-divider multi-step-indicator--wrapper__divider test monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -304,7 +304,7 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     className="monday-style-divider multi-step-indicator--wrapper__divider test monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -367,7 +367,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
   className="multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -435,7 +435,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -488,7 +488,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -545,7 +545,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
   className="multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -598,7 +598,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -651,7 +651,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -708,7 +708,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
   className="multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled test clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled test clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -776,7 +776,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active test clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active test clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -829,7 +829,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending test clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending test clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -886,7 +886,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
   className="multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -954,7 +954,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1007,7 +1007,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1064,7 +1064,7 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
   className="multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-step-indicator-component--text-placement-vertical monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-step-indicator-component--text-placement-vertical disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1132,7 +1132,7 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     </div>
   </li>
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-step-indicator-component--text-placement-vertical monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-step-indicator-component--text-placement-vertical disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1185,7 +1185,7 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     </div>
   </li>
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-step-indicator-component--text-placement-vertical monday-style-clickable--disable-text-selection"
+    className="clickable monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-step-indicator-component--text-placement-vertical disableTextSelection monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}

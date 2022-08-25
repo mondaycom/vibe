@@ -35,7 +35,7 @@ exports[`Search renders correctly when disabled 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -62,7 +62,7 @@ exports[`Search renders correctly when disabled 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -128,7 +128,7 @@ exports[`Search renders correctly when underline 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -155,7 +155,7 @@ exports[`Search renders correctly when underline 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -221,7 +221,7 @@ exports[`Search renders correctly with className 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -248,7 +248,7 @@ exports[`Search renders correctly with className 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -314,7 +314,7 @@ exports[`Search renders correctly with icon 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -331,7 +331,7 @@ exports[`Search renders correctly with icon 1`] = `
         />
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -397,7 +397,7 @@ exports[`Search renders correctly with id 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -424,7 +424,7 @@ exports[`Search renders correctly with id 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_testId"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -518,7 +518,7 @@ exports[`Search renders correctly with loading 1`] = `
         </div>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -545,7 +545,7 @@ exports[`Search renders correctly with loading 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -611,7 +611,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -638,7 +638,7 @@ exports[`Search renders correctly with placeholder 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -704,7 +704,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -731,7 +731,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -787,7 +787,7 @@ exports[`Search renders correctly with underline type 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -814,7 +814,7 @@ exports[`Search renders correctly with underline type 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -880,7 +880,7 @@ exports[`Search renders correctly with validation 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -907,7 +907,7 @@ exports[`Search renders correctly with validation 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -973,7 +973,7 @@ exports[`Search renders correctly with value 1`] = `
         value="value"
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1000,7 +1000,7 @@ exports[`Search renders correctly with value 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1066,7 +1066,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1093,7 +1093,7 @@ exports[`Search renders correctly with wrapperClassName 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1159,7 +1159,7 @@ exports[`Search renders correctly without props 1`] = `
         value=""
       />
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon input-component__icon--container-active disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
@@ -1186,7 +1186,7 @@ exports[`Search renders correctly without props 1`] = `
         </svg>
       </div>
       <div
-        className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
+        className="clickable monday-style-clickable input-component__icon--container input-component__icon--container-has-icon disableTextSelection monday-style-clickable--disable-text-selection"
         data-testid="clean-search-button_search"
         onClick={[Function]}
         onKeyDown={[Function]}
