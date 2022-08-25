@@ -26,6 +26,21 @@
 // monday-ui-react-core/src/components/ListItem/ListItem.jsx
 // monday-ui-react-core/src/components/ListItemIcon/ListItemIcon.jsx
 // monday-ui-react-core/src/components/ListTitle/ListTitle.jsx
+// 5
+// monday-ui-react-core/src/components/EditableHeading
+// monday-ui-react-core/src/components/EditableInput
+// monday-ui-react-core/src/components/ExpandCollapse
+// monday-ui-react-core/src/components/FieldLabel
+// monday-ui-react-core/src/components/FormattedNumber
+// monday-ui-react-core/src/components/Heading
+// 6
+// monday-ui-react-core/src/components/Counter/Counter.jsx
+// monday-ui-react-core/src/components/Dialog/Dialog.jsx
+// monday-ui-react-core/src/components/DialogContentContainer/DialogContentContainer.jsx
+// monday-ui-react-core/src/components/DialogContentContainer/DialogContentContainer.jsx
+// monday-ui-react-core/src/components/Divider/Divider.jsx
+// monday-ui-react-core/src/components/Dropdown/components/menu/menu.jsx
+// monday-ui-react-core/src/components/Dropdown/components/option/option.jsx
 
 // Troubles
 // monday-ui-react-core/src/components/Slider/Slider.jsx // custom bem function is used - need to change that before migration
@@ -34,3 +49,5 @@
 // monday-ui-react-core/src/components/MultiStepIndicator/components/StepIndicator/StepIndicator.jsx // custom bem function is used - need to change that before migration
 // monday-ui-react-core/src/components/MultiStepIndicator/MultiStepIndicator.jsx // set cssBaseClass in a standard way and then rerun the migration
 // monday-ui-react-core/src/components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx // set cssBaseClass in a standard way and then rerun the migration
+// monday-ui-react-core/src/components/Dialog/DialogContent/DialogContent.jsx // Problematic CSS transition animation
+// monday-ui-react-core/src/components/Dropdown/Dropdown.jsx // problems with applying animation styles, though everything looks godo
