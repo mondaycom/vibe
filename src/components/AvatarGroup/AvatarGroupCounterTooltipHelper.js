@@ -9,7 +9,7 @@ import { useListenFocusTriggers } from "../../hooks/useListenFocusTriggers";
 
 const KEYS = ["Tab"];
 const ESC = ["Escape"];
-
+export const TOOLTIP_SHOW_DELAY = 200;
 export function useTooltipContentTabNavigation({
   counterContainerRef = undefined,
   tooltipContentContainerRef,
@@ -19,7 +19,10 @@ export function useTooltipContentTabNavigation({
   setIsKeyboardTooltipVisible
 }) {
   const showKeyboardTooltip = useCallback(() => {
-    if (!isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(true);
+    if (!isKeyboardTooltipVisible) {
+      // temp hack for display tooltip with delay after timeout because refactoring the tooltip with open mechanism is out of scope
+      setTimeout(() => setIsKeyboardTooltipVisible(true), TOOLTIP_SHOW_DELAY);
+    }
   }, [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]);
 
   const hideKeyboardTooltip = useCallback(() => {

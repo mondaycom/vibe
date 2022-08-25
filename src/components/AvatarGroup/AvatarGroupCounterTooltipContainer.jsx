@@ -4,7 +4,7 @@ import Tooltip from "../Tooltip/Tooltip";
 import Dialog from "../Dialog/Dialog";
 import Avatar from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
-import { useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
+import { useTooltipContentTabNavigation, TOOLTIP_SHOW_DELAY } from "./AvatarGroupCounterTooltipHelper";
 
 const AvatarGroupCounterTooltipContainer = ({
   focusPrevPlaceholderRef,
@@ -57,7 +57,7 @@ const AvatarGroupCounterTooltipContainer = ({
       // for disable close tooltip when hovering content
       showOnDialogEnter
       open={isKeyboardTooltipVisible}
-      hideDelay={200}
+      hideDelay={TOOLTIP_SHOW_DELAY}
       showTrigger={showTrigger}
       hideTrigger={hideTrigger}
       onTooltipHide={onHide}
