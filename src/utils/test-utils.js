@@ -9,6 +9,8 @@ export const ELEMENT_TYPES = {
   TEXT_FIELD_SECONDARY_BUTTON: "text-field-secondary-button",
   SEARCH: "search",
   CLEAN_SEARCH_BUTTON: "clean-search-button",
+  COLOR_PICKER: "color-picker",
+  COLOR_PICKER_CONTENT_COMPONENT: "color-picker-content-component",
   COLOR_PICKER_ITEM: "color-picker-item",
   ICON_BUTTON: "icon-button",
   CHIP: "chip",

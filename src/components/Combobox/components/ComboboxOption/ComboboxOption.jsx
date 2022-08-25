@@ -1,11 +1,12 @@
-import React, { useCallback, useEffect, useRef, useMemo } from "react";
+import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
 import cx from "classnames";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../../hooks/useIsOverflowing";
 import { keyCodes } from "../../../../constants/KeyCodes";
 import { getOptionId } from "../../ComboboxHelpers/ComboboxHelpers";
-import "./ComboboxOption.scss";
+import styles from "./ComboboxOption.module.scss";
 
 const ComboboxOption = ({
   index,
@@ -23,7 +24,8 @@ const ComboboxOption = ({
   /**
    * temporary flag for investigate a bug - will remove very soon
    */
-  forceUndoScrollNullCheck = false
+  forceUndoScrollNullCheck = false,
+  "data-testid": dataTestId
 }) => {
   const {
     id,
@@ -68,12 +70,13 @@ const ComboboxOption = ({
 
     return (
       <Icon
-        className={cx("option-icon", className)}
+        className={cx(styles.optionIcon, "option-icon", className)}
         iconType={Icon.type.ICON_FONT}
         clickable={false}
         icon={icon}
         iconSize={iconSize}
         ignoreFocusStyle
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX_OPTION, id)}
       />
     );
   };
@@ -117,17 +120,17 @@ const ComboboxOption = ({
 
   const optionValue = (
     <>
-      {leftIcon && renderIcon(leftIcon, leftIconType, "left")}
-      <div ref={labelRef} className="option-label">
+      {leftIcon && renderIcon(leftIcon, leftIconType, cx(styles.left, "left"))}
+      <div ref={labelRef} className={cx(styles.optionLabel, "option-label")}>
         {label}
       </div>
-      {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
+      {rightIcon && renderIcon(rightIcon, rightIconType, cx("right"))}
     </>
   );
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-    <Tooltip content={tooltipContent}>
+    <Tooltip content={tooltipContent} data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX_OPTION, id)}>
       <div
         ref={ref}
         key={id || label}
@@ -139,11 +142,15 @@ const ComboboxOption = ({
         onClick={onClick}
         onKeyDown={onKeyDown}
         onMouseLeave={onMouseLEave}
-        className={cx("combobox-option", {
-          disabled,
-          selected,
-          active: isActive,
-          "active-outline": visualFocus,
+        className={cx(styles.comboboxOption, "combobox-option", {
+          [styles.disabled]: disabled,
+          ["disabled"]: disabled,
+          [styles.selected]: selected,
+          ["selected"]: selected,
+          [styles.active]: isActive,
+          ["active"]: isActive,
+          [styles.activeOutline]: visualFocus,
+          ["active-outline"]: visualFocus,
           first: index === 0
         })}
         style={{ height: optionLineHeight }}

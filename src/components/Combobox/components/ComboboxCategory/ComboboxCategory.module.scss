@@ -2,7 +2,7 @@
 @import "../../../../styles/typography";
 @import "../../../../styles/states";
 
-.combobox-category {
+.comboboxCategory {
   @include theme-prop(color, placeholder-color);
   display: flex;
   align-items: center;

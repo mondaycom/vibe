@@ -8,13 +8,14 @@ import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
 import NoColor from "../../../Icon/Icons/components/NoColor";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "../../ColorPickerConstants";
 import { calculateColorPickerWidth } from "../../services/ColorPickerStyleService";
-import "./ColorPickerContentComponent.scss";
 import {
   GridKeyboardNavigationContext,
   useGridKeyboardNavigationContext
 } from "../../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { ColorPickerClearButton } from "./ColorPickerClearButton";
 import { ColorPickerColorsGrid } from "./ColorPickerColorsGrid";
+import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
+import "./ColorPickerContentComponent.module.scss";
 
 const ColorPickerContentComponent = forwardRef(
   (
@@ -37,7 +38,9 @@ const ColorPickerContentComponent = forwardRef(
       focusOnMount,
       colorShape,
       forceUseRawColorList,
-      showColorNameTooltip
+      showColorNameTooltip,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -80,7 +83,14 @@ const ColorPickerContentComponent = forwardRef(
     const width = calculateColorPickerWidth(colorSize, numberOfColorsInLine);
 
     return (
-      <div className={cx("color-picker-content--wrapper", className)} style={{ width }} ref={ref} tabIndex={-1}>
+      <div
+        className={cx("color-picker-content--wrapper", className)}
+        style={{ width }}
+        ref={ref}
+        tabIndex={-1}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.COLOR_PICKER_CONTENT_COMPONENT, id)}
+      >
         <GridKeyboardNavigationContext.Provider value={keyboardContext}>
           <ColorPickerColorsGrid
             ref={colorsRef}

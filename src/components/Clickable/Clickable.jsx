@@ -1,16 +1,14 @@
+import cx from "classnames";
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import React, { forwardRef, useRef } from "react";
 import NOOP from "lodash/noop";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { BEMClass } from "../../helpers/bem-helper";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import "./Clickable.scss";
+import styles from "./Clickable.module.scss";
 
 const CSS_BASE_CLASS = "monday-style-clickable";
-const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 const Clickable = forwardRef(
   (
@@ -41,9 +39,11 @@ const Clickable = forwardRef(
     return (
       <Element
         ref={mergedRef}
-        className={cx(CSS_BASE_CLASS, className, {
-          disabled,
-          [bemHelper({ state: "disable-text-selection" })]: !enableTextSelection
+        className={cx(styles.clickable, CSS_BASE_CLASS, className, {
+          [styles.disabled]: disabled,
+          ["disabled"]: disabled,
+          [styles.disableTextSelection]: !enableTextSelection,
+          ["monday-style-clickable--disable-text-selection"]: !enableTextSelection
         })}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.CLICKABLE, id)}
         role={role}
