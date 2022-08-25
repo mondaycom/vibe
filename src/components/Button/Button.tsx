@@ -55,7 +55,7 @@ export interface ButtonProps {
   /** displays the active state */
   active?: boolean;
   /** id to pass to the button */
-  id: string;
+  id?: string;
   /** adds 8px margin to the right */
   marginRight?: boolean;
   /** adds 8px margin to the left */
