@@ -13,11 +13,12 @@ export const TextStyles = () => {
       <VisualDescription
         className={CSS_BASE_CLASS}
         ariaLabel="H1"
-        title="Main heading (Roboto 32px bold)"
+        title="Main heading (Poppins 30px bold)"
         description="Use as main header on a page"
       >
         <Heading
           type={Heading.types.h1}
+          brandFont
           value="H1"
           ellipsis={false}
           className={cx(
