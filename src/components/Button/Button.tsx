@@ -307,6 +307,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       return (
         <button {...buttonProps}>
           <span className="monday-style-button__loader">
+            {/** Because typescript can't handle with this not converted component API*/}
             {/** @ts-ignore */}
             <Loader svgClassName="monday-style-button-loader-svg" />
           </span>

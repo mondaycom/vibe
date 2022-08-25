@@ -31,13 +31,15 @@ function buildIconsEsmFile() {
   fs.writeFileSync(path.join(__dirname, "../dist/icons/index.js"), iconsContent, "utf8");
 }
 
-function buildComponentsTypesIndexFile() {
+/**function buildComponentsTypesIndexFile() {
   const exports = Object.entries(publishedTSComponents).map(([name, path]) =>
     buildComponentExport(name, `./types/${path}`)
   );
   convertExportsToFile(exports, "types.d.ts");
-}
+}**/
 
 buildComponentsEsmFile();
 buildIconsEsmFile();
-buildComponentsTypesIndexFile();
+// Right now we do not want to build types index file for not breaking micro-frontends d.ts files
+// (without index files there is no way to connect between the published components to their types)
+//buildComponentsTypesIndexFile();
