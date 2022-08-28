@@ -17,9 +17,9 @@ const AlertBannerButton = ({ marginLeft, isDarkBackground, ...buttonProps }: Ale
     <div className={classNames}>
       <Button
         {...buttonProps}
-        size={Button.sizes?.SMALL}
+        size={Button.sizes.SMALL}
         className="monday-style-alert-banner-button"
-        color={Button.colors?.ON_PRIMARY_COLOR}
+        color={Button.colors.ON_PRIMARY_COLOR}
       />
     </div>
   );

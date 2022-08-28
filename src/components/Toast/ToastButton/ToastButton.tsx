@@ -6,8 +6,8 @@ const ToastButton = ({ className, ...buttonProps }: ButtonProps) => {
     <Button
       {...buttonProps}
       className={cx("monday-style-toast-action_button", className)}
-      size={Button.sizes?.SMALL}
-      color={Button.colors?.ON_PRIMARY_COLOR}
+      size={Button.sizes.SMALL}
+      color={Button.colors.ON_PRIMARY_COLOR}
     />
   );
 };
@@ -15,8 +15,8 @@ const ToastButton = ({ className, ...buttonProps }: ButtonProps) => {
 const { size: _sizeDefaultProp, ...buttonDefaultPropTypes } = Button.defaultProps!;
 ToastButton.defaultProps = {
   ...buttonDefaultPropTypes,
-  size: Button.sizes?.SMALL,
-  kind: Button.kinds?.SECONDARY,
+  size: Button.sizes.SMALL,
+  kind: Button.kinds.SECONDARY,
   marginLeft: false,
   isDarkBackground: false
 };

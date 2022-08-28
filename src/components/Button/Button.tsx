@@ -85,13 +85,10 @@ export interface ButtonProps {
   insetFocus?: boolean;
 }
 
-const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> & {
-  sizes?: typeof SIZES;
-  colors?: typeof ButtonColor;
-  kinds?: typeof ButtonType;
-  types?: typeof ButtonInputType;
-  inputTags?: typeof ButtonInputType;
-} = forwardRef<unknown, ButtonProps>(
+const ButtonComponent: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> = forwardRef<
+  unknown,
+  ButtonProps
+>(
   (
     {
       className,
@@ -320,6 +317,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         <button {...buttonProps}>
           {successIcon ? (
             <Icon
+              /** Because typescript can't handle with this not converted component API*/
               // @ts-ignore
               iconType={Icon?.type.ICON_FONT}
               clickable={false}
@@ -340,6 +338,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       <button {...buttonProps}>
         {leftIcon ? (
           <Icon
+            /** Because typescript can't handle with this not converted component API*/
             // @ts-ignore
             iconType={Icon?.type.ICON_FONT}
             clickable={false}
@@ -352,6 +351,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         {children}
         {rightIcon ? (
           <Icon
+            /** Because typescript can't handle with this not converted component API*/
             // @ts-ignore
             iconType={Icon?.type.ICON_FONT}
             clickable={false}
@@ -366,7 +366,15 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
   }
 );
 
-Object.assign(Button, {
+let Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> & {
+  sizes: typeof SIZES;
+  colors: typeof ButtonColor;
+  kinds: typeof ButtonType;
+  types: typeof ButtonInputType;
+  inputTags: typeof ButtonInputType;
+};
+
+Object.assign(Button, ButtonComponent, {
   sizes: SIZES,
   colors: ButtonColor,
   kinds: ButtonType,
@@ -375,10 +383,10 @@ Object.assign(Button, {
 });
 
 Button.defaultProps = {
-  kind: Button.kinds?.PRIMARY,
+  kind: Button.kinds.PRIMARY,
   onClick: NOOP,
-  size: Button.sizes?.MEDIUM,
-  color: Button.colors?.PRIMARY,
+  size: Button.sizes.MEDIUM,
+  color: Button.colors.PRIMARY,
   disabled: false,
   rightIcon: null,
   leftIcon: null,
@@ -389,7 +397,7 @@ Button.defaultProps = {
   active: false,
   marginRight: false,
   marginLeft: false,
-  type: Button.types?.BUTTON,
+  type: Button.types.BUTTON,
   onMouseDown: NOOP,
   rightFlat: false,
   leftFlat: false,
