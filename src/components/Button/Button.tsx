@@ -85,10 +85,13 @@ export interface ButtonProps {
   insetFocus?: boolean;
 }
 
-const ButtonComponent: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> = forwardRef<
-  unknown,
-  ButtonProps
->(
+const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> & {
+  sizes?: typeof SIZES;
+  colors?: typeof ButtonColor;
+  kinds?: typeof ButtonType;
+  types?: typeof ButtonInputType;
+  inputTags?: typeof ButtonInputType;
+} = forwardRef<unknown, ButtonProps>(
   (
     {
       className,
@@ -366,15 +369,7 @@ const ButtonComponent: React.ForwardRefExoticComponent<ButtonProps & React.RefAt
   }
 );
 
-let Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<unknown>> & {
-  sizes: typeof SIZES;
-  colors: typeof ButtonColor;
-  kinds: typeof ButtonType;
-  types: typeof ButtonInputType;
-  inputTags: typeof ButtonInputType;
-};
-
-Object.assign(Button, ButtonComponent, {
+Object.assign(Button, {
   sizes: SIZES,
   colors: ButtonColor,
   kinds: ButtonType,
@@ -383,10 +378,10 @@ Object.assign(Button, ButtonComponent, {
 });
 
 Button.defaultProps = {
-  kind: Button.kinds.PRIMARY,
+  kind: Button.kinds?.PRIMARY,
   onClick: NOOP,
-  size: Button.sizes.MEDIUM,
-  color: Button.colors.PRIMARY,
+  size: Button.sizes?.MEDIUM,
+  color: Button.colors?.PRIMARY,
   disabled: false,
   rightIcon: null,
   leftIcon: null,
@@ -397,7 +392,7 @@ Button.defaultProps = {
   active: false,
   marginRight: false,
   marginLeft: false,
-  type: Button.types.BUTTON,
+  type: Button.types?.BUTTON,
   onMouseDown: NOOP,
   rightFlat: false,
   leftFlat: false,
