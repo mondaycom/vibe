@@ -2,7 +2,7 @@
 @import "../../styles/typography";
 @import "../../styles/states";
 
-.chips {
+:global(.chips) {
   display: inline-flex;
   overflow: hidden;
   height: 24px;
