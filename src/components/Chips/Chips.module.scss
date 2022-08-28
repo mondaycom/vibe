@@ -2,7 +2,7 @@
 @import "../../styles/typography";
 @import "../../styles/states";
 
-:global(.chips) {
+.chips {
   display: inline-flex;
   overflow: hidden;
   height: 24px;
@@ -30,7 +30,8 @@
     padding-right: var(--spacing-xs);
   }
 
-  .icon, .avatar {
+  .icon,
+  .avatar {
     &.left {
       margin-right: var(--spacing-xs);
     }
