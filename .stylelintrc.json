@@ -3,6 +3,11 @@
   "rules": {
     "no-descending-specificity": null,
     "no-duplicate-selectors": null,
-    "selector-pseudo-class-no-unknown": ["global"]
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ]
   }
 }
