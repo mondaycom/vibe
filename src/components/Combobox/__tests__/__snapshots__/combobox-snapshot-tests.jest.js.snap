@@ -960,6 +960,7 @@ exports[`Combobox renders correctly with loading 1`] = `
                 title="loading"
               >
                 <svg
+                  aria-hidden={true}
                   className="circle-loader-spinner circleLoaderSpinner input-component__loader-svg"
                   viewBox="0 0 50 50"
                 >

@@ -93,42 +93,42 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
         class=" css-bknh9q-Component"
       >
         <div
-          class=" css-14cnnyc-option"
+          class="dropdown-wrapper__option--reset css-14cnnyc-option"
           id="react-select-27-option-0"
           tabindex="-1"
         >
           Ocean
         </div>
         <div
-          class=" css-15bbhzv-option"
+          class="dropdown-wrapper__option--reset css-15bbhzv-option"
           id="react-select-27-option-1"
           tabindex="-1"
         >
           Blue
         </div>
         <div
-          class=" css-4bbyqz-option"
+          class="dropdown-wrapper__option--reset css-4bbyqz-option"
           id="react-select-27-option-2"
           tabindex="-1"
         >
           Purple
         </div>
         <div
-          class=" css-4bbyqz-option"
+          class="dropdown-wrapper__option--reset css-4bbyqz-option"
           id="react-select-27-option-3"
           tabindex="-1"
         >
           Red
         </div>
         <div
-          class=" css-4bbyqz-option"
+          class="dropdown-wrapper__option--reset css-4bbyqz-option"
           id="react-select-27-option-4"
           tabindex="-1"
         >
           Orange
         </div>
         <div
-          class=" css-4bbyqz-option"
+          class="dropdown-wrapper__option--reset css-4bbyqz-option"
           id="react-select-27-option-5"
           tabindex="-1"
         >
@@ -885,7 +885,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-14cnnyc-option"
+                class="dropdown-wrapper__option--reset css-14cnnyc-option"
                 id="react-select-24-option-0"
                 tabindex="-1"
               >
@@ -898,7 +898,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-4bbyqz-option"
                 id="react-select-24-option-1"
                 tabindex="-1"
               >
@@ -911,7 +911,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-4bbyqz-option"
                 id="react-select-24-option-2"
                 tabindex="-1"
               >
@@ -924,7 +924,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-4bbyqz-option"
                 id="react-select-24-option-3"
                 tabindex="-1"
               >
@@ -937,7 +937,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-4bbyqz-option"
                 id="react-select-24-option-4"
                 tabindex="-1"
               >
@@ -950,7 +950,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-4bbyqz-option"
                 id="react-select-24-option-5"
                 tabindex="-1"
               >
@@ -963,7 +963,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-4bbyqz-option"
                 id="react-select-24-option-6"
                 tabindex="-1"
               >
@@ -976,7 +976,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-4bbyqz-option"
                 id="react-select-24-option-7"
                 tabindex="-1"
               >
@@ -989,7 +989,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-4bbyqz-option"
                 id="react-select-24-option-8"
                 tabindex="-1"
               >
@@ -1002,7 +1002,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-4bbyqz-option"
                 id="react-select-24-option-9"
                 tabindex="-1"
               >
@@ -1015,7 +1015,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <div>
               <div
-                class=" css-4bbyqz-option"
+                class="dropdown-wrapper__option--reset css-4bbyqz-option"
                 id="react-select-24-option-10"
                 tabindex="-1"
               >
