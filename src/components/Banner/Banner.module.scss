@@ -6,7 +6,7 @@
   width: content-box;
 }
 
-.banner .bannerContent {
+.bannerContent {
   display: grid;
   position: relative;
   padding: $spacing-large;
@@ -19,55 +19,55 @@
   @include theme-prop(color, primary-text-color);
 }
 
-.banner .bannerContent .bannerClose {
+.bannerContent .bannerClose {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.banner .bannerContent.closeButtonSpacing {
+.bannerContent.closeButtonSpacing {
   padding-right: $spacing-xl;
 }
 
-.banner .bannerContent.imagePositionLeft,
-.banner .bannerContent.imagePositionRight {
+.bannerContent.imagePositionLeft,
+.bannerContent.imagePositionRight {
   grid-auto-rows: auto;
   grid-auto-columns: auto;
 }
 
-.banner .bannerContent.imagePositionLeft {
+.bannerContent.imagePositionLeft {
   grid-template-areas:
     "image  title    title   "
     "image  subtitle subtitle";
 }
 
-.banner .bannerContent.imagePositionRight {
+.bannerContent.imagePositionRight {
   grid-template-areas:
     "title    title     image"
     "subtitle subtitle  image";
 }
 
-.banner .bannerContent.imagePositionBottom,
-.banner .bannerContent.imagePositionTop {
+.bannerContent.imagePositionBottom,
+.bannerContent.imagePositionTop {
   grid-auto-rows: auto;
   grid-template-columns: repeat(1, 1fr);
 }
 
-.banner .bannerContent.imagePositionTop {
+.bannerContent.imagePositionTop {
   grid-template-areas:
     "image"
     "title"
     "subtitle";
 }
 
-.banner .bannerContent.imagePositionBottom {
+.bannerContent.imagePositionBottom {
   grid-template-areas:
     "title"
     "subtitle"
     "image";
 }
 
-.banner .bannerContent .bannerTitle {
+.bannerContent .bannerTitle {
   align-self: end;
   margin: 0;
   grid-area: title;
@@ -81,14 +81,14 @@
   text-overflow: ellipsis;
 }
 
-.banner .bannerContent .bannerSubtitle {
+.bannerContent .bannerSubtitle {
   @include font-paragraph();
   margin: 0;
   grid-area: subtitle;
   @include line-clamp(3);
 }
 
-.banner .bannerContent .bannerImage {
+.bannerContent .bannerImage {
   align-self: center;
   justify-self: center;
   grid-area: image;
@@ -98,28 +98,28 @@
   object-fit: contain;
 }
 
-.banner.rtl .bannerContent {
+.rtl .bannerContent {
   text-align: right;
 }
 
-.banner.rtl .bannerContent .bannerClose {
+.rtl .bannerContent .bannerClose {
   position: absolute;
   top: 0;
   left: 0;
   right: auto;
 }
 
-.banner.rtl .bannerContent.closeButtonSpacing {
+.rtl .bannerContent.closeButtonSpacing {
   padding-left: $spacing-xl;
 }
 
-.banner.rtl .bannerContent.imagePositionLeft {
+.rtl .bannerContent.imagePositionLeft {
   grid-template-areas:
     "image  title    title"
     "image  subtitle subtitle";
 }
 
-.banner.rtl .bannerContent.imagePositionRight {
+.rtl .bannerContent.imagePositionRight {
   grid-template-areas:
     "title    title     image"
     "subtitle subtitle  image";

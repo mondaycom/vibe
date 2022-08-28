@@ -1,17 +1,18 @@
+import { camelCase } from "lodash";
+import cx from "classnames";
 /* eslint-disable react/jsx-props-no-spreading,react/button-has-type */
 import { SIZES } from "../../constants/sizes";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
-import { BUTTON_COLORS, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize, BUTTON_ICON_SIZE } from "./ButtonConstants";
+import { BUTTON_COLORS, BUTTON_ICON_SIZE, BUTTON_INPUT_TYPE, BUTTON_TYPES, getActualSize } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
-import "./Button.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./Button.module.scss";
 
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
@@ -56,7 +57,7 @@ const Button = forwardRef(
       ariaExpanded,
       ariaControls,
       blurOnMouseUp,
-      dataTestId,
+      "data-testid": dataTestId,
       insetFocus
     },
     ref
@@ -132,22 +133,37 @@ const Button = forwardRef(
       const calculatedColor = success ? BUTTON_COLORS.POSITIVE : color;
       return cx(
         className,
+        styles.button,
         "monday-style-button",
+        styles[`${camelCase("size-" + getActualSize(size))}`],
         `monday-style-button--size-${getActualSize(size)}`,
+        styles[`${camelCase("kind-" + kind)}`],
         `monday-style-button--kind-${kind}`,
+        styles[`${camelCase("color-" + calculatedColor)}`],
         `monday-style-button--color-${calculatedColor}`,
         {
-          "has-style-size": hasSizeStyle,
-          "monday-style-button--loading": loading,
+          [styles.hasStyleSize]: hasSizeStyle,
+          ["has-style-size"]: hasSizeStyle,
+          [styles.loading]: loading,
+          ["monday-style-button--loading"]: loading,
+          [`${camelCase("color-" + calculatedColor + "-active")}`]: active,
           [`monday-style-button--color-${calculatedColor}-active`]: active,
-          "monday-style-button--margin-right": marginRight,
-          "monday-style-button--margin-left": marginLeft,
-          "monday-style-button--right-flat": rightFlat,
-          "monday-style-button--left-flat": leftFlat,
-          "monday-style-button--prevent-click-animation": preventClickAnimation,
-          "monday-style-button--no-side-padding": noSidePadding,
-          "monday-style-button--disabled": disabled,
-          "inset-focus-style": insetFocus
+          [styles.marginRight]: marginRight,
+          ["monday-style-button--margin-right"]: marginRight,
+          [styles.marginLeft]: marginLeft,
+          ["monday-style-button--margin-left"]: marginLeft,
+          [styles.rightFlat]: rightFlat,
+          ["monday-style-button--right-flat"]: rightFlat,
+          [styles.leftFlat]: leftFlat,
+          ["monday-style-button--left-flat"]: leftFlat,
+          [styles.clickAnimation]: !preventClickAnimation,
+          ["monday-style-button--prevent-click-animation"]: preventClickAnimation,
+          [styles.noSidePadding]: noSidePadding,
+          ["monday-style-button--no-side-padding"]: noSidePadding,
+          [styles.disabled]: disabled,
+          ["monday-style-button--disabled"]: disabled,
+          [styles.insetFocusStyle]: insetFocus,
+          ["inset-focus-style"]: insetFocus
         }
       );
     }, [
@@ -233,8 +249,8 @@ const Button = forwardRef(
     if (loading) {
       return (
         <button {...buttonProps}>
-          <span className="monday-style-button__loader">
-            <Loader svgClassName="monday-style-button-loader-svg" />
+          <span className={cx(styles.loader, "monday-style-button__loader")}>
+            <Loader svgClassName={cx(styles.loaderSvg, "monday-style-button-loader-svg")} />
           </span>
         </button>
       );
@@ -250,7 +266,8 @@ const Button = forwardRef(
               icon={successIcon}
               iconSize={successIconSize}
               className={cx({
-                "monday-style-button--left-icon": !!successText
+                [styles.leftIcon]: !!successText,
+                ["monday-style-button--left-icon"]: !!successText
               })}
               ignoreFocusStyle
             />
@@ -268,7 +285,10 @@ const Button = forwardRef(
             clickable={false}
             icon={leftIcon}
             iconSize={leftIconSize}
-            className={cx({ "monday-style-button--left-icon": !!children })}
+            className={cx({
+              [styles.leftIcon]: !!children,
+              ["monday-style-button--left-icon"]: !!children
+            })}
             ignoreFocusStyle
           />
         ) : null}
@@ -279,7 +299,10 @@ const Button = forwardRef(
             clickable={false}
             icon={rightIcon}
             iconSize={rightIconSize}
-            className={cx({ "monday-style-button--right-icon": !!children })}
+            className={cx({
+              [styles.rightIcon]: !!children,
+              ["monday-style-button--right-icon"]: !!children
+            })}
             ignoreFocusStyle
           />
         ) : null}

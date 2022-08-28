@@ -22,6 +22,7 @@ export const ELEMENT_TYPES = {
   AVATAR_BADGE: "avatar-badge",
   AVATAR_CONTENT: "avatar-content",
   BREADCRUMB_ITEM: "breadcrumb-item",
+  BREADCRUMB_CONTENT: "breadcrumb-content",
   BREADCRUMBS_BAR: "breadcrumbs-bar",
   COLOR_PICKER_ITEM_COMPONENT: "color-picker-item-component",
   COMBOBOX_CATEGORY: "combobox-category",
@@ -45,7 +46,11 @@ export const ELEMENT_TYPES = {
   TOAST: "toast",
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
-  DIVIDER: "divider"
+  DIVIDER: "divider",
+  TAB: "tab",
+  TAB_PANEL: "tab-panel",
+  BANNER: "banner",
+  BUTTON_GROUP: "button-group"
 };
 
 export const NAVIGATIONS_COMMANDS = {

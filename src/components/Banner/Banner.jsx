@@ -1,12 +1,14 @@
-import React, { useRef, forwardRef, useMemo } from "react";
-import PropTypes from "prop-types";
+import { camelCase } from "lodash";
 import cx from "classnames";
+import React, { forwardRef, useMemo, useRef } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Button from "../../components/Button/Button";
 import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import { IMAGE_POSITIONS } from "./BannerConstants";
-import "./Banner.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./Banner.module.scss";
 
 const PRESERVE_VALUE = value => value;
 
@@ -24,7 +26,9 @@ const Banner = forwardRef(
       imageClassName,
       imagePosition,
       onClose,
-      rtl
+      rtl,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -34,18 +38,18 @@ const Banner = forwardRef(
     const renderedTitle = useMemo(() => {
       const computedTitle = renderTitle(title);
       if (!computedTitle) return null;
-      return <h2 className="banner--title">{computedTitle}</h2>;
+      return <h2 className={cx(styles.bannerTitle, "banner--title")}>{computedTitle}</h2>;
     }, [title, renderTitle]);
 
     const renderedSubtitle = useMemo(() => {
       const computedSubtitle = renderSubtitle(subtitle);
       if (!computedSubtitle) return null;
-      return <h3 className="banner--subtitle">{computedSubtitle}</h3>;
+      return <h3 className={cx(styles.bannerSubtitle, "banner--subtitle")}>{computedSubtitle}</h3>;
     }, [subtitle, renderSubtitle]);
 
     const renderImage = useMemo(() => {
       if (!imageSrc) return null;
-      return <img src={imageSrc} alt={imageAlt} className={cx("banner--image", imageClassName)} />;
+      return <img src={imageSrc} alt={imageAlt} className={cx(styles.bannerImage, "banner--image", imageClassName)} />;
     }, [imageAlt, imageSrc, imageClassName]);
 
     const renderCloseButton = useMemo(() => {
@@ -53,7 +57,7 @@ const Banner = forwardRef(
       return (
         <Button
           onClick={onClose}
-          className="banner--close"
+          className={cx(styles.bannerClose, "banner--close")}
           size={Button.sizes.SMALL}
           kind={Button.kinds.TERTIARY}
           color={Button.colors.PRIMARY}
@@ -65,11 +69,27 @@ const Banner = forwardRef(
     }, [onClose]);
 
     return (
-      <aside ref={mergedRef} className={cx(className, "banner", { rtl })} aria-label={ariaLabel}>
+      <aside
+        ref={mergedRef}
+        className={cx(className, styles.banner, "banner", {
+          [styles.rtl]: rtl,
+          ["rtl"]: rtl
+        })}
+        aria-label={ariaLabel}
+      >
         <div
-          className={cx("banner--content", `image-position__${imagePosition}`, {
-            "close-button-spacing": !!renderCloseButton
-          })}
+          id={id}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.BANNER, id)}
+          className={cx(
+            styles.bannerContent,
+            "banner--content",
+            styles[`${camelCase("image-position__" + imagePosition)}`],
+            `image-position__${imagePosition}`,
+            {
+              [styles.closeButtonSpacing]: !!renderCloseButton,
+              ["close-button-spacing"]: !!renderCloseButton
+            }
+          )}
         >
           {renderCloseButton}
           {renderedTitle}
