@@ -9,7 +9,7 @@ exports[`Snapshots renders correctly when disabled 1`] = `
 >
   <button
     aria-disabled={true}
-    className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--disabled"
+    className="button monday-style-button sizeSmall monday-style-button--size-small kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation disabled monday-style-button--disabled"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -36,7 +36,7 @@ exports[`Snapshots renders correctly when selected 1`] = `
 >
   <button
     aria-disabled={false}
-    className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
+    className="button monday-style-button sizeSmall monday-style-button--size-small kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -63,7 +63,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 >
   <button
     aria-disabled={false}
-    className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
+    className="button monday-style-button sizeSmall monday-style-button--size-small kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -88,7 +88,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
 >
   <button
     aria-disabled={false}
-    className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
+    className="button monday-style-button sizeSmall monday-style-button--size-small kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -113,7 +113,7 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
 >
   <button
     aria-disabled={false}
-    className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
+    className="button monday-style-button sizeSmall monday-style-button--size-small kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}

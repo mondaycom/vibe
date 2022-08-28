@@ -15,7 +15,7 @@ exports[`AlertBanner should render correctly with background color 1`] = `
     <button
       aria-disabled={false}
       aria-label="close-toast"
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      className="monday-alert-banner__alert-banner-close-btn button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
       data-testid="button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -75,7 +75,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
     <button
       aria-disabled={false}
       aria-label="close-toast"
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      className="monday-alert-banner__alert-banner-close-btn button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
       data-testid="button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -176,7 +176,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       >
         <button
           aria-disabled={false}
-          className="monday-style-alert-banner-button monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+          className="monday-style-alert-banner-button button monday-style-button sizeSmall monday-style-button--size-small kindPrimary monday-style-button--kind-primary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
           data-testid="button"
           onBlur={[Function]}
           onClick={[Function]}
@@ -196,7 +196,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
     <button
       aria-disabled={false}
       aria-label="close-toast"
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      className="monday-alert-banner__alert-banner-close-btn button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
       data-testid="button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -258,7 +258,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
       >
         <button
           aria-disabled={false}
-          className="monday-style-alert-banner-button monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+          className="monday-style-alert-banner-button button monday-style-button sizeSmall monday-style-button--size-small kindPrimary monday-style-button--kind-primary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
           data-testid="button"
           onBlur={[Function]}
           onClick={[Function]}
@@ -278,7 +278,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
     <button
       aria-disabled={false}
       aria-label="close-toast"
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      className="monday-alert-banner__alert-banner-close-btn button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
       data-testid="button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -363,7 +363,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
     <button
       aria-disabled={false}
       aria-label="close-toast"
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      className="monday-alert-banner__alert-banner-close-btn button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
       data-testid="button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -424,7 +424,7 @@ exports[`AlertBanner shuold render correctly with props 1`] = `
     <button
       aria-disabled={false}
       aria-label="close-toast"
-      className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+      className="monday-alert-banner__alert-banner-close-btn button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
       data-testid="button"
       onBlur={[Function]}
       onClick={[Function]}

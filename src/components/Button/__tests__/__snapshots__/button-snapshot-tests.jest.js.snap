@@ -8,7 +8,7 @@ exports[`Button renders correctly a11y renders correctly with a11y props (false)
   aria-haspopup={false}
   aria-label="text"
   aria-labelledby="id"
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -29,7 +29,7 @@ exports[`Button renders correctly a11y renders correctly with a11y props (true) 
   aria-haspopup={true}
   aria-label="text"
   aria-labelledby="id"
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -45,7 +45,7 @@ exports[`Button renders correctly a11y renders correctly with a11y props (true) 
 exports[`Button renders correctly renders Button color- negative 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-negative"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorNegative monday-style-button--color-negative clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -61,7 +61,7 @@ exports[`Button renders correctly renders Button color- negative 1`] = `
 exports[`Button renders correctly renders Button color- on-inverted-background 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-on-inverted-background"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorOnInvertedBackground monday-style-button--color-on-inverted-background clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -77,7 +77,7 @@ exports[`Button renders correctly renders Button color- on-inverted-background 1
 exports[`Button renders correctly renders Button color- on-primary-color 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-on-primary-color"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -93,7 +93,7 @@ exports[`Button renders correctly renders Button color- on-primary-color 1`] = `
 exports[`Button renders correctly renders Button color- positive 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-positive"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPositive monday-style-button--color-positive clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -109,7 +109,7 @@ exports[`Button renders correctly renders Button color- positive 1`] = `
 exports[`Button renders correctly renders Button color- primary 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -125,7 +125,7 @@ exports[`Button renders correctly renders Button color- primary 1`] = `
 exports[`Button renders correctly renders Button kind- primary 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -141,7 +141,7 @@ exports[`Button renders correctly renders Button kind- primary 1`] = `
 exports[`Button renders correctly renders Button kind- secondary 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-secondary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindSecondary monday-style-button--kind-secondary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -157,7 +157,7 @@ exports[`Button renders correctly renders Button kind- secondary 1`] = `
 exports[`Button renders correctly renders Button kind- tertiary 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -173,7 +173,7 @@ exports[`Button renders correctly renders Button kind- tertiary 1`] = `
 exports[`Button renders correctly renders Button size- large 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-large monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeLarge monday-style-button--size-large kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -189,7 +189,7 @@ exports[`Button renders correctly renders Button size- large 1`] = `
 exports[`Button renders correctly renders Button size- medium 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -205,7 +205,7 @@ exports[`Button renders correctly renders Button size- medium 1`] = `
 exports[`Button renders correctly renders Button size- small 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeSmall monday-style-button--size-small kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -221,7 +221,7 @@ exports[`Button renders correctly renders Button size- small 1`] = `
 exports[`Button renders correctly renders correctly with callbacks 1`] = `
 <button
   aria-disabled={false}
-  className="test monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="test button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -237,7 +237,7 @@ exports[`Button renders correctly renders correctly with callbacks 1`] = `
 exports[`Button renders correctly renders correctly with className 1`] = `
 <button
   aria-disabled={false}
-  className="test monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="test button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -253,7 +253,7 @@ exports[`Button renders correctly renders correctly with className 1`] = `
 exports[`Button renders correctly renders correctly with empty props 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -269,7 +269,7 @@ exports[`Button renders correctly renders correctly with empty props 1`] = `
 exports[`Button renders correctly renders correctly with id 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button_test"
   id="test"
   onBlur={[Function]}
@@ -286,7 +286,7 @@ exports[`Button renders correctly renders correctly with id 1`] = `
 exports[`Button renders correctly renders correctly with leftIcon 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -305,7 +305,7 @@ exports[`Button renders correctly renders correctly with leftIcon 1`] = `
 exports[`Button renders correctly renders correctly with props change ui 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--margin-right monday-style-button--margin-left monday-style-button--right-flat monday-style-button--left-flat monday-style-button--no-side-padding"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary colorPrimaryActive monday-style-button--color-primary-active marginRight monday-style-button--margin-right marginLeft monday-style-button--margin-left rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -321,7 +321,7 @@ exports[`Button renders correctly renders correctly with props change ui 1`] = `
 exports[`Button renders correctly renders correctly with rightIcon 1`] = `
 <button
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
   onBlur={[Function]}
   onClick={[Function]}

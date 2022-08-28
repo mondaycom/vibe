@@ -2,18 +2,18 @@
 
 exports[`ButtonGroup renders correctly when disabled 1`] = `
 <div
-  className="monday-style-button-group-component monday-style-button-group-component--kind-secondary disabled"
+  className="groupComponent monday-style-button-group-component groupComponentKindSecondary monday-style-button-group-component--kind-secondary disabled"
 >
   <div
     aria-disabled={true}
     aria-label=""
-    className="monday-style-button-group-component__buttons-container"
+    className="groupComponentButtonsContainer monday-style-button-group-component__buttons-container"
     role="group"
   >
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text disabled button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -25,8 +25,8 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text disabled button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -38,8 +38,8 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text disabled button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -51,8 +51,8 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text disabled button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -68,18 +68,18 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
 
 exports[`ButtonGroup renders correctly when disabled 2`] = `
 <div
-  className="monday-style-button-group-component monday-style-button-group-component--kind-secondary"
+  className="groupComponent monday-style-button-group-component groupComponentKindSecondary monday-style-button-group-component--kind-secondary"
 >
   <div
     aria-disabled={false}
     aria-label="as"
-    className="monday-style-button-group-component__buttons-container"
+    className="groupComponentButtonsContainer monday-style-button-group-component__buttons-container"
     role="group"
   >
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -91,8 +91,8 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -104,8 +104,8 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -117,8 +117,8 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -134,18 +134,18 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
 
 exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
 <div
-  className="monday-style-button-group-component monday-style-button-group-component--kind-tertiary"
+  className="groupComponent monday-style-button-group-component groupComponentKindTertiary monday-style-button-group-component--kind-tertiary"
 >
   <div
     aria-disabled={false}
     aria-label=""
-    className="monday-style-button-group-component__buttons-container"
+    className="groupComponentButtonsContainer monday-style-button-group-component__buttons-container"
     role="group"
   >
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -157,8 +157,8 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -170,8 +170,8 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -183,8 +183,8 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -200,18 +200,18 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
 
 exports[`ButtonGroup renders correctly with componentClassName 1`] = `
 <div
-  className="monday-style-button-group-component testClassName monday-style-button-group-component--kind-secondary"
+  className="groupComponent monday-style-button-group-component testClassName groupComponentKindSecondary monday-style-button-group-component--kind-secondary"
 >
   <div
     aria-disabled={false}
     aria-label=""
-    className="monday-style-button-group-component__buttons-container"
+    className="groupComponentButtonsContainer monday-style-button-group-component__buttons-container"
     role="group"
   >
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -223,8 +223,8 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -236,8 +236,8 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -249,8 +249,8 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -266,18 +266,18 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
 
 exports[`ButtonGroup renders correctly with large size 1`] = `
 <div
-  className="monday-style-button-group-component monday-style-button-group-component--kind-secondary"
+  className="groupComponent monday-style-button-group-component groupComponentKindSecondary monday-style-button-group-component--kind-secondary"
 >
   <div
     aria-disabled={false}
     aria-label=""
-    className="monday-style-button-group-component__buttons-container"
+    className="groupComponentButtonsContainer monday-style-button-group-component__buttons-container"
     role="group"
   >
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeLarge monday-style-button--size-large kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -289,8 +289,8 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeLarge monday-style-button--size-large kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -302,8 +302,8 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeLarge monday-style-button--size-large kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -315,8 +315,8 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeLarge monday-style-button--size-large kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -332,18 +332,18 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
 
 exports[`ButtonGroup renders correctly with name 1`] = `
 <div
-  className="monday-style-button-group-component monday-style-button-group-component--kind-secondary"
+  className="groupComponent monday-style-button-group-component groupComponentKindSecondary monday-style-button-group-component--kind-secondary"
 >
   <div
     aria-disabled={false}
     aria-label=""
-    className="monday-style-button-group-component__buttons-container"
+    className="groupComponentButtonsContainer monday-style-button-group-component__buttons-container"
     role="group"
   >
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -355,8 +355,8 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -368,8 +368,8 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -381,8 +381,8 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -398,18 +398,18 @@ exports[`ButtonGroup renders correctly with name 1`] = `
 
 exports[`ButtonGroup renders correctly with value 1`] = `
 <div
-  className="monday-style-button-group-component monday-style-button-group-component--kind-secondary"
+  className="groupComponent monday-style-button-group-component groupComponentKindSecondary monday-style-button-group-component--kind-secondary"
 >
   <div
     aria-disabled={false}
     aria-label=""
-    className="monday-style-button-group-component__buttons-container"
+    className="groupComponentButtonsContainer monday-style-button-group-component__buttons-container"
     role="group"
   >
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text selected monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--right-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text selected button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary colorPrimaryActive monday-style-button--color-primary-active rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -421,8 +421,8 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -434,8 +434,8 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -447,8 +447,8 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     </button>
     <button
       aria-disabled={false}
-      className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
-      data-testid="button"
+      className="groupComponentOptionText monday-style-button-group-component__option-text button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation"
+      data-testid="button-group"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}

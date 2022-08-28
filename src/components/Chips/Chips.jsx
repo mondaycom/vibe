@@ -117,7 +117,7 @@ const Chips = forwardRef(
             icon={CloseSmall}
             iconSize={18}
             onClick={onDeleteCallback}
-            dataTestId={`${overrideDataTestId}-close`}
+            data-testid={`${overrideDataTestId}-close`}
           />
         )}
       </div>

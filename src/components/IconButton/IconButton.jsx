@@ -30,7 +30,7 @@ const IconButton = forwardRef(
       disabledReason,
       onClick,
       color,
-      dataTestId,
+      "data-testid": dataTestId,
       insetFocus
     },
     ref
@@ -100,7 +100,7 @@ const IconButton = forwardRef(
             ariaLabel={buttonAriaLabel}
             ref={mergedRef}
             id={id}
-            dataTestId={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
+            data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON_BUTTON, id)}
             noSidePadding
             active={active}
             className={className}

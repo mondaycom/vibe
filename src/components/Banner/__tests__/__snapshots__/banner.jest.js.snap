@@ -3,28 +3,29 @@
 exports[`Banner should render close button 1`] = `
 <aside
   aria-label="Banner"
-  className="mock-classname banner"
+  className="mock-classname banner banner"
 >
   <div
-    className="banner--content image-position__left close-button-spacing"
+    className="bannerContent banner--content imagePositionLeft image-position__left closeButtonSpacing close-button-spacing"
+    data-testid="banner"
   >
     <div
       data-onclick="onclick-provided"
       data-testid="cancel-button"
     />
     <h2
-      className="banner--title"
+      className="bannerTitle banner--title"
     >
       mock title
     </h2>
     <h3
-      className="banner--subtitle"
+      className="bannerSubtitle banner--subtitle"
     >
       mock Subtitle
     </h3>
     <img
       alt="mock image alt"
-      className="banner--image"
+      className="bannerImage banner--image"
       src="mockImage.src"
     />
   </div>
@@ -34,10 +35,11 @@ exports[`Banner should render close button 1`] = `
 exports[`Banner should render correctly without props 1`] = `
 <aside
   aria-label="Banner"
-  className="banner"
+  className="banner banner"
 >
   <div
-    className="banner--content image-position__left"
+    className="bannerContent banner--content imagePositionLeft image-position__left"
+    data-testid="banner"
   />
 </aside>
 `;
@@ -45,28 +47,29 @@ exports[`Banner should render correctly without props 1`] = `
 exports[`Banner should render in Right to Left mode 1`] = `
 <aside
   aria-label="Banner"
-  className="mock-classname banner rtl"
+  className="mock-classname banner banner rtl"
 >
   <div
-    className="banner--content image-position__left close-button-spacing"
+    className="bannerContent banner--content imagePositionLeft image-position__left closeButtonSpacing close-button-spacing"
+    data-testid="banner"
   >
     <div
       data-onclick="onclick-provided"
       data-testid="cancel-button"
     />
     <h2
-      className="banner--title"
+      className="bannerTitle banner--title"
     >
       mock title
     </h2>
     <h3
-      className="banner--subtitle"
+      className="bannerSubtitle banner--subtitle"
     >
       mock Subtitle
     </h3>
     <img
       alt="mock image alt"
-      className="banner--image mock-image-classname"
+      className="bannerImage banner--image mock-image-classname"
       src="mockImage.src"
     />
   </div>
@@ -76,24 +79,25 @@ exports[`Banner should render in Right to Left mode 1`] = `
 exports[`Banner should render title, subtitle and image 1`] = `
 <aside
   aria-label="Banner"
-  className="mock-classname banner"
+  className="mock-classname banner banner"
 >
   <div
-    className="banner--content image-position__left"
+    className="bannerContent banner--content imagePositionLeft image-position__left"
+    data-testid="banner"
   >
     <h2
-      className="banner--title"
+      className="bannerTitle banner--title"
     >
       mock title
     </h2>
     <h3
-      className="banner--subtitle"
+      className="bannerSubtitle banner--subtitle"
     >
       mock Subtitle
     </h3>
     <img
       alt="mock image alt"
-      className="banner--image mock-image-classname"
+      className="bannerImage banner--image mock-image-classname"
       src="mockImage.src"
     />
   </div>
@@ -103,10 +107,11 @@ exports[`Banner should render title, subtitle and image 1`] = `
 exports[`Banner should render with correct image position class - bottom 1`] = `
 <aside
   aria-label="Banner"
-  className="banner"
+  className="banner banner"
 >
   <div
-    className="banner--content image-position__bottom"
+    className="bannerContent banner--content imagePositionBottom image-position__bottom"
+    data-testid="banner"
   />
 </aside>
 `;
@@ -114,10 +119,11 @@ exports[`Banner should render with correct image position class - bottom 1`] = `
 exports[`Banner should render with correct image position class - left 1`] = `
 <aside
   aria-label="Banner"
-  className="banner"
+  className="banner banner"
 >
   <div
-    className="banner--content image-position__left"
+    className="bannerContent banner--content imagePositionLeft image-position__left"
+    data-testid="banner"
   />
 </aside>
 `;
@@ -125,10 +131,11 @@ exports[`Banner should render with correct image position class - left 1`] = `
 exports[`Banner should render with correct image position class - right 1`] = `
 <aside
   aria-label="Banner"
-  className="banner"
+  className="banner banner"
 >
   <div
-    className="banner--content image-position__right"
+    className="bannerContent banner--content imagePositionRight image-position__right"
+    data-testid="banner"
   />
 </aside>
 `;
@@ -136,10 +143,11 @@ exports[`Banner should render with correct image position class - right 1`] = `
 exports[`Banner should render with correct image position class - top 1`] = `
 <aside
   aria-label="Banner"
-  className="banner"
+  className="banner banner"
 >
   <div
-    className="banner--content image-position__top"
+    className="bannerContent banner--content imagePositionTop image-position__top"
+    data-testid="banner"
   />
 </aside>
 `;
@@ -147,18 +155,19 @@ exports[`Banner should render with correct image position class - top 1`] = `
 exports[`Banner should use custom render function for subtitle 1`] = `
 <aside
   aria-label="Banner"
-  className="banner"
+  className="banner banner"
 >
   <div
-    className="banner--content image-position__left"
+    className="bannerContent banner--content imagePositionLeft image-position__left"
+    data-testid="banner"
   >
     <h2
-      className="banner--title"
+      className="bannerTitle banner--title"
     >
       mock title
     </h2>
     <h3
-      className="banner--subtitle"
+      className="bannerSubtitle banner--subtitle"
     >
       <div
         data-testid="custom_render"
@@ -173,13 +182,14 @@ exports[`Banner should use custom render function for subtitle 1`] = `
 exports[`Banner should use custom render function for title 1`] = `
 <aside
   aria-label="Banner"
-  className="banner"
+  className="banner banner"
 >
   <div
-    className="banner--content image-position__left"
+    className="bannerContent banner--content imagePositionLeft image-position__left"
+    data-testid="banner"
   >
     <h2
-      className="banner--title"
+      className="bannerTitle banner--title"
     >
       <div
         data-testid="custom_render"
@@ -188,7 +198,7 @@ exports[`Banner should use custom render function for title 1`] = `
       </div>
     </h2>
     <h3
-      className="banner--subtitle"
+      className="bannerSubtitle banner--subtitle"
     >
       mock Subtitle
     </h3>

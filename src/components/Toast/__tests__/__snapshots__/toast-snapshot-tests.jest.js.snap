@@ -74,7 +74,7 @@ exports[`Toast renders correctly when open is true 1`] = `
   <button
     aria-disabled={false}
     aria-label="close-toast"
-    className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+    className="monday-style-toast_close-button button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -139,7 +139,7 @@ exports[`Toast renders correctly with button 1`] = `
   >
     <button
       aria-disabled={false}
-      className="monday-style-toast-action_button monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
+      className="monday-style-toast-action_button button monday-style-button sizeSmall monday-style-button--size-small kindSecondary monday-style-button--kind-secondary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
       data-testid="button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -154,7 +154,7 @@ exports[`Toast renders correctly with button 1`] = `
   <button
     aria-disabled={false}
     aria-label="close-toast"
-    className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+    className="monday-style-toast_close-button button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -235,7 +235,7 @@ exports[`Toast renders correctly with button and link 1`] = `
   >
     <button
       aria-disabled={false}
-      className="monday-style-toast-action_button monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
+      className="monday-style-toast-action_button button monday-style-button sizeSmall monday-style-button--size-small kindSecondary monday-style-button--kind-secondary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
       data-testid="button"
       onBlur={[Function]}
       onClick={[Function]}
@@ -250,7 +250,7 @@ exports[`Toast renders correctly with button and link 1`] = `
   <button
     aria-disabled={false}
     aria-label="close-toast"
-    className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+    className="monday-style-toast_close-button button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -332,7 +332,7 @@ exports[`Toast renders correctly with link 1`] = `
   <button
     aria-disabled={false}
     aria-label="close-toast"
-    className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+    className="monday-style-toast_close-button button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -395,7 +395,7 @@ exports[`Toast renders correctly with negative type 1`] = `
   <button
     aria-disabled={false}
     aria-label="close-toast"
-    className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
+    className="monday-style-toast_close-button button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}

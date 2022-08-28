@@ -1894,7 +1894,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
             </div>
             <button
               aria-disabled={false}
-              className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+              className="icon close button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation noSidePadding monday-style-button--no-side-padding"
               data-testid="value-container-chip-close"
               onBlur={[Function]}
               onClick={[Function]}
@@ -2107,7 +2107,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
             </div>
             <button
               aria-disabled={false}
-              className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+              className="icon close button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation noSidePadding monday-style-button--no-side-padding"
               data-testid="value-container-chip-close"
               onBlur={[Function]}
               onClick={[Function]}

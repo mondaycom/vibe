@@ -6,10 +6,11 @@ import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { baseClassName } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import styles from "./ButtonGroup.module.scss";
+
+const CSS_BASE_CLASS = "monday-style-button-group-component";
 
 const ButtonGroup = forwardRef(
   (
