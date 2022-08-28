@@ -4,88 +4,103 @@ import Flex from "../Flex/Flex";
 import Avatar from "../Avatar/Avatar";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import avatarGroupCounterTooltipContentStyles from "./AvatarGroupCounterTooltipContent.module.scss";
+import useEventListener from "../../hooks/useEventListener";
+import { useListenFocusTriggers } from "../../hooks/useListenFocusTriggers";
 
 const KEYS = ["Tab"];
-
+const ESC = ["Escape"];
+export const TOOLTIP_SHOW_DELAY = 200;
 export function useTooltipContentTabNavigation({
   counterContainerRef = undefined,
   tooltipContentContainerRef,
   focusPrevPlaceholderRef,
   focusNextPlaceholderRef,
-  setShouldUpdate,
-  setIsTooltipVisible
+  isKeyboardTooltipVisible,
+  setIsKeyboardTooltipVisible
 }) {
-  const hideTooltip = useCallback(() => {
-    // Tricky way to close the tooltip
-    setTimeout(() => {
-      setIsTooltipVisible(false);
-      setIsTooltipVisible(true);
-    });
-  }, [setIsTooltipVisible]);
+  const showKeyboardTooltip = useCallback(() => {
+    if (!isKeyboardTooltipVisible) {
+      // temp hack for display tooltip with delay after timeout because refactoring the tooltip with open mechanism is out of scope
+      setTimeout(() => setIsKeyboardTooltipVisible(true), TOOLTIP_SHOW_DELAY);
+    }
+  }, [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]);
 
-  // For Counter
-  useKeyEvent({
-    keys: KEYS,
-    withoutAnyModifier: true,
+  const hideKeyboardTooltip = useCallback(() => {
+    if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
+  }, [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible]);
+
+  // Open tooltip manually when keyboard focusing on counter
+  useListenFocusTriggers({
     ref: counterContainerRef,
-    callback: useCallback(
-      e => {
-        if (e.target === counterContainerRef.current) {
-          e.preventDefault();
-          tooltipContentContainerRef?.current && tooltipContentContainerRef.current.focus();
-          setShouldUpdate(prev => !prev);
-        }
-      },
-      [counterContainerRef.current, setShouldUpdate, tooltipContentContainerRef]
-    )
+    onFocusByKeyboard: showKeyboardTooltip
   });
 
-  // For Counter
+  useEventListener({
+    eventName: "blur",
+    ref: tooltipContentContainerRef,
+    ignoreDocumentFallback: true,
+    callback: hideKeyboardTooltip
+  });
+
+  //Move focus to content by keyboard
+  useKeyEvent({
+    keys: KEYS,
+    ref: counterContainerRef,
+    withoutAnyModifier: true,
+    preventDefault: true,
+    callback: useCallback(() => {
+      if (isKeyboardTooltipVisible) tooltipContentContainerRef?.current && tooltipContentContainerRef.current.focus();
+    }, [isKeyboardTooltipVisible, tooltipContentContainerRef])
+  });
+
+  // Close tooltip by keyboard
   useKeyEvent({
     keys: KEYS,
     modifier: useKeyEvent.modifiers.SHIFT,
     ref: counterContainerRef,
-    callback: useCallback(
-      e => {
-        if (e.target === counterContainerRef.current) {
-          focusPrevPlaceholderRef?.current && focusPrevPlaceholderRef.current.focus();
-          hideTooltip();
-        }
-      },
-      [counterContainerRef.current, focusPrevPlaceholderRef, hideTooltip]
-    )
+    callback: hideKeyboardTooltip
   });
-
-  // For Tooltip content
   useKeyEvent({
     keys: KEYS,
     ref: tooltipContentContainerRef,
     withoutAnyModifier: true,
-    callback: useCallback(
-      e => {
-        if (e.target === tooltipContentContainerRef.current) {
-          focusNextPlaceholderRef?.current && focusNextPlaceholderRef.current.focus();
-          hideTooltip();
-        }
-      },
-      [focusNextPlaceholderRef, hideTooltip, tooltipContentContainerRef.current]
-    )
+    callback: useCallback(() => {
+      // We are not preventing default behaviour here and that's why after pressing tab and after moving focus to here
+      // the browser will move the focus to the next element in the focus order.
+      focusNextPlaceholderRef?.current && focusNextPlaceholderRef.current.focus();
+      if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
+    }, [focusNextPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
   });
-
-  // For Tooltip content
   useKeyEvent({
     keys: KEYS,
     ref: tooltipContentContainerRef,
     modifier: useKeyEvent.modifiers.SHIFT,
-    callback: useCallback(
-      e => {
-        if (e.target === tooltipContentContainerRef.current) {
-          e.preventDefault();
-          counterContainerRef?.current && counterContainerRef.current.focus();
-        }
-      },
-      [counterContainerRef, tooltipContentContainerRef.current]
-    )
+    callback: useCallback(() => {
+      // We are not preventing default behaviour here and that's why after pressing tab and after moving focus to here
+      // the browser will move the focus to the next element in the focus order.
+      focusPrevPlaceholderRef?.current && focusPrevPlaceholderRef.current.focus();
+      if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
+    }, [focusPrevPlaceholderRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
+  });
+  useKeyEvent({
+    keys: ESC,
+    ref: tooltipContentContainerRef,
+    callback: useCallback(() => {
+      counterContainerRef?.current && counterContainerRef.current.focus();
+      if (isKeyboardTooltipVisible) setIsKeyboardTooltipVisible(false);
+    }, [counterContainerRef, isKeyboardTooltipVisible, setIsKeyboardTooltipVisible])
+  });
+  useKeyEvent({
+    keys: ESC,
+    ref: counterContainerRef,
+    callback: hideKeyboardTooltip
+  });
+
+  // Close tooltip when moving focus to next element
+  useEventListener({
+    eventName: "focus",
+    ref: focusNextPlaceholderRef,
+    callback: hideKeyboardTooltip
   });
 }
 
