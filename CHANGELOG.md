@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.57.0 (2022-08-24)
+
+#### New Features
+* [#838](https://github.com/mondaycom/monday-ui-react-core/pull/838) Add color: var(--disabled-text-color) to disabled checkbox label ([@3dyonic](https://github.com/3dyonic))
+* [#828](https://github.com/mondaycom/monday-ui-react-core/pull/828) AttentionBox - close icon button instead of icon ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#836](https://github.com/mondaycom/monday-ui-react-core/pull/836) BreadcrumbContent: link and button roles are added ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#829](https://github.com/mondaycom/monday-ui-react-core/pull/829) Feature/sergeyro/dropdown item tooltip ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#835](https://github.com/mondaycom/monday-ui-react-core/pull/835) Feature/sergeyro/loader a11y attributes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+* [#831](https://github.com/mondaycom/monday-ui-react-core/pull/831) IconButton: add showTooltip prop ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.56.0 (2022-08-21)
+
+#### Bug Fixes
+* [#833](https://github.com/mondaycom/monday-ui-react-core/pull/833) add support on pass class name to reference in tooltip ([@hadasfa](https://github.com/hadasfa))
+* [#827](https://github.com/mondaycom/monday-ui-react-core/pull/827) Update h1 example to Poppins ([@3dyonic](https://github.com/3dyonic))
+* [#817](https://github.com/mondaycom/monday-ui-react-core/pull/817) Add missing prop bind: marginBottom in Box story ([@3dyonic](https://github.com/3dyonic))
+
+#### New Features
+* [#811](https://github.com/mondaycom/monday-ui-react-core/pull/811) Update easing tokens ([@3dyonic](https://github.com/3dyonic))
+
+#### Internal Changes
+* [#821](https://github.com/mondaycom/monday-ui-react-core/pull/821) Test-utils ELEMENT_TYPES extended ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.55.0 (2022-08-14)
 
 #### Bug Fixes
