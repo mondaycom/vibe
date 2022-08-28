@@ -37,10 +37,24 @@
 // monday-ui-react-core/src/components/Counter/Counter.jsx
 // monday-ui-react-core/src/components/Dialog/Dialog.jsx
 // monday-ui-react-core/src/components/DialogContentContainer/DialogContentContainer.jsx
-// monday-ui-react-core/src/components/DialogContentContainer/DialogContentContainer.jsx
 // monday-ui-react-core/src/components/Divider/Divider.jsx
 // monday-ui-react-core/src/components/Dropdown/components/menu/menu.jsx
 // monday-ui-react-core/src/components/Dropdown/components/option/option.jsx
+// 7
+// monday-ui-react-core/src/components/Clickable/Clickable.jsx
+// monday-ui-react-core/src/components/ColorPicker/ColorPicker.jsx
+// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerContent/ColorPickerContentComponent.jsx
+// monday-ui-react-core/src/components/ColorPicker/components/ColorPickerItemComponent/ColorPickerItemComponent.jsx
+// monday-ui-react-core/src/components/Combobox/Combobox.jsx
+// monday-ui-react-core/src/components/Combobox/components/ComboboxCategory/ComboboxCategory.jsx
+// monday-ui-react-core/src/components/Combobox/components/ComboboxOption/ComboboxOption.jsx
+// 8
+// monday-ui-react-core/src/components/Banner/Banner.jsx
+// monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbContent/BreadcrumbContent.jsx
+// monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbItem/BreadcrumbItem.jsx
+// monday-ui-react-core/src/components/BreadcrumbsBar/BreadcrumbsBar.jsx
+// monday-ui-react-core/src/components/Button/Button.jsx
+// monday-ui-react-core/src/components/ButtonGroup/ButtonGroup.jsx
 
 // Troubles
 // monday-ui-react-core/src/components/Slider/Slider.jsx // custom bem function is used - need to change that before migration
