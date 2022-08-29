@@ -3,7 +3,7 @@
 @import "../../styles/global-css-settings";
 $tooltip-z-index: 9999999999999999;
 
-.mondayStyleTooltip {
+.tooltip {
   position: relative;
   display: inline-block;
   border-radius: $border-radius-small;
@@ -14,69 +14,69 @@ $tooltip-z-index: 9999999999999999;
   word-break: break-word;
 }
 
-.mondayStyleTooltip.paddingSizeMd {
+.paddingSizeMd {
   border-radius: $border-radius-medium;
   padding: $spacing-medium;
   @include font-input();
 }
 
-.mondayStyleTooltip a.tooltipWhiteLink {
+a.tooltipWhiteLink {
   color: #fff;
 }
 
-.mondayStyleTooltipDark,
-.mondayStyleArrowDark {
+.tooltipDark,
+.arrowDark {
   @include theme-prop(background-color, inverted-color-background);
   @include theme-prop(color, text-color-on-inverted);
 }
 
-.mondayStyleTooltipWhite,
-.mondayStyleArrowWhite {
+.tooltipWhite,
+.arrowWhite {
   background-color: $white-theme-bg-color;
   color: $white-theme-font-color;
   @include theme-prop(box-shadow, box-shadow-medium);
 }
 
-.mondayStyleTooltipPrimary,
-.mondayStyleArrowPrimary {
+.tooltipPrimary,
+.arrowPrimary {
   @include theme-prop(background-color, primary-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.mondayStyleTooltipSuccess,
-.mondayStyleArrowSuccess {
+.tooltipSuccess,
+.arrowSuccess {
   @include theme-prop(background-color, positive-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.mondayStyleTooltipSurface,
-.mondayStyleArrowSurface {
+.tooltipSurface,
+.arrowSurface {
   background-color: $surface-theme-bg-color;
   color: $surface-theme-font-color;
 }
 
-.mondayStyleTooltipPrivate,
-.mondayStyleArrowPrivate {
+.tooltipPrivate,
+.arrowPrivate {
   @include theme-prop(background-color, private-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.mondayStyleTooltipShare,
-.mondayStyleArrowShare {
+.tooltipShare,
+.arrowShare {
   @include theme-prop(background-color, shareable-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.mondayStyleTooltipError,
-.mondayStyleArrowError {
+.tooltipError,
+.arrowError {
   @include theme-prop(background-color, negative-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.mondayStyleDialogContentComponent {
+:global(.monday-style-dialog-content-component) {
   padding: 6px;
 }
 
-.mondayStyleDialogContentComponent:focus {
+:global(.monday-style-dialog-content-component):focus {
   outline: none;
 }

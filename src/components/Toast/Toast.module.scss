@@ -2,7 +2,7 @@
 @import "../../styles/typography";
 @import "../../styles/themes";
 
-.mondayStyleToast {
+.toast {
   @include font-paragraph();
   @include box-shadow-medium();
   @include theme-prop(color, text-color-on-primary);
@@ -19,24 +19,24 @@
   border-radius: $border-radius-small;
 }
 
-.mondayStyleToastIcon {
+.icon {
   display: flex;
   padding-left: $spacing-small;
   padding-right: $spacing-small;
 }
 
-.mondayStyleToastContent {
+.content {
   display: inline-flex;
   line-height: 22px;
   font-size: 14px;
   flex-grow: 1;
 }
 
-.mondayStyleToastContentNoIcon {
+.contentNoIcon {
   padding-left: $spacing-small;
 }
 
-.mondayStyleToastAction {
+.action {
   margin-left: $spacing-medium;
   display: flex;
 }
@@ -46,18 +46,23 @@
   margin-left: $spacing-small;
 }
 
-.mondayStyleToastTypeNormal {
+.typeNormal {
   @include theme-prop(background-color, primary-color);
 }
 
-.mondayStyleToastTypePositive {
+.typePositive {
   @include theme-prop(background-color, positive-color);
 }
 
-.mondayStyleToastTypeNegative {
+.typeNegative {
   @include theme-prop(background-color, negative-color);
 }
 
+.closeButton {
+  margin-left: $spacing-small;
+}
+
+// Animation
 .enterActive,
 .exitActive {
   animation-iteration-count: 1;
@@ -72,10 +77,6 @@
 .exitActive {
   animation-duration: var(--motion-productive-long);
   animation-name: toastPopOut;
-}
-
-.mondayStyleToastCloseButton {
-  margin-left: $spacing-small;
 }
 
 @keyframes toastPopIn {

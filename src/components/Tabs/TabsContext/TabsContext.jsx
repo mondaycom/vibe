@@ -34,7 +34,7 @@ const TabsContext = forwardRef(({ className, id, activeTabId, children, "data-te
       ref={mergedRef}
       className={cx("tabs-context--wrapper", className)}
       id={id}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB_LIST, id)}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TABS_CONTEXT, id)}
     >
       {React.Children.map(children, child => {
         if (child.type.isTabList) {

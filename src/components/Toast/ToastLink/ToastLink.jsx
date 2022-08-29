@@ -6,7 +6,7 @@ import Link from "../../Link/Link";
 import styles from "./ToastLink.module.scss";
 
 const ToastLink = ({ className, id, "data-testid": dataTestId, ...linkProps }) => {
-  const classNames = cx(styles.mondayStyleToastActionLink, "monday-style-toast-action_link", className);
+  const classNames = cx(styles.actionLink, "monday-style-toast-action_link", className);
   return (
     <Link
       {...linkProps}

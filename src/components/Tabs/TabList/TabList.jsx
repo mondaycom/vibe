@@ -79,7 +79,7 @@ const TabList = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.tabsWrapper, "tabs--wrapper", className, tabType)}
+        className={cx(styles.tabsWrapper, "tabs--wrapper", className, styles[tabType], tabType)}
         id={id}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB_LIST, id)}
       >

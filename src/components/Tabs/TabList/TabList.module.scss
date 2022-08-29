@@ -5,7 +5,7 @@
   padding-bottom: 20px;
 }
 
-.tabsWrapper .tabsList {
+.tabsList {
   display: flex;
   flex-direction: row;
   list-style-type: none;
@@ -15,33 +15,33 @@
   outline: none;
 }
 
-.tabsWrapper .tabsList.sm {
+.tabsList.sm {
   height: 32px;
 }
 
-.tabsWrapper .tabsList.lg {
+.tabsList.lg {
   height: 48px;
 }
 
-.tabsWrapper.stretched .tabsList {
+.stretched .tabsList {
   width: 100%;
 }
 
-.tabsWrapper.stretched .tabsList .tabWrapper {
+.stretched .tabsList :global(.tab--wrapper) {
   width: 100%;
 }
 
-.tabsWrapper.stretched .tabsList .tabWrapper .tabInner {
+.stretched .tabsList :global(.tab--wrapper) :global(.tab-inner) {
   width: 100%;
 }
 
-.tabsWrapper.disabled {
+.disabled {
   opacity: 0;
   height: 0;
   padding-bottom: 5px;
   pointer-events: none;
 }
 
-.tabsWrapper.disabled .tabsList .tabWrapper .tabInner:hover {
+.disabled .tabsList :global(.tab--wrapper) :global(.tab-inner):hover {
   cursor: default;
 }

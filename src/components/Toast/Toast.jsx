@@ -74,9 +74,9 @@ const Toast = ({
   const classNames = useMemo(
     () =>
       cx(
-        styles.mondayStyleToast,
+        styles.toast,
         "monday-style-toast",
-        styles[`${camelCase("monday-style-toast--type-" + type)}`],
+        styles[`${camelCase("type-" + type)}`],
         `monday-style-toast--type-${type}`,
         className
       ),
@@ -121,10 +121,10 @@ const Toast = ({
         aria-live="polite"
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOAST, id)}
       >
-        {iconElement && <div className={cx(styles.mondayStyleToastIcon, "monday-style-toast-icon")}>{iconElement}</div>}
+        {iconElement && <div className={cx(styles.icon, "monday-style-toast-icon")}>{iconElement}</div>}
         <div
-          className={cx(styles.mondayStyleToastContent, "monday-style-toast-content", {
-            [styles.mondayStyleToastContentNoIcon]: !iconElement,
+          className={cx(styles.content, "monday-style-toast-content", {
+            [styles.contentNoIcon]: !iconElement,
             ["monday-style-toast-content-no-icon"]: !iconElement
           })}
         >
@@ -132,13 +132,11 @@ const Toast = ({
           {toastLinks}
         </div>
         {(toastButtons || deprecatedAction) && (
-          <div className={cx(styles.mondayStyleToastAction, "monday-style-toast-action")}>
-            {toastButtons || deprecatedAction}
-          </div>
+          <div className={cx(styles.action, "monday-style-toast-action")}>{toastButtons || deprecatedAction}</div>
         )}
         {closeable && (
           <Button
-            className={cx(styles.mondayStyleToastCloseButton, "monday-style-toast_close-button")}
+            className={cx(styles.closeButton, "monday-style-toast_close-button")}
             onClick={handleClose}
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}
