@@ -7,7 +7,7 @@ exports[`TabList renders correctly stretched tab list 1`] = `
   id=""
 >
   <ul
-    className="tabsList tabs-list undefined"
+    className="tabsList tabs-list"
     role="tablist"
     tabIndex={0}
   >
@@ -64,7 +64,7 @@ exports[`TabList renders correctly with activeTabId 1`] = `
   id=""
 >
   <ul
-    className="tabsList tabs-list undefined"
+    className="tabsList tabs-list"
     role="tablist"
     tabIndex={0}
   >
@@ -107,7 +107,7 @@ exports[`TabList renders correctly with children 1`] = `
   id=""
 >
   <ul
-    className="tabsList tabs-list undefined"
+    className="tabsList tabs-list"
     role="tablist"
     tabIndex={0}
   >
@@ -136,7 +136,7 @@ exports[`TabList renders correctly with className 1`] = `
   id=""
 >
   <ul
-    className="tabsList tabs-list undefined"
+    className="tabsList tabs-list"
     role="tablist"
     tabIndex={0}
   >
@@ -165,7 +165,7 @@ exports[`TabList renders correctly with id 1`] = `
   id="test"
 >
   <ul
-    className="tabsList tabs-list undefined"
+    className="tabsList tabs-list"
     role="tablist"
     tabIndex={0}
   >
@@ -194,7 +194,7 @@ exports[`TabList renders correctly with size 1`] = `
   id=""
 >
   <ul
-    className="tabsList tabs-list lg lg"
+    className="tabsList tabs-list lg size"
     role="tablist"
     tabIndex={0}
   >
@@ -237,7 +237,7 @@ exports[`TabList renders correctly with tabType 1`] = `
   id=""
 >
   <ul
-    className="tabsList tabs-list undefined"
+    className="tabsList tabs-list"
     role="tablist"
     tabIndex={0}
   >

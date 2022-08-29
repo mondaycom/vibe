@@ -83,7 +83,12 @@ const TabList = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB_LIST, id)}
       >
-        <ul ref={ulRef} tabIndex={0} className={cx(styles.tabsList, "tabs-list", styles[size], size)} role="tablist">
+        <ul
+          ref={ulRef}
+          tabIndex={0}
+          className={cx(styles.tabsList, "tabs-list", { [styles[size]]: size, size: size })}
+          role="tablist"
+        >
           {tabsToRender}
         </ul>
       </div>
