@@ -1,0 +1,16 @@
+@import "../../../styles/global-css-settings";
+@import "../../../styles/typography";
+@import "../../../styles/themes";
+
+:global(.monday-style-button).bannerButton {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+:global(.dark-app-theme) .bannerButtonDarkBackground .bannerButton {
+  background-color: var(--dark-background-color);
+}
+
+.bannerButtonMarginLeft {
+  margin-left: $spacing-small;
+}
