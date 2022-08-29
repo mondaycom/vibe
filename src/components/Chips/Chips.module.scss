@@ -30,7 +30,8 @@
     padding-right: var(--spacing-xs);
   }
 
-  .icon, .avatar {
+  .icon,
+  .avatar {
     &.left {
       margin-right: var(--spacing-xs);
     }
