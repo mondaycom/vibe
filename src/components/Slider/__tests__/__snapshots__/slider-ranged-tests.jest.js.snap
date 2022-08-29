@@ -67,12 +67,12 @@ Snapshot Diff:
 +           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 +         >
 +           <div
-+             class="mondayStyleTooltip monday-style-tooltip mondayStyleTooltipDark monday-style-tooltip-dark"
++             class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
 +           >
 +             25%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow mondayStyleArrowDark monday-style-arrow monday-style-arrow-dark"
++             class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -101,12 +101,12 @@ Snapshot Diff:
 +           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 +         >
 +           <div
-+             class="mondayStyleTooltip monday-style-tooltip mondayStyleTooltipDark monday-style-tooltip-dark"
++             class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
 +           >
 +             65%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow mondayStyleArrowDark monday-style-arrow monday-style-arrow-dark"
++             class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -135,12 +135,12 @@ Snapshot Diff:
 -           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 -         >
 -           <div
--             class="mondayStyleTooltip monday-style-tooltip mondayStyleTooltipDark monday-style-tooltip-dark"
+-             class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
 -           >
 -             25%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow mondayStyleArrowDark monday-style-arrow monday-style-arrow-dark"
+-             class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -176,12 +176,12 @@ Snapshot Diff:
 +           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
 +         >
 +           <div
-+             class="mondayStyleTooltip monday-style-tooltip mondayStyleTooltipDark monday-style-tooltip-dark"
++             class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
 +           >
 +             25%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow mondayStyleArrowDark monday-style-arrow monday-style-arrow-dark"
++             class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 +             data-placement="top"
 +             style="position: absolute;"
             />
@@ -223,13 +223,13 @@ Snapshot Diff:
         <span
 @@ --- --- @@
             <div
-              class="mondayStyleTooltip monday-style-tooltip mondayStyleTooltipDark monday-style-tooltip-dark"
+              class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
             >
 -             25%
 +             65%
             </div>
             <div
-              class="monday-style-tooltip-arrow mondayStyleArrowDark monday-style-arrow monday-style-arrow-dark"
+              class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 @@ --- --- @@
             />
           </div>
@@ -276,12 +276,12 @@ Snapshot Diff:
 -           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear monday-style-animation-expand-appear-active"
 -         >
 -           <div
--             class="mondayStyleTooltip monday-style-tooltip mondayStyleTooltipDark monday-style-tooltip-dark"
+-             class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
 -           >
 -             65%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow mondayStyleArrowDark monday-style-arrow monday-style-arrow-dark"
+-             class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 -             data-placement="top"
 -             style="position: absolute;"
         />

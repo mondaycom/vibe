@@ -2,7 +2,7 @@
 
 exports[`TabList renders correctly stretched tab list 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper stretched"
+  className="tabsWrapper tabs--wrapper stretched stretched"
   data-testid="tab-list"
   id=""
 >
@@ -59,7 +59,7 @@ exports[`TabList renders correctly stretched tab list 1`] = `
 
 exports[`TabList renders correctly with activeTabId 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper Compact"
+  className="tabsWrapper tabs--wrapper Compact Compact"
   data-testid="tab-list"
   id=""
 >
@@ -102,7 +102,7 @@ exports[`TabList renders correctly with activeTabId 1`] = `
 
 exports[`TabList renders correctly with children 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper Compact"
+  className="tabsWrapper tabs--wrapper Compact Compact"
   data-testid="tab-list"
   id=""
 >
@@ -131,7 +131,7 @@ exports[`TabList renders correctly with children 1`] = `
 
 exports[`TabList renders correctly with className 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper test Compact"
+  className="tabsWrapper tabs--wrapper test Compact Compact"
   data-testid="tab-list"
   id=""
 >
@@ -160,7 +160,7 @@ exports[`TabList renders correctly with className 1`] = `
 
 exports[`TabList renders correctly with id 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper Compact"
+  className="tabsWrapper tabs--wrapper Compact Compact"
   data-testid="tab-list_test"
   id="test"
 >
@@ -189,7 +189,7 @@ exports[`TabList renders correctly with id 1`] = `
 
 exports[`TabList renders correctly with size 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper Compact"
+  className="tabsWrapper tabs--wrapper Compact Compact"
   data-testid="tab-list"
   id=""
 >
@@ -232,7 +232,7 @@ exports[`TabList renders correctly with size 1`] = `
 
 exports[`TabList renders correctly with tabType 1`] = `
 <div
-  className="tabsWrapper tabs--wrapper stretched"
+  className="tabsWrapper tabs--wrapper stretched stretched"
   data-testid="tab-list"
   id=""
 >

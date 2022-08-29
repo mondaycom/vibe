@@ -3,11 +3,11 @@
 exports[`TabsContext renders correctly with activeTabId 1`] = `
 <div
   className="tabs-context--wrapper"
-  data-testid="tab-list"
+  data-testid="tabs-context"
   id=""
 >
   <div
-    className="tabsWrapper tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact Compact"
     data-testid="tab-list"
     id=""
   >
@@ -53,6 +53,7 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
   >
     <div
       className="tab-panel--wrapper tabPanel tab-panel non-active"
+      data-testid="tab-panel"
       id=""
       role="tabpanel"
     >
@@ -60,6 +61,7 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
     </div>
     <div
       className="tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
+      data-testid="tab-panel"
       id=""
       role="tabpanel"
     >
@@ -72,11 +74,11 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
 exports[`TabsContext renders correctly with className 1`] = `
 <div
   className="tabs-context--wrapper test"
-  data-testid="tab-list"
+  data-testid="tabs-context"
   id=""
 >
   <div
-    className="tabsWrapper tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact Compact"
     data-testid="tab-list"
     id=""
   >
@@ -108,6 +110,7 @@ exports[`TabsContext renders correctly with className 1`] = `
   >
     <div
       className="tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
+      data-testid="tab-panel"
       id=""
       role="tabpanel"
     >
@@ -120,11 +123,11 @@ exports[`TabsContext renders correctly with className 1`] = `
 exports[`TabsContext renders correctly with empty props 1`] = `
 <div
   className="tabs-context--wrapper"
-  data-testid="tab-list"
+  data-testid="tabs-context"
   id=""
 >
   <div
-    className="tabsWrapper tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact Compact"
     data-testid="tab-list"
     id=""
   >
@@ -156,6 +159,7 @@ exports[`TabsContext renders correctly with empty props 1`] = `
   >
     <div
       className="tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
+      data-testid="tab-panel"
       id=""
       role="tabpanel"
     >
@@ -168,11 +172,11 @@ exports[`TabsContext renders correctly with empty props 1`] = `
 exports[`TabsContext renders correctly with id 1`] = `
 <div
   className="tabs-context--wrapper"
-  data-testid="tab-list_test"
+  data-testid="tabs-context_test"
   id="test"
 >
   <div
-    className="tabsWrapper tabs--wrapper Compact"
+    className="tabsWrapper tabs--wrapper Compact Compact"
     data-testid="tab-list"
     id=""
   >
@@ -204,6 +208,7 @@ exports[`TabsContext renders correctly with id 1`] = `
   >
     <div
       className="tab-panel--wrapper tabPanel tab-panel active active animationDirectionRtl animation-direction-rtl"
+      data-testid="tab-panel"
       id=""
       role="tabpanel"
     >
