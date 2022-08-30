@@ -255,6 +255,7 @@ const Dropdown = ({
         }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
+      // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
       closeMenuOnScroll={insideScroll}
       size={size}
       noOptionsMessage={noOptionsMessage}
