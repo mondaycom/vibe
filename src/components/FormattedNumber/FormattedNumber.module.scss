@@ -1,6 +1,6 @@
 @import "../../styles/typography";
 
-.formattedNumberComponent {
+.formattedNumber {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
@@ -8,10 +8,10 @@
   width: 100%;
 }
 
-.formattedNumberComponentPrefix {
+.prefix {
   white-space: pre;
 }
 
-.formattedNumberComponentSuffix {
+.suffix {
   white-space: pre;
 }

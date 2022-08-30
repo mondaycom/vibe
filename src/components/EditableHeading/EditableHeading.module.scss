@@ -3,7 +3,7 @@
 @import "../../styles/global-css-settings";
 @import "../../styles/states";
 
-.editableHeadingWrapper {
+.wrapper {
   width: 100%;
   min-width: 0;
   border: 1px solid transparent;
@@ -11,15 +11,15 @@
   @include focus-style();
 }
 
-.editableHeadingWrapper:focus,
-.editableHeadingWrapper:active {
+.wrapper:focus,
+.wrapper:active {
   outline: none;
 }
 
-.editableHeadingWrapper .headingComponent {
+:global(.headingComponent) {
   margin: 0;
 }
 
-.editableHeadingWrapper.insetFocus {
+.insetFocus {
   @include focus-style-inset();
 }

@@ -2,8 +2,8 @@ import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import styles from "./HiddenText.module.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./HiddenText.module.scss";
 
 const HiddenText = forwardRef(({ className, text, id, "data-testId": dataTestId }, ref) => {
   const componentRef = useRef(null);

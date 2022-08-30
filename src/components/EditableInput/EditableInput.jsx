@@ -13,8 +13,8 @@ import {
   isEscapeEvent,
   isTabEvent
 } from "../../utils/dom-event-utils";
-import styles from "./EditableInput.module.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./EditableInput.module.scss";
 
 export const TEXTAREA_TYPE = "textarea";
 
@@ -204,7 +204,7 @@ const EditableInput = forwardRef(
         id={id}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.EDITABLE_INPUT, id)}
         style={style}
-        className={cx(styles.editableInputWrapper, "editable-input--wrapper", className, {
+        className={cx(styles.wrapper, "editable-input--wrapper", className, {
           [styles.noResize]: autoSize,
           ["no-resize"]: autoSize,
           "brand-font": brandFont

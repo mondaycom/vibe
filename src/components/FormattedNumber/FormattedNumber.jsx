@@ -1,11 +1,10 @@
-import { camelCase } from "lodash";
 import cx from "classnames";
 import React, { forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
 import { validateValue } from "./FormattedNumberHelpers";
-import styles from "./FormattedNumber.module.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./FormattedNumber.module.scss";
 
 const CSS_BASE_CLASS = "formatted-number-component";
 
@@ -29,21 +28,13 @@ const FormattedNumber = forwardRef(
     const renderSuffix = useMemo(() => {
       if (!suffix) return null;
 
-      return (
-        <span className={cx(styles[`${camelCase("formatted-number-component__suffix")}`], `${CSS_BASE_CLASS}__suffix`)}>
-          {suffix}
-        </span>
-      );
+      return <span className={cx(styles.suffix, `${CSS_BASE_CLASS}__suffix`)}>{suffix}</span>;
     }, [suffix]);
 
     const renderPrefix = useMemo(() => {
       if (!prefix) return null;
 
-      return (
-        <span className={cx(styles[`${camelCase("formatted-number-component__prefix")}`], `${CSS_BASE_CLASS}__prefix`)}>
-          {prefix}
-        </span>
-      );
+      return <span className={cx(styles.prefix, `${CSS_BASE_CLASS}__prefix`)}>{prefix}</span>;
     }, [prefix]);
 
     const calculatedValue = useMemo(() => {
@@ -57,10 +48,7 @@ const FormattedNumber = forwardRef(
     if (validateValue(value)) {
       return (
         <span
-          className={cx(
-            styles[`${camelCase("formatted-number-component__place-holder")}`],
-            `${CSS_BASE_CLASS}__place-holder`
-          )}
+          className={cx(`${CSS_BASE_CLASS}__place-holder`)}
           id={id}
           data-testid={dataTestId || getTestId(ELEMENT_TYPES.FORMATTED_NUMBER, id)}
         >
@@ -72,14 +60,12 @@ const FormattedNumber = forwardRef(
     return (
       <div
         ref={ref}
-        className={cx(className, styles.formattedNumberComponent, CSS_BASE_CLASS)}
+        className={cx(className, styles.formattedNumber, CSS_BASE_CLASS)}
         id={id}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.FORMATTED_NUMBER, id)}
       >
         {rtl ? renderSuffix : renderPrefix}
-        <span className={cx(styles[`${camelCase("formatted-number-component__number")}`], `${CSS_BASE_CLASS}__number`)}>
-          {calculatedValue}
-        </span>
+        <span className={cx(`${CSS_BASE_CLASS}__number`)}>{calculatedValue}</span>
         {rtl ? renderPrefix : renderSuffix}
       </div>
     );

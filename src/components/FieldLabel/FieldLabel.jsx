@@ -1,8 +1,8 @@
 import cx from "classnames";
 import React, { forwardRef } from "react";
-import styles from "./FieldLabel.module.scss";
 import Icon from "../Icon/Icon";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./FieldLabel.module.scss";
 
 const FieldLabel = forwardRef(
   (

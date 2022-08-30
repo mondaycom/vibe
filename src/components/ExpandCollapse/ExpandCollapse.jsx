@@ -6,8 +6,8 @@ import Icon from "../Icon/Icon";
 import Heading from "../Heading/Heading";
 import { TYPES } from "../Heading/HeadingConstants";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
-import styles from "./ExpandCollapse.module.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./ExpandCollapse.module.scss";
 
 const ExpandCollapse = forwardRef(
   (
@@ -39,7 +39,7 @@ const ExpandCollapse = forwardRef(
         <Heading
           type={TYPES.h5}
           value={title}
-          className={cx(styles.expandCollapseHeaderContent, "expand-collapse__header-content")}
+          className={cx(styles.headerContent, "expand-collapse__header-content")}
         />
       );
     }, [title]);
@@ -47,23 +47,17 @@ const ExpandCollapse = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(styles.expandCollapseWrapper, "expand-collapse--wrapper", className)}
+        className={cx(styles.wrapper, "expand-collapse--wrapper", className)}
         id={id}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.EXPAND_COLLAPSE, id)}
       >
         <div className={cx(styles.expandCollapse, "expand-collapse")}>
           <button
             type="button"
-            className={cx(
-              styles.expandCollapseHeader,
-              "expand-collapse__header",
-              styles.expandCollapseSection,
-              "expand-collapse__section",
-              {
-                [styles.expandCollapseHeaderOpen]: isExpanded,
-                ["expand-collapse__header--open"]: isExpanded
-              }
-            )}
+            className={cx(styles.header, "expand-collapse__header", styles.section, "expand-collapse__section", {
+              [styles.headerOpen]: isExpanded,
+              ["expand-collapse__header--open"]: isExpanded
+            })}
             onClickCapture={onClick || toggleExpand}
             aria-expanded={isExpanded}
             aria-controls={`${id}-controls`}
@@ -84,12 +78,7 @@ const ExpandCollapse = forwardRef(
           </button>
           {isExpanded && (
             <div
-              className={cx(
-                styles.expandCollapseContent,
-                "expand-collapse__content",
-                styles.expandCollapseSection,
-                "expand-collapse__section"
-              )}
+              className={cx(styles.content, "expand-collapse__content", styles.section, "expand-collapse__section")}
               id={`${id}-controls`}
               role="region"
             >

@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
@@ -39,9 +38,7 @@ const Heading = ({
     styles.headingComponent,
     "heading-component",
     className,
-    styles[`${camelCase("element-type-" + type)}`],
     `element-type-${type}`,
-    styles[`${camelCase("size-" + size)}`],
     `size-${size}`,
     {
       [styles.multiLineEllipsis]: ellipsis && ellipsisMaxLines > 1,

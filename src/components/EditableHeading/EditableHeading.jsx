@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 /* eslint-disable react/destructuring-assignment */
@@ -149,15 +148,7 @@ const EditableHeading = props => {
     const inputType = props.inputType || textAreaType;
     return {
       value: valueState,
-      className: cx(
-        styles[`${camelCase("editable-heading-input")}`],
-        `editable-heading-input`,
-        styles[`${camelCase("element-type-" + props.type)}`],
-        `element-type-${props.type}`,
-        styles[`${camelCase("size-" + props.size)}`],
-        `size-${props.size}`,
-        inputClassName
-      ),
+      className: cx(`editable-heading-input`, `element-type-${props.type}`, `size-${props.size}`, inputClassName),
       isValidValue: props.isValidValue,
       onChange: props.onChange,
       onKeyDown: props.onKeyDown,
@@ -196,7 +187,7 @@ const EditableHeading = props => {
     <div
       ref={ref}
       style={style}
-      className={cx(styles.editableHeadingWrapper, "editable-heading--wrapper", className, {
+      className={cx(styles.wrapper, "editable-heading--wrapper", className, {
         [styles.insetFocus]: insetFocus,
         ["inset-focus"]: insetFocus
       })}
