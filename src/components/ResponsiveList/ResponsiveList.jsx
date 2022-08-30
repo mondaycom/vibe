@@ -64,23 +64,19 @@ const ResponsiveList = forwardRef(
 
     return (
       <div
-        className={cx(styles.responsiveListRoot, "responsive-list--root", rootClassName)}
+        className={cx(styles.root, "responsive-list--root", rootClassName)}
         id={id}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.RESPONSIVE_LIST, id)}
       >
         {index !== null && (
-          <div className={cx(styles.responsiveListWrapper, "responsive-list--wrapper", className)}>
+          <div className={cx(styles.wrapper, "responsive-list--wrapper", className)}>
             {directChildren}
             {!!menuChildren.length && (
               <MenuButton
-                componentClassName={cx(
-                  styles.responsiveListMenuButton,
-                  "responsive-list-menu-button",
-                  menuButtonClassName
-                )}
+                componentClassName={cx(styles.menuButton, "responsive-list-menu-button", menuButtonClassName)}
                 size={menuButtonSize}
                 openDialogComponentClassName={cx(
-                  styles.responsiveListMenuButtonDialog,
+                  styles.menuButtonDialog,
                   "responsive-list--menu-button-dialog",
                   dialogClassName
                 )}
@@ -88,29 +84,21 @@ const ResponsiveList = forwardRef(
                 ariaLabel={menuButtonAriaLabel}
                 {...menuButtonProps}
               >
-                <div className={cx(styles.responsiveListMenuWrapperFlex, "responsive-list-menu-wrapper-flex")}>
-                  {menuChildren}
-                </div>
+                <div className={cx(styles.menuWrapperFlex, "responsive-list-menu-wrapper-flex")}>{menuChildren}</div>
               </MenuButton>
             )}
           </div>
         )}
         <div
           ref={mergedRef}
-          className={cx(
-            styles.responsiveListWrapper,
-            "responsive-list--wrapper",
-            styles.responsiveListDummy,
-            "responsive-list--dummy",
-            className
-          )}
+          className={cx(styles.wrapper, "responsive-list--wrapper", styles.dummy, "responsive-list--dummy", className)}
         >
           {hiddenChildren}
           <MenuButton
-            componentClassName={cx(styles.responsiveListMenuButton, "responsive-list-menu-button", menuButtonClassName)}
+            componentClassName={cx(styles.menuButton, "responsive-list-menu-button", menuButtonClassName)}
             size={menuButtonSize}
             openDialogComponentClassName={cx(
-              styles.responsiveListMenuButtonDialog,
+              styles.menuButtonDialog,
               "responsive-list--menu-button-dialog",
               dialogClassName
             )}
@@ -118,7 +106,7 @@ const ResponsiveList = forwardRef(
             ariaLabel={menuButtonAriaLabel}
             {...menuButtonProps}
           >
-            <div className={cx(styles.responsiveListMenuWrapperFlex, "responsive-list-menu-wrapper-flex")} />
+            <div className={cx(styles.menuWrapperFlex, "responsive-list-menu-wrapper-flex")} />
           </MenuButton>
         </div>
       </div>

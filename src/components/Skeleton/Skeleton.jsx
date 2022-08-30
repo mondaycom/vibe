@@ -21,9 +21,9 @@ const Skeleton = ({ type, size, className, width, height, id, "data-testid": dat
     <div className={cx(SKELETON_CSS_BASE_CLASS)} data-testid={dataTestId || getTestId(ELEMENT_TYPES.SKELETON, id)}>
       <div
         className={cx(
-          styles[`${camelCase("monday-style-skeleton_" + skeletonType)}`],
+          styles[skeletonType],
           `monday-style-skeleton_${skeletonType}`,
-          styles[`${camelCase("monday-style-skeleton_" + skeletonType + "--" + skeletonSize)}`],
+          styles[`${camelCase(skeletonType + "--" + skeletonSize)}`],
           `monday-style-skeleton_${skeletonType}--${skeletonSize}`,
           className
         )}

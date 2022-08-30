@@ -6,7 +6,7 @@ exports[`Skeleton renders correctly renders correctly when circle with empty pro
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonCircle monday-style-skeleton_circle mondayStyleSkeletonCircleCustom monday-style-skeleton_circle--custom"
+    className="circle monday-style-skeleton_circle circleCustom monday-style-skeleton_circle--custom"
     style={
       Object {
         "height": undefined,
@@ -23,7 +23,7 @@ exports[`Skeleton renders correctly renders correctly when circle with fixed hei
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonCircle monday-style-skeleton_circle mondayStyleSkeletonCircleCustom monday-style-skeleton_circle--custom"
+    className="circle monday-style-skeleton_circle circleCustom monday-style-skeleton_circle--custom"
     style={
       Object {
         "height": 100,
@@ -40,7 +40,7 @@ exports[`Skeleton renders correctly renders correctly when circle with fixed hei
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonCircle monday-style-skeleton_circle mondayStyleSkeletonCircleCustom monday-style-skeleton_circle--custom"
+    className="circle monday-style-skeleton_circle circleCustom monday-style-skeleton_circle--custom"
     style={
       Object {
         "height": 100,
@@ -57,7 +57,7 @@ exports[`Skeleton renders correctly renders correctly when circle with fixed wid
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonCircle monday-style-skeleton_circle mondayStyleSkeletonCircleCustom monday-style-skeleton_circle--custom"
+    className="circle monday-style-skeleton_circle circleCustom monday-style-skeleton_circle--custom"
     style={
       Object {
         "height": undefined,
@@ -74,7 +74,7 @@ exports[`Skeleton renders correctly renders correctly when rectangle with empty 
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonRectangle monday-style-skeleton_rectangle mondayStyleSkeletonRectangleCustom monday-style-skeleton_rectangle--custom"
+    className="rectangle monday-style-skeleton_rectangle rectangleCustom monday-style-skeleton_rectangle--custom"
     style={
       Object {
         "height": undefined,
@@ -91,7 +91,7 @@ exports[`Skeleton renders correctly renders correctly when rectangle with fixed 
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonRectangle monday-style-skeleton_rectangle mondayStyleSkeletonRectangleCustom monday-style-skeleton_rectangle--custom"
+    className="rectangle monday-style-skeleton_rectangle rectangleCustom monday-style-skeleton_rectangle--custom"
     style={
       Object {
         "height": 100,
@@ -108,7 +108,7 @@ exports[`Skeleton renders correctly renders correctly when rectangle with fixed 
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonRectangle monday-style-skeleton_rectangle mondayStyleSkeletonRectangleCustom monday-style-skeleton_rectangle--custom"
+    className="rectangle monday-style-skeleton_rectangle rectangleCustom monday-style-skeleton_rectangle--custom"
     style={
       Object {
         "height": 100,
@@ -125,7 +125,7 @@ exports[`Skeleton renders correctly renders correctly when rectangle with fixed 
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonRectangle monday-style-skeleton_rectangle mondayStyleSkeletonRectangleCustom monday-style-skeleton_rectangle--custom"
+    className="rectangle monday-style-skeleton_rectangle rectangleCustom monday-style-skeleton_rectangle--custom"
     style={
       Object {
         "height": undefined,
@@ -142,7 +142,7 @@ exports[`Skeleton renders correctly renders correctly when text with CUSTOM size
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": undefined,
@@ -159,7 +159,7 @@ exports[`Skeleton renders correctly renders correctly when text with H1 size 1`]
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": undefined,
@@ -176,7 +176,7 @@ exports[`Skeleton renders correctly renders correctly when text with H1 size 2`]
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": undefined,
@@ -193,7 +193,7 @@ exports[`Skeleton renders correctly renders correctly when text with H1 size 3`]
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": undefined,
@@ -210,7 +210,7 @@ exports[`Skeleton renders correctly renders correctly when text with H2 size 1`]
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": undefined,
@@ -227,7 +227,7 @@ exports[`Skeleton renders correctly renders correctly when text with H3 size 1`]
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": undefined,
@@ -244,7 +244,7 @@ exports[`Skeleton renders correctly renders correctly when text with H4 size 1`]
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": undefined,
@@ -261,7 +261,7 @@ exports[`Skeleton renders correctly renders correctly when text with H5 size 1`]
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": undefined,
@@ -278,7 +278,7 @@ exports[`Skeleton renders correctly renders correctly when text with empty props
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": undefined,
@@ -295,7 +295,7 @@ exports[`Skeleton renders correctly renders correctly when text with fixed heigh
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": 100,
@@ -312,7 +312,7 @@ exports[`Skeleton renders correctly renders correctly when text with fixed heigh
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": 100,
@@ -329,7 +329,7 @@ exports[`Skeleton renders correctly renders correctly when text with fixed width
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonText monday-style-skeleton_text mondayStyleSkeletonTextCustom monday-style-skeleton_text--custom"
+    className="text monday-style-skeleton_text textCustom monday-style-skeleton_text--custom"
     style={
       Object {
         "height": undefined,
@@ -346,7 +346,7 @@ exports[`Skeleton renders correctly renders correctly with empty props 1`] = `
   data-testid="skeleton"
 >
   <div
-    className="mondayStyleSkeletonRectangle monday-style-skeleton_rectangle mondayStyleSkeletonRectangleCustom monday-style-skeleton_rectangle--custom"
+    className="rectangle monday-style-skeleton_rectangle rectangleCustom monday-style-skeleton_rectangle--custom"
     style={
       Object {
         "height": undefined,

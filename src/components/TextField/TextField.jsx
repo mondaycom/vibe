@@ -112,25 +112,25 @@ const TextField = forwardRef(
     return (
       <div
         className={cx(styles.inputComponent, "input-component", wrapperClassName, {
-          [styles.inputComponentDisabled]: disabled,
+          [styles.disabled]: disabled,
           ["input-component--disabled"]: disabled
         })}
         role={role}
         aria-busy={loading}
       >
-        <div className={cx(styles.inputComponentLabelWrapper, "input-component__label--wrapper")}>
+        <div className={cx(styles.labelWrapper, "input-component__label--wrapper")}>
           <FieldLabel labelText={title} icon={labelIconName} iconLabel={iconsNames.layout} labelFor={id} />
           <div
             className={cx(
-              styles.inputComponentInputWrapper,
+              styles.wrapper,
               "input-component__input-wrapper",
               sizeMapper[getActualSize(size)],
               validationClass
             )}
           >
             <input
-              className={cx(className, styles.inputComponentInput, "input-component__input", {
-                [styles.inputComponentInputHasIcon]: !!hasIcon,
+              className={cx(className, styles.input, "input-component__input", {
+                [styles.inputHasIcon]: !!hasIcon,
                 ["input-component__input--has-icon"]: !!hasIcon
               })}
               placeholder={placeholder}
@@ -156,21 +156,21 @@ const TextField = forwardRef(
             />
             {loading && (
               <div
-                className={cx(styles.inputComponentLoaderContainer, "input-component__loader--container", {
-                  [styles.inputComponentLoaderContainerHasIcon]: hasIcon,
+                className={cx(styles.loaderContainer, "input-component__loader--container", {
+                  [styles.loaderContainerHasIcon]: hasIcon,
                   ["input-component__loader--container-has-icon"]: hasIcon
                 })}
               >
-                <div className={cx(styles.inputComponentLoader, "input-component__loader")}>
-                  <Loader svgClassName={cx(styles.inputComponentLoaderSvg, "input-component__loader-svg")} />
+                <div className={cx(styles.loader, "input-component__loader")}>
+                  <Loader svgClassName={cx(styles.loaderSvg, "input-component__loader-svg")} />
                 </div>
               </div>
             )}
             <Clickable
-              className={cx(styles.inputComponentIconContainer, "input-component__icon--container", {
-                [styles.inputComponentIconContainerHasIcon]: hasIcon,
+              className={cx(styles.iconContainer, "input-component__icon--container", {
+                [styles.iconContainerHasIcon]: hasIcon,
                 ["input-component__icon--container-has-icon"]: hasIcon,
-                [styles.inputComponentIconContainerActive]: isPrimary,
+                [styles.iconContainerActive]: isPrimary,
                 ["input-component__icon--container-active"]: isPrimary
               })}
               onClick={onIconClickCallback}
@@ -178,7 +178,7 @@ const TextField = forwardRef(
             >
               <Icon
                 icon={iconName}
-                className={cx(styles.inputComponentIcon, "input-component__icon")}
+                className={cx(styles.icon, "input-component__icon")}
                 clickable={false}
                 id={id}
                 iconLabel={iconsNames.primary}
@@ -188,10 +188,10 @@ const TextField = forwardRef(
               />
             </Clickable>
             <Clickable
-              className={cx(styles.inputComponentIconContainer, "input-component__icon--container", {
-                [styles.inputComponentIconContainerHasIcon]: hasIcon,
+              className={cx(styles.iconContainer, "input-component__icon--container", {
+                [styles.iconContainer]: hasIcon,
                 ["input-component__icon--container-has-icon"]: hasIcon,
-                [styles.inputComponentIconContainerActive]: isSecondary,
+                [styles.iconContainerHasIcon]: isSecondary,
                 ["input-component__icon--container-active"]: isSecondary
               })}
               onClick={onIconClickCallback}
@@ -200,7 +200,7 @@ const TextField = forwardRef(
             >
               <Icon
                 icon={secondaryIconName}
-                className={cx(styles.inputComponentIcon, "input-component__icon")}
+                className={cx(styles.icon, "input-component__icon")}
                 clickable={false}
                 id={id}
                 iconLabel={iconsNames.secondary}
@@ -211,13 +211,10 @@ const TextField = forwardRef(
             </Clickable>
           </div>
           {shouldShowExtraText && (
-            <div className={cx(styles.inputComponentSubTextContainer, "input-component__sub-text-container")}>
+            <div className={cx(styles.subTextContainer, "input-component__sub-text-container")}>
               {validation && validation.text && (
                 <span
-                  className={cx(
-                    styles.inputComponentSubTextContainerStatus,
-                    "input-component__sub-text-container-status"
-                  )}
+                  className={cx(styles.subTextContainerStatus, "input-component__sub-text-container-status")}
                   aria-label={ARIA_LABELS.VALIDATION_TEXT}
                 >
                   {validation.text}
@@ -225,10 +222,7 @@ const TextField = forwardRef(
               )}
               {showCharCount && (
                 <span
-                  className={cx(
-                    styles.inputComponentSubTextContainerCounter,
-                    "input-component__sub-text-container-counter"
-                  )}
+                  className={cx(styles.subTextContainerCounter, "input-component__sub-text-container-counter")}
                   aria-label={ARIA_LABELS.CHAR}
                 >
                   {(inputValue && inputValue.length) || 0}

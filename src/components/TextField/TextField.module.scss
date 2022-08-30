@@ -14,29 +14,29 @@
   box-sizing: border-box;
 }
 
-.inputComponent .inputComponentLabelWrapper {
+.labelWrapper {
   width: 100%;
 }
 
-.inputComponent .inputComponentSubTextContainer {
+.subTextContainer {
   display: flex;
   @include font-input();
   @include theme-prop(color, secondary-text-color);
 }
 
-.inputComponent .inputComponentSubTextContainer .inputComponentSubTextContainerCounter {
+.subTextContainer .subTextContainerCounter {
   margin-left: auto;
 }
 
-.inputComponent.inputComponentDisabled .inputComponentIcon {
+.disabled .icon {
   cursor: not-allowed;
 }
 
-.inputComponent.inputComponentDisabled .inputComponentInputWrapper {
+.disabled .wrapper {
   cursor: not-allowed;
 }
 
-.inputComponent.inputComponentDisabled .inputComponentInputWrapper .inputComponentInput {
+.disabled .input {
   user-select: none;
   border: none;
   pointer-events: none;
@@ -44,22 +44,20 @@
   cursor: not-allowed;
 }
 
-.inputComponent.inputComponentDisabled .inputComponentInputWrapper .inputComponentInput::placeholder {
+.disabled .input::placeholder {
   @include theme-prop(color, disabled-text-color);
 }
 
-.inputComponent.inputComponentDisabled
-  .inputComponentInputWrapper
-  .inputComponentIconContainer.inputComponentIconContainerHasIcon:hover {
+.disabled .iconContainer.iconContainerHasIcon:hover {
   background-color: transparent;
 }
 
-.inputComponent .inputComponentInputWrapper {
+.wrapper {
   width: 100%;
   position: relative;
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentInput {
+.input {
   width: 100%;
   height: 100%;
   outline: 0;
@@ -75,34 +73,34 @@
   @include theme-prop(color, primary-text-color);
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentInput.inputComponentInputHover {
+.input.inputHover {
   @include theme-prop(border-color, primary-text-color);
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentInput:focus,
-.inputComponent .inputComponentInputWrapper .inputComponentInput:active,
-.inputComponent .inputComponentInputWrapper .inputComponentInput.inputComponentInputActive {
+.input:focus,
+.input:active,
+.input.inputActive {
   @include theme-prop(border-color, primary-color);
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentInput::placeholder {
+.input::placeholder {
   @include theme-prop(color, secondary-text-color);
   font-weight: 400;
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentInput.inputComponentInputHasIcon {
+.input.inputHasIcon {
   padding: $spacing-small $spacing-large $spacing-small $spacing-medium;
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentInput.inputComponentInputRound {
+.input.inputRound {
   border-radius: 50px;
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentInput.inputComponentInputSquare {
+.input.inputSquare {
   border-radius: 0;
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentInput.inputComponentInputOnlyUnderline {
+.input.inputOnlyUnderline {
   border-left: none;
   border-right: none;
   border-top: none;
@@ -110,7 +108,7 @@
   border-radius: 0 !important;
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentIconContainer {
+.iconContainer {
   position: absolute;
   top: 50%;
   right: 4px;
@@ -125,45 +123,38 @@
   pointer-events: none;
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentIconContainer:active,
-.inputComponent .inputComponentInputWrapper .inputComponentIconContainer:focus,
-.inputComponent .inputComponentInputWrapper .inputComponentIconContainer:focus-visible {
+.iconContainer:active,
+.iconContainer:focus,
+.iconContainer:focus-visible {
   outline: none;
   @include theme-prop(background-color, primary-background-hover-color);
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentIconContainer {
+.iconContainer {
   -webkit-appearance: none;
 }
 
-.inputComponent
-  .inputComponentInputWrapper
-  .inputComponentIconContainer.inputComponentIconContainerActive.inputComponentIconContainerHasIcon {
+.inputComponent .wrapper .iconContainer.iconContainerActive.iconContainerHasIcon {
   pointer-events: all;
   cursor: pointer;
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentIconContainer.inputComponentIconContainerActive {
+.iconContainer.iconContainerActive {
   opacity: 1;
 }
 
-.inputComponent
-  .inputComponentInputWrapper
-  .inputComponentIconContainer.inputComponentIconContainerActive
-  .inputComponentIcon {
+.inputComponent .iconContainer.iconContainerActive .icon {
   opacity: 1;
   pointer-events: all;
   transform: rotate(0) scale(1);
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentIconContainer.inputComponentIconContainerHasIcon:hover,
-.inputComponent
-  .inputComponentInputWrapper
-  .inputComponentIconContainer.inputComponentIconContainerHasIcon:focus-within {
+.iconContainer.iconContainerHasIcon:hover,
+.inputComponent .iconContainer.iconContainerHasIcon:focus-within {
   @include theme-prop(background-color, primary-background-hover-color);
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentIconContainer .inputComponentIcon {
+.iconContainer .icon {
   transform: rotate(90deg) scale(0.8);
   @include theme-prop(color, icon-color);
   will-change: transform;
@@ -173,167 +164,129 @@
   font-size: 14px;
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputErrorValidation:hover .inputComponentInput {
+.inputErrorValidation:hover .input {
   @include theme-prop(border-color, negative-color);
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputErrorValidation .inputComponentInput {
+.inputErrorValidation .input {
   @include theme-prop(border-color, negative-color);
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputErrorValidation .inputComponentInput:focus,
-.inputComponent .inputComponentInputWrapper.inputComponentInputErrorValidation .inputComponentInput:active {
+.inputErrorValidation .input:focus,
+.inputErrorValidation .input:active {
   @include theme-prop(border-color, negative-color);
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputErrorValidation
-  .inputComponentIconContainer
-  .inputComponentIcon {
+.inputComponent .inputErrorValidation .iconContainer .icon {
   @include theme-prop(color, negative-color);
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputErrorValidation
-  .inputComponentIconContainer
-  .inputComponentIcon:hover {
+.inputComponent .inputErrorValidation .iconContainer .icon:hover {
   @include theme-prop(color, negative-color);
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputErrorValidation
-  + .inputComponentSubTextContainer
-  .inputComponentSubTextContainerStatus {
+.inputComponent .inputErrorValidation + .subTextContainer .subTextContainerStatus {
   @include theme-prop(color, negative-color);
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputSuccessValidation:hover .inputComponentInput {
+.inputSuccessValidation:hover .input {
   @include theme-prop(border-color, positive-color);
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputSuccessValidation .inputComponentInput {
+.inputSuccessValidation .input {
   @include theme-prop(border-color, positive-color);
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputSuccessValidation .inputComponentInput:focus,
-.inputComponent .inputComponentInputWrapper.inputComponentInputSuccessValidation .inputComponentInput:active {
+.inputSuccessValidation .input:focus,
+.inputSuccessValidation .input:active {
   @include theme-prop(border-color, positive-color);
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputSuccessValidation
-  .inputComponentIconContainer
-  .inputComponentIcon {
+.inputComponent .inputSuccessValidation .iconContainer .icon {
   @include theme-prop(color, positive-color);
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputSuccessValidation
-  .inputComponentIconContainer
-  .inputComponentIcon:hover {
+.inputComponent .inputSuccessValidation .iconContainer .icon:hover {
   @include theme-prop(color, positive-color);
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputSuccessValidation
-  + .inputComponentSubTextContainer
-  .inputComponentSubTextContainerStatus {
+.inputComponent .inputSuccessValidation + .subTextContainer .subTextContainerStatus {
   @include theme-prop(color, positive-color);
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputWrapperSizeSmall {
+.wrapperSizeSmall {
   height: 32px;
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputWrapperSizeSmall .inputComponentInput {
+.wrapperSizeSmall .input {
   @include font-input();
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputWrapperSizeSmall
-  .inputComponentInput.inputComponentInputHasIcon.inputComponentInputOnlyUnderline {
+.inputComponent .wrapperSizeSmall .input.inputHasIcon.inputOnlyUnderline {
   padding-left: $spacing-xs;
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputWrapperSizeMedium {
+.wrapperSizeMedium {
   height: 40px;
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputWrapperSizeMedium .inputComponentInput {
+.wrapperSizeMedium .input {
   @include font-paragraph();
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputWrapperSizeMedium
-  .inputComponentInput.inputComponentInputHasIcon {
+.inputComponent .wrapperSizeMedium .input.inputHasIcon {
   padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputWrapperSizeMedium
-  .inputComponentInput.inputComponentInputHasIcon.inputComponentInputOnlyUnderline {
+.inputComponent .wrapperSizeMedium .input.inputHasIcon.inputOnlyUnderline {
   padding-left: 4px;
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputWrapperSizeMedium .inputComponentIconContainer {
+.wrapperSizeMedium .iconContainer {
   pointer-events: none;
   height: 32px;
   width: 32px;
   outline: none;
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputWrapperSizeMedium
-  .inputComponentIconContainer
-  .inputComponentIcon {
+.inputComponent .wrapperSizeMedium .iconContainer .icon {
   font-size: var(--font-size-paragraph);
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputWrapperSizeMedium
-  .inputComponentIconContainer:hover
-  + .inputComponentIconContainer
-  + .inputComponentInput {
+.inputComponent .wrapperSizeMedium .iconContainer:hover + .iconContainer + .input {
   @include theme-prop(border-color, primary-text-color);
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputWrapperSizeLarge {
+.wrapperSizeLarge {
   height: 48px;
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputWrapperSizeLarge .inputComponentInput {
+.wrapperSizeLarge .input {
   @include font-paragraph();
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputWrapperSizeLarge
-  .inputComponentInput.inputComponentInputHasIcon {
+.inputComponent .wrapperSizeLarge .input.inputHasIcon {
   padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputWrapperSizeLarge
-  .inputComponentInput.inputComponentInputHasIcon.inputComponentInputOnlyUnderline {
+.inputComponent .wrapperSizeLarge .input.inputHasIcon.inputOnlyUnderline {
   padding-left: $spacing-xs;
 }
 
-.inputComponent .inputComponentInputWrapper.inputComponentInputWrapperSizeLarge .inputComponentIconContainer {
+.wrapperSizeLarge .iconContainer {
   height: 40px;
   width: 40px;
 }
 
-.inputComponent
-  .inputComponentInputWrapper.inputComponentInputWrapperSizeLarge
-  .inputComponentIconContainer
-  .inputComponentIcon {
+.inputComponent .wrapperSizeLarge .iconContainer .icon {
   font-size: var(--font-size-paragraph);
 }
 
-.inputComponent .inputComponentInputWrapper:hover .inputComponentInput {
+.wrapper:hover .input {
   @include theme-prop(border-color, primary-text-color);
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentLoaderContainer {
+.loaderContainer {
   position: absolute;
   top: 50%;
   right: 4px;
@@ -345,19 +298,15 @@
   align-items: center;
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentLoaderContainer.inputComponentLoaderContainerHasIcon {
+.loaderContainerHasIcon {
   right: 32px;
 }
 
-.inputComponent .inputComponentInputWrapper .inputComponentLoaderContainer .inputComponentLoader {
+.loader {
   width: 16px;
   height: 16px;
 }
 
-.inputComponent
-  .inputComponentInputWrapper
-  .inputComponentLoaderContainer
-  .inputComponentLoader
-  .inputComponentLoaderSvg {
+.loaderSvg {
   @include theme-prop(color, secondary-text-color);
 }

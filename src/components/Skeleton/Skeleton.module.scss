@@ -49,14 +49,14 @@
   @include shine-animation;
 }
 
-.mondayStyleSkeletonRectangle {
+.rectangle {
   $rectangle-default-size: 160px;
   height: $rectangle-default-size;
   width: $rectangle-default-size;
   @include skeleton;
 }
 
-.mondayStyleSkeletonCircle {
+.circle {
   $circle-default-size: 40px;
   $circle-radius: 50%;
   height: $circle-default-size;
@@ -64,36 +64,36 @@
   @include skeleton($circle-radius);
 }
 
-.mondayStyleSkeletonText {
+.text {
   width: 162px;
   @include skeleton;
 }
 
-.mondayStyleSkeletonTextH1 {
+.textH1 {
   height: $h1-empty-state-height;
 }
 
-.mondayStyleSkeletonTextH2 {
+.textH2 {
   height: $h2-empty-state-height;
 }
 
-.mondayStyleSkeletonTextH3 {
+.textH3 {
   height: $h3-empty-state-height;
 }
 
-.mondayStyleSkeletonTextH4 {
+.textH4 {
   height: $h4-empty-state-height;
 }
 
-.mondayStyleSkeletonTextH5 {
+.textH5 {
   height: $h5-empty-state-height;
 }
 
-.mondayStyleSkeletonTextH6 {
+.textH6 {
   height: $h6-empty-state-height;
 }
 
-.mondayStyleSkeletonTextSmall,
-.mondayStyleSkeletonTextCustom {
+.textSmall,
+.textCustom {
   height: $small-empty-state-height;
 }

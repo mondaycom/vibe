@@ -13,7 +13,7 @@ import styles from "./Search.module.scss";
 const NOOP = () => {};
 
 const TYPE_CLASSES = {
-  round: cx(styles.searchComponentRound, "search_component--round"),
+  round: cx(styles.round, "search_component--round"),
   underline: "input-component__input--only-underline",
   square: ""
 };
@@ -72,10 +72,10 @@ const Search = forwardRef(
         placeholder={placeholder}
         disabled={disabled}
         debounceRate={debounceRate}
-        className={cx(className, styles.searchComponent, "search_component", getType(type))}
+        className={cx(className, styles.search, "search_component", getType(type))}
         secondaryIconName={secondaryIconName}
         secondaryDataTestId={secondaryDataTestId || getTestId(ELEMENT_TYPES.CLEAN_SEARCH_BUTTON, id)}
-        wrapperClassName={cx(wrapperClassName, styles.searchComponentWrapper, "search_component_wrapper")}
+        wrapperClassName={cx(wrapperClassName, styles.wrapper, "search_component_wrapper")}
         onBlur={onBlur}
         onFocus={onFocus}
         ref={mergedRef}

@@ -309,11 +309,11 @@ MenuItem.defaultProps = {
 };
 
 MenuItem.propTypes = {
+  iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   className: PropTypes.string,
   title: PropTypes.string,
   label: PropTypes.string,
   icon: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  iconType: PropTypes.oneOf([Icon.type.SVG, Icon.type.ICON_FONT]),
   iconBackgroundColor: PropTypes.string,
   disabled: PropTypes.bool,
   disableReason: PropTypes.string,

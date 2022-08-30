@@ -2,27 +2,27 @@
 @import "../../styles/typography";
 @import "../../styles/global-css-settings";
 
-.mondayStyleRadioButtonComponent {
+.radioButton {
   display: grid;
   grid-template-columns: 1.5em auto;
   grid-gap: 0.5em;
   cursor: pointer;
 }
 
-.mondayStyleRadioButtonComponentRadioInputContainer {
+.inputContainer {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.mondayStyleRadioButtonComponentRadioInputContainerRadioInput {
+.radioInput {
   opacity: 0;
   width: 0;
   height: 0;
   margin: 0;
 }
 
-.mondayStyleRadioButtonComponentRadioInputContainerRadioControl {
+.radioControl {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,64 +35,53 @@
   transition: border-width var(--motion-productive-medium) var(--motion-timing-enter);
 }
 
-input:checked + .mondayStyleRadioButtonComponentRadioInputContainerRadioControl {
+input:checked + .radioControl {
   @include theme-prop(border-color, primary-color);
   border-width: 0.3em;
 }
 
-input:checked + .mondayStyleRadioButtonComponentRadioInputContainerRadioControlLabelAnimation {
+input:checked + .radioControlLabelAnimation {
   animation-name: radioCheckedAnimation;
   animation-duration: var(--motion-productive-medium);
   animation-timing-function: var(--motion-timing-enter);
   animation-fill-mode: forwards;
 }
 
-input:disabled + .mondayStyleRadioButtonComponentRadioInputContainerRadioControl {
+input:disabled + .radioControl {
   border: 0.5em solid;
   @include theme-prop(border-color, disabled-background-color);
   border-radius: 50%;
 }
 
-input:checked:disabled + .mondayStyleRadioButtonComponentRadioInputContainerRadioControl {
+input:checked:disabled + .radioControl {
   border: 0.3em solid;
   @include theme-prop(border-color, disabled-background-color);
   @include theme-prop(background-color, secondary-text-color);
 }
 
-.mondayStyleRadioButtonComponentRadioLabel {
+.radioLabel {
   line-height: 21px;
   font-weight: 400;
   @include theme-prop(color, primary-text-color);
 }
 
-.mondayStyleRadioButtonComponent.disabled {
+.radioButton.disabled {
   cursor: not-allowed;
 }
 
-.mondayStyleRadioButtonComponentRadioInputContainer
-  input:focus-visible
-  + .mondayStyleRadioButtonComponentRadioInputContainerRadioControl {
+.inputContainer input:focus-visible + .radioControl {
   outline: none;
   @include theme-prop(border-color, primary-color);
   box-shadow: 0 0 0 3px hsla(209, 100%, 50%, 0.5);
   border-radius: 50%;
 }
 
-.mondayStyleRadioButtonComponent:hover
-  .mondayStyleRadioButtonComponentRadioInputContainer
-  input:enabled:checked
-  + .mondayStyleRadioButtonComponentRadioInputContainerRadioControl {
+.radioButton:hover .inputContainer input:enabled:checked + .radioControl {
   @include theme-prop(border-color, primary-hover-color);
 }
 
-.mondayStyleRadioButtonComponent:hover
-  .mondayStyleRadioButtonComponentRadioInputContainer
-  input:enabled:not(:checked)
-  + .mondayStyleRadioButtonComponentRadioInputContainerRadioControl,
-.mondayStyleRadioButtonComponent:focus-within
-  .mondayStyleRadioButtonComponentRadioInputContainer
-  input:enabled:not(:checked)
-  + .mondayStyleRadioButtonComponentRadioInputContainerRadioControl {
+.radioButton:hover .inputContainer input:enabled:not(:checked) + .radioControl,
+.radioButton:focus-within .inputContainer input:enabled:not(:checked) + .radioControl {
   @include theme-prop(border-color, primary-text-color);
 }
 

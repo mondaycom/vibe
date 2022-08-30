@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import styles from "./RadioButton.module.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./RadioButton.module.scss";
 
 const CSS_BASE_CLASS = "monday-style-radio-button-component";
 
@@ -53,22 +53,14 @@ const RadioButton = forwardRef(
 
     return (
       <label
-        className={cx(styles.mondayStyleRadioButtonComponent, CSS_BASE_CLASS, overrideClassName, {
+        className={cx(styles.radioButton, CSS_BASE_CLASS, overrideClassName, {
           [styles.disabled]: disabled,
           ["disabled"]: disabled
         })}
       >
-        <span
-          className={cx(
-            styles.mondayStyleRadioButtonComponentRadioInputContainer,
-            "monday-style-radio-button-component__radio-input-container"
-          )}
-        >
+        <span className={cx(styles.inputContainer, "monday-style-radio-button-component__radio-input-container")}>
           <input
-            className={cx(
-              styles.mondayStyleRadioButtonComponentRadioInputContainerRadioInput,
-              "monday-style-radio-button-component__radio-input-container__radio-input"
-            )}
+            className={cx(styles.radioInput, "monday-style-radio-button-component__radio-input-container__radio-input")}
             type="radio"
             value={value}
             name={name}
@@ -81,11 +73,10 @@ const RadioButton = forwardRef(
           />
           <span
             className={cx(
-              styles.mondayStyleRadioButtonComponentRadioInputContainerRadioControl,
+              styles.radioControl,
               "monday-style-radio-button-component__radio-input-container__radio-control",
               {
-                [styles.mondayStyleRadioButtonComponentRadioInputContainerRadioControlLabelAnimation]:
-                  !noLabelAnimation,
+                [styles.radioControlLabelAnimation]: !noLabelAnimation,
                 ["monday-style-radio-button-component__radio-input-container__radio-control--label-animation"]:
                   !noLabelAnimation
               }
@@ -93,14 +84,7 @@ const RadioButton = forwardRef(
           />
         </span>
         {text && (
-          <span
-            className={cx(
-              styles.mondayStyleRadioButtonComponentRadioLabel,
-              "monday-style-radio-button-component__radio-label"
-            )}
-          >
-            {text}
-          </span>
+          <span className={cx(styles.radioLabel, "monday-style-radio-button-component__radio-label")}>{text}</span>
         )}
         {children && (
           <Clickable className={cx("radio-children-wrapper")} onClick={onChildClick} tabIndex={childrenTabIndex}>
