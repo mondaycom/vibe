@@ -135,7 +135,7 @@ const Dropdown = ({
     mergedStyles.menu = provided => {
       if (!insideScroll) return provided;
 
-      // If inside a scroll try to get dropdown location at the dom
+      // If the dropdown is inside a scroll, we try to get dropdown location at the dom
       const parentPositionData = controlRef?.current?.getBoundingClientRect();
 
       // If no location found do not add anything to hard coded style
