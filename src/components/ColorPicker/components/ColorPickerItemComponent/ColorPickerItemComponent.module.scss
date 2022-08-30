@@ -2,6 +2,10 @@
 @import "../../../../styles/global-css-settings";
 
 .itemWrapper {
+  margin: 4px;
+  display: flex;
+  list-style-type: none;
+  position: relative;
   --border-radius-multiplier: 1;
 }
 
@@ -21,14 +25,7 @@
   pointer-events: none;
 }
 
-.itemWrapper {
-  margin: 4px;
-  display: flex;
-  list-style-type: none;
-  position: relative;
-}
-
-.itemWrapper .feedbackIndicator {
+.feedbackIndicator {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -58,7 +55,7 @@
   @include absolute-border(4px, primary-background-hover-color, -4px, 8px);
 }
 
-.itemWrapper .colorItem {
+.colorItem {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,42 +64,42 @@
   cursor: pointer;
 }
 
-.itemWrapper .colorItem .colorIndicatorWrapper {
+.colorItem .colorIndicatorWrapper {
   margin-top: 3px;
 }
 
-.itemWrapper .colorItem.colorItemSizeSmall {
+.colorItem.colorItemSizeSmall {
   width: 24px;
   height: 24px;
 }
 
-.itemWrapper .colorItem.colorItemSizeMedium {
+.colorItem.colorItemSizeMedium {
   width: 32px;
   height: 32px;
 }
 
-.itemWrapper .colorItem.colorItemSizeLarge {
+.colorItem.colorItemSizeLarge {
   width: 40px;
   height: 40px;
 }
 
-.itemWrapper.selectedColor {
+.selectedColor {
   position: relative;
 }
 
-.itemWrapper.selectedColor:before {
+.selectedColor:before {
   @include absolute-border(2px, primary-color, -4px);
 }
 
-.itemWrapper.selectedColor .feedbackIndicator:before {
+.selectedColor .feedbackIndicator:before {
   /* hide the outer border from the "active" feedback indicator */
   display: none;
 }
 
-.itemWrapper .colorItemTextMode:hover {
+.colorItemTextMode:hover {
   background-color: var(--primary-background-hover-color) !important;
 }
 
-.itemWrapper .colorIconWhite {
+.colorIconWhite {
   color: var(--color-snow_white);
 }
