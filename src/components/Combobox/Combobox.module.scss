@@ -11,45 +11,45 @@
   margin-bottom: var(--spacing-small);
 }
 
-.comboboxWrapper .comboboxCategoryWithDivider {
+.comboboxWrapper .categoryWithDivider {
   margin-top: var(--spacing-medium);
 }
 
-.comboboxWrapper.stickyCategory .comboboxCategory {
+.stickyCategory .category {
   z-index: 10;
   background-color: var(--primary-background-color);
 }
 
 /* Relative to Search height */
 
-.comboboxWrapper.stickyCategory.sizeSmall .comboboxCategory {
+.stickyCategory.sizeSmall .category {
   top: 32px;
 }
 
-.comboboxWrapper.stickyCategory.sizeMedium .comboboxCategory {
+.stickyCategory.sizeMedium .category {
   top: 40px;
 }
 
-.comboboxWrapper.stickyCategory.sizeLarge .comboboxCategory {
+.stickyCategory.sizeLarge .category {
   top: 48px;
 }
 
-.comboboxWrapper.empty {
+.empty {
   max-height: 200px;
 }
 
-.comboboxWrapperSearchWrapper {
+.searchWrapper {
   position: sticky;
   top: 0;
   background-color: var(--primary-background-color);
   z-index: 12;
 }
 
-.comboboxWrapperSearch {
+.search {
   flex: 0 0 auto;
 }
 
-.comboboxWrapperNoResults {
+.noResults {
   margin-top: var(--spacing-small);
   flex: 1 1 auto;
   height: calc(100% - 20px);
@@ -60,28 +60,28 @@
   flex-direction: column;
 }
 
-.comboboxWrapperNoResults .comboboxMessageWrapper {
+.noResults .messageWrapper {
   flex: 1 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.comboboxWrapperNoResults .comboboxMessageWrapper .comboboxMessage {
+.noResults .messageWrapper .message {
   @include ellipsis();
 }
 
-.comboboxWrapperNoResults .addNewButton {
+.noResults .addNewButton {
   flex: 0 0 auto;
   width: 100% !important;
   margin-bottom: 8px;
 }
 
-.comboboxWrapperNoResults .addNewButton .buttonLabel {
+.noResults .addNewButton .buttonLabel {
   @include ellipsis();
 }
 
-.comboboxWrapperList {
+.wrapperList {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;

@@ -15,36 +15,36 @@ $icon-margin: 4px;
   user-select: none;
 }
 
-.comboboxOption.disabled {
+.disabled {
   cursor: not-allowed;
   @include disabled;
 }
 
-.comboboxOption.selected {
+.selected {
   @include theme-prop(background-color, primary-selected-color);
 }
 
 .comboboxOption:hover:not(.disabled):not(.selected),
-.comboboxOption.active {
+.active {
   @include theme-prop(color, primary-text-color);
   @include theme-prop(background-color, primary-background-hover-color);
   position: relative;
 }
 
-.comboboxOption.activeOutline {
+.activeOutline {
   @include focus-style-css-inset();
   background-color: var(--secondary-background-color);
 }
 
-.comboboxOption .optionLabel {
+.optionLabel {
   flex: 1 1 auto;
   @include ellipsis();
 }
 
-.comboboxOption .optionIcon {
+.icon {
   flex: 0 0 auto;
 }
 
-.comboboxOption .optionIcon.left {
+.icon.left {
   margin-right: $icon-margin;
 }

@@ -65,12 +65,12 @@ const ComboboxOption = ({
 
   const renderIcon = (icon, iconType, className) => {
     if (iconType === ComboboxOption.iconTypes.RENDERER) {
-      return icon(`option-icon ${className}`);
+      return icon(cx(styles.icon, "option-icon", className));
     }
 
     return (
       <Icon
-        className={cx(styles.optionIcon, "option-icon", className)}
+        className={cx(styles.icon, "option-icon", className)}
         iconType={Icon.type.ICON_FONT}
         clickable={false}
         icon={icon}

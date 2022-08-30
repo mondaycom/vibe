@@ -7,7 +7,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -17,7 +17,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper input-component--disabled"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper input-component--disabled"
       role="search"
     >
       <div
@@ -32,7 +32,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={true}
             id="combobox-search"
@@ -120,7 +120,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -130,7 +130,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -145,7 +145,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -233,7 +233,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -243,7 +243,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -258,7 +258,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -346,7 +346,7 @@ exports[`Combobox renders correctly with className 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -356,7 +356,7 @@ exports[`Combobox renders correctly with className 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -371,7 +371,7 @@ exports[`Combobox renders correctly with className 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -459,7 +459,7 @@ exports[`Combobox renders correctly with divider 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -469,7 +469,7 @@ exports[`Combobox renders correctly with divider 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -484,7 +484,7 @@ exports[`Combobox renders correctly with divider 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -669,7 +669,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -679,7 +679,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -694,7 +694,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -782,7 +782,7 @@ exports[`Combobox renders correctly with id 1`] = `
   id="test"
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -792,7 +792,7 @@ exports[`Combobox renders correctly with id 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -807,7 +807,7 @@ exports[`Combobox renders correctly with id 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -895,7 +895,7 @@ exports[`Combobox renders correctly with loading 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -905,7 +905,7 @@ exports[`Combobox renders correctly with loading 1`] = `
   >
     <div
       aria-busy={true}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -920,7 +920,7 @@ exports[`Combobox renders correctly with loading 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1036,7 +1036,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -1046,7 +1046,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -1061,7 +1061,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1149,7 +1149,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -1159,7 +1159,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -1174,7 +1174,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1313,7 +1313,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -1323,7 +1323,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -1338,7 +1338,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1426,7 +1426,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -1436,7 +1436,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -1451,7 +1451,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"
@@ -1539,7 +1539,7 @@ exports[`Combobox renders correctly with size 1`] = `
   id=""
 >
   <div
-    className="comboboxWrapperList combobox--wrapper-list"
+    className="wrapperList combobox--wrapper-list"
     role="listbox"
     style={
       Object {
@@ -1549,7 +1549,7 @@ exports[`Combobox renders correctly with size 1`] = `
   >
     <div
       aria-busy={false}
-      className="input-component comboboxWrapperSearchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
+      className="input-component searchWrapper combobox--wrapper-search-wrapper search_component_wrapper"
       role="search"
     >
       <div
@@ -1564,7 +1564,7 @@ exports[`Combobox renders correctly with size 1`] = `
             aria-label="Search for content"
             aria-owns=""
             autoComplete="off"
-            className="comboboxWrapperSearch combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
+            className="search combobox--wrapper-search search_component input-component__input input-component__input--has-icon"
             data-testid="search_combobox-search"
             disabled={false}
             id="combobox-search"

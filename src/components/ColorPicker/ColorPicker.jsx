@@ -50,9 +50,9 @@ const ColorPicker = forwardRef(
         ref={mergedRef}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.COLOR_PICKER, id)}
         className={cx(
-          styles.colorPickerWrapper,
+          styles.wrapper,
           "color-picker--wrapper",
-          styles.colorPickerDialogContent,
+          styles.dialogContent,
           "color-picker-dialog-content",
           className
         )}

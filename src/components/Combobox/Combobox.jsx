@@ -153,11 +153,11 @@ const Combobox = forwardRef(
 
       return (
         <div
-          className={cx(styles.comboboxWrapperNoResults, "combobox--wrapper-no-results")}
+          className={cx(styles.noResults, "combobox--wrapper-no-results")}
           data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX, id)}
         >
-          <div className={cx(styles.comboboxMessageWrapper, "combobox-message-wrapper")}>
-            <span className={cx(styles.comboboxMessage, "combobox-message")}>{noResultsMessage}</span>
+          <div className={cx(styles.messageWrapper, "combobox-message-wrapper")}>
+            <span className={cx(styles.message, "combobox-message")}>{noResultsMessage}</span>
           </div>
           {onAddNew && !disabled && (
             <Button
@@ -205,15 +205,15 @@ const Combobox = forwardRef(
         data-testid={getTestId(ELEMENT_TYPES.COMBOBOX, id)}
       >
         <div
-          className={cx(styles.comboboxWrapperList, "combobox--wrapper-list")}
+          className={cx(styles.wrapperList, "combobox--wrapper-list")}
           style={{ maxHeight: optionsListHeight }}
           role="listbox"
         >
           <Search
             ref={inputRef}
             value={filterValue}
-            wrapperClassName={cx(styles.comboboxWrapperSearchWrapper, "combobox--wrapper-search-wrapper")}
-            className={cx(styles.comboboxWrapperSearch, "combobox--wrapper-search")}
+            wrapperClassName={cx(styles.searchWrapper, "combobox--wrapper-search-wrapper")}
+            className={cx(styles.search, "combobox--wrapper-search")}
             inputAriaLabel="Search for content"
             activeDescendant={visualFocusItemId}
             id="combobox-search"
