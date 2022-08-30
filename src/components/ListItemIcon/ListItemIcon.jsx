@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import cx from "classnames";
 import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
@@ -14,13 +13,7 @@ const ListItemIcon = forwardRef(({ className, id, icon, margin, "data-testid": d
   return (
     <div
       ref={mergedRef}
-      className={cx(
-        styles.listItemIcon,
-        "list-item-icon",
-        className,
-        styles[`${camelCase("list-item-icon--" + margin)}`],
-        `list-item-icon--${margin}`
-      )}
+      className={cx(styles.listItemIcon, "list-item-icon", className, styles[margin], `list-item-icon--${margin}`)}
       id={id}
       aria-hidden="true"
       data-testid={dataTestId || getTestId(ELEMENT_TYPES.LIST_ITEM_ICON, id)}

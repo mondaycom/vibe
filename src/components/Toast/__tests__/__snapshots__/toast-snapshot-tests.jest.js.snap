@@ -222,7 +222,7 @@ exports[`Toast renders correctly with button and link 1`] = `
     <a
       aria-label=""
       aria-labelledby=""
-      className="mondayStyleLink monday-style-link monday-style-toast-action_link"
+      className="link monday-style-link monday-style-toast-action_link"
       data-testid="link"
       href="https://monday.com"
       id=""
@@ -231,7 +231,7 @@ exports[`Toast renders correctly with button and link 1`] = `
       target="_blank"
     >
       <span
-        className="mondayStyleLinkText monday-style-link--text"
+        className="linkText monday-style-link--text"
       >
         Lorem ipsum
       </span>
@@ -321,7 +321,7 @@ exports[`Toast renders correctly with link 1`] = `
     <a
       aria-label=""
       aria-labelledby=""
-      className="mondayStyleLink monday-style-link monday-style-toast-action_link"
+      className="link monday-style-link monday-style-toast-action_link"
       data-testid="link"
       href="https://monday.com"
       id=""
@@ -330,7 +330,7 @@ exports[`Toast renders correctly with link 1`] = `
       target="_blank"
     >
       <span
-        className="mondayStyleLinkText monday-style-link--text"
+        className="linkText monday-style-link--text"
       >
         Lorem ipsum
       </span>

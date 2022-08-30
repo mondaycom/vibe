@@ -52,7 +52,7 @@ const Link = forwardRef(
         ref={ref}
         onClick={onClickWrapper}
         target={target}
-        className={cx(styles.mondayStyleLink, "monday-style-link", overrideClassName, {
+        className={cx(styles.link, "monday-style-link", overrideClassName, {
           [styles.inheritFontSize]: inheritFontSize,
           ["inherit-font-size"]: inheritFontSize,
           [styles.inlineText]: inlineText,
@@ -62,9 +62,9 @@ const Link = forwardRef(
         aria-labelledby={ariaLabeledBy}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.LINK, id)}
       >
-        {getIcon(isStart, icon, cx(styles.mondayStyleLinkIconStart, "monday-style-link--icon-start"))}
-        <span className={cx(styles.mondayStyleLinkText, "monday-style-link--text")}>{text}</span>
-        {getIcon(!isStart, icon, cx(styles.mondayStyleLinkIconEnd, "monday-style-link--icon-end"))}
+        {getIcon(isStart, icon, cx(styles.iconStart, "monday-style-link--icon-start"))}
+        <span className={cx(styles.linkText, "monday-style-link--text")}>{text}</span>
+        {getIcon(!isStart, icon, cx(styles.iconEnd, "monday-style-link--icon-end"))}
       </a>
     );
   }

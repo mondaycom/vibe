@@ -3,7 +3,7 @@
 exports[`renders correctly with empty props 1`] = `
 <div
   aria-hidden="true"
-  className="listItemIcon list-item-icon listItemIconStart list-item-icon--start"
+  className="listItemIcon list-item-icon start list-item-icon--start"
   data-testid="list-item-icon"
 >
   <svg

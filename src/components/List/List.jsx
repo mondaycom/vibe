@@ -75,7 +75,7 @@ const List = forwardRef(
         ref={mergedRef}
         style={style}
         onKeyDown={!renderOnlyVisibleItems ? onKeyDown : undefined}
-        className={cx(styles.mondayStyleList, "monday-style-list", className, {
+        className={cx(styles.list, "monday-style-list", className, {
           "monday-style-list--dense": dense,
           "monday-style-list-container": renderOnlyVisibleItems
         })}

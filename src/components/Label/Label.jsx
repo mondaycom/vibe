@@ -24,16 +24,16 @@ const Label = ({
   const classNames = useMemo(
     () =>
       cx(
-        styles.mondayStyleLabel,
+        styles.label,
         "monday-style-label",
-        styles[`${camelCase("monday-style-label--kind-" + kind)}`],
+        styles[`${camelCase("kind-" + kind)}`],
         `monday-style-label--kind-${kind}`,
-        styles[`${camelCase("monday-style-label--color-" + color)}`],
+        styles[`${camelCase("color-" + color)}`],
         `monday-style-label--color-${color}`,
         {
-          [styles.mondayStyleLabelWithAnimation]: !isAnimationDisabled,
+          [styles.withAnimation]: !isAnimationDisabled,
           ["monday-style-label--with-animation"]: !isAnimationDisabled,
-          [styles.mondayStyleLabelWithLeg]: isLegIncluded,
+          [styles.withLeg]: isLegIncluded,
           ["monday-style-label--with-leg"]: isLegIncluded
         }
       ),
@@ -43,7 +43,7 @@ const Label = ({
     <span className={cx(overrideClassName)} data-testid={dataTestId || getTestId(ELEMENT_TYPES.LABEL, id)}>
       <div className={cx(classNames)}>
         <span>{text}</span>
-        <span className={cx(styles.mondayStyleLabelLegWrapper, "monday-style-label__leg-wrapper")}>
+        <span className={cx(styles.legWrapper, "monday-style-label__leg-wrapper")}>
           {isLegIncluded ? <Leg /> : null}
         </span>
       </div>

@@ -19,31 +19,31 @@
   background-color: var(--primary-background-hover-color);
 }
 
-.listItemDisabled {
+.disabled {
   cursor: not-allowed;
   color: var(--disabled-text-color);
 }
 
-.listItemDisabled:hover {
+.disabled:hover {
   background-color: transparent;
 }
 
-.listItemSelected {
+.selected {
   background-color: var(--primary-selected-color);
 }
 
-.listItemSelected:hover {
+.selected:hover {
   background-color: var(--primary-selected-color);
 }
 
-.listItemSmall {
+.small {
   height: 32px;
 }
 
-.listItemMedium {
+.medium {
   height: 40px;
 }
 
-.listItemLarge {
+.large {
   height: 48px;
 }

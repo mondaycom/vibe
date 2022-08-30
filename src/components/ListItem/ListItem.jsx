@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import cx from "classnames";
 /* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
 import React, { forwardRef, useCallback, useRef } from "react";
@@ -39,19 +38,12 @@ const ListItem = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx(
-          styles.listItem,
-          CSS_BASE_CLASS,
-          className,
-          styles[`${camelCase("list-item--" + size)}`],
-          `list-item--${size}`,
-          {
-            [styles.listItemSelected]: selected && !disabled,
-            ["list-item--selected"]: selected && !disabled,
-            [styles.listItemDisabled]: disabled,
-            ["list-item--disabled"]: disabled
-          }
-        )}
+        className={cx(styles.listItem, CSS_BASE_CLASS, className, styles[size], `list-item--${size}`, {
+          [styles.selected]: selected && !disabled,
+          ["list-item--selected"]: selected && !disabled,
+          [styles.disabled]: disabled,
+          ["list-item--disabled"]: disabled
+        })}
         id={id}
         aria-disabled={disabled}
         onClick={componentOnClick}
