@@ -12,8 +12,8 @@ import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
 import { Refable } from "../../components/Refable/Refable";
 import { HIDE_SHOW_EVENTS } from "./consts/dialog-show-hide-event";
-import "./Dialog.module.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import "./Dialog.module.scss";
 
 const NOOP = () => {};
 

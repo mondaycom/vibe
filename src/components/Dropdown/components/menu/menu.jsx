@@ -8,7 +8,7 @@ const Menu = ({ children, Renderer, id, "data-testid": dataTestId, ...props }) =
   return (
     <components.Menu
       {...props}
-      className={cx("menu", styles.dropdownMenuWrapper, "dropdown-menu-wrapper")}
+      className={cx("menu", styles.wrapper, "dropdown-menu-wrapper")}
       datatestid={dataTestId || getTestId(ELEMENT_TYPES.DROPDOWN_MENU, id)}
     >
       {Renderer && Renderer(props)}

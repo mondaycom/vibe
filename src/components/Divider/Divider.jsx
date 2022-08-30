@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React from "react";
@@ -22,7 +21,7 @@ const Divider = ({
         styles.divider,
         "monday-style-divider",
         overrideClassName,
-        styles[`${camelCase(direction)}`],
+        styles[direction],
         `monday-style-divider--${direction}`
       )}
       id={id}

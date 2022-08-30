@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
 import React, { forwardRef, useRef } from "react";
@@ -37,9 +36,9 @@ const DialogContentContainer = forwardRef(
           styles.dialogContentContainer,
           "dialog-content-container",
           className,
-          styles[`${camelCase("dialog-content-container--" + type)}`],
+          styles[type],
           `dialog-content-container--${type}`,
-          styles[`${camelCase("dialog-content-container--" + size)}`],
+          styles[size],
           `dialog-content-container--${size}`
         )}
       >
