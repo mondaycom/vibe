@@ -2,7 +2,11 @@
 @import "../../../../styles/global-css-settings";
 
 .dropdown-menu-wrapper {
+ // top:65px !important;
   animation: fadeIn var(--motion-productive-medium) var(--motion-timing-enter);
+  &--inside-scroll {
+    position: fixed !important;
+  }
 }
 
 @keyframes fadeIn {

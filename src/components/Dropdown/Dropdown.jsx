@@ -1,6 +1,6 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { SIZES } from "../../constants/sizes";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
 import NOOP from "lodash/noop";
@@ -16,6 +16,7 @@ import ValueContainer from "./components/ValueContainer/ValueContainer";
 import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
+import Control from "./components/Control/Control";
 
 const Dropdown = ({
   className,
@@ -62,8 +63,10 @@ const Dropdown = ({
   closeMenuOnSelect = !multi,
   ref,
   withMandatoryDefaultOptions,
-  isOptionSelected
+  isOptionSelected,
+  insideScroll
 }) => {
+  const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
     if (defaultValue) {
       return Array.isArray(defaultValue)
@@ -129,8 +132,20 @@ const Dropdown = ({
       });
     }
 
+    mergedStyles.menu = provided => {
+      if (!insideScroll) return provided;
+
+      // If inside a scroll try to get dropdown location at the dom
+      const parentPositionData = controlRef?.current?.getBoundingClientRect();
+
+      // If no location found do not add anything to hard coded style
+      if (!parentPositionData) return provided;
+
+      return { ...provided, top: parentPositionData.bottom, width: parentPositionData.width };
+    };
+
     return mergedStyles;
-  }, [size, rtl, extraStyles, multi, multiline]);
+  }, [size, rtl, extraStyles, multi, multiline, insideScroll]);
 
   const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
@@ -166,9 +181,11 @@ const Dropdown = ({
       onSelectedDelete: onOptionRemove,
       setIsDialogShown,
       isDialogShown,
-      isMultiline: multiline
+      isMultiline: multiline,
+      insideScroll,
+      controlRef
     }),
-    [selectedOptions, onOptionRemove, setIsDialogShown, isDialogShown, multiline]
+    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideScroll]
   );
 
   const onChange = (option, event) => {
@@ -230,6 +247,7 @@ const Dropdown = ({
         ClearIndicator,
         Input,
         Option,
+        Control,
         ...(finalValueRenderer && { SingleValue }),
         ...(multi && {
           MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
@@ -237,6 +255,7 @@ const Dropdown = ({
         }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
+      closeMenuOnScroll={insideScroll}
       size={size}
       noOptionsMessage={noOptionsMessage}
       placeholder={placeholder}
