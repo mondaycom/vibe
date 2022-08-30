@@ -318,7 +318,8 @@ Dropdown.defaultProps = {
   autoFocus: false,
   closeMenuOnSelect: undefined,
   ref: undefined,
-  withMandatoryDefaultOptions: false
+  withMandatoryDefaultOptions: false,
+  insideScroll: false
 };
 
 Dropdown.propTypes = {
@@ -516,7 +517,11 @@ Dropdown.propTypes = {
   /**
    * Override the built-in logic to detect whether an option is selected.
    */
-  isOptionSelected: PropTypes.func
+  isOptionSelected: PropTypes.func,
+  /**
+   * For display the drop down menu outside of the overflow hidden/scroll container.
+   */
+  insideScroll: PropTypes.bool
 };
 
 export default Dropdown;
