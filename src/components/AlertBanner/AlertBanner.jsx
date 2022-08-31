@@ -28,9 +28,9 @@ const AlertBanner = forwardRef(
     const classNames = useMemo(() => {
       return cx(
         className,
-        styles.mondayAlertBanner,
+        styles.banner,
         "monday-alert-banner",
-        styles[`${camelCase("monday-alert-banner--background-color-" + backgroundColor)}`],
+        styles[`${camelCase("background-color-" + backgroundColor)}`],
         `monday-alert-banner--background-color-${backgroundColor}`
       );
     }, [className, backgroundColor]);
@@ -65,19 +65,19 @@ const AlertBanner = forwardRef(
         role="banner"
         aria-label={ariaLabel || "banner"}
       >
-        <div className={cx(styles.mondayAlertBannerInner, "monday-alert-banner__inner")}>
+        <div className={cx(styles.inner, "monday-alert-banner__inner")}>
           {children.map((child, index) => {
             return (
               <div
                 // eslint-disable-next-line react/no-array-index-key
                 key={index}
-                className={cx(styles.mondayAlertBannerInnerItem, "monday-alert-banner__inner-item", {
-                  [styles.mondayAlertBannerInnerItemText]: child.type.isAlertBannerText,
+                className={cx(styles.innerItem, "monday-alert-banner__inner-item", {
+                  [styles.innerItemText]: child.type.isAlertBannerText,
                   ["monday-alert-banner__inner-item-text"]: child.type.isAlertBannerText
                 })}
               >
                 {child.type.isAlertBannerText ? (
-                  <div className={cx(styles.mondayAlertBannerEllipsis, "monday-alert-banner__ellipsis")}>{child}</div>
+                  <div className={cx(styles.ellipsis, "monday-alert-banner__ellipsis")}>{child}</div>
                 ) : (
                   child
                 )}
@@ -85,10 +85,10 @@ const AlertBanner = forwardRef(
             );
           })}
         </div>
-        <div className={cx(styles.mondayAlertBannerCloseButtonWrapper, "monday-alert-banner__close-button-wrapper")}>
+        <div className={cx(styles.closeButtonWrapper, "monday-alert-banner__close-button-wrapper")}>
           {isCloseHidden ? null : (
             <Button
-              className={cx(styles.mondayAlertBannerAlertBannerCloseBtn, "monday-alert-banner__alert-banner-close-btn")}
+              className={cx(styles.closeBtn, "monday-alert-banner__alert-banner-close-btn")}
               onClick={onClose}
               size={Button.sizes.SMALL}
               kind={Button.kinds.TERTIARY}

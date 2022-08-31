@@ -10,15 +10,15 @@ const AlertBannerLink = ({ marginLeft, isDarkBackground, id, "data-testid": data
   return (
     <div
       className={cx({
-        [styles.bannerLinkMarginLeft]: marginLeft,
+        [styles.marginLeft]: marginLeft,
         ["monday-style-alert-banner-link-margin-left"]: marginLeft,
-        [styles.bannerLinkDarkBackground]: isDarkBackground,
+        [styles.darkBackground]: isDarkBackground,
         ["monday-style-alert-banner-link-dark-background"]: isDarkBackground
       })}
       id={id}
       data-testid={dataTestId || getTestId(ELEMENT_TYPES.ALERT_BANNER_LINK, id)}
     >
-      <Link {...linkProps} className={cx(styles.bannerLink, "monday-style-alert-banner-link")} />
+      <Link {...linkProps} className={cx(styles.link, "monday-style-alert-banner-link")} />
     </div>
   );
 };

@@ -2,7 +2,7 @@
 @import "../../styles/typography";
 @import "../../styles/themes";
 
-.mondayAlertBanner {
+.banner {
   height: 40px;
   display: flex;
   align-items: center;
@@ -12,27 +12,27 @@
   font-size: 14px;
 }
 
-.mondayAlertBanner.mondayAlertBannerBackgroundColorPrimary {
+.backgroundColorPrimary {
   @include theme-prop(background-color, primary-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.mondayAlertBanner.mondayAlertBannerBackgroundColorPositive {
+.backgroundColorPositive {
   @include theme-prop(background-color, positive-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.mondayAlertBanner.mondayAlertBannerBackgroundColorNegative {
+.backgroundColorNegative {
   @include theme-prop(background-color, negative-color);
   @include theme-prop(color, text-color-on-primary);
 }
 
-.mondayAlertBanner.mondayAlertBannerBackgroundColorDark {
+.backgroundColorDark {
   @include theme-prop(background-color, inverted-color-background);
   @include theme-prop(color, text-color-on-inverted);
 }
 
-.mondayAlertBannerInner {
+.inner {
   flex: 1 1 auto;
   display: flex;
   height: 100%;
@@ -42,29 +42,29 @@
   padding-left: $spacing-medium;
 }
 
-.mondayAlertBannerCloseButtonWrapper {
+.closeButtonWrapper {
   flex: 0 0 40px;
   position: relative;
   height: 100%;
   min-width: 0;
 }
 
-:global(.monday-style-button).mondayAlertBannerAlertBannerCloseBtn {
+:global(.monday-style-button).closeBtn {
   position: absolute;
   right: 4px;
   top: 4px;
 }
 
-.mondayAlertBannerEllipsis {
+.ellipsis {
   flex: 0 1 auto;
 }
 
-.mondayAlertBannerInnerItem {
+.innerItem {
   flex: 0 0 auto;
   min-width: 0;
 }
 
-.mondayAlertBannerInnerItemText {
+.innerItemText {
   flex: 0 1 auto;
   min-width: 0;
 }

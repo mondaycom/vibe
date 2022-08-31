@@ -19,12 +19,13 @@ const AlertBannerText = ({ text, marginLeft, id, "data-testid": dataTestId }) =>
       content={isOverflowing && text}
       showTrigger={TOOLTIP_SHOW_TRIGGERS}
       hideTrigger={TOOLTIP_HIDE_TRIGGERS}
-      data-testid={dataTestId || getTestId(ELEMENT_TYPES.ALERT_BANNER_TEXT, id)}
     >
       <div
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.ALERT_BANNER_TEXT, id)}
         ref={componentRef}
-        className={cx(styles.bannerText, "monday-style-alert-banner-text", {
-          [styles.bannerTextMarginLeft]: marginLeft,
+        className={cx(styles.text, "monday-style-alert-banner-text", {
+          [styles.marginLeft]: marginLeft,
           ["monday-style-alert-banner-text-margin-left"]: marginLeft
         })}
       >

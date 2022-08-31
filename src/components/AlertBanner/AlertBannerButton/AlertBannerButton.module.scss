@@ -2,15 +2,15 @@
 @import "../../../styles/typography";
 @import "../../../styles/themes";
 
-:global(.monday-style-button).bannerButton {
+:global(.monday-style-button).button {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }
 
-:global(.dark-app-theme) .bannerButtonDarkBackground .bannerButton {
+:global(.dark-app-theme) .darkBackground .button {
   background-color: var(--dark-background-color);
 }
 
-.bannerButtonMarginLeft {
+.marginLeft {
   margin-left: $spacing-small;
 }

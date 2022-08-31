@@ -1,12 +1,12 @@
 @import "../../../styles/global-css-settings";
 @import "../../../styles/themes";
 
-.bannerText {
+.text {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.bannerTextMarginLeft {
+.marginLeft {
   margin-left: $spacing-small;
 }

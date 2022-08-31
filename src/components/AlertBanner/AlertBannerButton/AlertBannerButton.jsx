@@ -8,9 +8,9 @@ import styles from "./AlertBannerButton.module.scss";
 
 const AlertBannerButton = ({ marginLeft, isDarkBackground, id, "data-testid": dataTestId, ...buttonProps }) => {
   const classNames = cx({
-    [styles.bannerButtonMarginLeft]: marginLeft,
+    [styles.marginLeft]: marginLeft,
     ["monday-style-alert-banner-button-margin-left"]: marginLeft,
-    [styles.bannerButtonDarkBackground]: isDarkBackground,
+    [styles.darkBackground]: isDarkBackground,
     ["monday-style-alert-banner-button-dark-background"]: isDarkBackground
   });
 
@@ -19,7 +19,7 @@ const AlertBannerButton = ({ marginLeft, isDarkBackground, id, "data-testid": da
       <Button
         {...buttonProps}
         size={Button.sizes.SMALL}
-        className={cx(styles.bannerButton, "monday-style-alert-banner-button")}
+        className={cx(styles.button, "monday-style-alert-banner-button")}
         color={Button.colors.ON_PRIMARY_COLOR}
       />
     </div>

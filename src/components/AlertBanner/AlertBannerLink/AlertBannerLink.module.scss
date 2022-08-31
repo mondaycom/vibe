@@ -2,17 +2,17 @@
 @import "../../../styles/typography";
 @import "../../../styles/themes";
 
-:global(.monday-style-link).bannerLink {
+:global(.monday-style-link).link {
   @include theme-prop(color, text-color-on-primary);
   text-decoration: underline;
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
 }
 
-.bannerLinkDarkBackground :global(.monday-style-link).bannerLink {
+.darkBackground :global(.monday-style-link).link {
   @include theme-prop(color, text-color-on-inverted);
 }
 
-.bannerLinkMarginLeft {
+.marginLeft {
   margin-left: $spacing-small;
 }
