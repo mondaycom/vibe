@@ -2,7 +2,7 @@
 
 exports[`Accordion renders correctly with allowMultiple 1`] = `
 <div
-  className="accordion"
+  className="accordion accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -137,7 +137,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
 
 exports[`Accordion renders correctly with children 1`] = `
 <div
-  className="accordion"
+  className="accordion accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -262,14 +262,14 @@ exports[`Accordion renders correctly with children 1`] = `
 
 exports[`Accordion renders correctly with className 1`] = `
 <div
-  className="accordion test"
+  className="accordion accordion test"
   data-testid="monday-accordion"
 />
 `;
 
 exports[`Accordion renders correctly with defaultIndex prop 1`] = `
 <div
-  className="accordion"
+  className="accordion accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -399,14 +399,14 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
 
 exports[`Accordion renders correctly with empty props 1`] = `
 <div
-  className="accordion"
+  className="accordion accordion"
   data-testid="monday-accordion"
 />
 `;
 
 exports[`Accordion renders correctly with id 1`] = `
 <div
-  className="accordion"
+  className="accordion accordion"
   data-testid="monday-accordion"
   id="test"
 />

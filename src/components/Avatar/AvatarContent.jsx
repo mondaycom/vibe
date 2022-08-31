@@ -1,18 +1,44 @@
-import React from "react";
+import { camelCase } from "lodash";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
+import React from "react";
 import PropTypes from "prop-types";
-import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../Icon/Icon";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
-import "./AvatarContent.scss";
+import styles from "./AvatarContent.module.scss";
 
 const AVATAR_CONTENT_CSS_BASE_CLASS = "monday-style-avatar-content";
-const bemHelper = BEMClass(AVATAR_CONTENT_CSS_BASE_CLASS);
-export const AvatarContent = ({ type, src, icon, text, ariaLabel, role, size, textClassName }) => {
-  const className = cx(bemHelper({ element: type }), bemHelper({ element: type, state: size }));
+
+export const AvatarContent = ({
+  type,
+  src,
+  icon,
+  text,
+  ariaLabel,
+  role,
+  size,
+  textClassName,
+  id,
+  "data-testid": dataTestId
+}) => {
+  const className = cx(
+    styles[type],
+    `${AVATAR_CONTENT_CSS_BASE_CLASS}_${type}`,
+    styles[`${camelCase(type + "--" + size)}`],
+    `${AVATAR_CONTENT_CSS_BASE_CLASS}_${type}--${size}`
+  );
   switch (type) {
     case AVATAR_TYPES.IMG:
-      return <img role={role} alt={ariaLabel} src={src} className={className} />;
+      return (
+        <img
+          role={role}
+          alt={ariaLabel}
+          src={src}
+          className={cx(className)}
+          id={id}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR_CONTENT, id)}
+        />
+      );
     case AVATAR_TYPES.ICON:
       return (
         <Icon
@@ -20,13 +46,21 @@ export const AvatarContent = ({ type, src, icon, text, ariaLabel, role, size, te
           aria-label={ariaLabel}
           role={role}
           clickable={false}
-          className={className}
+          className={cx(className)}
           ariaHidden={false}
+          id={id}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR_CONTENT, id)}
         />
       );
     case AVATAR_TYPES.TEXT:
       return (
-        <span aria-label={ariaLabel} role={role} className={cx(className, textClassName)}>
+        <span
+          aria-label={ariaLabel}
+          role={role}
+          className={cx(className, textClassName)}
+          id={id}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR_CONTENT, id)}
+        >
           {text}
         </span>
       );

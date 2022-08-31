@@ -1938,7 +1938,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
               }
             >
               <div
-                className="monday-style-avatar avatar left monday-style-avatar--large"
+                className="avatar monday-style-avatar avatar left large monday-style-avatar--large"
+                data-testid="avatar"
                 style={
                   Object {
                     "height": 16,
@@ -1948,12 +1949,13 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
               >
                 <div
                   aria-hidden={false}
-                  className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--without-border"
+                  className="circle monday-style-avatar_circle circleImg monday-style-avatar_circle--img circleWithoutBorder monday-style-avatar_circle--without-border"
                   style={Object {}}
                   tabIndex={0}
                 >
                   <img
-                    className="monday-style-avatar-content_img monday-style-avatar-content_img--large"
+                    className="img monday-style-avatar-content_img imgLarge monday-style-avatar-content_img--large"
+                    data-testid="avatar-content"
                     src="person1.png"
                   />
                 </div>

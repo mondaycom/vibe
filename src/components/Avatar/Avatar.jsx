@@ -1,8 +1,9 @@
+import { camelCase } from "lodash";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 import React, { useCallback, useMemo } from "react";
 import isNil from "lodash/isNil";
 import PropTypes from "prop-types";
-import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { elementColorsNames, getElementColor } from "../../utils/colors-vars-map";
 import { AVATAR_SIZES, AVATAR_TYPES } from "./AvatarConstants";
@@ -11,10 +12,9 @@ import { AvatarContent } from "./AvatarContent";
 import Tooltip from "../Tooltip/Tooltip";
 import ClickableWrapper from "../Clickable/ClickableWrapper";
 import Dialog from "../Dialog/Dialog";
-import "./Avatar.scss";
+import styles from "./Avatar.module.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
-const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
 const Avatar = ({
   id,
@@ -45,7 +45,8 @@ const Avatar = ({
   withoutBorder,
   customSize,
   customBackgroundColor,
-  onClick
+  onClick,
+  "data-testid": dataTestId
 }) => {
   const overrideSquare = backwardCompatibilityForProperties([square, isSquare]);
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
@@ -73,7 +74,12 @@ const Avatar = ({
       badges.push(
         <div
           key="top-left-badge"
-          className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "top-left" }))}
+          className={cx(
+            styles.badge,
+            "monday-style-avatar_badge",
+            styles.badgeTopLeft,
+            "monday-style-avatar_badge--top-left"
+          )}
         >
           <AvatarBadge size={size} {...topLeftBadgeProps} />
         </div>
@@ -83,7 +89,12 @@ const Avatar = ({
       badges.push(
         <div
           key="top-right-badge"
-          className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "top-right" }))}
+          className={cx(
+            styles.badge,
+            "monday-style-avatar_badge",
+            styles.badgeTopRight,
+            "monday-style-avatar_badge--top-right"
+          )}
         >
           <AvatarBadge size={size} {...topRightBadgeProps} />
         </div>
@@ -93,7 +104,12 @@ const Avatar = ({
       badges.push(
         <div
           key="bottom-left-badge"
-          className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "bottom-left" }))}
+          className={cx(
+            styles.badge,
+            "monday-style-avatar_badge",
+            styles.badgeBottomLeft,
+            "monday-style-avatar_badge--bottom-left"
+          )}
         >
           <AvatarBadge size={size} {...bottomLeftBadgeProps} />
         </div>
@@ -103,14 +119,19 @@ const Avatar = ({
       badges.push(
         <div
           key="bottom-right-bade"
-          className={cx(bemHelper({ element: "badge" }), bemHelper({ element: "badge", state: "bottom-right" }))}
+          className={cx(
+            styles.badge,
+            "monday-style-avatar_badge",
+            styles.badgeBottomRight,
+            "monday-style-avatar_badge--bottom-right"
+          )}
         >
           <AvatarBadge size={size} {...bottomRightBadgeProps} />
         </div>
       );
     }
 
-    return badges.length > 0 ? <div className={cx(bemHelper({ element: "badges" }))}>{badges}</div> : null;
+    return badges.length > 0 ? <div className={cx(styles.badges, "monday-style-avatar_badges")}>{badges}</div> : null;
   }, [size, topLeftBadgeProps, topRightBadgeProps, bottomLeftBadgeProps, bottomRightBadgeProps]);
 
   const clickHandler = useCallback(
@@ -124,13 +145,18 @@ const Avatar = ({
   );
 
   return (
-    <div id={id} className={cx(AVATAR_CSS_BASE_CLASS, className, bemHelper({ state: size }))} style={sizeStyle}>
+    <div
+      id={id}
+      className={cx(styles.avatar, AVATAR_CSS_BASE_CLASS, className, styles[size], `monday-style-avatar--${size}`)}
+      style={sizeStyle}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR, id)}
+    >
       <ClickableWrapper
         isClickable={!!onClick}
         clickableProps={{
           onClick: clickHandler,
           tabIndex: "-1",
-          className: bemHelper({ element: "clickableWrapper" })
+          className: cx(styles.clickableWrapper, "monday-style-avatar_clickableWrapper")
         }}
       >
         <Tooltip
@@ -139,11 +165,20 @@ const Avatar = ({
           {...overrideTooltipProps}
         >
           <div
-            className={cx(bemHelper({ element: "circle" }), bemHelper({ element: "circle", state: type }), {
-              [bemHelper({ element: "circle", state: "is-disabled" })]: overrideDisabled,
-              [bemHelper({ element: "circle", state: "is-square" })]: overrideSquare,
-              [bemHelper({ element: "circle", state: "without-border" })]: withoutBorder
-            })}
+            className={cx(
+              styles.circle,
+              "monday-style-avatar_circle",
+              styles[`${camelCase("circle--" + type)}`],
+              `monday-style-avatar_circle--${type}`,
+              {
+                [styles.circleIsDisabled]: overrideDisabled,
+                ["monday-style-avatar_circle--is-disabled"]: overrideDisabled,
+                [styles.circleIsSquare]: overrideSquare,
+                ["monday-style-avatar_circle--is-square"]: overrideSquare,
+                [styles.circleWithoutBorder]: withoutBorder,
+                ["monday-style-avatar_circle--without-border"]: withoutBorder
+              }
+            )}
             aria-hidden={ariaHidden}
             tabIndex={tabIndex}
             style={{ ...backgroundColorStyle }}

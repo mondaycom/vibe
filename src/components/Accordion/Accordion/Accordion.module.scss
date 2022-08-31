@@ -1,0 +1,23 @@
+@import "../../../styles/themes";
+@import "../../../styles/typography";
+@import "../../../styles/global-css-settings";
+
+.accordion {
+  height: fit-content;
+  border: 1px solid;
+  @include theme-prop(border-color, ui-border-color);
+  box-sizing: border-box;
+  border-radius: $border-radius-small;
+}
+
+:global(.accordion-item) :global(.expand-collapse--wrapper) :global(.expand-collapse) {
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  @include theme-prop(border-color, ui-border-color);
+}
+
+:global(.accordion-item):last-child :global(.expand-collapse) {
+  border-bottom: none;
+}

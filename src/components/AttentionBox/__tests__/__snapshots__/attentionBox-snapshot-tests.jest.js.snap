@@ -2,15 +2,16 @@
 
 exports[`AttentionBox renders correctly renders correctly 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary dummy-class-name"
+  className="box monday-style-attention-box-component typePrimary monday-style-attention-box-component--type-primary dummy-class-name"
+  data-testid="attention-box"
   role="alert"
 >
   <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="titleContainer monday-style-attention-box-component__title-container typePrimaryTitleContainer monday-style-attention-box-component--type-primary__title-container"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="icon_component titleContainerIcon monday-style-attention-box-component__title-container__icon typePrimaryTitleContainerIcon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -25,13 +26,13 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
       />
     </svg>
     <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+      className="titleContainerTitle monday-style-attention-box-component__title-container__title typePrimaryTitleContainerTitle monday-style-attention-box-component--type-primary__title-container__title"
     >
       Title
     </span>
   </h2>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text monday-style-attention-box-component__text typePrimaryText monday-style-attention-box-component--type-primary__text"
   >
     Text
   </div>
@@ -40,15 +41,16 @@ exports[`AttentionBox renders correctly renders correctly 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly className 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary test-classNmae"
+  className="box monday-style-attention-box-component typePrimary monday-style-attention-box-component--type-primary test-classNmae"
+  data-testid="attention-box"
   role="alert"
 >
   <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="titleContainer monday-style-attention-box-component__title-container typePrimaryTitleContainer monday-style-attention-box-component--type-primary__title-container"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="icon_component titleContainerIcon monday-style-attention-box-component__title-container__icon typePrimaryTitleContainerIcon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -63,13 +65,13 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
       />
     </svg>
     <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+      className="titleContainerTitle monday-style-attention-box-component__title-container__title typePrimaryTitleContainerTitle monday-style-attention-box-component--type-primary__title-container__title"
     >
       Title
     </span>
   </h2>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text monday-style-attention-box-component__text typePrimaryText monday-style-attention-box-component--type-primary__text"
   >
     Text
   </div>
@@ -78,15 +80,16 @@ exports[`AttentionBox renders correctly renders correctly className 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-dark"
+  className="box monday-style-attention-box-component typeDark monday-style-attention-box-component--type-dark"
+  data-testid="attention-box"
   role="alert"
 >
   <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-dark__title-container"
+    className="titleContainer monday-style-attention-box-component__title-container typeDarkTitleContainer monday-style-attention-box-component--type-dark__title-container"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-dark__title-container__icon icon_component--no-focus-style"
+      className="icon_component titleContainerIcon monday-style-attention-box-component__title-container__icon typeDarkTitleContainerIcon monday-style-attention-box-component--type-dark__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -101,13 +104,13 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
       />
     </svg>
     <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-dark__title-container__title"
+      className="titleContainerTitle monday-style-attention-box-component__title-container__title typeDarkTitleContainerTitle monday-style-attention-box-component--type-dark__title-container__title"
     >
       Title
     </span>
   </h2>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-dark__text"
+    className="text monday-style-attention-box-component__text typeDarkText monday-style-attention-box-component--type-dark__text"
   >
     Text
   </div>
@@ -116,15 +119,16 @@ exports[`AttentionBox renders correctly renders correctly dark type 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary compact"
+  className="box monday-style-attention-box-component typePrimary monday-style-attention-box-component--type-primary compact"
+  data-testid="attention-box"
   role="alert"
 >
   <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="titleContainer monday-style-attention-box-component__title-container typePrimaryTitleContainer monday-style-attention-box-component--type-primary__title-container"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="icon_component titleContainerIcon monday-style-attention-box-component__title-container__icon typePrimaryTitleContainerIcon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -139,13 +143,13 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
       />
     </svg>
     <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+      className="titleContainerTitle monday-style-attention-box-component__title-container__title typePrimaryTitleContainerTitle monday-style-attention-box-component--type-primary__title-container__title"
     >
       Title
     </span>
   </h2>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text monday-style-attention-box-component_text--compact"
+    className="text monday-style-attention-box-component__text typePrimaryText monday-style-attention-box-component--type-primary__text textCompact monday-style-attention-box-component_text--compact"
   >
     Text
   </div>
@@ -154,12 +158,13 @@ exports[`AttentionBox renders correctly renders correctly when compact 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly with empty props 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
+  className="box monday-style-attention-box-component typePrimary monday-style-attention-box-component--type-primary"
+  data-testid="attention-box"
   role="alert"
 >
   
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text monday-style-attention-box-component__text typePrimaryText monday-style-attention-box-component--type-primary__text"
   >
     
   </div>
@@ -168,12 +173,13 @@ exports[`AttentionBox renders correctly renders correctly with empty props 1`] =
 
 exports[`AttentionBox renders correctly renders correctly with empty title prop 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
+  className="box monday-style-attention-box-component typePrimary monday-style-attention-box-component--type-primary"
+  data-testid="attention-box"
   role="alert"
 >
   
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text monday-style-attention-box-component__text typePrimaryText monday-style-attention-box-component--type-primary__text"
   >
     Text
   </div>
@@ -182,20 +188,21 @@ exports[`AttentionBox renders correctly renders correctly with empty title prop 
 
 exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
+  className="box monday-style-attention-box-component typePrimary monday-style-attention-box-component--type-primary"
+  data-testid="attention-box"
   role="alert"
 >
   <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="titleContainer monday-style-attention-box-component__title-container typePrimaryTitleContainer monday-style-attention-box-component--type-primary__title-container"
   >
     <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+      className="titleContainerTitle monday-style-attention-box-component__title-container__title typePrimaryTitleContainerTitle monday-style-attention-box-component--type-primary__title-container__title"
     >
       Title
     </span>
   </h2>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text monday-style-attention-box-component__text typePrimaryText monday-style-attention-box-component--type-primary__text"
   >
     Text
   </div>
@@ -204,15 +211,16 @@ exports[`AttentionBox renders correctly renders correctly with no icon 1`] = `
 
 exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary with-close"
+  className="box monday-style-attention-box-component typePrimary monday-style-attention-box-component--type-primary with-close"
+  data-testid="attention-box"
   role="alert"
 >
   <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="titleContainer monday-style-attention-box-component__title-container typePrimaryTitleContainer monday-style-attention-box-component--type-primary__title-container"
   >
     <svg
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
+      className="icon_component titleContainerIcon monday-style-attention-box-component__title-container__icon typePrimaryTitleContainerIcon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style"
       fill="currentColor"
       height="24"
       onClick={[Function]}
@@ -227,18 +235,18 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       />
     </svg>
     <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+      className="titleContainerTitle monday-style-attention-box-component__title-container__title typePrimaryTitleContainerTitle monday-style-attention-box-component--type-primary__title-container__title"
     >
       Title
     </span>
   </h2>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text monday-style-attention-box-component__text typePrimaryText monday-style-attention-box-component--type-primary__text"
   >
     Text
   </div>
   <div
-    className="monday-style-attention-box-component__close-icon--wrapper wrapper"
+    className="closeIconWrapper monday-style-attention-box-component__close-icon--wrapper wrapper"
   >
     <span
       className="referenceWrapper"
@@ -253,7 +261,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       <button
         aria-disabled={false}
         aria-label="Close"
-        className="monday-style-attention-box-component__close-icon monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
+        className="closeIcon monday-style-attention-box-component__close-icon monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
         data-testid="icon-button"
         onBlur={[Function]}
         onClick={[Function]}
@@ -295,26 +303,27 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
 
 exports[`AttentionBox renders correctly renders with icon font type 1`] = `
 <aside
-  className="monday-style-attention-box-component monday-style-attention-box-component--type-primary"
+  className="box monday-style-attention-box-component typePrimary monday-style-attention-box-component--type-primary"
+  data-testid="attention-box"
   role="alert"
 >
   <h2
-    className="monday-style-attention-box-component__title-container monday-style-attention-box-component--type-primary__title-container"
+    className="titleContainer monday-style-attention-box-component__title-container typePrimaryTitleContainer monday-style-attention-box-component--type-primary__title-container"
   >
     <span
       aria-hidden={true}
-      className="icon_component monday-style-attention-box-component__title-container__icon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style fa fa fa-star"
+      className="icon_component titleContainerIcon monday-style-attention-box-component__title-container__icon typePrimaryTitleContainerIcon monday-style-attention-box-component--type-primary__title-container__icon icon_component--no-focus-style fa fa fa-star"
       onClick={[Function]}
       role="img"
     />
     <span
-      className="monday-style-attention-box-component__title-container__title monday-style-attention-box-component--type-primary__title-container__title"
+      className="titleContainerTitle monday-style-attention-box-component__title-container__title typePrimaryTitleContainerTitle monday-style-attention-box-component--type-primary__title-container__title"
     >
       Title
     </span>
   </h2>
   <div
-    className="monday-style-attention-box-component__text monday-style-attention-box-component--type-primary__text"
+    className="text monday-style-attention-box-component__text typePrimaryText monday-style-attention-box-component--type-primary__text"
   >
     Text
   </div>
