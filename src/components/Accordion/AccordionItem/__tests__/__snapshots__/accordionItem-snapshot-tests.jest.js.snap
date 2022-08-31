@@ -25,11 +25,10 @@ exports[`AccordionItem renders correctly with children 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component animate-icon-open icon_component--no-focus-style"
+            className="icon_component animate-icon-open"
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -79,11 +78,10 @@ exports[`AccordionItem renders correctly with className 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component animate-icon-open icon_component--no-focus-style"
+            className="icon_component animate-icon-open"
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -131,11 +129,10 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component animate-icon-open icon_component--no-focus-style"
+            className="icon_component animate-icon-open"
             fill="currentColor"
             height="36"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="36"
           >
@@ -183,11 +180,10 @@ exports[`AccordionItem renders correctly with id 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component animate-icon-open icon_component--no-focus-style"
+            className="icon_component animate-icon-open"
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -242,11 +238,10 @@ exports[`AccordionItem renders correctly with title 1`] = `
           </h5>
           <svg
             aria-hidden={true}
-            className="icon_component animate-icon-open icon_component--no-focus-style"
+            className="icon_component animate-icon-open"
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
