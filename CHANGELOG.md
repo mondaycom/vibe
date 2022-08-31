@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.58.1 (2022-08-31)
+
+#### Bug Fixes
+* [#849](https://github.com/mondaycom/monday-ui-react-core/pull/849) Fix close on scroll in inside scroll state ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.58.0 (2022-08-31)
 
 #### Bug Fixes
