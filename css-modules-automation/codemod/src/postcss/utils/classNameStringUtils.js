@@ -1,5 +1,6 @@
 const { camelCase } = require("lodash");
 const MONDAY_STYLE_PREFIX = "monday-style-";
+const MONDAY_PREFIX = "monday-";
 const BASE_CLASS_PREFIX_PATTERN = /monday-style-\w+?[-_]+/gm;
 
 function removePrefix(str) {
@@ -8,6 +9,9 @@ function removePrefix(str) {
   }
   if (str.startsWith(MONDAY_STYLE_PREFIX)) {
     return str.slice(MONDAY_STYLE_PREFIX.length);
+  }
+  if (str.startsWith(MONDAY_PREFIX)) {
+    return str.slice(MONDAY_PREFIX.length);
   }
   return str;
 }
