@@ -1,19 +1,18 @@
 import React, { forwardRef } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { ICON_TYPES } from "./IconConstants";
-import CustomSvgIcon from "./CustomSvgIcon";
+import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
 import VibeComponentProps from "../../interfaces/VibeComponentProps";
 import VibeComponent from "../../interfaces/VibeComponent";
 import "./Icon.scss";
 
-const NOOP = (e: React.MouseEvent<HTMLButtonElement>) => {};
+const NOOP = (event: React.MouseEvent<HTMLButtonElement>) => {};
 
 interface IconProps extends VibeComponentProps {
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent) => void;
   icon: string | React.Component | null;
   clickable?: boolean;
   iconLabel?: string;
@@ -24,10 +23,10 @@ interface IconProps extends VibeComponentProps {
   ariaHidden?: boolean;
   style?: React.CSSProperties;
   useCurrentColor?: boolean;
-  customColor: string;
+  customColor?: string;
 }
 
-const Icon: VibeComponent<IconProps> & { type?: typeof ICON_TYPES } = forwardRef(
+const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES } = forwardRef(
   (
     {
       onClick = NOOP,
@@ -38,11 +37,11 @@ const Icon: VibeComponent<IconProps> & { type?: typeof ICON_TYPES } = forwardRef
       /**
        * we support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
        */
-      icon,
+      icon = "",
       /**
        * Is icon is a button
        */
-      clickable,
+      clickable = true,
       /**
        * icon aria label support
        */
@@ -50,15 +49,15 @@ const Icon: VibeComponent<IconProps> & { type?: typeof ICON_TYPES } = forwardRef
       /**
        *  the type of the component - svg, font or custom svg (using react-inlinesvg)
        */
-      iconType,
+      iconType = ICON_TYPES.SVG,
       /**
        * size for font icon
        */
-      iconSize,
+      iconSize = 16,
       /**
        * remove focus style
        */
-      ignoreFocusStyle,
+      ignoreFocusStyle = false,
       tabindex: externalTabIndex,
       /**
        * Hide icon asset from screen reader. No need to set value for this prop when clickable = false
@@ -68,7 +67,7 @@ const Icon: VibeComponent<IconProps> & { type?: typeof ICON_TYPES } = forwardRef
       /**
        * when using svg from src (Icon.type.SRC) this boolean will transform the "fill" property to "currentColor"
        */
-      useCurrentColor,
+      useCurrentColor = false,
       /**
        * If you want to override to coloring of currentColor
        */
@@ -77,6 +76,7 @@ const Icon: VibeComponent<IconProps> & { type?: typeof ICON_TYPES } = forwardRef
     },
     ref
   ) => {
+    const overrideExternalTabIndex = +externalTabIndex;
     const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
       onClick,
       iconLabel,
@@ -84,7 +84,7 @@ const Icon: VibeComponent<IconProps> & { type?: typeof ICON_TYPES } = forwardRef
       className,
       isDecorationOnly: ariaHidden,
       ignoreFocusStyle,
-      externalTabIndex
+      externalTabIndex: overrideExternalTabIndex
     });
 
     const mergedRef = useMergeRefs({ refs: [ref, iconRef] });
@@ -96,9 +96,9 @@ const Icon: VibeComponent<IconProps> & { type?: typeof ICON_TYPES } = forwardRef
     const isFunctionType = typeof icon === "function";
     if (iconType === ICON_TYPES.SVG || isFunctionType || typeof icon === "object") {
       const IconComponent = icon;
-      // The icons are not converted to ts for js yet.
-      // @ts-ignore
       return (
+        // The icons are not converted to ts for js yet.
+        // @ts-ignore
         <IconComponent
           {...screenReaderAccessProps}
           ref={isFunctionType ? undefined : mergedRef}
@@ -131,7 +131,6 @@ const Icon: VibeComponent<IconProps> & { type?: typeof ICON_TYPES } = forwardRef
         onClick={onClickCallback}
         ref={mergedRef}
         icon={icon}
-        style={style}
         data-testid={dataTestId}
       />
     );
@@ -139,19 +138,5 @@ const Icon: VibeComponent<IconProps> & { type?: typeof ICON_TYPES } = forwardRef
 );
 
 Icon.type = ICON_TYPES;
-
-Icon.defaultProps = {
-  onClick: NOOP,
-  className: "",
-  icon: "",
-  clickable: true,
-  iconLabel: undefined,
-  iconType: ICON_TYPES.SVG,
-  iconSize: 16,
-  ignoreFocusStyle: false,
-  ariaHidden: undefined,
-  useCurrentColor: false,
-  customColor: undefined
-};
 
 export default Icon;

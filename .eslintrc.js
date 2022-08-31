@@ -20,7 +20,13 @@ module.exports = {
       version: "detect"
     }
   },
-  extends: ["plugin:react/recommended", "plugin:react-hooks/recommended", "plugin:prettier/recommended"],
+  parser: "@typescript-eslint/parser",
+  extends: [
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -28,7 +34,7 @@ module.exports = {
     ecmaVersion: 13,
     sourceType: "module"
   },
-  plugins: ["import", "react", "jsx-a11y", "json", "markdown", "jest"],
+  plugins: ["import", "react", "jsx-a11y", "json", "markdown", "jest", "@typescript-eslint"],
   rules: {
     "react/display-name": "off",
     "object-curly-newline": "off",

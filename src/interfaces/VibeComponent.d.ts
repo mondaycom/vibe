@@ -1,3 +1,3 @@
 import React from "react";
 
-export default interface VibeComponent<T> extends React.ForwardRefExoticComponent<T & React.RefAttributes<unknown>> {}
+export default interface VibeComponent<T, P> extends React.ForwardRefExoticComponent<T & React.RefAttributes<P>> {}
