@@ -15,9 +15,10 @@ import person2 from "./assets/person2.png";
 import Avatar from "../../Avatar/Avatar.jsx";
 import { OptionRenderer } from "./OptionRenderer.js";
 import Flex from "../../../components/Flex/Flex";
-import "./dropdown.stories.scss";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { Attach, Email } from "../../Icon/Icons";
+import {DialogContentContainer} from "../../index";
+import "./dropdown.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Dropdown,
@@ -559,6 +560,37 @@ Dropdown with group.
       );
     }}
   </Story>
+</Canvas>
+
+### Dropdown inside scrollable dialog
+
+Use dropdown inside scrollable dialog without the dropdown menu being affect/hidden as part of the overflow:scroll/auto/hidden of its container
+by using our dropdown ability: <b>insideScroll</b>.
+<Canvas>
+    <Story name="Dropdown inside scrollable dialog">
+        {() => {
+            const options = useMemo(
+                () => [
+                    { value: "1", label: "Option 1" },
+                    { value: "2", label: "Option 2" },
+                    { value: "3", label: "Option 3" },
+                    { value: "4", label: "Option 4" },
+                    { value: "5", label: "Option 5" },
+                ],
+                []
+            );
+            const dialogStyle = {width: "300px", height: "200px", overflow: "auto"};
+            return (
+                <DialogContentContainer style={dialogStyle}>
+                    <Dropdown
+                        placeholder="Dropdown inside a scrollable dialog"
+                        options={options}
+                        insideScroll
+                    />
+                </DialogContentContainer>
+            );
+        }}
+    </Story>
 </Canvas>
 
 ## Related components
