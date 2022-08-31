@@ -1,19 +1,16 @@
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import cx from "classnames";
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef } from "react";
-
 import PropTypes from "prop-types";
-import cx from "classnames";
 import Button from "../../Button/Button";
 import Tooltip from "../../Tooltip/Tooltip";
-
 import useMergeRefs from "../../../hooks/useMergeRefs";
-
 import useMenuItemMouseEvents from "../MenuItem/hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "../MenuItem/hooks/useMenuItemKeyboardEvents";
-
 import { DialogPositions } from "../../../constants/sizes";
-import "./MenuItemButton.scss";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
+import styles from "./MenuItemButton.module.scss";
 
 const MenuItemButton = ({
   className,
@@ -36,8 +33,10 @@ const MenuItemButton = ({
   setActiveItemIndex,
   menuRef,
   closeMenu,
-  useDocumentEventListeners
+  useDocumentEventListeners,
+  "data-testid": dataTestId
 }) => {
+  const id = `${menuId}-${index}`;
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
@@ -80,8 +79,9 @@ const MenuItemButton = ({
       showDelay={tooltipShowDelay}
     >
       <li
-        id={`${menuId}-${index}`}
-        className={cx("monday-style-menu-item-button", overrideClassName)}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_ITEM_BUTTON, id)}
+        className={cx(styles.itemButton, "monday-style-menu-item-button", overrideClassName)}
         ref={mergedRef}
         role="menuitem"
         aria-current={isActive}
@@ -96,7 +96,7 @@ const MenuItemButton = ({
           size={Button.sizes.SMALL}
           blurOnMouseUp={false}
         >
-          <div className="menu-item-button-content">{children}</div>
+          <div className={cx(styles.content, "menu-item-button-content")}>{children}</div>
         </Button>
       </li>
     </Tooltip>

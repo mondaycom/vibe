@@ -1,18 +1,17 @@
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 /* eslint-disable react/forbid-prop-types */
 import React, { useCallback, useState, useMemo, useRef, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import NOOP from "lodash/noop";
 import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import "./MenuButton.scss";
 import Tooltip from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import styles from "./MenuButton.module.scss";
 
-function BEMClass(className) {
-  return `menu-button--wrapper--${className}`;
-}
+const CSS_BASE_CLASS = "menu-button--wrapper";
 
 const TOOLTIP_SHOW_TRIGGER = [Dialog.hideShowTriggers.MOUSE_ENTER];
 
@@ -52,7 +51,8 @@ const MenuButton = ({
   startingEdge,
   removeTabCloseTrigger,
   tooltipReferenceClassName,
-  hideWhenReferenceHidden
+  hideWhenReferenceHidden,
+  "data-testid": dataTestId
 }) => {
   const buttonRef = useRef(null);
   const [isOpen, setIsOpen] = useState(open);
@@ -181,21 +181,32 @@ const MenuButton = ({
         useDerivedStateFromProps={true}
         onDialogDidShow={onDialogDidShow}
         onDialogDidHide={onDialogDidHide}
-        referenceWrapperClassName={BEMClass("reference-icon")}
+        referenceWrapperClassName={cx(styles.referenceIcon, "menu-button--wrapper--reference-icon")}
         zIndex={zIndex}
         isOpen={isOpen}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
       >
         <button
           id={id}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_BUTTON, id)}
           ref={buttonRef}
           type="button"
-          className={cx("menu-button--wrapper", overrideClassName, BEMClass(`size-${size}`), {
-            [BEMClass("open")]: isOpen,
-            [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
-            [BEMClass("disabled")]: disabled,
-            [BEMClass("text")]: text
-          })}
+          className={cx(
+            styles.wrapper,
+            CSS_BASE_CLASS,
+            overrideClassName,
+            styles[`size${size}`],
+            `menu-button--wrapper--size-${size}`,
+            {
+              [styles.open]: isOpen,
+              ["menu-button--wrapper--open"]: isOpen,
+              [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
+              [styles.disabled]: disabled,
+              ["menu-button--wrapper--disabled"]: disabled,
+              [styles.text]: text,
+              ["menu-button--wrapper--text"]: text
+            }
+          )}
           aria-haspopup="true"
           aria-expanded={isOpen}
           aria-label={!text && ariaLabel}
@@ -203,7 +214,7 @@ const MenuButton = ({
           aria-disabled={disabled}
         >
           <Icon size={Math.min(iconSize, 28).toString()} role="img" aria-hidden="true" />
-          {text && <span className={BEMClass("inner-text")}>{text}</span>}
+          {text && <span className={cx(styles.innerText, "menu-button--wrapper--inner-text")}>{text}</span>}
         </button>
       </Dialog>
     </Tooltip>

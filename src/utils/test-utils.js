@@ -35,6 +35,7 @@ export const ELEMENT_TYPES = {
   LINK: "link",
   MENU_DIVIDER: "menu-divider",
   MENU_ITEM: "menu-item",
+  MENU_GRID_ITEM: "menu-grid-item",
   MENU_ITEM_BUTTON: "menu-item-button",
   MENU_TITLE: "menu-title",
   MENU_BUTTON: "menu-button",
