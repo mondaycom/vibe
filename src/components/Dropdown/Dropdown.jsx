@@ -96,7 +96,9 @@ const Dropdown = ({
     // We first want to get the default stylized groups (e.g. "container", "menu").
     const baseStyles = generateBaseStyles({
       size,
-      rtl
+      rtl,
+      insideScroll,
+      controlRef
     });
 
     // Then we want to run the consumer's root-level custom styles with our "base" override groups.
@@ -131,18 +133,6 @@ const Dropdown = ({
         paddingLeft: 6
       });
     }
-
-    mergedStyles.menu = provided => {
-      if (!insideScroll) return provided;
-
-      // If the dropdown is inside a scroll, we try to get dropdown location at the dom
-      const parentPositionData = controlRef?.current?.getBoundingClientRect();
-
-      // If no location found do not add anything to hard coded style
-      if (!parentPositionData) return provided;
-
-      return { ...provided, top: parentPositionData.bottom, width: parentPositionData.width };
-    };
 
     return mergedStyles;
   }, [size, rtl, extraStyles, multi, multiline, insideScroll]);
