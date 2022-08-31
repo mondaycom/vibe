@@ -57,6 +57,7 @@ const MenuItem = forwardRef(
     },
     ref
   ) => {
+    const id = menuId && `${menuId}-${index}`;
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
     const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -224,8 +225,8 @@ const MenuItem = forwardRef(
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <li
-        id={`${menuId}-${index}`}
-        data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_ITEM, `${menuId}-${index}`)}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_ITEM, id)}
         {...a11yProps}
         className={cx(styles.item, "monday-style-menu-item", overrideClassName, {
           [styles.disabled]: disabled,

@@ -3,14 +3,14 @@
 exports[`Snapshots renders correctly when disabled 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item monday-style-menu-item--disabled"
-  id="undefined-undefined"
+  className="item monday-style-menu-item disabled monday-style-menu-item--disabled"
+  data-testid="menu-item"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__title"
+    className="title monday-style-menu-item__title"
   >
     my item
   </div>
@@ -32,14 +32,14 @@ exports[`Snapshots renders correctly when disabled 1`] = `
 exports[`Snapshots renders correctly when selected 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item monday-style-menu-item--selected"
-  id="undefined-undefined"
+  className="item monday-style-menu-item selected monday-style-menu-item--selected"
+  data-testid="menu-item"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__title"
+    className="title monday-style-menu-item__title"
   >
     my item
   </div>
@@ -61,14 +61,14 @@ exports[`Snapshots renders correctly when selected 1`] = `
 exports[`Snapshots renders correctly with custom class name 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item dummy-class-name"
-  id="undefined-undefined"
+  className="item monday-style-menu-item dummy-class-name"
+  data-testid="menu-item"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__title"
+    className="title monday-style-menu-item__title"
   >
     
   </div>
@@ -90,14 +90,14 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 exports[`Snapshots renders correctly with empty props 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item"
-  id="undefined-undefined"
+  className="item monday-style-menu-item"
+  data-testid="menu-item"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__title"
+    className="title monday-style-menu-item__title"
   >
     
   </div>
@@ -119,25 +119,25 @@ exports[`Snapshots renders correctly with empty props 1`] = `
 exports[`Snapshots renders correctly with title and icon 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item"
-  id="undefined-undefined"
+  className="item monday-style-menu-item"
+  data-testid="menu-item"
   onClick={[Function]}
   role="menuitem"
   tabIndex={-1}
 >
   <div
-    className="monday-style-menu-item__icon-wrapper"
+    className="iconWrapper monday-style-menu-item__icon-wrapper"
   >
     <span
       aria-hidden={true}
       aria-label="my item"
-      className="icon_component monday-style-menu-item__icon icon_component--no-focus-style fa fa fa-star"
+      className="icon_component icon monday-style-menu-item__icon icon_component--no-focus-style fa fa fa-star"
       onClick={[Function]}
       role="img"
     />
   </div>
   <div
-    className="monday-style-menu-item__title"
+    className="title monday-style-menu-item__title"
   >
     my item
   </div>

@@ -3,8 +3,8 @@
 exports[`Snapshots renders correctly when disabled 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item-button"
-  id="undefined-undefined"
+  className="itemButton monday-style-menu-item-button"
+  data-testid="menu-item-button"
   role="menuitem"
 >
   <button
@@ -19,7 +19,7 @@ exports[`Snapshots renders correctly when disabled 1`] = `
     type="button"
   >
     <div
-      className="menu-item-button-content"
+      className="content menu-item-button-content"
     >
       my item
     </div>
@@ -30,8 +30,8 @@ exports[`Snapshots renders correctly when disabled 1`] = `
 exports[`Snapshots renders correctly when selected 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item-button"
-  id="undefined-undefined"
+  className="itemButton monday-style-menu-item-button"
+  data-testid="menu-item-button"
   role="menuitem"
 >
   <button
@@ -46,7 +46,7 @@ exports[`Snapshots renders correctly when selected 1`] = `
     type="button"
   >
     <div
-      className="menu-item-button-content"
+      className="content menu-item-button-content"
     >
       my item
     </div>
@@ -57,8 +57,8 @@ exports[`Snapshots renders correctly when selected 1`] = `
 exports[`Snapshots renders correctly with custom class name 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item-button dummy-class-name"
-  id="undefined-undefined"
+  className="itemButton monday-style-menu-item-button dummy-class-name"
+  data-testid="menu-item-button"
   role="menuitem"
 >
   <button
@@ -73,7 +73,7 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
     type="button"
   >
     <div
-      className="menu-item-button-content"
+      className="content menu-item-button-content"
     />
   </button>
 </li>
@@ -82,8 +82,8 @@ exports[`Snapshots renders correctly with custom class name 1`] = `
 exports[`Snapshots renders correctly with empty props 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item-button"
-  id="undefined-undefined"
+  className="itemButton monday-style-menu-item-button"
+  data-testid="menu-item-button"
   role="menuitem"
 >
   <button
@@ -98,7 +98,7 @@ exports[`Snapshots renders correctly with empty props 1`] = `
     type="button"
   >
     <div
-      className="menu-item-button-content"
+      className="content menu-item-button-content"
     />
   </button>
 </li>
@@ -107,8 +107,8 @@ exports[`Snapshots renders correctly with empty props 1`] = `
 exports[`Snapshots renders correctly with title and icon 1`] = `
 <li
   aria-current={false}
-  className="monday-style-menu-item-button"
-  id="undefined-undefined"
+  className="itemButton monday-style-menu-item-button"
+  data-testid="menu-item-button"
   role="menuitem"
 >
   <button
@@ -123,7 +123,7 @@ exports[`Snapshots renders correctly with title and icon 1`] = `
     type="button"
   >
     <div
-      className="menu-item-button-content"
+      className="content menu-item-button-content"
     >
       my item
     </div>

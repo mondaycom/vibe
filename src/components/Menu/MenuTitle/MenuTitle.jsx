@@ -53,7 +53,7 @@ MenuTitle.isMenuChild = true;
 MenuTitle.defaultProps = {
   className: undefined,
   caption: "",
-  id: "",
+  id: undefined,
   captionPosition: MenuTitle.positions.BOTTOM
 };
 

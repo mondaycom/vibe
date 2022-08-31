@@ -36,7 +36,7 @@ const MenuItemButton = ({
   useDocumentEventListeners,
   "data-testid": dataTestId
 }) => {
-  const id = `${menuId}-${index}`;
+  const id = menuId && `${menuId}-${index}`;
   const ref = useRef(null);
   const referenceElementRef = useRef(null);
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
