@@ -227,6 +227,8 @@ const Dropdown = ({
     })
   };
 
+  const closeMenuOnScroll = useCallback(() => insideScroll, [insideScroll]);
+
   return (
     <DropDownComponent
       className={cx("dropdown-wrapper", className)}
@@ -246,7 +248,7 @@ const Dropdown = ({
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
       // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
-      closeMenuOnScroll={insideScroll}
+      closeMenuOnScroll={closeMenuOnScroll}
       size={size}
       noOptionsMessage={noOptionsMessage}
       placeholder={placeholder}
