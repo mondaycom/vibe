@@ -3,7 +3,6 @@
   "version": "1.57.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
-  "types": "./dist/types.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -22,7 +21,7 @@
     "test:jest:update": "npm run test:jest -- -u",
     "test:jest:coverage": "npm run test:jest -- --coverage",
     "start": "npm run build-react-icons && webpack --mode production --watch --config webpack/default.config.js",
-    "build": "npm run build-react-icons && webpack --mode production --config webpack/default.config.js && npm run build:exports",
+    "build": "npm run build:exports && npm run build-react-icons && webpack --mode production --config webpack/default.config.js",
     "build:exports": "./scripts/build-exports.js",
     "storybook": "start-storybook -p 7007",
     "build-storybook": "build-storybook",
