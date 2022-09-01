@@ -1964,6 +1964,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 Ocean
               </div>
               <button
+                aria-busy={false}
                 aria-disabled={false}
                 aria-label="Remove"
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
@@ -2182,6 +2183,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                 Ocean
               </div>
               <button
+                aria-busy={false}
                 aria-disabled={false}
                 aria-label="Remove"
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
