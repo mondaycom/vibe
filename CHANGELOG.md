@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.58.1 (2022-08-31)
+
+#### Bug Fixes
+* [#849](https://github.com/mondaycom/monday-ui-react-core/pull/849) Fix close on scroll in inside scroll state ([@hadasfa](https://github.com/hadasfa))
+
+## 1.58.0 (2022-08-31)
+
+#### Bug Fixes
+* [#840](https://github.com/mondaycom/monday-ui-react-core/pull/840) Fix avatar group dependencies without effect behivour ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#848](https://github.com/mondaycom/monday-ui-react-core/pull/848) Support new dropdown state for displaying menu inside scrollable dialog ([@hadasfa](https://github.com/hadasfa))
+* [#847](https://github.com/mondaycom/monday-ui-react-core/pull/847) Export content color ([@or-nuri-monday](https://github.com/or-nuri-monday))
+* [#832](https://github.com/mondaycom/monday-ui-react-core/pull/832) Feature/sergeyro/chips close button aria label ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.57.0 (2022-08-24)
 
 #### New Features
