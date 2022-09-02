@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.59.0 (2022-09-02)
+
+#### Bug Fixes
+* [#839](https://github.com/mondaycom/monday-ui-react-core/pull/839) Feature/sergeyro/accordion collapse icon not clickable ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#852](https://github.com/mondaycom/monday-ui-react-core/pull/852) Add Horizontal virtualized list ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Internal Changes
+* [#845](https://github.com/mondaycom/monday-ui-react-core/pull/845) Feature/sergeyro/disable styleint rule for global pseudo class ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.58.1 (2022-08-31)
 
 #### Bug Fixes
