@@ -212,14 +212,9 @@ const VirtualizedList = forwardRef(
     useEffect(() => {
       // scroll to specific item
       if (scrollToId && prevScrollToId !== scrollToId) {
-        const hasVerticalScrollbar = isLayoutDirectionScrollbarVisible(
-          items,
-          normalizedItems,
-          idGetter,
-          listSizeByLayout
-        );
+        const hasScrollbar = isLayoutDirectionScrollbarVisible(items, normalizedItems, idGetter, listSizeByLayout);
         const item = normalizedItems[scrollToId];
-        hasVerticalScrollbar && item && startScrollAnimation(item);
+        hasScrollbar && item && startScrollAnimation(item);
       }
     }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, listSizeByLayout]);
 
