@@ -314,7 +314,7 @@ VirtualizedList.propTypes = {
    */
   itemRenderer: PropTypes.func,
   /**
-   * @deprecated - use getItemSize
+   * Deprecated - use getItemSize
    * in order to calculate the number of items to render, the component needs the height of the items
    * return `number`
    */
@@ -367,7 +367,7 @@ VirtualizedList.propTypes = {
    */
   onSizeUpdate: PropTypes.func,
   /**
-   * @Deprecated - use onLayoutDirectionScrollbarVisibilityChange
+   * Deprecated - use onLayoutDirectionScrollbarVisibilityChange
    */
   onVerticalScrollbarVisiblityChange: PropTypes.func,
   /**
