@@ -137,7 +137,7 @@ const Dropdown = ({
     }
 
     return mergedStyles;
-  }, [size, rtl, extraStyles, multi, multiline, insideOverflowContainer]);
+  }, [size, rtl, insideOverflowContainer, transformContainerRef, extraStyles, multi, multiline]);
 
   const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
@@ -518,7 +518,7 @@ Dropdown.propTypes = {
    */
   insideOverflowContainer: PropTypes.bool,
   /**
-   * For display the drop down menu in overflow hidden/scroll container with transform function usage.
+   * While using insideOverflowContainer, if the on of the dropdown container using transform animation please attached the ref to this container.
    */
   transformContainerRef: PropTypes.object
 };
