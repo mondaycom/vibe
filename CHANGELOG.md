@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.59.1 (2022-09-04)
+
+#### Bug Fixes
+* [#854](https://github.com/mondaycom/monday-ui-react-core/pull/854) add support for menus inside a container which using transform function ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.59.0 (2022-09-02)
 
 #### Bug Fixes
