@@ -1,5 +1,5 @@
 import Dropdown from "../Dropdown";
-import { useCallback, useMemo, useState } from "react";
+import {useCallback, useMemo, useRef, useState} from "react";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettings, Link } from "../../../storybook";
 import {
@@ -18,6 +18,8 @@ import Flex from "../../../components/Flex/Flex";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { Attach, Email } from "../../Icon/Icons";
 import {DialogContentContainer} from "../../index";
+import Dialog from "../../Dialog/Dialog";
+import Button from "../../Button/Button";
 import "./dropdown.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
@@ -563,9 +565,10 @@ Dropdown with group.
 </Canvas>
 
 ### Dropdown inside scrollable dialog
+Use <b>insideOverflowContainer</b> prop attribute for displaying drop down inside scrollable dialog / container, or container
+with overflow hidden content. If your dropdown container use transform css function
+(like in vibe dialogs for example), please also attached the <b>transformContainerRef</b> like in the following story:
 
-Use dropdown inside scrollable dialog without the dropdown menu being affect/hidden as part of the overflow:scroll/auto/hidden of its container
-by using our dropdown ability: <b>insideScroll</b>.
 <Canvas>
     <Story name="Dropdown inside scrollable dialog">
         {() => {
@@ -579,15 +582,29 @@ by using our dropdown ability: <b>insideScroll</b>.
                 ],
                 []
             );
+            const dialogRef = useRef();
             const dialogStyle = {width: "300px", height: "200px", overflow: "auto"};
+            const secondDialogContent = <DialogContentContainer style={dialogStyle} ref={dialogRef}>
+                <Dropdown
+                    placeholder="Dropdown inside a scrollable dialog"
+                    options={options}
+                    insideOverflowContainer
+                    transformContainerRef={dialogRef}
+                />
+            </DialogContentContainer>;
             return (
-                <DialogContentContainer style={dialogStyle}>
-                    <Dropdown
-                        placeholder="Dropdown inside a scrollable dialog"
-                        options={options}
-                        insideScroll
-                    />
-                </DialogContentContainer>
+                <Flex gap={Flex.gaps.LARGE}>
+                    <DialogContentContainer style={dialogStyle}>
+                        <Dropdown
+                            placeholder="Dropdown inside a scrollable dialog"
+                            options={options}
+                            insideOverflowContainer
+                        />
+                    </DialogContentContainer>
+                    <Dialog ref={dialogRef} content={secondDialogContent} hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE} showTrigger={Dialog.hideShowTriggers.CLICK}>
+                        <Button>Press me for dropdown inside dialog!</Button>
+                    </Dialog>
+                </Flex>
             );
         }}
     </Story>
