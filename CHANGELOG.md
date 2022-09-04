@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.59.1 (2022-09-04)
+
+#### Bug Fixes
+* [#854](https://github.com/mondaycom/monday-ui-react-core/pull/854) add support for menus inside a container which using transform function ([@hadasfa](https://github.com/hadasfa))
+
+## 1.59.0 (2022-09-02)
+
+#### Bug Fixes
+* [#839](https://github.com/mondaycom/monday-ui-react-core/pull/839) Feature/sergeyro/accordion collapse icon not clickable ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#852](https://github.com/mondaycom/monday-ui-react-core/pull/852) Add Horizontal virtualized list ([@MosheZemah](https://github.com/MosheZemah))
+
+#### Internal Changes
+* [#845](https://github.com/mondaycom/monday-ui-react-core/pull/845) Feature/sergeyro/disable styleint rule for global pseudo class ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.58.1 (2022-08-31)
+
+#### Bug Fixes
+* [#849](https://github.com/mondaycom/monday-ui-react-core/pull/849) Fix close on scroll in inside scroll state ([@hadasfa](https://github.com/hadasfa))
+
+## 1.58.0 (2022-08-31)
+
+#### Bug Fixes
+* [#840](https://github.com/mondaycom/monday-ui-react-core/pull/840) Fix avatar group dependencies without effect behivour ([@hadasfa](https://github.com/hadasfa))
+
+#### New Features
+* [#848](https://github.com/mondaycom/monday-ui-react-core/pull/848) Support new dropdown state for displaying menu inside scrollable dialog ([@hadasfa](https://github.com/hadasfa))
+* [#847](https://github.com/mondaycom/monday-ui-react-core/pull/847) Export content color ([@or-nuri-monday](https://github.com/or-nuri-monday))
+* [#832](https://github.com/mondaycom/monday-ui-react-core/pull/832) Feature/sergeyro/chips close button aria label ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.57.0 (2022-08-24)
 
 #### New Features
