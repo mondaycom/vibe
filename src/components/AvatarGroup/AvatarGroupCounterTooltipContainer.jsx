@@ -1,10 +1,10 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Tooltip from "../Tooltip/Tooltip";
 import Dialog from "../Dialog/Dialog";
 import Avatar from "../Avatar/Avatar";
 import AvatarGroupCounterTooltipContent from "./AvatarGroupCounterTooltipContent";
-import { useTooltipContentTabNavigation } from "./AvatarGroupCounterTooltipHelper";
+import { useTooltipContentTabNavigation, TOOLTIP_SHOW_DELAY } from "./AvatarGroupCounterTooltipHelper";
 
 const AvatarGroupCounterTooltipContainer = ({
   focusPrevPlaceholderRef,
@@ -17,11 +17,7 @@ const AvatarGroupCounterTooltipContainer = ({
   counterTooltipCustomProps,
   counterTooltipIsVirtualizedList
 }) => {
-  // Dummy state to rerender the component, when tooltip appear, so useTooltipContentTabNavigation will have an existing tooltipContentContainerRef
-  const [, setShouldUpdate] = useState(false);
-  // Used to close tooltip
-  const [isTooltipVisible, setIsTooltipVisible] = useState(true);
-
+  const [isKeyboardTooltipVisible, setIsKeyboardTooltipVisible] = useState(false);
   const tooltipContentContainerRef = useRef(null);
   const tooltipContent = useMemo(
     () =>
@@ -42,24 +38,29 @@ const AvatarGroupCounterTooltipContainer = ({
     tooltipContentContainerRef,
     focusPrevPlaceholderRef,
     focusNextPlaceholderRef,
-    setShouldUpdate,
-    setIsTooltipVisible
+    setIsKeyboardTooltipVisible,
+    isKeyboardTooltipVisible
   });
+
+  // Tooltip props
+  const onHide = useCallback(() => {
+    setIsKeyboardTooltipVisible(false);
+  }, []);
+  const showTrigger = useMemo(() => [Dialog.hideShowTriggers.MOUSE_ENTER], []);
+  const hideTrigger = useMemo(() => [Dialog.hideShowTriggers.MOUSE_LEAVE], []);
 
   if (!avatars?.length && !counterTooltipCustomProps?.content) {
     return children;
   }
-
-  if (!isTooltipVisible) {
-    return children;
-  }
-
   return (
     <Tooltip
+      // for disable close tooltip when hovering content
       showOnDialogEnter
-      hideDelay={200}
-      showTrigger={[Dialog.hideShowTriggers.FOCUS, Dialog.hideShowTriggers.MOUSE_ENTER]}
-      hideTrigger={[Dialog.hideShowTriggers.ESCAPE_KEY, Dialog.hideShowTriggers.MOUSE_LEAVE]}
+      open={isKeyboardTooltipVisible}
+      hideDelay={TOOLTIP_SHOW_DELAY}
+      showTrigger={showTrigger}
+      hideTrigger={hideTrigger}
+      onTooltipHide={onHide}
       {...(counterTooltipCustomProps || {})}
       content={tooltipContent}
     >

@@ -158,6 +158,7 @@ $checkbox-size: 16px;
       }
       & ~ .monday-style-checkbox__label {
         cursor: not-allowed;
+        color: var(--disabled-text-color);
       }
     }
   }

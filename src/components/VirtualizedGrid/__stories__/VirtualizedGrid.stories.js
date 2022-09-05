@@ -10,7 +10,7 @@ export const generateItems = (height = 30, width = "100%", itemsCount) => {
 
 export const itemRenderer = (item, index, style) => {
   if (item) {
-    const backgroundColor = index % 2 === 0 ? "white" : "#f8f8f0";
+    const backgroundColor = index % 2 === 0 ? "#e1e1e1" : "#f8f8f0";
     return (
       <div key={index} style={style}>
         <div

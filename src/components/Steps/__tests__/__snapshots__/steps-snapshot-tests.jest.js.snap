@@ -9,6 +9,7 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
@@ -41,6 +42,7 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
       />
     </div>
     <button
+      aria-busy={false}
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
       data-testid="steps-forward-command"
@@ -106,6 +108,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
@@ -154,6 +157,7 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       />
     </div>
     <button
+      aria-busy={false}
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
       data-testid="steps-forward-command"
@@ -195,6 +199,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-busy={false}
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
       data-testid="steps-backward-command"
@@ -243,6 +248,7 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       />
     </div>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
@@ -287,6 +293,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
@@ -335,6 +342,7 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       />
     </div>
     <button
+      aria-busy={false}
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
       data-testid="steps-forward-command"
@@ -379,6 +387,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
     className="monday-style-steps-header monday-style-steps-header--gallery"
   >
     <button
+      aria-busy={false}
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
       data-testid="steps-backward-command"
@@ -427,6 +436,7 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       />
     </div>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
@@ -471,6 +481,7 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
@@ -489,6 +500,7 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
       2 \\ 2
     </div>
     <button
+      aria-busy={false}
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
       data-testid="steps-forward-command"
@@ -520,6 +532,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
@@ -554,6 +567,7 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       2 \\ 2
     </div>
     <button
+      aria-busy={false}
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
       data-testid="steps-forward-command"
@@ -595,6 +609,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
     <button
+      aria-busy={false}
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
       data-testid="steps-backward-command"
@@ -629,6 +644,7 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       1 \\ 2
     </div>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
@@ -673,6 +689,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
@@ -707,6 +724,7 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       2 \\ 2
     </div>
     <button
+      aria-busy={false}
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
       data-testid="steps-forward-command"
@@ -751,6 +769,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
     className="monday-style-steps-header monday-style-steps-header--numbers"
   >
     <button
+      aria-busy={false}
       aria-disabled={true}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
       data-testid="steps-backward-command"
@@ -785,6 +804,7 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       1 \\ 2
     </div>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
