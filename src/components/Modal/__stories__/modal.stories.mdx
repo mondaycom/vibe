@@ -60,7 +60,9 @@ An easy to use accessible Modal component
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
           >
-            <ModalContent>Modal content goes here</ModalContent>
+            <ModalContent>
+              <span className="modal-content">Modal content goes here</span>
+            </ModalContent>
             <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
@@ -105,7 +107,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
             alertDialog
             closeButtonAriaLabel={"close"}
           >
-            <p>Use the close button to dismiss this Modal.</p>
+            <p className="modal-content">Use the close button to dismiss this Modal.</p>
             <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
@@ -134,7 +136,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
             closeButtonAriaLabel={"close"}
             width={Modal.Width.DEFAULT}
           >
-            <p>Normal modal</p>
+            <p className="modal-content">Normal modal</p>
             <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
@@ -158,7 +160,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
             width={Modal.Width.FULL_WIDTH}
             closeButtonAriaLabel={"close"}
           >
-            <p>Full width modal</p>
+            <p className="modal-content">Full width modal</p>
             <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
@@ -175,6 +177,7 @@ You show/hide the Modal by passing the <b>show</b> prop. This gives you complete
 
 Keep in mind that when the user initiate closing the modal by clicking outside it or clicking the ESC key, you'll be responsible for closing the modal.
 Pass a callback to the <b>onClose</b> function to know when it happens.
+
 <Canvas>
   <Story name="Showing the Modal">
     {() => {
@@ -182,7 +185,7 @@ Pass a callback to the <b>onClose</b> function to know when it happens.
       const [show, setShow] = useState(false);
       const closeModal = () => {
         setShow(false);
-      }
+      };
       return (
         <div>
           <Button onClick={() => setShow(true)}>Show</Button>
@@ -193,7 +196,9 @@ Pass a callback to the <b>onClose</b> function to know when it happens.
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
           >
-            <ModalContent>Modal content goes here</ModalContent>
+            <ModalContent>
+              <span className="modal-content">Modal content goes here</span>
+            </ModalContent>
             <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
@@ -201,7 +206,6 @@ Pass a callback to the <b>onClose</b> function to know when it happens.
     }}
   </Story>
 </Canvas>
-
 
 ### Modal with footer buttons
 
@@ -214,7 +218,6 @@ However, you can use the <b>ModalFooter</b> component to place any content at th
       const { openModalButton, show, closeModal, ref } = useModalHelper({
         openButtonTitle: "Modal with buttons"
       });
-      ;
       return (
         <div>
           {openModalButton}
@@ -226,10 +229,11 @@ However, you can use the <b>ModalFooter</b> component to place any content at th
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
           >
-            <ModalHeader title={"Modal Title"} description={"Modal description goes here"} icon={Settings} />
-            <div>Modal content goes here</div>
+            <div className="modal-content">Modal content goes here</div>
             <ModalFooter className="monday-storybook-modal-new-buttons">
-              <Button kind={Button.kinds.SECONDARY} onClick={closeModal}>Dismiss</Button>
+              <Button kind={Button.kinds.SECONDARY} onClick={closeModal}>
+                Dismiss
+              </Button>
               <Button onClick={closeModal}>Close</Button>
             </ModalFooter>
           </Modal>
@@ -238,7 +242,6 @@ However, you can use the <b>ModalFooter</b> component to place any content at th
     }}
   </Story>
 </Canvas>
-
 
 ### Modal with custom Header
 
@@ -262,7 +265,7 @@ Use the <b>ModalHeader</b> component to render a Header with description and ico
             closeButtonAriaLabel={"close"}
           >
             <ModalHeader title={"Modal Title"} description={"Modal description goes here"} icon={Settings} />
-            <div>Modal content goes here</div>
+            <div className="modal-content">Modal content goes here</div>
             <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>

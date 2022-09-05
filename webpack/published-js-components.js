@@ -79,6 +79,10 @@ const publishedJSComponents = {
   AvatarGroup: "components/AvatarGroup/AvatarGroup.jsx",
   IconButton: "components/IconButton/IconButton.jsx",
   Slider: "components/Slider/Slider.jsx",
+  Modal: "components/Modal/Modal.jsx",
+  ModalHeader: "components/ModalHeader/ModalHeader.jsx",
+  ModalFooter: "components/ModalFooter/ModalFooter.jsx",
+  ModalContent: "components/ModalContent/ModalContent.jsx",
   // Don't remove next line
   // plop_marker:published-hooks
   useKeyEvent: "hooks/useKeyEvent/index.js",
