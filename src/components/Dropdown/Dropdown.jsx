@@ -1,6 +1,6 @@
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { SIZES } from "../../constants/sizes";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import Select, { components } from "react-select";
 import AsyncSelect from "react-select/async";
 import NOOP from "lodash/noop";
@@ -16,6 +16,7 @@ import ValueContainer from "./components/ValueContainer/ValueContainer";
 import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
+import Control from "./components/Control/Control";
 
 const Dropdown = ({
   className,
@@ -62,8 +63,11 @@ const Dropdown = ({
   closeMenuOnSelect = !multi,
   ref,
   withMandatoryDefaultOptions,
-  isOptionSelected
+  isOptionSelected,
+  insideOverflowContainer,
+  transformContainerRef
 }) => {
+  const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
     if (defaultValue) {
       return Array.isArray(defaultValue)
@@ -93,7 +97,10 @@ const Dropdown = ({
     // We first want to get the default stylized groups (e.g. "container", "menu").
     const baseStyles = generateBaseStyles({
       size,
-      rtl
+      rtl,
+      insideOverflowContainer,
+      controlRef,
+      transformContainerRef
     });
 
     // Then we want to run the consumer's root-level custom styles with our "base" override groups.
@@ -130,7 +137,7 @@ const Dropdown = ({
     }
 
     return mergedStyles;
-  }, [size, rtl, extraStyles, multi, multiline]);
+  }, [size, rtl, insideOverflowContainer, transformContainerRef, extraStyles, multi, multiline]);
 
   const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
@@ -166,9 +173,11 @@ const Dropdown = ({
       onSelectedDelete: onOptionRemove,
       setIsDialogShown,
       isDialogShown,
-      isMultiline: multiline
+      isMultiline: multiline,
+      insideOverflowContainer,
+      controlRef
     }),
-    [selectedOptions, onOptionRemove, setIsDialogShown, isDialogShown, multiline]
+    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer]
   );
 
   const onChange = (option, event) => {
@@ -220,6 +229,8 @@ const Dropdown = ({
     })
   };
 
+  const closeMenuOnScroll = useCallback(() => insideOverflowContainer, [insideOverflowContainer]);
+
   return (
     <DropDownComponent
       className={cx("dropdown-wrapper", className)}
@@ -230,6 +241,7 @@ const Dropdown = ({
         ClearIndicator,
         Input,
         Option,
+        Control,
         ...(finalValueRenderer && { SingleValue }),
         ...(multi && {
           MultiValue: NOOP, // We need it for react-select to behave nice with "multi"
@@ -237,6 +249,8 @@ const Dropdown = ({
         }),
         ...(isVirtualized && { MenuList: WindowedMenuList })
       }}
+      // When inside scroll we set the menu position by js and we can't follow the drop down location while use scrolling
+      closeMenuOnScroll={closeMenuOnScroll}
       size={size}
       noOptionsMessage={noOptionsMessage}
       placeholder={placeholder}
@@ -298,7 +312,9 @@ Dropdown.defaultProps = {
   autoFocus: false,
   closeMenuOnSelect: undefined,
   ref: undefined,
-  withMandatoryDefaultOptions: false
+  withMandatoryDefaultOptions: false,
+  insideOverflowContainer: false,
+  transformContainerRef: undefined
 };
 
 Dropdown.propTypes = {
@@ -496,7 +512,15 @@ Dropdown.propTypes = {
   /**
    * Override the built-in logic to detect whether an option is selected.
    */
-  isOptionSelected: PropTypes.func
+  isOptionSelected: PropTypes.func,
+  /**
+   * For display the drop down menu in overflow hidden/scroll container.
+   */
+  insideOverflowContainer: PropTypes.bool,
+  /**
+   * While using insideOverflowContainer, if the on of the dropdown container using transform animation please attached the ref to this container.
+   */
+  transformContainerRef: PropTypes.object
 };
 
 export default Dropdown;

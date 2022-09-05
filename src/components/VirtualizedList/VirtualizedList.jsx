@@ -12,7 +12,7 @@ import {
   easeInOutQuint,
   getMaxOffset,
   getOnItemsRenderedData,
-  isVerticalScrollbarVisible
+  isLayoutDirectionScrollbarVisible
 } from "../../services/virtualized-service";
 import "./VirtualizedList.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
@@ -25,6 +25,8 @@ const VirtualizedList = forwardRef(
       items,
       itemRenderer,
       getItemHeight,
+      getItemSize,
+      layout,
       onScroll,
       overscanCount,
       getItemId,
@@ -35,6 +37,7 @@ const VirtualizedList = forwardRef(
       onItemsRenderedThrottleMs,
       onSizeUpdate,
       onVerticalScrollbarVisiblityChange,
+      onLayoutDirectionScrollbarVisibilityChange,
       virtualListRef,
       scrollableClassName,
       role,
@@ -45,6 +48,11 @@ const VirtualizedList = forwardRef(
     // states
     const [listHeight, setListHeight] = useState(0);
     const [listWidth, setListWidth] = useState(0);
+
+    const isVerticalList = layout !== "horizontal";
+    const listSizeByLayout = useMemo(() => {
+      return isVerticalList ? listHeight : listWidth;
+    }, [isVerticalList, listHeight, listWidth]);
 
     // prevs
     const prevScrollToId = usePrevious(scrollToId);
@@ -67,15 +75,16 @@ const VirtualizedList = forwardRef(
     }
 
     // Callbacks
-    const heightGetter = useCallback(
+    const sizeGetter = useCallback(
       (item, index) => {
-        const height = getItemHeight(item, index);
+        const getSize = getItemSize || getItemHeight;
+        const height = getSize(item, index);
         if (height === undefined) {
           console.error("Couldn't get height for item: ", item);
         }
         return height;
       },
-      [getItemHeight]
+      [getItemHeight, getItemSize]
     );
 
     const idGetter = useCallback(
@@ -90,14 +99,14 @@ const VirtualizedList = forwardRef(
     );
 
     // Memos
-    // Creates object of itemId => { item, index, height, offsetTop}
+    // Creates object of itemId => { item, index, size, offsetTop}
     const normalizedItems = useMemo(() => {
-      return getNormalizedItems(items, idGetter, heightGetter);
-    }, [items, idGetter, heightGetter]);
+      return getNormalizedItems(items, idGetter, sizeGetter);
+    }, [items, idGetter, sizeGetter]);
 
     const maxListOffset = useMemo(() => {
-      return getMaxOffset(listHeight, normalizedItems);
-    }, [listHeight, normalizedItems]);
+      return getMaxOffset(listSizeByLayout, normalizedItems);
+    }, [listSizeByLayout, normalizedItems]);
 
     // Callbacks
     const onScrollCB = useCallback(
@@ -160,12 +169,12 @@ const VirtualizedList = forwardRef(
       [items, itemRenderer]
     );
 
-    const calcItemHeight = useCallback(
+    const calcItemSize = useCallback(
       index => {
         const item = items[index];
-        return heightGetter(item, index);
+        return sizeGetter(item, index);
       },
-      [items, heightGetter]
+      [items, sizeGetter]
     );
 
     const updateListSize = useCallback(
@@ -190,24 +199,24 @@ const VirtualizedList = forwardRef(
           idGetter,
           visibleStartIndex,
           visibleStopIndex,
-          listHeight,
+          listSizeByLayout,
           scrollTopRef.current
         );
         onItemsRendered(data);
       },
       { wait: onItemsRenderedThrottleMs, trailing: true },
-      [onItemsRendered, items, normalizedItems, idGetter, listHeight]
+      [onItemsRendered, items, normalizedItems, idGetter, listSizeByLayout]
     );
 
     // Effects
     useEffect(() => {
       // scroll to specific item
       if (scrollToId && prevScrollToId !== scrollToId) {
-        const hasVerticalScrollbar = isVerticalScrollbarVisible(items, normalizedItems, idGetter, listHeight);
+        const hasScrollbar = isLayoutDirectionScrollbarVisible(items, normalizedItems, idGetter, listSizeByLayout);
         const item = normalizedItems[scrollToId];
-        hasVerticalScrollbar && item && startScrollAnimation(item);
+        hasScrollbar && item && startScrollAnimation(item);
       }
-    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, listHeight]);
+    }, [prevScrollToId, scrollToId, startScrollAnimation, normalizedItems, items, idGetter, listSizeByLayout]);
 
     useEffect(() => {
       // recalculate row heights
@@ -218,14 +227,22 @@ const VirtualizedList = forwardRef(
 
     useEffect(() => {
       // update vertical scrollbar visibility
-      if (onVerticalScrollbarVisiblityChange) {
-        const isVisible = isVerticalScrollbarVisible(items, normalizedItems, idGetter, listHeight);
+      const callback = onLayoutDirectionScrollbarVisibilityChange || onVerticalScrollbarVisiblityChange;
+      if (callback) {
+        const isVisible = isLayoutDirectionScrollbarVisible(items, normalizedItems, idGetter, listSizeByLayout);
         if (isVerticalScrollbarVisibleRef.current !== isVisible) {
           isVerticalScrollbarVisibleRef.current = isVisible;
-          onVerticalScrollbarVisiblityChange(isVisible);
+          callback(isVisible);
         }
       }
-    }, [onVerticalScrollbarVisiblityChange, items, normalizedItems, listHeight, idGetter]);
+    }, [
+      onLayoutDirectionScrollbarVisibilityChange,
+      onVerticalScrollbarVisiblityChange,
+      items,
+      normalizedItems,
+      listSizeByLayout,
+      idGetter
+    ]);
 
     return (
       <div
@@ -246,8 +263,9 @@ const VirtualizedList = forwardRef(
                 height={height}
                 width={width}
                 itemCount={items.length}
-                itemSize={calcItemHeight}
+                itemSize={calcItemSize}
                 onScroll={onScrollCB}
+                layout={layout}
                 overscanCount={overscanCount}
                 onItemsRendered={onItemsRenderedCB}
                 className={cx("virtualized-list-scrollable-container", scrollableClassName)}
@@ -276,6 +294,14 @@ VirtualizedList.propTypes = {
    */
   id: PropTypes.string,
   /**
+   * Layout/orientation of the list.
+   *
+   * Acceptable values are:
+   * - "vertical" (default) - Up/down scrolling.
+   * - "horizontal" - Left/right scrolling.
+   */
+  layout: PropTypes.string,
+  /**
    * A list of items to be rendered
    */
   items: PropTypes.arrayOf(PropTypes.object),
@@ -288,10 +314,16 @@ VirtualizedList.propTypes = {
    */
   itemRenderer: PropTypes.func,
   /**
+   * Deprecated - use getItemSize
    * in order to calculate the number of items to render, the component needs the height of the items
    * return `number`
    */
   getItemHeight: PropTypes.func,
+  /**
+   * in order to calculate the number of items to render, the component needs the width/height of the items (according to layout)
+   * return `number`
+   */
+  getItemSize: PropTypes.func,
   /**
    * returns Id of an items
    * returns `string`
@@ -334,7 +366,14 @@ VirtualizedList.propTypes = {
    * when the list size changes - `=> (width, height)`
    */
   onSizeUpdate: PropTypes.func,
+  /**
+   * Deprecated - use onLayoutDirectionScrollbarVisibilityChange
+   */
   onVerticalScrollbarVisiblityChange: PropTypes.func,
+  /**
+   * Callback - called when the vertical/horizontal (depends on layout) scrollbar visibility changed
+   */
+  onLayoutDirectionScrollbarVisibilityChange: PropTypes.func,
   role: PropTypes.string,
   /** Custom style to pass to the component */
   style: PropTypes.object
@@ -346,7 +385,9 @@ VirtualizedList.defaultProps = {
   // eslint-disable-next-line no-unused-vars
   itemRenderer: (item, _index, style) => item,
   getItemHeight: (item, _index) => item.height,
+  getItemSize: null, // must be null for backward compatibility
   getItemId: (item, _index) => item.id,
+  layout: "vertical",
   onScrollToFinished: NOOP,
   overscanCount: 0,
   scrollDuration: 200,
@@ -354,6 +395,7 @@ VirtualizedList.defaultProps = {
   onItemsRenderedThrottleMs: 200,
   onSizeUpdate: NOOP,
   onVerticalScrollbarVisiblityChange: null,
+  onLayoutDirectionScrollbarVisibilityChange: null,
   role: undefined,
   scrollableClassName: undefined,
   style: undefined
