@@ -15,6 +15,7 @@ interface FontIconProps extends VibeComponentProps {
 const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
   (
     {
+      id = "",
       className,
       onClick,
       "aria-label": iconLabel,
@@ -29,8 +30,6 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
     const isIconFunction = typeof Icon === "function";
     const iconClassName = isIconFunction ? "" : Icon;
     // @ts-ignore
-    // @ts-ignore
-    // @ts-ignore
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <span
@@ -41,6 +40,7 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
         aria-label={iconLabel}
         tabIndex={tabIndex}
         role={role}
+        id={id}
         data-testid={dataTestId}
       >
         {isIconFunction && (

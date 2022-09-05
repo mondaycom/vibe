@@ -63,7 +63,7 @@ const publishedJSComponents = {
   Loader: "components/Loader/Loader.jsx",
   Icon: "components/Icon/Icon.jsx",
   Flex: "components/Flex/Flex.jsx",
-  CustomSvgIcon: "components/Icon/CustomSvgIcon.jsx",
+  CustomSvgIcon: "components/Icon/CustomSvgIcon.tsx",
   FormattedNumber: "components/FormattedNumber/FormattedNumber.jsx",
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",

@@ -9,9 +9,11 @@ import VibeComponentProps from "../../interfaces/VibeComponentProps";
 import VibeComponent from "../../interfaces/VibeComponent";
 import "./Icon.scss";
 
-const NOOP = (event: React.MouseEvent<HTMLButtonElement>) => {};
+// eslint-disable-next-line no-unused-vars
+const CLICK_NOOP = (event: React.MouseEvent) => {};
 
 interface IconProps extends VibeComponentProps {
+  // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
   icon: string | React.Component | null;
   clickable?: boolean;
@@ -29,7 +31,11 @@ interface IconProps extends VibeComponentProps {
 const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES } = forwardRef(
   (
     {
-      onClick = NOOP,
+      /**
+       * component id
+       */
+      id = "",
+      onClick = CLICK_NOOP,
       /**
        * class name to be added to icon
        */
@@ -100,6 +106,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
         // The icons are not converted to ts for js yet.
         // @ts-ignore
         <IconComponent
+          id={id}
           {...screenReaderAccessProps}
           ref={isFunctionType ? undefined : mergedRef}
           size={iconSize.toString()}
@@ -113,11 +120,11 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
     if (iconType === ICON_TYPES.SRC) {
       return (
         <CustomSvgIcon
+          id={id}
           src={icon}
           {...screenReaderAccessProps}
           className={cx(computedClassName)}
           onClick={onClickCallback}
-          style={style}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
           data-testid={dataTestId}
@@ -126,6 +133,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
     }
     return (
       <FontIcon
+        id={id}
         {...screenReaderAccessProps}
         className={cx(computedClassName)}
         onClick={onClickCallback}
