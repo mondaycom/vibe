@@ -2,7 +2,7 @@
 
 exports[`Toggle renders correctly renders correctly when disabled 1`] = `
 <label
-  className="monday-style-toggle_wrapper monday-style-toggle_wrapper--disabled"
+  className="wrapper monday-style-toggle_wrapper disabled monday-style-toggle_wrapper--disabled"
 >
   <input
     aria-checked={true}
@@ -14,16 +14,19 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle monday-style-toggle_toggle selected monday-style-toggle_toggle--selected"
+    data-testid="mock-toggle"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     On
   </span>
@@ -32,7 +35,7 @@ exports[`Toggle renders correctly renders correctly when disabled 1`] = `
 
 exports[`Toggle renders correctly renders correctly when labels are hidden 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper monday-style-toggle_wrapper"
 >
   <input
     aria-checked={true}
@@ -45,14 +48,15 @@ exports[`Toggle renders correctly renders correctly when labels are hidden 1`] =
   />
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle monday-style-toggle_toggle selected monday-style-toggle_toggle--selected"
+    data-testid="mock-toggle"
   />
 </label>
 `;
 
 exports[`Toggle renders correctly renders correctly when selection defined by default selected (off)  1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper monday-style-toggle_wrapper"
 >
   <input
     aria-checked={false}
@@ -64,16 +68,19 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--not-selected"
+    className="toggle monday-style-toggle_toggle dummy-class-name notSelected monday-style-toggle_toggle--not-selected"
+    data-testid="mock-toggle"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     On
   </span>
@@ -82,7 +89,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
 
 exports[`Toggle renders correctly renders correctly when selection defined by default selected (on)  1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper monday-style-toggle_wrapper"
 >
   <input
     aria-checked={true}
@@ -94,16 +101,19 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--selected"
+    className="toggle monday-style-toggle_toggle dummy-class-name selected monday-style-toggle_toggle--selected"
+    data-testid="mock-toggle"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     On
   </span>
@@ -112,7 +122,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by de
 
 exports[`Toggle renders correctly renders correctly when selection defined by isSelected (off) 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper monday-style-toggle_wrapper"
 >
   <input
     aria-checked={false}
@@ -124,16 +134,19 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--not-selected"
+    className="toggle monday-style-toggle_toggle dummy-class-name notSelected monday-style-toggle_toggle--not-selected"
+    data-testid="mock-toggle"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     On
   </span>
@@ -142,7 +155,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
 
 exports[`Toggle renders correctly renders correctly when selection defined by isSelected (on) 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper monday-style-toggle_wrapper"
 >
   <input
     aria-checked={true}
@@ -154,16 +167,19 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle dummy-class-name monday-style-toggle_toggle--selected"
+    className="toggle monday-style-toggle_toggle dummy-class-name selected monday-style-toggle_toggle--selected"
+    data-testid="mock-toggle"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     On
   </span>
@@ -172,7 +188,7 @@ exports[`Toggle renders correctly renders correctly when selection defined by is
 
 exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper monday-style-toggle_wrapper"
 >
   <input
     aria-checked={true}
@@ -185,16 +201,19 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle monday-style-toggle_toggle selected monday-style-toggle_toggle--selected"
+    data-testid="mock-toggle"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     On
   </span>
@@ -203,7 +222,7 @@ exports[`Toggle renders correctly renders correctly with aria controls 1`] = `
 
 exports[`Toggle renders correctly renders correctly with empty props 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper monday-style-toggle_wrapper"
 >
   <input
     aria-checked={true}
@@ -215,16 +234,19 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle monday-style-toggle_toggle selected monday-style-toggle_toggle--selected"
+    data-testid="mock-toggle"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     On
   </span>
@@ -233,7 +255,7 @@ exports[`Toggle renders correctly renders correctly with empty props 1`] = `
 
 exports[`Toggle renders correctly renders correctly with not default offOverrideText 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper monday-style-toggle_wrapper"
 >
   <input
     aria-checked={true}
@@ -245,16 +267,19 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     TestOff
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle monday-style-toggle_toggle selected monday-style-toggle_toggle--selected"
+    data-testid="mock-toggle"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     On
   </span>
@@ -263,7 +288,7 @@ exports[`Toggle renders correctly renders correctly with not default offOverride
 
 exports[`Toggle renders correctly renders correctly with not default onOverrideText 1`] = `
 <label
-  className="monday-style-toggle_wrapper"
+  className="wrapper monday-style-toggle_wrapper"
 >
   <input
     aria-checked={true}
@@ -275,16 +300,19 @@ exports[`Toggle renders correctly renders correctly with not default onOverrideT
     type="checkbox"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     Off
   </span>
   <div
     aria-hidden="true"
-    className="monday-style-toggle_toggle monday-style-toggle_toggle--selected"
+    className="toggle monday-style-toggle_toggle selected monday-style-toggle_toggle--selected"
+    data-testid="mock-toggle"
   />
   <span
-    className="monday-style-toggle_text"
+    className="text monday-style-toggle_text"
+    data-testid="toggle-text"
   >
     TestOn
   </span>

@@ -2,10 +2,10 @@
 
 exports[`MultiStepIndicator renders correctly with className 1`] = `
 <ol
-  className="multi-step-indicator--wrapper test"
+  className="wrapper multi-step-indicator--wrapper test"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -14,19 +14,20 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusFulfilledNumberDividerContainer monday-style-step-indicator-component--status-fulfilled__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusFulfilledNumberContainer monday-style-step-indicator-component--status-fulfilled__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusFulfilledNumberContainerText monday-style-step-indicator-component--status-fulfilled__number-container__text"
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component numberContainerTextCheckIcon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -44,10 +45,10 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-fulfilled__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusFulfilledTextContainer monday-style-step-indicator-component--status-fulfilled__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusFulfilledTextContainerTitle monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -57,23 +58,23 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusFulfilledTextContainerTitleText monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
         >
           Title
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusFulfilledTextContainerSubtitleText monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
       >
         Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusActive monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -82,25 +83,26 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusActiveNumberDividerContainer monday-style-step-indicator-component--status-active__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-active__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusActiveNumberContainer monday-style-step-indicator-component--status-active__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusActiveNumberContainerText monday-style-step-indicator-component--status-active__number-container__text"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-active__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusActiveTextContainer monday-style-step-indicator-component--status-active__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusActiveTextContainerTitle monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -110,23 +112,23 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-active__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusActiveTextContainerTitleText monday-style-step-indicator-component--status-active__text-container__title__text"
         >
           Active
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-active__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusActiveTextContainerSubtitleText monday-style-step-indicator-component--status-active__text-container__subtitle__text"
       >
         Active Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusPending monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -135,25 +137,26 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusPendingNumberDividerContainer monday-style-step-indicator-component--status-pending__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-pending__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusPendingNumberContainer monday-style-step-indicator-component--status-pending__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusPendingNumberContainerText monday-style-step-indicator-component--status-pending__number-container__text"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-pending__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusPendingTextContainer monday-style-step-indicator-component--status-pending__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusPendingTextContainerTitle monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -163,13 +166,13 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-pending__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusPendingTextContainerTitleText monday-style-step-indicator-component--status-pending__text-container__title__text"
         >
           Pending
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusPendingTextContainerSubtitleText monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
       >
         Pending Subtitle
       </span>
@@ -180,10 +183,10 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
 
 exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`] = `
 <ol
-  className="multi-step-indicator--wrapper"
+  className="wrapper multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -192,19 +195,20 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusFulfilledNumberDividerContainer monday-style-step-indicator-component--status-fulfilled__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusFulfilledNumberContainer monday-style-step-indicator-component--status-fulfilled__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusFulfilledNumberContainerText monday-style-step-indicator-component--status-fulfilled__number-container__text"
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component numberContainerTextCheckIcon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -222,10 +226,10 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-fulfilled__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusFulfilledTextContainer monday-style-step-indicator-component--status-fulfilled__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusFulfilledTextContainerTitle monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -235,23 +239,23 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusFulfilledTextContainerTitleText monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
         >
           Title
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusFulfilledTextContainerSubtitleText monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
       >
         Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider test monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider test monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusActive monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -260,25 +264,26 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusActiveNumberDividerContainer monday-style-step-indicator-component--status-active__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-active__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusActiveNumberContainer monday-style-step-indicator-component--status-active__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusActiveNumberContainerText monday-style-step-indicator-component--status-active__number-container__text"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-active__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusActiveTextContainer monday-style-step-indicator-component--status-active__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusActiveTextContainerTitle monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -288,23 +293,23 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-active__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusActiveTextContainerTitleText monday-style-step-indicator-component--status-active__text-container__title__text"
         >
           Active
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-active__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusActiveTextContainerSubtitleText monday-style-step-indicator-component--status-active__text-container__subtitle__text"
       >
         Active Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider test monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider test monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusPending monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -313,25 +318,26 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusPendingNumberDividerContainer monday-style-step-indicator-component--status-pending__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-pending__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusPendingNumberContainer monday-style-step-indicator-component--status-pending__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusPendingNumberContainerText monday-style-step-indicator-component--status-pending__number-container__text"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-pending__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusPendingTextContainer monday-style-step-indicator-component--status-pending__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusPendingTextContainerTitle monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -341,13 +347,13 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-pending__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusPendingTextContainerTitleText monday-style-step-indicator-component--status-pending__text-container__title__text"
         >
           Pending
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusPendingTextContainerSubtitleText monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
       >
         Pending Subtitle
       </span>
@@ -358,16 +364,16 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
 
 exports[`MultiStepIndicator renders correctly with empty props 1`] = `
 <ol
-  className="multi-step-indicator--wrapper"
+  className="wrapper multi-step-indicator--wrapper"
 />
 `;
 
 exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
 <ol
-  className="multi-step-indicator--wrapper"
+  className="wrapper multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -376,19 +382,20 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusFulfilledNumberDividerContainer monday-style-step-indicator-component--status-fulfilled__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusFulfilledNumberContainer monday-style-step-indicator-component--status-fulfilled__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusFulfilledNumberContainerText monday-style-step-indicator-component--status-fulfilled__number-container__text"
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component numberContainerTextCheckIcon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -406,10 +413,10 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-fulfilled__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusFulfilledTextContainer monday-style-step-indicator-component--status-fulfilled__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusFulfilledTextContainerTitle monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -419,23 +426,23 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusFulfilledTextContainerTitleText monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
         >
           Title
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusFulfilledTextContainerSubtitleText monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
       >
         Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusActive monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -444,25 +451,26 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusActiveNumberDividerContainer monday-style-step-indicator-component--status-active__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-active__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusActiveNumberContainer monday-style-step-indicator-component--status-active__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusActiveNumberContainerText monday-style-step-indicator-component--status-active__number-container__text"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-active__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusActiveTextContainer monday-style-step-indicator-component--status-active__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusActiveTextContainerTitle monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -472,23 +480,23 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-active__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusActiveTextContainerTitleText monday-style-step-indicator-component--status-active__text-container__title__text"
         >
           Active
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-active__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusActiveTextContainerSubtitleText monday-style-step-indicator-component--status-active__text-container__subtitle__text"
       >
         Active Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusPending monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -497,25 +505,26 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusPendingNumberDividerContainer monday-style-step-indicator-component--status-pending__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-pending__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusPendingNumberContainer monday-style-step-indicator-component--status-pending__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusPendingNumberContainerText monday-style-step-indicator-component--status-pending__number-container__text"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-pending__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusPendingTextContainer monday-style-step-indicator-component--status-pending__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusPendingTextContainerTitle monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -525,13 +534,13 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-pending__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusPendingTextContainerTitleText monday-style-step-indicator-component--status-pending__text-container__title__text"
         >
           Pending
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusPendingTextContainerSubtitleText monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
       >
         Pending Subtitle
       </span>
@@ -542,10 +551,10 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
 
 exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 1`] = `
 <ol
-  className="multi-step-indicator--wrapper"
+  className="wrapper multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -554,25 +563,26 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusFulfilledNumberDividerContainer monday-style-step-indicator-component--status-fulfilled__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusFulfilledNumberContainer monday-style-step-indicator-component--status-fulfilled__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusFulfilledNumberContainerText monday-style-step-indicator-component--status-fulfilled__number-container__text"
         >
           1
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-fulfilled__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusFulfilledTextContainer monday-style-step-indicator-component--status-fulfilled__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusFulfilledTextContainerTitle monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -582,23 +592,23 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusFulfilledTextContainerTitleText monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
         >
           Title
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusFulfilledTextContainerSubtitleText monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
       >
         Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusActive monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -607,25 +617,26 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusActiveNumberDividerContainer monday-style-step-indicator-component--status-active__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-active__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusActiveNumberContainer monday-style-step-indicator-component--status-active__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusActiveNumberContainerText monday-style-step-indicator-component--status-active__number-container__text"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-active__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusActiveTextContainer monday-style-step-indicator-component--status-active__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusActiveTextContainerTitle monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -635,23 +646,23 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-active__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusActiveTextContainerTitleText monday-style-step-indicator-component--status-active__text-container__title__text"
         >
           Active
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-active__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusActiveTextContainerSubtitleText monday-style-step-indicator-component--status-active__text-container__subtitle__text"
       >
         Active Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusPending monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -660,25 +671,26 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusPendingNumberDividerContainer monday-style-step-indicator-component--status-pending__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-pending__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusPendingNumberContainer monday-style-step-indicator-component--status-pending__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusPendingNumberContainerText monday-style-step-indicator-component--status-pending__number-container__text"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-pending__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusPendingTextContainer monday-style-step-indicator-component--status-pending__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusPendingTextContainerTitle monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -688,13 +700,13 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-pending__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusPendingTextContainerTitleText monday-style-step-indicator-component--status-pending__text-container__title__text"
         >
           Pending
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusPendingTextContainerSubtitleText monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
       >
         Pending Subtitle
       </span>
@@ -705,10 +717,10 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
 
 exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = `
 <ol
-  className="multi-step-indicator--wrapper"
+  className="wrapper multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled test clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled test clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -717,19 +729,20 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusFulfilledNumberDividerContainer monday-style-step-indicator-component--status-fulfilled__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusFulfilledNumberContainer monday-style-step-indicator-component--status-fulfilled__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusFulfilledNumberContainerText monday-style-step-indicator-component--status-fulfilled__number-container__text"
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component numberContainerTextCheckIcon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -747,10 +760,10 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-fulfilled__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusFulfilledTextContainer monday-style-step-indicator-component--status-fulfilled__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusFulfilledTextContainerTitle monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -760,23 +773,23 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusFulfilledTextContainerTitleText monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
         >
           Title
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusFulfilledTextContainerSubtitleText monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
       >
         Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active test clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusActive monday-style-step-indicator-component--status-active test clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -785,25 +798,26 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusActiveNumberDividerContainer monday-style-step-indicator-component--status-active__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-active__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusActiveNumberContainer monday-style-step-indicator-component--status-active__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusActiveNumberContainerText monday-style-step-indicator-component--status-active__number-container__text"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-active__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusActiveTextContainer monday-style-step-indicator-component--status-active__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusActiveTextContainerTitle monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -813,23 +827,23 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-active__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusActiveTextContainerTitleText monday-style-step-indicator-component--status-active__text-container__title__text"
         >
           Active
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-active__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusActiveTextContainerSubtitleText monday-style-step-indicator-component--status-active__text-container__subtitle__text"
       >
         Active Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending test clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusPending monday-style-step-indicator-component--status-pending test clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -838,25 +852,26 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusPendingNumberDividerContainer monday-style-step-indicator-component--status-pending__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-pending__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusPendingNumberContainer monday-style-step-indicator-component--status-pending__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusPendingNumberContainerText monday-style-step-indicator-component--status-pending__number-container__text"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-pending__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusPendingTextContainer monday-style-step-indicator-component--status-pending__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusPendingTextContainerTitle monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -866,13 +881,13 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-pending__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusPendingTextContainerTitleText monday-style-step-indicator-component--status-pending__text-container__title__text"
         >
           Pending
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusPendingTextContainerSubtitleText monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
       >
         Pending Subtitle
       </span>
@@ -883,10 +898,10 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
 
 exports[`MultiStepIndicator renders correctly with steps 1`] = `
 <ol
-  className="multi-step-indicator--wrapper"
+  className="wrapper multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -895,19 +910,20 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusFulfilledNumberDividerContainer monday-style-step-indicator-component--status-fulfilled__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusFulfilledNumberContainer monday-style-step-indicator-component--status-fulfilled__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusFulfilledNumberContainerText monday-style-step-indicator-component--status-fulfilled__number-container__text"
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component numberContainerTextCheckIcon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -925,10 +941,10 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-fulfilled__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusFulfilledTextContainer monday-style-step-indicator-component--status-fulfilled__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusFulfilledTextContainerTitle monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -938,23 +954,23 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusFulfilledTextContainerTitleText monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
         >
           Title
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusFulfilledTextContainerSubtitleText monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
       >
         Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusActive monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -963,25 +979,26 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusActiveNumberDividerContainer monday-style-step-indicator-component--status-active__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-active__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusActiveNumberContainer monday-style-step-indicator-component--status-active__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusActiveNumberContainerText monday-style-step-indicator-component--status-active__number-container__text"
         >
           2
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-active__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusActiveTextContainer monday-style-step-indicator-component--status-active__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusActiveTextContainerTitle monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -991,23 +1008,23 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-active__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusActiveTextContainerTitleText monday-style-step-indicator-component--status-active__text-container__title__text"
         >
           Active
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-active__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusActiveTextContainerSubtitleText monday-style-step-indicator-component--status-active__text-container__subtitle__text"
       >
         Active Subtitle
       </span>
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
   />
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusPending monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1016,25 +1033,26 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusPendingNumberDividerContainer monday-style-step-indicator-component--status-pending__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-pending__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusPendingNumberContainer monday-style-step-indicator-component--status-pending__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusPendingNumberContainerText monday-style-step-indicator-component--status-pending__number-container__text"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-pending__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusPendingTextContainer monday-style-step-indicator-component--status-pending__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusPendingTextContainerTitle monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -1044,13 +1062,13 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-pending__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusPendingTextContainerTitleText monday-style-step-indicator-component--status-pending__text-container__title__text"
         >
           Pending
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusPendingTextContainerSubtitleText monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
       >
         Pending Subtitle
       </span>
@@ -1061,10 +1079,10 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
 
 exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = `
 <ol
-  className="multi-step-indicator--wrapper"
+  className="wrapper multi-step-indicator--wrapper"
 >
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-fulfilled clickable monday-style-step-indicator-component--text-placement-vertical monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable textPlacementVertical monday-style-step-indicator-component--text-placement-vertical monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1073,19 +1091,20 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusFulfilledNumberDividerContainer monday-style-step-indicator-component--status-fulfilled__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-fulfilled__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusFulfilledNumberContainer monday-style-step-indicator-component--status-fulfilled__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-fulfilled__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusFulfilledNumberContainerText monday-style-step-indicator-component--status-fulfilled__number-container__text"
         >
           <svg
             aria-hidden={true}
-            className="icon_component monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
+            className="icon_component numberContainerTextCheckIcon monday-style-step-indicator-component__number-container__text__check-icon icon_component--no-focus-style"
             fill="currentColor"
             height="16"
             onClick={[Function]}
@@ -1102,14 +1121,14 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
       </div>
       <div
-        className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+        className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
       />
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-fulfilled__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusFulfilledTextContainer monday-style-step-indicator-component--status-fulfilled__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusFulfilledTextContainerTitle monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -1119,20 +1138,20 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusFulfilledTextContainerTitleText monday-style-step-indicator-component--status-fulfilled__text-container__title__text"
         >
           Title
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusFulfilledTextContainerSubtitleText monday-style-step-indicator-component--status-fulfilled__text-container__subtitle__text"
       >
         Subtitle
       </span>
     </div>
   </li>
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-step-indicator-component--text-placement-vertical monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusActive monday-style-step-indicator-component--status-active clickable textPlacementVertical monday-style-step-indicator-component--text-placement-vertical monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1141,28 +1160,29 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusActiveNumberDividerContainer monday-style-step-indicator-component--status-active__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-active__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusActiveNumberContainer monday-style-step-indicator-component--status-active__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-active__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusActiveNumberContainerText monday-style-step-indicator-component--status-active__number-container__text"
         >
           2
         </span>
       </div>
       <div
-        className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+        className="monday-style-divider divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
       />
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-active__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusActiveTextContainer monday-style-step-indicator-component--status-active__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusActiveTextContainerTitle monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -1172,20 +1192,20 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-active__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusActiveTextContainerTitleText monday-style-step-indicator-component--status-active__text-container__title__text"
         >
           Active
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-active__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusActiveTextContainerSubtitleText monday-style-step-indicator-component--status-active__text-container__subtitle__text"
       >
         Active Subtitle
       </span>
     </div>
   </li>
   <li
-    className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-step-indicator-component--text-placement-vertical monday-style-clickable--disable-text-selection"
+    className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusPending monday-style-step-indicator-component--status-pending clickable textPlacementVertical monday-style-step-indicator-component--text-placement-vertical monday-style-clickable--disable-text-selection"
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
@@ -1194,25 +1214,26 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     tabIndex="-1"
   >
     <div
-      className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
+      className="numberDividerContainer monday-style-step-indicator-component__number-divider-container typePrimaryNumberDividerContainer monday-style-step-indicator-component--type-primary__number-divider-container statusPendingNumberDividerContainer monday-style-step-indicator-component--status-pending__number-divider-container"
     >
       <div
-        className="monday-style-step-indicator-component__number-container monday-style-step-indicator-component--type-primary__number-container monday-style-step-indicator-component--status-pending__number-container"
+        className="numberContainer monday-style-step-indicator-component__number-container typePrimaryNumberContainer monday-style-step-indicator-component--type-primary__number-container statusPendingNumberContainer monday-style-step-indicator-component--status-pending__number-container"
+        data-testid="step-indicator"
         role="button"
         tabIndex="0"
       >
         <span
-          className="monday-style-step-indicator-component__number-container__text monday-style-step-indicator-component--type-primary__number-container__text monday-style-step-indicator-component--status-pending__number-container__text"
+          className="numberContainerText monday-style-step-indicator-component__number-container__text typePrimaryNumberContainerText monday-style-step-indicator-component--type-primary__number-container__text statusPendingNumberContainerText monday-style-step-indicator-component--status-pending__number-container__text"
         >
           3
         </span>
       </div>
     </div>
     <div
-      className="monday-style-step-indicator-component__text-container monday-style-step-indicator-component--type-primary__text-container monday-style-step-indicator-component--status-pending__text-container"
+      className="textContainer monday-style-step-indicator-component__text-container typePrimaryTextContainer monday-style-step-indicator-component--type-primary__text-container statusPendingTextContainer monday-style-step-indicator-component--status-pending__text-container"
     >
       <div
-        className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
+        className="textContainerTitle monday-style-step-indicator-component__text-container__title typePrimaryTextContainerTitle monday-style-step-indicator-component--type-primary__text-container__title statusPendingTextContainerTitle monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
           className="hidden-text--wrapper"
@@ -1222,13 +1243,13 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
          
         <span
-          className="monday-style-step-indicator-component__text-container__title__text monday-style-step-indicator-component--type-primary__text-container__title__text monday-style-step-indicator-component--status-pending__text-container__title__text"
+          className="textContainerTitleText monday-style-step-indicator-component__text-container__title__text typePrimaryTextContainerTitleText monday-style-step-indicator-component--type-primary__text-container__title__text statusPendingTextContainerTitleText monday-style-step-indicator-component--status-pending__text-container__title__text"
         >
           Pending
         </span>
       </div>
       <span
-        className="monday-style-step-indicator-component__text-container__subtitle__text monday-style-step-indicator-component--type-primary__text-container__subtitle__text monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
+        className="textContainerSubtitleText monday-style-step-indicator-component__text-container__subtitle__text typePrimaryTextContainerSubtitleText monday-style-step-indicator-component--type-primary__text-container__subtitle__text statusPendingTextContainerSubtitleText monday-style-step-indicator-component--status-pending__text-container__subtitle__text"
       >
         Pending Subtitle
       </span>

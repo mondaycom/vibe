@@ -121,9 +121,9 @@ const StepIndicator = ({
       styles[camelCase(`${suffix || modularBaseClassName}`)],
       `${CSS_BASE_CLASS}${suffix}`,
       styles[camelCase(`type-${type}-${suffix}`)],
-      `${CSS_BASE_CLASSWithType}${suffix || modularBaseClassName}`,
+      `${CSS_BASE_CLASSWithType}${suffix}`,
       styles[camelCase(`status-${status}-${suffix}`)],
-      `${CSS_BASE_CLASSWithStatus}${suffix || modularBaseClassName}`
+      `${CSS_BASE_CLASSWithStatus}${suffix}`
     ];
   };
 
