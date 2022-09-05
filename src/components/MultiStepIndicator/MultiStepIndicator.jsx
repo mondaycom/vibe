@@ -1,7 +1,7 @@
-/* eslint-disable react/require-default-props */
-import React, { useRef, forwardRef, useMemo, useCallback } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+/* eslint-disable react/require-default-props */
+import React, { forwardRef, useCallback, useMemo, useRef } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Icon from "../../components/Icon/Icon";
 import Check from "../../components/Icon/Icons/components/Check";
@@ -9,7 +9,9 @@ import Divider from "../../components/Divider/Divider";
 import { NOOP } from "../../utils/function-utils";
 import StepIndicator from "./components/StepIndicator/StepIndicator";
 import { MULTI_STEP_TYPES, STEP_STATUSES, TEXT_PLACEMENTS } from "./MultiStepConstants";
-import "./MultiStepIndicator.scss";
+import styles from "./MultiStepIndicator.module.scss";
+
+const CSS_BASE_CLASS = "multi-step-indicator--wrapper";
 
 const MultiStepIndicator = forwardRef(
   (
@@ -29,8 +31,7 @@ const MultiStepIndicator = forwardRef(
   ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const baseClassName = "multi-step-indicator--wrapper";
-    const defaultDividerClassName = `${baseClassName}__divider`;
+    const defaultDividerClassName = cx(styles.divider, `${CSS_BASE_CLASS}__divider`);
 
     const renderHorizontalStepIndicator = useCallback(
       (step, index) => {
@@ -102,7 +103,7 @@ const MultiStepIndicator = forwardRef(
     );
 
     return (
-      <ol ref={mergedRef} className={cx(baseClassName, className)}>
+      <ol ref={mergedRef} className={cx(styles.wrapper, CSS_BASE_CLASS, className)}>
         {steps.map(stepRenderer)}
       </ol>
     );

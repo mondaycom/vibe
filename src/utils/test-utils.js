@@ -12,8 +12,6 @@ export const ELEMENT_TYPES = {
   COLOR_PICKER_ITEM: "color-picker-item",
   ICON_BUTTON: "icon-button",
   CHIP: "chip",
-  TAB: "tab",
-  TAB_PANEL: "tab-panel",
   ALERT_BANNER_BUTTON: "alert-banner-button",
   ALERT_BANNER_LINK: "alert-banner-link",
   ALERT_BANNER_TEXT: "alert-banner-text",
@@ -45,7 +43,11 @@ export const ELEMENT_TYPES = {
   TOAST: "toast",
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
-  DIVIDER: "divider"
+  TOGGLE_TEXT: "toggle-text",
+  MOCK_TOGGLE: "mock-toggle",
+  DIVIDER: "divider",
+  TAB: "tab",
+  TAB_PANEL: "tab-panel"
 };
 
 export const NAVIGATIONS_COMMANDS = {
