@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.60.0 (2022-09-06)
+
+#### New Features
+* [#856](https://github.com/mondaycom/monday-ui-react-core/pull/856) feat(checkbox): add ability to render component without label ([@niksa-monday](https://github.com/niksa-monday))
+
+#### Internal Changes
+* [#794](https://github.com/mondaycom/monday-ui-react-core/pull/794) Convert button component to typescript & project configurations  ([@hadasfa](https://github.com/hadasfa))
+
+## 1.59.1 (2022-09-04)
+
+#### Bug Fixes
+* [#854](https://github.com/mondaycom/monday-ui-react-core/pull/854) add support for menus inside a container which using transform function ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.59.0 (2022-09-02)
 
 #### Bug Fixes
