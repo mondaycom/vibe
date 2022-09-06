@@ -66,27 +66,27 @@ const MenuButton = forwardRef(
       event => {
         if (event && event.key === "Escape") {
           setIsOpen(false);
-          const button = ref.current;
+          const button = componentRef.current;
           window.requestAnimationFrame(() => {
             button.focus();
           });
         }
       },
-      [mergedRef, setIsOpen]
+      [componentRef, setIsOpen]
     );
 
     const onDialogDidHide = useCallback(
       (event, hideEvent) => {
         setIsOpen(false);
         onMenuHide();
-        const button = mergedRef.current;
+        const button = componentRef.current;
         window.requestAnimationFrame(() => {
           if (button && hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY) {
             button.focus();
           }
         });
       },
-      [setIsOpen, onMenuHide, mergedRef]
+      [setIsOpen, onMenuHide, componentRef]
     );
 
     const onDialogDidShow = useCallback(() => {
@@ -343,13 +343,7 @@ MenuButton.propTypes = {
   /**
    * When the MenuButton is hidden hide the dialog and tooltip as well
    */
-  hideWhenReferenceHidden: PropTypes.bool,
-  /**
-   * Reference to the menu button element
-   */
-  ref: PropTypes.shape({
-    current: PropTypes.element
-  })
+  hideWhenReferenceHidden: PropTypes.bool
 };
 MenuButton.defaultProps = {
   id: undefined,

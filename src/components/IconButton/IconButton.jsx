@@ -191,10 +191,7 @@ IconButton.propTypes = {
   disabledReason: PropTypes.string,
   dataTestId: PropTypes.string,
   /** Change the focus indicator from around the button to within it */
-  insetFocus: PropTypes.bool,
-  ref: PropTypes.shape({
-    current: PropTypes.element
-  })
+  insetFocus: PropTypes.bool
 };
 
 IconButton.defaultProps = {
@@ -212,8 +209,7 @@ IconButton.defaultProps = {
   disabledReason: undefined,
   color: undefined,
   dataTestId: undefined,
-  insetFocus: false,
-  ref: undefined
+  insetFocus: false
 };
 
 export default IconButton;
