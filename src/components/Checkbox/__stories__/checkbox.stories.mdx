@@ -1,9 +1,9 @@
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import Checkbox from "../Checkbox";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { Link, UnstyledList, UnstyledListItem, createComponentTemplate } from "../../../storybook";
+import { Calendar } from "../../Icon/Icons";
 import { RADIO_BUTTON, TOGGLE, DROPDOWN } from "../../../storybook/components/related-components/component-description-map";
 import DialogContentContainer from "../../DialogContentContainer/DialogContentContainer";
-import { Link } from "../../../storybook/components";
 import "./checkbox.stories.scss";
 
 <Meta
@@ -66,6 +66,25 @@ Has 4 states: regular, hover, selected, and disabled.
     <Checkbox label="Disabled" disabled />
     <Checkbox label="Disabled checked" disabled checked />
     <Checkbox label="Disabled indeterminate" disabled indeterminate />
+  </Story>
+</Canvas>
+
+### Variants of Checkboxes' Labels
+Component have ability to render with:
+<UnstyledList>
+  <UnstyledListItem>with text label</UnstyledListItem>
+  <UnstyledListItem>with component label</UnstyledListItem>
+  <UnstyledListItem>with empty label (empty DOM element will be rendered)</UnstyledListItem>
+  <UnstyledListItem>without label (DOM element for label will not be rendered).</UnstyledListItem>
+</UnstyledList>
+Check React source and rendered HTML.
+
+<Canvas>
+  <Story name="Labels">
+    <Checkbox ariaLabel="With Label" label="With label" />
+    <Checkbox ariaLabel="With Component Label" label={<span class="custom-component-label"><Calendar size={12}/>Component Label</span>} />
+    <Checkbox ariaLabel="With Empty Label" label="" />
+    <Checkbox ariaLabel="Without Label" label={false} />
   </Story>
 </Canvas>
 
