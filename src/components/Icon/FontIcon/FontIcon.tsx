@@ -1,7 +1,7 @@
 import React, { AriaRole, forwardRef } from "react";
 import classNames from "classnames";
-import VibeComponentProps from "../../../interfaces/VibeComponentProps";
-import VibeComponent from "../../../interfaces/VibeComponent";
+import VibeComponentProps from "../../../types/VibeComponentProps";
+import VibeComponent from "../../../types/VibeComponent";
 
 interface FontIconProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;

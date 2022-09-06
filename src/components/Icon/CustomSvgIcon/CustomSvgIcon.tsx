@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 import SVG from "react-inlinesvg";
 import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAccessProps";
-import VibeComponentProps from "../../../interfaces/VibeComponentProps";
-import VibeComponent from "../../../interfaces/VibeComponent";
+import VibeComponentProps from "../../../types/VibeComponentProps";
+import VibeComponent from "../../../types/VibeComponent";
 
 function modifySvgCode(svg: string, color: string = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);

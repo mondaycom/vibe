@@ -5,8 +5,8 @@ import { IconType } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
-import VibeComponentProps from "../../interfaces/VibeComponentProps";
-import VibeComponent from "../../interfaces/VibeComponent";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
 import "./Icon.scss";
 
 // eslint-disable-next-line no-unused-vars
