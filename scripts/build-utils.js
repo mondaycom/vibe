@@ -41,16 +41,6 @@ function buildComponentsEsmFile() {
 function buildTSComponentsEsmFile() {
   buildComponentsEsmFileByMap(publishedTSComponents, "ts-esm.js");
 }
-/**
-function copyGlobalTypesToDist() {
-  const typesFolderPath = path.join(__dirname, `../src/types`);
-  if (!fs.existsSync(typesFolderPath)) {
-    fs.readdirSync(typesFolderPath).forEach(file => {
-      fs.copyFileSync(file,)
-    });
-  }
-}
-**/
 
 function buildIconsEsmFile() {
   const icons = fs.readdirSync(path.join(__dirname, "../dist/icons")).filter(file => file !== "index.js");
