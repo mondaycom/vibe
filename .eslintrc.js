@@ -59,7 +59,7 @@ module.exports = {
     "react/require-default-props": ["error"],
     "jsx-a11y/anchor-is-valid": ["error"],
     "react/jsx-props-no-spreading": 0,
-    "react/jsx-filename-extension": ["error", { extensions: [".js", ".jsx"] }],
+    "react/jsx-filename-extension": ["error", { extensions: [".js", ".jsx", ".ts", ".tsx"] }],
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/alt-text": "error",
     "jsx-a11y/no-noninteractive-element-interactions": [
