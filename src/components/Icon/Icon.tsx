@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import { ICON_TYPES } from "./IconConstants";
+import { IconType } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon/CustomSvgIcon";
 import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
@@ -18,7 +18,7 @@ interface IconProps extends VibeComponentProps {
   icon: string | React.Component | null;
   clickable?: boolean;
   iconLabel?: string;
-  iconType?: typeof ICON_TYPES[keyof typeof ICON_TYPES];
+  iconType?: IconType;
   iconSize?: number | string;
   ignoreFocusStyle?: boolean;
   tabindex?: number | string;
@@ -28,7 +28,7 @@ interface IconProps extends VibeComponentProps {
   customColor?: string;
 }
 
-const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES } = forwardRef(
+const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } = forwardRef(
   (
     {
       /**
@@ -55,7 +55,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
       /**
        *  the type of the component - svg, font or custom svg (using react-inlinesvg)
        */
-      iconType = ICON_TYPES.SVG,
+      iconType = IconType.SVG,
       /**
        * size for font icon
        */
@@ -100,7 +100,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
     }
 
     const isFunctionType = typeof icon === "function";
-    if (iconType === ICON_TYPES.SVG || isFunctionType || typeof icon === "object") {
+    if (iconType === IconType.SVG || isFunctionType || typeof icon === "object") {
       const IconComponent = icon;
       return (
         // The icons are not converted to ts for js yet.
@@ -117,7 +117,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
         />
       );
     }
-    if (iconType === ICON_TYPES.SRC) {
+    if (iconType === IconType.SRC) {
       return (
         <CustomSvgIcon
           id={id}
@@ -145,6 +145,6 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof ICON_TYPES }
   }
 );
 
-Icon.type = ICON_TYPES;
+Icon.type = IconType;
 
 export default Icon;
