@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.61.0 (2022-09-07)
+
+#### New Features
+* [#861](https://github.com/mondaycom/monday-ui-react-core/pull/861) Fix menu button ref ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.60.0 (2022-09-06)
 
 #### New Features
