@@ -379,8 +379,8 @@ Object.assign(Button, {
 });
 
 Button.defaultProps = {
-  className: "",
-  name: "",
+  className: undefined,
+  name: undefined,
   style: undefined,
   id: undefined,
   dataTestId: undefined,
