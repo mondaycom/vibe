@@ -1,5 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { useCallback, useState, useMemo, useLayoutEffect, forwardRef, useRef } from "react";
+import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
@@ -154,20 +154,20 @@ const MenuButton = forwardRef(
       onClick();
     };
 
-  const Icon = component;
-  const iconSize = useMemo(() => {
-    switch (size) {
-      case MenuButton.sizes.XXS:
-      case MenuButton.sizes.XS:
-        return 16;
-      case MenuButton.sizes.SMALL:
-      case MenuButton.sizes.MEDIUM:
-      case MenuButton.sizes.LARGE:
-        return BUTTON_ICON_SIZE;
-      default:
-        return 24;
-    }
-  }, [size]);
+    const Icon = component;
+    const iconSize = useMemo(() => {
+      switch (size) {
+        case MenuButton.sizes.XXS:
+        case MenuButton.sizes.XS:
+          return 16;
+        case MenuButton.sizes.SMALL:
+        case MenuButton.sizes.MEDIUM:
+        case MenuButton.sizes.LARGE:
+          return BUTTON_ICON_SIZE;
+        default:
+          return 24;
+      }
+    }, [size]);
 
     useLayoutEffect(() => {
       setIsOpen(open);
