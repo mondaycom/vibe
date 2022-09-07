@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
@@ -6,7 +7,7 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
-import { ButtonColor, ButtonInputType, ButtonType, getActualSize, Size, BUTTON_ICON_SIZE } from "./ButtonConstants";
+import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import "./Button.scss";
@@ -378,6 +379,11 @@ Object.assign(Button, {
 });
 
 Button.defaultProps = {
+  className: "",
+  name: "",
+  style: undefined,
+  id: undefined,
+  dataTestId: undefined,
   kind: Button.kinds?.PRIMARY,
   onClick: NOOP,
   size: Button.sizes?.MEDIUM,
