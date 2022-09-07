@@ -29,7 +29,7 @@
     "deploy-storybook": "storybook-to-ghpages",
     "link-local": "npm link && npm start",
     "plop": "plop",
-    "build-react-icons": "svg2react-icon --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
+    "build-react-icons": "svg2react-icon --typescript --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
     "build-react-icons-temp": "npm run build-react-icons-base && npm run add-ref-to-icons",
     "add-ref-to-icons": "node ./scripts/add-forward-ref-icons.js",
     "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx}\"",
