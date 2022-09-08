@@ -9,10 +9,10 @@
   align-items: center;
 }
 
-.headerGallery .headerDot {
+.headerGallery :global(.monday-style-steps-header_dot) {
   margin-right: $spacing-small;
 }
 
-.headerGallery .headerDot:last-child {
+.headerGallery :global(.monday-style-steps-header_dot:last-child) {
   margin-right: 0;
 }

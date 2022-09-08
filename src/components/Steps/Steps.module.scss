@@ -3,27 +3,27 @@
 @import "../../styles/global-css-settings";
 @import "../../styles/states";
 
-.contentOnTop .header {
+.contentOnTop :global(.monday-style-steps-header) {
   margin-top: $spacing-medium;
 }
 
-.contentOnBottom .header {
+.contentOnBottom :global(.monday-style-steps-header) {
   margin-bottom: $spacing-small;
 }
 
-.onPrimary .headerNumbers {
+.onPrimary :global(.monday-style-steps-header_numbers) {
   @include theme-prop(color, text-color-on-primary);
 }
 
-.onPrimary .headerDot {
+.onPrimary :global(.monday-style-steps-header_dot) {
   @include theme-prop(background, primary-hover-color);
   @include focus-style-on-primary;
 }
 
-.onPrimary .headerDotIsActive {
+.onPrimary :global(.monday-style-steps-header_dot--is-active) {
   @include theme-prop(background, text-color-on-primary);
 }
 
-.onPrimary .commandIcon {
+.onPrimary :global(.monday-style-steps-command_icon) {
   @include theme-prop(color, text-color-on-primary);
 }
