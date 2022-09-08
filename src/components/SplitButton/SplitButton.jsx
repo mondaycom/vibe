@@ -1,34 +1,34 @@
+import { camelCase } from "lodash";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 /* eslint-disable react/jsx-props-no-spreading */
 // Libraries import
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import cx from "classnames";
 import PropTypes from "prop-types";
-
 // Constants import
 import { keyCodes } from "../../constants/KeyCodes";
-
 // Utils import
 import { NOOP } from "../../utils/function-utils";
 import { isInsideClass } from "../../utils/dom-utils";
-
 // Hooks import
 import useKeyEvent from "../../hooks/useKeyEvent";
-
 // Components import
 import Button from "../Button/Button";
 import Dialog from "../Dialog/Dialog";
 import useEventListener from "../../hooks/useEventListener";
 import DropdownChevronDown from "../Icon/Icons/components/DropdownChevronDown";
-
-// SCSS import
-import "./SplitButton.scss";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
+// Styles import
+import styles from "./SplitButton.module.scss";
 
 // Constants
 const DIALOG_MOVE_BY = { main: 8, secondary: 0 };
 const DEFAULT_DIALOG_SHOW_TRIGGER = "click";
 const DEFAULT_DIALOG_HIDE_TRIGGER = ["clickoutside", "click", "esckey"];
-const SECONDARY_BUTTON_WRAPPER_CLASSNAME = "monday-style-split-button__secondary-button-wrapper";
+const SECONDARY_BUTTON_WRAPPER_CLASSNAME = [
+  styles.secondaryButtonWrapper,
+  "monday-style-split-button__secondary-button-wrapper"
+];
 const EMPTY_ARR = [];
 
 const ENTER_KEYS = [keyCodes.ENTER];
@@ -62,6 +62,8 @@ const SplitButton = ({
   secondaryDialogClassName,
   secondaryDialogPosition,
   dialogPaddingSize,
+  id,
+  "data-testid": dataTestId,
   ...buttonProps
 }) => {
   // State //
@@ -131,14 +133,21 @@ const SplitButton = ({
   const classNames = useMemo(
     () =>
       cx(
+        styles.button,
         "monday-style-split-button",
+        styles[`${camelCase("kind-" + kind)}`],
         `monday-style-split-button--kind-${kind}`,
+        styles[`${camelCase("color-" + color)}`],
         `monday-style-split-button--color-${color}`,
         {
-          "monday-style-split-button--active": isActive,
-          "monday-style-split-button--split-content-open": isDialogOpen,
-          "monday-style-split-button--hovered": isHovered,
-          "monday-style-split-button--disabled": disabled
+          [styles.active]: isActive,
+          ["monday-style-split-button--active"]: isActive,
+          [styles.splitContentOpen]: isDialogOpen,
+          ["monday-style-split-button--split-content-open"]: isDialogOpen,
+          [styles.hovered]: isHovered,
+          ["monday-style-split-button--hovered"]: isHovered,
+          [styles.disabled]: disabled,
+          ["monday-style-split-button--disabled"]: disabled
         },
         className
       ),
@@ -173,7 +182,13 @@ const SplitButton = ({
   }, [secondaryDialogPosition]);
 
   return (
-    <div className={classNames} ref={ref} role="button">
+    <div
+      className={cx(classNames)}
+      ref={ref}
+      role="button"
+      id={id}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.SPLIT_BUTTON, id)}
+    >
       <Button
         {
           ...buttonProps /* We are enriching button with other props so we must use spreading */
@@ -185,7 +200,7 @@ const SplitButton = ({
         color={color}
         kind={kind}
         onClick={onClick}
-        className="monday-style-split-button__main-button"
+        className={cx(styles.mainButton, "monday-style-split-button__main-button")}
         marginLeft={marginLeft}
         onFocus={setHovered}
         onBlur={setNotHovered}
@@ -194,7 +209,7 @@ const SplitButton = ({
         {children}
       </Button>
       {shouldRenderSplitContent && (
-        <div className={SECONDARY_BUTTON_WRAPPER_CLASSNAME}>
+        <div className={cx(SECONDARY_BUTTON_WRAPPER_CLASSNAME)}>
           <Dialog
             wrapperClassName={secondaryDialogClassName}
             zIndex={zIndex}
@@ -215,7 +230,7 @@ const SplitButton = ({
               noSidePadding
               color={color}
               kind={kind}
-              className="monday-style-split-button__secondary-button"
+              className={cx(styles.secondaryButton, "monday-style-split-button__secondary-button")}
               active={isDialogOpen}
               marginRight={marginRight}
               onFocus={setHovered}
@@ -225,7 +240,12 @@ const SplitButton = ({
               ariaHasPopup
               ariaExpanded={isDialogOpen}
             >
-              <div className="monday-style-split-button__secondary-button-icon-wrapper">
+              <div
+                className={cx(
+                  styles.secondaryButtonIconWrapper,
+                  "monday-style-split-button__secondary-button-icon-wrapper"
+                )}
+              >
                 <DropdownChevronDown aria-hidden="true" />
               </div>
             </Button>
