@@ -152,10 +152,7 @@ const Combobox = forwardRef(
       }
 
       return (
-        <div
-          className={cx(styles.noResults, "combobox--wrapper-no-results")}
-          data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX, id)}
-        >
+        <div className={cx(styles.noResults, "combobox--wrapper-no-results")}>
           <div className={cx(styles.messageWrapper, "combobox-message-wrapper")}>
             <span className={cx(styles.message, "combobox-message")}>{noResultsMessage}</span>
           </div>
@@ -202,7 +199,7 @@ const Combobox = forwardRef(
           }
         )}
         id={id}
-        data-testid={getTestId(ELEMENT_TYPES.COMBOBOX, id)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX, id)}
       >
         <div
           className={cx(styles.wrapperList, "combobox--wrapper-list")}

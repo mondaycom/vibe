@@ -124,7 +124,7 @@ const ComboboxOption = ({
       <div ref={labelRef} className={cx(styles.optionLabel, "option-label")}>
         {label}
       </div>
-      {rightIcon && renderIcon(rightIcon, rightIconType, cx("right"))}
+      {rightIcon && renderIcon(rightIcon, rightIconType, "right")}
     </>
   );
 
