@@ -3,7 +3,7 @@
 exports[`Dropdown renders correctly snapshot driver should open menu on click if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-wrapper dropdown-story css-bbwnb8-container"
   >
     <span
       aria-live="polite"
@@ -146,7 +146,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
 exports[`Dropdown renders correctly snapshot driver should open menu on focus if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-wrapper dropdown-story css-bbwnb8-container"
   >
     <span
       aria-live="polite"
@@ -239,7 +239,7 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-wrapper dropdown-story css-1pu8kyc-container"
   >
     <div
       class="monday-dropdown_scrollable-wrapper"
@@ -317,7 +317,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 2`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-wrapper dropdown-story css-1pu8kyc-container"
   >
     <div
       class="monday-dropdown_scrollable-wrapper"
@@ -395,7 +395,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 3`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-1pu8kyc-container"
+    class="dropdown dropdown-wrapper dropdown-story css-1pu8kyc-container"
   >
     <div
       class="monday-dropdown_scrollable-wrapper"
@@ -473,7 +473,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 4`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-wrapper dropdown-story css-bbwnb8-container"
   >
     <div
       class="monday-dropdown_scrollable-wrapper"
@@ -551,7 +551,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly for the different sizes 5`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-cmnsoe-container"
+    class="dropdown dropdown-wrapper dropdown-story css-cmnsoe-container"
   >
     <div
       class="monday-dropdown_scrollable-wrapper"
@@ -629,7 +629,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
 exports[`Dropdown renders correctly snapshot driver should render correctly with empty props 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-wrapper dropdown-story css-bbwnb8-container"
   >
     <div
       class="monday-dropdown_scrollable-wrapper"
@@ -707,7 +707,7 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
 exports[`Dropdown renders correctly snapshot driver should use async if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-wrapper dropdown-story css-bbwnb8-container"
   >
     <span
       aria-live="polite"
@@ -814,7 +814,7 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
 exports[`Dropdown renders correctly snapshot driver should use virtualization if set 1`] = `
 <DocumentFragment>
   <div
-    class="dropdown-wrapper dropdown-story css-bbwnb8-container"
+    class="dropdown dropdown-wrapper dropdown-story css-bbwnb8-container"
   >
     <span
       aria-live="polite"
@@ -1062,7 +1062,7 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
 
 exports[`Dropdown renders correctly when disabled 1`] = `
 <div
-  className="dropdown-wrapper css-1gsgnpy-container"
+  className="dropdown dropdown-wrapper css-1gsgnpy-container"
   onKeyDown={[Function]}
 >
   <div
@@ -1178,7 +1178,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
 
 exports[`Dropdown renders correctly when rtl 1`] = `
 <div
-  className="dropdown-wrapper css-b0xr5u-container"
+  className="dropdown dropdown-wrapper css-b0xr5u-container"
   onKeyDown={[Function]}
 >
   <div
@@ -1295,7 +1295,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
 
 exports[`Dropdown renders correctly with autoFocus 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -1412,7 +1412,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
 
 exports[`Dropdown renders correctly with className 1`] = `
 <div
-  className="dropdown-wrapper test css-bbwnb8-container"
+  className="dropdown dropdown-wrapper test css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -1529,7 +1529,7 @@ exports[`Dropdown renders correctly with className 1`] = `
 
 exports[`Dropdown renders correctly with defaultValue 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -1671,7 +1671,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
 
 exports[`Dropdown renders correctly with empty props 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -1788,7 +1788,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
 
 exports[`Dropdown renders correctly with id 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -1905,7 +1905,7 @@ exports[`Dropdown renders correctly with id 1`] = `
 
 exports[`Dropdown renders correctly with leftAvatar 1`] = `
 <div
-  className="dropdown-wrapper css-3iiiai-container"
+  className="dropdown dropdown-wrapper css-3iiiai-container"
   onKeyDown={[Function]}
 >
   <div
@@ -2129,7 +2129,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
 
 exports[`Dropdown renders correctly with leftIcon 1`] = `
 <div
-  className="dropdown-wrapper css-3iiiai-container"
+  className="dropdown dropdown-wrapper css-3iiiai-container"
   onKeyDown={[Function]}
 >
   <div
@@ -2348,7 +2348,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
 
 exports[`Dropdown renders correctly with multi 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -2479,7 +2479,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
 
 exports[`Dropdown renders correctly with multiline 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -2596,7 +2596,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
 
 exports[`Dropdown renders correctly with options 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -2713,7 +2713,7 @@ exports[`Dropdown renders correctly with options 1`] = `
 
 exports[`Dropdown renders correctly with placeholder 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -2830,7 +2830,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
 
 exports[`Dropdown renders correctly with tabIndex 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -2947,7 +2947,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
 
 exports[`Dropdown renders correctly with value 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
@@ -3089,7 +3089,7 @@ exports[`Dropdown renders correctly with value 1`] = `
 
 exports[`Dropdown renders correctly without clear button 1`] = `
 <div
-  className="dropdown-wrapper css-bbwnb8-container"
+  className="dropdown dropdown-wrapper css-bbwnb8-container"
   onKeyDown={[Function]}
 >
   <div
