@@ -2,7 +2,6 @@
 
 exports[`Label renders correctly fill dark 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div
@@ -20,7 +19,6 @@ exports[`Label renders correctly fill dark 1`] = `
 
 exports[`Label renders correctly fill negative 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div
@@ -38,7 +36,6 @@ exports[`Label renders correctly fill negative 1`] = `
 
 exports[`Label renders correctly fill positive 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div
@@ -56,7 +53,6 @@ exports[`Label renders correctly fill positive 1`] = `
 
 exports[`Label renders correctly fill primary 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div
@@ -74,7 +70,6 @@ exports[`Label renders correctly fill primary 1`] = `
 
 exports[`Label renders correctly line dark 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div
@@ -92,7 +87,6 @@ exports[`Label renders correctly line dark 1`] = `
 
 exports[`Label renders correctly line negative 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div
@@ -110,7 +104,6 @@ exports[`Label renders correctly line negative 1`] = `
 
 exports[`Label renders correctly line positive 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div
@@ -128,7 +121,6 @@ exports[`Label renders correctly line positive 1`] = `
 
 exports[`Label renders correctly line primary 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div
@@ -146,7 +138,6 @@ exports[`Label renders correctly line primary 1`] = `
 
 exports[`Label renders correctly line with leg 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div
@@ -195,7 +186,6 @@ exports[`Label renders correctly line with wrapperClassName 1`] = `
 
 exports[`Label renders correctly line without animation 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div
@@ -213,7 +203,6 @@ exports[`Label renders correctly line without animation 1`] = `
 
 exports[`Label renders correctly with empty props 1`] = `
 <span
-  className=""
   data-testid="label"
 >
   <div

@@ -1,17 +1,17 @@
 @import "../../styles/themes";
 
-.iconComponent {
+.icon {
   position: relative;
 }
 
-.iconComponent:before {
+.icon:before {
   text-decoration: none !important;
 }
 
-.iconComponentNoFocusStyle:focus {
+.noFocusStyle:focus {
   outline: none;
 }
 
-.iconComponentClickable {
+.clickable {
   cursor: pointer;
 }

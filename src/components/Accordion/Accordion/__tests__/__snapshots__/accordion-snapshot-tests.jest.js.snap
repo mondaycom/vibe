@@ -25,7 +25,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="iconComponent icon_component animate-icon-open"
+            className="icon icon_component animate-icon-open"
             data-testid="icon"
             fill="currentColor"
             height="24"
@@ -70,7 +70,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="iconComponent icon_component animate-icon-close"
+            className="icon icon_component animate-icon-close"
             data-testid="icon"
             fill="currentColor"
             height="24"
@@ -110,7 +110,7 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="iconComponent icon_component animate-icon-open"
+            className="icon icon_component animate-icon-open"
             data-testid="icon"
             fill="currentColor"
             height="24"
@@ -163,7 +163,7 @@ exports[`Accordion renders correctly with children 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="iconComponent icon_component animate-icon-close"
+            className="icon icon_component animate-icon-close"
             data-testid="icon"
             fill="currentColor"
             height="24"
@@ -203,7 +203,7 @@ exports[`Accordion renders correctly with children 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="iconComponent icon_component animate-icon-close"
+            className="icon icon_component animate-icon-close"
             data-testid="icon"
             fill="currentColor"
             height="24"
@@ -243,7 +243,7 @@ exports[`Accordion renders correctly with children 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="iconComponent icon_component animate-icon-close"
+            className="icon icon_component animate-icon-close"
             data-testid="icon"
             fill="currentColor"
             height="24"
@@ -298,7 +298,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="iconComponent icon_component animate-icon-open"
+            className="icon icon_component animate-icon-open"
             data-testid="icon"
             fill="currentColor"
             height="24"
@@ -343,7 +343,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="iconComponent icon_component animate-icon-close"
+            className="icon icon_component animate-icon-close"
             data-testid="icon"
             fill="currentColor"
             height="24"
@@ -383,7 +383,7 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="iconComponent icon_component animate-icon-close"
+            className="icon icon_component animate-icon-close"
             data-testid="icon"
             fill="currentColor"
             height="24"

@@ -40,8 +40,8 @@ const Label = ({
     [kind, color, isAnimationDisabled, isLegIncluded]
   );
   return (
-    <span className={cx(overrideClassName)} data-testid={dataTestId || getTestId(ELEMENT_TYPES.LABEL, id)}>
-      <div className={cx(classNames)}>
+    <span className={overrideClassName} data-testid={dataTestId || getTestId(ELEMENT_TYPES.LABEL, id)}>
+      <div className={classNames}>
         <span>{text}</span>
         <span className={cx(styles.legWrapper, "monday-style-label__leg-wrapper")}>
           {isLegIncluded ? <Leg /> : null}

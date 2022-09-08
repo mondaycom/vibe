@@ -1,4 +1,3 @@
-import cx from "classnames";
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -56,7 +55,7 @@ const Icon = forwardRef(
           ref={isFunctionType ? undefined : mergedRef}
           size={iconSize.toString()}
           onClick={onClick}
-          className={cx(computedClassName)}
+          className={computedClassName}
           style={style}
           data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
         />
@@ -67,7 +66,7 @@ const Icon = forwardRef(
         <CustomSvgIcon
           src={icon}
           {...screenReaderAccessProps}
-          className={cx(computedClassName)}
+          className={computedClassName}
           onClick={onClickCallback}
           style={style}
           replaceToCurrentColor={useCurrentColor}
@@ -79,7 +78,7 @@ const Icon = forwardRef(
     return (
       <FontIcon
         {...screenReaderAccessProps}
-        className={cx(computedClassName)}
+        className={computedClassName}
         onClick={onClickCallback}
         ref={mergedRef}
         icon={icon}

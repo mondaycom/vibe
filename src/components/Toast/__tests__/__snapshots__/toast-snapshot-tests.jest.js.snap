@@ -13,7 +13,7 @@ exports[`Toast renders correctly and don't renders close button if closeable=fal
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="24px"
@@ -52,7 +52,7 @@ exports[`Toast renders correctly when open is true 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="24px"
@@ -87,7 +87,7 @@ exports[`Toast renders correctly when open is true 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="20px"
@@ -117,7 +117,7 @@ exports[`Toast renders correctly with button 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="24px"
@@ -169,7 +169,7 @@ exports[`Toast renders correctly with button 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="20px"
@@ -199,7 +199,7 @@ exports[`Toast renders correctly with button and link 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="24px"
@@ -268,7 +268,7 @@ exports[`Toast renders correctly with button and link 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="20px"
@@ -298,7 +298,7 @@ exports[`Toast renders correctly with link 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="24px"
@@ -353,7 +353,7 @@ exports[`Toast renders correctly with link 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="20px"
@@ -383,7 +383,7 @@ exports[`Toast renders correctly with negative type 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="24px"
@@ -418,7 +418,7 @@ exports[`Toast renders correctly with negative type 1`] = `
   >
     <svg
       aria-hidden={true}
-      className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+      className="icon icon_component noFocusStyle icon_component--no-focus-style"
       data-testid="icon"
       fill="currentColor"
       height="20px"

@@ -72,7 +72,7 @@ const Link = forwardRef(
 
 function getIcon(shouldShow, icon, className) {
   if (!shouldShow) return;
-  return <Icon className={cx(className)} clickable={false} icon={icon} iconType={Icon.type.ICON_FONT} />;
+  return <Icon className={className} clickable={false} icon={icon} iconType={Icon.type.ICON_FONT} />;
 }
 
 // Backward compatibility for enum naming

@@ -26,7 +26,7 @@ exports[`AlertBanner should render correctly with background color 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+        className="icon icon_component noFocusStyle icon_component--no-focus-style"
         data-testid="icon"
         fill="currentColor"
         height="20px"
@@ -87,7 +87,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+        className="icon icon_component noFocusStyle icon_component--no-focus-style"
         data-testid="icon"
         fill="currentColor"
         height="20px"
@@ -210,7 +210,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+        className="icon icon_component noFocusStyle icon_component--no-focus-style"
         data-testid="icon"
         fill="currentColor"
         height="20px"
@@ -293,7 +293,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+        className="icon icon_component noFocusStyle icon_component--no-focus-style"
         data-testid="icon"
         fill="currentColor"
         height="20px"
@@ -380,7 +380,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+        className="icon icon_component noFocusStyle icon_component--no-focus-style"
         data-testid="icon"
         fill="currentColor"
         height="20px"
@@ -442,7 +442,7 @@ exports[`AlertBanner shuold render correctly with props 1`] = `
     >
       <svg
         aria-hidden={true}
-        className="iconComponent icon_component iconComponentNoFocusStyle icon_component--no-focus-style"
+        className="icon icon_component noFocusStyle icon_component--no-focus-style"
         data-testid="icon"
         fill="currentColor"
         height="20px"
