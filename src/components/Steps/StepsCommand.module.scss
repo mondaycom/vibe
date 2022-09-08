@@ -8,25 +8,25 @@
   align-items: center;
 }
 
-.commandIcon {
+.icon {
   @include theme-prop(color, icon-color);
   width: 15.5px;
   height: 15.5px;
 }
 
-.commandBackward {
+.backward {
   margin-right: $spacing-small;
   flex-direction: row-reverse;
 }
 
-.commandBackward .commandIcon {
+.backward .icon {
   margin-right: $spacing-small-medium;
 }
 
-.commandForward {
+.forward {
   margin-left: $spacing-small;
 }
 
-.commandForward .commandIcon {
+.forward .icon {
   margin-left: $spacing-small-medium;
 }

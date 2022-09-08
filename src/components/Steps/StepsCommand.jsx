@@ -34,7 +34,12 @@ export const StepsCommand = ({
   const icon = isNext ? NavigationChevronRight : NavigationChevronLeft;
   return (
     <Button
-      className={cx(styles.command, CSS_BASE_CLASS)}
+      className={cx(
+        styles.command,
+        CSS_BASE_CLASS,
+        isNext ? styles.forward : styles.backward,
+        `${CSS_BASE_CLASS}--${isNext ? "forward" : "backward"}`
+      )}
       dataTestId={isNext ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
       kind={Button.kinds.TERTIARY}
       onClick={onClick}
@@ -45,7 +50,7 @@ export const StepsCommand = ({
     >
       {description}
       {isIconHidden ? null : (
-        <Icon icon={icon} clickable={false} className={cx(styles.commandIcon, "monday-style-steps-command_icon")} />
+        <Icon icon={icon} clickable={false} className={cx(styles.icon, "monday-style-steps-command_icon")} />
       )}
     </Button>
   );
