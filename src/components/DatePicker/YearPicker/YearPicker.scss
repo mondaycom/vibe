@@ -1,0 +1,61 @@
+
+  @import "../../../styles/themes.scss";
+  @import "../../../styles/typography";
+  @import "../../../styles/global-css-settings";
+
+.date-month-year-picker-component-wrapper {
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+
+  &.is-range {
+    top: -16px;
+  }
+
+  .slide-down-appear {
+    opacity: 0;
+  }
+
+  .slide-down-appear-active {
+    transition: opacity 0.4s ease;
+    opacity: 1;
+  }
+
+  .navigation {
+    position: absolute;
+    top: 25px;
+    pointer-events: all;
+    cursor: pointer;
+
+    &.navigation-left {
+      left: 29px;
+    }
+
+    &.navigation-right {
+      right: 29px;
+    }
+  }
+
+  .date-month-year-picker-header {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .date-month-year-picker-options {
+    text-align: center;
+    background-color: #fff;
+    @include theme-prop(background-color, secondary-background-color);
+    position: absolute;
+    top: 55px;
+    pointer-events: all;
+  }
+
+  .CalendarYear--blocked {
+    @include theme-prop(color, disabled-text-color);
+    cursor: default;
+  }
+}

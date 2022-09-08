@@ -1,0 +1,16 @@
+
+
+  @import "../../../styles/themes.scss";
+  @import "../../../styles/typography";
+  @import "../../../styles/global-css-settings";
+
+.ds-date-navigation-item-component {
+  line-height: 36px;
+  font-size: 28px;
+  outline: none;
+  @include theme-prop(color, secondary-text-on-secondary-color);
+
+  &:hover {
+    @include theme-prop(color,primary);
+  }
+}

@@ -1,0 +1,33 @@
+
+  @import "../../../styles/themes.scss";
+  @import "../../../styles/typography";
+  @import "../../../styles/global-css-settings";
+
+.date-picker-header-component {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  
+    .date-picker-header-component-button-container {
+      margin-left: 4px;
+      cursor: pointer;
+  
+      .date-picker-header-component-button {
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        transition: all 0.1s ease;
+        @include theme-prop(color, primary-text-on-secondary-color, true);
+  
+        &:hover {
+          @include theme-prop(background-color, primary-background-hover-on-secondary-color);
+          text-decoration: none;
+        }
+      }
+    }
+}
