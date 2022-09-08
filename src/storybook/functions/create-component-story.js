@@ -45,6 +45,7 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
     if (prop instanceof Object) {
       enumName = prop.enumName;
       prop = prop.propName;
+      debugger;
     } else {
       enumName = `${prop}s`;
     }
