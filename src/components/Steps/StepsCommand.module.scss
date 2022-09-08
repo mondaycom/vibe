@@ -1,0 +1,32 @@
+@import "../../styles/typography";
+@import "../../styles/themes";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
+
+.command {
+  display: flex;
+  align-items: center;
+}
+
+.commandIcon {
+  @include theme-prop(color, icon-color);
+  width: 15.5px;
+  height: 15.5px;
+}
+
+.commandBackward {
+  margin-right: $spacing-small;
+  flex-direction: row-reverse;
+}
+
+.commandBackward .commandIcon {
+  margin-right: $spacing-small-medium;
+}
+
+.commandForward {
+  margin-left: $spacing-small;
+}
+
+.commandForward .commandIcon {
+  margin-left: $spacing-small-medium;
+}

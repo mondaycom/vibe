@@ -45,7 +45,18 @@ export const ELEMENT_TYPES = {
   TOAST: "toast",
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
+<<<<<<< Updated upstream
   DIVIDER: "divider"
+=======
+  DIVIDER: "divider",
+  TAB: "tab",
+  TAB_PANEL: "tab-panel",
+  STEPS: "steps",
+  STEPS_NUMBERS_HEADER: "steps-numbers-header",
+  STEPS_HEADER: "steps-header",
+  STEPS_GALLERY_HEADER: "steps-gallery-header",
+  STEPS_DOT: "steps-dot"
+>>>>>>> Stashed changes
 };
 
 export const NAVIGATIONS_COMMANDS = {

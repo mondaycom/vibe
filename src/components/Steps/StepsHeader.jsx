@@ -1,13 +1,14 @@
-import React from "react";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
+import React from "react";
 import { StepsCommand } from "./StepsCommand";
 import { StepsGalleryHeader } from "./StepsGalleryHeader";
 import { StepsNumbersHeader } from "./StepsNumbersHeader";
-import { STEPS_CSS_BASE_CLASS, STEPS_GALLERY_TYPE } from "./StepsConstants";
+import { STEPS_GALLERY_TYPE } from "./StepsConstants";
+import styles from "./StepsHeader.module.scss";
 
-const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-header`;
-const bemHelper = BEMClass(CSS_BASE_CLASS);
+const CSS_BASE_CLASS = "monday-style-steps-header";
+
 export const StepsHeader = ({
   type,
   activeStepIndex,
@@ -17,12 +18,17 @@ export const StepsHeader = ({
   backButtonProps,
   nextButtonProps,
   areButtonsIconsHidden,
-  isOnPrimary
+  isOnPrimary,
+  id,
+  "data-testid": dataTestId
 }) => {
   const SubHeaderComponent = type === STEPS_GALLERY_TYPE ? StepsGalleryHeader : StepsNumbersHeader;
 
   return (
-    <div className={cx(CSS_BASE_CLASS, bemHelper({ state: type }))}>
+    <div
+      className={cx(styles.header, CSS_BASE_CLASS, `monday-style-steps-header--${type}`)}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.STEPS_HEADER, id)}
+    >
       {areNavigationButtonsHidden ? null : (
         <StepsCommand
           isNext={false}

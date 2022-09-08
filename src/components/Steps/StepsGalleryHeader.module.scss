@@ -1,0 +1,18 @@
+@import "../../styles/typography";
+@import "../../styles/themes";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
+
+.headerGallery {
+  margin: 0 $spacing-small;
+  display: flex;
+  align-items: center;
+}
+
+.headerGallery .headerDot {
+  margin-right: $spacing-small;
+}
+
+.headerGallery .headerDot:last-child {
+  margin-right: 0;
+}

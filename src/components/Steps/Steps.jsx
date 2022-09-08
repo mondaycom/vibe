@@ -1,14 +1,14 @@
-import React, { useRef, forwardRef } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
+import React, { forwardRef, useRef } from "react";
+import PropTypes from "prop-types";
 import { NOOP } from "../../utils/function-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { StepsHeader } from "./StepsHeader";
-import { STEPS_GALLERY_TYPE, STEPS_CSS_BASE_CLASS, STEPS_TYPES } from "./StepsConstants";
-import "./Steps.scss";
+import { STEPS_GALLERY_TYPE, STEPS_TYPES } from "./StepsConstants";
+import styles from "./Steps.module.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 
-const bemHelper = BEMClass(STEPS_CSS_BASE_CLASS);
+const STEPS_CSS_BASE_CLASS = "monday-style-steps";
 
 const Steps = forwardRef(
   (
@@ -24,7 +24,8 @@ const Steps = forwardRef(
       isContentOnTop,
       backButtonProps,
       nextButtonProps,
-      areButtonsIconsHidden
+      areButtonsIconsHidden,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -34,11 +35,15 @@ const Steps = forwardRef(
       <div
         ref={mergedRef}
         className={cx(STEPS_CSS_BASE_CLASS, className, {
-          [bemHelper({ state: "on-primary" })]: isOnPrimary,
-          [bemHelper({ state: "content-on-top" })]: isContentOnTop,
-          [bemHelper({ state: "content-on-bottom" })]: !isContentOnTop
+          [styles.onPrimary]: isOnPrimary,
+          ["monday-style-steps--on-primary"]: isOnPrimary,
+          [styles.contentOnTop]: isContentOnTop,
+          ["monday-style-steps--content-on-top"]: isContentOnTop,
+          [styles.contentOnBottom]: !isContentOnTop,
+          ["monday-style-steps--content-on-bottom"]: !isContentOnTop
         })}
         id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.STEPS, id)}
       >
         {isContentOnTop && steps[activeStepIndex]}
         <StepsHeader
