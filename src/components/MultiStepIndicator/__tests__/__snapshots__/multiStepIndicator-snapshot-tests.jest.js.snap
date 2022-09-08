@@ -2,7 +2,7 @@
 
 exports[`MultiStepIndicator renders correctly with className 1`] = `
 <ol
-  className="wrapper multi-step-indicator--wrapper test"
+  className="multiStepIndicator multi-step-indicator--wrapper test"
 >
   <li
     className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
@@ -183,7 +183,7 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
 
 exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`] = `
 <ol
-  className="wrapper multi-step-indicator--wrapper"
+  className="multiStepIndicator multi-step-indicator--wrapper"
 >
   <li
     className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
@@ -364,13 +364,13 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
 
 exports[`MultiStepIndicator renders correctly with empty props 1`] = `
 <ol
-  className="wrapper multi-step-indicator--wrapper"
+  className="multiStepIndicator multi-step-indicator--wrapper"
 />
 `;
 
 exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
 <ol
-  className="wrapper multi-step-indicator--wrapper"
+  className="multiStepIndicator multi-step-indicator--wrapper"
 >
   <li
     className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
@@ -551,7 +551,7 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
 
 exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 1`] = `
 <ol
-  className="wrapper multi-step-indicator--wrapper"
+  className="multiStepIndicator multi-step-indicator--wrapper"
 >
   <li
     className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
@@ -717,7 +717,7 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
 
 exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = `
 <ol
-  className="wrapper multi-step-indicator--wrapper"
+  className="multiStepIndicator multi-step-indicator--wrapper"
 >
   <li
     className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled test clickable monday-style-clickable--disable-text-selection"
@@ -898,7 +898,7 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
 
 exports[`MultiStepIndicator renders correctly with steps 1`] = `
 <ol
-  className="wrapper multi-step-indicator--wrapper"
+  className="multiStepIndicator multi-step-indicator--wrapper"
 >
   <li
     className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable monday-style-clickable--disable-text-selection"
@@ -1079,7 +1079,7 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
 
 exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = `
 <ol
-  className="wrapper multi-step-indicator--wrapper"
+  className="multiStepIndicator multi-step-indicator--wrapper"
 >
   <li
     className="monday-style-clickable indicator monday-style-step-indicator-component typePrimary monday-style-step-indicator-component--type-primary statusFulfilled monday-style-step-indicator-component--status-fulfilled clickable textPlacementVertical monday-style-step-indicator-component--text-placement-vertical monday-style-clickable--disable-text-selection"

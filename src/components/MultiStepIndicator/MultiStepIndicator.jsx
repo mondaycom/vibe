@@ -103,7 +103,7 @@ const MultiStepIndicator = forwardRef(
     );
 
     return (
-      <ol ref={mergedRef} className={cx(styles.wrapper, CSS_BASE_CLASS, className)}>
+      <ol ref={mergedRef} className={cx(styles.multiStepIndicator, CSS_BASE_CLASS, className)}>
         {steps.map(stepRenderer)}
       </ol>
     );

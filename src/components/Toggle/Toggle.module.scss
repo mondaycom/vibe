@@ -1,17 +1,16 @@
 @import "../../styles/states";
 @import "../../styles/global-css-settings";
 
-/* in the new toggle we drew. */
-
 /* When the hidden checkbox will be focused by keyboard navigation events, the toggle appearance will reflect it */
-
-.input:focus-visible ~ .toggle,
-.input.focusVisible ~ .toggle {
+:global(.monday-style-toggle_input:focus-visible) ~ .toggle,
+:global(.monday-style-toggle_input.focus-visible) ~ .toggle {
   @include focus-style-css();
 }
 
-/* In order to allow accessibility, all operations will be performed on the hidden checkbox and be reflected */
-
+/* Since it is not possible to change the design of the checkbox according to the storybook toggle requirements using css,
+  we hide the checkbox and draw a new one instead.
+  In order to allow accessibility, all operations will be performed on the hidden checkbox and be reflected
+  in the new toggle we drew.*/
 .toggle {
   @include reset-button();
   transition: background-color var(--motion-productive-medium) var(--motion-timing-transition);
@@ -50,8 +49,6 @@
   left: 3px;
 }
 
-/* we hide the checkbox and draw a new one instead. */
-
 .text {
   @include theme-prop(color, primary-text-color);
   font-style: normal;
@@ -59,8 +56,6 @@
   size: 14px;
   line-height: 22px;
 }
-
-/* Since it is not possible to change the design of the checkbox according to the storybook toggle requirements using css, */
 
 .wrapper {
   display: flex;
