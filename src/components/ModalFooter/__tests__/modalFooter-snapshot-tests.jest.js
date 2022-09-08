@@ -1,7 +1,7 @@
 import React from "react";
 import ModalFooter from "../ModalFooter";
 import { cleanup, render } from "@testing-library/react";
-import { snapshotDiff } from "../../../../jest/utils";
+import { snapshotDiff } from "../../../utils/jest-utils";
 
 async function renderModalFooter(props) {
   const { asFragment } = render(

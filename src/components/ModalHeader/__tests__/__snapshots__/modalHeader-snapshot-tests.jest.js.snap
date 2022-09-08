@@ -35,6 +35,7 @@ Snapshot Diff:
 -       class="referenceWrapper"
 -     >
 -       <button
+-         aria-busy="false"
 -         aria-disabled="false"
 -         aria-label="close"
 -         class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
@@ -134,6 +135,7 @@ exports[`ModalHeader with required props 1`] = `
       class="referenceWrapper"
     >
       <button
+        aria-busy="false"
         aria-disabled="false"
         aria-label="close"
         class="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
