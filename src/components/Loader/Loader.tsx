@@ -1,23 +1,25 @@
-import React, { forwardRef, useMemo } from "react";
-import PropTypes from "prop-types";
+import React, { ForwardedRef, forwardRef, useMemo } from "react";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { LOADER_COLORS, LOADER_SIZES } from "../../components/Loader/LoaderConstants";
+import { LoaderColors, LoaderSize, LoaderSizes } from "./LoaderConstants";
 import styles from "./Loader.module.scss";
 
-const Loader = forwardRef(
-  (
-    {
-      // Backward compatibility for props naming
-      svgClassName,
-      className,
-      size,
-      color,
-      hasBackground,
-      id
-    },
-    ref
-  ) => {
+export interface ILoaderProps {
+  id?: string;
+  // Backward compatibility for props naming
+  svgClassName?: string;
+  className?: string;
+  /** The loader's size: `number` or */
+  size?: LoaderSize;
+  color?: LoaderColors;
+  hasBackground?: boolean;
+}
+
+const Loader: React.ForwardRefExoticComponent<ILoaderProps> & {
+  sizes?: typeof LoaderSizes;
+  colors?: typeof LoaderColors;
+} = forwardRef<unknown, ILoaderProps>(
+  ({ svgClassName, className, size, color, hasBackground, id }: ILoaderProps, ref: ForwardedRef<HTMLDivElement>) => {
     const overrideClassName = backwardCompatibilityForProperties([className, svgClassName], "");
 
     const sizeStyle = useMemo(() => {
@@ -66,28 +68,15 @@ const Loader = forwardRef(
   }
 );
 
-Loader.colors = LOADER_COLORS;
-Loader.sizes = LOADER_SIZES;
-
-Loader.propTypes = {
-  id: PropTypes.string,
-  className: PropTypes.string,
-  size: PropTypes.oneOfType([
-    PropTypes.oneOf([Loader.sizes.XS, Loader.sizes.SMALL, Loader.sizes.MEDIUM, Loader.sizes.LARGE]),
-    PropTypes.number
-  ]),
-  color: PropTypes.oneOf([
-    Loader.colors.PRIMARY,
-    Loader.colors.ON_PRIMARY,
-    Loader.colors.SECONDARY,
-    Loader.colors.DARK
-  ]),
-  hasBackground: PropTypes.bool
-};
+Object.assign(Loader, {
+  sizes: LoaderSizes,
+  colors: LoaderColors
+});
 
 Loader.defaultProps = {
   id: undefined,
   className: undefined,
+  svgClassName: undefined,
   size: undefined,
   color: undefined,
   hasBackground: false

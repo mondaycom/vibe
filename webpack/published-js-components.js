@@ -60,7 +60,6 @@ const publishedJSComponents = {
   Toast: "components/Toast/Toast.jsx",
   ToastLink: "components/Toast/ToastLink/ToastLink.jsx",
   Tooltip: "components/Tooltip/Tooltip.jsx",
-  Loader: "components/Loader/Loader.jsx",
   Icon: "components/Icon/Icon.jsx",
   Flex: "components/Flex/Flex.jsx",
   CustomSvgIcon: "components/Icon/CustomSvgIcon",

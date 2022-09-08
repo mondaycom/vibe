@@ -1,6 +1,6 @@
 import Loader from "../Loader";
 import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
-import { createComponentTemplate } from "../../../storybook/functions/create-component-story";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { Button, DialogContentContainer, Flex, Search } from "../..";
 import { ComponentRules, RelatedComponents, Tip, UsageGuidelines } from "../../../storybook";
@@ -14,7 +14,17 @@ import {
 
 import "./Loader.stories.scss";
 
-<Meta title="Feedback/Loader" component={Loader} />
+export const metaSettings = createStoryMetaSettings({
+  component: Loader,
+  enumPropNamesArray: ["size", "color"]
+});
+
+<Meta
+  title="Feedback/Loader"
+  component={Loader}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
 
 <!--- Component template -->
 
@@ -45,7 +55,7 @@ Circular loader indicates to user waiting state.
 
 ## Props
 
-<ArgsTable of={Loader} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
