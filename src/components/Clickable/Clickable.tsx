@@ -6,14 +6,14 @@ import useMergeRefs from "../../hooks/useMergeRefs";
 import { BEMClass } from "../../helpers/bem-helper";
 import { useKeyboardButtonPressedFunc } from "../../hooks/useKeyboardButtonPressedFunc";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import BaseButtonComponentProps from "../../types/BaseButtonComponentProps";
+import VibeBaseButtonComponentProps from "../../types/VibeBaseButtonComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import "./Clickable.scss";
 
 const CSS_BASE_CLASS = "monday-style-clickable";
 const bemHelper = BEMClass(CSS_BASE_CLASS);
 
-export interface ClickableProps extends BaseButtonComponentProps<HTMLElement> {
+export interface ClickableProps extends VibeBaseButtonComponentProps<HTMLElement> {
   elementType?: ElementType;
   children?: string | ReactNode | null | [ReactNode];
   role?: AriaRole;

@@ -11,7 +11,7 @@ import { ButtonColor, ButtonInputType, ButtonType, getActualSize, Size, BUTTON_I
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import "./Button.scss";
-import BaseButtonComponentProps from "../../types/BaseButtonComponentProps";
+import VibeBaseButtonComponentProps from "../../types/VibeBaseButtonComponentProps";
 
 // @ts-ignore
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
@@ -20,7 +20,7 @@ const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 const MIN_BUTTON_HEIGHT_PX = isIE11 ? 32 : 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
-export interface ButtonProps extends BaseButtonComponentProps<HTMLButtonElement> {
+export interface ButtonProps extends VibeBaseButtonComponentProps<HTMLButtonElement> {
   children: string;
   /** The button's kind */
   kind?: ButtonType;

@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from "react";
 import VibeComponentProps from "./VibeComponentProps";
 
-export default interface BaseButtonComponentProps<HTMLElementType = HTMLButtonElement> extends VibeComponentProps {
+export default interface VibeBaseButtonComponentProps<HTMLElementType = HTMLButtonElement> extends VibeComponentProps {
   /** Callback function to run when the button is clicked */
   onClick: MouseEventHandler<HTMLElementType>;
   /** aria controls - receives id for the controlled region */
