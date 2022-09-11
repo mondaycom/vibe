@@ -20,10 +20,10 @@ Attaches a listener to keyboard DOM events on a specific element, firing a provi
 <Canvas>
   <Story name="Overview">
     {() => {
-      const [keyName, setKeyName] = useState('-');
+      const [keyName, setKeyName] = useState("-");
       useKeyEvent({
-        keys: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
-        callback: (e) => setKeyName(e.key)
+        keys: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+        callback: e => setKeyName(e.key)
       });
       return <div>Last pressed digit: {keyName}</div>;
     }}
@@ -37,7 +37,19 @@ Attaches a listener to keyboard DOM events on a specific element, firing a provi
     <FunctionArgument
       name="keys"
       type="Array<string>"
-      description={<>A list of keys to trigger the passed callback. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values" target="_blank" rel="noopener noreferrer">a full list</a> for more info.</>}
+      description={
+        <>
+          A list of keys to trigger the passed callback. See{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            a full list
+          </a>{" "}
+          for more info.
+        </>
+      }
     />
     <FunctionArgument
       name="callback"
@@ -48,13 +60,25 @@ Attaches a listener to keyboard DOM events on a specific element, firing a provi
     <FunctionArgument
       name="ref"
       type="React.MutableRefObject"
-      description={<>A React <a href="https://reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener noreferrer">ref</a> object.</>}
+      description={
+        <>
+          A React{" "}
+          <a href="https://reactjs.org/docs/hooks-reference.html#useref" target="_blank" rel="noopener noreferrer">
+            ref
+          </a>{" "}
+          object.
+        </>
+      }
       default="document"
     />
     <FunctionArgument
       name="ignoreDocumentFallback"
       type="boolean"
-      description={<>If <code>ref</code> is not passed, ignore the default <code>ref</code>.</>}
+      description={
+        <>
+          If <code>ref</code> is not passed, ignore the default <code>ref</code>.
+        </>
+      }
       default="false"
     />
     <FunctionArgument
@@ -66,19 +90,59 @@ Attaches a listener to keyboard DOM events on a specific element, firing a provi
     <FunctionArgument
       name="preventDefault"
       type="boolean"
-      description={<>Runs <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault" target="_blank" rel="noopener noreferrer">preventDefault</a></code> on the fired events.</>}
+      description={
+        <>
+          Runs{" "}
+          <code>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              preventDefault
+            </a>
+          </code>{" "}
+          on the fired events.
+        </>
+      }
       default="false"
     />
     <FunctionArgument
       name="stopPropagation"
       type="boolean"
-      description={<>Runs <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation" target="_blank" rel="noopener noreferrer">stopPropagation</a></code> on the fired events.</>}
+      description={
+        <>
+          Runs{" "}
+          <code>
+            <a
+              href="https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              stopPropagation
+            </a>
+          </code>{" "}
+          on the fired events.
+        </>
+      }
       default="false"
     />
     <FunctionArgument
       name="eventName"
       type="string"
-      description={<>The event to listen to. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#events" target="_blank" rel="noopener noreferrer">a full list</a> for more info.</>}
+      description={
+        <>
+          The event to listen to. See{" "}
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent#events"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            a full list
+          </a>{" "}
+          for more info.
+        </>
+      }
       default="keydown"
     />
   </FunctionArgument>
@@ -86,7 +150,9 @@ Attaches a listener to keyboard DOM events on a specific element, firing a provi
 
 ## Usage
 
-<UsageGuidelines guidelines={[
-  "Use this hook to add custom logic when typing inside an element.",
-  "Use this hook to add keyboard shortcuts.",
-]} />
+<UsageGuidelines
+  guidelines={[
+    "Use this hook to add custom logic when typing inside an element.",
+    "Use this hook to add keyboard shortcuts."
+  ]}
+/>

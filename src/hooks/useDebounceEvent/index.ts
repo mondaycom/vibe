@@ -1,10 +1,20 @@
-import { useMemo, useCallback, useState, useRef, useEffect } from "react";
+import {useMemo, useCallback, useState, useRef, useEffect, ChangeEvent} from "react";
 import debounce from "lodash/debounce";
 import noop from "lodash/noop";
 
-export default function useDebounceEvent({ delay = 0, onChange = noop, initialStateValue = "", trim }) {
-  const [inputValue, setValue] = useState(initialStateValue);
-  const previousValue = useRef(null);
+export default function useDebounceEvent({
+  delay = 0,
+  onChange = noop,
+  initialStateValue = "",
+  trim
+}: {
+  delay?: number;
+  onChange: (value: string) => void;
+  initialStateValue?: string;
+  trim?: boolean;
+}) {
+  const [inputValue, setValue] = useState<string>(initialStateValue);
+  const previousValue = useRef<string>(null);
 
   useEffect(() => {
     previousValue.current = initialStateValue;
@@ -18,7 +28,7 @@ export default function useDebounceEvent({ delay = 0, onChange = noop, initialSt
   }, [onChange, delay]);
 
   const onEventChanged = useCallback(
-    event => {
+      (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { value } = event.target;
       if (trim) {
         setValue(value.trim());

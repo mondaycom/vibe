@@ -1,21 +1,21 @@
-export function createEventHandler(handler) {
+export function createEventHandler(handler: (event: UIEvent) => unknown) {
   if (!handler) {
     return;
   }
 
   let shouldStopPropagation = true;
-  return e => {
+  return (e: UIEvent) => {
     let event = {
       ...e,
       preventDefault() {
         e.preventDefault();
       },
       isDefaultPrevented() {
-        return e.isDefaultPrevented();
+        return e.defaultPrevented;
       },
       stopPropagation() {
         console.error(
-          "stopPropagation is now the default behavior for events in React Spectrum. You can use continuePropagation() to revert this behavior."
+          "stopPropagation is now the default behavior for events. You can use continuePropagation() to revert this behavior."
         );
       },
       continuePropagation() {

@@ -1,6 +1,17 @@
-import { useEffect } from "react";
+import { RefObject, useEffect } from "react";
+import { GenericEventCallback } from "../../types/events";
 
-export default function useEventListener({ eventName, callback, ref, capture = false }) {
+export default function useEventListener({
+  eventName,
+  callback,
+  ref,
+  capture = false
+}: {
+  eventName: string;
+  callback: GenericEventCallback;
+  ref?: RefObject<HTMLElement>;
+  capture?: boolean;
+}): void {
   useEffect(() => {
     const refElement = ref && ref.current;
     if (!refElement) return;

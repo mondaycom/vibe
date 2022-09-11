@@ -1,11 +1,13 @@
-import { useMemo, useCallback, useEffect } from "react";
+import { useMemo, useCallback, useEffect, RefObject } from "react";
+import NOOP from "lodash/noop";
 import useKeyEvent from "./useKeyEvent";
+import { KeyboardEventCallback } from "../types/events";
 
-export const NAV_DIRECTIONS = {
-  UP: "up",
-  DOWN: "down",
-  LEFT: "left",
-  RIGHT: "right"
+export enum NAV_DIRECTIONS  {
+  UP= "up",
+  DOWN= "down",
+  LEFT= "left",
+  RIGHT= "right",
 };
 
 export const ARROW_DOWN_KEYS = ["ArrowDown"];
@@ -15,8 +17,6 @@ export const ARROW_LEFT_KEYS = ["ArrowLeft"];
 export const SELECTION_KEYS = ["Enter", " "];
 export const ESCAPE_KEYS = ["Escape"];
 
-const NOOP = () => {};
-
 export default function useFullKeyboardListeners({
   ref, // the reference for the component that listens to keyboard
   onSelectionKey = NOOP,
@@ -24,6 +24,13 @@ export default function useFullKeyboardListeners({
   onEscape = NOOP,
   useDocumentEventListeners = false,
   focusOnMount = false
+}: {
+  ref: RefObject<HTMLElement>;
+  onSelectionKey: KeyboardEventCallback;
+  onArrowNavigation: (type: NAV_DIRECTIONS) => void;
+  onEscape: KeyboardEventCallback;
+  useDocumentEventListeners: boolean;
+  focusOnMount: boolean;
 }) {
   const listenerOptions = useMemo(() => {
     if (useDocumentEventListeners) return undefined;
@@ -35,10 +42,10 @@ export default function useFullKeyboardListeners({
     };
   }, [useDocumentEventListeners, ref]);
 
-  const onArrowDown = useCallback(() => onArrowNavigation(NAV_DIRECTIONS.DOWN), [onArrowNavigation]);
-  const onArrowUp = useCallback(() => onArrowNavigation(NAV_DIRECTIONS.UP), [onArrowNavigation]);
-  const onArrowRight = useCallback(() => onArrowNavigation(NAV_DIRECTIONS.RIGHT), [onArrowNavigation]);
-  const onArrowLeft = useCallback(() => onArrowNavigation(NAV_DIRECTIONS.LEFT), [onArrowNavigation]);
+  const onArrowDown = useCallback((_event: UIEvent) => onArrowNavigation(NAV_DIRECTIONS.DOWN), [onArrowNavigation]);
+  const onArrowUp = useCallback((_event: UIEvent) => onArrowNavigation(NAV_DIRECTIONS.UP), [onArrowNavigation]);
+  const onArrowRight = useCallback((_event: UIEvent) => onArrowNavigation(NAV_DIRECTIONS.RIGHT), [onArrowNavigation]);
+  const onArrowLeft = useCallback((_event: UIEvent) => onArrowNavigation(NAV_DIRECTIONS.LEFT), [onArrowNavigation]);
 
   useKeyEvent({
     keys: ARROW_DOWN_KEYS,

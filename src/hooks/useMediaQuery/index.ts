@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState, useMemo } from "react";
 
-export function useMediaQuery(query) {
+export function useMediaQuery(query: string | string[]) {
   const queries = useMemo(() => {
     return Array.isArray(query) ? query : [query];
   }, [query]);
@@ -9,9 +9,9 @@ export function useMediaQuery(query) {
 
   useLayoutEffect(() => {
     const mediaQueryList = queries.map(query => window.matchMedia(query));
-    const updated = mediaQueryList.map((query, index) => {
+    const updated: [MediaQueryList, (event: MediaQueryListEvent) => void][] = mediaQueryList.map((query, index) => {
       // we save the callback function so when we unmount we could remove the listener
-      const callback = event => {
+      const callback = (event: MediaQueryListEvent) => {
         setMatches(prevState => {
           let newQueries = [...prevState];
           newQueries[index] = event.matches;

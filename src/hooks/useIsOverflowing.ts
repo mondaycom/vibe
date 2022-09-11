@@ -1,8 +1,8 @@
 /* eslint-disable no-param-reassign */
-import { useCallback, useState } from "react";
+import { RefObject, useCallback, useState } from "react";
 import useResizeObserver from "./useResizeObserver";
 
-function checkOverflow(element) {
+function checkOverflow(element: HTMLElement) {
   if (!element) {
     return false;
   }
@@ -13,8 +13,8 @@ function checkOverflow(element) {
   return isOverflowing;
 }
 
-export default function useIsOverflowing({ ref }) {
-  const [isOverflowing, setIsOverflowing] = useState(checkOverflow(ref.current));
+export default function useIsOverflowing({ ref }: { ref: RefObject<HTMLElement> }) {
+  const [isOverflowing, setIsOverflowing] = useState<boolean>(checkOverflow(ref.current));
   const callback = useCallback(() => {
     setIsOverflowing(checkOverflow(ref.current));
   }, [ref, setIsOverflowing]);

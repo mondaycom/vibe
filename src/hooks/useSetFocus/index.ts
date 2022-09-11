@@ -1,8 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
+import { RefObject, useCallback, useEffect, useState } from "react";
 import useEventListener from "../useEventListener";
 import { usePrevious } from "../../hooks";
 
-export default function useSetFocus({ ref, focusCallback, blurCallback }) {
+export default function useSetFocus({
+  ref,
+  focusCallback,
+  blurCallback
+}: {
+  ref: RefObject<HTMLElement>;
+  focusCallback?: () => void;
+  blurCallback?: () => void;
+}) {
   const [isFocused, setIsFocused] = useState(false);
   const isFocusedPrev = usePrevious(isFocused);
 

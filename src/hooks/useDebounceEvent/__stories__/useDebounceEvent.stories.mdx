@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { Story, Canvas, Meta, ArgsTable } from "@storybook/addon-docs";
 import useDebounceEvent from "..";
 import "../../__stories__/general-hooks-stories.scss";
@@ -22,9 +22,7 @@ This hook generates an easy to use debounced value updater.
   <Story name="Overview">
     {() => {
       const { inputValue, onEventChanged } = useDebounceEvent({ delay: 100 });
-      return (
-        <input type="text" value={inputValue} onChange={onEventChanged}/>
-      );
+      return <input type="text" value={inputValue} onChange={onEventChanged} />;
     }}
   </Story>
 </Canvas>
@@ -58,26 +56,20 @@ This hook generates an easy to use debounced value updater.
     <FunctionArgument
       name="onEventChanged"
       type="(event: Event) => void"
-      description={<>A wrapper around the passed <code>onChange</code> function.</>}
+      description={
+        <>
+          A wrapper around the passed <code>onChange</code> function.
+        </>
+      }
     />
-    <FunctionArgument
-      name="clearValue"
-      type="() => void"
-      description="Clears the current value."
-    />
-    <FunctionArgument
-      name="updateValue"
-      type="(value: any) => void"
-      description="Updates the current value."
-    />
+    <FunctionArgument name="clearValue" type="() => void" description="Clears the current value." />
+    <FunctionArgument name="updateValue" type="(value: any) => void" description="Updates the current value." />
   </FunctionArgument>
 </FunctionArguments>
 
 ## Usage
 
-<UsageGuidelines
-  guidelines={["Use this hook when you need to debounce value updates (for example, text inputs)."]}
-/>
+<UsageGuidelines guidelines={["Use this hook when you need to debounce value updates (for example, text inputs)."]} />
 
 ## Use cases and examples
 
@@ -86,10 +78,8 @@ This hook generates an easy to use debounced value updater.
 <Canvas>
   <Story name="Passing an initial value">
     {() => {
-      const { inputValue, onEventChanged } = useDebounceEvent({ initialStateValue: 'bla bla bla' });
-      return (
-        <input type="text" value={inputValue} onChange={onEventChanged}/>
-      );
+      const { inputValue, onEventChanged } = useDebounceEvent({ initialStateValue: "bla bla bla" });
+      return <input type="text" value={inputValue} onChange={onEventChanged} />;
     }}
   </Story>
 </Canvas>
@@ -100,11 +90,11 @@ This hook generates an easy to use debounced value updater.
   <Story name="Passing an `onChange` handler">
     {() => {
       const [length, setLength] = useState(0);
-      const { inputValue, onEventChanged } = useDebounceEvent({ onChange: (value) => setLength(value.length) });
+      const { inputValue, onEventChanged } = useDebounceEvent({ onChange: value => setLength(value.length) });
       return (
         <>
-          <input type="text" value={inputValue} onChange={onEventChanged}/>
-          { <span>Input has {length} characters</span> }
+          <input type="text" value={inputValue} onChange={onEventChanged} />
+          {<span>Input has {length} characters</span>}
         </>
       );
     }}
@@ -117,9 +107,7 @@ This hook generates an easy to use debounced value updater.
   <Story name="With trim">
     {() => {
       const { inputValue, onEventChanged } = useDebounceEvent({ trim: true });
-      return (
-        <input type="text" value={inputValue} onChange={onEventChanged}/>
-      );
+      return <input type="text" value={inputValue} onChange={onEventChanged} />;
     }}
   </Story>
 </Canvas>

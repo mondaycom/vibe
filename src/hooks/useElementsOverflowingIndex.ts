@@ -1,14 +1,26 @@
-import { useCallback, useEffect, useState } from "react";
+import { ReactNode, RefObject, useCallback, useEffect, useState} from "react";
 import last from "lodash/last";
 import useResizeObserver from "./useResizeObserver";
 
 // Use this hook when you want to get the index of the child which should be hidden from
 
-function useElementsOverflowingIndex({ ref, children, paddingSize, resizeDebounceTime, ignoreLast }) {
-  const [size, setSize] = useState(null);
+function useElementsOverflowingIndex({
+  ref,
+  children,
+  paddingSize,
+  resizeDebounceTime,
+  ignoreLast
+}: {
+  ref: RefObject<HTMLElement>;
+  children: ReactNode;
+  paddingSize: number;
+  resizeDebounceTime: number;
+  ignoreLast: boolean;
+}) {
+  const [size, setSize] = useState<number>(null);
 
   const onResize = useCallback(
-    ({ borderBoxSize }) => {
+    ({ borderBoxSize }: { borderBoxSize: ResizeObserverSize }) => {
       setSize(borderBoxSize.inlineSize);
     },
     [setSize]
@@ -19,8 +31,10 @@ function useElementsOverflowingIndex({ ref, children, paddingSize, resizeDebounc
     debounceTime: resizeDebounceTime
   });
 
-  const [aggregatedChildLengths, setAggregatedChildLengths] = useState([]);
-  const [indexToSplit, setIndexToSplit] = useState(null);
+  const [aggregatedChildLengths, setAggregatedChildLengths] = useState<
+    Array<{ childLength: number; totalLength: number }>
+  >([]);
+  const [indexToSplit, setIndexToSplit] = useState<number | null>(null);
 
   useEffect(() => {
     if (ignoreLast) {
@@ -41,9 +55,9 @@ function useElementsOverflowingIndex({ ref, children, paddingSize, resizeDebounc
 
   useEffect(() => {
     if (!ref.current) return;
-    const childLengthsArray = [];
+    const childLengthsArray: Array<{ childLength: number; totalLength: number }> = [];
     let totalLength = 0;
-    ref.current.childNodes.forEach(node => {
+    ref.current.childNodes.forEach((node: HTMLElement) => {
       const childLength = node.clientWidth;
       totalLength += childLength;
       childLengthsArray.push({ childLength, totalLength });

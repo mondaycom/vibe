@@ -1,10 +1,18 @@
-import { useMemo, useEffect } from "react";
+import { useEffect, RefObject, useCallback } from "react";
 import debounce from "lodash/debounce";
 
-export default function useResizeObserver({ ref, callback, debounceTime = 200 }) {
-  const debouncedCallback = useMemo(() => {
-    return debounceTime === 0 ? callback : debounce(callback, debounceTime);
-  }, [callback, debounceTime]);
+type ResizeCallback = ({ borderBoxSize }: { borderBoxSize: ResizeObserverSize }) => unknown;
+
+export default function useResizeObserver({
+  ref,
+  callback,
+  debounceTime = 200
+}: {
+  ref: RefObject<HTMLElement>;
+  callback: ResizeCallback;
+  debounceTime: number;
+}) {
+  const debouncedCallback = useCallback(debounce<ResizeCallback>(callback, debounceTime), [callback, debounceTime]);
 
   useEffect(() => {
     if (!window.ResizeObserver) {
@@ -12,20 +20,28 @@ export default function useResizeObserver({ ref, callback, debounceTime = 200 })
     }
     if (!ref.current) return;
 
-    const borderBoxSizeCallback = borderBoxSize =>
-      window.requestAnimationFrame(() => {
-        debouncedCallback({ borderBoxSize });
+    function borderBoxSizeCallback(borderBoxSize: ResizeObserverSize | ReadonlyArray<ResizeObserverSize>): number {
+      const value = Array.isArray(borderBoxSize) ? borderBoxSize[0] : borderBoxSize
+      return window.requestAnimationFrame(() => {
+        debouncedCallback({ borderBoxSize: value });
       });
+    }
 
-    let animationFrameId = null;
+    let animationFrameId: number | null = null;
 
     const resizeObserver = new ResizeObserver(entries => {
       const entry = entries[0];
       if (entry && entry.borderBoxSize) {
-        const borderBoxSize = entry.borderBoxSize.length > 0 ? entry.borderBoxSize[0] : entry.borderBoxSize;
         // handle chrome (entry.borderBoxSize[0])
         // handle ff (entry.borderBoxSize)
-        animationFrameId = borderBoxSizeCallback(borderBoxSize);
+        if(!Array.isArray(entry.borderBoxSize)) {
+          animationFrameId = borderBoxSizeCallback(entry.borderBoxSize);
+
+        } else {
+          const borderBoxEntry = entry.borderBoxSize[0];
+          animationFrameId = borderBoxSizeCallback(borderBoxEntry);
+        }
+
       } else if (entry.contentRect) {
         // handle safari (entry.contentRect)
         const borderBoxSize = { blockSize: entry.contentRect.height, inlineSize: entry?.contentRect?.width || 0 };

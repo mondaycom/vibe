@@ -1,18 +1,46 @@
-import { useCallback, useRef } from "react";
+import { RefObject, useCallback, useRef } from "react";
 import useEventListener from "../useEventListener";
+import { GenericEventCallback } from "../../types/events";
 
 const CTRL_OR_META = "ctrlOrMetaKey";
 
-const checkModifierInEvent = (event, modifier) => {
-  if (event[modifier]) return true;
-  if (modifier === CTRL_OR_META) {
+enum Modifiers {
+  ALT = "altKey",
+  META = "metaKey",
+  CTRL = "ctrlKey",
+  SHIFT = "shiftKey",
+  CTRL_OR_META = "ctrlOrMetaKey"
+}
+
+const checkModifierInEvent = (event: KeyboardEvent, modifier: Modifiers) => {
+  if (modifier === Modifiers.CTRL_OR_META) {
     return event.ctrlKey || event.metaKey;
   }
-  return false;
+
+  return event[modifier];
+
+
 };
-const checkWithoutModifierInEvent = event => {
-  return !Object.values(useKeyEvent.modifiers).some(m => event[m]);
+const checkWithoutModifierInEvent = (event: KeyboardEvent) => {
+  return !Object.values(useKeyEvent.modifiers).some((m: Modifiers) => {
+      if(m === CTRL_OR_META) return true;
+      return !!event[m]
+  });
 };
+
+interface UseKeyEvent {
+  keys: KeyboardEvent["key"][];
+  modifier?: Modifiers;
+  keyEventName?: string;
+  withoutAnyModifier?: boolean;
+  ref?: RefObject<HTMLElement>;
+  ignoreDocumentFallback?: boolean;
+  capture?: boolean;
+  preventDefault?: boolean;
+  stopPropagation?: boolean;
+  callback: GenericEventCallback;
+}
+
 export default function useKeyEvent({
   keys = [],
   modifier,
@@ -24,10 +52,10 @@ export default function useKeyEvent({
   preventDefault = false,
   stopPropagation = false,
   keyEventName = "keydown" // need keydown and not keyup to prevent scrolling with prevent default, for example during menu keyboard navigation
-}) {
-  const documentRef = useRef(document);
+}: UseKeyEvent) {
+  const documentRef = useRef(document.body);
   const onKeyUpPress = useCallback(
-    event => {
+    (event: KeyboardEvent) => {
       const { key } = event;
       if (!keys.includes(key)) {
         return;
@@ -70,10 +98,4 @@ export default function useKeyEvent({
   });
 }
 
-useKeyEvent.modifiers = {
-  ALT: "altKey",
-  META: "metaKey", // i.e. CMD key
-  CTRL: "ctrlKey",
-  SHIFT: "shiftKey",
-  CTRL_OR_META
-};
+useKeyEvent.modifiers = Modifiers;

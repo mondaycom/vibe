@@ -1,6 +1,16 @@
 import isNil from "lodash/isNil";
 
-export function getIconScreenReaderAccessProps({ isClickable, isDecorationOnly, isKeyboardAccessible, label }) {
+export function getIconScreenReaderAccessProps({
+  isClickable,
+  isDecorationOnly,
+  isKeyboardAccessible,
+  label
+}: {
+  isClickable: boolean;
+  isDecorationOnly: boolean;
+  isKeyboardAccessible?: boolean;
+  label: string;
+}) {
   const overrideIsDecorationOnly = isNil(isDecorationOnly) ? !isClickable : isDecorationOnly;
   if (isClickable) {
     return getClickableIconScreenReaderAccessProps({
@@ -17,7 +27,13 @@ export function getIconScreenReaderAccessProps({ isClickable, isDecorationOnly, 
   };
 }
 
-export function getClickableScreenReaderAccessProps({ isKeyboardAccessible = true, isDecorationOnly = false }) {
+export function getClickableScreenReaderAccessProps({
+  isKeyboardAccessible = true,
+  isDecorationOnly = false
+}: {
+  isKeyboardAccessible: boolean;
+  isDecorationOnly: boolean;
+}) {
   return {
     role: "button",
     tabIndex: isKeyboardAccessible ? 0 : -1,
@@ -29,6 +45,10 @@ export function getClickableIconScreenReaderAccessProps({
   label,
   isDecorationOnly = false,
   isKeyboardAccessible = true
+}: {
+  label: string;
+  isDecorationOnly: boolean;
+  isKeyboardAccessible: boolean;
 }) {
   return {
     ...getClickableScreenReaderAccessProps({ isDecorationOnly, isKeyboardAccessible }),

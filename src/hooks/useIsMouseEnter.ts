@@ -1,12 +1,13 @@
 import { useCallback, useState } from "react";
 
 import useEventListener from "./useEventListener";
+import { RefObject } from "react";
 
-export default function useMergeRefs({ ref }) {
-  const [isHovered, setIsHover] = useState(false);
+export default function useMergeRefs({ ref }: { ref: RefObject<HTMLElement> }) {
+  const [isHovered, setIsHover] = useState<boolean>(false);
 
   const setHovered = useCallback(
-    event => {
+    (event: MouseEvent) => {
       const element = ref && ref.current;
       const isEventHover = event.target === element;
       setIsHover(isEventHover);

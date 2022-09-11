@@ -1,10 +1,18 @@
 import { useCallback, useRef } from "react";
 import useEventListener from "../useEventListener";
+import { RefObject } from "react";
+import { GenericEventCallback } from "../../types/events";
 
-export default function useOnClickOutside({ ref, callback }) {
+export default function useOnClickOutside({
+  ref,
+  callback
+}: {
+  ref: RefObject<HTMLElement>;
+  callback: GenericEventCallback;
+}) {
   const onClickOutsideListener = useCallback(
-    event => {
-      if (!ref || !ref.current || ref.current.contains(event.target)) {
+      (event: MouseEvent) => {
+      if (!ref || !ref.current || ref.current.contains(event.target as Node)) {
         return;
       }
 
@@ -14,7 +22,7 @@ export default function useOnClickOutside({ ref, callback }) {
     [ref, callback]
   );
 
-  const documentRef = useRef(document);
+  const documentRef = useRef(document.body);
 
   useEventListener({
     eventName: "click",

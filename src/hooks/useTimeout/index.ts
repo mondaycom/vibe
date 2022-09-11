@@ -1,7 +1,15 @@
 import { useEffect, useRef, useCallback } from "react";
 import NOOP from "lodash/noop";
 
-export default function useTimeout({ time = 0, callback, ignoreZeroTime = false }) {
+export default function useTimeout({
+  time = 0,
+  callback,
+  ignoreZeroTime = false
+}: {
+  time: number;
+  ignoreZeroTime: boolean;
+  callback: () => void;
+}) {
   const ignoreTimeout = time === 0 && ignoreZeroTime;
   const timeoutId = useRef(null);
   const cancelTimeout = useCallback(() => {

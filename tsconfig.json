@@ -17,7 +17,7 @@
     "noImplicitAny": true,
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx"
-
-  },
+    "jsx": "react-jsx",
+    "esModuleInterop": true
+  }
 }

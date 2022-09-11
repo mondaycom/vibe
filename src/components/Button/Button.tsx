@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { SIZES } from "../../constants/sizes";
+import { SIZES } from "../../constants";
 import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
