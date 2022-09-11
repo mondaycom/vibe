@@ -9,9 +9,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
@@ -77,9 +76,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
@@ -130,9 +128,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
@@ -187,9 +184,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
@@ -255,9 +251,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
@@ -308,9 +303,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
@@ -371,9 +365,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
@@ -439,9 +432,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
@@ -492,9 +484,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
@@ -549,9 +540,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
@@ -602,9 +592,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
@@ -655,9 +644,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
@@ -712,9 +700,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
@@ -780,9 +767,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
@@ -833,9 +819,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
@@ -890,9 +875,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
@@ -958,9 +942,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
@@ -1011,9 +994,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"
@@ -1068,9 +1050,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-fulfilled__number-divider-container"
@@ -1136,9 +1117,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-active__number-divider-container"
@@ -1189,9 +1169,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
     data-testid="clickable"
     onClick={[Function]}
     onKeyDown={[Function]}
-    onMouseDown={[Function]}
     role="button"
-    tabIndex="-1"
+    tabIndex={-1}
   >
     <div
       className="monday-style-step-indicator-component__number-divider-container monday-style-step-indicator-component--type-primary__number-divider-container monday-style-step-indicator-component--status-pending__number-divider-container"

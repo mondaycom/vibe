@@ -39,18 +39,16 @@ exports[`TextField renders correctly when disabled 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -124,18 +122,16 @@ exports[`TextField renders correctly when loading 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -181,18 +177,16 @@ exports[`TextField renders correctly when readonly 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -238,18 +232,16 @@ exports[`TextField renders correctly when required 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -295,18 +287,16 @@ exports[`TextField renders correctly with another type 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -352,18 +342,16 @@ exports[`TextField renders correctly with className 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -409,18 +397,16 @@ exports[`TextField renders correctly with className 2`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -466,18 +452,16 @@ exports[`TextField renders correctly with date type 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -523,18 +507,16 @@ exports[`TextField renders correctly with date-time type 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -580,9 +562,8 @@ exports[`TextField renders correctly with icon 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <span
           aria-hidden={true}
@@ -597,9 +578,8 @@ exports[`TextField renders correctly with icon 1`] = `
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -645,18 +625,16 @@ exports[`TextField renders correctly with iconsNames 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -702,18 +680,16 @@ exports[`TextField renders correctly with id 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_testId"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -759,18 +735,16 @@ exports[`TextField renders correctly with labelIconName 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -816,18 +790,16 @@ exports[`TextField renders correctly with large size 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -873,18 +845,16 @@ exports[`TextField renders correctly with placeholder 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -930,18 +900,16 @@ exports[`TextField renders correctly with role 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -987,18 +955,16 @@ exports[`TextField renders correctly with secondaryIconName 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-has-icon monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       >
         <span
           aria-hidden={true}
@@ -1052,18 +1018,16 @@ exports[`TextField renders correctly with showCharCount 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
     <div
@@ -1119,18 +1083,16 @@ exports[`TextField renders correctly with validation 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
     <div
@@ -1186,18 +1148,16 @@ exports[`TextField renders correctly with value 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>
@@ -1243,18 +1203,16 @@ exports[`TextField renders correctly with wrapperClassName 1`] = `
         data-testid="clickable"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
       <div
         className="monday-style-clickable input-component__icon--container input-component__icon--container-active monday-style-clickable--disable-text-selection"
         data-testid="text-field-secondary-button_input"
         onClick={[Function]}
         onKeyDown={[Function]}
-        onMouseDown={[Function]}
         role="button"
-        tabIndex="-1"
+        tabIndex={-1}
       />
     </div>
   </div>

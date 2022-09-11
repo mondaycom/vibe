@@ -4,11 +4,9 @@ exports[`renders correctly with empty props 1`] = `
 <div
   className="monday-style-clickable monday-style-clickable--disable-text-selection"
   data-testid="clickable"
-  onClick={[Function]}
   onKeyDown={[Function]}
-  onMouseDown={[Function]}
   role="button"
-  tabIndex="0"
+  tabIndex={0}
 />
 `;
 
@@ -18,9 +16,8 @@ exports[`renders correctly with props 1`] = `
   data-testid="clickable"
   onClick={[Function]}
   onKeyDown={[Function]}
-  onMouseDown={[Function]}
   role="banner"
-  tabIndex="0"
+  tabIndex={0}
 >
   Children text
 </div>
