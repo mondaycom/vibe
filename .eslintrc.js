@@ -85,10 +85,6 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  globals: {
-    require: true,
-    module: true
-  },
   settings: {
     jest: {
       version: 27
