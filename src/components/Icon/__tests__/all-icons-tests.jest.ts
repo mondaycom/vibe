@@ -8,14 +8,18 @@ function arrayLast(arr: Array<string>) {
 
 describe("All icons", () => {
   it("should contains all icons", () => {
-    const allIconFiles = exposeIcons();
+    // @ts-ignore - TS can't understand that exposeIcons keys are the same as allIcons because we did not convert it yet
+    // (We will deal with it in different pr)
+    // Type '{}' is missing the following properties from type 'Record"Academy" | "Activity" | "Add" | ... and 226 more.
+    let allIconFiles: Record<keyof typeof allIcons, string> = exposeIcons();
     const missingIcons: Array<string> = [];
     Object.keys(allIconFiles).forEach(iconPath => {
-      const iconName = arrayLast(iconPath.split("/"));
+      // @ts-ignore - TS can't understand that exposeIcons keys are the same as allIcons because we did not convert it yet
+      // (We will deal with it in different pr)
+      const iconName: keyof typeof allIcons = arrayLast(iconPath.split("/"));
       /**
        * TS thinks allIcons is an array but its an object which contains all icons and that's why it's work when iconName is string
        */
-      // @ts-ignore
       if (!allIcons[iconName]) {
         missingIcons.push(iconName);
       }

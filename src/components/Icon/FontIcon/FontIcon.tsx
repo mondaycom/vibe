@@ -29,7 +29,6 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
   ) => {
     const isIconFunction = typeof Icon === "function";
     const iconClassName = isIconFunction ? "" : Icon;
-    // @ts-ignore
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <span
@@ -44,8 +43,7 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
         data-testid={dataTestId}
       >
         {isIconFunction && (
-          //Icon components are not converted to typescript in this stage
-          //@ts-ignore
+          //@ts-ignore: Icon components are not converted to typescript in this stage
           <Icon />
         )}
       </span>

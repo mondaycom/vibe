@@ -32,8 +32,6 @@ export default function useIconProps({
       if (!isActive) {
         return;
       }
-      // Keyboard event is different from mouse event
-      //@ts-ignore
       onClick(event);
     },
     [iconRef, onClick]
@@ -56,8 +54,7 @@ export default function useIconProps({
     ref: iconRef
   });
 
-  // We did not convert this hook to ts yet
-  //@ts-ignore
+  //@ts-ignore - We did not convert this hook to ts yet
   useKeyEvent({
     keys: KEYS,
     ref: iconRef,

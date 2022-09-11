@@ -103,8 +103,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
     if (iconType === IconType.SVG || isFunctionType || typeof icon === "object") {
       const IconComponent = icon;
       return (
-        // The icons are not converted to ts for js yet.
-        // @ts-ignore
+        // @ts-ignore: icons are not converted to ts for js yet.
         <IconComponent
           id={id}
           {...screenReaderAccessProps}

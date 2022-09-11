@@ -320,8 +320,6 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         <button {...buttonProps}>
           {successIcon ? (
             <Icon
-              /** Because typescript can't handle with this not converted component API*/
-              // @ts-ignore
               iconType={Icon?.type.ICON_FONT}
               clickable={false}
               icon={successIcon}
@@ -341,8 +339,6 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       <button {...buttonProps}>
         {leftIcon ? (
           <Icon
-            /** Because typescript can't handle with this not converted component API*/
-            // @ts-ignore
             iconType={Icon?.type.ICON_FONT}
             clickable={false}
             icon={leftIcon}
@@ -354,8 +350,6 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         {children}
         {rightIcon ? (
           <Icon
-            /** Because typescript can't handle with this not converted component API*/
-            // @ts-ignore
             iconType={Icon?.type.ICON_FONT}
             clickable={false}
             icon={rightIcon}
