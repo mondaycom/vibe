@@ -87,17 +87,17 @@ describe("Dropdown renders correctly", () => {
       {
         value: "primary",
         label: "Primary",
-        leftAvatar: Dropdown.chipColors.PRIMARY
+        chipColor: Dropdown.chipColors.PRIMARY
       },
       {
         value: "positive",
         label: "Positive",
-        leftAvatar: Dropdown.chipColors.POSITIVE
+        chipColor: Dropdown.chipColors.POSITIVE
       },
       {
         value: "negative",
         label: "Negative",
-        leftAvatar: Dropdown.chipColors.NEGATIVE
+        chipColor: Dropdown.chipColors.NEGATIVE
       }
     ];
     const tree = renderer.create(<Dropdown options={options} defaultValue={options} multi multiline />).toJSON();

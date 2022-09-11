@@ -1445,27 +1445,6 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               }
             >
               <div
-                className="monday-style-avatar avatar left monday-style-avatar--large"
-                style={
-                  Object {
-                    "height": 16,
-                    "width": 16,
-                  }
-                }
-              >
-                <div
-                  aria-hidden={false}
-                  className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--without-border"
-                  style={Object {}}
-                  tabIndex={0}
-                >
-                  <img
-                    className="monday-style-avatar-content_img monday-style-avatar-content_img--large"
-                    src="PRIMARY"
-                  />
-                </div>
-              </div>
-              <div
                 className="label"
               >
                 Primary
@@ -1517,31 +1496,10 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               onMouseDown={[Function]}
               style={
                 Object {
-                  "backgroundColor": "var(--primary-selected-color)",
+                  "backgroundColor": "var(--positive-color-selected)",
                 }
               }
             >
-              <div
-                className="monday-style-avatar avatar left monday-style-avatar--large"
-                style={
-                  Object {
-                    "height": 16,
-                    "width": 16,
-                  }
-                }
-              >
-                <div
-                  aria-hidden={false}
-                  className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--without-border"
-                  style={Object {}}
-                  tabIndex={0}
-                >
-                  <img
-                    className="monday-style-avatar-content_img monday-style-avatar-content_img--large"
-                    src="POSITIVE"
-                  />
-                </div>
-              </div>
               <div
                 className="label"
               >
@@ -1594,31 +1552,10 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               onMouseDown={[Function]}
               style={
                 Object {
-                  "backgroundColor": "var(--primary-selected-color)",
+                  "backgroundColor": "var(--negative-color-selected)",
                 }
               }
             >
-              <div
-                className="monday-style-avatar avatar left monday-style-avatar--large"
-                style={
-                  Object {
-                    "height": 16,
-                    "width": 16,
-                  }
-                }
-              >
-                <div
-                  aria-hidden={false}
-                  className="monday-style-avatar_circle monday-style-avatar_circle--img monday-style-avatar_circle--without-border"
-                  style={Object {}}
-                  tabIndex={0}
-                >
-                  <img
-                    className="monday-style-avatar-content_img monday-style-avatar-content_img--large"
-                    src="NEGATIVE"
-                  />
-                </div>
-              </div>
               <div
                 className="label"
               >
