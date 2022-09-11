@@ -49,4 +49,9 @@ describe("Checkbox renders correctly", () => {
     const tree = renderer.create(<Checkbox ariaLabelledBy="aria" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  it("without label", () => {
+    const tree = renderer.create(<Checkbox label={false} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

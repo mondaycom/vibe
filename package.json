@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.59.1",
+  "version": "1.62.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "exports": {
@@ -29,12 +29,12 @@
     "deploy-storybook": "storybook-to-ghpages",
     "link-local": "npm link && npm start",
     "plop": "plop",
-    "build-react-icons": "svg2react-icon --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
+    "build-react-icons": "svg2react-icon --typescript --keep-colors node_modules/monday-ui-style/src/Icons src/components/Icon/Icons",
     "build-react-icons-temp": "npm run build-react-icons-base && npm run add-ref-to-icons",
     "add-ref-to-icons": "node ./scripts/add-forward-ref-icons.js",
-    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx}\"",
-    "eslint": "eslint \"./src/**/*.{js,jsx}\"",
-    "eslint-fix": "eslint \"./src/**/*.{js,jsx}\" --fix",
+    "fix-lint": "prettier --write \"{,!(node_modules)/**/}*.{js,jsx,ts,tsx}\"",
+    "eslint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
+    "eslint-fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint-fix": "stylelint \"**/*.scss\" --fix",
     "release": "./scripts/release.js"
@@ -175,6 +175,7 @@
     "ts-jest": "^26.0.0",
     "ts-loader": "^9.3.1",
     "typescript": "^4.7.3",
+    "typescript-plugin-css-modules": "^3.4.0",
     "webpack": "^5.73.0",
     "webpack-cli": "^4.9.1",
     "webpack-node-externals": "^3.0.0"

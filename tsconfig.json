@@ -1,5 +1,5 @@
 {
-  "include": ["./dist/ts-esm.js"],
+  "include": ["./dist/ts-esm.js", "types/styles.d.ts"],
   "compilerOptions": {
     "rootDir": "./src",
     "lib": ["esnext", "dom"],
@@ -18,6 +18,6 @@
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
-    "esModuleInterop": true
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   }
 }
