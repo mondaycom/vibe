@@ -1,4 +1,4 @@
-import { Chips } from "../index";
+import Chips from "../Chips/Chips";
 
 export const DROPDOWN_CHIP_COLORS = {
   PRIMARY: Chips.colors.PRIMARY,
