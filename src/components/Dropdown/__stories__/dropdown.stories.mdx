@@ -288,6 +288,48 @@ The Dropdown component supports multiple options selection in two different stat
   </Story>
 </Canvas>
 
+### Dropdown with chip colors
+
+<Canvas>
+  <Story name="Dropdown with chip colors">
+    {() => {
+      const optionsWithChipColors = useMemo(
+        () => [
+          {
+            value: "Rotem",
+            label: "Rotem Dekel",
+            chipColor: Dropdown.chipColors.NEGATIVE
+          },
+          {
+            value: "Hadas",
+            label: "Hadas Farhi",
+            chipColor: Dropdown.chipColors.POSITIVE
+          },
+          {
+            value: "Netta",
+            label: "Netta Muller",
+            chipColor: Dropdown.chipColors.PRIMARY
+          }
+        ],
+        []
+      );
+      return (
+        <StoryDescription vertical>
+          <div>
+            <Dropdown
+              defaultValue={[optionsWithChipColors[0]]}
+              options={optionsWithChipColors}
+              multi
+              multiline
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Dropdown with tooltips on items
 
 <Canvas>
