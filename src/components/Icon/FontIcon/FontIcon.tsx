@@ -15,7 +15,7 @@ interface FontIconProps extends VibeComponentProps {
 const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
   (
     {
-      id = "",
+      id,
       className,
       onClick,
       "aria-label": iconLabel,

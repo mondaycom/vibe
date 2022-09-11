@@ -1079,7 +1079,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
         <div
           className=" css-1dtegfv-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -1135,7 +1135,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -1158,7 +1158,7 @@ exports[`Dropdown renders correctly when disabled 1`] = `
             fill="currentColor"
             height="20px"
             onClick={[Function]}
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -1195,7 +1195,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
         <div
           className=" css-1dtegfv-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -1251,7 +1251,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -1275,7 +1275,7 @@ exports[`Dropdown renders correctly when rtl 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -1312,7 +1312,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
         <div
           className=" css-1dtegfv-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -1368,7 +1368,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -1392,7 +1392,7 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -1429,7 +1429,7 @@ exports[`Dropdown renders correctly with className 1`] = `
         <div
           className=" css-1dtegfv-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -1485,7 +1485,7 @@ exports[`Dropdown renders correctly with className 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -1509,7 +1509,7 @@ exports[`Dropdown renders correctly with className 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -1602,7 +1602,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -1623,7 +1623,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -1651,7 +1651,7 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -1688,7 +1688,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
         <div
           className=" css-1dtegfv-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -1744,7 +1744,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -1768,7 +1768,7 @@ exports[`Dropdown renders correctly with empty props 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -1805,7 +1805,7 @@ exports[`Dropdown renders correctly with id 1`] = `
         <div
           className=" css-1dtegfv-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -1861,7 +1861,7 @@ exports[`Dropdown renders correctly with id 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -1885,7 +1885,7 @@ exports[`Dropdown renders correctly with id 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -2057,7 +2057,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                     }
                   }
                 >
-
+                  
                 </div>
               </div>
             </div>
@@ -2081,7 +2081,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -2109,7 +2109,7 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -2276,7 +2276,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                     }
                   }
                 >
-
+                  
                 </div>
               </div>
             </div>
@@ -2300,7 +2300,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -2328,7 +2328,7 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -2371,7 +2371,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
             <div
               className=" css-1dtegfv-placeholder"
             >
-
+              
             </div>
           </div>
           <div
@@ -2432,7 +2432,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
                     }
                   }
                 >
-
+                  
                 </div>
               </div>
             </div>
@@ -2459,7 +2459,7 @@ exports[`Dropdown renders correctly with multi 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -2496,7 +2496,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
         <div
           className=" css-1dtegfv-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -2552,7 +2552,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -2576,7 +2576,7 @@ exports[`Dropdown renders correctly with multiline 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -2613,7 +2613,7 @@ exports[`Dropdown renders correctly with options 1`] = `
         <div
           className=" css-1dtegfv-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -2669,7 +2669,7 @@ exports[`Dropdown renders correctly with options 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -2693,7 +2693,7 @@ exports[`Dropdown renders correctly with options 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -2786,7 +2786,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -2810,7 +2810,7 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -2847,7 +2847,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
         <div
           className=" css-1dtegfv-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -2903,7 +2903,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -2927,7 +2927,7 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -3020,7 +3020,7 @@ exports[`Dropdown renders correctly with value 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -3041,7 +3041,7 @@ exports[`Dropdown renders correctly with value 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -3069,7 +3069,7 @@ exports[`Dropdown renders correctly with value 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -3106,7 +3106,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
         <div
           className=" css-1dtegfv-placeholder"
         >
-
+          
         </div>
         <div
           className="css-lkl2xd-Component"
@@ -3162,7 +3162,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
                 }
               }
             >
-
+              
             </div>
           </div>
         </div>
@@ -3186,7 +3186,7 @@ exports[`Dropdown renders correctly without clear button 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >

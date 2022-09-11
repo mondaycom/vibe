@@ -23,7 +23,7 @@ export default function useIconProps({
   ignoreFocusStyle?: boolean;
   isDecorationOnly?: boolean;
   iconLabel?: string;
-  externalTabIndex?: number;
+  externalTabIndex?: number | undefined;
 }) {
   const iconRef = useRef(null);
   const onEnterCallback = useCallback(

@@ -24,9 +24,9 @@ interface CustomSvgIconProps extends VibeComponentProps {
 }
 
 const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
-  className = "",
+  className,
   ref,
-  src = "",
+  src,
   onClick,
   clickable,
   ariaLabel,

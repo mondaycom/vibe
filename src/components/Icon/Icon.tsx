@@ -34,12 +34,12 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
       /**
        * component id
        */
-      id = "",
+      id,
       onClick = CLICK_NOOP,
       /**
        * class name to be added to icon
        */
-      className = "",
+      className,
       /**
        * we support three types of icons - SVG, FONT and SRC (classname) so this prop is either the name of the icon or the component
        */
@@ -82,7 +82,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
     },
     ref
   ) => {
-    const overrideExternalTabIndex = +externalTabIndex;
+    const overrideExternalTabIndex = externalTabIndex && +externalTabIndex;
     const { screenReaderAccessProps, onClickCallback, computedClassName, iconRef } = useIconProps({
       onClick,
       iconLabel,
