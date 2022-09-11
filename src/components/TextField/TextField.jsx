@@ -10,7 +10,7 @@ import FieldLabel from "../FieldLabel/FieldLabel";
 import { TEXT_TYPES, getActualSize } from "./TextFieldConstants";
 import { SIZES } from "../../constants/sizes";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import Clickable from "../../components/Clickable/Clickable";
+import Clickable from "../Clickable/Clickable";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import "./TextField.scss";
 

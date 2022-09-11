@@ -4,7 +4,7 @@ const publishedJSComponents = {
   Box: "components/Box/Box.jsx",
   AccordionItem: "components/Accordion/AccordionItem/AccordionItem.jsx",
   Accordion: "components/Accordion/Accordion/Accordion.jsx",
-  Clickable: "components/Clickable/Clickable.jsx",
+  Clickable: "components/Clickable/Clickable.tsx",
   TextWithHighlight: "components/TextWithHighlight/TextWithHighlight.jsx",
   List: "components/List/List.jsx",
   ListTitle: "components/ListTitle/ListTitle.jsx",

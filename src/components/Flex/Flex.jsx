@@ -3,7 +3,7 @@ import React, { useRef, forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import Clickable from "../../components/Clickable/Clickable";
+import Clickable from "../Clickable/Clickable";
 import { FLEX_POSITIONS, FLEX_GAPS, FLEX_DIRECTIONS } from "./FlexConstants";
 import classes from "./Flex.module.scss";
 

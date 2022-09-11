@@ -11,7 +11,7 @@ import Check from "../../../../components/Icon/Icons/components/Check";
 import Divider from "../../../../components/Divider/Divider";
 import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
-import Clickable from "../../../../components/Clickable/Clickable";
+import Clickable from "../../../Clickable/Clickable";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
 import { baseClassName } from "./StepIndicatorConstants";
 import "./StepIndicator.scss";

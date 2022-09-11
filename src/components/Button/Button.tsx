@@ -1,6 +1,7 @@
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
+import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
@@ -10,6 +11,7 @@ import { ButtonColor, ButtonInputType, ButtonType, getActualSize, Size, BUTTON_I
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import "./Button.scss";
+import BaseButtonComponentProps from "../../types/BaseButtonComponentProps";
 
 // @ts-ignore
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
@@ -18,14 +20,10 @@ const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 const MIN_BUTTON_HEIGHT_PX = isIE11 ? 32 : 6;
 const UPDATE_CSS_VARIABLES_DEBOUNCE = 200;
 
-export interface ButtonProps {
+export interface ButtonProps extends BaseButtonComponentProps<HTMLButtonElement> {
   children: string;
-  /** Custom class names to pass to the component */
-  className?: string;
   /** The button's kind */
   kind?: ButtonType;
-  /** Callback function to run when the button is clicked */
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   /** Blur on button click */
   blurOnMouseUp?: boolean;
@@ -37,8 +35,6 @@ export interface ButtonProps {
   color?: ButtonColor;
   /** The button's type */
   type?: ButtonInputType;
-  /** Whether the button should be disabled or not */
-  disabled?: boolean;
   /** Icon to place on the right */
   rightIcon?: string | React.Component | null;
   /** Icon to place on the left */
@@ -54,8 +50,6 @@ export interface ButtonProps {
   style?: React.CSSProperties;
   /** displays the active state */
   active?: boolean;
-  /** id to pass to the button */
-  id?: string;
   /** adds 8px margin to the right */
   marginRight?: boolean;
   /** adds 8px margin to the left */
@@ -129,7 +123,8 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       ariaControls,
       blurOnMouseUp,
       dataTestId,
-      insetFocus
+      insetFocus,
+      "data-testid": dataTestIdUpdated
     },
     ref
   ) => {
@@ -242,6 +237,8 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
     ]);
 
     const mergedRef = useMergeRefs({ refs: [ref, buttonRef] });
+    const baseDataTestId = backwardCompatibilityForProperties([dataTestIdUpdated, dataTestId]);
+    const overrideDataTestId = baseDataTestId || getTestId(ELEMENT_TYPES.BUTTON, id);
 
     const buttonProps = useMemo(() => {
       const props: Record<string, any> = {
@@ -255,7 +252,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         id,
         onFocus,
         onBlur,
-        "data-testid": dataTestId || getTestId(ELEMENT_TYPES.BUTTON, id),
+        "data-testid": overrideDataTestId,
         onMouseDown: onMouseDownClicked,
         "aria-disabled": disabled,
         "aria-busy": loading,
@@ -267,7 +264,6 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       };
       return props;
     }, [
-      disabled,
       mergedRef,
       type,
       classNames,
@@ -278,11 +274,12 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       id,
       onFocus,
       onBlur,
-      dataTestId,
+      overrideDataTestId,
       onMouseDownClicked,
+      disabled,
+      loading,
       ariaLabeledBy,
       ariaLabel,
-      loading,
       ariaHasPopup,
       ariaExpanded,
       ariaControls

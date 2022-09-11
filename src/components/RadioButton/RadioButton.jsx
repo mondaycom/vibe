@@ -2,7 +2,7 @@ import React, { useRef, forwardRef, useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import Clickable from "../../components/Clickable/Clickable";
+import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { baseClassName } from "./RadioButtonConstants";
 import "./RadioButton.scss";
