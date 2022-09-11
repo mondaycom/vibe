@@ -1,10 +1,11 @@
+import cx from "classnames";
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { NOOP } from "../../../utils/function-utils";
 import { useSliderUi } from "../SliderContext";
-import { bem } from "../SliderHelpers";
+import styles from "./SliderRail.module.scss";
 
-const SliderRail = forwardRef(({ className, children, onClick }, ref) => {
+const SliderRail = forwardRef(({ className, children, onClick, id }, ref) => {
   const { shapeTestId } = useSliderUi();
   function handleClick(e) {
     onClick(e);
@@ -12,7 +13,13 @@ const SliderRail = forwardRef(({ className, children, onClick }, ref) => {
 
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-    <div data-testid={shapeTestId("rail")} className={bem("rail", "", className)} onClick={handleClick} ref={ref}>
+    <div
+      id={id}
+      data-testid={shapeTestId("rail")}
+      className={cx(styles.sliderRail, "monday-slider__rail", className)}
+      onClick={handleClick}
+      ref={ref}
+    >
       {children}
     </div>
   );

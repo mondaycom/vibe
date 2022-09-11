@@ -1,0 +1,26 @@
+@import "../../styles/themes";
+
+.sliderInfix {
+  font-size: 14px;
+  flex: 0 0 auto;
+}
+
+.sliderInfixTxt {
+  white-space: nowrap;
+}
+
+.sliderInfix :global(.input-component__input) {
+  text-align: center;
+}
+
+.sliderInfix :global(.input-component) :global(.input-component__input-wrapper) :global(.input-component__input) {
+  padding: var(--spacing-small);
+}
+
+.sliderInfixPrefix {
+  margin-right: var(--spacing-small);
+}
+
+.sliderInfixPostfix {
+  margin-left: var(--spacing-small);
+}

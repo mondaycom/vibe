@@ -45,7 +45,10 @@ export const ELEMENT_TYPES = {
   TOAST: "toast",
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
-  DIVIDER: "divider"
+  DIVIDER: "divider",
+  SLIDER: "slider",
+  SLIDER_FILLED_TRACK: "slider-filled-track",
+  SLIDER_INFIX: "slider-infix"
 };
 
 export const NAVIGATIONS_COMMANDS = {

@@ -1,9 +1,16 @@
+import cx from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
-import { bem } from "../SliderHelpers";
+import styles from "./SliderTrack.module.scss";
 
 const SliderTrack = React.memo(({ className }) => {
-  return <div className={bem("track", "", className)} />;
+  return (
+    <div
+      className={cx(styles.sliderTrack, "monday-slider__track", {
+        [`monday-slider__track--${className}`]: className
+      })}
+    />
+  );
 });
 
 SliderTrack.propTypes = {

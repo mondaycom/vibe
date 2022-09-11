@@ -1,13 +1,15 @@
+import cx from "classnames";
 import React, { forwardRef, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
-import { COLORS_BASIC, BASE_SIZES } from "../../constants";
+import { BASE_SIZES, COLORS_BASIC } from "../../constants";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
-import "./Slider.scss";
-import { bem, ensureDefaultValue } from "./SliderHelpers";
+import { ensureDefaultValue } from "./SliderHelpers";
 import { SliderProvider } from "./SliderContext";
 import SliderBase from "./SliderBase/SliderBase";
 import SliderInfix from "./SliderInfix";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./Slider.module.scss";
 
 const Slider = forwardRef(
   (
@@ -65,8 +67,17 @@ const Slider = forwardRef(
         valueText={valueText}
       >
         <div
-          className={bem("", { disabled, "value-shown": showValue }, className)}
-          data-testid={dataTestId}
+          className={cx(
+            styles.slider,
+            "monday-slider",
+            {
+              "monday-slider--disabled": disabled,
+              [styles.sliderValueShown]: showValue,
+              ["monday-slider--value-shown"]: showValue
+            },
+            className
+          )}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.SLIDER, id)}
           id={id}
           ref={mergedRef}
         >

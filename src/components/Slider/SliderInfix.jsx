@@ -1,14 +1,27 @@
+import { camelCase } from "lodash";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
 import { INFIX_KIND } from "./SliderConstants";
-import { bem } from "./SliderHelpers";
 import { useSliderInfixComponent } from "./SliderInfixHooks";
+import styles from "./SliderInfix.module.scss";
 
-const SliderInfix = ({ kind }) => {
-  const [isShow, modificators, InfixComponent, inlineStyle] = useSliderInfixComponent(kind);
+const SliderInfix = ({ kind, id, "data-testid": dataTestId }) => {
+  const [isShow, modificator, InfixComponent, inlineStyle] = useSliderInfixComponent(kind);
   return (
     isShow && (
-      <div className={bem("infix", [...modificators, kind])} style={inlineStyle}>
+      <div
+        className={cx(styles.sliderInfix, "monday-slider__infix", {
+          [styles[`${camelCase("slider__infix--" + modificator)}`]]: modificator,
+          [`monday-slider__infix--${modificator}`]: modificator,
+          [styles[`${camelCase("slider__infix--" + kind)}`]]: kind,
+          [`monday-slider__infix--${kind}`]: kind
+        })}
+        style={inlineStyle}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.SLIDER_INFIX, id)}
+      >
         {InfixComponent}
       </div>
     )
