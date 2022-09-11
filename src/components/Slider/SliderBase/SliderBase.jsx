@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
@@ -78,11 +77,11 @@ const SliderBase = forwardRef(({ className, id }, ref) => {
         styles.sliderBase,
         "monday-slider__base",
         {
-          [styles[`${camelCase("slider__base--" + size)}`]]: size,
+          [styles[size]]: size,
           [`monday-slider__base--${size}`]: size,
-          [styles[`${camelCase("slider__base--" + color)}`]]: color,
+          [styles[color]]: color,
           [`monday-slider__base--${color}`]: color,
-          [styles.sliderBaseDisabled]: disabled,
+          [styles.disabled]: disabled,
           ["monday-slider__base--disabled"]: disabled
         },
         className

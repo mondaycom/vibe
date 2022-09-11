@@ -14,7 +14,7 @@
   transition: transform var(--motion-productive-long) var(--motion-timing-enter);
 }
 
-.sliderThumbDragging {
+.dragging {
   cursor: grabbing !important;
   transform: translate(-50%, -50%) scale(1.33, 1.33);
   transform-origin: center center;
@@ -22,13 +22,13 @@
   @include box-shadow-small();
 }
 
-.sliderThumbFocused {
+.focused {
   @include theme-prop(border-color, primary-hover-color);
   cursor: grab;
   @include box-shadow-small();
 }
 
-.sliderThumbLabel {
+.label {
   bottom: calc(100% + 8px);
   left: 50%;
   max-width: 50px;

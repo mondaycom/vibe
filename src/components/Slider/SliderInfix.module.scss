@@ -5,10 +5,6 @@
   flex: 0 0 auto;
 }
 
-.sliderInfixTxt {
-  white-space: nowrap;
-}
-
 .sliderInfix :global(.input-component__input) {
   text-align: center;
 }
@@ -17,10 +13,15 @@
   padding: var(--spacing-small);
 }
 
-.sliderInfixPrefix {
+.txt {
+  white-space: nowrap;
+}
+
+// kind
+.prefix {
   margin-right: var(--spacing-small);
 }
 
-.sliderInfixPostfix {
+.postfix {
   margin-left: var(--spacing-small);
 }

@@ -72,9 +72,9 @@ const SliderThumb = ({ className, index, onMove, position, id, "data-testid": da
           styles.sliderThumb,
           "monday-slider__thumb",
           {
-            [styles.sliderThumbDragging]: dragging === index,
+            [styles.dragging]: dragging === index,
             ["monday-slider__thumb--dragging"]: dragging === index,
-            [styles.sliderThumbFocused]: focused === index,
+            [styles.focused]: focused === index,
             ["monday-slider__thumb--focused"]: focused === index,
             "monday-slider__thumb--disabled": disabled,
             [`monday-slider__thumb--index-${index}`]: true
@@ -92,7 +92,7 @@ const SliderThumb = ({ className, index, onMove, position, id, "data-testid": da
         style={{ left: `${position}%` }}
         tabIndex={disabled ? -1 : 0}
       >
-        {showValue && <label className={cx(styles.sliderThumbLabel, "monday-slider__thumb-label")}>{valueText}</label>}
+        {showValue && <label className={cx(styles.label, "monday-slider__thumb-label")}>{valueText}</label>}
       </div>
     </Tooltip>
   );

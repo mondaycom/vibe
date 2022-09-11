@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React from "react";
@@ -13,9 +12,9 @@ const SliderInfix = ({ kind, id, "data-testid": dataTestId }) => {
     isShow && (
       <div
         className={cx(styles.sliderInfix, "monday-slider__infix", {
-          [styles[`${camelCase("slider__infix--" + modificator)}`]]: modificator,
+          [styles[modificator]]: modificator,
           [`monday-slider__infix--${modificator}`]: modificator,
-          [styles[`${camelCase("slider__infix--" + kind)}`]]: kind,
+          [styles[kind]]: kind,
           [`monday-slider__infix--${kind}`]: kind
         })}
         style={inlineStyle}

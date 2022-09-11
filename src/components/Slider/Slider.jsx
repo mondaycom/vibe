@@ -72,7 +72,7 @@ const Slider = forwardRef(
             "monday-slider",
             {
               "monday-slider--disabled": disabled,
-              [styles.sliderValueShown]: showValue,
+              [styles.valueShown]: showValue,
               ["monday-slider--value-shown"]: showValue
             },
             className
