@@ -19,15 +19,15 @@ const PAGE_SIZE = 18;
 const BUFFER_FROM_CURRENT_YEAR = 4;
 
 interface YearPickerProps {
-  selectedDate: moment.Moment
+  selectedDate?: moment.Moment
   isRange: boolean
-  isYearBlocked: (year: number) => boolean
+  isYearBlocked?: (year: number) => boolean
   changeCurrentDate: (date: moment.Moment) => void
 }
 
 const YearPicker = (props: YearPickerProps) => {
 
-  const calcNewYearsPage = (firstYearInPage) => {
+  const calcNewYearsPage = (firstYearInPage)  => {
     return times(PAGE_SIZE, n => firstYearInPage + n);
   }
 

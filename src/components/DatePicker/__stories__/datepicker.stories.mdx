@@ -1,41 +1,204 @@
-import { useState, useCallback ,useRef} from "react";
-import * as moment from "moment";
-import DatePicker from "../DatePicker";
-
+import { useState } from "react";
+import moment from "moment";
+import DatePickerComponent from "../DatePicker";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import { createComponentTemplate, createStoryMetaSettings } from "../../../storybook";
+import styles from "./DatePicker.stories.scss";
+
+export const metaSettings = createStoryMetaSettings({
+  component: DatePicker,
+  // enumPropNamesArray: [], // List enum props here
+  // iconPropNamesArray: [], // List props that are typed as icons here
+  // actionPropsArray: [] // List the component's actions here
+});
+
+export const DatePicker = props => {
+  const [date, setDate] = useState(props.isRange ? {} : null);
+  return props.isRange ? (
+    <DatePickerComponent date={date.startDate} endDate={date.endDate} onPickDate={d => setDate(d)} {...props} />
+  ) : (
+    <DatePickerComponent date={date} onPickDate={d => setDate(d)} {...props}/>
+  );
+};
 
 <Meta
-  title="DatePickers/DatePicker"
-  component={DatePicker}
-/> 
+  title="PICKERS/DatePicker"
+  component={DatePickerComponent}
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
+/>
+
+<!--- Component template -->
+
+export const datePickerTemplate = createComponentTemplate(DatePicker);
+
+<!--- Component documentation -->
+
+# DatePicker
+
+- [Overview](#overview)
+- [Props](#props)
+- [Usage](#usage)
+- [Variants](#variants)
+- [Do’s and don’ts](#dos-and-donts)
+- [Use cases and examples](#use-cases-and-examples)
+- [Related components](#related-components)
+- [Feedback](#feedback)
+
+## Overview
+
+Please write here the component description
 
 <Canvas>
-  <Story  name='test2'>
-    {
-    ()=>{
-        const [date,setDate] = useState({})
-        const ref = useRef()
-            return(
-            <div style={{height:1000}}>
-                <DatePicker ref={ref} isRange endDate={date.endDate} date={date.startDate} onPickDate={(d)=>setDate(d)}/>
-            </div>
-            )
-        }
-    }
+  <Story name="Overview" args={{ prop1: "prop's default value", prop2: "prop's default value" }}>
+    {datePickerTemplate.bind({})}
   </Story>
 </Canvas>
 
+## Props
+
+<ArgsTable of={DatePickerComponent} />
+
+## Usage
+
+<UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
+
+<Tip title="Not what you were looking for?">Tip content</Tip>
+
+## Variants
+
+### Single Day
+
+Allows users to select a single date
+
 <Canvas>
-  <Story  name='test'>
-    {
-    ()=>{
-        const [date,setDate] = useState(moment())
-            return(
-            <div style={{height:1000}}>
-                <DatePicker date={date} onPickDate={(d)=>setDate(d)}/>
-            </div>
-            )
-        }
-    }
+  <Story name="Single Day">
+    <DatePicker/>
   </Story>
 </Canvas>
+
+### Date Range
+
+Allows users to select a date range
+
+<Canvas>
+  <Story name="Date Range">
+    <DatePicker isRange/>
+  </Story>
+</Canvas>
+
+Minimum Nights
+<Canvas>
+  <Story name="Minimum Nights">
+    <DatePicker  minimumNights={5}  isRange/>
+  </Story>
+</Canvas>
+
+### With Week Number
+<Canvas>
+  <Story name="With Week Number">
+    <DatePicker showWeekNumber/>
+  </Story>
+</Canvas>
+
+### Number Of Months
+<Canvas>
+  <Story name="Number Of Months">
+    <DatePicker  numberOfMonths={2}/>
+  </Story>
+</Canvas>
+
+### Enable Outside Days
+<Canvas>
+  <Story name="Enable Outside Days">
+    <DatePicker  enableOutsideDays/>
+  </Story>
+</Canvas>
+
+### First Day Of Week
+
+Set the first day of the week
+<Canvas>
+  <Story name="First Day Of Week">
+    <DatePicker  firstDayOfWeek={0}/>
+  </Story>
+</Canvas>
+
+<!--- 
+## Do’s and Don’ts
+
+<div className="date-picker-rules-container">
+  <ComponentRules
+    rules={[
+      {
+        positive: {
+          component: <DatePickerWrapper />,
+          description: "Best practice description."
+        },
+        negative: {
+          component: <DatePickerWrapper />,
+          description: "Bad practice description."
+        }
+      },
+      {
+        positive: {
+          component: <DatePickerWrapper />,
+          description: "Best practice description."
+        },
+        negative: {
+          component: <DatePickerWrapper />,
+          description: "Bad practice description."
+        }
+      },
+      {
+        positive: {
+          component: <DatePickerWrapper />,
+          description: "Best practice description."
+        },
+        negative: {
+          component: <DatePickerWrapper />,
+          description: "Bad practice description."
+        }
+      },
+      {
+        positive: {
+          component: <DatePickerWrapper />,
+          description: "Best practice description."
+        },
+        negative: {
+          component: <DatePickerWrapper />,
+          description: "Bad practice description."
+        }
+      }
+    ]}
+  />
+</div>
+
+## Use cases and examples
+
+### Story title 3
+
+Description of story 3
+
+<Canvas>
+  <Story name="Story title 3">
+    <DatePickerWrapper />
+    <DatePickerWrapper />
+  </Story>
+</Canvas>
+
+### Story title 4
+
+Description of story 4
+
+<Canvas>
+  <Story name="Story title 4">
+    <DatePickerWrapper />
+    <DatePickerWrapper />
+  </Story>
+</Canvas>
+
+## Related components
+
+<RelatedComponents componentsNames={[]} />
+-->

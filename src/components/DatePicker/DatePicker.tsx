@@ -12,33 +12,41 @@ import './DatePicker.scss';
 
 interface DatePickerProps {
     firstDayOfWeek: number
-    date: moment.Moment
-    endDate: moment.Moment
+    date?: moment.Moment
+    endDate?: moment.Moment
     onPickDate: (date: moment.Moment) => void,
     hideNavigationKeys: boolean
     enableOutsideDays: boolean
     showWeekNumber: boolean
     daySize: number
-    isOutsideRange: (date: moment.Moment) => boolean
-    isDayBlocked: (date: moment.Moment) => boolean
+    isOutsideRange?: (date: moment.Moment) => boolean
+    isDayBlocked?: (date: moment.Moment) => boolean
     isRange: boolean
     minimumNights: number,
     numberOfMonths: number,
     hideOutsideRange: boolean
-    isYearBlocked: (year: number) => boolean
+    isYearBlocked?: (year: number) => boolean
 }
 
 const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAttributes<unknown>> =
-    forwardRef<unknown, DatePickerProps>((props, ref) => {
-        const [focusedInput, setFocusedInput] = useState(props.isRange ? START_DATE : undefined)
-        const { firstDayOfWeek = WEEK_FIRST_DAY, daySize = DAY_SIZE,
-            isRange,
-            isDayBlocked,
-            hideOutsideRange,
-            isYearBlocked,
-            minimumNights = 0,
-            numberOfMonths = 1,
-            hideNavigationKeys, date, endDate, onPickDate, enableOutsideDays, showWeekNumber, isOutsideRange } = props;
+    forwardRef<unknown, DatePickerProps>(({
+        firstDayOfWeek,
+        daySize,
+        isRange,
+        isDayBlocked,
+        hideOutsideRange,
+        isYearBlocked,
+        minimumNights,
+        numberOfMonths,
+        hideNavigationKeys,
+        date,
+        endDate,
+        onPickDate,
+        enableOutsideDays,
+        showWeekNumber,
+        isOutsideRange
+    }, ref) => {
+        const [focusedInput, setFocusedInput] = useState(isRange ? START_DATE : undefined)
 
         const [isMonthYearSelection, setIsMonthYearSelection] = useState(false);
         const [overrideDateForView, setOverrideDateForView] = useState(null)
@@ -143,7 +151,6 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
                         initialVisibleMonth={() => overrideDateForView || date || moment()}
                     />
                 }
-
                 {isMonthYearSelection && renderMonthYearSelection()}
             </div>
 
@@ -151,6 +158,17 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
     });
 
 
+DatePicker.defaultProps = {
+    firstDayOfWeek: WEEK_FIRST_DAY,
+    daySize: DAY_SIZE,
+    minimumNights: 0,
+    numberOfMonths: 1,
+    isRange: false,
+    hideNavigationKeys: false,
+    enableOutsideDays: false,
+    showWeekNumber: false,
+    hideOutsideRange: false
 
+}
 
 export default DatePicker;

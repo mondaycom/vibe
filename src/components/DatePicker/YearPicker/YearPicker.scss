@@ -1,21 +1,13 @@
-
-  @import "../../../styles/themes.scss";
-  @import "../../../styles/typography";
-  @import "../../../styles/global-css-settings";
+@import "../../../styles/themes.scss";
 
 .date-month-year-picker-component-wrapper {
   position: absolute;
-  top: 24px;
+  top: -21px;
   left: 0;
   right: 0;
   height: 100%;
   z-index: 10;
   pointer-events: none;
-
-  &.is-range {
-    top: -16px;
-  }
-
   .slide-down-appear {
     opacity: 0;
   }
