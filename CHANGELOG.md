@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.62.0 (2022-09-11)
+
+#### Bug Fixes
+* [#859](https://github.com/mondaycom/monday-ui-react-core/pull/859) Feature/sergeyro/menu button icon size unify ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#864](https://github.com/mondaycom/monday-ui-react-core/pull/864) Chip colors in dropdown with multi support ([@yardenli](https://github.com/yardenli))
+
+#### Internal Changes
+* [#860](https://github.com/mondaycom/monday-ui-react-core/pull/860) Feature/sergeyro/build react icons typescript ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.61.0 (2022-09-07)
 
 #### New Features
