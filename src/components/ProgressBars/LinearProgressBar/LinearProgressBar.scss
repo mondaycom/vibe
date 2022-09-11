@@ -2,7 +2,7 @@
 @import "../../../styles/themes";
 @import "../../../styles/typography";
 
-.linear-progress-bar--wrapper {
+.linearProgressBarWrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -10,76 +10,79 @@
   font-family: var(--font-family);
   font-size: var(--font-size-general-label);
   @include theme-prop(color, secondary-text-color);
+}
 
-  .linear-progress-bar__label {
-    padding-left: var(--spacing-xs)
-  }
+.linearProgressBarWrapper .linearProgressBarLabel {
+  padding-left: var(--spacing-xs);
+}
 
-  &__large {
-    height: 8px;
-    line-height: 8px;
-  }
+.linearProgressBarWrapperLarge {
+  height: 8px;
+  line-height: 8px;
+}
 
-  &__medium {
-    height: 6px;
-    line-height: 6px;
-  }
+.linearProgressBarWrapperMedium {
+  height: 6px;
+  line-height: 6px;
+}
 
-  &__small {
-    height: 4px;
-    line-height: 4px;
-  }
+.linearProgressBarWrapperSmall {
+  height: 4px;
+  line-height: 4px;
+}
 
-  .linear-progress-bar__container {
-    position: relative;
-    width: 100%;
-    @include theme-prop(background-color, primary-background-hover-color);
-    border-radius: $border-radius-small;
+.linearProgressBarWrapper .linearProgressBarContainer {
+  position: relative;
+  width: 100%;
+  @include theme-prop(background-color, primary-background-hover-color);
+  border-radius: $border-radius-small;
+}
 
-    .linear-progress-bar__secondary,
-    .linear-progress-bar {
-      left: 0;
-      height: 100%;
-      position: absolute;
-      border-radius: $border-radius-small;
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondary,
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBar {
+  left: 0;
+  height: 100%;
+  position: absolute;
+  border-radius: $border-radius-small;
+}
 
-      &--animate {
-        transition: width var(--motion-productive-medium) var(--motion-timing-transition);
-      }
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondaryAnimate,
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarAnimate {
+  transition: width var(--motion-productive-medium) var(--motion-timing-transition);
+}
 
-      &--primary {
-        @include theme-prop(background-color, primary-color);
-      }
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondaryPrimary,
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarPrimary {
+  @include theme-prop(background-color, primary-color);
+}
 
-      &--secondary {
-        @include theme-prop(background-color, dark-color);
-      }
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondarySecondary,
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondary {
+  @include theme-prop(background-color, dark-color);
+}
 
-      &--positive {
-        @include theme-prop(background-color, positive-color);
-      }
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondaryPositive,
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarPositive {
+  @include theme-prop(background-color, positive-color);
+}
 
-      &--negative {
-        @include theme-prop(background-color, negative-color);
-      }
-    }
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondaryNegative,
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarNegative {
+  @include theme-prop(background-color, negative-color);
+}
 
-    .linear-progress-bar__secondary {
-      &--primary {
-        background-color: var(--primary-selected-color);
-      }
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondaryPrimary {
+  background-color: var(--primary-selected-color);
+}
 
-      &--secondary {
-        background-color: var(--ui-border-color);
-      }
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondarySecondary {
+  background-color: var(--ui-border-color);
+}
 
-      &--positive {
-        background-color: var(--positive-color-selected);
-      }
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondaryPositive {
+  background-color: var(--positive-color-selected);
+}
 
-      &--negative {
-        background-color: var(--negative-color-selected);
-      }
-    }
-  }
+.linearProgressBarWrapper .linearProgressBarContainer .linearProgressBarSecondaryNegative {
+  background-color: var(--negative-color-selected);
 }
