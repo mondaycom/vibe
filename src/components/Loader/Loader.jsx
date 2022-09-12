@@ -40,6 +40,7 @@ const Loader = forwardRef(
           className={cx("circle-loader-spinner", styles.circleLoaderSpinner, overrideClassName)}
           viewBox="0 0 50 50"
           color={color}
+          aria-hidden
         >
           {hasBackground && (
             <circle

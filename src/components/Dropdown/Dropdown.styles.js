@@ -266,13 +266,35 @@ const valueContainer =
     borderRadius: getCSSVar("border-radius-small")
   });
 
-const menu = () => provided => ({
-  ...provided,
-  ...getFont(),
-  color: getCSSVar("primary-text-color"),
-  backgroundColor: getCSSVar("dialog-background-color"),
-  boxShadow: getCSSVar("box-shadow-small")
-});
+const menu =
+  ({ controlRef, insideOverflowContainer, transformContainerRef }) =>
+  provided => {
+    const baseStyle = {
+      ...provided,
+      ...getFont(),
+      color: getCSSVar("primary-text-color"),
+      backgroundColor: getCSSVar("dialog-background-color"),
+      boxShadow: getCSSVar("box-shadow-small")
+    };
+
+    if (!insideOverflowContainer) return baseStyle;
+
+    // If the dropdown is inside a scroll, we try to get dropdown location at the dom
+    const parentPositionData = controlRef?.current?.getBoundingClientRect();
+
+    // If no location found do not add anything to hard coded style
+    if (!parentPositionData) return baseStyle;
+
+    let overrideTop = parentPositionData.bottom;
+
+    if (transformContainerRef?.current !== undefined) {
+      const transformContainerPositionData = transformContainerRef?.current?.getBoundingClientRect();
+
+      overrideTop = parentPositionData.bottom - transformContainerPositionData.top + 7; //7 for margin;
+    }
+
+    return { ...baseStyle, top: overrideTop, width: parentPositionData.width };
+  };
 
 const option = () => (provided, state) => ({
   ...getFont(),
