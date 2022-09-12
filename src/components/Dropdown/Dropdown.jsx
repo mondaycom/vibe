@@ -17,6 +17,7 @@ import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles } from "./DropdownConst
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 import Control from "./components/Control/Control";
+import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
 
 const Dropdown = ({
   className,
@@ -288,6 +289,7 @@ const Dropdown = ({
 };
 
 Dropdown.size = SIZES;
+Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
 
 Dropdown.defaultProps = {
   className: "",
