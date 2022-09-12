@@ -47,8 +47,6 @@ export const ELEMENT_TYPES = {
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
   DIVIDER: "divider",
-  TAB: "tab",
-  TAB_PANEL: "tab-panel",
   FIELD_LABEL: "field-label",
   EXPAND_COLLAPSE: "expand-collapse",
   FORMATTED_NUMBER: "formatted-number",
