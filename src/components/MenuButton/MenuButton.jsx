@@ -9,6 +9,7 @@ import Menu from "../Icon/Icons/components/Menu";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import Tooltip from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
+import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
 import styles from "./MenuButton.module.scss";
 
 const CSS_BASE_CLASS = "menu-button--wrapper";
@@ -149,7 +150,19 @@ const MenuButton = ({
   };
 
   const Icon = component;
-  const iconSize = size - 4;
+  const iconSize = useMemo(() => {
+    switch (size) {
+      case MenuButton.sizes.XXS:
+      case MenuButton.sizes.XS:
+        return 16;
+      case MenuButton.sizes.SMALL:
+      case MenuButton.sizes.MEDIUM:
+      case MenuButton.sizes.LARGE:
+        return BUTTON_ICON_SIZE;
+      default:
+        return 24;
+    }
+  }, [size]);
 
   useLayoutEffect(() => {
     setIsOpen(open);
@@ -213,7 +226,7 @@ const MenuButton = ({
           onMouseUp={onMouseUp}
           aria-disabled={disabled}
         >
-          <Icon size={Math.min(iconSize, 28).toString()} role="img" aria-hidden="true" />
+          <Icon size={iconSize.toString()} role="img" aria-hidden="true" />
           {text && <span className={cx(styles.innerText, `${CSS_BASE_CLASS}--inner-text`)}>{text}</span>}
         </button>
       </Dialog>
@@ -264,11 +277,11 @@ MenuButton.propTypes = {
    */
   component: PropTypes.func,
   size: PropTypes.oneOf([
-    MenuButtonSizes.XXS,
-    MenuButtonSizes.XS,
-    MenuButtonSizes.SMALL,
-    MenuButtonSizes.MEDIUM,
-    MenuButtonSizes.LARGE
+    MenuButton.sizes.XXS,
+    MenuButton.sizes.XS,
+    MenuButton.sizes.SMALL,
+    MenuButton.sizes.MEDIUM,
+    MenuButton.sizes.LARGE
   ]),
   open: PropTypes.bool,
   onClick: PropTypes.func,
