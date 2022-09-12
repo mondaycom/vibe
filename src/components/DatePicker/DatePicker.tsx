@@ -11,6 +11,8 @@ import { NEXT, PREV, START_DATE, DAY_SIZE, WEEK_FIRST_DAY } from './DatePickerCo
 import './DatePicker.scss';
 
 interface DatePickerProps {
+    id?: string
+    className?: string
     firstDayOfWeek: number
     date?: moment.Moment
     endDate?: moment.Moment
@@ -30,6 +32,8 @@ interface DatePickerProps {
 
 const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAttributes<unknown>> =
     forwardRef<unknown, DatePickerProps>(({
+        id,
+        className,
         firstDayOfWeek,
         daySize,
         isRange,
@@ -47,11 +51,10 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
         isOutsideRange
     }, ref) => {
         const [focusedInput, setFocusedInput] = useState(isRange ? START_DATE : undefined)
-
         const [isMonthYearSelection, setIsMonthYearSelection] = useState(false);
-        const [overrideDateForView, setOverrideDateForView] = useState(null)
+        const [overrideDateForView, setOverrideDateForView] = useState<moment.Moment | null>(null)
 
-        const renderMonth = (currDate) => {
+        const renderMonth = (currDate: moment.Moment) => {
             return (
                 <DatePickerHeaderComponent
                     currentDate={currDate || moment()}
@@ -62,7 +65,7 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
             );
         }
 
-        const renderDay = (day) => {
+        const renderDay = (day: moment.Moment) => {
             const weekNumber = firstDayOfWeek === 0 ? day.clone().add(1, 'd').isoWeek() : day.isoWeek();
             return (
                 <>
@@ -75,12 +78,11 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
             if (!isRange || minimumNights !== 0) {
                 return false;
             }
-
             //checks if only start date selected and not end date.
             return date && !endDate;
         }
 
-        const changeCurrentDateFromMonthYearView = (date) => {
+        const changeCurrentDateFromMonthYearView = (date: moment.Moment | null) => {
             setOverrideDateForView(date)
             setIsMonthYearSelection(false)
 
@@ -100,12 +102,13 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
         const shouldShowNav = !hideNavigationKeys && !isMonthYearSelection;
 
         return (
-            <div className={classNames('datepicker--wrapper', {
+            <div id={id} className={classNames('datepicker--wrapper', className, {
                 "with-week-number": showWeekNumber,
                 "with-outside-days": enableOutsideDays,
                 "hide-outside-range": hideOutsideRange,
                 "range-picker-mode": isRange,
                 "range-single-date-selected": isRangeSingleDateValid(),
+                "month-year-selection": isMonthYearSelection
             })}>
                 {isRange ?
                     <DayPickerRangeController

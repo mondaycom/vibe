@@ -20,6 +20,14 @@
   }
 
   // Overriding react-dates style section
+  &.month-year-selection {
+    table {
+      tbody {
+        opacity: 0;
+      }
+    }
+  }
+
   .CalendarDay--selected-span:active,
   .CalendarDay--selected-span.CalendarDay--hovered {
     border: none;
@@ -219,6 +227,8 @@
           @include theme-prop(border-color, primary-selected-color);
           @include theme-prop(background-color, primary-background-hover-color);
           background-color: #dcdfec;
+          background-color: var(--primary-color);
+          @include theme-prop(color, text-color-on-primary);
         }
       }
     }
