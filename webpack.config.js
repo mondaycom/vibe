@@ -52,17 +52,29 @@ module.exports = options => {
       }
     }
   ];
+  // why false? we are open source anyway
   const devtool = options.storybook ? "eval-cheap-module-source-map" : false;
 
   return {
     devtool,
     resolve: {
       modules: [__dirname, "node_modules"],
-      extensions: [".js", ".jsx"]
+      extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
-
     module: {
       rules: [
+        {
+          test: /\.(ts|tsx)$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: "ts-loader",
+              options: {
+                onlyCompileBundledFiles: true
+              }
+            }
+          ]
+        },
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
@@ -92,7 +104,7 @@ module.exports = options => {
     externals: [nodeExternals()],
     entry: {
       main: path.join(__dirname, "/src/index.js"),
-      ...getPublishedComponents(__dirname)
+      ...getPublishedComponents()
     },
     output: {
       path: path.join(__dirname, "/dist/"),
