@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const fs = require("fs");
 
 const ICONS_PATH = "src/components/Icon/Icons/components";

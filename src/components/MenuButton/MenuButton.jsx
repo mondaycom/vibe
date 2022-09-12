@@ -1,15 +1,16 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { useCallback, useState, useMemo, useLayoutEffect, forwardRef, useRef } from "react";
+import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import NOOP from "lodash/noop";
 import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
-import "./MenuButton.scss";
 import Tooltip from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import useMergeRefs from "../../hooks/useMergeRefs";
+import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
+import "./MenuButton.scss";
 
 function BEMClass(className) {
   return `menu-button--wrapper--${className}`;
@@ -154,7 +155,19 @@ const MenuButton = forwardRef(
     };
 
     const Icon = component;
-    const iconSize = size - 4;
+    const iconSize = useMemo(() => {
+      switch (size) {
+        case MenuButton.sizes.XXS:
+        case MenuButton.sizes.XS:
+          return 16;
+        case MenuButton.sizes.SMALL:
+        case MenuButton.sizes.MEDIUM:
+        case MenuButton.sizes.LARGE:
+          return BUTTON_ICON_SIZE;
+        default:
+          return 24;
+      }
+    }, [size]);
 
     useLayoutEffect(() => {
       setIsOpen(open);
@@ -207,7 +220,7 @@ const MenuButton = forwardRef(
             onMouseUp={onMouseUp}
             aria-disabled={disabled}
           >
-            <Icon size={Math.min(iconSize, 28).toString()} role="img" aria-hidden="true" />
+            <Icon size={iconSize.toString()} role="img" aria-hidden="true" />
             {text && <span className={BEMClass("inner-text")}>{text}</span>}
           </button>
         </Dialog>
@@ -259,11 +272,11 @@ MenuButton.propTypes = {
    */
   component: PropTypes.func,
   size: PropTypes.oneOf([
-    MenuButtonSizes.XXS,
-    MenuButtonSizes.XS,
-    MenuButtonSizes.SMALL,
-    MenuButtonSizes.MEDIUM,
-    MenuButtonSizes.LARGE
+    MenuButton.sizes.XXS,
+    MenuButton.sizes.XS,
+    MenuButton.sizes.SMALL,
+    MenuButton.sizes.MEDIUM,
+    MenuButton.sizes.LARGE
   ]),
   open: PropTypes.bool,
   onClick: PropTypes.func,
