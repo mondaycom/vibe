@@ -12,7 +12,8 @@ export function useHiddenSwitch({
   ariaLabelledBy,
   checked,
   onChange,
-  ariaControls
+  ariaControls,
+  defaultChecked
 }) {
   const inputRef = useRef(null);
   const onSwitchClick = useCallback(() => {
@@ -37,7 +38,7 @@ export function useHiddenSwitch({
     isChecked: overrideDefaultChecked || checked,
     HiddenSwitch: (
       <input
-        ref={ref}
+        ref={inputRef}
         id={id}
         aria-controls={ariaControls}
         className={classes["hidden-switch"]}

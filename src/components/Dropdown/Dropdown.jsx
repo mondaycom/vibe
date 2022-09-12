@@ -17,6 +17,7 @@ import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles } from "./DropdownConst
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
 import "./Dropdown.scss";
 import Control from "./components/Control/Control";
+import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
 
 const Dropdown = ({
   className,
@@ -64,7 +65,8 @@ const Dropdown = ({
   ref,
   withMandatoryDefaultOptions,
   isOptionSelected,
-  insideScroll
+  insideOverflowContainer,
+  transformContainerRef
 }) => {
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
@@ -97,8 +99,9 @@ const Dropdown = ({
     const baseStyles = generateBaseStyles({
       size,
       rtl,
-      insideScroll,
-      controlRef
+      insideOverflowContainer,
+      controlRef,
+      transformContainerRef
     });
 
     // Then we want to run the consumer's root-level custom styles with our "base" override groups.
@@ -135,7 +138,7 @@ const Dropdown = ({
     }
 
     return mergedStyles;
-  }, [size, rtl, extraStyles, multi, multiline, insideScroll]);
+  }, [size, rtl, insideOverflowContainer, transformContainerRef, extraStyles, multi, multiline]);
 
   const Menu = useCallback(props => <MenuComponent {...props} Renderer={menuRenderer} />, [menuRenderer]);
 
@@ -172,10 +175,10 @@ const Dropdown = ({
       setIsDialogShown,
       isDialogShown,
       isMultiline: multiline,
-      insideScroll,
+      insideOverflowContainer,
       controlRef
     }),
-    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideScroll]
+    [selectedOptions, onOptionRemove, isDialogShown, multiline, insideOverflowContainer]
   );
 
   const onChange = (option, event) => {
@@ -227,7 +230,7 @@ const Dropdown = ({
     })
   };
 
-  const closeMenuOnScroll = useCallback(() => insideScroll, [insideScroll]);
+  const closeMenuOnScroll = useCallback(() => insideOverflowContainer, [insideOverflowContainer]);
 
   return (
     <DropDownComponent
@@ -286,6 +289,7 @@ const Dropdown = ({
 };
 
 Dropdown.size = SIZES;
+Dropdown.chipColors = DROPDOWN_CHIP_COLORS;
 
 Dropdown.defaultProps = {
   className: "",
@@ -311,7 +315,8 @@ Dropdown.defaultProps = {
   closeMenuOnSelect: undefined,
   ref: undefined,
   withMandatoryDefaultOptions: false,
-  insideScroll: false
+  insideOverflowContainer: false,
+  transformContainerRef: undefined
 };
 
 Dropdown.propTypes = {
@@ -511,9 +516,13 @@ Dropdown.propTypes = {
    */
   isOptionSelected: PropTypes.func,
   /**
-   * For display the drop down menu outside of the overflow hidden/scroll container.
+   * For display the drop down menu in overflow hidden/scroll container.
    */
-  insideScroll: PropTypes.bool
+  insideOverflowContainer: PropTypes.bool,
+  /**
+   * While using insideOverflowContainer, if the on of the dropdown container using transform animation please attached the ref to this container.
+   */
+  transformContainerRef: PropTypes.object
 };
 
 export default Dropdown;

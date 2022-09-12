@@ -63,9 +63,6 @@ export const OtherContributorsList = () => {
           {name}
         </Link>
       ));
-
-      finalContributors.push(...developerContributors);
-      return finalContributors;
     }
   }, [contributorsJson]);
 
