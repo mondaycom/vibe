@@ -72,7 +72,6 @@ const ExpandCollapse = forwardRef(
               iconType={Icon.type.SVG}
               icon={DropdownChevronDown}
               iconSize={iconSize}
-              tabindex="-1"
               clickable={false}
             />
           </button>

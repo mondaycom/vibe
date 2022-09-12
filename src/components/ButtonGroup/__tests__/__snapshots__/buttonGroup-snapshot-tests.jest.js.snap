@@ -11,6 +11,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
     role="group"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -24,6 +25,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       Alpha
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -37,6 +39,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       Beta
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -50,6 +53,7 @@ exports[`ButtonGroup renders correctly when disabled 1`] = `
       Gamma
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text disabled monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -77,6 +81,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
     role="group"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -90,6 +95,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       Alpha
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -103,6 +109,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       Beta
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -116,6 +123,7 @@ exports[`ButtonGroup renders correctly when disabled 2`] = `
       Gamma
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -143,6 +151,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
     role="group"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -156,6 +165,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       Alpha
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -169,6 +179,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       Beta
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -182,6 +193,7 @@ exports[`ButtonGroup renders correctly with TERTIARY kind  1`] = `
       Gamma
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -209,6 +221,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
     role="group"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -222,6 +235,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       Alpha
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -235,6 +249,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       Beta
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -248,6 +263,7 @@ exports[`ButtonGroup renders correctly with componentClassName 1`] = `
       Gamma
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -275,6 +291,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
     role="group"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -288,6 +305,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       Alpha
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -301,6 +319,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       Beta
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -314,6 +333,7 @@ exports[`ButtonGroup renders correctly with large size 1`] = `
       Gamma
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-large monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -341,6 +361,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
     role="group"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -354,6 +375,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       Alpha
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -367,6 +389,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       Beta
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -380,6 +403,7 @@ exports[`ButtonGroup renders correctly with name 1`] = `
       Gamma
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -407,6 +431,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
     role="group"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text selected monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--right-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -420,6 +445,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       Alpha
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -433,6 +459,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       Beta
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"
@@ -446,6 +473,7 @@ exports[`ButtonGroup renders correctly with value 1`] = `
       Gamma
     </button>
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-button-group-component__option-text monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--left-flat monday-style-button--prevent-click-animation"
       data-testid="button"

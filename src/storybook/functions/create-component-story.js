@@ -20,6 +20,21 @@ const allowedIcons = iconsMetaData.reduce(
   { options: [], mapping: {} }
 );
 
+function parseStringForEnums(componentName, enumName, enumObj) {
+  let returnValue;
+
+  for (const key of Object.keys(enumObj)) {
+    if (returnValue) returnValue = `${returnValue} | ${parseStringForEnum(componentName, enumName, key)}`;
+    else returnValue = parseStringForEnum(componentName, enumName, key);
+  }
+
+  return returnValue;
+}
+
+function parseStringForEnum(componentName, enumName, enumKey) {
+  return `${componentName}.${enumName}.${enumKey}`;
+}
+
 export function createStoryMetaSettings({ component, enumPropNamesArray, iconPropNamesArray, actionPropsArray }) {
   const argTypes = {};
   const decorators = [];
@@ -35,8 +50,19 @@ export function createStoryMetaSettings({ component, enumPropNamesArray, iconPro
     }
     const enums = component[enumName];
     if (enums && enums instanceof Object) {
+      // docgen is the parser we using for parsing all our component prop types, default props and
+      // other component data (it's configure under storybook main.js file)
+      const componentName = component.__docgenInfo.displayName;
       argTypes[prop] = {
-        options: Object.values(enums)
+        options: enums,
+        labels: enums,
+        table: {
+          type: {
+            summary: parseStringForEnums(componentName, enumName, enums),
+            // For not displaying box for enumns in controls of js not converted components
+            detail: null
+          }
+        }
       };
     }
   });

@@ -4,11 +4,6 @@ import NOOP from "lodash/noop";
 import Button from "../Button";
 import { WhatsNew } from "../../Icon/Icons";
 
-jest.mock("../../Icon/Icon", () => {
-  const Icon = ({ icon }) => <div data-testid="icon-mock">{icon}</div>;
-  Icon.type = {};
-  return Icon;
-});
 jest.mock("../../Icon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
 
 describe("Button renders correctly", () => {

@@ -7,7 +7,7 @@ import AutoSizer from "react-virtualized-auto-sizer";
 import {
   getNormalizedItems,
   getOnItemsRenderedData,
-  isVerticalScrollbarVisible
+  isLayoutDirectionScrollbarVisible
 } from "../../services/virtualized-service";
 import usePrevious from "../../hooks/usePrevious";
 import useThrottledCallback from "../../hooks/useThrottledCallback";
@@ -175,7 +175,7 @@ const VirtualizedGrid = forwardRef(
     useEffect(() => {
       // update vertical scrollbar visibility
       if (onVerticalScrollbarVisiblityChange) {
-        const isVisible = isVerticalScrollbarVisible(items, normalizedItems, idGetter, gridHeight);
+        const isVisible = isLayoutDirectionScrollbarVisible(items, normalizedItems, idGetter, gridHeight);
         if (isVerticalScrollbarVisibleRef.current !== isVisible) {
           isVerticalScrollbarVisibleRef.current = isVisible;
           onVerticalScrollbarVisiblityChange(isVisible);
