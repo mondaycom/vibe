@@ -13,6 +13,7 @@ exports[`AlertBanner should render correctly with background color 1`] = `
     className="monday-alert-banner__close-button-wrapper"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
@@ -74,6 +75,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
     className="monday-alert-banner__close-button-wrapper"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
@@ -178,6 +180,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
         className="monday-style-alert-banner-button-margin-left"
       >
         <button
+          aria-busy={false}
           aria-disabled={false}
           className="monday-style-alert-banner-button monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
           data-testid="button"
@@ -197,6 +200,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
     className="monday-alert-banner__close-button-wrapper"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
@@ -261,6 +265,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
         className="monday-style-alert-banner-button-margin-left"
       >
         <button
+          aria-busy={false}
           aria-disabled={false}
           className="monday-style-alert-banner-button monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
           data-testid="button"
@@ -280,6 +285,7 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
     className="monday-alert-banner__close-button-wrapper"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
@@ -367,6 +373,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
     className="monday-alert-banner__close-button-wrapper"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
@@ -429,6 +436,7 @@ exports[`AlertBanner shuold render correctly with props 1`] = `
     className="monday-alert-banner__close-button-wrapper"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"

@@ -30,7 +30,6 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -75,7 +74,6 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -115,7 +113,6 @@ exports[`Accordion renders correctly with allowMultiple 1`] = `
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -168,7 +165,6 @@ exports[`Accordion renders correctly with children 1`] = `
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -208,7 +204,6 @@ exports[`Accordion renders correctly with children 1`] = `
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -248,7 +243,6 @@ exports[`Accordion renders correctly with children 1`] = `
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -303,7 +297,6 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -348,7 +341,6 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >
@@ -388,7 +380,6 @@ exports[`Accordion renders correctly with defaultIndex prop 1`] = `
             fill="currentColor"
             height="24"
             onClick={[Function]}
-            tabIndex="-1"
             viewBox="0 0 20 20"
             width="24"
           >

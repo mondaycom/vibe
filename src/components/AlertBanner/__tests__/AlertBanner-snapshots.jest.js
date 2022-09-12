@@ -6,20 +6,6 @@ import AlertBannerButton from "../AlertBannerButton/AlertBannerButton";
 import AlertBannerText from "../AlertBannerText/AlertBannerText";
 import { NOOP } from "../../../utils/function-utils";
 
-jest.mock("../../Button/Button", () => {
-  const Button = ({ onClick }) => (
-    <div data-testid="cancel-button" {...(onClick && { "data-onclick": "onclick-provided" })} />
-  );
-
-  Button.sizes = {};
-  Button.kinds = {};
-  Button.colors = {};
-  Button.propTypes = {};
-  Button.defaultProps = {};
-
-  return Button;
-});
-
 describe("AlertBanner", () => {
   it("should render correctly without props", () => {
     const tree = renderer.create(<AlertBanner />).toJSON();
