@@ -6,6 +6,7 @@ exports[`SplitButton renders correctly with disabled 1`] = `
   role="button"
 >
   <button
+    aria-busy={false}
     aria-disabled={true}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation monday-style-button--disabled"
     data-testid="button"
@@ -30,6 +31,7 @@ exports[`SplitButton renders correctly with disabled 1`] = `
       onMouseLeave={[Function]}
     >
       <button
+        aria-busy={false}
         aria-disabled={true}
         aria-expanded={false}
         aria-haspopup={true}
@@ -73,6 +75,7 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
   role="button"
 >
   <button
+    aria-busy={false}
     aria-disabled={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     data-testid="button"
@@ -97,6 +100,7 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
       onMouseLeave={[Function]}
     >
       <button
+        aria-busy={false}
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -140,6 +144,7 @@ exports[`SplitButton renders correctly with only required props 1`] = `
   role="button"
 >
   <button
+    aria-busy={false}
     aria-disabled={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     data-testid="button"
@@ -164,6 +169,7 @@ exports[`SplitButton renders correctly with only required props 1`] = `
       onMouseLeave={[Function]}
     >
       <button
+        aria-busy={false}
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -207,6 +213,7 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
   role="button"
 >
   <button
+    aria-busy={false}
     aria-disabled={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     data-testid="button"
@@ -231,6 +238,7 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
       onMouseLeave={[Function]}
     >
       <button
+        aria-busy={false}
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -274,6 +282,7 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
   role="button"
 >
   <button
+    aria-busy={false}
     aria-disabled={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     data-testid="button"
@@ -298,6 +307,7 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
       onMouseLeave={[Function]}
     >
       <button
+        aria-busy={false}
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}
@@ -341,6 +351,7 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
   role="button"
 >
   <button
+    aria-busy={false}
     aria-disabled={false}
     className="monday-style-split-button__main-button monday-style-button monday-style-button--size-medium monday-style-button--kind-primary monday-style-button--color-primary monday-style-button--right-flat monday-style-button--prevent-click-animation"
     data-testid="button"
@@ -365,6 +376,7 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
       onMouseLeave={[Function]}
     >
       <button
+        aria-busy={false}
         aria-disabled={false}
         aria-expanded={false}
         aria-haspopup={true}

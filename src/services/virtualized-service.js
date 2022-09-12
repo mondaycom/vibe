@@ -1,18 +1,19 @@
 const LAST_ITEM_ID = "~~~lastItem~~~";
 const EMPTY_OBJECT = {};
-export const getNormalizedItems = (items, idGetter, heightGetter) => {
+export const getNormalizedItems = (items, idGetter, sizeGetter) => {
   const normalizedItems = {};
-  let offsetTop = 0;
+  let offset = 0;
 
   const lastIndex = items.length - 1;
   items.forEach((item, index) => {
-    const height = heightGetter(item, index);
+    const size = sizeGetter(item, index);
     const uniqueId = idGetter(item, index);
-    normalizedItems[uniqueId] = { item, index, height, offsetTop };
+    // keep height/offsetTop for backward compatibility
+    normalizedItems[uniqueId] = { item, index, height: size, size, offsetTop: offset, offset };
     if (lastIndex === index) {
       normalizedItems[LAST_ITEM_ID] = normalizedItems[uniqueId];
     }
-    offsetTop += height;
+    offset += size;
   });
 
   return normalizedItems;
@@ -25,11 +26,11 @@ export const isItemInView = (item, scrollTop, offsetHeight) => {
   return !isItemUnderTheViewableArea && !isItemAboveTheViewableArea;
 };
 
-export const getMaxOffset = (offsetHeight, normalizedItems) => {
+export const getMaxOffset = (offsetSize, normalizedItems) => {
   const lastItem = normalizedItems[LAST_ITEM_ID];
   if (!lastItem) return 0;
-  const { height, offsetTop } = lastItem;
-  return offsetTop + height - offsetHeight; // max offset
+  const { size, offset } = lastItem;
+  return offset + size - offsetSize; // max offset
 };
 
 export const easeInOutQuint = time => {
@@ -49,16 +50,17 @@ function findItemAtOffset(items, normalizedItems, idGetter, fromIndex, offset) {
   return null;
 }
 
-export const isVerticalScrollbarVisible = (items, normalizedItems, idGetter, componentHeight) => {
-  if (!componentHeight) return false;
+// for vertical layout - this returns true when vertical scrollbar visible
+// for horizontal layout - this returns true when horizontal scrollbar visible
+export const isLayoutDirectionScrollbarVisible = (items, normalizedItems, idGetter, componentSize) => {
+  if (!componentSize) return false;
   const lastExistingItem = items[items.length - 1] || EMPTY_OBJECT;
   const lastExistingItemId = idGetter(lastExistingItem, items.length - 1);
   const normalizedItem = normalizedItems[lastExistingItemId];
   if (!normalizedItem) return false;
-  const { offsetTop: lastExistingItemIdOffsetTop, height: lastExistingItemHeight } =
-    normalizedItems[lastExistingItemId];
-  const maxOffset = lastExistingItemIdOffsetTop + lastExistingItemHeight;
-  const isVisible = maxOffset > componentHeight;
+  const { offset: lastExistingItemIdOffset, size: lastExistingItemSize } = normalizedItems[lastExistingItemId];
+  const maxOffset = lastExistingItemIdOffset + lastExistingItemSize;
+  const isVisible = maxOffset > componentSize;
   return isVisible;
 };
 
@@ -72,7 +74,7 @@ export const getOnItemsRenderedData = (
   idGetter,
   visibleStartIndex,
   visibleStopIndex,
-  componentHeight,
+  listSize,
   currentOffsetTop
 ) => {
   const firstVisibleItem = items[visibleStartIndex] || EMPTY_OBJECT;
@@ -83,7 +85,7 @@ export const getOnItemsRenderedData = (
     ? undefined
     : idGetter(secondVisibleItem, visibleStartIndex + 1);
   const lastItemId = isEmptyObject(lastVisibleItem) ? undefined : idGetter(lastVisibleItem, visibleStopIndex);
-  const centerOffset = currentOffsetTop + componentHeight / 2;
+  const centerOffset = currentOffsetTop + listSize / 2;
   const { offsetTop: firstItemOffsetTop, height: firstItemHeight } = normalizedItems[firstItemId] || EMPTY_OBJECT;
   const firstItemOffsetEnd = firstItemOffsetTop + firstItemHeight;
   const centerItemId = findItemAtOffset(items, normalizedItems, idGetter, visibleStartIndex, centerOffset);
