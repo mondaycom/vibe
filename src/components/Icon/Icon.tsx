@@ -9,13 +9,13 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import "./Icon.scss";
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (event: React.MouseEvent) => {};
 
 interface IconProps extends VibeComponentProps {
   // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
-  icon: string | React.Component | null;
+  icon: string | React.FunctionComponent | null;
   clickable?: boolean;
   iconLabel?: string;
   iconType?: IconType;
@@ -103,10 +103,11 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
     if (iconType === IconType.SVG || isFunctionType || typeof icon === "object") {
       const IconComponent = icon;
       return (
-        // @ts-ignore: icons are not converted to ts for js yet.
         <IconComponent
           id={id}
           {...screenReaderAccessProps}
+          // @ts-ignore - ref is not supported in function component without using forward ref which we don't
+          // use in our components but maybe other used it in their custom icon components
           ref={isFunctionType ? undefined : mergedRef}
           size={iconSize.toString()}
           onClick={onClick}

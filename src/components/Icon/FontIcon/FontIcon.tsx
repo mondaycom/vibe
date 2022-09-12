@@ -7,7 +7,7 @@ interface FontIconProps extends VibeComponentProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   "aria-label"?: string;
   tabIndex?: number;
-  icon?: string | React.Component | null;
+  icon?: string | React.FunctionComponent | null;
   role?: AriaRole;
   "aria-hidden"?: boolean;
 }
@@ -42,10 +42,7 @@ const FontIcon: VibeComponent<FontIconProps, HTMLElement> = forwardRef(
         id={id}
         data-testid={dataTestId}
       >
-        {isIconFunction && (
-          //@ts-ignore: Icon components are not converted to typescript in this stage
-          <Icon />
-        )}
+        {isIconFunction && <Icon />}
       </span>
     );
   }
