@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.62.1 (2022-09-11)
+
+#### Bug Fixes
+* [#866](https://github.com/mondaycom/monday-ui-react-core/pull/866) Fixing Chips import by changing to relative import ([@yardenli](https://github.com/yardenli))
+
 ## 1.62.0 (2022-09-11)
 
 #### Bug Fixes
