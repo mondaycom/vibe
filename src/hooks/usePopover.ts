@@ -3,6 +3,7 @@ import { usePopper } from "react-popper";
 import { PLACEMENTS } from "./popoverConstants";
 
 import useForceUpdate from "./useForceUpdate";
+import * as PopperJS from "@popperjs/core";
 
 const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = PLACEMENTS;
 
@@ -13,7 +14,17 @@ const FLIP_MODIFIER = {
   }
 };
 
-export default function usePopover(referenceElement, popperElement, { isOpen, placement = RIGHT_START }) {
+export default function usePopover(
+  referenceElement: HTMLElement,
+  popperElement: HTMLElement,
+  {
+    isOpen,
+    placement = RIGHT_START
+  }: {
+    isOpen?: boolean;
+    placement?: PLACEMENTS;
+  }
+) {
   const forceUpdate = useForceUpdate();
 
   // we have to use forceUpdate because
@@ -22,7 +33,7 @@ export default function usePopover(referenceElement, popperElement, { isOpen, pl
     forceUpdate();
   }, [referenceElement, popperElement, forceUpdate]);
 
-  const popperOptions = useMemo(() => {
+  const popperOptions: Partial<PopperJS.Options> = useMemo(() => {
     return {
       placement,
       modifiers: [
@@ -31,7 +42,7 @@ export default function usePopover(referenceElement, popperElement, { isOpen, pl
           name: "displayNone",
           enabled: true,
           phase: "write",
-          fn: ({ state }) => {
+          fn: ({ state }: { state: PopperJS.State }) => {
             // eslint-disable-next-line no-param-reassign
             state.styles.popper.visibility = isOpen ? "visible" : "hidden";
             return state;

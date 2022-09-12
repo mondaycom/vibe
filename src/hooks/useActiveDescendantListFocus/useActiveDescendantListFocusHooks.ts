@@ -1,16 +1,16 @@
-import { useCallback, useEffect, useMemo, useRef } from "react";
-import useKeyEvent from "../useKeyEvent";
+import { MutableRefObject, useCallback, useEffect, useMemo, useRef } from "react";
+import useKeyEvent, { UseKeyEvent } from "../useKeyEvent";
 import useEventListener from "../useEventListener";
 import usePrevious from "../usePrevious";
 import { getNextSelectableIndex, getPreviousSelectableIndex } from "./useActiveDescendantListFocusHelpers";
 import { useListenFocusTriggers } from "../useListenFocusTriggers";
 
-const ARROW_DIRECTIONS = {
-  UP: "ArrowUp",
-  DOWN: "ArrowDown",
-  RIGHT: "ArrowRight",
-  LEFT: "ArrowLeft"
-};
+enum ARROW_DIRECTIONS {
+  UP = "ArrowUp",
+  DOWN = "ArrowDown",
+  RIGHT = "ArrowRight",
+  LEFT = "ArrowLeft"
+}
 
 const ENTER_KEY = "Enter";
 const SPACE_KEY = " ";
@@ -24,12 +24,21 @@ export function useSupportArrowsKeyboardNavigation({
   isItemSelectable,
   listenerOptions,
   triggeredByKeyboard
+}: {
+  itemsCount: number;
+  focusedElementRef: MutableRefObject<HTMLElement>;
+  visualFocusItemIndex: number;
+  setVisualFocusItemIndex: (index: number) => unknown;
+  isHorizontalList: boolean;
+  isItemSelectable: (index: number) => boolean;
+  triggeredByKeyboard: MutableRefObject<boolean>;
+  listenerOptions: Partial<UseKeyEvent>;
 }) {
   const nextArrow = isHorizontalList ? ARROW_DIRECTIONS.RIGHT : ARROW_DIRECTIONS.DOWN;
   const backArrow = isHorizontalList ? ARROW_DIRECTIONS.LEFT : ARROW_DIRECTIONS.UP;
 
   const onArrowKeyEvent = useCallback(
-    direction => {
+    (direction: ARROW_DIRECTIONS) => {
       // we desire to change the visual focus item only if the user pressed on the keyboard arrows keys while
       // the focusedElementRef is naturally focus
       if (document.activeElement !== focusedElementRef.current) {
@@ -37,7 +46,7 @@ export function useSupportArrowsKeyboardNavigation({
       }
 
       // If the focusedElementRef is naturally focus but this is the first keyboard interaction of the user, we will mark future user interactions as trigger by keyboard (until the next mouse interaction)
-      // that from now on the interactions are trigger by keyboard (until the next mosue interaction)
+      // that from now on the interactions are trigger by keyboard (until the next mouse interaction)
       if (!triggeredByKeyboard.current) {
         triggeredByKeyboard.current = true;
 
@@ -100,6 +109,15 @@ export function useSupportPressItemKeyboardNavigation({
   isItemSelectable,
   listenerOptions = undefined,
   isIgnoreSpaceAsItemSelection = false
+}: {
+  visualFocusItemIndex: number;
+  focusedElementRef: MutableRefObject<HTMLElement>;
+  itemsCount: number;
+  setVisualFocusItemIndex: (index: number) => unknown;
+  onItemClick: (event: MouseEvent | KeyboardEvent, index: number) => unknown;
+  isItemSelectable: (index: number) => boolean;
+  listenerOptions: Partial<UseKeyEvent>;
+  isIgnoreSpaceAsItemSelection: boolean;
 }) {
   const pressKeys = useMemo(
     () => (isIgnoreSpaceAsItemSelection ? [ENTER_KEY] : [ENTER_KEY, SPACE_KEY]),
@@ -107,7 +125,7 @@ export function useSupportPressItemKeyboardNavigation({
   );
 
   const baseOnClickCallback = useCallback(
-    (event, itemIndex) => {
+    (event: KeyboardEvent, itemIndex: number) => {
       const hasValidIndex = itemIndex >= 0 && itemIndex < itemsCount;
       if (!onItemClick || !hasValidIndex || !isItemSelectable(itemIndex)) return;
       if (visualFocusItemIndex !== itemIndex) setVisualFocusItemIndex(itemIndex);
@@ -117,7 +135,7 @@ export function useSupportPressItemKeyboardNavigation({
   );
 
   const keyboardOnSelectCallback = useCallback(
-    event => {
+    (event: KeyboardEvent) => {
       // we desire to change the trigger the active item on click callback only if the user pressed on the keyboard arrows keys while
       // the focusedElementRef is naturally focus
       if (focusedElementRef.current.contains(document.activeElement)) {
@@ -134,8 +152,16 @@ export function useSupportPressItemKeyboardNavigation({
   });
 }
 
-export function useCleanVisualFocusOnBlur({ focusedElementRef, visualFocusItemIndex, setVisualFocusItemIndex }) {
-  const previousFocusedElementRef = usePrevious(focusedElementRef);
+export function useCleanVisualFocusOnBlur({
+  focusedElementRef,
+  visualFocusItemIndex,
+  setVisualFocusItemIndex
+}: {
+  focusedElementRef: MutableRefObject<HTMLElement>;
+  visualFocusItemIndex: number;
+  setVisualFocusItemIndex: (index: number) => unknown;
+}) {
+  const previousFocusedElementRef = usePrevious<MutableRefObject<HTMLElement>>(focusedElementRef);
 
   const onBlurCallback = useCallback(() => {
     if (visualFocusItemIndex !== -1) {
@@ -166,6 +192,13 @@ export function useSetDefaultItemOnFocusEvent({
   setVisualFocusItemIndex,
   itemsCount,
   defaultVisualFocusItemIndex = -1
+}: {
+  focusedElementRef: MutableRefObject<HTMLElement>;
+  isItemSelectable: (index: number) => boolean;
+  visualFocusItemIndex: number;
+  setVisualFocusItemIndex: (index: number) => unknown;
+  itemsCount: number;
+  defaultVisualFocusItemIndex: number;
 }) {
   const triggeredByKeyboard = useRef(false);
 
@@ -205,8 +238,13 @@ export function useKeepFocusOnItemWhenListChanged({
   itemsIds,
   isItemSelectable,
   setVisualFocusItemIndex
+}: {
+  visualFocusItemIndex: number;
+  itemsIds: number[];
+  isItemSelectable: (index: number) => boolean;
+  setVisualFocusItemIndex: (index: number) => unknown;
 }) {
-  const prevItemIds = usePrevious(itemsIds);
+  const prevItemIds = usePrevious<number[]>(itemsIds);
 
   // When item list changed, keep the focus on the same item
   useEffect(() => {

@@ -28,7 +28,7 @@ const checkWithoutModifierInEvent = (event: KeyboardEvent) => {
   });
 };
 
-interface UseKeyEvent {
+export interface UseKeyEvent {
   keys: KeyboardEvent["key"][];
   modifier?: Modifiers;
   keyEventName?: string;

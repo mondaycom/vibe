@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 
-export default function usePrevious(value: unknown) {
+export default function usePrevious<Type>(value: unknown): Type {
   const ref = useRef(undefined);
   useLayoutEffect(() => {
     ref.current = value;

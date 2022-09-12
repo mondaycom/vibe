@@ -1,10 +1,13 @@
 import { useRef, useCallback } from "react";
 
-export default function useRefWithCallback(onMount, onUnmount) {
+export default function useRefWithCallback(
+  onMount: (element: HTMLElement) => unknown,
+  onUnmount?: (element: HTMLElement) => unknown
+) {
   const nodeRef = useRef(null);
 
   const setRef = useCallback(
-    node => {
+    (node: HTMLElement) => {
       if (nodeRef.current && onUnmount) {
         onUnmount(nodeRef.current);
       }

@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from "react";
+import { useMemo, useState, useCallback, MutableRefObject } from "react";
 import {
   useSupportArrowsKeyboardNavigation,
   useSupportPressItemKeyboardNavigation,
@@ -7,14 +7,14 @@ import {
   useCleanVisualFocusOnBlur
 } from "./useActiveDescendantListFocusHooks";
 
-const ROLES = {
-  APPLICATION: "application",
-  COMBOBOX: "combobox",
-  COMPOSITE: "composite",
-  GROUP: "group",
-  TEXTBOX: "textbox",
-  MENU: "menu"
-};
+enum ROLES {
+  APPLICATION = "application",
+  COMBOBOX = "combobox",
+  COMPOSITE = "composite",
+  GROUP = "group",
+  TEXTBOX = "textbox",
+  MENU = "menu"
+}
 
 function useActiveDescendantListFocus({
   focusedElementRef, // the reference for the component that listens to keyboard
@@ -26,10 +26,20 @@ function useActiveDescendantListFocus({
   isHorizontalList = false,
   useDocumentEventListeners = false,
   isIgnoreSpaceAsItemSelection = false
+}: {
+  focusedElementRef: MutableRefObject<HTMLElement>;
+  itemsIds: number[];
+  isItemSelectable: (index: number) => boolean;
+  defaultVisualFocusFirstIndex: boolean;
+  focusedElementRole: ROLES;
+  isHorizontalList: boolean;
+  isIgnoreSpaceAsItemSelection: boolean;
+  useDocumentEventListeners: boolean;
+  onItemClick: (event: KeyboardEvent | MouseEvent, index: number) => unknown;
 }) {
   const defaultVisualFocusItemIndex = defaultVisualFocusFirstIndex ? 0 : -1;
   const itemsCount = itemsIds.length;
-  const [visualFocusItemIndex, setVisualFocusItemIndex] = useState(-1);
+  const [visualFocusItemIndex, setVisualFocusItemIndex] = useState<number>(-1);
   const visualFocusItemId = itemsIds[visualFocusItemIndex];
 
   const listenerOptions = useMemo(() => {
@@ -52,7 +62,7 @@ function useActiveDescendantListFocus({
   });
 
   const setVisualFocusItemId = useCallback(
-    (visualFocusItemId, isTriggeredByKeyboard) => {
+    (visualFocusItemId: number, isTriggeredByKeyboard: boolean) => {
       triggeredByKeyboard.current = isTriggeredByKeyboard;
       const itemIndex = itemsIds.indexOf(visualFocusItemId);
       if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {
@@ -96,7 +106,7 @@ function useActiveDescendantListFocus({
   // this callback function is not needed anymore (the developer does not need to replace  the element's on click with this callback).
   // we keep it for backward compatibility
   const backwardCompatibilityCreateOnClickCallback = useCallback(
-    itemIndex => event => onItemClick(event, itemIndex),
+    (itemIndex: number) => (event: KeyboardEvent | MouseEvent) => onItemClick(event, itemIndex),
     [onItemClick]
   );
   return {

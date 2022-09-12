@@ -1,6 +1,14 @@
 import { NAV_DIRECTIONS } from "../useFullKeyboardListeners";
 
-export function getActiveIndexFromInboundNavigation({ direction, numberOfItemsInLine, itemsCount }) {
+export function getActiveIndexFromInboundNavigation({
+  direction,
+  numberOfItemsInLine,
+  itemsCount
+}: {
+  direction: NAV_DIRECTIONS;
+  numberOfItemsInLine: number;
+  itemsCount: number;
+}) {
   const getRawIndex = () => {
     const firstLineMiddleIndex = Math.floor(numberOfItemsInLine / 2);
     if (direction === NAV_DIRECTIONS.UP) {
@@ -36,10 +44,20 @@ export function getActiveIndexFromInboundNavigation({ direction, numberOfItemsIn
   return Math.max(0, Math.min(rawIndex, itemsCount - 1));
 }
 
-function calcRawNewIndexAfterArrowNavigation({ activeIndex, itemsCount, numberOfItemsInLine, direction }) {
-  const getIndexLine = index => Math.ceil((index + 1) / numberOfItemsInLine);
+function calcRawNewIndexAfterArrowNavigation({
+  activeIndex,
+  itemsCount,
+  numberOfItemsInLine,
+  direction
+}: {
+  activeIndex: number;
+  itemsCount: number;
+  numberOfItemsInLine: number;
+  direction: NAV_DIRECTIONS;
+}) {
+  const getIndexLine = (index: number) => Math.ceil((index + 1) / numberOfItemsInLine);
 
-  const horizontalChange = isIndexIncrease => {
+  const horizontalChange = (isIndexIncrease: boolean) => {
     const nextIndex = activeIndex + (isIndexIncrease ? 1 : -1);
     if (nextIndex < 0 || itemsCount <= nextIndex) {
       return { isOutbound: true };
@@ -53,7 +71,7 @@ function calcRawNewIndexAfterArrowNavigation({ activeIndex, itemsCount, numberOf
     return { isOutbound: false, nextIndex };
   };
 
-  const verticalChange = isIndexIncrease => {
+  const verticalChange = (isIndexIncrease: boolean) => {
     const nextIndex = activeIndex + numberOfItemsInLine * (isIndexIncrease ? 1 : -1);
     if (nextIndex < 0 || itemsCount <= nextIndex) {
       return { isOutbound: true };
@@ -79,6 +97,12 @@ export function calcActiveIndexAfterArrowNavigation({
   numberOfItemsInLine,
   direction,
   disabledIndexes = []
+}: {
+  activeIndex: number
+  itemsCount: number
+  numberOfItemsInLine: number
+  direction: NAV_DIRECTIONS
+  disabledIndexes: number[]
 }) {
   let result = calcRawNewIndexAfterArrowNavigation({ activeIndex, itemsCount, numberOfItemsInLine, direction });
   while (!result.isOutbound && disabledIndexes.includes(result.nextIndex)) {

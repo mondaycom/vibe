@@ -1,14 +1,14 @@
-import { useMemo, useCallback, useEffect, RefObject } from "react";
+import { useMemo, useCallback, useEffect, MutableRefObject } from "react";
 import NOOP from "lodash/noop";
 import useKeyEvent from "./useKeyEvent";
 import { KeyboardEventCallback } from "../types/events";
 
-export enum NAV_DIRECTIONS  {
-  UP= "up",
-  DOWN= "down",
-  LEFT= "left",
-  RIGHT= "right",
-};
+export enum NAV_DIRECTIONS {
+  UP = "up",
+  DOWN = "down",
+  LEFT = "left",
+  RIGHT = "right"
+}
 
 export const ARROW_DOWN_KEYS = ["ArrowDown"];
 export const ARROW_UP_KEYS = ["ArrowUp"];
@@ -25,11 +25,11 @@ export default function useFullKeyboardListeners({
   useDocumentEventListeners = false,
   focusOnMount = false
 }: {
-  ref: RefObject<HTMLElement>;
+  ref: MutableRefObject<HTMLElement>;
   onSelectionKey: KeyboardEventCallback;
   onArrowNavigation: (type: NAV_DIRECTIONS) => void;
   onEscape: KeyboardEventCallback;
-  useDocumentEventListeners: boolean;
+  useDocumentEventListeners?: boolean;
   focusOnMount: boolean;
 }) {
   const listenerOptions = useMemo(() => {

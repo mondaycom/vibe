@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState, useContext, useRef } from "react";
+import { useCallback, useEffect, useState, useContext, useRef, MutableRefObject } from "react";
 import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
-import useFullKeyboardListeners from "../../hooks/useFullKeyboardListeners";
+import useFullKeyboardListeners, { NAV_DIRECTIONS } from "../../hooks/useFullKeyboardListeners";
 import useEventListener from "../../hooks/useEventListener";
 import {
   calcActiveIndexAfterArrowNavigation,
@@ -36,9 +36,18 @@ export default function useGridKeyboardNavigation({
   numberOfItemsInLine,
   onItemClicked, // the callback to call when an item is selected
   focusOnMount = false,
-  getItemByIndex = () => {},
+  getItemByIndex = (_index: number) => {},
   focusItemIndexOnMount = NO_ACTIVE_INDEX,
   disabledIndexes = []
+}: {
+  ref: MutableRefObject<HTMLElement>;
+  itemsCount: number;
+  numberOfItemsInLine: number;
+  onItemClicked: (element: HTMLElement, index: number) => unknown;
+  focusOnMount: boolean;
+  getItemByIndex: (index: number | void) => HTMLElement | void;
+  focusItemIndexOnMount: number;
+  disabledIndexes: number[];
 }) {
   const [isInitialActiveState, setIsInitialActiveState] = useState(
     focusOnMount && focusItemIndexOnMount !== NO_ACTIVE_INDEX
@@ -49,7 +58,7 @@ export default function useGridKeyboardNavigation({
 
   const keyboardContext = useContext(GridKeyboardNavigationContext);
 
-  const onArrowNavigation = direction => {
+  const onArrowNavigation = (direction: NAV_DIRECTIONS) => {
     setIsUsingKeyboardNav(true);
     if (activeIndex === NO_ACTIVE_INDEX) {
       setActiveIndex(0);
@@ -121,10 +130,13 @@ export default function useGridKeyboardNavigation({
   }, [activeIndex, ref]);
 
   const onSelectionAction = useCallback(
-    (index, isKeyboardAction = false) => {
+    (index: number, isKeyboardAction: boolean = false) => {
       setIsUsingKeyboardNav(isKeyboardAction);
       setActiveIndex(index);
-      onItemClicked(getItemByIndex(index), index);
+      const item = getItemByIndex(index);
+      if (item) {
+        onItemClicked(item, index);
+      }
     },
     [setActiveIndex, onItemClicked, getItemByIndex]
   );
@@ -138,8 +150,8 @@ export default function useGridKeyboardNavigation({
 
   useFullKeyboardListeners({
     ref,
-    onArrowNavigation,
     onSelectionKey: onKeyboardSelection,
+    onArrowNavigation,
     onEscape: blurTargetElement,
     focusOnMount
   });
