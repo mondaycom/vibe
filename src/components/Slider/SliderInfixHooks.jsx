@@ -17,16 +17,12 @@ export function useSliderInfixComponent(kind) {
 
   const isPostfix = kind === INFIX_KIND.POSTFIX;
   if (indicateSelection && (isPostfix || ranged)) {
-    return [true, null, <SelectionIndicator key={kind} kind={kind} data-testid="useSliderInfixComponent" />, { width: selectionIndicatorWidth }];
+    return [true, null, <SelectionIndicator key={kind} kind={kind} />, { width: selectionIndicatorWidth }];
   }
   if (typeof infix === "object" && infix.icon) {
     const { icon, ...restIconProps } = infix;
     const iconProps = { ...defaultIconProps, ...restIconProps };
-    return [true, null, <Icon
-      key="infix-icon"
-      icon={icon}
-      {...iconProps}
-      data-testid="useSliderInfixComponent" />, {}];
+    return [true, null, <Icon key="infix-icon" icon={icon} {...iconProps} />, {}];
   }
   if (typeof infix === "function") {
     return [true, null, infix(value, valueText), {}];
