@@ -9,13 +9,13 @@ import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import "./Icon.scss";
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (event: React.MouseEvent) => {};
 
 interface IconProps extends VibeComponentProps {
   // eslint-disable-next-line no-unused-vars
   onClick?: (event: React.MouseEvent) => void;
-  icon: string | React.Component | null;
+  icon: string | React.FunctionComponent | React.Component | null;
   clickable?: boolean;
   iconLabel?: string;
   iconType?: IconType;

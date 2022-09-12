@@ -1,18 +1,25 @@
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
-import Button from "../Button";
+import { render, fireEvent, cleanup, RenderResult } from "@testing-library/react";
+import Button, { ButtonProps } from "../Button";
 
 const text = "Click Me!";
 const className = "test-class";
+const mockOnClick = jest.fn();
 
-function renderComponent(props) {
-  return render(<Button {...props}>{text}</Button>);
+function renderComponent(props: ButtonProps) {
+  const children = props.children || text;
+  const onClick = props.onClick || mockOnClick;
+  return render(
+    <Button {...props} onClick={onClick}>
+      {children}
+    </Button>
+  );
 }
 
 describe("<Buttoon />", () => {
-  let clickActionStub;
-  let onMouseDownStub;
-  let buttonComponent;
+  let clickActionStub: jest.Mock<any, any>;
+  let onMouseDownStub: jest.Mock<any, any>;
+  let buttonComponent: RenderResult;
 
   beforeEach(() => {
     clickActionStub = jest.fn();
@@ -98,7 +105,7 @@ describe("<Buttoon />", () => {
   it("should call on blur", () => {
     const onBlur = jest.fn();
     cleanup();
-    const { getByText } = renderComponent({ onBlur });
+    const { getByText } = renderComponent({ onBlur, onClick: mockOnClick, children: text });
     const button = getByText(text);
     fireEvent.blur(button);
     expect(onBlur.mock.calls.length).toEqual(1);
@@ -107,7 +114,7 @@ describe("<Buttoon />", () => {
   it("should call do blur on mouseup", () => {
     const onBlur = jest.fn();
     cleanup();
-    const { getByText } = renderComponent({ onBlur, blurOnMouseUp: false });
+    const { getByText } = renderComponent({ onBlur, blurOnMouseUp: false, onClick: mockOnClick, children: text });
     const button = getByText(text);
     fireEvent.focus(button);
     fireEvent.mouseUp(button);
@@ -117,7 +124,7 @@ describe("<Buttoon />", () => {
   it("should call on focus", () => {
     const onFocus = jest.fn();
     cleanup();
-    const { getByText } = renderComponent({ onFocus });
+    const { getByText } = renderComponent({ onFocus, onClick: mockOnClick, children: text });
     const button = getByText(text);
     fireEvent.focus(button);
     expect(onFocus.mock.calls.length).toEqual(1);
