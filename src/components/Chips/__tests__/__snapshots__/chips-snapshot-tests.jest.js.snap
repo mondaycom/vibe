@@ -38,7 +38,9 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
     
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
+    aria-label="Remove"
     className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
     onBlur={[Function]}
@@ -95,7 +97,9 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
     
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
+    aria-label="Remove"
     className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
     onBlur={[Function]}
@@ -306,7 +310,9 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
     text
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
+    aria-label="Remove"
     className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
     onBlur={[Function]}
