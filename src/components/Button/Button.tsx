@@ -41,13 +41,13 @@ export interface ButtonProps {
   /** Whether the button should be disabled or not */
   disabled?: boolean;
   /** Icon to place on the right */
-  rightIcon?: string | React.Component | null;
+  rightIcon?: string | React.FunctionComponent | null;
   /** Icon to place on the left */
-  leftIcon?: string | React.Component | null;
+  leftIcon?: string | React.FunctionComponent | null;
   /** the success props are used when you have async action and wants to display a success message */
   success?: boolean;
   /** Success icon name */
-  successIcon?: string | React.Component | null;
+  successIcon?: string | React.FunctionComponent | null;
   /** Success text */
   successText?: string;
   /** loading boolean which switches the text to a loader */
