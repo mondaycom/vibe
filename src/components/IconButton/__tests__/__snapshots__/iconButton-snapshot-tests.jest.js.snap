@@ -2,6 +2,7 @@
 
 exports[`IconButton renders correctly with 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="class-name monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
@@ -42,6 +43,7 @@ exports[`IconButton renders correctly with 1`] = `
 
 exports[`IconButton renders correctly with active 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--no-side-padding"
   data-testid="icon-button"
@@ -93,6 +95,7 @@ exports[`IconButton renders correctly with aria label 1`] = `
   onMouseLeave={[Function]}
 >
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="My aria label"
     className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
@@ -135,6 +138,7 @@ exports[`IconButton renders correctly with aria label 1`] = `
 
 exports[`IconButton renders correctly with disabled 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={true}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding monday-style-button--disabled"
   data-testid="icon-button"
@@ -175,6 +179,7 @@ exports[`IconButton renders correctly with disabled 1`] = `
 
 exports[`IconButton renders correctly with empty props 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
@@ -215,6 +220,7 @@ exports[`IconButton renders correctly with empty props 1`] = `
 
 exports[`IconButton renders correctly with id 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button_icon-button"
@@ -256,6 +262,7 @@ exports[`IconButton renders correctly with id 1`] = `
 
 exports[`IconButton renders correctly with size - large 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
@@ -296,6 +303,7 @@ exports[`IconButton renders correctly with size - large 1`] = `
 
 exports[`IconButton renders correctly with size - medium 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
@@ -336,6 +344,7 @@ exports[`IconButton renders correctly with size - medium 1`] = `
 
 exports[`IconButton renders correctly with size - small 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
@@ -376,6 +385,7 @@ exports[`IconButton renders correctly with size - small 1`] = `
 
 exports[`IconButton renders correctly with size - xs 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"
@@ -416,6 +426,7 @@ exports[`IconButton renders correctly with size - xs 1`] = `
 
 exports[`IconButton renders correctly with size - xxs 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
   data-testid="icon-button"

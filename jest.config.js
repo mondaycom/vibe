@@ -63,7 +63,12 @@ module.exports = {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+  globals: {
+    extensionsToTreatAsEsm: [".ts", ".tsx", ".js", ".jsx"],
+    "ts-jest": {
+      useESM: true
+    }
+  },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
   // maxWorkers: "50%",
@@ -93,7 +98,7 @@ module.exports = {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
+  preset: "ts-jest/presets/default",
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -168,9 +173,9 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.[tj]sx?$": "babel-jest",
+    "^.+\\.[j]sx?$": "babel-jest",
     "^.+\\.mdx?$": "@storybook/addon-docs/jest-transform-mdx",
-
+    "^.+\\.(tx|tsx)$": "ts-jest",
     "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|svg)$":
       "<rootDir>/__mocks__/fileMock.js"
   },

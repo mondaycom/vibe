@@ -1,7 +1,7 @@
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 /* eslint-disable react/forbid-prop-types */
-import React, { useCallback, useState, useMemo, useRef, useLayoutEffect } from "react";
+import React, { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
 import Dialog from "../Dialog/Dialog";
@@ -196,15 +196,15 @@ const MenuButton = ({
             CSS_BASE_CLASS,
             overrideClassName,
             styles[`size${size}`],
-            `menu-button--wrapper--size-${size}`,
+            `${CSS_BASE_CLASS}--size-${size}`,
             {
               [styles.open]: isOpen,
-              ["menu-button--wrapper--open"]: isOpen,
+              [`${CSS_BASE_CLASS}--open`]: isOpen,
               [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
               [styles.disabled]: disabled,
-              ["menu-button--wrapper--disabled"]: disabled,
+              [`${CSS_BASE_CLASS}--disabled`]: disabled,
               [styles.text]: text,
-              ["menu-button--wrapper--text"]: text
+              [`${CSS_BASE_CLASS}--text`]: text
             }
           )}
           aria-haspopup="true"
@@ -214,7 +214,7 @@ const MenuButton = ({
           aria-disabled={disabled}
         >
           <Icon size={Math.min(iconSize, 28).toString()} role="img" aria-hidden="true" />
-          {text && <span className={cx(styles.innerText, "menu-button--wrapper--inner-text")}>{text}</span>}
+          {text && <span className={cx(styles.innerText, `${CSS_BASE_CLASS}--inner-text`)}>{text}</span>}
         </button>
       </Dialog>
     </Tooltip>
