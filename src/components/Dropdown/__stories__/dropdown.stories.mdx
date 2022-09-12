@@ -1,11 +1,11 @@
 import Dropdown from "../Dropdown";
-import { useState, useCallback, useMemo } from "react";
-import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
+import {useCallback, useMemo, useRef, useState} from "react";
+import { ArgsTable, Canvas, Meta, Story } from "@storybook/addon-docs";
 import { createStoryMetaSettings, Link } from "../../../storybook";
 import {
   COMBOBOX,
-  SPLIT_BUTTON,
-  MENU
+  MENU,
+  SPLIT_BUTTON
 } from "../../../storybook/components/related-components/component-description-map";
 import { overviewPlaySuite } from "../__tests__/Dropdown.interactions";
 import Label from "../../Label/Label.jsx";
@@ -15,12 +15,12 @@ import person2 from "./assets/person2.png";
 import Avatar from "../../Avatar/Avatar.jsx";
 import { OptionRenderer } from "./OptionRenderer.js";
 import Flex from "../../../components/Flex/Flex";
-import "./dropdown.stories.scss";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
-import {
-  Attach,
-  Email
-} from "../../Icon/Icons";
+import { Attach, Email } from "../../Icon/Icons";
+import {DialogContentContainer} from "../../index";
+import Dialog from "../../Dialog/Dialog";
+import Button from "../../Button/Button";
+import "./dropdown.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Dropdown,
@@ -145,60 +145,67 @@ The Dropdown component supports multiple options selection in two different stat
 <Canvas>
   <Story name="Multi-choice with different states">
     {() => {
-      const options = useMemo( () => [
-        {
-          value: "Rotem",
-          label: "Rotem Dekel"
-        }, {
-          value:"Hadas",
-          label: "Hadas Farhi"
-        }, {
-          value: "Netta",
-          label: "Netta Muller",
-        },
-        {
-          value: "Dor",
-          label: "Dor Yehuda",
-        }], []);
-      return (<Flex wrap gap={Flex.gaps.MEDIUM}>
-        <StoryDescription description="Single line" vertical>
-          <div style={{width: "400px"}}>
-            <Dropdown
-              placeholder="Single line multi state"
-              defaultValue={[options[0]]}
-              options={options}
-              multi
-              className="dropdown-stories-styles_with-chips"
-            />
-          </div>
-        </StoryDescription>
-        <StoryDescription description="Multiple lines" vertical>
-          <div style={{width: "400px"}}>
-            <Dropdown
-              placeholder="Multiple line multi state"
-              defaultValue={[options[0]]}
-              options={options}
-              multi
-              multiline
-              className="dropdown-stories-styles_with-chips"
-            />
-          </div>
-        </StoryDescription>
-        <StoryDescription description="Mandatory default values" vertical>
-          <div style={{width: "400px"}}>
-            <Dropdown
-              defaultValue={[options[0]]}
-              options={options}
-              multi
-              multiline
-              className="dropdown-stories-styles_with-chips"
-              withMandatoryDefaultOptions
-            />
-          </div>
-        </StoryDescription>
-      </Flex>);
-      }
-    }
+      const options = useMemo(
+        () => [
+          {
+            value: "Rotem",
+            label: "Rotem Dekel"
+          },
+          {
+            value: "Hadas",
+            label: "Hadas Farhi"
+          },
+          {
+            value: "Netta",
+            label: "Netta Muller"
+          },
+          {
+            value: "Dor",
+            label: "Dor Yehuda"
+          }
+        ],
+        []
+      );
+      return (
+        <Flex wrap gap={Flex.gaps.MEDIUM}>
+          <StoryDescription description="Single line" vertical>
+            <div style={{ width: "400px" }}>
+              <Dropdown
+                placeholder="Single line multi state"
+                defaultValue={[options[0]]}
+                options={options}
+                multi
+                className="dropdown-stories-styles_with-chips"
+              />
+            </div>
+          </StoryDescription>
+          <StoryDescription description="Multiple lines" vertical>
+            <div style={{ width: "400px" }}>
+              <Dropdown
+                placeholder="Multiple line multi state"
+                defaultValue={[options[0]]}
+                options={options}
+                multi
+                multiline
+                className="dropdown-stories-styles_with-chips"
+              />
+            </div>
+          </StoryDescription>
+          <StoryDescription description="Mandatory default values" vertical>
+            <div style={{ width: "400px" }}>
+              <Dropdown
+                defaultValue={[options[0]]}
+                options={options}
+                multi
+                multiline
+                className="dropdown-stories-styles_with-chips"
+                withMandatoryDefaultOptions
+              />
+            </div>
+          </StoryDescription>
+        </Flex>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -206,63 +213,154 @@ The Dropdown component supports multiple options selection in two different stat
 
 <Canvas>
   <Story name="Dropdown with avatar">
-    {()=>{
-      const optionsAvatar = useMemo( () => [
-        {
-          value: "Rotem",
-          label: "Rotem Dekel",
-          leftAvatar: person1
-        }, {
-          value:"Hadas",
-          label: "Hadas Farhi",
-          leftAvatar: person2
-        }, {
-          value: "Netta",
-          label: "Netta Muller",
-          leftAvatar: person3
-        }], []);
-    return (<StoryDescription vertical>
-      <div>
-        <Dropdown
-          defaultValue={[optionsAvatar[0]]}
-          options={optionsAvatar}
-          multi
-          multiline
-          className="dropdown-stories-styles_with-chips"
-        />
-      </div>
-    </StoryDescription>)
+    {() => {
+      const optionsAvatar = useMemo(
+        () => [
+          {
+            value: "Rotem",
+            label: "Rotem Dekel",
+            leftAvatar: person1
+          },
+          {
+            value: "Hadas",
+            label: "Hadas Farhi",
+            leftAvatar: person2
+          },
+          {
+            value: "Netta",
+            label: "Netta Muller",
+            leftAvatar: person3
+          }
+        ],
+        []
+      );
+      return (
+        <StoryDescription vertical>
+          <div>
+            <Dropdown
+              defaultValue={[optionsAvatar[0]]}
+              options={optionsAvatar}
+              multi
+              multiline
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+      );
     }}
   </Story>
 </Canvas>
 
-
 ### Dropdown with icon
+
 <Canvas>
   <Story name="Dropdown with icon">
-    {()=> {
-      const optionsIcons = useMemo(()=>[
-        {
-          value: "email",
-          label: "Email",
-          leftIcon: Email
-        }, {
-          value:"attach",
-          label: "Attach",
-          leftIcon: Attach
-        }
-      ], [])
-      return (<StoryDescription vertical>
-        <div>
-          <Dropdown
-            defaultValue={[optionsIcons[0]]}
-            options={optionsIcons}
-            multi
-            multiline
-            className="dropdown-stories-styles_with-chips"
-          />
-        </div>
-      </StoryDescription>)
+    {() => {
+      const optionsIcons = useMemo(
+        () => [
+          {
+            value: "email",
+            label: "Email",
+            leftIcon: Email
+          },
+          {
+            value: "attach",
+            label: "Attach",
+            leftIcon: Attach
+          }
+        ],
+        []
+      );
+      return (
+        <StoryDescription vertical>
+          <div>
+            <Dropdown
+              defaultValue={[optionsIcons[0]]}
+              options={optionsIcons}
+              multi
+              multiline
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dropdown with chip colors
+
+<Canvas>
+  <Story name="Dropdown with chip colors">
+    {() => {
+      const optionsWithChipColors = useMemo(
+        () => [
+          {
+            value: "Rotem",
+            label: "Rotem Dekel",
+            chipColor: Dropdown.chipColors.NEGATIVE
+          },
+          {
+            value: "Hadas",
+            label: "Hadas Farhi",
+            chipColor: Dropdown.chipColors.POSITIVE
+          },
+          {
+            value: "Netta",
+            label: "Netta Muller",
+            chipColor: Dropdown.chipColors.PRIMARY
+          }
+        ],
+        []
+      );
+      return (
+        <StoryDescription vertical>
+          <div>
+            <Dropdown
+              defaultValue={[optionsWithChipColors[0]]}
+              options={optionsWithChipColors}
+              multi
+              multiline
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Dropdown with tooltips on items
+
+<Canvas>
+  <Story name="Dropdown with tooltips on items">
+    {() => {
+      const optionsWithTooltips = useMemo(
+        () => [
+          {
+            value: "Option 1",
+            label: "Option 1",
+            tooltipProps: { content: "Description for option 1" }
+          },
+          {
+            value: "Option 2",
+            label: "Option 2",
+            tooltipProps: { content: "Description for option 2" }
+          }
+        ],
+        []
+      );
+      return (
+        <StoryDescription vertical>
+          <div>
+            <Dropdown
+              placeholder={"Placeholder text here"}
+              options={optionsWithTooltips}
+              className="dropdown-stories-styles_with-chips"
+            />
+          </div>
+        </StoryDescription>
+      );
     }}
   </Story>
 </Canvas>
@@ -506,6 +604,52 @@ Dropdown with group.
       );
     }}
   </Story>
+</Canvas>
+
+### Dropdown inside scrollable dialog
+Use <b>insideOverflowContainer</b> prop attribute for displaying drop down inside scrollable dialog / container, or container
+with overflow hidden content. If your dropdown container use transform css function
+(like in vibe dialogs for example), please also attached the <b>transformContainerRef</b> like in the following story:
+
+<Canvas>
+    <Story name="Dropdown inside scrollable dialog">
+        {() => {
+            const options = useMemo(
+                () => [
+                    { value: "1", label: "Option 1" },
+                    { value: "2", label: "Option 2" },
+                    { value: "3", label: "Option 3" },
+                    { value: "4", label: "Option 4" },
+                    { value: "5", label: "Option 5" },
+                ],
+                []
+            );
+            const dialogRef = useRef();
+            const dialogStyle = {width: "300px", height: "200px", overflow: "auto"};
+            const secondDialogContent = <DialogContentContainer style={dialogStyle} ref={dialogRef}>
+                <Dropdown
+                    placeholder="Dropdown inside a scrollable dialog"
+                    options={options}
+                    insideOverflowContainer
+                    transformContainerRef={dialogRef}
+                />
+            </DialogContentContainer>;
+            return (
+                <Flex gap={Flex.gaps.LARGE}>
+                    <DialogContentContainer style={dialogStyle}>
+                        <Dropdown
+                            placeholder="Dropdown inside a scrollable dialog"
+                            options={options}
+                            insideOverflowContainer
+                        />
+                    </DialogContentContainer>
+                    <Dialog ref={dialogRef} content={secondDialogContent} hideTrigger={Dialog.hideShowTriggers.CLICK_OUTSIDE} showTrigger={Dialog.hideShowTriggers.CLICK}>
+                        <Button>Press me for dropdown inside dialog!</Button>
+                    </Dialog>
+                </Flex>
+            );
+        }}
+    </Story>
 </Canvas>
 
 ## Related components

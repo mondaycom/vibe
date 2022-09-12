@@ -36,7 +36,6 @@ const AvatarGroupCounter = ({
   const focusPrevPlaceholderRef = useRef(null);
   const focusNextPlaceholderRef = useRef(null);
   const counterContainerRef = useRef(null);
-
   const counterComponent = useCallback(() => {
     return (
       <Counter

@@ -8,6 +8,7 @@ import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import Chips from "../../../Chips/Chips";
 import classes from "./ValueContainer.module.scss";
+import { DROPDOWN_CHIP_COLORS } from "../../dropdown-constants";
 
 export default function Container({ children, selectProps, ...otherProps }) {
   const { placeholder, inputValue, selectProps: customProps = {}, withMandatoryDefaultOptions } = selectProps;
@@ -25,8 +26,11 @@ export default function Container({ children, selectProps, ...otherProps }) {
   const isCounterShown = hiddenOptionsCount > 0;
   const renderOptions = useCallback(
     (from = 0, to = selectedOptions.length) =>
-      selectedOptions.map((option, index) =>
-        index >= from && index < to ? (
+      selectedOptions.map((option, index) => {
+        const overrideChipColor = Object.keys(DROPDOWN_CHIP_COLORS).includes(option.chipColor)
+          ? option.chipColor
+          : DROPDOWN_CHIP_COLORS.PRIMARY;
+        return index >= from && index < to ? (
           <Chips
             dataTestId="value-container-chip"
             key={option.value}
@@ -41,9 +45,10 @@ export default function Container({ children, selectProps, ...otherProps }) {
             readOnly={withMandatoryDefaultOptions && option.isMandatory}
             leftAvatar={option.leftAvatar}
             leftIcon={option.leftIcon}
+            color={overrideChipColor}
           />
-        ) : null
-      ),
+        ) : null;
+      }),
     [selectedOptions, chipClassName, onSelectedDelete, withMandatoryDefaultOptions]
   );
 

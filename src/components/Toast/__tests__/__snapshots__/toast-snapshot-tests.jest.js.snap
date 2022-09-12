@@ -74,6 +74,7 @@ exports[`Toast renders correctly when open is true 1`] = `
     Something Happened
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     className="closeButton monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
@@ -141,6 +142,7 @@ exports[`Toast renders correctly with button 1`] = `
     className="action monday-style-toast-action"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-toast-action_button monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
       data-testid="button"
@@ -155,6 +157,7 @@ exports[`Toast renders correctly with button 1`] = `
     </button>
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     className="closeButton monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
@@ -238,6 +241,7 @@ exports[`Toast renders correctly with button and link 1`] = `
     className="action monday-style-toast-action"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-toast-action_button monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
       data-testid="button"
@@ -252,6 +256,7 @@ exports[`Toast renders correctly with button and link 1`] = `
     </button>
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     className="closeButton monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
@@ -335,6 +340,7 @@ exports[`Toast renders correctly with link 1`] = `
     className="action monday-style-toast-action"
   />
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     className="closeButton monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
@@ -399,6 +405,7 @@ exports[`Toast renders correctly with negative type 1`] = `
     Something Happened
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     className="closeButton monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"

@@ -1,4 +1,4 @@
-import { exposeIcons } from "../../../../webpack/published-components";
+import { exposeIcons } from "../../../utils/icon-utils";
 import * as allIcons from "../Icons";
 
 function arrayLast(arr) {
