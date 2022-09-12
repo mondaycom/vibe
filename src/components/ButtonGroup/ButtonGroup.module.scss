@@ -7,52 +7,52 @@
   flex-direction: column;
 }
 
-.groupComponentSubTextContainer {
+.subTextContainer {
   @include font-caption();
 }
 
-.groupComponentButtonsContainer {
+.buttonsContainer {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.groupComponentButtonsContainer :global(.monday-style-button) {
+.buttonsContainer :global(.monday-style-button) {
   border: 1px solid;
   @include theme-prop(background-color, primary-background-color);
   @include theme-prop(border-color, ui-border-color);
 }
 
-.groupComponentButtonsContainer :global(.monday-style-button--color-primary-active) {
+.buttonsContainer :global(.monday-style-button--color-primary-active) {
   z-index: 20;
 }
 
-.groupComponentButtonsContainer :global(.monday-style-button--color-primary-active:hover) {
+.buttonsContainer :global(.monday-style-button--color-primary-active:hover) {
   @include theme-prop(background-color, primary-selected-color);
 }
 
-.groupComponentButtonsContainer :global(.monday-style-button--color-primary-active) {
+.buttonsContainer :global(.monday-style-button--color-primary-active) {
   @include theme-prop(background-color, primary-selected-color);
 }
 
-.groupComponentButtonsContainer :global(.monday-style-button--color-primary-active) {
+.buttonsContainer :global(.monday-style-button--color-primary-active) {
   @include theme-prop(border-color, primary-color);
 }
 
-.groupComponentOptionText:not(.disabled) {
+.optionText:not(.disabled) {
   @include theme-prop(color, primary-text-color);
 }
 
-.groupComponentOptionText:not(.disabled).selected {
+.optionText:not(.disabled).selected {
   z-index: 10;
   @include theme-prop(color, primary-text-color);
 }
 
-.groupComponentKindTertiary :global(.monday-style-button) {
+// Kind
+.tertiary :global(.monday-style-button) {
   border-color: transparent;
 }
-
-.groupComponentKindTertiary :global(.monday-style-button:first-child) {
+.tertiary :global(.monday-style-button:first-child) {
   border-color: transparent;
 }
 

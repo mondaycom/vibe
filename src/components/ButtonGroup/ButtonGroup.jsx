@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import cx from "classnames";
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
@@ -83,7 +82,7 @@ const ButtonGroup = forwardRef(
             tooltipShowDelay={tooltipShowDelay}
             tooltipContainerSelector={tooltipContainerSelector}
             tooltipMoveBy={tooltipMoveBy}
-            className={cx(styles[`${camelCase("group-component__option-text")}`], `${CSS_BASE_CLASS}__option-text`, {
+            className={cx(styles.optionText, `${CSS_BASE_CLASS}__option-text`, {
               [styles.selected]: isSelected,
               ["selected"]: isSelected,
               [styles.disabled]: disabled,
@@ -125,7 +124,7 @@ const ButtonGroup = forwardRef(
           styles.groupComponent,
           CSS_BASE_CLASS,
           overrideClassName,
-          styles[`${camelCase("group-component--kind-" + kind)}`],
+          styles[kind],
           `${CSS_BASE_CLASS}--kind-${kind}`,
           {
             [styles.disabled]: disabled,
@@ -137,21 +136,13 @@ const ButtonGroup = forwardRef(
         <div
           role="group"
           aria-label={groupAriaLabel}
-          className={cx(
-            styles[`${camelCase("group-component__buttons-container")}`],
-            `${CSS_BASE_CLASS}__buttons-container`
-          )}
+          className={cx(styles.groupComponentButtonsContainer, `${CSS_BASE_CLASS}__buttons-container`)}
           aria-disabled={disabled}
         >
           {Buttons}
         </div>
         {selectedOption && selectedOption.subText && (
-          <div
-            className={cx(
-              styles[`${camelCase("group-component__sub-text-container")}`],
-              `${CSS_BASE_CLASS}__sub-text-container`
-            )}
-          >
+          <div className={cx(styles.groupComponentSubTextContainer, `${CSS_BASE_CLASS}__sub-text-container`)}>
             {selectedOption.subText}
           </div>
         )}

@@ -83,7 +83,7 @@ const Banner = forwardRef(
           className={cx(
             styles.bannerContent,
             "banner--content",
-            styles[`${camelCase("image-position__" + imagePosition)}`],
+            styles[camelCase("image-position__" + imagePosition)],
             `image-position__${imagePosition}`,
             {
               [styles.closeButtonSpacing]: !!renderCloseButton,
