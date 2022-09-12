@@ -251,6 +251,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
       onMouseLeave={[Function]}
     >
       <button
+        aria-busy={false}
         aria-disabled={false}
         aria-label="Close"
         className="monday-style-attention-box-component__close-icon button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation noSidePadding monday-style-button--no-side-padding"

@@ -72,6 +72,7 @@ exports[`Toast renders correctly when open is true 1`] = `
     Something Happened
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     className="monday-style-toast_close-button button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
@@ -138,6 +139,7 @@ exports[`Toast renders correctly with button 1`] = `
     className="monday-style-toast-action"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-toast-action_button button monday-style-button sizeSmall monday-style-button--size-small kindSecondary monday-style-button--kind-secondary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
       data-testid="button"
@@ -152,6 +154,7 @@ exports[`Toast renders correctly with button 1`] = `
     </button>
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     className="monday-style-toast_close-button button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
@@ -234,6 +237,7 @@ exports[`Toast renders correctly with button and link 1`] = `
     className="monday-style-toast-action"
   >
     <button
+      aria-busy={false}
       aria-disabled={false}
       className="monday-style-toast-action_button button monday-style-button sizeSmall monday-style-button--size-small kindSecondary monday-style-button--kind-secondary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
       data-testid="button"
@@ -248,6 +252,7 @@ exports[`Toast renders correctly with button and link 1`] = `
     </button>
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     className="monday-style-toast_close-button button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
@@ -330,6 +335,7 @@ exports[`Toast renders correctly with link 1`] = `
     className="monday-style-toast-action"
   />
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     className="monday-style-toast_close-button button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
@@ -393,6 +399,7 @@ exports[`Toast renders correctly with negative type 1`] = `
     Something Happened
   </div>
   <button
+    aria-busy={false}
     aria-disabled={false}
     aria-label="close-toast"
     className="monday-style-toast_close-button button monday-style-button sizeSmall monday-style-button--size-small kindTertiary monday-style-button--kind-tertiary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"

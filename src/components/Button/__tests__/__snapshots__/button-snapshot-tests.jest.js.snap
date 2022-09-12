@@ -2,6 +2,7 @@
 
 exports[`Button renders correctly a11y renders correctly with a11y props (false) 1`] = `
 <button
+  aria-busy={false}
   aria-controls="area"
   aria-disabled={false}
   aria-expanded={false}
@@ -23,6 +24,7 @@ exports[`Button renders correctly a11y renders correctly with a11y props (false)
 
 exports[`Button renders correctly a11y renders correctly with a11y props (true) 1`] = `
 <button
+  aria-busy={false}
   aria-controls="area"
   aria-disabled={false}
   aria-expanded={true}
@@ -44,6 +46,7 @@ exports[`Button renders correctly a11y renders correctly with a11y props (true) 
 
 exports[`Button renders correctly renders Button color- negative 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorNegative monday-style-button--color-negative clickAnimation"
   data-testid="button"
@@ -60,6 +63,7 @@ exports[`Button renders correctly renders Button color- negative 1`] = `
 
 exports[`Button renders correctly renders Button color- on-inverted-background 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorOnInvertedBackground monday-style-button--color-on-inverted-background clickAnimation"
   data-testid="button"
@@ -76,6 +80,7 @@ exports[`Button renders correctly renders Button color- on-inverted-background 1
 
 exports[`Button renders correctly renders Button color- on-primary-color 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorOnPrimaryColor monday-style-button--color-on-primary-color clickAnimation"
   data-testid="button"
@@ -92,6 +97,7 @@ exports[`Button renders correctly renders Button color- on-primary-color 1`] = `
 
 exports[`Button renders correctly renders Button color- positive 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPositive monday-style-button--color-positive clickAnimation"
   data-testid="button"
@@ -108,6 +114,7 @@ exports[`Button renders correctly renders Button color- positive 1`] = `
 
 exports[`Button renders correctly renders Button color- primary 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -124,6 +131,7 @@ exports[`Button renders correctly renders Button color- primary 1`] = `
 
 exports[`Button renders correctly renders Button kind- primary 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -140,6 +148,7 @@ exports[`Button renders correctly renders Button kind- primary 1`] = `
 
 exports[`Button renders correctly renders Button kind- secondary 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindSecondary monday-style-button--kind-secondary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -156,6 +165,7 @@ exports[`Button renders correctly renders Button kind- secondary 1`] = `
 
 exports[`Button renders correctly renders Button kind- tertiary 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -172,6 +182,7 @@ exports[`Button renders correctly renders Button kind- tertiary 1`] = `
 
 exports[`Button renders correctly renders Button size- large 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeLarge monday-style-button--size-large kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -188,6 +199,7 @@ exports[`Button renders correctly renders Button size- large 1`] = `
 
 exports[`Button renders correctly renders Button size- medium 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -204,6 +216,7 @@ exports[`Button renders correctly renders Button size- medium 1`] = `
 
 exports[`Button renders correctly renders Button size- small 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeSmall monday-style-button--size-small kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -220,6 +233,7 @@ exports[`Button renders correctly renders Button size- small 1`] = `
 
 exports[`Button renders correctly renders correctly with callbacks 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="test button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -236,6 +250,7 @@ exports[`Button renders correctly renders correctly with callbacks 1`] = `
 
 exports[`Button renders correctly renders correctly with className 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="test button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -252,6 +267,7 @@ exports[`Button renders correctly renders correctly with className 1`] = `
 
 exports[`Button renders correctly renders correctly with empty props 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -268,6 +284,7 @@ exports[`Button renders correctly renders correctly with empty props 1`] = `
 
 exports[`Button renders correctly renders correctly with id 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button_test"
@@ -285,6 +302,7 @@ exports[`Button renders correctly renders correctly with id 1`] = `
 
 exports[`Button renders correctly renders correctly with leftIcon 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -295,15 +313,29 @@ exports[`Button renders correctly renders correctly with leftIcon 1`] = `
   onMouseUp={[Function]}
   type="button"
 >
-  <div
-    data-testid="icon-mock"
-  />
+  <svg
+    aria-hidden={true}
+    className="icon_component monday-style-button--left-icon icon_component--no-focus-style"
+    fill="currentColor"
+    height="20"
+    onClick={[Function]}
+    viewBox="0 0 20 20"
+    width="20"
+  >
+    <path
+      clipRule="evenodd"
+      d="M6.19306 2.51988C6.45823 2.20167 6.93116 2.15868 7.24936 2.42385L10 4.71605L12.7506 2.42385C13.0688 2.15868 13.5418 2.20167 13.8069 2.51988C14.0721 2.83809 14.0291 3.31101 13.7109 3.57618L12.0715 4.94233H17C17.4142 4.94233 17.75 5.27811 17.75 5.69233V11.0769C17.75 11.4912 17.4142 11.8269 17 11.8269H16.6731V15.9231C16.6731 16.4077 16.4806 16.8723 16.138 17.215C15.7954 17.5576 15.3307 17.75 14.8461 17.75H5.15384C4.66931 17.75 4.20463 17.5576 3.86201 17.215C3.5194 16.8723 3.32692 16.4077 3.32692 15.9231V11.8269H3C2.58579 11.8269 2.25 11.4912 2.25 11.0769V5.69233C2.25 5.27811 2.58579 4.94233 3 4.94233H7.92846L6.28909 3.57618C5.97088 3.31101 5.92789 2.83809 6.19306 2.51988ZM9.25 6.44233H3.75V10.3269H9.25V6.44233ZM10.75 10.3269V6.44233H16.25V10.3269H10.75ZM9.25 11.827H4.82692V15.9231C4.82692 16.0098 4.86136 16.093 4.92267 16.1543C4.98398 16.2156 5.06714 16.25 5.15384 16.25H9.25V11.827ZM10.75 16.25V11.827H15.1731V15.9231C15.1731 16.0098 15.1386 16.093 15.0773 16.1543C15.016 16.2156 14.9329 16.25 14.8461 16.25H10.75Z"
+      fill="currentColor"
+      fillRule="evenodd"
+    />
+  </svg>
   Button
 </button>
 `;
 
 exports[`Button renders correctly renders correctly with props change ui 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary colorPrimaryActive monday-style-button--color-primary-active marginRight monday-style-button--margin-right marginLeft monday-style-button--margin-left rightFlat monday-style-button--right-flat leftFlat monday-style-button--left-flat clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="button"
@@ -320,6 +352,7 @@ exports[`Button renders correctly renders correctly with props change ui 1`] = `
 
 exports[`Button renders correctly renders correctly with rightIcon 1`] = `
 <button
+  aria-busy={false}
   aria-disabled={false}
   className="button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary clickAnimation"
   data-testid="button"
@@ -331,8 +364,21 @@ exports[`Button renders correctly renders correctly with rightIcon 1`] = `
   type="button"
 >
   Button
-  <div
-    data-testid="icon-mock"
-  />
+  <svg
+    aria-hidden={true}
+    className="icon_component monday-style-button--right-icon icon_component--no-focus-style"
+    fill="currentColor"
+    height="20"
+    onClick={[Function]}
+    viewBox="0 0 20 20"
+    width="20"
+  >
+    <path
+      clipRule="evenodd"
+      d="M6.19306 2.51988C6.45823 2.20167 6.93116 2.15868 7.24936 2.42385L10 4.71605L12.7506 2.42385C13.0688 2.15868 13.5418 2.20167 13.8069 2.51988C14.0721 2.83809 14.0291 3.31101 13.7109 3.57618L12.0715 4.94233H17C17.4142 4.94233 17.75 5.27811 17.75 5.69233V11.0769C17.75 11.4912 17.4142 11.8269 17 11.8269H16.6731V15.9231C16.6731 16.4077 16.4806 16.8723 16.138 17.215C15.7954 17.5576 15.3307 17.75 14.8461 17.75H5.15384C4.66931 17.75 4.20463 17.5576 3.86201 17.215C3.5194 16.8723 3.32692 16.4077 3.32692 15.9231V11.8269H3C2.58579 11.8269 2.25 11.4912 2.25 11.0769V5.69233C2.25 5.27811 2.58579 4.94233 3 4.94233H7.92846L6.28909 3.57618C5.97088 3.31101 5.92789 2.83809 6.19306 2.51988ZM9.25 6.44233H3.75V10.3269H9.25V6.44233ZM10.75 10.3269V6.44233H16.25V10.3269H10.75ZM9.25 11.827H4.82692V15.9231C4.82692 16.0098 4.86136 16.093 4.92267 16.1543C4.98398 16.2156 5.06714 16.25 5.15384 16.25H9.25V11.827ZM10.75 16.25V11.827H15.1731V15.9231C15.1731 16.0098 15.1386 16.093 15.0773 16.1543C15.016 16.2156 14.9329 16.25 14.8461 16.25H10.75Z"
+      fill="currentColor"
+      fillRule="evenodd"
+    />
+  </svg>
 </button>
 `;
