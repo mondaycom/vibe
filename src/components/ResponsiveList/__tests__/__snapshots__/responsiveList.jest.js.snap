@@ -14,6 +14,7 @@ exports[`renders correctly with empty props 1`] = `
       aria-haspopup="true"
       aria-label="More Actions"
       className="menu-button--wrapper responsive-list-menu-button menu-button--wrapper--size-32"
+      datatestid="dialog"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}

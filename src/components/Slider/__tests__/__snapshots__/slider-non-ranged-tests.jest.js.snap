@@ -29,6 +29,7 @@ exports[`a. Non-ranged Slider: basic renderer 1`] = `
         aria-valuetext="20%"
         class="monday-slider__thumb monday-slider__thumb--index-0"
         data-testid="monday-slider__thumb-0"
+        datatestid="dialog"
         role="slider"
         style="left: 20%;"
         tabindex="0"
@@ -61,7 +62,7 @@ Snapshot Diff:
 +             20%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             class="tooltipArrow monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -95,7 +96,7 @@ Snapshot Diff:
 -             20%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+-             class="tooltipArrow monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -118,6 +119,7 @@ Snapshot Diff:
 -         class="monday-slider__thumb monday-slider__thumb--index-0"
 +         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
+          datatestid="dialog"
           role="slider"
           style="left: 20%;"
           tabindex="0"
@@ -136,7 +138,7 @@ Snapshot Diff:
 +             20%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
++             class="tooltipArrow monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 +             data-placement="top"
 +             style="position: absolute;"
             />
@@ -159,6 +161,7 @@ Snapshot Diff:
 -         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
 +         class="monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
+          datatestid="dialog"
           role="slider"
           style="left: 20%;"
           tabindex="0"
@@ -177,7 +180,7 @@ Snapshot Diff:
 -             20%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
+-             class="tooltipArrow monday-style-tooltip-arrow monday-style-arrow monday-style-arrow-dark padding-size-undefined"
 -             data-placement="top"
 -             style="position: absolute;"
         />

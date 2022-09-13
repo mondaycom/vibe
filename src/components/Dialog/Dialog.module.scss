@@ -2,7 +2,7 @@
 
 $arrow-size: 12px;
 
-:global(.monday-style-tooltip-arrow) {
+.tooltipArrow {
   width: $arrow-size;
   height: $arrow-size;
   position: absolute;

@@ -46,6 +46,7 @@ export const ELEMENT_TYPES = {
   TOAST_LINK: "toast-link",
   TOGGLE: "toggle",
   DIVIDER: "divider",
+  DIALOG: "dialog",
   DIALOG_CONTENT_CONTAINER: "dialog-content-container"
 };
 

@@ -75,11 +75,11 @@ const Counter = ({
     return cx(
       styles.counter,
       "monday-style-counter",
-      styles[`${camelCase("size-" + getActualSize(size))}`],
+      styles[camelCase("size-" + getActualSize(size))],
       `monday-style-counter--size-${getActualSize(size)}`,
-      styles[`${camelCase("kind-" + kind)}`],
+      styles[camelCase("kind-" + kind)],
       `monday-style-counter--kind-${kind}`,
-      styles[`${camelCase("color-" + color)}`],
+      styles[camelCase("color-" + color)],
       `monday-style-counter--color-${color}`,
       {
         [styles.withAnimation]: countChangeAnimationState,
@@ -97,12 +97,12 @@ const Counter = ({
 
   return (
     <span
-      className={cx(overrideClassName)}
+      className={overrideClassName}
       aria-label={`${ariaLabel} ${countText}`}
       aria-labelledby={ariaLabeledBy}
       onMouseDown={onMouseDown}
     >
-      <div className={cx(classNames)} aria-label={countText} ref={ref}>
+      <div className={classNames} aria-label={countText} ref={ref}>
         {noAnimation ? (
           counter
         ) : (

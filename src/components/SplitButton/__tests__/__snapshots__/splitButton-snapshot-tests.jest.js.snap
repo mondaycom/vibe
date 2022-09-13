@@ -22,6 +22,7 @@ exports[`SplitButton renders correctly with disabled 1`] = `
   >
     <span
       className=""
+      datatestid="dialog"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -91,6 +92,7 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
   >
     <span
       className=""
+      datatestid="dialog"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -160,6 +162,7 @@ exports[`SplitButton renders correctly with only required props 1`] = `
   >
     <span
       className=""
+      datatestid="dialog"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -229,6 +232,7 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
   >
     <span
       className=""
+      datatestid="dialog"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -298,6 +302,7 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
   >
     <span
       className=""
+      datatestid="dialog"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -367,6 +372,7 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
   >
     <span
       className=""
+      datatestid="dialog"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
