@@ -17,8 +17,8 @@ function renderComponent(props: ButtonProps) {
 }
 
 describe("<Buttoon />", () => {
-  let clickActionStub: jest.Mock<any, any>;
-  let onMouseDownStub: jest.Mock<any, any>;
+  let clickActionStub: jest.Mock;
+  let onMouseDownStub: jest.Mock;
   let buttonComponent: RenderResult;
 
   beforeEach(() => {
