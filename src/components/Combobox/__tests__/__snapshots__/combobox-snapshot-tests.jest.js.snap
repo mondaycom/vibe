@@ -2,7 +2,7 @@
 
 exports[`Combobox renders correctly when disabled 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium empty"
+  className="comboboxWrapper combobox--wrapper medium size-medium empty"
   data-testid="combobox"
   id=""
 >
@@ -115,7 +115,7 @@ exports[`Combobox renders correctly when disabled 1`] = `
 
 exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium empty"
+  className="comboboxWrapper combobox--wrapper medium size-medium empty"
   data-testid="combobox"
   id=""
 >
@@ -228,7 +228,7 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
 
 exports[`Combobox renders correctly with autoFocus 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium empty"
+  className="comboboxWrapper combobox--wrapper medium size-medium empty"
   data-testid="combobox"
   id=""
 >
@@ -341,7 +341,7 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
 
 exports[`Combobox renders correctly with className 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper test sizeMedium size-medium empty"
+  className="comboboxWrapper combobox--wrapper test medium size-medium empty"
   data-testid="combobox"
   id=""
 >
@@ -454,7 +454,7 @@ exports[`Combobox renders correctly with className 1`] = `
 
 exports[`Combobox renders correctly with divider 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium"
+  className="comboboxWrapper combobox--wrapper medium size-medium"
   data-testid="combobox"
   id=""
 >
@@ -664,7 +664,7 @@ exports[`Combobox renders correctly with divider 1`] = `
 
 exports[`Combobox renders correctly with empty props 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium empty"
+  className="comboboxWrapper combobox--wrapper medium size-medium empty"
   data-testid="combobox"
   id=""
 >
@@ -777,7 +777,7 @@ exports[`Combobox renders correctly with empty props 1`] = `
 
 exports[`Combobox renders correctly with id 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium empty"
+  className="comboboxWrapper combobox--wrapper medium size-medium empty"
   data-testid="combobox_test"
   id="test"
 >
@@ -890,7 +890,7 @@ exports[`Combobox renders correctly with id 1`] = `
 
 exports[`Combobox renders correctly with loading 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium empty"
+  className="comboboxWrapper combobox--wrapper medium size-medium empty"
   data-testid="combobox"
   id=""
 >
@@ -1031,7 +1031,7 @@ exports[`Combobox renders correctly with loading 1`] = `
 
 exports[`Combobox renders correctly with optionLineHeight 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium empty"
+  className="comboboxWrapper combobox--wrapper medium size-medium empty"
   data-testid="combobox"
   id=""
 >
@@ -1144,7 +1144,7 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
 
 exports[`Combobox renders correctly with optionRenderer 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium"
+  className="comboboxWrapper combobox--wrapper medium size-medium"
   data-testid="combobox"
   id=""
 >
@@ -1308,7 +1308,7 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
 
 exports[`Combobox renders correctly with optionsListHeight 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium empty"
+  className="comboboxWrapper combobox--wrapper medium size-medium empty"
   data-testid="combobox"
   id=""
 >
@@ -1421,7 +1421,7 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
 
 exports[`Combobox renders correctly with placeholder 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeMedium size-medium empty"
+  className="comboboxWrapper combobox--wrapper medium size-medium empty"
   data-testid="combobox"
   id=""
 >
@@ -1534,7 +1534,7 @@ exports[`Combobox renders correctly with placeholder 1`] = `
 
 exports[`Combobox renders correctly with size 1`] = `
 <div
-  className="comboboxWrapper combobox--wrapper sizeLarge size-large empty"
+  className="comboboxWrapper combobox--wrapper large size-large empty"
   data-testid="combobox"
   id=""
 >

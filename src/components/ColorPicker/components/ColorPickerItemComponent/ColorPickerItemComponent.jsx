@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
 import cx from "classnames";
 import React, { useCallback, useEffect, useMemo, useRef } from "react";
@@ -78,16 +77,10 @@ const ColorPickerItemComponent = ({
         <Clickable
           ref={itemRef}
           ariaLabel={color}
-          className={cx(
-            styles.colorItem,
-            "color-item",
-            styles[`${camelCase("color-item-size-" + colorSize)}`],
-            `color-item-size-${colorSize}`,
-            {
-              [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground,
-              ["color-item-text-mode"]: shouldRenderIndicatorWithoutBackground
-            }
-          )}
+          className={cx(styles.colorItem, "color-item", styles[colorSize], `color-item-size-${colorSize}`, {
+            [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground,
+            ["color-item-text-mode"]: shouldRenderIndicatorWithoutBackground
+          })}
           style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
           onClick={onClick}
           tabIndex="-1"

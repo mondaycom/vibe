@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -185,19 +184,12 @@ const Combobox = forwardRef(
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
       <div
         ref={mergedRef}
-        className={cx(
-          styles.comboboxWrapper,
-          "combobox--wrapper",
-          className,
-          styles[`${camelCase("size-" + size)}`],
-          `size-${size}`,
-          {
-            [styles.empty]: !hasResults,
-            ["empty"]: !hasResults,
-            [styles.stickyCategory]: stickyCategories,
-            ["sticky-category"]: stickyCategories
-          }
-        )}
+        className={cx(styles.comboboxWrapper, "combobox--wrapper", className, styles[size], `size-${size}`, {
+          [styles.empty]: !hasResults,
+          ["empty"]: !hasResults,
+          [styles.stickyCategory]: stickyCategories,
+          ["sticky-category"]: stickyCategories
+        })}
         id={id}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX, id)}
       >

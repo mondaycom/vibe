@@ -35,7 +35,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="grass_green"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -63,7 +63,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="done-green"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -91,7 +91,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="bright-green"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -119,7 +119,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="saladish"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -147,7 +147,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="egg_yolk"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -175,7 +175,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="working_orange"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -203,7 +203,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="dark-orange"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -231,7 +231,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="peach"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -259,7 +259,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="sunset"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -287,7 +287,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="stuck-red"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -315,7 +315,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="dark-red"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -343,7 +343,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="sofia_pink"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -371,7 +371,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="lipstick"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -399,7 +399,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="bubble"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -427,7 +427,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="purple"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -455,7 +455,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="dark_purple"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -483,7 +483,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="berry"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -511,7 +511,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="dark_indigo"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -539,7 +539,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="indigo"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -567,7 +567,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="navy"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -595,7 +595,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="bright-blue"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -623,7 +623,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="dark-blue"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -651,7 +651,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="aquamarine"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -679,7 +679,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="chili-blue"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -707,7 +707,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="river"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -735,7 +735,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="winter"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -763,7 +763,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="explosive"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -791,7 +791,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="american_gray"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -819,7 +819,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="blackish"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -847,7 +847,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="brown"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -875,7 +875,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="orchid"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -903,7 +903,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="tan"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -931,7 +931,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="sky"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -959,7 +959,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="coffee"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -987,7 +987,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="royal"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1015,7 +1015,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="teal"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1043,7 +1043,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="lavender"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1071,7 +1071,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="steel"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1099,7 +1099,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="lilac"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -1127,7 +1127,7 @@ exports[`renders correctly with empty props 1`] = `
         />
         <div
           aria-label="pecan"
-          className="clickable monday-style-clickable colorItem color-item colorItemSizeMedium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
+          className="clickable monday-style-clickable colorItem color-item medium color-item-size-medium disableTextSelection monday-style-clickable--disable-text-selection"
           data-testid="clickable"
           onClick={[Function]}
           onKeyDown={[Function]}
