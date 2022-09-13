@@ -1,5 +1,4 @@
 import React, { forwardRef, JSXElementConstructor, ReactElement } from "react";
-import PropTypes from "prop-types";
 import Clickable, { ClickableProps } from "./Clickable";
 import VibeComponent from "../../types/VibeComponent";
 
@@ -22,16 +21,5 @@ const ClickableWrapper: VibeComponent<ClickableWrapperProps, HTMLElement> = forw
     );
   }
 );
-
-ClickableWrapper.propTypes = {
-  children: PropTypes.element,
-  isClickable: PropTypes.bool,
-  clickableProps: PropTypes.shape(Clickable.propTypes)
-};
-ClickableWrapper.defaultProps = {
-  children: undefined,
-  isClickable: true,
-  clickableProps: {}
-};
 
 export default ClickableWrapper;
