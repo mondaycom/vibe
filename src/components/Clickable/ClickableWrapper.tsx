@@ -1,9 +1,9 @@
-import React, { forwardRef, JSXElementConstructor, ReactElement } from "react";
+import React, { forwardRef, ReactElement } from "react";
 import Clickable, { ClickableProps } from "./Clickable";
 import VibeComponent from "../../types/VibeComponent";
 
 export interface ClickableWrapperProps {
-  children: ReactElement<any, string | JSXElementConstructor<any>>;
+  children: ReactElement;
   isClickable?: boolean;
   clickableProps?: ClickableProps;
 }
