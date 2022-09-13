@@ -76,7 +76,7 @@ export const DialogContent = React.forwardRef(
         <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
           <div
             className={cx(styles.contentComponent, "monday-style-dialog-content-component", position, {
-              [styles[`${camelCase("edge-" + startingEdge)}`]]: startingEdge,
+              [styles[camelCase("edge-" + startingEdge)]]: startingEdge,
               [`edge-${startingEdge}`]: startingEdge,
               [styles.hasTooltip]: hasTooltip,
               ["has-tooltip"]: hasTooltip
