@@ -1,5 +1,7 @@
 {
-  "include": ["./dist/ts-esm.js", "types/styles.d.ts"],
+  // including src/* is a temp solution to fix 'TS2307: Cannot find module './*.module.scss' or its corresponding type declarations.'
+  // error when importing .modules.scss in ts files
+  "include": ["src/**/*", "./dist/ts-esm.js", "types/*"],
   "compilerOptions": {
     "rootDir": "./src",
     "lib": ["esnext", "dom"],
