@@ -1679,7 +1679,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
@@ -1707,7 +1707,7 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
             height="20px"
             onClick={[Function]}
             role="button"
-            tabIndex="-1"
+            tabIndex={-1}
             viewBox="0 0 20 20"
             width="20px"
           >
