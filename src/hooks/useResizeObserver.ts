@@ -1,5 +1,5 @@
 import { useEffect, RefObject, useCallback } from "react";
-import debounce from "lodash/debounce";
+import { debounce } from "lodash";
 
 type ResizeCallback = ({ borderBoxSize }: { borderBoxSize: ResizeObserverSize }) => unknown;
 
@@ -21,7 +21,7 @@ export default function useResizeObserver({
     if (!ref.current) return;
 
     function borderBoxSizeCallback(borderBoxSize: ResizeObserverSize | ReadonlyArray<ResizeObserverSize>): number {
-      const value = Array.isArray(borderBoxSize) ? borderBoxSize[0] : borderBoxSize
+      const value = Array.isArray(borderBoxSize) ? borderBoxSize[0] : borderBoxSize;
       return window.requestAnimationFrame(() => {
         debouncedCallback({ borderBoxSize: value });
       });
@@ -34,14 +34,12 @@ export default function useResizeObserver({
       if (entry && entry.borderBoxSize) {
         // handle chrome (entry.borderBoxSize[0])
         // handle ff (entry.borderBoxSize)
-        if(!Array.isArray(entry.borderBoxSize)) {
+        if (!Array.isArray(entry.borderBoxSize)) {
           animationFrameId = borderBoxSizeCallback(entry.borderBoxSize);
-
         } else {
           const borderBoxEntry = entry.borderBoxSize[0];
           animationFrameId = borderBoxSizeCallback(borderBoxEntry);
         }
-
       } else if (entry.contentRect) {
         // handle safari (entry.contentRect)
         const borderBoxSize = { blockSize: entry.contentRect.height, inlineSize: entry?.contentRect?.width || 0 };

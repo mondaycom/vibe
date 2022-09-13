@@ -1,13 +1,12 @@
 import { useMemo, useRef } from "react";
-import isEqual from "lodash/isEqual";
-import isEmpty from "lodash/isEmpty";
+import { isEqual, isEmpty } from "lodash";
 
 // remove empty values
 function removeEmpty(obj: CSSStyleDeclaration) {
   const newObj = { ...obj };
   for (const k in newObj) {
-    if(newObj[k] === undefined) {
-      delete newObj[k]
+    if (newObj[k] === undefined) {
+      delete newObj[k];
     }
   }
 

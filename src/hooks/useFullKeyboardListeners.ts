@@ -1,5 +1,5 @@
 import { useMemo, useCallback, useEffect, MutableRefObject } from "react";
-import NOOP from "lodash/noop";
+import { noop } from "lodash";
 import useKeyEvent from "./useKeyEvent";
 import { KeyboardEventCallback } from "../types/events";
 
@@ -19,9 +19,9 @@ export const ESCAPE_KEYS = ["Escape"];
 
 export default function useFullKeyboardListeners({
   ref, // the reference for the component that listens to keyboard
-  onSelectionKey = NOOP,
-  onArrowNavigation = NOOP,
-  onEscape = NOOP,
+  onSelectionKey = noop,
+  onArrowNavigation = noop,
+  onEscape = noop,
   useDocumentEventListeners = false,
   focusOnMount = false
 }: {

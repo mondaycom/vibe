@@ -1,5 +1,5 @@
 import { useEffect, useRef, useCallback } from "react";
-import NOOP from "lodash/noop";
+import {noop} from "lodash";
 
 export default function useTimeout({
   time = 0,
@@ -31,7 +31,7 @@ export default function useTimeout({
   }, [callback, time, timeoutId, ignoreTimeout]);
 
   if (ignoreTimeout) {
-    return [NOOP];
+    return [noop];
   }
   return [cancelTimeout];
 }

@@ -1,6 +1,5 @@
-import {useMemo, useCallback, useState, useRef, useEffect, ChangeEvent} from "react";
-import debounce from "lodash/debounce";
-import noop from "lodash/noop";
+import { useMemo, useCallback, useState, useRef, useEffect, ChangeEvent } from "react";
+import { noop, debounce } from "lodash";
 
 export default function useDebounceEvent({
   delay = 0,
@@ -28,7 +27,7 @@ export default function useDebounceEvent({
   }, [onChange, delay]);
 
   const onEventChanged = useCallback(
-      (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { value } = event.target;
       if (trim) {
         setValue(value.trim());
