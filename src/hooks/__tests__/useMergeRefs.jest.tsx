@@ -1,9 +1,9 @@
-import { forwardRef, useRef, useEffect, RefObject, createRef, ForwardRefExoticComponent, RefAttributes } from "react";
+import React, { forwardRef, useRef, useEffect, RefObject, createRef } from "react";
 import { fireEvent, render, cleanup, act, screen, waitFor } from "@testing-library/react";
 import useMergeRefs from "../useMergeRefs";
 
 describe("useMergeRefs", () => {
-  let Component: ForwardRefExoticComponent<RefAttributes<unknown>> | JSX.IntrinsicAttributes;
+  let Component: React.ElementType;
   let internalRef: RefObject<any>;
 
   describe("set ref", () => {
@@ -24,7 +24,6 @@ describe("useMergeRefs", () => {
     });
 
     it("should be able to set internal ref", () => {
-      // @ts-ignore
       render(<Component />);
       waitFor(() => {
         expect(internalRef.current.innerText).toEqual("Lorem ipsum dolor sit amet");
@@ -34,7 +33,6 @@ describe("useMergeRefs", () => {
     it("should be able to set object prop ref", () => {
       const propRef = createRef<HTMLElement>();
       expect(internalRef.current).toBeNull();
-      // @ts-ignore
       render(<Component ref={propRef} />);
       waitFor(() => {
         expect(internalRef.current.innerText).toEqual("Lorem ipsum dolor sit amet");
@@ -52,7 +50,6 @@ describe("useMergeRefs", () => {
         state._ref = ref;
       };
 
-      // @ts-ignore
       render(<Component ref={propRef} />);
       waitFor(() => {
         expect(internalRef.current.innerText).toEqual("Lorem ipsum dolor sit amet");
@@ -94,7 +91,6 @@ describe("useMergeRefs", () => {
     });
 
     it("should not call any listeners if element didn't had click event", () => {
-      // @ts-ignore
       render(<Component />);
       waitFor(() => {
         expect(innerRefCallbackStub.mock.calls.length).toBe(0);
@@ -102,7 +98,6 @@ describe("useMergeRefs", () => {
     });
 
     it("should call click listener based on internal ref if element has been clicked", () => {
-      // @ts-ignore
       render(<Component />);
       const element = screen.getByText("Lorem ipsum dolor sit amet");
       act(() => {
@@ -115,7 +110,6 @@ describe("useMergeRefs", () => {
 
     it("it should call both listeners if ref prop was passed and element has been clicked", () => {
       const propRef = createRef<HTMLElement>();
-      // @ts-ignore
       render(<Component ref={propRef} />);
       propRef.current.addEventListener("click", outerRefCallbackStub);
       const element = screen.getByText("Lorem ipsum dolor sit amet");
@@ -131,7 +125,6 @@ describe("useMergeRefs", () => {
 
     it("it should not call any listener if ref prop was passed and element has not been clicked", () => {
       const propRef = createRef<HTMLElement>();
-      // @ts-ignore
       render(<Component ref={propRef} />);
       propRef.current.addEventListener("click", outerRefCallbackStub);
       propRef.current.removeEventListener("click", outerRefCallbackStub);
