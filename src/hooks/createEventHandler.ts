@@ -5,7 +5,7 @@ export function createEventHandler(handler: (event: UIEvent) => unknown) {
 
   let shouldStopPropagation = true;
   return (e: UIEvent) => {
-    let event = {
+    const event = {
       ...e,
       preventDefault() {
         e.preventDefault();

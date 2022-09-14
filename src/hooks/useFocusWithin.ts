@@ -16,7 +16,7 @@ export function useFocusWithin({
   }).current;
 
   const onFocus = useCallback(
-      (e: FocusEvent) => {
+    (e: FocusEvent) => {
       if (!state.isFocusWithin) {
         if (onFocusWithin) {
           onFocusWithin(e);
@@ -33,11 +33,11 @@ export function useFocusWithin({
   );
 
   const onBlur = useCallback(
-      (e: FocusEvent) => {
+    (e: FocusEvent) => {
       // We don't want to trigger onBlurWithin and then immediately onFocusWithin again
       // when moving focus inside the element. Only trigger if the currentTarget doesn't
       // include the relatedTarget (where focus is moving).
-        const currentTarget = e.currentTarget;
+      const currentTarget = e.currentTarget;
       if (state.isFocusWithin && !currentTarget.contains(e.relatedTarget)) {
         if (onBlurWithin) {
           onBlurWithin(e);

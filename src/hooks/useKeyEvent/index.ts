@@ -18,13 +18,11 @@ const checkModifierInEvent = (event: KeyboardEvent, modifier: Modifiers) => {
   }
 
   return event[modifier];
-
-
 };
 const checkWithoutModifierInEvent = (event: KeyboardEvent) => {
   return !Object.values(useKeyEvent.modifiers).some((m: Modifiers) => {
-      if(m === CTRL_OR_META) return true;
-      return !!event[m]
+    if (m === CTRL_OR_META) return true;
+    return !!event[m];
   });
 };
 

@@ -13,7 +13,7 @@ export function useMediaQuery(query: string | string[]) {
       // we save the callback function so when we unmount we could remove the listener
       const callback = (event: MediaQueryListEvent) => {
         setMatches(prevState => {
-          let newQueries = [...prevState];
+          const newQueries = [...prevState];
           newQueries[index] = event.matches;
           return newQueries;
         });

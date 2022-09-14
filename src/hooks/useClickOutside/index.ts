@@ -11,7 +11,7 @@ export default function useOnClickOutside({
   callback: GenericEventCallback;
 }) {
   const onClickOutsideListener = useCallback(
-      (event: MouseEvent) => {
+    (event: MouseEvent) => {
       if (!ref || !ref.current || ref.current.contains(event.target as Node)) {
         return;
       }

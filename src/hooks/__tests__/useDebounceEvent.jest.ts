@@ -164,6 +164,13 @@ function getEventObject(value: string): ChangeEvent<Partial<HTMLInputElement>> {
     persist(): void {},
     preventDefault(): void {},
     stopPropagation(): void {},
-    target: { value, addEventListener(): void {}, dispatchEvent(): boolean {return false}, removeEventListener(): void {} }
+    target: {
+      value,
+      addEventListener(): void {},
+      dispatchEvent(): boolean {
+        return false;
+      },
+      removeEventListener(): void {}
+    }
   };
 }

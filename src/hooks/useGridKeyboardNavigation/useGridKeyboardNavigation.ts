@@ -130,7 +130,7 @@ export default function useGridKeyboardNavigation({
   }, [activeIndex, ref]);
 
   const onSelectionAction = useCallback(
-    (index: number, isKeyboardAction: boolean = false) => {
+    (index: number, isKeyboardAction = false) => {
       setIsUsingKeyboardNav(isKeyboardAction);
       setActiveIndex(index);
       const item = getItemByIndex(index);

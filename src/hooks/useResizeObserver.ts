@@ -16,7 +16,7 @@ export default function useResizeObserver({
 
   useEffect(() => {
     if (!window.ResizeObserver) {
-      return () => {};
+      return;
     }
     if (!ref.current) return;
 
@@ -45,7 +45,7 @@ export default function useResizeObserver({
         const borderBoxSize = { blockSize: entry.contentRect.height, inlineSize: entry?.contentRect?.width || 0 };
         animationFrameId = borderBoxSizeCallback(borderBoxSize);
       } else {
-        return () => {};
+        return;
       }
     });
 

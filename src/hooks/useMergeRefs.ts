@@ -8,7 +8,6 @@ import { LegacyRef, MutableRefObject, useMemo } from "react";
  * });
  */
 
-
 export default function useMergeRefs<T = any>({ refs = [] }: { refs: Array<MutableRefObject<T> | LegacyRef<T>> }) {
   return useMemo(() => {
     if (refs.every(ref => ref === null)) return null;
@@ -31,7 +30,7 @@ function assignRef(ref: MutableRefObject<any> | LegacyRef<any>, value: HTMLEleme
 
   try {
     // eslint-disable-next-line no-param-reassign
-    (ref as MutableRefObject<any> ).current = value;
+    (ref as MutableRefObject<any>).current = value;
   } catch (error) {
     console.error(error);
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`);
