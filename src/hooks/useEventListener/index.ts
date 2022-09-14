@@ -7,7 +7,7 @@ export default function useEventListener({
   ref,
   capture = false
 }: {
-  eventName: keyof HTMLElementEventMap;
+  eventName: keyof HTMLElementEventMap | string;
   callback: GenericEventCallback;
   ref?: RefObject<HTMLElement>;
   capture?: boolean;
