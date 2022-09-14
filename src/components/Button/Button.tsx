@@ -12,6 +12,7 @@ import Loader from "../../components/Loader/Loader";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 // TODO ts .module.scss error - TS2307
 import styles from "./Button.module.scss";
 
@@ -210,18 +211,18 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         className,
         styles.button,
         "monday-style-button",
-        styles[camelCase("size-" + getActualSize(size))],
+        getStyle(styles, camelCase("size-" + getActualSize(size))),
         `monday-style-button--size-${getActualSize(size)}`,
-        styles[camelCase("kind-" + kind)],
+        getStyle(styles, camelCase("kind-" + kind)),
         `monday-style-button--kind-${kind}`,
-        styles[camelCase("color-" + calculatedColor)],
+        getStyle(styles, camelCase("color-" + calculatedColor)),
         `monday-style-button--color-${calculatedColor}`,
         {
           [styles.hasStyleSize]: hasSizeStyle,
           ["has-style-size"]: hasSizeStyle,
           [styles.loading]: loading,
           ["monday-style-button--loading"]: loading,
-          [camelCase("color-" + calculatedColor + "-active")]: active,
+          [getStyle(styles, camelCase("color-" + calculatedColor + "-active"))]: active,
           [`monday-style-button--color-${calculatedColor}-active`]: active,
           [styles.marginRight]: marginRight,
           ["monday-style-button--margin-right"]: marginRight,

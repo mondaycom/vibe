@@ -9,6 +9,7 @@ import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import { IMAGE_POSITIONS } from "./BannerConstants";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import styles from "./Banner.module.scss";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
 
 const PRESERVE_VALUE = value => value;
 
@@ -83,7 +84,7 @@ const Banner = forwardRef(
           className={cx(
             styles.bannerContent,
             "banner--content",
-            styles[camelCase("image-position__" + imagePosition)],
+            getStyle(styles, camelCase("image-position__" + imagePosition)),
             `image-position__${imagePosition}`,
             {
               [styles.closeButtonSpacing]: !!renderCloseButton,
