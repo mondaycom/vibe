@@ -1,5 +1,5 @@
 {
-  "include": ["./dist/ts-esm.js", "types/styles.d.ts"],
+  "include": ["./dist/ts-esm.js", "types/*"],
   "compilerOptions": {
     "rootDir": "./src",
     "lib": ["esnext", "dom"],
