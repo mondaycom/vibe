@@ -6,7 +6,7 @@
     "allowJs": true,
     "target": "es6",
     "module": "commonjs",
-    "sourceMap": true,
+    "sourceMap": false,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "declarationDir": "dist/types",
