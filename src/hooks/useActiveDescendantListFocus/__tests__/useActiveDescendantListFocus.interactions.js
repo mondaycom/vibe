@@ -37,25 +37,25 @@ async function keyboardNavAndFocusForVerticalList(canvas) {
   // move visual focus to first item
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await expectElementVisuallyFocusedByText("Item 1");
-  await expectElementToBeNaturallyFocused(search);
+  await expectElementToBeNaturallyFocused(element);
 
   // move visual focus to second item
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await expectElementVisuallyFocusedByText("Item 2");
-  await expectElementToBeNaturallyFocused(search);
+  await expectElementToBeNaturallyFocused(element);
 
   // move visual focus to first item again
   await pressNavigationKey(NAVIGATIONS_COMMANDS.UP_ARROW);
   await expectElementVisuallyFocusedByText("Item 1");
-  await expectElementToBeNaturallyFocused(search);
+  await expectElementToBeNaturallyFocused(element);
 
   // move to last item by press up keyboard button
   await pressNavigationKey(NAVIGATIONS_COMMANDS.UP_ARROW);
   await expectElementVisuallyFocusedByText("Item 3");
-  await expectElementToBeNaturallyFocused(search);
+  await expectElementToBeNaturallyFocused(element);
 
   // move to first item again by press down keyboard button while visual focus is on the last item
   await pressNavigationKey(NAVIGATIONS_COMMANDS.DOWN_ARROW);
   await expectElementVisuallyFocusedByText("Item 1");
-  await expectElementToBeNaturallyFocused(search);
+  await expectElementToBeNaturallyFocused(element);
 }

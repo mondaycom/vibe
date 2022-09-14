@@ -99,7 +99,7 @@ export const Checkbox = forwardRef(
             iconSize="16"
           />
         </div>
-        <span className={`${BASE_CLASS_NAME}__label`}>{label}</span>
+        {label === false ? null : <span className={`${BASE_CLASS_NAME}__label`}>{label}</span>}
       </label>
     );
   }
@@ -108,7 +108,7 @@ export const Checkbox = forwardRef(
 Checkbox.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.element, PropTypes.bool]),
   ariaLabelledBy: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool,

@@ -1,5 +1,42 @@
 # Changelog
 
+## 1.63.0 (2022-09-14)
+
+#### New Features
+* [#857](https://github.com/mondaycom/monday-ui-react-core/pull/857) Convert icon component and related code to js ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#858](https://github.com/mondaycom/monday-ui-react-core/pull/858) Css modules typescript infra via 'typescript-plugin-css-modules' + eslint ts specification ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.62.1 (2022-09-11)
+
+#### Bug Fixes
+* [#866](https://github.com/mondaycom/monday-ui-react-core/pull/866) Fixing Chips import by changing to relative import ([@yardenli](https://github.com/yardenli))
+
+## 1.62.0 (2022-09-11)
+
+#### Bug Fixes
+* [#859](https://github.com/mondaycom/monday-ui-react-core/pull/859) Feature/sergeyro/menu button icon size unify ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#864](https://github.com/mondaycom/monday-ui-react-core/pull/864) Chip colors in dropdown with multi support ([@yardenli](https://github.com/yardenli))
+
+#### Internal Changes
+* [#860](https://github.com/mondaycom/monday-ui-react-core/pull/860) Feature/sergeyro/build react icons typescript ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.61.0 (2022-09-07)
+
+#### New Features
+* [#861](https://github.com/mondaycom/monday-ui-react-core/pull/861) Fix menu button ref ([@hadasfa](https://github.com/hadasfa))
+
+## 1.60.0 (2022-09-06)
+
+#### New Features
+* [#856](https://github.com/mondaycom/monday-ui-react-core/pull/856) feat(checkbox): add ability to render component without label ([@niksa-monday](https://github.com/niksa-monday))
+
+#### Internal Changes
+* [#794](https://github.com/mondaycom/monday-ui-react-core/pull/794) Convert button component to typescript & project configurations  ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.59.1 (2022-09-04)
 
 #### Bug Fixes
