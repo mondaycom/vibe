@@ -12,7 +12,7 @@ import Loader from "../../components/Loader/Loader";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-// TODO styles seems so not load - seen in snapshots - problems with ts + css modules
+// TODO ts .module.scss error - TS2307
 import styles from "./Button.module.scss";
 
 // @ts-ignore
