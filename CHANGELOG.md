@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.63.0 (2022-09-14)
+
+#### New Features
+* [#857](https://github.com/mondaycom/monday-ui-react-core/pull/857) Convert icon component and related code to js ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#858](https://github.com/mondaycom/monday-ui-react-core/pull/858) Css modules typescript infra via 'typescript-plugin-css-modules' + eslint ts specification ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.62.1 (2022-09-11)
 
 #### Bug Fixes

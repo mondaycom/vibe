@@ -1,25 +1,37 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { useCallback } from "react";
-import PropTypes from "prop-types";
+import React, { FunctionComponent, useCallback, AriaRole, Ref } from "react";
 import cx from "classnames";
 import SVG from "react-inlinesvg";
-import useIconScreenReaderAccessProps from "../../hooks/useIconScreenReaderAccessProps";
+import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAccessProps";
+import VibeComponentProps from "../../../types/VibeComponentProps";
 
-function modifySvgCode(svg, color = "currentColor") {
+function modifySvgCode(svg: string, color = "currentColor") {
   return svg.replace(/fill=".*?"/g, `fill="${color}"`);
 }
 
-const CustomSvgIcon = ({
+interface CustomSvgIconProps extends VibeComponentProps {
+  onClick?: (event: React.MouseEvent) => void;
+  src: string | object;
+  ariaLabel?: string;
+  tabIndex?: number;
+  role?: AriaRole;
+  ariaHidden?: boolean;
+  clickable?: boolean;
+  replaceToCurrentColor?: boolean;
+  customColor?: string;
+  ref?: Ref<SVGElement>;
+}
+
+const CustomSvgIcon: FunctionComponent<CustomSvgIconProps> = ({
   className,
+  ref,
   src,
   onClick,
   clickable,
   ariaLabel,
   ariaHidden,
-  replaceToCurrentColor,
+  replaceToCurrentColor = false,
   customColor,
-  "data-testid": dataTestId,
-  ...props
+  "data-testid": dataTestId
 }) => {
   const screenReaderAccessProps = useIconScreenReaderAccessProps({
     isClickable: clickable,
@@ -28,7 +40,7 @@ const CustomSvgIcon = ({
   });
 
   const svgProcessor = useCallback(
-    svg => {
+    (svg: string) => {
       if (replaceToCurrentColor) return modifySvgCode(svg, "currentColor");
       if (customColor) return modifySvgCode(svg, customColor);
       return svg;
@@ -40,32 +52,15 @@ const CustomSvgIcon = ({
 
   return (
     <SVG
+      innerRef={ref}
       {...screenReaderAccessProps}
       onClick={onClick}
       src={src}
       className={cx("monday-style-custom-svg-icon--wrapper", className)}
       preProcessor={svgProcessor}
-      {...props}
       data-testid={dataTestId}
     />
   );
-};
-
-CustomSvgIcon.propTypes = {
-  className: PropTypes.string,
-  src: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  ariaLabel: PropTypes.string,
-  ariaHidden: PropTypes.bool,
-  replaceToCurrentColor: PropTypes.bool,
-  customColor: PropTypes.string
-};
-CustomSvgIcon.defaultProps = {
-  className: "",
-  src: "",
-  ariaLabel: undefined,
-  ariaHidden: undefined,
-  replaceToCurrentColor: false,
-  customColor: undefined
 };
 
 export default CustomSvgIcon;
