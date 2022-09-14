@@ -43,7 +43,7 @@ export default function useGridKeyboardNavigation({
   ref: MutableRefObject<HTMLElement>;
   itemsCount: number;
   numberOfItemsInLine: number;
-  onItemClicked: (element: HTMLElement, index: number) => unknown;
+  onItemClicked: (element: HTMLElement | void, index: number) => unknown;
   focusOnMount: boolean;
   getItemByIndex: (index: number | void) => HTMLElement | void;
   focusItemIndexOnMount: number;
@@ -133,10 +133,8 @@ export default function useGridKeyboardNavigation({
     (index: number, isKeyboardAction = false) => {
       setIsUsingKeyboardNav(isKeyboardAction);
       setActiveIndex(index);
-      const item = getItemByIndex(index);
-      if (item) {
-        onItemClicked(item, index);
-      }
+
+      onItemClicked(getItemByIndex(index), index);
     },
     [setActiveIndex, onItemClicked, getItemByIndex]
   );
