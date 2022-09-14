@@ -3,6 +3,6 @@
  * @param styles modular styles object
  * @param key string classname
  */
-export function getStyle<StylesType>(styles: StylesType, key: string): StylesType[keyof StylesType] | undefined {
+export function getStyle<StylesType>(styles: StylesType, key: string) {
   return styles[key as keyof typeof styles];
 }
