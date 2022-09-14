@@ -1,5 +1,7 @@
 {
-  "include": ["./dist/ts-esm.js", "types/*"],
+  // including src/* is a temp solution to fix 'TS2307: Cannot find module './*.module.scss' or its corresponding type declarations.'
+  // error when importing .modules.scss in ts files
+  "include": ["src/**/*", "./dist/ts-esm.js", "types/**/*"],
   "compilerOptions": {
     "rootDir": "./src",
     "lib": ["esnext", "dom"],
@@ -18,6 +20,7 @@
     "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "esModuleInterop": true
   }
 }

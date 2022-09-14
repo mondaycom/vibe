@@ -77,6 +77,7 @@ module.exports = {
         ...commonRules,
         "@typescript-eslint/ban-ts-comment": ["warn"],
         "no-unused-vars": "off",
+        "react/require-default-props": "off",
         "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }]
       }
     }
