@@ -8,8 +8,8 @@ import Icon from "../../components/Icon/Icon";
 import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
 import { IMAGE_POSITIONS } from "./BannerConstants";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import styles from "./Banner.module.scss";
 import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import styles from "./Banner.module.scss";
 
 const PRESERVE_VALUE = value => value;
 
