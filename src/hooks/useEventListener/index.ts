@@ -7,7 +7,7 @@ export default function useEventListener({
   ref,
   capture = false
 }: {
-  eventName: string;
+  eventName: keyof HTMLElementEventMap;
   callback: GenericEventCallback;
   ref?: RefObject<HTMLElement>;
   capture?: boolean;
@@ -16,7 +16,9 @@ export default function useEventListener({
     const refElement = ref && ref.current;
     if (!refElement) return;
     const listenerOptions = { capture };
+
     refElement.addEventListener(eventName, callback, listenerOptions);
+
     return () => {
       refElement.removeEventListener(eventName, callback, listenerOptions);
     };

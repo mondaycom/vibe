@@ -4,7 +4,7 @@ import VibeComponentProps from "../../../types/VibeComponentProps";
 import VibeComponent from "../../../types/VibeComponent";
 
 interface FontIconProps extends VibeComponentProps {
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLSpanElement>) => void;
   "aria-label"?: string;
   tabIndex?: number;
   icon?: string | React.FunctionComponent | null;

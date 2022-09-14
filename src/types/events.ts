@@ -1,3 +1,5 @@
-export type GeneralEventType = UIEvent;
-export type GenericEventCallback = (event: GeneralEventType) => unknown;
+import React from "react";
+
+export type GeneralEventType = Event | React.UIEvent;
+export type GenericEventCallback = (this: HTMLElement, ev: GeneralEventType) => unknown;
 export type KeyboardEventCallback = (event: KeyboardEvent) => unknown;
