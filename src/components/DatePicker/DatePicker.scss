@@ -393,4 +393,7 @@
       @include theme-prop(background-color, secondary-background-color);
     }
   }
+  .CalendarDay--blocked-calendar:active {
+    background: none;
+  }
 }
