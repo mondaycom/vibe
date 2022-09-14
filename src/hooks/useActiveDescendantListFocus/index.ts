@@ -28,7 +28,7 @@ function useActiveDescendantListFocus({
   isIgnoreSpaceAsItemSelection = false
 }: {
   focusedElementRef: MutableRefObject<HTMLElement>;
-  itemsIds: number[];
+  itemsIds: string[];
   isItemSelectable: (index: number) => boolean;
   defaultVisualFocusFirstIndex: boolean;
   focusedElementRole: ROLES;
@@ -62,7 +62,7 @@ function useActiveDescendantListFocus({
   });
 
   const setVisualFocusItemId = useCallback(
-    (visualFocusItemId: number, isTriggeredByKeyboard: boolean) => {
+    (visualFocusItemId: string, isTriggeredByKeyboard: boolean) => {
       triggeredByKeyboard.current = isTriggeredByKeyboard;
       const itemIndex = itemsIds.indexOf(visualFocusItemId);
       if (itemIndex > -1 && itemIndex !== visualFocusItemIndex) {

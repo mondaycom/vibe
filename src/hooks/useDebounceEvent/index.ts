@@ -1,5 +1,12 @@
-import { useMemo, useCallback, useState, useRef, useEffect, ChangeEvent } from "react";
+import { useMemo, useCallback, useState, useRef, useEffect, ChangeEvent, Dispatch, SetStateAction } from "react";
 import { noop, debounce } from "lodash";
+
+export type useDebounceResult = {
+  inputValue: string;
+  onEventChanged: (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => void;
+  clearValue: () => void;
+  updateValue: Dispatch<SetStateAction<string>>;
+};
 
 export default function useDebounceEvent({
   delay = 0,
@@ -27,7 +34,7 @@ export default function useDebounceEvent({
   }, [onChange, delay]);
 
   const onEventChanged = useCallback(
-    (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => {
       const { value } = event.target;
       if (trim) {
         setValue(value.trim());

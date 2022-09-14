@@ -3,8 +3,8 @@ import { fireEvent } from "@testing-library/react";
 import useEventListener from "../useEventListener";
 
 describe("useEventListener", () => {
-  let element;
-  let callbackStub;
+  let element: HTMLElement;
+  let callbackStub: jest.Mock;
   describe("click", () => {
     beforeEach(() => {
       callbackStub = jest.fn();

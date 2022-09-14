@@ -3,8 +3,8 @@ import { fireEvent } from "@testing-library/react";
 import useOnClickOutside from "../useClickOutside";
 
 describe("useClickOutside", () => {
-  let element;
-  let callbackStub;
+  let element: HTMLElement;
+  let callbackStub: jest.Mock;
 
   beforeEach(() => {
     callbackStub = jest.fn();

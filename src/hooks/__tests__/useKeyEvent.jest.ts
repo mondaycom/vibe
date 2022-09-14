@@ -3,8 +3,8 @@ import { fireEvent } from "@testing-library/react";
 import useKeyEvent from "../useKeyEvent";
 
 describe("useKeyEvent", () => {
-  let element;
-  let callbackStub;
+  let element: HTMLElement;
+  let callbackStub: jest.Mock;
   describe("single key", () => {
     const keys = ["Enter"];
     beforeEach(() => {

@@ -240,11 +240,11 @@ export function useKeepFocusOnItemWhenListChanged({
   setVisualFocusItemIndex
 }: {
   visualFocusItemIndex: number;
-  itemsIds: number[];
+  itemsIds: string[];
   isItemSelectable: (index: number) => boolean;
   setVisualFocusItemIndex: (index: number) => unknown;
 }) {
-  const prevItemIds = usePrevious<number[]>(itemsIds);
+  const prevItemIds = usePrevious<string[]>(itemsIds);
 
   // When item list changed, keep the focus on the same item
   useEffect(() => {

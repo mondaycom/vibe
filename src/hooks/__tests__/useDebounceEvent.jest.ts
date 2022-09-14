@@ -1,11 +1,12 @@
-import { renderHook, cleanup, act } from "@testing-library/react-hooks";
-import useDebounceEvent from "../useDebounceEvent";
+import { renderHook, cleanup, act, RenderHookResult } from "@testing-library/react-hooks";
+import useDebounceEvent, { useDebounceResult } from "../useDebounceEvent";
+import { ChangeEvent } from "react";
 
 describe("useDebounceEvent", () => {
   const delay = 0;
   const initialStateValue = "";
-  let onChangeCallbackStub;
-  let hookResult;
+  let onChangeCallbackStub: jest.Mock;
+  let hookResult: RenderHookResult<unknown, useDebounceResult>;
 
   beforeEach(() => {
     onChangeCallbackStub = jest.fn();
@@ -143,8 +144,26 @@ describe("useDebounceEvent", () => {
   });
 });
 
-function getEventObject(value) {
+function getEventObject(value: string): ChangeEvent<Partial<HTMLInputElement>> {
   return {
-    target: { value }
+    bubbles: false,
+    cancelable: false,
+    currentTarget: undefined,
+    defaultPrevented: false,
+    eventPhase: 0,
+    isTrusted: false,
+    nativeEvent: undefined,
+    timeStamp: 0,
+    type: "",
+    isDefaultPrevented(): boolean {
+      return false;
+    },
+    isPropagationStopped(): boolean {
+      return false;
+    },
+    persist(): void {},
+    preventDefault(): void {},
+    stopPropagation(): void {},
+    target: { value, addEventListener(): void {}, dispatchEvent(): boolean {return false}, removeEventListener(): void {} }
   };
 }
