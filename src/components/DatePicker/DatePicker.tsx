@@ -3,19 +3,27 @@ import React, { useState, forwardRef, useRef } from 'react';
 import classNames from "classnames";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
+// @ts-ignore
 import { DayPickerSingleDateController, DayPickerRangeController } from 'react-dates';
 import DatePickerHeaderComponent from './DatePickerHeader/DatePickerHeader';
 import DateNavigationItem from './DateNavigationItem/DateNavigationItem';
 import YearPicker from './YearPicker/YearPicker';
-import { NEXT, PREV, START_DATE, DAY_SIZE, WEEK_FIRST_DAY } from './DatePickerConstants';
+import { NEXT, PREV, START_DATE, DAY_SIZE, WEEK_FIRST_DAY, END_DATE } from './DatePickerConstants';
 import './DatePicker.scss';
+
+interface RangeDate {
+    startDate: moment.Moment
+    endDate?: moment.Moment | null
+}
+
+type FocusInput = typeof START_DATE | typeof END_DATE;
 interface DatePickerProps {
     id?: string
     className?: string
     firstDayOfWeek: number
     date?: moment.Moment
     endDate?: moment.Moment
-    onPickDate: (date: moment.Moment | { date: moment.Moment, endDate?: moment.Moment }) => void
+    onPickDate: (date: moment.Moment | RangeDate) => void
     hideNavigationKeys: boolean
     enableOutsideDays: boolean
     showWeekNumber: boolean
@@ -93,7 +101,7 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
             );
         }
 
-        const onDateRangeChange = (date) => {
+        const onDateRangeChange = (date: RangeDate) => {
             if (focusedInput === START_DATE) {
                 onPickDate({ ...date, endDate: null })
             }
@@ -121,10 +129,10 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
                         hideKeyboardShortcutsPanel
                         startDate={date}
                         endDate={endDate}
-                        onDatesChange={(date) => onDateRangeChange(date)}
+                        onDatesChange={(date: RangeDate) => onDateRangeChange(date)}
                         focusedInput={focusedInput}
                         minimumNights={0}
-                        onFocusChange={(focusedInput) => setFocusedInput(focusedInput || START_DATE)}
+                        onFocusChange={(focusedInput: FocusInput) => setFocusedInput(focusedInput || START_DATE)}
                         navPrev={shouldShowNav ? <DateNavigationItem kind={PREV} /> : <div />}
                         navNext={shouldShowNav ? <DateNavigationItem kind={NEXT} /> : <div />}
                         daySize={daySize}
@@ -142,7 +150,7 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
                         hideKeyboardShortcutsPanel
                         numberOfMonths={numberOfMonths}
                         date={date}
-                        onDateChange={(date) => onPickDate(date)}
+                        onDateChange={(date: moment.Moment) => onPickDate(date)}
                         navPrev={shouldShowNav ? <DateNavigationItem kind={PREV} /> : <div />}
                         navNext={shouldShowNav ? <DateNavigationItem kind={NEXT} /> : <div />}
                         focused

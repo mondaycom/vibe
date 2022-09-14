@@ -17,9 +17,8 @@ const DateNavigationItem = ({ kind, onClick }: DateNavigationItemProps) => {
   return (
     <div className="ds-date-navigation-item-component" onClick={() => onClick && onClick()}>
       <Icon
-        /** Because typescript can't handle with this not converted component API*/
+        iconType={Icon?.type?.SVG}
         // @ts-ignore
-        iconType={Icon?.type.SVG}
         icon={ICONS[kind]}
         iconSize={24}
         clickable={false}

@@ -24,10 +24,11 @@ interface YearPickerProps {
   isYearBlocked?: (year: number) => boolean
   changeCurrentDate: (date: moment.Moment) => void
 }
+type Direaction = typeof PREV | typeof NEXT;
 
 const YearPicker = (props: YearPickerProps) => {
 
-  const calcNewYearsPage = (firstYearInPage)  => {
+  const calcNewYearsPage = (firstYearInPage: number) => {
     return times(PAGE_SIZE, n => firstYearInPage + n);
   }
 
@@ -36,7 +37,7 @@ const YearPicker = (props: YearPickerProps) => {
 
   const [yearsToDisplay, setYearsToDisplay] = useState(calcNewYearsPage(parseInt(selectedYear) - BUFFER_FROM_CURRENT_YEAR))
 
-  const onYearNavigationClick = (direction) => {
+  const onYearNavigationClick = (direction: Direaction) => {
     const firstYearInPage = yearsToDisplay[0];
     let newYearsArray: any = [];
 
@@ -48,20 +49,19 @@ const YearPicker = (props: YearPickerProps) => {
     setYearsToDisplay(newYearsArray)
   }
 
-  const onYearSelect = (year) => {
+  const onYearSelect = (year: number) => {
     changeCurrentDate(moment().year(year));
   }
 
   const renderYears = () => {
-
     const listItems = yearsToDisplay.map(currYear => {
       const shouldBlockYear = isYearBlocked && isYearBlocked(currYear);
       const onClick = !shouldBlockYear ? () => onYearSelect(currYear) : NOOP;
-      const kind = parseInt(selectedYear, 10) === parseInt(currYear, 10) ? Button?.kinds?.PRIMARY : Button?.kinds?.TERTIARY;
+      const kind = parseInt(selectedYear, 10) === currYear ? Button?.kinds?.PRIMARY : Button?.kinds?.TERTIARY;
 
       return (
         <Button kind={kind} onClick={onClick} disabled={shouldBlockYear} marginLeft marginRight>
-          {currYear}
+          {currYear.toString()}
         </Button>
       );
     });
