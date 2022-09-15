@@ -369,7 +369,7 @@ Snapshot Diff:
 +     <div
 +       data-testid="mock-icon"
 +     >
-+       {"clickable":false,"iconSize":18,"ignoreFocusStyle":true,"data-testid":"useSliderInfixComponent","icon":"Sound"}
++       {"clickable":false,"iconSize":18,"ignoreFocusStyle":true,"icon":"Sound"}
       </div>
     </div>
   </div>
