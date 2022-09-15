@@ -9,7 +9,7 @@ export default function useEventListener({
 }: {
   eventName: keyof HTMLElementEventMap | string;
   callback: GenericEventCallback;
-  ref?: RefObject<HTMLElement>;
+  ref: RefObject<HTMLElement>;
   capture?: boolean;
 }): void {
   useEffect(() => {

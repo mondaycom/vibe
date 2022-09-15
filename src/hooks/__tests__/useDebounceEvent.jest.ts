@@ -1,12 +1,12 @@
 import { renderHook, cleanup, act, RenderHookResult } from "@testing-library/react-hooks";
-import useDebounceEvent, { useDebounceResult } from "../useDebounceEvent";
+import useDebounceEvent, { UseDebounceResult } from "../useDebounceEvent";
 import { ChangeEvent } from "react";
 
 describe("useDebounceEvent", () => {
   const delay = 0;
   const initialStateValue = "";
   let onChangeCallbackStub: jest.Mock;
-  let hookResult: RenderHookResult<unknown, useDebounceResult>;
+  let hookResult: RenderHookResult<unknown, UseDebounceResult>;
 
   beforeEach(() => {
     onChangeCallbackStub = jest.fn();

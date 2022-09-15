@@ -1,7 +1,7 @@
 import { useMemo, useCallback, useState, useRef, useEffect, ChangeEvent, Dispatch, SetStateAction } from "react";
 import { noop, debounce } from "lodash";
 
-export type useDebounceResult = {
+export type UseDebounceResult = {
   inputValue: string;
   onEventChanged: (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => void;
   clearValue: () => void;

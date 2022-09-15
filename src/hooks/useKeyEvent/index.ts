@@ -41,10 +41,10 @@ export interface UseKeyEvent {
 
 export default function useKeyEvent({
   keys = [],
+  callback,
   modifier,
   withoutAnyModifier,
   ref,
-  callback,
   ignoreDocumentFallback = false,
   capture = false,
   preventDefault = false,

@@ -35,8 +35,8 @@ export default function useGridKeyboardNavigation({
   itemsCount,
   numberOfItemsInLine,
   onItemClicked, // the callback to call when an item is selected
-  focusOnMount = false,
   getItemByIndex = (_index: number) => {},
+  focusOnMount = false,
   focusItemIndexOnMount = NO_ACTIVE_INDEX,
   disabledIndexes = []
 }: {
@@ -44,8 +44,8 @@ export default function useGridKeyboardNavigation({
   itemsCount: number;
   numberOfItemsInLine: number;
   onItemClicked: (element: HTMLElement | void, index: number) => unknown;
-  focusOnMount: boolean;
   getItemByIndex: (index: number | void) => HTMLElement | void;
+  focusOnMount?: boolean;
   focusItemIndexOnMount?: number;
   disabledIndexes?: number[];
 }) {
