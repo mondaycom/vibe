@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, { useState, useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { components } from "react-select";
 import cx from "classnames";
 import { useHiddenOptionsData } from "../../hooks/useHiddenOptionsData";
@@ -7,8 +7,8 @@ import Counter from "../../../Counter/Counter";
 import Dialog from "../../../Dialog/Dialog";
 import DialogContentContainer from "../../../DialogContentContainer/DialogContentContainer";
 import Chips from "../../../Chips/Chips";
-import classes from "./ValueContainer.module.scss";
 import { DROPDOWN_CHIP_COLORS } from "../../dropdown-constants";
+import styles from "./ValueContainer.module.scss";
 
 export default function Container({ children, selectProps, ...otherProps }) {
   const { placeholder, inputValue, selectProps: customProps = {}, withMandatoryDefaultOptions } = selectProps;
@@ -16,7 +16,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
   const clickHandler = children[1];
   const [ref, setRef] = useState();
   const showPlaceholder = selectedOptions.length === 0 && !inputValue;
-  const chipClassName = isMultiline ? classes["multiselect-chip-multi-line"] : classes["multiselect-chip-single-line"];
+  const chipClassName = isMultiline ? styles.multiselectChipMultiLine : styles.multiselectChipSingleLine;
   const { overflowIndex, hiddenOptionsCount } = useHiddenOptionsData({
     isMultiline,
     ref,
@@ -54,14 +54,16 @@ export default function Container({ children, selectProps, ...otherProps }) {
 
   return (
     <components.ValueContainer selectProps={selectProps} {...otherProps}>
-      <div className={classes["value-container"]}>
+      <div className={styles.valueContainer}>
         {showPlaceholder && (
-          <div className={classes["placeholder-container"]}>
+          <div className={styles.placeholderContainer}>
             <components.Placeholder {...otherProps}>{placeholder}</components.Placeholder>
           </div>
         )}
         <div
-          className={cx(classes["value-container-chips"], { [classes["without-placeholder"]]: !showPlaceholder })}
+          className={cx(styles.valueContainerChips, {
+            [styles.valueContainerChipsWithoutPlaceholder]: !showPlaceholder
+          })}
           ref={newRef => setRef(newRef)}
           data-testid="value-container-chips"
         >
@@ -82,7 +84,7 @@ export default function Container({ children, selectProps, ...otherProps }) {
           {isCounterShown && (
             <Dialog
               content={() => (
-                <DialogContentContainer className={classes["value-container-dialog-content"]}>
+                <DialogContentContainer className={styles.valueContainerDialogContent}>
                   {renderOptions(overflowIndex)}
                 </DialogContentContainer>
               )}
