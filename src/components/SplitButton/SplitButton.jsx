@@ -135,9 +135,9 @@ const SplitButton = ({
       cx(
         styles.button,
         "monday-style-split-button",
-        styles[`${camelCase("kind-" + kind)}`],
+        styles[camelCase("kind-" + kind)],
         `monday-style-split-button--kind-${kind}`,
-        styles[`${camelCase("color-" + color)}`],
+        styles[camelCase("color-" + color)],
         `monday-style-split-button--color-${color}`,
         {
           [styles.active]: isActive,
@@ -183,7 +183,7 @@ const SplitButton = ({
 
   return (
     <div
-      className={cx(classNames)}
+      className={classNames}
       ref={ref}
       role="button"
       id={id}
