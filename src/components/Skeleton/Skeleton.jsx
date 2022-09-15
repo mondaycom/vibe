@@ -23,7 +23,7 @@ const Skeleton = ({ type, size, className, width, height, id, "data-testid": dat
         className={cx(
           styles[skeletonType],
           `monday-style-skeleton_${skeletonType}`,
-          styles[`${camelCase(skeletonType + "--" + skeletonSize)}`],
+          styles[camelCase(skeletonType + "--" + skeletonSize)],
           `monday-style-skeleton_${skeletonType}--${skeletonSize}`,
           className
         )}
