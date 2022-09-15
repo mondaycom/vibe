@@ -1,7 +1,5 @@
-import { useCallback, useState } from "react";
-
+import { useCallback, useState, RefObject } from "react";
 import useEventListener from "./useEventListener";
-import { RefObject } from "react";
 import { GeneralEventType } from "../types/events";
 
 export default function useMergeRefs({ ref }: { ref: RefObject<HTMLElement> }): boolean {

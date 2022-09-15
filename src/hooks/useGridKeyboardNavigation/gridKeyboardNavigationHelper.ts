@@ -1,26 +1,26 @@
-import { NAV_DIRECTIONS } from "../useFullKeyboardListeners";
+import { NavDirections } from "../useFullKeyboardListeners";
 
 export function getActiveIndexFromInboundNavigation({
   direction,
   numberOfItemsInLine,
   itemsCount
 }: {
-  direction: NAV_DIRECTIONS;
+  direction: NavDirections;
   numberOfItemsInLine: number;
   itemsCount: number;
 }) {
   const getRawIndex = () => {
     const firstLineMiddleIndex = Math.floor(numberOfItemsInLine / 2);
-    if (direction === NAV_DIRECTIONS.UP) {
+    if (direction === NavDirections.UP) {
       // last line, middle
       const rowCount = Math.ceil(itemsCount / numberOfItemsInLine);
       return (rowCount - 1) * numberOfItemsInLine + firstLineMiddleIndex;
     }
-    if (direction === NAV_DIRECTIONS.DOWN) {
+    if (direction === NavDirections.DOWN) {
       // first line, middle
       return firstLineMiddleIndex;
     }
-    if (direction === NAV_DIRECTIONS.LEFT) {
+    if (direction === NavDirections.LEFT) {
       // middle line, last item
       let result = numberOfItemsInLine - 1;
       const midIndex = Math.floor((itemsCount - 1) / 2);
@@ -29,7 +29,7 @@ export function getActiveIndexFromInboundNavigation({
       }
       return result;
     }
-    if (direction === NAV_DIRECTIONS.RIGHT) {
+    if (direction === NavDirections.RIGHT) {
       // middle line, first item
       let result = 0;
       const midIndex = Math.floor((itemsCount - 1) / 2);
@@ -53,7 +53,7 @@ function calcRawNewIndexAfterArrowNavigation({
   activeIndex: number;
   itemsCount: number;
   numberOfItemsInLine: number;
-  direction: NAV_DIRECTIONS;
+  direction: NavDirections;
 }) {
   const getIndexLine = (index: number) => Math.ceil((index + 1) / numberOfItemsInLine);
 
@@ -80,13 +80,13 @@ function calcRawNewIndexAfterArrowNavigation({
   };
 
   switch (direction) {
-    case NAV_DIRECTIONS.RIGHT:
+    case NavDirections.RIGHT:
       return horizontalChange(true);
-    case NAV_DIRECTIONS.LEFT:
+    case NavDirections.LEFT:
       return horizontalChange(false);
-    case NAV_DIRECTIONS.DOWN:
+    case NavDirections.DOWN:
       return verticalChange(true);
-    case NAV_DIRECTIONS.UP:
+    case NavDirections.UP:
       return verticalChange(false);
   }
 }
@@ -101,7 +101,7 @@ export function calcActiveIndexAfterArrowNavigation({
   activeIndex: number;
   itemsCount: number;
   numberOfItemsInLine: number;
-  direction: NAV_DIRECTIONS;
+  direction: NavDirections;
   disabledIndexes?: number[];
 }) {
   let result = calcRawNewIndexAfterArrowNavigation({ activeIndex, itemsCount, numberOfItemsInLine, direction });

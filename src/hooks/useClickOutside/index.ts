@@ -1,6 +1,5 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useRef, RefObject } from "react";
 import useEventListener from "../useEventListener";
-import { RefObject } from "react";
 import { GenericEventCallback } from "../../types/events";
 
 export default function useOnClickOutside({

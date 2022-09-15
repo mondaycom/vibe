@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState, useContext, useRef, MutableRefObject } from "react";
 import { GridKeyboardNavigationContext } from "../../components/GridKeyboardNavigationContext/GridKeyboardNavigationContext";
-import useFullKeyboardListeners, { NAV_DIRECTIONS } from "../../hooks/useFullKeyboardListeners";
+import useFullKeyboardListeners, { NavDirections } from "../../hooks/useFullKeyboardListeners";
 import useEventListener from "../../hooks/useEventListener";
 import {
   calcActiveIndexAfterArrowNavigation,
@@ -58,7 +58,7 @@ export default function useGridKeyboardNavigation({
 
   const keyboardContext = useContext(GridKeyboardNavigationContext);
 
-  const onArrowNavigation = (direction: NAV_DIRECTIONS) => {
+  const onArrowNavigation = (direction: NavDirections) => {
     setIsUsingKeyboardNav(true);
     if (activeIndex === NO_ACTIVE_INDEX) {
       setActiveIndex(0);
