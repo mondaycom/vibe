@@ -1,4 +1,4 @@
-import { isNil } from "lodash";
+import { isNil } from "lodash-es";
 
 export function getIconScreenReaderAccessProps({
   isClickable,

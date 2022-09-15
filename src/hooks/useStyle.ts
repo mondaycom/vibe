@@ -1,5 +1,5 @@
 import { useMemo, useRef } from "react";
-import { isEqual, isEmpty } from "lodash";
+import { isEqual, isEmpty } from "lodash-es";
 
 // remove empty values
 function removeEmpty(obj: CSSStyleDeclaration) {
