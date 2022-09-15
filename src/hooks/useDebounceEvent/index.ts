@@ -1,5 +1,5 @@
 import { useMemo, useCallback, useState, useRef, useEffect, ChangeEvent, Dispatch, SetStateAction } from "react";
-import { noop, debounce } from "lodash";
+import { debounce } from "lodash";
 
 export type UseDebounceResult = {
   inputValue: string;
@@ -10,7 +10,7 @@ export type UseDebounceResult = {
 
 export default function useDebounceEvent({
   delay = 0,
-  onChange = noop,
+  onChange,
   initialStateValue = "",
   trim
 }: {
