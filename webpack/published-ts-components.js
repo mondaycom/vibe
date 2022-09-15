@@ -17,9 +17,9 @@ const publishedTSComponents = {
   useIsMouseOver: "hooks/useIsMouseOver.ts",
   useGridKeyboardNavigation: "hooks/useGridKeyboardNavigation/useGridKeyboardNavigation.ts",
   useIsOverflowing: "hooks/useIsOverflowing.ts",
-  useMediaQuery: "hooks/useMediaQuery.ts",
-  useVibeMediaQuery: "hooks/useVibeMediaQuery.ts",
-  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus.ts"
+  useMediaQuery: "hooks/useMediaQuery",
+  useVibeMediaQuery: "hooks/useVibeMediaQuery",
+  useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
 };
 
 // eslint-disable-next-line no-undef
