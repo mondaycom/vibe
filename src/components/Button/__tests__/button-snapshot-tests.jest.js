@@ -4,7 +4,7 @@ import NOOP from "lodash/noop";
 import Button from "../Button";
 import { WhatsNew } from "../../Icon/Icons";
 
-jest.mock("../../Icon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
+jest.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
 
 describe("Button renders correctly", () => {
   it("renders correctly with empty props", () => {

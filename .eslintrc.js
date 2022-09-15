@@ -58,10 +58,25 @@ const commonExtends = ["plugin:react/recommended", "plugin:react-hooks/recommend
 module.exports = {
   overrides: [
     {
-      files: ["*.jest.js"],
+      files: ["*.jest.js", "jest.setup.js", "jest.init.js"],
       env: {
         jest: true,
         "jest/globals": true
+      }
+    },
+    {
+      files: [
+        "webpack.config.js",
+        "plopfile.js",
+        "babel.config.js",
+        ".eslintrc.js",
+        "scripts/**/*.js",
+        "webpack/**/*.js",
+        "__mocks__/**/*.js",
+        "plop/**/*.js"
+      ],
+      env: {
+        node: true
       }
     },
     {
@@ -77,6 +92,7 @@ module.exports = {
         ...commonRules,
         "@typescript-eslint/ban-ts-comment": ["warn"],
         "no-unused-vars": "off",
+        "react/require-default-props": "off",
         "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }]
       }
     }
