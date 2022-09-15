@@ -47,8 +47,8 @@ export function getClickableIconScreenReaderAccessProps({
   isKeyboardAccessible = true
 }: {
   label: string;
-  isDecorationOnly: boolean;
-  isKeyboardAccessible: boolean;
+  isDecorationOnly?: boolean;
+  isKeyboardAccessible?: boolean;
 }) {
   return {
     ...getClickableScreenReaderAccessProps({ isDecorationOnly, isKeyboardAccessible }),
