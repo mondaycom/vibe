@@ -14,7 +14,7 @@ function BEMHelper(state) {
   return `${BEM_BASE_CLASS}--${state}`;
 }
 
-const ListItem = forwardRef(({ className, id, onClick, selected, disabled, size, tabIndex, children }, ref) => {
+const ListItem = forwardRef(({ className, id, onClick, onHover, selected, disabled, size, tabIndex, children }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -37,6 +37,14 @@ const ListItem = forwardRef(({ className, id, onClick, selected, disabled, size,
     [disabled, onClick, id]
   );
 
+  const componentOnHover = useCallback(
+      event => {
+          if (disabled) return;
+          onHover(event, id);
+      },
+      [disabled, onHover, id]
+  );
+
   return (
     <div
       ref={mergedRef}
@@ -48,6 +56,8 @@ const ListItem = forwardRef(({ className, id, onClick, selected, disabled, size,
       aria-disabled={disabled}
       onClick={componentOnClick}
       onKeyDown={onKeyDown}
+      onMouseEnter={componentOnHover}
+      onFocus={componentOnHover}
       role="listitem"
       tabIndex={tabIndex}
     >
@@ -80,6 +90,14 @@ ListItem.propTypes = {
    */
   onClick: PropTypes.func,
   /**
+   * A callback function which is being called when the item is being hovered
+   * It will be called with the following params
+   * event (DomEvent)
+   * id (the id which is being passed)
+   * onHover(event, id)
+   */
+  onHover: PropTypes.func,
+  /**
    * disabled state - callback will not be called and navigation will be skipped
    */
   disabled: PropTypes.bool,
@@ -100,6 +118,7 @@ ListItem.defaultProps = {
   className: "",
   id: "",
   onClick: NOOP,
+  onHover: NOOP,
   disabled: false,
   selected: false,
   size: ListItem.sizes.SMALL,
