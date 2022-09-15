@@ -1,5 +1,4 @@
 import { useCallback, useMemo } from "react";
-import cx from "classnames";
 import ListItem from "../../../components/ListItem/ListItem";
 import ListTitle from "../../../components/ListTitle/ListTitle";
 import VirtualizedList from "../../../components/VirtualizedList/VirtualizedList";
@@ -63,7 +62,5 @@ export const VirtualizedListItems = ({ children }) => {
     );
   }, []);
 
-  return (
-    <VirtualizedList scrollableClassName={cx(styles.scrollableContainer)} items={items} itemRenderer={itemRenderer} />
-  );
+  return <VirtualizedList scrollableClassName={styles.scrollableContainer} items={items} itemRenderer={itemRenderer} />;
 };

@@ -76,7 +76,7 @@ const Toast = ({
       cx(
         styles.toast,
         "monday-style-toast",
-        styles[`${camelCase("type-" + type)}`],
+        styles[camelCase("type-" + type)],
         `monday-style-toast--type-${type}`,
         className
       ),
@@ -116,7 +116,7 @@ const Toast = ({
   return (
     <CSSTransition in={open} classNames={{ ...styles }} timeout={400} unmountOnExit>
       <div
-        className={cx(classNames)}
+        className={classNames}
         role="alert"
         aria-live="polite"
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOAST, id)}

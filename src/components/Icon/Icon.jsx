@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { ICON_TYPES } from "./IconConstants";
 import CustomSvgIcon from "./CustomSvgIcon";
@@ -66,7 +65,7 @@ const Icon = forwardRef(
         <CustomSvgIcon
           src={icon}
           {...screenReaderAccessProps}
-          className={cx(computedClassName)}
+          className={computedClassName}
           onClick={onClickCallback}
           style={style}
           replaceToCurrentColor={useCurrentColor}
@@ -78,7 +77,7 @@ const Icon = forwardRef(
     return (
       <FontIcon
         {...screenReaderAccessProps}
-        className={cx(computedClassName)}
+        className={computedClassName}
         onClick={onClickCallback}
         ref={mergedRef}
         icon={icon}
