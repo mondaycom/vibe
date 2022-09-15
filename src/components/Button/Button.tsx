@@ -129,6 +129,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       ariaExpanded,
       ariaControls,
       blurOnMouseUp,
+      // @ts-ignore TODO rename to data-testid when merged to vibe-2.0
       dataTestId,
       insetFocus
     },

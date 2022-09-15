@@ -3,7 +3,6 @@ import React from "react";
 import cx from "classnames";
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import Button, { ButtonProps } from "../../Button/Button";
-// TODO - styles seems so not load - seen in snapshots - problems with ts + css modules
 import styles from "./AlertBannerButton.module.scss";
 
 interface AlertBannerButtonProps extends ButtonProps {
