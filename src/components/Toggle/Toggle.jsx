@@ -53,7 +53,7 @@ const Toggle = ({
       <MockToggle
         areLabelsHidden={areLabelsHidden}
         offOverrideText={offOverrideText}
-        className={cx(overrideClassName)}
+        className={overrideClassName}
         onOverrideText={onOverrideText}
       />
     </Switch>
