@@ -168,14 +168,14 @@ const Avatar = ({
             className={cx(
               styles.circle,
               "monday-style-avatar_circle",
-              styles[`${camelCase("circle--" + type)}`],
+              styles[camelCase("circle--" + type)],
               `monday-style-avatar_circle--${type}`,
               {
-                [styles.circleIsDisabled]: overrideDisabled,
+                [styles.disabled]: overrideDisabled,
                 ["monday-style-avatar_circle--is-disabled"]: overrideDisabled,
-                [styles.circleIsSquare]: overrideSquare,
+                [styles.square]: overrideSquare,
                 ["monday-style-avatar_circle--is-square"]: overrideSquare,
-                [styles.circleWithoutBorder]: withoutBorder,
+                [styles.withoutBorder]: withoutBorder,
                 ["monday-style-avatar_circle--without-border"]: withoutBorder
               }
             )}

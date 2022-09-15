@@ -162,7 +162,7 @@ exports[`Chips renders correctly renders correctly with left avatar 1`] = `
   >
     <div
       aria-hidden={false}
-      className="circle monday-style-avatar_circle circleImg monday-style-avatar_circle--img circleWithoutBorder monday-style-avatar_circle--without-border"
+      className="circle monday-style-avatar_circle circleImg monday-style-avatar_circle--img withoutBorder monday-style-avatar_circle--without-border"
       style={Object {}}
       tabIndex={0}
     >
@@ -246,7 +246,7 @@ exports[`Chips renders correctly renders correctly with right avatar 1`] = `
   >
     <div
       aria-hidden={false}
-      className="circle monday-style-avatar_circle circleImg monday-style-avatar_circle--img circleWithoutBorder monday-style-avatar_circle--without-border"
+      className="circle monday-style-avatar_circle circleImg monday-style-avatar_circle--img withoutBorder monday-style-avatar_circle--without-border"
       style={Object {}}
       tabIndex={0}
     >

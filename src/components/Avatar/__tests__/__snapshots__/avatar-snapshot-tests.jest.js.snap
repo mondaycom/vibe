@@ -56,7 +56,7 @@ exports[`Avatar renders correctly renders correctly square avatar 1`] = `
 >
   <div
     aria-hidden={false}
-    className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text circleIsSquare monday-style-avatar_circle--is-square"
+    className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text square monday-style-avatar_circle--is-square"
     style={
       Object {
         "backgroundColor": "var(--color-chili-blue",

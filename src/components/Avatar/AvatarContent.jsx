@@ -24,7 +24,7 @@ export const AvatarContent = ({
   const className = cx(
     styles[type],
     `${AVATAR_CONTENT_CSS_BASE_CLASS}_${type}`,
-    styles[`${camelCase(type + "--" + size)}`],
+    styles[camelCase(type + "--" + size)],
     `${AVATAR_CONTENT_CSS_BASE_CLASS}_${type}--${size}`
   );
   switch (type) {
@@ -34,7 +34,7 @@ export const AvatarContent = ({
           role={role}
           alt={ariaLabel}
           src={src}
-          className={cx(className)}
+          className={className}
           id={id}
           data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR_CONTENT, id)}
         />
@@ -46,7 +46,7 @@ export const AvatarContent = ({
           aria-label={ariaLabel}
           role={role}
           clickable={false}
-          className={cx(className)}
+          className={className}
           ariaHidden={false}
           id={id}
           data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR_CONTENT, id)}

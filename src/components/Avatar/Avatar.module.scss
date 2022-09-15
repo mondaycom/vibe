@@ -55,7 +55,7 @@ $avatar-size-small: 28px;
   @include theme-prop(border-color, layout-border-color);
 }
 
-.circleIsDisabled:before {
+.disabled:before {
   content: "";
   height: 100%;
   width: 100%;
@@ -65,16 +65,16 @@ $avatar-size-small: 28px;
   @include theme-prop(background, primary-background-color);
 }
 
-.circleIsSquare {
+.square {
   border-radius: $border-radius-small;
 }
 
-.circleIsSquare:focus {
+.square:focus {
   outline: none;
   @include focus-style($border-radius-small);
 }
 
-.circleWithoutBorder {
+.withoutBorder {
   border: none;
 }
 

@@ -48,7 +48,7 @@ const AttentionBox = ({
   return (
     <aside
       className={cx(
-        styles.box,
+        styles.attentionBox,
         ATTENTION_BOX_CSS_BASE_CLASS,
         styles[camelCase(`type-${type}`)],
         classNameWithType,
