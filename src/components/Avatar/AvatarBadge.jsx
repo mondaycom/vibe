@@ -2,9 +2,7 @@ import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
-import CustomSvgIcon from "../../components/Icon/CustomSvgIcon";
-import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
+import CustomSvgIcon from "../../components/Icon/CustomSvgIcon/CustomSvgIcon";
 import { AVATAR_SIZES } from "./AvatarConstants";
 import styles from "./AvatarBadge.module.scss";
 
