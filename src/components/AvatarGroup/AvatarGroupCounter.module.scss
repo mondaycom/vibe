@@ -1,4 +1,5 @@
-@import "../../components/Avatar/Avatar";
+/* stylelint-disable-next-line scss/at-import-partial-extension */
+@import "../../components/Avatar/Avatar.module.scss";
 
 .counterContainer {
   background: var(--primary-background-hover-color);
