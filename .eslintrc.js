@@ -70,6 +70,7 @@ module.exports = {
         "plopfile.js",
         "babel.config.js",
         ".eslintrc.js",
+        "jest.config.js",
         "scripts/**/*.js",
         "webpack/**/*.js",
         "__mocks__/**/*.js",
