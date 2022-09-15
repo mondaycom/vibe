@@ -7,6 +7,7 @@ import "./Icon.stories.scss";
 
 export const metaSettings = createStoryMetaSettings({
   component: Icon,
+  enumPropNamesArray: [{enumName:"type", propName: "iconType"}],
   iconPropNamesArray: ["icon"]
 });
 
@@ -45,7 +46,7 @@ Icon component is our component to unify the supported icon types (Vibe Icons, F
 
 ## Props
 
-<ArgsTable of={Icon} />
+<ArgsTable story="Overview" />
 
 ## Usage
 
