@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef } from "react";
+import { KeyboardEvent, UIEvent, MouseEvent, useCallback, useMemo, useRef } from "react";
 import cx from "classnames";
 import NOOP from "lodash/noop";
 import useEventListener from "../../../hooks/useEventListener";
@@ -16,10 +16,18 @@ export default function useIconProps({
   isDecorationOnly,
   iconLabel,
   externalTabIndex
+}: {
+  onClick?: (event: UIEvent) => void;
+  className?: string;
+  clickable?: boolean;
+  ignoreFocusStyle?: boolean;
+  isDecorationOnly?: boolean;
+  iconLabel?: string;
+  externalTabIndex?: number | undefined;
 }) {
   const iconRef = useRef(null);
   const onEnterCallback = useCallback(
-    event => {
+    (event: KeyboardEvent) => {
       const isActive = document.activeElement === iconRef.current;
       if (!isActive) {
         return;
@@ -29,7 +37,7 @@ export default function useIconProps({
     [iconRef, onClick]
   );
 
-  const onMouseDown = useCallback(event => {
+  const onMouseDown = useCallback((event: MouseEvent) => {
     event.preventDefault();
   }, []);
 
@@ -46,6 +54,7 @@ export default function useIconProps({
     ref: iconRef
   });
 
+  //@ts-ignore - We did not convert this hook to ts yet
   useKeyEvent({
     keys: KEYS,
     ref: iconRef,
@@ -57,7 +66,7 @@ export default function useIconProps({
   });
 
   const onClickCallback = useCallback(
-    event => {
+    (event: MouseEvent) => {
       const callback = onClick || NOOP;
       callback(event);
     },
