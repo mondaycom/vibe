@@ -4,8 +4,9 @@ import times from "lodash/times";
 import { CSSTransition } from "react-transition-group";
 import classnames from "classnames";
 import Button from "../../Button/Button";
-import { PREV, NEXT, YEAR_FORMAT } from "../DatePickerConstants";
+import {  YEAR_FORMAT } from "../constants";
 import DateNavigationItemComponent from "../DateNavigationItem/DateNavigationItem";
+import {Moment,Direction} from '../types';
 import "./YearPicker.scss";
 
 const NOOP = () => { };
@@ -19,12 +20,11 @@ const PAGE_SIZE = 18;
 const BUFFER_FROM_CURRENT_YEAR = 4;
 
 interface YearPickerProps {
-  selectedDate?: moment.Moment
+  selectedDate?: Moment
   isRange: boolean
   isYearBlocked?: (year: number) => boolean
-  changeCurrentDate: (date: moment.Moment) => void
+  changeCurrentDate: (date: Moment) => void
 }
-type Direaction = typeof PREV | typeof NEXT;
 
 const YearPicker = (props: YearPickerProps) => {
 
@@ -37,13 +37,13 @@ const YearPicker = (props: YearPickerProps) => {
 
   const [yearsToDisplay, setYearsToDisplay] = useState(calcNewYearsPage(parseInt(selectedYear) - BUFFER_FROM_CURRENT_YEAR))
 
-  const onYearNavigationClick = (direction: Direaction) => {
+  const onYearNavigationClick = (direction: Direction) => {
     const firstYearInPage = yearsToDisplay[0];
     let newYearsArray: any = [];
 
-    if (direction === PREV) {
+    if (direction === Direction.prev) {
       newYearsArray = calcNewYearsPage(firstYearInPage - PAGE_SIZE);
-    } else if (direction === NEXT) {
+    } else if (direction === Direction.next) {
       newYearsArray = calcNewYearsPage(firstYearInPage + PAGE_SIZE);
     }
     setYearsToDisplay(newYearsArray)
@@ -77,10 +77,10 @@ const YearPicker = (props: YearPickerProps) => {
     <div className={wrapperClasses}>
       <div>
         <div className="navigation navigation-left">
-          <DateNavigationItemComponent kind={PREV} onClick={() => onYearNavigationClick(PREV)} />
+          <DateNavigationItemComponent kind={Direction.prev} onClick={() => onYearNavigationClick(Direction.prev)} />
         </div>
         <div className="navigation navigation-right">
-          <DateNavigationItemComponent kind={NEXT} onClick={() => onYearNavigationClick(NEXT)} />
+          <DateNavigationItemComponent kind={Direction.next} onClick={() => onYearNavigationClick(Direction.next)} />
         </div>
       </div>
       <CSSTransition {...transitionOptions} in appear>

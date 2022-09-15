@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 import moment from "moment";
+import {Moment} from '../types';
 import './DatePickerHeader.scss';
 
 interface DatePickerHeaderProps {
-    currentDate: moment.Moment
+    currentDate: Moment
     isMonthYearSelection: boolean
     onToggleMonthYearPicker: () => void
     hideNavigationKeys: boolean
