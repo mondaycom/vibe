@@ -136,7 +136,7 @@ const LinearProgressBar = forwardRef(
 
     return (
       <div
-        className={cx(wrapperClassName)}
+        className={wrapperClassName}
         ref={ref}
         id={id}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.LINEAR_PROGRESS_BAR, id)}
