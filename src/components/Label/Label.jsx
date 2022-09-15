@@ -26,9 +26,9 @@ const Label = ({
       cx(
         styles.label,
         "monday-style-label",
-        styles[`${camelCase("kind-" + kind)}`],
+        styles[camelCase("kind-" + kind)],
         `monday-style-label--kind-${kind}`,
-        styles[`${camelCase("color-" + color)}`],
+        styles[camelCase("color-" + color)],
         `monday-style-label--color-${color}`,
         {
           [styles.withAnimation]: !isAnimationDisabled,
