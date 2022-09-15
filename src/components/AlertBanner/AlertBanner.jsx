@@ -30,7 +30,7 @@ const AlertBanner = forwardRef(
         className,
         styles.banner,
         "monday-alert-banner",
-        styles[`${camelCase("background-color-" + backgroundColor)}`],
+        styles[camelCase("background-color-" + backgroundColor)],
         `monday-alert-banner--background-color-${backgroundColor}`
       );
     }, [className, backgroundColor]);
@@ -61,7 +61,7 @@ const AlertBanner = forwardRef(
         ref={ref}
         id={id}
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.ALERT_BANNER, id)}
-        className={cx(classNames)}
+        className={classNames}
         role="banner"
         aria-label={ariaLabel || "banner"}
       >
