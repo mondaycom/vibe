@@ -31,8 +31,8 @@ export function getClickableScreenReaderAccessProps({
   isKeyboardAccessible = true,
   isDecorationOnly = false
 }: {
-  isKeyboardAccessible: boolean;
-  isDecorationOnly: boolean;
+  isKeyboardAccessible?: boolean;
+  isDecorationOnly?: boolean;
 }) {
   return {
     role: "button",
