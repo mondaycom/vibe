@@ -10,7 +10,7 @@ export default function useResizeObserver({
 }: {
   ref: RefObject<HTMLElement>;
   callback: ResizeCallback;
-  debounceTime: number;
+  debounceTime?: number;
 }) {
   const debouncedCallback = useCallback(debounce<ResizeCallback>(callback, debounceTime), [callback, debounceTime]);
 

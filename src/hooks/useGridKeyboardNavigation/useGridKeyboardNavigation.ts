@@ -46,8 +46,8 @@ export default function useGridKeyboardNavigation({
   onItemClicked: (element: HTMLElement | void, index: number) => unknown;
   focusOnMount: boolean;
   getItemByIndex: (index: number | void) => HTMLElement | void;
-  focusItemIndexOnMount: number;
-  disabledIndexes: number[];
+  focusItemIndexOnMount?: number;
+  disabledIndexes?: number[];
 }) {
   const [isInitialActiveState, setIsInitialActiveState] = useState(
     focusOnMount && focusItemIndexOnMount !== NO_ACTIVE_INDEX

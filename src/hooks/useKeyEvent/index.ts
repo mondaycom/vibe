@@ -28,6 +28,7 @@ const checkWithoutModifierInEvent = (event: KeyboardEvent) => {
 
 export interface UseKeyEvent {
   keys: KeyboardEvent["key"][];
+  callback: GenericEventCallback;
   modifier?: Modifiers;
   keyEventName?: string;
   withoutAnyModifier?: boolean;
@@ -36,7 +37,6 @@ export interface UseKeyEvent {
   capture?: boolean;
   preventDefault?: boolean;
   stopPropagation?: boolean;
-  callback: GenericEventCallback;
 }
 
 export default function useKeyEvent({

@@ -30,12 +30,12 @@ function useActiveDescendantListFocus({
   focusedElementRef: MutableRefObject<HTMLElement>;
   itemsIds: string[];
   isItemSelectable: (index: number) => boolean;
-  defaultVisualFocusFirstIndex: boolean;
-  focusedElementRole: ROLES;
-  isHorizontalList: boolean;
-  isIgnoreSpaceAsItemSelection: boolean;
-  useDocumentEventListeners: boolean;
   onItemClick: (event: KeyboardEvent | MouseEvent, index: number) => unknown;
+  defaultVisualFocusFirstIndex?: boolean;
+  focusedElementRole?: ROLES;
+  isHorizontalList?: boolean;
+  isIgnoreSpaceAsItemSelection?: boolean;
+  useDocumentEventListeners?: boolean;
 }) {
   const defaultVisualFocusItemIndex = defaultVisualFocusFirstIndex ? 0 : -1;
   const itemsCount = itemsIds.length;

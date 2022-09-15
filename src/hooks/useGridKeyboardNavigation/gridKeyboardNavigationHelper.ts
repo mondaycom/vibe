@@ -102,7 +102,7 @@ export function calcActiveIndexAfterArrowNavigation({
   itemsCount: number;
   numberOfItemsInLine: number;
   direction: NAV_DIRECTIONS;
-  disabledIndexes: number[];
+  disabledIndexes?: number[];
 }) {
   let result = calcRawNewIndexAfterArrowNavigation({ activeIndex, itemsCount, numberOfItemsInLine, direction });
   while (!result.isOutbound && disabledIndexes.includes(result.nextIndex)) {

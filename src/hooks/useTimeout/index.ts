@@ -6,9 +6,9 @@ export default function useTimeout({
   callback,
   ignoreZeroTime = false
 }: {
-  time: number;
-  ignoreZeroTime: boolean;
   callback: () => void;
+  time?: number;
+  ignoreZeroTime?: boolean;
 }) {
   const ignoreTimeout = time === 0 && ignoreZeroTime;
   const timeoutId = useRef(null);
