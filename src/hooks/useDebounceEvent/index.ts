@@ -1,5 +1,5 @@
 import { useMemo, useCallback, useState, useRef, useEffect, ChangeEvent, Dispatch, SetStateAction } from "react";
-import { debounce } from "lodash";
+import { debounce, noop } from "lodash";
 
 export type UseDebounceResult = {
   inputValue: string;
@@ -14,9 +14,9 @@ export default function useDebounceEvent({
   initialStateValue = "",
   trim
 }: {
-  delay?: number;
   onChange: (value: string) => void;
   initialStateValue?: string;
+  delay?: number;
   trim?: boolean;
 }) {
   const [inputValue, setValue] = useState<string>(initialStateValue);
@@ -30,6 +30,11 @@ export default function useDebounceEvent({
     if (!delay) {
       return onChange;
     }
+
+    if (!onChange) {
+      return noop;
+    }
+
     return debounce(onChange, delay);
   }, [onChange, delay]);
 
@@ -49,7 +54,9 @@ export default function useDebounceEvent({
 
   const clearValue = useCallback(() => {
     setValue("");
-    onChange("");
+    if (onChange) {
+      onChange("");
+    }
   }, [setValue, onChange]);
 
   if (initialStateValue !== previousValue.current && initialStateValue !== inputValue) {
