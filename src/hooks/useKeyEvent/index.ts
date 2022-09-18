@@ -26,7 +26,7 @@ const checkWithoutModifierInEvent = (event: KeyboardEvent) => {
   });
 };
 
-export interface UseKeyEvent {
+export interface UseKeyEventArgs {
   keys: KeyboardEvent["key"][];
   callback: GenericEventCallback;
   modifier?: Modifier;
@@ -50,7 +50,7 @@ export default function useKeyEvent({
   preventDefault = false,
   stopPropagation = false,
   keyEventName = "keydown" // need keydown and not keyup to prevent scrolling with prevent default, for example during menu keyboard navigation
-}: UseKeyEvent) {
+}: UseKeyEventArgs) {
   const documentRef = useRef(document.body);
   const onKeyUpPress = useCallback(
     (event: KeyboardEvent) => {

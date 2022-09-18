@@ -7,5 +7,5 @@ import { useReducer } from "react";
 const reducerAlwaysReturningNewObj = () => ({});
 
 export default function useForceUpdate() {
-  return useReducer(reducerAlwaysReturningNewObj, reducerAlwaysReturningNewObj)[1];
+  return useReducer(reducerAlwaysReturningNewObj, {})[1];
 }

@@ -3,6 +3,7 @@ import { last } from "lodash-es";
 import useResizeObserver from "./useResizeObserver";
 
 // Use this hook when you want to get the index of the child which should be hidden from
+type AggregatedChildResult = { childLength: number; totalLength: number };
 
 function useElementsOverflowingIndex({
   ref,
@@ -32,7 +33,7 @@ function useElementsOverflowingIndex({
   });
 
   const [aggregatedChildLengths, setAggregatedChildLengths] = useState<
-    Array<{ childLength: number; totalLength: number }>
+    Array<AggregatedChildResult>
   >([]);
   const [indexToSplit, setIndexToSplit] = useState<number | null>(null);
 
@@ -55,7 +56,7 @@ function useElementsOverflowingIndex({
 
   useEffect(() => {
     if (!ref.current) return;
-    const childLengthsArray: Array<{ childLength: number; totalLength: number }> = [];
+    const childLengthsArray: Array<AggregatedChildResult> = [];
     let totalLength = 0;
     ref.current.childNodes.forEach((node: HTMLElement) => {
       const childLength = node.clientWidth;

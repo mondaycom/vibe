@@ -1,5 +1,5 @@
 import { MutableRefObject, useCallback, useEffect, useMemo, useRef } from "react";
-import useKeyEvent, { UseKeyEvent } from "../useKeyEvent";
+import useKeyEvent, { UseKeyEventArgs } from "../useKeyEvent";
 import useEventListener from "../useEventListener";
 import usePrevious from "../usePrevious";
 import { getNextSelectableIndex, getPreviousSelectableIndex } from "./useActiveDescendantListFocusHelpers";
@@ -32,7 +32,7 @@ export function useSupportArrowsKeyboardNavigation({
   isHorizontalList: boolean;
   isItemSelectable: (index: number) => boolean;
   triggeredByKeyboard: MutableRefObject<boolean>;
-  listenerOptions: Omit<UseKeyEvent, "keys" | "callback">;
+  listenerOptions: Omit<UseKeyEventArgs, "keys" | "callback">;
 }) {
   const nextArrow = isHorizontalList ? ArrowDirection.RIGHT : ArrowDirection.DOWN;
   const backArrow = isHorizontalList ? ArrowDirection.LEFT : ArrowDirection.UP;
@@ -116,7 +116,7 @@ export function useSupportPressItemKeyboardNavigation({
   setVisualFocusItemIndex: (index: number) => void;
   onItemClick: (event: MouseEvent | KeyboardEvent, index: number) => void;
   isItemSelectable: (index: number) => boolean;
-  listenerOptions: Omit<UseKeyEvent, "keys" | "callback">;
+  listenerOptions: Omit<UseKeyEventArgs, "keys" | "callback">;
   isIgnoreSpaceAsItemSelection: boolean;
 }) {
   const pressKeys = useMemo(
