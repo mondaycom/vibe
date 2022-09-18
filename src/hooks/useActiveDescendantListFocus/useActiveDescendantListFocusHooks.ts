@@ -32,7 +32,7 @@ export function useSupportArrowsKeyboardNavigation({
   isHorizontalList: boolean;
   isItemSelectable: (index: number) => boolean;
   triggeredByKeyboard: MutableRefObject<boolean>;
-  listenerOptions: Pick<UseKeyEvent, "keys" | "callback">;
+  listenerOptions: Omit<UseKeyEvent, "keys" | "callback">;
 }) {
   const nextArrow = isHorizontalList ? ArrowDirections.RIGHT : ArrowDirections.DOWN;
   const backArrow = isHorizontalList ? ArrowDirections.LEFT : ArrowDirections.UP;
