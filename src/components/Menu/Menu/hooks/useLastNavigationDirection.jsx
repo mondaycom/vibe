@@ -5,7 +5,7 @@ import {
   ARROW_LEFT_KEYS,
   ARROW_RIGHT_KEYS,
   ARROW_UP_KEYS,
-  NAV_DIRECTIONS
+  NavDirections
 } from "../../../../hooks/useFullKeyboardListeners";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
@@ -23,13 +23,13 @@ export const useLastNavigationDirection = () => {
   const onKeyEvent = useCallback(
     ({ key }) => {
       if (ARROW_UP_KEYS.includes(key)) {
-        setLastNavigationDirection(NAV_DIRECTIONS.UP);
+        setLastNavigationDirection(NavDirections.UP);
       } else if (ARROW_RIGHT_KEYS.includes(key)) {
-        setLastNavigationDirection(NAV_DIRECTIONS.RIGHT);
+        setLastNavigationDirection(NavDirections.RIGHT);
       } else if (ARROW_DOWN_KEYS.includes(key)) {
-        setLastNavigationDirection(NAV_DIRECTIONS.DOWN);
+        setLastNavigationDirection(NavDirections.DOWN);
       } else if (ARROW_LEFT_KEYS.includes(key)) {
-        setLastNavigationDirection(NAV_DIRECTIONS.LEFT);
+        setLastNavigationDirection(NavDirections.LEFT);
       }
     },
     [setLastNavigationDirection]

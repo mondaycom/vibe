@@ -4,30 +4,30 @@
 @import "../../../styles/global-css-settings";
 
 .use-grid-keyboard-nav-comp-wrapper {
-    padding: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    outline: none;
-    text-align: center;
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  outline: none;
+  text-align: center;
 }
 
 .use-grid-keyboard-nav-item {
-    width: 60px;
-    margin: $spacing-xs-small;
+  width: 60px;
+  margin: $spacing-xs-small;
 
-    &.active-item {
-        @include focus-style-css();
-    }
+  &.active-item {
+    @include focus-style-css();
+  }
 }
 
 .use-grid-keyboard-nav-controls {
-    display: flex;
+  display: flex;
 
-    & :not(:first-child) {
-        margin-left: var(--spacing-medium);
-    }
+  & :not(:first-child) {
+    margin-left: var(--spacing-medium);
+  }
 
-    input {
-        width: 60px;
-    }
+  input {
+    width: 60px;
+  }
 }

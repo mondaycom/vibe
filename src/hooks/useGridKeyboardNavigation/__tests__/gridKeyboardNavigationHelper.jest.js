@@ -1,4 +1,4 @@
-import { NAV_DIRECTIONS } from "../../useFullKeyboardListeners";
+import { NavDirections } from "../../useFullKeyboardListeners";
 import {
   calcActiveIndexAfterArrowNavigation,
   getActiveIndexFromInboundNavigation
@@ -6,7 +6,7 @@ import {
 
 describe("getActiveIndexFromInboundNavigation", () => {
   describe("direction - left", () => {
-    const direction = NAV_DIRECTIONS.LEFT;
+    const direction = NavDirections.LEFT;
 
     it("should return the last item in the 2nd row when there are 4 rows", () => {
       const itemsCount = 12;
@@ -50,7 +50,7 @@ describe("getActiveIndexFromInboundNavigation", () => {
   });
 
   describe("direction - right", () => {
-    const direction = NAV_DIRECTIONS.RIGHT;
+    const direction = NavDirections.RIGHT;
 
     it("should return the first item in the 2nd row when there are 4 rows", () => {
       const itemsCount = 12;
@@ -94,7 +94,7 @@ describe("getActiveIndexFromInboundNavigation", () => {
   });
 
   describe("direction - up", () => {
-    const direction = NAV_DIRECTIONS.UP;
+    const direction = NavDirections.UP;
 
     it("should return the third item in the last row when the last row has 5 elements out of 5", () => {
       const itemsCount = 15;
@@ -128,7 +128,7 @@ describe("getActiveIndexFromInboundNavigation", () => {
   });
 
   describe("direction - down", () => {
-    const direction = NAV_DIRECTIONS.DOWN;
+    const direction = NavDirections.DOWN;
 
     it("should return the third item in the first row when the first row has 5 elements out of 5", () => {
       const itemsCount = 10;
@@ -164,7 +164,7 @@ describe("getActiveIndexFromInboundNavigation", () => {
 
 describe("calcActiveIndexAfterArrowNavigation", () => {
   describe("direction - up", () => {
-    const direction = NAV_DIRECTIONS.UP;
+    const direction = NavDirections.UP;
 
     it("should return the 3rd index of the first row when navigating from 3rd item of second row", () => {
       const itemsCount = 12;
@@ -201,7 +201,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
   });
 
   describe("direction - down", () => {
-    const direction = NAV_DIRECTIONS.DOWN;
+    const direction = NavDirections.DOWN;
 
     it("should return the 3rd index of the second row when navigating from 3rd item of first row", () => {
       const itemsCount = 12;
@@ -238,7 +238,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
   });
 
   describe("direction - left", () => {
-    const direction = NAV_DIRECTIONS.LEFT;
+    const direction = NavDirections.LEFT;
 
     it("should return the second index of the second row when navigating from the third index of the second row", () => {
       const itemsCount = 9;
@@ -275,7 +275,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
   });
 
   describe("direction - right", () => {
-    const direction = NAV_DIRECTIONS.RIGHT;
+    const direction = NavDirections.RIGHT;
 
     it("should return the third index of the second row when navigating from the second index of the second row", () => {
       const itemsCount = 9;
@@ -313,7 +313,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
 
   describe("disabled indexes", () => {
     it("should skip a single disabled index", () => {
-      const direction = NAV_DIRECTIONS.RIGHT;
+      const direction = NavDirections.RIGHT;
       const itemsCount = 9;
       const numberOfItemsInLine = 5;
       const activeIndex = 0;
@@ -332,7 +332,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
     });
 
     it("should return outbound navigation when skipping over disabled index 0", () => {
-      const direction = NAV_DIRECTIONS.LEFT;
+      const direction = NavDirections.LEFT;
       const itemsCount = 2;
       const numberOfItemsInLine = 2;
       const activeIndex = 1;
@@ -351,7 +351,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
     });
 
     it("should skip multiple disabled sequential indexes in an inbound navigation", () => {
-      const direction = NAV_DIRECTIONS.UP;
+      const direction = NavDirections.UP;
       const itemsCount = 10;
       const numberOfItemsInLine = 2;
       const activeIndex = 8; // last row, left item
@@ -370,7 +370,7 @@ describe("calcActiveIndexAfterArrowNavigation", () => {
     });
 
     it("should return an outbound navigation when all indexes in the navigation direction are disabled", () => {
-      const direction = NAV_DIRECTIONS.UP;
+      const direction = NavDirections.UP;
       const itemsCount = 5;
       const numberOfItemsInLine = 5;
       const activeIndex = 0; // last row, left item
