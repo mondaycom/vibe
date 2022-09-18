@@ -32,9 +32,7 @@ function useElementsOverflowingIndex({
     debounceTime: resizeDebounceTime
   });
 
-  const [aggregatedChildLengths, setAggregatedChildLengths] = useState<
-    Array<AggregatedChildResult>
-  >([]);
+  const [aggregatedChildLengths, setAggregatedChildLengths] = useState<Array<AggregatedChildResult>>([]);
   const [indexToSplit, setIndexToSplit] = useState<number | null>(null);
 
   useEffect(() => {
