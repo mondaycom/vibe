@@ -161,7 +161,7 @@ export function useCleanVisualFocusOnBlur({
   visualFocusItemIndex: number;
   setVisualFocusItemIndex: (index: number) => void;
 }) {
-  const previousFocusedElementRef = usePrevious<MutableRefObject<HTMLElement>>(focusedElementRef);
+  const previousFocusedElementRef = usePrevious(focusedElementRef);
 
   const onBlurCallback = useCallback(() => {
     if (visualFocusItemIndex !== -1) {
@@ -244,7 +244,7 @@ export function useKeepFocusOnItemWhenListChanged({
   isItemSelectable: (index: number) => boolean;
   setVisualFocusItemIndex: (index: number) => void;
 }) {
-  const prevItemIds = usePrevious<string[]>(itemsIds);
+  const prevItemIds = usePrevious(itemsIds);
 
   // When item list changed, keep the focus on the same item
   useEffect(() => {
