@@ -33,7 +33,7 @@ export default function usePopover(
     forceUpdate();
   }, [referenceElement, popperElement, forceUpdate]);
 
-  const popperOptions: Partial<PopperJS.Options> = useMemo(() => {
+  const popperOptions: Pick<PopperJS.Options, "placement" | "modifiers"> = useMemo(() => {
     return {
       placement,
       modifiers: [

@@ -32,7 +32,7 @@ export function useSupportArrowsKeyboardNavigation({
   isHorizontalList: boolean;
   isItemSelectable: (index: number) => boolean;
   triggeredByKeyboard: MutableRefObject<boolean>;
-  listenerOptions: Partial<UseKeyEvent>;
+  listenerOptions: Pick<UseKeyEvent, "keys" | "callback">;
 }) {
   const nextArrow = isHorizontalList ? ArrowDirections.RIGHT : ArrowDirections.DOWN;
   const backArrow = isHorizontalList ? ArrowDirections.LEFT : ArrowDirections.UP;
@@ -116,7 +116,7 @@ export function useSupportPressItemKeyboardNavigation({
   setVisualFocusItemIndex: (index: number) => unknown;
   onItemClick: (event: MouseEvent | KeyboardEvent, index: number) => unknown;
   isItemSelectable: (index: number) => boolean;
-  listenerOptions: Partial<UseKeyEvent>;
+  listenerOptions: Omit<UseKeyEvent, "keys" | "callback">;
   isIgnoreSpaceAsItemSelection: boolean;
 }) {
   const pressKeys = useMemo(
