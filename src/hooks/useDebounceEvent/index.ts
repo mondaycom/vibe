@@ -41,13 +41,9 @@ export default function useDebounceEvent({
   const onEventChanged = useCallback(
     (event: ChangeEvent<Partial<HTMLInputElement> | Partial<HTMLTextAreaElement>>) => {
       const { value } = event.target;
-      if (trim) {
-        setValue(value.trim());
-        debounceCallback(value.trim());
-        return;
-      }
-      setValue(value);
-      debounceCallback(value);
+      const finalValue = trim ? value.trim() : value;
+      setValue(finalValue);
+      debounceCallback(finalValue);
     },
     [debounceCallback, setValue, trim]
   );
