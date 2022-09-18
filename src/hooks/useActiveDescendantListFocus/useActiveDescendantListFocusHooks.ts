@@ -5,7 +5,7 @@ import usePrevious from "../usePrevious";
 import { getNextSelectableIndex, getPreviousSelectableIndex } from "./useActiveDescendantListFocusHelpers";
 import { useListenFocusTriggers } from "../useListenFocusTriggers";
 
-enum ArrowDirections {
+enum ArrowDirection {
   UP = "ArrowUp",
   DOWN = "ArrowDown",
   RIGHT = "ArrowRight",
@@ -34,11 +34,11 @@ export function useSupportArrowsKeyboardNavigation({
   triggeredByKeyboard: MutableRefObject<boolean>;
   listenerOptions: Omit<UseKeyEvent, "keys" | "callback">;
 }) {
-  const nextArrow = isHorizontalList ? ArrowDirections.RIGHT : ArrowDirections.DOWN;
-  const backArrow = isHorizontalList ? ArrowDirections.LEFT : ArrowDirections.UP;
+  const nextArrow = isHorizontalList ? ArrowDirection.RIGHT : ArrowDirection.DOWN;
+  const backArrow = isHorizontalList ? ArrowDirection.LEFT : ArrowDirection.UP;
 
   const onArrowKeyEvent = useCallback(
-    (direction: ArrowDirections) => {
+    (direction: ArrowDirection) => {
       // we desire to change the visual focus item only if the user pressed on the keyboard arrows keys while
       // the focusedElementRef is naturally focus
       if (document.activeElement !== focusedElementRef.current) {

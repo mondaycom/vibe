@@ -1,11 +1,11 @@
 import { useMemo, useLayoutEffect } from "react";
 import { usePopper } from "react-popper";
-import { Placements } from "./popoverConstants";
+import { Placement } from "./popoverConstants";
 
 import useForceUpdate from "./useForceUpdate";
 import * as PopperJS from "@popperjs/core";
 
-const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placements;
+const { RIGHT_START, RIGHT_END, LEFT_START, LEFT_END } = Placement;
 
 const FLIP_MODIFIER = {
   name: "flip",
@@ -22,7 +22,7 @@ export default function usePopover(
     placement = RIGHT_START
   }: {
     isOpen?: boolean;
-    placement?: Placements;
+    placement?: Placement;
   }
 ) {
   const forceUpdate = useForceUpdate();

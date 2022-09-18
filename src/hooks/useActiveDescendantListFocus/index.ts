@@ -7,7 +7,7 @@ import {
   useCleanVisualFocusOnBlur
 } from "./useActiveDescendantListFocusHooks";
 
-enum Roles {
+enum Role {
   APPLICATION = "application",
   COMBOBOX = "combobox",
   COMPOSITE = "composite",
@@ -22,7 +22,7 @@ function useActiveDescendantListFocus({
   isItemSelectable,
   onItemClick,
   defaultVisualFocusFirstIndex = false,
-  focusedElementRole = Roles.GROUP,
+  focusedElementRole = Role.GROUP,
   isHorizontalList = false,
   useDocumentEventListeners = false,
   isIgnoreSpaceAsItemSelection = false
@@ -32,7 +32,7 @@ function useActiveDescendantListFocus({
   isItemSelectable: (index: number) => boolean;
   onItemClick: (event: KeyboardEvent | MouseEvent, index: number) => void;
   defaultVisualFocusFirstIndex?: boolean;
-  focusedElementRole?: Roles;
+  focusedElementRole?: Role;
   isHorizontalList?: boolean;
   isIgnoreSpaceAsItemSelection?: boolean;
   useDocumentEventListeners?: boolean;
@@ -124,6 +124,6 @@ function useActiveDescendantListFocus({
   };
 }
 
-useActiveDescendantListFocus.roles = Roles;
+useActiveDescendantListFocus.roles = Role;
 
 export default useActiveDescendantListFocus;

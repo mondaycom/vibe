@@ -1,4 +1,4 @@
-export enum Placements {
+export enum Placement {
   RIGHT = "right",
   RIGHT_START = "right-start",
   RIGHT_END = "right-end",

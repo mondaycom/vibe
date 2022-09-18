@@ -4,7 +4,7 @@ import { GenericEventCallback } from "../../types/events";
 
 const CTRL_OR_META = "ctrlOrMetaKey";
 
-enum Modifiers {
+enum Modifier {
   ALT = "altKey",
   META = "metaKey",
   CTRL = "ctrlKey",
@@ -12,15 +12,15 @@ enum Modifiers {
   CTRL_OR_META = "ctrlOrMetaKey"
 }
 
-const checkModifierInEvent = (event: KeyboardEvent, modifier: Modifiers) => {
-  if (modifier === Modifiers.CTRL_OR_META) {
+const checkModifierInEvent = (event: KeyboardEvent, modifier: Modifier) => {
+  if (modifier === Modifier.CTRL_OR_META) {
     return event.ctrlKey || event.metaKey;
   }
 
   return event[modifier];
 };
 const checkWithoutModifierInEvent = (event: KeyboardEvent) => {
-  return !Object.values(useKeyEvent.modifiers).some((m: Modifiers) => {
+  return !Object.values(useKeyEvent.modifiers).some((m: Modifier) => {
     if (m === CTRL_OR_META) return true;
     return !!event[m];
   });
@@ -29,7 +29,7 @@ const checkWithoutModifierInEvent = (event: KeyboardEvent) => {
 export interface UseKeyEvent {
   keys: KeyboardEvent["key"][];
   callback: GenericEventCallback;
-  modifier?: Modifiers;
+  modifier?: Modifier;
   keyEventName?: string;
   withoutAnyModifier?: boolean;
   ref?: RefObject<HTMLElement>;
@@ -96,4 +96,4 @@ export default function useKeyEvent({
   });
 }
 
-useKeyEvent.modifiers = Modifiers;
+useKeyEvent.modifiers = Modifier;
