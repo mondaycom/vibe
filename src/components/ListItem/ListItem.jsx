@@ -14,57 +14,59 @@ function BEMHelper(state) {
   return `${BEM_BASE_CLASS}--${state}`;
 }
 
-const ListItem = forwardRef(({ className, id, onClick, onHover, selected, disabled, size, tabIndex, children }, ref) => {
-  const componentRef = useRef(null);
-  const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
+const ListItem = forwardRef(
+  ({ className, id, onClick, onHover, selected, disabled, size, tabIndex, children }, ref) => {
+    const componentRef = useRef(null);
+    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
-  const componentOnClick = useCallback(
-    event => {
-      if (disabled) return;
-      onClick(event, id);
-    },
-    [disabled, onClick, id]
-  );
-
-  const onKeyDown = useCallback(
-    event => {
-      if (disabled) return;
-      const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
-      if (KEYS.includes(event.key)) {
-        onClick(event, id);
-      }
-    },
-    [disabled, onClick, id]
-  );
-
-  const componentOnHover = useCallback(
+    const componentOnClick = useCallback(
       event => {
-          if (disabled) return;
-          onHover(event, id);
+        if (disabled) return;
+        onClick(event, id);
+      },
+      [disabled, onClick, id]
+    );
+
+    const onKeyDown = useCallback(
+      event => {
+        if (disabled) return;
+        const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
+        if (KEYS.includes(event.key)) {
+          onClick(event, id);
+        }
+      },
+      [disabled, onClick, id]
+    );
+
+    const componentOnHover = useCallback(
+      event => {
+        if (disabled) return;
+        onHover(event, id);
       },
       [disabled, onHover, id]
-  );
+    );
 
-  return (
-    <div
-      ref={mergedRef}
-      className={cx("list-item", className, BEMHelper(size), {
-        [BEMHelper("selected")]: selected && !disabled,
-        [BEMHelper("disabled")]: disabled
-      })}
-      id={id}
-      aria-disabled={disabled}
-      onClick={componentOnClick}
-      onKeyDown={onKeyDown}
-      onMouseEnter={componentOnHover}
-      onFocus={componentOnHover}
-      role="listitem"
-      tabIndex={tabIndex}
-    >
-      {children}
-    </div>
-  );
-});
+    return (
+      <div
+        ref={mergedRef}
+        className={cx("list-item", className, BEMHelper(size), {
+          [BEMHelper("selected")]: selected && !disabled,
+          [BEMHelper("disabled")]: disabled
+        })}
+        id={id}
+        aria-disabled={disabled}
+        onClick={componentOnClick}
+        onKeyDown={onKeyDown}
+        onMouseEnter={componentOnHover}
+        onFocus={componentOnHover}
+        role="listitem"
+        tabIndex={tabIndex}
+      >
+        {children}
+      </div>
+    );
+  }
+);
 
 ListItem.sizes = SIZES;
 
@@ -110,8 +112,8 @@ ListItem.propTypes = {
    */
   size: PropTypes.oneOf([ListItem.sizes.SMALL, ListItem.sizes.MEDIUM, ListItem.sizes.LARGE]),
   /**
-   Tabindex is used for keyboard navigation - if you want to skip "Tab navigation" please pass -1.
-   */
+     Tabindex is used for keyboard navigation - if you want to skip "Tab navigation" please pass -1.
+     */
   tabIndex: PropTypes.number
 };
 ListItem.defaultProps = {
