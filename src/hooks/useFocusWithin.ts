@@ -6,9 +6,9 @@ export function useFocusWithin({
   isDisabled,
   onBlurWithin
 }: {
-  onFocusWithin: (event: FocusEvent) => unknown;
-  onBlurWithin: (event: FocusEvent) => unknown;
-  onFocusWithinChange: (isWithinChange: boolean) => unknown;
+  onFocusWithin: (event: FocusEvent) => void;
+  onBlurWithin: (event: FocusEvent) => void;
+  onFocusWithinChange: (isWithinChange: boolean) => void;
   isDisabled: boolean;
 }) {
   const state = useRef({

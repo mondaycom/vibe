@@ -1,8 +1,8 @@
 import { useRef, useCallback } from "react";
 
 export default function useRefWithCallback(
-  onMount: (element: HTMLElement) => unknown,
-  onUnmount?: (element: HTMLElement) => unknown
+  onMount: (element: HTMLElement) => void,
+  onUnmount?: (element: HTMLElement) => void
 ) {
   const nodeRef = useRef(null);
 

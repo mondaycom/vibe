@@ -30,7 +30,7 @@ function useActiveDescendantListFocus({
   focusedElementRef: MutableRefObject<HTMLElement>;
   itemsIds: string[];
   isItemSelectable: (index: number) => boolean;
-  onItemClick: (event: KeyboardEvent | MouseEvent, index: number) => unknown;
+  onItemClick: (event: KeyboardEvent | MouseEvent, index: number) => void;
   defaultVisualFocusFirstIndex?: boolean;
   focusedElementRole?: Roles;
   isHorizontalList?: boolean;

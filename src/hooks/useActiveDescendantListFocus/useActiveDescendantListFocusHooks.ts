@@ -28,7 +28,7 @@ export function useSupportArrowsKeyboardNavigation({
   itemsCount: number;
   focusedElementRef: MutableRefObject<HTMLElement>;
   visualFocusItemIndex: number;
-  setVisualFocusItemIndex: (index: number) => unknown;
+  setVisualFocusItemIndex: (index: number) => void;
   isHorizontalList: boolean;
   isItemSelectable: (index: number) => boolean;
   triggeredByKeyboard: MutableRefObject<boolean>;
@@ -113,8 +113,8 @@ export function useSupportPressItemKeyboardNavigation({
   visualFocusItemIndex: number;
   focusedElementRef: MutableRefObject<HTMLElement>;
   itemsCount: number;
-  setVisualFocusItemIndex: (index: number) => unknown;
-  onItemClick: (event: MouseEvent | KeyboardEvent, index: number) => unknown;
+  setVisualFocusItemIndex: (index: number) => void;
+  onItemClick: (event: MouseEvent | KeyboardEvent, index: number) => void;
   isItemSelectable: (index: number) => boolean;
   listenerOptions: Omit<UseKeyEvent, "keys" | "callback">;
   isIgnoreSpaceAsItemSelection: boolean;
@@ -159,7 +159,7 @@ export function useCleanVisualFocusOnBlur({
 }: {
   focusedElementRef: MutableRefObject<HTMLElement>;
   visualFocusItemIndex: number;
-  setVisualFocusItemIndex: (index: number) => unknown;
+  setVisualFocusItemIndex: (index: number) => void;
 }) {
   const previousFocusedElementRef = usePrevious<MutableRefObject<HTMLElement>>(focusedElementRef);
 
@@ -196,7 +196,7 @@ export function useSetDefaultItemOnFocusEvent({
   focusedElementRef: MutableRefObject<HTMLElement>;
   isItemSelectable: (index: number) => boolean;
   visualFocusItemIndex: number;
-  setVisualFocusItemIndex: (index: number) => unknown;
+  setVisualFocusItemIndex: (index: number) => void;
   itemsCount: number;
   defaultVisualFocusItemIndex: number;
 }) {
@@ -242,7 +242,7 @@ export function useKeepFocusOnItemWhenListChanged({
   visualFocusItemIndex: number;
   itemsIds: string[];
   isItemSelectable: (index: number) => boolean;
-  setVisualFocusItemIndex: (index: number) => unknown;
+  setVisualFocusItemIndex: (index: number) => void;
 }) {
   const prevItemIds = usePrevious<string[]>(itemsIds);
 

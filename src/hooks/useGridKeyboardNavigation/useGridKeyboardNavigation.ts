@@ -43,7 +43,7 @@ export default function useGridKeyboardNavigation({
   ref: MutableRefObject<HTMLElement>;
   itemsCount: number;
   numberOfItemsInLine: number;
-  onItemClicked: (element: HTMLElement | void, index: number) => unknown;
+  onItemClicked: (element: HTMLElement | void, index: number) => void;
   getItemByIndex: (index: number | void) => HTMLElement | void;
   focusOnMount?: boolean;
   focusItemIndexOnMount?: number;

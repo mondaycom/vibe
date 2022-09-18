@@ -42,10 +42,10 @@ export default function useFullKeyboardListeners({
     };
   }, [useDocumentEventListeners, ref]);
 
-  const onArrowDown = useCallback((_event: UIEvent) => onArrowNavigation(NavDirections.DOWN), [onArrowNavigation]);
-  const onArrowUp = useCallback((_event: UIEvent) => onArrowNavigation(NavDirections.UP), [onArrowNavigation]);
-  const onArrowRight = useCallback((_event: UIEvent) => onArrowNavigation(NavDirections.RIGHT), [onArrowNavigation]);
-  const onArrowLeft = useCallback((_event: UIEvent) => onArrowNavigation(NavDirections.LEFT), [onArrowNavigation]);
+  const onArrowDown = useCallback(() => onArrowNavigation(NavDirections.DOWN), [onArrowNavigation]);
+  const onArrowUp = useCallback(() => onArrowNavigation(NavDirections.UP), [onArrowNavigation]);
+  const onArrowRight = useCallback(() => onArrowNavigation(NavDirections.RIGHT), [onArrowNavigation]);
+  const onArrowLeft = useCallback(() => onArrowNavigation(NavDirections.LEFT), [onArrowNavigation]);
 
   useKeyEvent({
     keys: ARROW_DOWN_KEYS,

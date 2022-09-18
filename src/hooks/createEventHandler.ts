@@ -1,4 +1,4 @@
-export function createEventHandler(handler: (event: UIEvent) => unknown) {
+export function createEventHandler(handler: (event: UIEvent) => void) {
   if (!handler) {
     return;
   }
