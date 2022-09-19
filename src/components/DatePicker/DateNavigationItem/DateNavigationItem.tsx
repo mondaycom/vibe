@@ -13,10 +13,17 @@ interface DateNavigationItemProps {
   onClick?: () => void;
 }
 
-const DateNavigationItem = ({ onClick }: DateNavigationItemProps) => {
+const DateNavigationItem = ({ kind, onClick }: DateNavigationItemProps) => {
   return (
     <button type="button" className="ds-date-navigation-item-component" onClick={() => onClick && onClick()}>
-      <Icon iconType={Icon?.type?.SVG} icon={"test"} iconSize={24} clickable={false} ignoreFocusStyle />
+      <Icon
+        iconType={Icon?.type?.SVG}
+        // @ts-ignore
+        icon={ICONS[kind]}
+        iconSize={24}
+        clickable={false}
+        ignoreFocusStyle
+      />
     </button>
   );
 };
