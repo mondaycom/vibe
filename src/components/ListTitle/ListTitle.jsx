@@ -36,5 +36,7 @@ ListTitle.defaultProps = {
   className: "",
   id: undefined
 };
+// Used by VirtualizedListItems
+ListTitle.displayName = "ListTitle";
 
 export default ListTitle;
