@@ -15,8 +15,8 @@ const CLICK_NOOP = (event: React.MouseEvent) => {};
 interface iconSubComponentProps {
   ref?: Ref<any>;
   id?: string;
-  size?: string;
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  size?: string | number;
+  onClick?: (event: React.MouseEvent<SVGElement>) => void | null;
   className?: string;
   style?: CSSProperties;
   "data-testid"?: string;
