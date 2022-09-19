@@ -14,9 +14,9 @@ const LIST_TITLE_HEIGHT = 48;
 const LIST_ITEM_HEIGHT = 32;
 
 export const VirtualizedListItems = ({ children }) => {
-  const childrenArr = Array.isArray(children) ? children : [children];
-  const items = useMemo(
-    () =>
+  const items = useMemo(() => {
+    const childrenArr = Array.isArray(children) ? children : [children];
+    return (
       childrenArr
         .map((child, index) => {
           if (child.type.displayName === ListTitle.displayName) {
@@ -40,8 +40,9 @@ export const VirtualizedListItems = ({ children }) => {
           }
         })
         .filter(item => item !== undefined),
-    [children]
-  );
+      [children]
+    );
+  });
 
   const itemRenderer = useCallback((item, index, style) => {
     const { type, props } = item;
