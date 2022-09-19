@@ -48,6 +48,7 @@
 
     "modify tests": "shell_scripts/run.sh tests",
     "modify tests/anchor-list-item": "shell_scripts/run.sh tests/anchor-list-item.jsx",
+    "modify tests/anchor-list-item-media": "shell_scripts/run.sh tests/anchor-list-item-media.jsx",
     "modify tests/anchor-list-item-nested": "shell_scripts/run.sh tests/anchor-list-item-nested.jsx",
     "modify tests/anchor-list-item-expression": "shell_scripts/run.sh tests/anchor-list-item-expression.jsx",
     "modify tests/anchor-list-item-conditional": "shell_scripts/run.sh tests/anchor-list-item-conditional.jsx",
