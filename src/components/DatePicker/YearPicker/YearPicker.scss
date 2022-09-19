@@ -1,8 +1,6 @@
-@import "../../../styles/themes.scss";
-
 .date-month-year-picker-component-wrapper {
   position: absolute;
-  top: -21px;
+  top: 0px;
   left: 0;
   right: 0;
   height: 100%;
@@ -19,16 +17,16 @@
 
   .navigation {
     position: absolute;
-    top: 25px;
+    top: 21px;
     pointer-events: all;
     cursor: pointer;
 
     &.navigation-left {
-      left: 29px;
+      left: 21px;
     }
 
     &.navigation-right {
-      right: 29px;
+      right: 21px;
     }
   }
 
@@ -40,14 +38,14 @@
   .date-month-year-picker-options {
     text-align: center;
     background-color: #fff;
-    @include theme-prop(background-color, secondary-background-color);
+    background-color: var(--secondary-background-color);
     position: absolute;
     top: 55px;
     pointer-events: all;
   }
 
   .CalendarYear--blocked {
-    @include theme-prop(color, disabled-text-color);
+    color: var(--disabled-text-color);
     cursor: default;
   }
 }

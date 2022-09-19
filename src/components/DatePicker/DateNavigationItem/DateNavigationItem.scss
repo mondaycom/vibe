@@ -1,10 +1,6 @@
-
-
-  @import "../../../styles/themes.scss";
-
 .ds-date-navigation-item-component {
   line-height: 36px;
   font-size: 28px;
   outline: none;
-  @include theme-prop(color, icon-color);
+  color: var(--icon-color);
 }
