@@ -2,8 +2,7 @@ import React, { useState, forwardRef } from "react";
 import classNames from "classnames";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
-// @ts-ignore
-import { DayPickerSingleDateController, DayPickerRangeController } from "react-dates";
+import { DayPickerSingleDateController, DayPickerRangeController, DayOfWeekShape } from "react-dates";
 import DatePickerHeaderComponent from "./DatePickerHeader/DatePickerHeader";
 import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
@@ -15,7 +14,7 @@ import "react-dates/initialize";
 interface DatePickerProps {
   id?: string;
   className?: string;
-  firstDayOfWeek: number;
+  firstDayOfWeek: DayOfWeekShape;
   date?: Moment;
   endDate?: Moment;
   onPickDate: (date: Moment | RangeDate) => void;
@@ -31,7 +30,7 @@ interface DatePickerProps {
 }
 
 const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAttributes<unknown>> = forwardRef<
-  unknown,
+  HTMLDivElement,
   DatePickerProps
 >(
   (
@@ -55,6 +54,7 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
     ref
   ) => {
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
+    const [focused, setFocused] = useState(true);
     const [isMonthYearSelection, setIsMonthYearSelection] = useState(false);
     const [overrideDateForView, setOverrideDateForView] = useState<Moment | null>(null);
 
@@ -106,6 +106,7 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
     const shouldShowNav = !hideNavigationKeys && !isMonthYearSelection;
     return (
       <div
+        ref={ref}
         id={id}
         className={classNames("datepicker--wrapper", className, {
           "with-week-number": showWeekNumber,
@@ -116,7 +117,6 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
       >
         {range ? (
           <DayPickerRangeController
-            ref={ref}
             key={`${overrideDateForView?.toString()}`}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
@@ -139,17 +139,17 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
           />
         ) : (
           <DayPickerSingleDateController
-            ref={ref}
             key={`${overrideDateForView?.toString()}`}
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel
+            onFocusChange={({ focused }) => setFocused(focused)}
             numberOfMonths={numberOfMonths}
             date={date}
             onDateChange={(date: Moment) => onPickDate(date)}
             navPrev={shouldShowNav ? <DateNavigationItem kind={Direction.prev} /> : <div />}
             navNext={shouldShowNav ? <DateNavigationItem kind={Direction.next} /> : <div />}
-            focused
+            focused={focused}
             renderMonthElement={renderMonth}
             enableOutsideDays={enableOutsideDays || showWeekNumber}
             daySize={daySize}
