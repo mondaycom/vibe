@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.63.1 (2022-09-15)
+
+#### Bug Fixes
+* [#874](https://github.com/mondaycom/monday-ui-react-core/pull/874) fix icon types import ([@eran-cohen](https://github.com/eran-cohen))
+
+#### Internal Changes
+* [#870](https://github.com/mondaycom/monday-ui-react-core/pull/870) Feature/sergeyro/ts infra css modules ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#871](https://github.com/mondaycom/monday-ui-react-core/pull/871) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.63.0 (2022-09-14)
 
 #### New Features
