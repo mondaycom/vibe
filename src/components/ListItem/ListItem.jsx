@@ -127,5 +127,7 @@ ListItem.defaultProps = {
   children: undefined,
   tabIndex: 0
 };
+// Used by VirtualizedListItems
+ListItem.displayName = "ListItem";
 
 export default ListItem;
