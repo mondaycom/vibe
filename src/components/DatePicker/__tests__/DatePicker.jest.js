@@ -47,45 +47,45 @@ describe("DatePicker", () => {
     expect(today.format(DATE_FORMAT)).toBe(selectedDate.format(DATE_FORMAT));
   });
 
-  // it("Should call onPickDate with range date", () => {
-  //   let selectedRange = {};
-  //   const { container } = render(
-  //     <DatePicker
-  //       range
-  //       onPickDate={range => {
-  //         selectedRange.startDate = range.startDate || selectedRange.startDate;
-  //         selectedRange.endDate = range.endDate || selectedRange.endDate;
-  //       }}
-  //     />
-  //   );
-  //   const today = moment();
-  //   const tomorrow = moment().add(1, "days");
+  it("Should call onPickDate with range date", () => {
+    let selectedRange = {};
+    const { container } = render(
+      <DatePicker
+        range
+        onPickDate={range => {
+          selectedRange.startDate = range.startDate || selectedRange.startDate;
+          selectedRange.endDate = range.endDate || selectedRange.endDate;
+        }}
+      />
+    );
+    const today = moment();
+    const tomorrow = moment().add(1, "days");
 
-  //   const todayElement = container.querySelector(".CalendarDay__today");
-  //   const tomorrowElemnt = container.querySelector(".CalendarDay__today").nextElementSibling;
+    const todayElement = container.querySelector(".CalendarDay__today");
+    const tomorrowElemnt = container.querySelector(".CalendarDay__today").nextElementSibling;
 
-  //   act(() => {
-  //     fireEvent.click(todayElement);
-  //     jest.advanceTimersByTime(500);
-  //     fireEvent.click(tomorrowElemnt);
-  //   });
-  //   expect(today.format(DATE_FORMAT)).toBe(selectedRange.startDate.format(DATE_FORMAT));
-  //   expect(tomorrow.format(DATE_FORMAT)).toBe(selectedRange.endDate.format(DATE_FORMAT));
-  // });
+    act(() => {
+      fireEvent.click(todayElement);
+      jest.advanceTimersByTime(500);
+      fireEvent.click(tomorrowElemnt);
+    });
+    expect(today.format(DATE_FORMAT)).toBe(selectedRange.startDate.format(DATE_FORMAT));
+    expect(tomorrow.format(DATE_FORMAT)).toBe(selectedRange.endDate.format(DATE_FORMAT));
+  });
 
-  // it("Should render 2 month", () => {
-  //   const { container } = render(<DatePicker range numberOfMonths={2} />);
-  //   const monthsElements = container.getElementsByClassName("CalendarMonth");
-  //   expect(monthsElements.length).toBe(4);
-  // });
+  it("Should render 2 month", () => {
+    const { container } = render(<DatePicker range numberOfMonths={2} />);
+    const monthsElements = container.getElementsByClassName("CalendarMonth");
+    expect(monthsElements.length).toBe(4);
+  });
 
-  // it("Should open an year selection dropdown", () => {
-  //   const { container } = render(<DatePicker />);
-  //   const toggleButtonElemnt = container.querySelector(".date-picker-header-component-button-container");
-  //   act(() => {
-  //     fireEvent.click(toggleButtonElemnt);
-  //   });
-  //   const yearSelectionElement = container.querySelector(".date-month-year-picker-options");
-  //   expect(yearSelectionElement).not.toBe(null);
-  // });
+  it("Should open an year selection dropdown", () => {
+    const { container } = render(<DatePicker />);
+    const toggleButtonElemnt = container.querySelector(".date-picker-header-component-button-container");
+    act(() => {
+      fireEvent.click(toggleButtonElemnt);
+    });
+    const yearSelectionElement = container.querySelector(".date-month-year-picker-options");
+    expect(yearSelectionElement).not.toBe(null);
+  });
 });
