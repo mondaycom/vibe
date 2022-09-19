@@ -25,12 +25,11 @@ interface YearPickerProps {
   isRange: boolean;
   isYearBlocked?: (year: number) => boolean;
   changeCurrentDate: (date: Moment) => void;
-  numberOfMonths: number;
 }
 
 const YearPicker = (props: YearPickerProps) => {
   const calcNewYearsPage = (firstYearInPage: number) => {
-    return times(PAGE_SIZE * props.numberOfMonths, n => firstYearInPage + n);
+    return times(PAGE_SIZE, n => firstYearInPage + n);
   };
 
   const { selectedDate, isRange, isYearBlocked, changeCurrentDate } = props;

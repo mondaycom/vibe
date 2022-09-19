@@ -10,7 +10,6 @@ import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
 import { Moment, FocusInput, Direction, RangeDate } from "./types";
 import "./DatePicker.scss";
 import "react-dates/initialize";
-
 interface DatePickerProps {
   id?: string;
   className?: string;
@@ -28,6 +27,9 @@ interface DatePickerProps {
   shouldBlockYear?: (year: number) => boolean;
   isOutsideRange?: (date: Moment) => boolean;
 }
+
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const NOOP = () => {};
 
 const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAttributes<unknown>> = forwardRef<
   HTMLDivElement,
@@ -54,7 +56,6 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
     ref
   ) => {
     const [focusedInput, setFocusedInput] = useState(FocusInput.startDate);
-    const [focused, setFocused] = useState(true);
     const [isMonthYearSelection, setIsMonthYearSelection] = useState(false);
     const [overrideDateForView, setOverrideDateForView] = useState<Moment | null>(null);
 
@@ -86,7 +87,6 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
     const renderMonthYearSelection = () => {
       return (
         <YearPicker
-          numberOfMonths={numberOfMonths}
           selectedDate={date}
           isRange={range}
           isYearBlocked={shouldBlockYear}
@@ -143,13 +143,13 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
             renderDayContents={showWeekNumber ? renderDay : undefined}
             firstDayOfWeek={firstDayOfWeek}
             hideKeyboardShortcutsPanel
-            onFocusChange={({ focused }) => setFocused(focused)}
+            onFocusChange={NOOP}
             numberOfMonths={numberOfMonths}
             date={date}
             onDateChange={(date: Moment) => onPickDate(date)}
             navPrev={shouldShowNav ? <DateNavigationItem kind={Direction.prev} /> : <div />}
             navNext={shouldShowNav ? <DateNavigationItem kind={Direction.next} /> : <div />}
-            focused={focused}
+            focused={true}
             renderMonthElement={renderMonth}
             enableOutsideDays={enableOutsideDays || showWeekNumber}
             daySize={daySize}
