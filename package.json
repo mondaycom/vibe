@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.63.1",
+  "version": "1.64.0",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "exports": {
@@ -66,7 +66,7 @@
     "detect-browser": "^5.3.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
-    "monday-ui-style": "0.1.135",
+    "monday-ui-style": "0.1.136",
     "prop-types": "^15.8.1",
     "react-dates": "21.8.0",
     "react-inlinesvg": "^2.3.0",

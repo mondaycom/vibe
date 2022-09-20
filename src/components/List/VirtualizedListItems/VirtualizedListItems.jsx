@@ -14,11 +14,12 @@ const LIST_TITLE_HEIGHT = 48;
 const LIST_ITEM_HEIGHT = 32;
 
 export const VirtualizedListItems = ({ children }) => {
-  const items = useMemo(
-    () =>
-      children
+  const items = useMemo(() => {
+    const childrenArr = Array.isArray(children) ? children : [children];
+    return (
+      childrenArr
         .map((child, index) => {
-          if (child.type === ListTitle) {
+          if (child.type.displayName === ListTitle.displayName) {
             return {
               type: ITEM_CHILDREN_TYPES.TITLE,
               id: `list-title-${index}`,
@@ -26,7 +27,7 @@ export const VirtualizedListItems = ({ children }) => {
               // avoid add spacing to the first category on the list
               height: LIST_TITLE_HEIGHT
             };
-          } else if (child.type === ListItem) {
+          } else if (child.type.displayName === ListItem.displayName) {
             const { id } = child.props;
             return {
               type: ITEM_CHILDREN_TYPES.ITEM,
@@ -39,8 +40,9 @@ export const VirtualizedListItems = ({ children }) => {
           }
         })
         .filter(item => item !== undefined),
-    [children]
-  );
+      [children]
+    );
+  });
 
   const itemRenderer = useCallback((item, index, style) => {
     const { type, props } = item;

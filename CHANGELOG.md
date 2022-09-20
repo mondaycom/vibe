@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.64.0 (2022-09-20)
+
+#### Bug Fixes
+* [#876](https://github.com/mondaycom/monday-ui-react-core/pull/876) Fix for virtualized list items ([@MosheZemah](https://github.com/MosheZemah))
+
+#### New Features
+* [#873](https://github.com/mondaycom/monday-ui-react-core/pull/873) add on hover to list item ([@liatmaor](https://github.com/liatmaor))
+
+#### Documentation
+* [#872](https://github.com/mondaycom/monday-ui-react-core/pull/872) add readme for typescript migration process ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#869](https://github.com/mondaycom/monday-ui-react-core/pull/869) Hooks ts ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Icons
+* [#877](https://github.com/mondaycom/monday-ui-react-core/pull/877) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.63.1 (2022-09-15)
 
 #### Bug Fixes
