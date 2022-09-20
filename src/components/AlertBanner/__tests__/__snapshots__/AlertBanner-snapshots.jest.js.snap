@@ -3,7 +3,7 @@
 exports[`AlertBanner should render correctly with hidden close button 1`] = `
 <div
   aria-label="banner"
-  className="banner monday-alert-banner backgroundColorPrimary monday-alert-banner--background-color-primary"
+  className="banner monday-alert-banner primary monday-alert-banner--background-color-primary"
   data-testid="alert-banner"
   role="banner"
 >
@@ -19,7 +19,7 @@ exports[`AlertBanner should render correctly with hidden close button 1`] = `
 exports[`AlertBanner should render correctly with props 1`] = `
 <div
   aria-label="lorem-banner"
-  className="my-lorem-ipsum-banner banner monday-alert-banner backgroundColorNegative monday-alert-banner--background-color-negative"
+  className="my-lorem-ipsum-banner banner monday-alert-banner negative monday-alert-banner--background-color-negative"
   data-testid="alert-banner"
   role="banner"
 >
@@ -83,7 +83,7 @@ exports[`AlertBanner should render correctly with props 1`] = `
 exports[`AlertBanner should render correctly without props 1`] = `
 <div
   aria-label="banner"
-  className="banner monday-alert-banner backgroundColorPrimary monday-alert-banner--background-color-primary"
+  className="banner monday-alert-banner primary monday-alert-banner--background-color-primary"
   data-testid="alert-banner"
   role="banner"
 >
@@ -130,7 +130,7 @@ exports[`AlertBanner should render correctly without props 1`] = `
 exports[`AlertBanner should render with correctly with multiple elements 1`] = `
 <div
   aria-label="banner"
-  className="banner monday-alert-banner backgroundColorPrimary monday-alert-banner--background-color-primary"
+  className="banner monday-alert-banner primary monday-alert-banner--background-color-primary"
   data-testid="alert-banner"
   role="banner"
 >
@@ -259,7 +259,7 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
 exports[`AlertBanner should render with correctly with text and link 1`] = `
 <div
   aria-label="banner"
-  className="banner monday-alert-banner backgroundColorPrimary monday-alert-banner--background-color-primary"
+  className="banner monday-alert-banner primary monday-alert-banner--background-color-primary"
   data-testid="alert-banner"
   role="banner"
 >
@@ -349,7 +349,7 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
 exports[`AlertBanner should render with correctly with text and link 2`] = `
 <div
   aria-label="banner"
-  className="banner monday-alert-banner backgroundColorPrimary monday-alert-banner--background-color-primary"
+  className="banner monday-alert-banner primary monday-alert-banner--background-color-primary"
   data-testid="alert-banner"
   role="banner"
 >

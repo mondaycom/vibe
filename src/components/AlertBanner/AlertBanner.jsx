@@ -1,4 +1,3 @@
-import { camelCase } from "lodash";
 import cx from "classnames";
 import React, { forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
@@ -30,7 +29,7 @@ const AlertBanner = forwardRef(
         className,
         styles.banner,
         "monday-alert-banner",
-        styles[camelCase("background-color-" + backgroundColor)],
+        styles[backgroundColor],
         `monday-alert-banner--background-color-${backgroundColor}`
       );
     }, [className, backgroundColor]);
