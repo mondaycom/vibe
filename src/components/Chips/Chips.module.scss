@@ -1,6 +1,7 @@
 @import "../../styles/themes";
 @import "../../styles/typography";
 @import "../../styles/states";
+@import "../../styles/keyframes";
 
 .chips {
   display: inline-flex;
@@ -11,7 +12,7 @@
   align-items: center;
   margin: 0 var(--spacing-xs);
   user-select: none;
-  animation: chipsEnter var(--motion-productive-medium) var(--motion-timing-emphasize);
+  animation: chips-pop-in-emphasized var(--motion-productive-medium) var(--motion-timing-emphasize);
 
   &.withUserSelect {
     user-select: text;
@@ -54,17 +55,6 @@
   }
 }
 
-@keyframes chipsEnter {
-  0% {
-    transform: scale(0.3);
-    opacity: 0;
-  }
-
-  70% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1);
-  }
+@include keyframe(chips-pop-in-emphasized) {
+  @include pop-in-emphasized();
 }

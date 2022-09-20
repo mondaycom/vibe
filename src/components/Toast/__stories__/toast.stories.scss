@@ -1,6 +1,7 @@
 @import "../../../styles/themes";
 
 .monday-storybook-toast {
+  border: 1px solid red;
   &_wrapper {
     position: static;
     width: 390px;
@@ -34,4 +35,10 @@
   &_box {
     width: 390px;
   }
+}
+
+// overriding margin for storybook wrapper
+.monday-storybook_multiple-story-elements-wrapper .monday-style-toast{
+  margin-right:auto;
+  margin-left:auto;
 }
