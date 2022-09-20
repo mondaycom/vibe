@@ -1,4 +1,4 @@
-.date-month-year-picker-component-wrapper {
+.monthYearPickerContainer {
   position: absolute;
   top: 0px;
   left: 0;
@@ -6,36 +6,32 @@
   height: 100%;
   z-index: 10;
   pointer-events: none;
-  .slide-down-appear {
+
+  :global(.slide-down-appear) {
     opacity: 0;
   }
 
-  .slide-down-appear-active {
+  :global(.slide-down-appear-active) {
     transition: opacity 0.4s ease;
     opacity: 1;
   }
 
-  .navigation {
+  .navigationWrapper {
     position: absolute;
     top: 21px;
     pointer-events: all;
     cursor: pointer;
 
-    &.navigation-left {
+    &.navigationLeft {
       left: 21px;
     }
 
-    &.navigation-right {
+    &.navigationRight {
       right: 21px;
     }
   }
 
-  .date-month-year-picker-header {
-    padding-top: 16px;
-    padding-bottom: 16px;
-  }
-
-  .date-month-year-picker-options {
+  .pickerOptions {
     text-align: center;
     background-color: #fff;
     background-color: var(--secondary-background-color);
@@ -44,7 +40,7 @@
     pointer-events: all;
   }
 
-  .CalendarYear--blocked {
+  :global(.CalendarYear--blocked) {
     color: var(--disabled-text-color);
     cursor: default;
   }

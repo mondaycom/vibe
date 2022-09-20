@@ -7,7 +7,7 @@ import Button from "../../Button/Button";
 import { YEAR_FORMAT } from "../constants";
 import DateNavigationItemComponent from "../DateNavigationItem/DateNavigationItem";
 import { Moment, Direction } from "../types";
-import "./YearPicker.scss";
+import styles from "./YearPicker.module.scss";
 
 const transitionOptions = {
   classNames: "slide-down",
@@ -22,7 +22,6 @@ const NOOP = () => {};
 
 interface YearPickerProps {
   selectedDate?: Moment;
-  isRange: boolean;
   isYearBlocked?: (year: number) => boolean;
   changeCurrentDate: (date: Moment) => void;
 }
@@ -32,7 +31,7 @@ const YearPicker = (props: YearPickerProps) => {
     return times(PAGE_SIZE, n => firstYearInPage + n);
   };
 
-  const { selectedDate, isRange, isYearBlocked, changeCurrentDate } = props;
+  const { selectedDate, isYearBlocked, changeCurrentDate } = props;
   const selectedYear = selectedDate ? selectedDate.format(YEAR_FORMAT) : moment().format(YEAR_FORMAT);
 
   const [yearsToDisplay, setYearsToDisplay] = useState(
@@ -70,22 +69,18 @@ const YearPicker = (props: YearPickerProps) => {
     return listItems;
   };
 
-  const wrapperClasses = classnames("date-month-year-picker-component-wrapper", {
-    "is-range": isRange
-  });
-
   return (
-    <div className={wrapperClasses}>
+    <div className={styles.monthYearPickerContainer}>
       <div>
-        <div className="navigation navigation-left">
+        <div className={classnames(styles.navigationWrapper, styles.navigationLeft)}>
           <DateNavigationItemComponent kind={Direction.prev} onClick={() => onYearNavigationClick(Direction.prev)} />
         </div>
-        <div className="navigation navigation-right">
+        <div className={classnames(styles.navigationWrapper, styles.navigationRight)}>
           <DateNavigationItemComponent kind={Direction.next} onClick={() => onYearNavigationClick(Direction.next)} />
         </div>
       </div>
       <CSSTransition {...transitionOptions} in appear>
-        <div className="date-month-year-picker-options">{renderYears()}</div>
+        <div className={styles.pickerOptions}>{renderYears()}</div>
       </CSSTransition>
     </div>
   );

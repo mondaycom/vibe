@@ -1,10 +1,10 @@
-.date-picker-header-component {
+.datePickerHeaderContainer {
   display: flex;
   text-align: center;
   justify-content: center;
   align-items: center;
 
-  .date-picker-header-component-button-container {
+  .button {
     border: none;
     padding: 0;
     margin: 0;
@@ -12,7 +12,7 @@
     margin-left: 4px;
     cursor: pointer;
 
-    .date-picker-header-component-button {
+    .buttonContent {
       border-radius: 50%;
       width: 24px;
       height: 24px;

@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import moment from "moment";
 import { Moment } from "../types";
-import "./DatePickerHeader.scss";
+import styles from "./DatePickerHeader.module.scss";
 
 interface DatePickerHeaderProps {
   currentDate: Moment;
@@ -19,15 +19,11 @@ const DatePickerHeader = (props: DatePickerHeaderProps) => {
   const year = localedDated.format("YYYY");
   const string = month + " " + year;
   return (
-    <div className="date-picker-header-component">
+    <div className={styles.datePickerHeaderContainer}>
       <div>{string}</div>
       {!hideNavigationKeys && (
-        <button
-          type="button"
-          className="date-picker-header-component-button-container"
-          onClick={onToggleMonthYearPicker}
-        >
-          <div className="date-picker-header-component-button">
+        <button type="button" className={styles.button} onClick={onToggleMonthYearPicker}>
+          <div className={styles.buttonContent}>
             <span
               className={classNames(
                 "fa",

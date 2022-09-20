@@ -1,5 +1,5 @@
 import React, { useState, forwardRef } from "react";
-import classNames from "classnames";
+import cx from "classnames";
 import moment from "moment";
 import "react-dates/lib/css/_datepicker.css";
 import { DayPickerSingleDateController, DayPickerRangeController, DayOfWeekShape } from "react-dates";
@@ -8,7 +8,7 @@ import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
 import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
 import { Moment, FocusInput, Direction, RangeDate } from "./types";
-import "./DatePicker.scss";
+import styles from "./DatePicker.module.scss";
 import "react-dates/initialize";
 interface DatePickerProps {
   id?: string;
@@ -74,7 +74,7 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
       const weekNumber = firstDayOfWeek === 0 ? day.clone().add(1, "d").isoWeek() : day.isoWeek();
       return (
         <>
-          <span className="CalendarDayWeekNumber">{weekNumber}</span> {day.format("D")}
+          <span className={styles.calendarDayWeekNumber}>{weekNumber}</span> {day.format("D")}
         </>
       );
     };
@@ -88,7 +88,6 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
       return (
         <YearPicker
           selectedDate={date}
-          isRange={range}
           isYearBlocked={shouldBlockYear}
           changeCurrentDate={changeCurrentDateFromMonthYearView}
         />
@@ -108,11 +107,10 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
       <div
         ref={ref}
         id={id}
-        className={classNames("datepicker--wrapper", className, {
-          "with-week-number": showWeekNumber,
-          "with-outside-days": enableOutsideDays,
-          "range-picker-mode": range,
-          "month-year-selection": isMonthYearSelection
+        className={cx(styles.datepickerContainer, className, {
+          [styles.withWeekNumber]: showWeekNumber,
+          [styles.rangePickerMode]: range,
+          [styles.monthYearSelection]: isMonthYearSelection
         })}
       >
         {range ? (
