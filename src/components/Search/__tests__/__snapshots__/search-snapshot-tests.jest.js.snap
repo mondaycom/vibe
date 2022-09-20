@@ -332,6 +332,7 @@ exports[`Search renders correctly with icon 1`] = `
           aria-hidden={true}
           aria-label="Search"
           className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          id="search"
           onClick={[Function]}
           role="img"
         />
@@ -757,6 +758,7 @@ exports[`Search renders correctly with secondaryIconName 1`] = `
           aria-hidden={true}
           aria-label="Clear Search"
           className="icon_component input-component__icon icon_component--no-focus-style fa fa-star"
+          id="search"
           onClick={[Function]}
           role="img"
         />

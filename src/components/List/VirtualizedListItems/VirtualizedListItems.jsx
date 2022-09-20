@@ -16,33 +16,30 @@ const LIST_ITEM_HEIGHT = 32;
 export const VirtualizedListItems = ({ children }) => {
   const items = useMemo(() => {
     const childrenArr = Array.isArray(children) ? children : [children];
-    return (
-      childrenArr
-        .map((child, index) => {
-          if (child.type.displayName === ListTitle.displayName) {
-            return {
-              type: ITEM_CHILDREN_TYPES.TITLE,
-              id: `list-title-${index}`,
-              props: child.props,
-              // avoid add spacing to the first category on the list
-              height: LIST_TITLE_HEIGHT
-            };
-          } else if (child.type.displayName === ListItem.displayName) {
-            const { id } = child.props;
-            return {
-              type: ITEM_CHILDREN_TYPES.ITEM,
-              id: id || `list-item-${index}`,
-              props: child.props,
-              height: LIST_ITEM_HEIGHT
-            };
-          } else {
-            return undefined;
-          }
-        })
-        .filter(item => item !== undefined),
-      [children]
-    );
-  });
+    return childrenArr
+      .map((child, index) => {
+        if (child.type.displayName === ListTitle.displayName) {
+          return {
+            type: ITEM_CHILDREN_TYPES.TITLE,
+            id: `list-title-${index}`,
+            props: child.props,
+            // avoid add spacing to the first category on the list
+            height: LIST_TITLE_HEIGHT
+          };
+        } else if (child.type.displayName === ListItem.displayName) {
+          const { id } = child.props;
+          return {
+            type: ITEM_CHILDREN_TYPES.ITEM,
+            id: id || `list-item-${index}`,
+            props: child.props,
+            height: LIST_ITEM_HEIGHT
+          };
+        } else {
+          return undefined;
+        }
+      })
+      .filter(item => item !== undefined);
+  }, [children]);
 
   const itemRenderer = useCallback((item, index, style) => {
     const { type, props } = item;
