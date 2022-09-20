@@ -24,6 +24,7 @@ interface YearPickerProps {
   selectedDate?: Moment;
   isYearBlocked?: (year: number) => boolean;
   changeCurrentDate: (date: Moment) => void;
+  "data-testid"?: string;
 }
 
 const YearPicker = (props: YearPickerProps) => {
@@ -31,7 +32,7 @@ const YearPicker = (props: YearPickerProps) => {
     return times(PAGE_SIZE, n => firstYearInPage + n);
   };
 
-  const { selectedDate, isYearBlocked, changeCurrentDate } = props;
+  const { selectedDate, isYearBlocked, changeCurrentDate, "data-testid": dateTestId } = props;
   const selectedYear = selectedDate ? selectedDate.format(YEAR_FORMAT) : moment().format(YEAR_FORMAT);
 
   const [yearsToDisplay, setYearsToDisplay] = useState(
@@ -70,7 +71,7 @@ const YearPicker = (props: YearPickerProps) => {
   };
 
   return (
-    <div className={styles.monthYearPickerContainer}>
+    <div data-testid={`${dateTestId}-year-picker`} className={styles.monthYearPickerContainer}>
       <div>
         <div className={classnames(styles.navigationWrapper, styles.navigationLeft)}>
           <DateNavigationItemComponent kind={Direction.prev} onClick={() => onYearNavigationClick(Direction.prev)} />

@@ -80,12 +80,12 @@ describe("DatePicker", () => {
   });
 
   it("Should open an year selection dropdown", () => {
-    const { container } = render(<DatePicker />);
-    const toggleButtonElemnt = container.querySelector(".date-picker-header-component-button-container");
+    const { container } = render(<DatePicker data-testid="date-picker" />);
+    const toggleButtonElemnt = container.querySelector("button[data-testid='date-picker-year-toggle']");
     act(() => {
       fireEvent.click(toggleButtonElemnt);
     });
-    const yearSelectionElement = container.querySelector(".date-month-year-picker-options");
+    const yearSelectionElement = container.querySelector("div[data-testid='date-picker-year-picker']");
     expect(yearSelectionElement).not.toBe(null);
   });
 });

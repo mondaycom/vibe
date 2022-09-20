@@ -20,9 +20,9 @@ export const DatePicker = props => {
   return (
     <DialogContentContainer className={"datepicker-dialog-content-container"}>
       {props.range ? (
-        <DatePickerComponent date={date.startDate} endDate={date.endDate} onPickDate={d => setDate(d)} {...props} />
+        <DatePickerComponent data-testid="date-picker"  date={date.startDate} endDate={date.endDate} onPickDate={d => setDate(d)} {...props} />
       ) : (
-        <DatePickerComponent date={date} onPickDate={d => setDate(d)} {...props} />
+        <DatePickerComponent data-testid="date-picker"  date={date} onPickDate={d => setDate(d)} {...props} />
       )}
     </DialogContentContainer>
   );

@@ -8,11 +8,11 @@ import DateNavigationItem from "./DateNavigationItem/DateNavigationItem";
 import YearPicker from "./YearPicker/YearPicker";
 import { DAY_SIZE, WEEK_FIRST_DAY } from "./constants";
 import { Moment, FocusInput, Direction, RangeDate } from "./types";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
 import styles from "./DatePicker.module.scss";
 import "react-dates/initialize";
-interface DatePickerProps {
-  id?: string;
-  className?: string;
+interface DatePickerProps extends VibeComponentProps {
   firstDayOfWeek: DayOfWeekShape;
   date?: Moment;
   endDate?: Moment;
@@ -31,10 +31,7 @@ interface DatePickerProps {
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const NOOP = () => {};
 
-const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAttributes<unknown>> = forwardRef<
-  HTMLDivElement,
-  DatePickerProps
->(
+const DatePicker: VibeComponent<DatePickerProps, HTMLElement> = forwardRef<HTMLDivElement, DatePickerProps>(
   (
     {
       id,
@@ -51,7 +48,8 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
       onPickDate,
       enableOutsideDays = false,
       showWeekNumber = false,
-      isOutsideRange
+      isOutsideRange,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -62,6 +60,7 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
     const renderMonth = ({ month }: { month: Moment }) => {
       return (
         <DatePickerHeaderComponent
+          data-testid={dataTestId}
           currentDate={month || moment()}
           isMonthYearSelection={isMonthYearSelection}
           onToggleMonthYearPicker={() => setIsMonthYearSelection(val => !val)}
@@ -87,6 +86,7 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
     const renderMonthYearSelection = () => {
       return (
         <YearPicker
+          data-testid={dataTestId}
           selectedDate={date}
           isYearBlocked={shouldBlockYear}
           changeCurrentDate={changeCurrentDateFromMonthYearView}
@@ -105,6 +105,7 @@ const DatePicker: React.ForwardRefExoticComponent<DatePickerProps & React.RefAtt
     const shouldShowNav = !hideNavigationKeys && !isMonthYearSelection;
     return (
       <div
+        data-testid={dataTestId}
         ref={ref}
         id={id}
         className={cx(styles.datepickerContainer, className, {
