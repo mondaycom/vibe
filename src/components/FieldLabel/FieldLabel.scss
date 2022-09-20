@@ -17,3 +17,7 @@
     @include theme-prop(color, primary-text-color);
   }
 }
+
+.label-component--wrapper .label-component--icon{
+  font-family: var(--subtext-font-family)
+}

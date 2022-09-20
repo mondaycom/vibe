@@ -36,3 +36,8 @@
     margin: 0 $spacing-small;
   }
 }
+
+.monday-style-menu-title .monday-style-menu-title__caption--center::before,
+  .monday-style-menu-title__caption--center::after{
+  font-family: var(--subtext-font-family);
+}
