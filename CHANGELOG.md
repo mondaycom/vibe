@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.64.2 (2022-09-20)
+
+#### Bug Fixes
+* [#879](https://github.com/mondaycom/monday-ui-react-core/pull/879) Fix flex grow loading state size. ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.64.1 (2022-09-20)
 
 #### Bug Fixes
