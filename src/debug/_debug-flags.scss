@@ -5,18 +5,19 @@
 $debug-values: false;
 $debug-show-pass: false;
 $debug-show-converted: false;
-$debug-show-converted-fail: true;
+$debug-show-converted-fail: false;
 
 // Themes
-$debug-basic-theme: true;
-$debug-dark-theme: true;
-$debug-black-theme: true;
+$debug-basic-theme: false;
+$debug-dark-theme: false;
+$debug-black-theme: false;
+$debug-hacker-theme: false;
 
 // Scopes
-$debug-palette: true;
-$debug-legacy-palette: true;
-$debug-keys: true;
-$debug-legacy-keys: true;
+$debug-palette: false;
+$debug-legacy-palette: false;
+$debug-keys: false;
+$debug-legacy-keys: false;
 
 // Example
 $debug-example-verify-vibe-keys: false;

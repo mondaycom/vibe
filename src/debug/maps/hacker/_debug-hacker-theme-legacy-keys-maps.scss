@@ -1,0 +1,43 @@
+// Values from last prod before change
+$debug-hacker-theme-legacy-keys-map: (
+        primary-on-secondary-color: #fe78c6,
+        primary-hover-on-secondary-color: #fe5ab9,
+        primary-selected-color-rgb: (159, 64, 119),
+        primary-selected-on-secondary-color: #9f4077,
+        primary-text-on-secondary-color: #d5d8df,
+        primary-background-color-rgb: (40, 42, 54),
+        primary-background-hover-on-secondary-color: #4b4e69,
+        secondary-background-color-rgb: (48, 50, 78),
+        secondary-text-on-secondary-color: var(--color-jaco_gray),
+        link-on-secondary-color: #bd93f9,
+        modal-background-color: #282a36,
+        dark-background-on-secondary-color: #595959,
+        dialog-background-color: #30324e,
+        label-background-color: #404b69,
+        label-background-on-secondary-color: #404b69,
+        icon-on-secondary-color: var(--color-wolf_gray),
+        placeholder-color-with-opacity: var(--color-wolf_gray-with-opacity),
+        placeholder-on-secondary-color: var(--color-wolf_gray),
+        ui-border-on-secondary-color: #797e93,
+        layout-border-on-secondary-color: #414458,
+        disabled-background-on-secondary-color: #3a3a3a,
+        disabled-text-on-secondary-color: rgba(238, 238, 238, var(--disabled-component-opacity)),
+);
+
+// Value from current code
+$debug-output-hacker-theme-legacy-keys: $theme-hacker-legacy-keys;
+
+// Custom properties values the equal hard coded values
+$debug-hacker-theme-legacy-custom-props-reference: (
+);
+
+$debug-hacker-theme-legacy-keys-custom-props-converted: (
+        secondary-text-on-secondary-color:$theme-hacker-secondary-text-on-secondary-color,
+        icon-on-secondary-color: $theme-hacker-icon-on-secondary-color,
+        placeholder-color-with-opacity: $theme-hacker-placeholder-color-with-opacity,
+        placeholder-on-secondary-color:$theme-hacker-placeholder-on-secondary-color,
+);
+
+// White list
+$debug-hacker-theme-legacy-keys-white-list: (
+);

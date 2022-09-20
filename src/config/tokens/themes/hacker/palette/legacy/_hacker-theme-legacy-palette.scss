@@ -1,0 +1,9 @@
+//  HACKER THEME TOKENS: LEGACY COLORS
+// - This partial defines Hacker Theme's legacy color tokens
+// - Legacy colors are colors that are not part of the theme's keys
+
+// success and error are redundant aliases the should not be used.
+// we use positive and negative keys instead.
+
+$theme-hacker-error: $color-red-fluorescent;
+$theme-hacker-success: $color-green-grotesque;

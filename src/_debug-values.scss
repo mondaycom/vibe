@@ -122,6 +122,35 @@
       );
     }
   }
+  @if $debug-hacker-theme {
+    //HACKER THEME
+    // - Theme keys
+    @if $debug-keys {
+      @include debug-compare-values(
+              $prod: $debug-hacker-theme-keys-map,
+              $dev: $debug-output-hacker-theme-keys,
+              $custom-props-values: $debug-hacker-theme-keys-custom-props-reference,
+              $custom-props-converted: $debug-hacker-theme-keys-custom-props-converted,
+              $white-list: $debug-hacker-theme-keys-white-list,
+              $reference-key-map: $debug-basic-theme-keys-map,
+              $title: "🔑 theme key values",
+              $scope: "hacker theme",
+      );
+    }
+    // - Theme legacy keys
+    @if $debug-legacy-keys {
+      @include debug-compare-values(
+              $prod: $debug-hacker-theme-legacy-keys-map,
+              $dev: $debug-output-hacker-theme-legacy-keys,
+              $custom-props-values: $debug-hacker-theme-legacy-custom-props-reference,
+              $custom-props-converted: $debug-hacker-theme-legacy-keys-custom-props-converted,
+              $white-list: $debug-hacker-theme-legacy-keys-white-list,
+              $reference-key-map: $debug-basic-theme-legacy-keys-map,
+              $title: "🗝️ legacy key values",
+              $scope: "hacker theme",
+      );
+    }
+  }
 
   // Example use for validate tokens using reference map
   @if $debug-example-verify-vibe-keys {

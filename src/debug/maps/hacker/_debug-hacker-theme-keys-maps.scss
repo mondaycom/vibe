@@ -1,0 +1,55 @@
+// Values from last prod before change
+$debug-hacker-theme-keys-map: (
+        primary-color: #fe78c6,
+        primary-hover-color: #fe5ab9,
+        primary-selected-color: #9f4077,
+        primary-text-color: #d5d8df,
+        text-color-on-inverted:var (--color-mud_black),
+        secondary-text-color:var (--color-jaco_gray),
+        placeholder-color:var (--color-wolf_gray),
+        icon-color:var (--color-wolf_gray),
+        link-color: #bd93f9,
+        primary-background-color: #282a36,
+        primary-background-hover-color: #4b4e69,
+        secondary-background-color: #30324e,
+        grey-background-color: #282a36,
+        allgrey-background-color: #282a36,
+        inverted-color-background: #ffffff,
+        disabled-text-color:rgba(238, 238, 238, var(--disabled-component-opacity)),
+        disabled-background-color: #3a3a3a,
+        positive-color:var (--color-success),
+        positive-color-hover:var (--color-success-hover),
+        layout-border-color: #414458,
+        positive-color-selected: #26503e,
+        negative-color:var (--color-error),
+        negative-color-hover:var (--color-error-hover),
+        negative-color-selected: #642830,
+        private-color:var (--color-private),
+        shareable-color: #a358df,
+        ui-border-color: #797e93,
+        layout-border-on-secondary-color: #414458,
+);
+
+// Value from current code
+$debug-output-hacker-theme-keys: $theme-hacker-keys;
+
+// Custom properties values that equal hard coded values
+$debug-hacker-theme-keys-custom-props-reference: (
+
+);
+
+$debug-hacker-theme-keys-custom-props-converted: (
+        text-color-on-inverted: $theme-hacker-text-color-on-inverted,
+        positive-color:$theme-hacker-positive-color,
+        positive-color-hover: $theme-hacker-positive-color-hover,
+        negative-color: $theme-hacker-negative-color,
+        negative-color-hover: $theme-hacker-negative-color-hover,
+        secondary-text-color:$theme-hacker-secondary-text-color,
+        placeholder-color: $theme-hacker-placeholder-color,
+        icon-color: $theme-hacker-icon-color,
+        private-color: $theme-hacker-private-color
+);
+// White list
+$debug-hacker-theme-keys-white-list: (
+        shareable-color:$shareable-color,
+);

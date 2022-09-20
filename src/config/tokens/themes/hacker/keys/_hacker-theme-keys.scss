@@ -1,0 +1,61 @@
+//  HACKER THEME  TOKENS: SEMANTIC KEYS COLORS
+// - This partial defines Basic Theme's Semantic Keys color tokens
+
+// - Theme keys should hold registration values (colors, content colors, other keys)
+//   - In some case there are unique hex values assignments
+//   - They should be transformed into Registration colors.
+//     - We add some annotation to their scope when found.
+// - When several key has the same value and have a connection
+// - We either use $theme-hacker token or var(--token) depending on connection logic and value type.
+
+@use "sass:color";
+
+// Text colors
+$theme-hacker-primary-color: $color-pink-plastic;
+$theme-hacker-primary-hover-color:  #{color.adjust($color-pink-plastic, $lightness: -6%)};
+$theme-hacker-primary-selected-color: $color-viola-vivid;
+$theme-hacker-primary-text-color: $color-snow;
+
+$theme-hacker-text-color-on-inverted: $color-mud_black; // todo: fix, value from basic theme
+
+$theme-hacker-secondary-text-color: $color-jaco_gray; // todo: fix, value from basic legacy palette
+$theme-hacker-placeholder-color: $color-wolf_gray; // todo: fix, value from basic theme
+$theme-hacker-icon-color: $color-wolf_gray; // todo: fix, value from basic theme
+
+$theme-hacker-link-color: $color-liliac;
+
+// Background colors
+$theme-hacker-primary-background-color: $color-night-sky;
+$theme-hacker-primary-background-hover-color: $color-silver;
+$theme-hacker-secondary-background-color: $color-graphite;
+$theme-hacker-grey-background-color: $color-night-sky;
+$theme-hacker-allgrey-background-color: $color-night-sky; //todo: fix, grey and allgrey should not be the same
+// - contrast hook
+$theme-hacker-inverted-color-background: $color-snow_white; // todo: fix, value from basic theme
+
+// System Semantics (state, status)
+$theme-hacker-disabled-text-color: $theme-black-disabled-text-color;
+$theme-hacker-disabled-background-color: $color-dust-muted;
+
+$theme-hacker-positive-color: $color-green-grotesque;
+$theme-hacker-positive-color-hover: $positive-color-hover;
+$theme-hacker-positive-color-selected: $color-green-blackboard;
+$theme-hacker-negative-color: $color-red-fluorescent;
+$theme-hacker-negative-color-hover: $negative-color-hover;
+$theme-hacker-negative-color-selected: $color-maroon_red;
+$theme-hacker-private-color: $private-color;
+$theme-hacker-shareable-color: $shareable-color;
+
+// UI elements
+// - Borders
+$theme-hacker-ui-border-color: $color-fog;
+$theme-hacker-layout-border-color: $color-blue-manhattan;
+
+// HACKER THEME TOKENS: SHADOWS
+
+$theme-hacker-shadow-color: $color-black;
+
+$theme-hacker-box-shadow-xs: $shadow-size-xs $theme-hacker-shadow-color;
+$theme-hacker-box-shadow-small: $shadow-size-small $theme-hacker-shadow-color;
+$theme-hacker-box-shadow-medium: $shadow-size-medium $theme-hacker-shadow-color;
+$theme-hacker-box-shadow-large: $shadow-size-large $theme-hacker-shadow-color;
