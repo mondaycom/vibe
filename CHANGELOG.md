@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.64.1 (2022-09-20)
+
+#### Bug Fixes
+* [#880](https://github.com/mondaycom/monday-ui-react-core/pull/880) Fix Virtualized list items ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.64.0 (2022-09-20)
 
 #### Bug Fixes
