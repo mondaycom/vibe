@@ -1,0 +1,47 @@
+@import "../../../styles/themes";
+@import "../../../styles/typography";
+
+.tabsWrapper {
+  padding-bottom: 20px;
+}
+
+.tabsList {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  font-size: 0;
+  position: relative;
+  height: 40px;
+  outline: none;
+}
+
+.tabsList.sm {
+  height: 32px;
+}
+
+.tabsList.lg {
+  height: 48px;
+}
+
+.stretched .tabsList {
+  width: 100%;
+}
+
+.stretched .tabsList :global(.tab--wrapper) {
+  width: 100%;
+}
+
+.stretched .tabsList :global(.tab--wrapper) :global(.tab-inner) {
+  width: 100%;
+}
+
+.disabled {
+  opacity: 0;
+  height: 0;
+  padding-bottom: 5px;
+  pointer-events: none;
+}
+
+.disabled .tabsList :global(.tab--wrapper) :global(.tab-inner):hover {
+  cursor: default;
+}

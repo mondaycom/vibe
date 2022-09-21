@@ -1,7 +1,9 @@
-import NOOP from "lodash/noop";
-import React, { useMemo, useCallback, useRef } from "react";
-import PropTypes from "prop-types";
+import { camelCase } from "lodash";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
+import NOOP from "lodash/noop";
+import React, { useCallback, useMemo, useRef } from "react";
+import PropTypes from "prop-types";
 import { CSSTransition } from "react-transition-group";
 import Button from "../../components/Button/Button";
 import Icon from "../../components/Icon/Icon";
@@ -11,8 +13,8 @@ import Info from "../../components/Icon/Icons/components/Info";
 import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import ToastLink from "./ToastLink/ToastLink";
 import ToastButton from "./ToastButton/ToastButton";
-import { TOAST_TYPES, TOAST_ACTION_TYPES } from "./ToastConstants";
-import "./Toast.scss";
+import { TOAST_ACTION_TYPES, TOAST_TYPES } from "./ToastConstants";
+import styles from "./Toast.module.scss";
 
 const defaultIconMap = {
   [TOAST_TYPES.NORMAL]: Info,
@@ -47,7 +49,9 @@ const Toast = ({
   children,
   closeable,
   onClose,
-  className
+  className,
+  id,
+  "data-testid": dataTestId
 }) => {
   const toastLinks = useMemo(() => {
     return actions
@@ -68,7 +72,14 @@ const Toast = ({
       : null;
   }, [actions]);
   const classNames = useMemo(
-    () => cx("monday-style-toast", `monday-style-toast--type-${type}`, className),
+    () =>
+      cx(
+        styles.toast,
+        "monday-style-toast",
+        styles[camelCase("type-" + type)],
+        `monday-style-toast--type-${type}`,
+        className
+      ),
     [type, className]
   );
   const handleClose = useCallback(() => {
@@ -103,23 +114,29 @@ const Toast = ({
   const iconElement = !hideIcon && getIcon(type, icon);
 
   return (
-    <CSSTransition in={open} classNames="monday-style-toast-animation" timeout={400} unmountOnExit>
-      <div className={classNames} role="alert" aria-live="polite">
-        {iconElement && <div className="monday-style-toast-icon">{iconElement}</div>}
+    <CSSTransition in={open} classNames={{ ...styles }} timeout={400} unmountOnExit>
+      <div
+        className={classNames}
+        role="alert"
+        aria-live="polite"
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOAST, id)}
+      >
+        {iconElement && <div className={cx(styles.icon, "monday-style-toast-icon")}>{iconElement}</div>}
         <div
-          className={cx("monday-style-toast-content", {
-            "monday-style-toast-content-no-icon": !iconElement
+          className={cx(styles.content, "monday-style-toast-content", {
+            [styles.contentNoIcon]: !iconElement,
+            ["monday-style-toast-content-no-icon"]: !iconElement
           })}
         >
           {children}
           {toastLinks}
         </div>
         {(toastButtons || deprecatedAction) && (
-          <div className="monday-style-toast-action">{toastButtons || deprecatedAction}</div>
+          <div className={cx(styles.action, "monday-style-toast-action")}>{toastButtons || deprecatedAction}</div>
         )}
         {closeable && (
           <Button
-            className="monday-style-toast_close-button"
+            className={cx(styles.closeButton, "monday-style-toast_close-button")}
             onClick={handleClose}
             size={Button.sizes.SMALL}
             kind={Button.kinds.TERTIARY}

@@ -1,11 +1,11 @@
-import React, { useRef, forwardRef, useState, useCallback, useEffect } from "react";
+import React, { forwardRef, useCallback, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import usePrevious from "../../../hooks/usePrevious";
-import "./TabsContext.scss";
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 
-const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) => {
+const TabsContext = forwardRef(({ className, id, activeTabId, children, "data-testid": dataTestId }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -30,7 +30,12 @@ const TabsContext = forwardRef(({ className, id, activeTabId, children }, ref) =
   );
 
   return (
-    <div ref={mergedRef} className={cx("tabs-context--wrapper", className)} id={id}>
+    <div
+      ref={mergedRef}
+      className={cx("tabs-context--wrapper", className)}
+      id={id}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TABS_CONTEXT, id)}
+    >
       {React.Children.map(children, child => {
         if (child.type.isTabList) {
           return React.cloneElement(child, { activeTabId: activeTabIdState, onTabChange: onTabClick });

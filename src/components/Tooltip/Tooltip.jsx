@@ -1,13 +1,15 @@
+import { camelCase } from "lodash";
+import cx from "classnames";
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import PropTypes from "prop-types";
-import classnames from "classnames";
 import isFunction from "lodash/isFunction";
 import Dialog from "../Dialog/Dialog";
 import { DialogPositions } from "../../constants/sizes";
 import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
 import { TOOLTIP_JUSTIFY_TYPES, TOOLTIP_THEMES } from "./TooltipConstants";
-import "./Tooltip.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./Tooltip.module.scss";
 
 // When last tooltip was shown in the last 1.5 second - the next tooltip will be shown immediately
 const IMMEDIATE_SHOW_THRESHOLD_MS = 1500;
@@ -54,8 +56,15 @@ export default class Tooltip extends React.PureComponent {
     return (
       <div
         style={style}
-        className={classnames(
-          `monday-style-tooltip monday-style-tooltip-${theme} padding-size-${paddingSize}`,
+        className={cx(
+          styles.tooltip,
+          "monday-style-tooltip",
+          styles[camelCase("tooltip-" + theme)],
+          `monday-style-tooltip-${theme}`,
+          {
+            [styles[camelCase("padding-size-" + paddingSize)]]: paddingSize,
+            [`padding-size-${paddingSize}`]: paddingSize
+          },
           className
         )}
       >
@@ -118,7 +127,9 @@ export default class Tooltip extends React.PureComponent {
       tip,
       showTrigger,
       hideTrigger,
-      showOnDialogEnter
+      showOnDialogEnter,
+      id,
+      "data-testId": dataTestId
     } = this.props;
 
     if (!children) {
@@ -136,14 +147,18 @@ export default class Tooltip extends React.PureComponent {
       content,
       getContainer: getContainer || this.getContainer,
       moveBy,
-      tooltipClassName: `monday-style-arrow monday-style-arrow-${theme} padding-size-${paddingSize}`,
+      tooltipClassName: cx("monday-style-arrow", styles[camelCase("arrow-" + theme)], `monday-style-arrow-${theme}`, {
+        [styles[camelCase("padding-size-" + paddingSize)]]: paddingSize,
+        [`padding-size-${paddingSize}`]: paddingSize
+      }),
       animationType: "expand",
       onDialogDidHide: this.onTooltipHide,
       onDialogDidShow: this.onTooltipShow,
       getDynamicShowDelay: this.getShowDelay,
       showTrigger,
       hideTrigger,
-      showOnDialogEnter
+      showOnDialogEnter,
+      "data-testid": dataTestId || getTestId(ELEMENT_TYPES.TOOLTIP, id)
     };
     return <Dialog {...dialogProps}>{children}</Dialog>;
   }

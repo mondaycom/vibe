@@ -1,12 +1,19 @@
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import cx from "classnames";
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
-import cx from "classnames";
 import Link from "../../Link/Link";
-import "./ToastLink.scss";
+import styles from "./ToastLink.module.scss";
 
-const ToastLink = ({ className, ...linkProps }) => {
-  const classNames = cx("monday-style-toast-action_link", className);
-  return <Link {...linkProps} componentClassName={classNames} />;
+const ToastLink = ({ className, id, "data-testid": dataTestId, ...linkProps }) => {
+  const classNames = cx(styles.actionLink, "monday-style-toast-action_link", className);
+  return (
+    <Link
+      {...linkProps}
+      componentClassName={classNames}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOAST_LINK, id)}
+    />
+  );
 };
 
 // eslint-disable-next-line no-unused-vars
