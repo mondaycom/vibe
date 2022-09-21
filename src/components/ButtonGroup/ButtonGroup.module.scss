@@ -1,0 +1,73 @@
+@import "../../styles/global-css-settings";
+@import "../../styles/themes";
+@import "../../styles/typography";
+
+.groupComponent {
+  display: flex;
+  flex-direction: column;
+}
+
+.subTextContainer {
+  @include font-caption();
+}
+
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonsContainer :global(.monday-style-button) {
+  border: 1px solid;
+  @include theme-prop(background-color, primary-background-color);
+  @include theme-prop(border-color, ui-border-color);
+}
+
+.buttonsContainer :global(.monday-style-button--color-primary-active) {
+  z-index: 20;
+}
+
+.buttonsContainer :global(.monday-style-button--color-primary-active:hover) {
+  @include theme-prop(background-color, primary-selected-color);
+}
+
+.buttonsContainer :global(.monday-style-button--color-primary-active) {
+  @include theme-prop(background-color, primary-selected-color);
+}
+
+.buttonsContainer :global(.monday-style-button--color-primary-active) {
+  @include theme-prop(border-color, primary-color);
+}
+
+.optionText:not(.disabled) {
+  @include theme-prop(color, primary-text-color);
+}
+
+.optionText:not(.disabled).selected {
+  z-index: 10;
+  @include theme-prop(color, primary-text-color);
+}
+
+// Kind
+.tertiary :global(.monday-style-button) {
+  border-color: transparent;
+}
+.tertiary :global(.monday-style-button:first-child) {
+  border-color: transparent;
+}
+
+.groupComponent.disabled {
+  cursor: not-allowed;
+}
+
+.groupComponent .disabled {
+  cursor: not-allowed;
+  background-color: var(--disabled-background-color);
+  opacity: 0.5;
+}
+
+.groupComponent .buttonDisabled {
+  background-color: var(--disabled-background-color);
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -22,6 +22,7 @@ export const ELEMENT_TYPES = {
   AVATAR_BADGE: "avatar-badge",
   AVATAR_CONTENT: "avatar-content",
   BREADCRUMB_ITEM: "breadcrumb-item",
+  BREADCRUMB_CONTENT: "breadcrumb-content",
   BREADCRUMBS_BAR: "breadcrumbs-bar",
   COLOR_PICKER_ITEM_COMPONENT: "color-picker-item-component",
   COMBOBOX_CATEGORY: "combobox-category",
@@ -65,7 +66,9 @@ export const ELEMENT_TYPES = {
   FORMATTED_NUMBER: "formatted-number",
   HIDDEN_TEXT: "hidden-text",
   DIALOG: "dialog",
-  DIALOG_CONTENT_CONTAINER: "dialog-content-container"
+  DIALOG_CONTENT_CONTAINER: "dialog-content-container",
+  BANNER: "banner",
+  BUTTON_GROUP: "button-group"
 };
 
 export const NAVIGATIONS_COMMANDS = {

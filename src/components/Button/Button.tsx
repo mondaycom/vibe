@@ -1,7 +1,8 @@
-/* eslint-disable react/button-has-type */
-import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+/* eslint-disable react/jsx-props-no-spreading,react/button-has-type */
+import { camelCase } from "lodash";
 import cx from "classnames";
-import { SIZES } from "../../constants";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { SIZES } from "../../constants/sizes";
 import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
@@ -10,7 +11,8 @@ import Loader from "../../components/Loader/Loader";
 import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import "./Button.scss";
+import { getStyle } from "../../helpers/typesciptCssModulesHelper";
+import styles from "./Button.module.scss";
 
 // @ts-ignore
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
@@ -81,7 +83,7 @@ export interface ButtonProps {
   noSidePadding?: boolean;
   /** default color for text color in ON_PRIMARY_COLOR kind (should be any type of css color (rbg, var, hex...) */
   defaultTextColorOnPrimaryColor?: string;
-  dataTestId?: string;
+  "data-testid"?: string;
   /** Change the focus indicator from around the button to within it */
   insetFocus?: boolean;
 }
@@ -129,7 +131,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       ariaExpanded,
       ariaControls,
       blurOnMouseUp,
-      dataTestId,
+      "data-testid": dataTestId,
       insetFocus
     },
     ref
@@ -205,22 +207,37 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       const calculatedColor = success ? ButtonColor.POSITIVE : color;
       return cx(
         className,
+        styles.button,
         "monday-style-button",
+        getStyle(styles, camelCase("size-" + getActualSize(size))),
         `monday-style-button--size-${getActualSize(size)}`,
+        getStyle(styles, camelCase("kind-" + kind)),
         `monday-style-button--kind-${kind}`,
+        getStyle(styles, camelCase("color-" + calculatedColor)),
         `monday-style-button--color-${calculatedColor}`,
         {
-          "has-style-size": hasSizeStyle,
-          "monday-style-button--loading": loading,
+          [styles.hasStyleSize]: hasSizeStyle,
+          ["has-style-size"]: hasSizeStyle,
+          [styles.loading]: loading,
+          ["monday-style-button--loading"]: loading,
+          [getStyle(styles, camelCase("color-" + calculatedColor + "-active"))]: active,
           [`monday-style-button--color-${calculatedColor}-active`]: active,
-          "monday-style-button--margin-right": marginRight,
-          "monday-style-button--margin-left": marginLeft,
-          "monday-style-button--right-flat": rightFlat,
-          "monday-style-button--left-flat": leftFlat,
-          "monday-style-button--prevent-click-animation": preventClickAnimation,
-          "monday-style-button--no-side-padding": noSidePadding,
-          "monday-style-button--disabled": disabled,
-          "inset-focus-style": insetFocus
+          [styles.marginRight]: marginRight,
+          ["monday-style-button--margin-right"]: marginRight,
+          [styles.marginLeft]: marginLeft,
+          ["monday-style-button--margin-left"]: marginLeft,
+          [styles.rightFlat]: rightFlat,
+          ["monday-style-button--right-flat"]: rightFlat,
+          [styles.leftFlat]: leftFlat,
+          ["monday-style-button--left-flat"]: leftFlat,
+          [styles.clickAnimation]: !preventClickAnimation,
+          ["monday-style-button--prevent-click-animation"]: preventClickAnimation,
+          [styles.noSidePadding]: noSidePadding,
+          ["monday-style-button--no-side-padding"]: noSidePadding,
+          [styles.disabled]: disabled,
+          ["monday-style-button--disabled"]: disabled,
+          [styles.insetFocusStyle]: insetFocus,
+          ["inset-focus-style"]: insetFocus
         }
       );
     }, [
@@ -307,10 +324,10 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
     if (loading) {
       return (
         <button {...buttonProps}>
-          <span className="monday-style-button__loader">
+          <span className={cx(styles.loader, "monday-style-button__loader")}>
             {/** Because typescript can't handle with this not converted component API*/}
             {/** @ts-ignore */}
-            <Loader svgClassName="monday-style-button-loader-svg" />
+            <Loader svgClassName={cx(styles.loaderSvg, "monday-style-button-loader-svg")} />
           </span>
         </button>
       );
@@ -326,7 +343,8 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
               icon={successIcon}
               iconSize={successIconSize}
               className={cx({
-                "monday-style-button--left-icon": !!successText
+                [styles.leftIcon]: !!successText,
+                ["monday-style-button--left-icon"]: !!successText
               })}
               ignoreFocusStyle
             />
@@ -344,7 +362,10 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
             clickable={false}
             icon={leftIcon}
             iconSize={leftIconSize}
-            className={cx({ "monday-style-button--left-icon": !!children })}
+            className={cx({
+              [styles.leftIcon]: !!children,
+              ["monday-style-button--left-icon"]: !!children
+            })}
             ignoreFocusStyle
           />
         ) : null}
@@ -355,7 +376,10 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
             clickable={false}
             icon={rightIcon}
             iconSize={rightIconSize}
-            className={cx({ "monday-style-button--right-icon": !!children })}
+            className={cx({
+              [styles.rightIcon]: !!children,
+              ["monday-style-button--right-icon"]: !!children
+            })}
             ignoreFocusStyle
           />
         ) : null}
@@ -377,7 +401,6 @@ Button.defaultProps = {
   name: undefined,
   style: undefined,
   id: undefined,
-  dataTestId: undefined,
   kind: Button.kinds?.PRIMARY,
   onClick: NOOP,
   size: Button.sizes?.MEDIUM,
@@ -407,7 +430,8 @@ Button.defaultProps = {
   ariaControls: undefined,
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
-  insetFocus: false
+  insetFocus: false,
+  "data-testid": undefined
 };
 
 export default Button;

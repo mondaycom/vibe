@@ -8,11 +8,11 @@ import Icon from "../../components/Icon/Icon";
 import Button from "../../components/Button/Button";
 import { NOOP } from "../../utils/function-utils";
 import {
-  NEXT_DESCRIPTION,
-  BACK_DESCRIPTION,
-  STEPS_CSS_BASE_CLASS,
   BACK_COMMAND_TEST_ID,
-  NEXT_COMMAND_TEST_ID
+  BACK_DESCRIPTION,
+  NEXT_COMMAND_TEST_ID,
+  NEXT_DESCRIPTION,
+  STEPS_CSS_BASE_CLASS
 } from "./StepsConstants";
 
 const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-command`;
@@ -41,7 +41,7 @@ export const StepsCommand = ({
   return (
     <Button
       className={cx(CSS_BASE_CLASS, bemHelper({ state: isNext ? "forward" : "backward" }))}
-      dataTestId={isNext ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
+      data-testid={isNext ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
       kind={Button.kinds.TERTIARY}
       onClick={onClick}
       disabled={isDisable}

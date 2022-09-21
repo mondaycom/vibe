@@ -4,7 +4,7 @@ exports[`IconButton renders correctly with 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="class-name monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="class-name button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -46,7 +46,7 @@ exports[`IconButton renders correctly with active 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--color-primary-active monday-style-button--no-side-padding"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary colorPrimaryActive monday-style-button--color-primary-active clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -101,7 +101,7 @@ exports[`IconButton renders correctly with aria label 1`] = `
     aria-busy={false}
     aria-disabled={false}
     aria-label="My aria label"
-    className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+    className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
     data-testid="icon-button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -144,7 +144,7 @@ exports[`IconButton renders correctly with disabled 1`] = `
 <button
   aria-busy={false}
   aria-disabled={true}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding monday-style-button--disabled"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding disabled monday-style-button--disabled"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -186,7 +186,7 @@ exports[`IconButton renders correctly with empty props 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -228,7 +228,7 @@ exports[`IconButton renders correctly with id 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="icon-button_icon-button"
   id="icon-button"
   onBlur={[Function]}
@@ -271,7 +271,7 @@ exports[`IconButton renders correctly with size - large 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -313,7 +313,7 @@ exports[`IconButton renders correctly with size - medium 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -355,7 +355,7 @@ exports[`IconButton renders correctly with size - small 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -397,7 +397,7 @@ exports[`IconButton renders correctly with size - xs 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}
@@ -439,7 +439,7 @@ exports[`IconButton renders correctly with size - xxs 1`] = `
 <button
   aria-busy={false}
   aria-disabled={false}
-  className="monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--no-side-padding"
+  className="button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary clickAnimation noSidePadding monday-style-button--no-side-padding"
   data-testid="icon-button"
   onBlur={[Function]}
   onClick={[Function]}

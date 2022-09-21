@@ -1,11 +1,12 @@
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import cx from "classnames";
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import { BreadcrumbContent } from "./BreadcrumbContent/BreadcrumbContent";
-import "./BreadcrumbItem.scss";
+import styles from "./BreadcrumbItem.module.scss";
 
 const MOUSEENTER = ["mouseenter"];
 const MOUSELEAVE = ["mouseleave"];
@@ -20,7 +21,9 @@ const BreadcrumbItem = ({
   link,
   onClick,
   isCurrent,
-  icon
+  icon,
+  id,
+  "data-testid": dataTestId
 }) => {
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
   const componentRef = useRef(null);
@@ -35,21 +38,16 @@ const BreadcrumbItem = ({
       hideTrigger={MOUSELEAVE}
     >
       <li
-        className={classNames(
-          "breadcrumbItem--wrapper",
-          className,
-          { clickable: isClickable },
-          { current: isCurrent },
-          { disabled: overrideDisabled }
-        )}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.BREADCRUMB_ITEM, id)}
+        className={cx(styles.wrapper, "breadcrumbItem--wrapper", className, {
+          [styles.clickable]: isClickable,
+          ["clickable"]: isClickable,
+          [styles.disabled]: overrideDisabled,
+          ["disabled"]: overrideDisabled
+        })}
       >
         <BreadcrumbContent
-          className={classNames(
-            "breadcrumb-content",
-            { clickable: isClickable },
-            { current: isCurrent },
-            { disabled: overrideDisabled }
-          )}
           ref={componentRef}
           isClickable={isClickable}
           link={link}

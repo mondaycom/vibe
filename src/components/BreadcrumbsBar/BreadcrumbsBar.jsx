@@ -1,22 +1,33 @@
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import NavigationChevronRight from "../Icon/Icons/components/NavigationChevronRight";
-import "./BreadcrumbsBar.scss";
+import styles from "./BreadcrumbsBar.module.scss";
 
 const BREADCRUMBS_BAR_TYPE = {
   NAVIGATION: "navigation",
   INDICATION: "indication"
 };
 
-const BreadcrumbsBar = ({ className, children, type }) => (
-  <nav aria-label="Breadcrumb" className={cx("breadcrumbs-bar--wrapper", className)}>
+const BreadcrumbsBar = ({ className, children, type, id, "data-testid": dataTestId }) => (
+  <nav
+    aria-label="Breadcrumb"
+    className={cx(styles.breadcrumbsBarWrapper, "breadcrumbs-bar--wrapper", className)}
+    data-testid={dataTestId || getTestId(ELEMENT_TYPES.BREADCRUMBS_BAR, id)}
+  >
     <ol>
       {children &&
         React.Children.map(children, (child, index) =>
           React.isValidElement(child)
             ? [
-                index > 0 && <NavigationChevronRight className="sparatorIcon" size="14" aria-hidden="true" />,
+                index > 0 && (
+                  <NavigationChevronRight
+                    className={cx(styles.separatorIcon, "separatorIcon")}
+                    size="14"
+                    aria-hidden="true"
+                  />
+                ),
                 React.cloneElement(child, {
                   ...child?.props,
                   isClickable: type !== BREADCRUMBS_BAR_TYPE.INDICATION

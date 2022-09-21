@@ -1,13 +1,15 @@
-import React, { useRef, forwardRef, useCallback, useMemo, useEffect, useState } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
-import Button from "../../components/Button/Button";
+import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import Button from "../Button/Button";
 import usePrevious from "../../hooks/usePrevious";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { baseClassName } from "./ButtonGroupConstants";
 import { ButtonWrapper } from "./ButtonWrapper";
-import "./ButtonGroup.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./ButtonGroup.module.scss";
+
+const CSS_BASE_CLASS = "monday-style-button-group-component";
 
 const ButtonGroup = forwardRef(
   (
@@ -27,7 +29,9 @@ const ButtonGroup = forwardRef(
       tooltipHideDelay,
       tooltipShowDelay,
       tooltipContainerSelector,
-      tooltipMoveBy
+      tooltipMoveBy,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -59,6 +63,8 @@ const ButtonGroup = forwardRef(
         const isSelected = option.value === valueState;
         return (
           <ButtonWrapper
+            id={id}
+            data-testid={dataTestId || getTestId(ELEMENT_TYPES.BUTTON_GROUP, id)}
             key={option.value}
             size={size}
             onClick={() => onClick(option)}
@@ -76,10 +82,13 @@ const ButtonGroup = forwardRef(
             tooltipShowDelay={tooltipShowDelay}
             tooltipContainerSelector={tooltipContainerSelector}
             tooltipMoveBy={tooltipMoveBy}
-            className={cx(`${baseClassName}__option-text`, {
-              selected: isSelected,
-              disabled,
-              "button-disabled": option.disabled
+            className={cx(styles.optionText, `${CSS_BASE_CLASS}__option-text`, {
+              [styles.selected]: isSelected,
+              ["selected"]: isSelected,
+              [styles.disabled]: disabled,
+              ["disabled"]: disabled,
+              [styles.buttonDisabled]: option.disabled,
+              ["button-disabled"]: option.disabled
             })}
           >
             {option.text}
@@ -88,15 +97,17 @@ const ButtonGroup = forwardRef(
       });
     }, [
       options,
-      disabled,
-      onClick,
-      size,
       valueState,
+      id,
+      dataTestId,
+      size,
       tooltipPosition,
       tooltipHideDelay,
       tooltipShowDelay,
       tooltipContainerSelector,
-      tooltipMoveBy
+      tooltipMoveBy,
+      disabled,
+      onClick
     ]);
 
     // Effects
@@ -109,19 +120,31 @@ const ButtonGroup = forwardRef(
 
     return (
       <div
-        className={cx(baseClassName, overrideClassName, `${baseClassName}--kind-${kind}`, { disabled })}
+        className={cx(
+          styles.groupComponent,
+          CSS_BASE_CLASS,
+          overrideClassName,
+          styles[kind],
+          `${CSS_BASE_CLASS}--kind-${kind}`,
+          {
+            [styles.disabled]: disabled,
+            ["disabled"]: disabled
+          }
+        )}
         ref={mergedRef}
       >
         <div
           role="group"
           aria-label={groupAriaLabel}
-          className={cx(`${baseClassName}__buttons-container`)}
+          className={cx(styles.groupComponentButtonsContainer, `${CSS_BASE_CLASS}__buttons-container`)}
           aria-disabled={disabled}
         >
           {Buttons}
         </div>
         {selectedOption && selectedOption.subText && (
-          <div className={`${baseClassName}__sub-text-container`}>{selectedOption.subText}</div>
+          <div className={cx(styles.groupComponentSubTextContainer, `${CSS_BASE_CLASS}__sub-text-container`)}>
+            {selectedOption.subText}
+          </div>
         )}
       </div>
     );
