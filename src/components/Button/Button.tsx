@@ -401,6 +401,7 @@ Button.defaultProps = {
   name: undefined,
   style: undefined,
   id: undefined,
+  "data-testid": undefined,
   kind: Button.kinds?.PRIMARY,
   onClick: NOOP,
   size: Button.sizes?.MEDIUM,
@@ -430,8 +431,7 @@ Button.defaultProps = {
   ariaControls: undefined,
   ariaLabel: undefined,
   ariaLabeledBy: undefined,
-  insetFocus: false,
-  "data-testid": undefined
+  insetFocus: false
 };
 
 export default Button;

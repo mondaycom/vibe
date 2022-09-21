@@ -1,0 +1,70 @@
+@import "../../styles/global-css-settings";
+@import "../../styles/typography";
+@import "../../styles/themes";
+
+.banner {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  width: 100%;
+  font-size: 14px;
+}
+
+.primary {
+  @include theme-prop(background-color, primary-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.positive {
+  @include theme-prop(background-color, positive-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.negative {
+  @include theme-prop(background-color, negative-color);
+  @include theme-prop(color, text-color-on-primary);
+}
+
+.dark {
+  @include theme-prop(background-color, inverted-color-background);
+  @include theme-prop(color, text-color-on-inverted);
+}
+
+.inner {
+  flex: 1 1 auto;
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  padding-left: $spacing-medium;
+}
+
+.closeButtonWrapper {
+  flex: 0 0 40px;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+
+:global(.monday-style-button).closeBtn {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+
+.ellipsis {
+  flex: 0 1 auto;
+}
+
+.innerItem {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.innerItemText {
+  flex: 0 1 auto;
+  min-width: 0;
+}

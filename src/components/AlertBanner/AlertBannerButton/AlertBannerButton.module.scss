@@ -1,0 +1,16 @@
+@import "../../../styles/global-css-settings";
+@import "../../../styles/typography";
+@import "../../../styles/themes";
+
+:global(.monday-style-button).button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:global(.dark-app-theme) .darkBackground .button {
+  background-color: var(--dark-background-color);
+}
+
+.marginLeft {
+  margin-left: $spacing-small;
+}

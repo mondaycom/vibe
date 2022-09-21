@@ -14,6 +14,7 @@ export const ELEMENT_TYPES = {
   COLOR_PICKER_ITEM: "color-picker-item",
   ICON_BUTTON: "icon-button",
   CHIP: "chip",
+  ALERT_BANNER: "alert-banner",
   ALERT_BANNER_BUTTON: "alert-banner-button",
   ALERT_BANNER_LINK: "alert-banner-link",
   ALERT_BANNER_TEXT: "alert-banner-text",

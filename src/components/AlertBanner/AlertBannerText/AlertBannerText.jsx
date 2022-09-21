@@ -1,17 +1,16 @@
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import cx from "classnames";
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import Tooltip from "../../Tooltip/Tooltip";
 import useIsOverflowing from "../../../hooks/useIsOverflowing";
-
-import "./AlertBannerText.scss";
+import styles from "./AlertBannerText.module.scss";
 
 const TOOLTIP_SHOW_TRIGGERS = ["mouseenter"];
 const TOOLTIP_HIDE_TRIGGERS = ["mouseleave"];
 
-const AlertBannerText = ({ text, marginLeft }) => {
+const AlertBannerText = ({ text, marginLeft, id, "data-testid": dataTestId }) => {
   const componentRef = useRef(null);
-  const classNames = cx("monday-style-alert-banner-text", { "monday-style-alert-banner-text-margin-left": marginLeft });
   const isOverflowing = useIsOverflowing({ ref: componentRef });
 
   return (
@@ -21,7 +20,15 @@ const AlertBannerText = ({ text, marginLeft }) => {
       showTrigger={TOOLTIP_SHOW_TRIGGERS}
       hideTrigger={TOOLTIP_HIDE_TRIGGERS}
     >
-      <div ref={componentRef} className={classNames}>
+      <div
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.ALERT_BANNER_TEXT, id)}
+        ref={componentRef}
+        className={cx(styles.text, "monday-style-alert-banner-text", {
+          [styles.marginLeft]: marginLeft,
+          ["monday-style-alert-banner-text-margin-left"]: marginLeft
+        })}
+      >
         <span>{text}</span>
       </div>
     </Tooltip>
