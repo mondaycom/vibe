@@ -1,21 +1,21 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props,jsx-a11y/no-noninteractive-element-interactions */
-import React, { useRef, forwardRef, useCallback } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useRef } from "react";
+import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./ListItem.scss";
 import { SIZES } from "../../constants/sizes";
 import { keyCodes } from "../../constants/KeyCodes";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./ListItem.module.scss";
 
-const BEM_BASE_CLASS = "list-item";
-
-function BEMHelper(state) {
-  return `${BEM_BASE_CLASS}--${state}`;
-}
+const CSS_BASE_CLASS = "list-item";
 
 const ListItem = forwardRef(
-  ({ className, id, onClick, onHover, selected, disabled, size, tabIndex, children }, ref) => {
+  (
+    { className, id, onClick, onHover, selected, disabled, size, tabIndex, children, "data-testid": dataTestId },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -49,9 +49,11 @@ const ListItem = forwardRef(
     return (
       <div
         ref={mergedRef}
-        className={cx("list-item", className, BEMHelper(size), {
-          [BEMHelper("selected")]: selected && !disabled,
-          [BEMHelper("disabled")]: disabled
+        className={cx(styles.listItem, CSS_BASE_CLASS, className, styles[size], `list-item--${size}`, {
+          [styles.selected]: selected && !disabled,
+          ["list-item--selected"]: selected && !disabled,
+          [styles.disabled]: disabled,
+          ["list-item--disabled"]: disabled
         })}
         id={id}
         aria-disabled={disabled}
@@ -61,6 +63,7 @@ const ListItem = forwardRef(
         onFocus={componentOnHover}
         role="listitem"
         tabIndex={tabIndex}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LIST_ITEM, id)}
       >
         {children}
       </div>
@@ -112,8 +115,8 @@ ListItem.propTypes = {
    */
   size: PropTypes.oneOf([ListItem.sizes.SMALL, ListItem.sizes.MEDIUM, ListItem.sizes.LARGE]),
   /**
-     Tabindex is used for keyboard navigation - if you want to skip "Tab navigation" please pass -1.
-     */
+   * Tabindex is used for keyboard navigation - if you want to skip "Tab navigation" please pass -1.
+   */
   tabIndex: PropTypes.number
 };
 ListItem.defaultProps = {

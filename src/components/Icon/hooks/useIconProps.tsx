@@ -5,6 +5,7 @@ import useEventListener from "../../../hooks/useEventListener";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { keyCodes } from "../../../constants/KeyCodes";
 import useIconScreenReaderAccessProps from "../../../hooks/useIconScreenReaderAccessProps";
+import styles from "../Icon.module.scss";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
@@ -42,8 +43,10 @@ export default function useIconProps({
   }, []);
 
   const computedClassName = useMemo(() => {
-    return cx("icon_component", className, {
+    return cx(styles.icon, "icon_component", className, {
+      [styles.clickable]: clickable,
       "icon_component--clickable": clickable,
+      [styles.noFocusStyle]: ignoreFocusStyle,
       "icon_component--no-focus-style": ignoreFocusStyle
     });
   }, [clickable, className, ignoreFocusStyle]);

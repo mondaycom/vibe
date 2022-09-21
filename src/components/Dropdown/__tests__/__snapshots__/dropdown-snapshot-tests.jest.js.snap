@@ -70,7 +70,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on click if
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon icon_component clickable icon_component--clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -213,7 +214,8 @@ exports[`Dropdown renders correctly snapshot driver should open menu on focus if
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon icon_component clickable icon_component--clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -291,7 +293,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon icon_component clickable icon_component--clickable"
+              data-testid="icon"
               fill="currentColor"
               height="16px"
               role="button"
@@ -369,7 +372,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon icon_component clickable icon_component--clickable"
+              data-testid="icon"
               fill="currentColor"
               height="16px"
               role="button"
@@ -447,7 +451,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon icon_component clickable icon_component--clickable"
+              data-testid="icon"
               fill="currentColor"
               height="16px"
               role="button"
@@ -525,7 +530,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon icon_component clickable icon_component--clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -603,7 +609,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly for 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon icon_component clickable icon_component--clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -681,7 +688,8 @@ exports[`Dropdown renders correctly snapshot driver should render correctly with
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon icon_component clickable icon_component--clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -788,7 +796,8 @@ exports[`Dropdown renders correctly snapshot driver should use async if set 1`] 
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon icon_component clickable icon_component--clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -881,7 +890,8 @@ exports[`Dropdown renders correctly snapshot driver should use virtualization if
           >
             <svg
               aria-hidden="false"
-              class="icon_component icon_component--clickable"
+              class="icon icon_component clickable icon_component--clickable"
+              data-testid="icon"
               fill="currentColor"
               height="20px"
               role="button"
@@ -1154,7 +1164,8 @@ exports[`Dropdown renders correctly when disabled 1`] = `
         >
           <svg
             aria-hidden={true}
-            className="icon_component"
+            className="icon icon_component"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1270,7 +1281,8 @@ exports[`Dropdown renders correctly when rtl 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1387,7 +1399,8 @@ exports[`Dropdown renders correctly with autoFocus 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1473,7 +1486,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="icon_component icon-button-padding icon_component--no-focus-style"
+                  className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+                  data-testid="icon"
                   fill="currentColor"
                   height="16"
                   onClick={[Function]}
@@ -1529,7 +1543,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="icon_component icon-button-padding icon_component--no-focus-style"
+                  className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+                  data-testid="icon"
                   fill="currentColor"
                   height="16"
                   onClick={[Function]}
@@ -1585,7 +1600,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="icon_component icon-button-padding icon_component--no-focus-style"
+                  className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+                  data-testid="icon"
                   fill="currentColor"
                   height="16"
                   onClick={[Function]}
@@ -1674,7 +1690,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1702,7 +1719,8 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1819,7 +1837,8 @@ exports[`Dropdown renders correctly with className 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1933,7 +1952,8 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -1961,7 +1981,8 @@ exports[`Dropdown renders correctly with defaultValue 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2078,7 +2099,8 @@ exports[`Dropdown renders correctly with empty props 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2195,7 +2217,8 @@ exports[`Dropdown renders correctly with id 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2302,7 +2325,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="icon_component icon-button-padding icon_component--no-focus-style"
+                  className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+                  data-testid="icon"
                   fill="currentColor"
                   height="16"
                   onClick={[Function]}
@@ -2391,7 +2415,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2419,7 +2444,8 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2478,7 +2504,8 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
             >
               <svg
                 aria-hidden={true}
-                className="icon_component icon left icon_component--no-focus-style"
+                className="icon icon_component icon left noFocusStyle icon_component--no-focus-style"
+                data-testid="icon"
                 fill="currentColor"
                 height="16"
                 onClick={[Function]}
@@ -2521,7 +2548,8 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
               >
                 <svg
                   aria-hidden={true}
-                  className="icon_component icon-button-padding icon_component--no-focus-style"
+                  className="icon icon_component icon-button-padding noFocusStyle icon_component--no-focus-style"
+                  data-testid="icon"
                   fill="currentColor"
                   height="16"
                   onClick={[Function]}
@@ -2610,7 +2638,8 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2638,7 +2667,8 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2769,7 +2799,8 @@ exports[`Dropdown renders correctly with multi 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -2886,7 +2917,8 @@ exports[`Dropdown renders correctly with multiline 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3003,7 +3035,8 @@ exports[`Dropdown renders correctly with options 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3120,7 +3153,8 @@ exports[`Dropdown renders correctly with placeholder 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3237,7 +3271,8 @@ exports[`Dropdown renders correctly with tabIndex 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3351,7 +3386,8 @@ exports[`Dropdown renders correctly with value 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3379,7 +3415,8 @@ exports[`Dropdown renders correctly with value 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}
@@ -3496,7 +3533,8 @@ exports[`Dropdown renders correctly without clear button 1`] = `
         >
           <svg
             aria-hidden={false}
-            className="icon_component icon_component--clickable"
+            className="icon icon_component clickable icon_component--clickable"
+            data-testid="icon"
             fill="currentColor"
             height="20px"
             onClick={[Function]}

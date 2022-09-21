@@ -1,20 +1,22 @@
-import React, { useRef, forwardRef } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useRef } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import "./ListItemIcon.scss";
 import Icon from "../Icon/Icon";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./ListItemIcon.module.scss";
 
-const ListItemIcon = forwardRef(({ className, id, icon, margin }, ref) => {
+const ListItemIcon = forwardRef(({ className, id, icon, margin, "data-testid": dataTestId }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
   return (
     <div
       ref={mergedRef}
-      className={cx("list-item-icon", className, `list-item-icon--${margin}`)}
+      className={cx(styles.listItemIcon, "list-item-icon", className, styles[margin], `list-item-icon--${margin}`)}
       id={id}
       aria-hidden="true"
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.LIST_ITEM_ICON, id)}
     >
       <Icon icon={icon} clickable={false} ignoreFocusStyle iconSize={18} />
     </div>

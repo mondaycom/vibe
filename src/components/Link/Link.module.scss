@@ -1,0 +1,51 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
+
+.link {
+  display: flex;
+  align-items: center;
+  @include theme-prop(color, link-color);
+  @include font-link();
+  text-decoration: none;
+  writing-mode: horizontal-tb;
+  @include focus-style();
+}
+
+.link:hover .linkText {
+  text-decoration: underline;
+}
+
+.inlineText {
+  display: inline-flex;
+  align-items: unset;
+}
+
+.inheritFontSize {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.iconStart {
+  line-height: 24px;
+  margin-right: $spacing-small;
+}
+
+.iconEnd {
+  line-height: 24px;
+  margin-left: $spacing-small;
+}
+
+@supports (margin-inline-start: initial) {
+  .iconStart {
+    line-height: 24px;
+    margin-right: 0;
+    margin-inline-end: $spacing-small;
+  }
+  .iconEnd {
+    line-height: 24px;
+    margin-left: 0;
+    margin-inline-start: $spacing-small;
+  }
+}

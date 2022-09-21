@@ -1,13 +1,28 @@
-import React, { useRef, forwardRef, useMemo, useState, useCallback } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { VirtualizedListItems } from "../../components/List/VirtualizedListItems/VirtualizedListItems";
-import "./List.scss";
 import { keyCodes } from "../../constants/KeyCodes";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./List.module.scss";
 
 const List = forwardRef(
-  ({ className, id, component, children, dense, ariaLabel, ariaDescribedBy, renderOnlyVisibleItems, style }, ref) => {
+  (
+    {
+      className,
+      id,
+      component,
+      children,
+      dense,
+      ariaLabel,
+      ariaDescribedBy,
+      renderOnlyVisibleItems,
+      style,
+      "data-testid": dataTestId
+    },
+    ref
+  ) => {
     const componentRef = useRef(null);
     const [focusIndex, setFocusIndex] = useState(0);
     const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
@@ -60,7 +75,7 @@ const List = forwardRef(
         ref={mergedRef}
         style={style}
         onKeyDown={!renderOnlyVisibleItems ? onKeyDown : undefined}
-        className={cx("monday-style-list", className, {
+        className={cx(styles.list, "monday-style-list", className, {
           "monday-style-list--dense": dense,
           "monday-style-list-container": renderOnlyVisibleItems
         })}
@@ -68,6 +83,7 @@ const List = forwardRef(
         aria-label={ariaLabel}
         aria-describedby={ariaDescribedBy}
         tabIndex={-1}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LIST, id)}
       >
         {overrideChildren}
       </Component>

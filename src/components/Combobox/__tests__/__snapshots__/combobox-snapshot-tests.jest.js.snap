@@ -60,7 +60,8 @@ exports[`Combobox renders correctly when disabled 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -88,7 +89,8 @@ exports[`Combobox renders correctly when disabled 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -175,7 +177,8 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -203,7 +206,8 @@ exports[`Combobox renders correctly with another noResultsMessage 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -290,7 +294,8 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -318,7 +323,8 @@ exports[`Combobox renders correctly with autoFocus 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -405,7 +411,8 @@ exports[`Combobox renders correctly with className 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -433,7 +440,8 @@ exports[`Combobox renders correctly with className 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -520,7 +528,8 @@ exports[`Combobox renders correctly with divider 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -548,7 +557,8 @@ exports[`Combobox renders correctly with divider 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -730,7 +740,8 @@ exports[`Combobox renders correctly with empty props 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -758,7 +769,8 @@ exports[`Combobox renders correctly with empty props 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -845,7 +857,8 @@ exports[`Combobox renders correctly with id 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -873,7 +886,8 @@ exports[`Combobox renders correctly with id 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -988,7 +1002,8 @@ exports[`Combobox renders correctly with loading 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1016,7 +1031,8 @@ exports[`Combobox renders correctly with loading 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1103,7 +1119,8 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1131,7 +1148,8 @@ exports[`Combobox renders correctly with optionLineHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1218,7 +1236,8 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1246,7 +1265,8 @@ exports[`Combobox renders correctly with optionRenderer 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1384,7 +1404,8 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1412,7 +1433,8 @@ exports[`Combobox renders correctly with optionsListHeight 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1499,7 +1521,8 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1527,7 +1550,8 @@ exports[`Combobox renders correctly with placeholder 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1614,7 +1638,8 @@ exports[`Combobox renders correctly with size 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"
@@ -1642,7 +1667,8 @@ exports[`Combobox renders correctly with size 1`] = `
             <svg
               aria-hidden={true}
               aria-label="Clear Search"
-              className="icon_component icon input-component__icon icon_component--no-focus-style"
+              className="icon icon_component icon input-component__icon noFocusStyle icon_component--no-focus-style"
+              data-testid="icon_combobox-search"
               fill="currentColor"
               height="18px"
               id="combobox-search"

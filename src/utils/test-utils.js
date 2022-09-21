@@ -31,6 +31,10 @@ export const ELEMENT_TYPES = {
   HEADING: "heading",
   LABEL: "label",
   LINK: "link",
+  LIST: "list",
+  LIST_ITEM: "list-item",
+  LIST_ITEM_ICON: "list-item-icon",
+  LIST_TITLE: "list-title",
   MENU_DIVIDER: "menu-divider",
   MENU_ITEM: "menu-item",
   MENU_ITEM_BUTTON: "menu-item-button",
@@ -51,7 +55,8 @@ export const ELEMENT_TYPES = {
   TABS_CONTEXT: "tabs-context",
   DIVIDER: "divider",
   RESPONSIVE_LIST: "responsive-list",
-  RADIO_BUTTON: "radio-button"
+  RADIO_BUTTON: "radio-button",
+  ICON: "icon"
 };
 
 export const NAVIGATIONS_COMMANDS = {

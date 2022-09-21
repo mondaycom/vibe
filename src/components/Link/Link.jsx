@@ -1,11 +1,12 @@
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import NOOP from "lodash/noop";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import Icon from "../../components/Icon/Icon";
-import { LINK_TARGET, ICON_POSITION } from "./LinkConsts";
-import "./Link.scss";
+import { ICON_POSITION, LINK_TARGET } from "./LinkConsts";
+import styles from "./Link.module.scss";
 
 const Link = forwardRef(
   (
@@ -25,7 +26,8 @@ const Link = forwardRef(
       ariaLabeledBy,
       disableNavigation,
       inheritFontSize,
-      inlineText
+      inlineText,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -50,16 +52,19 @@ const Link = forwardRef(
         ref={ref}
         onClick={onClickWrapper}
         target={target}
-        className={cx("monday-style-link", overrideClassName, {
-          "inherit-font-size": inheritFontSize,
-          "inline-text": inlineText
+        className={cx(styles.link, "monday-style-link", overrideClassName, {
+          [styles.inheritFontSize]: inheritFontSize,
+          ["inherit-font-size"]: inheritFontSize,
+          [styles.inlineText]: inlineText,
+          ["inline-text"]: inlineText
         })}
         aria-label={ariaLabelDescription}
         aria-labelledby={ariaLabeledBy}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LINK, id)}
       >
-        {getIcon(isStart, icon, "monday-style-link--icon-start")}
-        <span className="monday-style-link--text">{text}</span>
-        {getIcon(!isStart, icon, "monday-style-link--icon-end")}
+        {getIcon(isStart, icon, cx(styles.iconStart, "monday-style-link--icon-start"))}
+        <span className={cx(styles.linkText, "monday-style-link--text")}>{text}</span>
+        {getIcon(!isStart, icon, cx(styles.iconEnd, "monday-style-link--icon-end"))}
       </a>
     );
   }

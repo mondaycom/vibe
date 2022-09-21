@@ -1,0 +1,120 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-small;
+  @include font-input();
+  padding: 0 $spacing-small;
+  position: relative;
+}
+
+.withLeg {
+  border-radius: $border-radius-small $border-radius-small $border-radius-small 0;
+}
+
+.legWrapper {
+  position: absolute;
+  height: 8px;
+  top: 100%;
+  left: 0;
+  display: inline-flex;
+}
+
+.withAnimation {
+  animation: labelPop var(--motion-expressive-short) var(--motion-timing-emphasize);
+  transform-origin: bottom left;
+}
+
+.kindFill.colorPrimary {
+  @include theme-prop(color, text-color-on-primary);
+  @include theme-prop(background-color, primary-color);
+}
+
+.kindFill.colorPrimary svg path {
+  @include theme-prop(fill, primary-color);
+}
+
+.kindFill.colorDark {
+  @include theme-prop(color, text-color-on-inverted);
+  @include theme-prop(background-color, inverted-color-background);
+}
+
+.kindFill.colorDark svg path {
+  @include theme-prop(fill, inverted-color-background);
+}
+
+.kindFill.colorNegative {
+  @include theme-prop(color, text-color-on-primary);
+  @include theme-prop(background-color, negative-color);
+}
+
+.kindFill.colorNegative svg path {
+  @include theme-prop(fill, negative-color);
+}
+
+.kindFill.colorPositive {
+  @include theme-prop(color, text-color-on-primary);
+  @include theme-prop(background-color, positive-color);
+}
+
+.kindFill.colorPositive svg path {
+  @include theme-prop(fill, positive-color);
+}
+
+.kindLine {
+  border: 1px solid currentColor;
+}
+
+.kindLine .legWrapper {
+  left: -1px;
+  top: calc(100% + 1px);
+}
+
+.kindLine.colorPrimary {
+  @include theme-prop(color, primary-color);
+}
+
+.kindLine.colorPrimary svg path {
+  @include theme-prop(fill, primary-color);
+}
+
+.kindLine.colorDark {
+  @include theme-prop(color, inverted-color-background);
+}
+
+.kindLine.colorDark svg path {
+  @include theme-prop(fill, inverted-color-background);
+}
+
+.kindLine.colorNegative {
+  @include theme-prop(color, negative-color);
+}
+
+.kindLine.colorNegative svg path {
+  @include theme-prop(fill, negative-color);
+}
+
+.kindLine.colorPositive {
+  @include theme-prop(color, positive-color);
+}
+
+.kindLine.colorPositive svg path {
+  @include theme-prop(fill, positive-color);
+}
+
+@keyframes labelPop {
+  0% {
+    transform: scale(0.8) rotate(25deg);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

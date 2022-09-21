@@ -1,15 +1,16 @@
 @import "../../styles/themes";
 @import "../../styles/typography";
 
-.list-item-icon {
+.listItemIcon {
   display: flex;
   align-items: center;
   color: var(--primary-text-color);
-  &--start {
-    margin-right: var(--spacing-small);
-  }
+}
 
-  &--end {
-    margin-left: var(--spacing-small);
-  }
+.start {
+  margin-right: var(--spacing-small);
+}
+
+.end {
+  margin-left: var(--spacing-small);
 }
