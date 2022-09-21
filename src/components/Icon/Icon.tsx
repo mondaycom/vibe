@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, CSSProperties } from "react";
+import React, { CSSProperties, forwardRef, Ref } from "react";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { IconType } from "./IconConstants";
@@ -7,6 +7,7 @@ import FontIcon from "./FontIcon/FontIcon";
 import useIconProps from "./hooks/useIconProps";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import "./Icon.scss";
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
@@ -123,7 +124,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
           onClick={onClick}
           className={computedClassName}
           style={style}
-          data-testid={dataTestId}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
         />
       );
     }
@@ -137,7 +138,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
           onClick={onClickCallback}
           replaceToCurrentColor={useCurrentColor}
           customColor={customColor}
-          data-testid={dataTestId}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
         />
       );
     }
@@ -149,7 +150,7 @@ const Icon: VibeComponent<IconProps, HTMLElement> & { type?: typeof IconType } =
         onClick={onClickCallback}
         ref={mergedRef}
         icon={icon}
-        data-testid={dataTestId}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.ICON, id)}
       />
     );
   }
