@@ -1,15 +1,23 @@
-import React, { useRef, forwardRef } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useRef } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import "./TabPanel.scss";
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import styles from "./TabPanel.module.scss";
 
-const TabPanel = forwardRef(({ className, id, children, index }, ref) => {
+const TabPanel = forwardRef(({ className, id, children, index, "data-testid": dataTestId }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
   return (
-    <div key={`${id}_${index}`} ref={mergedRef} className={cx("tab-panel--wrapper", className)} id={id} role="tabpanel">
+    <div
+      key={`${id}_${index}`}
+      ref={mergedRef}
+      className={cx(styles.tabPanelWrapper, "tab-panel--wrapper", className)}
+      id={id}
+      role="tabpanel"
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TAB_PANEL, id)}
+    >
       {children}
     </div>
   );

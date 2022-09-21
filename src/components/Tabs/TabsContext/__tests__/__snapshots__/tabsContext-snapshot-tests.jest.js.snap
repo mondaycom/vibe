@@ -17,12 +17,13 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
       <li
         aria-disabled={false}
         aria-selected={false}
-        className="tab--wrapper"
+        className="tabWrapper tab--wrapper"
+        data-testid="tab"
         id=""
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tabInner tab-inner"
           onClick={[Function]}
         >
           First
@@ -31,12 +32,13 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tabWrapper tab--wrapper active"
+        data-testid="tab"
         id=""
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tabInner tab-inner"
           onClick={[Function]}
         >
           Second
@@ -49,14 +51,16 @@ exports[`TabsContext renders correctly with activeTabId 1`] = `
     id=""
   >
     <div
-      className="tab-panel--wrapper tab-panel non-active"
+      className="tabPanelWrapper tab-panel--wrapper tab-panel non-active"
+      data-testid="tab-panel"
       id=""
       role="tabpanel"
     >
       First slide
     </div>
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tabPanelWrapper tab-panel--wrapper tab-panel active animation-direction-rtl"
+      data-testid="tab-panel"
       id=""
       role="tabpanel"
     >
@@ -83,12 +87,13 @@ exports[`TabsContext renders correctly with className 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tabWrapper tab--wrapper active"
+        data-testid="tab"
         id=""
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tabInner tab-inner"
           onClick={[Function]}
         >
           First
@@ -101,7 +106,8 @@ exports[`TabsContext renders correctly with className 1`] = `
     id=""
   >
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tabPanelWrapper tab-panel--wrapper tab-panel active animation-direction-rtl"
+      data-testid="tab-panel"
       id=""
       role="tabpanel"
     >
@@ -128,12 +134,13 @@ exports[`TabsContext renders correctly with empty props 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tabWrapper tab--wrapper active"
+        data-testid="tab"
         id=""
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tabInner tab-inner"
           onClick={[Function]}
         >
           First
@@ -146,7 +153,8 @@ exports[`TabsContext renders correctly with empty props 1`] = `
     id=""
   >
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tabPanelWrapper tab-panel--wrapper tab-panel active animation-direction-rtl"
+      data-testid="tab-panel"
       id=""
       role="tabpanel"
     >
@@ -173,12 +181,13 @@ exports[`TabsContext renders correctly with id 1`] = `
       <li
         aria-disabled={false}
         aria-selected={true}
-        className="tab--wrapper active"
+        className="tabWrapper tab--wrapper active"
+        data-testid="tab"
         id=""
         role="tab"
       >
         <a
-          className="tab-inner"
+          className="tabInner tab-inner"
           onClick={[Function]}
         >
           First
@@ -191,7 +200,8 @@ exports[`TabsContext renders correctly with id 1`] = `
     id=""
   >
     <div
-      className="tab-panel--wrapper tab-panel active animation-direction-rtl"
+      className="tabPanelWrapper tab-panel--wrapper tab-panel active animation-direction-rtl"
+      data-testid="tab-panel"
       id=""
       role="tabpanel"
     >
