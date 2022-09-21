@@ -1,7 +1,7 @@
-import { SIZES } from "../../../constants/sizes";
-import React, { useMemo, forwardRef, useState, useRef, useEffect, useLayoutEffect, useCallback } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import { SIZES } from "../../../constants/sizes";
+import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../../hooks/useMergeRefs";
 import useClickOutside from "../../../hooks/useClickOutside";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
@@ -10,10 +10,11 @@ import useOnCloseMenu from "./hooks/useOnCloseMenu";
 import useCloseMenuOnKeyEvent from "./hooks/useCloseMenuOnKeyEvent";
 import useMenuKeyboardNavigation from "./hooks/useMenuKeyboardNavigation";
 import useMouseLeave from "./hooks/useMouseLeave";
-import "./Menu.scss";
 import { useAdjacentSelectableMenuIndex } from "./hooks/useAdjacentSelectableMenuIndex";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
 import usePrevious from "../../../hooks/usePrevious";
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import styles from "./Menu.module.scss";
 
 const Menu = forwardRef(
   (
@@ -34,7 +35,8 @@ const Menu = forwardRef(
       focusItemIndexOnMount,
       isSubMenu,
       useDocumentEventListeners,
-      shouldScrollMenu
+      shouldScrollMenu,
+      "data-testid": dataTestId
     },
     forwardedRef
   ) => {
@@ -126,7 +128,8 @@ const Menu = forwardRef(
         onFocus={focusWithinProps.onFocus}
         onBlur={focusWithinProps.onBlur}
         id={id}
-        className={cx("monday-style-menu", overrideClassName, `monday-style-menu--${size}`)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU, id)}
+        className={cx(styles.menu, "monday-style-menu", overrideClassName, styles[size], `monday-style-menu--${size}`)}
         ref={mergedRef}
         tabIndex={tabIndex}
         aria-label={ariaLabel}

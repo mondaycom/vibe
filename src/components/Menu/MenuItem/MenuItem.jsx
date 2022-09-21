@@ -1,9 +1,10 @@
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import cx from "classnames";
 /* eslint-disable react/jsx-props-no-spreading */
 import { DialogPositions } from "../../../constants/sizes";
 import React, { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
-import cx from "classnames";
 import Tooltip from "../../../components/Tooltip/Tooltip";
 import Icon from "../../../components/Icon/Icon";
 import DropdownChevronRight from "../../../components/Icon/Icons/components/DropdownChevronRight";
@@ -14,7 +15,7 @@ import usePopover from "../../../hooks/usePopover";
 import { backwardCompatibilityForProperties } from "../../../helpers/backwardCompatibilityForProperties";
 import useMenuItemMouseEvents from "./hooks/useMenuItemMouseEvents";
 import useMenuItemKeyboardEvents from "./hooks/useMenuItemKeyboardEvents";
-import "./MenuItem.scss";
+import styles from "./MenuItem.module.scss";
 
 const TAB_INDEX_FOCUS_WITH_JS_ONLY = -1;
 
@@ -51,10 +52,12 @@ const MenuItem = forwardRef(
       isInitialSelectedState,
       onMouseEnter,
       onMouseLeave,
-      shouldScrollMenu
+      shouldScrollMenu,
+      "data-testid": dataTestId
     },
     ref
   ) => {
+    const id = menuId && `${menuId}-${index}`;
     const overrideClassName = backwardCompatibilityForProperties([className, classname]);
     const isActive = activeItemIndex === index;
     const isSubMenuOpen = !!children && isActive && hasOpenSubMenu;
@@ -81,7 +84,7 @@ const MenuItem = forwardRef(
 
     const isTitleHoveredAndOverflowing = useIsOverflowing({ ref: titleRef });
 
-    const { styles, attributes } = usePopover(referenceElement, popperElement, {
+    const { styles: popoverStyles, attributes: popoverAttributes } = usePopover(referenceElement, popperElement, {
       isOpen: isSubMenuOpen
     });
 
@@ -153,12 +156,12 @@ const MenuItem = forwardRef(
       if (!hasChildren) return null;
 
       return (
-        <div className="monday-style-menu-item__sub_menu_icon-wrapper">
+        <div className={cx(styles.subMenuIconWrapper, "monday-style-menu-item__sub_menu_icon-wrapper")}>
           <Icon
             clickable={false}
             icon={DropdownChevronRight}
             iconLabel={title}
-            className="monday-style-menu-item__sub_menu_icon"
+            className={cx(styles.subMenuIcon, "monday-style-menu-item__sub_menu_icon")}
             ignoreFocusStyle
           />
         </div>
@@ -189,13 +192,13 @@ const MenuItem = forwardRef(
       }
 
       return (
-        <div className="monday-style-menu-item__icon-wrapper" style={iconWrapperStyle}>
+        <div className={cx(styles.iconWrapper, "monday-style-menu-item__icon-wrapper")} style={iconWrapperStyle}>
           <Icon
             iconType={finalIconType}
             clickable={false}
             icon={icon}
             iconLabel={title}
-            className="monday-style-menu-item__icon"
+            className={cx(styles.icon, "monday-style-menu-item__icon")}
             ignoreFocusStyle
             style={iconStyle}
           />
@@ -222,13 +225,18 @@ const MenuItem = forwardRef(
     return (
       // eslint-disable-next-line jsx-a11y/click-events-have-key-events
       <li
-        id={`${menuId}-${index}`}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_ITEM, id)}
         {...a11yProps}
-        className={cx("monday-style-menu-item", overrideClassName, {
-          "monday-style-menu-item--disabled": disabled,
-          "monday-style-menu-item--focused": isActive,
-          "monday-style-menu-item--selected": selected,
-          "monday-style-menu-item-initial-selected": isInitialSelectedState
+        className={cx(styles.item, "monday-style-menu-item", overrideClassName, {
+          [styles.disabled]: disabled,
+          ["monday-style-menu-item--disabled"]: disabled,
+          [styles.focused]: isActive,
+          ["monday-style-menu-item--focused"]: isActive,
+          [styles.selected]: selected,
+          ["monday-style-menu-item--selected"]: selected,
+          [styles.initialSelected]: isInitialSelectedState,
+          ["monday-style-menu-item-initial-selected"]: isInitialSelectedState
         })}
         ref={mergedRef}
         onClick={onClickCallback}
@@ -245,21 +253,21 @@ const MenuItem = forwardRef(
           position={tooltipPosition}
           showDelay={tooltipShowDelay}
         >
-          <div ref={titleRef} className="monday-style-menu-item__title">
+          <div ref={titleRef} className={cx(styles.title, "monday-style-menu-item__title")}>
             {title}
           </div>
         </Tooltip>
         {label && (
-          <div ref={titleRef} className="monday-style-menu-item__label">
+          <div ref={titleRef} className={cx(styles.label, "monday-style-menu-item__label")}>
             {label}
           </div>
         )}
         {renderSubMenuIconIfNeeded()}
         <div
-          style={{ ...styles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
+          style={{ ...popoverStyles.popper, visibility: shouldShowSubMenu ? "visible" : "hidden" }}
           // eslint-disable-next-line react/jsx-props-no-spreading
-          {...attributes.popper}
-          className="monday-style-menu-item__popover"
+          {...popoverAttributes.popper}
+          className={cx("monday-style-menu-item__popover")}
           ref={popperElementRef}
         >
           {menuChild && shouldShowSubMenu && (

@@ -1,20 +1,18 @@
-/* eslint-disable react/forbid-prop-types */
-import React, { forwardRef, useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
-import PropTypes from "prop-types";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
+/* eslint-disable react/forbid-prop-types */
+import React, { useCallback, useLayoutEffect, useMemo, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
 import Dialog from "../Dialog/Dialog";
 import Menu from "../Icon/Icons/components/Menu";
 import DialogContentContainer from "../DialogContentContainer/DialogContentContainer";
 import Tooltip from "../Tooltip/Tooltip";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import useMergeRefs from "../../hooks/useMergeRefs";
 import { BUTTON_ICON_SIZE } from "../Button/ButtonConstants";
-import "./MenuButton.scss";
+import styles from "./MenuButton.module.scss";
 
-function BEMClass(className) {
-  return `menu-button--wrapper--${className}`;
-}
+const CSS_BASE_CLASS = "menu-button--wrapper";
 
 const TOOLTIP_SHOW_TRIGGER = [Dialog.hideShowTriggers.MOUSE_ENTER];
 
@@ -22,212 +20,219 @@ const showTrigger = ["click", "enter"];
 const EMPTY_ARRAY = [];
 const MOVE_BY = { main: 0, secondary: -6 };
 
-const MenuButton = forwardRef(
-  (
-    {
-      id,
-      className,
-      // Backward compatibility for props naming
-      componentClassName,
-      openDialogComponentClassName,
-      children,
-      component,
-      size,
-      open,
-      onClick,
-      zIndex,
-      ariaLabel,
-      closeDialogOnContentClick,
-      dialogOffset,
-      dialogPosition,
-      dialogClassName,
-      dialogPaddingSize,
-      dialogShowTriggerIgnoreClass,
-      dialogHideTriggerIgnoreClass,
-      onMenuHide,
-      onMenuShow,
-      disabled,
-      text,
-      tooltipContent,
-      // Backward compatibility for props naming
-      disabledReason,
-      tooltipTriggers,
-      tooltipPosition,
-      startingEdge,
-      removeTabCloseTrigger,
-      tooltipReferenceClassName,
-      hideWhenReferenceHidden
-    },
-    ref
-  ) => {
-    const componentRef = useRef(null);
-    const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
-    const [isOpen, setIsOpen] = useState(open);
-    const onMenuDidClose = useCallback(
-      event => {
-        if (event && event.key === "Escape") {
-          setIsOpen(false);
-          const button = componentRef.current;
-          window.requestAnimationFrame(() => {
-            button.focus();
-          });
-        }
-      },
-      [componentRef, setIsOpen]
-    );
+const MenuButton = ({
+  id,
+  className,
+  // Backward compatibility for props naming
+  componentClassName,
+  openDialogComponentClassName,
+  children,
+  component,
+  size,
+  open,
+  onClick,
+  zIndex,
+  ariaLabel,
+  closeDialogOnContentClick,
+  dialogOffset,
+  dialogPosition,
+  dialogClassName,
+  dialogPaddingSize,
+  dialogShowTriggerIgnoreClass,
+  dialogHideTriggerIgnoreClass,
+  onMenuHide,
+  onMenuShow,
+  disabled,
+  text,
+  tooltipContent,
+  // Backward compatibility for props naming
+  disabledReason,
+  tooltipTriggers,
+  tooltipPosition,
+  startingEdge,
+  removeTabCloseTrigger,
+  tooltipReferenceClassName,
+  hideWhenReferenceHidden,
+  "data-testid": dataTestId
+}) => {
+  const buttonRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(open);
 
-    const onDialogDidHide = useCallback(
-      (event, hideEvent) => {
+  const onMenuDidClose = useCallback(
+    event => {
+      if (event && event.key === "Escape") {
         setIsOpen(false);
-        onMenuHide();
-        const button = componentRef.current;
+        const button = buttonRef.current;
         window.requestAnimationFrame(() => {
-          if (button && hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY) {
-            button.focus();
-          }
+          button.focus();
         });
-      },
-      [setIsOpen, onMenuHide, componentRef]
-    );
-
-    const onDialogDidShow = useCallback(() => {
-      setIsOpen(true);
-      onMenuShow();
-    }, [setIsOpen, onMenuShow]);
-
-    const [clonedChildren, hideTrigger] = useMemo(() => {
-      const triggers = new Set([
-        Dialog.hideShowTriggers.CLICK_OUTSIDE,
-        Dialog.hideShowTriggers.TAB_KEY,
-        Dialog.hideShowTriggers.ESCAPE_KEY
-      ]);
-
-      if (closeDialogOnContentClick) {
-        triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
-        triggers.add(Dialog.hideShowTriggers.ENTER);
       }
+    },
+    [buttonRef, setIsOpen]
+  );
 
-      if (removeTabCloseTrigger) {
-        triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
-      }
-      const childrenArr = React.Children.toArray(children);
-      const cloned = childrenArr.map(child => {
-        if (!React.isValidElement(child)) return null;
-
-        const newProps = {};
-        if (child.type && child.type.supportFocusOnMount) {
-          newProps.focusOnMount = true;
-          triggers.delete(Dialog.hideShowTriggers.ESCAPE_KEY);
+  const onDialogDidHide = useCallback(
+    (event, hideEvent) => {
+      setIsOpen(false);
+      onMenuHide();
+      const button = buttonRef.current;
+      window.requestAnimationFrame(() => {
+        if (button && hideEvent === Dialog.hideShowTriggers.ESCAPE_KEY) {
+          button.focus();
         }
-
-        if (child.type && child.type.isMenu) {
-          newProps.onClose = onMenuDidClose;
-        }
-
-        return React.cloneElement(child, newProps);
       });
-      return [cloned, Array.from(triggers)];
-    }, [children, onMenuDidClose, closeDialogOnContentClick, removeTabCloseTrigger]);
+    },
+    [setIsOpen, onMenuHide, buttonRef]
+  );
 
-    const content = useMemo(() => {
-      if (clonedChildren.length === 0) return null;
-      return (
-        <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
-          {clonedChildren}
-        </DialogContentContainer>
-      );
-    }, [clonedChildren, dialogPaddingSize]);
+  const onDialogDidShow = useCallback(() => {
+    setIsOpen(true);
+    onMenuShow();
+  }, [setIsOpen, onMenuShow]);
 
-    const computedDialogOffset = useMemo(
-      () => ({
-        ...MOVE_BY,
-        ...dialogOffset
-      }),
-      [dialogOffset]
-    );
+  const [clonedChildren, hideTrigger] = useMemo(() => {
+    const triggers = new Set([
+      Dialog.hideShowTriggers.CLICK_OUTSIDE,
+      Dialog.hideShowTriggers.TAB_KEY,
+      Dialog.hideShowTriggers.ESCAPE_KEY
+    ]);
 
-    const onMouseUp = event => {
-      if (disabled) {
-        event.currentTarget.blur();
-        return;
+    if (closeDialogOnContentClick) {
+      triggers.add(Dialog.hideShowTriggers.CONTENT_CLICK);
+      triggers.add(Dialog.hideShowTriggers.ENTER);
+    }
+
+    if (removeTabCloseTrigger) {
+      triggers.delete(Dialog.hideShowTriggers.TAB_KEY);
+    }
+    const childrenArr = React.Children.toArray(children);
+    const cloned = childrenArr.map(child => {
+      if (!React.isValidElement(child)) return null;
+
+      const newProps = {};
+      if (child.type && child.type.supportFocusOnMount) {
+        newProps.focusOnMount = true;
+        triggers.delete(Dialog.hideShowTriggers.ESCAPE_KEY);
       }
-      onClick();
-    };
 
-    const Icon = component;
-    const iconSize = useMemo(() => {
-      switch (size) {
-        case MenuButton.sizes.XXS:
-        case MenuButton.sizes.XS:
-          return 16;
-        case MenuButton.sizes.SMALL:
-        case MenuButton.sizes.MEDIUM:
-        case MenuButton.sizes.LARGE:
-          return BUTTON_ICON_SIZE;
-        default:
-          return 24;
+      if (child.type && child.type.isMenu) {
+        newProps.onClose = onMenuDidClose;
       }
-    }, [size]);
 
-    useLayoutEffect(() => {
-      setIsOpen(open);
-    }, [open, setIsOpen]);
+      return React.cloneElement(child, newProps);
+    });
+    return [cloned, Array.from(triggers)];
+  }, [children, onMenuDidClose, closeDialogOnContentClick, removeTabCloseTrigger]);
 
-    const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
-    const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
-
+  const content = useMemo(() => {
+    if (clonedChildren.length === 0) return null;
     return (
-      <Tooltip
-        content={overrideTooltipContent}
-        position={tooltipPosition}
-        showTrigger={TOOLTIP_SHOW_TRIGGER}
-        hideTrigger={tooltipTriggers}
-        referenceWrapperClassName={tooltipReferenceClassName}
+      <DialogContentContainer size={dialogPaddingSize} type={DialogContentContainer.types.POPOVER}>
+        {clonedChildren}
+      </DialogContentContainer>
+    );
+  }, [clonedChildren, dialogPaddingSize]);
+
+  const computedDialogOffset = useMemo(
+    () => ({
+      ...MOVE_BY,
+      ...dialogOffset
+    }),
+    [dialogOffset]
+  );
+
+  const onMouseUp = event => {
+    if (disabled) {
+      event.currentTarget.blur();
+      return;
+    }
+    onClick();
+  };
+
+  const Icon = component;
+  const iconSize = useMemo(() => {
+    switch (size) {
+      case MenuButton.sizes.XXS:
+      case MenuButton.sizes.XS:
+        return 16;
+      case MenuButton.sizes.SMALL:
+      case MenuButton.sizes.MEDIUM:
+      case MenuButton.sizes.LARGE:
+        return BUTTON_ICON_SIZE;
+      default:
+        return 24;
+    }
+  }, [size]);
+
+  useLayoutEffect(() => {
+    setIsOpen(open);
+  }, [open, setIsOpen]);
+
+  const overrideTooltipContent = backwardCompatibilityForProperties([tooltipContent, disabledReason]);
+  const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
+
+  return (
+    <Tooltip
+      content={overrideTooltipContent}
+      position={tooltipPosition}
+      showTrigger={TOOLTIP_SHOW_TRIGGER}
+      hideTrigger={tooltipTriggers}
+      referenceWrapperClassName={tooltipReferenceClassName}
+      hideWhenReferenceHidden={hideWhenReferenceHidden}
+    >
+      <Dialog
+        wrapperClassName={dialogClassName}
+        position={dialogPosition}
+        startingEdge={startingEdge}
+        animationType="expand"
+        content={content}
+        moveBy={computedDialogOffset}
+        showTrigger={disabled ? EMPTY_ARRAY : showTrigger}
+        hideTrigger={hideTrigger}
+        showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
+        hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
+        useDerivedStateFromProps={true}
+        onDialogDidShow={onDialogDidShow}
+        onDialogDidHide={onDialogDidHide}
+        referenceWrapperClassName={cx(styles.referenceIcon, "menu-button--wrapper--reference-icon")}
+        zIndex={zIndex}
+        isOpen={isOpen}
         hideWhenReferenceHidden={hideWhenReferenceHidden}
       >
-        <Dialog
-          wrapperClassName={dialogClassName}
-          position={dialogPosition}
-          startingEdge={startingEdge}
-          animationType="expand"
-          content={content}
-          moveBy={computedDialogOffset}
-          showTrigger={disabled ? EMPTY_ARRAY : showTrigger}
-          hideTrigger={hideTrigger}
-          showTriggerIgnoreClass={dialogShowTriggerIgnoreClass}
-          hideTriggerIgnoreClass={dialogHideTriggerIgnoreClass}
-          useDerivedStateFromProps={true}
-          onDialogDidShow={onDialogDidShow}
-          onDialogDidHide={onDialogDidHide}
-          referenceWrapperClassName={BEMClass("reference-icon")}
-          zIndex={zIndex}
-          isOpen={isOpen}
-          hideWhenReferenceHidden={hideWhenReferenceHidden}
-        >
-          <button
-            id={id}
-            ref={mergedRef}
-            type="button"
-            className={cx("menu-button--wrapper", overrideClassName, BEMClass(`size-${size}`), {
-              [BEMClass("open")]: isOpen,
+        <button
+          id={id}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_BUTTON, id)}
+          ref={buttonRef}
+          type="button"
+          className={cx(
+            styles.wrapper,
+            CSS_BASE_CLASS,
+            overrideClassName,
+            styles[`size${size}`],
+            `${CSS_BASE_CLASS}--size-${size}`,
+            {
+              [styles.open]: isOpen,
+              [`${CSS_BASE_CLASS}--open`]: isOpen,
               [openDialogComponentClassName]: isOpen && openDialogComponentClassName,
-              [BEMClass("disabled")]: disabled,
-              [BEMClass("text")]: text
-            })}
-            aria-haspopup="true"
-            aria-expanded={isOpen}
-            aria-label={!text && ariaLabel}
-            onMouseUp={onMouseUp}
-            aria-disabled={disabled}
-          >
-            <Icon size={iconSize.toString()} role="img" aria-hidden="true" />
-            {text && <span className={BEMClass("inner-text")}>{text}</span>}
-          </button>
-        </Dialog>
-      </Tooltip>
-    );
-  }
-);
+              [styles.disabled]: disabled,
+              [`${CSS_BASE_CLASS}--disabled`]: disabled,
+              [styles.text]: text,
+              [`${CSS_BASE_CLASS}--text`]: text
+            }
+          )}
+          aria-haspopup="true"
+          aria-expanded={isOpen}
+          aria-label={!text && ariaLabel}
+          onMouseUp={onMouseUp}
+          aria-disabled={disabled}
+        >
+          <Icon size={iconSize.toString()} role="img" aria-hidden="true" />
+          {text && <span className={cx(styles.innerText, `${CSS_BASE_CLASS}--inner-text`)}>{text}</span>}
+        </button>
+      </Dialog>
+    </Tooltip>
+  );
+};
 
 const MenuButtonSizes = {
   XXS: "16",

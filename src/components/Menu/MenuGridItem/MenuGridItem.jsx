@@ -1,12 +1,12 @@
-import React, { useRef, forwardRef, useCallback } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useRef } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import "./MenuGridItem.scss";
 import { GridKeyboardNavigationContext } from "../../GridKeyboardNavigationContext/GridKeyboardNavigationContext";
 import { useMenuGridItemNavContext } from "./useMenuGridItemNavContext";
 import { useFocusGridItemByActiveStatus } from "./useFocusGridItemByActiveStatus";
 import { useFocusWithin } from "../../../hooks/useFocusWithin";
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 
 const MenuGridItem = forwardRef(
   (
@@ -23,7 +23,8 @@ const MenuGridItem = forwardRef(
       setSubMenuIsOpenByIndex,
       isUnderSubMenu,
       disabled,
-      useDocumentEventListeners
+      useDocumentEventListeners,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -73,6 +74,7 @@ const MenuGridItem = forwardRef(
         ref={mergedRef}
         className={cx("menu-grid-item--wrapper", className)}
         id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.MENU_GRID_ITEM, id)}
         tabIndex={-1}
         role="grid"
         {...focusWithinProps}
