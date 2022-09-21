@@ -1,5 +1,5 @@
-import cx from "classnames";
 /* eslint-disable react/require-default-props */
+import cx from "classnames";
 import React, { forwardRef, useCallback, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import useMergeRefs from "../../hooks/useMergeRefs";
