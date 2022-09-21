@@ -1,19 +1,19 @@
+import cx from "classnames";
 import { SIZES } from "../../constants/sizes";
 import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import SearchIcon from "../../components/Icon/Icons/components/Search";
 import CloseIcon from "../../components/Icon/Icons/components/CloseSmall";
 import TextField from "../../components/TextField/TextField";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { TYPES } from "./SearchConstats";
-import "./Search.scss";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./Search.module.scss";
 
 const NOOP = () => {};
 
 const TYPE_CLASSES = {
-  round: "search_component--round",
+  round: cx(styles.round, "search_component--round"),
   underline: "input-component__input--only-underline",
   square: ""
 };
@@ -53,7 +53,9 @@ const Search = forwardRef(
       searchResultsContainerId,
       activeDescendant,
       iconNames,
-      loading
+      loading,
+      primaryDataTestId,
+      secondaryDataTestId
     },
     ref
   ) => {
@@ -61,7 +63,7 @@ const Search = forwardRef(
     return (
       <TextField
         id={id}
-        dataTestId={getTestId(ELEMENT_TYPES.SEARCH, id)}
+        dataTestId={primaryDataTestId || getTestId(ELEMENT_TYPES.SEARCH, id)}
         iconName={iconName}
         value={value}
         onChange={onChange}
@@ -70,10 +72,10 @@ const Search = forwardRef(
         placeholder={placeholder}
         disabled={disabled}
         debounceRate={debounceRate}
-        className={classNames(className, "search_component", getType(type))}
+        className={cx(className, styles.search, "search_component", getType(type))}
         secondaryIconName={secondaryIconName}
-        secondaryDataTestId={getTestId(ELEMENT_TYPES.CLEAN_SEARCH_BUTTON, id)}
-        wrapperClassName={classNames(wrapperClassName, "search_component_wrapper")}
+        secondaryDataTestId={secondaryDataTestId || getTestId(ELEMENT_TYPES.CLEAN_SEARCH_BUTTON, id)}
+        wrapperClassName={cx(wrapperClassName, styles.wrapper, "search_component_wrapper")}
         onBlur={onBlur}
         onFocus={onFocus}
         ref={mergedRef}

@@ -48,7 +48,10 @@ export const ELEMENT_TYPES = {
   TAB_PANEL: "tab-panel",
   TAB_LIST: "tab-list",
   TAB_PANELS: "tab-panels",
-  TABS_CONTEXT: "tabs-context"
+  TABS_CONTEXT: "tabs-context",
+  DIVIDER: "divider",
+  RESPONSIVE_LIST: "responsive-list",
+  RADIO_BUTTON: "radio-button"
 };
 
 export const NAVIGATIONS_COMMANDS = {

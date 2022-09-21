@@ -1,0 +1,312 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/states";
+@import "../../styles/global-css-settings";
+
+.inputComponent {
+  position: relative;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  width: 100%;
+}
+
+.inputComponent * {
+  box-sizing: border-box;
+}
+
+.labelWrapper {
+  width: 100%;
+}
+
+.subTextContainer {
+  display: flex;
+  @include font-input();
+  @include theme-prop(color, secondary-text-color);
+}
+
+.subTextContainer .subTextContainerCounter {
+  margin-left: auto;
+}
+
+.disabled .icon {
+  cursor: not-allowed;
+}
+
+.disabled .wrapper {
+  cursor: not-allowed;
+}
+
+.disabled .input {
+  user-select: none;
+  border: none;
+  pointer-events: none;
+  @include theme-prop(background-color, disabled-background-color);
+  cursor: not-allowed;
+}
+
+.disabled .input::placeholder {
+  @include theme-prop(color, disabled-text-color);
+}
+
+.disabled .iconContainer.iconContainerHasIcon:hover {
+  background-color: transparent;
+}
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  outline: 0;
+  background-color: transparent;
+  border: 1px solid;
+  @include theme-prop(border-color, ui-border-color);
+  border-radius: $border-radius-small;
+  transition: border-color var(--motion-productive-medium) ease-in;
+  padding: $spacing-small $spacing-medium;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include theme-prop(color, primary-text-color);
+}
+
+.input.inputHover {
+  @include theme-prop(border-color, primary-text-color);
+}
+
+.input:focus,
+.input:active,
+.input.inputActive {
+  @include theme-prop(border-color, primary-color);
+}
+
+.input::placeholder {
+  @include theme-prop(color, secondary-text-color);
+  font-weight: 400;
+}
+
+.input.inputHasIcon {
+  padding: $spacing-small $spacing-large $spacing-small $spacing-medium;
+}
+
+.input.inputRound {
+  border-radius: 50px;
+}
+
+.input.inputSquare {
+  border-radius: 0;
+}
+
+.input.inputOnlyUnderline {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: $spacing-small $spacing-large $spacing-small $spacing-xs;
+  border-radius: 0 !important;
+}
+
+.iconContainer {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $border-radius-small;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.iconContainer:active,
+.iconContainer:focus,
+.iconContainer:focus-visible {
+  outline: none;
+  @include theme-prop(background-color, primary-background-hover-color);
+}
+
+.iconContainer {
+  -webkit-appearance: none;
+}
+
+.inputComponent .wrapper .iconContainer.iconContainerActive.iconContainerHasIcon {
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.iconContainer.iconContainerActive {
+  opacity: 1;
+}
+
+.inputComponent .iconContainer.iconContainerActive .icon {
+  opacity: 1;
+  pointer-events: all;
+  transform: rotate(0) scale(1);
+}
+
+.iconContainer.iconContainerHasIcon:hover,
+.inputComponent .iconContainer.iconContainerHasIcon:focus-within {
+  @include theme-prop(background-color, primary-background-hover-color);
+}
+
+.iconContainer .icon {
+  transform: rotate(90deg) scale(0.8);
+  @include theme-prop(color, icon-color);
+  will-change: transform;
+  pointer-events: none;
+  transition: color var(--motion-productive-short) var(--motion-timing-enter),
+    transform var(--motion-productive-short) var(--motion-timing-enter);
+  font-size: 14px;
+}
+
+.inputErrorValidation:hover .input {
+  @include theme-prop(border-color, negative-color);
+}
+
+.inputErrorValidation .input {
+  @include theme-prop(border-color, negative-color);
+}
+
+.inputErrorValidation .input:focus,
+.inputErrorValidation .input:active {
+  @include theme-prop(border-color, negative-color);
+}
+
+.inputComponent .inputErrorValidation .iconContainer .icon {
+  @include theme-prop(color, negative-color);
+}
+
+.inputComponent .inputErrorValidation .iconContainer .icon:hover {
+  @include theme-prop(color, negative-color);
+}
+
+.inputComponent .inputErrorValidation + .subTextContainer .subTextContainerStatus {
+  @include theme-prop(color, negative-color);
+}
+
+.inputSuccessValidation:hover .input {
+  @include theme-prop(border-color, positive-color);
+}
+
+.inputSuccessValidation .input {
+  @include theme-prop(border-color, positive-color);
+}
+
+.inputSuccessValidation .input:focus,
+.inputSuccessValidation .input:active {
+  @include theme-prop(border-color, positive-color);
+}
+
+.inputComponent .inputSuccessValidation .iconContainer .icon {
+  @include theme-prop(color, positive-color);
+}
+
+.inputComponent .inputSuccessValidation .iconContainer .icon:hover {
+  @include theme-prop(color, positive-color);
+}
+
+.inputComponent .inputSuccessValidation + .subTextContainer .subTextContainerStatus {
+  @include theme-prop(color, positive-color);
+}
+
+.wrapperSizeSmall {
+  height: 32px;
+}
+
+.wrapperSizeSmall .input {
+  @include font-input();
+}
+
+.inputComponent .wrapperSizeSmall .input.inputHasIcon.inputOnlyUnderline {
+  padding-left: $spacing-xs;
+}
+
+.wrapperSizeMedium {
+  height: 40px;
+}
+
+.wrapperSizeMedium .input {
+  @include font-paragraph();
+}
+
+.inputComponent .wrapperSizeMedium .input.inputHasIcon {
+  padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
+}
+
+.inputComponent .wrapperSizeMedium .input.inputHasIcon.inputOnlyUnderline {
+  padding-left: 4px;
+}
+
+.wrapperSizeMedium .iconContainer {
+  pointer-events: none;
+  height: 32px;
+  width: 32px;
+  outline: none;
+}
+
+.inputComponent .wrapperSizeMedium .iconContainer .icon {
+  font-size: var(--font-size-paragraph);
+}
+
+.inputComponent .wrapperSizeMedium .iconContainer:hover + .iconContainer + .input {
+  @include theme-prop(border-color, primary-text-color);
+}
+
+.wrapperSizeLarge {
+  height: 48px;
+}
+
+.wrapperSizeLarge .input {
+  @include font-paragraph();
+}
+
+.inputComponent .wrapperSizeLarge .input.inputHasIcon {
+  padding: $spacing-small $spacing-xl $spacing-small $spacing-medium;
+}
+
+.inputComponent .wrapperSizeLarge .input.inputHasIcon.inputOnlyUnderline {
+  padding-left: $spacing-xs;
+}
+
+.wrapperSizeLarge .iconContainer {
+  height: 40px;
+  width: 40px;
+}
+
+.inputComponent .wrapperSizeLarge .iconContainer .icon {
+  font-size: var(--font-size-paragraph);
+}
+
+.wrapper:hover .input {
+  @include theme-prop(border-color, primary-text-color);
+}
+
+.loaderContainer {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loaderContainerHasIcon {
+  right: 32px;
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+}
+
+.loaderSvg {
+  @include theme-prop(color, secondary-text-color);
+}
