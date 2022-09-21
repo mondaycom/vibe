@@ -3,8 +3,8 @@
 @import "../../../styles/themes";
 
 :global(.monday-style-button).button {
-  -webkit-font-smoothing: auto;
-  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 :global(.dark-app-theme) .darkBackground .button {
