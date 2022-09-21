@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.66.0 (2022-09-21)
+
+#### New Features
+* [#882](https://github.com/mondaycom/monday-ui-react-core/pull/882) Feature/refactor components motion keyframes ([@3dyonic](https://github.com/3dyonic))
+
 ## 1.65.0 (2022-09-21)
 
 #### New Features
