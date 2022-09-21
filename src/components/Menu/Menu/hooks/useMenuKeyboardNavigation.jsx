@@ -2,7 +2,7 @@ import { useCallback, useMemo } from "react";
 import { ARROW_DOWN_KEYS, ARROW_UP_KEYS } from "../../../../hooks/useFullKeyboardListeners";
 import useKeyEvent from "../../../../hooks/useKeyEvent";
 
-const ARROW_DIRECTIONS = {
+const ArrowDirections = {
   UP: "up",
   DOWN: "down"
 };
@@ -25,9 +25,9 @@ export default function useMenuKeyboardNavigation(
 
       if (hasOpenSubMenu) return false;
 
-      if (direction === ARROW_DIRECTIONS.DOWN) {
+      if (direction === ArrowDirections.DOWN) {
         newIndex = getNextSelectableIndex(activeItemIndex);
-      } else if (direction === ARROW_DIRECTIONS.UP) {
+      } else if (direction === ArrowDirections.UP) {
         newIndex = getPreviousSelectableIndex(activeItemIndex);
       }
 
@@ -36,11 +36,11 @@ export default function useMenuKeyboardNavigation(
     [activeItemIndex, getNextSelectableIndex, getPreviousSelectableIndex, hasOpenSubMenu, setActiveItemIndex]
   );
   const onArrowUp = useCallback(() => {
-    onArrowKeyEvent(ARROW_DIRECTIONS.UP);
+    onArrowKeyEvent(ArrowDirections.UP);
   }, [onArrowKeyEvent]);
 
   const onArrowDown = useCallback(() => {
-    onArrowKeyEvent(ARROW_DIRECTIONS.DOWN);
+    onArrowKeyEvent(ArrowDirections.DOWN);
   }, [onArrowKeyEvent]);
 
   const onEnterClickCallback = useCallback(
