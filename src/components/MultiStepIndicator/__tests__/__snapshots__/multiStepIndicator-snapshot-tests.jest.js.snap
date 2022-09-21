@@ -51,7 +51,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -104,7 +105,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -157,7 +159,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -230,7 +233,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -283,7 +287,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -336,7 +341,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -415,7 +421,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -468,7 +475,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -521,7 +529,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -578,7 +587,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -631,7 +641,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -684,7 +695,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -757,7 +769,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -810,7 +823,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -863,7 +877,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -936,7 +951,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -989,7 +1005,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -1042,7 +1059,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending
@@ -1118,7 +1136,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-fulfilled__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           fulfilled
@@ -1171,7 +1190,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-active__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           active
@@ -1221,7 +1241,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         className="monday-style-step-indicator-component__text-container__title monday-style-step-indicator-component--type-primary__text-container__title monday-style-step-indicator-component--status-pending__text-container__title"
       >
         <span
-          className="hidden-text--wrapper"
+          className="wrapper hidden-text--wrapper"
+          data-testid="hidden-text_hiddenText"
           id="hiddenText"
         >
           pending

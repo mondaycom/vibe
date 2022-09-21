@@ -1,21 +1,22 @@
-/* eslint-disable react/destructuring-assignment */
-import React, { useRef, useState, useCallback, useEffect, useLayoutEffect } from "react";
-import PropTypes from "prop-types";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import cx from "classnames";
+/* eslint-disable react/destructuring-assignment */
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import Heading from "../Heading/Heading";
 import Clickable from "../Clickable/Clickable";
 import EditableInput, { TEXTAREA_TYPE } from "../EditableInput/EditableInput";
 import { TYPES } from "../Heading/HeadingConstants";
 import { SIZES } from "../../constants/sizes";
 import usePrevious from "../../hooks/usePrevious";
-import "./EditableHeading.scss";
+import styles from "./EditableHeading.module.scss";
 
 const EditableHeading = props => {
   const {
     id,
+    "data-testid": dataTestId,
     className,
     inputClassName,
-    dataTestId,
     value,
     editing,
     disabled,
@@ -139,7 +140,7 @@ const EditableHeading = props => {
       return contentRenderer(contentProps);
     }
     // eslint-disable-next-line react/jsx-props-no-spreading
-    return <Heading {...contentProps} />;
+    return <Heading {...contentProps} data-testid={dataTestId || getTestId(ELEMENT_TYPES.EDITABLE_HEADING, id)} />;
   };
 
   const getInputProps = () => {
@@ -177,7 +178,7 @@ const EditableHeading = props => {
   const renderInputComponent = () => {
     const inputProps = getInputProps();
     // eslint-disable-next-line react/jsx-props-no-spreading
-    return <EditableInput {...inputProps} />;
+    return <EditableInput {...inputProps} data-testid={dataTestId || getTestId(ELEMENT_TYPES.EDITABLE_HEADING, id)} />;
   };
 
   const shouldEdit = !disabled && isEditing;
@@ -186,8 +187,9 @@ const EditableHeading = props => {
     <div
       ref={ref}
       style={style}
-      className={cx("editable-heading--wrapper", className, {
-        "inset-focus": insetFocus
+      className={cx(styles.wrapper, "editable-heading--wrapper", className, {
+        [styles.insetFocus]: insetFocus,
+        ["inset-focus"]: insetFocus
       })}
       aria-label={`${value} ${tooltip || ""}`}
       id={id}

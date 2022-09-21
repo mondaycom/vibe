@@ -2,22 +2,23 @@
 
 exports[`ExpandCollapse renders correctly with empty props 1`] = `
 <div
-  className="expand-collapse--wrapper"
+  className="wrapper expand-collapse--wrapper"
+  data-testid="expand-collapse"
   id=""
 >
   <div
-    className="expand-collapse"
+    className="expandCollapse expand-collapse"
   >
     <button
       aria-controls="-controls"
       aria-expanded={false}
-      className="expand-collapse__header expand-collapse__section"
+      className="header expand-collapse__header section expand-collapse__section"
       onClickCapture={[Function]}
       type="button"
     >
       <svg
         aria-hidden={true}
-        className="icon icon_component animate-icon-close"
+        className="icon icon_component animateIconClose animate-icon-close"
         data-testid="icon"
         fill="currentColor"
         height="24"

@@ -1,0 +1,76 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/states";
+@import "../../styles/global-css-settings";
+
+.wrapper .expandCollapse {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  @include theme-prop(color, primary-text-color);
+  background-color: transparent;
+  border: 1px solid;
+  @include theme-prop(border-color, ui-border-color);
+  box-sizing: border-box;
+  border-radius: $border-radius-small;
+}
+
+.wrapper .header {
+  @include reset-button();
+  padding: $spacing-medium;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.wrapper .header:hover {
+  @include theme-prop(background-color, primary-background-hover-color);
+}
+
+.wrapper .header .headerContent {
+  margin: 0;
+}
+
+.wrapper .header .iconComponent {
+  @include theme-prop(color, icon-color);
+}
+
+.wrapper .headerOpen {
+  border-bottom: 1px solid;
+  @include theme-prop(border-color, ui-border-color);
+}
+
+.wrapper .content {
+  padding: $spacing-medium;
+}
+
+.wrapper .section {
+  width: 100%;
+}
+
+.wrapper .animateIconOpen {
+  transform: rotate(-180deg);
+  transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
+}
+
+.wrapper .animateIconClose {
+  transform: rotate(-360deg);
+  transition: transform var(--motion-expressive-short) var(--motion-timing-transition);
+}
+
+.wrapper .animateExpandCollapseContent {
+  animation: expandContentAnimation var(--motion-productive-medium) var(--motion-timing-enter);
+}
+
+@keyframes expandContentAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--dropdown-menu-fadinY, -75px));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

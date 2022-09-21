@@ -28,6 +28,7 @@ export const ELEMENT_TYPES = {
   MENU: "menu",
   OPTION: "option",
   EDITABLE_HEADING: "editable-heading",
+  EDITABLE_INPUT: "editable-input",
   HEADING: "heading",
   LABEL: "label",
   LINK: "link",
@@ -56,7 +57,11 @@ export const ELEMENT_TYPES = {
   DIVIDER: "divider",
   RESPONSIVE_LIST: "responsive-list",
   RADIO_BUTTON: "radio-button",
-  ICON: "icon"
+  ICON: "icon",
+  FIELD_LABEL: "field-label",
+  EXPAND_COLLAPSE: "expand-collapse",
+  FORMATTED_NUMBER: "formatted-number",
+  HIDDEN_TEXT: "hidden-text"
 };
 
 export const NAVIGATIONS_COMMANDS = {

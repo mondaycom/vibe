@@ -1,23 +1,40 @@
-import React, { useMemo, forwardRef } from "react";
+import cx from "classnames";
+import React, { forwardRef, useMemo } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
-import { baseClassName } from "./FormattedNumberConsts";
 import { validateValue } from "./FormattedNumberHelpers";
-import "./FormattedNumber.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./FormattedNumber.module.scss";
+
+const CSS_BASE_CLASS = "formatted-number-component";
 
 const FormattedNumber = forwardRef(
-  ({ value, className, local, prefix, suffix, emptyPlaceHolder, decimalPrecision, compact, rtl }, ref) => {
+  (
+    {
+      value,
+      className,
+      local,
+      prefix,
+      suffix,
+      emptyPlaceHolder,
+      decimalPrecision,
+      compact,
+      rtl,
+      id,
+      "data-testId": dataTestId
+    },
+    ref
+  ) => {
     const renderSuffix = useMemo(() => {
       if (!suffix) return null;
 
-      return <span className={`${baseClassName}__suffix`}>{suffix}</span>;
+      return <span className={cx(styles.suffix, `${CSS_BASE_CLASS}__suffix`)}>{suffix}</span>;
     }, [suffix]);
 
     const renderPrefix = useMemo(() => {
       if (!prefix) return null;
 
-      return <span className={`${baseClassName}__prefix`}>{prefix}</span>;
+      return <span className={cx(styles.prefix, `${CSS_BASE_CLASS}__prefix`)}>{prefix}</span>;
     }, [prefix]);
 
     const calculatedValue = useMemo(() => {
@@ -29,13 +46,26 @@ const FormattedNumber = forwardRef(
     }, [value, decimalPrecision, local, compact]);
 
     if (validateValue(value)) {
-      return <span className={`${baseClassName}__place-holder`}>{emptyPlaceHolder}</span>;
+      return (
+        <span
+          className={`${CSS_BASE_CLASS}__place-holder`}
+          id={id}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.FORMATTED_NUMBER, id)}
+        >
+          {emptyPlaceHolder}
+        </span>
+      );
     }
 
     return (
-      <div ref={ref} className={classNames(className, baseClassName)}>
+      <div
+        ref={ref}
+        className={cx(className, styles.formattedNumber, CSS_BASE_CLASS)}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.FORMATTED_NUMBER, id)}
+      >
         {rtl ? renderSuffix : renderPrefix}
-        <span className={`${baseClassName}__number`}>{calculatedValue}</span>
+        <span className={`${CSS_BASE_CLASS}__number`}>{calculatedValue}</span>
         {rtl ? renderPrefix : renderSuffix}
       </div>
     );
