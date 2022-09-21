@@ -48,7 +48,7 @@ const FormattedNumber = forwardRef(
     if (validateValue(value)) {
       return (
         <span
-          className={cx(`${CSS_BASE_CLASS}__place-holder`)}
+          className={`${CSS_BASE_CLASS}__place-holder`}
           id={id}
           data-testid={dataTestId || getTestId(ELEMENT_TYPES.FORMATTED_NUMBER, id)}
         >
@@ -65,7 +65,7 @@ const FormattedNumber = forwardRef(
         data-testid={dataTestId || getTestId(ELEMENT_TYPES.FORMATTED_NUMBER, id)}
       >
         {rtl ? renderSuffix : renderPrefix}
-        <span className={cx(`${CSS_BASE_CLASS}__number`)}>{calculatedValue}</span>
+        <span className={`${CSS_BASE_CLASS}__number`}>{calculatedValue}</span>
         {rtl ? renderPrefix : renderSuffix}
       </div>
     );
