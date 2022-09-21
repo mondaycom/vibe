@@ -1,8 +1,9 @@
-import React, { useMemo, forwardRef, useState, useRef, useCallback } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
+import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import "./Accordion.scss";
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import styles from "./Accordion.module.scss";
 
 const COMPONENT_ID = "monday-accordion";
 
@@ -69,7 +70,12 @@ const Accordion = forwardRef(
     }, [children, id, isChildExpanded, onChildClick]);
 
     return (
-      <div ref={mergedRef} className={cx("accordion", className)} data-testid={dataTestId} id={id}>
+      <div
+        ref={mergedRef}
+        className={cx(styles.accordion, "accordion", className)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.ACCORDION, id)}
+        id={id}
+      >
         {children && renderChildElements}
       </div>
     );

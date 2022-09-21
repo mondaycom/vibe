@@ -5,12 +5,13 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
   className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -19,7 +20,8 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
       tabIndex={0}
     >
       <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
+        data-testid="avatar-content"
       >
         P1
       </span>
@@ -78,12 +80,13 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
   className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
       datatestid="tooltip"
       onBlur={[Function]}
       onClick={[Function]}
@@ -101,7 +104,8 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
     >
       <span
         aria-label="Person 1"
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
+        data-testid="avatar-content"
       >
         P1
       </span>
@@ -160,12 +164,13 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
   className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
       datatestid="tooltip"
       onBlur={[Function]}
       onClick={[Function]}
@@ -182,7 +187,8 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
       tabIndex={0}
     >
       <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
+        data-testid="avatar-content"
       >
         P1
       </span>
@@ -241,12 +247,13 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
   className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -255,7 +262,8 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
       tabIndex={0}
     >
       <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
+        data-testid="avatar-content"
       >
         P1
       </span>
@@ -314,12 +322,13 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
   className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -328,19 +337,21 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
       tabIndex={0}
     >
       <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
+        data-testid="avatar-content"
       >
         P1
       </span>
     </div>
   </div>
   <div
-    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -349,7 +360,8 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter val
       tabIndex={0}
     >
       <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
+        data-testid="avatar-content"
       >
         P2
       </span>
@@ -363,12 +375,13 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
   className="avatarGroupContainer dummy-class-name"
 >
   <div
-    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -377,7 +390,8 @@ exports[`AvatarGroup renders correctly renders correctly with dummy class name 1
       tabIndex={0}
     >
       <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
+        data-testid="avatar-content"
       >
         P1
       </span>
@@ -391,12 +405,13 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
   className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -405,7 +420,8 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
       tabIndex={0}
     >
       <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
+        data-testid="avatar-content"
       >
         P1
       </span>
@@ -464,12 +480,13 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
   className="avatarGroupContainer"
 >
   <div
-    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -478,19 +495,21 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
       tabIndex={0}
     >
       <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
+        data-testid="avatar-content"
       >
         P1
       </span>
     </div>
   </div>
   <div
-    className="monday-style-avatar avatarContainer monday-style-avatar--large"
+    className="avatar monday-style-avatar avatarContainer large monday-style-avatar--large"
+    data-testid="avatar"
     style={Object {}}
   >
     <div
       aria-hidden={false}
-      className="monday-style-avatar_circle monday-style-avatar_circle--text"
+      className="circle monday-style-avatar_circle circleText monday-style-avatar_circle--text"
       style={
         Object {
           "backgroundColor": "var(--color-chili-blue",
@@ -499,7 +518,8 @@ exports[`AvatarGroup renders correctly renders correctly without counter 1`] = `
       tabIndex={0}
     >
       <span
-        className="monday-style-avatar-content_text monday-style-avatar-content_text--large"
+        className="text monday-style-avatar-content_text textLarge monday-style-avatar-content_text--large"
+        data-testid="avatar-content"
       >
         P2
       </span>

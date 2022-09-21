@@ -2,7 +2,7 @@
 
 exports[`AccordionItem renders correctly with children 1`] = `
 <div
-  className="accordion"
+  className="accordion accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -57,7 +57,7 @@ exports[`AccordionItem renders correctly with children 1`] = `
 
 exports[`AccordionItem renders correctly with className 1`] = `
 <div
-  className="accordion"
+  className="accordion accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -110,7 +110,7 @@ exports[`AccordionItem renders correctly with className 1`] = `
 
 exports[`AccordionItem renders correctly with iconSize 1`] = `
 <div
-  className="accordion"
+  className="accordion accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -163,7 +163,7 @@ exports[`AccordionItem renders correctly with iconSize 1`] = `
 
 exports[`AccordionItem renders correctly with id 1`] = `
 <div
-  className="accordion"
+  className="accordion accordion"
   data-testid="monday-accordion"
 >
   <div
@@ -216,7 +216,7 @@ exports[`AccordionItem renders correctly with id 1`] = `
 
 exports[`AccordionItem renders correctly with title 1`] = `
 <div
-  className="accordion"
+  className="accordion accordion"
   data-testid="monday-accordion"
 >
   <div

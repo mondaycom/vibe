@@ -69,7 +69,8 @@ export const ELEMENT_TYPES = {
   DIALOG: "dialog",
   DIALOG_CONTENT_CONTAINER: "dialog-content-container",
   BANNER: "banner",
-  BUTTON_GROUP: "button-group"
+  BUTTON_GROUP: "button-group",
+  ACCORDION: "accordion"
 };
 
 export const NAVIGATIONS_COMMANDS = {

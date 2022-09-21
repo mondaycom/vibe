@@ -1,21 +1,30 @@
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
-import { BEMClass } from "../../helpers/bem-helper";
-import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
+import CustomSvgIcon from "../../components/Icon/CustomSvgIcon/CustomSvgIcon";
 import { AVATAR_SIZES } from "./AvatarConstants";
-import "./AvatarBadge.scss";
+import styles from "./AvatarBadge.module.scss";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar-badge";
-const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
-export const AvatarBadge = ({ src, ariaLabel, tabIndex, className, size, ...otherProps }) => {
+export const AvatarBadge = ({
+  src,
+  ariaLabel,
+  tabIndex,
+  className,
+  size,
+  id,
+  "data-testid": dataTestId,
+  ...otherProps
+}) => {
   return src ? (
     <CustomSvgIcon
       src={src}
       ariaLabel={ariaLabel}
-      className={cx(AVATAR_CSS_BASE_CLASS, bemHelper({ state: size }), className)}
+      className={cx(AVATAR_CSS_BASE_CLASS, styles[size], `${AVATAR_CSS_BASE_CLASS}--${size}`, className)}
       clickable={tabIndex === -1}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.AVATAR_BADGE, id)}
       {...otherProps}
     />
   ) : null;
