@@ -8,7 +8,6 @@ import useIconProps from "./hooks/useIconProps";
 import VibeComponentProps from "../../types/VibeComponentProps";
 import VibeComponent from "../../types/VibeComponent";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
-import "./Icon.scss";
 
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (event: React.MouseEvent) => {};
