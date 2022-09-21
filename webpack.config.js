@@ -4,12 +4,15 @@ const CopyPlugin = require("copy-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { getPublishedComponents } = require("./webpack/published-components");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+
+const ANALYZE_BUNDLE = false;
 
 module.exports = options => {
+  const { storybook } = options;
   const IS_DEV = process.env.NODE_ENV === "development";
-  const nodeExternals = require("webpack-node-externals");
   const styleLoaders = [
-    IS_DEV || options.storybook
+    IS_DEV || storybook
       ? {
           loader: "style-loader",
           options: {
@@ -53,7 +56,12 @@ module.exports = options => {
     }
   ];
   // why false? we are open source anyway
-  const devtool = options.storybook ? "eval-cheap-module-source-map" : false;
+  const devtool = storybook ? "eval-cheap-module-source-map" : false;
+  const publishedComponents = storybook ? {} : getPublishedComponents();
+  const entry = {
+    main: path.join(__dirname, "/src/index.js"),
+    ...publishedComponents
+  };
 
   return {
     devtool,
@@ -101,11 +109,11 @@ module.exports = options => {
         }
       ]
     },
-    externals: [nodeExternals()],
-    entry: {
-      main: path.join(__dirname, "/src/index.js"),
-      ...getPublishedComponents()
+    externals: {
+      react: "react",
+      "react-dom": "react-dom"
     },
+    entry,
     output: {
       path: path.join(__dirname, "/dist/"),
       filename: "[name].js",
@@ -117,6 +125,7 @@ module.exports = options => {
       minimizer: [new TerserJSPlugin({})]
     },
     plugins: [
+      ANALYZE_BUNDLE ? new BundleAnalyzerPlugin() : undefined,
       new CopyPlugin({
         patterns: [
           {
