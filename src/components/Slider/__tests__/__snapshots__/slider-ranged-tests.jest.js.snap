@@ -28,6 +28,7 @@ exports[`a. Ranges Slider: basic renderer 1`] = `
         aria-valuetext="25%"
         class="monday-slider__thumb monday-slider__thumb--index-0"
         data-testid="monday-slider__thumb-0"
+        datatestid="tooltip"
         role="slider"
         style="left: 25%;"
         tabindex="0"
@@ -40,6 +41,7 @@ exports[`a. Ranges Slider: basic renderer 1`] = `
         aria-valuetext="65%"
         class="monday-slider__thumb monday-slider__thumb--index-1"
         data-testid="monday-slider__thumb-1"
+        datatestid="tooltip"
         role="slider"
         style="left: 65%;"
         tabindex="0"
@@ -72,7 +74,7 @@ Snapshot Diff:
 +             25%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
++             class="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -106,7 +108,7 @@ Snapshot Diff:
 +             65%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
++             class="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 +             data-placement="top"
 +             style="position: absolute;"
 +           />
@@ -140,7 +142,7 @@ Snapshot Diff:
 -             25%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
+-             class="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 -             data-placement="top"
 -             style="position: absolute;"
 -           />
@@ -163,6 +165,7 @@ Snapshot Diff:
 -         class="monday-slider__thumb monday-slider__thumb--index-0"
 +         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
+          datatestid="tooltip"
           role="slider"
           style="left: 25%;"
           tabindex="0"
@@ -181,7 +184,7 @@ Snapshot Diff:
 +             25%
 +           </div>
 +           <div
-+             class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
++             class="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 +             data-placement="top"
 +             style="position: absolute;"
             />
@@ -204,6 +207,7 @@ Snapshot Diff:
 -         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
 +         class="monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
+          datatestid="tooltip"
           role="slider"
           style="left: 25%;"
 +         tabindex="0"
@@ -216,6 +220,7 @@ Snapshot Diff:
 +         aria-valuetext="65%"
 +         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-1"
 +         data-testid="monday-slider__thumb-1"
++         datatestid="tooltip"
 +         role="slider"
 +         style="left: 65%;"
           tabindex="0"
@@ -229,7 +234,7 @@ Snapshot Diff:
 +             65%
             </div>
             <div
-              class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
+              class="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 @@ --- --- @@
             />
           </div>
@@ -242,6 +247,7 @@ Snapshot Diff:
 -         aria-valuetext="65%"
 -         class="monday-slider__thumb monday-slider__thumb--index-1"
 -         data-testid="monday-slider__thumb-1"
+-         datatestid="tooltip"
 -         role="slider"
 -         style="left: 65%;"
 -         tabindex="0"
@@ -263,6 +269,7 @@ Snapshot Diff:
 -         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-1"
 +         class="monday-slider__thumb monday-slider__thumb--index-1"
           data-testid="monday-slider__thumb-1"
+          datatestid="tooltip"
           role="slider"
           style="left: 65%;"
           tabindex="0"
@@ -281,7 +288,7 @@ Snapshot Diff:
 -             65%
 -           </div>
 -           <div
--             class="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
+-             class="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
 -             data-placement="top"
 -             style="position: absolute;"
         />

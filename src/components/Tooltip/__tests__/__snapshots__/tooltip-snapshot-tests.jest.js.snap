@@ -4,6 +4,7 @@ exports[`Tooltip renders correctly with end arrowPosition 1`] = `
 Array [
   <div
     className=""
+    datatestid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -35,7 +36,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
+        className="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -54,6 +55,7 @@ exports[`Tooltip renders correctly with hideWhenReferenceHidden 1`] = `
 Array [
   <div
     className=""
+    datatestid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -85,7 +87,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
+        className="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -104,6 +106,7 @@ exports[`Tooltip renders correctly with justify 1`] = `
 Array [
   <div
     className=""
+    datatestid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -135,7 +138,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
+        className="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -154,6 +157,7 @@ exports[`Tooltip renders correctly with position 1`] = `
 Array [
   <div
     className=""
+    datatestid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -185,7 +189,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
+        className="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
         data-placement="left"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -204,6 +208,7 @@ exports[`Tooltip renders correctly with style 1`] = `
 Array [
   <div
     className=""
+    datatestid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -240,7 +245,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
+        className="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowDark monday-style-arrow-dark"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -259,6 +264,7 @@ exports[`Tooltip renders correctly with theme 1`] = `
 Array [
   <div
     className=""
+    datatestid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -290,7 +296,7 @@ Array [
         test
       </div>
       <div
-        className="monday-style-tooltip-arrow monday-style-arrow arrowError monday-style-arrow-error"
+        className="tooltipArrow monday-style-tooltip-arrow monday-style-arrow arrowError monday-style-arrow-error"
         data-placement="top"
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
@@ -317,6 +323,7 @@ exports[`Tooltip renders correctly without arrow 1`] = `
 Array [
   <div
     className=""
+    datatestid="tooltip"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}

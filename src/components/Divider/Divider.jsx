@@ -1,18 +1,33 @@
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { DIRECTIONS } from "./DividerConstants";
-import "./Divider.scss";
+import styles from "./Divider.module.scss";
 
 const Divider = ({
   // Backward compatibility for props naming
   classname,
   className,
-  direction
+  direction,
+  id,
+  "data-testid": dataTestId
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
-  return <div className={cx("monday-style-divider", overrideClassName, `monday-style-divider--${direction}`)} />;
+  return (
+    <div
+      className={cx(
+        styles.divider,
+        "monday-style-divider",
+        overrideClassName,
+        styles[direction],
+        `monday-style-divider--${direction}`
+      )}
+      id={id}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.DIVIDER, id)}
+    />
+  );
 };
 
 Divider.directions = DIRECTIONS;

@@ -72,7 +72,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
@@ -126,7 +127,8 @@ exports[`MultiStepIndicator renders correctly with className 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
@@ -254,7 +256,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider test monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider test horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
@@ -308,7 +311,8 @@ exports[`MultiStepIndicator renders correctly with dividerComponentClassName 1`]
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider test monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider test horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
@@ -442,7 +446,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
@@ -496,7 +501,8 @@ exports[`MultiStepIndicator renders correctly with fulfilledStepIcon 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
@@ -608,7 +614,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
@@ -662,7 +669,8 @@ exports[`MultiStepIndicator renders correctly with isFulfilledStepDisplayNumber 
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
@@ -790,7 +798,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active test clickable monday-style-clickable--disable-text-selection"
@@ -844,7 +853,8 @@ exports[`MultiStepIndicator renders correctly with stepComponentClassName 1`] = 
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending test clickable monday-style-clickable--disable-text-selection"
@@ -972,7 +982,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-active clickable monday-style-clickable--disable-text-selection"
@@ -1026,7 +1037,8 @@ exports[`MultiStepIndicator renders correctly with steps 1`] = `
     </div>
   </li>
   <div
-    className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+    className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+    data-testid="divider"
   />
   <li
     className="monday-style-clickable monday-style-step-indicator-component monday-style-step-indicator-component--type-primary monday-style-step-indicator-component--status-pending clickable monday-style-clickable--disable-text-selection"
@@ -1126,7 +1138,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
       </div>
       <div
-        className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+        className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+        data-testid="divider"
       />
     </div>
     <div
@@ -1180,7 +1193,8 @@ exports[`MultiStepIndicator renders correctly with textPlacement vertical 1`] = 
         </span>
       </div>
       <div
-        className="monday-style-divider multi-step-indicator--wrapper__divider monday-style-divider--horizontal"
+        className="divider monday-style-divider multi-step-indicator--wrapper__divider horizontal monday-style-divider--horizontal"
+        data-testid="divider"
       />
     </div>
     <div

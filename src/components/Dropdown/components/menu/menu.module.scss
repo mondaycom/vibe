@@ -1,12 +1,13 @@
 @import "../../../../styles/themes";
 @import "../../../../styles/global-css-settings";
 
-.dropdown-menu-wrapper {
+.wrapper {
   animation: fadeIn var(--motion-productive-medium) var(--motion-timing-enter);
-  &--fixed-position {
-    // When inside a scrollable area, we want the menu to appear above the scrollable container (we set the specific position by js)
-    position: fixed !important;
-  }
+}
+
+.fixedPosition {
+  // When inside a scrollable area, we want the menu to appear above the scrollable container (we set the specific position by js)
+  position: fixed !important;
 }
 
 @keyframes fadeIn {

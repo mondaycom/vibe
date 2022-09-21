@@ -1,14 +1,16 @@
-import { SIZES } from "../../constants";
+import { camelCase } from "lodash";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
+import { SIZES } from "../../constants/sizes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { COUNTER_COLORS, COUNTER_TYPES, getActualSize } from "./CounterConstants";
-import "./Counter.scss";
+import styles from "./Counter.module.scss";
 
 const Counter = ({
   count,
@@ -24,7 +26,8 @@ const Counter = ({
   id,
   prefix,
   onMouseDown,
-  noAnimation
+  noAnimation,
+  "data-testid": dataTestId
 }) => {
   // Variables
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]);
@@ -70,18 +73,27 @@ const Counter = ({
   // Memos
   const classNames = useMemo(() => {
     return cx(
+      styles.counter,
       "monday-style-counter",
+      styles[camelCase("size-" + getActualSize(size))],
       `monday-style-counter--size-${getActualSize(size)}`,
+      styles[camelCase("kind-" + kind)],
       `monday-style-counter--kind-${kind}`,
+      styles[camelCase("color-" + color)],
       `monday-style-counter--color-${color}`,
       {
-        "monday-style-counter--with-animation": countChangeAnimationState
+        [styles.withAnimation]: countChangeAnimationState,
+        ["monday-style-counter--with-animation"]: countChangeAnimationState
       }
     );
   }, [size, kind, color, countChangeAnimationState]);
 
   const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : count;
-  const counter = <span id={`counter-${id}`}>{prefix + countText}</span>;
+  const counter = (
+    <span id={`counter-${id}`} data-testid={dataTestId || getTestId(ELEMENT_TYPES.COUNTER, id)}>
+      {prefix + countText}
+    </span>
+  );
 
   return (
     <span
@@ -96,13 +108,20 @@ const Counter = ({
         ) : (
           <SwitchTransition mode="out-in">
             <CSSTransition
-              classNames="monday-style-counter--fade"
+              classNames={{
+                enter: styles.fadeEnter,
+                enterActive: styles.fadeEnterActive,
+                exit: styles.fadeExit,
+                exitActive: styles.fadeExitActive
+              }}
               addEndListener={(node, done) => {
                 node.addEventListener("transitionend", done, false);
               }}
               key={countText}
             >
-              <span id={`counter-${id}`}>{prefix + countText}</span>
+              <span id={`counter-${id}`} data-testid={dataTestId || getTestId(ELEMENT_TYPES.COUNTER, id)}>
+                {prefix + countText}
+              </span>
             </CSSTransition>
           </SwitchTransition>
         )}

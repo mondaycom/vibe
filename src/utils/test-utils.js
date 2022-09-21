@@ -25,8 +25,8 @@ export const ELEMENT_TYPES = {
   COMBOBOX_CATEGORY: "combobox-category",
   COMBOBOX_OPTION: "combobox-option",
   COUNTER: "counter",
-  MENU: "menu",
-  OPTION: "option",
+  DROPDOWN_MENU: "dropdown-menu",
+  DROPDOWN_OPTION: "dropdown-option",
   EDITABLE_HEADING: "editable-heading",
   EDITABLE_INPUT: "editable-input",
   HEADING: "heading",
@@ -61,7 +61,9 @@ export const ELEMENT_TYPES = {
   FIELD_LABEL: "field-label",
   EXPAND_COLLAPSE: "expand-collapse",
   FORMATTED_NUMBER: "formatted-number",
-  HIDDEN_TEXT: "hidden-text"
+  HIDDEN_TEXT: "hidden-text",
+  DIALOG: "dialog",
+  DIALOG_CONTENT_CONTAINER: "dialog-content-container"
 };
 
 export const NAVIGATIONS_COMMANDS = {

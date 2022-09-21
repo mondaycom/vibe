@@ -247,6 +247,7 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
   >
     <span
       className="referenceWrapper"
+      datatestid="tooltip"
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}

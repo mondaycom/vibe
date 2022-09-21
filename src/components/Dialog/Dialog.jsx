@@ -1,18 +1,19 @@
 /* eslint-disable no-param-reassign */
+import cx from "classnames";
 import { DialogPositions } from "../../constants/sizes";
 import { DIALOG_ANIMATION_TYPES } from "../../constants/AnimationTypes";
 import React, { PureComponent } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
-import { Manager, Reference, Popper } from "react-popper";
-import cx from "classnames";
+import { Manager, Popper, Reference } from "react-popper";
 import isFunction from "lodash/isFunction";
 import { chainFunctions, convertToArray } from "../../utils/function-utils";
 import { DialogContent } from "./DialogContent/DialogContent";
 import { isInsideClass } from "../../utils/dom-utils";
 import { Refable } from "../../components/Refable/Refable";
 import { HIDE_SHOW_EVENTS } from "./consts/dialog-show-hide-event";
-import "./Dialog.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./Dialog.module.scss";
 
 const NOOP = () => {};
 
@@ -277,7 +278,9 @@ export default class Dialog extends PureComponent {
       tooltipClassName,
       referenceWrapperClassName,
       zIndex,
-      hideWhenReferenceHidden
+      hideWhenReferenceHidden,
+      id,
+      "data-testid": dataTestId
     } = this.props;
     const { preventAnimation } = this.state;
 
@@ -295,6 +298,8 @@ export default class Dialog extends PureComponent {
             return (
               <Refable
                 className={referenceWrapperClassName}
+                id={id}
+                datatestid={dataTestId || getTestId(ELEMENT_TYPES.DIALOG, id)}
                 ref={ref}
                 onBlur={chainOnPropsAndInstance("onBlur", this, this.props)}
                 onKeyDown={chainOnPropsAndInstance("onKeyDown", this, this.props)}
@@ -387,7 +392,7 @@ export default class Dialog extends PureComponent {
                     <div
                       style={arrowProps.style}
                       ref={arrowProps.ref}
-                      className={cx("monday-style-tooltip-arrow", tooltipClassName)}
+                      className={cx(styles.tooltipArrow, "monday-style-tooltip-arrow", tooltipClassName)}
                       data-placement={placement}
                     />
                   )}

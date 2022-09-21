@@ -28,6 +28,7 @@ exports[`Slider Render 01. with empty props 1`] = `
         aria-valuetext="0%"
         class="monday-slider__thumb monday-slider__thumb--index-0"
         data-testid="monday-slider__thumb-0"
+        datatestid="tooltip"
         role="slider"
         style="left: 0%;"
         tabindex="0"
@@ -111,9 +112,9 @@ Snapshot Diff:
           class="monday-slider__thumb monday-slider__thumb--index-0"
 -         data-testid="monday-slider__thumb-0"
 +         data-testid="my-slider__thumb-0"
+          datatestid="tooltip"
           role="slider"
           style="left: 0%;"
-          tabindex="0"
 `;
 
 exports[`Slider Render 06. with disabled 1`] = `
@@ -146,6 +147,7 @@ Snapshot Diff:
 -         class="monday-slider__thumb monday-slider__thumb--index-0"
 +         class="monday-slider__thumb monday-slider__thumb--disabled monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
+          datatestid="tooltip"
           role="slider"
           style="left: 0%;"
 -         tabindex="0"
@@ -206,7 +208,7 @@ Snapshot Diff:
 +         aria-valuetext="10%"
           class="monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
-          role="slider"
+          datatestid="tooltip"
 `;
 
 exports[`Slider Render 10. with showValue 1`] = `
@@ -222,6 +224,10 @@ Snapshot Diff:
   >
     <div
 @@ --- --- @@
+          aria-valuetext="0%"
+          class="monday-slider__thumb monday-slider__thumb--index-0"
+          data-testid="monday-slider__thumb-0"
+-         datatestid="tooltip"
           role="slider"
           style="left: 0%;"
           tabindex="0"
@@ -251,7 +257,7 @@ Snapshot Diff:
 +         aria-valuetext="--0GB--"
           class="monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
-          role="slider"
+          datatestid="tooltip"
 `;
 
 exports[`Slider Render 12. with value (controlled component) 1`] = `
@@ -276,6 +282,7 @@ Snapshot Diff:
 +         aria-valuetext="12%"
           class="monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
+          datatestid="tooltip"
           role="slider"
 -         style="left: 0%;"
 +         style="left: 12%;"
@@ -306,6 +313,7 @@ Snapshot Diff:
 +         aria-valuetext="15kg"
           class="monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
+          datatestid="tooltip"
           role="slider"
 -         style="left: 0%;"
 +         style="left: 15%;"
@@ -418,7 +426,7 @@ Snapshot Diff:
         <div
           aria-disabled="false"
 @@ --- --- @@
-          data-testid="monday-slider__thumb-0"
+          datatestid="tooltip"
           role="slider"
           style="left: 0%;"
 +         tabindex="0"
@@ -431,6 +439,7 @@ Snapshot Diff:
 +         aria-valuetext="100%"
 +         class="monday-slider__thumb monday-slider__thumb--index-1"
 +         data-testid="monday-slider__thumb-1"
++         datatestid="tooltip"
 +         role="slider"
 +         style="left: 100%;"
           tabindex="0"
@@ -462,6 +471,7 @@ Snapshot Diff:
 +         aria-valuetext="20%"
           class="monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
+          datatestid="tooltip"
           role="slider"
 -         style="left: 0%;"
 +         style="left: 25%;"
@@ -475,6 +485,7 @@ Snapshot Diff:
 +         aria-valuetext="30%"
 +         class="monday-slider__thumb monday-slider__thumb--index-1"
 +         data-testid="monday-slider__thumb-1"
++         datatestid="tooltip"
 +         role="slider"
 +         style="left: 50%;"
           tabindex="0"
