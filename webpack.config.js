@@ -141,6 +141,6 @@ module.exports = options => {
         chunkFilename: "[name].css",
         ignoreOrder: false // Enable to remove warnings about conflicting order
       })
-    ]
+    ].filter(Boolean)
   };
 };
