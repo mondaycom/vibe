@@ -37,6 +37,15 @@
         transition: none;
       }
     }
+    .CalendarMonthGrid {
+      background-color: var(--secondary-background-color);
+    }
+    .CalendarMonth {
+      background-color: var(--secondary-background-color);
+    }
+    .DayPicker__horizontal {
+      background-color: var(--secondary-background-color);
+    }
     .DayPicker {
       box-shadow: none;
       border: none;
@@ -49,16 +58,16 @@
       font-weight: 300;
       color: var(--primary-text-on-secondary-color);
       background-color: var(--secondary-background-color);
-      border-top: 1px solid white;
-      border-bottom: 1px solid white;
+      border-top: 1px solid var(--secondary-background-color);
+      border-bottom: 1px solid var(--secondary-background-color);
       z-index: 1;
       position: relative;
 
       &:hover {
         background: none;
         border: none;
-        border-top: 1px solid white;
-        border-bottom: 1px solid white;
+        border-top: 1px solid var(--secondary-background-color);
+        border-bottom: 1px solid var(--secondary-background-color);
         &::before {
           @include pseudo-circle;
           border: none;
@@ -79,6 +88,10 @@
         }
       }
     }
+    .CalendarMonth_caption {
+      color: var(--primary-text-on-secondary-color);
+    }
+
     .CalendarDay__today {
       &::before {
         @include pseudo-circle;

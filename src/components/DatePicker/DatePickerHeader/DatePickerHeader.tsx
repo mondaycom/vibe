@@ -1,8 +1,9 @@
 import React from "react";
-import classNames from "classnames";
+import { DropdownChevronDown, DropdownChevronUp } from "../../Icon/Icons";
 import moment from "moment";
 import { Moment } from "../types";
 import styles from "./DatePickerHeader.module.scss";
+import Icon from "../../Icon/Icon";
 
 interface DatePickerHeaderProps {
   currentDate: Moment;
@@ -36,12 +37,13 @@ const DatePickerHeader = (props: DatePickerHeaderProps) => {
           onClick={onToggleMonthYearPicker}
         >
           <div className={styles.buttonContent}>
-            <span
-              className={classNames(
-                "fa",
-                { "fa-caret-up": isMonthYearSelection },
-                { "fa-caret-down": !isMonthYearSelection }
-              )}
+            <Icon
+              iconType={Icon?.type?.SVG}
+              // @ts-ignore
+              icon={isMonthYearSelection ? DropdownChevronUp : DropdownChevronDown}
+              iconSize={24}
+              clickable={false}
+              ignoreFocusStyle
             />
           </div>
         </button>
