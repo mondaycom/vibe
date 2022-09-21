@@ -1,8 +1,9 @@
-import React from "react";
+import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
 import cx from "classnames";
-import "./ComboboxCategory.scss";
+import React from "react";
+import styles from "./ComboboxCategory.module.scss";
 
-const ComboboxCategory = ({ category, className }) => {
+const ComboboxCategory = ({ category, className, "data-testid": dataTestId }) => {
   const { label, id, ariaLabel } = category;
 
   if (!label) return null;
@@ -14,7 +15,8 @@ const ComboboxCategory = ({ category, className }) => {
       aria-level={1}
       aria-label={ariaLabel || label}
       id={`combobox-category-${id}`}
-      className={cx("combobox-category", className)}
+      className={cx(styles.comboboxCategory, "combobox-category", className)}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX_CATEGORY, id)}
     >
       {label}
     </div>

@@ -1,0 +1,18 @@
+@import "../../../../styles/global-css-settings";
+@import "../../../../styles/typography";
+@import "../../../../styles/themes";
+
+:global(.clear-color-icon) {
+  margin-right: $spacing-small;
+}
+
+:global(.clear-color-button) {
+  margin-top: $spacing-small;
+}
+
+:global(.color-picker) {
+  padding: 0;
+  outline: none;
+  display: flex;
+  flex-wrap: wrap;
+}

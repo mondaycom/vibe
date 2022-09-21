@@ -1,0 +1,90 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/states";
+
+.comboboxWrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  @include font-general-text();
+  position: relative;
+  margin-bottom: var(--spacing-small);
+}
+
+.comboboxWrapper .categoryWithDivider {
+  margin-top: var(--spacing-medium);
+}
+
+.stickyCategory .category {
+  z-index: 10;
+  background-color: var(--primary-background-color);
+}
+
+/* Relative to Search height */
+
+.stickyCategory.small .category {
+  top: 32px;
+}
+
+.stickyCategory.medium .category {
+  top: 40px;
+}
+
+.stickyCategory.large .category {
+  top: 48px;
+}
+
+.empty {
+  max-height: 200px;
+}
+
+.searchWrapper {
+  position: sticky;
+  top: 0;
+  background-color: var(--primary-background-color);
+  z-index: 12;
+}
+
+.search {
+  flex: 0 0 auto;
+}
+
+.noResults {
+  margin-top: var(--spacing-small);
+  flex: 1 1 auto;
+  height: calc(100% - 20px);
+  overflow: hidden;
+  position: relative;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.noResults .messageWrapper {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noResults .messageWrapper .message {
+  @include ellipsis();
+}
+
+.noResults .addNewButton {
+  flex: 0 0 auto;
+  width: 100% !important;
+  margin-bottom: 8px;
+}
+
+.noResults .addNewButton .buttonLabel {
+  @include ellipsis();
+}
+
+.wrapperList {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 0 4px;
+  overflow: hidden;
+}

@@ -1,10 +1,10 @@
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useRef, useState, forwardRef, useMemo, useCallback } from "react";
+import React, { forwardRef, useCallback, useMemo, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
 import NOOP from "lodash/noop";
-import cx from "classnames";
-import { getTestId, ELEMENT_TYPES } from "../../utils/test-utils";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import Search from "../Search/Search";
 import { SIZES } from "../../constants/sizes";
@@ -15,7 +15,7 @@ import { ComboboxItems } from "../../components/Combobox/components/ComboboxItem
 import { StickyCategoryHeader } from "../../components/Combobox/components/StickyCategoryHeader/StickyCategoryHeader";
 import useActiveDescendantListFocus from "../../hooks/useActiveDescendantListFocus";
 import { getOptionId } from "./ComboboxHelpers/ComboboxHelpers";
-import "./Combobox.scss";
+import styles from "./Combobox.module.scss";
 
 const Combobox = forwardRef(
   (
@@ -52,7 +52,8 @@ const Combobox = forwardRef(
       /**
        * temporary flag for investigate a bug - will remove very soon
        */
-      forceUndoScrollNullCheck = false
+      forceUndoScrollNullCheck = false,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -150,13 +151,18 @@ const Combobox = forwardRef(
       }
 
       return (
-        <div className="combobox--wrapper-no-results">
-          <div className="combobox-message-wrapper">
-            <span className="combobox-message">{noResultsMessage}</span>
+        <div className={cx(styles.noResults, "combobox--wrapper-no-results")}>
+          <div className={cx(styles.messageWrapper, "combobox-message-wrapper")}>
+            <span className={cx(styles.message, "combobox-message")}>{noResultsMessage}</span>
           </div>
           {onAddNew && !disabled && (
-            <Button className="add-new-button" size={size} kind={Button.kinds.TERTIARY} onClick={onAddNewCallback}>
-              <span className="button-label">{getAddNewLabel()}</span>
+            <Button
+              className={cx(styles.addNewButton, "add-new-button")}
+              size={size}
+              kind={Button.kinds.TERTIARY}
+              onClick={onAddNewCallback}
+            >
+              <span className={cx(styles.buttonLabel, "button-label")}>{getAddNewLabel()}</span>
             </Button>
           )}
         </div>
@@ -178,19 +184,25 @@ const Combobox = forwardRef(
       // eslint-disable-next-line jsx-a11y/aria-activedescendant-has-tabindex
       <div
         ref={mergedRef}
-        className={cx("combobox--wrapper", className, `size-${size}`, {
-          empty: !hasResults,
-          "sticky-category": stickyCategories
+        className={cx(styles.comboboxWrapper, "combobox--wrapper", className, styles[size], `size-${size}`, {
+          [styles.empty]: !hasResults,
+          ["empty"]: !hasResults,
+          [styles.stickyCategory]: stickyCategories,
+          ["sticky-category"]: stickyCategories
         })}
         id={id}
-        data-testid={getTestId(ELEMENT_TYPES.COMBOBOX, id)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.COMBOBOX, id)}
       >
-        <div className="combobox--wrapper-list" style={{ maxHeight: optionsListHeight }} role="listbox">
+        <div
+          className={cx(styles.wrapperList, "combobox--wrapper-list")}
+          style={{ maxHeight: optionsListHeight }}
+          role="listbox"
+        >
           <Search
             ref={inputRef}
             value={filterValue}
-            wrapperClassName="combobox--wrapper-search-wrapper"
-            className="combobox--wrapper-search"
+            wrapperClassName={cx(styles.searchWrapper, "combobox--wrapper-search-wrapper")}
+            className={cx(styles.search, "combobox--wrapper-search")}
             inputAriaLabel="Search for content"
             activeDescendant={visualFocusItemId}
             id="combobox-search"

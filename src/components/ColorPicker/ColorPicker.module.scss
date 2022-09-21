@@ -1,0 +1,9 @@
+@import "../../styles/global-css-settings";
+
+.wrapper.dialogContent {
+  z-index: 1;
+  padding: $spacing-small-medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

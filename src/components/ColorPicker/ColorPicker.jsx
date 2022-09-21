@@ -9,7 +9,8 @@ import NoColor from "../Icon/Icons/components/NoColor";
 import ColorPickerContentComponent from "./components/ColorPickerContent/ColorPickerContentComponent";
 import { COLOR_SHAPES, DEFAULT_NUMBER_OF_COLORS_IN_LINE } from "./ColorPickerConstants";
 import { calculateColorPickerDialogWidth } from "./services/ColorPickerStyleService";
-import "./ColorPicker.scss";
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import styles from "./ColorPicker.module.scss";
 
 const ColorPicker = forwardRef(
   (
@@ -31,7 +32,9 @@ const ColorPicker = forwardRef(
       focusOnMount,
       colorShape,
       forceUseRawColorList,
-      showColorNameTooltip
+      showColorNameTooltip,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
@@ -45,7 +48,14 @@ const ColorPicker = forwardRef(
     return (
       <DialogContentContainer
         ref={mergedRef}
-        className={cx("color-picker--wrapper", "color-picker-dialog-content", className)}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.COLOR_PICKER, id)}
+        className={cx(
+          styles.wrapper,
+          "color-picker--wrapper",
+          styles.dialogContent,
+          "color-picker-dialog-content",
+          className
+        )}
         ariaLabelledby="Color Picker Dialog"
         ariaDescribedby="Pick color"
         style={{ width }}

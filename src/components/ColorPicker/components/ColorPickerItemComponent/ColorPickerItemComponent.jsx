@@ -1,15 +1,15 @@
-import React, { useRef, useCallback, useEffect, useMemo } from "react";
-import PropTypes from "prop-types";
+import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
 import cx from "classnames";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import PropTypes from "prop-types";
 import NOOP from "lodash/noop";
 import { COLOR_STYLES, contentColors } from "../../../../utils/colors-vars-map";
 import ColorUtils from "../../../../utils/colors-utils";
-import "./ColorPickerItemComponent.scss";
 import Icon from "../../../Icon/Icon";
 import Tooltip from "../../../Tooltip/Tooltip";
 import Clickable from "../../../Clickable/Clickable";
 import { COLOR_SHAPES } from "../../ColorPickerConstants";
-import { getTestId } from "../../../../utils/test-utils";
+import styles from "./ColorPickerItemComponent.module.scss";
 
 const ColorPickerItemComponent = ({
   color,
@@ -23,7 +23,8 @@ const ColorPickerItemComponent = ({
   tooltipContent,
   isActive,
   colorShape,
-  "data-testid": dataTestId
+  "data-testid": dataTestId,
+  id
 }) => {
   const isMondayColor = useMemo(() => contentColors.includes(color), [color]);
   const colorAsStyle = isMondayColor ? ColorUtils.getMondayColorAsStyle(color, colorStyle) : color;
@@ -57,32 +58,45 @@ const ColorPickerItemComponent = ({
   const shouldRenderIcon = isSelected || ColorIndicatorIcon;
   const colorIndicatorWrapperStyle = shouldRenderIndicatorWithoutBackground ? { color: colorAsStyle } : {};
   return (
-    <Tooltip content={tooltipContent}>
+    <Tooltip
+      content={tooltipContent}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.COLOR_PICKER_ITEM_COMPONENT, id)}
+    >
       <li
-        className={cx("monday-style-color-item-wrapper", {
-          "selected-color": isSelected,
-          active: isActive,
-          circle: colorShape === COLOR_SHAPES.CIRCLE
+        className={cx(styles.itemWrapper, "monday-style-color-item-wrapper", {
+          [styles.selectedColor]: isSelected,
+          ["selected-color"]: isSelected,
+          [styles.active]: isActive,
+          ["active"]: isActive,
+          [styles.circle]: colorShape === COLOR_SHAPES.CIRCLE,
+          ["circle"]: colorShape === COLOR_SHAPES.CIRCLE
         })}
         data-testid={dataTestId || getTestId("color-picker-item", color)}
       >
-        <div className="feedback-indicator" />
+        <div className={cx(styles.feedbackIndicator, "feedback-indicator")} />
         <Clickable
           ref={itemRef}
           ariaLabel={color}
-          className={cx("color-item", `color-item-size-${colorSize}`, {
-            "color-item-text-mode": shouldRenderIndicatorWithoutBackground
+          className={cx(styles.colorItem, "color-item", styles[colorSize], `color-item-size-${colorSize}`, {
+            [styles.colorItemTextMode]: shouldRenderIndicatorWithoutBackground,
+            ["color-item-text-mode"]: shouldRenderIndicatorWithoutBackground
           })}
           style={{ background: shouldRenderIndicatorWithoutBackground ? "transparent" : colorAsStyle }}
           onClick={onClick}
           tabIndex="-1"
           onMouseDown={onMouseDown} // this is for quill to not lose the selection
         >
-          <div className="color-indicator-wrapper" style={colorIndicatorWrapperStyle}>
+          <div
+            className={cx(styles.colorIndicatorWrapper, "color-indicator-wrapper")}
+            style={colorIndicatorWrapperStyle}
+          >
             {shouldRenderIcon && (
               <Icon
                 icon={isSelected ? SelectedIndicatorIcon : ColorIndicatorIcon}
-                className={cx({ "color-icon-white": !shouldRenderIndicatorWithoutBackground })}
+                className={cx({
+                  [styles.colorIconWhite]: !shouldRenderIndicatorWithoutBackground,
+                  ["color-icon-white"]: !shouldRenderIndicatorWithoutBackground
+                })}
                 ignoreFocusStyle
               />
             )}
