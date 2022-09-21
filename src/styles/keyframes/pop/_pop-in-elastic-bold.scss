@@ -1,0 +1,17 @@
+@mixin pop-in-elastic-bold() {
+  0% {
+    transform: scale(0.9);
+  }
+  25% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(0.97);
+  }
+  75% {
+    transform: scale(1.02);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
