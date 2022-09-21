@@ -1,5 +1,5 @@
 import { useEffect, RefObject, useCallback } from "react";
-import { debounce } from "lodash-es";
+import debounce from "lodash/debounce";
 
 type ResizeCallback = ({ borderBoxSize }: { borderBoxSize: ResizeObserverSize }) => void;
 
