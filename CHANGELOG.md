@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.65.0 (2022-09-21)
+
+#### New Features
+* [#883](https://github.com/mondaycom/monday-ui-react-core/pull/883) fix externals issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.64.2 (2022-09-20)
 
 #### Bug Fixes
