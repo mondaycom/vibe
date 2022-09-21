@@ -1,15 +1,12 @@
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import NOOP from "lodash/noop";
-import { Switch } from "../../components/Switch/Switch";
-import { MockToggle } from "../../components/Toggle/MockToggle";
-import { BEMClass } from "../../helpers/bem-helper";
+import { Switch } from "../Switch/Switch";
+import { MockToggle } from "./MockToggle";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { BASE_TOGGLE_CLASS_NAME } from "./ToggleConstants";
-import "./Toggle.scss";
-
-const bemHelper = BEMClass(BASE_TOGGLE_CLASS_NAME);
+import styles from "./Toggle.module.scss";
 
 const Toggle = ({
   id,
@@ -28,14 +25,16 @@ const Toggle = ({
   ariaControls,
   areLabelsHidden,
   onOverrideText,
-  offOverrideText
+  offOverrideText,
+  "data-testid": dataTestId
 }) => {
   const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
   const overrideDisabled = backwardCompatibilityForProperties([disabled, isDisabled], false);
-  const wrapperClassName = cx(bemHelper({ element: "wrapper" }), {
-    [bemHelper({ element: "wrapper", state: "disabled" })]: overrideDisabled
+  const wrapperClassName = cx(styles.wrapper, "monday-style-toggle_wrapper", {
+    [styles.disabled]: overrideDisabled,
+    ["monday-style-toggle_wrapper--disabled"]: overrideDisabled
   });
-  const inputClassName = bemHelper({ element: "input" });
+  const inputClassName = "monday-style-toggle_input";
   return (
     <Switch
       defaultChecked={isDefaultSelected}
@@ -49,6 +48,7 @@ const Toggle = ({
       ariaLabel={ariaLabel}
       ariaControls={ariaControls}
       inputClassName={inputClassName}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.TOGGLE, id)}
     >
       <MockToggle
         areLabelsHidden={areLabelsHidden}

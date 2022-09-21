@@ -1,7 +1,9 @@
+import { camelCase } from "lodash";
+import { ELEMENT_TYPES, getTestId } from "../../../../utils/test-utils";
+import cx from "classnames";
 /* eslint-disable react/default-props-match-prop-types,react/require-default-props */
 import { keyCodes } from "../../../../constants/KeyCodes";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import cx from "classnames";
 import PropTypes from "prop-types";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import useEventListener from "../../../../hooks/useKeyEvent";
@@ -13,8 +15,9 @@ import { NOOP } from "../../../../utils/function-utils";
 import HiddenText from "../../../../components/HiddenText/HiddenText";
 import Clickable from "../../../../components/Clickable/Clickable";
 import { MULTI_STEP_TYPES, STEP_STATUSES } from "../../MultiStepConstants";
-import { baseClassName } from "./StepIndicatorConstants";
-import "./StepIndicator.scss";
+import styles from "./StepIndicator.module.scss";
+
+export const CSS_BASE_CLASS = "monday-style-step-indicator-component";
 
 const KEYS = [keyCodes.ENTER, keyCodes.SPACE];
 
@@ -28,7 +31,7 @@ const StepCircleDisplay = ({
   return status === STEP_STATUSES.FULFILLED && !isFulfilledStepDisplayNumber ? (
     <Icon
       icon={fulfilledStepIcon}
-      className={`${baseClassName}__number-container__text__check-icon`}
+      className={cx(styles.numberContainerTextCheckIcon, `${CSS_BASE_CLASS}__number-container__text__check-icon`)}
       iconLabel={STEP_STATUSES.FULFILLED}
       iconType={fulfilledStepIconType}
       ignoreFocusStyle
@@ -53,7 +56,9 @@ const StepIndicator = ({
   onClick,
   isFollowedByDivider,
   stepDividerClassName,
-  isVertical
+  isVertical,
+  id,
+  "data-testid": dataTestId
 }) => {
   // Animations state
   const [statusChangeAnimationState, setStatusChangeAnimationState] = useState(false);
@@ -106,12 +111,20 @@ const StepIndicator = ({
     return `Step ${stepNumber}: ${titleText} - ${subtitleText}, status: ${status}`;
   }, [status, titleText, stepNumber, subtitleText]);
 
-  const baseClassNameWithType = `${baseClassName}--type-${type}`;
-  const baseClassNameWithStatus = `${baseClassName}--status-${status}`;
-  const baseClassNameWithAnimation = `${baseClassName}--with-animation`;
+  const CSS_BASE_CLASSWithType = `${CSS_BASE_CLASS}--type-${type}`;
+  const CSS_BASE_CLASSWithStatus = `${CSS_BASE_CLASS}--status-${status}`;
+  const CSS_BASE_CLASSWithAnimation = `${CSS_BASE_CLASS}--with-animation`;
 
   const getClassNamesWithSuffix = suffix => {
-    return [`${baseClassName}${suffix}`, `${baseClassNameWithType}${suffix}`, `${baseClassNameWithStatus}${suffix}`];
+    const modularBaseClassName = "indicator";
+    return [
+      styles[camelCase(`${suffix || modularBaseClassName}`)],
+      `${CSS_BASE_CLASS}${suffix}`,
+      styles[camelCase(`type-${type}-${suffix}`)],
+      `${CSS_BASE_CLASSWithType}${suffix}`,
+      styles[camelCase(`status-${status}-${suffix}`)],
+      `${CSS_BASE_CLASSWithStatus}${suffix}`
+    ];
   };
 
   return (
@@ -119,9 +132,12 @@ const StepIndicator = ({
       tabIndex="-1"
       elementType="li"
       className={cx(...getClassNamesWithSuffix(""), stepComponentClassName, {
-        [baseClassNameWithAnimation]: statusChangeAnimationState,
-        clickable: onClick,
-        [`${baseClassName}--text-placement-vertical`]: isVertical
+        [styles.withAnimation]: statusChangeAnimationState,
+        [CSS_BASE_CLASSWithAnimation]: statusChangeAnimationState,
+        [styles.clickable]: onClick,
+        ["clickable"]: onClick,
+        [styles.textPlacementVertical]: isVertical,
+        [`${CSS_BASE_CLASS}--text-placement-vertical`]: isVertical
       })}
       aria-label={ariaLabel}
       onClick={handleClick}
@@ -132,10 +148,17 @@ const StepIndicator = ({
           ref={componentRef}
           tabIndex="0"
           role="button"
+          id={id}
+          data-testid={dataTestId || getTestId(ELEMENT_TYPES.STEP_INDICATOR, id)}
         >
           <SwitchTransition mode="out-in">
             <CSSTransition
-              classNames={`${baseClassName}--swap`}
+              classNames={{
+                enter: styles.swapEnter,
+                enterActive: styles.swapEnterActive,
+                exit: styles.swapExit,
+                exitActive: styles.swapExitActive
+              }}
               addEndListener={(node, done) => {
                 node.addEventListener("transitionend", done, false);
               }}

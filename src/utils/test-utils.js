@@ -71,7 +71,9 @@ export const ELEMENT_TYPES = {
   DIALOG_CONTENT_CONTAINER: "dialog-content-container",
   BANNER: "banner",
   BUTTON_GROUP: "button-group",
-  ACCORDION: "accordion"
+  ACCORDION: "accordion",
+  TOGGLE_TEXT: "toggle-text",
+  MOCK_TOGGLE: "mock-toggle"
 };
 
 export const NAVIGATIONS_COMMANDS = {
