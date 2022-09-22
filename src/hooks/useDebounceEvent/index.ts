@@ -1,5 +1,6 @@
 import { useMemo, useCallback, useState, useRef, useEffect, ChangeEvent, Dispatch, SetStateAction } from "react";
-import { debounce, noop } from "lodash-es";
+import noop from "lodash/noop";
+import debounce from "lodash/debounce";
 
 export type UseDebounceResult = {
   inputValue: string;

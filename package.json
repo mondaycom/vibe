@@ -1,6 +1,6 @@
 {
   "name": "monday-ui-react-core",
-  "version": "1.64.0",
+  "version": "1.66.1",
   "description": "Official monday.com UI resources for application development in React.js",
   "main": "./dist/main.js",
   "exports": {
@@ -179,6 +179,7 @@
     "typescript": "^4.7.3",
     "typescript-plugin-css-modules": "^3.4.0",
     "webpack": "^5.73.0",
+    "webpack-bundle-analyzer": "^4.6.1",
     "webpack-cli": "^4.9.1",
     "webpack-node-externals": "^3.0.0"
   },

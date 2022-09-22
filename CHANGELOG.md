@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.66.1 (2022-09-22)
+
+#### Bug Fixes
+* [#887](https://github.com/mondaycom/monday-ui-react-core/pull/887) fix import path from absolute to relative. ([@3dyonic](https://github.com/3dyonic))
+* [#886](https://github.com/mondaycom/monday-ui-react-core/pull/886) Tooltip: increase specifity of monday-style-arrow-${theme} classes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.66.0 (2022-09-21)
+
+#### New Features
+* [#882](https://github.com/mondaycom/monday-ui-react-core/pull/882) Feature/refactor components motion keyframes ([@3dyonic](https://github.com/3dyonic))
+
+## 1.65.0 (2022-09-21)
+
+#### New Features
+* [#883](https://github.com/mondaycom/monday-ui-react-core/pull/883) fix externals issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.64.2 (2022-09-20)
+
+#### Bug Fixes
+* [#879](https://github.com/mondaycom/monday-ui-react-core/pull/879) Fix flex grow loading state size. ([@3dyonic](https://github.com/3dyonic))
+
+## 1.64.1 (2022-09-20)
+
+#### Bug Fixes
+* [#880](https://github.com/mondaycom/monday-ui-react-core/pull/880) Fix Virtualized list items ([@MosheZemah](https://github.com/MosheZemah))
+
 ## 1.64.0 (2022-09-20)
 
 #### Bug Fixes
