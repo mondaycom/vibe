@@ -32,6 +32,8 @@ const FONT_SIZES = [
   "--font-size-subtext"
 ];
 
+const FONT_FAMILIES = ["--font-family", "--title-font-family", "--h1-font-family"];
+
 const FONT_WEIGHTS = ["--font-weight-very-light", "--font-weight-light", "--font-weight-normal", "--font-weight-bold"];
 
 const FONT_LINE_HEIGHTS = [
@@ -110,6 +112,8 @@ const BORDER_RADIUSES_PROPS = [
   "border-end-end-radius"
 ];
 
+const FONT_FAMILIES_PROPS = ["font", "font-family"];
+
 const BORDER_WIDTHS_PROPS = ["border", "border-width"];
 
 const BORDER_STYLES_PROPS = ["border", "border-style"];
@@ -156,11 +160,10 @@ const PROPS_TO_ALLOWED_VARS = {
     "--font-size-h5",
     "--font-size-general-label"
   ]),
+  ...mapPropsToAllowedVars(FONT_FAMILIES_PROPS, FONT_FAMILIES, ["--title-font-family"]),
   ...mapPropsToAllowedVars(TIMING_FUNCTION_PROPS, ANIMATION_TIMING, ["--expand-animation-timing"]),
   ...mapPropsToAllowedVars(DURATION_FUNCTION_PROPS, ANIMATION_DURATION, ["--animation-expressive-short"]),
   ...mapPropsToAllowedVars(OPACITY_PROPS, "--disabled-component-opacity"),
-
-  "font-family": { allowedVars: ["--font-family", "--h1-font-family"] },
   "-webkit-font-smoothing": { allowedVars: ["--font-smoothing-webkit"] },
   "-moz-osx-font-smoothing": { allowedVars: ["--font-smoothing-moz"] }
 };
