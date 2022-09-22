@@ -1,3 +1,4 @@
+import cx from "classnames";
 import React, { forwardRef, useCallback } from "react";
 import PropTypes from "prop-types";
 import {
@@ -5,21 +6,21 @@ import {
   isArrowLeftEvent,
   isArrowRightEvent,
   isArrowUpEvent,
-  isPageDownEvent,
-  isPageUpEvent,
   isEndEvent,
-  isHomeEvent
+  isHomeEvent,
+  isPageDownEvent,
+  isPageUpEvent
 } from "../../../utils/dom-event-utils";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
-import { bem, calcDimensions, getNearest, moveToPx, calculatePageStep } from "../SliderHelpers";
+import { calcDimensions, calculatePageStep, getNearest, moveToPx } from "../SliderHelpers";
 import { useSliderRail } from "../SliderHooks";
 import SliderRail from "./SliderRail";
 import SliderTrack from "./SliderTrack";
 import SliderFilledTrack from "./SliderFilledTrack";
 import SliderThumb from "./SliderThumb";
-import "./SliderBase.scss";
+import styles from "./SliderBase.module.scss";
 
-const SliderBase = forwardRef(({ className }, ref) => {
+const SliderBase = forwardRef(({ className, id }, ref) => {
   const { color, disabled, size, shapeTestId } = useSliderUi();
   const { min, max, ranged, step, value } = useSliderSelection();
   const { changeThumbValue, drugThumb, decreaseValue, increaseValue } = useSliderActions();
@@ -72,7 +73,20 @@ const SliderBase = forwardRef(({ className }, ref) => {
 
   return (
     <div
-      className={bem("base", { [size]: size, [color]: color, disabled }, className)}
+      className={cx(
+        styles.sliderBase,
+        "monday-slider__base",
+        {
+          [styles[size]]: size,
+          [`monday-slider__base--${size}`]: size,
+          [styles[color]]: color,
+          [`monday-slider__base--${color}`]: color,
+          [styles.disabled]: disabled,
+          ["monday-slider__base--disabled"]: disabled
+        },
+        className
+      )}
+      id={id}
       data-testid={shapeTestId("base")}
       onKeyDown={handleKeyDown}
     >

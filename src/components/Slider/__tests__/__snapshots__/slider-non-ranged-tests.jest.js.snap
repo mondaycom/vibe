@@ -2,22 +2,23 @@
 
 exports[`a. Non-ranged Slider: basic renderer 1`] = `
 <div
-  class="monday-slider"
+  class="slider monday-slider"
   data-testid="monday-slider"
 >
   <div
-    class="monday-slider__base monday-slider__base--small"
+    class="sliderBase monday-slider__base small monday-slider__base--small"
     data-testid="monday-slider__base"
   >
     <div
-      class="monday-slider__rail"
+      class="sliderRail monday-slider__rail"
       data-testid="monday-slider__rail"
     >
       <div
-        class="monday-slider__track"
+        class="sliderTrack monday-slider__track"
       />
       <div
-        class="monday-slider__filled-track"
+        class="sliderFilledTrack monday-slider__filled-track"
+        data-testid="slider-filled-track"
         style="left: 0%; width: 20%;"
       />
       <div
@@ -27,7 +28,7 @@ exports[`a. Non-ranged Slider: basic renderer 1`] = `
         aria-valuemin="0"
         aria-valuenow="20"
         aria-valuetext="20%"
-        class="monday-slider__thumb monday-slider__thumb--index-0"
+        class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
         data-testid="monday-slider__thumb-0"
         datatestid="tooltip"
         role="slider"
@@ -116,8 +117,8 @@ Snapshot Diff:
           aria-valuemin="0"
           aria-valuenow="20"
           aria-valuetext="20%"
--         class="monday-slider__thumb monday-slider__thumb--index-0"
-+         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+-         class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
++         class="sliderThumb monday-slider__thumb focused monday-slider__thumb--focused monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           datatestid="tooltip"
           role="slider"
@@ -158,8 +159,8 @@ Snapshot Diff:
           aria-valuemin="0"
           aria-valuenow="20"
           aria-valuetext="20%"
--         class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
-+         class="monday-slider__thumb monday-slider__thumb--index-0"
+-         class="sliderThumb monday-slider__thumb focused monday-slider__thumb--focused monday-slider__thumb--index-0"
++         class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           datatestid="tooltip"
           role="slider"
@@ -197,9 +198,9 @@ Snapshot Diff:
 + Current Render
 
 @@ --- --- @@
-        />
         <div
-          class="monday-slider__filled-track"
+          class="sliderFilledTrack monday-slider__filled-track"
+          data-testid="slider-filled-track"
 -         style="left: 0%; width: 20%;"
 +         style="left: 0%; width: 18%;"
         />
@@ -212,7 +213,7 @@ Snapshot Diff:
 -         aria-valuetext="20%"
 +         aria-valuenow="18"
 +         aria-valuetext="18%"
-          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb focused monday-slider__thumb--focused monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           role="slider"
 -         style="left: 20%;"
@@ -220,7 +221,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="monday-slider__thumb-label"
+            class="label monday-slider__thumb-label"
           >
 -           20%
 +           18%
@@ -235,9 +236,9 @@ Snapshot Diff:
 + Current Render
 
 @@ --- --- @@
-        />
         <div
-          class="monday-slider__filled-track"
+          class="sliderFilledTrack monday-slider__filled-track"
+          data-testid="slider-filled-track"
 -         style="left: 0%; width: 20%;"
 +         style="left: 0%; width: 22%;"
         />
@@ -250,7 +251,7 @@ Snapshot Diff:
 -         aria-valuetext="20%"
 +         aria-valuenow="22"
 +         aria-valuetext="22%"
-          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb focused monday-slider__thumb--focused monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           role="slider"
 -         style="left: 20%;"
@@ -258,7 +259,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="monday-slider__thumb-label"
+            class="label monday-slider__thumb-label"
           >
 -           20%
 +           22%
@@ -273,9 +274,9 @@ Snapshot Diff:
 + Current Render
 
 @@ --- --- @@
-        />
         <div
-          class="monday-slider__filled-track"
+          class="sliderFilledTrack monday-slider__filled-track"
+          data-testid="slider-filled-track"
 -         style="left: 0%; width: 20%;"
 +         style="left: 0%; width: 10%;"
         />
@@ -288,7 +289,7 @@ Snapshot Diff:
 -         aria-valuetext="20%"
 +         aria-valuenow="10"
 +         aria-valuetext="10%"
-          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb focused monday-slider__thumb--focused monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           role="slider"
 -         style="left: 20%;"
@@ -296,7 +297,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="monday-slider__thumb-label"
+            class="label monday-slider__thumb-label"
           >
 -           20%
 +           10%
@@ -311,9 +312,9 @@ Snapshot Diff:
 + Current Render
 
 @@ --- --- @@
-        />
         <div
-          class="monday-slider__filled-track"
+          class="sliderFilledTrack monday-slider__filled-track"
+          data-testid="slider-filled-track"
 -         style="left: 0%; width: 20%;"
 +         style="left: 0%; width: 40%;"
         />
@@ -326,7 +327,7 @@ Snapshot Diff:
 -         aria-valuetext="20%"
 +         aria-valuenow="40"
 +         aria-valuetext="40%"
-          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb focused monday-slider__thumb--focused monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           role="slider"
 -         style="left: 20%;"
@@ -334,7 +335,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="monday-slider__thumb-label"
+            class="label monday-slider__thumb-label"
           >
 -           20%
 +           40%
@@ -349,9 +350,9 @@ Snapshot Diff:
 + Current Render
 
 @@ --- --- @@
-        />
         <div
-          class="monday-slider__filled-track"
+          class="sliderFilledTrack monday-slider__filled-track"
+          data-testid="slider-filled-track"
 -         style="left: 0%; width: 20%;"
 +         style="left: 0%; width: 40%;"
         />
@@ -364,7 +365,7 @@ Snapshot Diff:
 -         aria-valuetext="20%"
 +         aria-valuenow="40"
 +         aria-valuetext="40%"
-          class="monday-slider__thumb monday-slider__thumb--focused monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb focused monday-slider__thumb--focused monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           role="slider"
 -         style="left: 20%;"
@@ -372,7 +373,7 @@ Snapshot Diff:
           tabindex="0"
         >
           <label
-            class="monday-slider__thumb-label"
+            class="label monday-slider__thumb-label"
           >
 -           20%
 +           40%
@@ -383,8 +384,8 @@ Snapshot Diff:
       <div
         data-testid="mock-text-field-comp"
       >
--       {"value":"20%"}
-+       {"value":"40%"}
+-       {"value":"20%","data-testid":"SelectionIndicator"}
++       {"value":"40%","data-testid":"SelectionIndicator"}
       </div>
     </div>
   </div>

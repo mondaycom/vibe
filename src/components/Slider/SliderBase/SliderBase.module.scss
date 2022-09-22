@@ -1,0 +1,109 @@
+@import "../../../styles/global-css-settings";
+@import "../../../styles/states";
+@import "../../../styles/themes";
+
+.sliderBase {
+  display: flex;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+
+/* thumb (for NOT-disabled) */
+:not(.disabled) :global(.monday-slider__thumb) {
+  @include focus-style(50%);
+}
+
+:not(.disabled) :global(.monday-slider__thumb):hover {
+  @include theme-prop(border-color, primary-hover-color);
+  cursor: grab;
+  @include box-shadow-small();
+}
+
+/* modifications */
+
+.disabled * {
+  pointer-events: none;
+}
+
+.disabled {
+  cursor: not-allowed !important;
+  opacity: var(--disabled-component-opacity);
+}
+
+.small {
+  padding: 0 8px;
+}
+
+.small :global(.monday-slider__rail) {
+  border-radius: 2px;
+  height: 2px;
+  padding: 8px 0;
+}
+
+.small :global(.monday-slider__thumb) {
+  height: 16px;
+  width: 16px;
+}
+
+.medium {
+  padding: 0 12px;
+}
+
+.medium :global(.monday-slider__rail) {
+  border-radius: 2px;
+  height: 4px;
+  padding: 12px 0;
+}
+
+.medium :global(.monday-slider__thumb) {
+  height: 24px;
+  width: 24px;
+}
+
+.large {
+  padding: 0 12px;
+}
+
+.large :global(.monday-slider__rail) {
+  border-radius: 8px;
+  height: 8px;
+  padding: 10px 0;
+}
+
+.large :global(.monday-slider__thumb) {
+  height: 24px;
+  width: 24px;
+}
+
+.positive :global(.monday-slider__track) {
+  @include theme-prop(background-color, positive-color-selected);
+}
+
+.positive :global(.monday-slider__filled-track) {
+  @include theme-prop(background-color, positive-color);
+}
+
+.positive :global(.monday-slider__thumb) {
+  @include theme-prop(border-color, positive-color);
+}
+
+.positive:not(.disabled) :global(.monday-slider__thumb):hover {
+  @include theme-prop(border-color, positive-color-hover);
+}
+
+.negative :global(.monday-slider__track) {
+  @include theme-prop(background-color, negative-color-selected);
+}
+
+.negative :global(.monday-slider__filled-track) {
+  @include theme-prop(background-color, negative-color);
+}
+
+.negative :global(.monday-slider__thumb) {
+  @include theme-prop(border-color, negative-color);
+}
+
+.negative:not(.disabled) :global(.monday-slider__thumb):hover {
+  @include theme-prop(border-color, negative-color-hover);
+}

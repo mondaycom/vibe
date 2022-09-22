@@ -1,0 +1,13 @@
+@import "../../../styles/global-css-settings";
+@import "../../../styles/states";
+@import "../../../styles/themes";
+
+.sliderTrack {
+  position: absolute;
+  border-radius: inherit;
+  @include theme-prop(background-color, primary-selected-color);
+  height: inherit;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}

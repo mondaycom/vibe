@@ -1,15 +1,17 @@
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import cx from "classnames";
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { DialogPositions } from "../../../constants";
 import { NOOP } from "../../../utils/function-utils";
 import Tooltip from "../../Tooltip/Tooltip";
 import { TOOLTIP_SHOW_DELAY } from "../SliderConstants";
-import { bem } from "../SliderHelpers";
 import { useSliderActions, useSliderSelection, useSliderUi } from "../SliderContext";
+import styles from "./SliderThumb.module.scss";
 
 const tooltipPosition = DialogPositions.TOP;
 
-const SliderThumb = ({ className, index, onMove, position }) => {
+const SliderThumb = ({ className, index, onMove, position, id, "data-testid": dataTestId }) => {
   const { max, min, ranged, value: valueOrValues, valueText: valueOrValuesText } = useSliderSelection();
   const value = ranged ? valueOrValues[index] : valueOrValues;
   const valueText = ranged ? valueOrValuesText[index] : valueOrValuesText;
@@ -56,6 +58,7 @@ const SliderThumb = ({ className, index, onMove, position }) => {
       content={showValue ? null : valueText}
       position={tooltipPosition}
       showDelay={TOOLTIP_SHOW_DELAY}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.SLIDER_THUMB, id)}
     >
       <div
         aria-label={ariaLabel}
@@ -65,11 +68,20 @@ const SliderThumb = ({ className, index, onMove, position }) => {
         aria-valuenow={value}
         aria-valuetext={valueText}
         aria-disabled={disabled}
-        className={bem(
-          "thumb",
-          { dragging: dragging === index, focused: focused === index, disabled, [`index-${index}`]: true },
+        className={cx(
+          styles.sliderThumb,
+          "monday-slider__thumb",
+          {
+            [styles.dragging]: dragging === index,
+            ["monday-slider__thumb--dragging"]: dragging === index,
+            [styles.focused]: focused === index,
+            ["monday-slider__thumb--focused"]: focused === index,
+            "monday-slider__thumb--disabled": disabled,
+            [`monday-slider__thumb--index-${index}`]: true
+          },
           className
         )}
+        id={id}
         data-testid={shapeTestId(`thumb-${index}`)}
         onFocus={handleFocus}
         onBlur={handleBlur}
@@ -80,7 +92,7 @@ const SliderThumb = ({ className, index, onMove, position }) => {
         style={{ left: `${position}%` }}
         tabIndex={disabled ? -1 : 0}
       >
-        {showValue && <label className={bem("thumb-label")}>{valueText}</label>}
+        {showValue && <label className={cx(styles.label, "monday-slider__thumb-label")}>{valueText}</label>}
       </div>
     </Tooltip>
   );

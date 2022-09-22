@@ -78,7 +78,10 @@ export const ELEMENT_TYPES = {
   STEPS_NUMBERS_HEADER: "steps-numbers-header",
   STEPS_HEADER: "steps-header",
   STEPS_GALLERY_HEADER: "steps-gallery-header",
-  STEPS_DOT: "steps-dot"
+  STEPS_DOT: "steps-dot",
+  SLIDER: "slider",
+  SLIDER_FILLED_TRACK: "slider-filled-track",
+  SLIDER_INFIX: "slider-infix"
 };
 
 export const NAVIGATIONS_COMMANDS = {

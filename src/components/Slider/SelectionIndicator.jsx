@@ -35,7 +35,7 @@ const SelectionIndicator = ({ kind }) => {
       }, VALUE_UPDATE_DELAY),
     [changeThumbValue, isPostfix]
   );
-  return <TextField onChange={handleChange} value={currentTextValue} />;
+  return <TextField onChange={handleChange} value={currentTextValue} data-testid="SelectionIndicator" />;
 };
 
 SelectionIndicator.propTypes = {

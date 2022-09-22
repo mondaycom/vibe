@@ -1,6 +1,8 @@
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import cx from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
-import { bem } from "../SliderHelpers";
+import styles from "./SliderFilledTrack.module.scss";
 
 function defineFilledTrackProps({ dimension, offset, reverse }) {
   if (reverse) {
@@ -15,9 +17,16 @@ function defineFilledTrackProps({ dimension, offset, reverse }) {
   };
 }
 
-const SliderFilledTrack = ({ className, dimension, offset, reverse }) => {
+const SliderFilledTrack = ({ className, dimension, offset, reverse, id, "data-testid": dataTestId }) => {
   const filledTrackStyle = defineFilledTrackProps({ dimension, offset, reverse });
-  return <div className={bem("filled-track", "", className)} style={filledTrackStyle} />;
+  return (
+    <div
+      className={cx(styles.sliderFilledTrack, "monday-slider__filled-track", className)}
+      style={filledTrackStyle}
+      id={id}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.SLIDER_FILLED_TRACK, id)}
+    />
+  );
 };
 
 SliderFilledTrack.propTypes = {

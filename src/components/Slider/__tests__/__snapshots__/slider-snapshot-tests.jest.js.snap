@@ -2,22 +2,23 @@
 
 exports[`Slider Render 01. with empty props 1`] = `
 <div
-  class="monday-slider"
+  class="slider monday-slider"
   data-testid="monday-slider"
 >
   <div
-    class="monday-slider__base monday-slider__base--small"
+    class="sliderBase monday-slider__base small monday-slider__base--small"
     data-testid="monday-slider__base"
   >
     <div
-      class="monday-slider__rail"
+      class="sliderRail monday-slider__rail"
       data-testid="monday-slider__rail"
     >
       <div
-        class="monday-slider__track"
+        class="sliderTrack monday-slider__track"
       />
       <div
-        class="monday-slider__filled-track"
+        class="sliderFilledTrack monday-slider__filled-track"
+        data-testid="slider-filled-track"
         style="left: 0%; width: 0%;"
       />
       <div
@@ -26,7 +27,7 @@ exports[`Slider Render 01. with empty props 1`] = `
         aria-valuemin="0"
         aria-valuenow="0"
         aria-valuetext="0%"
-        class="monday-slider__thumb monday-slider__thumb--index-0"
+        class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
         data-testid="monday-slider__thumb-0"
         datatestid="tooltip"
         role="slider"
@@ -75,8 +76,8 @@ Snapshot Diff:
 
 @@ --- --- @@
   <div
--   class="monday-slider"
-+   class="monday-slider slide-me"
+-   class="slider monday-slider"
++   class="slider monday-slider slide-me"
     data-testid="monday-slider"
   >
     <div
@@ -89,27 +90,27 @@ Snapshot Diff:
 
 @@ --- --- @@
   <div
-    class="monday-slider"
+    class="slider monday-slider"
 -   data-testid="monday-slider"
 +   data-testid="my-slider"
 +   id="my-slider"
   >
     <div
-      class="monday-slider__base monday-slider__base--small"
+      class="sliderBase monday-slider__base small monday-slider__base--small"
 -     data-testid="monday-slider__base"
 +     data-testid="my-slider__base"
     >
       <div
-        class="monday-slider__rail"
+        class="sliderRail monday-slider__rail"
 -       data-testid="monday-slider__rail"
 +       data-testid="my-slider__rail"
       >
         <div
-          class="monday-slider__track"
+          class="sliderTrack monday-slider__track"
 @@ --- --- @@
           aria-valuenow="0"
           aria-valuetext="0%"
-          class="monday-slider__thumb monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
 -         data-testid="monday-slider__thumb-0"
 +         data-testid="my-slider__thumb-0"
           datatestid="tooltip"
@@ -124,13 +125,13 @@ Snapshot Diff:
 
 @@ --- --- @@
   <div
--   class="monday-slider"
-+   class="monday-slider monday-slider--disabled"
+-   class="slider monday-slider"
++   class="slider monday-slider monday-slider--disabled"
     data-testid="monday-slider"
   >
     <div
--     class="monday-slider__base monday-slider__base--small"
-+     class="monday-slider__base monday-slider__base--small monday-slider__base--disabled"
+-     class="sliderBase monday-slider__base small monday-slider__base--small"
++     class="sliderBase monday-slider__base small monday-slider__base--small disabled monday-slider__base--disabled"
       data-testid="monday-slider__base"
     >
       <div
@@ -144,8 +145,8 @@ Snapshot Diff:
           aria-valuemin="0"
           aria-valuenow="0"
           aria-valuetext="0%"
--         class="monday-slider__thumb monday-slider__thumb--index-0"
-+         class="monday-slider__thumb monday-slider__thumb--disabled monday-slider__thumb--index-0"
+-         class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
++         class="sliderThumb monday-slider__thumb monday-slider__thumb--disabled monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           datatestid="tooltip"
           role="slider"
@@ -166,8 +167,8 @@ Snapshot Diff:
     data-testid="monday-slider"
   >
     <div
--     class="monday-slider__base monday-slider__base--small"
-+     class="monday-slider__base monday-slider__base--small monday-slider__base--positive"
+-     class="sliderBase monday-slider__base small monday-slider__base--small"
++     class="sliderBase monday-slider__base small monday-slider__base--small positive monday-slider__base--positive"
       data-testid="monday-slider__base"
     >
       <div
@@ -182,8 +183,8 @@ Snapshot Diff:
     data-testid="monday-slider"
   >
     <div
--     class="monday-slider__base monday-slider__base--small"
-+     class="monday-slider__base monday-slider__base--large"
+-     class="sliderBase monday-slider__base small monday-slider__base--small"
++     class="sliderBase monday-slider__base large monday-slider__base--large"
       data-testid="monday-slider__base"
     >
       <div
@@ -206,7 +207,7 @@ Snapshot Diff:
 +         aria-valuemin="10"
 +         aria-valuenow="10"
 +         aria-valuetext="10%"
-          class="monday-slider__thumb monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           datatestid="tooltip"
 `;
@@ -218,14 +219,14 @@ Snapshot Diff:
 
 @@ --- --- @@
   <div
--   class="monday-slider"
-+   class="monday-slider monday-slider--value-shown"
+-   class="slider monday-slider"
++   class="slider monday-slider valueShown monday-slider--value-shown"
     data-testid="monday-slider"
   >
     <div
 @@ --- --- @@
           aria-valuetext="0%"
-          class="monday-slider__thumb monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
 -         datatestid="tooltip"
           role="slider"
@@ -234,7 +235,7 @@ Snapshot Diff:
 -       />
 +       >
 +         <label
-+           class="monday-slider__thumb-label"
++           class="label monday-slider__thumb-label"
 +         >
 +           0%
 +         </label>
@@ -255,7 +256,7 @@ Snapshot Diff:
           aria-valuenow="0"
 -         aria-valuetext="0%"
 +         aria-valuetext="--0GB--"
-          class="monday-slider__thumb monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           datatestid="tooltip"
 `;
@@ -266,9 +267,9 @@ Snapshot Diff:
 + Current Render: {"value":12}
 
 @@ --- --- @@
-        />
         <div
-          class="monday-slider__filled-track"
+          class="sliderFilledTrack monday-slider__filled-track"
+          data-testid="slider-filled-track"
 -         style="left: 0%; width: 0%;"
 +         style="left: 0%; width: 12%;"
         />
@@ -280,7 +281,7 @@ Snapshot Diff:
 -         aria-valuetext="0%"
 +         aria-valuenow="12"
 +         aria-valuetext="12%"
-          class="monday-slider__thumb monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           datatestid="tooltip"
           role="slider"
@@ -297,9 +298,9 @@ Snapshot Diff:
 + Current Render: {"value":15,"valueText":"15kg"}
 
 @@ --- --- @@
-        />
         <div
-          class="monday-slider__filled-track"
+          class="sliderFilledTrack monday-slider__filled-track"
+          data-testid="slider-filled-track"
 -         style="left: 0%; width: 0%;"
 +         style="left: 0%; width: 15%;"
         />
@@ -311,7 +312,7 @@ Snapshot Diff:
 -         aria-valuetext="0%"
 +         aria-valuenow="15"
 +         aria-valuetext="15kg"
-          class="monday-slider__thumb monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           datatestid="tooltip"
           role="slider"
@@ -332,13 +333,14 @@ Snapshot Diff:
       </div>
     </div>
 +   <div
-+     class="monday-slider__infix monday-slider__infix--postfix"
++     class="sliderInfix monday-slider__infix postfix monday-slider__infix--postfix"
++     data-testid="slider-infix"
 +     style="width: 60px;"
 +   >
 +     <div
 +       data-testid="mock-text-field-comp"
 +     >
-+       {"value":"0%"}
++       {"value":"0%","data-testid":"SelectionIndicator"}
 +     </div>
 +   </div>
   </div>
@@ -353,12 +355,13 @@ Snapshot Diff:
     data-testid="monday-slider"
   >
     <div
-+     class="monday-slider__infix monday-slider__infix--txt monday-slider__infix--prefix"
++     class="sliderInfix monday-slider__infix txt monday-slider__infix--txt prefix monday-slider__infix--prefix"
++     data-testid="slider-infix"
 +   >
 +     Vol
 +   </div>
 +   <div
-      class="monday-slider__base monday-slider__base--small"
+      class="sliderBase monday-slider__base small monday-slider__base--small"
       data-testid="monday-slider__base"
     >
 @@ --- --- @@
@@ -368,7 +371,8 @@ Snapshot Diff:
 +     </div>
 +   </div>
 +   <div
-+     class="monday-slider__infix monday-slider__infix--postfix"
++     class="sliderInfix monday-slider__infix postfix monday-slider__infix--postfix"
++     data-testid="slider-infix"
 +   >
 +     <div
 +       data-testid="mock-icon"
@@ -388,14 +392,15 @@ Snapshot Diff:
     data-testid="monday-slider"
   >
     <div
-+     class="monday-slider__infix monday-slider__infix--prefix"
++     class="sliderInfix monday-slider__infix prefix monday-slider__infix--prefix"
++     data-testid="slider-infix"
 +   >
 +     <div>
 +       Custom component
 +     </div>
 +   </div>
 +   <div
-      class="monday-slider__base monday-slider__base--small"
+      class="sliderBase monday-slider__base small monday-slider__base--small"
       data-testid="monday-slider__base"
     >
 @@ --- --- @@
@@ -404,7 +409,8 @@ Snapshot Diff:
       </div>
 +   </div>
 +   <div
-+     class="monday-slider__infix monday-slider__infix--postfix"
++     class="sliderInfix monday-slider__infix postfix monday-slider__infix--postfix"
++     data-testid="slider-infix"
 +   >
 +     Render Props result: 0% (0)
     </div>
@@ -417,9 +423,9 @@ Snapshot Diff:
 + Current Render: {"ranged":true}
 
 @@ --- --- @@
-        />
         <div
-          class="monday-slider__filled-track"
+          class="sliderFilledTrack monday-slider__filled-track"
+          data-testid="slider-filled-track"
 -         style="left: 0%; width: 0%;"
 +         style="left: 0%; width: 100%;"
         />
@@ -437,7 +443,7 @@ Snapshot Diff:
 +         aria-valuemin="0"
 +         aria-valuenow="100"
 +         aria-valuetext="100%"
-+         class="monday-slider__thumb monday-slider__thumb--index-1"
++         class="sliderThumb monday-slider__thumb monday-slider__thumb--index-1"
 +         data-testid="monday-slider__thumb-1"
 +         datatestid="tooltip"
 +         role="slider"
@@ -453,9 +459,9 @@ Snapshot Diff:
 + Current Render: {"defaultValue":[20,30],"min":10,"max":50,"ranged":true,"step":2}
 
 @@ --- --- @@
-        />
         <div
-          class="monday-slider__filled-track"
+          class="sliderFilledTrack monday-slider__filled-track"
+          data-testid="slider-filled-track"
 -         style="left: 0%; width: 0%;"
 +         style="left: 25%; width: 25%;"
         />
@@ -469,7 +475,7 @@ Snapshot Diff:
 +         aria-valuemin="10"
 +         aria-valuenow="20"
 +         aria-valuetext="20%"
-          class="monday-slider__thumb monday-slider__thumb--index-0"
+          class="sliderThumb monday-slider__thumb monday-slider__thumb--index-0"
           data-testid="monday-slider__thumb-0"
           datatestid="tooltip"
           role="slider"
@@ -483,7 +489,7 @@ Snapshot Diff:
 +         aria-valuemin="10"
 +         aria-valuenow="30"
 +         aria-valuetext="30%"
-+         class="monday-slider__thumb monday-slider__thumb--index-1"
++         class="sliderThumb monday-slider__thumb monday-slider__thumb--index-1"
 +         data-testid="monday-slider__thumb-1"
 +         datatestid="tooltip"
 +         role="slider"
