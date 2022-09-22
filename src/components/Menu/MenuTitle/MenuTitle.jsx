@@ -1,4 +1,4 @@
-import { camelCase } from "lodash";
+import camelCase from "lodash/camelCase";
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import cx from "classnames";
 import React from "react";

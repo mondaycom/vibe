@@ -1,4 +1,4 @@
-import { camelCase } from "lodash";
+import camelCase from "lodash/camelCase";
 import cx from "classnames";
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { cloneElement, useCallback, useRef } from "react";

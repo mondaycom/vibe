@@ -2,7 +2,7 @@ import cx from "classnames";
 import React, { forwardRef, useMemo, useRef } from "react";
 import PropTypes from "prop-types";
 import useMergeRefs from "../../../hooks/useMergeRefs";
-import { camelCase } from "lodash";
+import camelCase from "lodash/camelCase";
 import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
 import styles from "./TabPanels.module.scss";
 

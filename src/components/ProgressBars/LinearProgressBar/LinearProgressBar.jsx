@@ -1,4 +1,4 @@
-import { camelCase } from "lodash";
+import camelCase from "lodash/camelCase";
 import cx from "classnames";
 import { SIZES } from "../../../constants/sizes";
 import React, { forwardRef, useMemo } from "react";

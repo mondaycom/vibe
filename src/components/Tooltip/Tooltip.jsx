@@ -1,6 +1,6 @@
-import { camelCase } from "lodash";
-import cx from "classnames";
 /* eslint-disable react/jsx-props-no-spreading */
+import camelCase from "lodash/camelCase";
+import cx from "classnames";
 import React from "react";
 import PropTypes from "prop-types";
 import isFunction from "lodash/isFunction";
