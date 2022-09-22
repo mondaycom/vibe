@@ -1,0 +1,18 @@
+@import "../../styles/typography";
+@import "../../styles/themes";
+@import "../../styles/global-css-settings";
+@import "../../styles/states";
+
+.headerGallery {
+  margin: 0 $spacing-small;
+  display: flex;
+  align-items: center;
+}
+
+.headerGallery :global(.monday-style-steps-header_dot) {
+  margin-right: $spacing-small;
+}
+
+.headerGallery :global(.monday-style-steps-header_dot:last-child) {
+  margin-right: 0;
+}

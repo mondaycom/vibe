@@ -73,7 +73,12 @@ export const ELEMENT_TYPES = {
   BUTTON_GROUP: "button-group",
   ACCORDION: "accordion",
   TOGGLE_TEXT: "toggle-text",
-  MOCK_TOGGLE: "mock-toggle"
+  MOCK_TOGGLE: "mock-toggle",
+  STEPS: "steps",
+  STEPS_NUMBERS_HEADER: "steps-numbers-header",
+  STEPS_HEADER: "steps-header",
+  STEPS_GALLERY_HEADER: "steps-gallery-header",
+  STEPS_DOT: "steps-dot"
 };
 
 export const NAVIGATIONS_COMMANDS = {

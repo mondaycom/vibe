@@ -1,0 +1,131 @@
+@import "../../styles/themes";
+@import "../../styles/typography";
+@import "../../styles/global-css-settings";
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  border-radius: $border-radius-small;
+  transition: var(--motion-productive-short) transform,
+    var(--motion-productive-medium) var(--motion-timing-transition) min-width;
+}
+
+.active.button {
+  transform: scale(0.95);
+}
+
+.button .mainButton {
+  margin-right: 0;
+}
+
+.button .secondaryButton {
+  margin-left: 0;
+}
+
+.secondaryButtonWrapper .secondaryButtonIconWrapper {
+  display: inline-flex;
+  padding: 0 4px;
+}
+
+.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.kindTertiary.colorPrimary.splitContentOpen .secondaryButton,
+.kindTertiary.colorPrimary.hovered .secondaryButton,
+.kindTertiary.colorPrimary:hover .secondaryButton,
+.kindTertiary.colorPrimary:focus .secondaryButton {
+  border-color: transparent;
+  @include theme-prop(background-color, primary-background-hover-color);
+}
+
+.kindTertiary.colorPrimary.splitContentOpen .mainButton,
+.kindTertiary.colorPrimary.hovered .mainButton,
+.kindTertiary.colorPrimary:hover .mainButton,
+.kindTertiary.colorPrimary:focus .mainButton {
+  @include theme-prop(background-color, primary-background-hover-color);
+}
+
+.kindTertiary.colorPrimary.splitContentOpen .secondaryButton,
+.kindTertiary.colorPrimary.splitContentOpen .secondaryButton:hover {
+  @include theme-prop(color, primary-color);
+  @include theme-prop(background-color, primary-selected-color);
+}
+
+.kindTertiary.colorPrimary .secondaryButton:hover,
+.kindTertiary.colorPrimary .secondaryButton:focus {
+  @include theme-prop(background-color, ui-border-color);
+}
+
+.kindTertiary.colorPrimary .mainButton:hover,
+.kindTertiary.colorPrimary .mainButton:focus {
+  @include theme-prop(background-color, ui-border-color);
+}
+
+.kindTertiary.colorPositive.splitContentOpen .secondaryButton,
+.kindTertiary.colorPositive:hover .secondaryButton,
+.kindTertiary.colorPositive:focus .secondaryButton {
+  border-color: transparent;
+  @include theme-prop(background-color, positive-color-selected);
+}
+
+.kindTertiary.colorPositive.splitContentOpen .mainButton,
+.kindTertiary.colorPositive:hover .mainButton,
+.kindTertiary.colorPositive:focus .mainButton {
+  @include theme-prop(background-color, positive-color-selected);
+}
+
+.kindTertiary.colorNegative.splitContentOpen .secondaryButton,
+.kindTertiary.colorNegative:hover .secondaryButton,
+.kindTertiary.colorNegative:focus .secondaryButton {
+  border-color: transparent;
+  @include theme-prop(background-color, negative-color-selected);
+}
+
+.kindTertiary.colorNegative.splitContentOpen .mainButton,
+.kindTertiary.colorNegative:hover .mainButton,
+.kindTertiary.colorNegative:focus .mainButton {
+  @include theme-prop(background-color, negative-color-selected);
+}
+
+.kindTertiary .secondaryButton {
+  border-left: 1px solid transparent;
+  margin-left: 1px;
+}
+
+.kindPrimary.disabled .secondaryButton {
+  border-left: 1px solid;
+  @include theme-prop(border-color, ui-border-color);
+}
+
+.kindPrimary:not(.disabled).colorPrimary .secondaryButton {
+  border-left: 1px solid;
+  @include theme-prop(border-color, primary-hover-color);
+}
+
+.kindPrimary:not(.disabled).colorPositive .secondaryButton {
+  border-left: 1px solid;
+  @include theme-prop(border-color, positive-color-hover);
+}
+
+.kindPrimary:not(.disabled).colorNegative .secondaryButton {
+  border-left: 1px solid;
+  @include theme-prop(border-color, negative-color-hover);
+}
+
+.kindPrimary:not(.disabled).colorOnPrimaryColor .secondaryButton {
+  border-left: 1px solid;
+  border-color: var(--color-ui_grey);
+}
+
+.kindSecondary .mainButton {
+  border-right: none;
+}
+
+.kindSecondary.colorPrimary.splitContentOpen .secondaryButton,
+.kindSecondary.colorPrimary.splitContentOpen .secondaryButton:hover {
+  @include theme-prop(color, primary-color);
+  @include theme-prop(border-color, primary-color);
+  @include theme-prop(background-color, primary-selected-color);
+}

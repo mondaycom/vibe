@@ -1,3 +1,5 @@
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 /* eslint-disable react/require-default-props,react/forbid-prop-types */
 import { SIZES } from "../../constants/sizes";
 import React, { useCallback, useMemo, useRef, useState } from "react";
@@ -6,7 +8,6 @@ import AsyncSelect from "react-select/async";
 import NOOP from "lodash/noop";
 import { WindowedMenuList } from "react-windowed-select";
 import PropTypes from "prop-types";
-import cx from "classnames";
 import MenuComponent from "./components/menu/menu";
 import DropdownIndicatorComponent from "./components/DropdownIndicator/DropdownIndicator";
 import OptionComponent from "./components/option/option";
@@ -15,9 +16,9 @@ import ClearIndicatorComponent from "./components/ClearIndicator/ClearIndicator"
 import ValueContainer from "./components/ValueContainer/ValueContainer";
 import { ADD_AUTO_HEIGHT_COMPONENTS, defaultCustomStyles } from "./DropdownConstants";
 import generateBaseStyles, { customTheme } from "./Dropdown.styles";
-import "./Dropdown.scss";
 import Control from "./components/Control/Control";
 import { DROPDOWN_CHIP_COLORS } from "./dropdown-constants";
+import styles from "./Dropdown.module.scss";
 
 const Dropdown = ({
   className,
@@ -66,7 +67,8 @@ const Dropdown = ({
   withMandatoryDefaultOptions,
   isOptionSelected,
   insideOverflowContainer,
-  transformContainerRef
+  transformContainerRef,
+  "data-testid": dataTestId
 }) => {
   const controlRef = useRef();
   const overrideDefaultValue = useMemo(() => {
@@ -94,7 +96,7 @@ const Dropdown = ({
 
   const value = multi ? selectedOptions : customValue;
 
-  const styles = useMemo(() => {
+  const inlineStyles = useMemo(() => {
     // We first want to get the default stylized groups (e.g. "container", "menu").
     const baseStyles = generateBaseStyles({
       size,
@@ -234,7 +236,7 @@ const Dropdown = ({
 
   return (
     <DropDownComponent
-      className={cx("dropdown-wrapper", className)}
+      className={cx(styles.dropdown, "dropdown-wrapper", className)}
       selectProps={customProps}
       components={{
         DropdownIndicator,
@@ -269,7 +271,7 @@ const Dropdown = ({
       openMenuOnFocus={openMenuOnFocus}
       openMenuOnClick={openMenuOnClick}
       isRtl={rtl}
-      styles={styles}
+      styles={inlineStyles}
       theme={customTheme}
       maxMenuHeight={maxMenuHeight}
       menuPortalTarget={menuPortalTarget}
@@ -284,6 +286,7 @@ const Dropdown = ({
       isOptionSelected={isOptionSelected}
       {...asyncAdditions}
       {...additions}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.DROPDOWN, id)}
     />
   );
 };

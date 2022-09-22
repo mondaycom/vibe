@@ -1,22 +1,15 @@
-import React, { useCallback, useMemo } from "react";
 import cx from "classnames";
+import React, { useCallback, useMemo } from "react";
 import PropTypes from "prop-types";
 import NavigationChevronRight from "../../components/Icon/Icons/components/NavigationChevronRight";
 import NavigationChevronLeft from "../../components/Icon/Icons/components/NavigationChevronLeft";
-import { BEMClass } from "../../helpers/bem-helper";
 import Icon from "../../components/Icon/Icon";
 import Button from "../../components/Button/Button";
 import { NOOP } from "../../utils/function-utils";
-import {
-  BACK_COMMAND_TEST_ID,
-  BACK_DESCRIPTION,
-  NEXT_COMMAND_TEST_ID,
-  NEXT_DESCRIPTION,
-  STEPS_CSS_BASE_CLASS
-} from "./StepsConstants";
+import { BACK_COMMAND_TEST_ID, BACK_DESCRIPTION, NEXT_COMMAND_TEST_ID, NEXT_DESCRIPTION } from "./StepsConstants";
+import styles from "./StepsCommand.module.scss";
 
-const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-command`;
-const bemHelper = BEMClass(CSS_BASE_CLASS);
+const CSS_BASE_CLASS = "monday-style-steps-command";
 
 export const StepsCommand = ({
   isNext,
@@ -25,7 +18,8 @@ export const StepsCommand = ({
   stepsCount,
   isIconHidden,
   isOnPrimary,
-  buttonProps
+  buttonProps,
+  id
 }) => {
   const { children: buttonChildren, ...otherButtonProps } = buttonProps;
   const description = useMemo(() => {
@@ -40,16 +34,24 @@ export const StepsCommand = ({
   const icon = isNext ? NavigationChevronRight : NavigationChevronLeft;
   return (
     <Button
-      className={cx(CSS_BASE_CLASS, bemHelper({ state: isNext ? "forward" : "backward" }))}
+      className={cx(
+        styles.command,
+        CSS_BASE_CLASS,
+        isNext ? styles.forward : styles.backward,
+        `${CSS_BASE_CLASS}--${isNext ? "forward" : "backward"}`
+      )}
       data-testid={isNext ? NEXT_COMMAND_TEST_ID : BACK_COMMAND_TEST_ID}
       kind={Button.kinds.TERTIARY}
       onClick={onClick}
       disabled={isDisable}
       color={buttonBaseColor}
       {...otherButtonProps}
+      id={id}
     >
       {description}
-      {isIconHidden ? null : <Icon icon={icon} clickable={false} className={bemHelper({ element: "icon" })} />}
+      {isIconHidden ? null : (
+        <Icon icon={icon} clickable={false} className={cx(styles.icon, "monday-style-steps-command_icon")} />
+      )}
     </Button>
   );
 };

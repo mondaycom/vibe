@@ -1,11 +1,20 @@
+import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
+import cx from "classnames";
 import React, { useCallback, useMemo } from "react";
 import range from "lodash/range";
 import { StepsDot } from "./StepsDot";
-import { STEPS_CSS_BASE_CLASS } from "./StepsConstants";
+import styles from "./StepsGalleryHeader.module.scss";
 
-const CSS_BASE_CLASS = `${STEPS_CSS_BASE_CLASS}-header_gallery`;
+const CSS_BASE_CLASS = "monday-style-steps-header_gallery";
 
-export const StepsGalleryHeader = ({ activeStepIndex, stepsCount, onChangeActiveStep, stepDescriptionFunc }) => {
+export const StepsGalleryHeader = ({
+  activeStepIndex,
+  stepsCount,
+  onChangeActiveStep,
+  stepDescriptionFunc,
+  id,
+  "data-testid": dataTestId
+}) => {
   const stepsPlaceholders = useMemo(() => range(stepsCount), [stepsCount]);
   const defaultStepDescriptionFunc = useCallback(stepIndex => `Step number ${stepIndex}`, []);
   const overrideStepDescriptionFunc = stepDescriptionFunc || defaultStepDescriptionFunc;
@@ -32,7 +41,12 @@ export const StepsGalleryHeader = ({ activeStepIndex, stepsCount, onChangeActive
   );
 
   return (
-    <div role="group" className={CSS_BASE_CLASS}>
+    <div
+      role="group"
+      className={cx(styles.headerGallery, CSS_BASE_CLASS)}
+      id={id}
+      data-testid={dataTestId || getTestId(ELEMENT_TYPES.STEPS_GALLERY_HEADER, id)}
+    >
       {galleryDots || null}
     </div>
   );

@@ -2,13 +2,14 @@
 
 exports[`SplitButton renders correctly with disabled 1`] = `
 <div
-  className="monday-style-split-button monday-style-split-button--kind-primary monday-style-split-button--color-primary monday-style-split-button--disabled"
+  className="button monday-style-split-button kindPrimary monday-style-split-button--kind-primary colorPrimary monday-style-split-button--color-primary disabled monday-style-split-button--disabled"
+  data-testid="split-button"
   role="button"
 >
   <button
     aria-busy={false}
     aria-disabled={true}
-    className="monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation disabled monday-style-button--disabled"
+    className="mainButton monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation disabled monday-style-button--disabled"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -18,7 +19,7 @@ exports[`SplitButton renders correctly with disabled 1`] = `
     type="button"
   />
   <div
-    className="monday-style-split-button__secondary-button-wrapper"
+    className="secondaryButtonWrapper monday-style-split-button__secondary-button-wrapper"
   >
     <span
       className=""
@@ -37,7 +38,7 @@ exports[`SplitButton renders correctly with disabled 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="additional actions"
-        className="monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding disabled monday-style-button--disabled"
+        className="secondaryButton monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding disabled monday-style-button--disabled"
         data-testid="button"
         onBlur={[Function]}
         onClick={[Function]}
@@ -47,7 +48,7 @@ exports[`SplitButton renders correctly with disabled 1`] = `
         type="button"
       >
         <div
-          className="monday-style-split-button__secondary-button-icon-wrapper"
+          className="secondaryButtonIconWrapper monday-style-split-button__secondary-button-icon-wrapper"
         >
           <svg
             aria-hidden="true"
@@ -72,13 +73,14 @@ exports[`SplitButton renders correctly with disabled 1`] = `
 
 exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
 <div
-  className="monday-style-split-button monday-style-split-button--kind-primary monday-style-split-button--color-primary"
+  className="button monday-style-split-button kindPrimary monday-style-split-button--kind-primary colorPrimary monday-style-split-button--color-primary"
+  data-testid="split-button"
   role="button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
-    className="monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+    className="mainButton monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -88,7 +90,7 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
     type="button"
   />
   <div
-    className="monday-style-split-button__secondary-button-wrapper"
+    className="secondaryButtonWrapper monday-style-split-button__secondary-button-wrapper"
   >
     <span
       className=""
@@ -107,7 +109,7 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="additional actions"
-        className="monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding"
+        className="secondaryButton monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding"
         data-testid="button"
         onBlur={[Function]}
         onClick={[Function]}
@@ -117,7 +119,7 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
         type="button"
       >
         <div
-          className="monday-style-split-button__secondary-button-icon-wrapper"
+          className="secondaryButtonIconWrapper monday-style-split-button__secondary-button-icon-wrapper"
         >
           <svg
             aria-hidden="true"
@@ -142,13 +144,14 @@ exports[`SplitButton renders correctly with medium dialog padding size 1`] = `
 
 exports[`SplitButton renders correctly with only required props 1`] = `
 <div
-  className="monday-style-split-button monday-style-split-button--kind-primary monday-style-split-button--color-primary"
+  className="button monday-style-split-button kindPrimary monday-style-split-button--kind-primary colorPrimary monday-style-split-button--color-primary"
+  data-testid="split-button"
   role="button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
-    className="monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+    className="mainButton monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -158,7 +161,7 @@ exports[`SplitButton renders correctly with only required props 1`] = `
     type="button"
   />
   <div
-    className="monday-style-split-button__secondary-button-wrapper"
+    className="secondaryButtonWrapper monday-style-split-button__secondary-button-wrapper"
   >
     <span
       className=""
@@ -177,7 +180,7 @@ exports[`SplitButton renders correctly with only required props 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="additional actions"
-        className="monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding"
+        className="secondaryButton monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding"
         data-testid="button"
         onBlur={[Function]}
         onClick={[Function]}
@@ -187,7 +190,7 @@ exports[`SplitButton renders correctly with only required props 1`] = `
         type="button"
       >
         <div
-          className="monday-style-split-button__secondary-button-icon-wrapper"
+          className="secondaryButtonIconWrapper monday-style-split-button__secondary-button-icon-wrapper"
         >
           <svg
             aria-hidden="true"
@@ -212,13 +215,14 @@ exports[`SplitButton renders correctly with only required props 1`] = `
 
 exports[`SplitButton renders correctly with secondary position 1`] = `
 <div
-  className="monday-style-split-button monday-style-split-button--kind-primary monday-style-split-button--color-primary"
+  className="button monday-style-split-button kindPrimary monday-style-split-button--kind-primary colorPrimary monday-style-split-button--color-primary"
+  data-testid="split-button"
   role="button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
-    className="monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+    className="mainButton monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -228,7 +232,7 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
     type="button"
   />
   <div
-    className="monday-style-split-button__secondary-button-wrapper"
+    className="secondaryButtonWrapper monday-style-split-button__secondary-button-wrapper"
   >
     <span
       className=""
@@ -247,7 +251,7 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="additional actions"
-        className="monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding"
+        className="secondaryButton monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding"
         data-testid="button"
         onBlur={[Function]}
         onClick={[Function]}
@@ -257,7 +261,7 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
         type="button"
       >
         <div
-          className="monday-style-split-button__secondary-button-icon-wrapper"
+          className="secondaryButtonIconWrapper monday-style-split-button__secondary-button-icon-wrapper"
         >
           <svg
             aria-hidden="true"
@@ -282,13 +286,14 @@ exports[`SplitButton renders correctly with secondary position 1`] = `
 
 exports[`SplitButton renders correctly with tertiary button 1`] = `
 <div
-  className="monday-style-split-button monday-style-split-button--kind-tertiary monday-style-split-button--color-primary"
+  className="button monday-style-split-button kindTertiary monday-style-split-button--kind-tertiary colorPrimary monday-style-split-button--color-primary"
+  data-testid="split-button"
   role="button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
-    className="monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+    className="mainButton monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -298,7 +303,7 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
     type="button"
   />
   <div
-    className="monday-style-split-button__secondary-button-wrapper"
+    className="secondaryButtonWrapper monday-style-split-button__secondary-button-wrapper"
   >
     <span
       className=""
@@ -317,7 +322,7 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="additional actions"
-        className="monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding"
+        className="secondaryButton monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindTertiary monday-style-button--kind-tertiary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding"
         data-testid="button"
         onBlur={[Function]}
         onClick={[Function]}
@@ -327,7 +332,7 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
         type="button"
       >
         <div
-          className="monday-style-split-button__secondary-button-icon-wrapper"
+          className="secondaryButtonIconWrapper monday-style-split-button__secondary-button-icon-wrapper"
         >
           <svg
             aria-hidden="true"
@@ -352,13 +357,14 @@ exports[`SplitButton renders correctly with tertiary button 1`] = `
 
 exports[`SplitButton renders correctly with zIndex 1`] = `
 <div
-  className="monday-style-split-button monday-style-split-button--kind-primary monday-style-split-button--color-primary"
+  className="button monday-style-split-button kindPrimary monday-style-split-button--kind-primary colorPrimary monday-style-split-button--color-primary"
+  data-testid="split-button"
   role="button"
 >
   <button
     aria-busy={false}
     aria-disabled={false}
-    className="monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
+    className="mainButton monday-style-split-button__main-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary rightFlat monday-style-button--right-flat monday-style-button--prevent-click-animation"
     data-testid="button"
     onBlur={[Function]}
     onClick={[Function]}
@@ -368,7 +374,7 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
     type="button"
   />
   <div
-    className="monday-style-split-button__secondary-button-wrapper"
+    className="secondaryButtonWrapper monday-style-split-button__secondary-button-wrapper"
   >
     <span
       className=""
@@ -387,7 +393,7 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
         aria-expanded={false}
         aria-haspopup={true}
         aria-label="additional actions"
-        className="monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding"
+        className="secondaryButton monday-style-split-button__secondary-button button monday-style-button sizeMedium monday-style-button--size-medium kindPrimary monday-style-button--kind-primary colorPrimary monday-style-button--color-primary leftFlat monday-style-button--left-flat monday-style-button--prevent-click-animation noSidePadding monday-style-button--no-side-padding"
         data-testid="button"
         onBlur={[Function]}
         onClick={[Function]}
@@ -397,7 +403,7 @@ exports[`SplitButton renders correctly with zIndex 1`] = `
         type="button"
       >
         <div
-          className="monday-style-split-button__secondary-button-icon-wrapper"
+          className="secondaryButtonIconWrapper monday-style-split-button__secondary-button-icon-wrapper"
         >
           <svg
             aria-hidden="true"
