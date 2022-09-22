@@ -1,0 +1,88 @@
+@import "../../../styles/global-css-settings";
+@import "../../../styles/themes";
+@import "../../../styles/typography";
+
+.linearProgressBarWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size-general-label);
+  @include theme-prop(color, secondary-text-color);
+}
+
+.linearProgressBarLabel {
+  padding-left: var(--spacing-xs);
+}
+
+.linearProgressBarWrapperLarge {
+  height: 8px;
+  line-height: 8px;
+}
+
+.linearProgressBarWrapperMedium {
+  height: 6px;
+  line-height: 6px;
+}
+
+.linearProgressBarWrapperSmall {
+  height: 4px;
+  line-height: 4px;
+}
+
+.linearProgressBarContainer {
+  position: relative;
+  width: 100%;
+  @include theme-prop(background-color, primary-background-hover-color);
+  border-radius: $border-radius-small;
+}
+
+.linearProgressBarSecondary,
+.linearProgressBar {
+  left: 0;
+  height: 100%;
+  position: absolute;
+  border-radius: $border-radius-small;
+}
+
+.linearProgressBarSecondaryAnimate,
+.linearProgressBarAnimate {
+  transition: width var(--motion-productive-medium) var(--motion-timing-transition);
+}
+
+.linearProgressBarSecondaryPrimary,
+.linearProgressBarPrimary {
+  @include theme-prop(background-color, primary-color);
+}
+
+.linearProgressBarSecondarySecondary,
+.linearProgressBarSecondary {
+  @include theme-prop(background-color, dark-color);
+}
+
+.linearProgressBarSecondaryPositive,
+.linearProgressBarPositive {
+  @include theme-prop(background-color, positive-color);
+}
+
+.linearProgressBarSecondaryNegative,
+.linearProgressBarNegative {
+  @include theme-prop(background-color, negative-color);
+}
+
+.linearProgressBarSecondaryPrimary {
+  background-color: var(--primary-selected-color);
+}
+
+.linearProgressBarSecondarySecondary {
+  background-color: var(--ui-border-color);
+}
+
+.linearProgressBarSecondaryPositive {
+  background-color: var(--positive-color-selected);
+}
+
+.linearProgressBarSecondaryNegative {
+  background-color: var(--negative-color-selected);
+}

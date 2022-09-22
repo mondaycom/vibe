@@ -81,7 +81,8 @@ export const ELEMENT_TYPES = {
   STEPS_DOT: "steps-dot",
   SLIDER: "slider",
   SLIDER_FILLED_TRACK: "slider-filled-track",
-  SLIDER_INFIX: "slider-infix"
+  SLIDER_INFIX: "slider-infix",
+  LINEAR_PROGRESS_BAR: "linear-progress-bar"
 };
 
 export const NAVIGATIONS_COMMANDS = {

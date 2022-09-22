@@ -1,12 +1,16 @@
-import { SIZES } from "../../../constants/sizes";
-import React, { useMemo, forwardRef } from "react";
-import PropTypes from "prop-types";
+import { camelCase } from "lodash";
 import cx from "classnames";
+import { SIZES } from "../../../constants/sizes";
+import React, { forwardRef, useMemo } from "react";
+import PropTypes from "prop-types";
 import PercentageLabel from "../PercentageLabel/PercentageLabel";
-import { baseClassName, PROGRESS_BAR_STYLES } from "./LinearProgressBarConstants";
+import { PROGRESS_BAR_STYLES } from "./LinearProgressBarConstants";
 import { calculatePercentage } from "./LinearProgressBarHelpers";
 import Bar from "./Bar/Bar";
-import "./LinearProgressBar.scss";
+import { ELEMENT_TYPES, getTestId } from "../../../utils/test-utils";
+import styles from "./LinearProgressBar.module.scss";
+
+const CSS_BASE_CLASS = "linear-progress-bar";
 
 const LinearProgressBar = forwardRef(
   (
@@ -22,13 +26,23 @@ const LinearProgressBar = forwardRef(
       indicateProgress,
       multi,
       multiValues,
-      ariaLabel
+      ariaLabel,
+      id,
+      "data-testid": dataTestId
     },
     ref
   ) => {
     const wrapperClassName = useMemo(() => {
-      const base = `${baseClassName}--wrapper`;
-      return cx(base, { [`${base}__${size}`]: size }, className);
+      const base = `${CSS_BASE_CLASS}--wrapper`;
+      return cx(
+        styles[camelCase(base)],
+        base,
+        {
+          [styles[camelCase(`${base}__${size}`)]]: size,
+          [`${base}__${size}`]: size
+        },
+        className
+      );
     }, [size, className]);
 
     const valuePercentage = useMemo(() => {
@@ -50,20 +64,33 @@ const LinearProgressBar = forwardRef(
               barStyle="none"
               value={baseValue}
               animated={animated}
-              baseClass={baseClassName}
+              classNames={cx(
+                styles.linearProgressBar,
+                CSS_BASE_CLASS,
+                styles[camelCase(`${CSS_BASE_CLASS}--${barStyle}`)],
+                `${CSS_BASE_CLASS}--${barStyle}`,
+                {
+                  [styles.linearProgressBarAnimate]: animated,
+                  [`${CSS_BASE_CLASS}--animate`]: animated
+                }
+              )}
               color={color}
               min={min}
               max={max}
               /* eslint-disable-next-line react/no-array-index-key */
-              key={`${baseClassName}_${color}_${i}`}
+              key={`${CSS_BASE_CLASS}_${color}_${i}`}
             />
           ))}
         </>
       );
-    }, [min, max, animated, multiValues, multi]);
+    }, [multi, multiValues, animated, barStyle, min, max]);
 
     const renderPercentage = indicateProgress ? (
-      <PercentageLabel forElement="linear-progress-bar" className={`${baseClassName}__label`} value={valuePercentage} />
+      <PercentageLabel
+        forElement="linear-progress-bar"
+        className={cx(styles.linearProgressBarLabel, `${CSS_BASE_CLASS}__label`)}
+        value={valuePercentage}
+      />
     ) : null;
 
     const renderBaseBars = !multi ? (
@@ -74,17 +101,47 @@ const LinearProgressBar = forwardRef(
           id="linear-progress-bar"
           value={valueSecondary}
           animated={animated}
-          baseClass={`${baseClassName}__secondary`}
+          classNames={cx(
+            styles.linearProgressBarSecondary,
+            [`${CSS_BASE_CLASS}__secondary`],
+            styles[camelCase(`linear-progress-bar__secondary--${barStyle}`)],
+            `${CSS_BASE_CLASS}__secondary--${barStyle}`,
+            {
+              [styles.linearProgressBarSecondaryAnimate]: animated,
+              [`${CSS_BASE_CLASS}__secondary--animate`]: animated
+            }
+          )}
           min={min}
           max={max}
         />
-        <Bar barStyle={barStyle} value={value} animated={animated} baseClass={baseClassName} min={min} max={max} />
+        <Bar
+          barStyle={barStyle}
+          value={value}
+          animated={animated}
+          classNames={cx(
+            styles.linearProgressBar,
+            CSS_BASE_CLASS,
+            styles[camelCase(`${CSS_BASE_CLASS}--${barStyle}`)],
+            `${CSS_BASE_CLASS}--${barStyle}`,
+            {
+              [styles.linearProgressBarAnimate]: animated,
+              [`${CSS_BASE_CLASS}--animate`]: animated
+            }
+          )}
+          min={min}
+          max={max}
+        />
       </>
     ) : null;
 
     return (
-      <div className={wrapperClassName} ref={ref}>
-        <div className={`${baseClassName}__container`}>
+      <div
+        className={wrapperClassName}
+        ref={ref}
+        id={id}
+        data-testid={dataTestId || getTestId(ELEMENT_TYPES.LINEAR_PROGRESS_BAR, id)}
+      >
+        <div className={cx(styles.linearProgressBarContainer, `${CSS_BASE_CLASS}__container`)}>
           {renderBaseBars}
           {renderMultiBars}
         </div>

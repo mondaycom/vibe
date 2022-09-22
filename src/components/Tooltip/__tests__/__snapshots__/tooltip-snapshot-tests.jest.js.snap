@@ -14,7 +14,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="contentWrapper monday-style-dialog-content-wrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -26,7 +26,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-center has-tooltip"
+      className="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
     >
       <div
         className="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
@@ -65,7 +65,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="contentWrapper monday-style-dialog-content-wrapper"
     data-popper-reference-hidden={null}
     onClickCapture={[Function]}
     style={
@@ -77,7 +77,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-center has-tooltip"
+      className="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
     >
       <div
         className="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
@@ -116,7 +116,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="contentWrapper monday-style-dialog-content-wrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -128,7 +128,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-end has-tooltip"
+      className="contentComponent monday-style-dialog-content-component top edgeEnd edge-end hasTooltip has-tooltip"
     >
       <div
         className="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
@@ -167,7 +167,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="contentWrapper monday-style-dialog-content-wrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -179,7 +179,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component left edge-center has-tooltip"
+      className="contentComponent monday-style-dialog-content-component left edgeCenter edge-center hasTooltip has-tooltip"
     >
       <div
         className="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
@@ -218,7 +218,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="contentWrapper monday-style-dialog-content-wrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -230,7 +230,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-center has-tooltip"
+      className="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
     >
       <div
         className="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
@@ -274,7 +274,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="contentWrapper monday-style-dialog-content-wrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -286,7 +286,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-center has-tooltip"
+      className="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
     >
       <div
         className="tooltip monday-style-tooltip tooltipError monday-style-tooltip-error"
@@ -333,7 +333,7 @@ Array [
     onMouseLeave={[Function]}
   />,
   <span
-    className="monday-style-dialog-content-wrapper"
+    className="contentWrapper monday-style-dialog-content-wrapper"
     data-popper-reference-hidden={false}
     onClickCapture={[Function]}
     style={
@@ -345,7 +345,7 @@ Array [
     }
   >
     <div
-      className="monday-style-dialog-content-component top edge-center"
+      className="contentComponent monday-style-dialog-content-component top edgeCenter edge-center"
     >
       <div
         className="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"

@@ -1,12 +1,14 @@
+import { camelCase } from "lodash";
+import cx from "classnames";
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { cloneElement, useRef, useCallback } from "react";
-import classNames from "classnames";
+import React, { cloneElement, useCallback, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import useOnClickOutside from "../../../hooks/useClickOutside";
 import { chainFunctions } from "../../../utils/function-utils";
-import "./DialogContent.scss";
 import useKeyEvent from "../../../hooks/useKeyEvent";
 import { HIDE_SHOW_EVENTS } from "../consts/dialog-show-hide-event";
+import { DIALOG_ANIMATION_TYPES } from "../../../constants";
+import styles from "./DialogContent.module.scss";
 
 const transitionOptions = {};
 const NOOP = () => {};
@@ -47,12 +49,25 @@ export const DialogContent = React.forwardRef(
     useKeyEvent({ keys: KEYS, callback: onEsc });
     useOnClickOutside({ callback: onOutSideClick, ref });
 
-    if (animationType) {
-      transitionOptions.classNames = `monday-style-animation-${animationType}`;
+    switch (animationType) {
+      case DIALOG_ANIMATION_TYPES.OPACITY_AND_SLIDE:
+        transitionOptions.classNames = {
+          appear: styles.opacityAndSlideAppear,
+          appearActive: styles.opacityAndSlideAppearActive
+        };
+        break;
+      case DIALOG_ANIMATION_TYPES.EXPAND:
+        transitionOptions.classNames = {
+          appear: styles.expandAppear,
+          appearActive: styles.expandAppearActive,
+          exit: styles.expandExit
+        };
+        break;
     }
+
     return (
       <span
-        className={classNames("monday-style-dialog-content-wrapper", wrapperClassName)}
+        className={cx(styles.contentWrapper, "monday-style-dialog-content-wrapper", wrapperClassName)}
         ref={forwardRef}
         style={styleObject}
         onClickCapture={onClick}
@@ -60,9 +75,11 @@ export const DialogContent = React.forwardRef(
       >
         <CSSTransition {...transitionOptions} in={isOpen} appear={!!animationType} timeout={showDelay}>
           <div
-            className={classNames("monday-style-dialog-content-component", position, {
+            className={cx(styles.contentComponent, "monday-style-dialog-content-component", position, {
+              [styles[camelCase("edge-" + startingEdge)]]: startingEdge,
               [`edge-${startingEdge}`]: startingEdge,
-              "has-tooltip": hasTooltip
+              [styles.hasTooltip]: hasTooltip,
+              ["has-tooltip"]: hasTooltip
             })}
             ref={ref}
           >

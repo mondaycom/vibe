@@ -62,12 +62,12 @@ Snapshot Diff:
           tabindex="0"
         />
 +       <span
-+         class="monday-style-dialog-content-wrapper"
++         class="contentWrapper monday-style-dialog-content-wrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
++           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
 +         >
 +           <div
 +             class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
@@ -96,12 +96,12 @@ Snapshot Diff:
           tabindex="0"
         />
 +       <span
-+         class="monday-style-dialog-content-wrapper"
++         class="contentWrapper monday-style-dialog-content-wrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
++           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
 +         >
 +           <div
 +             class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
@@ -130,12 +130,12 @@ Snapshot Diff:
           tabindex="0"
         />
 -       <span
--         class="monday-style-dialog-content-wrapper"
+-         class="contentWrapper monday-style-dialog-content-wrapper"
 -         data-popper-reference-hidden="false"
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
+-           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
 -         >
 -           <div
 -             class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
@@ -172,12 +172,12 @@ Snapshot Diff:
           tabindex="0"
 +       />
 +       <span
-+         class="monday-style-dialog-content-wrapper"
++         class="contentWrapper monday-style-dialog-content-wrapper"
 +         data-popper-reference-hidden="false"
 +         style="position: absolute; left: 0px; top: 0px;"
 +       >
 +         <div
-+           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear-done monday-style-animation-expand-enter-done"
++           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip"
 +         >
 +           <div
 +             class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
@@ -276,12 +276,12 @@ Snapshot Diff:
           tabindex="0"
 -       />
 -       <span
--         class="monday-style-dialog-content-wrapper"
+-         class="contentWrapper monday-style-dialog-content-wrapper"
 -         data-popper-reference-hidden="false"
 -         style="position: absolute; left: 0px; top: 0px;"
 -       >
 -         <div
--           class="monday-style-dialog-content-component top edge-center has-tooltip monday-style-animation-expand-appear monday-style-animation-expand-appear-active"
+-           class="contentComponent monday-style-dialog-content-component top edgeCenter edge-center hasTooltip has-tooltip expandAppear expandAppearActive"
 -         >
 -           <div
 -             class="tooltip monday-style-tooltip tooltipDark monday-style-tooltip-dark"
