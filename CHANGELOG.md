@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.66.1 (2022-09-22)
+
+#### Bug Fixes
+* [#887](https://github.com/mondaycom/monday-ui-react-core/pull/887) fix import path from absolute to relative. ([@3dyonic](https://github.com/3dyonic))
+* [#886](https://github.com/mondaycom/monday-ui-react-core/pull/886) Tooltip: increase specifity of monday-style-arrow-${theme} classes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.66.0 (2022-09-21)
 
 #### New Features
