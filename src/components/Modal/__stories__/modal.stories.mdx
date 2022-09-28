@@ -3,11 +3,11 @@ import { useModalHelper } from "./helpers";
 import { ArgsTable, Story, Canvas, Meta } from "@storybook/addon-docs";
 import { createStoryMetaSettings } from "../../../storybook";
 import "./Modal.stories.scss";
-import { Button, ModalContent, ModalFooter, ModalHeader, TextField } from "../../../components";
+import { Button, ModalContent, ModalFooter, ModalHeader } from "../../../components";
 import {
   TOOLTIP,
-  ALERT_BANNER,
-  Tipseen
+  TOAST,
+  ATTENTION_BOX
 } from "../../../storybook/components/related-components/component-description-map";
 import Settings from "../../../components/Icon/Icons/components/Settings";
 import { RelatedComponents } from "../../../storybook";
@@ -43,7 +43,7 @@ export const metaSettings = createStoryMetaSettings({
 
 ## Overview
 
-An easy to use accessible Modal component
+Modal allows the user to focus on one task or a piece of information, by popping-up and blocking the page content until the modal task is completed, or until the user dismisses the action.
 
 <Canvas>
   <Story name="Overview">
@@ -77,46 +77,24 @@ An easy to use accessible Modal component
 
 ## Usage
 
-### Design and customizations
+<UsageGuidelines
+  guidelines={[
+    "Modals appear centered on the page, with a visible backdrop dimming the rest of the page for focus.",
+    "Modals height is dynamic according to its content.",
+    "All modals must have a title and a close button",
+    " By default, Modal will be closed by: clicking outside, the ESC key and the closing buttons"
+  ]}
+/>
 
-<UsageGuidelines guidelines={["Usage guideline 1", "Usage guideline 2", "Usage guideline 3"]} />
-
-<Tip title="Not what you were looking for?">Tip content</Tip>
+<Tip>
+  Set `alertDialog` to `true` in order to allow closing the modal only by the close buttons and not by ESC or by
+  clicking outside. Learn more
+</Tip>
+<Tip>Use modal for short and non-frequent tasks. For common tasks consider using the main flow.</Tip>
 
 ## Variants
 
-### Alert Modal (Modal)
-
-This Modal will NOT be closed when you click outside or click ESC key. Only way to close it is to use the close button.
-
-<UsageGuidelines guidelines={["set `alertDialog` to `true` in order to turn a Modal to modal."]} />
-
-<Canvas>
-  <Story name="Alert Modal">
-    {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper();
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            alertDialog
-            closeButtonAriaLabel={"close"}
-          >
-            <p className="modal-content">Use the close button to dismiss this Modal.</p>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Width variants
+### Sizes
 
 <Canvas>
   <Story name="Width variants - Normal">
@@ -146,7 +124,7 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
   <Story name="Width variants - Full">
     {() => {
       const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
-        openButtonTitle: "Full width"
+        openButtonTitle: "Full screen"
       });
       return (
         <div>
@@ -169,14 +147,43 @@ This Modal will NOT be closed when you click outside or click ESC key. Only way 
   </Story>
 </Canvas>
 
+### Alert Modal (Modal)
+
+Use this variant in case of sensitive or important messages, and in modals that requires data from the user, such as forms.
+The Alert modal will not be closed by clicking outside the modal or by the ESC key. It will be closed only by the close button and the footer buttons.
+
+<Canvas>
+  <Story name="Alert Modal">
+    {() => {
+      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper();
+      return (
+        <div>
+          {openModalButton}
+          <Modal
+            id={"story-book-modal"}
+            title={"Modal title"}
+            triggerElement={ref.current}
+            show={show}
+            onClose={closeModal}
+            alertDialog
+            closeButtonAriaLabel={"close"}
+          >
+            <p className="modal-content">Use the close button to dismiss this Modal.</p>
+            <ModalFooter>{modalButtons}</ModalFooter>
+          </Modal>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Use cases and examples
 
 ### Showing the Modal
 
-You show/hide the Modal by passing the <b>show</b> prop. This gives you complete control on when to show and hide the modal.
+Use this variant in case of sensitive or importent masseges, and in modals that requires data from the user, such as forms.
 
-Keep in mind that when the user initiate closing the modal by clicking outside it or clicking the ESC key, you'll be responsible for closing the modal.
-Pass a callback to the <b>onClose</b> function to know when it happens.
+The Alert modal will not be closed by clicking outside the modal or by the ESC key. It will be closed only by the close button and the footer buttons.
 
 <Canvas>
   <Story name="Showing the Modal">
@@ -209,8 +216,7 @@ Pass a callback to the <b>onClose</b> function to know when it happens.
 
 ### Modal with footer buttons
 
-As there are many possible combinations of buttons to display on the modal footer, we don't provide a build in support for footer buttons.
-However, you can use the <b>ModalFooter</b> component to place any content at the bottom of the modal, including buttons.
+As there are many possible combinations of buttons to display on the modal footer, we don't provide a build in support for footer buttons. However, you can use the ModalFooter component to place any content at the bottom of the modal, including buttons.
 
 <Canvas>
   <Story name="Modal with footer buttons">
@@ -243,15 +249,15 @@ However, you can use the <b>ModalFooter</b> component to place any content at th
   </Story>
 </Canvas>
 
-### Modal with custom Header
+### Modal header with an icon
 
-Use the <b>ModalHeader</b> component to render a Header with description and icon
+Use the ModalHeader component to display a Header with an icon
 
 <Canvas>
-  <Story name="Modal with custom Header">
+  <Story name="Modal with icon">
     {() => {
       const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
-        openButtonTitle: "Custom Header"
+        openButtonTitle: "Header with icon"
       });
       return (
         <div>
@@ -264,8 +270,7 @@ Use the <b>ModalHeader</b> component to render a Header with description and ico
             onClose={closeModal}
             closeButtonAriaLabel={"close"}
           >
-            <ModalHeader title={"Modal Title"} description={"Modal description goes here"} icon={Settings} />
-            <div className="modal-content">Modal content goes here</div>
+            <ModalHeader title={"Modal Title"} icon={Settings} />
             <ModalFooter>{modalButtons}</ModalFooter>
           </Modal>
         </div>
@@ -274,115 +279,23 @@ Use the <b>ModalHeader</b> component to render a Header with description and ico
   </Story>
 </Canvas>
 
-### Modal with a form
+## Do’s and Don’ts
 
-<UsageGuidelines
-  guidelines={[
-    "The Modal is capturing the focus. Use TAB ket to jump throw the close button and the inputs.",
-    "Use Alert Modal so the user won't close the Modal by mistake and loose changes."
+<ComponentRules
+  rules={[
+    {
+      positive: {
+        component: <div></div>,
+        description: "Allow the user to easly close the modal by CTA and a close button.."
+      },
+      negative: {
+        component: <div></div>,
+        description: "Don’t align the footer buttons to the left."
+      }
+    }
   ]}
 />
 
-<Canvas>
-  <Story name="Form Modal">
-    {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper();
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            alertDialog
-            closeButtonAriaLabel={"close"}
-          >
-            <ModalContent>
-              <form>
-                <TextField title="Your Name" autoFocus size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-                <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              </form>
-            </ModalContent>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### Modal with vertical scroll
-
-The height of Modal with long content will be limited to 90% of screen height, and a scroll bar will be added
-
-<Canvas>
-  <Story name="Modal with vertical scroll">
-    {() => {
-      const { openModalButton, modalButtons, show, closeModal, ref } = useModalHelper({
-        openButtonTitle: "Vertical scroll"
-      });
-      return (
-        <div>
-          {openModalButton}
-          <Modal
-            id={"story-book-modal"}
-            title={"Modal title"}
-            triggerElement={ref.current}
-            show={show}
-            onClose={closeModal}
-            closeButtonAriaLabel={"close"}
-          >
-            <form>
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Your Name" size={TextField.sizes.MEDIUM} placeholder="John Doe" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-              <TextField title="Email" size={TextField.sizes.MEDIUM} placeholder="email@monday.com" />
-            </form>
-            <ModalFooter>{modalButtons}</ModalFooter>
-          </Modal>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ## Related components
 
-<RelatedComponents componentsNames={[TOOLTIP, ALERT_BANNER, Tipseen]} />
+<RelatedComponents componentsNames={[TOOLTIP, ATTENTION_BOX, TOAST]} />
