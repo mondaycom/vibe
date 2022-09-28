@@ -35,3 +35,9 @@
     width: 390px;
   }
 }
+
+// overriding margin for storybook wrapper
+.monday-storybook_multiple-story-elements-wrapper .monday-style-toast{
+  margin-right:auto;
+  margin-left:auto;
+}

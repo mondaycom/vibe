@@ -49,7 +49,9 @@
     min-width: 0;
     &.has-style-size {
       width: var(--element-height);
+      max-width: var(--element-height);
       height: var(--element-height);
+      max-height: var(--element-height);
     }
     position: relative;
   }

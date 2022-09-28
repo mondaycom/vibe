@@ -1,20 +1,20 @@
-import { NAV_DIRECTIONS } from "../../hooks/useFullKeyboardListeners";
+import { NavDirections } from "../../hooks/useFullKeyboardListeners";
 
 function throwIfCausingCircularDependency(directionMaps, newPosition) {
   const { topElement, bottomElement, leftElement, rightElement } = newPosition;
   if (topElement && bottomElement) {
-    if (directionMaps[NAV_DIRECTIONS.UP].get(topElement) === bottomElement) {
+    if (directionMaps[NavDirections.UP].get(topElement) === bottomElement) {
       throwMessage("BOTTOM", "TOP");
     }
-    if (directionMaps[NAV_DIRECTIONS.DOWN].get(bottomElement) === topElement) {
+    if (directionMaps[NavDirections.DOWN].get(bottomElement) === topElement) {
       throwMessage("TOP", "BOTTOM");
     }
   }
   if (leftElement && rightElement) {
-    if (directionMaps[NAV_DIRECTIONS.LEFT].get(leftElement) === rightElement) {
+    if (directionMaps[NavDirections.LEFT].get(leftElement) === rightElement) {
       throwMessage("RIGHT", "LEFT");
     }
-    if (directionMaps[NAV_DIRECTIONS.RIGHT].get(rightElement) === leftElement) {
+    if (directionMaps[NavDirections.RIGHT].get(rightElement) === leftElement) {
       throwMessage("LEFT", "RIGHT");
     }
   }
@@ -28,22 +28,22 @@ function throwIfCausingCircularDependency(directionMaps, newPosition) {
 
 export const getDirectionMaps = positions => {
   const directionMaps = {
-    [NAV_DIRECTIONS.RIGHT]: new Map(),
-    [NAV_DIRECTIONS.LEFT]: new Map(),
-    [NAV_DIRECTIONS.UP]: new Map(),
-    [NAV_DIRECTIONS.DOWN]: new Map()
+    [NavDirections.RIGHT]: new Map(),
+    [NavDirections.LEFT]: new Map(),
+    [NavDirections.UP]: new Map(),
+    [NavDirections.DOWN]: new Map()
   };
   positions.forEach(position => {
     throwIfCausingCircularDependency(directionMaps, position);
 
     const { topElement, bottomElement, leftElement, rightElement } = position;
     if (topElement && bottomElement) {
-      directionMaps[NAV_DIRECTIONS.UP].set(bottomElement, topElement);
-      directionMaps[NAV_DIRECTIONS.DOWN].set(topElement, bottomElement);
+      directionMaps[NavDirections.UP].set(bottomElement, topElement);
+      directionMaps[NavDirections.DOWN].set(topElement, bottomElement);
     }
     if (leftElement && rightElement) {
-      directionMaps[NAV_DIRECTIONS.LEFT].set(rightElement, leftElement);
-      directionMaps[NAV_DIRECTIONS.RIGHT].set(leftElement, rightElement);
+      directionMaps[NavDirections.LEFT].set(rightElement, leftElement);
+      directionMaps[NavDirections.RIGHT].set(leftElement, rightElement);
     }
   });
   return directionMaps;
@@ -51,14 +51,14 @@ export const getDirectionMaps = positions => {
 
 export const getOppositeDirection = direction => {
   switch (direction) {
-    case NAV_DIRECTIONS.LEFT:
-      return NAV_DIRECTIONS.RIGHT;
-    case NAV_DIRECTIONS.RIGHT:
-      return NAV_DIRECTIONS.LEFT;
-    case NAV_DIRECTIONS.UP:
-      return NAV_DIRECTIONS.DOWN;
-    case NAV_DIRECTIONS.DOWN:
-      return NAV_DIRECTIONS.UP;
+    case NavDirections.LEFT:
+      return NavDirections.RIGHT;
+    case NavDirections.RIGHT:
+      return NavDirections.LEFT;
+    case NavDirections.UP:
+      return NavDirections.DOWN;
+    case NavDirections.DOWN:
+      return NavDirections.UP;
     default:
       throw new Error(`Unexpected direction: ${direction}`);
   }
@@ -69,12 +69,12 @@ export const getOutmostElementInDirection = (directionMaps, direction) => {
   const firstEntry = [...directionMap][0]; // start with any element
   if (!firstEntry) {
     // no relations were registered for this direction - fallback to a different direction
-    if ([NAV_DIRECTIONS.LEFT, NAV_DIRECTIONS.RIGHT].includes(direction)) {
+    if ([NavDirections.LEFT, NavDirections.RIGHT].includes(direction)) {
       // there are no registered horizontal relations registered, try vertical relations. Get the top-most element.
-      return getOutmostElementInDirection(directionMaps, NAV_DIRECTIONS.UP);
+      return getOutmostElementInDirection(directionMaps, NavDirections.UP);
     }
     // there are no registered vertical relations registered, try horizontal relations. Get the left-most element.
-    return getOutmostElementInDirection(directionMaps, NAV_DIRECTIONS.LEFT);
+    return getOutmostElementInDirection(directionMaps, NavDirections.LEFT);
   }
   const firstRef = firstEntry[0];
   return getLastFocusableElementFromElementInDirection(directionMap, firstRef);

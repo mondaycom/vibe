@@ -1,9 +1,3 @@
-export const PASCAL_BASE_SIZE = {
-  SMALL: "Small",
-  MEDIUM: "Medium",
-  LARGE: "Large"
-} as const;
-
 export const BASE_SIZES = {
   SMALL: "small",
   MEDIUM: "medium",

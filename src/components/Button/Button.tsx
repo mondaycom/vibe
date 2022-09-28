@@ -1,12 +1,13 @@
+/* eslint-disable react/button-has-type */
 import React, { forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import cx from "classnames";
-import { SIZES } from "../../constants/sizes";
+import { SIZES } from "../../constants";
 import useResizeObserver from "../../hooks/useResizeObserver";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import { NOOP } from "../../utils/function-utils";
 import Icon from "../../components/Icon/Icon";
 import Loader from "../../components/Loader/Loader";
-import { ButtonColor, ButtonInputType, ButtonType, getActualSize, Size, BUTTON_ICON_SIZE } from "./ButtonConstants";
+import { BUTTON_ICON_SIZE, ButtonColor, ButtonInputType, ButtonType, getActualSize, Size } from "./ButtonConstants";
 import { getParentBackgroundColorNotTransparent, TRANSPARENT_COLOR } from "./helper/dom-helpers";
 import { ELEMENT_TYPES, getTestId } from "../../utils/test-utils";
 import "./Button.scss";
@@ -40,13 +41,13 @@ export interface ButtonProps {
   /** Whether the button should be disabled or not */
   disabled?: boolean;
   /** Icon to place on the right */
-  rightIcon?: string | React.Component | null;
+  rightIcon?: string | React.FunctionComponent | null;
   /** Icon to place on the left */
-  leftIcon?: string | React.Component | null;
+  leftIcon?: string | React.FunctionComponent | null;
   /** the success props are used when you have async action and wants to display a success message */
   success?: boolean;
   /** Success icon name */
-  successIcon?: string | React.Component | null;
+  successIcon?: string | React.FunctionComponent | null;
   /** Success text */
   successText?: string;
   /** loading boolean which switches the text to a loader */
@@ -320,8 +321,6 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         <button {...buttonProps}>
           {successIcon ? (
             <Icon
-              /** Because typescript can't handle with this not converted component API*/
-              // @ts-ignore
               iconType={Icon?.type.ICON_FONT}
               clickable={false}
               icon={successIcon}
@@ -341,8 +340,6 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       <button {...buttonProps}>
         {leftIcon ? (
           <Icon
-            /** Because typescript can't handle with this not converted component API*/
-            // @ts-ignore
             iconType={Icon?.type.ICON_FONT}
             clickable={false}
             icon={leftIcon}
@@ -354,8 +351,6 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         {children}
         {rightIcon ? (
           <Icon
-            /** Because typescript can't handle with this not converted component API*/
-            // @ts-ignore
             iconType={Icon?.type.ICON_FONT}
             clickable={false}
             icon={rightIcon}
@@ -378,6 +373,11 @@ Object.assign(Button, {
 });
 
 Button.defaultProps = {
+  className: undefined,
+  name: undefined,
+  style: undefined,
+  id: undefined,
+  dataTestId: undefined,
   kind: Button.kinds?.PRIMARY,
   onClick: NOOP,
   size: Button.sizes?.MEDIUM,

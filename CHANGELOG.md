@@ -1,5 +1,96 @@
 # Changelog
 
+## 1.66.1 (2022-09-22)
+
+#### Bug Fixes
+* [#887](https://github.com/mondaycom/monday-ui-react-core/pull/887) fix import path from absolute to relative. ([@3dyonic](https://github.com/3dyonic))
+* [#886](https://github.com/mondaycom/monday-ui-react-core/pull/886) Tooltip: increase specifity of monday-style-arrow-${theme} classes ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.66.0 (2022-09-21)
+
+#### New Features
+* [#882](https://github.com/mondaycom/monday-ui-react-core/pull/882) Feature/refactor components motion keyframes ([@3dyonic](https://github.com/3dyonic))
+
+## 1.65.0 (2022-09-21)
+
+#### New Features
+* [#883](https://github.com/mondaycom/monday-ui-react-core/pull/883) fix externals issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
+## 1.64.2 (2022-09-20)
+
+#### Bug Fixes
+* [#879](https://github.com/mondaycom/monday-ui-react-core/pull/879) Fix flex grow loading state size. ([@3dyonic](https://github.com/3dyonic))
+
+## 1.64.1 (2022-09-20)
+
+#### Bug Fixes
+* [#880](https://github.com/mondaycom/monday-ui-react-core/pull/880) Fix Virtualized list items ([@MosheZemah](https://github.com/MosheZemah))
+
+## 1.64.0 (2022-09-20)
+
+#### Bug Fixes
+* [#876](https://github.com/mondaycom/monday-ui-react-core/pull/876) Fix for virtualized list items ([@MosheZemah](https://github.com/MosheZemah))
+
+#### New Features
+* [#873](https://github.com/mondaycom/monday-ui-react-core/pull/873) add on hover to list item ([@liatmaor](https://github.com/liatmaor))
+
+#### Documentation
+* [#872](https://github.com/mondaycom/monday-ui-react-core/pull/872) add readme for typescript migration process ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#869](https://github.com/mondaycom/monday-ui-react-core/pull/869) Hooks ts ([@orrgottlieb](https://github.com/orrgottlieb))
+
+#### New Icons
+* [#877](https://github.com/mondaycom/monday-ui-react-core/pull/877) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.63.1 (2022-09-15)
+
+#### Bug Fixes
+* [#874](https://github.com/mondaycom/monday-ui-react-core/pull/874) fix icon types import ([@eran-cohen](https://github.com/eran-cohen))
+
+#### Internal Changes
+* [#870](https://github.com/mondaycom/monday-ui-react-core/pull/870) Feature/sergeyro/ts infra css modules ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Icons
+* [#871](https://github.com/mondaycom/monday-ui-react-core/pull/871) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
+## 1.63.0 (2022-09-14)
+
+#### New Features
+* [#857](https://github.com/mondaycom/monday-ui-react-core/pull/857) Convert icon component and related code to js ([@hadasfa](https://github.com/hadasfa))
+
+#### Internal Changes
+* [#858](https://github.com/mondaycom/monday-ui-react-core/pull/858) Css modules typescript infra via 'typescript-plugin-css-modules' + eslint ts specification ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.62.1 (2022-09-11)
+
+#### Bug Fixes
+* [#866](https://github.com/mondaycom/monday-ui-react-core/pull/866) Fixing Chips import by changing to relative import ([@yardenli](https://github.com/yardenli))
+
+## 1.62.0 (2022-09-11)
+
+#### Bug Fixes
+* [#859](https://github.com/mondaycom/monday-ui-react-core/pull/859) Feature/sergeyro/menu button icon size unify ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+#### New Features
+* [#864](https://github.com/mondaycom/monday-ui-react-core/pull/864) Chip colors in dropdown with multi support ([@yardenli](https://github.com/yardenli))
+
+#### Internal Changes
+* [#860](https://github.com/mondaycom/monday-ui-react-core/pull/860) Feature/sergeyro/build react icons typescript ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
+## 1.61.0 (2022-09-07)
+
+#### New Features
+* [#861](https://github.com/mondaycom/monday-ui-react-core/pull/861) Fix menu button ref ([@hadasfa](https://github.com/hadasfa))
+
+## 1.60.0 (2022-09-06)
+
+#### New Features
+* [#856](https://github.com/mondaycom/monday-ui-react-core/pull/856) feat(checkbox): add ability to render component without label ([@niksa-monday](https://github.com/niksa-monday))
+
+#### Internal Changes
+* [#794](https://github.com/mondaycom/monday-ui-react-core/pull/794) Convert button component to typescript & project configurations  ([@hadasfa](https://github.com/hadasfa))
+
 ## 1.59.1 (2022-09-04)
 
 #### Bug Fixes

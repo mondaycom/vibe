@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
-import CustomSvgIcon from "../../components/Icon/CustomSvgIcon";
+import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
 import { AVATAR_SIZES } from "./AvatarConstants";
 import "./AvatarBadge.scss";
 

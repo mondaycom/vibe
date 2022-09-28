@@ -61,9 +61,7 @@ const publishedJSComponents = {
   ToastLink: "components/Toast/ToastLink/ToastLink.jsx",
   Tooltip: "components/Tooltip/Tooltip.jsx",
   Loader: "components/Loader/Loader.jsx",
-  Icon: "components/Icon/Icon.jsx",
   Flex: "components/Flex/Flex.jsx",
-  CustomSvgIcon: "components/Icon/CustomSvgIcon.jsx",
   FormattedNumber: "components/FormattedNumber/FormattedNumber.jsx",
   LinearProgressBar: "components/ProgressBars/LinearProgressBar/LinearProgressBar.jsx",
   GridKeyboardNavigationContext: "components/GridKeyboardNavigationContext/GridKeyboardNavigationContext.js",
@@ -102,6 +100,7 @@ const publishedJSComponents = {
   useVibeMediaQuery: "hooks/useVibeMediaQuery",
   useActiveDescendantListFocus: "hooks/useActiveDescendantListFocus"
 };
+// eslint-disable-next-line no-undef
 module.exports = {
   publishedJSComponents
 };

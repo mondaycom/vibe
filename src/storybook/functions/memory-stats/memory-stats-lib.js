@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /**
  * @author mrdoob / http://mrdoob.com/
  * @author jetienne / http://jetienne.com/
