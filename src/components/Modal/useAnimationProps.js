@@ -5,13 +5,13 @@ export default function useAnimationProps(triggerElement, instance) {
     (hideAnimation = false) => {
       let animationStart, animationEnd;
       if (triggerElement) {
-        const { top: sourceTop, left: sourceLeft, right: sourceRight } = triggerElement.getBoundingClientRect();
+        const { top: sourceTop, right: sourceRight } = triggerElement.getBoundingClientRect();
         const {
           top: destinationTop,
           left: destinationLeft,
           width,
           height
-        } = instance?.$el.childNodes[1].getBoundingClientRect();
+        } = instance?.$el.childNodes[1].getBoundingClientRect() || {};
 
         animationStart = {
           transform: `translate(${sourceRight - destinationLeft - width / 2}px, ${
