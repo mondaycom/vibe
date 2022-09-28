@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.67.0 (2022-09-28)
+
+#### New Features
+* [#696](https://github.com/mondaycom/monday-ui-react-core/pull/696) Modal ([@eran-cohen](https://github.com/eran-cohen))
+
+#### New Icons
+* [#888](https://github.com/mondaycom/monday-ui-react-core/pull/888) Upgrade icons ([@github-actions[bot]](https://github.com/apps/github-actions))
+
 ## 1.66.1 (2022-09-22)
 
 #### Bug Fixes
