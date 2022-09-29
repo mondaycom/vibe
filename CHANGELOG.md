@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.67.1 (2022-09-29)
+
+#### Bug Fixes
+* [#890](https://github.com/mondaycom/monday-ui-react-core/pull/890) fix css issue ([@orrgottlieb](https://github.com/orrgottlieb))
+
 ## 1.67.0 (2022-09-28)
 
 #### New Features
