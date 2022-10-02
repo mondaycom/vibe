@@ -204,7 +204,7 @@ export const elementColorsNames = elementAllowedColors.reduce((acc: Record<strin
   return acc;
 }, {});
 
-export const getElementColor = (colorName: string, isSelectedPalette = false): string => {
+export function getElementColor(colorName: string, isSelectedPalette = false): string {
   if (contentColorsByName[colorName]) {
     return `var(--color-${contentColorsByName[colorName]}${isSelectedPalette ? "-selected" : ""}`;
   }
@@ -212,7 +212,7 @@ export const getElementColor = (colorName: string, isSelectedPalette = false): s
     return `var(${stateSelectedColors[colorName]})`;
   }
   return colorName;
-};
+}
 
 export const allMondayColors = [
   "--color-asphalt",
