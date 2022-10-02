@@ -3,7 +3,7 @@ import { detect } from "detect-browser";
 const browser = detect();
 
 export function getBrowserName() {
-  if (browser && browser.name && browser.name) {
+  if (browser && browser.name) {
     return browser.name;
   }
 }

@@ -1,8 +1,12 @@
 import isArray from "lodash/isArray";
 import isFunction from "lodash/isFunction";
+import { MutableRefObject } from "react";
 
-export function chainRefFunctions(funcsOrRefs, allowBreak = false) {
-  return args => {
+export function chainRefFunctions(
+  funcsOrRefs: Array<MutableRefObject<HTMLElement> | ((element: HTMLElement) => void | boolean)>,
+  allowBreak = false
+) {
+  return (args: HTMLElement) => {
     for (let i = 0; i < funcsOrRefs.length; i++) {
       const funcOrRef = funcsOrRefs[i];
       try {
@@ -23,8 +27,8 @@ export function chainRefFunctions(funcsOrRefs, allowBreak = false) {
   };
 }
 
-export function chainFunctions(funcs, allowBreak = false) {
-  return args => {
+export function chainFunctions(funcs: Array<(args: any) => void | boolean>, allowBreak = false) {
+  return (args: any) => {
     // eslint-disable-next-line no-restricted-syntax
     for (let i = 0; i < funcs.length; i++) {
       const func = funcs[i];
@@ -41,7 +45,7 @@ export function chainFunctions(funcs, allowBreak = false) {
   };
 }
 
-export function convertToArray(input) {
+export function convertToArray<T>(input: T | Array<T>): Array<T> {
   return isArray(input) ? input : [input];
 }
 

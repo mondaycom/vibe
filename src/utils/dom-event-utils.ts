@@ -12,67 +12,71 @@ const ARROW_UP_KEY_CODE = 38;
 const ARROW_RIGHT_KEY_CODE = 39;
 const ARROW_DOWN_KEY_CODE = 40;
 
-const validateEvent = (event, keyCode, key) => {
+function validateEvent(
+  event: KeyboardEvent,
+  keyCode: KeyboardEvent["keyCode"] | KeyboardEvent["which"],
+  key?: KeyboardEvent["key"]
+) {
   if (!event) return false;
   return event.keyCode === keyCode || event.which === keyCode || (key && event.key === key);
-};
+}
 
-export const isEnterEvent = event => {
+export function isEnterEvent(event: KeyboardEvent) {
   return validateEvent(event, ENTER_KEY_CODE);
-};
+}
 
-export const isShiftEnterEvent = event => {
+export function isShiftEnterEvent(event: KeyboardEvent) {
   return event.shiftKey && isEnterEvent(event);
-};
+}
 
-export const isEscapeEvent = event => {
+export function isEscapeEvent(event: KeyboardEvent) {
   return validateEvent(event, ESCAPE_KEY_CODE);
-};
+}
 
-export const isArrowUpEvent = event => {
+export function isArrowUpEvent(event: KeyboardEvent) {
   return validateEvent(event, ARROW_UP_KEY_CODE);
-};
+}
 
-export const isArrowDownEvent = event => {
+export function isArrowDownEvent(event: KeyboardEvent) {
   return validateEvent(event, ARROW_DOWN_KEY_CODE);
-};
+}
 
-export const isArrowRightEvent = event => {
+export function isArrowRightEvent(event: KeyboardEvent) {
   return validateEvent(event, ARROW_RIGHT_KEY_CODE);
-};
+}
 
-export const isArrowLeftEvent = event => {
+export function isArrowLeftEvent(event: KeyboardEvent) {
   return validateEvent(event, ARROW_LEFT_KEY_CODE);
-};
+}
 
-export const isBackspaceEvent = event => {
+export function isBackspaceEvent(event: KeyboardEvent) {
   return validateEvent(event, BACKSPACE);
-};
+}
 
-export const isSpaceEvent = event => {
+export function isSpaceEvent(event: KeyboardEvent) {
   return validateEvent(event, SPACE);
-};
+}
 
-export const isTabEvent = event => {
+export function isTabEvent(event: KeyboardEvent) {
   return validateEvent(event, TAB);
-};
+}
 
-export const isPageUpEvent = event => {
+export function isPageUpEvent(event: KeyboardEvent) {
   return validateEvent(event, PAGE_UP);
-};
+}
 
-export const isPageDownEvent = event => {
+export function isPageDownEvent(event: KeyboardEvent) {
   return validateEvent(event, PAGE_DOWN);
-};
+}
 
-export const isEndEvent = event => {
+export function isEndEvent(event: KeyboardEvent) {
   return validateEvent(event, END);
-};
+}
 
-export const isHomeEvent = event => {
+export function isHomeEvent(event: KeyboardEvent) {
   return validateEvent(event, HOME);
-};
+}
 
-export const isShiftTabEvent = event => {
+export function isShiftTabEvent(event: KeyboardEvent) {
   return event.shiftKey && isTabEvent(event);
-};
+}

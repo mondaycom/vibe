@@ -4,7 +4,7 @@ const MIN_PRECISION = 0;
 const MAX_PRECISION = 20;
 const DEFAULT_LOCAL = "en-US";
 
-const validateLocalSupported = local => {
+function validateLocalSupported(local: string) {
   let isLocalSupported;
   try {
     const options = { localeMatcher: "lookup" };
@@ -14,13 +14,13 @@ const validateLocalSupported = local => {
   }
 
   return isLocalSupported;
-};
+}
 
-const validatePrecision = precision => {
+function validatePrecision(precision: number) {
   if (precision < MIN_PRECISION) return MIN_PRECISION;
   if (precision > MAX_PRECISION) return MAX_PRECISION;
   return precision;
-};
+}
 
 export const formatNumberConsts = Object.freeze({
   MIN_PRECISION,
@@ -28,7 +28,14 @@ export const formatNumberConsts = Object.freeze({
   DEFAULT_LOCAL
 });
 
-export const formatNumber = (value, { local = DEFAULT_LOCAL, isCompact = true, precision = 2 } = {}) => {
+export function formatNumber(
+  value: number,
+  {
+    local = DEFAULT_LOCAL,
+    isCompact = true,
+    precision = 2
+  }: { local?: Intl.Locale["language"]; isCompact?: boolean; precision?: number } = {}
+) {
   if (value === undefined || value === null) return;
   const isLocalSupported = validateLocalSupported(local);
   const normalizedPrecision = validatePrecision(precision);
@@ -37,4 +44,4 @@ export const formatNumber = (value, { local = DEFAULT_LOCAL, isCompact = true, p
     ...(isCompact && { notation: "compact" }),
     maximumFractionDigits: normalizedPrecision
   }).format(value);
-};
+}

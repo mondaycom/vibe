@@ -150,7 +150,7 @@ export const COLOR_STYLES = {
   SELECTED: "selected"
 };
 
-export const contentColorsByName = {
+export const contentColorsByName: Record<string, string> = {
   GRASS_GREEN: "grass_green",
   DONE_GREEN: "done-green",
   BRIGHT_GREEN: "bright-green",
@@ -193,18 +193,18 @@ export const contentColorsByName = {
   PECAN: "pecan"
 };
 
-export const stateSelectedColors = {
+export const stateSelectedColors: Record<string, string> = {
   POSITIVE: "--positive-color-selected",
   NEGATIVE: "--negative-color-selected",
   PRIMARY: "--primary-selected-color"
 };
 export const elementAllowedColors = [...Object.keys(contentColorsByName), ...Object.keys(stateSelectedColors)];
-export const elementColorsNames = elementAllowedColors.reduce((acc, key) => {
+export const elementColorsNames = elementAllowedColors.reduce((acc: Record<string, string>, key) => {
   acc[key] = key;
   return acc;
 }, {});
 
-export const getElementColor = (colorName, isSelectedPalette = false) => {
+export const getElementColor = (colorName: string, isSelectedPalette = false): string => {
   if (contentColorsByName[colorName]) {
     return `var(--color-${contentColorsByName[colorName]}${isSelectedPalette ? "-selected" : ""}`;
   }
