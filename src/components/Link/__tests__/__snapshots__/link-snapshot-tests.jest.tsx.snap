@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link renders correctly with ariaLabelDescription 1`] = `
+<a
+  aria-label="arialabel link"
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with ariaLabeledBy 1`] = `
+<a
+  aria-label=""
+  aria-labelledby="aria label link"
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with className 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link testClassName"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with icon 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    aria-hidden={true}
+    className="icon_component monday-style-link--icon-start fa fa fa-star"
+    onClick={[Function]}
+    role="img"
+  />
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with id 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id="TestId"
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+</a>
+`;
+
+exports[`Link renders correctly with right icon 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    
+  </span>
+  <span
+    aria-hidden={true}
+    className="icon_component monday-style-link--icon-end fa fa fa-star"
+    onClick={[Function]}
+    role="img"
+  />
+</a>
+`;
+
+exports[`Link renders correctly with text 1`] = `
+<a
+  aria-label=""
+  aria-labelledby=""
+  className="monday-style-link"
+  href=""
+  id=""
+  onClick={[Function]}
+  rel="noreferrer"
+  target="_blank"
+>
+  <span
+    className="monday-style-link--text"
+  >
+    Link
+  </span>
+</a>
+`;

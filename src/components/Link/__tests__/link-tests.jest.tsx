@@ -1,4 +1,3 @@
-import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import Link from "../Link";
 
@@ -7,7 +6,7 @@ describe("Link", () => {
   const text = "Read More";
   const href = "https://www.monday.com";
 
-  let onClickMock;
+  let onClickMock: jest.Mock;
 
   beforeEach(() => {
     onClickMock = jest.fn();
