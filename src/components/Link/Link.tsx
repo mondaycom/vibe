@@ -8,7 +8,7 @@ import Icon from "../Icon/Icon";
 import "./Link.scss";
 import { IconPosition, LinkTarget } from "./LinkConsts";
 
-interface LinkProps extends VibeComponentProps {
+export interface LinkProps extends VibeComponentProps {
   /** Backward compatibility for props naming */
   componentClassName?: string;
   /** Specifies the location (URL) of the external resource */
