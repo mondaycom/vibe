@@ -86,3 +86,7 @@
 @include keyframe(toast-slide-out) {
   @include slide-out();
 }
+
+.monday-style-toast-content{
+  font-family: var(--font-family);
+}
