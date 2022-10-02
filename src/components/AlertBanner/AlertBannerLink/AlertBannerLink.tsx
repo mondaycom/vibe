@@ -6,8 +6,8 @@ import Link, { LinkProps } from "../../Link/Link";
 import "./AlertBannerLink.scss";
 
 interface AlertBannerLink extends LinkProps {
-  marginLeft: boolean;
-  isDarkBackground: boolean;
+  marginLeft?: boolean;
+  isDarkBackground?: boolean;
 }
 
 const AlertBannerLink = ({ marginLeft, isDarkBackground, ...linkProps }: AlertBannerLink) => {
