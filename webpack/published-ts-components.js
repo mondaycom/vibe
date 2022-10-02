@@ -3,6 +3,7 @@ const publishedTSComponents = {
   AlertBannerButton: "components/AlertBanner/AlertBannerButton/AlertBannerButton",
   ToastButton: "components/Toast/ToastButton/ToastButton",
   Icon: "components/Icon/Icon",
+  Link: "components/Link/Link",
   CustomSvgIcon: "components/Icon/CustomSvgIcon/CustomSvgIcon",
   useKeyEvent: "hooks/useKeyEvent/index.ts",
   useEventListener: "hooks/useEventListener/index.ts",
