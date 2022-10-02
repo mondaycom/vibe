@@ -7,7 +7,7 @@ import "./AlertBannerLink.scss";
 
 interface AlertBannerLink extends LinkProps {
   marginLeft: boolean;
-  isDarkBackground: boolean
+  isDarkBackground: boolean;
 }
 
 const AlertBannerLink = ({ marginLeft, isDarkBackground, ...linkProps }: AlertBannerLink) => {
