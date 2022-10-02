@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.68.0 (2022-10-02)
+
+#### New Features
+* [#884](https://github.com/mondaycom/monday-ui-react-core/pull/884) Feature/sergeyro/font change ([@SergeyRoyt](https://github.com/SergeyRoyt))
+
 ## 1.67.1 (2022-09-29)
 
 #### Bug Fixes
