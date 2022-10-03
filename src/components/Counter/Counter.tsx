@@ -61,7 +61,7 @@ const Counter: React.FC<CounterProps> & {
   noAnimation
 }) => {
   // Variables
-  const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], "") || undefined;
+  const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], undefined);
 
   // State
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
