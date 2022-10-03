@@ -53,7 +53,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter 1`] = `
       onMouseDown={[Function]}
     >
       <div
-        aria-label={1}
+        aria-label="1"
         className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
@@ -131,7 +131,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter ariaLabel 
       onMouseDown={[Function]}
     >
       <div
-        aria-label={1}
+        aria-label="1"
         className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
@@ -208,7 +208,7 @@ exports[`AvatarGroup renders correctly renders correctly with counter default-to
       onMouseDown={[Function]}
     >
       <div
-        aria-label={1}
+        aria-label="1"
         className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
@@ -278,7 +278,7 @@ exports[`AvatarGroup renders correctly renders correctly with custom counter too
       onMouseDown={[Function]}
     >
       <div
-        aria-label={1}
+        aria-label="1"
         className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
@@ -425,7 +425,7 @@ exports[`AvatarGroup renders correctly renders correctly with large size 1`] = `
       onMouseDown={[Function]}
     >
       <div
-        aria-label={1}
+        aria-label="1"
         className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-light"
       >
         <span
