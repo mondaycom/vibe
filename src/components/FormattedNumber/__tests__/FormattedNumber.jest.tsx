@@ -89,7 +89,7 @@ describe("FormattedNumber Tests", () => {
 
   describe("forward ref", () => {
     it("should be able to forward ref", () => {
-      const ref = React.createRef();
+      const ref = React.createRef<HTMLDivElement>();
       render(<FormattedNumber ref={ref} id="test" className="ref-class-name" value={1248} />);
       expect(ref.current.classList.contains("ref-class-name")).toEqual(true);
     });
