@@ -1,21 +1,40 @@
 import React, { useMemo } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { LABEL_COLORS, LABEL_TYPES } from "./LabelConstants";
 import Leg from "./Leg";
 import "./Label.scss";
+import VibeComponentProps from "src/types/VibeComponentProps";
+
+const LABEL_TYPES = {
+  FILL: "fill",
+  LINE: "line"
+} as const;
+
+const LABEL_COLORS = {
+  PRIMARY: "primary",
+  DARK: "dark",
+  NEGATIVE: "negative",
+  POSITIVE: "positive"
+} as const;
+
+interface LabelProps extends VibeComponentProps {
+  wrapperClassName: string;
+  kind: typeof LABEL_TYPES[keyof typeof LABEL_TYPES];
+  color: typeof LABEL_COLORS[keyof typeof LABEL_COLORS];
+  text: string;
+  isAnimationDisabled: boolean;
+  isLegIncluded: boolean;
+}
 
 const Label = ({
-  // Backward compatibility for enum naming
   className,
   wrapperClassName,
-  kind,
-  color,
+  kind = "fill",
+  color = "primary",
   text = "",
-  isAnimationDisabled,
-  isLegIncluded
-}) => {
+  isAnimationDisabled = false,
+  isLegIncluded = false
+}: LabelProps) => {
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]);
   const classNames = useMemo(
     () =>
@@ -33,23 +52,6 @@ const Label = ({
       </div>
     </span>
   );
-};
-
-Label.propTypes = {
-  className: PropTypes.string,
-  text: PropTypes.string,
-  color: PropTypes.oneOf([LABEL_COLORS.PRIMARY, LABEL_COLORS.DARK, LABEL_COLORS.POSITIVE, LABEL_COLORS.NEGATIVE]),
-  kind: PropTypes.oneOf([LABEL_TYPES.FILL, LABEL_TYPES.LINE]),
-  isAnimationDisabled: PropTypes.bool,
-  isLegIncluded: PropTypes.bool
-};
-Label.defaultProps = {
-  className: undefined,
-  text: "",
-  color: LABEL_COLORS.PRIMARY,
-  kind: LABEL_TYPES.FILL,
-  isAnimationDisabled: false,
-  isLegIncluded: false
 };
 
 Label.colors = LABEL_COLORS;
