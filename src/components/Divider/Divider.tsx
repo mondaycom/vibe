@@ -1,5 +1,6 @@
 import React from "react";
 import cx from "classnames";
+import PropTypes from "prop-types";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { DirectionType } from "./DividerConstants";
 import "./Divider.scss";
@@ -21,5 +22,10 @@ const Divider = ({
 };
 
 Divider.directions = DirectionType
+
+Divider.propTypes = {
+  className: PropTypes.string,
+  direction: PropTypes.oneOf([Divider.directions.HORIZONTAL, Divider.directions.VERTICAL])
+};
 
 export default Divider;
