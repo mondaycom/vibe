@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import Divider from "../Divider";
 
 it("renders correctly with empty props", () => {
-  const tree = renderer.create(<Divider />).toJSON();
+  const tree = renderer.create(<Divider/>).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
