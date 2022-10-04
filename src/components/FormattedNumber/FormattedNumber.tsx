@@ -1,11 +1,11 @@
-import React, { useMemo, forwardRef, ForwardedRef } from "react";
+import React, { useMemo, forwardRef } from "react";
 import classNames from "classnames";
 import { formatNumber, formatNumberConsts } from "../../helpers/textManipulations";
 import { baseClassName } from "./FormattedNumberConsts";
 import { validateValue } from "./FormattedNumberHelpers";
 import "./FormattedNumber.scss";
-import VibeComponentProps from "src/types/VibeComponentProps";
-import VibeComponent from "src/types/VibeComponent";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
 
 interface FormattedNumberProps extends VibeComponentProps {
   /**
