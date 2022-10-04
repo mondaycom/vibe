@@ -13,9 +13,9 @@ describe("RadioButton tests", () => {
   const option3Value = "3";
   const option3Text = "Option 3";
 
-  let onChangeMock1;
-  let onChangeMock2;
-  let onChangeMock3;
+  let onChangeMock1: jest.Mock;
+  let onChangeMock2: jest.Mock;
+  let onChangeMock3: jest.Mock;
 
   beforeEach(() => {
     onChangeMock1 = jest.fn();
@@ -42,18 +42,18 @@ describe("RadioButton tests", () => {
   });
 
   it("should default select 1st option", () => {
-    const option1 = screen.getByLabelText(option1Text);
-    const option2 = screen.getByLabelText(option2Text);
-    const option3 = screen.getByLabelText(option3Text);
+    const option1: HTMLInputElement = screen.getByLabelText(option1Text);
+    const option2: HTMLInputElement = screen.getByLabelText(option2Text);
+    const option3: HTMLInputElement = screen.getByLabelText(option3Text);
     expect(option1.checked).toBeTruthy();
     expect(option2.checked).toBeFalsy();
     expect(option3.checked).toBeFalsy();
   });
 
   it("should select 2nd option", () => {
-    const option1 = screen.getByLabelText(option1Text);
-    const option2 = screen.getByLabelText(option2Text);
-    const option3 = screen.getByLabelText(option3Text);
+    const option1: HTMLInputElement = screen.getByLabelText(option1Text);
+    const option2: HTMLInputElement = screen.getByLabelText(option2Text);
+    const option3: HTMLInputElement = screen.getByLabelText(option3Text);
     fireEvent.click(option2);
     expect(option1.checked).toBeFalsy();
     expect(option2.checked).toBeTruthy();

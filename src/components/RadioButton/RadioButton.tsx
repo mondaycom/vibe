@@ -1,33 +1,50 @@
 import React, { useRef, forwardRef, useCallback, useMemo } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import Clickable from "../../components/Clickable/Clickable";
+import Clickable from "../Clickable/Clickable";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
 import { baseClassName } from "./RadioButtonConstants";
 import "./RadioButton.scss";
+import VibeComponentProps from "../../types/VibeComponentProps";
+import VibeComponent from "../../types/VibeComponent";
 
-const RadioButton = forwardRef(
+interface RadioButtonProps extends VibeComponentProps {
+  className?: string;
+  componentClassName?: string;
+  text?: string;
+  value?: string;
+  name?: string;
+  disabled?: boolean;
+  defaultChecked?: boolean;
+  children?: React.ReactNode;
+  onSelect?: (event: React.ChangeEvent<HTMLInputElement | null>) => void;
+  checked?: boolean;
+  retainChildClick?: boolean;
+  childrenTabIndex?: string;
+  noLabelAnimation?: boolean;
+}
+
+const RadioButton: VibeComponent<RadioButtonProps, HTMLElement> = forwardRef(
   (
     {
       className,
       // Backward compatibility for props naming
       componentClassName,
-      text,
-      value,
-      name,
-      disabled,
-      defaultChecked,
+      text = "",
+      value = "",
+      name = "",
+      disabled = false,
+      defaultChecked = false,
       children,
       onSelect,
       checked,
-      retainChildClick,
-      childrenTabIndex,
-      noLabelAnimation
+      retainChildClick = true,
+      childrenTabIndex = "0",
+      noLabelAnimation = false
     },
-    ref
+    ref: React.ForwardedRef<HTMLInputElement>
   ) => {
-    const inputRef = useRef();
+    const inputRef = useRef<HTMLInputElement | null>();
     const mergedRef = useMergeRefs({ refs: [ref, inputRef] });
     const overrideClassName = backwardCompatibilityForProperties([className, componentClassName]);
     const onChildClick = useCallback(() => {
@@ -36,7 +53,7 @@ const RadioButton = forwardRef(
         inputRef.current.checked = true;
       }
       if (onSelect) {
-        onSelect();
+        onSelect(null);
       }
     }, [onSelect, inputRef, disabled, retainChildClick]);
 
@@ -77,37 +94,4 @@ const RadioButton = forwardRef(
   }
 );
 
-RadioButton.propTypes = {
-  className: PropTypes.string,
-  text: PropTypes.string,
-  value: PropTypes.string,
-  name: PropTypes.string,
-  disabled: PropTypes.bool,
-  /** Auto check by default */
-  defaultChecked: PropTypes.bool,
-  /** Controlled externally - When used, need to be set for all radio buttons in the same group */
-  checked: PropTypes.bool,
-  onSelect: PropTypes.func,
-  /** If set to false, will revert to base `onSelect` behaviour */
-  retainChildClick: PropTypes.bool,
-  /** Sets the tabindex for the passed children prop */
-  childrenTabIndex: PropTypes.string,
-  /** Disable label animation when selected radio button, for preventing label to jump because of css
-      overrides implements on the radio button container */
-  noLabelAnimation: PropTypes.bool
-};
-
-RadioButton.defaultProps = {
-  className: undefined,
-  text: "",
-  value: "",
-  name: "",
-  disabled: false,
-  defaultChecked: false,
-  checked: undefined,
-  onSelect: undefined,
-  retainChildClick: true,
-  childrenTabIndex: "0",
-  noLabelAnimation: false
-};
 export default RadioButton;

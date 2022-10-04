@@ -3,8 +3,28 @@ import { fireEvent, render, cleanup } from "@testing-library/react";
 import { ELEMENT_TYPES } from "../../../__tests__/interactions-helper";
 import Clickable from "../Clickable";
 import userEvent from "@testing-library/user-event";
+import VibeComponentProps from "../../../types/VibeComponentProps";
 
-const renderComponent = props => {
+interface ClickableProps extends VibeComponentProps {
+  elementType?: keyof JSX.IntrinsicElements | string;
+  className?: string;
+  id?: string;
+  children?: React.ReactNode;
+  role?: string;
+  onClick?: (event: KeyboardEvent) => void;
+  enableTextSelection?: boolean;
+  onMouseDown?: (event: React.MouseEvent) => void;
+  ariaLabel?: string;
+  ariaHidden?: boolean;
+  ariaHasPopup?: boolean | string;
+  ariaExpanded?: boolean;
+  tabIndex?: string;
+  disabled?: boolean;
+  style?: object;
+  dataTestId?: string;
+}
+
+const renderComponent = (props: ClickableProps) => {
   return render(<Clickable {...props} />);
 };
 
