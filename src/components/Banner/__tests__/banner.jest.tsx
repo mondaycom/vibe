@@ -2,9 +2,10 @@ import React from "react";
 import renderer from "react-test-renderer";
 import Banner from "../Banner";
 import { NOOP } from "../../../utils/function-utils";
+import { MouseEventCallBack } from "src/types/events";
 
 jest.mock("../../Button/Button", () => {
-  const Button = ({ onClick }) => (
+  const Button = ({ onClick }: { onClick: MouseEventCallBack }) => (
     <div data-testid="cancel-button" {...(onClick && { "data-onclick": "onclick-provided" })} />
   );
 
@@ -18,7 +19,7 @@ jest.mock("../../Button/Button", () => {
 describe("Banner", () => {
   const mockTitle = "mock title";
   const mockSubtitle = "mock Subtitle";
-  const mockRenderFunction = text => <div data-testid="custom_render">{text}</div>;
+  const mockRenderFunction = (text: string) => <div data-testid="custom_render">{text}</div>;
 
   it("should render correctly without props", () => {
     const tree = renderer.create(<Banner />).toJSON();
