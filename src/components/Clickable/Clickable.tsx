@@ -24,7 +24,7 @@ export interface ClickableProps extends VibeBaseButtonComponentProps<HTMLElement
   tabIndex?: string | number;
   style?: CSSProperties;
   /**
-   *     Backward compatibility for props naming - please do not use
+   * @deprecated Backward compatibility for props naming - please do not use
    */
   dataTestId?: string;
 }
