@@ -17,24 +17,27 @@ const LABEL_COLORS = {
   POSITIVE: "positive"
 } as const;
 
+type LabelTypes = typeof LABEL_TYPES;
+type LabelColors = typeof LABEL_COLORS;
+
 interface LabelProps extends VibeComponentProps {
-  wrapperClassName: string;
-  kind: typeof LABEL_TYPES[keyof typeof LABEL_TYPES];
-  color: typeof LABEL_COLORS[keyof typeof LABEL_COLORS];
-  text: string;
-  isAnimationDisabled: boolean;
-  isLegIncluded: boolean;
+  wrapperClassName?: string;
+  kind?: LabelTypes[keyof LabelTypes];
+  color?: LabelColors[keyof LabelColors];
+  text?: string;
+  isAnimationDisabled?: boolean;
+  isLegIncluded?: boolean;
 }
 
 const Label = ({
   className,
   wrapperClassName,
-  kind = "fill",
-  color = "primary",
+  kind = LABEL_TYPES.FILL,
+  color = LABEL_COLORS.PRIMARY,
   text = "",
   isAnimationDisabled = false,
   isLegIncluded = false
-}: Partial<LabelProps>) => {
+}: LabelProps) => {
   const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]);
   const classNames = useMemo(
     () =>
