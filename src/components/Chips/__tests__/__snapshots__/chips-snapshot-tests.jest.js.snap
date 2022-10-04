@@ -43,11 +43,16 @@ exports[`Chips renders correctly renders correctly with color 1`] = `
     aria-label="Remove"
     className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onMouseUp={[Function]}
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
     style={
       Object {
         "alignItems": "center",
@@ -102,11 +107,16 @@ exports[`Chips renders correctly renders correctly with empty props 1`] = `
     aria-label="Remove"
     className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onMouseUp={[Function]}
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
     style={
       Object {
         "alignItems": "center",
@@ -315,11 +325,16 @@ exports[`Chips renders correctly renders correctly with text 1`] = `
     aria-label="Remove"
     className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
     data-testid="chip-close"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onMouseUp={[Function]}
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
     style={
       Object {
         "alignItems": "center",

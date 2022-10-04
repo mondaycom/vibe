@@ -28,6 +28,14 @@ export interface ButtonProps {
   /** Callback function to run when the button is clicked */
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onMouseDown?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  /** Callback function to mouse enter envent*/
+  onMouseEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  /** Callback function to mouse leave envent*/
+  onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  /** Callback function to pointer enter envent*/
+  onPointerEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  /** Callback function to pointer leave envent*/
+  onPointerLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   /** Blur on button click */
   blurOnMouseUp?: boolean;
   /** Name of the button - for form submit usages  */
@@ -116,6 +124,10 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       marginLeft,
       type,
       onMouseDown,
+      onMouseEnter,
+      onMouseLeave,
+      onPointerEnter,
+      onPointerLeave,
       ariaLabel,
       rightFlat,
       leftFlat,
@@ -201,6 +213,46 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       [onMouseDown, disabled, loading, success]
     );
 
+    const handleMouseEnter = useCallback(
+      (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        if (disabled) {
+          return;
+        }
+        !!onMouseEnter && onMouseEnter(event);
+      },
+      [disabled, onMouseEnter]
+    );
+
+    const handleMouseLeave = useCallback(
+      (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        if (disabled) {
+          return;
+        }
+        !!onMouseLeave && onMouseLeave(event);
+      },
+      [disabled, onMouseLeave]
+    );
+
+    const handlePointerEnter = useCallback(
+      (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        if (disabled) {
+          return;
+        }
+        !!onPointerEnter && onPointerEnter(event);
+      },
+      [disabled, onPointerEnter]
+    );
+
+    const handlePointerLeave = useCallback(
+      (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        if (disabled) {
+          return;
+        }
+        !!onPointerLeave && onPointerLeave(event);
+      },
+      [disabled, onPointerLeave]
+    );
+
     const classNames = useMemo(() => {
       const calculatedColor = success ? ButtonColor.POSITIVE : color;
       return cx(
@@ -217,7 +269,7 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
           "monday-style-button--margin-left": marginLeft,
           "monday-style-button--right-flat": rightFlat,
           "monday-style-button--left-flat": leftFlat,
-          "monday-style-button--prevent-click-animation": preventClickAnimation,
+          "monday-style-button--prevent-click-animation": preventClickAnimation || disabled,
           "monday-style-button--no-side-padding": noSidePadding,
           "monday-style-button--disabled": disabled,
           "inset-focus-style": insetFocus
@@ -253,11 +305,16 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
         onMouseUp,
         style,
         onClick: onButtonClicked,
+        onMouseEnter: handleMouseEnter,
+        onMouseLeave: handleMouseLeave,
+        onPointerEnter: handlePointerEnter,
+        onPointerLeave: handlePointerLeave,
         id,
         onFocus,
         onBlur,
         "data-testid": dataTestId || getTestId(ELEMENT_TYPES.BUTTON, id),
         onMouseDown: onMouseDownClicked,
+        disabled: disabled,
         "aria-disabled": disabled,
         "aria-busy": loading,
         "aria-labelledby": ariaLabeledBy,
@@ -281,6 +338,10 @@ const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<
       onBlur,
       dataTestId,
       onMouseDownClicked,
+      handleMouseEnter,
+      handleMouseLeave,
+      handlePointerEnter,
+      handlePointerLeave,
       ariaLabeledBy,
       ariaLabel,
       loading,

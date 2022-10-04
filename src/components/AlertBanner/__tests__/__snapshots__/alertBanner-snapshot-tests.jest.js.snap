@@ -18,11 +18,16 @@ exports[`AlertBanner should render correctly with background color 1`] = `
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       <svg
@@ -79,11 +84,16 @@ exports[`AlertBanner should render correctly without props 1`] = `
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       <svg
@@ -181,11 +191,16 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
           aria-disabled={false}
           className="monday-style-alert-banner-button monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
           data-testid="button"
+          disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           onMouseUp={[Function]}
+          onPointerEnter={[Function]}
+          onPointerLeave={[Function]}
           type="button"
         >
           Lorem Ipsum Bailar
@@ -202,11 +217,16 @@ exports[`AlertBanner should render with correctly with multiple elements 1`] = `
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       <svg
@@ -265,11 +285,16 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
           aria-disabled={false}
           className="monday-style-alert-banner-button monday-style-button monday-style-button--size-small monday-style-button--kind-primary monday-style-button--color-on-primary-color"
           data-testid="button"
+          disabled={false}
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
           onMouseDown={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
           onMouseUp={[Function]}
+          onPointerEnter={[Function]}
+          onPointerLeave={[Function]}
           type="button"
         >
           Lorem Ipsum Salura
@@ -286,11 +311,16 @@ exports[`AlertBanner should render with correctly with text and button 1`] = `
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       <svg
@@ -372,11 +402,16 @@ exports[`AlertBanner should render with correctly with text and link 1`] = `
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       <svg
@@ -434,11 +469,16 @@ exports[`AlertBanner shuold render correctly with props 1`] = `
       aria-label="close-toast"
       className="monday-alert-banner__alert-banner-close-btn monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
       data-testid="button"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       <svg

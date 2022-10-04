@@ -256,11 +256,16 @@ exports[`AttentionBox renders correctly renders correctly with onClose 1`] = `
         aria-label="Close"
         className="monday-style-attention-box-component__close-icon monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
         data-testid="icon-button"
+        disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
         onMouseDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
         onMouseUp={[Function]}
+        onPointerEnter={[Function]}
+        onPointerLeave={[Function]}
         style={
           Object {
             "alignItems": "center",

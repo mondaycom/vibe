@@ -77,11 +77,16 @@ exports[`Toast renders correctly when open is true 1`] = `
     aria-label="close-toast"
     className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     data-testid="button"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onMouseUp={[Function]}
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
     type="button"
   >
     <svg
@@ -143,11 +148,16 @@ exports[`Toast renders correctly with button 1`] = `
       aria-disabled={false}
       className="monday-style-toast-action_button monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
       data-testid="button"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Undo 5
@@ -159,11 +169,16 @@ exports[`Toast renders correctly with button 1`] = `
     aria-label="close-toast"
     className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     data-testid="button"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onMouseUp={[Function]}
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
     type="button"
   >
     <svg
@@ -241,11 +256,16 @@ exports[`Toast renders correctly with button and link 1`] = `
       aria-disabled={false}
       className="monday-style-toast-action_button monday-style-button monday-style-button--size-small monday-style-button--kind-secondary monday-style-button--color-on-primary-color"
       data-testid="button"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Undo 5
@@ -257,11 +277,16 @@ exports[`Toast renders correctly with button and link 1`] = `
     aria-label="close-toast"
     className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     data-testid="button"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onMouseUp={[Function]}
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
     type="button"
   >
     <svg
@@ -340,11 +365,16 @@ exports[`Toast renders correctly with link 1`] = `
     aria-label="close-toast"
     className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     data-testid="button"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onMouseUp={[Function]}
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
     type="button"
   >
     <svg
@@ -404,11 +434,16 @@ exports[`Toast renders correctly with negative type 1`] = `
     aria-label="close-toast"
     className="monday-style-toast_close-button monday-style-button monday-style-button--size-small monday-style-button--kind-tertiary monday-style-button--color-on-primary-color"
     data-testid="button"
+    disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
     onMouseDown={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onMouseUp={[Function]}
+    onPointerEnter={[Function]}
+    onPointerLeave={[Function]}
     type="button"
   >
     <svg

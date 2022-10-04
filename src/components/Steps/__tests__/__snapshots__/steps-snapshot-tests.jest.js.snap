@@ -13,11 +13,16 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Back
@@ -44,13 +49,18 @@ exports[`Steps with gallery type renders correctly when hide navigations icons 1
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--prevent-click-animation monday-style-button--disabled"
       data-testid="steps-forward-command"
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Next
@@ -112,11 +122,16 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Back
@@ -159,13 +174,18 @@ exports[`Steps with gallery type renders correctly when steps content is on top 
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--prevent-click-animation monday-style-button--disabled"
       data-testid="steps-forward-command"
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Next
@@ -201,13 +221,18 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--prevent-click-animation monday-style-button--disabled"
       data-testid="steps-backward-command"
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Back
@@ -252,11 +277,16 @@ exports[`Steps with gallery type renders correctly when viewing first step 1`] =
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Next
@@ -297,11 +327,16 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Back
@@ -344,13 +379,18 @@ exports[`Steps with gallery type renders correctly when viewing last step 1`] = 
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--prevent-click-animation monday-style-button--disabled"
       data-testid="steps-forward-command"
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Next
@@ -389,13 +429,18 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--prevent-click-animation monday-style-button--disabled"
       data-testid="steps-backward-command"
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Back
@@ -440,11 +485,16 @@ exports[`Steps with gallery type renders correctly with regular props 1`] = `
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Next
@@ -485,11 +535,16 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Back
@@ -502,13 +557,18 @@ exports[`Steps with numeric type renders correctly when hide navigations icons 1
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--prevent-click-animation monday-style-button--disabled"
       data-testid="steps-forward-command"
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Next
@@ -536,11 +596,16 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Back
@@ -569,13 +634,18 @@ exports[`Steps with numeric type renders correctly when steps content is on top 
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--prevent-click-animation monday-style-button--disabled"
       data-testid="steps-forward-command"
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Next
@@ -611,13 +681,18 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--prevent-click-animation monday-style-button--disabled"
       data-testid="steps-backward-command"
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Back
@@ -648,11 +723,16 @@ exports[`Steps with numeric type renders correctly when viewing first step 1`] =
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Next
@@ -693,11 +773,16 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-backward-command"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Back
@@ -726,13 +811,18 @@ exports[`Steps with numeric type renders correctly when viewing last step 1`] = 
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--prevent-click-animation monday-style-button--disabled"
       data-testid="steps-forward-command"
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Next
@@ -771,13 +861,18 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
     <button
       aria-busy={false}
       aria-disabled={true}
-      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--disabled"
+      className="monday-style-steps-command monday-style-steps-command--backward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary monday-style-button--prevent-click-animation monday-style-button--disabled"
       data-testid="steps-backward-command"
+      disabled={true}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Back
@@ -808,11 +903,16 @@ exports[`Steps with numeric type renders correctly with regular props 1`] = `
       aria-disabled={false}
       className="monday-style-steps-command monday-style-steps-command--forward monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-primary"
       data-testid="steps-forward-command"
+      disabled={false}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       onMouseUp={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       type="button"
     >
       Next

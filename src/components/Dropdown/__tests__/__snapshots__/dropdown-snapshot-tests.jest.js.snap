@@ -1455,11 +1455,16 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-label="Remove"
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                 data-testid="value-container-chip-close"
+                disabled={false}
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 onMouseUp={[Function]}
+                onPointerEnter={[Function]}
+                onPointerLeave={[Function]}
                 style={
                   Object {
                     "alignItems": "center",
@@ -1511,11 +1516,16 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-label="Remove"
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                 data-testid="value-container-chip-close"
+                disabled={false}
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 onMouseUp={[Function]}
+                onPointerEnter={[Function]}
+                onPointerLeave={[Function]}
                 style={
                   Object {
                     "alignItems": "center",
@@ -1567,11 +1577,16 @@ exports[`Dropdown renders correctly with chip colors 1`] = `
                 aria-label="Remove"
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                 data-testid="value-container-chip-close"
+                disabled={false}
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 onMouseUp={[Function]}
+                onPointerEnter={[Function]}
+                onPointerLeave={[Function]}
                 style={
                   Object {
                     "alignItems": "center",
@@ -2284,11 +2299,16 @@ exports[`Dropdown renders correctly with leftAvatar 1`] = `
                 aria-label="Remove"
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                 data-testid="value-container-chip-close"
+                disabled={false}
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 onMouseUp={[Function]}
+                onPointerEnter={[Function]}
+                onPointerLeave={[Function]}
                 style={
                   Object {
                     "alignItems": "center",
@@ -2503,11 +2523,16 @@ exports[`Dropdown renders correctly with leftIcon 1`] = `
                 aria-label="Remove"
                 className="icon close monday-style-button monday-style-button--size-medium monday-style-button--kind-tertiary monday-style-button--color-on-primary-color monday-style-button--no-side-padding"
                 data-testid="value-container-chip-close"
+                disabled={false}
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
                 onMouseDown={[Function]}
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
                 onMouseUp={[Function]}
+                onPointerEnter={[Function]}
+                onPointerLeave={[Function]}
                 style={
                   Object {
                     "alignItems": "center",
