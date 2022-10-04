@@ -6,10 +6,19 @@ import classes from "./Flex.stories.module.scss";
 import Chips from "../../Chips/Chips";
 import { StoryDescription } from "../../../storybook/components/story-description/story-description";
 import { LIST, MENU, TABS } from "../../../storybook/components/related-components/component-description-map";
+import { createStoryMetaSettings } from "../../../storybook/functions/create-component-story";
+
+export const metaSettings = createStoryMetaSettings({
+  component: Flex,
+  enumPropNamesArray: ["justify", "align"],
+  actionPropsArray: ["onClick"]
+});
 
 <Meta
   title="Layout/Flex"
   component={ Flex }
+  argTypes={metaSettings.argTypes}
+  decorators={metaSettings.decorators}
 />
 
 <!--- Component template -->
@@ -38,14 +47,13 @@ export const flexTemplate = (args) => {
 Use Flex component to position group of sub-elements in one dimension, horizontal or vertical, without being dependent on a custom CSS file for positioning the sub-elements.
 
 <Canvas>
-  <Story name="Overview"
-         args={ {} }>
+  <Story name="Overview">
     { flexTemplate.bind({}) }
   </Story>
 </Canvas>
 
 ## Props
-<ArgsTable of={ Flex } />
+<ArgsTable story="Overview" />
 
 ## Usage
 <UsageGuidelines guidelines={[
