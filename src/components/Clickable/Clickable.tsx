@@ -15,7 +15,7 @@ const bemHelper = BEMClass(CSS_BASE_CLASS);
 
 export interface ClickableProps extends VibeBaseButtonComponentProps<HTMLElement> {
   elementType?: ElementType;
-  children?: string | ReactNode | null | [ReactNode];
+  children?: string | ReactNode | null | ReactNode[];
   role?: AriaRole;
   enableTextSelection?: boolean;
   onMouseDown?: MouseEventHandler<HTMLDivElement>;
