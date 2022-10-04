@@ -7,7 +7,7 @@ exports[`Counter renders correctly with ariaLabeledBy 1`] = `
   onMouseDown={[Function]}
 >
   <div
-    aria-label={0}
+    aria-label="0"
     className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary"
   >
     <span
@@ -45,7 +45,7 @@ exports[`Counter renders correctly with count above limit 2`] = `
   onMouseDown={[Function]}
 >
   <div
-    aria-label={1050}
+    aria-label="1050"
     className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary"
   >
     <span
@@ -64,7 +64,7 @@ exports[`Counter renders correctly with count below the limit 1`] = `
   onMouseDown={[Function]}
 >
   <div
-    aria-label={1}
+    aria-label="1"
     className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary"
   >
     <span
@@ -83,7 +83,7 @@ exports[`Counter renders correctly with line kind 1`] = `
   onMouseDown={[Function]}
 >
   <div
-    aria-label={0}
+    aria-label="0"
     className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-line monday-style-counter--color-primary"
   >
     <span
@@ -102,7 +102,7 @@ exports[`Counter renders correctly with negative color 1`] = `
   onMouseDown={[Function]}
 >
   <div
-    aria-label={0}
+    aria-label="0"
     className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-negative"
   >
     <span
@@ -121,7 +121,7 @@ exports[`Counter renders correctly with small size 1`] = `
   onMouseDown={[Function]}
 >
   <div
-    aria-label={0}
+    aria-label="0"
     className="monday-style-counter monday-style-counter--size-small monday-style-counter--kind-fill monday-style-counter--color-primary"
   >
     <span
@@ -140,7 +140,7 @@ exports[`Counter renders correctly with the prefix 1`] = `
   onMouseDown={[Function]}
 >
   <div
-    aria-label={13}
+    aria-label="13"
     className="monday-style-counter monday-style-counter--size-large monday-style-counter--kind-fill monday-style-counter--color-primary"
   >
     <span

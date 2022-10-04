@@ -1,23 +1,57 @@
-import { SIZES } from "../../constants";
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
+import VibeComponentProps from "src/types/VibeComponentProps";
 import useEventListener from "../../hooks/useEventListener";
 import useAfterFirstRender from "../../hooks/useAfterFirstRender";
 import { NOOP } from "../../utils/function-utils";
 import { backwardCompatibilityForProperties } from "../../helpers/backwardCompatibilityForProperties";
-import { COUNTER_COLORS, COUNTER_TYPES, getActualSize } from "./CounterConstants";
+import { CounterColor, CounterType, CounterSize, getActualSize } from "./CounterConstants";
 import "./Counter.scss";
 
-const Counter = ({
+interface CounterProps extends VibeComponentProps {
+  /** id to pass to the element */
+  id?: string;
+  /** element id to describe the counter accordingly */
+  ariaLabeledBy?: string;
+  /** Custom class names to pass to the component */
+  className?: string;
+  /** The numeric value of the counter */
+  count?: number;
+  /** Counter description */
+  ariaLabel?: string;
+  /** The size of the counter */
+  size?: CounterSize;
+
+  kind?: CounterType;
+  /** The color of the counter */
+  color?: CounterColor;
+  /** Use className instead
+   * @deprecated
+   */
+  wrapperClassName?: string;
+  /** maximum number of digits to display (see relevant story) */
+  maxDigits?: number;
+  /** Text prepended to counter value */
+  prefix?: string;
+  /** Callback to be called when the counter is clicked. */
+  onMouseDown?: (event: React.MouseEvent<HTMLSpanElement>) => void;
+  /** Disables the component's animation */
+  noAnimation?: boolean;
+}
+
+const Counter: React.FC<CounterProps> & {
+  sizes?: typeof CounterSize;
+  colors?: typeof CounterColor;
+  kinds?: typeof CounterType;
+} = ({
+  className,
+  // Backward compatibility for props naming
+  wrapperClassName,
   count,
   size,
   kind,
   color,
-  className,
-  // Backward compatibility for props naming
-  wrapperClassName,
   maxDigits,
   ariaLabeledBy,
   ariaLabel,
@@ -27,13 +61,13 @@ const Counter = ({
   noAnimation
 }) => {
   // Variables
-  const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName]);
+  const overrideClassName = backwardCompatibilityForProperties([className, wrapperClassName], undefined);
 
   // State
   const [countChangeAnimationState, setCountChangeAnimationState] = useState(false);
 
   // Refs
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   // Callbacks
   const setCountChangedAnimationActive = useCallback(() => {
@@ -80,7 +114,7 @@ const Counter = ({
     );
   }, [size, kind, color, countChangeAnimationState]);
 
-  const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : count;
+  const countText = count?.toString().length > maxDigits ? `${10 ** maxDigits - 1}+` : String(count);
   const counter = <span id={`counter-${id}`}>{prefix + countText}</span>;
 
   return (
@@ -96,11 +130,13 @@ const Counter = ({
         ) : (
           <SwitchTransition mode="out-in">
             <CSSTransition
+              key={countText}
               classNames="monday-style-counter--fade"
-              addEndListener={(node, done) => {
+              // @ts-expect-error @definitelyTyped typings expecting a single parameter for some reason when the function passed here is called with two parameters
+              // See https://github.com/reactjs/react-transition-group/blob/c89f807067b32eea6f68fd6c622190d88ced82e2/src/Transition.js#L522-L534
+              addEndListener={(node: HTMLElement, done: () => void) => {
                 node.addEventListener("transitionend", done, false);
               }}
-              key={countText}
             >
               <span id={`counter-${id}`}>{prefix + countText}</span>
             </CSSTransition>
@@ -111,47 +147,25 @@ const Counter = ({
   );
 };
 
-Counter.sizes = SIZES;
-Counter.colors = COUNTER_COLORS;
-Counter.kinds = COUNTER_TYPES;
+Object.assign(Counter, {
+  sizes: CounterSize,
+  colors: CounterColor,
+  kinds: CounterType
+});
 
-Counter.propTypes = {
-  /** id to pass to the element */
-  id: PropTypes.string,
-  className: PropTypes.string,
-  count: PropTypes.number,
-  /** element id to describe the counter accordingly */
-  ariaLabeledBy: PropTypes.string,
-  /** Counter Description */
-  ariaLabel: PropTypes.string,
-  size: PropTypes.oneOf([Counter.sizes.LARGE, Counter.sizes.SMALL]),
-  color: PropTypes.oneOf([Counter.colors.PRIMARY, Counter.colors.DARK, Counter.colors.NEGATIVE, Counter.colors.LIGHT]),
-  kind: PropTypes.oneOf([Counter.kinds.FILL, Counter.kinds.LINE]),
-  /** maximum number of digits to display (see relevant story) */
-  maxDigits: PropTypes.number,
-  prefix: PropTypes.string,
-  /**
-   * Callback to be called when the counter is clicked.
-   */
-  onMouseDown: PropTypes.func,
-  /**
-   * Disables the component's animation.
-   */
-  noAnimation: PropTypes.bool
-};
 Counter.defaultProps = {
-  id: "",
-  className: undefined,
-  count: 0,
-  size: SIZES.LARGE,
-  color: COUNTER_COLORS.PRIMARY,
-  kind: COUNTER_TYPES.FILL,
-  maxDigits: 3,
-  ariaLabeledBy: "",
   ariaLabel: "",
-  prefix: "",
+  ariaLabeledBy: "",
+  className: undefined,
+  color: CounterColor.PRIMARY,
+  count: 0,
+  id: "",
+  kind: CounterType.FILL,
+  maxDigits: 3,
+  noAnimation: false,
   onMouseDown: NOOP,
-  noAnimation: false
+  prefix: "",
+  size: CounterSize.LARGE
 };
 
 export default Counter;

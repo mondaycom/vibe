@@ -17,7 +17,11 @@ export const metaSettings = createStoryMetaSettings({
 <Meta
   title="Feedback/Counter"
   component={ Counter }
-  argTypes={ metaSettings.argTypes }
+  argTypes={{
+    ...metaSettings.argTypes,
+    wrapperClassName: { table: { disable: true } },
+    "data-testid": { table: { disable: true } }
+   }}
   decorators={ metaSettings.decorators }
 />
 
@@ -48,7 +52,7 @@ Counters show the count of some adjacent data.
 </Canvas>
 
 ## Props
-<ArgsTable of={ Counter } />
+<ArgsTable story="Overview" />
 
 ## Usage
 <UsageGuidelines guidelines={[
