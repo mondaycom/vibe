@@ -6,8 +6,8 @@ const KEYDOWN_ENTER_EVENT = 13;
 export function useKeyboardButtonPressedFunc(onClick) {
   return useCallback(
     e => {
-      if ((onClick && e.keyCode === KEYDOWN_SPACE_EVENT) || e.keyCode === KEYDOWN_ENTER_EVENT) {
-        onClick(e);
+      if ([KEYDOWN_ENTER_EVENT, KEYDOWN_SPACE_EVENT].includes(e.keyCode)) {
+        onClick?.(e);
       }
     },
     [onClick]
