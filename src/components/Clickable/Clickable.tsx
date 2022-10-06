@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import React, { forwardRef, useRef } from "react";
+import React, { AriaRole, forwardRef, useRef } from "react";
 import NOOP from "lodash/noop";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
@@ -18,8 +18,8 @@ export interface ClickableProps extends VibeComponentProps {
   className?: string;
   id?: string;
   children?: React.ReactNode;
-  role?: string;
-  onClick?: (event: KeyboardEvent) => void;
+  role?: AriaRole;
+  onClick?: (event: React.MouseEvent) => void;
   enableTextSelection?: boolean;
   onMouseDown?: (event: React.MouseEvent) => void;
   ariaLabel?: string;
@@ -28,7 +28,7 @@ export interface ClickableProps extends VibeComponentProps {
   ariaExpanded?: boolean;
   tabIndex?: string;
   disabled?: boolean;
-  style?: object;
+  style?: React.CSSProperties;
   dataTestId?: string;
 }
 
