@@ -56,7 +56,7 @@ export interface BannerProps extends VibeComponentProps {
   /**
    * Add X button to the component when initialized and called when the button is clicked
    */
-  onClose?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClose?: (event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
 
   /**
    * Change to "Right to Left" if set to `true`. Defaults to "Left to Right"
