@@ -1,30 +1,96 @@
 import React, { useRef, forwardRef, useMemo } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
-import Button from "../../components/Button/Button";
-import Icon from "../../components/Icon/Icon";
-import CloseSmall from "../../components/Icon/Icons/components/CloseSmall";
+import Button from "../Button/Button";
+import Icon from "../Icon/Icon";
+import CloseSmall from "../Icon/Icons/components/CloseSmall";
 import { IMAGE_POSITIONS } from "./BannerConstants";
 import "./Banner.scss";
+import VibeComponentProps from "src/types/VibeComponentProps";
 
-const PRESERVE_VALUE = value => value;
+export interface BannerProps extends VibeComponentProps {
+  /**
+   * custom style
+   */
+  className?: string;
 
-const Banner = forwardRef(
+  /**
+   * image alt attribute
+   */
+  imageAlt?: string;
+
+  /**
+   * image source
+   */
+  imageSrc?: string;
+
+  /**
+   * determines the image position
+   */
+  imagePosition?: IMAGE_POSITIONS;
+  /**
+   * image custom style
+   */
+  imageClassName?: string;
+
+  /**
+   * title custom render
+   */
+  renderTitle?: (value: string) => string | React.ReactNode;
+
+  /**
+   * subtitle custom render
+   */
+  renderSubtitle?: (value: string) => string | React.ReactNode;
+
+  /**
+   * title value
+   */
+  title?: string;
+
+  /**
+   * sub title value
+   */
+  subtitle?: string;
+
+  /**
+   * Add X button to the component when initialized and called when the button is clicked
+   */
+  onClose?: (event: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLButtonElement>) => void;
+
+  /**
+   * Change to "Right to Left" if set to `true`. Defaults to "Left to Right"
+   */
+  rtl?: boolean;
+
+  /**
+   * Set the banner's aria label
+   */
+  ariaLabel?: string;
+}
+
+/**
+ * Default `renderTitle` and `renderSubtitle` function
+ */
+const PRESERVE_VALUE = (value: string) => value;
+
+const Banner: React.ForwardRefExoticComponent<BannerProps & React.RefAttributes<unknown>> & {
+  imagePosition?: typeof IMAGE_POSITIONS;
+} = forwardRef<unknown, BannerProps>(
   (
     {
-      className,
-      ariaLabel,
-      imageAlt,
-      imageSrc,
-      renderTitle,
-      renderSubtitle,
-      title,
-      subtitle,
-      imageClassName,
-      imagePosition,
-      onClose,
-      rtl
+      className = "",
+      imageAlt = "",
+      imageSrc = "",
+      imagePosition = IMAGE_POSITIONS.LEFT,
+      imageClassName = "",
+      renderTitle = PRESERVE_VALUE,
+      renderSubtitle = PRESERVE_VALUE,
+      title = "",
+      subtitle = "",
+      onClose = null,
+      rtl = false,
+      ariaLabel = "Banner"
     },
     ref
   ) => {
@@ -50,6 +116,7 @@ const Banner = forwardRef(
 
     const renderCloseButton = useMemo(() => {
       if (!onClose) return null;
+
       return (
         <Button
           onClick={onClose}
@@ -82,76 +149,5 @@ const Banner = forwardRef(
 );
 
 Banner.imagePosition = IMAGE_POSITIONS;
-
-Banner.propTypes = {
-  /**
-   * custom style
-   */
-  className: PropTypes.string,
-  /**
-   * image alt attribute
-   */
-  imageAlt: PropTypes.string,
-  /**
-   * image source
-   */
-  imageSrc: PropTypes.string,
-  /**
-   * determines the image position
-   */
-  imagePosition: PropTypes.oneOf([
-    Banner.imagePosition.LEFT,
-    Banner.imagePosition.RIGHT,
-    Banner.imagePosition.BOTTOM,
-    Banner.imagePosition.TOP
-  ]),
-  /**
-   * image custom style
-   */
-  imageClassName: PropTypes.string,
-  /**
-   * title custom render
-   */
-  renderTitle: PropTypes.func,
-  /**
-   * subtitle custom render
-   */
-  renderSubtitle: PropTypes.func,
-  /**
-   * title value
-   */
-  title: PropTypes.string,
-  /**
-   * sub title value
-   */
-  subtitle: PropTypes.string,
-  /**
-   * Add X button to the component when initialized and called when the button is clicked
-   */
-  onClose: PropTypes.func,
-  /**
-   * Change to "Right to Left" if set to `true`. Defaults to "Left to Right"
-   */
-  rtl: PropTypes.bool,
-  /**
-   * Set the banner's aria label
-   */
-  ariaLabel: PropTypes.string
-};
-
-Banner.defaultProps = {
-  className: "",
-  imagePosition: IMAGE_POSITIONS.LEFT,
-  imageAlt: "",
-  imageSrc: "",
-  renderTitle: PRESERVE_VALUE,
-  renderSubtitle: PRESERVE_VALUE,
-  title: "",
-  subtitle: "",
-  imageClassName: "",
-  rtl: false,
-  onClose: null,
-  ariaLabel: "Banner"
-};
 
 export default Banner;
