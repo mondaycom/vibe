@@ -1,10 +1,14 @@
 import React, { useRef, forwardRef } from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import useMergeRefs from "../../hooks/useMergeRefs";
 import "./HiddenText.scss";
+import VibeComponentProps from "src/types/VibeComponentProps";
 
-const HiddenText = forwardRef(({ className, text, id }, ref) => {
+interface HiddenTextProps extends VibeComponentProps {
+  text: string;
+}
+
+const HiddenText = forwardRef<HTMLSpanElement, HiddenTextProps>(({ text, className = "", id = "hiddenText" }, ref) => {
   const componentRef = useRef(null);
   const mergedRef = useMergeRefs({ refs: [ref, componentRef] });
 
@@ -14,17 +18,5 @@ const HiddenText = forwardRef(({ className, text, id }, ref) => {
     </span>
   );
 });
-
-HiddenText.propTypes = {
-  /** For overriding default styles. */
-  className: PropTypes.string,
-  /** So that it can be used for aria-labelledby values. */
-  id: PropTypes.string,
-  text: PropTypes.string.isRequired
-};
-HiddenText.defaultProps = {
-  className: "",
-  id: "hiddenText"
-};
 
 export default HiddenText;
