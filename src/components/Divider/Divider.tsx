@@ -16,12 +16,12 @@ const Divider = ({
   classname,
   className = undefined,
   direction = DirectionType.HORIZONTAL
-} : DividerProps) => {
+}: DividerProps) => {
   const overrideClassName = backwardCompatibilityForProperties([className, classname]);
   return <div className={cx("monday-style-divider", overrideClassName, `monday-style-divider--${direction}`)} />;
 };
 
-Divider.directions = DirectionType
+Divider.directions = DirectionType;
 
 Divider.propTypes = {
   className: PropTypes.string,

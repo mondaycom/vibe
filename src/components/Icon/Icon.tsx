@@ -14,7 +14,7 @@ import { MouseEventCallBack } from "src/types/events";
 const CLICK_NOOP = (event: React.MouseEvent) => {};
 
 interface iconSubComponentProps {
-  ref?: Ref<any>;
+  ref?: Ref<HTMLElement>;
   id?: string;
   size?: string | number;
   onClick?: MouseEventCallBack;
