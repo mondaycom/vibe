@@ -3,8 +3,9 @@ import { fireEvent, render, cleanup } from "@testing-library/react";
 import { ELEMENT_TYPES } from "../../../__tests__/interactions-helper";
 import Clickable from "../Clickable";
 import userEvent from "@testing-library/user-event";
+import { ClickableProps } from "../Clickable";
 
-const renderComponent = props => {
+const renderComponent = (props: ClickableProps) => {
   return render(<Clickable {...props} />);
 };
 
