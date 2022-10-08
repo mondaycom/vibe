@@ -18,6 +18,7 @@ import VibeComponentProps from "src/types/VibeComponentProps";
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
+type BackgroundColors = typeof elementColorsNames[keyof typeof elementColorsNames];
 export interface AvatarProps extends VibeComponentProps {
   id?: string;
   src?: string;
@@ -29,8 +30,7 @@ export interface AvatarProps extends VibeComponentProps {
   type?: AvatarTypes;
   className?: string;
   textClassName?: string;
-  // backgroundColor?: typeof Object.values(elementColorsNames),
-  backgroundColor?: string;
+  backgroundColor?: BackgroundColors;
   customBackgroundColor?: string;
   role?: string;
   size?: AvatarSizes;
