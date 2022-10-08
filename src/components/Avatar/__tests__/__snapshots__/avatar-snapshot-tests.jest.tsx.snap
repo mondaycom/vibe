@@ -204,11 +204,7 @@ exports[`Avatar renders correctly renders correctly with image 1`] = `
   <div
     aria-hidden={false}
     className="monday-style-avatar_circle monday-style-avatar_circle--text"
-    style={
-      Object {
-        "backgroundColor": "var(--color-chili-blue",
-      }
-    }
+    style={Object {}}
     tabIndex={0}
   >
     <span
@@ -246,11 +242,7 @@ exports[`Avatar renders correctly renders correctly with not valid image 1`] = `
   <div
     aria-hidden={false}
     className="monday-style-avatar_circle monday-style-avatar_circle--text"
-    style={
-      Object {
-        "backgroundColor": "var(--color-chili-blue",
-      }
-    }
+    style={Object {}}
     tabIndex={0}
   >
     <span

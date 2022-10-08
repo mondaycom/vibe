@@ -3,7 +3,8 @@ import renderer from "react-test-renderer";
 import Avatar from "../Avatar";
 import { WhatsNew } from "../../Icon/Icons";
 
-jest.mock("../../Icon/Icon", () => ({ icon }) => <div data-testid="icon-mock">{icon}</div>);
+// TODO: Add type for icon
+// jest.mock("../../Icon/Icon", () => ({ icon }) => <div data-testid="icon-mock">{icon}</div>);
 jest.mock("../../Icon/CustomSvgIcon/CustomSvgIcon", () => () => <div data-testid="custom-icon-mock" />);
 
 const IMG_SRC =
@@ -22,12 +23,12 @@ describe("Avatar renders correctly", () => {
   });
 
   it("renders correctly with image", () => {
-    const tree = renderer.create(<Avatar img={IMG_SRC} />).toJSON();
+    const tree = renderer.create(<Avatar src={IMG_SRC} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("renders correctly with not valid image", () => {
-    const tree = renderer.create(<Avatar img="not valid src" />).toJSON();
+    const tree = renderer.create(<Avatar src="not valid src" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

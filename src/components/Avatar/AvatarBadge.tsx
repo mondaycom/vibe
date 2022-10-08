@@ -1,15 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 import { BEMClass } from "../../helpers/bem-helper";
 import CustomSvgIcon from "../Icon/CustomSvgIcon/CustomSvgIcon";
-import { AVATAR_SIZES } from "./AvatarConstants";
+import { AvatarSizes } from "./AvatarConstants";
 import "./AvatarBadge.scss";
+import VibeComponentProps from "src/types/VibeComponentProps";
 
 const AVATAR_CSS_BASE_CLASS = "monday-style-avatar-badge";
 const bemHelper = BEMClass(AVATAR_CSS_BASE_CLASS);
 
-export const AvatarBadge = ({ src, ariaLabel, tabIndex, className, size, ...otherProps }) => {
+export interface AvatarBadgeProps extends VibeComponentProps {
+  src?: string;
+  ariaLabel?: string;
+  tabIndex?: string | number;
+  className?: string;
+  size?: string;
+}
+
+export const AvatarBadge: React.FC<AvatarBadgeProps> & {
+  sizes?: typeof AvatarSizes;
+} = ({ src, ariaLabel, tabIndex, className, size, ...otherProps }) => {
   return src ? (
     <CustomSvgIcon
       src={src}
@@ -21,19 +31,13 @@ export const AvatarBadge = ({ src, ariaLabel, tabIndex, className, size, ...othe
   ) : null;
 };
 
-AvatarBadge.sizes = AVATAR_SIZES;
-
-AvatarBadge.propTypes = {
-  src: PropTypes.any.isRequired,
-  ariaLabel: PropTypes.string,
-  tabIndex: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  className: PropTypes.string,
-  size: PropTypes.oneOf([AVATAR_SIZES.LARGE, AVATAR_SIZES.MEDIUM, AVATAR_SIZES.SMALL])
-};
+Object.assign(AvatarBadge, {
+  sizes: AvatarSizes
+});
 
 AvatarBadge.defaultProps = {
   ariaLabel: undefined,
   tabIndex: 0,
   className: "",
-  size: AVATAR_SIZES.LARGE
+  size: AvatarSizes.LARGE
 };

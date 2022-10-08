@@ -13,7 +13,7 @@ import { MouseEventCallBack } from "src/types/events";
 // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars,@typescript-eslint/no-empty-function
 const CLICK_NOOP = (event: React.MouseEvent) => {};
 
-interface iconSubComponentProps {
+export interface iconSubComponentProps {
   ref?: Ref<HTMLElement>;
   id?: string;
   size?: string | number;
